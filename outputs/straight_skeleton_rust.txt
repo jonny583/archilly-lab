@@ -1,0 +1,48 @@
+=== straight-skeleton (lizelive, Rust, GPL-2.0-or-later) — prova mínima ===
+
+Nota: coordenadas são i16 no reticulado inteiro, limitadas a -16384..=16383.
+
+--- RETÂNGULO 60x30 ---
+  entrada: 4 vértices [(0, 0), (60, 0), (60, 30), (0, 30)]
+  skeleton OK em 13.709µs
+  nós=6 arcos=5
+    nó 0: pos=(0,0) offset=0.000 boundary=true
+    nó 1: pos=(60,0) offset=0.000 boundary=true
+    nó 2: pos=(60,30) offset=0.000 boundary=true
+    nó 3: pos=(0,30) offset=0.000 boundary=true
+    nó 4: pos=(45,15) offset=15.000 boundary=false
+    nó 5: pos=(15,15) offset=15.000 boundary=false
+    arco 0: sources=[EdgeId(0), EdgeId(1)]
+    arco 1: sources=[EdgeId(1), EdgeId(2)]
+    arco 2: sources=[EdgeId(0), EdgeId(2)]
+    arco 3: sources=[EdgeId(3), EdgeId(0)]
+    arco 4: sources=[EdgeId(2), EdgeId(3)]
+  offset interno 5 u: residual loops=1
+    residual 0: [(5, 5), (55, 5), (55, 25), (5, 25)]
+
+--- POLÍGONO EM L (60x60 com recorte 30x30) ---
+  entrada: 6 vértices [(0, 0), (60, 0), (60, 30), (30, 30), (30, 60), (0, 60)]
+  skeleton OK em 6.319µs
+  nós=9 arcos=8
+    nó 0: pos=(0,0) offset=0.000 boundary=true
+    nó 1: pos=(60,0) offset=0.000 boundary=true
+    nó 2: pos=(60,30) offset=0.000 boundary=true
+    nó 3: pos=(30,30) offset=0.000 boundary=true
+    nó 4: pos=(30,60) offset=0.000 boundary=true
+    nó 5: pos=(0,60) offset=0.000 boundary=true
+    nó 6: pos=(45,15) offset=15.000 boundary=false
+    nó 7: pos=(15,15) offset=15.000 boundary=false
+    nó 8: pos=(15,45) offset=15.000 boundary=false
+    arco 0: sources=[EdgeId(0), EdgeId(1)]
+    arco 1: sources=[EdgeId(1), EdgeId(2)]
+    arco 2: sources=[EdgeId(0), EdgeId(2)]
+    arco 3: sources=[EdgeId(5), EdgeId(0)]
+    arco 4: sources=[EdgeId(2), EdgeId(3)]
+    arco 5: sources=[EdgeId(5), EdgeId(3)]
+    arco 6: sources=[EdgeId(4), EdgeId(5)]
+    arco 7: sources=[EdgeId(3), EdgeId(4)]
+  offset interno 5 u: residual loops=1
+    residual 0: [(5, 5), (55, 5), (55, 25), (25, 25), (25, 55), (5, 55)]
+
+--- TESTE DE LIMITE DE COORDENADAS ---
+  16000x8000 aceito; skeleton: Ok(5)

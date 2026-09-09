@@ -1,0 +1,89 @@
+=== SYMBIOS-TENSOR — PROVA MÍNIMA (LAB-00 Etapa A) ===
+
+== DETERMINISMO (mesma seed, duas execuções) ==
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.520e-4)
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.520e-4)
+   seed=42 run1: grafo hash=d73908d6bc3b9af4 lotes hash=703933f25be2fe3d (25823 nós, 133 lotes)
+   seed=42 run2: grafo hash=d73908d6bc3b9af4 lotes hash=703933f25be2fe3d (25823 nós, 133 lotes)
+   seed=7  run3: grafo hash=f1bd8b32b934d550 lotes hash=bfed872a1ec2801d (26805 nós, 131 lotes)
+   RESULTADO: seed igual -> saída IDÊNTICA (determinístico); seed diferente -> saída diferente (seed tem efeito)
+
+== PERFORMANCE por tamanho de heightmap (release) ==
+       grade |    nós | arestas | quadras | lotes |   vias ms | racion ms | quadras ms | lotes ms |  TOTAL ms
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.520e-4)
+     128x128 |  25823 |    5306 |    1563 |   133 |     20.95 |    193.72 |       2.90 |     2.07 |    219.64
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=5.891e-4)
+     256x256 | 113216 |   26688 |    8882 |   518 |    103.13 |   6801.68 |      16.14 |     9.03 |   6929.99
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=9.455e-4)
+     512x512 | 467271 |  117278 |   40683 |  1963 |    441.61 | 127884.14 |     101.42 |    40.69 | 128467.86
+
+== EXTENSÃO vs RESOLUÇÃO (mundo fixo 512x512 m) ==
+       grade | célula |   mundo m |    nós | lotes |   vias ms |   racion ms |  TOTAL ms
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.520e-4)
+     128x128 |    4.0 |       512 |  25823 |   133 |     20.27 |      194.95 |    220.19
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.576e-4)
+     256x256 |    2.0 |       512 |  25822 |   133 |     20.35 |      206.63 |    231.91
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.576e-4)
+     512x512 |    1.0 |       512 |  25816 |   131 |     21.08 |      196.83 |    224.09
+
+== CALIBRAÇÃO DO ESPAÇAMENTO VIÁRIO (128x128, mundo 512 m) ==
+    maior  menor | quadras |  área med |  área p90 |  lotes |  lotes/qd |  TOTAL ms
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.520e-4)
+       40     15 |    1563 |       97m² |      343m² |      0 |      0.00 |    218.19
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=9.863e-4)
+      120     50 |     150 |      778m² |     2976m² |      1 |      0.01 |     15.52
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=9.574e-4)
+      200     80 |      24 |     3439m² |     6277m² |      1 |      0.04 |      5.82
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=9.645e-4)
+      300    100 |       7 |     5830m² |    14739m² |      4 |      0.57 |      3.54
+   LEITURA: o espaçamento viário é o parâmetro que governa se a saída
+   são quadras urbanísticas ou retalhos. Os defaults do upstream são
+   de cidade de jogo, não de loteamento.
+
+== ÁREA DAS QUADRAS EXTRAÍDAS (128x128, mundo 512 m, relevo 1.0) ==
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.520e-4)
+   quadras=1563  área somada=234915 m²  (mundo = 262144 m²)
+   percentis de área (m²): p10=25.6 p25=54.0 p50=97.2 p75=196.0 p90=342.8 p99=657.9 max=2061.7
+     < 1 m² (sliver degenerado)              6 (  0.4%)
+     1–50 m² (abaixo do min_lot_area)      357 ( 22.8%)
+     50–400 m² (1 lote)                   1089 ( 69.7%)
+     400–2000 m² (subdivisível)            110 (  7.0%)
+     > 2000 m² (quadra de verdade)           1 (  0.1%)
+   LEITURA: a contagem bruta de 'quadras' NÃO é contagem de quadras
+   urbanísticas — a maioria são faces degeneradas do grafo planar.
+
+== RELEVO vs APROVEITAMENTO (128x128, mundo 512 m) ==
+    relevo |  quadras |   lotes |     % |  lotes/quadra
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=0.000e0)
+      0.00 |      485 |     506 | 104.3% |         1.043
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.736e-4)
+      0.25 |     1569 |     136 |  8.7% |         0.087
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.399e-4)
+      0.50 |     1564 |     138 |  8.8% |         0.088
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.520e-4)
+      1.00 |     1563 |     133 |  8.5% |         0.085
+      2.00 |     1561 |     133 |  8.5% |         0.085
+      4.00 |     1561 |     133 |  8.5% |         0.085
+
+== SEPARABILIDADE: extract_blocks + extract_lots sobre grafo externo ==
+   grafo externo: 9 nós, 12 arestas (construído à mão, sem generate_roads)
+   extract_blocks  -> 4 quadras
+     quadra 0: (80,20) (20,20) (20,80) (80,80)
+     quadra 1: (140,20) (80,20) (80,80) (140,80)
+     quadra 2: (80,80) (20,80) (20,140) (80,140)
+     quadra 3: (140,80) (80,80) (80,140) (140,140)
+   extract_lots    -> 64 lotes
+     lote 0: centro=(42.5,72.0) w=12.0 d=10.0 rot=0.000rad frente=(42.5,80.0)
+     lote 1: centro=(28.0,72.5) w=12.0 d=10.0 rot=1.571rad frente=(20.0,72.5)
+     lote 2: centro=(28.0,57.5) w=12.0 d=10.0 rot=1.571rad frente=(20.0,57.5)
+     lote 3: centro=(42.5,57.0) w=12.0 d=10.0 rot=0.000rad frente=(42.5,65.0)
+   VEREDITO separabilidade: estágios 3 e 4 rodaram sobre um RoadGraph
+   externo, sem o tracer => Usos C e D são estruturalmente possíveis.
+
+== FORMATO DE SAÍDA (serde_json, trecho literal) ==
+symbios-tensor: tensor field blending toward axis-aligned fallback on near-flat terrain (slope=7.520e-4)
+   RoadGraph JSON: 4488622 bytes
+   trecho: {"nodes":[{"position":[20.157005,18.426653],"elevation":11.245286,"edges":[0,9]},{"position":[19.313488,60.20207],"elevation":15.900511,"edges":[198,217]},{"position":[18.927944,101.2935],"elevation":20.053448,"edges":[318,336]},{"position":[19.95737,138.4],"elevation":23.543844,"edges":[439,455]},{"position":[18.93456,181.44969],"elevation":26.713898,"edges":[548,567]},{"position":[20.575912,220.99777],"elevation":2...
+
+   BuildingLot[] JSON: 20164 bytes
+   trecho: [{"position":[38.203724,197.74484],"frontage_center":[41.455524,190.19473],"rotation":-2.7349083,"width":11.725103,"depth":10.441235,"is_shoreline":false},{"position":[23.688686,190.81656],"frontage_center":[26.69463,183.83728],"rotation":-2.7349079,"width":14.418398,"depth":9.198171,"is_shoreline":false},{"position":[89.95978,348.3777],"frontage_center":[90.250916,355.78668],"rotation":-0.039275523,"width":16.523405...

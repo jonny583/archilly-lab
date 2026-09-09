@@ -1,0 +1,14 @@
+# Archilly working copy — probe harness for LAB-00 Etapa A.
+# Depends on the UNTOUCHED upstream tree by path. Upstream is never modified.
+[package]
+name = "symbios-archilly-probe"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+symbios-tensor = { path = "../../upstream" }
+symbios-ground = "0.4"
+glam = "0.32"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
