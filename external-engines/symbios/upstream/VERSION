@@ -1,0 +1,9 @@
+Engine:            Symbios Tensor (symbios-tensor)
+Upstream repo:     https://github.com/TheJanusStream/symbios-tensor
+Upstream version:  0.4.1 (Cargo.toml)
+Commit:            c3f287556b98cc616d4263d163e6643ae32111ff
+Commit date:       2026-09-06 20:14:40 +0200
+Cloned at:         2026-09-09T01:59:59Z
+License:           MIT (see LICENSE)
+Contents:          exact copy of the upstream working tree at the commit above,
+                   minus .git/ and target/. NOT MODIFIED. Do not edit this tree.

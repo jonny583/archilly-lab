@@ -1,0 +1,10 @@
+# NÃO faz parte do build do laboratório: o crate `straight-skeleton` (lizelive)
+# é GPL-2.0-or-later e por isso NÃO foi copiado para este repositório.
+# Para rodar, clone-o num diretório temporário e ajuste o caminho abaixo.
+[package]
+name = "ss-rs-probe"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+straight-skeleton = { path = "../../../../../tmp/straight-skeleton" }

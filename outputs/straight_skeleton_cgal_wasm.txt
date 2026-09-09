@@ -1,0 +1,36 @@
+=== StrandedKitty/straight-skeleton 3.0.0 (CGAL via WASM) — prova mínima ===
+Módulo WASM inicializado OK sob Node com shim de globais de navegador.
+
+--- RETANGULO 60x30 --- (12.487 ms)
+  vertices [x, y, time]:
+    0: [0, 0, 0]
+    1: [60, 0, 0]
+    2: [60, 30, 0]
+    3: [0, 30, 0]
+    4: [15, 15, 15]
+    5: [45, 15, 15]
+  polygons (índices de vértices, uma face por aresta de entrada):
+    0: [0, 4, 3]
+    1: [1, 5, 4, 0]
+    2: [2, 5, 1]
+    3: [3, 4, 5, 2]
+
+--- POLIGONO EM L (60x60 rec. 30x30) --- (3.366 ms)
+  vertices [x, y, time]:
+    0: [0, 0, 0]
+    1: [60, 0, 0]
+    2: [60, 30, 0]
+    3: [30, 30, 0]
+    4: [30, 60, 0]
+    5: [0, 60, 0]
+    6: [45, 15, 15]
+    7: [15, 15, 15]
+    8: [15, 45, 15]
+  polygons (índices de vértices, uma face por aresta de entrada):
+    0: [0, 7, 8, 5]
+    1: [1, 6, 7, 0]
+    2: [2, 6, 1]
+    3: [3, 7, 6, 2]
+    4: [4, 8, 7, 3]
+    5: [5, 8, 4]
+
