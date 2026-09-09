@@ -3,6 +3,7 @@
 Laboratório de motores externos para o **Archilly Generate**.
 
 > **Comece por aqui:** [`docs/ONDE_PARAMOS.md`](docs/ONDE_PARAMOS.md)
+> · roteiro completo: [`docs/FILA.md`](docs/FILA.md)
 
 ---
 
@@ -57,6 +58,7 @@ Triagem completa, com evidências: [`docs/TRIAGEM.md`](docs/TRIAGEM.md).
 archilly-lab/
 ├── docs/
 │   ├── ONDE_PARAMOS.md               ← estado do laboratório
+│   ├── FILA.md                       ← roteiro LAB-00 a LAB-06
 │   ├── LABORATORIO.md                ← especificação (Etapas A a G)
 │   ├── TRIAGEM.md                    ← tabela comparativa e vereditos
 │   ├── SYMBIOS_ANALYSIS.md

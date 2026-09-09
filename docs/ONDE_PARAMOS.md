@@ -82,6 +82,24 @@ qualidade urbanística, não passou nada pelo Validator e não acionou o Judge.
 A hipótese principal — *o Symbios gera redes mais orgânicas e sensíveis à
 topografia que o motor geométrico atual* — **segue de pé e não testada**.
 
+## A fila completa
+
+O roteiro de LAB-00 a LAB-06, com a entrega e a condição de início de cada
+prompt, está em [`FILA.md`](FILA.md). A regra que o governa: **cada item só
+começa se o anterior disser que vale**, e o Generate nunca depende do Lab — o
+que for aprovado chega a ele como peça pronta (WebAssembly ou serviço) atrás do
+contrato de motor.
+
+Estado real da fila após este prompt (o `FILA.md` está gravado tal como
+recebido, com a data em que foi escrito):
+
+| Prompt | Estado | Condição de início |
+|---|---|---|
+| **LAB-00** | **concluído em 09/09/2026** | — |
+| **LAB-01** — Adaptador mínimo do Symbios | **liberado** | LAB-00 concluiu "seguir" para o Symbios ✅ |
+| **LAB-04** — Straight skeleton na subdivisão de quadras | **liberado, com ressalva** | LAB-00 confirmou a licença ✅ — e as duas implementações são copyleft, então a decisão pedida pelo item já tem resposta: **reimplementar em TypeScript** |
+| LAB-02 · LAB-03 · LAB-05 · LAB-06 | aguardando | dependem, em cadeia, de LAB-01 |
+
 ## Próximo passo sugerido (LAB-01)
 
 Etapa C: **Adapter mínimo do Symbios, escopo Uso B (só rede viária).**
@@ -99,6 +117,9 @@ Antes de escrever qualquer linha, a especificação exige inspecionar o modelo d
 dados real do Archilly Generate (`jonny583/urban-create-hub-41d93a4d`, branch
 `motor-v2`) e propor a **menor** estrutura necessária, sem inventar campos que
 o Archilly ainda não tem. **Esse repositório não foi acessado neste prompt.**
+
+LAB-04 também está liberado e é independente de LAB-01 — pode correr em
+paralelo, se houver interesse.
 
 Duas decisões de calibração já saem prontas do LAB-00: usar
 `major_road_dist ≈ 200` e `minor_road_dist ≈ 80` (os defaults de 40/15 põem uma
