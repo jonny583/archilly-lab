@@ -1,0 +1,70 @@
+
+sintetico-50ha-ondulado — SEM racionalização (sem clamp)
+  arestas: 7025
+  DENTRO da gleba (4307 arestas, 17794.08 m): mediana 2.84 % · p90 9.65 % · p99 14.44 % · máx 32 %
+    acima dos 10 % pedidos: 369 arestas (9.0 %)
+  FORA da gleba (2718 arestas): mediana 2.79 % · máx 34.65 % · 280 acima
+  corte/aterro contra o terreno: mediana 0.05 m · p90 0.15 m · máx 1.11 m
+  comprimento dentro 17794.08 m, acima do pedido 1270.16 m (7.0 %)
+  por GRAU do nó mais conectado da aresta (tolerância 0,5 pp):
+    grau 2     3471 arestas ·   231 acima (7.0 %) · média 4.18 % · MÁX 30.58 %
+    grau 3      445 arestas ·    28 acima (6.0 %) · média 3.47 % · MÁX 32.00 %
+    grau >=4    391 arestas ·    34 acima (9.0 %) · média 4.37 % · MÁX 28.54 %
+  por COMPRIMENTO do segmento:
+        2–5 m   4126 arestas ·   265 acima · máx 32.00 % · 16500 m
+       5–10 m    181 arestas ·    28 acima · máx 17.48 % · 1294 m
+
+sintetico-50ha-ondulado — COM racionalização (clamp ativo)
+  arestas: 5399
+  DENTRO da gleba (3356 arestas, 16967.72 m): mediana 9.62 % · p90 10.01 % · p99 12.28 % · máx 69.93 %
+    acima dos 10 % pedidos: 844 arestas (25.0 %)
+  FORA da gleba (2039 arestas): mediana 6.53 % · máx 56.65 % · 457 acima
+  corte/aterro contra o terreno: mediana 0.11 m · p90 0.92 m · máx 3.21 m
+  comprimento dentro 16967.72 m, acima do pedido 657.42 m (4.0 %)
+  por GRAU do nó mais conectado da aresta (tolerância 0,5 pp):
+    grau 1        4 arestas ·     0 acima (0.0 %) · média 6.80 % · MÁX 10.00 %
+    grau 2     2804 arestas ·     0 acima (0.0 %) · média 7.16 % · MÁX 10.04 %
+    grau 3      194 arestas ·     7 acima (4.0 %) · média 4.10 % · MÁX 69.93 %
+    grau >=4    354 arestas ·    38 acima (11.0 %) · média 4.90 % · MÁX 49.70 %
+  por COMPRIMENTO do segmento:
+        0–2 m   2563 arestas ·     2 acima · máx 23.84 % · 1122 m
+        2–5 m     58 arestas ·     6 acima · máx 69.93 % · 210 m
+       5–10 m    154 arestas ·    10 acima · máx 25.38 % · 1143 m
+      10–20 m    284 arestas ·    16 acima · máx 32.59 % · 4265 m
+       20–∞ m    297 arestas ·    11 acima · máx 15.57 % · 10229 m
+
+completo — SEM racionalização (sem clamp)
+  arestas: 21478
+  DENTRO da gleba (13307 arestas, 55169.09 m): mediana 4.5 % · p90 16.93 % · p99 31.47 % · máx 81.02 %
+    acima dos 10 % pedidos: 4095 arestas (31.0 %)
+  FORA da gleba (8171 arestas): mediana 6.22 % · máx 84.89 % · 2738 acima
+  corte/aterro contra o terreno: mediana 0.09 m · p90 0.25 m · máx 2.92 m
+  comprimento dentro 55169.09 m, acima do pedido 16453.11 m (30.0 %)
+  por GRAU do nó mais conectado da aresta (tolerância 0,5 pp):
+    grau 2    10472 arestas ·  3083 acima (29.0 %) · média 7.23 % · MÁX 68.57 %
+    grau 3     1561 arestas ·   370 acima (24.0 %) · média 6.27 % · MÁX 81.02 %
+    grau >=4   1274 arestas ·   413 acima (32.0 %) · média 7.45 % · MÁX 69.31 %
+  por COMPRIMENTO do segmento:
+        2–5 m  12680 arestas ·  3548 acima · máx 81.02 % · 50716 m
+       5–10 m    627 arestas ·   318 acima · máx 51.18 % · 4453 m
+
+completo — COM racionalização (clamp ativo)
+  arestas: 16625
+  DENTRO da gleba (10138 arestas, 53525.7 m): mediana 10 % · p90 10 % · p99 27.08 % · máx 365.28 %
+    acima dos 10 % pedidos: 3324 arestas (33.0 %)
+  FORA da gleba (6472 arestas): mediana 10 % · máx 132.08 % · 2097 acima
+  corte/aterro contra o terreno: mediana 0.24 m · p90 2.49 m · máx 18.1 m
+  comprimento dentro 53525.7 m, acima do pedido 8088.59 m (15.0 %)
+  por GRAU do nó mais conectado da aresta (tolerância 0,5 pp):
+    grau 1        8 arestas ·     0 acima (0.0 %) · média 7.10 % · MÁX 10.00 %
+    grau 2     8200 arestas ·     0 acima (0.0 %) · média 8.03 % · MÁX 10.01 %
+    grau 3      735 arestas ·   115 acima (16.0 %) · média 7.95 % · MÁX 365.28 %
+    grau >=4   1195 arestas ·   299 acima (25.0 %) · média 9.10 % · MÁX 162.67 %
+  por COMPRIMENTO do segmento:
+        0–2 m   7571 arestas ·     2 acima · máx 75.29 % · 3380 m
+        2–5 m    207 arestas ·    36 acima · máx 365.28 % · 784 m
+       5–10 m    497 arestas ·    61 acima · máx 86.51 % · 3693 m
+      10–20 m    884 arestas ·   173 acima · máx 107.42 % · 13055 m
+       20–∞ m    979 arestas ·   142 acima · máx 74.27 % · 32615 m
+
+outputs/lab01/diagnostico-rampa.json

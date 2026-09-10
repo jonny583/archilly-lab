@@ -1,0 +1,53 @@
+{
+  "gerado": "LAB-01",
+  "terrenos": [
+    {
+      "id": "pequeno",
+      "arquivo": "docs/terrenos/pequeno.geojson",
+      "area_ha": 0.045,
+      "vertices": 4,
+      "perimetro_m": 87.46,
+      "curvas": 27,
+      "equidistancia_m": 0.1,
+      "desnivel_m": 0.5,
+      "restricoes": 0,
+      "sintetico": false
+    },
+    {
+      "id": "completo",
+      "arquivo": "docs/terrenos/completo.geojson",
+      "area_ha": 141.758,
+      "vertices": 20,
+      "perimetro_m": 5228.32,
+      "curvas": 1060,
+      "equidistancia_m": 5,
+      "desnivel_m": 114.55,
+      "restricoes": 3,
+      "sintetico": false
+    },
+    {
+      "id": "sintetico-10ha-plano",
+      "arquivo": "docs/terrenos/sintetico-10ha-plano.geojson",
+      "area_ha": 10,
+      "vertices": 10,
+      "perimetro_m": 1338.3,
+      "curvas": 204,
+      "equidistancia_m": 1,
+      "desnivel_m": 8,
+      "restricoes": 0,
+      "sintetico": true
+    },
+    {
+      "id": "sintetico-50ha-ondulado",
+      "arquivo": "docs/terrenos/sintetico-50ha-ondulado.geojson",
+      "area_ha": 50,
+      "vertices": 14,
+      "perimetro_m": 2919.79,
+      "curvas": 575,
+      "equidistancia_m": 2,
+      "desnivel_m": 45,
+      "restricoes": 0,
+      "sintetico": true
+    }
+  ]
+}

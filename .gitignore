@@ -1,1 +1,8 @@
 target/
+node_modules/
+
+# O .wasm da prova no navegador é ARTEFATO DE BUILD e é copiado para lá pelo
+# passo documentado em ferramentas/navegador/README.md. Versioná-lo criaria
+# exatamente a divergência que o build.rs da ponte existe para impedir: um
+# binário no git que já não corresponde ao fonte ao lado dele.
+external-engines/symbios/adapter/ferramentas/navegador/*.wasm
