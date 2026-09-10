@@ -1,0 +1,368 @@
+{
+  "prompt": "LAB-01",
+  "diagnostico": "rampa",
+  "sintetico-50ha-ondulado-cru": {
+    "terreno": "sintetico-50ha-ondulado",
+    "racionalizado": false,
+    "rampaPedida_pct": 10,
+    "arestas": 7025,
+    "dentroDaGleba": {
+      "arestas": 4307,
+      "comprimento_m": 17794.08,
+      "mediana_pct": 2.84,
+      "p90_pct": 9.65,
+      "p99_pct": 14.44,
+      "maxima_pct": 32,
+      "acimaDoPedido": 369,
+      "fracaoAcimaDoPedido": 0.09
+    },
+    "foraDaGleba": {
+      "arestas": 2718,
+      "comprimento_m": 11110.62,
+      "mediana_pct": 2.79,
+      "maxima_pct": 34.65,
+      "acimaDoPedido": 280
+    },
+    "corteAterro": {
+      "mediana_m": 0.05,
+      "p90_m": 0.15,
+      "maximo_m": 1.11
+    },
+    "comprimentoDentro_m": 17794.08,
+    "comprimentoAcimaDoPedido_m": 1270.16,
+    "fracaoComprimentoAcima": 0.07,
+    "porGrauDoNo": [
+      {
+        "grau": "2",
+        "arestas": 3471,
+        "acima": 231,
+        "fracaoAcima": 0.07,
+        "rampaMedia_pct": 4.18,
+        "rampaMaxima_pct": 30.58
+      },
+      {
+        "grau": "3",
+        "arestas": 445,
+        "acima": 28,
+        "fracaoAcima": 0.06,
+        "rampaMedia_pct": 3.47,
+        "rampaMaxima_pct": 32
+      },
+      {
+        "grau": ">=4",
+        "arestas": 391,
+        "acima": 34,
+        "fracaoAcima": 0.09,
+        "rampaMedia_pct": 4.37,
+        "rampaMaxima_pct": 28.54
+      }
+    ],
+    "porComprimentoDoSegmento": [
+      {
+        "faixa_m": "2–5",
+        "arestas": 4126,
+        "acima": 265,
+        "max": 32.00448295727868,
+        "comprimento_m": 16500.02,
+        "rampaMaxima_pct": 32
+      },
+      {
+        "faixa_m": "5–10",
+        "arestas": 181,
+        "acima": 28,
+        "max": 17.47982700196078,
+        "comprimento_m": 1294.06,
+        "rampaMaxima_pct": 17.48
+      }
+    ]
+  },
+  "sintetico-50ha-ondulado-racionalizado": {
+    "terreno": "sintetico-50ha-ondulado",
+    "racionalizado": true,
+    "rampaPedida_pct": 10,
+    "arestas": 5399,
+    "dentroDaGleba": {
+      "arestas": 3356,
+      "comprimento_m": 16967.72,
+      "mediana_pct": 9.62,
+      "p90_pct": 10.01,
+      "p99_pct": 12.28,
+      "maxima_pct": 69.93,
+      "acimaDoPedido": 844,
+      "fracaoAcimaDoPedido": 0.25
+    },
+    "foraDaGleba": {
+      "arestas": 2039,
+      "comprimento_m": 11869.26,
+      "mediana_pct": 6.53,
+      "maxima_pct": 56.65,
+      "acimaDoPedido": 457
+    },
+    "corteAterro": {
+      "mediana_m": 0.11,
+      "p90_m": 0.92,
+      "maximo_m": 3.21
+    },
+    "comprimentoDentro_m": 16967.72,
+    "comprimentoAcimaDoPedido_m": 657.42,
+    "fracaoComprimentoAcima": 0.04,
+    "porGrauDoNo": [
+      {
+        "grau": "1",
+        "arestas": 4,
+        "acima": 0,
+        "fracaoAcima": 0,
+        "rampaMedia_pct": 6.8,
+        "rampaMaxima_pct": 10
+      },
+      {
+        "grau": "2",
+        "arestas": 2804,
+        "acima": 0,
+        "fracaoAcima": 0,
+        "rampaMedia_pct": 7.16,
+        "rampaMaxima_pct": 10.04
+      },
+      {
+        "grau": "3",
+        "arestas": 194,
+        "acima": 7,
+        "fracaoAcima": 0.04,
+        "rampaMedia_pct": 4.1,
+        "rampaMaxima_pct": 69.93
+      },
+      {
+        "grau": ">=4",
+        "arestas": 354,
+        "acima": 38,
+        "fracaoAcima": 0.11,
+        "rampaMedia_pct": 4.9,
+        "rampaMaxima_pct": 49.7
+      }
+    ],
+    "porComprimentoDoSegmento": [
+      {
+        "faixa_m": "0–2",
+        "arestas": 2563,
+        "acima": 2,
+        "max": 23.839331145876663,
+        "comprimento_m": 1121.69,
+        "rampaMaxima_pct": 23.84
+      },
+      {
+        "faixa_m": "2–5",
+        "arestas": 58,
+        "acima": 6,
+        "max": 69.92980980122823,
+        "comprimento_m": 210.13,
+        "rampaMaxima_pct": 69.93
+      },
+      {
+        "faixa_m": "5–10",
+        "arestas": 154,
+        "acima": 10,
+        "max": 25.381622611234576,
+        "comprimento_m": 1142.67,
+        "rampaMaxima_pct": 25.38
+      },
+      {
+        "faixa_m": "10–20",
+        "arestas": 284,
+        "acima": 16,
+        "max": 32.58718978940933,
+        "comprimento_m": 4264.63,
+        "rampaMaxima_pct": 32.59
+      },
+      {
+        "faixa_m": "20–∞",
+        "arestas": 297,
+        "acima": 11,
+        "max": 15.57462370517128,
+        "comprimento_m": 10228.6,
+        "rampaMaxima_pct": 15.57
+      }
+    ]
+  },
+  "completo-cru": {
+    "terreno": "completo",
+    "racionalizado": false,
+    "rampaPedida_pct": 10,
+    "arestas": 21478,
+    "dentroDaGleba": {
+      "arestas": 13307,
+      "comprimento_m": 55169.09,
+      "mediana_pct": 4.5,
+      "p90_pct": 16.93,
+      "p99_pct": 31.47,
+      "maxima_pct": 81.02,
+      "acimaDoPedido": 4095,
+      "fracaoAcimaDoPedido": 0.31
+    },
+    "foraDaGleba": {
+      "arestas": 8171,
+      "comprimento_m": 33565.57,
+      "mediana_pct": 6.22,
+      "maxima_pct": 84.89,
+      "acimaDoPedido": 2738
+    },
+    "corteAterro": {
+      "mediana_m": 0.09,
+      "p90_m": 0.25,
+      "maximo_m": 2.92
+    },
+    "comprimentoDentro_m": 55169.09,
+    "comprimentoAcimaDoPedido_m": 16453.11,
+    "fracaoComprimentoAcima": 0.3,
+    "porGrauDoNo": [
+      {
+        "grau": "2",
+        "arestas": 10472,
+        "acima": 3083,
+        "fracaoAcima": 0.29,
+        "rampaMedia_pct": 7.23,
+        "rampaMaxima_pct": 68.57
+      },
+      {
+        "grau": "3",
+        "arestas": 1561,
+        "acima": 370,
+        "fracaoAcima": 0.24,
+        "rampaMedia_pct": 6.27,
+        "rampaMaxima_pct": 81.02
+      },
+      {
+        "grau": ">=4",
+        "arestas": 1274,
+        "acima": 413,
+        "fracaoAcima": 0.32,
+        "rampaMedia_pct": 7.45,
+        "rampaMaxima_pct": 69.31
+      }
+    ],
+    "porComprimentoDoSegmento": [
+      {
+        "faixa_m": "2–5",
+        "arestas": 12680,
+        "acima": 3548,
+        "max": 81.01587597903483,
+        "comprimento_m": 50715.62,
+        "rampaMaxima_pct": 81.02
+      },
+      {
+        "faixa_m": "5–10",
+        "arestas": 627,
+        "acima": 318,
+        "max": 51.176181989448644,
+        "comprimento_m": 4453.47,
+        "rampaMaxima_pct": 51.18
+      }
+    ]
+  },
+  "completo-racionalizado": {
+    "terreno": "completo",
+    "racionalizado": true,
+    "rampaPedida_pct": 10,
+    "arestas": 16625,
+    "dentroDaGleba": {
+      "arestas": 10138,
+      "comprimento_m": 53525.7,
+      "mediana_pct": 10,
+      "p90_pct": 10,
+      "p99_pct": 27.08,
+      "maxima_pct": 365.28,
+      "acimaDoPedido": 3324,
+      "fracaoAcimaDoPedido": 0.33
+    },
+    "foraDaGleba": {
+      "arestas": 6472,
+      "comprimento_m": 34968.82,
+      "mediana_pct": 10,
+      "maxima_pct": 132.08,
+      "acimaDoPedido": 2097
+    },
+    "corteAterro": {
+      "mediana_m": 0.24,
+      "p90_m": 2.49,
+      "maximo_m": 18.1
+    },
+    "comprimentoDentro_m": 53525.7,
+    "comprimentoAcimaDoPedido_m": 8088.59,
+    "fracaoComprimentoAcima": 0.15,
+    "porGrauDoNo": [
+      {
+        "grau": "1",
+        "arestas": 8,
+        "acima": 0,
+        "fracaoAcima": 0,
+        "rampaMedia_pct": 7.1,
+        "rampaMaxima_pct": 10
+      },
+      {
+        "grau": "2",
+        "arestas": 8200,
+        "acima": 0,
+        "fracaoAcima": 0,
+        "rampaMedia_pct": 8.03,
+        "rampaMaxima_pct": 10.01
+      },
+      {
+        "grau": "3",
+        "arestas": 735,
+        "acima": 115,
+        "fracaoAcima": 0.16,
+        "rampaMedia_pct": 7.95,
+        "rampaMaxima_pct": 365.28
+      },
+      {
+        "grau": ">=4",
+        "arestas": 1195,
+        "acima": 299,
+        "fracaoAcima": 0.25,
+        "rampaMedia_pct": 9.1,
+        "rampaMaxima_pct": 162.67
+      }
+    ],
+    "porComprimentoDoSegmento": [
+      {
+        "faixa_m": "0–2",
+        "arestas": 7571,
+        "acima": 2,
+        "max": 75.28548252950534,
+        "comprimento_m": 3379.56,
+        "rampaMaxima_pct": 75.29
+      },
+      {
+        "faixa_m": "2–5",
+        "arestas": 207,
+        "acima": 36,
+        "max": 365.27859947149636,
+        "comprimento_m": 783.56,
+        "rampaMaxima_pct": 365.28
+      },
+      {
+        "faixa_m": "5–10",
+        "arestas": 497,
+        "acima": 61,
+        "max": 86.50560321234735,
+        "comprimento_m": 3693.17,
+        "rampaMaxima_pct": 86.51
+      },
+      {
+        "faixa_m": "10–20",
+        "arestas": 884,
+        "acima": 173,
+        "max": 107.42221758971418,
+        "comprimento_m": 13054.5,
+        "rampaMaxima_pct": 107.42
+      },
+      {
+        "faixa_m": "20–∞",
+        "arestas": 979,
+        "acima": 142,
+        "max": 74.27153453426179,
+        "comprimento_m": 32614.91,
+        "rampaMaxima_pct": 74.27
+      }
+    ]
+  }
+}

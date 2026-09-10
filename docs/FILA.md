@@ -14,5 +14,21 @@ Regra: cada item só começa se o anterior disser que vale. O Generate nunca dep
 
 ## Estado
 
-- LAB-00: em execução em 08/09/2026.
-- Demais: aguardando.
+- **LAB-00 — concluído em 09/09/2026.** Symbios Tensor segue para a Etapa B/C,
+  restrito aos Usos B (rede viária) e C (quadras). Straight skeleton e
+  PackingSolver ficam como referência. Ver `docs/TRIAGEM.md`.
+- **LAB-01 — concluído em 10/09/2026.** Adaptador mínimo de ida e volta, com
+  veredito **"geometria utilizável: SIM COM RESSALVAS"**. Ver
+  `docs/relatorios/LAB01_ADAPTADOR.md`.
+- **LAB-02 — liberado.** A condição era "LAB-01 devolver geometria utilizável", e
+  ele devolveu. Duas coisas já vão medidas e o esperam: 38 % do comprimento de via
+  nasce fora da gleba, e a rampa estoura **nos cruzamentos** (nunca ao longo da
+  via). As restrições já viajam carregadas no `Terreno`.
+- **LAB-04 — liberado, e roda DEPOIS do LAB-02/03, nunca em paralelo.** A
+  condição era "LAB-00 escolher a implementação e confirmar licença": a licença
+  foi confirmada e as duas implementações são copyleft, então a decisão já tem
+  resposta — **reimplementar em TypeScript** a partir da literatura
+  (Felkel & Obdržálek 1998; Aichholzer et al. 1995/1996), com as duas
+  implementações GPL como oráculo. Os dois casos de teste verificados estão em
+  `docs/STRAIGHT_SKELETON_ANALYSIS.md`.
+- **LAB-03, LAB-05, LAB-06 — aguardando**, em cadeia a partir do LAB-02.

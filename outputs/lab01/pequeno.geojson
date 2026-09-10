@@ -1,0 +1,64 @@
+{
+ "type": "FeatureCollection",
+ "archillyLab": {
+  "prompt": "LAB-01",
+  "adaptador": "0.1.0",
+  "motor": "symbios-tensor 0.4.1",
+  "seed": 42,
+  "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "parametros": {
+   "espacamentoPrincipal_m": 200,
+   "espacamentoLocal_m": 80,
+   "rampaMaxima_pct": 10,
+   "faixaDominio_m": 8.4,
+   "passoGrade_m": 2,
+   "extrairQuadras": true
+  },
+  "origem": {
+   "lat0": -25.4099921286,
+   "lon0": -48.6999578746,
+   "metrosPorGrauLat": 110779.013663102,
+   "metrosPorGrauLon": 100612.4882861125
+  },
+  "aviso": "geometria NÃO recortada pela gleba nem pelas restrições — isso é o LAB-02"
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -48.6998127,
+       -25.41
+      ],
+      [
+       -48.7,
+       -25.4100952
+      ],
+      [
+       -48.7001641,
+       -25.41
+      ],
+      [
+       -48.7,
+       -25.4098654
+      ],
+      [
+       -48.6998127,
+       -25.41
+      ]
+     ]
+    ]
+   },
+   "properties": {
+    "tipo": "gleba",
+    "nome": "Lote da Rua das Acácias",
+    "area_m2": 450,
+    "areaDeclarada_m2": 450,
+    "procedencia": "Números do estudo de prova \"pequeno\" do Archilly Geo (src/lib/geo/relatorio/__tests__/estudos-de-prova.ts, SINTESE_PEQUENA): área 450 m², 4 vértices, UTM 22S, Antonina/PR, sem restrições e relevo nulo. Aquele estudo NÃO tem geometria (vertices: [], testadas com coordenadas de exemplo), então o retângulo de 15 × 30 m foi construído para a área bater exatamente. As testadas do estudo são 15 m e 29 m; o perímetro declarado lá é 88 m e aqui sai 90 m, pela mesma razão. Relevo: o estudo diz relevo nulo, e um terreno plano perfeito degenera o campo tensorial (limitação declarada pelo upstream), então foi posta uma rampa suave de 1,5 % — registrada como acréscimo do Lab. TESTE DE SANIDADE: pequeno demais para rede viária."
+   }
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+motor carregado: 193174 bytes
+
+=== TERRENOS DE PROVA ===
+
+pequeno — 0.045 ha, desnível 0.4 m, grade 38×33 (mundo 76×66 m)
+  tempos (ms): alturas 13.9 · vias 0.42 · racionalização 0.28 · quadras 0.13 · volta 0.18 · TOTAL 17.17
+  vias: 0 (0 principais, 0 locais), 0 m no total, mediana 0 m
+  rampa: mediana 0 % · p90 0 % · máx 0 % · ACIMA DO PEDIDO: 0
+  quadras: 0, área min 0 / mediana 0 / máx 0 m²
+  fora da gleba: grade 90.99 % · vias 0.00 % · quadras 0.00 %
+  ida e volta: pior erro 2.04e-10 m — PASSA (meta < 0,01 m)
+  aviso: a gleba tem ~21 m de lado equivalente e o espaçamento local pedido é 80 m: não cabem duas quadras, e a rede vai sair pobre ou vazia — é limitação de escala, não do motor
+  aviso: desnível de 0.40 m em toda a gleba: o motor vai cair no regime de grade ortogonal (campo tensorial sem gradiente)
+
+completo — 141.7578 ha, desnível 102.11 m, grade 960×645 (mundo 1920×1290 m)
+  tempos (ms): alturas 3422.88 · vias 30.49 · racionalização 390.42 · quadras 21.11 · volta 112.37 · TOTAL 4000.26
+  vias: 502 (105 principais, 397 locais), 88494.51 m no total, mediana 110.14 m
+  rampa: mediana 15.92 % · p90 42.95 % · máx 365.28 % · ACIMA DO PEDIDO: 338
+  quadras: 653, área min 3.17 / mediana 1818.11 / máx 34094.74 m²
+  fora da gleba: grade 42.76 % · vias 37.58 % · quadras 32.56 %
+  ida e volta: pior erro 9.84e-11 m — PASSA (meta < 0,01 m)
+  aviso: 338 de 502 trecho(s) acima da rampa pedida de 10 % (máxima obtida 365.3 %). O clamp do motor é por cadeia e não cobre os cruzamentos — a conferência de rampa é do Validator, não do motor. Ver docs/relatorios/LAB01_ADAPTADOR.md
+
+sintetico-10ha-plano — 10 ha, desnível 6.71 m, grade 265×183 (mundo 530×366 m)
+  tempos (ms): alturas 476.97 · vias 1.29 · racionalização 0.85 · quadras 0.13 · volta 0.68 · TOTAL 480.48
+  vias: 15 (5 principais, 10 locais), 4274.39 m no total, mediana 331.92 m
+  rampa: mediana 10.01 % · p90 10.02 % · máx 10.04 % · ACIMA DO PEDIDO: 0
+  quadras: 12, área min 212.15 / mediana 1636.72 / máx 16175.48 m²
+  fora da gleba: grade 48.45 % · vias 38.58 % · quadras 41.60 %
+  ida e volta: pior erro 1.43e-10 m — PASSA (meta < 0,01 m)
+
+sintetico-50ha-ondulado — 50 ha, desnível 41.62 m, grade 512×425 (mundo 1024×850 m)
+  tempos (ms): alturas 696.32 · vias 8.15 · racionalização 39.88 · quadras 6.01 · volta 14.65 · TOTAL 770.28
+  vias: 157 (30 principais, 127 locais), 28836.98 m no total, mediana 128.96 m
+  rampa: mediana 10.02 % · p90 15.64 % · máx 69.93 % · ACIMA DO PEDIDO: 48
+  quadras: 167, área min 10.78 / mediana 1901.64 / máx 43420.03 m²
+  fora da gleba: grade 42.55 % · vias 38.00 % · quadras 23.22 %
+  ida e volta: pior erro 2.04e-10 m — PASSA (meta < 0,01 m)
+  aviso: 48 de 157 trecho(s) acima da rampa pedida de 10 % (máxima obtida 69.9 %). O clamp do motor é por cadeia e não cobre os cruzamentos — a conferência de rampa é do Validator, não do motor. Ver docs/relatorios/LAB01_ADAPTADOR.md
+
+=== DETERMINISMO ===
+  seed 42, execução 1: f38776058cb5853b7864b670973c84003493e4bb20d0223658645a29b800e17b
+  seed 42, execução 2: f38776058cb5853b7864b670973c84003493e4bb20d0223658645a29b800e17b
+  seed  7, execução 3: b74da32a561c307da516d6ab7f92ebf84f3a912b1a792995a0ed2890463bc0bf
+  mesma seed -> MESMA saída; seed diferente -> saída diferente
+
+=== ESCADA DE TAMANHO ===
+     ha       grade     nós   vias  quadras   alturas   vias ms   racion ms   TOTAL ms
+     10     241×201       —     26       17    133.87      1.48        2.84     141.94
+     50     512×425       —    149      165    551.44      9.79        43.2      634.8
+    100     716×592       —    330      419   1526.33     17.55      166.23    1768.34
+    200    1004×829       —    680      948   5063.01     35.45      696.72    5923.99
+
+=== RAMPA PEDIDA ===
+  pedida  6 % -> máxima obtida  116.67 %,  111 trecho(s) acima, 157 vias
+  pedida  8 % -> máxima obtida   82.53 %,   76 trecho(s) acima, 157 vias
+  pedida 10 % -> máxima obtida   69.93 %,   48 trecho(s) acima, 157 vias
+  pedida 15 % -> máxima obtida   58.59 %,   15 trecho(s) acima, 157 vias
+
+=== USO C: quadras a partir de eixos externos ===
+  grade 3×3 de eixos (9 nós, 12 arestas) -> 4 quadras de 14400, 14400, 14400, 14400 m²
+  esperado: 4 quadras de 14400 m² cada
+
+medições em outputs/lab01/medicoes.json
+GeoJSON por terreno em outputs/lab01/

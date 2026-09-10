@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>LAB-01 — prova do Symbios no navegador</title>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; margin: 2rem; max-width: 60rem; }
+  pre { background: #f4f4f5; padding: 1rem; overflow-x: auto; }
+  canvas { border: 1px solid #d4d4d8; max-width: 100%; }
+</style>
+<h1>Symbios Tensor rodando no navegador</h1>
+<p>
+  Prova mínima do LAB-01: o <code>.wasm</code> do adaptador carrega com
+  <code>WebAssembly.instantiate(bytes, {})</code> — <strong>sem imports</strong>, sem
+  <code>wasm-bindgen</code>, sem glue — e roda o pipeline num mapa de alturas sintético
+  construído aqui mesmo. O LAB-05 é que cobra a prova completa, com terreno do Generate.
+</p>
+<pre id="log">carregando…</pre>
+<canvas id="tela" width="700" height="700"></canvas>
+<script type="module" src="./prova.js"></script>

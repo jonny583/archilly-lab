@@ -1,0 +1,482 @@
+{
+  "prompt": "LAB-01",
+  "geradoEm": "2026-09-10T00:52:34.820Z",
+  "ambiente": {
+    "node": "v22.22.2",
+    "plataforma": "linux-x64"
+  },
+  "wasm_bytes": 193174,
+  "terrenos": [
+    {
+      "terreno": "Lote da Rua das Acácias",
+      "procedencia": "Números do estudo de prova \"pequeno\" do Archilly Geo (src/lib/geo/relatorio/__tests__/estudos-de-prova.ts, SINTESE_PEQUENA): área 450 m², 4 vértices, UTM 22S, Antonina/PR, sem restrições e relevo nulo. Aquele estudo NÃO tem geometria (vertices: [], testadas com coordenadas de exemplo), então o retângulo de 15 × 30 m foi construído para a área bater exatamente. As testadas do estudo são 15 m e 29 m; o perímetro declarado lá é 88 m e aqui sai 90 m, pela mesma razão. Relevo: o estudo diz relevo nulo, e um terreno plano perfeito degenera o campo tensorial (limitação declarada pelo upstream), então foi posta uma rampa suave de 1,5 % — registrada como acréscimo do Lab. TESTE DE SANIDADE: pequeno demais para rede viária.",
+      "area_ha": 0.045,
+      "desnivel_m": 0.4,
+      "grade": {
+        "nx": 38,
+        "ny": 33,
+        "celula_m": 2,
+        "mundo_m": [
+          76,
+          66
+        ]
+      },
+      "tempos": {
+        "alturas_ms": 13.9,
+        "vias_ms": 0.42,
+        "racionalizacao_ms": 0.28,
+        "quadras_ms": 0.13,
+        "traducaoDeVolta_ms": 0.18,
+        "total_ms": 17.17
+      },
+      "vias": {
+        "total": 0,
+        "principais": 0,
+        "locais": 0,
+        "comprimentoTotal_m": 0,
+        "comprimentoMediano_m": 0,
+        "rampa": {
+          "mediana_pct": 0,
+          "p90_pct": 0,
+          "maxima_pct": 0
+        },
+        "acimaDaRampaPedida": 0,
+        "fracaoForaDaGleba": 0
+      },
+      "quadras": {
+        "total": 0,
+        "area": {
+          "minima_m2": 0,
+          "mediana_m2": 0,
+          "maxima_m2": 0,
+          "total_m2": 0
+        },
+        "fracaoForaDaGleba": 0
+      },
+      "fracaoGradeForaDaGleba": 0.9099,
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "avisos": [
+        "a gleba tem ~21 m de lado equivalente e o espaçamento local pedido é 80 m: não cabem duas quadras, e a rede vai sair pobre ou vazia — é limitação de escala, não do motor",
+        "desnível de 0.40 m em toda a gleba: o motor vai cair no regime de grade ortogonal (campo tensorial sem gradiente)"
+      ]
+    },
+    {
+      "terreno": "Fazenda Recanto das Águas",
+      "procedencia": "Números do estudo de prova \"completo\" do Archilly Geo (src/lib/geo/relatorio/__tests__/estudos-de-prova.ts, SINTESE_COMPLETA): área bruta 1.417.577,87 m² (141,76 ha), 20 vértices, UTM 22S, Antonina/PR, matrícula 10123, SIGEF 7020130007283, área de documento 1.417.609 m², cota 4,2 a 118,75 m (desnível 114,55 m), curvas de 5 m, zonas ZR-3 e ZR-2, e as três restrições com as áreas exatas de lá (APP hídrica 51.230,4 m², reserva legal do CAR 283.515,6 m², APP de encosta 8.904,15 m²). Aquele estudo NÃO tem geometria, então a poligonal de 20 vértices foi construída e escalada para a área bater, e as restrições foram posicionadas dentro dela com as áreas declaradas. O perímetro do estudo é 5.842,4 m; o desta poligonal é o que a geometria dá, e está registrado no arquivo.",
+      "area_ha": 141.7578,
+      "desnivel_m": 102.11,
+      "grade": {
+        "nx": 960,
+        "ny": 645,
+        "celula_m": 2,
+        "mundo_m": [
+          1920,
+          1290
+        ]
+      },
+      "tempos": {
+        "alturas_ms": 3422.88,
+        "vias_ms": 30.49,
+        "racionalizacao_ms": 390.42,
+        "quadras_ms": 21.11,
+        "traducaoDeVolta_ms": 112.37,
+        "total_ms": 4000.26
+      },
+      "vias": {
+        "total": 502,
+        "principais": 105,
+        "locais": 397,
+        "comprimentoTotal_m": 88494.51,
+        "comprimentoMediano_m": 110.14,
+        "rampa": {
+          "mediana_pct": 15.92,
+          "p90_pct": 42.95,
+          "maxima_pct": 365.28
+        },
+        "acimaDaRampaPedida": 338,
+        "fracaoForaDaGleba": 0.3758
+      },
+      "quadras": {
+        "total": 653,
+        "area": {
+          "minima_m2": 3.17,
+          "mediana_m2": 1818.11,
+          "maxima_m2": 34094.74,
+          "total_m2": 2044787.9
+        },
+        "fracaoForaDaGleba": 0.3256
+      },
+      "fracaoGradeForaDaGleba": 0.4276,
+      "hash": "8d37e38456de78b741c89a9cb72582008aeb9c0d7309cea287ac81923ed80343",
+      "avisos": [
+        "338 de 502 trecho(s) acima da rampa pedida de 10 % (máxima obtida 365.3 %). O clamp do motor é por cadeia e não cobre os cruzamentos — a conferência de rampa é do Validator, não do motor. Ver docs/relatorios/LAB01_ADAPTADOR.md"
+      ]
+    },
+    {
+      "terreno": "Gleba Sintética 10 ha (plano)",
+      "procedencia": "SINTÉTICO — inventado pelo LAB-01, não vem de estudo nenhum do Geo. 10 ha, rampa geral de 2,5 %, curvas de 1 m. Existe para dar o degrau inferior da escada de tamanho da seção 4 do prompt, com relevo simples o bastante para que a rampa das vias seja conferível a olho.",
+      "area_ha": 10,
+      "desnivel_m": 6.71,
+      "grade": {
+        "nx": 265,
+        "ny": 183,
+        "celula_m": 2,
+        "mundo_m": [
+          530,
+          366
+        ]
+      },
+      "tempos": {
+        "alturas_ms": 476.97,
+        "vias_ms": 1.29,
+        "racionalizacao_ms": 0.85,
+        "quadras_ms": 0.13,
+        "traducaoDeVolta_ms": 0.68,
+        "total_ms": 480.48
+      },
+      "vias": {
+        "total": 15,
+        "principais": 5,
+        "locais": 10,
+        "comprimentoTotal_m": 4274.39,
+        "comprimentoMediano_m": 331.92,
+        "rampa": {
+          "mediana_pct": 10.01,
+          "p90_pct": 10.02,
+          "maxima_pct": 10.04
+        },
+        "acimaDaRampaPedida": 0,
+        "fracaoForaDaGleba": 0.3858
+      },
+      "quadras": {
+        "total": 12,
+        "area": {
+          "minima_m2": 212.15,
+          "mediana_m2": 1636.72,
+          "maxima_m2": 16175.48,
+          "total_m2": 64038.56
+        },
+        "fracaoForaDaGleba": 0.416
+      },
+      "fracaoGradeForaDaGleba": 0.4845,
+      "hash": "a524f01916f2da3e536b6a0f6477c12fb18c77c455d008565ab3aa429ac2092f",
+      "avisos": []
+    },
+    {
+      "terreno": "Gleba Sintética 50 ha (ondulado)",
+      "procedencia": "SINTÉTICO — inventado pelo LAB-01, não vem de estudo nenhum do Geo. 50 ha, relevo ondulado com 45 m de desnível e curvas de 2 m. Existe para exercitar o campo tensorial no regime em que ele deveria brilhar: vias principais seguindo a curva de nível e locais descendo o gradiente.",
+      "area_ha": 50,
+      "desnivel_m": 41.62,
+      "grade": {
+        "nx": 512,
+        "ny": 425,
+        "celula_m": 2,
+        "mundo_m": [
+          1024,
+          850
+        ]
+      },
+      "tempos": {
+        "alturas_ms": 696.32,
+        "vias_ms": 8.15,
+        "racionalizacao_ms": 39.88,
+        "quadras_ms": 6.01,
+        "traducaoDeVolta_ms": 14.65,
+        "total_ms": 770.28
+      },
+      "vias": {
+        "total": 157,
+        "principais": 30,
+        "locais": 127,
+        "comprimentoTotal_m": 28836.98,
+        "comprimentoMediano_m": 128.96,
+        "rampa": {
+          "mediana_pct": 10.02,
+          "p90_pct": 15.64,
+          "maxima_pct": 69.93
+        },
+        "acimaDaRampaPedida": 48,
+        "fracaoForaDaGleba": 0.38
+      },
+      "quadras": {
+        "total": 167,
+        "area": {
+          "minima_m2": 10.78,
+          "mediana_m2": 1901.64,
+          "maxima_m2": 43420.03,
+          "total_m2": 557058.1
+        },
+        "fracaoForaDaGleba": 0.2322
+      },
+      "fracaoGradeForaDaGleba": 0.4255,
+      "hash": "f38776058cb5853b7864b670973c84003493e4bb20d0223658645a29b800e17b",
+      "avisos": [
+        "48 de 157 trecho(s) acima da rampa pedida de 10 % (máxima obtida 69.9 %). O clamp do motor é por cadeia e não cobre os cruzamentos — a conferência de rampa é do Validator, não do motor. Ver docs/relatorios/LAB01_ADAPTADOR.md"
+      ]
+    }
+  ],
+  "idaEVolta": {
+    "pequeno": {
+      "amostras": 5,
+      "erroGraus_m": 2.0401784781644077e-10,
+      "erroMotor_m": 3.972054645195637e-15,
+      "erroCadeiaCompleta_m": 2.040139190326692e-10,
+      "meta_m": 0.01,
+      "passou": true
+    },
+    "completo": {
+      "amostras": 21,
+      "erroGraus_m": 9.843313174886881e-11,
+      "erroMotor_m": 1.2710574864626038e-13,
+      "erroCadeiaCompleta_m": 9.842260365713088e-11,
+      "meta_m": 0.01,
+      "passou": true
+    },
+    "sintetico-10ha-plano": {
+      "amostras": 11,
+      "erroGraus_m": 1.4292389495234366e-10,
+      "erroMotor_m": 3.552713678800501e-14,
+      "erroCadeiaCompleta_m": 1.429256713091829e-10,
+      "meta_m": 0.01,
+      "passou": true
+    },
+    "sintetico-50ha-ondulado": {
+      "amostras": 15,
+      "erroGraus_m": 2.0410340087057892e-10,
+      "erroMotor_m": 9.099386826154683e-14,
+      "erroCadeiaCompleta_m": 2.041211650415593e-10,
+      "meta_m": 0.01,
+      "passou": true
+    }
+  },
+  "rampaVsRelevo": {
+    "pequeno": {
+      "amostras": 0,
+      "corteAterro": {
+        "mediana_m": 0,
+        "p90_m": 0,
+        "maximo_m": 0
+      },
+      "declividadeDaSuperficie": {
+        "mediana_pct": 0,
+        "p90_pct": 0,
+        "maxima_pct": 0
+      },
+      "rampaDasVias": {
+        "mediana_pct": 0,
+        "p90_pct": 0,
+        "maxima_pct": 0
+      }
+    },
+    "completo": {
+      "amostras": 17075,
+      "corteAterro": {
+        "mediana_m": 0.23,
+        "p90_m": 2.48,
+        "maximo_m": 18.1
+      },
+      "declividadeDaSuperficie": {
+        "mediana_pct": 9.63,
+        "p90_pct": 19.2,
+        "maxima_pct": 127.62
+      },
+      "rampaDasVias": {
+        "mediana_pct": 15.92,
+        "p90_pct": 42.95,
+        "maxima_pct": 365.28
+      }
+    },
+    "sintetico-10ha-plano": {
+      "amostras": 150,
+      "corteAterro": {
+        "mediana_m": 0.02,
+        "p90_m": 0.9,
+        "maximo_m": 1.04
+      },
+      "declividadeDaSuperficie": {
+        "mediana_pct": 1.16,
+        "p90_pct": 1.17,
+        "maxima_pct": 8.53
+      },
+      "rampaDasVias": {
+        "mediana_pct": 10.01,
+        "p90_pct": 10.02,
+        "maxima_pct": 10.04
+      }
+    },
+    "sintetico-50ha-ondulado": {
+      "amostras": 5518,
+      "corteAterro": {
+        "mediana_m": 0.11,
+        "p90_m": 0.91,
+        "maximo_m": 3.21
+      },
+      "declividadeDaSuperficie": {
+        "mediana_pct": 5.54,
+        "p90_pct": 11.63,
+        "maxima_pct": 48.05
+      },
+      "rampaDasVias": {
+        "mediana_pct": 10.02,
+        "p90_pct": 15.64,
+        "maxima_pct": 69.93
+      }
+    }
+  },
+  "determinismo": {
+    "terreno": "sintetico-50ha-ondulado",
+    "seed42_execucao1": "f38776058cb5853b7864b670973c84003493e4bb20d0223658645a29b800e17b",
+    "seed42_execucao2": "f38776058cb5853b7864b670973c84003493e4bb20d0223658645a29b800e17b",
+    "seed7": "b74da32a561c307da516d6ab7f92ebf84f3a912b1a792995a0ed2890463bc0bf",
+    "deterministico": true,
+    "seedTemEfeito": true
+  },
+  "escadaDeTamanho": [
+    {
+      "hectares": 10,
+      "grade": {
+        "nx": 241,
+        "ny": 201,
+        "celula_m": 2,
+        "mundo_m": [
+          482,
+          402
+        ]
+      },
+      "vias": 26,
+      "comprimentoTotal_m": 4967.16,
+      "quadras": 17,
+      "areaMedianaQuadra_m2": 971.09,
+      "tempos": {
+        "alturas_ms": 133.87,
+        "vias_ms": 1.48,
+        "racionalizacao_ms": 2.84,
+        "quadras_ms": 0.93,
+        "traducaoDeVolta_ms": 1.34,
+        "total_ms": 141.94
+      },
+      "rampaMaxima_pct": 105.31,
+      "acimaDaRampaPedida": 21
+    },
+    {
+      "hectares": 50,
+      "grade": {
+        "nx": 512,
+        "ny": 425,
+        "celula_m": 2,
+        "mundo_m": [
+          1024,
+          850
+        ]
+      },
+      "vias": 149,
+      "comprimentoTotal_m": 29464.98,
+      "quadras": 165,
+      "areaMedianaQuadra_m2": 2028.17,
+      "tempos": {
+        "alturas_ms": 551.44,
+        "vias_ms": 9.79,
+        "racionalizacao_ms": 43.2,
+        "quadras_ms": 5.78,
+        "traducaoDeVolta_ms": 18.45,
+        "total_ms": 634.8
+      },
+      "rampaMaxima_pct": 168.95,
+      "acimaDaRampaPedida": 68
+    },
+    {
+      "hectares": 100,
+      "grade": {
+        "nx": 716,
+        "ny": 592,
+        "celula_m": 2,
+        "mundo_m": [
+          1432,
+          1184
+        ]
+      },
+      "vias": 330,
+      "comprimentoTotal_m": 59937.83,
+      "quadras": 419,
+      "areaMedianaQuadra_m2": 1551.45,
+      "tempos": {
+        "alturas_ms": 1526.33,
+        "vias_ms": 17.55,
+        "racionalizacao_ms": 166.23,
+        "quadras_ms": 10.02,
+        "traducaoDeVolta_ms": 36.26,
+        "total_ms": 1768.34
+      },
+      "rampaMaxima_pct": 92.69,
+      "acimaDaRampaPedida": 89
+    },
+    {
+      "hectares": 200,
+      "grade": {
+        "nx": 1004,
+        "ny": 829,
+        "celula_m": 2,
+        "mundo_m": [
+          2008,
+          1658
+        ]
+      },
+      "vias": 680,
+      "comprimentoTotal_m": 123046.35,
+      "quadras": 948,
+      "areaMedianaQuadra_m2": 1701.85,
+      "tempos": {
+        "alturas_ms": 5063.01,
+        "vias_ms": 35.45,
+        "racionalizacao_ms": 696.72,
+        "quadras_ms": 17.22,
+        "traducaoDeVolta_ms": 90.46,
+        "total_ms": 5923.99
+      },
+      "rampaMaxima_pct": 35.03,
+      "acimaDaRampaPedida": 57
+    }
+  ],
+  "rampaPedida": [
+    {
+      "pedida_pct": 6,
+      "maximaObtida_pct": 116.67,
+      "trechosAcima": 111,
+      "vias": 157
+    },
+    {
+      "pedida_pct": 8,
+      "maximaObtida_pct": 82.53,
+      "trechosAcima": 76,
+      "vias": 157
+    },
+    {
+      "pedida_pct": 10,
+      "maximaObtida_pct": 69.93,
+      "trechosAcima": 48,
+      "vias": 157
+    },
+    {
+      "pedida_pct": 15,
+      "maximaObtida_pct": 58.59,
+      "trechosAcima": 15,
+      "vias": 157
+    }
+  ],
+  "usoC": {
+    "nos": 9,
+    "arestas": 12,
+    "quadras": 4,
+    "areas_m2": [
+      14400,
+      14400,
+      14400,
+      14400
+    ],
+    "esperado": {
+      "quadras": 4,
+      "area_m2": 14400
+    },
+    "confere": true
+  }
+}
