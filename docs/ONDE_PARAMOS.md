@@ -4,31 +4,115 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/09/2026 · **Último prompt executado:** LAB-01
+**Última atualização:** 13/09/2026 · **Último prompt executado:** LAB-07
 **Concluído:** Etapa A (investigação), Etapa B (prova isolada) e Etapa C
-(Adapter mínimo), no escopo Usos B e C
+(Adapter mínimo) para o Symbios; e a esteira completa — contrato de motor v1,
+Validator e Judge — para o motor do Testfit.
 
 ---
 
 ## Em uma frase
 
-O Symbios Tensor devolve geometria utilizável a partir de um terreno do Archilly
-Geo — em metros, georreferenciada, determinística, e rápida o bastante —, **com
-três ressalvas que o LAB-02 e o LAB-03 têm de tratar**: a rampa estoura nos
-cruzamentos, 38 % da rede nasce fora da gleba, e o traçado é topograficamente
-responsivo mas urbanisticamente cru.
+**Dois motores atravessam o Lab de ponta a ponta**: o Symbios devolve rede
+viária e quadras a partir de um terreno do Geo (LAB-01), e o motor do Testfit
+devolve parcelamento completo já julgado pelo Validator e pelo Judge do Generate
+(LAB-07) — os dois com o mesmo veredito, **"geometria utilizável: SIM COM
+RESSALVAS"**, e os dois deixando cerca de um terço da rede viária fora da divisa,
+que é o que o **LAB-02** vem consertar.
 
 ## A fila
 
-Roteiro completo em [`FILA.md`](FILA.md). Estado:
+Roteiro completo em [`prompts/FILA.md`](prompts/FILA.md). O que depende do Jonny
+está em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md). Estado:
 
 | Prompt | Estado |
 |---|---|
 | **LAB-00** — investigação dos candidatos | concluído em 09/09/2026 |
-| **LAB-01** — adaptador mínimo do Symbios | **concluído em 10/09/2026** |
-| **LAB-02** — recorte pela gleba e restrições, Validator | **liberado** |
+| **LAB-01** — adaptador mínimo do Symbios | concluído em 10/09/2026 |
+| **LAB-07** — o motor do Testfit na esteira do contrato v1 | **concluído em 13/09/2026** |
+| **LAB-02** — recorte pela gleba e restrições, Validator | **liberado — é o próximo** |
 | **LAB-04** — straight skeleton na subdivisão de quadras | liberado; roda **depois** do LAB-02/03 |
 | LAB-03 · LAB-05 · LAB-06 | aguardando, em cadeia a partir do LAB-02 |
+
+---
+
+# LAB-07 — o motor do Testfit na esteira
+
+**Relatório completo:** [`relatorios/LAB-07.md`](relatorios/LAB-07.md) ·
+**números crus:** [`provas/LAB-07/`](provas/LAB-07/)
+
+Terreno no contrato `archilly-motor-entrada` v1 → `idaParaOMotor` → `rodarMotor`
+do Testfit → `voltaParaOContrato` → `archilly-motor-saida` → **o Validator e o
+Judge do próprio Generate**, importados, nunca reimplementados. Três glebas, dez
+partidos de traçado, 20 variantes cada — 60 no total.
+
+> ### Geometria utilizável: **SIM COM RESSALVAS**
+
+**47 variantes julgadas, 28 401 lotes, 4 132 violações (14,55 %)** — e a média
+engana, porque o resultado é muito desigual por partido: `pente` 0,06 %,
+`diagonal` 1,26 %, `mioloVerde` 1,60 %, `ortogonal` 2,07 %, `espinha` 2,67 %,
+`loop` 5,24 %, **`cluster` 77,77 %**, **`organico` 140,11 %**.
+
+### As cinco ressalvas
+
+1. **Nenhuma variante passa no contrato sem conserto** — 25 % a 40 % do
+   comprimento de via nasce fora da divisa, e o esquema recusa antes de julgar.
+   Todos os números vêm de uma passagem com **aparo feito pelo Lab**, que corta
+   **só o eixo das vias** e vem desligado por padrão.
+2. **A calçada é declarada e não é reservada.** Medido: o lote encosta a
+   `caixa_m / 2` do eixo. Declarar `caixa + 2 × calçada` produziu 441 de 441
+   lotes sem frente; declarar a caixa real levou a mesma variante a 15 violações.
+3. **Dois partidos quebrados** — `cluster` (2 994 violações de testada) e
+   `organico` (165 lotes sobrepostos). `radial` é recusado em 6 de 6.
+4. **`superquadra` nasce vazia em 20 de 20**, e o plano vazio lidera o ranking do
+   motor com nota 0,366 — pior do que os 11 de 12 que o próprio Testfit relatou.
+5. **O motor não calcula greide**: `rampaMedia_pct` sai `null`, e a rampa fica
+   inteiramente com o Validator.
+
+### O que passou
+
+- **Determinismo:** mesma semente → arquivo de contrato byte a byte idêntico
+  (`2709e86fed2b7181` duas vezes); semente diferente → arquivo diferente.
+- **Fechamento de áreas:** 0,00 % de erro nas 60 variantes.
+- **Tempo:** 1,5 s (`ensaio-47ha`), 2,1 s (`lab01-50ha-ondulado`), 9,5 s
+  (`geo-antonina`) para 20 variantes cada.
+- **A régua do próprio Testfit** (`medirPlano`) sobre as 60: **zero** lote fora
+  da área e **zero** fora da tolerância.
+
+### Dois achados que atravessam repositórios
+
+1. **O defeito de relevo do LAB-01 atinge o Generate, e não o Testfit.** Mesma
+   nuvem, mesma régua: `criarModeloRelevo` do Generate deixa **49,8 %** das
+   amostras sobre um valor de curva e **17,3 %** da grade com gradiente zero; o
+   `campoRelevo` do Testfit, que pondera **todos** os pontos em vez dos k mais
+   próximos, fica em 2,2 % e 0 %. Diagnóstico para repassar ao Generate, com a
+   correção sugerida: exigir vizinhos de **pelo menos duas cotas distintas**.
+   Só diagnóstico — o Lab não escreve no Generate.
+2. **As duas glebas-padrão do Generate não têm relevo nenhum** (`curvas: []`,
+   `cotas: null`). É por isso que a terceira gleba deste prompt é a do LAB-01 —
+   sem ela, o campo `relevo` do contrato atravessaria a esteira sem nunca ser
+   exercitado.
+
+### Onde está o código
+
+```text
+external-engines/testfit/          (sem upstream/: o motor é da família — D16)
+├── adapter/src/
+│   ├── contrato-v1.ts   os tipos do contrato
+│   ├── ida.ts           contrato → EntradaMotor, com as perdas declaradas
+│   ├── volta.ts         plano → contrato, com as perdas declaradas
+│   ├── aparo.ts         o conserto: corta SÓ eixo de via, desligado por padrão
+│   └── esteira.ts       a esteira inteira, com o Validator e o Judge do Generate
+├── ferramentas/         medir.ts · diagnostico-relevo.ts · gleba-lab01.ts
+└── tests/               14 testes, verdes
+```
+
+Os caminhos dos dois repositórios irmãos estão **num lugar só**: os `paths` do
+`external-engines/testfit/tsconfig.json`.
+
+---
+
+# LAB-01 — o adaptador do Symbios
 
 ## O que existe agora
 
@@ -120,7 +204,11 @@ campo tensorial seguia a borda dos degraus, não a topografia.
 
 Corrigido aqui (interpolação entre cotas distintas). **Se o `criarModeloRelevo`
 do Generate for alimentado com vértices de curva de nível, tem o mesmo defeito.**
-Não foi verificado: o Lab não mexe no Generate.
+
+**O LAB-07 verificou, e a suspeita procede:** 49,8 % das amostras sobre um valor
+de curva e 17,3 % da grade com gradiente zero, medidos com o próprio
+`criarModeloRelevo` sobre a mesma nuvem. Continua sendo só diagnóstico — o Lab
+não escreve no Generate. Números em `relatorios/LAB-07.md`, §8.
 
 ## Próximo passo — LAB-02
 
@@ -132,6 +220,14 @@ Recorte pela gleba e pelas restrições, e passagem pelo Validator. Em ordem:
    viajam carregadas no `Terreno`; falta usá-las.
 3. **Passar pelo Validator**, com atenção à rampa **nos cruzamentos**. É a
    reprovação que já se pode antecipar.
+
+**O LAB-07 adiantou três coisas para ele:** o caminho até o Validator e o Judge
+do Generate está aberto e provado a partir do Lab; o recorte de eixo viário pelo
+perímetro já está escrito em `external-engines/testfit/adapter/src/aparo.ts`, e
+como **os dois motores** deixam cerca de um terço da rede fora da divisa, vale
+escrever o recorte do LAB-02 pensando em servir aos dois; e o contrato de motor
+v1 funciona como porta — 60 arquivos passaram pelo esquema, 47 chegaram ao
+Validator, e o que recusou recusou pelo motivo certo.
 
 **O que o LAB-02 não deve fazer:** consertar a rampa dentro do Adapter. Se o
 Adapter consertar geometria, o LAB-03 compara o conserto do Adapter com o motor
@@ -158,6 +254,23 @@ cd ferramentas/navegador && npx http-server -p 8099 .
 
 Requer `cargo` e Node 22+. **Nenhuma dependência npm.**
 
+O LAB-07 é outra pilha, porque compila fonte de três repositórios ao mesmo tempo
+(D17). Requer **Bun** e os dois clones irmãos ao lado deste repositório:
+
+```shell
+git clone https://github.com/jonny583/motor-testfit              ../motor-testfit
+git clone https://github.com/jonny583/urban-create-hub-41d93a4d  ../urban-create-hub-41d93a4d
+
+cd external-engines/testfit
+bun install
+bun run gleba && bun run medir && bun run relevo
+bun test && bun run typecheck && bun run lint
+```
+
+Uma dependência do Generate precisa estar instalada para o Validator rodar:
+`bun add --no-save zod@^3` **dentro do clone dele** (`node_modules` é ignorado
+pelo git de lá; o Lab não escreve naquele repositório).
+
 ## Integridade do upstream
 
 `external-engines/symbios/upstream/` continua verificado arquivo a arquivo com
@@ -165,6 +278,11 @@ Requer `cargo` e Node 22+. **Nenhuma dependência npm.**
 idêntico**. Toda a ponte do LAB-01 vive em `archilly/wasm/` e depende do upstream
 por caminho, sem modificá-lo.
 
-Os repositórios do Geo (`jonny583/urban-scout-tool`) e do Generate
-(`jonny583/urban-create-hub-41d93a4d`, `main`) foram clonados **somente para
-leitura** e não foram alterados.
+`external-engines/testfit/` **não tem `upstream/`**, de propósito: o motor é da
+própria família e uma cópia congelada aqui envelheceria em silêncio (D16). Ele é
+lido por caminho, e o caminho está num lugar só — os `paths` do `tsconfig.json`.
+
+Os repositórios do Geo (`jonny583/urban-scout-tool`), do Generate
+(`jonny583/urban-create-hub-41d93a4d`, `main`) e do motor do Testfit
+(`jonny583/motor-testfit`) foram clonados **somente para leitura** e terminaram
+as rodadas sem uma alteração sequer — conferido com `git status` nos três.

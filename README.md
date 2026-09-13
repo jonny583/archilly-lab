@@ -3,7 +3,8 @@
 Laboratório de motores externos para o **Archilly Generate**.
 
 > **Comece por aqui:** [`docs/ONDE_PARAMOS.md`](docs/ONDE_PARAMOS.md)
-> · roteiro completo: [`docs/FILA.md`](docs/FILA.md)
+> · roteiro: [`docs/prompts/FILA.md`](docs/prompts/FILA.md)
+> · o que depende do Jonny: [`docs/PENDENCIAS_JONNY.md`](docs/PENDENCIAS_JONNY.md)
 
 ---
 
@@ -38,25 +39,46 @@ UPSTREAM              ARCHILLY               ADAPTER              ARCHILLY
    Se nenhum motor provar valor, `external-engines/` inteiro pode ser apagado
    sem que o Generate sinta.
 
-## Estado atual — LAB-01 concluído
+## Estado atual — dois motores atravessam o Lab de ponta a ponta
 
-**Etapas A, B e C**, no escopo Usos B (rede viária) e C (quadras). O Adapter
-existe e vai de ponta a ponta. Nada é recortado pela gleba nem validado — isso é
-o LAB-02. O repositório do Generate não foi tocado.
+| | LAB-01 · **Symbios Tensor** | LAB-07 · **motor do Testfit** |
+|---|---|---|
+| entra por | contrato `archilly-terreno` | contrato de motor v1 (`archilly-motor-entrada`) |
+| devolve | eixos com hierarquia e rampa, e quadras | parcelamento completo: vias, quadras, lotes, áreas |
+| julgado? | não — é o LAB-02 | **sim** — Validator e Judge do próprio Generate |
+| veredito | **geometria utilizável: SIM COM RESSALVAS** | **geometria utilizável: SIM COM RESSALVAS** |
+| relatório | [`LAB01_ADAPTADOR.md`](docs/relatorios/LAB01_ADAPTADOR.md) | [`LAB-07.md`](docs/relatorios/LAB-07.md) |
 
-> ### Geometria utilizável: **SIM COM RESSALVAS**
->
-> Um terreno do Geo entra pelo contrato `archilly-terreno`, vira mapa de alturas,
-> atravessa o Symbios num `.wasm` de 189 KB **sem import nenhum**, e volta como
-> eixos com hierarquia e rampa e quadras com área — em metros, georreferenciado,
-> determinístico por seed, 200 ha em 5,7 s.
->
-> As ressalvas: a rampa estoura **nos cruzamentos** (nunca ao longo da via),
-> 38 % do comprimento de via nasce fora da gleba, e o traçado é topograficamente
-> responsivo mas urbanisticamente cru.
+### LAB-01 — o Symbios
 
-Relatório com todas as medições:
-[`docs/relatorios/LAB01_ADAPTADOR.md`](docs/relatorios/LAB01_ADAPTADOR.md).
+Um terreno do Geo entra pelo contrato `archilly-terreno`, vira mapa de alturas,
+atravessa o Symbios num `.wasm` de 189 KB **sem import nenhum**, e volta como
+eixos com hierarquia e rampa e quadras com área — em metros, georreferenciado,
+determinístico por seed, 200 ha em 5,7 s.
+
+As ressalvas: a rampa estoura **nos cruzamentos** (nunca ao longo da via), 38 %
+do comprimento de via nasce fora da gleba, e o traçado é topograficamente
+responsivo mas urbanisticamente cru.
+
+### LAB-07 — o motor do Testfit, na esteira inteira
+
+Contrato v1 → motor → contrato v1 → **o Validator (nove tipos de violação) e o
+Judge do próprio Generate**, importados, nunca reimplementados. Três glebas, os
+dez partidos de traçado, 20 variantes cada.
+
+**47 variantes julgadas, 28 401 lotes, 4 132 violações** — e a média engana,
+porque o resultado é muito desigual por partido: `pente` fica em **0,06 %** e
+`cluster` em **78 %**. Cinco ressalvas, a primeira delas impeditiva sem conserto:
+25 % a 40 % do comprimento de via nasce fora da divisa e o esquema recusa antes
+de julgar; a calçada é declarada e não é reservada; dois partidos estão
+quebrados; `superquadra` nasce vazia em 20 de 20 e o plano vazio lidera; e o
+motor não calcula greide.
+
+Dois achados atravessam repositórios: o defeito de interpolação de relevo que o
+LAB-01 achou **atinge o Generate** (49,8 % das amostras sobre um valor de curva)
+e **não atinge o Testfit**; e as duas glebas-padrão do Generate **não têm relevo
+nenhum**, o que é a razão da terceira gleba.
+
 Decisões e o porquê de cada uma: [`docs/DECISOES.md`](docs/DECISOES.md).
 
 ### Os motores, depois da triagem do LAB-00
@@ -76,15 +98,18 @@ Triagem completa, com evidências: [`docs/TRIAGEM.md`](docs/TRIAGEM.md).
 archilly-lab/
 ├── docs/
 │   ├── ONDE_PARAMOS.md               ← estado do laboratório
-│   ├── FILA.md                       ← roteiro LAB-00 a LAB-06
+│   ├── PENDENCIAS_JONNY.md           ← o que depende de uma pessoa
 │   ├── DECISOES.md                   ← as decisões, numeradas, com o porquê
 │   ├── LABORATORIO.md                ← especificação (Etapas A a G)
 │   ├── TRIAGEM.md                    ← tabela comparativa e vereditos
 │   ├── SYMBIOS_ANALYSIS.md
 │   ├── STRAIGHT_SKELETON_ANALYSIS.md
 │   ├── PACKINGSOLVER_TRIAGEM.md
+│   ├── prompts/FILA.md               ← roteiro LAB-00 a LAB-07
 │   ├── relatorios/
-│   │   └── LAB01_ADAPTADOR.md        ← as medições do adaptador
+│   │   ├── LAB01_ADAPTADOR.md        ← as medições do adaptador do Symbios
+│   │   └── LAB-07.md                 ← as medições do motor do Testfit na esteira
+│   ├── provas/LAB-07/                ← os números crus, em JSON
 │   └── terrenos/                     ← 4 terrenos no contrato archilly-terreno
 ├── external-engines/
 │   ├── symbios/
@@ -95,6 +120,10 @@ archilly-lab/
 │   │   │   └── wasm-probe/           ← prova de compilação do LAB-00
 │   │   ├── adapter/                  ← O ADAPTADOR (LAB-01)
 │   │   └── tests/
+│   ├── testfit/                      ← sem upstream/: o motor é da família (D16)
+│   │   ├── adapter/src/              ← ida, volta, aparo, esteira (LAB-07)
+│   │   ├── ferramentas/              ← medições e diagnóstico do relevo
+│   │   └── tests/
 │   ├── straight-skeleton/            ← nada clonado: licença impeditiva
 │   └── packingsolver/                ← nada clonado: triagem não recomendou
 ├── outputs/                          ← saídas literais das execuções
@@ -103,7 +132,7 @@ archilly-lab/
 
 ## Reproduzir
 
-Requer `cargo` e Node 22+. **Nenhuma dependência npm.**
+### LAB-00 e LAB-01 — requer `cargo` e Node 22+, **nenhuma dependência npm**
 
 ```shell
 # --- LAB-01: o adaptador ---
@@ -123,16 +152,41 @@ cd external-engines/symbios/upstream       && cargo run --release --example full
 cd external-engines/symbios/archilly/probe && cargo run --release
 ```
 
+### LAB-07 — requer **Bun** e os dois clones irmãos ao lado deste repositório
+
+Outra pilha, e o motivo está em `docs/DECISOES.md`, D17: o programa compila
+fonte TypeScript de três repositórios ao mesmo tempo.
+
+```shell
+git clone https://github.com/jonny583/motor-testfit              ../motor-testfit
+git clone https://github.com/jonny583/urban-create-hub-41d93a4d  ../urban-create-hub-41d93a4d
+
+cd external-engines/testfit
+bun install
+bun run gleba && bun run medir && bun run relevo    # docs/provas/LAB-07/
+bun test && bun run typecheck && bun run lint
+```
+
+O caminho dos repositórios irmãos está num lugar só: os `paths` do
+`external-engines/testfit/tsconfig.json`.
+
 ## O que este laboratório não faz
 
-Não toca no repositório do Generate nem no do Geo (os dois foram clonados
-**somente para leitura**), não copia código de motor para fora de `upstream/`,
-não modifica `upstream/`, e não otimiza nada.
+Não toca no repositório do Generate, no do Geo nem no do motor do Testfit (os
+três foram clonados **somente para leitura**, e terminaram as rodadas sem uma
+alteração sequer), não copia código de motor para fora de `upstream/`, não
+modifica `upstream/`, e não otimiza nada. Também não tem interface: prova aqui é
+teste, JSON e medição.
 
-O Adapter existe desde o LAB-01, mas **não recorta pela gleba, não aplica
-restrições, não parcela em lotes, não valida e não julga** — cada uma dessas
-coisas é de um prompt adiante, e misturá-las agora tornaria impossível saber
-qual delas quebrou.
+O que precisa mudar nos vizinhos vira **lista numerada em relatório** — as oito
+correções do motor do Testfit estão no §9 do `LAB-07.md`, e o diagnóstico do
+relevo para o Generate, no §8.
+
+O Adapter **do Symbios** existe desde o LAB-01, mas não recorta pela gleba, não
+aplica restrições, não parcela em lotes, não valida e não julga — cada uma
+dessas coisas é de um prompt adiante, e misturá-las agora tornaria impossível
+saber qual delas quebrou. (O do LAB-07 já valida e julga, porque o motor dele
+devolve parcelamento pronto e o contrato v1 já existia.)
 
 Resultado desconfortável é resultado: "não consegui compilar" ficou registrado no
 LAB-00 (`docs/SYMBIOS_ANALYSIS.md`, §10), e os cinco defeitos que o LAB-01 achou

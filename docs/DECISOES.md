@@ -4,7 +4,7 @@
 meses depois, vai querer saber por quê. Uma decisão sem motivo escrito é uma
 decisão que será desfeita por engano.
 
-Não entra aqui: o estado da fila (`docs/FILA.md`), o ponto de parada
+Não entra aqui: o estado da fila (`docs/prompts/FILA.md`), o ponto de parada
 (`docs/ONDE_PARAMOS.md`), nem os números das medições
 (`docs/relatorios/`, `outputs/`).
 
@@ -384,3 +384,179 @@ um empacotador — a complexidade que o LAB-01 não precisa assumir.
 Medido no Chromium: `.wasm` instanciado em 19,7 ms, pipeline completo num mundo
 de 1 024 × 1 024 m em **151 ms**, 275 quadras. Captura em
 `outputs/lab01/navegador.png`.
+
+---
+
+## D16 · O motor do Testfit não é copiado para dentro do Lab · 13/09/2026
+
+**A decisão:** `external-engines/testfit/` **não tem `upstream/`**. Só existe o
+`adapter/`. O motor é lido de fora, por caminho, do clone irmão.
+
+**Por quê.** A regra de ouro (`upstream/` intocado, congelado num commit,
+verificado com `cmp`) foi escrita para motor de terceiro — código que se copia
+porque o autor não nos deve nada e a versão pode sumir. O Testfit é da própria
+família: tem repositório, tem fila de prompts, tem dono, e vai mudar por causa
+deste relatório. Uma cópia congelada dentro do Lab começaria a envelhecer no dia
+seguinte e ninguém repararia — que é exatamente o problema que o `VERSION` do
+Symbios existe para impedir.
+
+**O preço:** o Lab passa a depender de dois clones ao lado. Para que esse preço
+fique em um lugar só, a **única** menção a caminho de repositório irmão está no
+`tsconfig.json`, em `paths`. Nenhum arquivo de código escreve `../../motor-...`.
+
+---
+
+## D17 · Bun como runtime, e um `tsconfig` menos estrito do que eu queria · 13/09/2026
+
+**A decisão:** a esteira roda em **Bun**, e o `tsconfig.json` do adaptador **não
+liga** `noUncheckedIndexedAccess` nem `exactOptionalPropertyTypes`.
+
+**Por quê o Bun.** O programa compila fonte TypeScript de três repositórios ao
+mesmo tempo, e os arquivos do Generate usam import relativo sem extensão
+(`from "./topografia"`). O `--experimental-strip-types` do Node — que é o que o
+adaptador do Symbios usa (D14) — não resolve isso. O Bun resolve, sem
+empacotador e sem etapa de build. Trocar de runtime entre dois adaptadores do
+mesmo repositório é feio; montar um empacotador para o LAB-07 seria pior.
+
+**Por que menos estrito.** Com as duas opções ligadas, o `tsc` acusa cerca de
+vinte erros **dentro do repositório do Generate**, que o Lab não pode consertar
+(só leitura). Um typecheck que acusa erro alheio e não tem como consertá-lo é um
+typecheck que se aprende a ignorar — e aí ele deixa de pegar os erros que são
+nossos. A omissão está justificada em comentário, na linha do arquivo.
+
+---
+
+## D18 · `largura_m` da via é a caixa, e não a caixa mais as calçadas · 13/09/2026
+
+**A decisão:** na volta, `Via.largura_m = plano.vias[i].caixa_m`. O `calcada_m`
+que o motor declara **não** é somado.
+
+**Por quê.** Não é interpretação, é medição. A distância do vértice mais próximo
+de cada lote ao eixo mais próximo tem mediana **exatamente `caixa_m / 2`** (5,00 m
+para vias de 10 m, 223 dos 441 lotes no valor exato): **o lote encosta no
+meio-fio**. A calçada é declarada e não é reservada em geometria nenhuma.
+
+A primeira versão somou, como a ajuda do motor sugeria, e o Validator devolveu o
+retrato do erro: **441 de 441 lotes sem frente e 429 com leito de rua por cima**,
+porque o leito declarado invadia 3 m dentro de cada lote. Com a caixa real:
+**15 violações** na mesma variante.
+
+**A lição, que vale para o próximo adaptador:** um adaptador declara a geometria
+que existe, não a que o motor promete. Quando os dois discordam, mede-se.
+
+---
+
+## D19 · O aparo corta só eixo de via, vem desligado, e as duas passagens são publicadas · 13/09/2026
+
+**A decisão:** `apararVias()` recorta o eixo das vias pelo perímetro da gleba.
+Lote, quadra e área especial saem **intactos**. O aparo é opcional e vem
+desligado; toda medição sai nas duas versões, `fiel` e `julgado`.
+
+**Por quê cortar.** Sem isso o LAB-07 não mediria nada: 25 % a 40 % do
+comprimento de via nasce fora da divisa e o esquema recusa **as 60 variantes**
+antes de qualquer julgamento.
+
+**Por que só as vias.** Aparar um lote muda a área e a testada dele — que são
+justamente os números que o Validator vai medir. Um lote aparado passaria numa
+régua que o lote original reprova, e o relatório mentiria sobre o motor.
+
+**Por que declarado e desligado.** O conserto é do Lab, não do motor. Se ele
+fosse silencioso, o LAB-03 compararia o conserto do Lab com os motores próprios
+do Generate, e não o Testfit — o mesmo erro que o LAB-01 recusou cometer com a
+rampa (D11).
+
+---
+
+## D20 · O julgamento é importado do Generate, nunca reimplementado · 13/09/2026
+
+**A decisão:** `esteira.ts` importa `montarParcelamentoExterno` e
+`montarRelatorio` do repositório do Generate. O Lab **não tem** Validator nem
+Judge próprios.
+
+**Por quê.** O valor de toda esta fila está em comparar motores na mesma régua.
+Uma segunda implementação da régua — ainda que fiel no dia em que for escrita —
+divergiria na primeira mudança de regra do Generate, e a divergência apareceria
+como diferença entre motores. O contrato já diz isso com todas as letras: *o
+mesmo Validator e o mesmo Judge, sem versão leve e sem limiar mais frouxo por
+ser de fora*.
+
+**O preço aceito:** o Lab só roda com o clone do Generate ao lado, e um erro lá
+quebra a medição aqui. É o preço certo: a alternativa é medir com régua errada e
+não saber.
+
+---
+
+## D21 · A terceira gleba é a do LAB-01, e quem a projeta é o leitor do próprio Lab · 13/09/2026
+
+**A decisão:** a terceira gleba é `sintetico-50ha-ondulado`, e a conversão para o
+contrato usa `lerTerrenoGeo` — o mesmo leitor que o adaptador do Symbios usa.
+
+**Por quê esta gleba.** As duas glebas-padrão do Generate têm `relevo` com
+`cotas: null`, `curvas: []` e `classesDeclividade: null`: **nenhuma das duas
+carrega topografia**. Sem uma terceira com relevo de verdade (575 curvas de 2 em
+2 m, 45 m de desnível), o §2.6 não teria o que medir e o campo `relevo` do
+contrato atravessaria a esteira inteira sem nunca ser exercitado.
+
+**Por que o mesmo leitor.** Não é economia de código: é o que garante que a
+mesma gleba chegue ao Symbios e ao Testfit **no mesmo lugar**. Duas projeções
+para o mesmo terreno seria uma divergência silenciosa entre os dois motores que
+o LAB-03 vai comparar — e ela apareceria como diferença de qualidade.
+
+---
+
+## D22 · A medição roda os dez partidos, e não o padrão de fábrica · 13/09/2026
+
+**A decisão:** `ferramentas/medir.ts` passa os **dez** `FormatoId` e 20
+variantes por gleba (60 no total), em vez dos defaults do motor.
+
+**Por quê.** O padrão de fábrica do motor é `formatos: ["ortogonal"]` — um
+partido de dez. A primeira rodada saiu com 12 variantes **todas ortogonais**, e o
+relatório teria dito "o motor vai bem" medindo um décimo dele. Foi o que revelou
+os dois partidos quebrados (`cluster` a 78 % de violação de testada, `organico`
+com 165 sobreposições), que o padrão de fábrica nunca teria exercitado.
+
+**O que isso custa:** a média fica feia (14,55 %) e é preciso publicar a tabela
+por partido para que ela não engane. Publicar só a média seria pior nas duas
+direções: esconderia os quebrados e injustiçaria o `pente`, que faz 3 394 lotes
+com **duas** violações.
+
+---
+
+## D23 · O que não atravessa a ponte vira perda declarada, não silêncio · 13/09/2026
+
+**A decisão:** ida e volta devolvem, além do dado, uma lista de `Perda`
+(`campo`, `oQueHavia`, `motivo`, `gravidade`). Um teste exige que todo motivo
+tenha texto de verdade.
+
+**Por quê.** Um adaptador entre dois contratos que não se sobrepõem perde coisa —
+a atração em linha que o motor não aceita, o `comercio` que não tem tipo de área
+correspondente, o greide que o motor não calcula. Perda em silêncio é como se
+lê um relatório errado: o número fecha e ninguém sabe o que ficou de fora.
+
+Pela mesma razão, `faceDeRua` e `rampaMedia_pct` saem **`null`** e não zero.
+Zero é uma medição; `null` é "não medido". Inventar zero teria feito a rampa
+passar em toda conferência do Validator sem que nada tivesse sido conferido.
+
+---
+
+## D24 · A fila muda para `docs/prompts/FILA.md` · 13/09/2026
+
+**A decisão:** `docs/FILA.md` passa a ser uma linha apontando para
+`docs/prompts/FILA.md`, que é onde ela vive nos outros repositórios da família.
+
+**Por quê.** Quatro repositórios com a fila em quatro lugares diferentes custa
+uma pergunta por sessão. A linha que fica para trás é barata e evita que todo
+link antigo — relatórios, README, prompts já colados — morra.
+
+---
+
+## D25 · As pendências do Jonny ganham arquivo próprio · 13/09/2026
+
+**A decisão:** `docs/PENDENCIAS_JONNY.md`, no padrão do Geo e do Testfit: só o
+que depende de uma pessoa, escrito para leigo, com os endereços prontos para
+clicar. Item resolvido é marcado, **nunca apagado**.
+
+**Por quê.** O que depende do Jonny estava disperso no fim de cada relatório, e
+relatório é longo por natureza. Dívida técnica do código não entra ali — essa é
+minha. Apagar item resolvido perderia a decisão junto com a pendência, que é o
+que mais dói meses depois.

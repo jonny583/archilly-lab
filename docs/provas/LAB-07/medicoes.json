@@ -1,0 +1,3251 @@
+{
+  "prompt": "LAB-07",
+  "geradoEm": "2026-09-13T14:31:44.835Z",
+  "ambiente": {
+    "bun": "1.3.11",
+    "plataforma": "linux-x64"
+  },
+  "semente": 20260913,
+  "variantesPedidas": 20,
+  "glebas": {
+    "ensaio-47ha": {
+      "area_ha": 47,
+      "temRelevo": false,
+      "assinaturaDaRodada": "f63a43a6ee9035e4",
+      "perdasNaIda": [],
+      "perdasNaVolta": [
+        {
+          "campo": "vias[].calcada_m",
+          "oQueHavia": "calçadas declaradas que somam 24050 m² de terra",
+          "motivo": "o motor declara `calcada_m` por via mas NÃO a reserva na geometria: medido, o vértice mais próximo de cada lote fica a exatamente `caixa_m / 2` do eixo — o lote encosta no meio-fio. `largura_m` sai como `caixa_m`, que é o corredor que existe. Declarar a calçada prometida faria o leito invadir o lote e o Validator reprovaria lote bem-feito",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "vias[].rampaMedia_pct",
+          "oQueHavia": "11 via(s) sem cota",
+          "motivo": "o motor não calcula greide — nenhuma via tem elevação em lugar nenhum do `Plano`. Sai `null`, como o contrato permite, e toda a conferência de rampa fica com o Validator",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "lotes[].faceDeRua",
+          "oQueHavia": "585 lote(s)",
+          "motivo": "o motor guarda a testada em metros mas não a via de frente; sai `null`, como o contrato prefere. O Validator mede a frente por conta própria",
+          "gravidade": "baixa"
+        },
+        {
+          "campo": "quadroDeAreas.areaViaria_m2",
+          "oQueHavia": "64253 m²",
+          "motivo": "o motor não mede a área dos corredores: ele calcula `bruta − quadras − especiais`. Num plano que não preenche a gleba, este número engorda com terra que não é rua. Atravessou como está — corrigi-lo aqui seria inventar uma medição que o motor não fez",
+          "gravidade": "media"
+        },
+        {
+          "campo": "plano.nota / plano.notas",
+          "oQueHavia": "nota 0.598 e 6 nota(s) por critério",
+          "motivo": "a nota do próprio motor não tem campo no contrato, e isso é de propósito: quem julga é o Judge do Generate. Fica fora, e o relatório do LAB-07 põe as duas lado a lado",
+          "gravidade": "baixa"
+        },
+        {
+          "campo": "plano.formato",
+          "oQueHavia": "espinha",
+          "motivo": "o partido de traçado (ortogonal, espinha, radial…) não tem campo no contrato. Ele vai embutido em `motor.versao` por este adaptador, para a opção não virar anônima na mesa",
+          "gravidade": "baixa"
+        }
+      ],
+      "avisosDoMotor": [],
+      "tempos": {
+        "ida_ms": 0.89,
+        "motor_ms": 426.88,
+        "voltaEJulgamento_ms": 1095.64,
+        "total_ms": 1523.52
+      },
+      "rampaDoTerreno": null,
+      "variantes": [
+        {
+          "posicaoNoMotor": 1,
+          "formato": "espinha",
+          "assinatura": "136a0c50968b616e",
+          "notaDoMotor": 0.6,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "11 peça(s) do parcelamento saem da gleba — a pior é a via V11, a 67.67 m para fora da divisa."
+            ],
+            "vias": 11,
+            "comprimentoDeVia_m": 7449.17,
+            "comprimentoForaDaGleba_m": 1070.34,
+            "comprimentoForaDaGleba_pct": 14.37
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 585,
+            "areaPrivativa_m2": 233092.08,
+            "violacoes": 7,
+            "porRegra": {
+              "testada": 1,
+              "face-quadra": 6
+            },
+            "avisos": {
+              "pontas-sem-retorno": 19
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 233092.08,
+              "areaViaria_m2": 64252.69,
+              "areaLazer_m2": 45604.58,
+              "areaAPP_m2": 77494.66,
+              "areaNaoAproveitada_m2": 49556
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 6378.83,
+          "dobra": {
+            "lotes": 585,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 100
+        },
+        {
+          "posicaoNoMotor": 2,
+          "formato": "loop",
+          "assinatura": "9feb9a89410ce277",
+          "notaDoMotor": 0.53,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "40 peça(s) do parcelamento saem da gleba — a pior é a via V2, a 125.32 m para fora da divisa."
+            ],
+            "vias": 40,
+            "comprimentoDeVia_m": 28168.36,
+            "comprimentoForaDaGleba_m": 5695.65,
+            "comprimentoForaDaGleba_pct": 20.22
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 511,
+            "areaPrivativa_m2": 204768.49,
+            "violacoes": 15,
+            "porRegra": {
+              "frente": 12,
+              "testada": 3
+            },
+            "avisos": {
+              "pontas-sem-retorno": 18,
+              "leito-sobre-leito": 1
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 204768.49,
+              "areaViaria_m2": 81054.32,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 72709.72,
+              "areaNaoAproveitada_m2": 56804.95
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 22472.7,
+          "dobra": {
+            "lotes": 511,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 81.58
+        },
+        {
+          "posicaoNoMotor": 3,
+          "formato": "espinha",
+          "assinatura": "0f6c93a3898674f9",
+          "notaDoMotor": 0.53,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "11 peça(s) do parcelamento saem da gleba — a pior é a via V11, a 21.61 m para fora da divisa."
+            ],
+            "vias": 11,
+            "comprimentoDeVia_m": 6915.97,
+            "comprimentoForaDaGleba_m": 251.08,
+            "comprimentoForaDaGleba_pct": 3.63
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 468,
+            "areaPrivativa_m2": 186741.45,
+            "violacoes": 10,
+            "porRegra": {
+              "testada": 5,
+              "face-quadra": 5
+            },
+            "avisos": {
+              "pontas-sem-retorno": 22
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 186741.45,
+              "areaViaria_m2": 66827.37,
+              "areaLazer_m2": 45478.26,
+              "areaAPP_m2": 112774.06,
+              "areaNaoAproveitada_m2": 58178.86
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 6664.89,
+          "dobra": {
+            "lotes": 468,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0.97,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 32.1
+        },
+        {
+          "posicaoNoMotor": 4,
+          "formato": "ortogonal",
+          "assinatura": "572f284634303adc",
+          "notaDoMotor": 0.51,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "44 peça(s) do parcelamento saem da gleba — a pior é a via V4, a 66.84 m para fora da divisa."
+            ],
+            "vias": 44,
+            "comprimentoDeVia_m": 30302.65,
+            "comprimentoForaDaGleba_m": 7146.46,
+            "comprimentoForaDaGleba_pct": 23.58
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 448,
+            "areaPrivativa_m2": 179317.29,
+            "violacoes": 18,
+            "porRegra": {
+              "frente": 15,
+              "testada": 3
+            },
+            "avisos": {
+              "pontas-sem-retorno": 15
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 179317.29,
+              "areaViaria_m2": 76419.24,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 87582.81,
+              "areaNaoAproveitada_m2": 72018.13
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 23156.18,
+          "dobra": {
+            "lotes": 448,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0.34,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 48.86
+        },
+        {
+          "posicaoNoMotor": 5,
+          "formato": "ortogonal",
+          "assinatura": "31354ec6097f4f44",
+          "notaDoMotor": 0.5,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "45 peça(s) do parcelamento saem da gleba — a pior é a via V1, a 69.11 m para fora da divisa."
+            ],
+            "vias": 45,
+            "comprimentoDeVia_m": 31118,
+            "comprimentoForaDaGleba_m": 8049.57,
+            "comprimentoForaDaGleba_pct": 25.87
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 441,
+            "areaPrivativa_m2": 175871.58,
+            "violacoes": 15,
+            "porRegra": {
+              "frente": 12,
+              "testada": 3
+            },
+            "avisos": {
+              "pontas-sem-retorno": 15
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 175871.58,
+              "areaViaria_m2": 76515.68,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 87325.43,
+              "areaNaoAproveitada_m2": 75624.78
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 23068.43,
+          "dobra": {
+            "lotes": 441,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0.38,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 44.98
+        },
+        {
+          "posicaoNoMotor": 6,
+          "formato": "diagonal",
+          "assinatura": "97df46e735eea9d9",
+          "notaDoMotor": 0.48,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "61 peça(s) do parcelamento saem da gleba — a pior é a via V61, a 375.85 m para fora da divisa."
+            ],
+            "vias": 61,
+            "comprimentoDeVia_m": 57972.08,
+            "comprimentoForaDaGleba_m": 25609.51,
+            "comprimentoForaDaGleba_pct": 44.18
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 411,
+            "areaPrivativa_m2": 164726.82,
+            "violacoes": 7,
+            "porRegra": {
+              "frente": 7
+            },
+            "avisos": {
+              "pontas-sem-retorno": 21
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 164726.82,
+              "areaViaria_m2": 79048.72,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 104395.6,
+              "areaNaoAproveitada_m2": 67166.33
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 32362.57,
+          "dobra": {
+            "lotes": 411,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 72.72
+        },
+        {
+          "posicaoNoMotor": 7,
+          "formato": "mioloVerde",
+          "assinatura": "7d7cdd7f99407275",
+          "notaDoMotor": 0.48,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "39 peça(s) do parcelamento saem da gleba — a pior é a via V4, a 79.49 m para fora da divisa."
+            ],
+            "vias": 39,
+            "comprimentoDeVia_m": 27319.93,
+            "comprimentoForaDaGleba_m": 6283.89,
+            "comprimentoForaDaGleba_pct": 23
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 390,
+            "areaPrivativa_m2": 155892.82,
+            "violacoes": 4,
+            "porRegra": {
+              "frente": 2,
+              "testada": 2
+            },
+            "avisos": {
+              "pontas-sem-retorno": 13
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 155892.82,
+              "areaViaria_m2": 70763.29,
+              "areaLazer_m2": 47829.71,
+              "areaAPP_m2": 74620.72,
+              "areaNaoAproveitada_m2": 120893.46
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 21036.04,
+          "dobra": {
+            "lotes": 390,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0.94,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 39.04
+        },
+        {
+          "posicaoNoMotor": 8,
+          "formato": "diagonal",
+          "assinatura": "f4b7224d9b35321f",
+          "notaDoMotor": 0.47,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "64 peça(s) do parcelamento saem da gleba — a pior é a via V60, a 346.51 m para fora da divisa."
+            ],
+            "vias": 64,
+            "comprimentoDeVia_m": 63000.07,
+            "comprimentoForaDaGleba_m": 28374.44,
+            "comprimentoForaDaGleba_pct": 45.04
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 384,
+            "areaPrivativa_m2": 153933.26,
+            "violacoes": 7,
+            "porRegra": {
+              "frente": 5,
+              "testada": 2
+            },
+            "avisos": {
+              "pontas-sem-retorno": 24
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 153933.26,
+              "areaViaria_m2": 79472.27,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 102172.13,
+              "areaNaoAproveitada_m2": 79759.82
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 34625.63,
+          "dobra": {
+            "lotes": 384,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 88.41
+        },
+        {
+          "posicaoNoMotor": 9,
+          "formato": "loop",
+          "assinatura": "cf56cb7fb517fd05",
+          "notaDoMotor": 0.46,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "20 peça(s) do parcelamento saem da gleba — a pior é a via V1, a 23.67 m para fora da divisa."
+            ],
+            "vias": 35,
+            "comprimentoDeVia_m": 21430.95,
+            "comprimentoForaDaGleba_m": 848.52,
+            "comprimentoForaDaGleba_pct": 3.96
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 391,
+            "areaPrivativa_m2": 156391.84,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 10
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 156391.84,
+              "areaViaria_m2": 89849.92,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 91408.33,
+              "areaNaoAproveitada_m2": 77687.39
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 20582.43,
+          "dobra": {
+            "lotes": 391,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 35.76
+        },
+        {
+          "posicaoNoMotor": 10,
+          "formato": "cluster",
+          "assinatura": "146a052917710d0f",
+          "notaDoMotor": 0.44,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "71 peça(s) do parcelamento saem da gleba — a pior é a via V7, a 18.50 m para fora da divisa."
+            ],
+            "vias": 71,
+            "comprimentoDeVia_m": 44726.7,
+            "comprimentoForaDaGleba_m": 1792.23,
+            "comprimentoForaDaGleba_pct": 4.01
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 369,
+            "areaPrivativa_m2": 143563.67,
+            "violacoes": 287,
+            "porRegra": {
+              "testada": 278,
+              "frente": 9
+            },
+            "avisos": {
+              "pontas-sem-retorno": 16
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 143563.67,
+              "areaViaria_m2": 95516.33,
+              "areaLazer_m2": 49021.74,
+              "areaAPP_m2": 110558.18,
+              "areaNaoAproveitada_m2": 71340.08
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 42934.48,
+          "dobra": {
+            "lotes": 369,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 45.54
+        },
+        {
+          "posicaoNoMotor": 11,
+          "formato": "organico",
+          "assinatura": "63b5162b718bf735",
+          "notaDoMotor": 0.44,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "93 peça(s) do parcelamento saem da gleba — a pior é a via V1, a 235.01 m para fora da divisa."
+            ],
+            "vias": 209,
+            "comprimentoDeVia_m": 12397.18,
+            "comprimentoForaDaGleba_m": 4991.22,
+            "comprimentoForaDaGleba_pct": 40.26
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 374,
+            "areaPrivativa_m2": 148271.89,
+            "violacoes": 524,
+            "porRegra": {
+              "sobreposicao": 165,
+              "frente": 316,
+              "testada": 33,
+              "face-quadra": 10
+            },
+            "avisos": {
+              "pontas-sem-retorno": 44
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 148271.89,
+              "areaViaria_m2": 99066.62,
+              "areaLazer_m2": 58233.71,
+              "areaAPP_m2": 90687.43,
+              "areaNaoAproveitada_m2": 73740.34
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 7405.96,
+          "dobra": {
+            "lotes": 374,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 180,
+            "foraDaQuadra": 187,
+            "maiorFugaDaQuadra_m": 15.06,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 1.73,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 135.05
+        },
+        {
+          "posicaoNoMotor": 12,
+          "formato": "cluster",
+          "assinatura": "a7fabd70be764392",
+          "notaDoMotor": 0.44,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "71 peça(s) do parcelamento saem da gleba — a pior é a via V7, a 20.33 m para fora da divisa."
+            ],
+            "vias": 71,
+            "comprimentoDeVia_m": 44857.89,
+            "comprimentoForaDaGleba_m": 1488.48,
+            "comprimentoForaDaGleba_pct": 3.32
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 375,
+            "areaPrivativa_m2": 145313.93,
+            "violacoes": 292,
+            "porRegra": {
+              "testada": 292
+            },
+            "avisos": {
+              "pontas-sem-retorno": 16
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 145313.93,
+              "areaViaria_m2": 99411.65,
+              "areaLazer_m2": 49021.74,
+              "areaAPP_m2": 101305.87,
+              "areaNaoAproveitada_m2": 74946.81
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 43369.4,
+          "dobra": {
+            "lotes": 375,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 52.51
+        },
+        {
+          "posicaoNoMotor": 13,
+          "formato": "mioloVerde",
+          "assinatura": "24704856f08ecf7c",
+          "notaDoMotor": 0.42,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "39 peça(s) do parcelamento saem da gleba — a pior é a via V4, a 68.41 m para fora da divisa."
+            ],
+            "vias": 39,
+            "comprimentoDeVia_m": 26900.26,
+            "comprimentoForaDaGleba_m": 6357.1,
+            "comprimentoForaDaGleba_pct": 23.63
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 270,
+            "areaPrivativa_m2": 107380.8,
+            "violacoes": 14,
+            "porRegra": {
+              "frente": 14
+            },
+            "avisos": {
+              "pontas-sem-retorno": 13
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 107380.8,
+              "areaViaria_m2": 69465.1,
+              "areaLazer_m2": 47829.71,
+              "areaAPP_m2": 100500.82,
+              "areaNaoAproveitada_m2": 144823.57
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 20543.15,
+          "dobra": {
+            "lotes": 270,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 27.91
+        },
+        {
+          "posicaoNoMotor": 14,
+          "formato": "organico",
+          "assinatura": "12518e4f51cf8dc5",
+          "notaDoMotor": 0.4,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "79 peça(s) do parcelamento saem da gleba — a pior é a via V2, a 164.70 m para fora da divisa."
+            ],
+            "vias": 190,
+            "comprimentoDeVia_m": 10758.02,
+            "comprimentoForaDaGleba_m": 3368.84,
+            "comprimentoForaDaGleba_pct": 31.31
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "7 peça(s) do parcelamento saem da gleba — a pior é a lote v14-l275, a 2.44 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 7389.18,
+          "dobra": {
+            "lotes": 296,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 276,
+            "foraDaQuadra": 158,
+            "maiorFugaDaQuadra_m": 9.82,
+            "foraDaGleba": 7,
+            "maiorDesvioTestada_m": 0.44,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 84.95
+        },
+        {
+          "posicaoNoMotor": 15,
+          "formato": "pente",
+          "assinatura": "d648b05218a2c050",
+          "notaDoMotor": 0.4,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "90 peça(s) do parcelamento saem da gleba — a pior é a via V90, a 193.01 m para fora da divisa."
+            ],
+            "vias": 90,
+            "comprimentoDeVia_m": 72061.13,
+            "comprimentoForaDaGleba_m": 22306.44,
+            "comprimentoForaDaGleba_pct": 30.95
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 351,
+            "areaPrivativa_m2": 140924.18,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 33
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 140924.18,
+              "areaViaria_m2": 123419.49,
+              "areaLazer_m2": 47829.71,
+              "areaAPP_m2": 89868.94,
+              "areaNaoAproveitada_m2": 67957.67
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 49754.69,
+          "dobra": {
+            "lotes": 351,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 75.26
+        },
+        {
+          "posicaoNoMotor": 16,
+          "formato": "radial",
+          "assinatura": "0bedd6db334426d5",
+          "notaDoMotor": 0.37,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "178 peça(s) do parcelamento saem da gleba — a pior é a via V205, a 783.90 m para fora da divisa."
+            ],
+            "vias": 210,
+            "comprimentoDeVia_m": 34170.38,
+            "comprimentoForaDaGleba_m": 25560.06,
+            "comprimentoForaDaGleba_pct": 74.8
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "23 peça(s) do parcelamento saem da gleba — a pior é a lote v15-l154, a 1.16 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 8610.33,
+          "dobra": {
+            "lotes": 229,
+            "foraDaFaixaTestada": 22,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 4,
+            "foraDaQuadra": 23,
+            "maiorFugaDaQuadra_m": 1.16,
+            "foraDaGleba": 23,
+            "maiorDesvioTestada_m": 2.15,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 43.63
+        },
+        {
+          "posicaoNoMotor": 17,
+          "formato": "pente",
+          "assinatura": "3605c7af4437802d",
+          "notaDoMotor": 0.37,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "57 peça(s) do parcelamento saem da gleba — a pior é a via V57, a 33.79 m para fora da divisa."
+            ],
+            "vias": 57,
+            "comprimentoDeVia_m": 38317.11,
+            "comprimentoForaDaGleba_m": 3207.57,
+            "comprimentoForaDaGleba_pct": 8.37
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 303,
+            "areaPrivativa_m2": 119518.59,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 28
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 119518.59,
+              "areaViaria_m2": 118631.37,
+              "areaLazer_m2": 47829.71,
+              "areaAPP_m2": 107531.69,
+              "areaNaoAproveitada_m2": 76488.63
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 35109.54,
+          "dobra": {
+            "lotes": 303,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 44.3
+        },
+        {
+          "posicaoNoMotor": 18,
+          "formato": "superquadra",
+          "assinatura": "bb07514ee56fc950",
+          "notaDoMotor": 0.37,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "7 peça(s) do parcelamento saem da gleba — a pior é a via V7, a 241.33 m para fora da divisa."
+            ],
+            "vias": 7,
+            "comprimentoDeVia_m": 5330.93,
+            "comprimentoForaDaGleba_m": 3343.6,
+            "comprimentoForaDaGleba_pct": 62.72
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 0,
+            "areaPrivativa_m2": 0,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 6
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 0,
+              "areaViaria_m2": 39411.34,
+              "areaLazer_m2": 47270.12,
+              "areaAPP_m2": 19152.84,
+              "areaNaoAproveitada_m2": 364165.7
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 1987.33,
+          "dobra": {
+            "lotes": 0,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 1.7
+        },
+        {
+          "posicaoNoMotor": 19,
+          "formato": "radial",
+          "assinatura": "8a3255efa63b7a81",
+          "notaDoMotor": 0.36,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "176 peça(s) do parcelamento saem da gleba — a pior é a via V206, a 776.48 m para fora da divisa."
+            ],
+            "vias": 210,
+            "comprimentoDeVia_m": 34589.23,
+            "comprimentoForaDaGleba_m": 25882.41,
+            "comprimentoForaDaGleba_pct": 74.83
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "21 peça(s) do parcelamento saem da gleba — a pior é a lote v5-l158, a 1.16 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 8706.82,
+          "dobra": {
+            "lotes": 205,
+            "foraDaFaixaTestada": 19,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 21,
+            "maiorFugaDaQuadra_m": 1.16,
+            "foraDaGleba": 21,
+            "maiorDesvioTestada_m": 2.15,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 38.95
+        },
+        {
+          "posicaoNoMotor": 20,
+          "formato": "superquadra",
+          "assinatura": "c0d72f6daccc3c0f",
+          "notaDoMotor": 0.34,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "9 peça(s) do parcelamento saem da gleba — a pior é a via V9, a 347.65 m para fora da divisa."
+            ],
+            "vias": 9,
+            "comprimentoDeVia_m": 7496.89,
+            "comprimentoForaDaGleba_m": 4352.56,
+            "comprimentoForaDaGleba_pct": 58.06
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 0,
+            "areaPrivativa_m2": 0,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 10
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 470000,
+              "areaPrivativa_m2": 0,
+              "areaViaria_m2": 60024.64,
+              "areaLazer_m2": 47133.39,
+              "areaAPP_m2": 81737.98,
+              "areaNaoAproveitada_m2": 281103.99
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 3144.32,
+          "dobra": {
+            "lotes": 0,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 1.97
+        }
+      ]
+    },
+    "geo-antonina": {
+      "area_ha": 141.76,
+      "temRelevo": false,
+      "assinaturaDaRodada": "c63c35b0fceda116",
+      "perdasNaIda": [
+        {
+          "campo": "acessos[0].sugerido",
+          "oQueHavia": "true — ninguém marcou o acesso, o Geo pôs o meio da testada de frente",
+          "motivo": "o motor não distingue acesso marcado de palpite; o traçado vai partir dali como se fosse decisão do usuário. O contrato faz questão de carregar essa marca justamente para não deixar o palpite calado",
+          "gravidade": "media"
+        },
+        {
+          "campo": "atracoes[0] (T1)",
+          "oQueHavia": "via_existente \"Testada de frente L1\" como linha",
+          "motivo": "o motor só entende atração como polígono. As vias do entorno viajam no contrato como LINHA, que é a forma natural delas — e é justamente a que não entra",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "geo",
+          "oQueHavia": "o documento `archilly-terreno` inteiro do Archilly Geo",
+          "motivo": "o motor tem um leitor próprio de `archilly-terreno` (`importarTerreno`), mas a entrada dele por esta ponte é o contrato, não o documento do Geo. Matrícula, CAR, INCRA, zoneamento e testadas com papel ficam de fora do desenho",
+          "gravidade": "media"
+        }
+      ],
+      "perdasNaVolta": [
+        {
+          "campo": "vias[].calcada_m",
+          "oQueHavia": "calçadas declaradas que somam 99693 m² de terra",
+          "motivo": "o motor declara `calcada_m` por via mas NÃO a reserva na geometria: medido, o vértice mais próximo de cada lote fica a exatamente `caixa_m / 2` do eixo — o lote encosta no meio-fio. `largura_m` sai como `caixa_m`, que é o corredor que existe. Declarar a calçada prometida faria o leito invadir o lote e o Validator reprovaria lote bem-feito",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "vias[].rampaMedia_pct",
+          "oQueHavia": "25 via(s) sem cota",
+          "motivo": "o motor não calcula greide — nenhuma via tem elevação em lugar nenhum do `Plano`. Sai `null`, como o contrato permite, e toda a conferência de rampa fica com o Validator",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "lotes[].faceDeRua",
+          "oQueHavia": "1429 lote(s)",
+          "motivo": "o motor guarda a testada em metros mas não a via de frente; sai `null`, como o contrato prefere. O Validator mede a frente por conta própria",
+          "gravidade": "baixa"
+        },
+        {
+          "campo": "quadroDeAreas.areaViaria_m2",
+          "oQueHavia": "197807 m²",
+          "motivo": "o motor não mede a área dos corredores: ele calcula `bruta − quadras − especiais`. Num plano que não preenche a gleba, este número engorda com terra que não é rua. Atravessou como está — corrigi-lo aqui seria inventar uma medição que o motor não fez",
+          "gravidade": "media"
+        },
+        {
+          "campo": "plano.nota / plano.notas",
+          "oQueHavia": "nota 0.627 e 9 nota(s) por critério",
+          "motivo": "a nota do próprio motor não tem campo no contrato, e isso é de propósito: quem julga é o Judge do Generate. Fica fora, e o relatório do LAB-07 põe as duas lado a lado",
+          "gravidade": "baixa"
+        },
+        {
+          "campo": "plano.formato",
+          "oQueHavia": "espinha",
+          "motivo": "o partido de traçado (ortogonal, espinha, radial…) não tem campo no contrato. Ele vai embutido em `motor.versao` por este adaptador, para a opção não virar anônima na mesa",
+          "gravidade": "baixa"
+        }
+      ],
+      "avisosDoMotor": [],
+      "tempos": {
+        "ida_ms": 0.47,
+        "motor_ms": 1963.49,
+        "voltaEJulgamento_ms": 7585.12,
+        "total_ms": 9549.26
+      },
+      "rampaDoTerreno": null,
+      "variantes": [
+        {
+          "posicaoNoMotor": 1,
+          "formato": "espinha",
+          "assinatura": "8f0b66f8cc69e7e6",
+          "notaDoMotor": 0.63,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "25 peça(s) do parcelamento saem da gleba — a pior é a via V25, a 659.89 m para fora da divisa."
+            ],
+            "vias": 25,
+            "comprimentoDeVia_m": 31965.8,
+            "comprimentoForaDaGleba_m": 12494.3,
+            "comprimentoForaDaGleba_pct": 39.09
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1429,
+            "areaPrivativa_m2": 570942.71,
+            "violacoes": 40,
+            "porRegra": {
+              "testada": 22,
+              "face-quadra": 18
+            },
+            "avisos": {
+              "pontas-sem-retorno": 48
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 570942.71,
+              "areaViaria_m2": 197807,
+              "areaLazer_m2": 146841.25,
+              "areaAPP_m2": 299584.11,
+              "areaNaoAproveitada_m2": 202390.11
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 19471.49,
+          "dobra": {
+            "lotes": 1429,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 153.55
+        },
+        {
+          "posicaoNoMotor": 2,
+          "formato": "ortogonal",
+          "assinatura": "a2b0cb9e07d0c51c",
+          "notaDoMotor": 0.62,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "160 peça(s) do parcelamento saem da gleba — a pior é a via V10, a 646.76 m para fora da divisa."
+            ],
+            "vias": 160,
+            "comprimentoDeVia_m": 208321.41,
+            "comprimentoForaDaGleba_m": 83369.22,
+            "comprimentoForaDaGleba_pct": 40.02
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1386,
+            "areaPrivativa_m2": 555017.12,
+            "violacoes": 15,
+            "porRegra": {
+              "frente": 15
+            },
+            "avisos": {
+              "pontas-sem-retorno": 29
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 555017.12,
+              "areaViaria_m2": 239085.59,
+              "areaLazer_m2": 136656.31,
+              "areaAPP_m2": 241844.53,
+              "areaNaoAproveitada_m2": 244961.63
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 124952.18,
+          "dobra": {
+            "lotes": 1386,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 394.4
+        },
+        {
+          "posicaoNoMotor": 3,
+          "formato": "loop",
+          "assinatura": "abc474c18678aee7",
+          "notaDoMotor": 0.62,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "112 peça(s) do parcelamento saem da gleba — a pior é a via V1, a 400.60 m para fora da divisa."
+            ],
+            "vias": 124,
+            "comprimentoDeVia_m": 130370.62,
+            "comprimentoForaDaGleba_m": 32770.72,
+            "comprimentoForaDaGleba_pct": 25.14
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1516,
+            "areaPrivativa_m2": 608077.47,
+            "violacoes": 19,
+            "porRegra": {
+              "frente": 17,
+              "face-quadra": 2
+            },
+            "avisos": {
+              "pontas-sem-retorno": 26,
+              "leito-sobre-leito": 1
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 608077.47,
+              "areaViaria_m2": 247699.64,
+              "areaLazer_m2": 136656.31,
+              "areaAPP_m2": 233013.2,
+              "areaNaoAproveitada_m2": 192118.56
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 97599.9,
+          "dobra": {
+            "lotes": 1516,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 398.73
+        },
+        {
+          "posicaoNoMotor": 4,
+          "formato": "ortogonal",
+          "assinatura": "fbee5a0d951fa26f",
+          "notaDoMotor": 0.61,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "149 peça(s) do parcelamento saem da gleba — a pior é a via V140, a 351.32 m para fora da divisa."
+            ],
+            "vias": 149,
+            "comprimentoDeVia_m": 172895.65,
+            "comprimentoForaDaGleba_m": 54869.82,
+            "comprimentoForaDaGleba_pct": 31.74
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1346,
+            "areaPrivativa_m2": 538536.44,
+            "violacoes": 26,
+            "porRegra": {
+              "frente": 23,
+              "face-quadra": 3
+            },
+            "avisos": {
+              "pontas-sem-retorno": 28
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 538536.44,
+              "areaViaria_m2": 240376.1,
+              "areaLazer_m2": 136656.31,
+              "areaAPP_m2": 248643.51,
+              "areaNaoAproveitada_m2": 253352.82
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 118025.83,
+          "dobra": {
+            "lotes": 1346,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 440.42
+        },
+        {
+          "posicaoNoMotor": 5,
+          "formato": "loop",
+          "assinatura": "da4033f345625aed",
+          "notaDoMotor": 0.6,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "139 peça(s) do parcelamento saem da gleba — a pior é a via V2, a 601.70 m para fora da divisa."
+            ],
+            "vias": 138,
+            "comprimentoDeVia_m": 168509.33,
+            "comprimentoForaDaGleba_m": 53686.48,
+            "comprimentoForaDaGleba_pct": 31.86
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "1 peça(s) do parcelamento saem da gleba — a pior é a área AE14, a 13.42 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 114822.86,
+          "dobra": {
+            "lotes": 1282,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 108.45
+        },
+        {
+          "posicaoNoMotor": 6,
+          "formato": "diagonal",
+          "assinatura": "9d7a0406233d82ac",
+          "notaDoMotor": 0.6,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "231 peça(s) do parcelamento saem da gleba — a pior é a via V8, a 796.76 m para fora da divisa."
+            ],
+            "vias": 231,
+            "comprimentoDeVia_m": 494634.07,
+            "comprimentoForaDaGleba_m": 283009.15,
+            "comprimentoForaDaGleba_pct": 57.22
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1287,
+            "areaPrivativa_m2": 515922.08,
+            "violacoes": 13,
+            "porRegra": {
+              "frente": 9,
+              "testada": 4
+            },
+            "avisos": {
+              "pontas-sem-retorno": 54
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 515922.08,
+              "areaViaria_m2": 240271.01,
+              "areaLazer_m2": 136656.31,
+              "areaAPP_m2": 289430.03,
+              "areaNaoAproveitada_m2": 235285.75
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 211624.92,
+          "dobra": {
+            "lotes": 1287,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 839.8
+        },
+        {
+          "posicaoNoMotor": 7,
+          "formato": "mioloVerde",
+          "assinatura": "19ad0b75417240ab",
+          "notaDoMotor": 0.6,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "120 peça(s) do parcelamento saem da gleba — a pior é a via V120, a 335.59 m para fora da divisa."
+            ],
+            "vias": 120,
+            "comprimentoDeVia_m": 139544.81,
+            "comprimentoForaDaGleba_m": 44055.78,
+            "comprimentoForaDaGleba_pct": 31.57
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1176,
+            "areaPrivativa_m2": 470771.58,
+            "violacoes": 12,
+            "porRegra": {
+              "frente": 12
+            },
+            "avisos": {
+              "pontas-sem-retorno": 22
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 470771.58,
+              "areaViaria_m2": 217147.66,
+              "areaLazer_m2": 136656.31,
+              "areaAPP_m2": 226473.46,
+              "areaNaoAproveitada_m2": 366516.17
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 95489.03,
+          "dobra": {
+            "lotes": 1176,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 290.91
+        },
+        {
+          "posicaoNoMotor": 8,
+          "formato": "diagonal",
+          "assinatura": "87b4b381ab7e0e1b",
+          "notaDoMotor": 0.6,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "234 peça(s) do parcelamento saem da gleba — a pior é a via V226, a 965.23 m para fora da divisa."
+            ],
+            "vias": 234,
+            "comprimentoDeVia_m": 463999.15,
+            "comprimentoForaDaGleba_m": 271271.12,
+            "comprimentoForaDaGleba_pct": 58.46
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1295,
+            "areaPrivativa_m2": 518746.61,
+            "violacoes": 17,
+            "porRegra": {
+              "testada": 3,
+              "frente": 14
+            },
+            "avisos": {
+              "pontas-sem-retorno": 48
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 518746.61,
+              "areaViaria_m2": 240816.35,
+              "areaLazer_m2": 136656.31,
+              "areaAPP_m2": 305838.1,
+              "areaNaoAproveitada_m2": 215507.8
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 192728.03,
+          "dobra": {
+            "lotes": 1295,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 439.57
+        },
+        {
+          "posicaoNoMotor": 9,
+          "formato": "espinha",
+          "assinatura": "9c2f68a86bdc21d2",
+          "notaDoMotor": 0.59,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "26 peça(s) do parcelamento saem da gleba — a pior é a via V26, a 458.13 m para fora da divisa."
+            ],
+            "vias": 26,
+            "comprimentoDeVia_m": 29072.04,
+            "comprimentoForaDaGleba_m": 9491.1,
+            "comprimentoForaDaGleba_pct": 32.65
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1144,
+            "areaPrivativa_m2": 456461.98,
+            "violacoes": 46,
+            "porRegra": {
+              "testada": 33,
+              "face-quadra": 13
+            },
+            "avisos": {
+              "pontas-sem-retorno": 50
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 456461.98,
+              "areaViaria_m2": 197433.44,
+              "areaLazer_m2": 137472.05,
+              "areaAPP_m2": 349061.06,
+              "areaNaoAproveitada_m2": 277136.65
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 19580.93,
+          "dobra": {
+            "lotes": 1144,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0.97,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 101.37
+        },
+        {
+          "posicaoNoMotor": 10,
+          "formato": "organico",
+          "assinatura": "6a3b8305bd2d0deb",
+          "notaDoMotor": 0.58,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "288 peça(s) do parcelamento saem da gleba — a pior é a via V472, a 850.84 m para fora da divisa."
+            ],
+            "vias": 480,
+            "comprimentoDeVia_m": 47365.27,
+            "comprimentoForaDaGleba_m": 24457.66,
+            "comprimentoForaDaGleba_pct": 51.64
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "20 peça(s) do parcelamento saem da gleba — a pior é a lote v4-l1103, a 2.68 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 22907.61,
+          "dobra": {
+            "lotes": 1174,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 574,
+            "maiorFugaDaQuadra_m": 3.08,
+            "foraDaGleba": 20,
+            "maiorDesvioTestada_m": 1.82,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 394.12
+        },
+        {
+          "posicaoNoMotor": 11,
+          "formato": "cluster",
+          "assinatura": "1451c6032d2c6b69",
+          "notaDoMotor": 0.58,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "269 peça(s) do parcelamento saem da gleba — a pior é a via V17, a 452.02 m para fora da divisa."
+            ],
+            "vias": 269,
+            "comprimentoDeVia_m": 304280.82,
+            "comprimentoForaDaGleba_m": 98964.64,
+            "comprimentoForaDaGleba_pct": 32.52
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1215,
+            "areaPrivativa_m2": 471584.42,
+            "violacoes": 945,
+            "porRegra": {
+              "testada": 916,
+              "frente": 29
+            },
+            "avisos": {
+              "pontas-sem-retorno": 26
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 471584.42,
+              "areaViaria_m2": 291248.1,
+              "areaLazer_m2": 140062.11,
+              "areaAPP_m2": 295018.57,
+              "areaNaoAproveitada_m2": 219651.99
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 205316.18,
+          "dobra": {
+            "lotes": 1215,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 731.69
+        },
+        {
+          "posicaoNoMotor": 12,
+          "formato": "cluster",
+          "assinatura": "57c50d3ac086a190",
+          "notaDoMotor": 0.57,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "269 peça(s) do parcelamento saem da gleba — a pior é a via V17, a 456.55 m para fora da divisa."
+            ],
+            "vias": 269,
+            "comprimentoDeVia_m": 304400.57,
+            "comprimentoForaDaGleba_m": 99212.37,
+            "comprimentoForaDaGleba_pct": 32.59
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 1132,
+            "areaPrivativa_m2": 437644.75,
+            "violacoes": 882,
+            "porRegra": {
+              "testada": 837,
+              "frente": 45
+            },
+            "avisos": {
+              "pontas-sem-retorno": 27
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 437644.75,
+              "areaViaria_m2": 289492.84,
+              "areaLazer_m2": 140062.11,
+              "areaAPP_m2": 325392.12,
+              "areaNaoAproveitada_m2": 224973.36
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 205188.21,
+          "dobra": {
+            "lotes": 1132,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 701.14
+        },
+        {
+          "posicaoNoMotor": 13,
+          "formato": "organico",
+          "assinatura": "5993cb751c7252a7",
+          "notaDoMotor": 0.57,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "216 peça(s) do parcelamento saem da gleba — a pior é a via V400, a 681.91 m para fora da divisa."
+            ],
+            "vias": 408,
+            "comprimentoDeVia_m": 41671.03,
+            "comprimentoForaDaGleba_m": 18833.4,
+            "comprimentoForaDaGleba_pct": 45.2
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "11 peça(s) do parcelamento saem da gleba — a pior é a lote v14-l304, a 2.19 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 22837.64,
+          "dobra": {
+            "lotes": 1068,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 508,
+            "maiorFugaDaQuadra_m": 2.74,
+            "foraDaGleba": 11,
+            "maiorDesvioTestada_m": 1.63,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 353.37
+        },
+        {
+          "posicaoNoMotor": 14,
+          "formato": "mioloVerde",
+          "assinatura": "215f8fc31c50984d",
+          "notaDoMotor": 0.57,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "119 peça(s) do parcelamento saem da gleba — a pior é a via V9, a 334.46 m para fora da divisa."
+            ],
+            "vias": 119,
+            "comprimentoDeVia_m": 137851.3,
+            "comprimentoForaDaGleba_m": 42193.48,
+            "comprimentoForaDaGleba_pct": 30.61
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 874,
+            "areaPrivativa_m2": 349484.71,
+            "violacoes": 18,
+            "porRegra": {
+              "frente": 18
+            },
+            "avisos": {
+              "pontas-sem-retorno": 21
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 349484.71,
+              "areaViaria_m2": 217712.28,
+              "areaLazer_m2": 136656.31,
+              "areaAPP_m2": 288116.66,
+              "areaNaoAproveitada_m2": 425595.22
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 95657.82,
+          "dobra": {
+            "lotes": 874,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 289.44
+        },
+        {
+          "posicaoNoMotor": 15,
+          "formato": "pente",
+          "assinatura": "5cbf11e6a583204c",
+          "notaDoMotor": 0.57,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "323 peça(s) do parcelamento saem da gleba — a pior é a via V315, a 859.30 m para fora da divisa."
+            ],
+            "vias": 323,
+            "comprimentoDeVia_m": 506535.7,
+            "comprimentoForaDaGleba_m": 230820.39,
+            "comprimentoForaDaGleba_pct": 45.57
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 1085,
+            "areaPrivativa_m2": 434366.44,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 69
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 434366.44,
+              "areaViaria_m2": 374868.55,
+              "areaLazer_m2": 137282,
+              "areaAPP_m2": 263502.93,
+              "areaNaoAproveitada_m2": 207545.26
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 275715.3,
+          "dobra": {
+            "lotes": 1085,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 769.73
+        },
+        {
+          "posicaoNoMotor": 16,
+          "formato": "radial",
+          "assinatura": "5cf2c013d5d7b041",
+          "notaDoMotor": 0.56,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "477 peça(s) do parcelamento saem da gleba — a pior é a via V514, a 2030.86 m para fora da divisa."
+            ],
+            "vias": 530,
+            "comprimentoDeVia_m": 191903.19,
+            "comprimentoForaDaGleba_m": 170083.25,
+            "comprimentoForaDaGleba_pct": 88.63
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "8 peça(s) do parcelamento saem da gleba — a pior é a lote v15-l517, a 1.15 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 21819.93,
+          "dobra": {
+            "lotes": 760,
+            "foraDaFaixaTestada": 74,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 8,
+            "maiorFugaDaQuadra_m": 1.15,
+            "foraDaGleba": 8,
+            "maiorDesvioTestada_m": 2.16,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 206.73
+        },
+        {
+          "posicaoNoMotor": 17,
+          "formato": "radial",
+          "assinatura": "4dd1697b46858a81",
+          "notaDoMotor": 0.55,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "487 peça(s) do parcelamento saem da gleba — a pior é a via V535, a 2109.35 m para fora da divisa."
+            ],
+            "vias": 550,
+            "comprimentoDeVia_m": 206509.94,
+            "comprimentoForaDaGleba_m": 183777.1,
+            "comprimentoForaDaGleba_pct": 88.99
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "9 peça(s) do parcelamento saem da gleba — a pior é a lote v5-l260, a 1.15 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 22732.84,
+          "dobra": {
+            "lotes": 686,
+            "foraDaFaixaTestada": 60,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 9,
+            "maiorFugaDaQuadra_m": 1.15,
+            "foraDaGleba": 9,
+            "maiorDesvioTestada_m": 2.16,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 195.91
+        },
+        {
+          "posicaoNoMotor": 18,
+          "formato": "pente",
+          "assinatura": "9d8f11560cfc116c",
+          "notaDoMotor": 0.54,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "261 peça(s) do parcelamento saem da gleba — a pior é a via V261, a 582.50 m para fora da divisa."
+            ],
+            "vias": 261,
+            "comprimentoDeVia_m": 321827.97,
+            "comprimentoForaDaGleba_m": 102743.86,
+            "comprimentoForaDaGleba_pct": 31.93
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 920,
+            "areaPrivativa_m2": 368061.02,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 51
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 368061.02,
+              "areaViaria_m2": 379314.48,
+              "areaLazer_m2": 136656.31,
+              "areaAPP_m2": 320136.68,
+              "areaNaoAproveitada_m2": 213396.68
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 219084.11,
+          "dobra": {
+            "lotes": 920,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 757.83
+        },
+        {
+          "posicaoNoMotor": 19,
+          "formato": "superquadra",
+          "assinatura": "8964be8819f9293e",
+          "notaDoMotor": 0.43,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "13 peça(s) do parcelamento saem da gleba — a pior é a via V5, a 617.35 m para fora da divisa."
+            ],
+            "vias": 13,
+            "comprimentoDeVia_m": 18935.34,
+            "comprimentoForaDaGleba_m": 11219.19,
+            "comprimentoForaDaGleba_pct": 59.25
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 0,
+            "areaPrivativa_m2": 0,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 18
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 1417565.19,
+              "areaPrivativa_m2": 0,
+              "areaViaria_m2": 148232.17,
+              "areaLazer_m2": 143295.26,
+              "areaAPP_m2": 97231.04,
+              "areaNaoAproveitada_m2": 1028806.72
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 7716.15,
+          "dobra": {
+            "lotes": 0,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 9.95
+        },
+        {
+          "posicaoNoMotor": 20,
+          "formato": "superquadra",
+          "assinatura": "1d5210b559ddb0d7",
+          "notaDoMotor": 0.42,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "16 peça(s) do parcelamento saem da gleba — a pior é a via V7, a 1022.45 m para fora da divisa."
+            ],
+            "vias": 15,
+            "comprimentoDeVia_m": 24905.66,
+            "comprimentoForaDaGleba_m": 15101.82,
+            "comprimentoForaDaGleba_pct": 60.64
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "1 peça(s) do parcelamento saem da gleba — a pior é a área AE23, a 3.39 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 9803.84,
+          "dobra": {
+            "lotes": 0,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 7.79
+        }
+      ]
+    },
+    "lab01-50ha-ondulado": {
+      "area_ha": 50,
+      "temRelevo": true,
+      "assinaturaDaRodada": "1ba17121b378bfaf",
+      "perdasNaIda": [
+        {
+          "campo": "acessos[0].sugerido",
+          "oQueHavia": "true — ninguém marcou o acesso, o Geo pôs o meio da testada de frente",
+          "motivo": "o motor não distingue acesso marcado de palpite; o traçado vai partir dali como se fosse decisão do usuário. O contrato faz questão de carregar essa marca justamente para não deixar o palpite calado",
+          "gravidade": "media"
+        },
+        {
+          "campo": "relevo.curvas",
+          "oQueHavia": "575 curva(s) de nível, 9448 vértices cotados",
+          "motivo": "o motor só aceita nuvem de pontos cotados; as curvas viram vértices soltos e a informação de QUAL curva cada vértice pertence se perde. É a entrada que enviesa a interpolação do motor (ver o diagnóstico de relevo no relatório)",
+          "gravidade": "media"
+        }
+      ],
+      "perdasNaVolta": [
+        {
+          "campo": "vias[].calcada_m",
+          "oQueHavia": "calçadas declaradas que somam 33315 m² de terra",
+          "motivo": "o motor declara `calcada_m` por via mas NÃO a reserva na geometria: medido, o vértice mais próximo de cada lote fica a exatamente `caixa_m / 2` do eixo — o lote encosta no meio-fio. `largura_m` sai como `caixa_m`, que é o corredor que existe. Declarar a calçada prometida faria o leito invadir o lote e o Validator reprovaria lote bem-feito",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "vias[].rampaMedia_pct",
+          "oQueHavia": "13 via(s) sem cota",
+          "motivo": "o motor não calcula greide — nenhuma via tem elevação em lugar nenhum do `Plano`. Sai `null`, como o contrato permite, e toda a conferência de rampa fica com o Validator",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "lotes[].faceDeRua",
+          "oQueHavia": "680 lote(s)",
+          "motivo": "o motor guarda a testada em metros mas não a via de frente; sai `null`, como o contrato prefere. O Validator mede a frente por conta própria",
+          "gravidade": "baixa"
+        },
+        {
+          "campo": "quadroDeAreas.areaViaria_m2",
+          "oQueHavia": "65957 m²",
+          "motivo": "o motor não mede a área dos corredores: ele calcula `bruta − quadras − especiais`. Num plano que não preenche a gleba, este número engorda com terra que não é rua. Atravessou como está — corrigi-lo aqui seria inventar uma medição que o motor não fez",
+          "gravidade": "media"
+        },
+        {
+          "campo": "plano.nota / plano.notas",
+          "oQueHavia": "nota 0.615 e 6 nota(s) por critério",
+          "motivo": "a nota do próprio motor não tem campo no contrato, e isso é de propósito: quem julga é o Judge do Generate. Fica fora, e o relatório do LAB-07 põe as duas lado a lado",
+          "gravidade": "baixa"
+        },
+        {
+          "campo": "plano.formato",
+          "oQueHavia": "espinha",
+          "motivo": "o partido de traçado (ortogonal, espinha, radial…) não tem campo no contrato. Ele vai embutido em `motor.versao` por este adaptador, para a opção não virar anônima na mesa",
+          "gravidade": "baixa"
+        }
+      ],
+      "avisosDoMotor": [],
+      "tempos": {
+        "ida_ms": 1.22,
+        "motor_ms": 576.76,
+        "voltaEJulgamento_ms": 1563.07,
+        "total_ms": 2141.23
+      },
+      "rampaDoTerreno": {
+        "aoLongoDaVia": {
+          "mediana_pct": 3.98,
+          "p90_pct": 16.68,
+          "maxima_pct": 55.93,
+          "trechos": 1315
+        },
+        "nosCruzamentos": {
+          "mediana_pct": 0,
+          "maxima_pct": 0,
+          "cruzamentos": 0
+        }
+      },
+      "variantes": [
+        {
+          "posicaoNoMotor": 1,
+          "formato": "espinha",
+          "assinatura": "b23db98e17a96148",
+          "notaDoMotor": 0.62,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "13 peça(s) do parcelamento saem da gleba — a pior é a via V2, a 271.84 m para fora da divisa."
+            ],
+            "vias": 13,
+            "comprimentoDeVia_m": 10479.13,
+            "comprimentoForaDaGleba_m": 3934.23,
+            "comprimentoForaDaGleba_pct": 37.54
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 680,
+            "areaPrivativa_m2": 270678.81,
+            "violacoes": 16,
+            "porRegra": {
+              "testada": 9,
+              "face-quadra": 7
+            },
+            "avisos": {
+              "pontas-sem-retorno": 26
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 270678.81,
+              "areaViaria_m2": 65957.35,
+              "areaLazer_m2": 48263.74,
+              "areaAPP_m2": 71746,
+              "areaNaoAproveitada_m2": 43354.12
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 6544.9,
+          "dobra": {
+            "lotes": 680,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0.7,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 77.21
+        },
+        {
+          "posicaoNoMotor": 2,
+          "formato": "espinha",
+          "assinatura": "3cb41537727b6d79",
+          "notaDoMotor": 0.54,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "12 peça(s) do parcelamento saem da gleba — a pior é a via V2, a 338.27 m para fora da divisa."
+            ],
+            "vias": 12,
+            "comprimentoDeVia_m": 9809.43,
+            "comprimentoForaDaGleba_m": 3191.76,
+            "comprimentoForaDaGleba_pct": 32.54
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 519,
+            "areaPrivativa_m2": 207333.75,
+            "violacoes": 10,
+            "porRegra": {
+              "testada": 5,
+              "face-quadra": 5
+            },
+            "avisos": {
+              "pontas-sem-retorno": 23
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 207333.75,
+              "areaViaria_m2": 66222.2,
+              "areaLazer_m2": 60343.5,
+              "areaAPP_m2": 117695.36,
+              "areaNaoAproveitada_m2": 48405.21
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 6617.67,
+          "dobra": {
+            "lotes": 519,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0.97,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 44.56
+        },
+        {
+          "posicaoNoMotor": 3,
+          "formato": "loop",
+          "assinatura": "57919c361a3ef380",
+          "notaDoMotor": 0.53,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "46 peça(s) do parcelamento saem da gleba — a pior é a via V2, a 303.61 m para fora da divisa."
+            ],
+            "vias": 48,
+            "comprimentoDeVia_m": 38997.26,
+            "comprimentoForaDaGleba_m": 11671.65,
+            "comprimentoForaDaGleba_pct": 29.93
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 562,
+            "areaPrivativa_m2": 223759.94,
+            "violacoes": 132,
+            "porRegra": {
+              "testada": 109,
+              "frente": 23
+            },
+            "avisos": {
+              "pontas-sem-retorno": 20,
+              "leito-sobre-leito": 1
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 223759.94,
+              "areaViaria_m2": 87460.25,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 81309.74,
+              "areaNaoAproveitada_m2": 52807.57
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 27325.61,
+          "dobra": {
+            "lotes": 562,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 90.49
+        },
+        {
+          "posicaoNoMotor": 4,
+          "formato": "ortogonal",
+          "assinatura": "cddaa9c89caa5742",
+          "notaDoMotor": 0.51,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "59 peça(s) do parcelamento saem da gleba — a pior é a via V55, a 356.84 m para fora da divisa."
+            ],
+            "vias": 59,
+            "comprimentoDeVia_m": 50315.97,
+            "comprimentoForaDaGleba_m": 15210.08,
+            "comprimentoForaDaGleba_pct": 30.23
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 507,
+            "areaPrivativa_m2": 203606.66,
+            "violacoes": 4,
+            "porRegra": {
+              "frente": 3,
+              "testada": 1
+            },
+            "avisos": {
+              "pontas-sem-retorno": 22
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 203606.66,
+              "areaViaria_m2": 84646.6,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 92070.92,
+              "areaNaoAproveitada_m2": 65013.32
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 35105.89,
+          "dobra": {
+            "lotes": 507,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 98.44
+        },
+        {
+          "posicaoNoMotor": 5,
+          "formato": "ortogonal",
+          "assinatura": "78414b5d8a83a2bf",
+          "notaDoMotor": 0.5,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "55 peça(s) do parcelamento saem da gleba — a pior é a via V51, a 291.72 m para fora da divisa."
+            ],
+            "vias": 55,
+            "comprimentoDeVia_m": 45277.75,
+            "comprimentoForaDaGleba_m": 14295.36,
+            "comprimentoForaDaGleba_pct": 31.57
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 503,
+            "areaPrivativa_m2": 200550.45,
+            "violacoes": 18,
+            "porRegra": {
+              "frente": 15,
+              "testada": 3
+            },
+            "avisos": {
+              "pontas-sem-retorno": 19
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 200550.45,
+              "areaViaria_m2": 82309.05,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 92533.66,
+              "areaNaoAproveitada_m2": 69944.33
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 30982.38,
+          "dobra": {
+            "lotes": 503,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 86.06
+        },
+        {
+          "posicaoNoMotor": 6,
+          "formato": "mioloVerde",
+          "assinatura": "e082cece8d4e1824",
+          "notaDoMotor": 0.49,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "49 peça(s) do parcelamento saem da gleba — a pior é a via V45, a 332.92 m para fora da divisa."
+            ],
+            "vias": 49,
+            "comprimentoDeVia_m": 42111.7,
+            "comprimentoForaDaGleba_m": 12782.71,
+            "comprimentoForaDaGleba_pct": 30.35
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 448,
+            "areaPrivativa_m2": 179625.73,
+            "violacoes": 7,
+            "porRegra": {
+              "frente": 6,
+              "testada": 1
+            },
+            "avisos": {
+              "pontas-sem-retorno": 17
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 179625.73,
+              "areaViaria_m2": 77728.05,
+              "areaLazer_m2": 50621.71,
+              "areaAPP_m2": 79643.49,
+              "areaNaoAproveitada_m2": 112381.05
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 29329,
+          "dobra": {
+            "lotes": 448,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 75.41
+        },
+        {
+          "posicaoNoMotor": 7,
+          "formato": "diagonal",
+          "assinatura": "6d126916af269b70",
+          "notaDoMotor": 0.48,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "55 peça(s) do parcelamento saem da gleba — a pior é a via V1, a 370.72 m para fora da divisa."
+            ],
+            "vias": 55,
+            "comprimentoDeVia_m": 45552.41,
+            "comprimentoForaDaGleba_m": 14514.07,
+            "comprimentoForaDaGleba_pct": 31.86
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 468,
+            "areaPrivativa_m2": 187684.73,
+            "violacoes": 7,
+            "porRegra": {
+              "frente": 7
+            },
+            "avisos": {
+              "pontas-sem-retorno": 20
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 187684.73,
+              "areaViaria_m2": 84088.23,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 117481.03,
+              "areaNaoAproveitada_m2": 56083.5
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 31038.34,
+          "dobra": {
+            "lotes": 468,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 61.2
+        },
+        {
+          "posicaoNoMotor": 8,
+          "formato": "diagonal",
+          "assinatura": "4577583d3c4b5753",
+          "notaDoMotor": 0.48,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "54 peça(s) do parcelamento saem da gleba — a pior é a via V5, a 275.44 m para fora da divisa."
+            ],
+            "vias": 54,
+            "comprimentoDeVia_m": 46087.61,
+            "comprimentoForaDaGleba_m": 14411.84,
+            "comprimentoForaDaGleba_pct": 31.27
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 448,
+            "areaPrivativa_m2": 179414.68,
+            "violacoes": 3,
+            "porRegra": {
+              "testada": 1,
+              "frente": 2
+            },
+            "avisos": {
+              "pontas-sem-retorno": 19
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 179414.68,
+              "areaViaria_m2": 83405.69,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 108378.95,
+              "areaNaoAproveitada_m2": 74138.18
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 31675.77,
+          "dobra": {
+            "lotes": 448,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0.91,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 75.05
+        },
+        {
+          "posicaoNoMotor": 9,
+          "formato": "cluster",
+          "assinatura": "aa999826453270c8",
+          "notaDoMotor": 0.46,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "99 peça(s) do parcelamento saem da gleba — a pior é a via V99, a 350.27 m para fora da divisa."
+            ],
+            "vias": 99,
+            "comprimentoDeVia_m": 81145.01,
+            "comprimentoForaDaGleba_m": 27173.51,
+            "comprimentoForaDaGleba_pct": 33.49
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 468,
+            "areaPrivativa_m2": 181548,
+            "violacoes": 363,
+            "porRegra": {
+              "testada": 356,
+              "frente": 7
+            },
+            "avisos": {
+              "pontas-sem-retorno": 19
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 181548,
+              "areaViaria_m2": 103293.39,
+              "areaLazer_m2": 49021.74,
+              "areaAPP_m2": 104848.68,
+              "areaNaoAproveitada_m2": 61288.21
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 53971.5,
+          "dobra": {
+            "lotes": 468,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 135.38
+        },
+        {
+          "posicaoNoMotor": 10,
+          "formato": "loop",
+          "assinatura": "318514bc0acf17ca",
+          "notaDoMotor": 0.46,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "40 peça(s) do parcelamento saem da gleba — a pior é a via V2, a 250.03 m para fora da divisa."
+            ],
+            "vias": 53,
+            "comprimentoDeVia_m": 38891.97,
+            "comprimentoForaDaGleba_m": 10163.33,
+            "comprimentoForaDaGleba_pct": 26.13
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 438,
+            "areaPrivativa_m2": 175224.02,
+            "violacoes": 13,
+            "porRegra": {
+              "testada": 1,
+              "frente": 12
+            },
+            "avisos": {
+              "pontas-sem-retorno": 16
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 175224.02,
+              "areaViaria_m2": 94361.76,
+              "areaLazer_m2": 54662.53,
+              "areaAPP_m2": 98562.29,
+              "areaNaoAproveitada_m2": 77189.42
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 28728.64,
+          "dobra": {
+            "lotes": 438,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 58.98
+        },
+        {
+          "posicaoNoMotor": 11,
+          "formato": "cluster",
+          "assinatura": "a654e1de65df2d7c",
+          "notaDoMotor": 0.44,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "107 peça(s) do parcelamento saem da gleba — a pior é a via V99, a 337.54 m para fora da divisa."
+            ],
+            "vias": 107,
+            "comprimentoDeVia_m": 87471.57,
+            "comprimentoForaDaGleba_m": 29589.17,
+            "comprimentoForaDaGleba_pct": 33.83
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 417,
+            "areaPrivativa_m2": 162149.93,
+            "violacoes": 323,
+            "porRegra": {
+              "testada": 315,
+              "frente": 8
+            },
+            "avisos": {
+              "pontas-sem-retorno": 21
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 162149.93,
+              "areaViaria_m2": 102278.15,
+              "areaLazer_m2": 47833.33,
+              "areaAPP_m2": 116279.48,
+              "areaNaoAproveitada_m2": 71459.13
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 57882.4,
+          "dobra": {
+            "lotes": 417,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 142.76
+        },
+        {
+          "posicaoNoMotor": 12,
+          "formato": "organico",
+          "assinatura": "492cf255a92b8363",
+          "notaDoMotor": 0.43,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "110 peça(s) do parcelamento saem da gleba — a pior é a via V217, a 261.72 m para fora da divisa."
+            ],
+            "vias": 220,
+            "comprimentoDeVia_m": 13819.91,
+            "comprimentoForaDaGleba_m": 5753.65,
+            "comprimentoForaDaGleba_pct": 41.63
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "4 peça(s) do parcelamento saem da gleba — a pior é a lote v4-l327, a 4.59 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 8066.26,
+          "dobra": {
+            "lotes": 431,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 322,
+            "foraDaQuadra": 210,
+            "maiorFugaDaQuadra_m": 8.23,
+            "foraDaGleba": 4,
+            "maiorDesvioTestada_m": 0.26,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 130.61
+        },
+        {
+          "posicaoNoMotor": 13,
+          "formato": "mioloVerde",
+          "assinatura": "598ca8e0d5ffc146",
+          "notaDoMotor": 0.43,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "49 peça(s) do parcelamento saem da gleba — a pior é a via V45, a 344.15 m para fora da divisa."
+            ],
+            "vias": 49,
+            "comprimentoDeVia_m": 41819.08,
+            "comprimentoForaDaGleba_m": 12566.31,
+            "comprimentoForaDaGleba_pct": 30.05
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 332,
+            "areaPrivativa_m2": 133419.86,
+            "violacoes": 1,
+            "porRegra": {
+              "testada": 1
+            },
+            "avisos": {
+              "pontas-sem-retorno": 18
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 133419.86,
+              "areaViaria_m2": 77891.02,
+              "areaLazer_m2": 52354.67,
+              "areaAPP_m2": 104691.71,
+              "areaNaoAproveitada_m2": 131642.76
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 29252.76,
+          "dobra": {
+            "lotes": 332,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 61.54
+        },
+        {
+          "posicaoNoMotor": 14,
+          "formato": "organico",
+          "assinatura": "9029cba87e5aa89e",
+          "notaDoMotor": 0.4,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "113 peça(s) do parcelamento saem da gleba — a pior é a via V207, a 272.57 m para fora da divisa."
+            ],
+            "vias": 209,
+            "comprimentoDeVia_m": 12771.68,
+            "comprimentoForaDaGleba_m": 5258.29,
+            "comprimentoForaDaGleba_pct": 41.17
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "13 peça(s) do parcelamento saem da gleba — a pior é a lote v14-l48, a 9.87 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 7513.39,
+          "dobra": {
+            "lotes": 343,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 280,
+            "foraDaQuadra": 187,
+            "maiorFugaDaQuadra_m": 16.4,
+            "foraDaGleba": 13,
+            "maiorDesvioTestada_m": 0.78,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 105.83
+        },
+        {
+          "posicaoNoMotor": 15,
+          "formato": "pente",
+          "assinatura": "a4e72f79f4155b23",
+          "notaDoMotor": 0.39,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "94 peça(s) do parcelamento saem da gleba — a pior é a via V90, a 240.54 m para fora da divisa."
+            ],
+            "vias": 94,
+            "comprimentoDeVia_m": 78238.12,
+            "comprimentoForaDaGleba_m": 22017.7,
+            "comprimentoForaDaGleba_pct": 28.14
+          },
+          "julgado": {
+            "aceito": false,
+            "lotes": 401,
+            "areaPrivativa_m2": 160698.91,
+            "violacoes": 2,
+            "porRegra": {
+              "frente": 2
+            },
+            "avisos": {
+              "pontas-sem-retorno": 36
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 160698.91,
+              "areaViaria_m2": 133257.62,
+              "areaLazer_m2": 47829.71,
+              "areaAPP_m2": 98487.42,
+              "areaNaoAproveitada_m2": 59726.36
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 56220.41,
+          "dobra": {
+            "lotes": 401,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 96.51
+        },
+        {
+          "posicaoNoMotor": 16,
+          "formato": "pente",
+          "assinatura": "bcdcf218d80d44a6",
+          "notaDoMotor": 0.37,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "91 peça(s) do parcelamento saem da gleba — a pior é a via V91, a 325.12 m para fora da divisa."
+            ],
+            "vias": 91,
+            "comprimentoDeVia_m": 74735.96,
+            "comprimentoForaDaGleba_m": 23026.4,
+            "comprimentoForaDaGleba_pct": 30.81
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 334,
+            "areaPrivativa_m2": 134219.28,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 36
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 134219.28,
+              "areaViaria_m2": 131090.11,
+              "areaLazer_m2": 47829.71,
+              "areaAPP_m2": 118868.13,
+              "areaNaoAproveitada_m2": 67992.79
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 51709.56,
+          "dobra": {
+            "lotes": 334,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 111.06
+        },
+        {
+          "posicaoNoMotor": 17,
+          "formato": "radial",
+          "assinatura": "0667ae0ca0075882",
+          "notaDoMotor": 0.37,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "210 peça(s) do parcelamento saem da gleba — a pior é a via V236, a 940.69 m para fora da divisa."
+            ],
+            "vias": 250,
+            "comprimentoDeVia_m": 47037.12,
+            "comprimentoForaDaGleba_m": 38301.18,
+            "comprimentoForaDaGleba_pct": 81.43
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "3 peça(s) do parcelamento saem da gleba — a pior é a lote v15-l175, a 1.19 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 8735.94,
+          "dobra": {
+            "lotes": 231,
+            "foraDaFaixaTestada": 15,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 3,
+            "maiorFugaDaQuadra_m": 1.19,
+            "foraDaGleba": 3,
+            "maiorDesvioTestada_m": 2.15,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 54.98
+        },
+        {
+          "posicaoNoMotor": 18,
+          "formato": "radial",
+          "assinatura": "7eed86a99ca77447",
+          "notaDoMotor": 0.36,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "211 peça(s) do parcelamento saem da gleba — a pior é a via V238, a 940.69 m para fora da divisa."
+            ],
+            "vias": 250,
+            "comprimentoDeVia_m": 46962.19,
+            "comprimentoForaDaGleba_m": 38319,
+            "comprimentoForaDaGleba_pct": 81.6
+          },
+          "julgado": {
+            "aceito": false,
+            "recusa": [
+              "5 peça(s) do parcelamento saem da gleba — a pior é a área AE55, a 3.29 m para fora da divisa."
+            ]
+          },
+          "comprimentoDeViaAposAparo_m": 8643.18,
+          "dobra": {
+            "lotes": 220,
+            "foraDaFaixaTestada": 12,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 4,
+            "maiorFugaDaQuadra_m": 0.93,
+            "foraDaGleba": 4,
+            "maiorDesvioTestada_m": 2.15,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 50.71
+        },
+        {
+          "posicaoNoMotor": 19,
+          "formato": "superquadra",
+          "assinatura": "63e661d12d573163",
+          "notaDoMotor": 0.36,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "8 peça(s) do parcelamento saem da gleba — a pior é a via V4, a 465.76 m para fora da divisa."
+            ],
+            "vias": 8,
+            "comprimentoDeVia_m": 7067.9,
+            "comprimentoForaDaGleba_m": 4583.54,
+            "comprimentoForaDaGleba_pct": 64.85
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 0,
+            "areaPrivativa_m2": 0,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 8
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 0,
+              "areaViaria_m2": 49953.27,
+              "areaLazer_m2": 51889.33,
+              "areaAPP_m2": 30278.37,
+              "areaNaoAproveitada_m2": 367879.06
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 2484.36,
+          "dobra": {
+            "lotes": 0,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 3.01
+        },
+        {
+          "posicaoNoMotor": 20,
+          "formato": "superquadra",
+          "assinatura": "205c319be9f8a8c1",
+          "notaDoMotor": 0.34,
+          "fiel": {
+            "aceitoPeloContrato": false,
+            "recusa": [
+              "9 peça(s) do parcelamento saem da gleba — a pior é a via V4, a 299.97 m para fora da divisa."
+            ],
+            "vias": 9,
+            "comprimentoDeVia_m": 7878.18,
+            "comprimentoForaDaGleba_m": 4384.88,
+            "comprimentoForaDaGleba_pct": 55.66
+          },
+          "julgado": {
+            "aceito": true,
+            "lotes": 0,
+            "areaPrivativa_m2": 0,
+            "violacoes": 0,
+            "porRegra": {},
+            "avisos": {
+              "pontas-sem-retorno": 10
+            },
+            "quadroDeAreas": {
+              "areaTotal_m2": 500000.02,
+              "areaPrivativa_m2": 0,
+              "areaViaria_m2": 66474.1,
+              "areaLazer_m2": 54054.11,
+              "areaAPP_m2": 85468.96,
+              "areaNaoAproveitada_m2": 294002.85
+            }
+          },
+          "comprimentoDeViaAposAparo_m": 3493.3,
+          "dobra": {
+            "lotes": 0,
+            "foraDaFaixaTestada": 0,
+            "foraDaFaixaArea": 0,
+            "foraDaToleranciaArea": 0,
+            "sobrepostos": 0,
+            "foraDaQuadra": 0,
+            "maiorFugaDaQuadra_m": 0,
+            "foraDaGleba": 0,
+            "maiorDesvioTestada_m": 0,
+            "maiorDesvioArea_m2": 0
+          },
+          "fechamentoDeAreas_pct": 0,
+          "ms": 3.22
+        }
+      ]
+    }
+  },
+  "superquadra": {
+    "relatadoPeloTestfit": "a superquadra nasce vazia em 11 de 12 variantes e o plano vazio ganha o ranking",
+    "formatoIsolado": {
+      "variantes": 20,
+      "vazias": 20,
+      "primeiroTemLotes": 0,
+      "planoVazioGanhou": true,
+      "ranking": [
+        {
+          "formato": "superquadra",
+          "nota": 0.37,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.37,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.37,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.37,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.37,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.36,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.36,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.36,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.36,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.36,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.36,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.36,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.36,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.35,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.35,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.35,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.35,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.35,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.34,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        },
+        {
+          "formato": "superquadra",
+          "nota": 0.34,
+          "lotes": 0,
+          "areaPrivativa_m2": 0
+        }
+      ]
+    },
+    "disputaAberta": {
+      "variantes": 20,
+      "vazias": 2,
+      "primeiroFormato": "espinha",
+      "primeiroTemLotes": 585
+    }
+  },
+  "determinismo": {
+    "semente": 20260913,
+    "assinaturaExecucao1": "2709e86fed2b7181",
+    "assinaturaExecucao2": "2709e86fed2b7181",
+    "assinaturaOutraSemente": "87d0bc7338f406f1",
+    "saidaDoContratoIdentica": true,
+    "sementeTemEfeito": true
+  }
+}

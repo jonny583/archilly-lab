@@ -1,0 +1,104 @@
+
+════════════════════════════════════════════════════════════════════════
+ensaio-47ha — 47.00 ha
+perdas na ida: 0 · tempos: ida 1 ms · motor 427 ms · volta+juiz 1096 ms
+
+    # formato       lotes  viol por regra                             via m  fora%  dobra
+    1 espinha         585     7 {"testada":1,"face-quadra":6}          6379  14.37      0
+    2 loop            511    15 {"frente":12,"testada":3}             22473  20.22      0
+    3 espinha         468    10 {"testada":5,"face-quadra":5}          6665   3.63      0
+    4 ortogonal       448    18 {"frente":15,"testada":3}             23156  23.58      0
+    5 ortogonal       441    15 {"frente":12,"testada":3}             23068  25.87      0
+    6 diagonal        411     7 {"frente":7}                          32363  44.18      0
+    7 mioloVerde      390     4 {"frente":2,"testada":2}              21036     23      0
+    8 diagonal        384     7 {"frente":5,"testada":2}              34626  45.04      0
+    9 loop            391     0 {}                                    20582   3.96      0
+   10 cluster         369   287 {"testada":278,"frente":9}            42934   4.01      0
+   11 organico        374   524 {"sobreposicao":165,"frente":316,"     7406  40.26    180
+   12 cluster         375   292 {"testada":292}                       43369   3.32      0
+   13 mioloVerde      270    14 {"frente":14}                         20543  23.63      0
+   14 organico          —     — —                                      7389  31.31    276
+   15 pente           351     0 {}                                    49755  30.95      0
+   16 radial            —     — —                                      8610   74.8     26
+   17 pente           303     0 {}                                    35110   8.37      0
+   18 superquadra       0     0 {}                                     1987  62.72      0
+   19 radial            —     — —                                      8707  74.83     19
+   20 superquadra       0     0 {}                                     3144  58.06      0
+
+════════════════════════════════════════════════════════════════════════
+geo-antonina — 141.76 ha
+perdas na ida: 3 · tempos: ida 0 ms · motor 1963 ms · volta+juiz 7585 ms
+   [ida/media] acessos[0].sugerido
+   [ida/alta] atracoes[0] (T1)
+   [ida/media] geo
+
+    # formato       lotes  viol por regra                             via m  fora%  dobra
+    1 espinha        1429    40 {"testada":22,"face-quadra":18}       19471  39.09      0
+    2 ortogonal      1386    15 {"frente":15}                        124952  40.02      0
+    3 loop           1516    19 {"frente":17,"face-quadra":2}         97600  25.14      0
+    4 ortogonal      1346    26 {"frente":23,"face-quadra":3}        118026  31.74      0
+    5 loop              —     — —                                    114823  31.86      0
+    6 diagonal       1287    13 {"frente":9,"testada":4}             211625  57.22      0
+    7 mioloVerde     1176    12 {"frente":12}                         95489  31.57      0
+    8 diagonal       1295    17 {"testada":3,"frente":14}            192728  58.46      0
+    9 espinha        1144    46 {"testada":33,"face-quadra":13}       19581  32.65      0
+   10 organico          —     — —                                     22908  51.64      0
+   11 cluster        1215   945 {"testada":916,"frente":29}          205316  32.52      0
+   12 cluster        1132   882 {"testada":837,"frente":45}          205188  32.59      0
+   13 organico          —     — —                                     22838   45.2      0
+   14 mioloVerde      874    18 {"frente":18}                         95658  30.61      0
+   15 pente          1085     0 {}                                   275715  45.57      0
+   16 radial            —     — —                                     21820  88.63     74
+   17 radial            —     — —                                     22733  88.99     60
+   18 pente           920     0 {}                                   219084  31.93      0
+   19 superquadra       0     0 {}                                     7716  59.25      0
+   20 superquadra       —     — —                                      9804  60.64      0
+
+════════════════════════════════════════════════════════════════════════
+lab01-50ha-ondulado — 50.00 ha
+perdas na ida: 2 · tempos: ida 1 ms · motor 577 ms · volta+juiz 1563 ms
+   [ida/media] acessos[0].sugerido
+   [ida/media] relevo.curvas
+
+    # formato       lotes  viol por regra                             via m  fora%  dobra
+    1 espinha         680    16 {"testada":9,"face-quadra":7}          6545  37.54      0
+    2 espinha         519    10 {"testada":5,"face-quadra":5}          6618  32.54      0
+    3 loop            562   132 {"testada":109,"frente":23}           27326  29.93      0
+    4 ortogonal       507     4 {"frente":3,"testada":1}              35106  30.23      0
+    5 ortogonal       503    18 {"frente":15,"testada":3}             30982  31.57      0
+    6 mioloVerde      448     7 {"frente":6,"testada":1}              29329  30.35      0
+    7 diagonal        468     7 {"frente":7}                          31038  31.86      0
+    8 diagonal        448     3 {"testada":1,"frente":2}              31676  31.27      0
+    9 cluster         468   363 {"testada":356,"frente":7}            53972  33.49      0
+   10 loop            438    13 {"testada":1,"frente":12}             28729  26.13      0
+   11 cluster         417   323 {"testada":315,"frente":8}            57882  33.83      0
+   12 organico          —     — —                                      8066  41.63    322
+   13 mioloVerde      332     1 {"testada":1}                         29253  30.05      0
+   14 organico          —     — —                                      7513  41.17    280
+   15 pente           401     2 {"frente":2}                          56220  28.14      0
+   16 pente           334     0 {}                                    51710  30.81      0
+   17 radial            —     — —                                      8736  81.43     15
+   18 radial            —     — —                                      8643   81.6     12
+   19 superquadra       0     0 {}                                     2484  64.85      0
+   20 superquadra       0     0 {}                                     3493  55.66      0
+
+  rampa imposta pelo terreno (a melhor variante; o motor NÃO calcula greide):
+    ao longo da via: mediana 3.98 % · p90 16.68 % · máx 55.93 % (1315 trechos)
+    nos cruzamentos: mediana 0 % · máx 0 % (0 cruzamentos)
+
+════════════════════════════════════════════════════════════════════════
+§2.5 — a superquadra nasce vazia? o plano vazio ganha o ranking?
+  formato "superquadra", 20 variantes: 20 nasceram VAZIAS (0 lotes)
+  ranking do motor (nota, lotes): 0.366/0  0.366/0  0.366/0  0.366/0  0.366/0  0.364/0
+  a variante em PRIMEIRO tem 0 lotes  ←  o plano vazio ganhou o ranking
+
+  disputa aberta (todos os formatos), 20 variantes: 2 vazia(s); em primeiro, espinha com 585 lotes
+
+════════════════════════════════════════════════════════════════════════
+determinismo — mesma entrada e semente, duas vezes
+  semente 20260913, execução 1: assinatura 2709e86fed2b7181
+  semente 20260913, execução 2: assinatura 2709e86fed2b7181
+  semente 20260914:          assinatura 87d0bc7338f406f1
+  SAÍDA DO CONTRATO byte a byte: mesma semente -> IDÊNTICA; semente diferente -> diferente
+
+docs/provas/LAB-07/medicoes.json

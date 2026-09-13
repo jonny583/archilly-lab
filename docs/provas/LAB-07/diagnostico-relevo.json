@@ -1,0 +1,54 @@
+{
+  "prompt": "LAB-07",
+  "diagnostico": "interpolacao-do-relevo",
+  "gleba": "sintetico-50ha-ondulado",
+  "nuvem": {
+    "curvas": 575,
+    "vertices": 9448,
+    "equidistancia_m": 2
+  },
+  "testfit": {
+    "amostras": 7840,
+    "sobreValorDeCurva": 174,
+    "sobreValorDeCurva_pct": 2.2,
+    "gradienteZero_pct": 0,
+    "declividade_pct": {
+      "p10": 1.51,
+      "mediana": 6.05,
+      "p90": 12.77,
+      "maxima": 36.27
+    },
+    "passoDeAmostra_m": 10,
+    "ms": 443
+  },
+  "generate": {
+    "amostras": 7832,
+    "sobreValorDeCurva": 3904,
+    "sobreValorDeCurva_pct": 49.8,
+    "gradienteZero_pct": 17.3,
+    "declividade_pct": {
+      "p10": 0,
+      "mediana": 8.12,
+      "p90": 12.5,
+      "maxima": 16.36
+    },
+    "passoPedido_m": 10,
+    "passoAplicado_m": 10,
+    "espacamentoDoDado_m": 10.84,
+    "ms": 324
+  },
+  "lab01Corrigido": {
+    "amostras": 7840,
+    "sobreValorDeCurva": 20,
+    "sobreValorDeCurva_pct": 0.3,
+    "gradienteZero_pct": 0,
+    "declividade_pct": {
+      "p10": 1.91,
+      "mediana": 6.51,
+      "p90": 10.53,
+      "maxima": 14.4
+    },
+    "passoDeGrade_m": 2,
+    "ms": 1334
+  }
+}

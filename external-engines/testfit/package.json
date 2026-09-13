@@ -1,0 +1,22 @@
+{
+  "name": "archilly-lab-testfit",
+  "private": true,
+  "type": "module",
+  "description": "Esteira do LAB-07: põe o motor do Testfit no contrato de motor v1 e o julga com o Validator e o Judge do Generate.",
+  "scripts": {
+    "gleba": "bun ferramentas/gleba-lab01.ts",
+    "medir": "bun ferramentas/medir.ts",
+    "relevo": "bun ferramentas/diagnostico-relevo.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/bun": "^1.4.2",
+    "eslint": "^10.10.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.70.0",
+    "zod": "^3.24.2"
+  }
+}
