@@ -1,0 +1,17 @@
+gleba: sintetico-50ha-ondulado · 50.0 ha
+nuvem: 575 curvas, 9448 vértices, equidistância 2 m
+
+1 · campoRelevo do Testfit (IDW global sobre 9448 pontos) — 443 ms
+   sobre valor de curva: 2.2 %  ·  gradiente zero: 0 %
+   declividade: p10 1.51 · mediana 6.05 · p90 12.77 · máx 36.27 %
+
+2 · criarModeloRelevo do Generate (k=6 vizinhos, piso de passo) — 324 ms
+   passo pedido 10 m · passo aplicado 10.00 m · espaçamento do dado 10.84 m
+   sobre valor de curva: 49.8 %  ·  gradiente zero: 17.3 %
+   declividade: p10 0 · mediana 8.12 · p90 12.5 · máx 16.36 %
+
+3 · montarAlturas do LAB-01 (entre níveis distintos — a correção) — 1334 ms
+   sobre valor de curva: 0.3 %  ·  gradiente zero: 0 %
+   declividade: p10 1.91 · mediana 6.51 · p90 10.53 · máx 14.4 %
+
+docs/provas/LAB-07/diagnostico-relevo.json
