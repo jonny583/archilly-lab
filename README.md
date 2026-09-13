@@ -5,6 +5,7 @@ Laboratório de motores externos para o **Archilly Generate**.
 > **Comece por aqui:** [`docs/ONDE_PARAMOS.md`](docs/ONDE_PARAMOS.md)
 > · roteiro: [`docs/prompts/FILA.md`](docs/prompts/FILA.md)
 > · o que depende do Jonny: [`docs/PENDENCIAS_JONNY.md`](docs/PENDENCIAS_JONNY.md)
+> · as regras permanentes deste repositório: [`CLAUDE.md`](CLAUDE.md)
 
 ---
 
