@@ -35,6 +35,32 @@ resposta é só "não deu". `<app>` é `Lab`; `<prompt>` é o prompt em execuç�
 **Por quê:** o recado é o que o Jonny cola no chat do outro app. Se ele precisar
 caçar a informação na resposta longa, o recado não serve para nada.
 
+**O mesmo recado é acrescentado a
+[`docs/relatorios/RECADOS.md`](docs/relatorios/RECADOS.md)**, com a data, em
+ordem cronológica. Assim "me dá tudo desde o dia tal" vira uma leitura de
+arquivo, e não uma reconstrução a partir dos relatórios.
+
+---
+
+## 1-A · A fila é autônoma
+
+`docs/prompts/FILA.md` é a **fila oficial**, escrita pelo chat. Este repositório
+a executa **sozinho, em laço**, acordado por **um** despertador de 60 minutos
+(`trig_01DFdwqF4nUDLQAod5w4WH1m`, minuto :05). Regra de família: **um
+despertador por aplicativo; nunca se toca no de outro repositório.**
+
+- **Um prompt por despertador.** Se o anterior não fechou, termine-o antes de
+  começar qualquer coisa nova.
+- **Prompt fora da fila não existe.** O que faltar entra na fila como
+  *"proposto ao chat"*, sem executar. Não ampliar escopo.
+- O que depende do Jonny ou de outro repositório fica **"aguardando"**: pular
+  para o seguinte e reavaliar a cada despertador.
+- **Fila esgotada:** gravar o recado acumulado, escrever em `ONDE_PARAMOS`
+  *"fila esgotada, aguardando o chat"* e **apagar o despertador**.
+- **O despertador nasceu sem conectores do GitHub.** Se ao acordar não houver
+  `mcp__github__*`, mesclar por git direto (`git merge --no-ff` na `main`) e
+  **declarar isso no relatório e no recado** (D29).
+
 ---
 
 ## 2 · O que é este repositório
@@ -45,12 +71,14 @@ adaptador isolado, **sempre passando pelo Validator e pelo Judge dele**.
 
 | onde | o quê |
 |---|---|
+| `docs/INDEX.md` | o índice de tudo — onde está a coisa |
 | `docs/ONDE_PARAMOS.md` | o estado do laboratório — comece por aqui |
 | `docs/prompts/FILA.md` | o roteiro, LAB-00 em diante |
 | `docs/PENDENCIAS_JONNY.md` | só o que depende de uma pessoa |
 | `docs/DECISOES.md` | as decisões, numeradas, com o porquê |
 | `docs/LABORATORIO.md` | a especificação (Etapas A a G) |
 | `docs/relatorios/` | as medições, um arquivo por prompt |
+| `docs/relatorios/RECADOS.md` | todos os recados para o chat, em ordem |
 | `docs/provas/` | os números crus, em JSON |
 
 A família: **Geo** (`urban-scout-tool`) capta o terreno · **Generate**
@@ -136,8 +164,13 @@ Resultado desconfortável é resultado: "não consegui compilar" está registrad
 
 Todo prompt fecha com: relatório em `docs/relatorios/`, provas em
 `docs/provas/`, decisões numeradas em `docs/DECISOES.md` com o porquê,
-`docs/prompts/FILA.md` e `docs/ONDE_PARAMOS.md` atualizados, testes verdes, e
-**PR mesclado na `main`**. Relatório não volta para o chat — volta o RECADO.
+`docs/prompts/FILA.md`, `docs/ONDE_PARAMOS.md` e `docs/INDEX.md` atualizados,
+testes verdes, e **PR mesclado na `main`**. Relatório não volta para o chat —
+volta o RECADO, que também é acrescentado ao `RECADOS.md`.
+
+Medição é **em metros** e **em dados**: JSON em `docs/provas/<prompt>/`, com
+gleba, motor, semente e versão do contrato em cada arquivo, e determinismo
+provado.
 
 Duas pilhas convivem, de propósito (D14, D17): o adaptador do Symbios roda em
 **Node 22+ sem dependência npm**; o do LAB-07 roda em **Bun**, porque compila

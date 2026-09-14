@@ -3,6 +3,7 @@
 Laboratório de motores externos para o **Archilly Generate**.
 
 > **Comece por aqui:** [`docs/ONDE_PARAMOS.md`](docs/ONDE_PARAMOS.md)
+> · índice de tudo: [`docs/INDEX.md`](docs/INDEX.md)
 > · roteiro: [`docs/prompts/FILA.md`](docs/prompts/FILA.md)
 > · o que depende do Jonny: [`docs/PENDENCIAS_JONNY.md`](docs/PENDENCIAS_JONNY.md)
 > · as regras permanentes deste repositório: [`CLAUDE.md`](CLAUDE.md)
@@ -98,6 +99,7 @@ Triagem completa, com evidências: [`docs/TRIAGEM.md`](docs/TRIAGEM.md).
 ```text
 archilly-lab/
 ├── docs/
+│   ├── INDEX.md                      ← o índice de tudo
 │   ├── ONDE_PARAMOS.md               ← estado do laboratório
 │   ├── PENDENCIAS_JONNY.md           ← o que depende de uma pessoa
 │   ├── DECISOES.md                   ← as decisões, numeradas, com o porquê
@@ -106,10 +108,12 @@ archilly-lab/
 │   ├── SYMBIOS_ANALYSIS.md
 │   ├── STRAIGHT_SKELETON_ANALYSIS.md
 │   ├── PACKINGSOLVER_TRIAGEM.md
-│   ├── prompts/FILA.md               ← roteiro LAB-00 a LAB-07
+│   ├── prompts/FILA.md               ← a fila oficial (autônoma), com o histórico
 │   ├── relatorios/
 │   │   ├── LAB01_ADAPTADOR.md        ← as medições do adaptador do Symbios
-│   │   └── LAB-07.md                 ← as medições do motor do Testfit na esteira
+│   │   ├── LAB-07.md                 ← as medições do motor do Testfit na esteira
+│   │   ├── LF-01.md                  ← a casa em ordem, e a fila autônoma
+│   │   └── RECADOS.md                ← todos os recados para o chat, em ordem
 │   ├── provas/LAB-07/                ← os números crus, em JSON
 │   └── terrenos/                     ← 4 terrenos no contrato archilly-terreno
 ├── external-engines/

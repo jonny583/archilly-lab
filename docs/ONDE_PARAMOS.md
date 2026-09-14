@@ -4,10 +4,10 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 13/09/2026 · **Último prompt executado:** LAB-07
-**Concluído:** Etapa A (investigação), Etapa B (prova isolada) e Etapa C
-(Adapter mínimo) para o Symbios; e a esteira completa — contrato de motor v1,
-Validator e Judge — para o motor do Testfit.
+**Última atualização:** 14/09/2026 · **Último prompt executado:** LF-01
+**Estado:** a fila deste repositório é **autônoma** desde 14/09 — um despertador
+de 60 minutos acorda esta sessão, ela pega o próximo prompt e o executa até o
+fim. Não é preciso mandar mensagem para o trabalho continuar.
 
 ---
 
@@ -22,21 +22,71 @@ que é o que o **LAB-02** vem consertar.
 
 ## A fila
 
-Roteiro completo em [`prompts/FILA.md`](prompts/FILA.md). O que depende do Jonny
-está em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md). Estado:
+Roteiro completo em [`prompts/FILA.md`](prompts/FILA.md) — **a fila oficial**,
+escrita pelo chat em 14/09. O índice de tudo está em [`INDEX.md`](INDEX.md); o
+que depende do Jonny, em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md); os
+recados acumulados, em [`relatorios/RECADOS.md`](relatorios/RECADOS.md).
 
 | Prompt | Estado |
 |---|---|
-| **LAB-00** — investigação dos candidatos | concluído em 09/09/2026 |
-| **LAB-01** — adaptador mínimo do Symbios | concluído em 10/09/2026 |
-| **LAB-07** — o motor do Testfit na esteira do contrato v1 | **concluído em 13/09/2026** |
-| **LAB-02** — recorte pela gleba e restrições, Validator | **liberado — é o próximo** |
-| **LAB-04** — straight skeleton na subdivisão de quadras | liberado; roda **depois** do LAB-02/03 |
-| LAB-03 · LAB-05 · LAB-06 | aguardando, em cadeia a partir do LAB-02 |
+| **LF-01** — casa em ordem | **concluído em 14/09/2026** |
+| **LAB-02** — recorte pela gleba e pelas restrições | **pronto — é o próximo** |
+| **LAB-03** — relevo: interpolação corrigida e glebas-padrão com relevo | pronto quando o LAB-02 mesclar |
+| **LAB-08** — Testfit × Symbios, lado a lado | **aguardando** — dependência externa, ver abaixo |
+| **LF-FINAL** — conferência contra o Padrão 1.2 | aguardando o LAB-08 |
+
+Histórico: **LAB-00** (09/09), **LAB-01** (10/09) e **LAB-07** (13/09)
+concluídos; **LAB-04** liberado e roda depois do LAB-02/03; LAB-03/05/06 da fila
+antiga seguem em cadeia. Tudo em [`prompts/FILA.md`](prompts/FILA.md).
+
+## Dependências externas
+
+| o quê | de quem | trava o quê |
+|---|---|---|
+| **T02 mesclado na `main` de `jonny583/motor-testfit`** | o laboratório de parcelamento | o **LAB-08**. É a comparação lado a lado: sem o motor corrigido, ela compararia o motor velho. Conferir a cada despertador, clonando só para leitura |
+
+## O laço autônomo
+
+- **Despertador:** `trig_01DFdwqF4nUDLQAod5w4WH1m`, minuto **:05**, de hora em
+  hora, preso a esta sessão. Regra de família: **um por aplicativo**; os outros
+  seis ocupam :11, :24, :34, :37, :43 e :52, e nenhum deles se toca.
+- **Um prompt por despertador.** Se o anterior não fechou, ele é terminado antes
+  de qualquer coisa nova.
+- **Limitação conhecida:** o despertador **nasceu sem conectores do GitHub**. As
+  sessões que ele acordar podem não ter `mcp__github__*`; nesse caso o prompt
+  dele manda mesclar por `git merge --no-ff` direto na `main` e declarar isso no
+  relatório e no recado. Para ter PR de verdade a cada rodada, o despertador
+  precisa ser recriado pela interface do claude.ai.
+- **Fila esgotada:** grava o recado acumulado, escreve aqui *"fila esgotada,
+  aguardando o chat"* e **apaga o despertador**.
+
+---
+
+# LF-01 — a casa em ordem · 14/09/2026
+
+Relatório: [`relatorios/LF-01.md`](relatorios/LF-01.md).
+
+Não mexeu em motor nem em medição — arrumou a casa para o laço autônomo rodar
+sozinho. O que mudou:
+
+- **`prompts/FILA.md`** virou a fila oficial, com o histórico LAB-00…LAB-07
+  preservado no fim.
+- **`relatorios/RECADOS.md`** passou a existir: todo recado é acrescentado lá,
+  com data. O pedido "me dá tudo desde o dia tal" virou uma leitura.
+- **`INDEX.md`** passou a existir (D30): o `ONDE_PARAMOS` estava fazendo dois
+  trabalhos, e o índice é o que quase não muda.
+- **Três decisões do chat** gravadas em `DECISOES.md` — D26 (a calçada é da via,
+  dentro da caixa, nunca descontada do lote), D27 (na tela só entra partido que
+  passa no Validator; hoje só o `pente`), D28 (a superquadra vazia é defeito de
+  pontuação, não decisão urbanística) — mais D29 (o laço autônomo) e D30.
+- **`PENDENCIAS_JONNY.md`** encolheu: as três perguntas abertas viraram
+  **duas confirmações**, e o repasse dos achados aos vizinhos saiu da lista dele
+  — por decisão do chat, é do chat.
 
 ---
 
 # LAB-07 — o motor do Testfit na esteira
+
 
 **Relatório completo:** [`relatorios/LAB-07.md`](relatorios/LAB-07.md) ·
 **números crus:** [`provas/LAB-07/`](provas/LAB-07/)
