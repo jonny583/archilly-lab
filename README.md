@@ -7,6 +7,10 @@ Laboratório de motores externos para o **Archilly Generate**.
 > · roteiro: [`docs/prompts/FILA.md`](docs/prompts/FILA.md)
 > · o que depende do Jonny: [`docs/PENDENCIAS_JONNY.md`](docs/PENDENCIAS_JONNY.md)
 > · as regras permanentes deste repositório: [`CLAUDE.md`](CLAUDE.md)
+>
+> **A fila autônoma está esgotada desde 14/09/2026** — os cinco prompts dela
+> foram executados e mesclados, e o despertador foi apagado. O que espera o chat
+> está em [`docs/prompts/FILA.md`](docs/prompts/FILA.md), em *proposto ao chat*.
 
 ---
 
@@ -135,7 +139,9 @@ archilly-lab/
 │   ├── ONDE_PARAMOS.md               ← estado do laboratório
 │   ├── PENDENCIAS_JONNY.md           ← o que depende de uma pessoa
 │   ├── DECISOES.md                   ← as decisões, numeradas, com o porquê
-│   ├── LABORATORIO.md                ← especificação (Etapas A a G)
+│   ├── SEGURANCA.md                  ← a lista de segurança, com o comando de prova
+│   ├── ADOCAO_CENTRAL.md             ← por que o Lab não adota a Central
+│   ├── referencia/                   ← material de origem: a especificação e o Padrão
 │   ├── TRIAGEM.md                    ← tabela comparativa e vereditos
 │   ├── SYMBIOS_ANALYSIS.md
 │   ├── STRAIGHT_SKELETON_ANALYSIS.md

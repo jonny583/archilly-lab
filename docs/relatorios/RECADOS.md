@@ -140,3 +140,29 @@ Próximo na fila: LF-FINAL (conferência contra o Padrão 1.2). E o LAB-04 virou
   passo óbvio do Symbios — ele entrega 94 e 698 quadras limpas; falta subdividir em lote.
 === FIM ===
 ```
+
+---
+
+## 14/09/2026 · LF-FINAL — conferência contra o Padrão, e o fim da fila
+
+```
+=== RECADO PARA O CHAT — Lab · LF-FINAL ===
+Estado: LF-FINAL concluído e mesclado. FILA ESGOTADA — os 5 prompts da fila autônoma
+  rodaram hoje e o despertador foi APAGADO, como a própria fila manda. Testes: esteira
+  27/27, testfit 14/14, tsc e lint limpos. Nenhum arquivo de código foi tocado.
+Feito: conferência CONFORME, com uma ressalva e três arquivos que faltavam — escritos
+  agora: SEGURANCA.md (lista preenchida com o COMANDO de prova ao lado de cada linha),
+  ADOCAO_CENTRAL.md (por que o Lab NÃO adota: sem conta, sem tela, sem IA) e
+  docs/referencia/. INDEX e ONDE_PARAMOS reescritos; PENDENCIAS_JONNY refeito do zero e
+  encolhido para UM item. Chaves: limpo, conferido com comando.
+  ATENÇÃO: o PADRÃO 1.2 NÃO EXISTE em nenhum repositório legível — só a Versão 1 de
+  13/09. Conferi contra ela e declarei a lacuna. O TF-FINAL do repositório irmão está
+  travado pela mesma razão: é documento que o chat ainda tem de publicar.
+Achados para outros apps ou Central: nenhum novo. Seguem sem repasse os 3 do Generate
+  (ninguém confere a rampa; o quadro de áreas de ensaio-47ha não fecha; a interpolação
+  faz o traçado virar grade) e a proposta de adotar as fixtures com relevo.
+Depende do Jonny: 1 item só — confirmar que a calçada é da rua. Não trava nada.
+Próximo na fila: nada. 5 propostas esperando o chat, sendo a primeira o delta contra a
+  1.2 e a segunda o LAB-04 (straight skeleton), que virou o passo óbvio do Symbios.
+=== FIM ===
+```
