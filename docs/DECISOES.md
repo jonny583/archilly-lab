@@ -560,3 +560,97 @@ clicar. Item resolvido é marcado, **nunca apagado**.
 relatório é longo por natureza. Dívida técnica do código não entra ali — essa é
 minha. Apagar item resolvido perderia a decisão junto com a pendência, que é o
 que mais dói meses depois.
+
+---
+
+# Decisões do chat — 14/09/2026
+
+As quatro abaixo **não são minhas**. Vieram do Claude do chat, que dirige a
+família, junto com a fila autônoma. Ficam registradas aqui porque é aqui que se
+procura o porquê — e porque duas delas mudam o que o Lab mede.
+
+---
+
+## D26 · A calçada é da via, não do lote · 14/09/2026
+
+**A decisão (do chat):** a calçada fica **dentro da caixa da rua** — faixa de
+domínio —, **nunca descontada do lote**. O Jonny confirma ou muda; até lá vale.
+
+**O que isso resolve.** O LAB-07 mediu que o lote encosta a `caixa_m / 2` do
+eixo: a calçada é declarada e não é reservada (D18). Havia dois caminhos — o
+lote recua, ou a caixa passa a incluir a calçada. **O chat escolheu o segundo.**
+
+**O que muda no Lab.** Nada na medição do LAB-07, que já declarou `largura_m =
+caixa_m`: essa é exatamente a leitura "a calçada está dentro da caixa". O que
+muda é o destino do item — deixa de ser pergunta aberta e passa a ser
+**confirmação** do Jonny, e a correção nº 2 da lista do T02 ganha resposta: o
+motor deve **parar de declarar `calcada_m` como coisa fora da caixa**, não
+recuar o lote.
+
+---
+
+## D27 · Na tela só entra partido que passa no Validator · 14/09/2026
+
+**A decisão (do chat):** na tela de qualquer aplicativo da família só entra
+partido de traçado que **passe no Validator**. Hoje, só o `pente` (0,06 % de
+violações). `cluster` e `organico` ficam **fora** até o recorte e as correções
+derrubarem as violações a um patamar medido e **aceito pelo chat**.
+
+**Por quê.** Um partido com 78 % dos lotes violando testada não é "opção com
+defeito", é opção que o cliente não pode ver. E a régua não é opinião: é o
+Validator do Generate, que já roda na esteira.
+
+**O que muda no Lab.** O LAB-02 e o LAB-08 passam a ter um **critério de
+aprovação declarado**, em vez de só publicar a tabela: um partido sobe quando o
+número dele cai, e quem aceita o patamar é o chat. O Lab continua **não
+recomendando produto** — ele mede e publica.
+
+---
+
+## D28 · Superquadra vazia é defeito de pontuação, não decisão urbanística · 14/09/2026
+
+**A decisão (do chat):** o plano vazio da `superquadra` é **variante inválida** —
+defeito da nota do motor, não escolha de urbanismo. Já foi mandado ao Testfit
+(T02).
+
+**Por quê.** O LAB-07 mediu 20 de 20 variantes sem um único lote, e o plano
+vazio **liderando** o ranking com nota 0,366: ele tira 1,0 em "regularidade" e
+1,0 em "proximidade do acesso" porque não há lote para desviar do padrão nem
+para ficar longe. Nota que premia o vazio é nota quebrada.
+
+**O que muda no Lab.** O item sai da lista de pendências do Jonny: não há nada
+para ele decidir. Vira item de conserto do motor, e o Lab só reconfere o número
+quando o T02 estiver mesclado (é a condição do LAB-08).
+
+---
+
+## D29 · A fila vira autônoma, com um despertador de 60 minutos · 14/09/2026
+
+**A decisão:** `docs/prompts/FILA.md` passa a ser a **fila oficial**, escrita
+pelo chat, e o Lab a executa sozinho, em laço, acordado por **um** despertador
+de hora em hora (`trig_01DFdwqF4nUDLQAod5w4WH1m`, minuto :05). Um prompt por
+despertador. Prompt fora da fila não existe.
+
+**Por quê o minuto :05.** Regra de família: **um despertador por aplicativo**, e
+nunca se toca no de outro repositório. Os outros seis já ocupavam :11, :24, :34,
+:37, :43 e :52; o :05 estava livre e espalha a carga.
+
+**O que ficou registrado como limitação:** o despertador **nasceu sem conectores
+do GitHub**. As sessões que ele acordar não terão `mcp__github__*`, então o
+prompt dele manda mesclar **por git direto** (`git merge --no-ff` na `main`) e
+declarar isso no relatório e no recado. Não é falha do Lab: é como o gatilho
+pode ser criado de dentro de uma sessão. Se o chat quiser PR de verdade a cada
+rodada, o despertador precisa ser recriado pela interface do claude.ai.
+
+---
+
+## D30 · O repositório ganha um `docs/INDEX.md` · 14/09/2026
+
+**A decisão:** um índice dos documentos, no padrão do Laboratório de
+Parcelamento — tabela por assunto, com "o que responde" em vez de "o que é".
+
+**Por quê.** O Lab passou de 4 documentos para 14 em cinco dias, e o
+`ONDE_PARAMOS.md` vinha inchando para fazer também o papel de índice. São dois
+trabalhos diferentes: o `ONDE_PARAMOS` responde **"onde estamos hoje"** e
+envelhece a cada rodada; o `INDEX` responde **"onde está a coisa"** e quase não
+muda. Misturados, o primeiro fica longo demais para ser lido ao acordar.
