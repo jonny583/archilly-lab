@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 14/09/2026 · **Último prompt executado:** LF-01
+**Última atualização:** 14/09/2026 · **Último prompt executado:** LAB-02
 **Estado:** a fila deste repositório é **autônoma** desde 14/09 — um despertador
 de 60 minutos acorda esta sessão, ela pega o próximo prompt e o executa até o
 fim. Não é preciso mandar mensagem para o trabalho continuar.
@@ -13,12 +13,13 @@ fim. Não é preciso mandar mensagem para o trabalho continuar.
 
 ## Em uma frase
 
-**Dois motores atravessam o Lab de ponta a ponta**: o Symbios devolve rede
-viária e quadras a partir de um terreno do Geo (LAB-01), e o motor do Testfit
-devolve parcelamento completo já julgado pelo Validator e pelo Judge do Generate
-(LAB-07) — os dois com o mesmo veredito, **"geometria utilizável: SIM COM
-RESSALVAS"**, e os dois deixando cerca de um terço da rede viária fora da divisa,
-que é o que o **LAB-02** vem consertar.
+**Dois motores atravessam o Lab de ponta a ponta**, e desde o LAB-02 a rede
+viária do Symbios sai **inteiramente dentro da gleba e fora das APP** — 0 %, nas
+três glebas, com o contrato de motor saindo de recusado para **aceito com zero
+violações**. O que sobra não é mais geometria de contorno: é que **ninguém
+confere a rampa** de um motor externo, e que as duas glebas-padrão do Generate
+**não têm relevo**, o que impede comparar os dois motores na mesma terra. As
+duas coisas têm dono: a primeira é recado para o Generate, a segunda é o LAB-03.
 
 ## A fila
 
@@ -29,9 +30,9 @@ recados acumulados, em [`relatorios/RECADOS.md`](relatorios/RECADOS.md).
 
 | Prompt | Estado |
 |---|---|
-| **LF-01** — casa em ordem | **concluído em 14/09/2026** |
-| **LAB-02** — recorte pela gleba e pelas restrições | **pronto — é o próximo** |
-| **LAB-03** — relevo: interpolação corrigida e glebas-padrão com relevo | pronto quando o LAB-02 mesclar |
+| **LF-01** — casa em ordem | concluído em 14/09/2026 |
+| **LAB-02** — recorte pela gleba e pelas restrições | **concluído em 14/09/2026** |
+| **LAB-03** — relevo: interpolação corrigida e glebas-padrão com relevo | **pronto — é o próximo** |
 | **LAB-08** — Testfit × Symbios, lado a lado | **aguardando** — dependência externa, ver abaixo |
 | **LF-FINAL** — conferência contra o Padrão 1.2 | aguardando o LAB-08 |
 
@@ -59,6 +60,70 @@ antiga seguem em cadeia. Tudo em [`prompts/FILA.md`](prompts/FILA.md).
   precisa ser recriado pela interface do claude.ai.
 - **Fila esgotada:** grava o recado acumulado, escreve aqui *"fila esgotada,
   aguardando o chat"* e **apaga o despertador**.
+
+---
+
+# LAB-02 — o recorte · 14/09/2026
+
+Relatório: [`relatorios/LAB-02.md`](relatorios/LAB-02.md) · números crus:
+[`provas/LAB-02/`](provas/LAB-02/)
+
+> ### A meta foi atingida: **0 % de via fora da gleba**, nas três glebas.
+
+| gleba | via fora da gleba | via em restrição | contrato |
+|---|---|---|---|
+| `completo` · 141,8 ha | **37,43 % → 0 %** | **19,55 % → 0 %** | recusado → **aceito, 0 violações** |
+| `sintetico-50ha-ondulado` | **38,73 % → 0 %** | — | recusado → **aceito, 0 violações** |
+| `sintetico-10ha-plano` | **42,80 % → 0 %** | — | recusado → **aceito, 0 violações** |
+
+**O custo, medido:** a rede encolhe para 43–61 % do comprimento (a parte que
+nascia fora da terra do empreendimento) e a conectividade cai pouco — o maior
+componente vai de 99,9 % para 97,6 %, de 99,8 % para 98,0 % e de 99,4 % para
+94,7 %. **O recorte não estilhaça a rede**, que era o risco que o LAB-01 mandou
+conferir.
+
+**Quem bloqueia a rua não é escolha do Lab** (D32): é o campo `desconta` que o
+Geo já carimba. Em `completo` isso pegou `app_rio`, `app_declividade` e
+`reserva_legal` — 34,4 ha ao todo.
+
+## O achado que sai daqui: ninguém confere a rampa
+
+O LAB-01 decidiu que "a conferência é do Validator". Fui conferir se o Validator
+confere. **Não confere:**
+
+- `invariantes.ts` do Generate tem onze tipos de violação, **todos geométricos**
+  — nenhuma menção a rampa, declividade ou greide;
+- a régua **existe** (`topografia.ts`: 10 % máximo, 12 % tolerado em trecho
+  curto), mas roda sobre o plano **interno** do Generate, não sobre a saída de
+  motor externo;
+- e o contrato só carrega **`rampaMedia_pct`** por via: um pico de 161 % num
+  cruzamento é diluído pela média até sumir.
+
+A prova está na própria rodada: as três glebas passaram com **zero violações**
+tendo 246, 51 e 1 arestas acima de 10 %.
+
+**Para o chat repassar ao Generate**, duas coisas distintas: a régua de rampa não
+alcança motor externo, e o contrato precisa de `rampaMaxima_pct` por via, ao lado
+da média. Sem esse campo, nenhuma conferência de rampa é possível sobre o
+contrato.
+
+## O outro motor: 44 lotes tocando APP
+
+O aparo do LAB-07 corta pelo perímetro e **não olha para as restrições**. Medida
+a melhor variante daquele relatório contra as 3 APP de `geo-antonina`: **894,63 m
+de via dentro de APP (4,59 %)** e **44 lotes de 1 429 tocando APP (1,76 ha)**.
+Entra na lista do T02 do outro motor; a forma do conserto já está escrita em
+`recorte.ts`.
+
+## Duas conclusões erradas desfeitas por medir o "antes"
+
+1. **"O recorte destrói a conectividade"** — a régua ligava só ponta com ponta, e
+   a rede **crua** dava 472 componentes por ela. Causa: as cadeias quebram por
+   tipo, então uma local termina no *meio* de uma principal. Com a régua certa, a
+   rede crua é uma rede só (99,8 % no maior).
+2. **"A rampa ao longo da via piorou de 10,01 % para 34,98 %"** — aquela aresta
+   sempre teve 34,98 %; ela encostava num cruzamento que o corte levou embora, e
+   mudou de balde. Nada piorou.
 
 ---
 

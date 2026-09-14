@@ -28,6 +28,7 @@ comece pela primeira linha da primeira tabela.
 | documento | o que responde |
 |---|---|
 | [`relatorios/LAB-07.md`](relatorios/LAB-07.md) | **O motor do Testfit na esteira**: veredito, violações por partido, perdas na ida e na volta, a lista para o T02, o diagnóstico do relevo |
+| [`relatorios/LAB-02.md`](relatorios/LAB-02.md) | **O recorte pela gleba e pelas restrições**: 0 % de via fora da divisa, o custo em conectividade, e a descoberta de que ninguém confere a rampa |
 | [`relatorios/LAB01_ADAPTADOR.md`](relatorios/LAB01_ADAPTADOR.md) | **O adaptador do Symbios**: ida e volta georreferenciada, determinismo, rampa, quadras, escala |
 | [`relatorios/LF-01.md`](relatorios/LF-01.md) | A casa em ordem: a fila autônoma, o despertador, e o que o chat decidiu |
 | [`provas/`](provas/) | **Os números crus**, em JSON, por prompt — gleba, motor, semente e versão do contrato em cada arquivo |
@@ -48,6 +49,7 @@ comece pela primeira linha da primeira tabela.
 |---|---|
 | [`../external-engines/symbios/`](../external-engines/symbios/) | `upstream/` intocado, a ponte Rust → WASM, e **o adaptador do LAB-01** |
 | [`../external-engines/testfit/`](../external-engines/testfit/) | **O adaptador do LAB-07** — ida, volta, aparo, esteira — e as ferramentas de medição. Sem `upstream/`: o motor é da família (D16) |
+| [`../external-engines/esteira/`](../external-engines/esteira/) | **A esteira cruzada** (LAB-02): põe qualquer motor no contrato v1 e o julga com a régua do Generate. Casa do LAB-08 (D31) |
 | [`../outputs/`](../outputs/) | Saídas literais das execuções do LAB-01 |
 
 ## A família Archilly

@@ -47,7 +47,7 @@ UPSTREAM              ARCHILLY               ADAPTER              ARCHILLY
 |---|---|---|
 | entra por | contrato `archilly-terreno` | contrato de motor v1 (`archilly-motor-entrada`) |
 | devolve | eixos com hierarquia e rampa, e quadras | parcelamento completo: vias, quadras, lotes, áreas |
-| julgado? | não — é o LAB-02 | **sim** — Validator e Judge do próprio Generate |
+| julgado? | **sim** desde o LAB-02 | **sim** — Validator e Judge do próprio Generate |
 | veredito | **geometria utilizável: SIM COM RESSALVAS** | **geometria utilizável: SIM COM RESSALVAS** |
 | relatório | [`LAB01_ADAPTADOR.md`](docs/relatorios/LAB01_ADAPTADOR.md) | [`LAB-07.md`](docs/relatorios/LAB-07.md) |
 
@@ -58,9 +58,10 @@ atravessa o Symbios num `.wasm` de 189 KB **sem import nenhum**, e volta como
 eixos com hierarquia e rampa e quadras com área — em metros, georreferenciado,
 determinístico por seed, 200 ha em 5,7 s.
 
-As ressalvas: a rampa estoura **nos cruzamentos** (nunca ao longo da via), 38 %
-do comprimento de via nasce fora da gleba, e o traçado é topograficamente
-responsivo mas urbanisticamente cru.
+As ressalvas eram três. **O LAB-02 resolveu a segunda**: a rede sai agora
+inteiramente dentro da gleba e fora das APP — 0 %, contra os 38 % de antes —, e o
+contrato de motor a aceita com zero violações. Ficam a rampa nos cruzamentos
+(que ninguém confere — ver abaixo) e o traçado urbanisticamente cru.
 
 ### LAB-07 — o motor do Testfit, na esteira inteira
 
@@ -82,6 +83,22 @@ e **não atinge o Testfit**; e as duas glebas-padrão do Generate **não têm re
 nenhum**, o que é a razão da terceira gleba.
 
 Decisões e o porquê de cada uma: [`docs/DECISOES.md`](docs/DECISOES.md).
+
+### LAB-02 — o recorte, e o que ele descobriu
+
+A rede viária do Symbios é aparada pelo perímetro **e pelas restrições** (APP
+como geometria de verdade, com o `desconta` do Geo decidindo o que bloqueia).
+Resultado nas três glebas: **0 % de via fora da divisa e 0 % dentro de APP**, com
+o contrato saindo de recusado para **aceito com zero violações**. A conectividade
+cai pouco — o maior componente vai de 99,9 % para 97,6 %.
+
+Dois achados atravessam repositórios: **ninguém confere a rampa** de um motor
+externo (o Validator tem onze violações, todas geométricas; a régua existe mas
+roda só no plano interno do Generate; e o contrato só carrega a rampa *média*,
+que dilui um pico de 161 %); e o aparo do outro motor **não olha restrição** —
+44 lotes tocando APP em `geo-antonina`.
+
+Relatório: [`docs/relatorios/LAB-02.md`](docs/relatorios/LAB-02.md).
 
 ### Os motores, depois da triagem do LAB-00
 
@@ -114,7 +131,7 @@ archilly-lab/
 │   │   ├── LAB-07.md                 ← as medições do motor do Testfit na esteira
 │   │   ├── LF-01.md                  ← a casa em ordem, e a fila autônoma
 │   │   └── RECADOS.md                ← todos os recados para o chat, em ordem
-│   ├── provas/LAB-07/                ← os números crus, em JSON
+│   ├── provas/                       ← os números crus, em JSON, por prompt
 │   └── terrenos/                     ← 4 terrenos no contrato archilly-terreno
 ├── external-engines/
 │   ├── symbios/
@@ -128,6 +145,10 @@ archilly-lab/
 │   ├── testfit/                      ← sem upstream/: o motor é da família (D16)
 │   │   ├── adapter/src/              ← ida, volta, aparo, esteira (LAB-07)
 │   │   ├── ferramentas/              ← medições e diagnóstico do relevo
+│   │   └── tests/
+│   ├── esteira/                      ← a esteira cruzada (LAB-02, D31)
+│   │   ├── src/                      ← contrato v1 ↔ Symbios, a porta única
+│   │   ├── ferramentas/              ← a medição do LAB-02
 │   │   └── tests/
 │   ├── straight-skeleton/            ← nada clonado: licença impeditiva
 │   └── packingsolver/                ← nada clonado: triagem não recomendou

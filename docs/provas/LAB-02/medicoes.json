@@ -1,0 +1,535 @@
+{
+  "prompt": "LAB-02",
+  "geradoEm": "2026-09-14T00:00:00.000Z",
+  "semente": 20260913,
+  "glebas": [
+    {
+      "prompt": "LAB-02",
+      "gleba": "completo",
+      "motor": "symbios-tensor",
+      "versaoMotor": "0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 1417577.83,
+      "restricoesQueBloqueiam": [
+        {
+          "id": "app-hidrica",
+          "nome": "APP hídrica — faixa de 30 m",
+          "categoria": "app_rio",
+          "area_m2": 51230.39196244947
+        },
+        {
+          "id": "app-relevo",
+          "nome": "APP de encosta",
+          "categoria": "app_declividade",
+          "area_m2": 8904.14662869913
+        },
+        {
+          "id": "car-reserva",
+          "nome": "Reserva legal (CAR)",
+          "categoria": "reserva_legal",
+          "area_m2": 283515.6222648943
+        }
+      ],
+      "areaQueDesconta_m2": 343650.16,
+      "perdasNaIda": [
+        {
+          "campo": "parametros (lote)",
+          "oQueHavia": "areaMinLote_m2, areaAlvoLote_m2, areaMaxLote_m2, testadaMinLote_m",
+          "motivo": "o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
+          "gravidade": "media"
+        }
+      ],
+      "perdasNaVolta": [
+        {
+          "campo": "quadroDeAreas.areaViaria_m2",
+          "oQueHavia": "38840 m de eixo",
+          "motivo": "o motor devolve EIXO, não leito: a área viária aqui é comprimento × faixa de domínio, e onde duas vias se cruzam o cruzamento é contado duas vezes. Construir o leito como polígono seria desenhar geometria que o motor não fez",
+          "gravidade": "media"
+        },
+        {
+          "campo": "lotes",
+          "oQueHavia": "nada",
+          "motivo": "o Symbios traça via e extrai quadra; ele não subdivide quadra em lote. A subdivisão é o LAB-04 (straight skeleton). O Judge vai marcar 0 lotes, e é verdade — não é falha da ponte",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "areasEspeciais",
+          "oQueHavia": "nada",
+          "motivo": "o motor não reserva lazer, doação nem institucional: ele não conhece esses conceitos. Inventá-los aqui daria ao quadro de áreas um número que ninguém mediu",
+          "gravidade": "media"
+        }
+      ],
+      "via": {
+        "antes": {
+          "trechos": 498,
+          "comprimento_m": 90203.36,
+          "foraDaGleba_m": 33761.57,
+          "foraDaGleba_pct": 37.43,
+          "emRestricao_m": 17639.24,
+          "emRestricao_pct": 19.55
+        },
+        "depois": {
+          "trechos": 287,
+          "descartados": 225,
+          "fragmentados": 10,
+          "comprimento_m": 38839.67,
+          "foraDaGleba_m": 0,
+          "foraDaGleba_pct": 0,
+          "emRestricao_m": 0,
+          "emRestricao_pct": 0,
+          "lascas": 3,
+          "comprimentoEmLascas_m": 4.87
+        }
+      },
+      "quadra": {
+        "antes": 678,
+        "depois": 533,
+        "descartadas": 145,
+        "atravessandoADivisa": 73
+      },
+      "conectividade": {
+        "antes": {
+          "componentes": 13,
+          "maiorComponente_m": 90102.56533228254,
+          "fracaoNoMaior": 0.9988826070988439,
+          "viasIsoladas": 12,
+          "comprimentoIsolado_m": 100.7925918048035
+        },
+        "depois": {
+          "componentes": 29,
+          "maiorComponente_m": 37900.51302598801,
+          "fracaoNoMaior": 0.9758195795589472,
+          "viasIsoladas": 29,
+          "comprimentoIsolado_m": 939.1596142333952
+        }
+      },
+      "rampa": {
+        "antes": {
+          "aoLongo": {
+            "arestas": 13530,
+            "maxima_pct": 10.01,
+            "acimaDe10": 0,
+            "comprimento_m": 27812.83
+          },
+          "cruzamento": {
+            "arestas": 2992,
+            "maxima_pct": 161.38,
+            "acimaDe10": 612,
+            "comprimento_m": 62390.53
+          },
+          "todasAsArestas": {
+            "arestas": 16522,
+            "mediana_pct": 10,
+            "p90_pct": 10,
+            "p99_pct": 28.71,
+            "maxima_pct": 161.38,
+            "acimaDe10": 612
+          }
+        },
+        "depois": {
+          "aoLongo": {
+            "arestas": 6192,
+            "maxima_pct": 34.98,
+            "acimaDe10": 8,
+            "comprimento_m": 12661.67
+          },
+          "cruzamento": {
+            "arestas": 1287,
+            "maxima_pct": 161.38,
+            "acimaDe10": 238,
+            "comprimento_m": 26178
+          },
+          "todasAsArestas": {
+            "arestas": 7479,
+            "mediana_pct": 10,
+            "p90_pct": 10,
+            "p99_pct": 27.22,
+            "maxima_pct": 161.38,
+            "acimaDe10": 246
+          }
+        }
+      },
+      "julgamento": {
+        "antes": {
+          "recusa": {
+            "erros": [
+              "224 peça(s) do parcelamento saem da gleba — a pior é a via via-269, a 578.21 m para fora da divisa."
+            ],
+            "avisos": [
+              "219 quadra(s) passam da divisa — a pior é a quadra quadra-358, a 533.48 m. Não reprova: é o mesmo aviso `quadra-fora-do-contorno` que o Validator emite para os motores internos.",
+              "O arquivo não traz nenhum lote."
+            ]
+          },
+          "judge": null,
+          "validator": null
+        },
+        "depois": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 0,
+            "areaPrivativa_m2": 0
+          },
+          "validator": {
+            "limpo": true,
+            "violacoes": 0,
+            "porTipo": {},
+            "avisos": 0,
+            "exemplos": []
+          }
+        }
+      },
+      "ms": 4644.42
+    },
+    {
+      "prompt": "LAB-02",
+      "gleba": "sintetico-50ha-ondulado",
+      "motor": "symbios-tensor",
+      "versaoMotor": "0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 500000.02,
+      "restricoesQueBloqueiam": [],
+      "areaQueDesconta_m2": 0,
+      "perdasNaIda": [
+        {
+          "campo": "parametros (lote)",
+          "oQueHavia": "areaMinLote_m2, areaAlvoLote_m2, areaMaxLote_m2, testadaMinLote_m",
+          "motivo": "o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
+          "gravidade": "media"
+        }
+      ],
+      "perdasNaVolta": [
+        {
+          "campo": "quadroDeAreas.areaViaria_m2",
+          "oQueHavia": "17980 m de eixo",
+          "motivo": "o motor devolve EIXO, não leito: a área viária aqui é comprimento × faixa de domínio, e onde duas vias se cruzam o cruzamento é contado duas vezes. Construir o leito como polígono seria desenhar geometria que o motor não fez",
+          "gravidade": "media"
+        },
+        {
+          "campo": "lotes",
+          "oQueHavia": "nada",
+          "motivo": "o Symbios traça via e extrai quadra; ele não subdivide quadra em lote. A subdivisão é o LAB-04 (straight skeleton). O Judge vai marcar 0 lotes, e é verdade — não é falha da ponte",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "areasEspeciais",
+          "oQueHavia": "nada",
+          "motivo": "o motor não reserva lazer, doação nem institucional: ele não conhece esses conceitos. Inventá-los aqui daria ao quadro de áreas um número que ninguém mediu",
+          "gravidade": "media"
+        }
+      ],
+      "via": {
+        "antes": {
+          "trechos": 150,
+          "comprimento_m": 29347.38,
+          "foraDaGleba_m": 11364.84,
+          "foraDaGleba_pct": 38.73,
+          "emRestricao_m": 0,
+          "emRestricao_pct": 0
+        },
+        "depois": {
+          "trechos": 111,
+          "descartados": 40,
+          "fragmentados": 1,
+          "comprimento_m": 17980.48,
+          "foraDaGleba_m": 0,
+          "foraDaGleba_pct": 0,
+          "emRestricao_m": 0,
+          "emRestricao_pct": 0,
+          "lascas": 0,
+          "comprimentoEmLascas_m": 0
+        }
+      },
+      "quadra": {
+        "antes": 164,
+        "depois": 135,
+        "descartadas": 29,
+        "atravessandoADivisa": 36
+      },
+      "conectividade": {
+        "antes": {
+          "componentes": 7,
+          "maiorComponente_m": 29301.34474819664,
+          "fracaoNoMaior": 0.998431475276161,
+          "viasIsoladas": 6,
+          "comprimentoIsolado_m": 46.03208614448074
+        },
+        "depois": {
+          "componentes": 11,
+          "maiorComponente_m": 17619.635261338226,
+          "fracaoNoMaior": 0.9799311199165823,
+          "viasIsoladas": 10,
+          "comprimentoIsolado_m": 360.8481657399113
+        }
+      },
+      "rampa": {
+        "antes": {
+          "aoLongo": {
+            "arestas": 4657,
+            "maxima_pct": 10.07,
+            "acimaDe10": 0,
+            "comprimento_m": 10654.45
+          },
+          "cruzamento": {
+            "arestas": 844,
+            "maxima_pct": 64.1,
+            "acimaDe10": 81,
+            "comprimento_m": 18692.93
+          },
+          "todasAsArestas": {
+            "arestas": 5501,
+            "mediana_pct": 9.32,
+            "p90_pct": 10.01,
+            "p99_pct": 12.67,
+            "maxima_pct": 64.1,
+            "acimaDe10": 81
+          }
+        },
+        "depois": {
+          "aoLongo": {
+            "arestas": 2954,
+            "maxima_pct": 10.07,
+            "acimaDe10": 0,
+            "comprimento_m": 6464.05
+          },
+          "cruzamento": {
+            "arestas": 540,
+            "maxima_pct": 64.1,
+            "acimaDe10": 51,
+            "comprimento_m": 11516.44
+          },
+          "todasAsArestas": {
+            "arestas": 3494,
+            "mediana_pct": 9.98,
+            "p90_pct": 10.01,
+            "p99_pct": 12.65,
+            "maxima_pct": 64.1,
+            "acimaDe10": 51
+          }
+        }
+      },
+      "julgamento": {
+        "antes": {
+          "recusa": {
+            "erros": [
+              "89 peça(s) do parcelamento saem da gleba — a pior é a via via-5, a 272.84 m para fora da divisa."
+            ],
+            "avisos": [
+              "66 quadra(s) passam da divisa — a pior é a quadra quadra-52, a 127.01 m. Não reprova: é o mesmo aviso `quadra-fora-do-contorno` que o Validator emite para os motores internos.",
+              "O arquivo não traz nenhum lote."
+            ]
+          },
+          "judge": null,
+          "validator": null
+        },
+        "depois": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 0,
+            "areaPrivativa_m2": 0
+          },
+          "validator": {
+            "limpo": true,
+            "violacoes": 0,
+            "porTipo": {},
+            "avisos": 0,
+            "exemplos": []
+          }
+        }
+      },
+      "ms": 1365.31
+    },
+    {
+      "prompt": "LAB-02",
+      "gleba": "sintetico-10ha-plano",
+      "motor": "symbios-tensor",
+      "versaoMotor": "0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 100000.01,
+      "restricoesQueBloqueiam": [],
+      "areaQueDesconta_m2": 0,
+      "perdasNaIda": [
+        {
+          "campo": "parametros (lote)",
+          "oQueHavia": "areaMinLote_m2, areaAlvoLote_m2, areaMaxLote_m2, testadaMinLote_m",
+          "motivo": "o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
+          "gravidade": "media"
+        }
+      ],
+      "perdasNaVolta": [
+        {
+          "campo": "quadroDeAreas.areaViaria_m2",
+          "oQueHavia": "1937 m de eixo",
+          "motivo": "o motor devolve EIXO, não leito: a área viária aqui é comprimento × faixa de domínio, e onde duas vias se cruzam o cruzamento é contado duas vezes. Construir o leito como polígono seria desenhar geometria que o motor não fez",
+          "gravidade": "media"
+        },
+        {
+          "campo": "lotes",
+          "oQueHavia": "nada",
+          "motivo": "o Symbios traça via e extrai quadra; ele não subdivide quadra em lote. A subdivisão é o LAB-04 (straight skeleton). O Judge vai marcar 0 lotes, e é verdade — não é falha da ponte",
+          "gravidade": "alta"
+        },
+        {
+          "campo": "areasEspeciais",
+          "oQueHavia": "nada",
+          "motivo": "o motor não reserva lazer, doação nem institucional: ele não conhece esses conceitos. Inventá-los aqui daria ao quadro de áreas um número que ninguém mediu",
+          "gravidade": "media"
+        }
+      ],
+      "via": {
+        "antes": {
+          "trechos": 14,
+          "comprimento_m": 3380.53,
+          "foraDaGleba_m": 1447,
+          "foraDaGleba_pct": 42.8,
+          "emRestricao_m": 0,
+          "emRestricao_pct": 0
+        },
+        "depois": {
+          "trechos": 11,
+          "descartados": 3,
+          "fragmentados": 0,
+          "comprimento_m": 1936.66,
+          "foraDaGleba_m": 0,
+          "foraDaGleba_pct": 0,
+          "emRestricao_m": 0,
+          "emRestricao_pct": 0,
+          "lascas": 0,
+          "comprimentoEmLascas_m": 0
+        }
+      },
+      "quadra": {
+        "antes": 5,
+        "depois": 5,
+        "descartadas": 0,
+        "atravessandoADivisa": 3
+      },
+      "conectividade": {
+        "antes": {
+          "componentes": 3,
+          "maiorComponente_m": 3361.767727814022,
+          "fracaoNoMaior": 0.9944504098301642,
+          "viasIsoladas": 2,
+          "comprimentoIsolado_m": 18.76054647987347
+        },
+        "depois": {
+          "componentes": 4,
+          "maiorComponente_m": 1833.66868667861,
+          "fracaoNoMaior": 0.9468188680630466,
+          "viasIsoladas": 3,
+          "comprimentoIsolado_m": 102.99390901916651
+        }
+      },
+      "rampa": {
+        "antes": {
+          "aoLongo": {
+            "arestas": 67,
+            "maxima_pct": 10.03,
+            "acimaDe10": 0,
+            "comprimento_m": 127.53
+          },
+          "cruzamento": {
+            "arestas": 45,
+            "maxima_pct": 15.44,
+            "acimaDe10": 1,
+            "comprimento_m": 3253
+          },
+          "todasAsArestas": {
+            "arestas": 112,
+            "mediana_pct": 1.16,
+            "p90_pct": 10,
+            "p99_pct": 10.03,
+            "maxima_pct": 15.44,
+            "acimaDe10": 1
+          }
+        },
+        "depois": {
+          "aoLongo": {
+            "arestas": 28,
+            "maxima_pct": 10.01,
+            "acimaDe10": 0,
+            "comprimento_m": 118.77
+          },
+          "cruzamento": {
+            "arestas": 27,
+            "maxima_pct": 15.44,
+            "acimaDe10": 1,
+            "comprimento_m": 1817.9
+          },
+          "todasAsArestas": {
+            "arestas": 55,
+            "mediana_pct": 1.14,
+            "p90_pct": 10,
+            "p99_pct": 10.01,
+            "maxima_pct": 15.44,
+            "acimaDe10": 1
+          }
+        }
+      },
+      "julgamento": {
+        "antes": {
+          "recusa": {
+            "erros": [
+              "12 peça(s) do parcelamento saem da gleba — a pior é a via via-0, a 144.95 m para fora da divisa."
+            ],
+            "avisos": [
+              "3 quadra(s) passam da divisa — a pior é a quadra quadra-4, a 98.04 m. Não reprova: é o mesmo aviso `quadra-fora-do-contorno` que o Validator emite para os motores internos.",
+              "O arquivo não traz nenhum lote."
+            ]
+          },
+          "judge": null,
+          "validator": null
+        },
+        "depois": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 0,
+            "areaPrivativa_m2": 0
+          },
+          "validator": {
+            "limpo": true,
+            "violacoes": 0,
+            "porTipo": {},
+            "avisos": 0,
+            "exemplos": []
+          }
+        }
+      },
+      "ms": 466.84
+    }
+  ],
+  "glebasQueNaoRodam": [
+    {
+      "gleba": "ensaio-47ha",
+      "curvas": 0,
+      "verticesCotados": 0,
+      "erro": "o terreno \"Gleba de ensaio\" tem 0 vértices cotados; o mapa de alturas pede pelo menos 3 — sem relevo o traçador degenera"
+    },
+    {
+      "gleba": "geo-antonina",
+      "curvas": 0,
+      "verticesCotados": 0,
+      "erro": "o terreno \"Fazenda Recanto das Águas\" tem 0 vértices cotados; o mapa de alturas pede pelo menos 3 — sem relevo o traçador degenera"
+    }
+  ],
+  "outroMotor": {
+    "gleba": "geo-antonina",
+    "motor": "testfit",
+    "versaoMotor": "T00-A",
+    "fonte": "docs/provas/LAB-07/geo-antonina.saida.json (melhor variante do LAB-07, já aparada pela gleba)",
+    "appQueDescontam": 3,
+    "via": {
+      "total_m": 19471.49,
+      "dentroDeApp_m": 894.63,
+      "dentroDeApp_pct": 4.59
+    },
+    "lote": {
+      "total": 1429,
+      "tocandoApp": 44,
+      "tocandoApp_pct": 3.08,
+      "areaTocandoApp_m2": 17570.28
+    }
+  }
+}

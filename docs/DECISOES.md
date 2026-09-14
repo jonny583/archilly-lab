@@ -654,3 +654,92 @@ Parcelamento — tabela por assunto, com "o que responde" em vez de "o que é".
 trabalhos diferentes: o `ONDE_PARAMOS` responde **"onde estamos hoje"** e
 envelhece a cada rodada; o `INDEX` responde **"onde está a coisa"** e quase não
 muda. Misturados, o primeiro fica longo demais para ser lido ao acordar.
+
+---
+
+# LAB-02 — o recorte · 14/09/2026
+
+---
+
+## D31 · A esteira cruzada ganha pasta própria · 14/09/2026
+
+**A decisão:** `external-engines/esteira/` — um projeto Bun pequeno que conhece
+os três caminhos (`@symbios`, `@testfit`, `@generate`) e guarda o que põe
+**qualquer** motor na régua do Generate.
+
+**Por quê.** O julgamento não é propriedade de nenhum dos dois adaptadores. Só
+havia dois lugares possíveis, e os dois eram piores:
+
+- **dentro de `testfit/`**, porque é lá que o alias `@generate` já existia — mas
+  aí a comparação Symbios × Testfit do LAB-08 moraria dentro da pasta de um dos
+  dois, arquivada errado desde o primeiro dia;
+- **dentro de `symbios/`**, que quebraria a regra de zero dependência npm do
+  adaptador dele (D14) — ele roda em Node sem pacote nenhum, e o julgamento
+  precisa de `zod` e do Bun.
+
+O custo é um `package.json` e um `tsconfig.json`. O benefício é que o LAB-08
+nasce com endereço.
+
+---
+
+## D32 · Quem bloqueia a rua é o `desconta` do Geo, não uma lista do Lab · 14/09/2026
+
+**A decisão:** o recorte barra a via nas restrições com `desconta: true`, e só
+nelas. Nenhuma lista de categorias proibidas no código.
+
+**Por quê.** O contrato do Geo já define o campo: *"esta área desconta da área
+líquida"*. Terra que não entra na área líquida não recebe asfalto — a regra já
+existe e já está no dado. Escrever aqui `["app_rio", "app_declividade", …]`
+seria inventar regra urbanística, que é do Jonny, e criaria uma segunda verdade
+que envelheceria em silêncio toda vez que o Geo ganhasse uma categoria nova.
+
+Medido em `completo`: pegou `app_rio` (5,1 ha), `app_declividade` (0,9 ha) e
+`reserva_legal` (28,4 ha), e levou a via dentro delas de 19,55 % para 0 %.
+
+---
+
+## D33 · Este recorte fica com TODOS os pedaços, e o do LAB-07 fica com o maior · 14/09/2026
+
+**A decisão:** quando uma via sai e volta a entrar, aqui os dois trechos
+sobrevivem, cada um com id próprio. O `apararVias` do LAB-07 fica com o maior e
+descarta o resto.
+
+**Por quê as duas coisas estão certas.** A diferença não é de gosto, é do que
+cada motor devolve. O do Testfit devolve **segmento de dois pontos**: ficar com
+dois pedaços dele inventaria uma via que o motor não desenhou. O Symbios devolve
+**polilinha com dezenas de vértices cotados**, e quando ela atravessa a divisa e
+volta, **os dois trechos de dentro são estrada que o motor desenhou** — ficar só
+com o maior jogaria fora rua de verdade.
+
+O preço é fragmentação, e ela é medida em vez de escondida: 10 vias partidas em
+`completo`, 1 em `sintetico-50ha`, 0 em `sintetico-10ha`.
+
+---
+
+## D34 · A cota do ponto de corte é interpolada, nunca reamostrada · 14/09/2026
+
+**A decisão:** a cota de um ponto de corte sai da reta entre as duas cotas
+conhecidas daquele segmento. O mapa de alturas **não** é consultado de novo.
+
+**Por quê.** Entre dois nós, a superfície que o motor assume é a reta — é assim
+que ele calcula a própria rampa. Reamostrar o mapa daria ao ponto novo uma cota
+fora dessa reta, criando um degrau e, com ele, uma rampa que o motor nunca
+produziu. O corte passaria a **fabricar** violação de greide.
+
+Um teste trava a propriedade: nenhum trecho cortado pode ter rampa maior que a
+da via de origem.
+
+---
+
+## D35 · Lasca de corte não é descartada, é medida · 14/09/2026
+
+**A decisão:** trechos curtos criados pelo corte ficam, e o relatório conta
+quantos e quanto somam. Nenhum limiar de descarte.
+
+**Por quê.** Descartar exige um número — "menos de 5 m não vale" —, e esse
+número é regra. Regra nova é *proposto ao chat*, não escolha minha no meio de um
+recorte geométrico.
+
+Medido, o problema é pequeno: **3 trechos abaixo de 5 m em `completo`, somando
+4,87 m**; zero nas outras duas glebas. Se algum dia doer, aí sim vira proposta,
+com o número na mão.

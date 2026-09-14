@@ -63,3 +63,29 @@ Próximo na fila: LAB-02 — aparar a rede do Symbios pelo perímetro e pelas re
   (APP como geometria real) e rejulgar com o Validator e o Judge do Generate. Meta: 0 %.
 === FIM ===
 ```
+
+---
+
+## 14/09/2026 · LAB-02 — recorte pela gleba e pelas restrições
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-02 ===
+Estado: LAB-02 concluído e mesclado na main. 14 testes verdes na esteira nova + 14 no
+  adaptador do LAB-07; tsc e lint limpos nos dois.
+Feito: META ATINGIDA — 0 % de via fora da gleba nas 3 glebas (era 37,4 / 38,7 / 42,8 %) e
+  0 % dentro de APP (era 19,6 % em completo). O contrato de motor sai de RECUSADO para
+  ACEITO com ZERO violações nas três. Custo medido: a rede encolhe para 43–61 % (a parte
+  que nascia fora) e o maior componente cai só de 99,9 % para 97,6 % — o recorte não
+  estilhaça a rede. Quem bloqueia é o `desconta` do Geo, não lista minha.
+Achados para outros apps ou Central: (1) GENERATE — NINGUÉM CONFERE A RAMPA de motor
+  externo: invariantes.ts tem 11 violações, todas geométricas; a régua existe em
+  topografia.ts (10 %/12 %) mas só roda no plano interno; e o contrato só carrega
+  rampaMedia_pct, então um pico de 161 % num cruzamento some na média. Pede
+  rampaMaxima_pct por via. (2) LABORATÓRIO DE PARCELAMENTO — o aparo dele não olha
+  restrição: 44 lotes de 1 429 tocando APP (1,76 ha) e 895 m de via dentro de APP em
+  geo-antonina. Entra no T02; a forma do conserto já está em recorte.ts.
+Depende do Jonny: nada novo. Seguem as 2 confirmações do LF-01.
+Próximo na fila: LAB-03 — e ficou mais urgente: as 2 glebas-padrão do Generate NÃO TÊM
+  RELEVO e o Symbios nem roda nelas, o que torna o LAB-08 impossível até lá.
+=== FIM ===
+```
