@@ -115,3 +115,28 @@ Próximo na fila: LAB-08, e ele agora só espera o T02 do laboratório de parcel
   metade que era nossa ficou pronta: as 2 glebas-padrão rodam nos dois motores.
 === FIM ===
 ```
+
+---
+
+## 14/09/2026 · LAB-08 — os dois motores lado a lado
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-08 ===
+Estado: LAB-08 concluído e mesclado na main. 27 testes verdes na esteira, 14 no adaptador
+  do LAB-07; tsc e lint limpos. O T02 estava mesclado (cbd6cc8) e foi contra ele que rodei.
+Feito: O T02 FUNCIONOU — recusas do esquema sem aparo caíram de 60/60 para 0/20, e o aparo
+  do Lab passou a cortar 0,3 % em vez de 38 %. `pente` a zero violações. Continuam
+  quebrados cluster (77,9 %), organico (82,9 %) e radial (100 % dos lotes), e superquadra
+  segue vazia. SYMBIOS: zero violações nas duas glebas, 0 % de via fora da divisa, único
+  dos três que entrega greide — mas NÃO FAZ LOTE (Judge: 0). Ele entrega a etapa anterior.
+Achados para outros apps ou Central: GENERATE — o quadro de áreas de referência de
+  ensaio-47ha NÃO FECHA: soma 544.498 m² numa gleba de 470.000 (+15,8 %). Causa medida:
+  areaAPP_m2 é exatamente 15,0 % da gleba e areaLazer_m2 exatamente 10,0 % — ECO dos
+  parâmetros pctAPP/pctLazer —, e aquela gleba declara restricoes: []. O quadro anuncia
+  7,05 ha de APP onde não há nenhuma. Em geo-antonina o mesmo quadro fecha. Pergunta com
+  número: os 974 lotes estão por cima da APP, ou a APP não existe no desenho?
+Depende do Jonny: nada novo. Seguem as 2 confirmações do LF-01.
+Próximo na fila: LF-FINAL (conferência contra o Padrão 1.2). E o LAB-04 virou o próximo
+  passo óbvio do Symbios — ele entrega 94 e 698 quadras limpas; falta subdividir em lote.
+=== FIM ===
+```
