@@ -83,6 +83,15 @@ sozinho. O que mudou:
   **duas confirmações**, e o repasse dos achados aos vizinhos saiu da lista dele
   — por decisão do chat, é do chat.
 
+**Uma coisa do LF-01 não saiu como pedido.** A branch
+`claude/stoic-ritchie-ijzqy3` deveria ser apagada (o diff dela contra a `main`
+era vazio). O proxy de git deste ambiente **recusou a exclusão três vezes** —
+ele aceita atualizar ref e recusa apagar ref —, e não há ferramenta de apagar
+branch disponível aqui. Em vez disso, ela foi **reposta sobre a `main`**: aponta
+para o mesmo commit e carrega zero conteúdo próprio. Ela também precisa existir,
+porque é a branch de trabalho das rodadas seguintes. A exclusão literal é um
+clique na interface do GitHub, se alguém quiser.
+
 ---
 
 # LAB-07 — o motor do Testfit na esteira
