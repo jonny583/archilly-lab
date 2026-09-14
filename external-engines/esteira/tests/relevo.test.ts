@@ -152,3 +152,53 @@ describe("as fixtures com relevo", () => {
     );
   });
 });
+
+// ── LAB-08 ────────────────────────────────────────────────────────────────
+
+describe("LAB-08 · o quadro de áreas do Generate, na gleba de ensaio", () => {
+  const RES = join(
+    import.meta.dirname, "..", "..", "..", "..",
+    "urban-create-hub-41d93a4d", "docs", "glebas-padrao",
+  );
+
+  test("a gleba de ensaio declara ZERO restrições", () => {
+    const e = JSON.parse(readFileSync(join(RES, "ensaio-47ha.entrada.json"), "utf8"));
+    expect(e.restricoes).toHaveLength(0);
+    expect(e.parametros.pctAPP).toBe(15);
+    expect(e.parametros.pctLazer).toBe(10);
+  });
+
+  test("e mesmo assim o quadro de referência declara 15 % de APP — é eco do parâmetro", () => {
+    const v = JSON.parse(
+      readFileSync(join(RES, "resultados", "ensaio-47ha.ortogonal.veredito.json"), "utf8"),
+    );
+    const q = v.quadroDeAreas;
+    // Os dois números são a porcentagem do parâmetro vezes a área, ao centavo.
+    expect(q.areaAPP_m2).toBeCloseTo(q.areaTotal_m2 * 0.15, 2);
+    expect(q.areaLazer_m2).toBeCloseTo(q.areaTotal_m2 * 0.1, 2);
+  });
+
+  test("por isso o quadro não fecha: sobra mais terra do que a gleba tem", () => {
+    for (const motor of ["ortogonal", "espinha"]) {
+      const v = JSON.parse(
+        readFileSync(join(RES, "resultados", `ensaio-47ha.${motor}.veredito.json`), "utf8"),
+      );
+      const q = v.quadroDeAreas;
+      const soma = Object.entries(q).reduce(
+        (s, [k, x]) => (k === "areaTotal_m2" ? s : s + (x as number)), 0);
+      expect(soma).toBeGreaterThan(q.areaTotal_m2 * 1.09);
+    }
+  });
+
+  test("em geo-antonina o mesmo quadro FECHA — não é bug geral, é daquela gleba", () => {
+    for (const motor of ["ortogonal", "espinha"]) {
+      const v = JSON.parse(
+        readFileSync(join(RES, "resultados", `geo-antonina.${motor}.veredito.json`), "utf8"),
+      );
+      const q = v.quadroDeAreas;
+      const soma = Object.entries(q).reduce(
+        (s, [k, x]) => (k === "areaTotal_m2" ? s : s + (x as number)), 0);
+      expect(Math.abs(soma - q.areaTotal_m2)).toBeLessThan(q.areaTotal_m2 * 0.001);
+    }
+  });
+});

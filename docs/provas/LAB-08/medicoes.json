@@ -1,0 +1,383 @@
+{
+  "prompt": "LAB-08",
+  "geradoEm": "2026-09-14T00:00:00.000Z",
+  "semente": 20260913,
+  "glebas": [
+    {
+      "prompt": "LAB-08",
+      "gleba": "ensaio-47ha",
+      "areaDaGleba_m2": 470000,
+      "relevo": "fixture do LAB-03 — sintético declarado",
+      "semente": 20260913,
+      "contrato": "1",
+      "symbios": {
+        "versaoMotor": "0.4.1",
+        "lotes": 0,
+        "areaPrivativa_m2": 0,
+        "quadras": 94,
+        "areaDeQuadras_m2": 273896.32,
+        "viaForaDaGleba": {
+          "semRecorte": 5.21,
+          "comRecorte": 0
+        },
+        "comprimentoDeVia_m": 16773.42,
+        "conectividade_pctNoMaior": 99.81,
+        "violacoes": 0,
+        "porRegra": {},
+        "recusa": null,
+        "rampa": {
+          "aoLongo": {
+            "arestas": 2987,
+            "mediana_pct": 10,
+            "maxima_pct": 10,
+            "acimaDe10": 0
+          },
+          "cruzamento": {
+            "arestas": 497,
+            "mediana_pct": 2.68,
+            "maxima_pct": 77.43,
+            "acimaDe10": 68
+          }
+        },
+        "ms": 592.96,
+        "determinismo": true
+      },
+      "testfit": {
+        "versaoMotor": "T02",
+        "variantesPedidas": 20,
+        "variantesJulgadas": 20,
+        "recusadasPeloEsquema": 0,
+        "semAparo_recusadas": 0,
+        "oAparoAindaCorta_pct": 0.32,
+        "melhorVariante": {
+          "formato": "espinha",
+          "lotes": 599,
+          "areaPrivativa_m2": 238189.76,
+          "loteMedio_m2": 397.65,
+          "violacoes": 16,
+          "porRegra": {
+            "testada": 10,
+            "face-quadra": 6
+          },
+          "quadroDeAreas": {
+            "areaTotal_m2": 470000,
+            "areaPrivativa_m2": 238189.75979279904,
+            "areaViaria_m2": 64027.52854965528,
+            "areaLazer_m2": 47246.05874380323,
+            "areaAPP_m2": 100833.09295322123,
+            "areaNaoAproveitada_m2": 19703.559960521205
+          },
+          "viaForaDaGleba": {
+            "total_m": 6384.43,
+            "fora_m": 0,
+            "fora_pct": 0
+          }
+        },
+        "somaDasVariantes": {
+          "lotes": 6500,
+          "violacoes": 1447,
+          "porRegra": {
+            "testada": 675,
+            "face-quadra": 12,
+            "frente": 760
+          }
+        },
+        "porPartido": {
+          "espinha": {
+            "variantes": 2,
+            "lotes": 1188,
+            "violacoes": 22
+          },
+          "ortogonal": {
+            "variantes": 2,
+            "lotes": 889,
+            "violacoes": 33
+          },
+          "diagonal": {
+            "variantes": 2,
+            "lotes": 765,
+            "violacoes": 9
+          },
+          "loop": {
+            "variantes": 2,
+            "lotes": 778,
+            "violacoes": 10
+          },
+          "mioloVerde": {
+            "variantes": 2,
+            "lotes": 660,
+            "violacoes": 18
+          },
+          "cluster": {
+            "variantes": 2,
+            "lotes": 737,
+            "violacoes": 573
+          },
+          "pente": {
+            "variantes": 2,
+            "lotes": 642,
+            "violacoes": 0
+          },
+          "organico": {
+            "variantes": 2,
+            "lotes": 565,
+            "violacoes": 506
+          },
+          "radial": {
+            "variantes": 2,
+            "lotes": 276,
+            "violacoes": 276
+          },
+          "superquadra": {
+            "variantes": 2,
+            "lotes": 0,
+            "violacoes": 0
+          }
+        },
+        "rampa": null,
+        "naGlebaSemRelevo": {
+          "formato": "espinha",
+          "lotes": 599,
+          "areaPrivativa_m2": 238189.76,
+          "loteMedio_m2": 397.65,
+          "violacoes": 16,
+          "quadroDeAreas": {
+            "areaTotal_m2": 470000,
+            "areaPrivativa_m2": 238189.75979279904,
+            "areaViaria_m2": 64027.52854965528,
+            "areaLazer_m2": 47246.05874380323,
+            "areaAPP_m2": 100833.09295322123,
+            "areaNaoAproveitada_m2": 19703.559960521205
+          },
+          "variantesJulgadas": 20
+        },
+        "ms": 1603.94,
+        "determinismo": true
+      },
+      "motorInternoDoGenerate": [
+        {
+          "motor": "ortogonal",
+          "lotes": 974,
+          "areaPrivativa_m2": 353306.7,
+          "loteMedio_m2": 362.74,
+          "violacoes": 0,
+          "quadro": {
+            "areaTotal_m2": 470000,
+            "areaPrivativa_m2": 353306.7,
+            "areaViaria_m2": 73690.97,
+            "areaLazer_m2": 47000,
+            "areaAPP_m2": 70500,
+            "areaNaoAproveitada_m2": 0
+          },
+          "somaDasPartes_m2": 544497.67,
+          "excessoSobreOTotal_pct": 15.85
+        },
+        {
+          "motor": "espinha",
+          "lotes": 776,
+          "areaPrivativa_m2": 302653.9,
+          "loteMedio_m2": 390.02,
+          "violacoes": 0,
+          "quadro": {
+            "areaTotal_m2": 470000,
+            "areaPrivativa_m2": 302653.9,
+            "areaViaria_m2": 95132.28,
+            "areaLazer_m2": 47000,
+            "areaAPP_m2": 70500,
+            "areaNaoAproveitada_m2": 0
+          },
+          "somaDasPartes_m2": 515286.18,
+          "excessoSobreOTotal_pct": 9.64
+        }
+      ]
+    },
+    {
+      "prompt": "LAB-08",
+      "gleba": "geo-antonina",
+      "areaDaGleba_m2": 1417565.19,
+      "relevo": "fixture do LAB-03 — sintético declarado",
+      "semente": 20260913,
+      "contrato": "1",
+      "symbios": {
+        "versaoMotor": "0.4.1",
+        "lotes": 0,
+        "areaPrivativa_m2": 0,
+        "quadras": 698,
+        "areaDeQuadras_m2": 1605840.99,
+        "viaForaDaGleba": {
+          "semRecorte": 54.57,
+          "comRecorte": 0
+        },
+        "comprimentoDeVia_m": 60933.93,
+        "conectividade_pctNoMaior": 70.4,
+        "violacoes": 0,
+        "porRegra": {},
+        "recusa": null,
+        "rampa": {
+          "aoLongo": {
+            "arestas": 9434,
+            "mediana_pct": 10,
+            "maxima_pct": 25.13,
+            "acimaDe10": 3
+          },
+          "cruzamento": {
+            "arestas": 2410,
+            "mediana_pct": 1.05,
+            "maxima_pct": 113.54,
+            "acimaDe10": 67
+          }
+        },
+        "ms": 5439.64,
+        "determinismo": true
+      },
+      "testfit": {
+        "versaoMotor": "T02",
+        "variantesPedidas": 20,
+        "variantesJulgadas": 18,
+        "recusadasPeloEsquema": 2,
+        "semAparo_recusadas": 2,
+        "oAparoAindaCorta_pct": 0.17,
+        "melhorVariante": {
+          "formato": "espinha",
+          "lotes": 1391,
+          "areaPrivativa_m2": 555573.21,
+          "loteMedio_m2": 399.41,
+          "violacoes": 53,
+          "porRegra": {
+            "testada": 42,
+            "face-quadra": 11
+          },
+          "quadroDeAreas": {
+            "areaTotal_m2": 1417565.185155,
+            "areaPrivativa_m2": 555573.2056413967,
+            "areaViaria_m2": 198419.9463327258,
+            "areaLazer_m2": 152453.86778598515,
+            "areaAPP_m2": 320055.43652177363,
+            "areaNaoAproveitada_m2": 191062.72887311882
+          },
+          "viaForaDaGleba": {
+            "total_m": 19794.59,
+            "fora_m": 0,
+            "fora_pct": 0
+          }
+        },
+        "somaDasVariantes": {
+          "lotes": 17644,
+          "violacoes": 3963,
+          "porRegra": {
+            "testada": 1846,
+            "face-quadra": 16,
+            "frente": 2101
+          }
+        },
+        "porPartido": {
+          "espinha": {
+            "variantes": 1,
+            "lotes": 1391,
+            "violacoes": 53
+          },
+          "ortogonal": {
+            "variantes": 2,
+            "lotes": 2732,
+            "violacoes": 41
+          },
+          "loop": {
+            "variantes": 2,
+            "lotes": 2633,
+            "violacoes": 27
+          },
+          "diagonal": {
+            "variantes": 2,
+            "lotes": 2535,
+            "violacoes": 28
+          },
+          "cluster": {
+            "variantes": 2,
+            "lotes": 2208,
+            "violacoes": 1724
+          },
+          "mioloVerde": {
+            "variantes": 2,
+            "lotes": 2050,
+            "violacoes": 30
+          },
+          "pente": {
+            "variantes": 2,
+            "lotes": 1933,
+            "violacoes": 0
+          },
+          "organico": {
+            "variantes": 1,
+            "lotes": 928,
+            "violacoes": 826
+          },
+          "radial": {
+            "variantes": 2,
+            "lotes": 1234,
+            "violacoes": 1234
+          },
+          "superquadra": {
+            "variantes": 2,
+            "lotes": 0,
+            "violacoes": 0
+          }
+        },
+        "rampa": null,
+        "naGlebaSemRelevo": {
+          "formato": "espinha",
+          "lotes": 1391,
+          "areaPrivativa_m2": 555573.21,
+          "loteMedio_m2": 399.41,
+          "violacoes": 53,
+          "quadroDeAreas": {
+            "areaTotal_m2": 1417565.185155,
+            "areaPrivativa_m2": 555573.2056413967,
+            "areaViaria_m2": 198419.9463327258,
+            "areaLazer_m2": 152453.86778598515,
+            "areaAPP_m2": 320055.43652177363,
+            "areaNaoAproveitada_m2": 191062.72887311882
+          },
+          "variantesJulgadas": 18
+        },
+        "ms": 6037.86,
+        "determinismo": true
+      },
+      "motorInternoDoGenerate": [
+        {
+          "motor": "ortogonal",
+          "lotes": 1389,
+          "areaPrivativa_m2": 508580.73,
+          "loteMedio_m2": 366.15,
+          "violacoes": 1,
+          "quadro": {
+            "areaTotal_m2": 936512.08,
+            "areaPrivativa_m2": 508580.73,
+            "areaViaria_m2": 161130.53,
+            "areaLazer_m2": 93651.21,
+            "areaAPP_m2": 6782.75,
+            "areaNaoAproveitada_m2": 166366.85
+          },
+          "somaDasPartes_m2": 936512.07,
+          "excessoSobreOTotal_pct": 0
+        },
+        {
+          "motor": "espinha",
+          "lotes": 1656,
+          "areaPrivativa_m2": 617218.9,
+          "loteMedio_m2": 372.72,
+          "violacoes": 0,
+          "quadro": {
+            "areaTotal_m2": 936512.08,
+            "areaPrivativa_m2": 617218.9,
+            "areaViaria_m2": 136480.62,
+            "areaLazer_m2": 93651.21,
+            "areaAPP_m2": 6782.75,
+            "areaNaoAproveitada_m2": 82378.59
+          },
+          "somaDasPartes_m2": 936512.07,
+          "excessoSobreOTotal_pct": 0
+        }
+      ]
+    }
+  ]
+}

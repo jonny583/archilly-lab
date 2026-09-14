@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 14/09/2026 · **Último prompt executado:** LAB-03
+**Última atualização:** 14/09/2026 · **Último prompt executado:** LAB-08
 **Estado:** a fila deste repositório é **autônoma** desde 14/09 — um despertador
 de 60 minutos acorda esta sessão, ela pega o próximo prompt e o executa até o
 fim. Não é preciso mandar mensagem para o trabalho continuar.
@@ -32,9 +32,9 @@ recados acumulados, em [`relatorios/RECADOS.md`](relatorios/RECADOS.md).
 |---|---|
 | **LF-01** — casa em ordem | concluído em 14/09/2026 |
 | **LAB-02** — recorte pela gleba e pelas restrições | concluído em 14/09/2026 |
-| **LAB-03** — relevo: interpolação corrigida e glebas-padrão com relevo | **concluído em 14/09/2026** |
-| **LAB-08** — Testfit × Symbios, lado a lado | **aguardando só o T02** — ver abaixo |
-| **LF-FINAL** — conferência contra o Padrão 1.2 | aguardando o LAB-08 |
+| **LAB-03** — relevo: interpolação corrigida e glebas-padrão com relevo | concluído em 14/09/2026 |
+| **LAB-08** — Testfit × Symbios, lado a lado | **concluído em 14/09/2026** |
+| **LF-FINAL** — conferência contra o Padrão 1.2 | **pronto — é o próximo** |
 
 Histórico: **LAB-00** (09/09), **LAB-01** (10/09) e **LAB-07** (13/09)
 concluídos; **LAB-04** liberado e roda depois do LAB-02/03; LAB-03/05/06 da fila
@@ -42,9 +42,8 @@ antiga seguem em cadeia. Tudo em [`prompts/FILA.md`](prompts/FILA.md).
 
 ## Dependências externas
 
-| o quê | de quem | trava o quê |
-|---|---|---|
-| **T02 mesclado na `main` de `jonny583/motor-testfit`** | o laboratório de parcelamento | o **LAB-08**, e é a única coisa que falta: a metade que era nossa ficou pronta no LAB-03, com as duas glebas-padrão rodando nos dois motores. Conferir a cada despertador, clonando só para leitura |
+**Nenhuma aberta.** O T02 foi mesclado na `main` de `jonny583/motor-testfit`
+(`cbd6cc8`) e o LAB-08 rodou contra ele em 14/09.
 
 ## O laço autônomo
 
@@ -60,6 +59,84 @@ antiga seguem em cadeia. Tudo em [`prompts/FILA.md`](prompts/FILA.md).
   precisa ser recriado pela interface do claude.ai.
 - **Fila esgotada:** grava o recado acumulado, escreve aqui *"fila esgotada,
   aguardando o chat"* e **apaga o despertador**.
+
+---
+
+# LAB-08 — os dois motores lado a lado · 14/09/2026
+
+Relatório: [`relatorios/LAB-08.md`](relatorios/LAB-08.md) · números crus:
+[`provas/LAB-08/`](provas/LAB-08/) · as saídas para o Generate julgar:
+[`contratos/saidas/`](contratos/saidas/)
+
+### `ensaio-47ha` — 47,0 ha, zero restrições
+
+| | Symbios 0.4.1 | Testfit T02 | Generate `ortogonal` |
+|---|---|---|---|
+| lotes | **0** — não parcela | **599** | **974** |
+| lote médio | — | **397,65 m²** | 362,74 m² |
+| quadras | **94** | — | — |
+| via fora da gleba | 5,21 % → **0 %** | **0 %** | — |
+| violações | **0** | 16 | 0 |
+| rampa no cruzamento | **77,43 %** | `null` | — |
+| **quadro de áreas fecha?** | sim | **sim** | **NÃO — +15,8 %** |
+| determinismo | OK | OK | — |
+
+### `geo-antonina` — 141,8 ha, terreno real
+
+| | Symbios 0.4.1 | Testfit T02 | Generate `ortogonal` | Generate `espinha` |
+|---|---|---|---|---|
+| lotes | **0** | **1 391** | 1 389 | **1 656** |
+| quadras | **698** | — | — | — |
+| via fora da gleba | 54,57 % → **0 %** | **0 %** | — | — |
+| violações | **0** | 53 | 1 | 0 |
+| rampa no cruzamento | **113,54 %** | `null` | — | — |
+| quadro fecha? | sim | sim | sim | sim |
+
+## O T02 funcionou
+
+| | LAB-07 (T00-A) | LAB-08 (T02) |
+|---|---|---|
+| recusadas pelo esquema **sem** o aparo | **60 de 60** | **0 de 20** · 2 de 20 |
+| quanto o aparo do Lab ainda corta | **25 % a 40 %** | **0,32 %** · 0,17 % |
+
+`pente` chegou a zero violações. `cluster` (77,9 %), `organico` (82,9 %) e
+`radial` (100 % dos lotes) continuam quebrados, e `superquadra` continua vazia.
+
+## Os "22 % a menos de lotes": a causa, com número
+
+O número mudou e não é constante: **−38,5 %** em `ensaio-47ha` e **empate**
+(1 391 × 1 389) em `geo-antonina`. E o lote do Testfit é **maior** (397,65 contra
+362,74 m²) — ele não empacota pior, empacota em **menos terra**: 50,7 % da gleba
+contra 75,2 %.
+
+**A última linha explica o resto.** O quadro de referência do Generate em
+`ensaio-47ha` soma **544 498 m² numa gleba de 470 000** — 15,8 % a mais do que a
+terra existe. Privativa e viária sozinhas já ocupam 90,9 %, sobram 43 002 m², e o
+quadro reivindica 117 500 para lazer e APP.
+
+De onde vêm esses dois números? **Do parâmetro, não do desenho:** `areaAPP_m2` é
+exatamente 15,0 % da gleba (`pctAPP: 15`) e `areaLazer_m2` exatamente 10,0 %
+(`pctLazer: 10`) — e **`ensaio-47ha` declara `restricoes: []`**. O quadro anuncia
+7,05 ha de APP numa gleba que não tem nenhuma.
+
+Não é defeito geral: em `geo-antonina` o mesmo quadro fecha ao centavo. Quatro
+testes fixam as quatro afirmações. **Daqui não dá para saber** se os lotes estão
+por cima da APP ou se a APP não existe no desenho — é uma pergunta, com número,
+para o Generate.
+
+## Dois achados novos
+
+- **O Testfit não usa relevo no traçado.** Mesma semente, gleba com e sem
+  relevo: 599 e 599; 1 391 e 1 391, lote a lote. O T03 deles diz isso no título;
+  a medição independente confirma — e é o que garante que a fixture do LAB-03
+  não contaminou a comparação com os números do Generate.
+- **O Symbios é o único dos três que entrega greide.** Somado ao achado do
+  LAB-02 (o Validator não confere rampa, e o contrato só carrega a média), a
+  única informação de greide que existe na família vem do motor que ainda não
+  faz lote.
+
+**O LAB-04 virou o próximo passo óbvio do Symbios:** ele entrega 94 e 698
+quadras limpas; o que falta para disputar o Judge é subdividir quadra em lote.
 
 ---
 

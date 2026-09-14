@@ -819,3 +819,59 @@ forma de separá-las. Um teste compara campo a campo com o original.
 E a declaração não é formalidade: um arquivo com curvas de nível parece
 levantamento. Quem o abrir daqui a três meses precisa saber, na primeira linha,
 que aquele morro foi calculado, não medido.
+
+---
+
+# LAB-08 — os dois motores lado a lado · 14/09/2026
+
+---
+
+## D40 · O clone de leitura é atualizado quando o prompt exige a versão nova · 14/09/2026
+
+**A decisão:** o clone de `motor-testfit` foi levado de `T00-A` para a `main`
+com T02 (`git merge --ff-only`). Continua **somente leitura** — nenhum commit,
+nenhum push, `git status` limpo no fim.
+
+**Por quê.** O LAB-08 pede explicitamente *"a esteira com o motor do Testfit
+corrigido (T02)"*. Medir o T00-A e chamá-lo de T02 seria mentir sobre o que está
+na tabela. Atualizar o **meu** clone não é escrever no repositório deles — é ler
+uma versão diferente do mesmo repositório.
+
+**O que isso obriga:** dizer no relatório qual commit foi medido, porque a
+tabela envelhece junto com o motor.
+
+---
+
+## D41 · Teste que fixa defeito consertado é reescrito, não apagado · 14/09/2026
+
+**A decisão:** o teste do LAB-07 que exigia *"sem aparo o contrato recusa"*
+passou a exigir só o que continua verdadeiro — que o resultado **com** aparo
+passa no esquema. O comentário guarda o que ele fixava antes, o número velho
+(60 de 60 recusadas), o número novo (0 de 20) e por que mudou.
+
+**Por quê.** O T02 consertou o defeito, então a asserção antiga está errada e
+tem de sair. Mas **apagar a linha perderia a memória de por que o `aparo.ts`
+existe** — daqui a três meses alguém olharia aquele arquivo, veria que ele corta
+0,3 %, e o removeria por inútil, sem saber que ele foi escrito quando o número
+era 38 % e que é ele que garante que não volte a ser.
+
+Um teste é também documento. Quando a verdade que ele guardava muda, o que muda
+é a asserção; a história fica no comentário.
+
+---
+
+## D42 · A comparação com o Generate roda também na gleba SEM relevo · 14/09/2026
+
+**A decisão:** o motor do Testfit foi medido duas vezes em cada gleba — na
+fixture com relevo (para o confronto com o Symbios) e na gleba original sem
+relevo (para o confronto com os números do Generate).
+
+**Por quê.** Os 974 lotes do Generate foram medidos na gleba original. Comparar
+com uma rodada feita sobre a fixture do LAB-03 misturaria duas mudanças — o
+motor e o terreno — e nenhuma forma de separá-las.
+
+**O que a terceira rodada revelou, e valeu o custo:** os dois resultados são
+**idênticos**, lote a lote (599 e 599; 1 391 e 1 391). O traçado daquele motor
+não usa relevo, o que a medição independente confirma e o T03 deles já dizia no
+título. A comparação com o Generate está limpa — mas isso só se pôde afirmar
+porque a terceira rodada existiu.

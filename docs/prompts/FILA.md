@@ -45,8 +45,8 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 | **LF-01** | Casa em ordem | ✅ **concluído em 14/09/2026** | nenhuma |
 | **LAB-02** | Recorte pela gleba e pelas restrições | ✅ **concluído em 14/09/2026** | LF-01 mesclado ✅ |
 | **LAB-03** | Relevo: interpolação corrigida e glebas-padrão com relevo | ✅ **concluído em 14/09/2026** | LAB-02 mesclado ✅ |
-| **LAB-08** | Testfit × Symbios, lado a lado | ⏸ **aguardando** — só falta o T02 | LAB-03 mesclado ✅ **E** T02 mesclado na `main` de `jonny583/motor-testfit` ⏳ |
-| **LF-FINAL** | Conferência contra o Padrão 1.2 | ⬜ | LAB-08 mesclado |
+| **LAB-08** | Testfit × Symbios, lado a lado | ✅ **concluído em 14/09/2026** | LAB-03 ✅ **E** T02 mesclado ✅ (`cbd6cc8`) |
+| **LF-FINAL** | Conferência contra o Padrão 1.2 | ⬜ **pronto — é o próximo** | LAB-08 mesclado ✅ |
 
 ---
 
@@ -98,7 +98,7 @@ motor cai em grade), e na gleba plana o defeituoso **inventa sinuosidade** onde
 não há relevo. As duas glebas-padrão ganharam relevo como fixtures do Lab e o
 Symbios passou a rodar nelas — **o LAB-08 deixou de ser impossível**.
 
-### LAB-08 · Testfit × Symbios, lado a lado — aguardando
+### LAB-08 · Testfit × Symbios, lado a lado — ✅ concluído em 14/09/2026
 
 **Condição:** LAB-03 mesclado ✅ **E** T02 do Testfit mesclado na `main` de
 `jonny583/motor-testfit` ⏳. Verificar a cada despertador; enquanto não,
@@ -113,10 +113,18 @@ de onde vem). Veredito por motor. **Nada de recomendação de produto:** o chat 
 o Jonny decidem com a tabela.
 **Prova:** JSON e tabela; arquivos das saídas em `docs/contratos/saidas/` para o
 Generate julgar.
+**Entregue:** [`../relatorios/LAB-08.md`](../relatorios/LAB-08.md). **O T02
+funcionou:** as recusas do esquema sem aparo caíram de 60 de 60 para 0 de 20, e o
+aparo do Lab passou a cortar 0,3 % em vez de 38 %. O Symbios sai com **zero
+violações** nas duas glebas mas **não faz lote** — ele entrega a etapa anterior,
+e o LAB-04 é o que falta para ele disputar. E os "22 % a menos" viraram −38,5 %
+em `ensaio-47ha` e **empate** em `geo-antonina`: a causa é que o quadro de áreas
+de referência do Generate **não fecha** naquela gleba (+15,8 %), porque APP e
+lazer ali são **eco do parâmetro**, numa gleba que declara zero restrições.
 
-### LF-FINAL · Conferência contra o Padrão 1.2
+### LF-FINAL · Conferência contra o Padrão 1.2 — pronto
 
-**Condição:** LAB-08 mesclado.
+**Condição:** LAB-08 mesclado ✅.
 **Escopo:** conferência — o Lab não tem tela, então vale o que se aplica:
 chaves, formatação no núcleo, determinismo, docs. `INDEX` e `ONDE_PARAMOS`
 reescritos; `PENDENCIAS_JONNY` do zero.
@@ -124,6 +132,12 @@ reescritos; `PENDENCIAS_JONNY` do zero.
 ---
 
 ## Proposto ao chat — não executar
+
+- **LAB-04 · straight skeleton.** Não é proposta nova — está na fila antiga e foi
+  liberado desde o LAB-00 —, mas o LAB-08 mostrou que ele virou **o próximo passo
+  óbvio do Symbios**: o motor entrega 94 e 698 quadras limpas, com zero violações,
+  e o que falta para ele disputar o Judge é subdividir quadra em lote. Fica ao
+  chat dizer se ele entra antes ou depois do LF-FINAL.
 
 - **Recortar a quadra que atravessa a divisa.** Hoje a quadra inteiramente fora é
   descartada e a que atravessa fica, medida (73, 36 e 3 nas três glebas). Cortá-la

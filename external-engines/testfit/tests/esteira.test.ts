@@ -184,9 +184,15 @@ describe("a esteira inteira", () => {
       });
       expect(r.variantes.length).toBe(2);
       for (const v of r.variantes) {
-        // Sem aparo o contrato recusa — é o achado, e o teste o fixa.
-        expect(v.semAparo?.recusa).not.toBeNull();
-        // Com aparo o esquema passa e o Validator roda.
+        // ATÉ O T02, este teste exigia `not.toBeNull()`: no LAB-07, as 60 de 60
+        // variantes eram recusadas pelo esquema sem o aparo, porque 25 % a 40 %
+        // do comprimento de via nascia fora da divisa. O T02 consertou isso —
+        // medido no LAB-08: 0 de 20 recusadas em `ensaio-47ha`, 2 de 20 em
+        // `geo-antonina`, e o aparo do Lab passou a cortar 0,3 % em vez de 38 %.
+        //
+        // O teste não some: ele passa a guardar a propriedade que interessa
+        // agora — que o aparo é OPCIONAL e o resultado com ele passa no esquema.
+        // Apagar a linha perderia a memória de por que o aparo existe.
         expect(v.recusa).toBeNull();
         expect(v.relatorio).not.toBeNull();
         expect(v.relatorio!.judge.numLotes).toBeGreaterThan(0);
