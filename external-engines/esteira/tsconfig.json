@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "strict": true,
+    // `noUncheckedIndexedAccess` e `exactOptionalPropertyTypes` ficam DE FORA.
+    //
+    // Este programa compila também o código do Generate (o Validator e o Judge
+    // entram por import, não por cópia), e o tsconfig de lá não liga esses dois
+    // flags. Ligá-los aqui faz o `tsc` acusar 20 erros dentro do repositório
+    // DELES — erros que não existem sob o tsconfig deles e que o Lab não pode
+    // corrigir, porque não escreve naquele repositório.
+    //
+    // Um typecheck que acusa erro alheio e não tem como consertá-lo é um
+    // typecheck que se aprende a ignorar. O código deste adaptador foi escrito
+    // e passou com os dois flags ligados; alinhar com o Generate é o que
+    // mantém a saída do `tsc` significando alguma coisa.
+    "skipLibCheck": true,
+    "types": ["bun"],
+    "baseUrl": ".",
+    // ── ONDE FICAM OS REPOSITÓRIOS IRMÃOS ──────────────────────────────────
+    //
+    // Este é o ÚNICO lugar do Lab que sabe o caminho deles. Os dois são clones
+    // SÓ PARA LEITURA — o Lab nunca escreve neles.
+    //
+    //   motor-testfit  → jonny583/motor-testfit       (o motor que a esteira mede)
+    //   generate       → jonny583/urban-create-hub-41d93a4d
+    //                    (o dono do contrato, do Validator e do Judge)
+    //
+    // Para rodar noutra máquina, clone os dois e ajuste as duas linhas abaixo.
+    // Ver external-engines/testfit/README.md.
+    "paths": {
+      "@testfit/*": ["../../../motor-testfit/src/lib/lab/*"],
+      "@generate/*": ["../../../urban-create-hub-41d93a4d/src/lib/*"],
+      "@symbios/*": ["../symbios/adapter/src/*"]
+    }
+  },
+  "include": ["src", "ferramentas", "tests", "tipos"]
+}

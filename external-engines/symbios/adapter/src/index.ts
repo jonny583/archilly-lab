@@ -56,6 +56,7 @@ export { calcularOrigem, projetar, reverter, areaPoligono, dentroDoPoligono } fr
 export { lerTerrenoGeo } from "./terreno-geo.ts";
 export { paraGeoJSON } from "./geojson.ts";
 export { resolverParametros } from "./parametros.ts";
+export { recortarPelaGleba, type ResultadoRecorte, type Conectividade, type AreaBloqueada } from "./recorte.ts";
 
 /**
  * Tolerância da conferência de rampa, em pontos percentuais.

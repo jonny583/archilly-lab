@@ -43,8 +43,8 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LF-01** | Casa em ordem | ✅ **concluído em 14/09/2026** | nenhuma |
-| **LAB-02** | Recorte pela gleba e pelas restrições | ⬜ **pronto — é o próximo** | LF-01 mesclado ✅ (geometria utilizável já cumprida no LAB-01) |
-| **LAB-03** | Relevo: interpolação corrigida e glebas-padrão com relevo | ⬜ | LAB-02 mesclado |
+| **LAB-02** | Recorte pela gleba e pelas restrições | ✅ **concluído em 14/09/2026** | LF-01 mesclado ✅ |
+| **LAB-03** | Relevo: interpolação corrigida e glebas-padrão com relevo | ⬜ **pronto — é o próximo** | LAB-02 mesclado ✅ |
 | **LAB-08** | Testfit × Symbios, lado a lado | ⏸ **aguardando** | LAB-03 mesclado **E** T02 mesclado na `main` de `jonny583/motor-testfit` |
 | **LF-FINAL** | Conferência contra o Padrão 1.2 | ⬜ | LAB-08 mesclado |
 
@@ -61,7 +61,7 @@ confirmações dele); `ONDE_PARAMOS` e `INDEX` reescritos.
 **Prova:** testes intactos.
 **Entregue:** [`../relatorios/LF-01.md`](../relatorios/LF-01.md).
 
-### LAB-02 · Recorte pela gleba e pelas restrições — pronto
+### LAB-02 · Recorte pela gleba e pelas restrições — ✅ concluído em 14/09/2026
 
 **Condição:** LF-01 mesclado (a condição de geometria utilizável já está
 cumprida pelo LAB-01).
@@ -73,10 +73,17 @@ gleba (**meta: 0 %**) e rampa nos cruzamentos — e as violações por partido.
 **Sem inventar regra.**
 **Prova:** antes/depois nas três glebas, tabela no relatório e JSON em
 `docs/provas/LAB-02/`.
+**Entregue:** [`../relatorios/LAB-02.md`](../relatorios/LAB-02.md). **A meta foi
+atingida: 0 % de via fora da gleba nas três**, e 0 % dentro de restrição; o
+contrato sai de recusado para aceito com **zero violações**. As três glebas são
+outras — `ensaio-47ha` e `geo-antonina` **não têm relevo e o Symbios não as
+come**, que é a razão medida do LAB-03.
 
-### LAB-03 · Relevo: interpolação corrigida e glebas-padrão com relevo
+### LAB-03 · Relevo: interpolação corrigida e glebas-padrão com relevo — pronto
 
-**Condição:** LAB-02 mesclado.
+**Condição:** LAB-02 mesclado ✅. **E ele ficou mais urgente do que era:** sem
+relevo nas glebas-padrão, os dois motores não pisam na mesma terra, e o LAB-08
+fica impossível de honrar (LAB-02, §6).
 **Escopo:** aplicar no Lab a correção de interpolação (**exigir vizinhos de duas
 cotas distintas**) e medir o efeito sobre a rampa; gerar, a partir de relevo
 real de referência (o que o Geo já exporta ou uma superfície sintética
@@ -111,7 +118,15 @@ reescritos; `PENDENCIAS_JONNY` do zero.
 
 ## Proposto ao chat — não executar
 
-*(vazio)*
+- **Recortar a quadra que atravessa a divisa.** Hoje a quadra inteiramente fora é
+  descartada e a que atravessa fica, medida (73, 36 e 3 nas três glebas). Cortá-la
+  exige interseção polígono × polígono côncavo e **muda a área dela**, que é
+  número que o Validator mede. O contrato já trata isso como exceção declarada.
+  Vale a pena? É decisão do chat. Ver LAB-02, §8.
+- **Descartar lasca de corte.** Trechos curtos criados pelo recorte ficam, porque
+  descartar exige um limiar e limiar é regra (D35). Medido, o problema é pequeno:
+  3 trechos abaixo de 5 m numa gleba, 4,87 m no total. Se virar incômodo, o chat
+  define o número.
 
 ---
 

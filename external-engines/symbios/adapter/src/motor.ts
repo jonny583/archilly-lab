@@ -87,7 +87,14 @@ export class Motor {
    * consequência de o motor não tocar arquivo, rede nem relógio.
    */
   static async carregar(bytes: BufferSource): Promise<Motor> {
-    const { instance } = await WebAssembly.instantiate(bytes, {});
+    // Compila e instancia em dois passos, e não na forma de uma chamada só.
+    // Comportamento idêntico — a forma curta faz exatamente isto por dentro —,
+    // mas o tipo deixa de ser ambíguo: `instantiate(bytes, …)` devolve
+    // `{ module, instance }` e `instantiate(Module, …)` devolve `Instance`, e
+    // com dois conjuntos de tipos em jogo (Node aqui, Bun na esteira do LAB-02)
+    // o compilador escolhia sobrecargas diferentes no mesmo arquivo.
+    const modulo = await WebAssembly.compile(bytes);
+    const instance = await WebAssembly.instantiate(modulo, {});
     const ex = instance.exports as unknown as Exportados;
     for (const nome of [
       "memory",
