@@ -42,20 +42,24 @@ Próximo na fila: LAB-02 — recorte pela gleba e pelas restrições, e passagem
 
 ```
 === RECADO PARA O CHAT — Lab · LF-01 ===
-Estado: LF-01 concluído e mesclado na main. Fila autônoma gravada e despertador de 60 min
-  criado (minuto :05). Testes intactos: 14/14, tsc e lint limpos.
-Feito: docs/prompts/FILA.md é a fila oficial (LF-01, LAB-02, LAB-03, LAB-08, LF-FINAL) com
-  o histórico LAB-00..LAB-07 preservado; docs/relatorios/RECADOS.md criado com o recado do
-  LAB-07; as 3 decisões do chat gravadas (D26 calçada é da via, D27 só partido aprovado vai
-  à tela, D28 superquadra vazia é defeito de pontuação), mais D29 (fila autônoma) e D30
-  (INDEX); PENDENCIAS_JONNY reescrito — sobraram 2 confirmações; ONDE_PARAMOS e INDEX
-  reescritos; branch claude/stoic-ritchie-ijzqy3 apagada depois da mescla.
+Estado: LF-01 concluído e mesclado na main (PRs #6 e #7). Fila autônoma gravada e
+  despertador de 60 min criado (minuto :05). Testes intactos: 14/14, tsc e lint limpos.
+Feito: docs/prompts/FILA.md é a fila oficial (LF-01, LAB-02, LAB-03, LAB-08, LF-FINAL),
+  histórico LAB-00..LAB-07 preservado; docs/relatorios/RECADOS.md e docs/INDEX.md criados;
+  decisões do chat gravadas (D26 calçada é da via, D27 só partido aprovado vai à tela,
+  D28 superquadra vazia é defeito de pontuação) mais D29 (laço autônomo) e D30 (INDEX);
+  PENDENCIAS_JONNY reescrito — sobraram 2 confirmações; ONDE_PARAMOS reescrito.
+Não saiu como pedido: apagar a branch. O proxy de git recusou 3 vezes (aceita atualizar
+  ref, recusa apagar ref) e não há ferramenta para isso aqui. Ela foi reposta sobre a
+  main — mesmo commit, zero conteúdo próprio — e precisa existir, é a branch de trabalho
+  do despertador. Exclusão literal = um clique na interface do GitHub.
 Achados para outros apps ou Central: nenhum novo. Os 3 do LAB-07 seguem sem repasse, e o
-  repasse saiu da lista do Jonny — por decisão do chat, é do chat.
-Depende do Jonny: 2 itens, ambos confirmação de decisão já tomada (calçada na caixa da via;
-  partidos cluster/organico/radial fora da tela até medirem melhor).
+  repasse saiu da lista do Jonny — por decisão do chat, é do chat. Para o chat: o
+  despertador nasceu SEM CONECTORES do GitHub; rodadas futuras mesclam por git direto, e
+  para ter PR ele precisa ser recriado pela interface do claude.ai.
+Depende do Jonny: 2 itens, ambos confirmação de decisão já tomada (calçada na caixa da
+  via; cluster/organico/radial fora da tela até medirem melhor).
 Próximo na fila: LAB-02 — aparar a rede do Symbios pelo perímetro e pelas restrições
-  (APP como geometria real) e rejulgar com o Validator e o Judge do Generate. Meta: 0 % de
-  via fora da gleba.
+  (APP como geometria real) e rejulgar com o Validator e o Judge do Generate. Meta: 0 %.
 === FIM ===
 ```
