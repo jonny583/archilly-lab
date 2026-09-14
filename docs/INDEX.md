@@ -28,11 +28,13 @@ comece pela primeira linha da primeira tabela.
 | documento | o que responde |
 |---|---|
 | [`relatorios/LAB-07.md`](relatorios/LAB-07.md) | **O motor do Testfit na esteira**: veredito, violações por partido, perdas na ida e na volta, a lista para o T02, o diagnóstico do relevo |
+| [`relatorios/LAB-03.md`](relatorios/LAB-03.md) | **O relevo**: o que a interpolação faz com o traçado (não com a rampa), e as glebas-padrão do Generate com relevo |
 | [`relatorios/LAB-02.md`](relatorios/LAB-02.md) | **O recorte pela gleba e pelas restrições**: 0 % de via fora da divisa, o custo em conectividade, e a descoberta de que ninguém confere a rampa |
 | [`relatorios/LAB01_ADAPTADOR.md`](relatorios/LAB01_ADAPTADOR.md) | **O adaptador do Symbios**: ida e volta georreferenciada, determinismo, rampa, quadras, escala |
 | [`relatorios/LF-01.md`](relatorios/LF-01.md) | A casa em ordem: a fila autônoma, o despertador, e o que o chat decidiu |
 | [`provas/`](provas/) | **Os números crus**, em JSON, por prompt — gleba, motor, semente e versão do contrato em cada arquivo |
 | [`terrenos/`](terrenos/) | Os 4 terrenos no contrato `archilly-terreno` 1.1, com procedência declarada |
+| [`fixtures/glebas-padrao-com-relevo/`](fixtures/glebas-padrao-com-relevo/) | As duas glebas-padrão do Generate **com relevo sintético declarado** (LAB-03) — poligonal e parâmetros dele, intocados |
 
 ## A triagem dos motores
 

@@ -44,8 +44,8 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 |---|---|---|---|
 | **LF-01** | Casa em ordem | ✅ **concluído em 14/09/2026** | nenhuma |
 | **LAB-02** | Recorte pela gleba e pelas restrições | ✅ **concluído em 14/09/2026** | LF-01 mesclado ✅ |
-| **LAB-03** | Relevo: interpolação corrigida e glebas-padrão com relevo | ⬜ **pronto — é o próximo** | LAB-02 mesclado ✅ |
-| **LAB-08** | Testfit × Symbios, lado a lado | ⏸ **aguardando** | LAB-03 mesclado **E** T02 mesclado na `main` de `jonny583/motor-testfit` |
+| **LAB-03** | Relevo: interpolação corrigida e glebas-padrão com relevo | ✅ **concluído em 14/09/2026** | LAB-02 mesclado ✅ |
+| **LAB-08** | Testfit × Symbios, lado a lado | ⏸ **aguardando** — só falta o T02 | LAB-03 mesclado ✅ **E** T02 mesclado na `main` de `jonny583/motor-testfit` ⏳ |
 | **LF-FINAL** | Conferência contra o Padrão 1.2 | ⬜ | LAB-08 mesclado |
 
 ---
@@ -79,7 +79,7 @@ contrato sai de recusado para aceito com **zero violações**. As três glebas s
 outras — `ensaio-47ha` e `geo-antonina` **não têm relevo e o Symbios não as
 come**, que é a razão medida do LAB-03.
 
-### LAB-03 · Relevo: interpolação corrigida e glebas-padrão com relevo — pronto
+### LAB-03 · Relevo: interpolação corrigida e glebas-padrão com relevo — ✅ concluído em 14/09/2026
 
 **Condição:** LAB-02 mesclado ✅. **E ele ficou mais urgente do que era:** sem
 relevo nas glebas-padrão, os dois motores não pisam na mesma terra, e o LAB-08
@@ -91,12 +91,19 @@ declarada), versões **com relevo** das duas glebas-padrão do Generate, como
 **fixtures do Lab**. Não alterar o Generate: a proposta de adotá-las vai no
 relatório, para o chat repassar.
 **Prova:** rampa por trecho e por cruzamento antes e depois; JSON.
+**Entregue:** [`../relatorios/LAB-03.md`](../relatorios/LAB-03.md). **O defeito de
+interpolação não estraga a rampa — estraga o traçado:** a rampa quase não se
+mexe, mas a fração de rede alinhada a uma direção salta de 12,6 % para 47,3 % (o
+motor cai em grade), e na gleba plana o defeituoso **inventa sinuosidade** onde
+não há relevo. As duas glebas-padrão ganharam relevo como fixtures do Lab e o
+Symbios passou a rodar nelas — **o LAB-08 deixou de ser impossível**.
 
 ### LAB-08 · Testfit × Symbios, lado a lado — aguardando
 
-**Condição:** LAB-03 mesclado **E** T02 do Testfit mesclado na `main` de
-`jonny583/motor-testfit`. Verificar a cada despertador; enquanto não,
-**"aguardando"**.
+**Condição:** LAB-03 mesclado ✅ **E** T02 do Testfit mesclado na `main` de
+`jonny583/motor-testfit` ⏳. Verificar a cada despertador; enquanto não,
+**"aguardando"**. A metade que era nossa está pronta: as duas glebas-padrão
+rodam nos dois motores desde o LAB-03.
 **Escopo:** rodar de novo a esteira com o motor do Testfit corrigido (T02) e o
 Symbios recortado (LAB-02), **mesmas glebas, mesmas sementes**, e entregar UMA
 tabela: lotes, área parcelada, via fora da gleba, violações por regra, rampa,
@@ -123,6 +130,12 @@ reescritos; `PENDENCIAS_JONNY` do zero.
   exige interseção polígono × polígono côncavo e **muda a área dela**, que é
   número que o Validator mede. O contrato já trata isso como exceção declarada.
   Vale a pena? É decisão do chat. Ver LAB-02, §8.
+- **Reconectar a rede depois do corte.** O LAB-03 mediu o caso ruim: em
+  `geo-antonina` com relevo, o recorte deixa 25 componentes e só **70,4 %** do
+  comprimento no maior (o pior caso do LAB-02 tinha sido 94,7 %). A causa é a
+  forma da gleba — contorno recortado e três APP atravessando o meio. Reconectar
+  é **desenhar via que o motor não desenhou**, então não é decisão minha. Ver
+  LAB-03, Parte B.
 - **Descartar lasca de corte.** Trechos curtos criados pelo recorte ficam, porque
   descartar exige um limiar e limiar é regra (D35). Medido, o problema é pequeno:
   3 trechos abaixo de 5 m numa gleba, 4,87 m no total. Se virar incômodo, o chat

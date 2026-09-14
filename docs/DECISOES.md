@@ -743,3 +743,79 @@ recorte geométrico.
 Medido, o problema é pequeno: **3 trechos abaixo de 5 m em `completo`, somando
 4,87 m**; zero nas outras duas glebas. Se algum dia doer, aí sim vira proposta,
 com o número na mão.
+
+---
+
+# LAB-03 — o relevo · 14/09/2026
+
+---
+
+## D36 · `gerarRedeViaria` aceita um mapa de alturas pronto · 14/09/2026
+
+**A decisão:** um quinto parâmetro opcional, `mapaPronto`. Quando vem, o
+adaptador usa ele em vez de montar o próprio.
+
+**Por quê.** Medir o que a **interpolação** muda no traçado exige rodar o mesmo
+motor, com a mesma semente, sobre dois mapas diferentes. Sem essa porta, a única
+alternativa seria pôr os dois interpoladores dentro de `alturas.ts` — um deles o
+**defeituoso, de propósito** — e código de produção que carrega a versão errada
+é armadilha esperando alguém ligar por engano.
+
+**O que isso obriga:** quem passa um mapa assume a responsabilidade por ele. O
+passo, a folga e a inversão de eixo têm de ser os de `montarAlturas`, senão o
+resultado volta no lugar errado. O comentário na assinatura diz isso, e um teste
+verifica que a réplica bate campo a campo com o mapa de produção.
+
+---
+
+## D37 · O interpolador defeituoso é replicado na pasta de medição, não em produção · 14/09/2026
+
+**A decisão:** `external-engines/esteira/src/relevo-k-vizinhos.ts` — a versão
+errada, viva o bastante para servir de controle, com o nome dizendo o que é.
+
+**Por quê.** É o mesmo caminho que o LAB-07 seguiu ao replicar o `campoRelevo`
+do outro motor para medi-lo sem escrever no repositório dele. Um controle
+experimental precisa existir; ele só não pode morar onde alguém possa usá-lo
+achando que é o bom.
+
+**O cuidado que faz o controle valer:** a réplica copia `montarAlturas` linha a
+linha — grade, passo, folga, inversão de eixo, máscara de dentro — e troca
+**só** a função que decide a cota. Qualquer outra diferença faria a comparação
+medir duas coisas ao mesmo tempo. Um teste trava as cinco igualdades.
+
+E o `K = 6` não é um número qualquer: é o do `criarModeloRelevo` do Generate,
+medido no LAB-07. Isso faz deste controle não "um interpolador ruim", mas **o
+interpolador que o Generate usa hoje**.
+
+---
+
+## D38 · A escala do relevo da fixture sai do tamanho da gleba · 14/09/2026
+
+**A decisão:** a escala da superfície sintética é o **raio equivalente da gleba
+dividido por 3**, não um número em metros.
+
+**Por quê.** Fixar, digamos, 150 m faria a mesma superfície virar uma planície
+suave numa gleba de 140 ha e um sertão de penhascos numa de 10 ha — e as duas
+fixtures deixariam de ser comparáveis entre si. Com o raio, saem sempre duas a
+três ondulações na largura do terreno, que é densidade de morro e vale que um
+loteamento de verdade encontra.
+
+Medido: `ensaio-47ha` (47 ha) ficou com escala 128,93 m e 30,07 m de desnível;
+`geo-antonina` (141,8 ha) com 223,91 m e 55,92 m.
+
+---
+
+## D39 · A fixture acrescenta relevo e não toca em mais nada · 14/09/2026
+
+**A decisão:** poligonal, restrições, acessos e parâmetros das glebas-padrão
+chegam **intactos** na fixture; só o campo `relevo` é preenchido, e o arquivo
+declara em `archilly.origem` que ele é sintético.
+
+**Por quê.** A fixture existe para destravar a comparação entre motores, não
+para melhorar a gleba. Se ela também mexesse em parâmetro ou em restrição,
+qualquer diferença medida depois teria duas explicações possíveis, e nenhuma
+forma de separá-las. Um teste compara campo a campo com o original.
+
+E a declaração não é formalidade: um arquivo com curvas de nível parece
+levantamento. Quem o abrir daqui a três meses precisa saber, na primeira linha,
+que aquele morro foi calculado, não medido.
