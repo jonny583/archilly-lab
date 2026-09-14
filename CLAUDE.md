@@ -76,7 +76,7 @@ adaptador isolado, **sempre passando pelo Validator e pelo Judge dele**.
 | `docs/prompts/FILA.md` | o roteiro, LAB-00 em diante |
 | `docs/PENDENCIAS_JONNY.md` | só o que depende de uma pessoa |
 | `docs/DECISOES.md` | as decisões, numeradas, com o porquê |
-| `docs/LABORATORIO.md` | a especificação (Etapas A a G) |
+| `docs/referencia/LABORATORIO.md` | a especificação (Etapas A a G) |
 | `docs/relatorios/` | as medições, um arquivo por prompt |
 | `docs/relatorios/RECADOS.md` | todos os recados para o chat, em ordem |
 | `docs/provas/` | os números crus, em JSON |

@@ -46,7 +46,7 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 | **LAB-02** | Recorte pela gleba e pelas restrições | ✅ **concluído em 14/09/2026** | LF-01 mesclado ✅ |
 | **LAB-03** | Relevo: interpolação corrigida e glebas-padrão com relevo | ✅ **concluído em 14/09/2026** | LAB-02 mesclado ✅ |
 | **LAB-08** | Testfit × Symbios, lado a lado | ✅ **concluído em 14/09/2026** | LAB-03 ✅ **E** T02 mesclado ✅ (`cbd6cc8`) |
-| **LF-FINAL** | Conferência contra o Padrão 1.2 | ⬜ **pronto — é o próximo** | LAB-08 mesclado ✅ |
+| **LF-FINAL** | Conferência contra o Padrão 1.2 | ✅ **concluído em 14/09/2026** — contra a **Versão 1**; a 1.2 não existe | LAB-08 mesclado ✅ |
 
 ---
 
@@ -122,16 +122,39 @@ em `ensaio-47ha` e **empate** em `geo-antonina`: a causa é que o quadro de áre
 de referência do Generate **não fecha** naquela gleba (+15,8 %), porque APP e
 lazer ali são **eco do parâmetro**, numa gleba que declara zero restrições.
 
-### LF-FINAL · Conferência contra o Padrão 1.2 — pronto
+### LF-FINAL · Conferência contra o Padrão 1.2 — ✅ concluído em 14/09/2026
 
 **Condição:** LAB-08 mesclado ✅.
 **Escopo:** conferência — o Lab não tem tela, então vale o que se aplica:
 chaves, formatação no núcleo, determinismo, docs. `INDEX` e `ONDE_PARAMOS`
 reescritos; `PENDENCIAS_JONNY` do zero.
+**Entregue:** [`../relatorios/LF-FINAL.md`](../relatorios/LF-FINAL.md).
+**Conforme, com uma ressalva e três arquivos que faltavam** — escritos nesta
+rodada: `SEGURANCA.md`, `ADOCAO_CENTRAL.md` e `docs/referencia/`. **A Versão 1.2
+do Padrão não existe em nenhum repositório legível** (D43): a conferência foi
+feita contra a Versão 1 e o delta ficou pendente, como no `TF-FINAL` do
+repositório irmão.
+
+---
+
+## A fila está esgotada
+
+**Todos os cinco prompts foram executados e mesclados em 14/09/2026.** O
+despertador `trig_01DFdwqF4nUDLQAod5w4WH1m` foi **apagado** no fim do LF-FINAL,
+como esta fila manda. Quando o chat mandar prompt novo, um despertador novo se
+cria.
 
 ---
 
 ## Proposto ao chat — não executar
+
+- **O delta contra o Padrão 1.2**, quando ele existir. A conferência do LF-FINAL
+  foi feita contra a Versão 1, que é a única legível (D43). O `TF-FINAL` do
+  repositório irmão espera o mesmo documento.
+- **A ressalva do §9.3 do Padrão:** 17 `toFixed` no núcleo produzem texto, todos
+  em prosa para pessoa (avisos, erros, `Perda.oQueHavia`). Nenhum número que
+  viaja é formatado. Tirar o `toFixed` da prosa pioraria a prosa. Aperta ou não?
+  É interpretação do Padrão, e interpretação é do chat (D44).
 
 - **LAB-04 · straight skeleton.** Não é proposta nova — está na fila antiga e foi
   liberado desde o LAB-00 —, mas o LAB-08 mostrou que ele virou **o próximo passo
@@ -160,7 +183,7 @@ reescritos; `PENDENCIAS_JONNY` do zero.
 ## Histórico — a fila anterior, LAB-00 a LAB-06
 
 A fila original do laboratório, escrita na especificação
-([`../LABORATORIO.md`](../LABORATORIO.md)) e gravada aqui no LAB-FILA. Ela
+([`../referencia/LABORATORIO.md`](../referencia/LABORATORIO.md)) e gravada aqui no LAB-FILA. Ela
 **continua valendo como roteiro de longo prazo**; a fila autônoma acima é o que
 se executa agora.
 

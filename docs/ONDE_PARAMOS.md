@@ -4,61 +4,114 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 14/09/2026 · **Último prompt executado:** LAB-08
-**Estado:** a fila deste repositório é **autônoma** desde 14/09 — um despertador
-de 60 minutos acorda esta sessão, ela pega o próximo prompt e o executa até o
-fim. Não é preciso mandar mensagem para o trabalho continuar.
+**Última atualização:** 14/09/2026 · **Último prompt executado:** LF-FINAL
+**Estado:** **fila esgotada, aguardando o chat.** O despertador de 60 minutos
+foi apagado, como a própria fila manda.
 
 ---
 
 ## Em uma frase
 
-**Dois motores atravessam o Lab de ponta a ponta**, e desde o LAB-02 a rede
-viária do Symbios sai **inteiramente dentro da gleba e fora das APP** — 0 %, nas
-três glebas, com o contrato de motor saindo de recusado para **aceito com zero
-violações**. O que sobra não é mais geometria de contorno: é que **ninguém
-confere a rampa** de um motor externo, e que as duas glebas-padrão do Generate
-**não têm relevo**, o que impede comparar os dois motores na mesma terra. As
-duas coisas têm dono: a primeira é recado para o Generate, a segunda é o LAB-03.
+**Os dois motores atravessam o Lab de ponta a ponta, julgados pela régua do
+Generate, e a fila que o chat escreveu acabou.** O Symbios entrega rede viária e
+quadras com **zero violações** e 0 % de via fora da divisa, mas **não faz lote**;
+o motor de parcelamento, depois do T02, passa no contrato **sem precisar do
+conserto do Lab** e chega a zero violações no melhor partido. O que sobra são
+três achados para o chat repassar e cinco propostas na fila.
 
-## A fila
+## A fila — esgotada
 
-Roteiro completo em [`prompts/FILA.md`](prompts/FILA.md) — **a fila oficial**,
-escrita pelo chat em 14/09. O índice de tudo está em [`INDEX.md`](INDEX.md); o
-que depende do Jonny, em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md); os
-recados acumulados, em [`relatorios/RECADOS.md`](relatorios/RECADOS.md).
+Roteiro em [`prompts/FILA.md`](prompts/FILA.md). Tudo executado em 14/09:
 
 | Prompt | Estado |
 |---|---|
 | **LF-01** — casa em ordem | concluído em 14/09/2026 |
 | **LAB-02** — recorte pela gleba e pelas restrições | concluído em 14/09/2026 |
-| **LAB-03** — relevo: interpolação corrigida e glebas-padrão com relevo | concluído em 14/09/2026 |
-| **LAB-08** — Testfit × Symbios, lado a lado | **concluído em 14/09/2026** |
-| **LF-FINAL** — conferência contra o Padrão 1.2 | **pronto — é o próximo** |
+| **LAB-03** — relevo: interpolação medida, glebas-padrão com relevo | concluído em 14/09/2026 |
+| **LAB-08** — Testfit × Symbios, lado a lado | concluído em 14/09/2026 |
+| **LF-FINAL** — conferência contra o Padrão | **concluído em 14/09/2026** |
 
-Histórico: **LAB-00** (09/09), **LAB-01** (10/09) e **LAB-07** (13/09)
-concluídos; **LAB-04** liberado e roda depois do LAB-02/03; LAB-03/05/06 da fila
-antiga seguem em cadeia. Tudo em [`prompts/FILA.md`](prompts/FILA.md).
+Antes disso: **LAB-00** (09/09), **LAB-01** (10/09) e **LAB-07** (13/09).
+**LAB-04, LAB-05 e LAB-06** da fila antiga continuam de pé e não foram
+executados — o LAB-04 virou proposta de prioridade, ver abaixo.
 
-## Dependências externas
+## O que espera o chat
 
-**Nenhuma aberta.** O T02 foi mesclado na `main` de `jonny583/motor-testfit`
-(`cbd6cc8`) e o LAB-08 rodou contra ele em 14/09.
+Está em [`prompts/FILA.md`](prompts/FILA.md), seção *proposto ao chat*:
 
-## O laço autônomo
+1. **O delta contra o Padrão 1.2**, quando ele existir — **a versão 1.2 não
+   existe em nenhum repositório legível**; a conferência foi feita contra a
+   Versão 1. O `TF-FINAL` do repositório irmão está travado pela mesma razão.
+2. **A ressalva do §9.3** — 17 `toFixed` no núcleo, todos em prosa para pessoa
+   (avisos, erros, `Perda.oQueHavia`). O dado que viaja está cru. Aperta ou não?
+3. **LAB-04 · straight skeleton** — virou o próximo passo óbvio do Symbios: ele
+   entrega 94 e 698 quadras limpas, e o que falta para disputar o Judge é
+   subdividir quadra em lote.
+4. **Reconectar a rede depois do corte** — `geo-antonina` fragmenta a 70,4 %.
+5. **Recortar a quadra que atravessa a divisa** e **descartar lasca de corte**.
 
-- **Despertador:** `trig_01DFdwqF4nUDLQAod5w4WH1m`, minuto **:05**, de hora em
-  hora, preso a esta sessão. Regra de família: **um por aplicativo**; os outros
-  seis ocupam :11, :24, :34, :37, :43 e :52, e nenhum deles se toca.
-- **Um prompt por despertador.** Se o anterior não fechou, ele é terminado antes
-  de qualquer coisa nova.
-- **Limitação conhecida:** o despertador **nasceu sem conectores do GitHub**. As
-  sessões que ele acordar podem não ter `mcp__github__*`; nesse caso o prompt
-  dele manda mesclar por `git merge --no-ff` direto na `main` e declarar isso no
-  relatório e no recado. Para ter PR de verdade a cada rodada, o despertador
-  precisa ser recriado pela interface do claude.ai.
-- **Fila esgotada:** grava o recado acumulado, escreve aqui *"fila esgotada,
-  aguardando o chat"* e **apaga o despertador**.
+## Os três achados que ainda não foram repassados
+
+Nenhum é pendência do Jonny — **são do chat**, por decisão dele:
+
+1. **GENERATE · ninguém confere a rampa** de um motor externo. `invariantes.ts`
+   tem onze violações, todas geométricas; a régua existe em `topografia.ts`
+   (10 %/12 %) mas roda só no plano interno; e o contrato só carrega
+   `rampaMedia_pct`, que dilui um pico de 161 % num cruzamento. Pede
+   `rampaMaxima_pct` por via. *(LAB-02, §5)*
+2. **GENERATE · o quadro de áreas de `ensaio-47ha` não fecha** — soma 544 498 m²
+   numa gleba de 470 000 (+15,8 %), porque `areaAPP_m2` é exatamente 15,0 % da
+   gleba e `areaLazer_m2` exatamente 10,0 % — ecos dos parâmetros — **numa gleba
+   que declara zero restrições**. Em `geo-antonina` o mesmo quadro fecha.
+   *(LAB-08, §2)*
+3. **GENERATE · a interpolação de relevo faz o traçado virar grade** e, em
+   terreno plano, inventar curva onde não há. É o argumento que faltava no
+   diagnóstico do LAB-07. Correção: exigir vizinhos de duas cotas distintas.
+   *(LAB-03)*
+
+E uma proposta: **adotar `docs/fixtures/glebas-padrao-com-relevo/`** — as duas
+glebas-padrão não têm topografia e são inúteis para qualquer motor que leia
+relevo.
+
+## O laço autônomo — desligado
+
+O despertador `trig_01DFdwqF4nUDLQAod5w4WH1m` (minuto :05, de hora em hora) foi
+**apagado** no fim do LF-FINAL, porque a fila acabou. Era a regra escrita na
+própria fila. Quando o chat mandar prompt novo, um despertador novo se cria.
+
+**Limitação que vale registrar para a próxima vez:** aquele despertador nasceu
+**sem conectores do GitHub**. As sessões que ele acordou tiveram sorte — as
+ferramentas estavam disponíveis —, mas o prompt dele carregava o contorno (mesclar
+por `git merge --no-ff`) justamente porque isso podia faltar. Um despertador
+criado pela interface do claude.ai não tem esse problema.
+
+---
+
+# LF-FINAL — a conferência contra o Padrão · 14/09/2026
+
+Relatório: [`relatorios/LF-FINAL.md`](relatorios/LF-FINAL.md)
+
+> ### Conforme, com **uma ressalva declarada** e **três arquivos que faltavam**.
+
+**A versão 1.2 não existe.** Procurei nos quatro clones; só há a **Versão 1 ·
+13/09/2026**. A conferência foi feita contra ela, e a lacuna está declarada em
+vez de trocada em silêncio.
+
+**O que faltava, e foi escrito:** `docs/SEGURANCA.md` (a lista preenchida, com o
+comando de prova ao lado de cada linha), `docs/ADOCAO_CENTRAL.md` (por que o Lab
+**não** adota — sem conta, sem tela, sem IA) e `docs/referencia/` (para onde foi
+a especificação, que estava no lugar errado, e a cópia do Padrão conferido).
+
+**A ressalva:** 17 `toFixed` no núcleo produzem texto — todos em **prosa para
+pessoa**. Nenhum número que viaja é formatado. Tirar o `toFixed` da prosa
+pioraria a prosa; apertar ou não é interpretação do Padrão, e interpretação é do
+chat.
+
+**Chaves: limpo**, conferido com comando. E uma nota de método: a primeira busca
+acusou quatro ocorrências que eram todas a palavra *de-**senha**-r*.
+
+**`PENDENCIAS_JONNY.md` foi refeito do zero** e encolheu para **um item**: a
+confirmação sobre a calçada.
 
 ---
 

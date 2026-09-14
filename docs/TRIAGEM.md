@@ -8,7 +8,7 @@
 ## Como ler a coluna "avaliação preliminar"
 
 A tabela da seção *Método de comparação* da especificação
-(`docs/LABORATORIO.md`, seção 36) pede **Melhor / igual / pior / inviável** por
+(`docs/referencia/LABORATORIO.md`, seção 36) pede **Melhor / igual / pior / inviável** por
 dimensão. Essa comparação exige rodar o motor no mesmo terreno, com os mesmos
 parâmetros, contra o Geométrico e o Fishbone, e passar tudo pelo Validator e
 pelo Judge — que é o conteúdo das Etapas D a F.

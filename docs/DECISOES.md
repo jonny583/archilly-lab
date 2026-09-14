@@ -875,3 +875,88 @@ motor e o terreno — e nenhuma forma de separá-las.
 não usa relevo, o que a medição independente confirma e o T03 deles já dizia no
 título. A comparação com o Generate está limpa — mas isso só se pôde afirmar
 porque a terceira rodada existiu.
+
+---
+
+# LF-FINAL — a conferência · 14/09/2026
+
+---
+
+## D43 · A conferência foi feita contra o Padrão Versão 1, e a lacuna está declarada · 14/09/2026
+
+**A decisão:** o LF-FINAL pede conferência contra o **Padrão 1.2**. Essa versão
+não existe em nenhum repositório legível. Conferi contra a **Versão 1 ·
+13/09/2026**, que é a única que há, e a primeira seção do relatório diz isso,
+com a lista de onde procurei.
+
+**Por quê não esperei.** A alternativa era marcar o prompt "aguardando" e não
+entregar nada. Mas o escopo dele — chaves, formatação no núcleo, determinismo,
+docs, `INDEX`, `ONDE_PARAMOS`, `PENDENCIAS_JONNY` — **não depende da versão**:
+essas regras existem na Versão 1 e quase certamente na 1.2. Entregar a
+conferência inteira contra o que existe, e declarar o delta como pendente, é
+mais útil do que uma fila parada.
+
+**Por que não troquei a referência em silêncio.** Um relatório que diz
+"conferido contra o Padrão" sem dizer qual versão é um relatório que envelhece
+mentindo. O `TF-FINAL` do repositório irmão está travado pela mesma razão — é
+sinal de que a 1.2 é documento que o chat ainda tem de publicar, não coisa que
+eu deixei de achar.
+
+---
+
+## D44 · O núcleo formata prosa, e isso fica como ressalva em vez de conserto · 14/09/2026
+
+**A decisão:** as 17 ocorrências de `toFixed` dentro do núcleo — todas em
+mensagens de aviso, mensagens de erro e no campo `oQueHavia` das perdas — ficam
+como estão, declaradas no relatório, e a pergunta vai para o chat.
+
+**Por quê não consertei.** A regra do Padrão (§9.3) é *"núcleo em metros,
+formatação só na borda"*, e o risco que ela existe para evitar **não corre
+aqui**: nenhum número que viaja é formatado. Todo campo do contrato, toda
+medição em JSON e toda coordenada saem crus, em metro. Os `toFixed` do
+`geojson.ts` são `Number(x.toFixed(n))` — arredondamento numérico na borda —, e
+o de `index.ts:477` é canonização para o hash de determinismo.
+
+O que resta é prosa para pessoa. E tirar o `toFixed` da prosa **pioraria a
+prosa**: *"a área difere 14.328571428571429 %"* não ajuda ninguém.
+
+**Por que não decidi sozinho.** É interpretação da letra do Padrão, e
+interpretação do Padrão é do chat, não minha. Se a resposta for "aperta", o
+conserto é mecânico e cabe num prompt curto.
+
+---
+
+## D45 · `ADOCAO_CENTRAL.md` e `SEGURANCA.md` existem para responder, não para marcar presença · 14/09/2026
+
+**A decisão:** os dois arquivos que o Padrão exige e faltavam foram escritos
+**respondendo item a item**, e não com "não se aplica" no topo.
+
+**Por quê.** Um arquivo obrigatório preenchido com "N/A" cumpre a letra e perde
+a função. Quem abrir o `ADOCAO_CENTRAL.md` daqui a três meses quer saber **por
+que** não adota — e a resposta é boa: não há conta, não há tela (é regra), não
+há chamada de IA. A ausência é por definição, não por esquecimento, e o arquivo
+diz o que mudaria se deixasse de ser.
+
+No `SEGURANCA.md` a escolha foi mais forte: **o comando de conferência fica ao
+lado de cada linha**. Uma lista de segurança que não diz como foi verificada é
+uma lista que ninguém consegue refazer — e, na primeira tentativa, a minha
+própria busca por chaves acusou quatro falsos positivos (a palavra
+*de-**senha**-r*). Sem o comando escrito, esse erro teria virado "conferido".
+
+---
+
+## D46 · `docs/referencia/` passa a existir, e a especificação muda de lugar · 14/09/2026
+
+**A decisão:** `docs/LABORATORIO.md` foi para `docs/referencia/LABORATORIO.md`,
+e junto veio uma cópia do Padrão contra o qual a conferência foi feita.
+
+**Por quê.** O Padrão define `docs/referencia/` como "material de origem", e a
+especificação do laboratório é exatamente isso: chegou pronta, foi gravada tal
+como estava, e não é documento que este repositório escreve. Estava em `docs/`
+por não haver a pasta.
+
+**Por que a cópia do Padrão.** Para a conferência ser auditável daqui a meses
+sem depender de outro repositório estar clonado ao lado. É cópia declarada, com
+versão e data no cabeçalho — e é o mesmo que o repositório irmão fez.
+
+Os cinco links que apontavam para o caminho antigo foram corrigidos.
