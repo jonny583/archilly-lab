@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 14/09/2026 · **Último prompt executado:** LAB-02
+**Última atualização:** 14/09/2026 · **Último prompt executado:** LAB-03
 **Estado:** a fila deste repositório é **autônoma** desde 14/09 — um despertador
 de 60 minutos acorda esta sessão, ela pega o próximo prompt e o executa até o
 fim. Não é preciso mandar mensagem para o trabalho continuar.
@@ -31,9 +31,9 @@ recados acumulados, em [`relatorios/RECADOS.md`](relatorios/RECADOS.md).
 | Prompt | Estado |
 |---|---|
 | **LF-01** — casa em ordem | concluído em 14/09/2026 |
-| **LAB-02** — recorte pela gleba e pelas restrições | **concluído em 14/09/2026** |
-| **LAB-03** — relevo: interpolação corrigida e glebas-padrão com relevo | **pronto — é o próximo** |
-| **LAB-08** — Testfit × Symbios, lado a lado | **aguardando** — dependência externa, ver abaixo |
+| **LAB-02** — recorte pela gleba e pelas restrições | concluído em 14/09/2026 |
+| **LAB-03** — relevo: interpolação corrigida e glebas-padrão com relevo | **concluído em 14/09/2026** |
+| **LAB-08** — Testfit × Symbios, lado a lado | **aguardando só o T02** — ver abaixo |
 | **LF-FINAL** — conferência contra o Padrão 1.2 | aguardando o LAB-08 |
 
 Histórico: **LAB-00** (09/09), **LAB-01** (10/09) e **LAB-07** (13/09)
@@ -44,7 +44,7 @@ antiga seguem em cadeia. Tudo em [`prompts/FILA.md`](prompts/FILA.md).
 
 | o quê | de quem | trava o quê |
 |---|---|---|
-| **T02 mesclado na `main` de `jonny583/motor-testfit`** | o laboratório de parcelamento | o **LAB-08**. É a comparação lado a lado: sem o motor corrigido, ela compararia o motor velho. Conferir a cada despertador, clonando só para leitura |
+| **T02 mesclado na `main` de `jonny583/motor-testfit`** | o laboratório de parcelamento | o **LAB-08**, e é a única coisa que falta: a metade que era nossa ficou pronta no LAB-03, com as duas glebas-padrão rodando nos dois motores. Conferir a cada despertador, clonando só para leitura |
 
 ## O laço autônomo
 
@@ -60,6 +60,66 @@ antiga seguem em cadeia. Tudo em [`prompts/FILA.md`](prompts/FILA.md).
   precisa ser recriado pela interface do claude.ai.
 - **Fila esgotada:** grava o recado acumulado, escreve aqui *"fila esgotada,
   aguardando o chat"* e **apaga o despertador**.
+
+---
+
+# LAB-03 — o relevo · 14/09/2026
+
+Relatório: [`relatorios/LAB-03.md`](relatorios/LAB-03.md) · números crus:
+[`provas/LAB-03/`](provas/LAB-03/) · fixtures:
+[`fixtures/glebas-padrao-com-relevo/`](fixtures/glebas-padrao-com-relevo/)
+
+> ### O defeito de interpolação não estraga a rampa. Ele estraga o **traçado**.
+
+Mesmo motor, mesma semente, mesma gleba, sobre dois mapas de alturas — o
+corrigido (produção, desde o LAB-01) e o defeituoso (k = 6 vizinhos, que é o que
+o Generate ainda usa).
+
+**A rampa quase não se mexe:** a máxima em cruzamento vai de 269,96 % para
+161,38 % na pior gleba, e nas outras duas a diferença é de ruído — com o
+defeituoso saindo "melhor" na gleba plana.
+
+**O traçado se mexe muito:** a fração do comprimento de via alinhada a uma única
+direção salta de **12,6 % para 47,3 %** e de **11,3 % para 41,5 %**. O motor para
+de seguir topografia e **cai em grade**.
+
+E a prova mais limpa está na gleba **plana**, onde o sinal se inverte: ali a
+grade é a resposta certa, o corrigido produz 97,2 % dela, e o defeituoso produz
+**76,7 %** — ele **inventa sinuosidade** onde não há relevo, porque o traçado
+segue a borda dos degraus do bolo de casamento.
+
+| gleba | células sobre valor de curva | gradiente zero | rede alinhada |
+|---|---|---|---|
+| `completo` | 1,74 % → **35,79 %** | 0 % → **67,76 %** | 12,6 % → **47,3 %** |
+| `sintetico-50ha-ondulado` | 0,20 % → **85,00 %** | 0 % → **73,33 %** | 11,3 % → **41,5 %** |
+| `sintetico-10ha-plano` | 1,87 % → **49,81 %** | 0 % → **95,49 %** | 97,2 % → **76,7 %** |
+
+*(corrigido → k = 6. Os 85 % e 73 % são exatamente os que o LAB-01 relatou.)*
+
+**Para o Generate**, isto é o argumento que faltava no diagnóstico que o LAB-07
+mandou: não é imprecisão de cota, é o traçado deixando de seguir o terreno — e,
+em terreno plano, seguindo um terreno que não existe.
+
+## As glebas-padrão ganharam relevo
+
+`docs/fixtures/glebas-padrao-com-relevo/` — poligonal, restrições, acessos e
+parâmetros **do Generate, intocados**; só o `relevo` é acrescentado, sintético e
+**declarado** no próprio arquivo. O Generate não foi alterado; a proposta de
+adotá-las lá está no relatório, para o chat repassar.
+
+| gleba | curvas | desnível | o motor roda? |
+|---|---|---|---|
+| `ensaio-47ha` | 0 → **163** (5 121 vértices) | 30,07 m | **sim** — 96 trechos, 94 quadras, 0 % fora |
+| `geo-antonina` | 0 → **250** (7 322 vértices) | 55,92 m | **sim** — 472 trechos, 698 quadras, 0 % fora |
+
+**O LAB-08 deixou de ser impossível.** Falta só o T02 do outro motor.
+
+**Uma ressalva, e é do recorte:** `geo-antonina` fragmenta muito mais que
+qualquer gleba medida até aqui — 25 componentes, só **70,4 %** no maior (o pior
+do LAB-02 tinha sido 94,7 %). A causa é a forma dela: 141,8 ha de contorno
+recortado com três APP atravessando o meio. Reconectar a rede depois do corte
+seria desenhar via que o motor não desenhou, então foi para a fila como proposta
+ao chat.
 
 ---
 

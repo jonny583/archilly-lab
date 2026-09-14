@@ -26,8 +26,11 @@ Então o que é de ninguém mora aqui. Ver `docs/DECISOES.md`, D31.
 | `src/gleba-v1.ts` | ENTRADA do contrato v1 → `Terreno` do Symbios, com as perdas declaradas |
 | `src/gleba-do-lab.ts` | os terrenos de `docs/terrenos/` → ENTRADA v1 |
 | `src/symbios-para-contrato.ts` | rede viária + quadras do Symbios → SAÍDA v1 |
+| `src/relevo-k-vizinhos.ts` | o interpolador **defeituoso**, replicado para servir de controle (D37) — nunca em produção |
+| `src/fixtures-com-relevo.ts` | as glebas-padrão do Generate + relevo sintético declarado |
 | `ferramentas/lab02.ts` | a medição do LAB-02: antes e depois do recorte, nas três glebas |
-| `tests/recorte.test.ts` | 14 testes |
+| `ferramentas/lab03.ts` | a medição do LAB-03: a interpolação medida no traçado, e as fixtures |
+| `tests/` | 23 testes |
 
 O recorte em si **não** mora aqui: ele é geometria pura e vive no adaptador do
 Symbios, em `../symbios/adapter/src/recorte.ts`, onde não precisa de Bun nem de
@@ -51,6 +54,7 @@ compilado — ver o `README.md` da raiz.
 ```shell
 bun install
 bun run lab02       # docs/provas/LAB-02/
+bun run lab03       # docs/provas/LAB-03/ e docs/fixtures/glebas-padrao-com-relevo/
 bun test
 bun run typecheck && bun run lint
 ```

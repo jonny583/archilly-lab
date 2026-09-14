@@ -89,3 +89,29 @@ Próximo na fila: LAB-03 — e ficou mais urgente: as 2 glebas-padrão do Genera
   RELEVO e o Symbios nem roda nelas, o que torna o LAB-08 impossível até lá.
 === FIM ===
 ```
+
+---
+
+## 14/09/2026 · LAB-03 — relevo: a interpolação medida na rampa, e as glebas-padrão com relevo
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-03 ===
+Estado: LAB-03 concluído e mesclado na main. 23 testes verdes na esteira, 14 no adaptador
+  do LAB-07; tsc e lint limpos.
+Feito: O DEFEITO DE INTERPOLAÇÃO NÃO ESTRAGA A RAMPA — ESTRAGA O TRAÇADO. Mesmo motor,
+  mesma semente, dois mapas de altura: a rampa quase não muda (máx no cruzamento 161 % vs
+  270 % na pior gleba, ruído nas outras), mas a fração de rede alinhada a UMA direção
+  salta de 12,6 % para 47,3 % e de 11,3 % para 41,5 % — o motor cai em GRADE e para de
+  seguir topografia. Na gleba plana o sinal inverte: o defeituoso INVENTA sinuosidade
+  (76,7 % de grade contra 97,2 % do corrigido), seguindo a borda dos degraus.
+Achados para outros apps ou Central: GENERATE — é o argumento que faltava no diagnóstico
+  que o LAB-07 mandou sobre criarModeloRelevo. Não é imprecisão de cota: é o traçado
+  deixando de seguir o terreno, e em terreno plano seguindo um terreno que não existe. A
+  correção continua a mesma e é pequena: exigir vizinhos de pelo menos 2 cotas distintas.
+  Segunda proposta: adotar docs/fixtures/glebas-padrao-com-relevo/ do Lab — as 2
+  glebas-padrão não têm topografia e são inúteis para qualquer motor que leia relevo.
+Depende do Jonny: nada novo. Seguem as 2 confirmações do LF-01.
+Próximo na fila: LAB-08, e ele agora só espera o T02 do laboratório de parcelamento — a
+  metade que era nossa ficou pronta: as 2 glebas-padrão rodam nos dois motores.
+=== FIM ===
+```

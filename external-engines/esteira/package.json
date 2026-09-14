@@ -5,6 +5,7 @@
   "description": "A esteira cruzada: põe QUALQUER motor no contrato de motor v1 e o julga com o Validator e o Judge do Generate. Casa do LAB-02 e do LAB-08.",
   "scripts": {
     "lab02": "bun ferramentas/lab02.ts",
+    "lab03": "bun ferramentas/lab03.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."

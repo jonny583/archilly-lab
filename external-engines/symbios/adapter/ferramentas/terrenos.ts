@@ -42,7 +42,7 @@
 type Posicao = [number, number];
 
 /** Relevo analítico: cota em metros, dadas coordenadas locais em metros. */
-type Relevo = (x: number, y: number) => number;
+export type Relevo = (x: number, y: number) => number;
 
 // ------------------------------------------------------ plano local ↔ graus
 //
@@ -136,7 +136,7 @@ function glebaIrregular(n: number, area_m2: number, semente: number): { x: numbe
  * sela (5 e 10) são resolvidos pela média central — a escolha padrão, e a que
  * evita isolinha que se cruza.
  */
-function segmentosDaIsolinha(
+export function segmentosDaIsolinha(
   relevo: Relevo,
   cota: number,
   caixa: { minX: number; minY: number; maxX: number; maxY: number },
@@ -197,7 +197,7 @@ function segmentosDaIsolinha(
 }
 
 /** Junta segmentos soltos em polilinhas, emendando pontas coincidentes. */
-function costurar(
+export function costurar(
   segs: [number, number, number, number][],
   tolerancia: number,
 ): [number, number][][] {

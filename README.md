@@ -100,6 +100,21 @@ que dilui um pico de 161 %); e o aparo do outro motor **não olha restrição** 
 
 Relatório: [`docs/relatorios/LAB-02.md`](docs/relatorios/LAB-02.md).
 
+### LAB-03 — o relevo, e o que a interpolação estraga de verdade
+
+Mesmo motor, mesma semente, dois mapas de altura. **A rampa quase não se mexe; o
+traçado se mexe muito**: com o interpolador defeituoso — o de k vizinhos, que é o
+que o Generate ainda usa — a fração de rede alinhada a uma única direção salta de
+12,6 % para 47,3 %, e o motor cai em grade em vez de seguir o morro. Na gleba
+plana o sinal se inverte: ali a grade é a resposta certa, e é o defeituoso que
+**inventa sinuosidade** seguindo a borda dos degraus.
+
+As duas glebas-padrão do Generate ganharam relevo como **fixtures do Lab**
+(poligonal e parâmetros dele, intocados; relevo sintético declarado), e o Symbios
+passou a rodar nelas.
+
+Relatório: [`docs/relatorios/LAB-03.md`](docs/relatorios/LAB-03.md).
+
 ### Os motores, depois da triagem do LAB-00
 
 | Motor | Licença | Navegador? | Veredito |
@@ -132,6 +147,7 @@ archilly-lab/
 │   │   ├── LF-01.md                  ← a casa em ordem, e a fila autônoma
 │   │   └── RECADOS.md                ← todos os recados para o chat, em ordem
 │   ├── provas/                       ← os números crus, em JSON, por prompt
+│   ├── fixtures/                     ← as glebas-padrão do Generate com relevo (LAB-03)
 │   └── terrenos/                     ← 4 terrenos no contrato archilly-terreno
 ├── external-engines/
 │   ├── symbios/

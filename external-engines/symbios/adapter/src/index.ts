@@ -87,6 +87,20 @@ export function gerarRedeViaria(
   terreno: Terreno,
   parametros: Parametros = {},
   seed = 42,
+  /**
+   * Um mapa de alturas pronto, no lugar do que este arquivo montaria.
+   *
+   * Existe para o LAB-03, e só para ele: medir o que a **interpolação do
+   * relevo** muda na rampa exige rodar o MESMO motor, com a MESMA semente, sobre
+   * dois mapas diferentes. Sem esta porta, a única forma seria ter dois
+   * interpoladores dentro de `alturas.ts` — um deles o defeituoso, de propósito
+   * — e isso é pior: código de produção carregando a versão errada.
+   *
+   * Quem passar um mapa aqui assume a responsabilidade por ele: o passo, a
+   * folga e a inversão de eixo têm de ser os mesmos que `montarAlturas` usa,
+   * senão o resultado volta no lugar errado.
+   */
+  mapaPronto?: MapaDeAlturas,
 ): Resultado {
   const t0 = agora();
   const p = resolverParametros(parametros);
@@ -94,7 +108,7 @@ export function gerarRedeViaria(
 
   // ------------------------------------------------------- estágio: alturas
   const tAlturas = agora();
-  const mapa = montarAlturas(terreno, p.passoGrade_m);
+  const mapa = mapaPronto ?? montarAlturas(terreno, p.passoGrade_m);
   const alturas_ms = agora() - tAlturas;
 
   const areaGleba = areaPoligono(terreno.gleba);

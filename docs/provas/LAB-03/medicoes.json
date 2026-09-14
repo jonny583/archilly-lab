@@ -1,0 +1,517 @@
+{
+  "prompt": "LAB-03",
+  "geradoEm": "2026-09-14T00:00:00.000Z",
+  "semente": 20260913,
+  "parteA": [
+    {
+      "prompt": "LAB-03",
+      "parte": "A",
+      "gleba": "completo",
+      "motor": "symbios-tensor",
+      "versaoMotor": "0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "passoGrade_m": 2,
+      "campoDeAlturas": {
+        "corrigido": {
+          "celulas": 619200,
+          "sobreValorDeCurva_pct": 1.74,
+          "gradienteZero_pct": 0,
+          "declividade_pct": {
+            "p10": 3.65,
+            "mediana": 10.88,
+            "p90": 19.51,
+            "maxima": 130.7
+          },
+          "cotas_m": {
+            "min": 12.88,
+            "max": 114.99
+          }
+        },
+        "kVizinhos": {
+          "celulas": 619200,
+          "sobreValorDeCurva_pct": 35.79,
+          "gradienteZero_pct": 67.76,
+          "declividade_pct": {
+            "p10": 0,
+            "mediana": 0,
+            "p90": 43.66,
+            "maxima": 164.94
+          },
+          "cotas_m": {
+            "min": 15,
+            "max": 115
+          }
+        }
+      },
+      "rede": {
+        "corrigido": {
+          "trechos": 287,
+          "comprimento_m": 38839.67
+        },
+        "kVizinhos": {
+          "trechos": 295,
+          "comprimento_m": 40282.02
+        }
+      },
+      "rampa": {
+        "corrigido": {
+          "aoLongo": {
+            "arestas": 6197,
+            "comprimento_m": 12664.61,
+            "mediana_pct": 10,
+            "p90_pct": 10,
+            "p99_pct": 10,
+            "maxima_pct": 34.98,
+            "acimaDe10": 8,
+            "acimaDe10_pct": 0.13
+          },
+          "cruzamento": {
+            "arestas": 1282,
+            "comprimento_m": 26175.06,
+            "mediana_pct": 3.71,
+            "p90_pct": 18.86,
+            "p99_pct": 56.07,
+            "maxima_pct": 161.38,
+            "acimaDe10": 238,
+            "acimaDe10_pct": 18.56
+          },
+          "todas": {
+            "arestas": 7479,
+            "comprimento_m": 38839.67,
+            "mediana_pct": 10,
+            "p90_pct": 10,
+            "p99_pct": 27.22,
+            "maxima_pct": 161.38,
+            "acimaDe10": 246,
+            "acimaDe10_pct": 3.29
+          }
+        },
+        "kVizinhos": {
+          "aoLongo": {
+            "arestas": 6530,
+            "comprimento_m": 13265.94,
+            "mediana_pct": 10,
+            "p90_pct": 10,
+            "p99_pct": 10,
+            "maxima_pct": 42.15,
+            "acimaDe10": 8,
+            "acimaDe10_pct": 0.12
+          },
+          "cruzamento": {
+            "arestas": 1257,
+            "comprimento_m": 27016.08,
+            "mediana_pct": 1.73,
+            "p90_pct": 29.47,
+            "p99_pct": 100.69,
+            "maxima_pct": 269.96,
+            "acimaDe10": 252,
+            "acimaDe10_pct": 20.05
+          },
+          "todas": {
+            "arestas": 7787,
+            "comprimento_m": 40282.02,
+            "mediana_pct": 10,
+            "p90_pct": 10,
+            "p99_pct": 42.15,
+            "maxima_pct": 269.96,
+            "acimaDe10": 260,
+            "acimaDe10_pct": 3.34
+          }
+        }
+      },
+      "grade": {
+        "corrigido": {
+          "fracaoNaGrade": 0.1263,
+          "direcaoDominante_graus": 73.5
+        },
+        "kVizinhos": {
+          "fracaoNaGrade": 0.473,
+          "direcaoDominante_graus": 0.5
+        }
+      }
+    },
+    {
+      "prompt": "LAB-03",
+      "parte": "A",
+      "gleba": "sintetico-50ha-ondulado",
+      "motor": "symbios-tensor",
+      "versaoMotor": "0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "passoGrade_m": 2,
+      "campoDeAlturas": {
+        "corrigido": {
+          "celulas": 217600,
+          "sobreValorDeCurva_pct": 0.2,
+          "gradienteZero_pct": 0,
+          "declividade_pct": {
+            "p10": 2.07,
+            "mediana": 6.28,
+            "p90": 11.61,
+            "maxima": 51.46
+          },
+          "cotas_m": {
+            "min": 702.36,
+            "max": 743.98
+          }
+        },
+        "kVizinhos": {
+          "celulas": 217600,
+          "sobreValorDeCurva_pct": 85,
+          "gradienteZero_pct": 73.33,
+          "declividade_pct": {
+            "p10": 0,
+            "mediana": 0,
+            "p90": 28.04,
+            "maxima": 70.71
+          },
+          "cotas_m": {
+            "min": 702,
+            "max": 744
+          }
+        }
+      },
+      "rede": {
+        "corrigido": {
+          "trechos": 111,
+          "comprimento_m": 17980.48
+        },
+        "kVizinhos": {
+          "trechos": 123,
+          "comprimento_m": 18504.66
+        }
+      },
+      "rampa": {
+        "corrigido": {
+          "aoLongo": {
+            "arestas": 2954,
+            "comprimento_m": 6464.05,
+            "mediana_pct": 9.99,
+            "p90_pct": 10.01,
+            "p99_pct": 10.03,
+            "maxima_pct": 10.07,
+            "acimaDe10": 0,
+            "acimaDe10_pct": 0
+          },
+          "cruzamento": {
+            "arestas": 540,
+            "comprimento_m": 11516.44,
+            "mediana_pct": 2.51,
+            "p90_pct": 10,
+            "p99_pct": 23.29,
+            "maxima_pct": 64.1,
+            "acimaDe10": 51,
+            "acimaDe10_pct": 9.44
+          },
+          "todas": {
+            "arestas": 3494,
+            "comprimento_m": 17980.48,
+            "mediana_pct": 9.98,
+            "p90_pct": 10.01,
+            "p99_pct": 12.65,
+            "maxima_pct": 64.1,
+            "acimaDe10": 51,
+            "acimaDe10_pct": 1.46
+          }
+        },
+        "kVizinhos": {
+          "aoLongo": {
+            "arestas": 3183,
+            "comprimento_m": 6577.44,
+            "mediana_pct": 9.99,
+            "p90_pct": 10.01,
+            "p99_pct": 10.02,
+            "maxima_pct": 12.47,
+            "acimaDe10": 1,
+            "acimaDe10_pct": 0.03
+          },
+          "cruzamento": {
+            "arestas": 609,
+            "comprimento_m": 11927.23,
+            "mediana_pct": 1.92,
+            "p90_pct": 11.33,
+            "p99_pct": 27.19,
+            "maxima_pct": 66.46,
+            "acimaDe10": 70,
+            "acimaDe10_pct": 11.49
+          },
+          "todas": {
+            "arestas": 3792,
+            "comprimento_m": 18504.66,
+            "mediana_pct": 9.98,
+            "p90_pct": 10.01,
+            "p99_pct": 14.84,
+            "maxima_pct": 66.46,
+            "acimaDe10": 71,
+            "acimaDe10_pct": 1.87
+          }
+        }
+      },
+      "grade": {
+        "corrigido": {
+          "fracaoNaGrade": 0.1128,
+          "direcaoDominante_graus": 30.5
+        },
+        "kVizinhos": {
+          "fracaoNaGrade": 0.4149,
+          "direcaoDominante_graus": 89.5
+        }
+      }
+    },
+    {
+      "prompt": "LAB-03",
+      "parte": "A",
+      "gleba": "sintetico-10ha-plano",
+      "motor": "symbios-tensor",
+      "versaoMotor": "0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "passoGrade_m": 2,
+      "campoDeAlturas": {
+        "corrigido": {
+          "celulas": 48495,
+          "sobreValorDeCurva_pct": 1.87,
+          "gradienteZero_pct": 0,
+          "declividade_pct": {
+            "p10": 1.12,
+            "mediana": 1.17,
+            "p90": 1.18,
+            "maxima": 11.6
+          },
+          "cotas_m": {
+            "min": 621,
+            "max": 627.71
+          }
+        },
+        "kVizinhos": {
+          "celulas": 48495,
+          "sobreValorDeCurva_pct": 49.81,
+          "gradienteZero_pct": 95.49,
+          "declividade_pct": {
+            "p10": 0,
+            "mediana": 0,
+            "p90": 0,
+            "maxima": 35.36
+          },
+          "cotas_m": {
+            "min": 621,
+            "max": 627.97
+          }
+        }
+      },
+      "rede": {
+        "corrigido": {
+          "trechos": 11,
+          "comprimento_m": 1936.66
+        },
+        "kVizinhos": {
+          "trechos": 21,
+          "comprimento_m": 3062.09
+        }
+      },
+      "rampa": {
+        "corrigido": {
+          "aoLongo": {
+            "arestas": 28,
+            "comprimento_m": 118.77,
+            "mediana_pct": 3.4,
+            "p90_pct": 10,
+            "p99_pct": 10.01,
+            "maxima_pct": 10.01,
+            "acimaDe10": 0,
+            "acimaDe10_pct": 0
+          },
+          "cruzamento": {
+            "arestas": 27,
+            "comprimento_m": 1817.9,
+            "mediana_pct": 0.59,
+            "p90_pct": 1.16,
+            "p99_pct": 1.18,
+            "maxima_pct": 15.44,
+            "acimaDe10": 1,
+            "acimaDe10_pct": 3.7
+          },
+          "todas": {
+            "arestas": 55,
+            "comprimento_m": 1936.66,
+            "mediana_pct": 1.14,
+            "p90_pct": 10,
+            "p99_pct": 10.01,
+            "maxima_pct": 15.44,
+            "acimaDe10": 1,
+            "acimaDe10_pct": 1.82
+          }
+        },
+        "kVizinhos": {
+          "aoLongo": {
+            "arestas": 312,
+            "comprimento_m": 738.02,
+            "mediana_pct": 0,
+            "p90_pct": 10,
+            "p99_pct": 10.02,
+            "maxima_pct": 10.03,
+            "acimaDe10": 0,
+            "acimaDe10_pct": 0
+          },
+          "cruzamento": {
+            "arestas": 94,
+            "comprimento_m": 2324.08,
+            "mediana_pct": 0,
+            "p90_pct": 3.6,
+            "p99_pct": 9.92,
+            "maxima_pct": 11.44,
+            "acimaDe10": 1,
+            "acimaDe10_pct": 1.06
+          },
+          "todas": {
+            "arestas": 406,
+            "comprimento_m": 3062.09,
+            "mediana_pct": 0,
+            "p90_pct": 10,
+            "p99_pct": 10.02,
+            "maxima_pct": 11.44,
+            "acimaDe10": 1,
+            "acimaDe10_pct": 0.25
+          }
+        }
+      },
+      "grade": {
+        "corrigido": {
+          "fracaoNaGrade": 0.9722,
+          "direcaoDominante_graus": 25.5
+        },
+        "kVizinhos": {
+          "fracaoNaGrade": 0.7667,
+          "direcaoDominante_graus": 89.5
+        }
+      }
+    }
+  ],
+  "parteB": [
+    {
+      "prompt": "LAB-03",
+      "parte": "B",
+      "gleba": "ensaio-47ha",
+      "fonte": "poligonal, restrições e parâmetros do Generate; relevo SINTÉTICO declarado",
+      "superficie": "ondulado(0, 20, raioEquivalente/3) — gerador do LAB-01",
+      "area_m2": 470000,
+      "curvasAntes": 0,
+      "curvas": 163,
+      "verticesCotados": 5121,
+      "equidistancia_m": 2,
+      "desnivelPedido_m": 40,
+      "desnivelObtido_m": 30.07,
+      "escalaDoRelevo_m": 128.93,
+      "motorRoda": true,
+      "rede": {
+        "trechosAntesDoCorte": 92,
+        "trechos": 96,
+        "comprimento_m": 16773.42,
+        "foraDaGleba_pct": 0,
+        "quadras": 94,
+        "conectividade": {
+          "componentes": 4,
+          "maiorComponente_m": 16741.084296554913,
+          "fracaoNoMaior": 0.9980723985557025,
+          "viasIsoladas": 3,
+          "comprimentoIsolado_m": 32.33246237031122
+        }
+      },
+      "rampa": {
+        "aoLongo": {
+          "arestas": 2987,
+          "comprimento_m": 6303.47,
+          "mediana_pct": 10,
+          "p90_pct": 10,
+          "p99_pct": 10,
+          "maxima_pct": 10,
+          "acimaDe10": 0,
+          "acimaDe10_pct": 0
+        },
+        "cruzamento": {
+          "arestas": 497,
+          "comprimento_m": 10469.95,
+          "mediana_pct": 2.68,
+          "p90_pct": 12.9,
+          "p99_pct": 35.08,
+          "maxima_pct": 77.43,
+          "acimaDe10": 68,
+          "acimaDe10_pct": 13.68
+        },
+        "todas": {
+          "arestas": 3484,
+          "comprimento_m": 16773.42,
+          "mediana_pct": 10,
+          "p90_pct": 10,
+          "p99_pct": 14.9,
+          "maxima_pct": 77.43,
+          "acimaDe10": 68,
+          "acimaDe10_pct": 1.95
+        }
+      }
+    },
+    {
+      "prompt": "LAB-03",
+      "parte": "B",
+      "gleba": "geo-antonina",
+      "fonte": "poligonal, restrições e parâmetros do Generate; relevo SINTÉTICO declarado",
+      "superficie": "ondulado(0, 20, raioEquivalente/3) — gerador do LAB-01",
+      "area_m2": 1417564.83,
+      "curvasAntes": 0,
+      "curvas": 250,
+      "verticesCotados": 7322,
+      "equidistancia_m": 2,
+      "desnivelPedido_m": 40,
+      "desnivelObtido_m": 55.92,
+      "escalaDoRelevo_m": 223.91,
+      "motorRoda": true,
+      "rede": {
+        "trechosAntesDoCorte": 839,
+        "trechos": 472,
+        "comprimento_m": 60933.93,
+        "foraDaGleba_pct": 0,
+        "quadras": 698,
+        "conectividade": {
+          "componentes": 25,
+          "maiorComponente_m": 42899.21711415699,
+          "fracaoNoMaior": 0.7040283863636754,
+          "viasIsoladas": 156,
+          "comprimentoIsolado_m": 18034.713882194716
+        }
+      },
+      "rampa": {
+        "aoLongo": {
+          "arestas": 9434,
+          "comprimento_m": 16941.97,
+          "mediana_pct": 10,
+          "p90_pct": 10,
+          "p99_pct": 10,
+          "maxima_pct": 25.13,
+          "acimaDe10": 3,
+          "acimaDe10_pct": 0.03
+        },
+        "cruzamento": {
+          "arestas": 2410,
+          "comprimento_m": 43991.96,
+          "mediana_pct": 1.05,
+          "p90_pct": 8.43,
+          "p99_pct": 14.74,
+          "maxima_pct": 113.54,
+          "acimaDe10": 67,
+          "acimaDe10_pct": 2.78
+        },
+        "todas": {
+          "arestas": 11844,
+          "comprimento_m": 60933.93,
+          "mediana_pct": 7.27,
+          "p90_pct": 10,
+          "p99_pct": 10,
+          "maxima_pct": 113.54,
+          "acimaDe10": 70,
+          "acimaDe10_pct": 0.59
+        }
+      }
+    }
+  ]
+}
