@@ -46,7 +46,8 @@ arquivo, e não uma reconstrução a partir dos relatórios.
 
 `docs/prompts/FILA.md` é a **fila oficial**, escrita pelo chat. Este repositório
 a executa **sozinho, em laço**, acordado por **um** despertador de 60 minutos
-(`trig_01DFdwqF4nUDLQAod5w4WH1m`, minuto :05). Regra de família: **um
+(minuto :05; o id vive em [`docs/ONDE_PARAMOS.md`](docs/ONDE_PARAMOS.md), não
+aqui — id em duas terras envelhece numa delas). Regra de família: **um
 despertador por aplicativo; nunca se toca no de outro repositório.**
 
 - **Um prompt por despertador.** Se o anterior não fechou, termine-o antes de
@@ -55,8 +56,11 @@ despertador por aplicativo; nunca se toca no de outro repositório.**
   *"proposto ao chat"*, sem executar. Não ampliar escopo.
 - O que depende do Jonny ou de outro repositório fica **"aguardando"**: pular
   para o seguinte e reavaliar a cada despertador.
-- **Fila esgotada:** gravar o recado acumulado, escrever em `ONDE_PARAMOS`
-  *"fila esgotada, aguardando o chat"* e **apagar o despertador**.
+- **Disparo sem item pronto: apagar o despertador** (D62). Vale tanto para a
+  fila esgotada quanto para a fila que existe mas está toda *"aguardando"* — em
+  qualquer dos dois casos, gravar o recado acumulado, escrever em `ONDE_PARAMOS`
+  o motivo e **apagar o despertador**. O chat o recria quando destravar.
+  Medido: dos 7 disparos do despertador de 15/09, **4 não tiveram o que fazer**.
 - **O despertador nasceu sem conectores do GitHub.** Se ao acordar não houver
   `mcp__github__*`, mesclar por git direto (`git merge --no-ff` na `main`) e
   **declarar isso no relatório e no recado** (D29).

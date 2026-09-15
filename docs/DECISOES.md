@@ -1247,3 +1247,67 @@ que um recado novo é escrito, sem lista de exceções que envelhece.
 **Por que ele mora na esteira:** `bun test` ali é o único corredor de teste do
 repositório. A regra é de documento, o teste é de código, e o lugar do teste é
 onde ele roda.
+
+---
+
+## D61 · Travessia sobre APP é exceção, não padrão · 15/09/2026
+
+**A decisão é do Jonny**, em resposta à pergunta que o LAB-05 levantou (D58) e
+que estava em `PENDENCIAS_JONNY.md`. **Regra urbanística; não é minha, e por isso
+vai transcrita antes de interpretada:**
+
+> Travessia sobre APP é **exceção, não padrão** — o motor tenta primeiro ligar os
+> dois lados **por fora da APP** e só propõe travessia se o desvio for
+> desproporcional; quando propuser, **a mais curta e perpendicular ao curso**,
+> declarada na tela e lançada como **item de custo (ponte ou bueiro)**.
+
+**O que ela fecha.** A D58 registrou que `geo-antonina` fica em dois blocos
+porque uma APP hídrica de 14,4 ha corta a gleba, e que ligar os dois é decisão de
+urbanismo. Está decidido: **pode**, mas por exceção e com ônus declarado. Os
+70,4 % continuam sendo a resposta certa **enquanto houver caminho por fora**.
+
+**Os cinco comandos, separados, porque cada um é uma coisa diferente de fazer:**
+
+1. **Tentar primeiro por fora.** Antes de qualquer travessia, procurar caminho
+   contornando a APP. Só quando ele não existir ou for desproporcional é que a
+   travessia entra.
+2. **O limiar de "desproporcional" não foi dado, e não invento.** É número de
+   urbanismo — volta ao Jonny como pergunta (quantas vezes o caminho direto? um
+   comprimento absoluto?), e fica em `PENDENCIAS_JONNY.md`. Sem ele, o motor não
+   tem como decidir sozinho: **por ora, nenhuma travessia é proposta.**
+3. **A geometria da travessia:** a mais curta, e **perpendicular ao curso
+   d'água** — não perpendicular à APP, nem alinhada à malha. São duas condições,
+   e a segunda exige saber onde está o **eixo do curso**, que hoje o Lab não
+   recebe: a restrição chega como **polígono de APP**, não como linha d'água.
+   **Achado para o Geo**, e está na lista de achados.
+4. **Declarada na tela.** É do Generate e do Laboratório de Parcelamento: quem
+   desenha, mostra. O Lab **não tem tela** (CLAUDE.md §4) — aqui a travessia sai
+   declarada no relatório e no JSON de medição, com comprimento e ângulo.
+5. **Item de custo, ponte ou bueiro.** Vai para o aplicativo de orçamento da
+   família. **A mensagem do chat cortou no nome dele** (“para o Or…”), então o
+   destino fica registrado assim e **confirmado antes de qualquer integração** —
+   é melhor registrar o corte do que adivinhar o destinatário.
+
+**O que esta decisão NÃO autoriza:** escolher o limiar, escolher entre ponte e
+bueiro (é hidráulica e custo, não geometria), ou lançar travessia sem que o
+caminho por fora tenha sido medido primeiro.
+
+## D62 · Despertador que acorda e não acha item pronto se apaga · 15/09/2026
+
+**A decisão (do chat):** quando um disparo do despertador não encontrar item
+**pronto** na fila, ele **se apaga**, em vez de acordar de novo. Antes, a regra
+mandava apagar só quando a fila **esgotava**; agora vale também para a fila que
+existe mas está toda "aguardando".
+
+**Por que ela apareceu.** Medido no consolidado de 15/09: dos **7 disparos** do
+despertador anterior, **4 não tiveram o que fazer** — a sessão estava ociosa das
+02:05 às 06:06, os avisos ficaram enfileirados e chegaram os cinco juntos; um
+prompt por despertador, então um prompt só rodou para o lote inteiro. Os outros
+quatro foram disparo sem trabalho.
+
+**O que muda na prática:** o laço deixa de bater à toa. Se o que restar na fila
+depende do Jonny ou de outro repositório, o despertador morre ali e o chat o
+recria quando destravar — em vez de o repositório acordar de hora em hora para
+descobrir que continua travado.
+
+**Gravada no CLAUDE.md §1-A**, que é onde a regra da fila mora.

@@ -5,70 +5,81 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 15/09/2026 · **Último prompt executado:** LF-FINAL-2
-**Estado:** **fila esgotada, aguardando o chat.** O despertador de 60 minutos foi
-apagado, como a própria fila manda.
+**Estado:** **aguardando o chat mandar os prompts da fila nova.** A decisão de
+urbanismo do Jonny e a regra nova do despertador já estão gravadas e mescladas.
 
 ---
 
 ## Em uma frase
 
-**Os três prompts da fila de 15/09 rodaram e estão mesclados, e a conferência
-passou — com um desvio consertado e um achado sobre mim mesmo.** O Symbios saiu
-de 0 lotes para **1 014** em `geo-antonina`, com 4 violações contra as 53 do
-motor de parcelamento; nenhuma quadra passa mais da divisa; e a regra do RECADO,
-que eu mesmo escrevi, estava sendo quebrada em **7 dos 8 recados** — agora é
-teste.
+**A fila de 15/09 acabou e a nova foi anunciada, mas os prompts dela não
+chegaram** — a mensagem do chat cortou no meio. O que veio inteiro está gravado:
+a **travessia sobre APP é exceção, não padrão** (D61, decisão do Jonny) e o
+**despertador que acorda sem item pronto se apaga** (D62).
 
-## A fila — esgotada
+## Por que NÃO existe despertador agora
 
-Roteiro em [`prompts/FILA.md`](prompts/FILA.md). Tudo executado em 15/09:
+Pela **D62**, um despertador que dispara e não acha item pronto **se apaga**. Se
+eu criasse um agora, com a fila vazia, ele morreria no primeiro disparo — antes
+de a lista de prompts chegar. **O despertador nasce junto com os prompts.**
 
-| Prompt | Estado |
-|---|---|
-| **LAB-04** — straight skeleton: a quadra vira lote e disputa o Judge | concluído em 15/09/2026 |
-| **LAB-05** — recortar a quadra, descartar a lasca | concluído em 15/09/2026 |
-| **LF-FINAL-2** — a conferência, segunda volta | **concluído em 15/09/2026** |
-
-Antes disso: **LAB-00** (09/09), **LAB-01** (10/09), **LAB-07** (13/09) e a fila
-de 14/09 inteira — LF-01, LAB-02, LAB-03, LAB-08, LF-FINAL.
-
-## O laço autônomo — desligado
-
-O despertador `trig_014CyNwWYBjjSQQxNPNMbv11` (minuto :05, de hora em hora) foi
-**apagado** no fim do LF-FINAL-2, porque a fila acabou. Era a regra escrita na
-própria fila. Quando o chat mandar prompt novo, um despertador novo se cria.
-
-**Esta fila teve as ferramentas do GitHub** (`mcp__github__*`) nas três rodadas —
-os PR #13, #14 e #15 foram abertos e mesclados por elas, sem o contorno por
-`git merge --no-ff` que a D29 prevê para quando faltam.
-
-## O que depende do Jonny — **um item**
-
-**A gleba de Antonina é cortada em duas por um curso d'água. Pode haver
-travessia?** Sem ela, um terço do terreno só se alcança dando a volta por fora, e
-"por fora" é terra que não é da gleba. Está em
-[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), escrito para leigo. **Não trava
-nada.**
+Regra de família, intocada: **um despertador por aplicativo; nunca se toca no de
+outro repositório.** Os dos outros apps seguem rodando.
 
 ## O que espera o chat
 
-1. **O delta contra o Padrão 1.2**, quando ele existir — procurei de novo nos
-   quatro clones e **ele continua não existindo**; só há a Versão 1 de 13/09. A
-   cópia que o Lab guarda é **byte a byte igual** à do repositório irmão, então
-   as duas não envelheceram em silêncio.
-2. **As 4 violações que sobraram** em `geo-antonina` e o efeito de baixar a
-   tolerância de simplificação. Suspeita escrita, **não medida**.
-3. **As 96 quadras de esqueleto não confiável** — forma degenerada da quadra ou
-   limite da esteira?
-4. **A quadra dentro de APP** — o recorte do LAB-05 é pela divisa; quadra dentro
-   de APP continua de pé e nenhum invariante do Validator a acusa.
+1. **Os prompts da fila nova.** A mensagem terminou em *"lançada como item de
+   custo (ponte ou bueiro) para o Or"* — e o nome do aplicativo de orçamento
+   também ficou cortado. **Não adivinhei nenhum dos dois.**
+2. **O delta contra o Padrão 1.2**, quando ele existir.
+3. **As 4 violações** que sobraram em `geo-antonina` — suspeita escrita, **não
+   medida**.
+4. **As 96 quadras de esqueleto não confiável.**
+5. **A quadra dentro de APP** — o recorte do LAB-05 é pela divisa.
+6. **Achado novo, para o Geo:** a D61 manda a travessia sair **perpendicular ao
+   curso d'água**, e o Lab recebe a restrição como **polígono de APP**, não como
+   a linha. Sem o eixo, "perpendicular" não tem a quê.
 
-## Os três achados para o Generate — já repassados pelo chat
+## O que depende do Jonny — **um item, e é o que destrava a D61**
 
-Rampa máxima por via; o quadro de áreas de `ensaio-47ha`; a interpolação de
-relevo. Mais a proposta de adotar `docs/fixtures/glebas-padrao-com-relevo/`. Os
-quatro estão nos relatórios do LAB-02, LAB-03 e LAB-08 e **não se repetem no
-recado** — o chat já os levou.
+**Quanto é "desvio desproporcional"?** É o número que decide quando contornar a
+APP deixa de valer a pena e a travessia entra. Sem ele, **nenhuma travessia é
+proposta** — a escolha conservadora, e reversível. Está em
+[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), com três formas de responder.
+
+O item da ponte, que estava aberto desde o LAB-05, **ele respondeu** — virou a
+D61 e está riscado na lista dele, não apagado.
+
+---
+
+# A decisão do Jonny sobre a travessia · 15/09/2026
+
+**D61 · Travessia sobre APP é exceção, não padrão.** Transcrita antes de
+interpretada, porque é regra urbanística e não é minha:
+
+> o motor tenta primeiro ligar os dois lados **por fora da APP** e só propõe
+> travessia se o desvio for desproporcional; quando propuser, **a mais curta e
+> perpendicular ao curso**, declarada na tela e lançada como **item de custo
+> (ponte ou bueiro)**.
+
+**O que ela fecha:** a D58 tinha registrado que `geo-antonina` fica em dois
+blocos porque uma APP hídrica de 14,4 ha corta a gleba, e que ligar os dois era
+decisão de urbanismo. Está decidido: **pode**, por exceção e com ônus declarado.
+Os 70,4 % continuam certos **enquanto houver caminho por fora**.
+
+**O que ela ainda não permite fazer**, e por isso nenhuma travessia é proposta:
+
+| o que falta | de quem é |
+|---|---|
+| o limiar de **"desproporcional"** — a decisão não trouxe número | **do Jonny** |
+| o **eixo do curso d'água** — a APP chega como polígono, e "perpendicular ao curso" precisa da linha | **do Geo**, via chat |
+| o **nome do aplicativo de orçamento** — a mensagem cortou em "para o Or…" | **do chat** |
+
+**D62 · Despertador que acorda e não acha item pronto se apaga.** Antes valia só
+para fila esgotada; agora vale também para a fila toda "aguardando". A medição
+que a motivou: dos **7 disparos** do despertador anterior, **4 não tiveram o que
+fazer** — a sessão ficou ociosa das 02:05 às 06:06 e os avisos chegaram os cinco
+de uma vez.
 
 ---
 

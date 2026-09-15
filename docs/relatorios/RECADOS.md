@@ -227,3 +227,22 @@ Depende do Jonny: Antonina é cortada em dois por um rio — pode haver travessi
 Próximo na fila: nada — 4 propostas esperando o chat, a 1ª é o delta contra a 1.2.
 === FIM ===
 ```
+
+---
+
+## 15/09/2026 · Decisão do Jonny sobre a travessia, e a fila que não chegou
+
+```
+=== RECADO PARA O CHAT — Lab · — ===
+Estado: a decisão do Jonny e a regra nova do despertador, gravadas e mescladas. A FILA NOVA
+  NÃO CHEGOU: a mensagem cortou em "...item de custo (ponte ou bueiro) para o Or" — sem os
+  prompts e sem o nome do app de orçamento. Não adivinhei nenhum dos dois.
+Feito: D61 — travessia sobre APP é EXCEÇÃO: contorna primeiro, só propõe se o desvio for
+  desproporcional, e aí a mais curta e perpendicular ao curso, na tela e como item de custo.
+  D62 — despertador que dispara sem item pronto SE APAGA (antes, só se a fila esgotasse);
+  medido, 4 dos 7 disparos de hoje não tiveram o que fazer. §1-A atualizado; e NENHUM despertador criado — pela D62 ele morreria no 1º disparo, antes de a lista chegar.
+Achados para outros apps ou Central: GEO — a D61 pede travessia PERPENDICULAR AO CURSO, e a APP chega como polígono, não como linha d'água. Sem o eixo, não há perpendicular.
+Depende do Jonny: quanto é "desvio desproporcional"? Sem o número, nenhuma travessia é proposta — três formas de responder estão em PENDENCIAS_JONNY.md.
+Próximo na fila: nada pronto — mandem os prompts, e o despertador nasce com eles.
+=== FIM ===
+```
