@@ -1109,3 +1109,97 @@ saía sem frente, e o Validator do Generate o reprovava: **8 `frente`** em
 
 **Nenhum número novo entrou:** é a mesma régua do passo 1, aplicada onde o lote
 de fato nasce. O defeito era da pergunta ter sido feita no lugar errado.
+
+---
+
+## D55 · A amostragem do "quanto está dentro da gleba" nunca chegava ao vértice · 15/09/2026
+
+**A decisão:** `fracaoDentro`, em `external-engines/symbios/adapter/src/index.ts`,
+passou a amostrar o raio do centróide ao vértice em `t = (k + 1) / 8` — de 0,125
+a **1,0** — em vez de `t = (k + 0,5) / 8`, que ia de 0,0625 a **0,9375**.
+
+**O defeito, e como apareceu.** O LAB-05 conferiu o recorte com régua
+independente — *algum vértice de quadra passa da divisa?* — e achou **8 quadras**
+nas duas glebas-padrão, a pior **1,49 m** fora, todas declarando
+`fracaoDentroDaGleba` = **1,0000**. Não eram erro de arredondamento: o extremo da
+amostra caía **antes** do extremo da coisa medida, e a ponta de fora da quadra
+nunca era visitada.
+
+**O que muda em número publicado, e fique dito:** com a régua consertada aparecem
+mais quadras atravessando — `ensaio-47ha` 3 → 5, `geo-antonina` 119 → 128,
+`completo` 73 → 74, `sintetico-50ha-ondulado` 36 → 37 — e `geo-antonina` passa de
+698 para 701 quadras. Os **213 e 901 lotes do LAB-04** foram medidos com a régua
+cega; pela mesma estratégia, com ela consertada, seriam 181 e 876.
+
+**O que continua verdadeiro:** isto é **estimativa**, e continua sendo. Uma
+quadra pode ter todo vértice dentro e ainda inchar para fora numa reentrância da
+gleba, e amostra nenhuma pega isso. É por isso que existe a D56.
+
+## D56 · Quem atravessa a divisa é a geometria que diz, não a amostragem · 15/09/2026
+
+**A decisão:** o recorte de quadra do LAB-05 **não pergunta** a
+`fracaoDentroDaGleba` quem atravessa. Ele recorta **todas** as quadras pela gleba
+e deixa a interseção responder: a que já estava inteira dentro volta idêntica,
+sem travessia nenhuma, e é devolvida sem cópia.
+
+**Por quê.** A D55 conserta um ponto cego da amostragem, mas não muda a natureza
+dela. Uma régua estatística serve para relatório — *"quanto vai ser recortado"* —
+e não para decidir geometria. Decidir pela amostragem é deixar o recorte
+depender de quantas amostras alguém escolheu.
+
+**O que custa:** recortar 702 quadras em vez de 128. Medido: **126 ms** em
+`geo-antonina`, contra 6,2 s do motor. Não é preço nenhum.
+
+## D57 · O recorte de polígono é Greiner–Hormann reimplementado, e a degenerescência se declara · 15/09/2026
+
+**A decisão:** `external-engines/symbios/adapter/src/poligono.ts` implementa
+Greiner & Hormann (1998), *Efficient clipping of arbitrary polygons*, escrito a
+partir da descrição.
+
+**Por que não usar pronto, e por que não bastava o que já havia.** As
+bibliotecas de recorte de polígono para JavaScript ou são copyleft ou trariam
+**dependência npm** a um adaptador que não tem nenhuma por decisão (D14). E o
+corte por semiplano que o `lotear.ts` usa não serve: a gleba **não é convexa**, e
+uma quadra que sai e volta pela divisa devolve **duas peças** — semiplano não faz
+nem uma coisa nem outra.
+
+**A degenerescência, que é o buraco conhecido do algoritmo.** Ele pressupõe que
+nenhuma travessia cai exatamente sobre um vértice; quando cai — e cai, porque
+quadra e gleba compartilham vértice —, a alternância entra/sai quebra e o
+resultado é lixo silencioso. Aqui ela é **detectada** e o recorte é refeito com o
+anel deslocado de décimos de milímetro, numa sequência **fixa** (nada de
+aleatório). O maior deslocamento, 0,2 mm, está três ordens de grandeza abaixo da
+folga de divisa do contrato, que é 5 cm.
+
+**E se não resolver:** a função devolve `null`, e a quadra é **perda declarada**.
+Nunca peça torta. É a mesma regra do esqueleto não confiável (D51), pela mesma
+razão: recortar errado é plantar lote fora da gleba, que foi o defeito que o
+LAB-04 viu o Validator acusar — 97 peças fora, a pior a 32 m.
+
+**Medido nas cinco glebas: zero deslocamentos e zero perdas.** A degenerescência
+aparece nos casos sintéticos dos testes, onde ela é fabricada de propósito.
+
+## D58 · Rua sobre APP não é decisão do Lab — e é por isso que `geo-antonina` fica em dois blocos · 15/09/2026
+
+**A decisão:** a rede viária de `geo-antonina` **continua em dois blocos** depois
+do recorte, e isso não é defeito a consertar aqui.
+
+**O que foi medido.** O prompt do LAB-05 trazia *"reconectar a rede depois do
+corte — `geo-antonina` fragmenta a 70,4 %"* como item de conserto. Medida a
+anatomia da fragmentação, ela não é farelo: são **dois blocos**, de 42 899 m e
+17 296 m, mais 739 m em 23 pedacinhos. Na rede crua, **17 vias** ligavam os dois;
+delas, 10 037 m estavam **fora da gleba** e 1 682 m **dentro de APP**. O menor vão
+entre os dois blocos tem **72,45 m**, e dele **200 de 201 pontos amostrados estão
+dentro da APP hídrica de 14,4 ha**.
+
+**Ou seja:** a gleba é cortada em duas por um curso d'água, e o recorte fez o que
+tinha de fazer — tirou a rua de cima dele. Ligar os dois blocos é **lançar via
+sobre APP**, uma travessia. Isso é regra urbanística, e o CLAUDE.md §4 diz que o
+Lab não decide urbanismo.
+
+**Onde a pergunta foi parar:** `docs/PENDENCIAS_JONNY.md`, escrita para leigo, e
+na fila como proposto ao chat. **Os 70,4 % são a resposta certa.**
+
+**O que sobra de fragmentação genuína** — os 23 pedacinhos — é lasca de corte, e
+quem a trata é a D48: 17 saíram, e os componentes caíram de 25 para 19 sem que
+uma via de verdade fosse tocada.

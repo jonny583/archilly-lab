@@ -45,8 +45,8 @@ Escrita pelo chat depois que a fila de 14/09 esgotou.
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-04** | Straight skeleton: subdividir as quadras do Symbios em lotes e disputar o Judge | ✅ **concluído em 15/09/2026** | nenhuma |
-| **LAB-05** | Reconectar a rede, recortar quadra que atravessa, descartar lasca pela regra | ⬜ **pronto — é o próximo** | LAB-04 mesclado ✅ |
-| **LF-FINAL-2** | Conferência e docs | ⬜ | LAB-05 mesclado |
+| **LAB-05** | Reconectar a rede, recortar quadra que atravessa, descartar lasca pela regra | ✅ **concluído em 15/09/2026** | LAB-04 mesclado ✅ |
+| **LF-FINAL-2** | Conferência e docs | ⬜ **pronto — é o próximo** | LAB-05 mesclado ✅ |
 
 ---
 
@@ -76,7 +76,7 @@ parcelamento. Quatro defeitos do Lab foram pegos pela régua do Generate, e o
 maior deles é que **a borda da quadra do Symbios é o eixo da rua, não o
 meio-fio** (D52).
 
-### LAB-05 · Reconectar, recortar quadra, descartar lasca
+### LAB-05 · Reconectar, recortar quadra, descartar lasca — ✅ concluído em 15/09/2026
 
 **Condição:** LAB-04 mesclado.
 **Escopo:** três coisas, e as três já têm o porquê medido:
@@ -87,10 +87,22 @@ meio-fio** (D52).
 3. **Descartar lasca pela regra D48** — abaixo do lado do lote mínimo da gleba.
 **E rejulgar as três glebas** com o Validator e o Judge do Generate.
 **Prova:** antes e depois nas três, tabela e JSON em `docs/provas/LAB-05/`.
-**O que o LAB-04 mediu e entrega a ele:** em `geo-antonina`, **119 das 698
+**O que o LAB-04 mediu e entregou a ele:** em `geo-antonina`, **119 das 698
 quadras atravessam a divisa** e ficam sem lote nenhum; em `ensaio-47ha`, 3 de 94.
 E a rede fragmentada faz trecho de via sobrar dentro de quadra — 65 lotes
 descartados por isso.
+**Entregue:** [`../relatorios/LAB-05.md`](../relatorios/LAB-05.md). Itens 2 e 3
+feitos: **zero quadra além da folga de 5 cm da divisa** nas cinco glebas (eram
+2 591 vértices fora em `geo-antonina`, o pior a 170,98 m), e as lascas da D48
+descartadas — menos de 0,31 % do comprimento em qualquer gleba. Os lotes sobem de
+876 para **1 014** em `geo-antonina` e de 181 para **214** em `ensaio-47ha`,
+**com as violações do Validator inalteradas**.
+**O item 1 não era defeito:** medido, `geo-antonina` fragmenta porque uma **APP
+hídrica de 14,4 ha corta a gleba em duas** — o menor vão entre os blocos está 200
+de 201 pontos dentro dela. Reconectar é lançar rua sobre APP, que é decisão de
+urbanismo (D58). Foi para o Jonny.
+**E um defeito do Lab apareceu na conferência:** a régua que dizia quem atravessa
+tinha ponto cego e declarava 1,0000 para quadra 1,49 m fora (D55, D56).
 
 ### LF-FINAL-2 · Conferência e docs
 
@@ -108,9 +120,15 @@ descartados por isso.
   0,70 m², e 2 de frente) e o efeito de baixar a tolerância de simplificação de
   0,25 m. A suspeita está escrita no LAB-04, §6, e **não foi medida** — por isso
   não foi atribuída.
-- **As 86 quadras de esqueleto não confiável** em `geo-antonina` (15 % das
-  loteáveis): é forma degenerada da quadra ou limite da esteira? Hoje elas são
+- **As 96 quadras de esqueleto não confiável** em `geo-antonina` (eram 86 antes
+  do recorte): é forma degenerada da quadra ou limite da esteira? Hoje elas são
   puladas e contadas (D51), que é a resposta honesta, mas não é a resposta.
+- **A travessia sobre a APP de `geo-antonina`** — é do Jonny, e está em
+  `PENDENCIAS_JONNY.md`. Sem ela, um terço da gleba só se alcança por fora, e
+  "por fora" é terra que não é dela (D58).
+- **A quadra dentro de APP.** O recorte do LAB-05 é pela **divisa**; quadra que
+  cai dentro de APP continua de pé, e nenhum dos onze invariantes do Validator a
+  acusa. Medir quanto é, e se deve ser recortada também, é escopo novo.
 
 ---
 
