@@ -121,6 +121,27 @@ existindo** — a cópia do Lab é byte a byte igual à do repositório irmão.
 
 ---
 
+## A fila nova de 15/09 — **os itens não chegaram**
+
+O chat anunciou fila nova com despertador de 60 minutos, **mas a mensagem cortou
+antes de listar os prompts** — ela termina em *"lançada como item de custo (ponte
+ou bueiro) para o Or"*. O que veio inteiro foi a **decisão de urbanismo** (D61) e
+a **regra nova do despertador** (D62), e as duas estão gravadas e mescladas.
+
+**Nenhum despertador foi criado**, de propósito: pela D62 ele se apagaria no
+primeiro disparo por não achar item pronto, e teria morrido antes de a lista
+chegar. **Quando os prompts vierem, o despertador nasce com eles.**
+
+O candidato mais óbvio, que só o chat pode promover a prompt:
+
+- **aplicar a D61 em `geo-antonina`** — medir o contorno por fora da APP, medir a
+  travessia mais curta e perpendicular ao curso, e comparar. **Bloqueado por
+  duas coisas**, e nenhuma é minha: o **limiar de "desproporcional"**, que é do
+  Jonny, e o **eixo do curso d'água**, que o Geo não manda (a restrição chega
+  como polígono de APP, não como linha).
+
+---
+
 ## Proposto ao chat — não executar
 
 - **O delta contra o Padrão 1.2**, quando ele existir. A conferência do LF-FINAL
@@ -139,6 +160,10 @@ existindo** — a cópia do Lab é byte a byte igual à do repositório irmão.
 - **A quadra dentro de APP.** O recorte do LAB-05 é pela **divisa**; quadra que
   cai dentro de APP continua de pé, e nenhum dos onze invariantes do Validator a
   acusa. Medir quanto é, e se deve ser recortada também, é escopo novo.
+- **O eixo do curso d'água, para o Geo.** A D61 manda a travessia sair
+  **perpendicular ao curso** — e o Lab recebe a restrição como **polígono de
+  APP**, não como a linha d'água. Sem o eixo, "perpendicular" não tem a quê. É
+  achado para o Geo, e o chat é que o leva.
 
 ---
 

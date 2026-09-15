@@ -7,7 +7,7 @@ Quem escreve: o Claude, a cada rodada. **Quem risca: você.** Item resolvido é
 marcado, nunca apagado — para a decisão não se perder.
 
 Refeito do zero em **14/09/2026**, no fim do LF-FINAL. Atualizado em
-**15/09/2026**, no fim do LAB-05.
+**15/09/2026**, depois da sua resposta sobre a travessia.
 
 **Os endereços, prontos para clicar:**
 
@@ -20,20 +20,63 @@ Refeito do zero em **14/09/2026**, no fim do LF-FINAL. Atualizado em
 
 ## Em cinco minutos
 
-**Uma coisa nova depende de você**, e ela não trava nada:
+**Você respondeu a pergunta da ponte** — obrigado. A resposta está gravada e
+valendo (D61): travessia sobre área de preservação é **exceção**, tenta-se
+primeiro contornar, e quando ela for mesmo necessária sai **a mais curta e
+perpendicular ao rio**, aparecendo na tela e virando **item de custo**.
+
+**A sua resposta abriu uma pergunta nova**, e é a única coisa que depende de
+você agora:
 
 | # | o que | quanto custa | o que muda se você responder |
 |---|---|---|---|
-| **1** | **O terreno de Antonina está partido em dois por um rio. Pode passar rua por cima dele?** | 5 min | se um terço do terreno é alcançável ou não |
+| **1** | **Quanto é "desvio desproporcional"?** — o número que decide quando contornar o rio deixa de valer a pena e a ponte entra | 3 min | sem ele o motor **não propõe travessia nenhuma**, por precaução |
 
-O laboratório terminou o **LAB-04** e o **LAB-05** em 15/09. O motor de traçado
-passou a desenhar lotes e chegou a **1 014 lotes** em Antonina, com a nota do
-Generate praticamente limpa. Foi ao desenhar que esta pergunta apareceu — e ela é
-de urbanismo, então é sua, nunca minha.
+Enquanto ele não vier, nada quebra: o desenho continua como está, com os dois
+lados servidos cada um pela sua entrada.
 
 ---
 
-## 1 · O rio corta o terreno de Antonina em dois. Pode haver ponte?
+## 1 · Quanto é "desvio desproporcional"?
+
+**O que a sua regra diz.** A rua tenta primeiro dar a volta na área de
+preservação. Só quando esse contorno for **desproporcional** é que a travessia
+entra. Isso está certo e é o que vou seguir.
+
+**O que falta.** *Desproporcional* precisa virar número, e número de urbanismo é
+seu. Em Antonina, para você sentir o tamanho: os dois lados chegam a **72 metros
+um do outro** no ponto mais próximo, mas o contorno por fora do rio é uma volta
+muito maior — e "muito maior" é exatamente o que eu não posso decidir sozinho.
+
+**Três formas de responder, qualquer uma serve** — escolha a que fizer sentido
+para você:
+
+- **por proporção:** "a ponte entra quando o contorno for mais de **N vezes** a
+  travessia direta" (por exemplo, 5 vezes: a travessia de 72 m só se justifica se
+  a volta passar de 360 m);
+- **por distância:** "a ponte entra quando o contorno passar de **N metros**";
+- **por tempo de percurso**, se for assim que você pensa a coisa.
+
+**Enquanto não vier, o que acontece:** nenhuma travessia é proposta. É a escolha
+mais conservadora, e é reversível — no dia em que o número chegar, o desenho é
+refeito e a diferença aparece medida.
+
+---
+
+## 2 · ~~O rio corta o terreno de Antonina em dois. Pode haver ponte?~~ — **você respondeu em 15/09/2026**
+
+**A sua resposta, e ela já está valendo:** a travessia é **exceção, não padrão**.
+O motor tenta ligar os dois lados **por fora** da área de preservação; só propõe
+ponte ou bueiro se a volta for desproporcional; quando propuser, faz a
+**mais curta e perpendicular ao rio**, mostra na tela, e lança o custo dela
+(ponte ou bueiro) para o aplicativo de orçamento.
+
+Uma coisa a confirmar quando puder, de um segundo: **o nome do aplicativo de
+orçamento veio cortado** na mensagem ("para o Or…"). Não adivinhei o destinatário
+— está registrado como pendência de confirmação.
+
+O que segue abaixo é a pergunta como ela foi feita, para o registro não se
+perder.
 
 **O que eu vi.** Ao desenhar as ruas de Antonina, elas saíram em **duas redes
 separadas**, que não se falam. Não é um defeito do desenho: eu medi.
@@ -65,7 +108,7 @@ Onde está o número:
 
 ---
 
-## 2 · ~~A calçada é da rua~~ — **confirmado pelo chat em 15/09/2026**
+## 3 · ~~A calçada é da rua~~ — **confirmado pelo chat em 15/09/2026**
 
 **O que está valendo:** a calçada fica **dentro da caixa da rua** (a faixa de
 domínio), **nunca descontada do lote**. Decisão do chat, de 14/09.
@@ -91,7 +134,7 @@ Onde está o número: [`LAB-07.md`, §4](https://github.com/jonny583/archilly-la
 
 ---
 
-## 3 · O que **não** depende de você
+## 4 · O que **não** depende de você
 
 Isto está aqui para você não ficar procurando.
 
@@ -107,7 +150,7 @@ Isto está aqui para você não ficar procurando.
 
 ---
 
-## 4 · O que o laboratório descobriu e ainda não foi repassado
+## 5 · O que o laboratório descobriu e ainda não foi repassado
 
 Não é pendência sua — **é do chat**. Fica registrado aqui para você saber que
 existe, em uma linha cada:

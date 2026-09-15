@@ -20,9 +20,9 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 
 | documento | o que responde |
 |---|---|
-| [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — e, hoje, por que a fila acabou |
-| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 60 decisões numeradas, com o que se perde em cada uma |
-| [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) | O que depende de uma pessoa. Quem escreve sou eu; quem risca é ele. Hoje: **pode haver travessia sobre a APP de Antonina?** |
+| [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — hoje, esperando os prompts da fila nova, que não chegaram |
+| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 62 decisões numeradas, com o que se perde em cada uma. A D61 é do Jonny: travessia sobre APP é exceção |
+| [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) | O que depende de uma pessoa. Quem escreve sou eu; quem risca é ele. Hoje: **quanto é "desvio desproporcional"?** — o número que destrava a D61 |
 | [`relatorios/RECADOS.md`](relatorios/RECADOS.md) | **Todos os recados para o chat**, em ordem, um por prompt |
 
 ## As medições — um relatório por prompt
