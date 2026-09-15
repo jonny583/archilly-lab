@@ -66,3 +66,16 @@ conferência possa ser refeita por quem quiser.
   `.wasm` carregando no Chromium —, e está em `outputs/lab01/navegador.png`.
 - **Nada repintado fora do catálogo de design.** Não há design: não há tela.
 - **Mobile sem rolagem lateral.** Idem.
+
+---
+
+## Reconferido no LF-FINAL-2 · 15/09/2026
+
+Todas as linhas acima foram refeitas com os mesmos comandos, depois do LAB-04 e
+do LAB-05. **Nada mudou de estado.** Dois números novos, conferidos pela primeira
+vez nesta volta:
+
+| item | estado | como foi conferido |
+|---|---|---|
+| Os commits dos clones vizinhos são **deles**, não meus | ✅ | `git -C <clone> log --since=2026-09-13 --format="%an"` — os 14 commits de `motor-testfit` são da sessão dele, no branch `claude/upbeat-fermi-t1rp11`, mesclados pelo Jonny. **Nenhum desta sessão** |
+| `external-engines/symbios/upstream/` nunca foi tocado depois de criado | ✅ | `git log --oneline -- external-engines/symbios/upstream/` — **um commit**, o do LAB-00 que o criou |

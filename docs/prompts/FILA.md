@@ -46,7 +46,10 @@ Escrita pelo chat depois que a fila de 14/09 esgotou.
 |---|---|---|---|
 | **LAB-04** | Straight skeleton: subdividir as quadras do Symbios em lotes e disputar o Judge | ✅ **concluído em 15/09/2026** | nenhuma |
 | **LAB-05** | Reconectar a rede, recortar quadra que atravessa, descartar lasca pela regra | ✅ **concluído em 15/09/2026** | LAB-04 mesclado ✅ |
-| **LF-FINAL-2** | Conferência e docs | ⬜ **pronto — é o próximo** | LAB-05 mesclado ✅ |
+| **LF-FINAL-2** | Conferência e docs | ✅ **concluído em 15/09/2026** | LAB-05 mesclado ✅ |
+
+**A fila de 15/09 esgotou.** O despertador foi apagado, como esta fila manda.
+O que vier agora vem do chat.
 
 ---
 
@@ -104,10 +107,17 @@ urbanismo (D58). Foi para o Jonny.
 **E um defeito do Lab apareceu na conferência:** a régua que dizia quem atravessa
 tinha ponto cego e declarava 1,0000 para quadra 1,49 m fora (D55, D56).
 
-### LF-FINAL-2 · Conferência e docs
+### LF-FINAL-2 · Conferência e docs — ✅ concluído em 15/09/2026
 
-**Condição:** LAB-05 mesclado.
+**Condição:** LAB-05 mesclado ✅.
 **Escopo:** conferência contra o Padrão e os documentos em dia.
+**Entregue:** [`../relatorios/LF-FINAL-2.md`](../relatorios/LF-FINAL-2.md).
+**Conforme, com um desvio consertado e um achado incômodo.** O desvio: um número
+que viaja saía arredondado dentro do núcleo, contra o §9.3 (D59). O achado: a
+regra do RECADO — 12 linhas — foi **quebrada em 7 dos 8 recados**, e nunca tinha
+sido medida; agora é teste (D60). Zero link quebrado, D01 a D58 sem buraco,
+chaves limpas, vizinhos intocados, e a **Versão 1.2 do Padrão continua não
+existindo** — a cópia do Lab é byte a byte igual à do repositório irmão.
 
 ---
 

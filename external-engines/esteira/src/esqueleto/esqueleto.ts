@@ -756,7 +756,13 @@ export function esqueletoReto(anelEntrada: P[], opcoes: OpcoesEsqueleto = {}): E
     );
   }
 
-  return { nos, faces, frente, avisos, confiavel, fechamento: Number(fechamento.toFixed(4)) };
+  // `fechamento` sai CRU, e isto é o §9.3 do Padrão: formatação só na borda.
+  //
+  // Ele saía com `toFixed(4)`, e o LF-FINAL-2 o pegou. Os outros `toFixed`
+  // deste arquivo estão todos dentro de aviso — prosa para pessoa, que a D47
+  // declarou ser borda. Este não era: é **dado que viaja**, e quem o publica
+  // (uma ferramenta, um JSON de prova) é que decide com quantas casas.
+  return { nos, faces, frente, avisos, confiavel, fechamento };
 }
 
 /**

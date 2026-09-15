@@ -20,8 +20,8 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 
 | documento | o que responde |
 |---|---|
-| [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — hoje, o LF-FINAL-2 |
-| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 58 decisões numeradas, com o que se perde em cada uma |
+| [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — e, hoje, por que a fila acabou |
+| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 60 decisões numeradas, com o que se perde em cada uma |
 | [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) | O que depende de uma pessoa. Quem escreve sou eu; quem risca é ele. Hoje: **pode haver travessia sobre a APP de Antonina?** |
 | [`relatorios/RECADOS.md`](relatorios/RECADOS.md) | **Todos os recados para o chat**, em ordem, um por prompt |
 
@@ -29,6 +29,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 
 | documento | o que responde |
 |---|---|
+| [`relatorios/LF-FINAL-2.md`](relatorios/LF-FINAL-2.md) | **A conferência, segunda volta**: o desvio do §9.3 consertado, e a regra do RECADO que era quebrada em 7 de 8 |
 | [`relatorios/LAB-05.md`](relatorios/LAB-05.md) | **Recortar a quadra e descartar a lasca**: zero quadra além da divisa, 1 014 lotes, e a APP que separa a gleba em duas |
 | [`relatorios/LAB-04.md`](relatorios/LAB-04.md) | **O Symbios passa a fazer lote**: o esqueleto reto contra o oráculo, os 213 e os 901 lotes, e as quatro correções que o Validator cobrou |
 | [`relatorios/LF-FINAL.md`](relatorios/LF-FINAL.md) | **A conferência contra o Padrão da família**: o que faltava, a ressalva do núcleo, e por que a 1.2 não pôde ser usada |

@@ -208,3 +208,22 @@ Depende do Jonny: Antonina é cortada em duas por um rio — pode haver travessi
 Próximo na fila: LF-FINAL-2 (conferência e docs), condição cumprida.
 === FIM ===
 ```
+
+---
+
+## 15/09/2026 · LF-FINAL-2 — a conferência, segunda volta
+
+```
+=== RECADO PARA O CHAT — Lab · LF-FINAL-2 ===
+Estado: concluído e mesclado. FILA ESGOTADA, despertador APAGADO. Esteira 67/67, testfit 14/14, tsc e lint limpos.
+Feito: conferência CONFORME, com um desvio consertado e um achado sobre mim mesmo.
+  §9.3: dos 32 toFixed do núcleo, 20 são prosa (D47), 10 o geojson, 1 o hash — e 1 ERA DADO
+  QUE VIAJA (o fechamento do esqueleto). Sai cru; agora são zero (D59).
+  A regra do RECADO (12 linhas) nunca fora medida: QUEBRADA EM 7 DOS 8 (16, 21, 19, 19, 18,
+  19 e 16). Não reescrevi o registro do que foi enviado; virou TESTE (D60).
+  Em ordem: zero link quebrado, D01-D58 sem buraco, chaves limpas, 14 PR na main, vizinhos intocados. E o PADRÃO 1.2 CONTINUA NÃO EXISTINDO — a cópia do Lab é igual à do irmão.
+Achados para outros apps ou Central: —
+Depende do Jonny: Antonina é cortada em dois por um rio — pode haver travessia sobre a APP?
+Próximo na fila: nada — 4 propostas esperando o chat, a 1ª é o delta contra a 1.2.
+=== FIM ===
+```

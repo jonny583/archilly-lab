@@ -4,53 +4,58 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 15/09/2026 · **Último prompt executado:** LAB-05
-**Estado:** **LAB-05 mesclado. O próximo é o LF-FINAL-2**, e a condição dele está
-cumprida.
+**Última atualização:** 15/09/2026 · **Último prompt executado:** LF-FINAL-2
+**Estado:** **fila esgotada, aguardando o chat.** O despertador de 60 minutos foi
+apagado, como a própria fila manda.
 
 ---
 
 ## Em uma frase
 
-**Nenhuma quadra passa mais da divisa, e o Symbios chega a 1 014 lotes.** O
-recorte de polígono fez cair de 2 591 vértices fora da folga de 5 cm em
-`geo-antonina` — o pior a 170,98 m — para **zero**, e os lotes subiram de 876
-para 1 014 **sem uma violação nova**. E o item que pedia "reconectar a rede" não
-era defeito: uma **APP hídrica corta a gleba em duas**, e a travessia é decisão do
-Jonny.
+**Os três prompts da fila de 15/09 rodaram e estão mesclados, e a conferência
+passou — com um desvio consertado e um achado sobre mim mesmo.** O Symbios saiu
+de 0 lotes para **1 014** em `geo-antonina`, com 4 violações contra as 53 do
+motor de parcelamento; nenhuma quadra passa mais da divisa; e a regra do RECADO,
+que eu mesmo escrevi, estava sendo quebrada em **7 dos 8 recados** — agora é
+teste.
 
-## A fila — a de 15/09, escrita pelo chat
+## A fila — esgotada
 
-Roteiro em [`prompts/FILA.md`](prompts/FILA.md).
+Roteiro em [`prompts/FILA.md`](prompts/FILA.md). Tudo executado em 15/09:
 
 | Prompt | Estado |
 |---|---|
 | **LAB-04** — straight skeleton: a quadra vira lote e disputa o Judge | concluído em 15/09/2026 |
-| **LAB-05** — reconectar, recortar quadra que atravessa, descartar lasca | **concluído em 15/09/2026** |
-| **LF-FINAL-2** — conferência e docs | **pronto — é o próximo** (condição cumprida) |
+| **LAB-05** — recortar a quadra, descartar a lasca | concluído em 15/09/2026 |
+| **LF-FINAL-2** — a conferência, segunda volta | **concluído em 15/09/2026** |
 
 Antes disso: **LAB-00** (09/09), **LAB-01** (10/09), **LAB-07** (13/09) e a fila
 de 14/09 inteira — LF-01, LAB-02, LAB-03, LAB-08, LF-FINAL.
 
-## O laço autônomo — ligado
+## O laço autônomo — desligado
 
-O despertador do Lab é **`trig_014CyNwWYBjjSQQxNPNMbv11`**, de hora em hora, no
-**minuto :05**. Regra de família: **um despertador por aplicativo; nunca se toca
-no de outro repositório.** Ele se apaga quando a fila esgotar.
+O despertador `trig_014CyNwWYBjjSQQxNPNMbv11` (minuto :05, de hora em hora) foi
+**apagado** no fim do LF-FINAL-2, porque a fila acabou. Era a regra escrita na
+própria fila. Quando o chat mandar prompt novo, um despertador novo se cria.
 
-## O que depende do Jonny — **um item, novo**
+**Esta fila teve as ferramentas do GitHub** (`mcp__github__*`) nas três rodadas —
+os PR #13, #14 e #15 foram abertos e mesclados por elas, sem o contorno por
+`git merge --no-ff` que a D29 prevê para quando faltam.
+
+## O que depende do Jonny — **um item**
 
 **A gleba de Antonina é cortada em duas por um curso d'água. Pode haver
 travessia?** Sem ela, um terço do terreno só se alcança dando a volta por fora, e
 "por fora" é terra que não é da gleba. Está em
-[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), escrito para leigo. **Não trava a
-fila** — o LF-FINAL-2 roda sem ele.
+[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), escrito para leigo. **Não trava
+nada.**
 
 ## O que espera o chat
 
-1. **O delta contra o Padrão 1.2**, quando ele existir — a versão 1.2 não existe
-   em nenhum repositório legível; a conferência do LF-FINAL foi contra a Versão 1
-   (D43).
+1. **O delta contra o Padrão 1.2**, quando ele existir — procurei de novo nos
+   quatro clones e **ele continua não existindo**; só há a Versão 1 de 13/09. A
+   cópia que o Lab guarda é **byte a byte igual** à do repositório irmão, então
+   as duas não envelheceram em silêncio.
 2. **As 4 violações que sobraram** em `geo-antonina` e o efeito de baixar a
    tolerância de simplificação. Suspeita escrita, **não medida**.
 3. **As 96 quadras de esqueleto não confiável** — forma degenerada da quadra ou
@@ -64,6 +69,39 @@ Rampa máxima por via; o quadro de áreas de `ensaio-47ha`; a interpolação de
 relevo. Mais a proposta de adotar `docs/fixtures/glebas-padrao-com-relevo/`. Os
 quatro estão nos relatórios do LAB-02, LAB-03 e LAB-08 e **não se repetem no
 recado** — o chat já os levou.
+
+---
+
+# LF-FINAL-2 — a conferência, segunda volta · 15/09/2026
+
+Relatório: [`relatorios/LF-FINAL-2.md`](relatorios/LF-FINAL-2.md)
+
+> ### Conforme, com **um desvio consertado** e **um achado incômodo sobre mim mesmo**.
+
+**O desvio (§9.3).** Classifiquei **cada** `toFixed` do núcleo, em vez de
+contá-los juntos: dos 32, **20** são prosa para pessoa (borda, pela D47), **10**
+são o `geojson.ts`, que é formato de exportação, **1** é o hash de determinismo,
+declarado no próprio arquivo — e **1 era dado que viaja**, o `fechamento` do
+esqueleto, arredondado dentro da geometria. Consertado: sai cru, e quem publica é
+que arredonda (D59). **Agora são zero.**
+
+**O achado (§1 do CLAUDE.md).** A regra do RECADO — no máximo 12 linhas — nunca
+tinha sido medida. Medida: **7 dos 8 recados passaram do teto** (16, 21, 19, 19,
+18, 19 e 16 linhas); só o do LAB-05 cabia. **Não reescrevi os sete** — o
+`RECADOS.md` é registro do que foi enviado, e encolhê-los faria o arquivo mentir.
+Virou **teste**, que mede o último recado a cada `bun test` (D60).
+
+**O que estava em ordem:** os arquivos do §4 todos presentes; **zero link
+interno quebrado** em todo `docs/`; decisões contíguas de D01 a D58, sem buraco e
+sem repetida; `INDEX` cobrindo todo `.md` de `docs/`; chaves limpas pelo comando
+publicado; os quatorze PR na `main`; **zero alterações** nos três clones
+vizinhos — e, conferido pela primeira vez, **de quem são os commits deles**: os
+14 de `motor-testfit` são da própria sessão dele, nenhum desta.
+
+**A disciplina do §6 rendeu mais três** conclusões erradas desfeitas desde a
+primeira conferência, somando **oito** no laboratório: a borda da quadra que era
+o eixo (D52), a APP que separa `geo-antonina` (D58) e a régua do "atravessa" com
+ponto cego (D55).
 
 ---
 
