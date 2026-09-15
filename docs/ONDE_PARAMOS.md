@@ -4,19 +4,20 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 15/09/2026 · **Último prompt executado:** LAB-04
-**Estado:** **LAB-04 mesclado. O próximo é o LAB-05**, e a condição dele está
+**Última atualização:** 15/09/2026 · **Último prompt executado:** LAB-05
+**Estado:** **LAB-05 mesclado. O próximo é o LF-FINAL-2**, e a condição dele está
 cumprida.
 
 ---
 
 ## Em uma frase
 
-**O Symbios entrou na disputa.** Ele saiu de **0 lotes** para **213** em
-`ensaio-47ha` com **zero violação** e **901** em `geo-antonina` com **4** —
-contra as 53 do motor de parcelamento na mesma gleba. Quem faz o lote é o
-esqueleto reto escrito aqui, e a tabela diz isso em toda linha: o que compete é
-**"Symbios + subdivisão do Lab"**, não o motor sozinho.
+**Nenhuma quadra passa mais da divisa, e o Symbios chega a 1 014 lotes.** O
+recorte de polígono fez cair de 2 591 vértices fora da folga de 5 cm em
+`geo-antonina` — o pior a 170,98 m — para **zero**, e os lotes subiram de 876
+para 1 014 **sem uma violação nova**. E o item que pedia "reconectar a rede" não
+era defeito: uma **APP hídrica corta a gleba em duas**, e a travessia é decisão do
+Jonny.
 
 ## A fila — a de 15/09, escrita pelo chat
 
@@ -24,9 +25,9 @@ Roteiro em [`prompts/FILA.md`](prompts/FILA.md).
 
 | Prompt | Estado |
 |---|---|
-| **LAB-04** — straight skeleton: a quadra vira lote e disputa o Judge | **concluído em 15/09/2026** |
-| **LAB-05** — reconectar a rede, recortar quadra que atravessa, descartar lasca | **pronto — é o próximo** (condição cumprida) |
-| **LF-FINAL-2** — conferência e docs | aguardando o LAB-05 |
+| **LAB-04** — straight skeleton: a quadra vira lote e disputa o Judge | concluído em 15/09/2026 |
+| **LAB-05** — reconectar, recortar quadra que atravessa, descartar lasca | **concluído em 15/09/2026** |
+| **LF-FINAL-2** — conferência e docs | **pronto — é o próximo** (condição cumprida) |
 
 Antes disso: **LAB-00** (09/09), **LAB-01** (10/09), **LAB-07** (13/09) e a fila
 de 14/09 inteira — LF-01, LAB-02, LAB-03, LAB-08, LF-FINAL.
@@ -37,19 +38,25 @@ O despertador do Lab é **`trig_014CyNwWYBjjSQQxNPNMbv11`**, de hora em hora, no
 **minuto :05**. Regra de família: **um despertador por aplicativo; nunca se toca
 no de outro repositório.** Ele se apaga quando a fila esgotar.
 
-**Esta rodada teve as ferramentas do GitHub** (`mcp__github__*`) — o PR foi
-aberto e mesclado por elas, sem o contorno por `git merge --no-ff` que a D29
-prevê para quando faltam.
+## O que depende do Jonny — **um item, novo**
+
+**A gleba de Antonina é cortada em duas por um curso d'água. Pode haver
+travessia?** Sem ela, um terço do terreno só se alcança dando a volta por fora, e
+"por fora" é terra que não é da gleba. Está em
+[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), escrito para leigo. **Não trava a
+fila** — o LF-FINAL-2 roda sem ele.
 
 ## O que espera o chat
 
 1. **O delta contra o Padrão 1.2**, quando ele existir — a versão 1.2 não existe
    em nenhum repositório legível; a conferência do LF-FINAL foi contra a Versão 1
    (D43).
-2. **Proposto no LAB-04, sem executar:** medir as 4 violações que sobraram em
-   `geo-antonina` e o efeito de baixar a tolerância de simplificação; e medir as
-   **86 quadras de esqueleto não confiável**, para saber se é forma degenerada da
-   quadra ou limite da esteira.
+2. **As 4 violações que sobraram** em `geo-antonina` e o efeito de baixar a
+   tolerância de simplificação. Suspeita escrita, **não medida**.
+3. **As 96 quadras de esqueleto não confiável** — forma degenerada da quadra ou
+   limite da esteira?
+4. **A quadra dentro de APP** — o recorte do LAB-05 é pela divisa; quadra dentro
+   de APP continua de pé e nenhum invariante do Validator a acusa.
 
 ## Os três achados para o Generate — já repassados pelo chat
 
@@ -57,6 +64,61 @@ Rampa máxima por via; o quadro de áreas de `ensaio-47ha`; a interpolação de
 relevo. Mais a proposta de adotar `docs/fixtures/glebas-padrao-com-relevo/`. Os
 quatro estão nos relatórios do LAB-02, LAB-03 e LAB-08 e **não se repetem no
 recado** — o chat já os levou.
+
+---
+
+# LAB-05 — recortar a quadra, descartar a lasca · 15/09/2026
+
+Relatório: [`relatorios/LAB-05.md`](relatorios/LAB-05.md) · números crus:
+[`provas/LAB-05/`](provas/LAB-05/) · as saídas para o Generate julgar:
+[`contratos/saidas/`](contratos/saidas/)
+
+### A meta, nas cinco glebas
+
+| | `completo` | `50ha` | `10ha` | `ensaio-47ha` | `geo-antonina` |
+|---|---|---|---|---|---|
+| **vértice de quadra além da folga de 5 cm** | 2 017 → **0** | 708 → **0** | 21 → **0** | 63 → **0** | 2 591 → **0** |
+| pior distância fora | 162,79 m → 0 | 114,65 → 0 | 98,04 → 0 | 15,01 → 0 | **170,98 m → 0** |
+| quadras recortadas → peças | 74 → 76 | 37 → 37 | 3 → 3 | 5 → 5 | 128 → 129 |
+| **não recortaram** | 0 | 0 | 0 | 0 | 0 |
+| lascas da D48 | 14 | 0 | 0 | 2 | 17 |
+| determinismo | OK | OK | OK | OK | OK |
+
+### O Judge
+
+| | `ensaio-47ha` | `geo-antonina` |
+|---|---|---|
+| lotes, sem → com o recorte | 181 → **214** | 876 → **1 014** |
+| área vendável | 5,59 → **6,61 ha** (14,07 %) | 25,88 → **29,85 ha** (21,06 %) |
+| **Validator** | 0 → **0** | 4 → **4** |
+
+**As violações não mudaram.** 33 e 138 lotes a mais, nenhuma violação a mais.
+
+### O item que não era defeito
+
+`geo-antonina` fragmenta a 70,4 % porque a gleba é **cortada em duas por uma APP
+hídrica de 14,4 ha**. São **dois blocos** (42 899 m e 17 296 m), não vinte e
+cinco pedaços; o menor vão entre eles, 72,45 m, está **200 de 201 pontos
+amostrados dentro da APP**. Reconectar é lançar rua sobre APP — decisão de
+urbanismo, não minha (D58). **Os 70,4 % são a resposta certa.**
+
+### E o defeito do Lab que a conferência achou
+
+A régua que dizia quem atravessa a divisa amostrava o raio do centróide ao
+vértice até `t = 0,9375`: **o vértice nunca era amostrado**. Oito quadras
+declaravam estar 100 % dentro estando até **1,49 m** fora (D55). Consertada, e o
+recorte passou a **não depender dela** — ele recorta tudo e deixa a interseção
+responder (D56). Consequência em número publicado: `geo-antonina` vai de 698 para
+701 quadras, e os 213 e 901 lotes do LAB-04, medidos com a régua cega, seriam 181
+e 876 pela mesma estratégia.
+
+### O recortador
+
+Greiner–Hormann (1998) reimplementado — as bibliotecas prontas são copyleft ou
+trariam dependência npm a um adaptador que não tem nenhuma (D14). A
+degenerescência conhecida do algoritmo é **detectada e contornada** deslocando o
+anel de décimos de milímetro, e o que não resolver vira **perda declarada**, nunca
+peça torta (D57). Nas cinco glebas: **zero deslocamentos, zero perdas**.
 
 ---
 

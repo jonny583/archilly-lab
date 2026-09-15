@@ -7,7 +7,7 @@ Quem escreve: o Claude, a cada rodada. **Quem risca: você.** Item resolvido é
 marcado, nunca apagado — para a decisão não se perder.
 
 Refeito do zero em **14/09/2026**, no fim do LF-FINAL. Atualizado em
-**15/09/2026**, no fim do LAB-04.
+**15/09/2026**, no fim do LAB-05.
 
 **Os endereços, prontos para clicar:**
 
@@ -20,20 +20,52 @@ Refeito do zero em **14/09/2026**, no fim do LF-FINAL. Atualizado em
 
 ## Em cinco minutos
 
-**Nada depende de você agora.** A lista está vazia.
+**Uma coisa nova depende de você**, e ela não trava nada:
 
-O único item que restava — confirmar que a calçada é da rua — **o chat confirmou
-em 15/09**. Ele continua escrito abaixo, riscado, para a decisão não se perder.
+| # | o que | quanto custa | o que muda se você responder |
+|---|---|---|---|
+| **1** | **O terreno de Antonina está partido em dois por um rio. Pode passar rua por cima dele?** | 5 min | se um terço do terreno é alcançável ou não |
 
-O laboratório está rodando sozinho a fila que o chat escreveu: o **LAB-04**
-terminou em 15/09 (o motor de traçado passou a desenhar lotes, e pela primeira
-vez disputou a nota do Generate de igual para igual), e o **LAB-05** é o
-próximo. Se algum deles esbarrar numa regra de urbanismo, ela aparece aqui —
-regra de urbanismo é sua, nunca minha.
+O laboratório terminou o **LAB-04** e o **LAB-05** em 15/09. O motor de traçado
+passou a desenhar lotes e chegou a **1 014 lotes** em Antonina, com a nota do
+Generate praticamente limpa. Foi ao desenhar que esta pergunta apareceu — e ela é
+de urbanismo, então é sua, nunca minha.
 
 ---
 
-## 1 · ~~A calçada é da rua~~ — **confirmado pelo chat em 15/09/2026**
+## 1 · O rio corta o terreno de Antonina em dois. Pode haver ponte?
+
+**O que eu vi.** Ao desenhar as ruas de Antonina, elas saíram em **duas redes
+separadas**, que não se falam. Não é um defeito do desenho: eu medi.
+
+O terreno tem um **curso d'água com área de preservação de 14,4 hectares**
+atravessando-o. Toda rua que ligava um lado ao outro passava por cima dele, e o
+laboratório as cortou fora — porque a regra que você já deu é que rua não entra
+em área de preservação.
+
+**O tamanho da coisa:**
+
+- de um lado, **43 km de rua**; do outro, **17 km**;
+- o ponto onde os dois lados mais se aproximam tem **72 metros de distância** —
+  e esses 72 metros são **quase todos dentro da área de preservação**.
+
+**A pergunta, em uma linha:** *neste loteamento, pode haver uma travessia sobre o
+curso d'água — uma ponte ou um bueiro — ou os dois lados ficam servidos cada um
+pela sua entrada?*
+
+- **Se pode:** eu religo as duas redes e o terreno vira um loteamento só.
+- **Se não pode:** fica como está, e o relatório passa a dizer que os dois lados
+  são dois loteamentos vizinhos, cada um com o seu acesso pela estrada de fora.
+
+**Não estou decidindo nem um nem outro.** Enquanto você não disser, o desenho
+fica como está — em dois —, que é o que a regra atual manda.
+
+Onde está o número:
+[`LAB-05.md`, §1](https://github.com/jonny583/archilly-lab/blob/main/docs/relatorios/LAB-05.md).
+
+---
+
+## 2 · ~~A calçada é da rua~~ — **confirmado pelo chat em 15/09/2026**
 
 **O que está valendo:** a calçada fica **dentro da caixa da rua** (a faixa de
 domínio), **nunca descontada do lote**. Decisão do chat, de 14/09.
@@ -59,7 +91,7 @@ Onde está o número: [`LAB-07.md`, §4](https://github.com/jonny583/archilly-la
 
 ---
 
-## 2 · O que **não** depende de você
+## 3 · O que **não** depende de você
 
 Isto está aqui para você não ficar procurando.
 
@@ -75,7 +107,7 @@ Isto está aqui para você não ficar procurando.
 
 ---
 
-## 3 · O que o laboratório descobriu e ainda não foi repassado
+## 4 · O que o laboratório descobriu e ainda não foi repassado
 
 Não é pendência sua — **é do chat**. Fica registrado aqui para você saber que
 existe, em uma linha cada:
@@ -102,4 +134,4 @@ existe, em uma linha cada:
 - ~~**Colar dois recados nos repositórios vizinhos**~~ — **passou para o chat em
   14/09.**
 - ~~**A calçada: sai do lote ou da rua?**~~ — **decidido em 14/09** e
-  **confirmado em 15/09**: é da rua. Era o item 1, e está fechado.
+  **confirmado em 15/09**: é da rua. Está fechado — é o item 2 acima, riscado.

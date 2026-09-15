@@ -1,0 +1,407 @@
+{
+  "prompt": "LAB-05",
+  "geradoEm": "2026-09-15T00:00:00.000Z",
+  "semente": 20260913,
+  "glebas": [
+    {
+      "prompt": "LAB-05",
+      "gleba": "completo",
+      "motor": "symbios-tensor 0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 1417577.83,
+      "ladoDoLoteMinimo_m": 14.14,
+      "vias": {
+        "sem": 287,
+        "com": 273,
+        "comprimentoSem_m": 38839.67,
+        "comprimentoCom_m": 38721.02,
+        "lascasDescartadas": 14,
+        "comprimentoDescartado_m": 118.66,
+        "pctDoComprimentoDescartado": 0.31
+      },
+      "conectividade": {
+        "semComponentes": 29,
+        "semFracaoNoMaior_pct": 97.58,
+        "comComponentes": 22,
+        "comFracaoNoMaior_pct": 97.71,
+        "cruaComponentes": 13,
+        "cruaFracaoNoMaior_pct": 99.89
+      },
+      "quadras": {
+        "sem": 533,
+        "com": 535,
+        "atravessandoSem": 74,
+        "atravessandoCom": 0,
+        "recortadas": 74,
+        "pecas": 76,
+        "naoRecortaram": 0,
+        "areaRecortada_m2": 233391.39,
+        "deslocamentosContraDegenerescencia": 0
+      },
+      "foraDaDivisa": {
+        "sem": {
+          "vertices": 2021,
+          "acimaDaFolga": 2017,
+          "pior_m": 162.79
+        },
+        "com": {
+          "vertices": 90,
+          "acimaDaFolga": 0,
+          "pior_m": 0
+        }
+      },
+      "ms": {
+        "sem": 96.22,
+        "com": 126.43
+      },
+      "determinismo": true
+    },
+    {
+      "prompt": "LAB-05",
+      "gleba": "sintetico-50ha-ondulado",
+      "motor": "symbios-tensor 0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 500000.02,
+      "ladoDoLoteMinimo_m": 14.14,
+      "vias": {
+        "sem": 111,
+        "com": 111,
+        "comprimentoSem_m": 17980.48,
+        "comprimentoCom_m": 17980.48,
+        "lascasDescartadas": 0,
+        "comprimentoDescartado_m": 0,
+        "pctDoComprimentoDescartado": 0
+      },
+      "conectividade": {
+        "semComponentes": 11,
+        "semFracaoNoMaior_pct": 97.99,
+        "comComponentes": 11,
+        "comFracaoNoMaior_pct": 97.99,
+        "cruaComponentes": 7,
+        "cruaFracaoNoMaior_pct": 99.84
+      },
+      "quadras": {
+        "sem": 135,
+        "com": 135,
+        "atravessandoSem": 37,
+        "atravessandoCom": 0,
+        "recortadas": 37,
+        "pecas": 37,
+        "naoRecortaram": 0,
+        "areaRecortada_m2": 86242.22,
+        "deslocamentosContraDegenerescencia": 0
+      },
+      "foraDaDivisa": {
+        "sem": {
+          "vertices": 708,
+          "acimaDaFolga": 708,
+          "pior_m": 114.65
+        },
+        "com": {
+          "vertices": 43,
+          "acimaDaFolga": 0,
+          "pior_m": 0
+        }
+      },
+      "ms": {
+        "sem": 16.75,
+        "com": 19.83
+      },
+      "determinismo": true
+    },
+    {
+      "prompt": "LAB-05",
+      "gleba": "sintetico-10ha-plano",
+      "motor": "symbios-tensor 0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 100000.01,
+      "ladoDoLoteMinimo_m": 14.14,
+      "vias": {
+        "sem": 11,
+        "com": 11,
+        "comprimentoSem_m": 1936.66,
+        "comprimentoCom_m": 1936.66,
+        "lascasDescartadas": 0,
+        "comprimentoDescartado_m": 0,
+        "pctDoComprimentoDescartado": 0
+      },
+      "conectividade": {
+        "semComponentes": 4,
+        "semFracaoNoMaior_pct": 94.68,
+        "comComponentes": 4,
+        "comFracaoNoMaior_pct": 94.68,
+        "cruaComponentes": 3,
+        "cruaFracaoNoMaior_pct": 99.45
+      },
+      "quadras": {
+        "sem": 5,
+        "com": 5,
+        "atravessandoSem": 3,
+        "atravessandoCom": 0,
+        "recortadas": 3,
+        "pecas": 3,
+        "naoRecortaram": 0,
+        "areaRecortada_m2": 21119.28,
+        "deslocamentosContraDegenerescencia": 0
+      },
+      "foraDaDivisa": {
+        "sem": {
+          "vertices": 21,
+          "acimaDaFolga": 21,
+          "pior_m": 98.04
+        },
+        "com": {
+          "vertices": 7,
+          "acimaDaFolga": 0,
+          "pior_m": 0
+        }
+      },
+      "ms": {
+        "sem": 1.1,
+        "com": 2.64
+      },
+      "determinismo": true
+    },
+    {
+      "prompt": "LAB-05",
+      "gleba": "ensaio-47ha",
+      "motor": "symbios-tensor 0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 470000,
+      "ladoDoLoteMinimo_m": 14.14,
+      "vias": {
+        "sem": 96,
+        "com": 94,
+        "comprimentoSem_m": 16773.42,
+        "comprimentoCom_m": 16760.62,
+        "lascasDescartadas": 2,
+        "comprimentoDescartado_m": 12.8,
+        "pctDoComprimentoDescartado": 0.08
+      },
+      "conectividade": {
+        "semComponentes": 4,
+        "semFracaoNoMaior_pct": 99.81,
+        "comComponentes": 3,
+        "comFracaoNoMaior_pct": 99.88,
+        "cruaComponentes": 3,
+        "cruaFracaoNoMaior_pct": 99.89
+      },
+      "quadras": {
+        "sem": 94,
+        "com": 94,
+        "atravessandoSem": 5,
+        "atravessandoCom": 0,
+        "recortadas": 5,
+        "pecas": 5,
+        "naoRecortaram": 0,
+        "areaRecortada_m2": 19731.14,
+        "deslocamentosContraDegenerescencia": 0
+      },
+      "foraDaDivisa": {
+        "sem": {
+          "vertices": 63,
+          "acimaDaFolga": 63,
+          "pior_m": 15.01
+        },
+        "com": {
+          "vertices": 4,
+          "acimaDaFolga": 0,
+          "pior_m": 0
+        }
+      },
+      "ms": {
+        "sem": 8.26,
+        "com": 11.59
+      },
+      "determinismo": true,
+      "loteamento": {
+        "sem": {
+          "quadrasPuladasPorAtravessar": 5,
+          "lotes": 181,
+          "areaVendavel_m2": 55916.76,
+          "areaVendavel_pctDaGleba": 11.9
+        },
+        "com": {
+          "quadrasPuladasPorAtravessar": 0,
+          "quadrasPuladasPeloEsqueleto": 13,
+          "quadrasComLote": 27,
+          "lotes": 214,
+          "areaVendavel_m2": 66144.86,
+          "areaVendavel_pctDaGleba": 14.07
+        }
+      },
+      "julgamento": {
+        "sem": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 181,
+            "areaPrivativa_m2": 55916.76
+          },
+          "validator": {
+            "limpo": true,
+            "violacoes": 0,
+            "porTipo": {},
+            "exemplos": []
+          }
+        },
+        "com": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 214,
+            "areaPrivativa_m2": 66144.86
+          },
+          "validator": {
+            "limpo": true,
+            "violacoes": 0,
+            "porTipo": {},
+            "exemplos": []
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-05",
+      "gleba": "geo-antonina",
+      "motor": "symbios-tensor 0.4.1",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 1417565.19,
+      "ladoDoLoteMinimo_m": 14.14,
+      "vias": {
+        "sem": 472,
+        "com": 455,
+        "comprimentoSem_m": 60933.93,
+        "comprimentoCom_m": 60776.61,
+        "lascasDescartadas": 17,
+        "comprimentoDescartado_m": 157.32,
+        "pctDoComprimentoDescartado": 0.26
+      },
+      "conectividade": {
+        "semComponentes": 25,
+        "semFracaoNoMaior_pct": 70.4,
+        "comComponentes": 19,
+        "comFracaoNoMaior_pct": 70.46,
+        "cruaComponentes": 27,
+        "cruaFracaoNoMaior_pct": 99.84
+      },
+      "quadras": {
+        "sem": 701,
+        "com": 702,
+        "atravessandoSem": 128,
+        "atravessandoCom": 0,
+        "recortadas": 128,
+        "pecas": 129,
+        "naoRecortaram": 0,
+        "areaRecortada_m2": 213818.28,
+        "deslocamentosContraDegenerescencia": 0
+      },
+      "foraDaDivisa": {
+        "sem": {
+          "vertices": 2600,
+          "acimaDaFolga": 2591,
+          "pior_m": 170.98
+        },
+        "com": {
+          "vertices": 74,
+          "acimaDaFolga": 0,
+          "pior_m": 0
+        }
+      },
+      "ms": {
+        "sem": 102.84,
+        "com": 126.57
+      },
+      "determinismo": true,
+      "loteamento": {
+        "sem": {
+          "quadrasPuladasPorAtravessar": 128,
+          "lotes": 876,
+          "areaVendavel_m2": 258824.3,
+          "areaVendavel_pctDaGleba": 18.26
+        },
+        "com": {
+          "quadrasPuladasPorAtravessar": 0,
+          "quadrasPuladasPeloEsqueleto": 96,
+          "quadrasComLote": 186,
+          "lotes": 1014,
+          "areaVendavel_m2": 298475.27,
+          "areaVendavel_pctDaGleba": 21.06
+        }
+      },
+      "julgamento": {
+        "sem": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 876,
+            "areaPrivativa_m2": 258824.3
+          },
+          "validator": {
+            "limpo": false,
+            "violacoes": 4,
+            "porTipo": {
+              "sobreposicao": 2,
+              "frente": 2
+            },
+            "exemplos": [
+              {
+                "tipo": "sobreposicao",
+                "loteId": "L224",
+                "detalhe": "sobrepõe L225 em 0.6 m²",
+                "valor": 0.5601304159918072
+              },
+              {
+                "tipo": "sobreposicao",
+                "loteId": "L368",
+                "detalhe": "sobrepõe L370 em 0.7 m²",
+                "valor": 0.6963544223399367
+              },
+              {
+                "tipo": "frente",
+                "loteId": "L622",
+                "detalhe": "nenhuma aresta encosta em via"
+              }
+            ]
+          }
+        },
+        "com": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 1014,
+            "areaPrivativa_m2": 298475.27
+          },
+          "validator": {
+            "limpo": false,
+            "violacoes": 4,
+            "porTipo": {
+              "sobreposicao": 2,
+              "frente": 2
+            },
+            "exemplos": [
+              {
+                "tipo": "sobreposicao",
+                "loteId": "L247",
+                "detalhe": "sobrepõe L248 em 0.6 m²",
+                "valor": 0.5601304159918072
+              },
+              {
+                "tipo": "sobreposicao",
+                "loteId": "L440",
+                "detalhe": "sobrepõe L442 em 0.7 m²",
+                "valor": 0.6963544223399367
+              },
+              {
+                "tipo": "frente",
+                "loteId": "L729",
+                "detalhe": "nenhuma aresta encosta em via"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

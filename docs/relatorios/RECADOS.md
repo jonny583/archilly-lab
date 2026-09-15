@@ -189,3 +189,22 @@ Próximo na fila: LAB-05 (reconectar a rede, recortar quadra que atravessa, desc
   quadras de geo-antonina atravessam a divisa e hoje ficam sem lote nenhum.
 === FIM ===
 ```
+
+---
+
+## 15/09/2026 · LAB-05 — recortar a quadra, descartar a lasca
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-05 ===
+Estado: concluído e mesclado. Esteira 64/64 (16 novos), testfit 14/14, tsc e lint limpos.
+Feito: NENHUMA quadra passa mais da divisa — 2 591 vértices além da folga de 5 cm em
+  geo-antonina (o pior a 170,98 m) viraram ZERO, nas cinco glebas. Lotes 876 → 1 014 e
+  181 → 214, COM AS VIOLAÇÕES INALTERADAS (4 e 0). Recortador de polígono reimplementado.
+  "Reconectar a rede" NÃO ERA DEFEITO: uma APP hídrica de 14,4 ha corta geo-antonina em
+  duas, e o menor vão está 200 de 201 pontos dentro dela — 70,4 % é a resposta certa.
+  E a régua do "atravessa" dava 100 % dentro p/ quadra 1,49 m fora: os 213 e 901 do LAB-04 eram 181 e 876 (D55 a D58).
+Achados para outros apps ou Central: —
+Depende do Jonny: Antonina é cortada em duas por um rio — pode haver travessia sobre a APP?
+Próximo na fila: LF-FINAL-2 (conferência e docs), condição cumprida.
+=== FIM ===
+```

@@ -20,15 +20,16 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 
 | documento | o que responde |
 |---|---|
-| [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — hoje, o LAB-05 |
-| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 54 decisões numeradas, com o que se perde em cada uma |
-| [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) | O que depende de uma pessoa. Quem escreve sou eu; quem risca é ele |
+| [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — hoje, o LF-FINAL-2 |
+| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 58 decisões numeradas, com o que se perde em cada uma |
+| [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) | O que depende de uma pessoa. Quem escreve sou eu; quem risca é ele. Hoje: **pode haver travessia sobre a APP de Antonina?** |
 | [`relatorios/RECADOS.md`](relatorios/RECADOS.md) | **Todos os recados para o chat**, em ordem, um por prompt |
 
 ## As medições — um relatório por prompt
 
 | documento | o que responde |
 |---|---|
+| [`relatorios/LAB-05.md`](relatorios/LAB-05.md) | **Recortar a quadra e descartar a lasca**: zero quadra além da divisa, 1 014 lotes, e a APP que separa a gleba em duas |
 | [`relatorios/LAB-04.md`](relatorios/LAB-04.md) | **O Symbios passa a fazer lote**: o esqueleto reto contra o oráculo, os 213 e os 901 lotes, e as quatro correções que o Validator cobrou |
 | [`relatorios/LF-FINAL.md`](relatorios/LF-FINAL.md) | **A conferência contra o Padrão da família**: o que faltava, a ressalva do núcleo, e por que a 1.2 não pôde ser usada |
 | [`relatorios/LAB-08.md`](relatorios/LAB-08.md) | **Os dois motores lado a lado**: a tabela, o veredito por motor, e por que os "22 % a menos de lotes" não são comparáveis |
@@ -69,7 +70,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 
 | onde | o que tem |
 |---|---|
-| [`../external-engines/symbios/`](../external-engines/symbios/) | `upstream/` intocado, a ponte Rust → WASM, o adaptador do LAB-01 e o recorte do LAB-02 |
+| [`../external-engines/symbios/`](../external-engines/symbios/) | `upstream/` intocado, a ponte Rust → WASM, o adaptador do LAB-01, o recorte do LAB-02 e o **recortador de polígono** do LAB-05 (D57) |
 | [`../external-engines/testfit/`](../external-engines/testfit/) | O adaptador do LAB-07 — ida, volta, aparo, esteira. Sem `upstream/`: o motor é da família (D16) |
 | [`../external-engines/esteira/`](../external-engines/esteira/) | **A esteira cruzada**: põe qualquer motor no contrato v1 e o julga com a régua do Generate (D31). Desde o LAB-04, também o **esqueleto reto** que faz a quadra virar lote (D50) |
 | [`../outputs/`](../outputs/) | Saídas literais das execuções do LAB-01 |

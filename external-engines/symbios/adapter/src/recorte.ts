@@ -55,8 +55,9 @@
  * Validator mede. Fica medido e declarado; o recorte de quadra é proposta para
  * o chat, não decisão minha.
  */
-import type { Poligono, Ponto, Quadra, Resultado, Terreno, Via } from "./contrato.ts";
-import { areaPoligono, comprimento, dentroDoPoligono } from "./geo.ts";
+import type { Anel, Poligono, Ponto, Quadra, Resultado, Terreno, Via } from "./contrato.ts";
+import { areaComSinal, areaPoligono, comprimento, dentroDoPoligono, perimetro } from "./geo.ts";
+import { recortarPoligono } from "./poligono.ts";
 
 /** A folga de divisa do contrato de motor: 5 cm. */
 const FOLGA_M = 0.05;
@@ -122,6 +123,53 @@ export interface ResultadoRecorte {
   /** Comprimento dos trechos com menos de 5 m — as lascas do corte. */
   comprimentoEmLascas_m: number;
   lascas: number;
+
+  // ── o que o LAB-05 acrescentou, tudo desligado por padrão ───────────────
+  /** Lascas de corte descartadas pela régua da D48. 0 quando desligado. */
+  lascasDescartadas: number;
+  /** Comprimento dessas lascas, em metros. */
+  comprimentoDescartadoEmLascas_m: number;
+  /** Quadras que atravessavam e foram recortadas. 0 quando desligado. */
+  quadrasRecortadas: number;
+  /** Peças que o recorte das quadras produziu — pode passar de uma por quadra. */
+  pecasDeQuadra: number;
+  /** Quadras que atravessavam e o recorte NÃO conseguiu recortar (perda declarada). */
+  quadrasQueNaoRecortaram: number;
+  /** Área de quadra recuperada pelo recorte, em m² — o que antes se perdia. */
+  areaDeQuadraRecortada_m2: number;
+  /** Quantos deslocamentos contra degenerescência o recorte precisou, somados. */
+  deslocamentosNoRecorteDeQuadra: number;
+}
+
+/**
+ * O que o LAB-05 acrescentou ao recorte — **tudo desligado por padrão.**
+ *
+ * O CLAUDE.md §4 é explícito: *conserto do Lab é declarado, vem desligado por
+ * padrão, e a medição sai nas duas passagens — com e sem*. As duas coisas aqui
+ * mudam geometria, então elas se pedem, e o relatório publica os dois números.
+ */
+export interface OpcoesDeRecorte {
+  /**
+   * O lado do lote mínimo da gleba, em metros — a régua da **D48**.
+   *
+   * Um trecho **criado pelo corte** mais curto que isto é descartado: se ele é
+   * mais curto que o lado do menor lote admissível, não serve a lote nenhum e
+   * não é rua, é resto de corte. O número sai de
+   * `parametros.areaMinLote_m2` da gleba, pela raiz quadrada — **regra do dado,
+   * não inventada aqui**.
+   *
+   * Ausente ou 0: nenhuma lasca é descartada, que é o comportamento do LAB-02.
+   */
+  ladoDoLoteMinimo_m?: number;
+  /**
+   * Recortar a quadra que atravessa a divisa, em vez de deixá-la inteira.
+   *
+   * Desligado, a quadra que atravessa sai como o motor a desenhou — e quem for
+   * lotear tem de pulá-la, porque lote dela cai fora da gleba (o LAB-04 mediu:
+   * 97 peças fora em `geo-antonina`, a pior a 32,06 m, e o esquema recusa o
+   * arquivo inteiro).
+   */
+  recortarQuadraQueAtravessa?: boolean;
 }
 
 /** Interpola um ponto e a cota dele ao longo de um segmento. */
@@ -203,7 +251,7 @@ function refazerMedidas(pontos: Ponto[], cotas: number[]): Pick<
  * Cada trecho sai com os vértices originais que sobreviveram, mais os pontos de
  * corte nas pontas, recuados de `FOLGA_M` para dentro.
  */
-function recortarVia(via: Via, livre: (p: Ponto) => boolean): Via[] {
+function recortarVia(via: Via, livre: (p: Ponto) => boolean): { vias: Via[]; doCorte: boolean } {
   const { pontos, cotas_m } = via;
   const trechos: { pontos: Ponto[]; cotas: number[] }[] = [];
   let atual: { pontos: Ponto[]; cotas: number[] } | null = null;
@@ -261,7 +309,7 @@ function recortarVia(via: Via, livre: (p: Ponto) => boolean): Via[] {
   }
   fechar();
 
-  return trechos
+  const vias = trechos
     .map((t, k) => ({
       ...via,
       id: trechos.length > 1 ? `${via.id}-${k + 1}` : via.id,
@@ -272,6 +320,13 @@ function recortarVia(via: Via, livre: (p: Ponto) => boolean): Via[] {
       comprimentoForaDaGleba_m: 0,
     }))
     .filter((v) => v.comprimento_m > 1e-6);
+
+  // A via nasceu do corte quando o corte a partiu ou a encurtou. A D48 só vale
+  // para essas: trecho curto que o motor desenhou inteiro NÃO é lasca, e
+  // descartá-lo seria apagar traçado do motor a pretexto de limpeza.
+  const somado = vias.reduce((x, v) => x + v.comprimento_m, 0);
+  const doCorte = vias.length !== 1 || somado < via.comprimento_m - 1e-6;
+  return { vias, doCorte };
 }
 
 /**
@@ -362,7 +417,12 @@ const LASCA_M = 5;
  * Nada é inventado: só se tira. Quem escolhe o que bloqueia é o `desconta` do
  * Geo, não o Lab.
  */
-export function recortarPelaGleba(r: Resultado, terreno: Terreno): ResultadoRecorte {
+export function recortarPelaGleba(
+  r: Resultado,
+  terreno: Terreno,
+  opcoes: OpcoesDeRecorte = {},
+): ResultadoRecorte {
+  const ladoMinimo = opcoes.ladoDoLoteMinimo_m ?? 0;
   const bloqueadas: Poligono[] = terreno.restricoes.filter((x) => x.desconta).map((x) => x.area);
   const bloqueios: AreaBloqueada[] = terreno.restricoes
     .filter((x) => x.desconta)
@@ -384,19 +444,83 @@ export function recortarPelaGleba(r: Resultado, terreno: Terreno): ResultadoReco
   const vias: Via[] = [];
   let fragmentadas = 0;
   let descartadas = 0;
+  let lascasDescartadas = 0;
+  let comprimentoDescartadoEmLascas = 0;
   for (const v of r.vias) {
-    const pedacos = recortarVia(v, livre);
+    const { vias: pedacos, doCorte } = recortarVia(v, livre);
     if (pedacos.length > 1) fragmentadas++;
     if (pedacos.length === 0) descartadas++;
-    vias.push(...pedacos);
+    for (const pedaco of pedacos) {
+      // D48 · a lasca do corte, abaixo do lado do lote mínimo, não é rua.
+      if (ladoMinimo > 0 && doCorte && pedaco.comprimento_m < ladoMinimo) {
+        lascasDescartadas++;
+        comprimentoDescartadoEmLascas += pedaco.comprimento_m;
+        continue;
+      }
+      vias.push(pedaco);
+    }
   }
 
   const foraDepois = vias.reduce((s, v) => s + comprimentoOnde(v.pontos, (p) => !naGleba(p)), 0);
   const emRestricaoDepois = vias.reduce((s, v) => s + comprimentoOnde(v.pontos, bloqueado), 0);
 
   // Quadras: descarta as que estão inteiramente fora; mede as que atravessam.
-  const quadras = r.quadras.filter((q) => q.fracaoDentroDaGleba > 0);
-  const atravessando = quadras.filter((q) => q.fracaoDentroDaGleba < 1).length;
+  const quadrasDentro = r.quadras.filter((q) => q.fracaoDentroDaGleba > 0);
+  const atravessando = quadrasDentro.filter((q) => q.fracaoDentroDaGleba < 1).length;
+
+  // O recorte da quadra que atravessa — a segunda coisa do LAB-05, desligada
+  // por padrão. A quadra vira uma ou mais peças inteiramente dentro da gleba;
+  // a que não recortar é perda DECLARADA, nunca peça torta (ver `poligono.ts`).
+  let quadras = quadrasDentro;
+  let quadrasRecortadas = 0;
+  let pecasDeQuadra = 0;
+  let quadrasQueNaoRecortaram = 0;
+  let areaDeQuadraRecortada = 0;
+  let deslocamentos = 0;
+  if (opcoes.recortarQuadraQueAtravessa) {
+    const saida: Quadra[] = [];
+    for (const q of quadrasDentro) {
+      // Nota: **não** se pergunta a `fracaoDentroDaGleba` quem atravessa.
+      //
+      // Ela é amostragem, e amostragem tem ponto cego: medido no LAB-05, 8
+      // quadras das duas glebas-padrão declaravam 1,0000 estando até **1,49 m**
+      // fora da divisa. O ponto cego foi corrigido (ver `fracaoDentro`), mas a
+      // correção não muda a natureza da coisa: uma quadra pode ter todo vértice
+      // dentro e ainda inchar para fora numa reentrância.
+      //
+      // Então recorta-se **tudo**, e a interseção responde sozinha: quadra que
+      // já estava inteira dentro volta idêntica, sem travessia nenhuma.
+      const corte = recortarPoligono(q.pontos, terreno.gleba.externo);
+      if (!corte) {
+        quadrasQueNaoRecortaram++;
+        continue;
+      }
+      deslocamentos += corte.deslocamentos;
+      if (corte.pecas.length === 0) continue;
+      const mudou =
+        corte.pecas.length !== 1 ||
+        Math.abs(Math.abs(areaComSinal(corte.pecas[0]! as Anel)) - q.area_m2) > 1e-6;
+      if (!mudou) {
+        saida.push(q);
+        continue;
+      }
+      quadrasRecortadas++;
+      corte.pecas.forEach((pontos, k) => {
+        const area = Math.abs(areaComSinal(pontos as Anel));
+        areaDeQuadraRecortada += area;
+        pecasDeQuadra++;
+        saida.push({
+          id: corte.pecas.length > 1 ? `${q.id}-${k + 1}` : q.id,
+          pontos,
+          area_m2: area,
+          perimetro_m: perimetro(pontos as Anel),
+          // Ela agora está inteira dentro: é o que o recorte acabou de fazer.
+          fracaoDentroDaGleba: 1,
+        });
+      });
+    }
+    quadras = saida;
+  }
 
   const lascas = vias.filter((v) => v.comprimento_m < LASCA_M);
 
@@ -416,11 +540,18 @@ export function recortarPelaGleba(r: Resultado, terreno: Terreno): ResultadoReco
     comprimentoEmRestricaoDepois_m: emRestricaoDepois,
     quadrasAntes: r.quadras.length,
     quadrasDepois: quadras.length,
-    quadrasDescartadas: r.quadras.length - quadras.length,
-    quadrasAtravessando: atravessando,
+    quadrasDescartadas: r.quadras.length - quadrasDentro.length,
+    quadrasAtravessando: quadras.filter((q) => q.fracaoDentroDaGleba < 1 - 1e-6).length,
     conectividade: medirConectividade(vias),
     conectividadeAntes: medirConectividade(r.vias),
     comprimentoEmLascas_m: lascas.reduce((s, v) => s + v.comprimento_m, 0),
     lascas: lascas.length,
+    lascasDescartadas,
+    comprimentoDescartadoEmLascas_m: comprimentoDescartadoEmLascas,
+    quadrasRecortadas,
+    pecasDeQuadra,
+    quadrasQueNaoRecortaram,
+    areaDeQuadraRecortada_m2: areaDeQuadraRecortada,
+    deslocamentosNoRecorteDeQuadra: deslocamentos,
   };
 }

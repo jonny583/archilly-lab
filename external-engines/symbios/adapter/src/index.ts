@@ -442,9 +442,28 @@ function comprimentoFora(pontos: Ponto[], terreno: Terreno): number {
  * Quanto de um polígono cai dentro da gleba, por amostragem.
  *
  * Amostragem, e não interseção geométrica, porque o número aqui é **estatística
- * para o relatório**: "quanto vai ser recortado no LAB-02". A interseção de
- * verdade é o trabalho do LAB-02, e fazer meia-interseção agora só criaria duas
+ * para o relatório**: "quanto vai ser recortado". A interseção de verdade é o
+ * `recortarPoligono` do LAB-05, e fazer meia-interseção aqui só criaria duas
  * respostas para a mesma pergunta.
+ *
+ * # O ponto cego que o LAB-05 achou, e a correção
+ *
+ * A primeira versão amostrava em `t = (k + 0,5) / 8`, que vai de 0,0625 a
+ * **0,9375**: o raio do centróide ao vértice era percorrido até quase o fim, e
+ * **o vértice nunca era amostrado**. Uma quadra com a ponta de fora dava
+ * `fracaoDentroDaGleba` = 1,0000 — medido, 8 quadras nas duas glebas-padrão, a
+ * pior **1,49 m** fora da divisa, com o número dizendo que estava inteira
+ * dentro.
+ *
+ * Não é erro de arredondamento: é o extremo da amostra caindo antes do extremo
+ * da coisa medida. Com `t = (k + 1) / 8` a amostra vai de 0,125 a **1,0** e o
+ * vértice entra. Mesma quantidade de amostras, mesmo método, mesmo custo.
+ *
+ * O que continua verdadeiro: esta é uma **estimativa**. Uma quadra pode ter
+ * todos os vértices dentro e ainda assim inchar para fora numa reentrância da
+ * gleba, e amostra nenhuma pega isso. É por isso que o recorte do LAB-05 **não
+ * pergunta a ela** quem atravessa: ele recorta pela geometria e deixa que a
+ * própria interseção responda.
  */
 function fracaoDentro(pontos: Ponto[], terreno: Terreno): number {
   const AMOSTRAS = 8;
@@ -456,7 +475,7 @@ function fracaoDentro(pontos: Ponto[], terreno: Terreno): number {
   });
   for (const p of pontos) {
     for (let k = 0; k < AMOSTRAS; k++) {
-      const t = (k + 0.5) / AMOSTRAS;
+      const t = (k + 1) / AMOSTRAS;
       const q = { x: c.x + (p.x - c.x) * t, y: c.y + (p.y - c.y) * t };
       total++;
       if (dentroDoPoligono(q, terreno.gleba)) dentro++;

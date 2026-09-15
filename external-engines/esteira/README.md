@@ -4,9 +4,9 @@
 o **Validator e o Judge do Generate**.
 
 ```text
-Archilly revision: LAB-04
+Archilly revision: LAB-05
 Runtime:           Bun 1.3+
-Status:            em uso — LAB-02, LAB-03, LAB-08 e LAB-04 moram aqui
+Status:            em uso — LAB-02, LAB-03, LAB-08, LAB-04 e LAB-05 moram aqui
 ```
 
 ## Por que esta pasta existe
@@ -33,11 +33,12 @@ Então o que é de ninguém mora aqui. Ver `docs/DECISOES.md`, D31.
 | `ferramentas/lab02.ts` | a medição do LAB-02: antes e depois do recorte, nas três glebas |
 | `ferramentas/lab03.ts` | a medição do LAB-03: a interpolação medida no traçado, e as fixtures |
 | `ferramentas/lab04.ts` | a medição do LAB-04: lotes, área vendável e violações contra os outros dois motores |
-| `tests/` | 48 testes |
+| `ferramentas/lab05.ts` | a medição do LAB-05: antes e depois do recorte de quadra e do descarte de lasca, nas cinco glebas |
+| `tests/` | 64 testes |
 
 O recorte em si **não** mora aqui: ele é geometria pura e vive no adaptador do
-Symbios, em `../symbios/adapter/src/recorte.ts`, onde não precisa de Bun nem de
-dependência nenhuma.
+Symbios, em `../symbios/adapter/src/recorte.ts` e `../symbios/adapter/src/poligono.ts`,
+onde não precisa de Bun nem de dependência nenhuma.
 
 ## A porta única
 
@@ -59,6 +60,7 @@ bun install
 bun run lab02       # docs/provas/LAB-02/
 bun run lab03       # docs/provas/LAB-03/ e docs/fixtures/glebas-padrao-com-relevo/
 bun run lab04       # docs/provas/LAB-04/ e docs/contratos/saidas/
+bun run lab05       # docs/provas/LAB-05/ e docs/contratos/saidas/
 bun test
 bun run typecheck && bun run lint
 ```
