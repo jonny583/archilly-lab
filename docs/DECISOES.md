@@ -960,3 +960,152 @@ sem depender de outro repositório estar clonado ao lado. É cópia declarada, c
 versão e data no cabeçalho — e é o mesmo que o repositório irmão fez.
 
 Os cinco links que apontavam para o caminho antigo foram corrigidos.
+
+---
+
+# Decisões do chat — 15/09/2026
+
+---
+
+## D47 · Prosa para pessoa é borda: os 17 `toFixed` do núcleo ficam · 15/09/2026
+
+**A decisão (do chat):** a regra §9.3 do Padrão — *"núcleo em metros, formatação
+só na borda"* — **não alcança texto escrito para pessoa ler**. Mensagem de
+aviso, mensagem de erro e o campo `oQueHavia` das perdas **são borda**. As 17
+ocorrências que o LF-FINAL levantou ficam como estão.
+
+**O que isso fecha.** O LF-FINAL deixou a pergunta aberta de propósito (D44),
+porque interpretar o Padrão é do chat. A resposta veio, e ela confirma a leitura
+que o relatório já defendia: o risco que a regra existe para evitar — um número
+perder precisão no caminho e a tela herdar o arredondamento — **não corria
+aqui**, porque o dado e a prosa são campos diferentes e o dado está cru.
+
+**O que continua proibido:** formatar o que **viaja**. Todo campo do contrato,
+toda medição em JSON e toda coordenada seguem saindo como número em metro. A
+fronteira agora é nítida: `Number(x.toFixed(n))` num campo de dado é
+arredondamento e precisa de justificativa; `${x.toFixed(1)} %` dentro de uma
+frase é borda e não precisa.
+
+---
+
+## D48 · Lasca de corte se descarta abaixo do lote mínimo da gleba · 15/09/2026
+
+**A decisão (do chat):** um trecho criado pelo recorte é descartado quando for
+**menor que o lote mínimo declarado nos parâmetros da gleba**
+(`parametros.areaMinLote_m2`, pela raiz quadrada — o lado do lote mínimo
+quadrado). Regra já existente, vinda do dado, não inventada.
+
+**Por quê ela resolve o impasse.** O LAB-02 deixou as lascas todas no lugar
+(D35) porque descartar exigia um limiar, e limiar é regra urbanística — minha de
+inventar, não. O chat resolveu apontando para um número **que a própria gleba já
+declara**: se um pedaço de rua é mais curto que o lado do menor lote admissível,
+ele não serve a lote nenhum e não é rua, é resto de corte.
+
+**O que muda, medido no LAB-02:** com `areaMinLote_m2 = 200`, o lado dá 14,14 m.
+Os 3 trechos abaixo de 5 m de `completo` (4,87 m no total) passam a ser
+descartados, e mais o que estiver entre 5 e 14,14 m. O LAB-05 mede o efeito nas
+três glebas e publica o antes e o depois.
+
+**O que a regra NÃO faz:** não descarta trecho curto que o motor desenhou
+inteiro. Só lasca **criada pelo corte** — trecho que nasceu de um recorte, não
+do traçado.
+
+---
+
+## D49 · A calçada dentro da caixa da via segue valendo · 15/09/2026
+
+**A decisão (do chat):** confirmada a D26. A calçada fica **dentro da caixa da
+rua**, nunca descontada do lote. Nada muda em medição nenhuma — é a leitura que
+o LAB-07 já usava (`largura_m = caixa_m`).
+
+Fica registrado porque o item estava aberto em `PENDENCIAS_JONNY.md` como
+"confirmar", e agora está fechado. **Ele sai da lista do Jonny.**
+
+---
+
+## D50 · O esqueleto reto é reimplementado, e é ele que faz o lote · 15/09/2026
+
+**A decisão:** a subdivisão de quadra em lotes é feita por **esqueleto reto**
+(*straight skeleton*), reimplementado em TypeScript a partir da literatura
+(Felkel & Obdržálek 1998; Aichholzer, Aurenhammer, Alberts & Gärtner 1995;
+Aichholzer & Aurenhammer 1996), em
+`external-engines/esteira/src/esqueleto/esqueleto.ts`.
+
+**Por que reimplementar, e não usar pronto.** As duas implementações prontas para
+navegador são **copyleft** — GPL-2.0-or-later e equivalente, sem exceção de
+vinculação (`STRAIGHT_SKELETON_ANALYSIS.md`, §3 e §4.1). Compiladas e
+distribuídas com o Generate, contaminam o produto. Não entram.
+
+**Por que esqueleto reto, e não faixa por recuo.** Uma quadra faz frente para
+mais de uma rua. Faixas independentes se atravessam no miolo, e sobreposição é a
+violação mais grave que existe num parcelamento. O esqueleto parte a quadra em
+**uma face por aresta**, e a face de uma aresta é a parte da quadra mais perto
+dela do que de qualquer outra: lote plantado dentro da própria face **não pode**
+invadir a vizinha. Em canto reflexo — onde recuo ingênuo se auto-intersecta — ele
+reparte certo, e isso está provado contra o oráculo.
+
+**Custo aceito:** o esqueleto reto é sensível a degenerescência. Por isso ele tem
+orçamento de tempo duro (250 ms) e um campo `confiavel`, e quadra que não fecha é
+**pulada e contada** — 86 das 579 loteáveis de `geo-antonina` (LAB-04, §5).
+
+## D51 · Face aberta não vira lote: o esqueleto se declara não confiável · 15/09/2026
+
+**A decisão:** `esqueletoReto` devolve `confiavel: false` e um `fechamento`
+(a razão entre a soma das faces e a área do anel) quando a frente de onda para
+antes de fechar — por orçamento de tempo, por limite de passos ou por empacar. O
+`lotear.ts` **pula a quadra inteira** nesse caso, e o número de quadras puladas
+sai no relatório.
+
+**Por quê.** Uma face aberta não é uma face ruim: é um polígono absurdo. Medido
+numa quadra real de `ensaio-47ha`, o erro de área de uma face aberta deu
+**5×10¹⁰ %**. Lote plantado ali seria mentira medida, e o CLAUDE.md §4 proíbe
+inventar dado. **Uma quadra a menos é perda declarada; um lote impossível é
+medição falsa.** Vale a mesma regra do `null` (D23): o que não se sabe medir não
+sai como número.
+
+## D52 · A quadra do Symbios é delimitada pelo EIXO da via, e o lote começa no meio-fio · 15/09/2026
+
+**A decisão:** ao lotear uma quadra do Symbios, o lote nasce a
+`largura_m / 2 + 0,25 m` da borda da quadra — a meia caixa da via, mais a
+tolerância de simplificação —, nunca encostado na borda.
+
+**Como se descobriu.** Não por leitura de código: **pelo Validator do Generate.**
+A primeira versão plantou o lote na borda e recebeu de volta
+`via-sobre-lote em 369 de 369 lotes` e `frente` em 310. As quadras do Symbios são
+**faces do grafo viário**: o que as delimita é a linha de centro da rua, e o leito
+da rua cobre metade de cada lote plantado ali.
+
+**É o mesmo erro do LAB-07 com a calçada (D18), e a mesma lição:** o adaptador
+declara a geometria que existe, não a que parece. Um motor que entrega "quadra"
+não entrega necessariamente a mesma coisa que o Generate chama de quadra, e a
+única forma de saber é medir com a régua dele.
+
+## D53 · O número de fatias de uma aresta é preso pelos parâmetros da gleba · 15/09/2026
+
+**A decisão:** uma aresta de quadra é fatiada em `floor(comprimento / testadaAlvo)`
+lotes, **preso entre dois limites que saem dos próprios parâmetros**: ao menos
+`comprimento · profundidade / areaMaxLote_m2` fatias, e no máximo
+`comprimento / testadaMinLote_m`.
+
+**Por quê.** Só o `floor` produzia lote acima da área máxima: uma aresta de 26 m
+com testada alvo de 13,4 m dá **uma** fatia de 26 m de testada — 700 m², contra o
+máximo de 600 da gleba. O Validator devolveu isso como **8 violações
+`faixa-legal`** em `geo-antonina`; com os dois limites, **zero**.
+
+**O que isto não é:** regra urbanística inventada. `areaMaxLote_m2` e
+`testadaMinLote_m` já vêm declarados nos parâmetros da gleba — o que faltava era
+**usá-los**. Quando os dois limites se cruzam, não há número de fatias que sirva,
+e a peça é descartada pelo máximo, contada.
+
+## D54 · A pergunta "esta aresta tem rua?" é refeita em cada fatia · 15/09/2026
+
+**A decisão:** além de perguntar se a **aresta** tem rua (no meio dela), pergunta-se
+de novo, com a mesma régua, no meio de **cada fatia** — e a fatia sem rua na
+frente dela não vira lote.
+
+**Por quê.** A rua pode cobrir só um pedaço de uma aresta longa. O lote da ponta
+saía sem frente, e o Validator do Generate o reprovava: **8 `frente`** em
+`geo-antonina`, que caíram para 2 com a régua por fatia (16 fatias descartadas).
+
+**Nenhum número novo entrou:** é a mesma régua do passo 1, aplicada onde o lote
+de fato nasce. O defeito era da pergunta ter sido feita no lugar errado.

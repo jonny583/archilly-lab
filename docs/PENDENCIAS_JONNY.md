@@ -6,8 +6,8 @@ você, está aqui. Dívida técnica **do código** é minha e não entra nesta l
 Quem escreve: o Claude, a cada rodada. **Quem risca: você.** Item resolvido é
 marcado, nunca apagado — para a decisão não se perder.
 
-Refeito do zero em **14/09/2026**, no fim do LF-FINAL, quando a fila do
-laboratório acabou.
+Refeito do zero em **14/09/2026**, no fim do LF-FINAL. Atualizado em
+**15/09/2026**, no fim do LAB-04.
 
 **Os endereços, prontos para clicar:**
 
@@ -20,22 +20,20 @@ laboratório acabou.
 
 ## Em cinco minutos
 
-**A fila do laboratório acabou.** Cinco prompts foram executados hoje e todos
-estão mesclados. O laboratório parou sozinho e desligou o próprio despertador,
-como estava combinado.
+**Nada depende de você agora.** A lista está vazia.
 
-Sobrou **uma coisa** para você, e ela não trava nada:
+O único item que restava — confirmar que a calçada é da rua — **o chat confirmou
+em 15/09**. Ele continua escrito abaixo, riscado, para a decisão não se perder.
 
-| # | o que | quanto custa | o que muda se você mudar |
-|---|---|---|---|
-| **1** | **Confirmar que a calçada é da rua**, e não do lote | 2 min | o tamanho do lote e quantos cabem no terreno |
-
-Só isso. As outras decisões que estavam nesta lista já foram tomadas pelo chat e
-estão valendo.
+O laboratório está rodando sozinho a fila que o chat escreveu: o **LAB-04**
+terminou em 15/09 (o motor de traçado passou a desenhar lotes, e pela primeira
+vez disputou a nota do Generate de igual para igual), e o **LAB-05** é o
+próximo. Se algum deles esbarrar numa regra de urbanismo, ela aparece aqui —
+regra de urbanismo é sua, nunca minha.
 
 ---
 
-## 1 · A calçada é da rua — confirme ou mude
+## 1 · ~~A calçada é da rua~~ — **confirmado pelo chat em 15/09/2026**
 
 **O que está valendo:** a calçada fica **dentro da caixa da rua** (a faixa de
 domínio), **nunca descontada do lote**. Decisão do chat, de 14/09.
@@ -53,8 +51,9 @@ Havia dois caminhos, e os dois mudam quantos lotes cabem no terreno:
   garantido.
 - **(b) a caixa já inclui a calçada** — o passeio sai da rua. Lote como está.
 
-**O chat escolheu (b), e é o que já está em todas as medições.** Se para você o
-certo é (a), me diga: eu refaço a conta, e o número de lotes muda.
+**O chat escolheu (b), e em 15/09 confirmou.** É o que está em todas as
+medições, inclusive nas do LAB-04. Se um dia o certo para você for (a), me diga:
+eu refaço a conta, e o número de lotes muda.
 
 Onde está o número: [`LAB-07.md`, §4](https://github.com/jonny583/archilly-lab/blob/main/docs/relatorios/LAB-07.md).
 
@@ -71,7 +70,8 @@ Isto está aqui para você não ficar procurando.
 - **A superquadra que nasce vazia** — decidido: é defeito de pontuação do motor,
   já mandado como conserto. Nada para você.
 - **Levar os achados aos outros aplicativos** — é do chat, não seu e não meu.
-- **A fila do laboratório** — acabou. O que vier agora vem do chat.
+- **A fila do laboratório** — o chat escreveu uma nova em 15/09 (LAB-04, LAB-05
+  e uma conferência final). O laboratório a executa sozinho.
 
 ---
 
@@ -101,5 +101,5 @@ existe, em uma linha cada:
   defeito de pontuação, mandado como conserto.
 - ~~**Colar dois recados nos repositórios vizinhos**~~ — **passou para o chat em
   14/09.**
-- ~~**A calçada: sai do lote ou da rua?**~~ — **decidido em 14/09**: é da rua.
-  Sobrou só a confirmação, que é o item 1 acima.
+- ~~**A calçada: sai do lote ou da rua?**~~ — **decidido em 14/09** e
+  **confirmado em 15/09**: é da rua. Era o item 1, e está fechado.

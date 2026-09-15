@@ -1,0 +1,1314 @@
+{
+  "prompt": "LAB-04",
+  "geradoEm": "2026-09-15T00:00:00.000Z",
+  "semente": 20260913,
+  "glebas": [
+    {
+      "prompt": "LAB-04",
+      "gleba": "ensaio-47ha",
+      "motor": "symbios-tensor 0.4.1 + subdivisão do Lab",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 470000,
+      "parametros": {
+        "areaMinLote_m2": 200,
+        "areaAlvoLote_m2": 360,
+        "areaMaxLote_m2": 600,
+        "testadaMinLote_m": 10
+      },
+      "quadras": {
+        "total": 94,
+        "atravessandoADivisa": 3,
+        "loteaveis": 91,
+        "comLote": 27,
+        "puladasPeloEsqueleto": 13,
+        "semLote": 64,
+        "areaLoteavel_m2": 270746.61
+      },
+      "subdivisao": {
+        "lotes": 213,
+        "areaVendavel_m2": 65936.36,
+        "areaVendavel_pctDaGleba": 14.03,
+        "aproveitamentoDasQuadras_pct": 24.35,
+        "loteMedio_m2": 309.56,
+        "testadaMediana_m": 15.39,
+        "arestasDeFrente": 535,
+        "arestasSemRua": 1,
+        "descartadosPorArea": 639,
+        "descartadosPorAreaMaxima": 0,
+        "descartadosPorFaltaDeRua": 0,
+        "descartadosPorTestada": 1,
+        "descartadosPorVia": 47,
+        "avisosDoEsqueleto": [
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 41.598 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 13396.7 m² contra 13768.5 m² do anel (fechamento 0.973) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.492 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 522.2 m² contra 615.1 m² do anel (fechamento 0.849) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.932 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 381.7 m² contra 438.6 m² do anel (fechamento 0.870) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 18.163 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.699 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.830 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 941.2 m² contra 1054.0 m² do anel (fechamento 0.893) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 29.074 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 8 vértices vivos e nenhum evento em vista, no offset 6.514 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 926.7 m² contra 1026.7 m² do anel (fechamento 0.903) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 7.646 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 10.015 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1397.0 m² contra 1457.9 m² do anel (fechamento 0.958) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 7.147 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 814.5 m² contra 903.9 m² do anel (fechamento 0.901) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 11.204 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 15.271 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1403.7 m² contra 1475.6 m² do anel (fechamento 0.951) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.551 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.230 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 786.2 m² contra 892.2 m² do anel (fechamento 0.881) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 17 vértices vivos e nenhum evento em vista, no offset 73.886 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 253450.1 m² contra 31902.5 m² do anel (fechamento 7.945) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 4.861 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 361.5 m² contra 438.4 m² do anel (fechamento 0.825) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 40.051 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 13.668 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 23.128 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 56.534 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 7.633 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 843.2 m² contra 945.8 m² do anel (fechamento 0.892) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 13.828 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.906 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 824.2 m² contra 811.9 m² do anel (fechamento 1.015) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.331 m",
+            "quadras": 1
+          }
+        ],
+        "ms": 253.05,
+        "determinismo": true
+      },
+      "julgamento": {
+        "comLotes": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 213,
+            "areaPrivativa_m2": 65936.36
+          },
+          "validator": {
+            "limpo": true,
+            "violacoes": 0,
+            "porTipo": {},
+            "exemplos": []
+          }
+        },
+        "semLotes": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 0,
+            "areaPrivativa_m2": 0
+          },
+          "validator": {
+            "limpo": true,
+            "violacoes": 0,
+            "porTipo": {},
+            "exemplos": []
+          }
+        }
+      },
+      "msMotor": 672,
+      "referencias": {
+        "testfitT02": {
+          "formato": "espinha",
+          "lotes": 599,
+          "areaPrivativa_m2": 238189.76,
+          "violacoes": 16
+        },
+        "motorInternoDoGenerate": [
+          {
+            "motor": "ortogonal",
+            "lotes": 974,
+            "areaPrivativa_m2": 353306.7,
+            "violacoes": 0
+          },
+          {
+            "motor": "espinha",
+            "lotes": 776,
+            "areaPrivativa_m2": 302653.9,
+            "violacoes": 0
+          }
+        ]
+      }
+    },
+    {
+      "prompt": "LAB-04",
+      "gleba": "geo-antonina",
+      "motor": "symbios-tensor 0.4.1 + subdivisão do Lab",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 1417565.19,
+      "parametros": {
+        "areaMinLote_m2": 200,
+        "areaAlvoLote_m2": 360,
+        "areaMaxLote_m2": 600,
+        "testadaMinLote_m": 10
+      },
+      "quadras": {
+        "total": 698,
+        "atravessandoADivisa": 119,
+        "loteaveis": 579,
+        "comLote": 159,
+        "puladasPeloEsqueleto": 86,
+        "semLote": 420,
+        "areaLoteavel_m2": 1211034.67
+      },
+      "subdivisao": {
+        "lotes": 901,
+        "areaVendavel_m2": 266659.85,
+        "areaVendavel_pctDaGleba": 18.81,
+        "aproveitamentoDasQuadras_pct": 22.02,
+        "loteMedio_m2": 295.96,
+        "testadaMediana_m": 15.44,
+        "arestasDeFrente": 3104,
+        "arestasSemRua": 158,
+        "descartadosPorArea": 3726,
+        "descartadosPorAreaMaxima": 0,
+        "descartadosPorFaltaDeRua": 16,
+        "descartadosPorTestada": 0,
+        "descartadosPorVia": 65,
+        "avisosDoEsqueleto": [
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.341 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 394.7 m² contra 437.7 m² do anel (fechamento 0.902) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 10.640 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.708 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 684.5 m² contra 804.7 m² do anel (fechamento 0.851) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 14.722 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1827.6 m² contra 1947.6 m² do anel (fechamento 0.938) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 3.841 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 317.4 m² contra 314.0 m² do anel (fechamento 1.011) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 3.825 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 224.6 m² contra 254.8 m² do anel (fechamento 0.881) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 3.320 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 227.4 m² contra 264.2 m² do anel (fechamento 0.861) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.482 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.065 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 18.861 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.681 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 629.1 m² contra 721.6 m² do anel (fechamento 0.872) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 18.994 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.295 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 16.228 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1851.5 m² contra 2043.6 m² do anel (fechamento 0.906) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.809 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 735.1 m² contra 861.5 m² do anel (fechamento 0.853) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 17.599 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 19.505 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2954.9 m² contra 3325.1 m² do anel (fechamento 0.889) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.247 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 16.718 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1504.2 m² contra 1686.2 m² do anel (fechamento 0.892) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 10.834 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1509.1 m² contra 1555.6 m² do anel (fechamento 0.970) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 5.814 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 625.9 m² contra 619.1 m² do anel (fechamento 1.011) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 10.853 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 12.674 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 13.328 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1340.3 m² contra 1396.5 m² do anel (fechamento 0.960) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 12.946 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 22.149 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2241.0 m² contra 2267.3 m² do anel (fechamento 0.988) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.214 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1509.1 m² contra 1657.8 m² do anel (fechamento 0.910) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.015 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1079.1 m² contra 1359.8 m² do anel (fechamento 0.794) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.640 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.209 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.347 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 480.8 m² contra 587.4 m² do anel (fechamento 0.818) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 6.335 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 8.361 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1079.6 m² contra 1067.0 m² do anel (fechamento 1.012) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.112 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.674 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 940.1 m² contra 928.0 m² do anel (fechamento 1.013) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 10.040 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1103.6 m² contra 1230.6 m² do anel (fechamento 0.897) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.701 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 459.5 m² contra 467.9 m² do anel (fechamento 0.982) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 15.152 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1375.2 m² contra 1486.5 m² do anel (fechamento 0.925) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.368 m",
+            "quadras": 2
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 14.879 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 10.091 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 8 vértices vivos e nenhum evento em vista, no offset 9.499 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1298.5 m² contra 1481.4 m² do anel (fechamento 0.877) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.938 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 8.641 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 997.5 m² contra 1058.7 m² do anel (fechamento 0.942) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.807 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 4.894 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 360.4 m² contra 515.6 m² do anel (fechamento 0.699) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 3.989 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 336.9 m² contra 402.5 m² do anel (fechamento 0.837) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 18.209 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2558.1 m² contra 2680.1 m² do anel (fechamento 0.954) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 14.457 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.784 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 870.0 m² contra 929.4 m² do anel (fechamento 0.936) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.664 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 366.2 m² contra 513.6 m² do anel (fechamento 0.713) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.552 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 755.3 m² contra 833.5 m² do anel (fechamento 0.906) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.362 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 24.261 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 4.499 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 12.195 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1644.5 m² contra 1546.8 m² do anel (fechamento 1.063) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.270 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 21.506 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 5975.4 m² contra 6204.2 m² do anel (fechamento 0.963) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 16.085 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 3312.6 m² contra 3415.5 m² do anel (fechamento 0.970) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 10.827 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 15.637 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.838 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.719 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1279.3 m² contra 1388.9 m² do anel (fechamento 0.921) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.464 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 15.946 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1683.2 m² contra 1723.3 m² do anel (fechamento 0.977) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 17.444 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2708.4 m² contra 2797.2 m² do anel (fechamento 0.968) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.725 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 738.6 m² contra 863.7 m² do anel (fechamento 0.855) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 14 vértices vivos e nenhum evento em vista, no offset 135.670 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 248653.1 m² contra 46565.9 m² do anel (fechamento 5.340) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.075 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 40.392 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 12.372 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2178.4 m² contra 2261.8 m² do anel (fechamento 0.963) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 30.084 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 8146.6 m² contra 8868.3 m² do anel (fechamento 0.919) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.289 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.700 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 21.733 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 20.657 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 3.943 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 364.7 m² contra 351.8 m² do anel (fechamento 1.037) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 23.838 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 4.982 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 589.0 m² contra 646.6 m² do anel (fechamento 0.911) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 863.9 m² contra 935.5 m² do anel (fechamento 0.923) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 19.794 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 21.577 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 12.982 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1295.7 m² contra 1333.0 m² do anel (fechamento 0.972) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.257 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 10.386 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1171.0 m² contra 1210.3 m² do anel (fechamento 0.968) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 25.908 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 5751.2 m² contra 6148.7 m² do anel (fechamento 0.935) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 40.634 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 3.967 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 273.7 m² contra 267.1 m² do anel (fechamento 1.025) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 7.569 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 405.1 m² contra 414.9 m² do anel (fechamento 0.976) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.085 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 671.0 m² contra 752.1 m² do anel (fechamento 0.892) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.806 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 724.0 m² contra 709.1 m² do anel (fechamento 1.021) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 39.957 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 15227.1 m² contra 15412.4 m² do anel (fechamento 0.988) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.444 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.117 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 480.6 m² contra 588.2 m² do anel (fechamento 0.817) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.135 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 413.8 m² contra 486.6 m² do anel (fechamento 0.850) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.727 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.744 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1171.2 m² contra 1237.3 m² do anel (fechamento 0.947) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.599 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 386.9 m² contra 416.3 m² do anel (fechamento 0.930) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.581 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 464.4 m² contra 492.6 m² do anel (fechamento 0.943) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.954 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 982.2 m² contra 1093.4 m² do anel (fechamento 0.898) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.529 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.098 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.762 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 779.8 m² contra 817.0 m² do anel (fechamento 0.954) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.771 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 16.630 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 3251.4 m² contra 3462.5 m² do anel (fechamento 0.939) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 34.984 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 28.407 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 6516.2 m² contra 7027.3 m² do anel (fechamento 0.927) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 13.600 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2164.9 m² contra 2233.7 m² do anel (fechamento 0.969) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.664 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.503 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 5.550 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 737.4 m² contra 713.4 m² do anel (fechamento 1.034) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 37.784 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 9748.4 m² contra 10460.5 m² do anel (fechamento 0.932) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 9.887 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1122.9 m² contra 1295.5 m² do anel (fechamento 0.867) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 4.906 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.853 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 599.6 m² contra 674.7 m² do anel (fechamento 0.889) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 14.147 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1475.4 m² contra 1447.0 m² do anel (fechamento 1.020) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 17.480 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2804.3 m² contra 2949.8 m² do anel (fechamento 0.951) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 35.444 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 17.327 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 3735.8 m² contra 4529.2 m² do anel (fechamento 0.825) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 14.236 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1744.5 m² contra 1712.4 m² do anel (fechamento 1.019) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.423 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 20.765 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.853 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1014.1 m² contra 1101.6 m² do anel (fechamento 0.921) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 13.599 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.829 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 10 vértices vivos e nenhum evento em vista, no offset 106.072 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 51866.1 m² contra 8141.8 m² do anel (fechamento 6.370) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 27.391 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 5598.4 m² contra 5713.5 m² do anel (fechamento 0.980) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.904 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 9.475 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 38.982 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 13.202 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2439.6 m² contra 2476.1 m² do anel (fechamento 0.985) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 11.544 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1379.6 m² contra 1553.1 m² do anel (fechamento 0.888) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 13.604 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1984.4 m² contra 1955.1 m² do anel (fechamento 1.015) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.023 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 806.5 m² contra 855.9 m² do anel (fechamento 0.942) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.282 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.259 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 432.5 m² contra 552.6 m² do anel (fechamento 0.783) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 25.367 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.778 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 5.971 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.045 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 490.5 m² contra 485.6 m² do anel (fechamento 1.010) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 6.348 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 22 vértices vivos e nenhum evento em vista, no offset 164.502 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 594500.9 m² contra 45054.6 m² do anel (fechamento 13.195) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 8.245 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 1414.2 m² contra 669.5 m² do anel (fechamento 2.112) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 10.909 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 18.298 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2353.2 m² contra 2436.6 m² do anel (fechamento 0.966) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 12.653 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2624.6 m² contra 2763.3 m² do anel (fechamento 0.950) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 36.393 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 22.097 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 5786.6 m² contra 5975.2 m² do anel (fechamento 0.968) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 17.637 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 17.152 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 6 vértices vivos e nenhum evento em vista, no offset 22.666 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 4253.0 m² contra 4708.5 m² do anel (fechamento 0.903) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          },
+          {
+            "aviso": "a frente de onda parou com 4 vértices vivos e nenhum evento em vista, no offset 15.639 m",
+            "quadras": 1
+          },
+          {
+            "aviso": "as faces somam 2088.8 m² contra 2210.0 m² do anel (fechamento 0.945) — o esqueleto não é confiável e não deve ser loteado",
+            "quadras": 1
+          }
+        ],
+        "ms": 3367.63,
+        "determinismo": true
+      },
+      "julgamento": {
+        "comLotes": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 901,
+            "areaPrivativa_m2": 266659.85
+          },
+          "validator": {
+            "limpo": false,
+            "violacoes": 4,
+            "porTipo": {
+              "sobreposicao": 2,
+              "frente": 2
+            },
+            "exemplos": [
+              {
+                "tipo": "sobreposicao",
+                "loteId": "L224",
+                "detalhe": "sobrepõe L225 em 0.6 m²",
+                "valor": 0.5601304159918072
+              },
+              {
+                "tipo": "sobreposicao",
+                "loteId": "L386",
+                "detalhe": "sobrepõe L388 em 0.7 m²",
+                "valor": 0.6963544223399367
+              },
+              {
+                "tipo": "frente",
+                "loteId": "L647",
+                "detalhe": "nenhuma aresta encosta em via"
+              }
+            ]
+          }
+        },
+        "semLotes": {
+          "recusa": null,
+          "judge": {
+            "numLotes": 0,
+            "areaPrivativa_m2": 0
+          },
+          "validator": {
+            "limpo": true,
+            "violacoes": 0,
+            "porTipo": {},
+            "exemplos": []
+          }
+        }
+      },
+      "msMotor": 6113.31,
+      "referencias": {
+        "testfitT02": {
+          "formato": "espinha",
+          "lotes": 1391,
+          "areaPrivativa_m2": 555573.21,
+          "violacoes": 53
+        },
+        "motorInternoDoGenerate": [
+          {
+            "motor": "ortogonal",
+            "lotes": 1389,
+            "areaPrivativa_m2": 508580.73,
+            "violacoes": 1
+          },
+          {
+            "motor": "espinha",
+            "lotes": 1656,
+            "areaPrivativa_m2": 617218.9,
+            "violacoes": 0
+          }
+        ]
+      }
+    }
+  ]
+}
