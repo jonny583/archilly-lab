@@ -1203,3 +1203,47 @@ na fila como proposto ao chat. **Os 70,4 % são a resposta certa.**
 **O que sobra de fragmentação genuína** — os 23 pedacinhos — é lasca de corte, e
 quem a trata é a D48: 17 saíram, e os componentes caíram de 25 para 19 sem que
 uma via de verdade fosse tocada.
+
+---
+
+## D59 · `fechamento` sai cru do núcleo — a formatação é de quem publica · 15/09/2026
+
+**A decisão:** `esqueletoReto` devolve `fechamento` sem arredondar. Ele saía com
+`Number(fechamento.toFixed(4))`.
+
+**Por quê.** O §9.3 do Padrão diz *núcleo em metros e moeda base; formatação só
+na borda*. A D47 abriu uma exceção **medida**: prosa para pessoa — aviso, erro,
+mensagem — **é** borda, e por isso os `toFixed` dentro de texto ficam.
+
+`fechamento` **não é prosa**. É campo de dado do resultado do esqueleto, e viaja
+para JSON de prova. Arredondá-lo no núcleo é decidir, dentro da geometria,
+quantas casas o leitor merece — que é exatamente o que o §9.3 proíbe. Quem
+publica é que decide, e as ferramentas já o faziam.
+
+**Como apareceu:** a conferência do LF-FINAL-2, ao classificar **cada** `toFixed`
+do núcleo em vez de contá-los juntos. Dos 32: 20 são prosa (D47), 10 são o
+`geojson.ts`, que é formato de exportação, 1 é o hash de determinismo (declarado
+no próprio arquivo), e **1 era dado que viaja**. Agora são zero.
+
+## D60 · A regra do RECADO virou teste — e ela estava sendo quebrada · 15/09/2026
+
+**A decisão:** `external-engines/esteira/tests/recado.test.ts` mede, a cada
+`bun test`, se o **último** recado de `docs/relatorios/RECADOS.md` cabe nas 12
+linhas do CLAUDE.md §1, abre e fecha com a marca certa, e responde às cinco
+perguntas do formato.
+
+**Por que foi preciso.** O LF-FINAL-2 mediu a regra pela primeira vez: **7 dos 8
+recados passaram do teto** — 16, 21, 19, 19, 18, 19 e 16 linhas. Só o do LAB-05
+cabia, e só porque o desvio foi pego antes do commit. A regra estava escrita,
+era a mais visível do repositório, e ninguém a media. **O que não é medido volta
+a acontecer** — é o §6 do Padrão aplicado contra mim.
+
+**Por que o teste olha só o último.** `RECADOS.md` é registro **do que foi
+enviado**. Encolher os sete antigos faria o arquivo mentir sobre o que o chat
+recebeu; o desvio fica registrado na tabela do LF-FINAL-2, com nome e número. O
+que o teste tem de impedir é o **próximo**, e olhando o último ele morde toda vez
+que um recado novo é escrito, sem lista de exceções que envelhece.
+
+**Por que ele mora na esteira:** `bun test` ali é o único corredor de teste do
+repositório. A regra é de documento, o teste é de código, e o lugar do teste é
+onde ele roda.
