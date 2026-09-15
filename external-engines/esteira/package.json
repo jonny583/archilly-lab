@@ -7,6 +7,7 @@
     "lab02": "bun ferramentas/lab02.ts",
     "lab03": "bun ferramentas/lab03.ts",
     "lab08": "bun ferramentas/lab08.ts",
+    "lab04": "bun ferramentas/lab04.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."

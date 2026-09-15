@@ -4,9 +4,9 @@
 o **Validator e o Judge do Generate**.
 
 ```text
-Archilly revision: LAB-02
+Archilly revision: LAB-04
 Runtime:           Bun 1.3+
-Status:            em uso — LAB-02 feito, LAB-08 mora aqui
+Status:            em uso — LAB-02, LAB-03, LAB-08 e LAB-04 moram aqui
 ```
 
 ## Por que esta pasta existe
@@ -25,12 +25,15 @@ Então o que é de ninguém mora aqui. Ver `docs/DECISOES.md`, D31.
 |---|---|
 | `src/gleba-v1.ts` | ENTRADA do contrato v1 → `Terreno` do Symbios, com as perdas declaradas |
 | `src/gleba-do-lab.ts` | os terrenos de `docs/terrenos/` → ENTRADA v1 |
-| `src/symbios-para-contrato.ts` | rede viária + quadras do Symbios → SAÍDA v1 |
+| `src/symbios-para-contrato.ts` | rede viária + quadras **e lotes** do Symbios → SAÍDA v1 |
+| `src/esqueleto/esqueleto.ts` | o **esqueleto reto**, reimplementado da literatura (D50): uma face por aresta, e o recuo como frente de onda |
+| `src/lotear.ts` | a quadra vira lotes, pelos parâmetros da gleba — o lote nasce no **meio-fio**, nunca no eixo (D52) |
 | `src/relevo-k-vizinhos.ts` | o interpolador **defeituoso**, replicado para servir de controle (D37) — nunca em produção |
 | `src/fixtures-com-relevo.ts` | as glebas-padrão do Generate + relevo sintético declarado |
 | `ferramentas/lab02.ts` | a medição do LAB-02: antes e depois do recorte, nas três glebas |
 | `ferramentas/lab03.ts` | a medição do LAB-03: a interpolação medida no traçado, e as fixtures |
-| `tests/` | 23 testes |
+| `ferramentas/lab04.ts` | a medição do LAB-04: lotes, área vendável e violações contra os outros dois motores |
+| `tests/` | 48 testes |
 
 O recorte em si **não** mora aqui: ele é geometria pura e vive no adaptador do
 Symbios, em `../symbios/adapter/src/recorte.ts`, onde não precisa de Bun nem de
@@ -55,6 +58,7 @@ compilado — ver o `README.md` da raiz.
 bun install
 bun run lab02       # docs/provas/LAB-02/
 bun run lab03       # docs/provas/LAB-03/ e docs/fixtures/glebas-padrao-com-relevo/
+bun run lab04       # docs/provas/LAB-04/ e docs/contratos/saidas/
 bun test
 bun run typecheck && bun run lint
 ```

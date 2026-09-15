@@ -4,86 +4,112 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 14/09/2026 · **Último prompt executado:** LF-FINAL
-**Estado:** **fila esgotada, aguardando o chat.** O despertador de 60 minutos
-foi apagado, como a própria fila manda.
+**Última atualização:** 15/09/2026 · **Último prompt executado:** LAB-04
+**Estado:** **LAB-04 mesclado. O próximo é o LAB-05**, e a condição dele está
+cumprida.
 
 ---
 
 ## Em uma frase
 
-**Os dois motores atravessam o Lab de ponta a ponta, julgados pela régua do
-Generate, e a fila que o chat escreveu acabou.** O Symbios entrega rede viária e
-quadras com **zero violações** e 0 % de via fora da divisa, mas **não faz lote**;
-o motor de parcelamento, depois do T02, passa no contrato **sem precisar do
-conserto do Lab** e chega a zero violações no melhor partido. O que sobra são
-três achados para o chat repassar e cinco propostas na fila.
+**O Symbios entrou na disputa.** Ele saiu de **0 lotes** para **213** em
+`ensaio-47ha` com **zero violação** e **901** em `geo-antonina` com **4** —
+contra as 53 do motor de parcelamento na mesma gleba. Quem faz o lote é o
+esqueleto reto escrito aqui, e a tabela diz isso em toda linha: o que compete é
+**"Symbios + subdivisão do Lab"**, não o motor sozinho.
 
-## A fila — esgotada
+## A fila — a de 15/09, escrita pelo chat
 
-Roteiro em [`prompts/FILA.md`](prompts/FILA.md). Tudo executado em 14/09:
+Roteiro em [`prompts/FILA.md`](prompts/FILA.md).
 
 | Prompt | Estado |
 |---|---|
-| **LF-01** — casa em ordem | concluído em 14/09/2026 |
-| **LAB-02** — recorte pela gleba e pelas restrições | concluído em 14/09/2026 |
-| **LAB-03** — relevo: interpolação medida, glebas-padrão com relevo | concluído em 14/09/2026 |
-| **LAB-08** — Testfit × Symbios, lado a lado | concluído em 14/09/2026 |
-| **LF-FINAL** — conferência contra o Padrão | **concluído em 14/09/2026** |
+| **LAB-04** — straight skeleton: a quadra vira lote e disputa o Judge | **concluído em 15/09/2026** |
+| **LAB-05** — reconectar a rede, recortar quadra que atravessa, descartar lasca | **pronto — é o próximo** (condição cumprida) |
+| **LF-FINAL-2** — conferência e docs | aguardando o LAB-05 |
 
-Antes disso: **LAB-00** (09/09), **LAB-01** (10/09) e **LAB-07** (13/09).
-**LAB-04, LAB-05 e LAB-06** da fila antiga continuam de pé e não foram
-executados — o LAB-04 virou proposta de prioridade, ver abaixo.
+Antes disso: **LAB-00** (09/09), **LAB-01** (10/09), **LAB-07** (13/09) e a fila
+de 14/09 inteira — LF-01, LAB-02, LAB-03, LAB-08, LF-FINAL.
+
+## O laço autônomo — ligado
+
+O despertador do Lab é **`trig_014CyNwWYBjjSQQxNPNMbv11`**, de hora em hora, no
+**minuto :05**. Regra de família: **um despertador por aplicativo; nunca se toca
+no de outro repositório.** Ele se apaga quando a fila esgotar.
+
+**Esta rodada teve as ferramentas do GitHub** (`mcp__github__*`) — o PR foi
+aberto e mesclado por elas, sem o contorno por `git merge --no-ff` que a D29
+prevê para quando faltam.
 
 ## O que espera o chat
 
-Está em [`prompts/FILA.md`](prompts/FILA.md), seção *proposto ao chat*:
+1. **O delta contra o Padrão 1.2**, quando ele existir — a versão 1.2 não existe
+   em nenhum repositório legível; a conferência do LF-FINAL foi contra a Versão 1
+   (D43).
+2. **Proposto no LAB-04, sem executar:** medir as 4 violações que sobraram em
+   `geo-antonina` e o efeito de baixar a tolerância de simplificação; e medir as
+   **86 quadras de esqueleto não confiável**, para saber se é forma degenerada da
+   quadra ou limite da esteira.
 
-1. **O delta contra o Padrão 1.2**, quando ele existir — **a versão 1.2 não
-   existe em nenhum repositório legível**; a conferência foi feita contra a
-   Versão 1. O `TF-FINAL` do repositório irmão está travado pela mesma razão.
-2. **A ressalva do §9.3** — 17 `toFixed` no núcleo, todos em prosa para pessoa
-   (avisos, erros, `Perda.oQueHavia`). O dado que viaja está cru. Aperta ou não?
-3. **LAB-04 · straight skeleton** — virou o próximo passo óbvio do Symbios: ele
-   entrega 94 e 698 quadras limpas, e o que falta para disputar o Judge é
-   subdividir quadra em lote.
-4. **Reconectar a rede depois do corte** — `geo-antonina` fragmenta a 70,4 %.
-5. **Recortar a quadra que atravessa a divisa** e **descartar lasca de corte**.
+## Os três achados para o Generate — já repassados pelo chat
 
-## Os três achados que ainda não foram repassados
+Rampa máxima por via; o quadro de áreas de `ensaio-47ha`; a interpolação de
+relevo. Mais a proposta de adotar `docs/fixtures/glebas-padrao-com-relevo/`. Os
+quatro estão nos relatórios do LAB-02, LAB-03 e LAB-08 e **não se repetem no
+recado** — o chat já os levou.
 
-Nenhum é pendência do Jonny — **são do chat**, por decisão dele:
+---
 
-1. **GENERATE · ninguém confere a rampa** de um motor externo. `invariantes.ts`
-   tem onze violações, todas geométricas; a régua existe em `topografia.ts`
-   (10 %/12 %) mas roda só no plano interno; e o contrato só carrega
-   `rampaMedia_pct`, que dilui um pico de 161 % num cruzamento. Pede
-   `rampaMaxima_pct` por via. *(LAB-02, §5)*
-2. **GENERATE · o quadro de áreas de `ensaio-47ha` não fecha** — soma 544 498 m²
-   numa gleba de 470 000 (+15,8 %), porque `areaAPP_m2` é exatamente 15,0 % da
-   gleba e `areaLazer_m2` exatamente 10,0 % — ecos dos parâmetros — **numa gleba
-   que declara zero restrições**. Em `geo-antonina` o mesmo quadro fecha.
-   *(LAB-08, §2)*
-3. **GENERATE · a interpolação de relevo faz o traçado virar grade** e, em
-   terreno plano, inventar curva onde não há. É o argumento que faltava no
-   diagnóstico do LAB-07. Correção: exigir vizinhos de duas cotas distintas.
-   *(LAB-03)*
+# LAB-04 — o Symbios passa a fazer lote · 15/09/2026
 
-E uma proposta: **adotar `docs/fixtures/glebas-padrao-com-relevo/`** — as duas
-glebas-padrão não têm topografia e são inúteis para qualquer motor que leia
-relevo.
+Relatório: [`relatorios/LAB-04.md`](relatorios/LAB-04.md) · números crus:
+[`provas/LAB-04/`](provas/LAB-04/) · as saídas para o Generate julgar:
+[`contratos/saidas/`](contratos/saidas/)
 
-## O laço autônomo — desligado
+### A tabela
 
-O despertador `trig_01DFdwqF4nUDLQAod5w4WH1m` (minuto :05, de hora em hora) foi
-**apagado** no fim do LF-FINAL, porque a fila acabou. Era a regra escrita na
-própria fila. Quando o chat mandar prompt novo, um despertador novo se cria.
+| | **Symbios + Lab** | Testfit T02 | Generate `ortogonal` | Generate `espinha` |
+|---|---|---|---|---|
+| `ensaio-47ha` · **lotes** | **213** (era 0) | 599 | 974 | 776 |
+| `ensaio-47ha` · área vendável | 65 936 m² (14,03 %) | 238 190 m² | 353 307 m² | 302 654 m² |
+| `ensaio-47ha` · **violações** | **0** | 16 | 0 | 0 |
+| `geo-antonina` · **lotes** | **901** (era 0) | 1 391 | 1 389 | 1 656 |
+| `geo-antonina` · área vendável | 266 665 m² (18,81 %) | 555 573 m² | 508 581 m² | 617 219 m² |
+| `geo-antonina` · **violações** | **4** (0,44 % dos lotes) | 53 (3,81 %) | 1 | 0 |
+| determinismo | **OK** nas duas | OK | — | — |
 
-**Limitação que vale registrar para a próxima vez:** aquele despertador nasceu
-**sem conectores do GitHub**. As sessões que ele acordou tiveram sorte — as
-ferramentas estavam disponíveis —, mas o prompt dele carregava o contorno (mesclar
-por `git merge --no-ff`) justamente porque isso podia faltar. Um despertador
-criado pela interface do claude.ai não tem esse problema.
+### O oráculo bate, ponto a ponto
+
+Retângulo 60 × 30 → nós em (15,15) e (45,15), offset 15; o L → mais um em
+(15,45); as frentes de onda em 5 batem vértice a vértice. É o oráculo de **duas
+implementações independentes** do `STRAIGHT_SKELETON_ANALYSIS.md` §4.4, e o
+fechamento das faces dá **1,000**. Prova em
+[`provas/LAB-04/oraculo.json`](provas/LAB-04/oraculo.json) e em teste que trava.
+
+### O meio-fio não é o eixo — 369 violações ensinaram
+
+A borda de uma quadra do Symbios **é o eixo da rua**: as quadras são faces do
+grafo viário. Lote plantado nela deu `via-sobre-lote em 369 de 369 lotes`. O lote
+passou a nascer a **meia caixa** do eixo (D52). **É o mesmo erro do LAB-07 com a
+calçada (D18)** — e, de novo, quem o pegou foi a régua do Generate, não a
+leitura do código.
+
+### Onde o lote se perde, com número
+
+Das 698 quadras de `geo-antonina`: **119 atravessam a divisa** (não loteadas —
+é o item 2 do LAB-05), **86 têm esqueleto não confiável** (puladas e contadas,
+D51), 334 são estreitas demais, e **159 dão lote**. Mais 3 726 peças descartadas
+por área mínima. O aproveitamento das quadras fica em **22 %**: o traçado do
+Symbios é orgânico, e quadra pequena e irregular não aceita lote retangular de
+360 m².
+
+### Quatro correções, todas cobradas pelo Validator
+
+`via-sobre-lote` 41 → 0 (via de outra quadra passando por cima); o arquivo
+recusado por 97 peças fora da gleba → aceito (pular quadra que atravessa);
+`faixa-legal` 8 → 0 (o número de fatias preso pelos parâmetros, D53); `frente`
+8 → 2 (a pergunta "tem rua?" refeita em cada fatia, D54). **Nenhuma inventou
+regra** — área mínima, máxima e testada mínima já vinham da gleba.
 
 ---
 

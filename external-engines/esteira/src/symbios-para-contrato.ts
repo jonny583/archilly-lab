@@ -1,17 +1,18 @@
 /**
  * O resultado do Symbios → a SAÍDA do contrato de motor v1.
  *
- * # O que este motor entrega, e o que ele não entrega
+ * # O que este motor entrega
  *
  * O Symbios faz **rede viária** (Uso B) e **quadras** (Uso C). Ele **não
- * parcela em lote**. Então a SAÍDA sai com `lotes: []`, e isso não é buraco
- * disfarçado: é o que o motor é. Medido na esteira do LAB-02, o Validator do
- * Generate **julga um parcelamento sem lote sem reclamar do vazio** — ele mede
- * o que existe: contorno, face de quadra, polígono simples, sobreposição.
+ * parcela em lote** — e até o LAB-03 a SAÍDA saía com `lotes: []`, que era o
+ * que o motor é.
  *
- * O Judge vai dar `numLotes: 0`. Isso é correto e é a notícia: enquanto não
- * houver subdivisão de quadra (o LAB-04, o straight skeleton), o Symbios não
- * disputa com um motor que faz lote — ele entrega a etapa anterior.
+ * **Desde o LAB-04 os lotes entram**, e eles não vêm do motor: vêm do
+ * `lotear.ts`, que subdivide as quadras dele pelo esqueleto reto e pelos
+ * parâmetros da gleba. Quem passar `lotes` aqui está declarando que a
+ * subdivisão é do Lab, não do Symbios — e o relatório tem de dizer isso, porque
+ * a tabela do Judge passa a comparar *Symbios + subdivisão do Lab* contra os
+ * outros motores, não o Symbios sozinho.
  *
  * # O que NÃO é inventado
  *
@@ -46,7 +47,14 @@ export interface SaidaMinima {
     rampaMedia_pct: number | null;
   }[];
   quadras: { id: string; pontos: PontoV1[]; area_m2: number }[];
-  lotes: never[];
+  lotes: {
+    id: string;
+    quadraId: string;
+    pontos: PontoV1[];
+    area_m2: number;
+    testada_m: number;
+    faceDeRua: string | null;
+  }[];
   areasEspeciais: never[];
   quadroDeAreas: {
     areaTotal_m2: number;
@@ -80,15 +88,35 @@ export interface PerdaNaVolta {
   gravidade: "alta" | "media" | "baixa";
 }
 
+/** Um lote plantado pelo `lotear.ts`, pronto para o contrato. */
+export interface LoteParaOContrato {
+  quadraIndice: number;
+  pontos: PontoV1[];
+  area_m2: number;
+  testada_m: number;
+}
+
 export function symbiosParaOContrato(
   vias: Via[],
   quadras: Quadra[],
   o: OpcoesVolta,
+  lotesDoLab: LoteParaOContrato[] = [],
 ): { saida: SaidaMinima; perdas: PerdaNaVolta[] } {
+  const lotes = lotesDoLab.map((l, i) => ({
+    id: `L${i + 1}`,
+    quadraId: quadras[l.quadraIndice]?.id ?? "",
+    pontos: l.pontos,
+    area_m2: l.area_m2,
+    testada_m: l.testada_m,
+    // `faceDeRua` fica null de propósito: o contrato manda preferir null a
+    // chutar, e o Validator mede a frente por conta própria de qualquer forma.
+    faceDeRua: null as string | null,
+  }));
   const perdas: PerdaNaVolta[] = [];
 
   const comprimentoTotal = vias.reduce((s, v) => s + v.comprimento_m, 0);
   const areaViaria = vias.reduce((s, v) => s + v.comprimento_m * v.faixaDominio_m, 0);
+  const areaPrivativa = lotes.reduce((s, l) => s + l.area_m2, 0);
   if (vias.length > 0) {
     perdas.push({
       campo: "quadroDeAreas.areaViaria_m2",
@@ -101,15 +129,17 @@ export function symbiosParaOContrato(
     });
   }
 
-  perdas.push({
-    campo: "lotes",
-    oQueHavia: "nada",
-    motivo:
-      "o Symbios traça via e extrai quadra; ele não subdivide quadra em lote. A " +
-      "subdivisão é o LAB-04 (straight skeleton). O Judge vai marcar 0 lotes, e é " +
-      "verdade — não é falha da ponte",
-    gravidade: "alta",
-  });
+  if (!lotes.length) {
+    perdas.push({
+      campo: "lotes",
+      oQueHavia: "nada",
+      motivo:
+        "o Symbios traça via e extrai quadra; ele não subdivide quadra em lote. A " +
+        "subdivisão é o LAB-04 (straight skeleton), e nesta passagem ela não foi " +
+        "aplicada. O Judge vai marcar 0 lotes, e é verdade — não é falha da ponte",
+      gravidade: "alta",
+    });
+  }
 
   perdas.push({
     campo: "areasEspeciais",
@@ -122,7 +152,7 @@ export function symbiosParaOContrato(
 
   const naoAproveitada = Math.max(
     0,
-    o.areaDaGleba_m2 - areaViaria - o.areaQueDesconta_m2,
+    o.areaDaGleba_m2 - areaViaria - o.areaQueDesconta_m2 - areaPrivativa,
   );
 
   return {
@@ -151,11 +181,11 @@ export function symbiosParaOContrato(
         pontos: q.pontos.map((p) => ({ x: p.x, y: p.y })),
         area_m2: q.area_m2,
       })),
-      lotes: [],
+      lotes,
       areasEspeciais: [],
       quadroDeAreas: {
         areaTotal_m2: o.areaDaGleba_m2,
-        areaPrivativa_m2: 0,
+        areaPrivativa_m2: areaPrivativa,
         areaViaria_m2: areaViaria,
         areaLazer_m2: 0,
         areaAPP_m2: o.areaQueDesconta_m2,

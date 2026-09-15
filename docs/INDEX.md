@@ -20,8 +20,8 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 
 | documento | o que responde |
 |---|---|
-| [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — e, hoje, por que a fila acabou |
-| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 42 decisões numeradas, com o que se perde em cada uma |
+| [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — hoje, o LAB-05 |
+| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 54 decisões numeradas, com o que se perde em cada uma |
 | [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) | O que depende de uma pessoa. Quem escreve sou eu; quem risca é ele |
 | [`relatorios/RECADOS.md`](relatorios/RECADOS.md) | **Todos os recados para o chat**, em ordem, um por prompt |
 
@@ -29,6 +29,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 
 | documento | o que responde |
 |---|---|
+| [`relatorios/LAB-04.md`](relatorios/LAB-04.md) | **O Symbios passa a fazer lote**: o esqueleto reto contra o oráculo, os 213 e os 901 lotes, e as quatro correções que o Validator cobrou |
 | [`relatorios/LF-FINAL.md`](relatorios/LF-FINAL.md) | **A conferência contra o Padrão da família**: o que faltava, a ressalva do núcleo, e por que a 1.2 não pôde ser usada |
 | [`relatorios/LAB-08.md`](relatorios/LAB-08.md) | **Os dois motores lado a lado**: a tabela, o veredito por motor, e por que os "22 % a menos de lotes" não são comparáveis |
 | [`relatorios/LAB-03.md`](relatorios/LAB-03.md) | **O relevo**: o que a interpolação faz com o traçado (e não com a rampa), e as glebas-padrão com relevo |
@@ -54,7 +55,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`TRIAGEM.md`](TRIAGEM.md) | **Qual motor segue e qual não** — tabela comparativa e veredito, com evidência |
 | [`SYMBIOS_ANALYSIS.md`](SYMBIOS_ANALYSIS.md) | Symbios Tensor: licença, desempenho, WASM, e o "não consegui compilar" registrado (§10) |
-| [`STRAIGHT_SKELETON_ANALYSIS.md`](STRAIGHT_SKELETON_ANALYSIS.md) | As duas implementações, a licença copyleft que as impede, e os casos de teste para reimplementar |
+| [`STRAIGHT_SKELETON_ANALYSIS.md`](STRAIGHT_SKELETON_ANALYSIS.md) | As duas implementações, a licença copyleft que as impede, e o **oráculo** com que o LAB-04 provou a reimplementação |
 | [`PACKINGSOLVER_TRIAGEM.md`](PACKINGSOLVER_TRIAGEM.md) | Por que ele fica como referência e não entra |
 
 ## Os terrenos
@@ -70,7 +71,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../external-engines/symbios/`](../external-engines/symbios/) | `upstream/` intocado, a ponte Rust → WASM, o adaptador do LAB-01 e o recorte do LAB-02 |
 | [`../external-engines/testfit/`](../external-engines/testfit/) | O adaptador do LAB-07 — ida, volta, aparo, esteira. Sem `upstream/`: o motor é da família (D16) |
-| [`../external-engines/esteira/`](../external-engines/esteira/) | **A esteira cruzada**: põe qualquer motor no contrato v1 e o julga com a régua do Generate (D31) |
+| [`../external-engines/esteira/`](../external-engines/esteira/) | **A esteira cruzada**: põe qualquer motor no contrato v1 e o julga com a régua do Generate (D31). Desde o LAB-04, também o **esqueleto reto** que faz a quadra virar lote (D50) |
 | [`../outputs/`](../outputs/) | Saídas literais das execuções do LAB-01 |
 
 ## A família Archilly

@@ -1,0 +1,169 @@
+{
+  "prompt": "LAB-04",
+  "o_que_e": "Os dois casos do oráculo do STRAIGHT_SKELETON_ANALYSIS.md §4.3/§4.4, medidos nesta reimplementação. O esperado vem de DUAS implementações independentes (uma em Rust, aritmética inteira exata) que concordam entre si.",
+  "esperado": {
+    "retangulo-60x30": {
+      "nos": [
+        [
+          15,
+          15
+        ],
+        [
+          45,
+          15
+        ]
+      ],
+      "offset_m": 15,
+      "frenteEm5": [
+        [
+          5,
+          5
+        ],
+        [
+          55,
+          5
+        ],
+        [
+          55,
+          25
+        ],
+        [
+          5,
+          25
+        ]
+      ]
+    },
+    "L-60x60-recorte-30x30": {
+      "nos": [
+        [
+          15,
+          15
+        ],
+        [
+          15,
+          45
+        ],
+        [
+          45,
+          15
+        ]
+      ],
+      "offset_m": 15,
+      "frenteEm5": [
+        [
+          5,
+          5
+        ],
+        [
+          55,
+          5
+        ],
+        [
+          55,
+          25
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          25,
+          55
+        ],
+        [
+          5,
+          55
+        ]
+      ]
+    }
+  },
+  "medido": {
+    "retangulo-60x30": {
+      "nos": [
+        {
+          "x": 15,
+          "y": 15,
+          "offset_m": 15
+        },
+        {
+          "x": 45,
+          "y": 15,
+          "offset_m": 15
+        }
+      ],
+      "faces": 4,
+      "confiavel": true,
+      "fechamento": 1,
+      "frenteEm5": [
+        [
+          [
+            5,
+            5
+          ],
+          [
+            55,
+            5
+          ],
+          [
+            55,
+            25
+          ],
+          [
+            5,
+            25
+          ]
+        ]
+      ]
+    },
+    "L-60x60-recorte-30x30": {
+      "nos": [
+        {
+          "x": 15,
+          "y": 15,
+          "offset_m": 15
+        },
+        {
+          "x": 15,
+          "y": 45,
+          "offset_m": 15
+        },
+        {
+          "x": 45,
+          "y": 15,
+          "offset_m": 15
+        }
+      ],
+      "faces": 6,
+      "confiavel": true,
+      "fechamento": 1,
+      "frenteEm5": [
+        [
+          [
+            5,
+            5
+          ],
+          [
+            55,
+            5
+          ],
+          [
+            55,
+            25
+          ],
+          [
+            25,
+            25
+          ],
+          [
+            25,
+            55
+          ],
+          [
+            5,
+            55
+          ]
+        ]
+      ]
+    }
+  }
+}

@@ -11,7 +11,7 @@ trabalha sozinho, em laço, sem esperar mensagem do chat.
 ## Como esta fila funciona
 
 - **Um despertador**, a cada 60 minutos, preso a este repositório
-  (`trig_01DFdwqF4nUDLQAod5w4WH1m`, minuto :05). Regra de família: **um por
+  (minuto :05 — o id fica em [`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md)). Regra de família: **um por
   aplicativo; nunca se toca no despertador de outro repositório.**
 - A cada despertador: pegar o **primeiro** prompt "pronto" cuja condição esteja
   cumprida, executá-lo **inteiro** (testes verdes, PR mesclado na `main`,
@@ -38,111 +38,64 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## O quadro
+## O quadro — a fila de 15/09/2026
+
+Escrita pelo chat depois que a fila de 14/09 esgotou.
 
 | # | prompt | estado | condição |
 |---|---|---|---|
-| **LF-01** | Casa em ordem | ✅ **concluído em 14/09/2026** | nenhuma |
-| **LAB-02** | Recorte pela gleba e pelas restrições | ✅ **concluído em 14/09/2026** | LF-01 mesclado ✅ |
-| **LAB-03** | Relevo: interpolação corrigida e glebas-padrão com relevo | ✅ **concluído em 14/09/2026** | LAB-02 mesclado ✅ |
-| **LAB-08** | Testfit × Symbios, lado a lado | ✅ **concluído em 14/09/2026** | LAB-03 ✅ **E** T02 mesclado ✅ (`cbd6cc8`) |
-| **LF-FINAL** | Conferência contra o Padrão 1.2 | ✅ **concluído em 14/09/2026** — contra a **Versão 1**; a 1.2 não existe | LAB-08 mesclado ✅ |
+| **LAB-04** | Straight skeleton: subdividir as quadras do Symbios em lotes e disputar o Judge | ✅ **concluído em 15/09/2026** | nenhuma |
+| **LAB-05** | Reconectar a rede, recortar quadra que atravessa, descartar lasca pela regra | ⬜ **pronto — é o próximo** | LAB-04 mesclado ✅ |
+| **LF-FINAL-2** | Conferência e docs | ⬜ | LAB-05 mesclado |
 
 ---
 
-## Os prompts, por extenso
+## Os prompts da fila de 15/09, por extenso
 
-### LF-01 · Casa em ordem — ✅ concluído em 14/09/2026
+### LAB-04 · Straight skeleton — ✅ concluído em 15/09/2026
 
 **Condição:** nenhuma.
-**Escopo:** `RECADOS.md`; apagar o branch `claude/stoic-ritchie-ijzqy3` (diff
-vazio); `PENDENCIAS_JONNY` reescrito com as decisões do chat (sobram só as
-confirmações dele); `ONDE_PARAMOS` e `INDEX` reescritos.
-**Prova:** testes intactos.
-**Entregue:** [`../relatorios/LF-01.md`](../relatorios/LF-01.md).
+**Escopo:** subdividir **as quadras limpas do Symbios** em lotes, **pelos
+parâmetros da gleba**, e disputar o **Judge do Generate** — medindo **lotes,
+área vendável e violações** contra o motor do Testfit e contra o motor interno
+do Generate.
+**O que já está decidido desde o LAB-00:** a implementação é **reimplementação
+em TypeScript** a partir da literatura (Felkel & Obdržálek 1998; Aichholzer,
+Aurenhammer, Alberts & Gärtner 1995; Aichholzer & Aurenhammer 1996). As duas
+implementações prontas são **copyleft** e não entram no produto.
+**O oráculo já existe** ([`../STRAIGHT_SKELETON_ANALYSIS.md`](../STRAIGHT_SKELETON_ANALYSIS.md),
+§4.4 — duas implementações independentes concordando): retângulo 60 × 30 → nós
+internos em (15, 15) e (45, 15) com offset 15; o L → mais um nó em (15, 45).
+**Prova:** os dois casos do oráculo como teste; lotes, área vendável e violações
+por gleba; JSON em `docs/provas/LAB-04/`.
+**Entregue:** [`../relatorios/LAB-04.md`](../relatorios/LAB-04.md). **O oráculo
+bate ponto a ponto**, nós e frentes de onda, com fechamento 1,000. O Symbios sai
+de **0 lotes** para **213** em `ensaio-47ha` com **zero violação** e **901** em
+`geo-antonina` com **4** — 0,44 % dos lotes, contra 3,81 % do motor de
+parcelamento. Quatro defeitos do Lab foram pegos pela régua do Generate, e o
+maior deles é que **a borda da quadra do Symbios é o eixo da rua, não o
+meio-fio** (D52).
 
-### LAB-02 · Recorte pela gleba e pelas restrições — ✅ concluído em 14/09/2026
+### LAB-05 · Reconectar, recortar quadra, descartar lasca
 
-**Condição:** LF-01 mesclado (a condição de geometria utilizável já está
-cumprida pelo LAB-01).
-**Escopo:** aparar a rede viária do Symbios **pelo perímetro** (o aparo de eixo
-já escrito em `external-engines/testfit/adapter/src/aparo.ts`) **e pelas
-restrições** (APP como geometria real); rejulgar com o Validator e o Judge do
-Generate; medir de novo os dois números do LAB-01 — comprimento de via fora da
-gleba (**meta: 0 %**) e rampa nos cruzamentos — e as violações por partido.
-**Sem inventar regra.**
-**Prova:** antes/depois nas três glebas, tabela no relatório e JSON em
-`docs/provas/LAB-02/`.
-**Entregue:** [`../relatorios/LAB-02.md`](../relatorios/LAB-02.md). **A meta foi
-atingida: 0 % de via fora da gleba nas três**, e 0 % dentro de restrição; o
-contrato sai de recusado para aceito com **zero violações**. As três glebas são
-outras — `ensaio-47ha` e `geo-antonina` **não têm relevo e o Symbios não as
-come**, que é a razão medida do LAB-03.
+**Condição:** LAB-04 mesclado.
+**Escopo:** três coisas, e as três já têm o porquê medido:
+1. **Reconectar a rede depois do corte** — `geo-antonina` com relevo fragmenta a
+   **70,4 %** no maior componente (LAB-03, Parte B);
+2. **Recortar a quadra que atravessa a divisa** — hoje a que atravessa fica,
+   medida (73, 36 e 3 nas três glebas do LAB-02);
+3. **Descartar lasca pela regra D48** — abaixo do lado do lote mínimo da gleba.
+**E rejulgar as três glebas** com o Validator e o Judge do Generate.
+**Prova:** antes e depois nas três, tabela e JSON em `docs/provas/LAB-05/`.
+**O que o LAB-04 mediu e entrega a ele:** em `geo-antonina`, **119 das 698
+quadras atravessam a divisa** e ficam sem lote nenhum; em `ensaio-47ha`, 3 de 94.
+E a rede fragmentada faz trecho de via sobrar dentro de quadra — 65 lotes
+descartados por isso.
 
-### LAB-03 · Relevo: interpolação corrigida e glebas-padrão com relevo — ✅ concluído em 14/09/2026
+### LF-FINAL-2 · Conferência e docs
 
-**Condição:** LAB-02 mesclado ✅. **E ele ficou mais urgente do que era:** sem
-relevo nas glebas-padrão, os dois motores não pisam na mesma terra, e o LAB-08
-fica impossível de honrar (LAB-02, §6).
-**Escopo:** aplicar no Lab a correção de interpolação (**exigir vizinhos de duas
-cotas distintas**) e medir o efeito sobre a rampa; gerar, a partir de relevo
-real de referência (o que o Geo já exporta ou uma superfície sintética
-declarada), versões **com relevo** das duas glebas-padrão do Generate, como
-**fixtures do Lab**. Não alterar o Generate: a proposta de adotá-las vai no
-relatório, para o chat repassar.
-**Prova:** rampa por trecho e por cruzamento antes e depois; JSON.
-**Entregue:** [`../relatorios/LAB-03.md`](../relatorios/LAB-03.md). **O defeito de
-interpolação não estraga a rampa — estraga o traçado:** a rampa quase não se
-mexe, mas a fração de rede alinhada a uma direção salta de 12,6 % para 47,3 % (o
-motor cai em grade), e na gleba plana o defeituoso **inventa sinuosidade** onde
-não há relevo. As duas glebas-padrão ganharam relevo como fixtures do Lab e o
-Symbios passou a rodar nelas — **o LAB-08 deixou de ser impossível**.
-
-### LAB-08 · Testfit × Symbios, lado a lado — ✅ concluído em 14/09/2026
-
-**Condição:** LAB-03 mesclado ✅ **E** T02 do Testfit mesclado na `main` de
-`jonny583/motor-testfit` ⏳. Verificar a cada despertador; enquanto não,
-**"aguardando"**. A metade que era nossa está pronta: as duas glebas-padrão
-rodam nos dois motores desde o LAB-03.
-**Escopo:** rodar de novo a esteira com o motor do Testfit corrigido (T02) e o
-Symbios recortado (LAB-02), **mesmas glebas, mesmas sementes**, e entregar UMA
-tabela: lotes, área parcelada, via fora da gleba, violações por regra, rampa,
-tempo, determinismo — com a **diferença de lotes contra o motor interno do
-Generate** (o Testfit mediu 22 % a menos na gleba de 47 ha; explicar com número
-de onde vem). Veredito por motor. **Nada de recomendação de produto:** o chat e
-o Jonny decidem com a tabela.
-**Prova:** JSON e tabela; arquivos das saídas em `docs/contratos/saidas/` para o
-Generate julgar.
-**Entregue:** [`../relatorios/LAB-08.md`](../relatorios/LAB-08.md). **O T02
-funcionou:** as recusas do esquema sem aparo caíram de 60 de 60 para 0 de 20, e o
-aparo do Lab passou a cortar 0,3 % em vez de 38 %. O Symbios sai com **zero
-violações** nas duas glebas mas **não faz lote** — ele entrega a etapa anterior,
-e o LAB-04 é o que falta para ele disputar. E os "22 % a menos" viraram −38,5 %
-em `ensaio-47ha` e **empate** em `geo-antonina`: a causa é que o quadro de áreas
-de referência do Generate **não fecha** naquela gleba (+15,8 %), porque APP e
-lazer ali são **eco do parâmetro**, numa gleba que declara zero restrições.
-
-### LF-FINAL · Conferência contra o Padrão 1.2 — ✅ concluído em 14/09/2026
-
-**Condição:** LAB-08 mesclado ✅.
-**Escopo:** conferência — o Lab não tem tela, então vale o que se aplica:
-chaves, formatação no núcleo, determinismo, docs. `INDEX` e `ONDE_PARAMOS`
-reescritos; `PENDENCIAS_JONNY` do zero.
-**Entregue:** [`../relatorios/LF-FINAL.md`](../relatorios/LF-FINAL.md).
-**Conforme, com uma ressalva e três arquivos que faltavam** — escritos nesta
-rodada: `SEGURANCA.md`, `ADOCAO_CENTRAL.md` e `docs/referencia/`. **A Versão 1.2
-do Padrão não existe em nenhum repositório legível** (D43): a conferência foi
-feita contra a Versão 1 e o delta ficou pendente, como no `TF-FINAL` do
-repositório irmão.
-
----
-
-## A fila está esgotada
-
-**Todos os cinco prompts foram executados e mesclados em 14/09/2026.** O
-despertador `trig_01DFdwqF4nUDLQAod5w4WH1m` foi **apagado** no fim do LF-FINAL,
-como esta fila manda. Quando o chat mandar prompt novo, um despertador novo se
-cria.
+**Condição:** LAB-05 mesclado.
+**Escopo:** conferência contra o Padrão e os documentos em dia.
 
 ---
 
@@ -151,32 +104,38 @@ cria.
 - **O delta contra o Padrão 1.2**, quando ele existir. A conferência do LF-FINAL
   foi feita contra a Versão 1, que é a única legível (D43). O `TF-FINAL` do
   repositório irmão espera o mesmo documento.
-- **A ressalva do §9.3 do Padrão:** 17 `toFixed` no núcleo produzem texto, todos
-  em prosa para pessoa (avisos, erros, `Perda.oQueHavia`). Nenhum número que
-  viaja é formatado. Tirar o `toFixed` da prosa pioraria a prosa. Aperta ou não?
-  É interpretação do Padrão, e interpretação é do chat (D44).
+- **As 4 violações que sobraram em `geo-antonina`** (2 de sobreposição, de 0,56 e
+  0,70 m², e 2 de frente) e o efeito de baixar a tolerância de simplificação de
+  0,25 m. A suspeita está escrita no LAB-04, §6, e **não foi medida** — por isso
+  não foi atribuída.
+- **As 86 quadras de esqueleto não confiável** em `geo-antonina` (15 % das
+  loteáveis): é forma degenerada da quadra ou limite da esteira? Hoje elas são
+  puladas e contadas (D51), que é a resposta honesta, mas não é a resposta.
 
-- **LAB-04 · straight skeleton.** Não é proposta nova — está na fila antiga e foi
-  liberado desde o LAB-00 —, mas o LAB-08 mostrou que ele virou **o próximo passo
-  óbvio do Symbios**: o motor entrega 94 e 698 quadras limpas, com zero violações,
-  e o que falta para ele disputar o Judge é subdividir quadra em lote. Fica ao
-  chat dizer se ele entra antes ou depois do LF-FINAL.
+---
 
-- **Recortar a quadra que atravessa a divisa.** Hoje a quadra inteiramente fora é
-  descartada e a que atravessa fica, medida (73, 36 e 3 nas três glebas). Cortá-la
-  exige interseção polígono × polígono côncavo e **muda a área dela**, que é
-  número que o Validator mede. O contrato já trata isso como exceção declarada.
-  Vale a pena? É decisão do chat. Ver LAB-02, §8.
-- **Reconectar a rede depois do corte.** O LAB-03 mediu o caso ruim: em
-  `geo-antonina` com relevo, o recorte deixa 25 componentes e só **70,4 %** do
-  comprimento no maior (o pior caso do LAB-02 tinha sido 94,7 %). A causa é a
-  forma da gleba — contorno recortado e três APP atravessando o meio. Reconectar
-  é **desenhar via que o motor não desenhou**, então não é decisão minha. Ver
-  LAB-03, Parte B.
-- **Descartar lasca de corte.** Trechos curtos criados pelo recorte ficam, porque
-  descartar exige um limiar e limiar é regra (D35). Medido, o problema é pequeno:
-  3 trechos abaixo de 5 m numa gleba, 4,87 m no total. Se virar incômodo, o chat
-  define o número.
+## Histórico — a fila autônoma de 14/09/2026, esgotada
+
+Os cinco rodaram e foram mesclados no mesmo dia.
+
+| # | prompt | entregue em |
+|---|---|---|
+| LF-01 | Casa em ordem | [`LF-01.md`](../relatorios/LF-01.md) |
+| LAB-02 | Recorte pela gleba e pelas restrições — **0 % de via fora da divisa** | [`LAB-02.md`](../relatorios/LAB-02.md) |
+| LAB-03 | Relevo: a interpolação medida no traçado, e as glebas-padrão com relevo | [`LAB-03.md`](../relatorios/LAB-03.md) |
+| LAB-08 | Testfit × Symbios, lado a lado | [`LAB-08.md`](../relatorios/LAB-08.md) |
+| LF-FINAL | Conferência contra o Padrão | [`LF-FINAL.md`](../relatorios/LF-FINAL.md) |
+
+### As propostas daquela fila, e o que o chat decidiu em 15/09
+
+| proposta | destino |
+|---|---|
+| ressalva do §9.3 — prosa formatada no núcleo | **resolvida: prosa para pessoa é borda, os 17 ficam** (D47) |
+| descartar lasca de corte | **resolvida: abaixo do lote mínimo da gleba** (D48) — executa no LAB-05 |
+| LAB-04 · straight skeleton | **virou o primeiro da fila nova** |
+| reconectar a rede depois do corte | **virou parte do LAB-05** |
+| recortar a quadra que atravessa a divisa | **virou parte do LAB-05** |
+| delta contra o Padrão 1.2 | **segue esperando** o documento existir |
 
 ---
 

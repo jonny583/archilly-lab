@@ -166,3 +166,26 @@ Próximo na fila: nada. 5 propostas esperando o chat, sendo a primeira o delta c
   1.2 e a segunda o LAB-04 (straight skeleton), que virou o passo óbvio do Symbios.
 === FIM ===
 ```
+
+---
+
+## 15/09/2026 · LAB-04 — o Symbios passa a fazer lote
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-04 ===
+Estado: LAB-04 concluído e mesclado. Testes: esteira 48/48 (21 novos), testfit 14/14,
+  tsc e lint limpos nos dois. Despertador COM conectores do GitHub nesta rodada.
+Feito: esqueleto reto reimplementado em TypeScript (as duas prontas são copyleft) e o
+  ORÁCULO BATE PONTO A PONTO — nós, offsets e frentes de onda, fechamento 1,000.
+  O Symbios sai de 0 lotes: ensaio-47ha 213 lotes / 6,59 ha / ZERO violação;
+  geo-antonina 901 lotes / 26,67 ha / 4 violações (0,44 % dos lotes, contra 3,81 % do
+  motor de parcelamento). Determinismo OK nas duas. 4 defeitos do LAB pegos pela régua
+  do Generate, o maior deles: a borda da quadra do Symbios é o EIXO da rua, não o
+  meio-fio — lote encostado nela deu via-sobre-lote em 369 de 369 (D52, igual ao D18).
+Achados para outros apps ou Central: nenhum novo.
+Depende do Jonny: nada. A lista dele segue vazia desde o D49.
+Próximo na fila: LAB-05 (reconectar a rede, recortar quadra que atravessa, descartar
+  lasca pela D48) — condição cumprida. O LAB-04 já mediu o que ele vale: 119 das 698
+  quadras de geo-antonina atravessam a divisa e hoje ficam sem lote nenhum.
+=== FIM ===
+```
