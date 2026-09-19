@@ -121,7 +121,52 @@ existindo** — a cópia do Lab é byte a byte igual à do repositório irmão.
 
 ---
 
+## A fila de 19/09 — a tela unificada
+
+O chat trouxe a **decisão de família**: a interface de parcelamento se unifica na
+tela do Laboratório de Parcelamento, dentro do repositório do Generate, com
+**vários motores sob a mesma tela** — todos visíveis, todos ligados por padrão,
+motor padrão o do Parcelamento, escolha do usuário salva, e **só entra no ranking
+candidata aprovada pelo Validator**.
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-13** | A comparação que serve de base: 5 glebas, 3 motores, uma tabela | ✅ **concluído em 19/09/2026** | nenhuma |
+| **LAB-14** | `docs/CONTRATO_MOTOR_UNIFICADO_v1.md` — a porta única, provada com os três motores | ✅ **concluído em 19/09/2026** | LAB-13 |
+
+### LAB-13 · A comparação que serve de base — ✅ concluído
+
+**Entregue:** [`../relatorios/LAB-13.md`](../relatorios/LAB-13.md). Cinco glebas,
+quatro concorrentes (as duas candidatas do Generate contam separadas), **uma
+régua só** — Validator, Judge e `medirSobras`, todos do Generate, e todos
+alcançados pelo mesmo caminho. **Determinismo OK em 20 de 20.** Sem recomendação
+de produto, como o prompt mandou.
+
+**Dois achados:** a régua de forma punia quem gira o lote pela rua (D63), e
+**nenhuma das cinco glebas tem via desenhada à mão** — a única atração que existe
+é uma testada de frente sobre a divisa, que é outra coisa (D64).
+
+### LAB-14 · O contrato de motor unificado — ✅ concluído
+
+**Entregue:** [`../CONTRATO_MOTOR_UNIFICADO_v1.md`](../CONTRATO_MOTOR_UNIFICADO_v1.md)
+e [`../relatorios/LAB-14.md`](../relatorios/LAB-14.md). A porta está escrita, os
+quatro motores a implementam, e **cada capacidade declarada é desmentida por
+medição se for falsa** — 13 experimentos.
+
+**O teste achou dois defeitos que viraram cláusula:** o Symbios **estourava** em
+gleba sem relevo (virou `exigeRelevo` e a proibição de exceção, D66), e a rampa
+máxima **não existe na saída do contrato v1** (virou `rampaMediaMaxima_pct`, com
+o nome feio de propósito, D67).
+
+**O contrato vai ao Generate pelo chat.** O Lab não escreve no repositório
+vizinho.
+
+---
+
 ## A fila nova de 15/09 — **os itens não chegaram**
+
+*(Resolvido em 19/09: os prompts chegaram — são o LAB-13 e o LAB-14 acima. O
+nome do aplicativo de orçamento segue cortado.)*
 
 O chat anunciou fila nova com despertador de 60 minutos, **mas a mensagem cortou
 antes de listar os prompts** — ela termina em *"lançada como item de custo (ponte

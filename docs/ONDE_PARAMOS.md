@@ -4,51 +4,116 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 15/09/2026 · **Último prompt executado:** LF-FINAL-2
-**Estado:** **aguardando o chat mandar os prompts da fila nova.** A decisão de
-urbanismo do Jonny e a regra nova do despertador já estão gravadas e mescladas.
+**Última atualização:** 19/09/2026 · **Último prompt executado:** LAB-14
+**Estado:** **os dois prompts da fila de 19/09 estão mesclados.** Aguardando o
+chat — não há despertador, e a D62 explica por quê.
 
 ---
 
 ## Em uma frase
 
-**A fila de 15/09 acabou e a nova foi anunciada, mas os prompts dela não
-chegaram** — a mensagem do chat cortou no meio. O que veio inteiro está gravado:
-a **travessia sobre APP é exceção, não padrão** (D61, decisão do Jonny) e o
-**despertador que acorda sem item pronto se apaga** (D62).
+**A família decidiu unificar a tela de parcelamento com vários motores por
+baixo, e os dois prompts que essa decisão pediu estão entregues:** a comparação
+que serve de base (LAB-13) e a porta única que qualquer motor precisa cumprir
+(LAB-14), com os quatro motores implementando-a e **cada capacidade declarada
+sendo desmentida por medição se for falsa**.
 
-## Por que NÃO existe despertador agora
+## A fila — a de 19/09, esgotada
 
-Pela **D62**, um despertador que dispara e não acha item pronto **se apaga**. Se
-eu criasse um agora, com a fila vazia, ele morreria no primeiro disparo — antes
-de a lista de prompts chegar. **O despertador nasce junto com os prompts.**
+| Prompt | Estado |
+|---|---|
+| **LAB-13** — três motores, cinco glebas, uma régua só | **concluído em 19/09/2026** |
+| **LAB-14** — o contrato de motor unificado, provado | **concluído em 19/09/2026** |
 
-Regra de família, intocada: **um despertador por aplicativo; nunca se toca no de
-outro repositório.** Os dos outros apps seguem rodando.
+Antes: **LAB-00** (09/09), **LAB-01** (10/09), **LAB-07** (13/09), a fila de
+14/09 (LF-01, LAB-02, LAB-03, LAB-08, LF-FINAL) e a de 15/09 (LAB-04, LAB-05,
+LF-FINAL-2).
+
+## O que vai ao Generate — **pelo chat, não por commit**
+
+[`CONTRATO_MOTOR_UNIFICADO_v1.md`](CONTRATO_MOTOR_UNIFICADO_v1.md). O prompt foi
+explícito: *"não escreva em nenhum outro repositório; o contrato vai por mim ao
+Generate"*. `git status` limpo nos três clones vizinhos.
+
+**E dois pedidos concretos ao contrato v1 deles**, os dois com número ao lado:
+
+1. **dois tipos no lugar de `via_existente`** — `via_desenhada` e
+   `testada_de_frente`. Hoje as duas chegam iguais e o motor não tem como
+   distingui-las; perguntar "seguiu a linha?" a uma testada **premiaria o
+   defeito** (D64);
+2. **`rampaMaxima_pct` por via na SAÍDA.** Só existe `rampaMedia_pct`, e o pico é
+   o que reprova — o LAB-02 mediu 161 % num cruzamento, diluído numa média mansa
+   (D67).
+
+## Por que NÃO existe despertador
+
+Pela **D62**, um despertador que dispara e não acha item pronto **se apaga**. A
+fila está esgotada; ele nasce junto com os próximos prompts.
+
+## O que depende do Jonny — **um item**
+
+**Quanto é "desvio desproporcional"?** — o número que destrava a D61 e decide
+quando a travessia sobre APP entra. Sem ele, **nenhuma travessia é proposta**.
+Está em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), com três formas de
+responder.
 
 ## O que espera o chat
 
-1. **Os prompts da fila nova.** A mensagem terminou em *"lançada como item de
-   custo (ponte ou bueiro) para o Or"* — e o nome do aplicativo de orçamento
-   também ficou cortado. **Não adivinhei nenhum dos dois.**
-2. **O delta contra o Padrão 1.2**, quando ele existir.
-3. **As 4 violações** que sobraram em `geo-antonina` — suspeita escrita, **não
+1. **Os prompts seguintes**, se houver.
+2. **O nome do aplicativo de orçamento** — a mensagem de 15/09 cortou em "para o
+   Or…", e o destino do item de custo da travessia segue sem confirmação.
+3. **O delta contra o Padrão 1.2**, quando ele existir.
+4. **As 4 violações** que sobraram em `geo-antonina` — suspeita escrita, **não
    medida**.
-4. **As 96 quadras de esqueleto não confiável.**
-5. **A quadra dentro de APP** — o recorte do LAB-05 é pela divisa.
-6. **Achado novo, para o Geo:** a D61 manda a travessia sair **perpendicular ao
-   curso d'água**, e o Lab recebe a restrição como **polígono de APP**, não como
-   a linha. Sem o eixo, "perpendicular" não tem a quê.
+5. **As 96 quadras de esqueleto não confiável.**
+6. **A quadra dentro de APP** — o recorte do LAB-05 é pela divisa.
+7. **Achado para o Geo:** a D61 pede travessia **perpendicular ao curso d'água**,
+   e a APP chega como polígono, não como linha.
 
-## O que depende do Jonny — **um item, e é o que destrava a D61**
+---
 
-**Quanto é "desvio desproporcional"?** É o número que decide quando contornar a
-APP deixa de valer a pena e a travessia entra. Sem ele, **nenhuma travessia é
-proposta** — a escolha conservadora, e reversível. Está em
-[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), com três formas de responder.
+# LAB-13 e LAB-14 — a tela unificada · 19/09/2026
 
-O item da ponte, que estava aberto desde o LAB-05, **ele respondeu** — virou a
-D61 e está riscado na lista dele, não apagado.
+Relatórios: [`relatorios/LAB-13.md`](relatorios/LAB-13.md) e
+[`relatorios/LAB-14.md`](relatorios/LAB-14.md) · números crus:
+[`provas/LAB-13/`](provas/LAB-13/)
+
+### A tabela, em resumo
+
+Quatro concorrentes (as duas candidatas do Generate contam separadas), cinco
+glebas, **uma régua só** — Validator, Judge e `medirSobras`, todos do Generate.
+**Determinismo OK em 20 de 20.**
+
+| o que cada um faz melhor | o número que sustenta |
+|---|---|
+| **Generate · ortogonal** — mais aproveita terreno regular | 75,2 %, 74,6 % e 69,6 % de área privativa nas três glebas de forma simples; sobra em **poucas peças grandes** (7, 14, 30) |
+| **Generate · espinha** — melhor acompanha forma difícil | passa a ortogonal nas duas glebas de contorno real: **1 803 × 1 605** e **1 657 × 1 389** |
+| **Laboratório de Parcelamento** — menos desperdiça terra | sobra de **0,1 % a 13,7 %** da massa, contra 7 % a 58 % dos outros. **O preço:** é o único com violação do Validator nas cinco (15 a 29) |
+| **Symbios + subdivisão do Lab** — o único que lê relevo | e o único com lote que **não é retângulo** (mediana 0,10 a 0,14). Entrega menos lote que todos (14 % a 23 %) |
+
+**Sem recomendação de produto**, como o prompt mandou.
+
+### A porta única
+
+**O motor declara o que sabe fazer, e o que ele declara é conferível medindo.**
+Onze campos, cada um com o experimento que o desmente, e **13 experimentos** que
+rodam a cada `bun test`. Os quatro motores a implementam.
+
+**E o teste achou dois defeitos que viraram cláusula do contrato:**
+
+- **o Symbios estourava** em gleba sem relevo — *"tem 0 vértices cotados"*. Não é
+  defeito: é exigência não declarada, e numa tela comum **motor que estoura
+  derruba os outros junto**. Virou `exigeRelevo` e a proibição de exceção (D66);
+- **a rampa máxima não existe na saída do v1.** O indicador passou a chamar-se
+  `rampaMediaMaxima_pct`, com o nome feio de propósito: ele lembra a falta (D67).
+
+### Dois achados de medição, antes de virarem tabela
+
+- **a régua de forma punia quem gira o lote pela rua**: 754 de 776 lotes da
+  espinha marcados "irregulares" sendo retângulos. Com a caixa girada, **84** e
+  mediana 0,000 (D63);
+- **o aparo estava invertido**: "aparou 99,68 % do comprimento" é o complemento
+  de 0,32 %. Ninguém apara 99 % de uma rede e ainda a julga.
 
 ---
 

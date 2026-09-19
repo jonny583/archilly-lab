@@ -4,9 +4,9 @@
 o **Validator e o Judge do Generate**.
 
 ```text
-Archilly revision: LAB-05
+Archilly revision: LAB-14
 Runtime:           Bun 1.3+
-Status:            em uso — LAB-02, LAB-03, LAB-08, LAB-04 e LAB-05 moram aqui
+Status:            em uso — LAB-02 a LAB-05, LAB-08, LAB-13 e LAB-14 moram aqui
 ```
 
 ## Por que esta pasta existe
@@ -28,13 +28,16 @@ Então o que é de ninguém mora aqui. Ver `docs/DECISOES.md`, D31.
 | `src/symbios-para-contrato.ts` | rede viária + quadras **e lotes** do Symbios → SAÍDA v1 |
 | `src/esqueleto/esqueleto.ts` | o **esqueleto reto**, reimplementado da literatura (D50): uma face por aresta, e o recuo como frente de onda |
 | `src/lotear.ts` | a quadra vira lotes, pelos parâmetros da gleba — o lote nasce no **meio-fio**, nunca no eixo (D52) |
+| `src/motores/` | os três motores na mesma régua, e a régua: Validator, Judge e `medirSobras`, todos do Generate (LAB-13) |
+| `src/porta/` | a **porta única** (LAB-14) — a forma executável do `docs/CONTRATO_MOTOR_UNIFICADO_v1.md`, e os quatro motores que a implementam |
 | `src/relevo-k-vizinhos.ts` | o interpolador **defeituoso**, replicado para servir de controle (D37) — nunca em produção |
 | `src/fixtures-com-relevo.ts` | as glebas-padrão do Generate + relevo sintético declarado |
 | `ferramentas/lab02.ts` | a medição do LAB-02: antes e depois do recorte, nas três glebas |
 | `ferramentas/lab03.ts` | a medição do LAB-03: a interpolação medida no traçado, e as fixtures |
 | `ferramentas/lab04.ts` | a medição do LAB-04: lotes, área vendável e violações contra os outros dois motores |
 | `ferramentas/lab05.ts` | a medição do LAB-05: antes e depois do recorte de quadra e do descarte de lasca, nas cinco glebas |
-| `tests/` | 64 testes |
+| `ferramentas/lab13.ts` | a medição do LAB-13: cinco glebas × quatro motores, uma tabela |
+| `tests/` | 93 testes |
 
 O recorte em si **não** mora aqui: ele é geometria pura e vive no adaptador do
 Symbios, em `../symbios/adapter/src/recorte.ts` e `../symbios/adapter/src/poligono.ts`,
@@ -61,6 +64,7 @@ bun run lab02       # docs/provas/LAB-02/
 bun run lab03       # docs/provas/LAB-03/ e docs/fixtures/glebas-padrao-com-relevo/
 bun run lab04       # docs/provas/LAB-04/ e docs/contratos/saidas/
 bun run lab05       # docs/provas/LAB-05/ e docs/contratos/saidas/
+bun run lab13       # docs/provas/LAB-13/
 bun test
 bun run typecheck && bun run lint
 ```

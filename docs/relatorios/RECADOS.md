@@ -246,3 +246,23 @@ Depende do Jonny: quanto é "desvio desproporcional"? Sem o número, nenhuma tra
 Próximo na fila: nada pronto — mandem os prompts, e o despertador nasce com eles.
 === FIM ===
 ```
+
+
+---
+
+## 19/09/2026 · LAB-13 e LAB-14 — a tela unificada
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-13 e LAB-14 ===
+Estado: os dois mesclados. Esteira 93/93 (26 novos), testfit 14/14, tsc e lint limpos. Sem despertador: fila esgotada, e pela D62 ele nasce com os próximos prompts.
+Feito: LAB-13 — 5 glebas, 4 concorrentes, UMA régua (Validator, Judge e medirSobras, todos do
+  Generate). Determinismo 20/20, e sem recomendação de produto, como pedido.
+  LAB-14 — a porta única escrita, os 4 motores a implementam, e CADA capacidade declarada é
+  desmentida por medição se for falsa: 13 experimentos. O teste achou 2 defeitos que viraram
+  cláusula — o Symbios ESTOURAVA em gleba sem relevo (motor que estoura derruba a tela comum)
+  e a rampa MÁXIMA não existe na saída do v1. E nenhuma das 5 glebas tem via desenhada à mão: a única atração é testada de frente sobre a divisa, que é outra pergunta. D63 a D67.
+Achados para outros apps ou Central: GENERATE — o contrato v1 precisa de (1) dois tipos no lugar de via_existente e (2) rampaMaxima_pct por via na SAÍDA. Os dois com número no documento.
+Depende do Jonny: quanto é "desvio desproporcional"? (D61) — não trava nada.
+Próximo na fila: nada. docs/CONTRATO_MOTOR_UNIFICADO_v1.md vai ao Generate por você.
+=== FIM ===
+```

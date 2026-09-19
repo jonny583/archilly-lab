@@ -1311,3 +1311,103 @@ recria quando destravar — em vez de o repositório acordar de hora em hora par
 descobrir que continua travado.
 
 **Gravada no CLAUDE.md §1-A**, que é onde a regra da fila mora.
+
+---
+
+## D63 · A régua de forma do lote é a caixa GIRADA, não a dos eixos · 19/09/2026
+
+**A decisão:** a irregularidade de um lote é medida contra a **caixa de menor
+área em qualquer orientação**, e não contra a caixa alinhada aos eixos.
+
+**Por que foi preciso.** A fórmula do Generate é `1 − área / área da caixa`, com
+caixa alinhada aos eixos — e ela **pune quem gira o lote pela rua**. Medido na
+primeira passada do LAB-13: **754 de 776 lotes** da candidata espinha em
+`ensaio-47ha` marcados "irregulares", mediana **0,657**. E eles são retângulos.
+
+**Como:** teorema de Freeman & Shapira (1975) — a caixa mínima de um polígono
+tem um lado colinear com uma aresta do fecho convexo, então basta testar as
+arestas. Retângulo girado dá **zero**, em qualquer ângulo. Com ela, os mesmos 776
+lotes dão **84 irregulares e mediana 0,000**.
+
+**As duas saem no JSON**, de propósito: a dos eixos mantém continuidade com o que
+o Generate já publicou; a girada é a que responde *"o lote tem forma boa?"*. A
+tabela usa a girada, e o relatório diz isso.
+
+## D64 · Testada de frente não é via desenhada à mão · 19/09/2026
+
+**A decisão:** as duas são separadas **por medição** — a linha cujo ponto médio
+está a menos de 1 m da divisa é **testada de frente**; a de dentro da gleba é
+**via desenhada à mão**. E cada uma tem a sua pergunta.
+
+| | o que o motor deve fazer | o que se mede |
+|---|---|---|
+| via desenhada à mão | **seguir** a linha | quanto do comprimento tem eixo a menos de meia caixa |
+| testada de frente | dar **lote de frente**, nunca rua em cima | quantos lotes têm aresta na linha |
+
+**Como apareceu.** O LAB-13 foi mandado medir "aderência a via desenhada à mão
+quando aplicável". Medido: das cinco glebas, **quatro não têm atração nenhuma**,
+e a quinta tem uma — *"Testada de frente L1"*, 180,2 m, com os **dois extremos a
+0,00 m da divisa**.
+
+**Por que a distinção importa:** perguntar *"o motor seguiu esta linha?"* a uma
+testada de frente **premiaria o defeito** — um motor que pusesse rua exatamente
+sobre a divisa marcaria 100 % de aderência estando errado.
+
+**O contrato v1 não faz essa distinção:** as duas chegam como
+`atracoes[].tipo = "via_existente"`. Enquanto ele não ganhar dois tipos, a
+separação por medição é **remendo, declarado como tal**, e o pedido está no §3 do
+`CONTRATO_MOTOR_UNIFICADO_v1.md`.
+
+## D65 · A porta única: o motor declara o que sabe fazer, e a declaração é falsificável · 19/09/2026
+
+**A decisão:** `external-engines/esteira/src/porta/porta.ts` é a forma executável
+do `docs/CONTRATO_MOTOR_UNIFICADO_v1.md`, e **todo campo de `Capacidades` tem um
+experimento que o desmente** (`tests/porta.test.ts`).
+
+**Por quê.** Capacidade que não se pode desmentir é propaganda. Numa tela com
+vários motores lado a lado, o urbanista compara duas propostas supondo que os
+dois motores receberam a mesma coisa — e o LAB-13 mediu que **três dos quatro
+ignoram o relevo**, **os quatro ignoram a atração**, **um não parcela em lote** e
+**outro precisa de conserto do Lab** para o contrato aceitar o arquivo. Nenhuma
+dessas faltas estava declarada; todas foram descobertas medindo.
+
+**O que se ganha:** um motor que declarar errado **quebra o teste**. O que se
+perde: o contrato pergunta só o que alguém já pensou em perguntar — a declaração
+pode estar completa e ainda assim ser omissa. Está escrito no §10 do documento.
+
+## D66 · Motor que estoura derruba a tela: a porta proíbe exceção · 19/09/2026
+
+**A decisão:** `gerar` **nunca lança exceção**. O que o motor não consegue fazer
+volta como `Resultado` com `postura: "recusei"` e a razão escrita.
+
+**Como apareceu.** O experimento do `leRelevo` roda a mesma gleba com e sem
+curvas de nível. Sem elas, o Symbios **estourou**: *"tem 0 vértices cotados; o
+mapa de alturas pede pelo menos 3"*.
+
+**Não é defeito dele: é exigência** — e exigência não declarada, numa tela com
+vários motores, é tela em branco na frente do urbanista. Pior: numa tela comum,
+**motor que estoura derruba os outros junto**.
+
+Virou duas coisas: o campo **`exigeRelevo`**, e a proibição de estourar, com
+teste que a trava.
+
+**As três posturas legítimas** quando o motor não sabe fazer algo — `recusei`,
+`ignorei`, `substitui` — e a quarta, **ignorar em silêncio, é a única proibida**.
+
+## D67 · O indicador de rampa se chama `rampaMediaMaxima_pct`, e o nome feio é proposital · 19/09/2026
+
+**A decisão:** o indicador de greide da porta é a **maior rampa média** entre as
+vias, não a rampa máxima — e o nome diz isso.
+
+**Por quê.** O contrato v1 carrega `vias[].rampaMedia_pct` e **nada mais**;
+`rampaMaxima_pct` existe só na ENTRADA, como o limite que o usuário pede.
+**Nenhum motor consegue reportar o pico por este contrato** — e o pico é o que
+reprova: o LAB-02 mediu **161 % num cruzamento**, diluído numa média mansa.
+
+Chamá-lo de `rampaMaxima_pct` seria mentir no nome do campo. O nome feio **lembra
+a falta** toda vez que alguém o lê, e o pedido de `rampaMaxima_pct` por via na
+SAÍDA está no §6 do documento, com o número ao lado.
+
+**Como apareceu:** o experimento do `calculaGreide` reprovou o Symbios, que é o
+único dos quatro que mede greide. Medido antes de atribuir, o defeito era do
+indicador — ele lia um campo que a saída não tem.
