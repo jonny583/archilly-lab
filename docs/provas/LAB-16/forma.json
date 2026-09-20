@@ -1,0 +1,787 @@
+{
+  "prompt": "LAB-16",
+  "geradoEm": "2026-09-19T00:00:00.000Z",
+  "semente": 20260913,
+  "contrato": "1",
+  "cortesDeclarados": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "observacao": "qual corte separa lote bom de lote ruim é decisão de urbanismo, e está em docs/PENDENCIAS_JONNY.md",
+  "glebas": [
+    {
+      "prompt": "LAB-16",
+      "gleba": "completo",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · candidata ortogonal",
+          "recusado": false,
+          "forma": {
+            "lotes": 1605,
+            "mediana": 0,
+            "p90": 0,
+            "p99": 0.0565,
+            "maxima": 0.2542,
+            "acimaDe": {
+              "0.01": 66,
+              "0.05": 19,
+              "0.1": 7
+            },
+            "acimaDeUmPorCentoPelosEixos": 66,
+            "porClasse": {
+              "trapézio": 2,
+              "retângulo": 1526,
+              "polígono 10 lados": 2,
+              "polígono 28 lados com 1 lado(s) curvo(s)": 1,
+              "pentágono": 34,
+              "polígono 8 lados": 3,
+              "polígono 19 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 36 lados": 1,
+              "polígono 11 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 18 lados": 4,
+              "polígono 19 lados": 3,
+              "polígono 22 lados": 2,
+              "polígono 31 lados": 2,
+              "polígono 9 lados": 1,
+              "polígono 15 lados": 2,
+              "polígono 24 lados": 2,
+              "polígono 23 lados": 2,
+              "polígono 26 lados": 2,
+              "polígono 29 lados": 1,
+              "polígono 16 lados": 1,
+              "polígono 17 lados": 1,
+              "polígono 13 lados": 1,
+              "polígono 11 lados": 2,
+              "polígono 30 lados": 2,
+              "polígono 20 lados": 2,
+              "polígono 12 lados": 2,
+              "polígono 32 lados": 1,
+              "polígono 7 lados": 1
+            },
+            "comLadoCurvo": 3,
+            "area_m2": 614114.22
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · candidata espinha",
+          "recusado": false,
+          "forma": {
+            "lotes": 1803,
+            "mediana": 0,
+            "p90": 0.0347,
+            "p99": 0.5012,
+            "maxima": 0.5378,
+            "acimaDe": {
+              "0.01": 226,
+              "0.05": 97,
+              "0.1": 76
+            },
+            "acimaDeUmPorCentoPelosEixos": 1803,
+            "porClasse": {
+              "retângulo": 1563,
+              "pentágono": 90,
+              "polígono 33 lados com 2 lado(s) curvo(s)": 4,
+              "polígono 18 lados": 1,
+              "quadrilátero": 11,
+              "polígono 29 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 11 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 11 lados": 2,
+              "polígono 30 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 12 lados com 1 lado(s) curvo(s)": 3,
+              "polígono 22 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 30 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 34 lados com 2 lado(s) curvo(s)": 4,
+              "polígono 13 lados": 2,
+              "polígono 35 lados com 2 lado(s) curvo(s)": 4,
+              "polígono 32 lados com 2 lado(s) curvo(s)": 5,
+              "polígono 12 lados": 3,
+              "polígono 28 lados com 2 lado(s) curvo(s)": 2,
+              "polígono 18 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 32 lados com 1 lado(s) curvo(s)": 4,
+              "polígono 24 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 16 lados com 1 lado(s) curvo(s)": 4,
+              "polígono 31 lados com 1 lado(s) curvo(s)": 4,
+              "polígono 38 lados": 1,
+              "polígono 14 lados": 3,
+              "polígono 28 lados": 1,
+              "polígono 36 lados com 2 lado(s) curvo(s)": 4,
+              "polígono 11 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 39 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 10 lados": 1,
+              "polígono 29 lados com 2 lado(s) curvo(s)": 2,
+              "polígono 19 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 37 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 23 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 17 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 26 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 13 lados com 1 lado(s) curvo(s)": 13,
+              "polígono 33 lados": 9,
+              "polígono 31 lados com 2 lado(s) curvo(s)": 4,
+              "polígono 39 lados": 2,
+              "polígono 24 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 30 lados com 2 lado(s) curvo(s)": 2,
+              "polígono 36 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 17 lados com 2 lado(s) curvo(s)": 3,
+              "polígono 32 lados": 2,
+              "polígono 28 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 7 lados": 2,
+              "polígono 15 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 27 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 54 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 33 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 14 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 34 lados com 1 lado(s) curvo(s)": 3,
+              "polígono 19 lados": 1,
+              "polígono 8 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 20 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 15 lados com 2 lado(s) curvo(s)": 2,
+              "polígono 15 lados": 4,
+              "polígono 35 lados": 2,
+              "polígono 44 lados": 1,
+              "polígono 54 lados": 1
+            },
+            "comLadoCurvo": 101,
+            "area_m2": 699111.77
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "recusado": false,
+          "forma": {
+            "lotes": 1060,
+            "mediana": 0,
+            "p90": 0,
+            "p99": 0.0685,
+            "maxima": 0.1879,
+            "acimaDe": {
+              "0.01": 33,
+              "0.05": 12,
+              "0.1": 4
+            },
+            "acimaDeUmPorCentoPelosEixos": 1060,
+            "porClasse": {
+              "retângulo": 1023,
+              "polígono 6 lados": 1,
+              "trapézio": 20,
+              "pentágono": 16
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 424439.5
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "recusado": false,
+          "forma": {
+            "lotes": 932,
+            "mediana": 0.1134,
+            "p90": 0.2907,
+            "p99": 0.3945,
+            "maxima": 0.5352,
+            "acimaDe": {
+              "0.01": 814,
+              "0.05": 688,
+              "0.1": 516
+            },
+            "acimaDeUmPorCentoPelosEixos": 932,
+            "porClasse": {
+              "pentágono": 402,
+              "polígono 6 lados": 213,
+              "quadrilátero": 68,
+              "trapézio": 114,
+              "retângulo": 96,
+              "polígono 7 lados": 26,
+              "triângulo": 2,
+              "polígono 10 lados": 2,
+              "polígono 9 lados": 5,
+              "polígono 8 lados": 3,
+              "paralelogramo": 1
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 287286.93
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-16",
+      "gleba": "sintetico-50ha-ondulado",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · candidata ortogonal",
+          "recusado": false,
+          "forma": {
+            "lotes": 1003,
+            "mediana": 0,
+            "p90": 0,
+            "p99": 0.0758,
+            "maxima": 0.1212,
+            "acimaDe": {
+              "0.01": 60,
+              "0.05": 15,
+              "0.1": 8
+            },
+            "acimaDeUmPorCentoPelosEixos": 77,
+            "porClasse": {
+              "retângulo": 934,
+              "pentágono": 33,
+              "polígono 21 lados": 1,
+              "polígono 19 lados": 4,
+              "polígono 15 lados": 3,
+              "polígono 30 lados": 6,
+              "polígono 7 lados": 1,
+              "polígono 32 lados": 1,
+              "polígono 6 lados": 1,
+              "polígono 27 lados": 1,
+              "polígono 17 lados": 1,
+              "polígono 9 lados": 1,
+              "polígono 23 lados": 3,
+              "polígono 26 lados": 1,
+              "polígono 18 lados": 3,
+              "polígono 10 lados": 1,
+              "polígono 24 lados": 1,
+              "polígono 14 lados": 3,
+              "polígono 16 lados": 1,
+              "polígono 29 lados": 1,
+              "polígono 22 lados": 2
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 372956.53
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · candidata espinha",
+          "recusado": false,
+          "forma": {
+            "lotes": 785,
+            "mediana": 0,
+            "p90": 0.0001,
+            "p99": 0.4179,
+            "maxima": 0.5104,
+            "acimaDe": {
+              "0.01": 67,
+              "0.05": 31,
+              "0.1": 28
+            },
+            "acimaDeUmPorCentoPelosEixos": 785,
+            "porClasse": {
+              "retângulo": 713,
+              "polígono 16 lados": 3,
+              "polígono 32 lados com 1 lado(s) curvo(s)": 5,
+              "pentágono": 15,
+              "polígono 15 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 38 lados com 2 lado(s) curvo(s)": 2,
+              "quadrilátero": 5,
+              "polígono 20 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 37 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 26 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 13 lados com 1 lado(s) curvo(s)": 8,
+              "polígono 27 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 22 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 12 lados": 1,
+              "polígono 30 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 35 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 14 lados": 1,
+              "polígono 34 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 38 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 36 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 39 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 30 lados": 2,
+              "polígono 13 lados": 1,
+              "polígono 14 lados com 1 lado(s) curvo(s)": 5,
+              "polígono 33 lados": 1,
+              "polígono 28 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 29 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 15 lados": 1,
+              "polígono 31 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 33 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 17 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 18 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 16 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 31 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 54 lados": 1
+            },
+            "comLadoCurvo": 41,
+            "area_m2": 333429.52
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "recusado": false,
+          "forma": {
+            "lotes": 501,
+            "mediana": 0,
+            "p90": 0,
+            "p99": 0.1189,
+            "maxima": 0.2615,
+            "acimaDe": {
+              "0.01": 14,
+              "0.05": 8,
+              "0.1": 7
+            },
+            "acimaDeUmPorCentoPelosEixos": 501,
+            "porClasse": {
+              "retângulo": 485,
+              "pentágono": 14,
+              "trapézio": 2
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 199892.2
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "recusado": false,
+          "forma": {
+            "lotes": 318,
+            "mediana": 0.1409,
+            "p90": 0.2919,
+            "p99": 0.3732,
+            "maxima": 0.4301,
+            "acimaDe": {
+              "0.01": 301,
+              "0.05": 268,
+              "0.1": 214
+            },
+            "acimaDeUmPorCentoPelosEixos": 318,
+            "porClasse": {
+              "polígono 6 lados": 70,
+              "pentágono": 142,
+              "polígono 10 lados": 1,
+              "trapézio": 62,
+              "polígono 7 lados": 19,
+              "quadrilátero": 14,
+              "retângulo": 9,
+              "polígono 8 lados": 1
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 95885.17
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-16",
+      "gleba": "sintetico-10ha-plano",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · candidata ortogonal",
+          "recusado": false,
+          "forma": {
+            "lotes": 171,
+            "mediana": 0,
+            "p90": 0.0211,
+            "p99": 0.0968,
+            "maxima": 0.117,
+            "acimaDe": {
+              "0.01": 22,
+              "0.05": 6,
+              "0.1": 1
+            },
+            "acimaDeUmPorCentoPelosEixos": 22,
+            "porClasse": {
+              "polígono 23 lados": 5,
+              "polígono 15 lados": 2,
+              "retângulo": 147,
+              "pentágono": 10,
+              "polígono 26 lados": 1,
+              "polígono 14 lados": 1,
+              "polígono 19 lados": 2,
+              "polígono 18 lados": 1,
+              "polígono 8 lados": 1,
+              "polígono 32 lados": 1
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 69570.99
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · candidata espinha",
+          "recusado": false,
+          "forma": {
+            "lotes": 139,
+            "mediana": 0,
+            "p90": 0.053,
+            "p99": 0.5019,
+            "maxima": 0.5334,
+            "acimaDe": {
+              "0.01": 23,
+              "0.05": 17,
+              "0.1": 12
+            },
+            "acimaDeUmPorCentoPelosEixos": 139,
+            "porClasse": {
+              "retângulo": 115,
+              "polígono 31 lados com 1 lado(s) curvo(s)": 2,
+              "quadrilátero": 3,
+              "polígono 12 lados": 1,
+              "polígono 34 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 35 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 31 lados": 1,
+              "polígono 24 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 17 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 32 lados com 2 lado(s) curvo(s)": 1,
+              "pentágono": 1,
+              "polígono 35 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 29 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 17 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 15 lados": 3,
+              "polígono 28 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 18 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 18 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 43 lados": 1
+            },
+            "comLadoCurvo": 14,
+            "area_m2": 60699.89
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "recusado": false,
+          "forma": {
+            "lotes": 124,
+            "mediana": 0,
+            "p90": 0,
+            "p99": 0.2398,
+            "maxima": 0.2728,
+            "acimaDe": {
+              "0.01": 8,
+              "0.05": 8,
+              "0.1": 6
+            },
+            "acimaDeUmPorCentoPelosEixos": 124,
+            "porClasse": {
+              "retângulo": 116,
+              "trapézio": 2,
+              "pentágono": 6
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 49028.69
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "recusado": false,
+          "forma": {
+            "lotes": 66,
+            "mediana": 0,
+            "p90": 0.2956,
+            "p99": 0.3108,
+            "maxima": 0.3108,
+            "acimaDe": {
+              "0.01": 24,
+              "0.05": 22,
+              "0.1": 19
+            },
+            "acimaDeUmPorCentoPelosEixos": 66,
+            "porClasse": {
+              "pentágono": 22,
+              "retângulo": 35,
+              "trapézio": 9
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 23534.81
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-16",
+      "gleba": "ensaio-47ha",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · candidata ortogonal",
+          "recusado": false,
+          "forma": {
+            "lotes": 974,
+            "mediana": 0,
+            "p90": 0,
+            "p99": 0.1179,
+            "maxima": 0.1179,
+            "acimaDe": {
+              "0.01": 46,
+              "0.05": 22,
+              "0.1": 22
+            },
+            "acimaDeUmPorCentoPelosEixos": 46,
+            "porClasse": {
+              "retângulo": 902,
+              "polígono 30 lados": 22,
+              "polígono 16 lados": 22,
+              "pentágono": 22,
+              "polígono 9 lados": 4,
+              "polígono 15 lados": 1,
+              "polígono 14 lados": 1
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 353306.71
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · candidata espinha",
+          "recusado": false,
+          "forma": {
+            "lotes": 776,
+            "mediana": 0,
+            "p90": 0.0106,
+            "p99": 0.3754,
+            "maxima": 0.4568,
+            "acimaDe": {
+              "0.01": 84,
+              "0.05": 36,
+              "0.1": 29
+            },
+            "acimaDeUmPorCentoPelosEixos": 754,
+            "porClasse": {
+              "retângulo": 689,
+              "polígono 6 lados": 1,
+              "polígono 33 lados com 2 lado(s) curvo(s)": 2,
+              "quadrilátero": 10,
+              "pentágono": 39,
+              "polígono 27 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 27 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 32 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 13 lados com 1 lado(s) curvo(s)": 3,
+              "polígono 29 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 33 lados com 1 lado(s) curvo(s)": 3,
+              "polígono 12 lados com 1 lado(s) curvo(s)": 5,
+              "polígono 31 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 11 lados": 2,
+              "polígono 35 lados": 1,
+              "polígono 14 lados": 1,
+              "polígono 28 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 15 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 17 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 17 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 16 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 13 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 19 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 15 lados": 1,
+              "polígono 34 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 18 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 36 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 35 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 30 lados": 1
+            },
+            "comLadoCurvo": 31,
+            "area_m2": 302763.15
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "recusado": false,
+          "forma": {
+            "lotes": 599,
+            "mediana": 0,
+            "p90": 0,
+            "p99": 0.2622,
+            "maxima": 0.2651,
+            "acimaDe": {
+              "0.01": 10,
+              "0.05": 9,
+              "0.1": 9
+            },
+            "acimaDeUmPorCentoPelosEixos": 599,
+            "porClasse": {
+              "pentágono": 10,
+              "retângulo": 580,
+              "trapézio": 9
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 238189.76
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "recusado": false,
+          "forma": {
+            "lotes": 214,
+            "mediana": 0.1042,
+            "p90": 0.2782,
+            "p99": 0.3442,
+            "maxima": 0.3866,
+            "acimaDe": {
+              "0.01": 187,
+              "0.05": 154,
+              "0.1": 110
+            },
+            "acimaDeUmPorCentoPelosEixos": 214,
+            "porClasse": {
+              "pentágono": 82,
+              "polígono 7 lados": 6,
+              "polígono 6 lados": 28,
+              "quadrilátero": 14,
+              "trapézio": 54,
+              "retângulo": 24,
+              "polígono 8 lados": 4,
+              "polígono 10 lados": 1,
+              "polígono 9 lados": 1
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 66144.84
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-16",
+      "gleba": "geo-antonina",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · candidata ortogonal",
+          "recusado": false,
+          "forma": {
+            "lotes": 1389,
+            "mediana": 0,
+            "p90": 0,
+            "p99": 0.0347,
+            "maxima": 0.1211,
+            "acimaDe": {
+              "0.01": 37,
+              "0.05": 8,
+              "0.1": 3
+            },
+            "acimaDeUmPorCentoPelosEixos": 37,
+            "porClasse": {
+              "retângulo": 1350,
+              "pentágono": 18,
+              "polígono 14 lados": 1,
+              "polígono 30 lados": 1,
+              "polígono 26 lados": 1,
+              "polígono 17 lados": 1,
+              "polígono 24 lados": 2,
+              "polígono 19 lados": 2,
+              "polígono 20 lados": 2,
+              "polígono 22 lados": 3,
+              "polígono 15 lados": 1,
+              "polígono 31 lados": 1,
+              "polígono 9 lados": 1,
+              "polígono 23 lados": 2,
+              "polígono 18 lados": 3
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 508580.76
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · candidata espinha",
+          "recusado": false,
+          "forma": {
+            "lotes": 1657,
+            "mediana": 0,
+            "p90": 0.0001,
+            "p99": 0.0912,
+            "maxima": 0.5035,
+            "acimaDe": {
+              "0.01": 51,
+              "0.05": 26,
+              "0.1": 15
+            },
+            "acimaDeUmPorCentoPelosEixos": 1524,
+            "porClasse": {
+              "retângulo": 1601,
+              "polígono 13 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 28 lados com 2 lado(s) curvo(s)": 2,
+              "polígono 35 lados com 2 lado(s) curvo(s)": 1,
+              "pentágono": 22,
+              "polígono 12 lados": 1,
+              "polígono 29 lados com 2 lado(s) curvo(s)": 2,
+              "polígono 37 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 6 lados": 1,
+              "polígono 31 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 34 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 33 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 37 lados com 2 lado(s) curvo(s)": 2,
+              "polígono 27 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 21 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 36 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 24 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 13 lados": 1,
+              "polígono 30 lados com 2 lado(s) curvo(s)": 1,
+              "quadrilátero": 2,
+              "polígono 25 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 16 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 17 lados com 1 lado(s) curvo(s)": 3,
+              "polígono 19 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 32 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 11 lados": 1,
+              "polígono 16 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 15 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 48 lados com 1 lado(s) curvo(s)": 1
+            },
+            "comLadoCurvo": 28,
+            "area_m2": 617449.53
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "recusado": false,
+          "forma": {
+            "lotes": 1386,
+            "mediana": 0,
+            "p90": 0,
+            "p99": 0.0579,
+            "maxima": 0.0826,
+            "acimaDe": {
+              "0.01": 34,
+              "0.05": 15,
+              "0.1": 0
+            },
+            "acimaDeUmPorCentoPelosEixos": 1386,
+            "porClasse": {
+              "retângulo": 1347,
+              "pentágono": 9,
+              "trapézio": 30
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 555017.12
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "recusado": false,
+          "forma": {
+            "lotes": 1014,
+            "mediana": 0.1343,
+            "p90": 0.2947,
+            "p99": 0.3962,
+            "maxima": 0.504,
+            "acimaDe": {
+              "0.01": 939,
+              "0.05": 818,
+              "0.1": 630
+            },
+            "acimaDeUmPorCentoPelosEixos": 1014,
+            "porClasse": {
+              "pentágono": 422,
+              "polígono 6 lados": 236,
+              "quadrilátero": 76,
+              "polígono 7 lados": 49,
+              "trapézio": 154,
+              "triângulo": 2,
+              "polígono 8 lados": 12,
+              "retângulo": 56,
+              "polígono 9 lados": 2,
+              "polígono 11 lados": 2,
+              "paralelogramo": 1,
+              "polígono 10 lados": 2
+            },
+            "comLadoCurvo": 0,
+            "area_m2": 298475.19
+          }
+        }
+      }
+    }
+  ]
+}

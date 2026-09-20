@@ -31,6 +31,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-16.md`](relatorios/LAB-16.md) | **A régua de forma**: o que já estava consertado desde o LAB-13, e os três defeitos que sobravam — o corte inventado, a palavra "irregular" que é veredito de urbanista, e o arco de testada curva achatado em reta |
 | [`relatorios/LAB-17.md`](relatorios/LAB-17.md) | **A via desenhada à mão**: duas glebas de referência, os quatro motores contra o traçado imposto (10,1 % a 30,7 % de aderência), e a **D69 aplicada** — com as duas metades dela que o contrato v1 não deixa verificar |
 | [`CONTRATO_MOTOR_UNIFICADO_v1.md`](CONTRATO_MOTOR_UNIFICADO_v1.md) | **A porta única**: o que qualquer motor precisa cumprir para rodar sob a tela comum. Vai ao Generate pelo chat |
 | [`relatorios/LAB-14.md`](relatorios/LAB-14.md) | **A porta, provada**: os quatro motores a implementam, e cada capacidade declarada é desmentida por medição se for falsa |
@@ -79,6 +80,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 | onde | o que tem |
 |---|---|
 | [`../external-engines/symbios/`](../external-engines/symbios/) | `upstream/` intocado, a ponte Rust → WASM, o adaptador do LAB-01, o recorte do LAB-02 e o **recortador de polígono** do LAB-05 (D57) |
+| [`../external-engines/esteira/src/forma.ts`](../external-engines/esteira/src/forma.ts) | **A régua de forma do lote** (LAB-16): perfil por lote, lados, arco, classe, e a distribuição nos três cortes declarados. Ela mede; quem lê decide (D76, D77) |
 | [`../external-engines/testfit/`](../external-engines/testfit/) | O adaptador do LAB-07 — ida, volta, aparo, esteira. Sem `upstream/`: o motor é da família (D16) |
 | [`../external-engines/esteira/`](../external-engines/esteira/) | **A esteira cruzada**: põe qualquer motor no contrato v1 e o julga com a régua do Generate (D31). Desde o LAB-04, também o **esqueleto reto** que faz a quadra virar lote (D50) |
 | [`../outputs/`](../outputs/) | Saídas literais das execuções do LAB-01 |

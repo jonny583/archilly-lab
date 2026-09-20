@@ -170,7 +170,7 @@ houver item pronto (D62).
 |---|---|---|---|
 | **LAB-06** | A peça pronta atrás do contrato unificado: registro, liga/desliga, escolha salva, e o teste de que apagar o Lab não quebra o Generate | ✅ **concluído em 20/09/2026** | nenhuma |
 | **LAB-17** | Duas glebas de referência **com via desenhada**, os quatro motores nelas, e a D69 aplicada | ✅ **concluído em 20/09/2026** | nenhuma |
-| **LAB-16** | Consertar a régua de forma e reprovar as cinco glebas do LAB-13 | ⬜ **é o próximo** | LAB-17 — **cumprida** |
+| **LAB-16** | Consertar a régua de forma e reprovar as cinco glebas do LAB-13 | ✅ **concluído em 20/09/2026** | nenhuma |
 
 ### LAB-06 · A peça pronta — ✅ concluído em 20/09/2026
 
@@ -187,6 +187,38 @@ desenho, e **nunca ranking vazio em silêncio**.
 **Achado da demonstração:** em `ensaio-47ha`, o motor que a D68 põe como
 **padrão** é justamente o que o Validator **reprova**. A peça trata o caso sem
 quebrar; o que fazer a respeito é do chat e do Jonny.
+
+---
+
+### LAB-16 · A régua de forma — ✅ concluído em 20/09/2026
+
+**Entregue:** [`../relatorios/LAB-16.md`](../relatorios/LAB-16.md) e
+`docs/provas/LAB-16/forma.json`.
+
+**Metade do conserto já estava feita, e isso está dito com todas as letras:** a
+régua girada é do **LAB-13** (D63), e a coluna `irreg` da tabela de lá **já era
+ela**. Os 754 de 776 são o número da régua VELHA. Fingir um segundo conserto
+seria mentir sobre trabalho.
+
+**O que ainda estava errado, medido:**
+
+1. **o corte de 1 % era meu** e mandava no resultado — o Laboratório de
+   Parcelamento em `geo-antonina` dá **34 / 15 / 0** nos cortes de 1 %, 5 % e
+   10 %. A régua passa a publicar **os três, sempre** (D76);
+2. **"irregular" é veredito de urbanista.** O que a régua marcava eram
+   **trapézios, pentágonos e hexágonos** — lote de esquina, lote na curva. A
+   régua passa a publicar a **composição por forma**, e nenhuma palavra dela
+   julga (D77). O que é forma ruim virou item do Jonny;
+3. **o arco de testada curva** era achatado em reta pela classificação, e fazia
+   um lote de 49 vértices passar por retângulo com 10 % de perda. Agora o arco é
+   **um lado, contado** (D78). Medido: 101 lotes com lado curvo na espinha em
+   `completo`; o Symbios e o Parcelamento, **zero**.
+
+**O que muda na tabela do LAB-13: nenhum número.** A reprovação reproduziu os
+vinte valores exatamente — prova a mais de determinismo, dois prompts e dias
+diferentes. **O que muda é o que a coluna quer dizer**, e a leitura do Symbios
+("814 de 932 irregulares") estava errada: ele faz lote **não-ortogonal**, não
+lote deformado.
 
 ---
 

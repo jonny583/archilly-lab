@@ -340,3 +340,17 @@ Depende do Jonny: confirmar o "3x / 1,5 km" (D61) — não trava nada.
 Próximo na fila: LAB-16, condição cumprida. Despertador trig_01ErsHXVhfTZziHEGGYcBjiJ criado (cron 5 * * * *) e NASCEU SEM CONECTORES do GitHub: a sessão que ele acordar mescla por git direto (D29).
 === FIM ===
 ```
+
+---
+
+## 20/09/2026 · LAB-16 — a régua de forma, e a fila esgotada
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-16 ===
+Estado: LAB-16 concluído e mesclado. Esteira 139/139 (12 novos), tsc limpo. Vizinhos limpos. FILA ESGOTADA.
+Feito: metade do conserto que você pediu JÁ ESTAVA FEITA — a régua girada é do LAB-13 (D63) e a coluna "irreg" de lá já era ela; os 754 de 776 são o número da régua VELHA. Não fingi consertar duas vezes. O que ainda estava errado, medido: (1) o corte de 1 % era meu e mandava no resultado — Parcelamento em geo-antonina dá 34 / 15 / ZERO nos cortes de 1 %, 5 % e 10 %; agora saem os três, sempre (D76); (2) "irregular" é veredito de urbanista: o que a régua marcava eram TRAPÉZIOS, pentágonos e hexágonos — esquina, curva, borda de APP; agora sai a composição por forma, sem juízo (D77); (3) o arco de testada curva era achatado em reta e fazia um lote de 49 vértices passar por retângulo com 10 % de perda; agora o arco é um lado, contado (D78).
+Achados para outros apps ou Central: GENERATE — a leitura "814 de 932 irregulares" do Symbios no LAB-13 está ERRADA: ele faz lote NÃO-ORTOGONAL, não lote deformado. Se isso é bom ou ruim não é da régua.
+Depende do Jonny: dois, nenhum trava — (1) confirmar o "3x / 1,5 km"; (2) NOVO: dizer a partir de quanta perda da caixa um lote tem forma ruim.
+Próximo na fila: NADA. Os três prompts de 20/09 (LAB-06, LAB-17, LAB-16) estão fechados. Apaguei o despertador trig_01ErsHXVhfTZziHEGGYcBjiJ, como manda a D62 — ele disparou uma vez e teve o que fazer; o próximo não teria. Recrie-o com fila nova.
+=== FIM ===
+```

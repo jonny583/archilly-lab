@@ -31,6 +31,7 @@ você agora:
 | # | o que | quanto custa | o que muda se você responder |
 |---|---|---|---|
 | **1** | **Confirmar o número que veio pelo chat:** "desvio desproporcional" é **3 vezes** o caminho direto, **ou 1,5 km**? | 1 min | é o número que decide quando contornar o rio deixa de valer a pena e a ponte entra |
+| **2** | **Quando um lote tem forma ruim?** Hoje eu comparo o lote com o menor retângulo que cabe em volta dele. Um lote que "perde" pouco desse retângulo é quase retangular; um que perde muito é um trapézio, um pentágono, uma esquina cortada. **Qual a perda a partir da qual você olharia o lote e diria "esse aí está ruim"?** | 2 min | hoje a tabela mostra três respostas ao mesmo tempo, porque eu não tenho o direito de escolher por você |
 
 **Por que ainda está aqui, se o número chegou.** Ele chegou **de passagem**, numa
 frase sobre outro assunto — *"sem cumprir o critério dos 3× / 1,5 km"* —, e nunca
@@ -184,6 +185,39 @@ Isto está aqui para você não ficar procurando.
 - **Levar os achados aos outros aplicativos** — é do chat, não seu e não meu.
 - **A fila do laboratório** — o chat escreveu uma nova em 15/09 (LAB-04, LAB-05
   e uma conferência final). O laboratório a executa sozinho.
+
+---
+
+## 5-A · A pergunta nova: o que é um lote de forma ruim
+
+**O que eu meço, em uma frase:** desenho o **menor retângulo que cabe em volta
+do lote**, em qualquer inclinação, e vejo **quanto desse retângulo o lote deixa
+de ocupar**. Um retângulo perfeito não deixa nada — perde **0 %**. Um trapézio
+de rua curva perde uns 3 %. Um lote de esquina com o canto cortado perde 10 % ou
+mais.
+
+**Por que isso virou pergunta para você.** Eu estava usando **1 %** como a linha
+entre "bom" e "ruim", e esse número foi escolhido por mim, sem critério nenhum.
+Ele muda tudo. No terreno de Antonina, o Laboratório de Parcelamento tem:
+
+| se a linha for | lotes "ruins" |
+|---|---|
+| perder mais de **1 %** | **34** |
+| perder mais de **5 %** | 15 |
+| perder mais de **10 %** | **nenhum** |
+
+**Trinta e quatro ou nenhum, pela mesma medição.** Por isso parei de escolher: a
+tabela agora mostra **as três respostas juntas**, e fica assim até você dizer
+qual é a sua.
+
+**Uma coisa que eu tinha errado, e já consertei:** eu estava chamando esses
+lotes de "irregulares". Fui olhar o que eles eram de verdade e, em Antonina,
+eram **30 trapézios e 9 lotes de cinco lados** — lote de esquina, lote na curva,
+lote encostado na área de preservação. **Um trapézio numa rua curva é um lote
+normal**, e a palavra "irregular" estava dando um veredito que não é meu. Agora
+a tabela só diz a forma; quem diz se a forma presta é você.
+
+**Nada trava enquanto isso.** Todas as medições continuam saindo.
 
 ---
 
