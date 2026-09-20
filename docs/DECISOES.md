@@ -1411,3 +1411,47 @@ SAÍDA está no §6 do documento, com o número ao lado.
 **Como apareceu:** o experimento do `calculaGreide` reprovou o Symbios, que é o
 único dos quatro que mede greide. Medido antes de atribuir, o defeito era do
 indicador — ele lia um campo que a saída não tem.
+
+---
+
+## D68 · A tela do parcelamento é a da família, no repositório do Generate, com vários motores sob ela · 20/09/2026
+
+**A decisão é da família**, trazida pelo chat em 19/09 e reafirmada em 20/09.
+Transcrita antes de interpretada, porque decisão de produto não é minha:
+
+> A tela do Laboratório de Parcelamento vira **a interface de parcelamento da
+> família**, dentro do **repositório do Generate**, com **vários motores rodando
+> sob ela** — motor interno (V2), Laboratório de Parcelamento, Symbios e os que
+> vierem. **Todos visíveis e ligados por padrão; motor padrão = o do Laboratório
+> de Parcelamento; escolha do usuário salva; e só entra no ranking candidata
+> aprovada pelo Validator** — reprovada aparece **com o motivo**, não com o
+> resultado.
+
+**O que o Lab já entregou para ela**, e está mesclado:
+
+| o que a decisão pede | onde está |
+|---|---|
+| vários motores sob a mesma tela | a **porta única**, `CONTRATO_MOTOR_UNIFICADO_v1.md`, com os quatro motores a implementando (LAB-14) |
+| saber o que cada motor faz | `Capacidades`, **falsificável por medição** (D65) |
+| só entra no ranking quem o Validator aprova | §8 do documento, e a régua única do LAB-13 |
+| base para comparar os motores | a tabela do **LAB-13**, cinco glebas, uma régua |
+
+**O que a decisão pede e o contrato NÃO cobre**, de propósito (§10.4 dele:
+*"nada aqui fala de tela"*):
+
+- **o registro de motores** — a lista, quem está ligado, quem é o padrão;
+- **a escolha do usuário salva** — é estado de usuário, e o Lab não tem conta
+  nem tela (`ADOCAO_CENTRAL.md`);
+- **como a reprovada aparece com o motivo** — o motivo o contrato já carrega
+  (`naoAtendido` e o veredito do Validator); **como mostrar é da tela**.
+
+**Onde isso vira prompt:** o **LAB-06** da fila original — *"entrega ao Generate:
+peça pronta atrás do contrato de motor, registro de motores, botão liga/desliga
+por motor, e o teste de que apagar o Lab inteiro não quebra o Generate"* — é
+palavra por palavra o prompt de entrega desta decisão. Ele **nunca foi
+executado** e está na fila como **proposto ao chat**, não executado: prompt fora
+da fila não existe (CLAUDE.md §1-A).
+
+**E a regra de ouro continua valendo (§3):** o Generate **nunca depende** do Lab.
+`external-engines/` inteiro pode ser apagado sem que ele sinta — e é justamente
+isso que o LAB-06 manda testar.
