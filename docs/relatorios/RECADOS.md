@@ -306,3 +306,23 @@ Depende do Jonny: confirmar o "3× / 1,5 km" — ele chegou por referência, nã
 Próximo na fila: nada pronto. LAB-17 e LAB-06 estão propostos, nenhum executado.
 === FIM ===
 ```
+
+
+---
+
+## 20/09/2026 · LAB-06 — a peça pronta para o Generate
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-06 ===
+Estado: LAB-06 concluído e mesclado. Esteira 115/115 (22 novos), testfit 14/14, tsc e lint limpos.
+Feito: a peça pronta em entrega/registro-de-motores/ — registro, liga/desliga por motor,
+  escolha do usuário salva, e a regra do ranking. SEM DEPENDÊNCIA NENHUMA, nem npm. Vive FORA
+  de external-engines/ (D70): lá dentro ela sumiria com a pasta que a regra de ouro manda
+  poder apagar. O teste de apagar o Lab é por LEITURA dos import e por EXECUÇÃO com motor de
+  mentira. Acrescentei o que a D68 pedia e o contrato não cobria (D72): reprovada aparece com o MOTIVO e sem o desenho (o tipo não tem o campo), e NUNCA ranking vazio em silêncio. D70 a D72.
+  recados diferentes para três situações. D70 a D72.
+Achados para outros apps ou Central: GENERATE — em ensaio-47ha o motor que a D68 põe como PADRÃO é justamente o que o Validator REPROVA (16 violações). A peça trata sem quebrar; o que fazer é de vocês.
+Depende do Jonny: confirmar o "3× / 1,5 km" (D61) — não trava nada.
+Próximo na fila: LAB-17, condição cumprida. Quem instala a peça é o GU-03, não eu.
+=== FIM ===
+```

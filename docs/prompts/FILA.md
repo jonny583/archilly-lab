@@ -161,6 +161,35 @@ o nome feio de propósito, D67).
 **O contrato vai ao Generate pelo chat.** O Lab não escreve no repositório
 vizinho.
 
+## A fila de 20/09 — a entrega e as duas correções
+
+Mandada pelo chat, com **um despertador de 60 minutos** que se apaga quando não
+houver item pronto (D62).
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-06** | A peça pronta atrás do contrato unificado: registro, liga/desliga, escolha salva, e o teste de que apagar o Lab não quebra o Generate | ✅ **concluído em 20/09/2026** | nenhuma |
+| **LAB-17** | Duas glebas de referência **com via desenhada**, os quatro motores nelas, e a D69 aplicada | ⬜ | LAB-06 |
+| **LAB-16** | Consertar a régua de forma e reprovar as cinco glebas do LAB-13 | ⬜ | LAB-17 |
+
+### LAB-06 · A peça pronta — ✅ concluído em 20/09/2026
+
+**Entregue:** [`../relatorios/LAB-06.md`](../relatorios/LAB-06.md) e
+[`../../entrega/registro-de-motores/`](../../entrega/registro-de-motores/).
+**Quem instala é a sessão do Generate, no GU-03** — o Lab não escreve lá.
+
+A peça vive **fora de `external-engines/`** (D70), não importa **nada** — nem npm
+—, e o teste de que apagar o Lab não a quebra é feito **por leitura dos `import`
+e por execução com motor de mentira**. Acrescenta o que a D68 pedia e o contrato
+não cobria: **como a reprovada aparece** (D72) — com o motivo, nunca com o
+desenho, e **nunca ranking vazio em silêncio**.
+
+**Achado da demonstração:** em `ensaio-47ha`, o motor que a D68 põe como
+**padrão** é justamente o que o Validator **reprova**. A peça trata o caso sem
+quebrar; o que fazer a respeito é do chat e do Jonny.
+
+---
+
 ### Proposto ao chat: **LAB-17** — a travessia desenhada à mão
 
 O chat mandou *"registre e aplique no LAB-17"*. **Registrado** (D69). **Não

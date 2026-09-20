@@ -21,7 +21,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 | documento | o que responde |
 |---|---|
 | [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — a fila de 19/09, a da tela unificada, esgotou |
-| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 69 decisões numeradas, com o que se perde em cada uma. A D61 é do Jonny: travessia sobre APP é exceção |
+| [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 72 decisões numeradas, com o que se perde em cada uma. A D61 é do Jonny: travessia sobre APP é exceção |
 | [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) | O que depende de uma pessoa. Quem escreve sou eu; quem risca é ele. Hoje: **quanto é "desvio desproporcional"?** — o número que destrava a D61 |
 | [`relatorios/RECADOS.md`](relatorios/RECADOS.md) | **Todos os recados para o chat**, em ordem, um por prompt |
 
@@ -29,6 +29,8 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 
 | documento | o que responde |
 |---|---|
+| [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
+| [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
 | [`CONTRATO_MOTOR_UNIFICADO_v1.md`](CONTRATO_MOTOR_UNIFICADO_v1.md) | **A porta única**: o que qualquer motor precisa cumprir para rodar sob a tela comum. Vai ao Generate pelo chat |
 | [`relatorios/LAB-14.md`](relatorios/LAB-14.md) | **A porta, provada**: os quatro motores a implementam, e cada capacidade declarada é desmentida por medição se for falsa |
 | [`relatorios/LAB-13.md`](relatorios/LAB-13.md) | **Três motores, cinco glebas, uma régua só**: a tabela que serve de base para a tela unificada |
