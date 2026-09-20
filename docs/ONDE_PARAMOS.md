@@ -4,42 +4,84 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 20/09/2026 · **Último prompt executado:** LAB-06
-**Estado:** **LAB-06 mesclado. O próximo é o LAB-17**, e a condição está
-cumprida. O despertador de 60 minutos está ligado.
+**Última atualização:** 20/09/2026 · **Último prompt executado:** LAB-17
+**Estado:** **LAB-17 mesclado. O próximo é o LAB-16**, e a condição está
+cumprida.
+
+## O despertador deste repositório — **um só**
+
+**`trig_01ErsHXVhfTZziHEGGYcBjiJ`** · "Despertador da fila autônoma — Archilly
+Lab (60 min)" · cron `5 * * * *` · criado em 20/09/2026.
+
+**Ele nasceu SEM CONECTORES do GitHub** — o servidor avisou na criação. A sessão
+que ele acordar **não terá `mcp__github__*`** e deve mesclar por git direto
+(`git merge --no-ff` na `main`), declarando isso no relatório e no recado (D29).
+
+**Antes dele não havia nenhum despertador do Lab.** O que existia na conta era
+de outros aplicativos — Render, Pesquisa de Mercado, motor-v2 —, e neles não se
+toca. Uma versão anterior deste arquivo dizia que o despertador do Lab estava
+ligado; **estava errado**, e a correção é esta linha.
+
+**Apagar quando não houver item pronto** (D62), inclusive se tudo o que restar
+estiver "aguardando".
 
 ---
 
 ## Em uma frase
 
-**A peça que a tela unificada monta em volta está pronta, documentada e provada
-dos dois lados** — com motores de mentira, para mostrar que ela não precisa do
-Laboratório, e com os quatro motores de verdade, para mostrar que ela serve.
-Quem a instala é a sessão do Generate, no **GU-03**.
+**Agora existe gleba onde a pergunta da tela unificada pode ser feita** — duas,
+com via principal e secundárias desenhadas à mão — e a resposta medida é que
+**nenhum dos quatro motores respeita a via que o urbanista desenha**, e que
+**nenhum deles mente sobre isso**.
 
 ## A fila de 20/09
 
 | Prompt | Estado |
 |---|---|
 | **LAB-06** — a peça pronta, e o teste de que apagar o Lab não quebra o Generate | **concluído em 20/09/2026** |
-| **LAB-17** — duas glebas com via desenhada, os quatro motores, a D69 aplicada | **é o próximo** |
-| **LAB-16** — consertar a régua de forma e reprovar as cinco glebas | aguardando o LAB-17 |
+| **LAB-17** — duas glebas com via desenhada, os quatro motores, a D69 aplicada | **concluído em 20/09/2026** |
+| **LAB-16** — consertar a régua de forma e reprovar as cinco glebas | **é o próximo** |
+
+## O que o LAB-17 mediu
+
+**Aderência ao traçado imposto** (fração do desenho que cai dentro da caixa de
+alguma via da saída), com semente 20260913:
+
+| motor | `ensaio-com-via` 47 ha | `antonina-com-via` 141,8 ha |
+|---|---:|---:|
+| Symbios Tensor + subdivisão do Lab | 27,5 % | **30,7 %** |
+| Archilly Generate · ortogonal | **29,3 %** | 28,0 % |
+| Archilly Generate · espinha | 20,5 % | 10,1 % |
+| Laboratório de Parcelamento | 11,3 % | 17,4 % |
+
+**Os quatro declaram que ignoram via desenhada, e os quatro ignoram** — a
+declaração bate com o medido nas oito linhas. Entre 10 % e 31 % de
+**coincidência**, zero de intenção. **Sem recomendação de produto.**
+
+**D69 aplicada:** `VD1 × APP hídrica · 71,00 m` em `antonina-com-via`, marcada
+*"desenhada por você — exige licença ambiental"*, com item de custo de
+`obra: null` — ponte ou bueiro depende da vazão, que não chega no contrato.
 
 ## O que vai ao Generate — **pelo chat, não por commit**
 
 1. [`entrega/registro-de-motores/`](../entrega/registro-de-motores/) — a peça,
    com `README.md` de instalação para o **GU-03**;
 2. [`CONTRATO_MOTOR_UNIFICADO_v1.md`](CONTRATO_MOTOR_UNIFICADO_v1.md) — a porta;
-3. **os três pedidos ao contrato v1:** dois tipos no lugar de `via_existente`,
-   `rampaMaxima_pct` por via na SAÍDA, e **`app_nascente` com o ponto da
-   nascente e a linha do curso** (§10.5 do contrato).
+3. **os três pedidos ao contrato v1:** um **tipo próprio para via desenhada à
+   mão** separado de `via_existente`, `rampaMaxima_pct` por via na SAÍDA, e
+   **`app_nascente` com o ponto da nascente e a linha do curso** (§10.5 do
+   contrato). O terceiro o chat já repassou.
 
-## O achado que a demonstração pôs na mesa
+## Os dois achados que estão na mesa
 
 **Em `ensaio-47ha`, o motor que a D68 põe como PADRÃO é justamente o que o
 Validator REPROVA** — 16 violações —, enquanto os outros três entram no ranking.
-A peça trata o caso sem quebrar: o padrão reprovado aparece entre as reprovadas,
-com o motivo. **O que fazer a respeito é do chat e do Jonny.**
+A peça trata o caso sem quebrar. **O que fazer a respeito é do chat e do Jonny.**
+
+**Sem um tipo para via desenhada à mão, a tela unificada não consegue distinguir
+"respeitei a rua que já existe" de "respeitei o que você desenhou"** — as duas
+chegam como `via_existente` (D64), e aqui a via desenhada precisou entrar assim,
+**como remendo declarado**.
 
 ## O que depende do Jonny — **um item**
 
@@ -50,9 +92,10 @@ Não trava nada.
 
 A D69 manda: nascente nunca, raio de 50 m intocável. **Nenhum motor consegue
 cumprir**, e a razão está medida: o contrato v1 achata `app_nascente` em
-`app_hidrica`, sem o ponto e sem a linha do curso. A regra fica **escrita e
-marcada como não aplicável até o contrato trazer a nascente** — e **sem
-aproximação inventada**, que é o que o chat pediu.
+`app_hidrica`, sem o ponto e sem a linha do curso. A regra fica **escrita**
+(`RAIO_DA_NASCENTE_M = 50`) **e marcada como não aplicável até o contrato trazer
+a nascente** — e **sem aproximação inventada**, que é o que o chat pediu (D74).
+Ela sai declarada em toda aplicação da D69, com ou sem travessia.
 
 ---
 

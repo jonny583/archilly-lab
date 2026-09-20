@@ -169,8 +169,8 @@ houver item pronto (D62).
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-06** | A peça pronta atrás do contrato unificado: registro, liga/desliga, escolha salva, e o teste de que apagar o Lab não quebra o Generate | ✅ **concluído em 20/09/2026** | nenhuma |
-| **LAB-17** | Duas glebas de referência **com via desenhada**, os quatro motores nelas, e a D69 aplicada | ⬜ | LAB-06 |
-| **LAB-16** | Consertar a régua de forma e reprovar as cinco glebas do LAB-13 | ⬜ | LAB-17 |
+| **LAB-17** | Duas glebas de referência **com via desenhada**, os quatro motores nelas, e a D69 aplicada | ✅ **concluído em 20/09/2026** | nenhuma |
+| **LAB-16** | Consertar a régua de forma e reprovar as cinco glebas do LAB-13 | ⬜ **é o próximo** | LAB-17 — **cumprida** |
 
 ### LAB-06 · A peça pronta — ✅ concluído em 20/09/2026
 
@@ -190,33 +190,44 @@ quebrar; o que fazer a respeito é do chat e do Jonny.
 
 ---
 
-### Proposto ao chat: **LAB-17** — a travessia desenhada à mão
+### LAB-17 · As glebas com via desenhada — ✅ concluído em 20/09/2026
 
-O chat mandou *"registre e aplique no LAB-17"*. **Registrado** (D69). **Não
-aplicado:** o LAB-17 não existe nesta fila — não há LAB-15, LAB-16 nem LAB-17 —,
-e prompt fora da fila não existe (CLAUDE.md §1-A).
+**Entregue:** [`../relatorios/LAB-17.md`](../relatorios/LAB-17.md),
+`docs/provas/LAB-17/medicoes.json` e
+`docs/fixtures/glebas-com-via-desenhada/` (as duas entradas v1, gravadas).
 
-O escopo, como a D69 o deixa pronto para virar prompt:
+**Duas glebas de referência**, montadas sobre as glebas-padrão com relevo, cada
+uma com **1 via principal + 3 secundárias desenhadas**: `ensaio-com-via`
+(47,0 ha, 2 554,51 m de traçado) e `antonina-com-via` (141,8 ha, 4 090,13 m,
+três APP). O traçado é **geométrico, não é projeto** (D73).
 
-1. **a via desenhada à mão atravessa a APP sem critério** — o desenho é a
-   decisão; inclusive quando desenhada sozinha sobre a APP;
-2. **a nascente é o piso**: raio de 50 m intocável, e nem o desenho a vence;
-3. **a travessia continua a mais curta e perpendicular** ao curso naquele ponto;
-4. **a saída marca** a travessia como *"desenhada por você — exige licença
-   ambiental"* e a lança como **item de custo (ponte ou bueiro)** para o
-   Orçamento.
+**Aderência ao traçado imposto, os quatro motores:** entre **10,1 %** e
+**30,7 %**. **Nenhum motor respeita via desenhada — e nenhum mente sobre isso:**
+os quatro declaram `respeitaViaDesenhada: false` e devolvem
+`naoAtendido: viasDesenhadas`. A declaração bate com o medido nas oito linhas.
+**Sem recomendação de produto.**
 
-**Dois deles estão bloqueados por falta no contrato v1, e a falta foi medida:**
+**D69 aplicada:** em `antonina-com-via`, `VD1 × APP hídrica · 71,00 m`, marcada
+*"desenhada por você — exige licença ambiental"*, com **1 item de custo** de
+`obra: null` (ponte ou bueiro depende da vazão, que não chega no contrato).
 
-- a **nascente** chega ao motor **indistinguível** de qualquer outra APP hídrica
-  — `app_nascente` existe no `archilly-terreno` e no importador do Generate, e o
-  contrato v1 a achata em `app_hidrica`. Sem o tipo e sem o **ponto**, os 50 m
-  não têm de onde ser medidos;
-- o **curso d'água** chega como polígono de APP, não como linha. Sem o eixo,
-  "perpendicular" não tem a quê.
+**As duas metades não verificáveis saem declaradas, sem aproximação inventada**
+(D74): a **nascente** (o contrato v1 achata `app_nascente` em `app_hidrica`) e a
+**perpendicular ao curso** (o curso chega como polígono, não como linha). A
+regra dos 50 m fica **escrita** e marcada *"não aplicável até o contrato trazer
+a nascente"*. O **3× / 1,5 km** segue como decisão do chat até o Jonny confirmar.
 
-Enquanto isso não vier, o item 2 e o item 3 **não são implementáveis por motor
-nenhum**, e um LAB-17 que os "implementasse" estaria fingindo.
+**Defeito do Lab que esta medição pegou (D75):** a régua que separa via
+desenhada de testada de frente olhava os **vértices**, e uma via que atravessa a
+gleba tem as duas pontas na divisa — **três das quatro** foram para o balde
+errado. Agora a régua **amostra de 5 em 5 m**. Os números da primeira passada
+foram descartados; **o LAB-13 não é afetado**.
+
+**Pedido ao Generate reforçado:** um **tipo próprio para via desenhada à mão**,
+separado de `via_existente` (D64) — sem ele a tela unificada não distingue
+"respeitei a rua que existe" de "respeitei o que você desenhou".
+
+---
 
 ### Proposto ao chat, e é o outro passo óbvio: **LAB-06**
 

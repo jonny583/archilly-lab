@@ -1,0 +1,186 @@
+{
+  "prompt": "LAB-17",
+  "geradoEm": "2026-09-20T00:00:00.000Z",
+  "semente": 20260913,
+  "glebas": [
+    {
+      "prompt": "LAB-17",
+      "gleba": "ensaio-com-via",
+      "montadaSobre": "ensaio-47ha",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 470000,
+      "tracadoImposto": {
+        "vias": 4,
+        "principais": 1,
+        "secundarias": 3,
+        "comprimento_m": 2554.51
+      },
+      "d69": {
+        "travessias": [],
+        "itensDeCusto": [],
+        "naoVerificado": [
+          {
+            "regra": "nascente: raio de 50 m intocável, nem o desenho a vence",
+            "porQue": "a nascente chega INDISTINGUÍVEL de qualquer outra APP hídrica, e o ponto dela não chega — não há de onde medir os 50 m",
+            "oQueFaltaNoContrato": "`app_nascente` como tipo próprio no enum de `restricoes`, e a geometria de PONTO da nascente. Existe no `archilly-terreno` e no importador do Generate; o contrato v1 a achata em `app_hidrica`"
+          },
+          {
+            "regra": "a travessia é a mais curta e PERPENDICULAR ao curso naquele ponto",
+            "porQue": "não há restrição hídrica nesta gleba, e mesmo que houvesse o eixo do curso não viaja no contrato",
+            "oQueFaltaNoContrato": "a geometria de LINHA do curso d'água, além do polígono da APP"
+          }
+        ]
+      },
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Archilly Generate · candidata ortogonal",
+          "declarouRespeitarViaDesenhada": false,
+          "aderenciaMedida": 0.293,
+          "declaracaoBateComOMedido": true,
+          "declarouTerIgnorado": true,
+          "lotes": 974,
+          "violacoes": 0,
+          "recusado": null,
+          "ms": 599.85
+        },
+        "generate-espinha": {
+          "motor": "Archilly Generate · candidata espinha",
+          "declarouRespeitarViaDesenhada": false,
+          "aderenciaMedida": 0.205,
+          "declaracaoBateComOMedido": true,
+          "declarouTerIgnorado": true,
+          "lotes": 776,
+          "violacoes": 0,
+          "recusado": null,
+          "ms": 492.01
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "declarouRespeitarViaDesenhada": false,
+          "aderenciaMedida": 0.113,
+          "declaracaoBateComOMedido": true,
+          "declarouTerIgnorado": true,
+          "lotes": 599,
+          "violacoes": 16,
+          "recusado": null,
+          "ms": 1725.68
+        },
+        "symbios": {
+          "motor": "Symbios Tensor + subdivisão do Lab",
+          "declarouRespeitarViaDesenhada": false,
+          "aderenciaMedida": 0.275,
+          "declaracaoBateComOMedido": true,
+          "declarouTerIgnorado": true,
+          "lotes": 214,
+          "violacoes": 0,
+          "recusado": null,
+          "ms": 900.16
+        }
+      }
+    },
+    {
+      "prompt": "LAB-17",
+      "gleba": "antonina-com-via",
+      "montadaSobre": "geo-antonina",
+      "semente": 20260913,
+      "contrato": "1",
+      "areaDaGleba_m2": 1417565.19,
+      "tracadoImposto": {
+        "vias": 4,
+        "principais": 1,
+        "secundarias": 3,
+        "comprimento_m": 4090.13
+      },
+      "d69": {
+        "travessias": [
+          {
+            "viaId": "VD1",
+            "restricaoId": "R1",
+            "restricaoTipo": "app_hidrica",
+            "restricaoNome": "APP — curso d'água",
+            "entrada": {
+              "x": 266.95550000000003,
+              "y": -155.95679834254142
+            },
+            "saida": {
+              "x": 266.95550000000003,
+              "y": -84.95824972375686
+            },
+            "comprimento_m": 71,
+            "marca": "desenhada por você — exige licença ambiental"
+          }
+        ],
+        "itensDeCusto": [
+          {
+            "viaId": "VD1",
+            "restricaoId": "R1",
+            "obra": null,
+            "comprimento_m": 71,
+            "largura_m": 11.5,
+            "marca": "desenhada por você — exige licença ambiental",
+            "porQueSemObra": "escolher entre ponte e bueiro depende da vazão do curso, que não chega no contrato; chutar pelo comprimento daria um número em que o Orçamento confiaria"
+          }
+        ],
+        "naoVerificado": [
+          {
+            "regra": "nascente: raio de 50 m intocável, nem o desenho a vence",
+            "porQue": "a nascente chega INDISTINGUÍVEL de qualquer outra APP hídrica, e o ponto dela não chega — não há de onde medir os 50 m",
+            "oQueFaltaNoContrato": "`app_nascente` como tipo próprio no enum de `restricoes`, e a geometria de PONTO da nascente. Existe no `archilly-terreno` e no importador do Generate; o contrato v1 a achata em `app_hidrica`"
+          },
+          {
+            "regra": "a travessia é a mais curta e PERPENDICULAR ao curso naquele ponto",
+            "porQue": "o curso d'água chega como POLÍGONO de APP, não como linha — sem o eixo, 'perpendicular' não tem a quê",
+            "oQueFaltaNoContrato": "a geometria de LINHA do curso d'água, além do polígono da APP"
+          }
+        ]
+      },
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Archilly Generate · candidata ortogonal",
+          "declarouRespeitarViaDesenhada": false,
+          "aderenciaMedida": 0.28,
+          "declaracaoBateComOMedido": true,
+          "declarouTerIgnorado": true,
+          "lotes": 1389,
+          "violacoes": 1,
+          "recusado": null,
+          "ms": 630.34
+        },
+        "generate-espinha": {
+          "motor": "Archilly Generate · candidata espinha",
+          "declarouRespeitarViaDesenhada": false,
+          "aderenciaMedida": 0.101,
+          "declaracaoBateComOMedido": true,
+          "declarouTerIgnorado": true,
+          "lotes": 1657,
+          "violacoes": 0,
+          "recusado": null,
+          "ms": 604.16
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "declarouRespeitarViaDesenhada": false,
+          "aderenciaMedida": 0.174,
+          "declaracaoBateComOMedido": true,
+          "declarouTerIgnorado": true,
+          "lotes": 1386,
+          "violacoes": 15,
+          "recusado": null,
+          "ms": 6515.8
+        },
+        "symbios": {
+          "motor": "Symbios Tensor + subdivisão do Lab",
+          "declarouRespeitarViaDesenhada": false,
+          "aderenciaMedida": 0.307,
+          "declaracaoBateComOMedido": true,
+          "declarouTerIgnorado": true,
+          "lotes": 1014,
+          "violacoes": 4,
+          "recusado": null,
+          "ms": 9361.56
+        }
+      }
+    }
+  ]
+}
