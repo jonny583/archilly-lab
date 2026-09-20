@@ -4,43 +4,70 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 20/09/2026 · **Último prompt executado:** LAB-17
-**Estado:** **LAB-17 mesclado. O próximo é o LAB-16**, e a condição está
-cumprida.
+**Última atualização:** 20/09/2026 · **Último prompt executado:** LAB-16
+**Estado:** **FILA ESGOTADA.** Os três prompts mandados pelo chat em 20/09 —
+LAB-06, LAB-17 e LAB-16 — estão concluídos e mesclados. **Aguardando o chat.**
 
-## O despertador deste repositório — **um só**
+## O despertador deste repositório — **APAGADO em 20/09/2026**
 
-**`trig_01ErsHXVhfTZziHEGGYcBjiJ`** · "Despertador da fila autônoma — Archilly
-Lab (60 min)" · cron `5 * * * *` · criado em 20/09/2026.
+Era **`trig_01ErsHXVhfTZziHEGGYcBjiJ`** · "Despertador da fila autônoma —
+Archilly Lab (60 min)" · cron `5 * * * *`. Criado e apagado no mesmo dia, como
+manda a **D62**: **disparo sem item pronto se apaga em vez de acordar de novo.**
+Ele disparou **uma vez**, e teve o que fazer (o LAB-16). Com a fila esgotada, o
+próximo disparo não teria, e por isso ele não existe mais. **O chat o recria
+quando mandar fila nova.**
 
-**Ele nasceu SEM CONECTORES do GitHub** — o servidor avisou na criação. A sessão
-que ele acordar **não terá `mcp__github__*`** e deve mesclar por git direto
-(`git merge --no-ff` na `main`), declarando isso no relatório e no recado (D29).
+**Nota para quem for recriá-lo:** o despertador nasceu **sem os conectores do
+GitHub** — o servidor avisou na criação. A sessão que ele acordar não terá
+`mcp__github__*` e terá de mesclar por git direto (D29). Nesta rodada isso não
+pesou, porque a sessão acordada era a mesma que já tinha os conectores.
 
 **Antes dele não havia nenhum despertador do Lab.** O que existia na conta era
 de outros aplicativos — Render, Pesquisa de Mercado, motor-v2 —, e neles não se
-toca. Uma versão anterior deste arquivo dizia que o despertador do Lab estava
-ligado; **estava errado**, e a correção é esta linha.
+toca.
 
-**Apagar quando não houver item pronto** (D62), inclusive se tudo o que restar
-estiver "aguardando".
+## O que o chat precisa decidir para a fila andar
+
+1. **O motor que a D68 põe como PADRÃO é o que o Validator REPROVA** em
+   `ensaio-47ha` (16 violações). A peça do LAB-06 trata o caso sem quebrar, mas
+   **qual motor é o padrão** é decisão de produto;
+2. **A tela unificada não distingue "rua que já existe" de "rua que você
+   desenhou"** — o contrato v1 chama as duas de `via_existente` (D64). Pedido
+   aberto ao Generate;
+3. **Nenhum motor da família cumpre a regra dos 50 m da nascente**, e não é
+   defeito de motor: o contrato v1 achata `app_nascente` em `app_hidrica` (D74).
 
 ---
 
 ## Em uma frase
 
-**Agora existe gleba onde a pergunta da tela unificada pode ser feita** — duas,
-com via principal e secundárias desenhadas à mão — e a resposta medida é que
-**nenhum dos quatro motores respeita a via que o urbanista desenha**, e que
-**nenhum deles mente sobre isso**.
+**As três perguntas de 20/09 estão respondidas com número:** a peça de entrega
+existe e está provada dos dois lados (LAB-06); os quatro motores **ignoram a via
+que o urbanista desenha**, e nenhum mente sobre isso (LAB-17); e a régua de
+forma parou de dar veredito de urbanista disfarçado de medição (LAB-16).
 
-## A fila de 20/09
+## A fila de 20/09 — **esgotada**
 
 | Prompt | Estado |
 |---|---|
 | **LAB-06** — a peça pronta, e o teste de que apagar o Lab não quebra o Generate | **concluído em 20/09/2026** |
 | **LAB-17** — duas glebas com via desenhada, os quatro motores, a D69 aplicada | **concluído em 20/09/2026** |
-| **LAB-16** — consertar a régua de forma e reprovar as cinco glebas | **é o próximo** |
+| **LAB-16** — consertar a régua de forma e reprovar as cinco glebas | **concluído em 20/09/2026** |
+
+## O que o LAB-16 mediu
+
+**A régua girada já era do LAB-13** (D63) — os 754 de 776 são o número da régua
+VELHA, e a tabela do LAB-13 nunca a usou. O que ainda estava errado:
+
+| defeito | medida |
+|---|---|
+| o corte de 1 % era meu, e mandava no resultado | Parcelamento em `geo-antonina`: **34 / 15 / 0** nos cortes de 1 %, 5 % e 10 % |
+| "irregular" é veredito de urbanista | os marcados eram **trapézios, pentágonos e hexágonos** — esquina, curva, borda de APP |
+| o arco de testada curva virava reta | um lote de **49 vértices** passava por retângulo com 10 % de perda |
+
+**Na tabela do LAB-13 nenhum número muda** — a reprovação reproduziu os vinte
+valores exatamente, o que é prova a mais de determinismo. **Muda o que a coluna
+quer dizer:** o Symbios faz lote **não-ortogonal**, não lote deformado.
 
 ## O que o LAB-17 mediu
 
@@ -83,10 +110,17 @@ A peça trata o caso sem quebrar. **O que fazer a respeito é do chat e do Jonny
 chegam como `via_existente` (D64), e aqui a via desenhada precisou entrar assim,
 **como remendo declarado**.
 
-## O que depende do Jonny — **um item**
+## O que depende do Jonny — **dois itens**
 
-Confirmar o **"3× / 1,5 km"** (D61). Ele chegou por referência, não como decisão.
-Não trava nada.
+1. Confirmar o **"3× / 1,5 km"** (D61). Ele chegou por referência, não como
+   decisão. Não trava nada;
+2. **Dizer quando um lote tem forma ruim** (D76, novo no LAB-16): a partir de
+   quanto de perda da caixa envolvente ele olharia e diria "esse está ruim". Hoje
+   a tabela mostra **três respostas ao mesmo tempo** — 1 %, 5 % e 10 % —, porque
+   escolher uma é decidir urbanismo. Não trava nada.
+
+Os dois estão escritos para leigo em
+[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md).
 
 ## A regra dos 50 m da nascente — **escrita e NÃO APLICÁVEL**
 

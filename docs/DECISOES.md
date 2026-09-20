@@ -1672,3 +1672,79 @@ delas tem via que atravesse.
 
 **Quinto defeito do Lab** que a disciplina "medir antes de atribuir"
 (CLAUDE.md §6) pegou antes de virar acusação ao motor de outro repositório.
+
+---
+
+## D76 · A forma sai nos TRÊS cortes, nunca num só · 20/09/2026
+
+**Contexto:** a régua de forma publicava uma contagem só — os lotes que perdem
+mais de **1 %** da caixa de menor área. O corte de 1 % é meu; ninguém o
+escolheu.
+
+**Medido:** ele manda no resultado. O Laboratório de Parcelamento em
+`geo-antonina` tem **34** lotes acima de 1 %, **15** acima de 5 % e **zero**
+acima de 10 %. Três respostas para a mesma pergunta, e a tabela mostrava a de um
+corte arbitrário.
+
+**Decisão:** a régua publica a **distribuição inteira** (mediana, p90, p99,
+máxima) e a contagem nos **três cortes declarados** — 1 %, 5 % e 10 %.
+
+**Por quê:** um número só esconde que a resposta depende do corte, e quem lê a
+tabela não tem como saber disso. Qual corte separa lote bom de lote ruim é
+**decisão de urbanismo**, e foi para `docs/PENDENCIAS_JONNY.md`. Escolher um
+sozinho seria decidir urbanismo por omissão — o jeito mais silencioso de fazer
+isso.
+
+---
+
+## D77 · A régua descreve a forma; ela não diz se a forma é boa · 20/09/2026
+
+**Contexto:** a contagem se chamava `naoRetangulares`, e a tabela do LAB-13 a
+mostrava na coluna "irregulares".
+
+**Medido:** o que ela marcava **não eram lotes deformados**. Em `geo-antonina`,
+o Laboratório de Parcelamento tem 1 347 retângulos, **30 trapézios** e 9
+pentágonos; o Symbios tem 422 pentágonos, 236 hexágonos e 154 trapézios. São
+lote de esquina, lote na curva, lote encostado na APP.
+
+**Decisão:** a régua publica a **composição por forma** — quantos retângulos,
+trapézios, pentágonos, polígonos de N lados — e **nenhuma dessas palavras é um
+juízo**. Há teste que reprova quem acrescentar "irregular" ou "ruim" ao
+vocabulário.
+
+**Por quê:** um trapézio numa rua curva é um lote normal, e um retângulo de 4 m
+de testada é pior que um trapézio de 12 m. Dizer qual é bom é decidir urbanismo,
+e isso é do Jonny (CLAUDE.md §4). A régua mede; quem lê decide.
+
+**Consequência na leitura do LAB-13:** "814 de 932 irregulares" no Symbios, lido
+como "faz lote deformado", **está errado**. O Symbios faz lote **não-ortogonal**,
+que é o que um traçado por campo tensor produz. A tabela não tinha o direito de
+já ter respondido se isso é bom.
+
+---
+
+## D78 · O arco é um lado, e sai contado — não alisado em silêncio · 20/09/2026
+
+**Contexto:** ao classificar as formas apareceram lotes com irregularidade de
+**0,099** cujos quatro cantos davam **90,0°** — impossível, porque um retângulo
+preenche a própria caixa.
+
+**Medido antes de atribuir** (CLAUDE.md §6): o polígono tinha **49 vértices**.
+Era um lote de **testada curva**, e a tolerância de colinearidade da primeira
+classificação tinha achatado o arco numa reta. **A régua não estava errada; a
+classificação estava.**
+
+**Decisão:** os lados são formados juntando arestas **vizinhas** que viram menos
+de 2° — assim o arco vira **um lado**, e não quarenta de meio grau — e o lado que
+soma mais de 5° de giro sai marcado como **curvo**.
+
+**Por quê:** o critério ingênuo, comparar cada aresta com a primeira do lado,
+parte o arco em dezenas de lados e transforma todo lote de testada curva em
+"polígono de 49 lados". O critério que alisa tudo faz o contrário: esconde o
+arco e mente sobre a forma. Contar o arco é a única saída que não inventa nem
+apaga.
+
+**Medido, e é informação nova:** **101 lotes com lado curvo** na candidata
+espinha em `completo`, 41 em `50ha-ondulado`, 31 em `ensaio-47ha`, 28 em
+`geo-antonina`. A candidata ortogonal tem 3; o Laboratório de Parcelamento e o
+Symbios, **zero** — eles não fazem testada em arco.
