@@ -286,3 +286,23 @@ Depende do Jonny: quanto é "desvio desproporcional"? (D61) — não trava nada.
 Próximo na fila: nada pronto. Mandem o LAB-06, ou digam que ele é do Generate.
 === FIM ===
 ```
+
+
+---
+
+## 20/09/2026 · D69 — a via desenhada à mão, e o LAB-17 que não existe
+
+```
+=== RECADO PARA O CHAT — Lab · — ===
+Estado: D69 gravada e mesclada. REGISTREI, NÃO APLIQUEI: o LAB-17 não existe — não há LAB-15,
+  16 nem 17, o mesmo vão do LAB-09 a LAB-12. Está proposto na FILA, com o escopo pronto.
+Feito: D69 — a via desenhada à mão é INTENÇÃO EXPLÍCITA e atravessa a APP sem critério,
+  inclusive sozinha sobre ela; nascente nunca (50 m); travessia a mais curta e perpendicular;
+  marcada "desenhada por você — exige licença ambiental" e item de custo para o Orçamento.
+  ACHADO QUE TRAVA A REGRA DA NASCENTE: app_nascente existe no archilly-terreno E no importador
+  do Generate, mas o contrato v1 a ACHATA em app_hidrica — ela chega indistinguível de qualquer APP e o ponto dela não chega, então os 50 m não têm de onde ser medidos.
+Achados para outros apps ou Central: GENERATE — o contrato v1 perde a hidrografia: falta app_nascente como tipo, o PONTO da nascente e a LINHA do curso. Pedido no §10.5 do CONTRATO.
+Depende do Jonny: confirmar o "3× / 1,5 km" — ele chegou por referência, não como decisão.
+Próximo na fila: nada pronto. LAB-17 e LAB-06 estão propostos, nenhum executado.
+=== FIM ===
+```

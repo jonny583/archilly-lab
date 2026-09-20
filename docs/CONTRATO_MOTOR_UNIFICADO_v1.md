@@ -243,3 +243,17 @@ pior que contrato incompleto:
    uma falta — foi assim que `respeitaTestadaDeFrente` e `exigeRelevo` nasceram.
 4. **Nada aqui fala de tela.** Ordem dos motores, cores, o que fica ligado por
    padrão: é do Generate e do Jonny. Este contrato para na porta.
+5. **A hidrografia se perde pelo caminho, e isso torna uma regra do Jonny
+   incumprível.** A D69 diz *"nascente nunca — raio de 50 m intocável"*. Medido:
+   `app_nascente` existe no `archilly-terreno` (o formato do Geo) **e** no
+   importador do Generate, com rótulo e uso próprios — mas o **enum de
+   `restricoes` do contrato v1 não o tem**, e a nascente é achatada em
+   `app_hidrica`. O motor recebe um polígono igual a qualquer outra APP e **não
+   tem como saber** qual é nascente, nem onde está o ponto dela para medir os
+   50 m. O mesmo vale para o **eixo do curso d'água**, que a D61 pede para
+   traçar a travessia perpendicular e que chega só como polígono.
+
+   **Pedido ao Generate, com as duas partes:** `app_nascente` como tipo próprio
+   no enum, e a **geometria de ponto** da nascente e de **linha** do curso, além
+   do polígono da APP. Enquanto não vierem, a exceção que o Jonny declarou como
+   a mais dura de todas é a única que o contrato não deixa cumprir.
