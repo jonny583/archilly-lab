@@ -161,6 +161,24 @@ o nome feio de propósito, D67).
 **O contrato vai ao Generate pelo chat.** O Lab não escreve no repositório
 vizinho.
 
+### Proposto ao chat, e é o próximo passo óbvio: **LAB-06**
+
+A decisão de família (D68) pede registro de motores, botão liga/desliga por
+motor e motor padrão — e o **LAB-06 da fila original** já era, palavra por
+palavra, o prompt de entrega disso:
+
+> *"Entrega ao Generate: peça pronta atrás do contrato de motor, **registro de
+> motores**, **botão liga/desliga por motor**, e o teste de que **apagar o Lab
+> inteiro não quebra o Generate**."*
+
+**Não executado**, porque prompt fora da fila não existe. O que o LAB-14 entregou
+cobre a porta; o que falta é o registro e a entrega — e parte disso é **tela**,
+que é do Generate, não do Lab.
+
+**Nota de numeração:** **LAB-09, LAB-10, LAB-11 e LAB-12 nunca existiram.** A
+fila original foi de LAB-00 a LAB-08 e a fila de 19/09 começou no LAB-13; a
+numeração pulou e não há prompt perdido no vão.
+
 ---
 
 ## A fila nova de 15/09 — **os itens não chegaram**

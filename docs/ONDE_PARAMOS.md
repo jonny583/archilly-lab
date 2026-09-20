@@ -57,9 +57,20 @@ quando a travessia sobre APP entra. Sem ele, **nenhuma travessia é proposta**.
 Está em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), com três formas de
 responder.
 
+## O próximo passo óbvio: **LAB-06**, e ele não foi executado
+
+A decisão de família (D68) pede **registro de motores, botão liga/desliga por
+motor e motor padrão**. O **LAB-06 da fila original** já era, palavra por
+palavra, o prompt de entrega disso — e **nunca foi executado**. Está na
+[`prompts/FILA.md`](prompts/FILA.md) como **proposto ao chat**: prompt fora da
+fila não existe.
+
+**LAB-09 a LAB-12 nunca existiram.** A fila original foi de LAB-00 a LAB-08 e a
+de 19/09 começou no LAB-13. Não há prompt perdido no vão.
+
 ## O que espera o chat
 
-1. **Os prompts seguintes**, se houver.
+1. **Mandar o LAB-06** — ou dizer que ele é do Generate, não do Lab.
 2. **O nome do aplicativo de orçamento** — a mensagem de 15/09 cortou em "para o
    Or…", e o destino do item de custo da travessia segue sem confirmação.
 3. **O delta contra o Padrão 1.2**, quando ele existir.

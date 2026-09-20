@@ -266,3 +266,23 @@ Depende do Jonny: quanto é "desvio desproporcional"? (D61) — não trava nada.
 Próximo na fila: nada. docs/CONTRATO_MOTOR_UNIFICADO_v1.md vai ao Generate por você.
 === FIM ===
 ```
+
+
+---
+
+## 20/09/2026 · A decisão de família gravada, e o LAB-06 que falta
+
+```
+=== RECADO PARA O CHAT — Lab · — ===
+Estado: main em 0990c42, nada pendente, nenhum branch por mesclar, nenhum despertador. Desde o último consolidado, ZERO disparos sem trabalho — não há despertador desde 15/09 às 07:06.
+Feito: D68 grava a decisão de família (tela do parcelamento é da família, no repositório
+  do Generate, vários motores sob ela, padrão = o do Parcelamento, só entra no ranking quem o
+  Validator aprova). O LAB-13 e o LAB-14 já são a base dela e estão mesclados.
+  DOIS ACHADOS: LAB-09 a LAB-12 NUNCA EXISTIRAM — a fila foi de LAB-00 a LAB-08 e pulou para
+  o LAB-13; e o LAB-06 da fila original é, palavra por palavra, o prompt de entrega desta
+  decisão (registro de motores, liga/desliga por motor, e o teste de que apagar o Lab não quebra o Generate). Ele NUNCA foi executado, e está proposto ao chat, não executado.
+Achados para outros apps ou Central: seguem os dois pedidos ao contrato v1 do Generate — dois tipos no lugar de via_existente, e rampaMaxima_pct por via na SAÍDA.
+Depende do Jonny: quanto é "desvio desproporcional"? (D61) — não trava nada.
+Próximo na fila: nada pronto. Mandem o LAB-06, ou digam que ele é do Generate.
+=== FIM ===
+```
