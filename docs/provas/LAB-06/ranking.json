@@ -1,0 +1,205 @@
+{
+  "prompt": "LAB-06",
+  "geradoEm": "2026-09-20T00:00:00.000Z",
+  "gleba": "ensaio-47ha",
+  "semente": 20260913,
+  "lista": [
+    {
+      "id": "generate-ortogonal",
+      "nome": "Archilly Generate · candidata ortogonal",
+      "versao": "1",
+      "ligado": true,
+      "padrao": false,
+      "entrega": "lote",
+      "geometrias": [
+        "ortogonal"
+      ]
+    },
+    {
+      "id": "generate-espinha",
+      "nome": "Archilly Generate · candidata espinha",
+      "versao": "1",
+      "ligado": true,
+      "padrao": true,
+      "entrega": "lote",
+      "geometrias": [
+        "espinha"
+      ]
+    },
+    {
+      "id": "parcelamento",
+      "nome": "Laboratório de Parcelamento",
+      "versao": "T02",
+      "ligado": true,
+      "padrao": false,
+      "entrega": "lote",
+      "geometrias": [
+        "ortogonal",
+        "espinha",
+        "pente",
+        "diagonal",
+        "loop",
+        "cluster",
+        "radial",
+        "organico",
+        "superquadra",
+        "mioloVerde"
+      ]
+    },
+    {
+      "id": "symbios",
+      "nome": "Symbios Tensor + subdivisão do Lab",
+      "versao": "0.4.1 + LAB-04",
+      "ligado": false,
+      "padrao": false,
+      "entrega": "lote",
+      "geometrias": [
+        "tensorial"
+      ]
+    }
+  ],
+  "ranking": {
+    "aprovadas": [
+      {
+        "motorId": "generate-ortogonal",
+        "nome": "Archilly Generate · candidata ortogonal",
+        "geometria": "ortogonal",
+        "nota": 974,
+        "indicadores": {
+          "lotes": 974,
+          "areaPrivativa_m2": null,
+          "areaViaria_m2": null,
+          "comprimentoDeVia_m": 0,
+          "quadras": 30,
+          "rampaMediaMaxima_pct": null
+        },
+        "ressalvas": [
+          {
+            "campo": "relevo.curvas",
+            "oQueChegou": "163 curvas de nível",
+            "postura": "ignorei",
+            "consequencia": "o traçado sai igual ao de um terreno plano; rampa e corte não foram considerados"
+          },
+          {
+            "campo": "semente",
+            "oQueChegou": "20260913",
+            "postura": "ignorei",
+            "consequencia": "este motor tem um resultado só por entrada; pedir outra variante devolve a mesma"
+          }
+        ],
+        "ms": 619.5,
+        "temResultado": true
+      },
+      {
+        "motorId": "generate-espinha",
+        "nome": "Archilly Generate · candidata espinha",
+        "geometria": "espinha",
+        "nota": 776,
+        "indicadores": {
+          "lotes": 776,
+          "areaPrivativa_m2": null,
+          "areaViaria_m2": null,
+          "comprimentoDeVia_m": 0,
+          "quadras": 101,
+          "rampaMediaMaxima_pct": null
+        },
+        "ressalvas": [
+          {
+            "campo": "relevo.curvas",
+            "oQueChegou": "163 curvas de nível",
+            "postura": "ignorei",
+            "consequencia": "o traçado sai igual ao de um terreno plano; rampa e corte não foram considerados"
+          },
+          {
+            "campo": "semente",
+            "oQueChegou": "20260913",
+            "postura": "ignorei",
+            "consequencia": "este motor tem um resultado só por entrada; pedir outra variante devolve a mesma"
+          }
+        ],
+        "ms": 488.41,
+        "temResultado": true
+      },
+      {
+        "motorId": "symbios",
+        "nome": "Symbios Tensor + subdivisão do Lab",
+        "geometria": "tensorial",
+        "nota": 214,
+        "indicadores": {
+          "lotes": 214,
+          "areaPrivativa_m2": null,
+          "areaViaria_m2": null,
+          "comprimentoDeVia_m": 0,
+          "quadras": 94,
+          "rampaMediaMaxima_pct": 13.243058886432186
+        },
+        "ressalvas": [
+          {
+            "campo": "acessos",
+            "oQueChegou": "1 acesso(s)",
+            "postura": "ignorei",
+            "consequencia": "a rede não é ancorada na entrada do terreno; ligá-la é trabalho de quem consumir"
+          },
+          {
+            "campo": "lotes",
+            "oQueChegou": "os parâmetros de lote da gleba",
+            "postura": "substitui",
+            "consequencia": "o motor entrega via e quadra; quem subdivide a quadra em lote é o esqueleto reto do Lab (D50)"
+          }
+        ],
+        "ms": 899.73,
+        "temResultado": true
+      }
+    ],
+    "reprovadas": [
+      {
+        "motorId": "parcelamento",
+        "nome": "Laboratório de Parcelamento",
+        "geometria": "espinha",
+        "motivos": [
+          "o conferente achou 16 problema(s) no desenho: 10 de \"testada\", 6 de \"face-quadra\""
+        ],
+        "ressalvas": [
+          {
+            "campo": "relevo.curvas",
+            "oQueChegou": "163 curvas de nível",
+            "postura": "ignorei",
+            "consequencia": "o traçado sai igual ao de um terreno plano; rampa e corte não foram considerados"
+          },
+          {
+            "campo": "acessos",
+            "oQueChegou": "1 acesso(s)",
+            "postura": "ignorei",
+            "consequencia": "a rede não é ancorada na entrada do terreno; ligá-la é trabalho de quem consumir"
+          },
+          {
+            "campo": "vias (fora da gleba)",
+            "oQueChegou": "o Lab aparou 505.5 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
+            "postura": "substitui",
+            "consequencia": "sem o aparo do Lab o contrato recusaria o arquivo inteiro"
+          }
+        ],
+        "ms": 1706.09,
+        "temResultado": false
+      }
+    ],
+    "nenhumaAprovada": false,
+    "recado": null,
+    "desligados": []
+  },
+  "escolhaDoUsuario": {
+    "salvo": {
+      "desligados": [
+        "symbios"
+      ],
+      "padrao": "generate-espinha"
+    },
+    "devolvido": {
+      "desligados": [
+        "symbios"
+      ],
+      "padrao": "generate-espinha"
+    },
+    "esquecidos": []
+  }
+}

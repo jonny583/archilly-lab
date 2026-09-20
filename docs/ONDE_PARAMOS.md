@@ -4,58 +4,57 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 19/09/2026 · **Último prompt executado:** LAB-14
-**Estado:** **os dois prompts da fila de 19/09 estão mesclados.** Aguardando o
-chat — não há despertador, e a D62 explica por quê.
+**Última atualização:** 20/09/2026 · **Último prompt executado:** LAB-06
+**Estado:** **LAB-06 mesclado. O próximo é o LAB-17**, e a condição está
+cumprida. O despertador de 60 minutos está ligado.
 
 ---
 
 ## Em uma frase
 
-**A família decidiu unificar a tela de parcelamento com vários motores por
-baixo, e os dois prompts que essa decisão pediu estão entregues:** a comparação
-que serve de base (LAB-13) e a porta única que qualquer motor precisa cumprir
-(LAB-14), com os quatro motores implementando-a e **cada capacidade declarada
-sendo desmentida por medição se for falsa**.
+**A peça que a tela unificada monta em volta está pronta, documentada e provada
+dos dois lados** — com motores de mentira, para mostrar que ela não precisa do
+Laboratório, e com os quatro motores de verdade, para mostrar que ela serve.
+Quem a instala é a sessão do Generate, no **GU-03**.
 
-## A fila — a de 19/09, esgotada
+## A fila de 20/09
 
 | Prompt | Estado |
 |---|---|
-| **LAB-13** — três motores, cinco glebas, uma régua só | **concluído em 19/09/2026** |
-| **LAB-14** — o contrato de motor unificado, provado | **concluído em 19/09/2026** |
-
-Antes: **LAB-00** (09/09), **LAB-01** (10/09), **LAB-07** (13/09), a fila de
-14/09 (LF-01, LAB-02, LAB-03, LAB-08, LF-FINAL) e a de 15/09 (LAB-04, LAB-05,
-LF-FINAL-2).
+| **LAB-06** — a peça pronta, e o teste de que apagar o Lab não quebra o Generate | **concluído em 20/09/2026** |
+| **LAB-17** — duas glebas com via desenhada, os quatro motores, a D69 aplicada | **é o próximo** |
+| **LAB-16** — consertar a régua de forma e reprovar as cinco glebas | aguardando o LAB-17 |
 
 ## O que vai ao Generate — **pelo chat, não por commit**
 
-[`CONTRATO_MOTOR_UNIFICADO_v1.md`](CONTRATO_MOTOR_UNIFICADO_v1.md). O prompt foi
-explícito: *"não escreva em nenhum outro repositório; o contrato vai por mim ao
-Generate"*. `git status` limpo nos três clones vizinhos.
+1. [`entrega/registro-de-motores/`](../entrega/registro-de-motores/) — a peça,
+   com `README.md` de instalação para o **GU-03**;
+2. [`CONTRATO_MOTOR_UNIFICADO_v1.md`](CONTRATO_MOTOR_UNIFICADO_v1.md) — a porta;
+3. **os três pedidos ao contrato v1:** dois tipos no lugar de `via_existente`,
+   `rampaMaxima_pct` por via na SAÍDA, e **`app_nascente` com o ponto da
+   nascente e a linha do curso** (§10.5 do contrato).
 
-**E dois pedidos concretos ao contrato v1 deles**, os dois com número ao lado:
+## O achado que a demonstração pôs na mesa
 
-1. **dois tipos no lugar de `via_existente`** — `via_desenhada` e
-   `testada_de_frente`. Hoje as duas chegam iguais e o motor não tem como
-   distingui-las; perguntar "seguiu a linha?" a uma testada **premiaria o
-   defeito** (D64);
-2. **`rampaMaxima_pct` por via na SAÍDA.** Só existe `rampaMedia_pct`, e o pico é
-   o que reprova — o LAB-02 mediu 161 % num cruzamento, diluído numa média mansa
-   (D67).
-
-## Por que NÃO existe despertador
-
-Pela **D62**, um despertador que dispara e não acha item pronto **se apaga**. A
-fila está esgotada; ele nasce junto com os próximos prompts.
+**Em `ensaio-47ha`, o motor que a D68 põe como PADRÃO é justamente o que o
+Validator REPROVA** — 16 violações —, enquanto os outros três entram no ranking.
+A peça trata o caso sem quebrar: o padrão reprovado aparece entre as reprovadas,
+com o motivo. **O que fazer a respeito é do chat e do Jonny.**
 
 ## O que depende do Jonny — **um item**
 
-**Quanto é "desvio desproporcional"?** — o número que destrava a D61 e decide
-quando a travessia sobre APP entra. Sem ele, **nenhuma travessia é proposta**.
-Está em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), com três formas de
-responder.
+Confirmar o **"3× / 1,5 km"** (D61). Ele chegou por referência, não como decisão.
+Não trava nada.
+
+## A regra dos 50 m da nascente — **escrita e NÃO APLICÁVEL**
+
+A D69 manda: nascente nunca, raio de 50 m intocável. **Nenhum motor consegue
+cumprir**, e a razão está medida: o contrato v1 achata `app_nascente` em
+`app_hidrica`, sem o ponto e sem a linha do curso. A regra fica **escrita e
+marcada como não aplicável até o contrato trazer a nascente** — e **sem
+aproximação inventada**, que é o que o chat pediu.
+
+---
 
 # O complemento à D61, e o LAB-17 que não existe · 20/09/2026
 

@@ -1530,3 +1530,64 @@ todas é a única que o contrato não deixa cumprir.
 **perpendicular ao curso**, e o curso chega como **polígono de APP**, não como
 linha d'água (`ONDE_PARAMOS`, achado para o Geo). Os dois pedidos são a mesma
 falta: **o contrato v1 perde a hidrografia pelo caminho.**
+
+---
+
+## D70 · A peça de entrega vive FORA de `external-engines/` · 20/09/2026
+
+**A decisão:** o registro de motores mora em
+[`entrega/registro-de-motores/`](../entrega/registro-de-motores/), na raiz do
+repositório, e **não** dentro de `external-engines/`.
+
+**Por quê.** A regra de ouro (CLAUDE.md §3) diz que `external-engines/` inteiro
+pode ser apagado sem que o Generate sinta. Uma peça de entrega guardada lá dentro
+**sumiria junto com a pasta que a regra manda poder apagar** — e o LAB-06 existe
+justamente para provar que apagar o Lab não quebra o Generate.
+
+**E ela não importa nada:** nem `external-engines/`, nem `@symbios`, nem
+`@testfit`, nem `@generate`, nem npm. Os tipos do contrato são **declarados
+nela**, não importados. Um teste lê os `import` de cada arquivo e reprova quem
+acrescentar um.
+
+## D71 · O estado salvo guarda os motores DESLIGADOS, não os ligados · 20/09/2026
+
+**A decisão:** `EstadoDoUsuario` é `{ desligados: string[]; padrao: string }`.
+
+**Por quê.** Guardar os **ligados** parece natural e **perde informação**: um
+motor fora da lista pode ser *"o usuário desligou"* ou *"não existia quando isto
+foi salvo"*, e as duas coisas pedem respostas **opostas** — a primeira tem de ser
+respeitada, a segunda tem de nascer ligada, pela D68.
+
+Guardando os **desligados** a ambiguidade some: quem está na lista fica
+desligado, quem não está fica ligado. **Motor novo nasce ligado sem ninguém
+decidir nada**, e a escolha do usuário sobrevive à chegada dele.
+
+**O que se perde:** a distinção entre "desligou e depois o motor sumiu" e "nunca
+soube dele". Quem precisar dela salva as duas listas — é mudança do hospedeiro,
+não da peça, e o motor que sumiu já volta em `esquecidos`.
+
+## D72 · Ranking vazio nunca é silêncio, e a reprovada não carrega o desenho · 20/09/2026
+
+**A decisão**, em três regras, e a terceira é a que ninguém pensa antes de perder
+o usuário:
+
+1. **Só entra no ranking quem o Validator aprova** — a régua do Generate, sem
+   versão leve (D20);
+2. **A reprovada leva o MOTIVO e NÃO leva o resultado.** O tipo
+   `CandidataReprovada` **não tem** o campo do desenho: não é questão de lembrar
+   de não mostrar. Mostrar geometria reprovada é convidar alguém a usá-la "só
+   para ver", e o que se vê vira o que se aprova;
+3. **Nunca um ranking vazio em silêncio.** Quando ninguém passa, a tela **diz
+   isso** e mostra os motivos — e o recado distingue *"correram e todas
+   reprovaram"*, *"está tudo desligado"* e *"não há motor instalado"*, que são
+   três situações que não se parecem.
+
+**E a peça não confia no contrato:** ela envolve cada geração e transforma
+exceção em reprovação com o motivo. O contrato proíbe estourar (§7), mas isso
+**já aconteceu** — o Symbios em gleba sem relevo (D66) —, e numa tela com vários
+motores um que caia leva os outros junto.
+
+**Consequência medida, e ela não é pequena:** em `ensaio-47ha`, o motor que a
+D68 põe como **padrão** é justamente o que o Validator **reprova** (16 violações),
+enquanto os outros três entram no ranking. A peça trata o caso sem quebrar; **o
+que fazer a respeito é do chat e do Jonny**, e está proposto na fila.
