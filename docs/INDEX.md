@@ -31,6 +31,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-17.md`](relatorios/LAB-17.md) | **A via desenhada à mão**: duas glebas de referência, os quatro motores contra o traçado imposto (10,1 % a 30,7 % de aderência), e a **D69 aplicada** — com as duas metades dela que o contrato v1 não deixa verificar |
 | [`CONTRATO_MOTOR_UNIFICADO_v1.md`](CONTRATO_MOTOR_UNIFICADO_v1.md) | **A porta única**: o que qualquer motor precisa cumprir para rodar sob a tela comum. Vai ao Generate pelo chat |
 | [`relatorios/LAB-14.md`](relatorios/LAB-14.md) | **A porta, provada**: os quatro motores a implementam, e cada capacidade declarada é desmentida por medição se for falsa |
 | [`relatorios/LAB-13.md`](relatorios/LAB-13.md) | **Três motores, cinco glebas, uma régua só**: a tabela que serve de base para a tela unificada |
@@ -71,6 +72,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`terrenos/`](terrenos/) | Os 4 terrenos no contrato `archilly-terreno` 1.1, com procedência declarada |
 | [`fixtures/glebas-padrao-com-relevo/`](fixtures/glebas-padrao-com-relevo/) | As duas glebas-padrão do Generate **com relevo sintético declarado** (LAB-03) — poligonal e parâmetros dele, intocados |
+| [`fixtures/glebas-com-via-desenhada/`](fixtures/glebas-com-via-desenhada/) | As duas glebas de referência **com via principal e secundárias desenhadas à mão** (LAB-17). O traçado é geométrico, **não é projeto de urbanismo** (D73) |
 
 ## O código
 

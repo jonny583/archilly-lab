@@ -1591,3 +1591,84 @@ motores um que caia leva os outros junto.
 D68 põe como **padrão** é justamente o que o Validator **reprova** (16 violações),
 enquanto os outros três entram no ranking. A peça trata o caso sem quebrar; **o
 que fazer a respeito é do chat e do Jonny**, e está proposto na fila.
+
+---
+
+## D73 · O traçado imposto das glebas de referência é geométrico, e de propósito · 20/09/2026
+
+**Contexto:** o LAB-17 precisou de gleba **com via desenhada à mão**, porque
+nenhuma das cinco do LAB-13 tem (D64), e é justamente o que a tela unificada
+existe para comparar.
+
+**Decisão:** o traçado das duas glebas de referência é **geométrico** — a
+principal pelo meio do lado maior da caixa envolvente, `n` secundárias
+perpendiculares igualmente espaçadas, todas aparadas para dentro da divisa. Ele
+**não é projeto de urbanismo** e não tenta ser.
+
+**Por quê:** a fixture existe para ser uma **imposição conhecida** contra a qual
+se mede aderência. Um traçado "bonito", desenhado por mim com critério de
+partido, seria **regra urbanística disfarçada de fixture** — e regra urbanística
+é do Jonny, nunca escolha minha (CLAUDE.md §4). Além disso, um traçado que já
+concordasse com a malha de algum motor premiaria esse motor por coincidência.
+
+**Consequência:** as duas glebas ficam gravadas em
+`docs/fixtures/glebas-com-via-desenhada/`, e quem quiser refazer a medição
+precisa só do JSON, não da ferramenta.
+
+---
+
+## D74 · A regra dos 50 m da nascente fica ESCRITA e marcada como não aplicável · 20/09/2026
+
+**Contexto:** a D69 manda que a nascente nunca seja vencida — 50 m intocáveis,
+nem por via desenhada à mão. Medido no LAB-17: **o contrato de motor v1 achata
+`app_nascente` em `app_hidrica`**, e não carrega nem o ponto da nascente nem a
+linha do curso d'água.
+
+**Decisão:** a regra fica **escrita no código** (`RAIO_DA_NASCENTE_M = 50`, em
+`src/travessia.ts`) e **marcada como "não aplicável até o contrato trazer a
+nascente"**. Ela sai declarada em `naoVerificado` **em toda aplicação da D69**,
+com ou sem travessia. **Nenhuma aproximação é inventada.**
+
+**Por quê:** as duas saídas erradas eram apagar a regra — e aí ela some do
+sistema e ninguém a reimplanta quando o dado chegar — ou aproximá-la: *"a APP
+mais redonda deve ser a nascente"*, *"o eixo do curso é o esqueleto do
+polígono"*. A aproximação é **pior que não fazer**: daria um número em que
+alguém confiaria para decidir sobre APP. `null` é "não medido" (D23), e o mesmo
+vale para uma regra: "não verificável" é uma resposta, "provavelmente ok" não é.
+
+**Consequência:** **nenhum motor da família consegue hoje cumprir a regra dos
+50 m** — nem o interno do Generate. Isso é um pedido ao contrato, não um defeito
+de motor, e está no §10.5 do `CONTRATO_MOTOR_UNIFICADO_v1.md`.
+
+**Nota:** o critério dos **3× / 1,5 km** segue como decisão **do chat**, não do
+Jonny, e está assim em `docs/PENDENCIAS_JONNY.md` até ele confirmar.
+
+---
+
+## D75 · A régua que separa via desenhada de testada de frente AMOSTRA a linha · 20/09/2026
+
+**Contexto:** o contrato v1 chama as duas de `via_existente` (D64), e o Lab as
+separa **por medição**: a que corre rente à divisa é testada de frente, a que
+não corre é via desenhada à mão. A régua olhava a **mediana da distância dos
+VÉRTICES** à divisa.
+
+**Medido no LAB-17:** das quatro vias desenhadas em `antonina-com-via`, **três
+foram para o balde errado**, e a gleba de uma testada de frente apareceu com
+quatro. Uma via que **atravessa** a gleba tem as duas pontas na divisa — e só
+tem duas pontas. Mediana de dois zeros é zero.
+
+**Decisão:** a régua **amostra a linha de 5 em 5 m** e tira a mediana das
+amostras, não dos vértices.
+
+**Por quê:** a distinção que interessa é *"corre rente à divisa do começo ao
+fim"* contra *"tem o miolo longe dela"*, e essa é uma propriedade do **traçado**,
+não das pontas. Com amostragem, a testada de frente continua testada de frente e
+a via que atravessa deixa de se disfarçar de uma.
+
+**O que isso contamina:** os números de aderência da **primeira** passada do
+LAB-17 foram descartados. **O LAB-13 não é afetado** — lá as cinco glebas
+devolveram `null` ou testada de frente, e continuam devolvendo, porque nenhuma
+delas tem via que atravesse.
+
+**Quinto defeito do Lab** que a disciplina "medir antes de atribuir"
+(CLAUDE.md §6) pegou antes de virar acusação ao motor de outro repositório.

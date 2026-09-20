@@ -243,14 +243,35 @@ export function linhasDaEntrada(entrada: EntradaMinima): LinhasDaEntrada {
     if (tipo !== "via_existente") continue;
     if (g?.tipo !== "linha" || !g.pontos || g.pontos.length < 2) continue;
 
+    // A régua AMOSTRA a linha, e não olha só os vértices — e a diferença não é
+    // detalhe.
+    //
+    // Olhando vértices, uma via que **atravessa** a gleba tem as duas pontas na
+    // divisa e é classificada como testada de frente, que é o contrário do que
+    // ela é. Medido no LAB-17: das quatro vias desenhadas em
+    // `antonina-com-via`, **três** foram parar no balde errado.
+    //
+    // Amostrando ao longo, a distinção volta a ser a que interessa: a testada
+    // de frente corre **rente à divisa do começo ao fim**, e a via que atravessa
+    // tem o **miolo longe** dela. É a mediana das amostras que separa as duas.
     const pts = g.pontos;
-    const distancias = pts.map((p) => {
-      let d = Infinity;
-      for (let i = 0; i < anel.length; i++) {
-        d = Math.min(d, distSeg(p, anel[i]!, anel[(i + 1) % anel.length]!));
+    const PASSO_M = 5;
+    const distancias: number[] = [];
+    for (let k = 1; k < pts.length; k++) {
+      const a = pts[k - 1]!;
+      const b = pts[k]!;
+      const comp = Math.hypot(b.x - a.x, b.y - a.y);
+      const n = Math.max(1, Math.ceil(comp / PASSO_M));
+      for (let j = 0; j <= n; j++) {
+        const t = j / n;
+        const p = { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+        let d = Infinity;
+        for (let i = 0; i < anel.length; i++) {
+          d = Math.min(d, distSeg(p, anel[i]!, anel[(i + 1) % anel.length]!));
+        }
+        distancias.push(d);
       }
-      return d;
-    });
+    }
     const mediana = [...distancias].sort((x, y) => x - y)[Math.floor(distancias.length / 2)] ?? 0;
     if (mediana <= TOL_DIVISA_M) testadasDeFrente.push(pts);
     else desenhadas.push(pts);

@@ -326,3 +326,17 @@ Depende do Jonny: confirmar o "3× / 1,5 km" (D61) — não trava nada.
 Próximo na fila: LAB-17, condição cumprida. Quem instala a peça é o GU-03, não eu.
 === FIM ===
 ```
+
+---
+
+## 20/09/2026 · LAB-17 — as glebas com via desenhada, e a D69 aplicada
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-17 ===
+Estado: LAB-17 concluído e mesclado. Esteira 127/127 (12 novos), tsc limpo. Vizinhos limpos.
+Feito: duas glebas de referência COM via principal e 3 secundárias desenhadas (ensaio-com-via 47 ha, antonina-com-via 141,8 ha), os quatro motores rodados nelas. Aderência ao traçado imposto: Symbios 27,5/30,7 %, ortogonal 29,3/28,0 %, espinha 20,5/10,1 %, Parcelamento 11,3/17,4 %. NENHUM respeita via desenhada e NENHUM mente: os quatro declaram que ignoram, e a declaração bate com o medido nas 8 linhas. Sem recomendação de produto. D69 aplicada: VD1 x APP hídrica, 71,00 m, marcada "desenhada por você — exige licença ambiental", item de custo com obra=null (ponte ou bueiro depende da vazão, que não chega). D73 a D75.
+Achados para outros apps ou Central: GENERATE — (1) 50 m da nascente fica ESCRITA e marcada "não aplicável até o contrato trazer a nascente", sem aproximação inventada; (2) falta um TIPO para via desenhada à mão, separado de via_existente: sem ele a tela não distingue "respeitei a rua que existe" de "respeitei o que você desenhou"; (3) o eixo do curso d'água, senão "perpendicular" não tem a quê.
+Depende do Jonny: confirmar o "3x / 1,5 km" (D61) — não trava nada.
+Próximo na fila: LAB-16, condição cumprida. Despertador trig_01ErsHXVhfTZziHEGGYcBjiJ criado (cron 5 * * * *) e NASCEU SEM CONECTORES do GitHub: a sessão que ele acordar mescla por git direto (D29).
+=== FIM ===
+```
