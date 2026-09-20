@@ -1455,3 +1455,78 @@ da fila não existe (CLAUDE.md §1-A).
 **E a regra de ouro continua valendo (§3):** o Generate **nunca depende** do Lab.
 `external-engines/` inteiro pode ser apagado sem que ele sinta — e é justamente
 isso que o LAB-06 manda testar.
+
+---
+
+## D69 · Via desenhada à mão é intenção explícita: atravessa a APP, menos nascente · 20/09/2026
+
+**Complemento à D61**, trazido pelo chat. Regra urbanística; transcrita antes de
+interpretada:
+
+> **Via desenhada à mão pelo usuário é INTENÇÃO EXPLÍCITA e vale sempre como
+> atração** — atravessa a APP mesmo sem cumprir o critério dos 3× / 1,5 km,
+> inclusive quando desenhada sozinha sobre a APP.
+>
+> **Exceções que não caem:** **nascente nunca** (raio de 50 m intocável), e a
+> travessia continua sendo **a mais curta e perpendicular possível ao curso
+> naquele ponto**.
+>
+> Na tela, a travessia desenhada aparece marcada como **"desenhada por você —
+> exige licença ambiental"** e entra como **item de custo (ponte ou bueiro)** na
+> saída para o Orçamento.
+
+**O que ela muda na D61.** A D61 fez a travessia depender de o contorno ser
+desproporcional. Agora há **duas portas**, e a segunda não depende de número:
+
+| como a travessia nasce | precisa do critério? |
+|---|---|
+| o motor a propõe | **sim** — só se o contorno for desproporcional |
+| **o usuário a desenhou** | **não** — o desenho é a decisão, e ela já foi tomada |
+
+**A nascente é o piso, e não se negocia:** raio de **50 m** intocável, inclusive
+contra desenho do usuário. É a única coisa que o desenho não vence.
+
+---
+
+### Três coisas que este registro precisa dizer, e nenhuma é interpretação minha
+
+**1 · O critério "3× / 1,5 km" chegou POR REFERÊNCIA, não por declaração.** A
+D61 registrou que o limiar de "desproporcional" **não tinha sido dado** e o
+mandou para `PENDENCIAS_JONNY.md`, onde está desde 15/09. Esta mensagem o cita
+como coisa sabida — *"sem cumprir o critério dos 3× / 1,5 km"* — mas ele **nunca
+chegou ao Lab como decisão**. Fica gravado com a leitura mais direta possível:
+
+> o contorno é desproporcional quando passa de **3 vezes** a travessia direta
+> **ou** de **1,5 km** em valor absoluto.
+
+**Se a intenção era outra, é corrigir aqui.** O item segue visível na lista do
+Jonny até alguém confirmar, porque registrar por dedução e depois tratar como
+decidido é como se perde uma regra.
+
+**2 · `LAB-17` não existe.** A fila deste repositório foi de LAB-00 a LAB-08 e
+pulou para LAB-13 e LAB-14; não há LAB-15, LAB-16 nem LAB-17. É o mesmo vão da
+numeração que o LAB-09 a LAB-12 já tinha. A regra aqui é `CLAUDE.md` §1-A —
+**prompt fora da fila não existe** —, então esta decisão está **gravada** e o
+LAB-17 está **proposto na fila, não executado**.
+
+**3 · A regra da nascente NÃO É CUMPRÍVEL hoje, por motor nenhum.** Medido:
+
+| onde | a nascente existe? |
+|---|---|
+| `archilly-terreno` (o formato do Geo) | **sim** — `"nascente"` é categoria própria |
+| importador do Generate (`restricoes-geo.ts`) | **sim** — `app_nascente`, com rótulo e uso próprios |
+| **contrato de motor v1** | **NÃO** — o enum tem `app_hidrica`, `app_relevo` e `app_outra`, e a nascente é achatada em `app_hidrica` |
+
+Ou seja: **a nascente chega ao motor indistinguível de qualquer outra APP
+hídrica**. Um motor que quisesse obedecer ao "nascente nunca" não teria como
+saber qual polígono é nascente — nem onde está o ponto dela, para medir os 50 m.
+
+**É pedido ao Generate**, com número: `app_nascente` como tipo próprio no enum de
+`restricoes` do contrato v1, e a geometria do **ponto** da nascente, não só do
+polígono da APP. Sem isso, a exceção que o Jonny declarou como a mais dura de
+todas é a única que o contrato não deixa cumprir.
+
+**E some-se ao pedido que já estava aberto:** a D61 pede travessia
+**perpendicular ao curso**, e o curso chega como **polígono de APP**, não como
+linha d'água (`ONDE_PARAMOS`, achado para o Geo). Os dois pedidos são a mesma
+falta: **o contrato v1 perde a hidrografia pelo caminho.**

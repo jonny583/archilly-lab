@@ -57,6 +57,40 @@ quando a travessia sobre APP entra. Sem ele, **nenhuma travessia é proposta**.
 Está em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md), com três formas de
 responder.
 
+# O complemento à D61, e o LAB-17 que não existe · 20/09/2026
+
+**D69 · Via desenhada à mão é intenção explícita.** O chat complementou a D61: a
+rua que o usuário desenha **atravessa a APP sem precisar do critério** —
+inclusive desenhada sozinha sobre a APP. **Nascente nunca** (raio de 50 m
+intocável), a travessia segue a **mais curta e perpendicular ao curso**, aparece
+marcada *"desenhada por você — exige licença ambiental"* e vai como **item de
+custo** para o Orçamento.
+
+**Registrado; NÃO aplicado.** O chat mandou aplicar no **LAB-17**, e ele **não
+existe** — não há LAB-15, LAB-16 nem LAB-17, o mesmo vão do LAB-09 a LAB-12. Está
+na [`prompts/FILA.md`](prompts/FILA.md) como proposto, com o escopo pronto.
+
+**E um achado que trava dois dos quatro itens do LAB-17**, medido:
+
+| onde | a nascente existe? |
+|---|---|
+| `archilly-terreno` (o formato do Geo) | **sim**, categoria própria |
+| importador do Generate | **sim**, `app_nascente`, com rótulo e uso |
+| **contrato de motor v1** | **NÃO** — achatada em `app_hidrica` |
+
+**A nascente chega ao motor indistinguível de qualquer outra APP hídrica**, e o
+ponto dela não chega. A regra que o Jonny declarou como a mais dura de todas é a
+única que o contrato **não deixa cumprir**. Somada ao eixo do curso d'água, que
+também não viaja, é a mesma falta: **o contrato v1 perde a hidrografia pelo
+caminho.** Pedido ao Generate, no §10.5 do
+[`CONTRATO_MOTOR_UNIFICADO_v1.md`](CONTRATO_MOTOR_UNIFICADO_v1.md).
+
+**E o critério "3× / 1,5 km" chegou por referência**, não como decisão: a D61 o
+pedia desde 15/09 e esta mensagem o cita como coisa sabida. Gravado com a leitura
+mais direta, e **o item segue visível na lista do Jonny até alguém confirmar**.
+
+---
+
 ## O próximo passo óbvio: **LAB-06**, e ele não foi executado
 
 A decisão de família (D68) pede **registro de motores, botão liga/desliga por
@@ -65,8 +99,8 @@ palavra, o prompt de entrega disso — e **nunca foi executado**. Está na
 [`prompts/FILA.md`](prompts/FILA.md) como **proposto ao chat**: prompt fora da
 fila não existe.
 
-**LAB-09 a LAB-12 nunca existiram.** A fila original foi de LAB-00 a LAB-08 e a
-de 19/09 começou no LAB-13. Não há prompt perdido no vão.
+**LAB-09 a LAB-12 e LAB-15 a LAB-17 nunca existiram.** A fila original foi de
+LAB-00 a LAB-08 e a de 19/09 começou no LAB-13. Não há prompt perdido nos vãos.
 
 ## O que espera o chat
 

@@ -161,7 +161,35 @@ o nome feio de propósito, D67).
 **O contrato vai ao Generate pelo chat.** O Lab não escreve no repositório
 vizinho.
 
-### Proposto ao chat, e é o próximo passo óbvio: **LAB-06**
+### Proposto ao chat: **LAB-17** — a travessia desenhada à mão
+
+O chat mandou *"registre e aplique no LAB-17"*. **Registrado** (D69). **Não
+aplicado:** o LAB-17 não existe nesta fila — não há LAB-15, LAB-16 nem LAB-17 —,
+e prompt fora da fila não existe (CLAUDE.md §1-A).
+
+O escopo, como a D69 o deixa pronto para virar prompt:
+
+1. **a via desenhada à mão atravessa a APP sem critério** — o desenho é a
+   decisão; inclusive quando desenhada sozinha sobre a APP;
+2. **a nascente é o piso**: raio de 50 m intocável, e nem o desenho a vence;
+3. **a travessia continua a mais curta e perpendicular** ao curso naquele ponto;
+4. **a saída marca** a travessia como *"desenhada por você — exige licença
+   ambiental"* e a lança como **item de custo (ponte ou bueiro)** para o
+   Orçamento.
+
+**Dois deles estão bloqueados por falta no contrato v1, e a falta foi medida:**
+
+- a **nascente** chega ao motor **indistinguível** de qualquer outra APP hídrica
+  — `app_nascente` existe no `archilly-terreno` e no importador do Generate, e o
+  contrato v1 a achata em `app_hidrica`. Sem o tipo e sem o **ponto**, os 50 m
+  não têm de onde ser medidos;
+- o **curso d'água** chega como polígono de APP, não como linha. Sem o eixo,
+  "perpendicular" não tem a quê.
+
+Enquanto isso não vier, o item 2 e o item 3 **não são implementáveis por motor
+nenhum**, e um LAB-17 que os "implementasse" estaria fingindo.
+
+### Proposto ao chat, e é o outro passo óbvio: **LAB-06**
 
 A decisão de família (D68) pede registro de motores, botão liga/desliga por
 motor e motor padrão — e o **LAB-06 da fila original** já era, palavra por
