@@ -31,7 +31,7 @@ você agora:
 | # | o que | quanto custa | o que muda se você responder |
 |---|---|---|---|
 | **1** | **Confirmar o número que veio pelo chat:** "desvio desproporcional" é **3 vezes** o caminho direto, **ou 1,5 km**? | 1 min | é o número que decide quando contornar o rio deixa de valer a pena e a ponte entra |
-| **2** | **Quando um lote tem forma ruim?** Hoje eu comparo o lote com o menor retângulo que cabe em volta dele. Um lote que "perde" pouco desse retângulo é quase retangular; um que perde muito é um trapézio, um pentágono, uma esquina cortada. **Qual a perda a partir da qual você olharia o lote e diria "esse aí está ruim"?** | 2 min | hoje a tabela mostra três respostas ao mesmo tempo, porque eu não tenho o direito de escolher por você |
+| **2** | **Confirmar a régua de forma de lote que veio pelo chat:** lote que aproveita **menos de 85 %** do retângulo em volta dele fica marcado *"a conferir"*; **menos de 70 %**, *"ruim"*. | 2 min | é a linha que decide quais lotes aparecem marcados na comparação entre motores |
 
 **Por que ainda está aqui, se o número chegou.** Ele chegou **de passagem**, numa
 frase sobre outro assunto — *"sem cumprir o critério dos 3× / 1,5 km"* —, e nunca
@@ -188,7 +188,32 @@ Isto está aqui para você não ficar procurando.
 
 ---
 
-## 5-A · A pergunta nova: o que é um lote de forma ruim
+## 5-B · A régua de forma — **respondida pelo chat em 02/10, à espera do seu OK**
+
+A pergunta do item 5-A abaixo **foi respondida pelo chat**, e já está valendo:
+
+> **Lote que aproveita menos de 85 % do retângulo em volta dele fica marcado "a
+> conferir". Menos de 70 %, "ruim".**
+
+**Está aplicada e medida.** O que ela fez, em uma linha: **soltou os lotes que a
+minha linha antiga prendia à toa.** No terreno de Antonina, o Laboratório de
+Parcelamento ia de **34 lotes marcados para nenhum** — porque os 34 eram
+trapézios de rua curva, que aproveitam uns 96 % do retângulo e são lotes
+perfeitamente normais.
+
+**O que apareceu com ela:** de quatro motores, **três não têm problema de forma**
+(entre nenhum e 2 % de lotes "ruim"). O quarto, o motor Symbios, tem **um terço
+dos lotes "a conferir"** — ele desenha quadra em leque, com lotes de cinco e seis
+lados, e é isso que a faixa do meio pegou.
+
+**Por que ainda está na sua lista.** A régua veio **do chat, não de você**, e é
+regra de urbanismo — é sua por direito. Está valendo para o trabalho não parar, e
+fica aqui à vista até você dizer "é isso" ou dar outro número. É o mesmo
+tratamento do item 1.
+
+---
+
+## 5-A · A pergunta que o chat respondeu: o que é um lote de forma ruim
 
 **O que eu meço, em uma frase:** desenho o **menor retângulo que cabe em volta
 do lote**, em qualquer inclinação, e vejo **quanto desse retângulo o lote deixa

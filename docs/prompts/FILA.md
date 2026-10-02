@@ -161,6 +161,63 @@ o nome feio de propósito, D67).
 **O contrato vai ao Generate pelo chat.** O Lab não escreve no repositório
 vizinho.
 
+## A fila de 02/10 — o contrato v2, a regra de forma, e a tabela para o Jonny
+
+Mandada pelo chat em 02/10/2026, com **um despertador de 60 minutos** que se
+apaga quando a fila esgotar (D62). Ordem explícita do chat: **não parar por nada
+que dependa do Jonny.**
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-18** | Revendorizar o **contrato v2** do Generate e rodar a esteira de novo nas cinco glebas, dizendo o que muda na tabela do LAB-13 | ⏸ **aguardando** | o v2 publicado na `main` **deles** — reavaliar a cada despertador |
+| **LAB-19** | Aplicar a regra de forma decidida pelo chat (**útil < 85 % = "a conferir"; < 70 % = "ruim"**), pôr a coluna na tabela e medir os quatro motores | ✅ **concluído em 02/10/2026** | nenhuma |
+| **LAB-20** | Deixar o resultado legível para quem não programa: **página de tabela gerada em `docs/`**, motores lado a lado, sem terminal | ⬜ **é o próximo** | LAB-19 — **cumprida** |
+
+### LAB-19 · A regra de forma do chat — ✅ concluído em 02/10/2026
+
+**Entregue:** [`../relatorios/LAB-19.md`](../relatorios/LAB-19.md) e
+`docs/provas/LAB-19/tabela.json` — que é também **a entrada do LAB-20**.
+
+**A regra (D79):** útil < 85 % = "a conferir"; < 70 % = "ruim". "Útil" é a área
+do lote sobre a área da caixa de **menor** área, em qualquer orientação. Escrita
+em útil, não em irregularidade, para ninguém ter de fazer a conta de cabeça.
+
+**O que ela fez:** **absolveu** o que o meu corte de 1 % condenava à toa — em
+`geo-antonina` o Laboratório de Parcelamento vai de **34 marcados a zero**,
+porque os 34 eram trapézios de rua curva (96,7 % de preenchimento).
+
+**O que apareceu:** **três dos quatro motores não têm problema de forma** (0 a
+1,9 % de "ruim"). O **Symbios** é o único com problema, e é "a conferir", não
+"ruim": **33,0 · 39,3 · 22,7 · 34,1 · 36,0 %** nas cinco glebas — pentágonos e
+hexágonos do campo tensor, exatamente a população que a faixa do meio serve para
+pegar.
+
+**Achado novo:** a candidata **espinha é bimodal** — mais "ruim" que "a
+conferir" (35 contra 1 em `completo`). Ela faz retângulo perfeito **ou**
+desastre; a faixa do meio fica vazia.
+
+**A coluna informa, não aprova** (D80): quem aprova é o Validator do Generate, e
+forma de lote não é violação dele. A prova está na tabela — 29 violações com
+zero "ruim" num caso, 1 violação com 382 fora do "ok" noutro.
+
+---
+
+### LAB-18 · O contrato v2 — ⏸ aguardando, e a condição foi MEDIDA
+
+**Conferido em 02/10/2026**, no clone de leitura do Generate
+(`origin/main` = `dfa2a61`, de 20/09): **o contrato v2 não existe lá.**
+
+| o que o v2 traria | está na `main` deles? | como foi conferido |
+|---|---|---|
+| `app_nascente` como tipo próprio, com o **ponto** e a **linha do curso** | **não** | `grep app_nascente src/lib/contratos/motor-v1/` — nenhuma ocorrência |
+| `rampaMaxima_pct` **por via na SAÍDA** | **não** | o `rampaMaxima_pct` que existe é **parâmetro de ENTRADA** (o teto permitido), em `esquema.ts:97`; a saída segue só com `vias[].rampaMedia_pct` |
+| **dois tipos** no lugar de `via_existente` | **não** | `tipos.ts:150` ainda é `"via_existente" \| "ponto_de_interesse" \| "outra"` |
+
+Não há `src/lib/contratos/motor-v2/`, e a pasta do contrato não é tocada desde
+**10/09** (`22502b3`). **Reavaliar a cada despertador**, sem escrever nada lá.
+
+---
+
 ## A fila de 20/09 — a entrega e as duas correções
 
 Mandada pelo chat, com **um despertador de 60 minutos** que se apaga quando não

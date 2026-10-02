@@ -1748,3 +1748,60 @@ apaga.
 espinha em `completo`, 41 em `50ha-ondulado`, 31 em `ensaio-47ha`, 28 em
 `geo-antonina`. A candidata ortogonal tem 3; o Laboratório de Parcelamento e o
 Symbios, **zero** — eles não fazem testada em arco.
+
+---
+
+## D79 · A regra de forma do lote: útil < 85 % é "a conferir", < 70 % é "ruim" · 02/10/2026
+
+**Quem decidiu:** o **chat**, em 02/10/2026, respondendo à pergunta que a D76
+abriu de propósito.
+
+**A regra, literal:** *"área útil abaixo de 85 % do retângulo envolvente = 'a
+conferir'; abaixo de 70 % = 'ruim'"*. "Útil" é a área do lote dividida pela área
+da **caixa de menor área em qualquer orientação** (D63); 85 % e 70 % são
+inclusivos no lado bom — *abaixo de* 85 % é que vira "a conferir".
+
+**Por que ela estava faltando:** o corte de 1 % que a régua usava era **meu**, sem
+critério, e mandava no resultado — 34 ou zero lotes conforme o corte, na mesma
+gleba (D76). Um corte escolhido por mim é decisão de urbanismo tomada por
+omissão, o jeito mais silencioso de fazer isso.
+
+**Como ela fica registrada:** valendo e aplicada, **e à vista em
+`docs/PENDENCIAS_JONNY.md`** até o Jonny confirmar — o mesmo tratamento do "3× /
+1,5 km" (D61). Por ordem do chat, **não trava nada**: o veredito sai nas
+medições, o Jonny confirma quando puder.
+
+**Escrita em ÚTIL, não em irregularidade.** O código guarda `UTIL_A_CONFERIR =
+0,85` e `UTIL_RUIM = 0,70`, e não "irregularidade > 0,15". Traduzir obrigaria quem
+confere a fazer a conta de cabeça, e é assim que limiar troca de lado.
+
+**O que ela mede, medido:** ela **absolve** o que o corte de 1 % condenava — o
+trapézio de 1 m de recuo em 30 preenche 96,7 % e passa a ser "ok". Em
+`geo-antonina`, o Laboratório de Parcelamento vai de **34 marcados a zero**.
+
+---
+
+## D80 · A coluna de forma informa; ela não aprova nem reprova · 02/10/2026
+
+**Contexto:** a tabela comparativa passou a ter "ok · a conferir · ruim". A
+tentação óbvia é ligar isso no ranking da tela.
+
+**Decisão:** **não.** Quem aprova candidata é o **Validator do Generate** (D20), e
+forma de lote **não é violação dele**.
+
+**Por quê, com a medida que prova:** as duas réguas não se parecem. O Laboratório
+de Parcelamento em `sintetico-10ha-plano` tem **29 violações do Validator e zero
+lotes "ruim"**; a candidata ortogonal em `geo-antonina` tem **1 violação e zero
+"ruim"**; o Symbios em `completo` tem **1 violação e 382 lotes fora do "ok"**.
+Somar as duas faria a tela reprovar por motivo que o Validator não deu — e o Lab
+não tem Validator próprio, por decisão.
+
+**Consequência:** a coluna é informação para quem lê, do mesmo naipe das
+ressalvas ("não li o relevo", "ignorei a via que você desenhou"). Ela entra na
+tabela e na página do Jonny; ela não entra na conta do ranking.
+
+**Achado que a coluna revelou, e que a contagem antiga escondia:** a candidata
+**espinha é bimodal** — tem **mais lotes "ruim" que "a conferir"** (35 contra 1 em
+`completo`). Ela não faz lote levemente fora de esquadro: faz retângulo perfeito
+ou desastre. São 0,5 a 5 % dos lotes, e a faixa do meio, que apanharia um erro
+gradual, fica vazia.
