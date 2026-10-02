@@ -4,40 +4,77 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 20/09/2026 · **Último prompt executado:** LAB-16
-**Estado:** **FILA ESGOTADA.** Os três prompts mandados pelo chat em 20/09 —
-LAB-06, LAB-17 e LAB-16 — estão concluídos e mesclados. **Aguardando o chat.**
+**Última atualização:** 02/10/2026 · **Último prompt executado:** LAB-19
+**Estado:** **LAB-19 mesclado. O próximo é o LAB-20**, e a condição está
+cumprida. O despertador de 60 minutos está ligado.
 
-## O despertador deste repositório — **APAGADO em 20/09/2026**
+## O despertador deste repositório — **um só**
 
-Era **`trig_01ErsHXVhfTZziHEGGYcBjiJ`** · "Despertador da fila autônoma —
-Archilly Lab (60 min)" · cron `5 * * * *`. Criado e apagado no mesmo dia, como
-manda a **D62**: **disparo sem item pronto se apaga em vez de acordar de novo.**
-Ele disparou **uma vez**, e teve o que fazer (o LAB-16). Com a fila esgotada, o
-próximo disparo não teria, e por isso ele não existe mais. **O chat o recria
-quando mandar fila nova.**
+**`trig_01R5tGpexnnGCHouc1aQGsi9`** · "Despertador da fila autônoma — Archilly
+Lab (60 min)" · cron `5 * * * *` · criado em 02/10/2026. **Este nasceu COM os
+conectores do GitHub** — ao contrário do de 20/09, que nasceu sem (D29). Apagar
+quando a fila esgotar, ou quando o que restar for só o LAB-18 aguardando (D62).
 
-**Nota para quem for recriá-lo:** o despertador nasceu **sem os conectores do
-GitHub** — o servidor avisou na criação. A sessão que ele acordar não terá
-`mcp__github__*` e terá de mesclar por git direto (D29). Nesta rodada isso não
-pesou, porque a sessão acordada era a mesma que já tinha os conectores.
+## A fila de 02/10
 
-**Antes dele não havia nenhum despertador do Lab.** O que existia na conta era
-de outros aplicativos — Render, Pesquisa de Mercado, motor-v2 —, e neles não se
-toca.
+| Prompt | Estado |
+|---|---|
+| **LAB-18** — revendorizar o contrato v2 do Generate e rodar a esteira de novo | ⏸ **aguardando o v2 na `main` deles** |
+| **LAB-19** — a regra de forma do chat, na tabela, nos quatro motores | **concluído em 02/10/2026** |
+| **LAB-20** — página de tabela em `docs/`, para o Jonny olhar sem terminal | **é o próximo** |
 
-## O que o chat precisa decidir para a fila andar
+## O LAB-18 — a condição foi MEDIDA, e não está cumprida
 
-1. **O motor que a D68 põe como PADRÃO é o que o Validator REPROVA** em
-   `ensaio-47ha` (16 violações). A peça do LAB-06 trata o caso sem quebrar, mas
-   **qual motor é o padrão** é decisão de produto;
-2. **A tela unificada não distingue "rua que já existe" de "rua que você
-   desenhou"** — o contrato v1 chama as duas de `via_existente` (D64). Pedido
-   aberto ao Generate;
-3. **Nenhum motor da família cumpre a regra dos 50 m da nascente**, e não é
-   defeito de motor: o contrato v1 achata `app_nascente` em `app_hidrica` (D74).
+Conferido em 02/10 no clone de leitura do Generate (`origin/main` = **`dfa2a61`**,
+de 20/09). **O contrato v2 não existe lá:**
+
+- `app_nascente` — **nenhuma ocorrência** em `src/lib/contratos/motor-v1/`;
+- `rampaMaxima_pct` **por via na SAÍDA** — não; o que existe é **parâmetro de
+  ENTRADA** (o teto permitido), em `esquema.ts:97`. A saída segue só com
+  `vias[].rampaMedia_pct`;
+- **dois tipos** no lugar de `via_existente` — não; `tipos.ts:150` ainda é
+  `"via_existente" | "ponto_de_interesse" | "outra"`.
+
+Não há `motor-v2/`, e a pasta do contrato não é tocada desde **10/09**
+(`22502b3`). **Reavaliar a cada despertador**, sem escrever nada lá.
+
+## O que o LAB-19 mediu
+
+**A regra do chat (D79):** útil < 85 % = "a conferir"; < 70 % = "ruim".
+
+| motor | "a conferir" nas cinco glebas | "ruim" |
+|---|---|---|
+| Generate · ortogonal | 0,1 % · 0 · 0 · 0 · 0 | **zero em todas** |
+| Generate · espinha | 0,1 % · 0 · 0 · 0,3 % · 0 | 1,9 · 1,7 · 5,0 · 1,8 · 0,5 % |
+| Laboratório de Parcelamento | 0,1 · 0,8 · 3,2 · 1,5 · 0 % | **zero em todas** |
+| Symbios + subdivisão do Lab | **33,0 · 39,3 · 22,7 · 34,1 · 36,0 %** | 7,9 · 6,6 · 3,0 · 3,7 · 8,6 % |
+
+**Três dos quatro motores não têm problema de forma.** O Symbios é o único, e é
+na faixa do meio — pentágonos e hexágonos do campo tensor.
+
+**A regra absolveu o que o meu corte de 1 % condenava à toa:** em `geo-antonina`,
+o Laboratório de Parcelamento vai de **34 marcados a zero**, porque os 34 eram
+trapézios de rua curva (96,7 % de preenchimento).
+
+**Achado novo:** a candidata **espinha é bimodal** — mais "ruim" que "a conferir"
+(35 contra 1 em `completo`). Retângulo perfeito **ou** desastre; a faixa do meio
+fica vazia.
+
+**A coluna informa, não aprova** (D80). Quem aprova é o Validator do Generate.
+
+## O que depende do Jonny — **dois itens, nenhum trava**
+
+1. Confirmar o **"3× / 1,5 km"** (D61);
+2. Confirmar a **régua de forma** que veio pelo chat (D79) — está valendo e
+   aplicada; é regra de urbanismo, e por isso fica à vista.
+
+Os dois estão escritos para leigo em
+[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md). **Ordem do chat em 02/10: não parar
+por nada que dependa do Jonny.**
 
 ---
+
+# A fila de 20/09 — a entrega e as duas correções · 20/09/2026
 
 ## Em uma frase
 
@@ -110,17 +147,13 @@ A peça trata o caso sem quebrar. **O que fazer a respeito é do chat e do Jonny
 chegam como `via_existente` (D64), e aqui a via desenhada precisou entrar assim,
 **como remendo declarado**.
 
-## O que depende do Jonny — **dois itens**
+## O que dependia do Jonny em 20/09 — **o segundo item foi respondido pelo chat**
 
 1. Confirmar o **"3× / 1,5 km"** (D61). Ele chegou por referência, não como
-   decisão. Não trava nada;
-2. **Dizer quando um lote tem forma ruim** (D76, novo no LAB-16): a partir de
-   quanto de perda da caixa envolvente ele olharia e diria "esse está ruim". Hoje
-   a tabela mostra **três respostas ao mesmo tempo** — 1 %, 5 % e 10 % —, porque
-   escolher uma é decidir urbanismo. Não trava nada.
-
-Os dois estão escritos para leigo em
-[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md).
+   decisão. Segue aberto, e não trava nada;
+2. **Dizer quando um lote tem forma ruim** (D76). **Respondido pelo chat em
+   02/10** — útil < 85 % é "a conferir", < 70 % é "ruim" (D79) —, aplicado no
+   LAB-19 e à espera do OK do Jonny.
 
 ## A regra dos 50 m da nascente — **escrita e NÃO APLICÁVEL**
 

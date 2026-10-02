@@ -354,3 +354,17 @@ Depende do Jonny: dois, nenhum trava — (1) confirmar o "3x / 1,5 km"; (2) NOVO
 Próximo na fila: NADA. Os três prompts de 20/09 (LAB-06, LAB-17, LAB-16) estão fechados. Apaguei o despertador trig_01ErsHXVhfTZziHEGGYcBjiJ, como manda a D62 — ele disparou uma vez e teve o que fazer; o próximo não teria. Recrie-o com fila nova.
 === FIM ===
 ```
+
+---
+
+## 02/10/2026 · LAB-19 — a regra de forma do chat, na tabela
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-19 ===
+Estado: LAB-19 concluído e mesclado. Esteira 146/146 (7 novos), tsc limpo. Vizinhos limpos. Fila nova de 02/10 gravada, despertador trig_01R5tGpexnnGCHouc1aQGsi9 ligado (60 min, :05) e COM conectores desta vez.
+Feito: a sua regra está aplicada e escrita em ÚTIL, não em irregularidade (D79), para ninguém fazer conta de cabeça. A coluna "ok · a conferir · ruim" entrou na tabela comparativa inteira, nas cinco glebas e nos quatro motores. O que ela mediu: TRÊS dos quatro motores não têm problema de forma — ortogonal e Parcelamento com ZERO "ruim" em todas as glebas, espinha com 0,5 a 5 %. O Symbios é o único, e é na faixa do meio: 33,0 / 39,3 / 22,7 / 34,1 / 36,0 % "a conferir" — pentágonos e hexágonos do campo tensor, exatamente a população que a faixa serve para pegar. A regra ABSOLVEU o que o meu corte de 1 % condenava à toa: em geo-antonina o Parcelamento vai de 34 marcados a ZERO, porque os 34 eram trapézios de rua curva (96,7 % de preenchimento). Achado novo: a espinha é BIMODAL — mais "ruim" que "a conferir" (35 contra 1 em completo); ela faz retângulo perfeito ou desastre, e a faixa do meio fica vazia. A coluna informa, NÃO aprova (D80): quem aprova é o Validator do Generate, e a tabela prova que as réguas não se parecem — 29 violações com zero "ruim" num caso, 1 violação com 382 fora do "ok" noutro.
+Achados para outros apps ou Central: GENERATE — LAB-18 AGUARDANDO: o contrato v2 NÃO está na main de vocês (origin/main = dfa2a61, de 20/09). Conferido um por um: app_nascente não existe; o rampaMaxima_pct que há é parâmetro de ENTRADA, não saída por via; via_existente segue tipo único. A pasta do contrato não é tocada desde 10/09. Reavalio a cada despertador.
+Depende do Jonny: dois, nenhum trava — (1) o "3x / 1,5 km"; (2) confirmar esta régua de forma, que é regra de urbanismo e veio por você, não por ele.
+Próximo na fila: LAB-20, condição cumprida — a página de tabela em docs/ para o Jonny olhar sem terminal. O tabela.json do LAB-19 já é a entrada dela.
+=== FIM ===
+```

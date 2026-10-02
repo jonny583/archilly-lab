@@ -66,6 +66,53 @@ export const GIRO_DE_ARCO_GRAUS = 5;
  */
 export const CORTES_DE_FORMA = [0.01, 0.05, 0.1] as const;
 
+/**
+ * A REGRA DE FORMA DO LOTE — decidida pelo chat em 02/10/2026. (LAB-19)
+ *
+ * > **Área útil abaixo de 85 % do retângulo envolvente = "a conferir".
+ * > Abaixo de 70 % = "ruim".**
+ *
+ * É a resposta à pergunta que o LAB-16 abriu e **não quis responder sozinho**
+ * (D76): qual perda da caixa envolvente separa lote bom de lote ruim. O corte
+ * de 1 % que eu usava era meu, sem critério, e mandava no resultado — 34 ou
+ * zero lotes conforme o corte, na mesma gleba.
+ *
+ * **Quem decidiu foi o chat, não eu.** Como no "3× / 1,5 km" (D61), fica
+ * valendo e fica **à vista em `docs/PENDENCIAS_JONNY.md`** até o Jonny
+ * confirmar: regra que vem pelo chat e passa a ser tratada como dele é regra
+ * que se perde.
+ *
+ * # O que a régua continua NÃO fazendo
+ *
+ * O veredito é **da área útil contra a caixa**, e só. Ele não olha testada, não
+ * olha topografia e não olha para quem o lote dá frente — um retângulo de 4 m de
+ * testada sai "ok" aqui e é pior que um trapézio de 12 m que sai "a conferir".
+ * A composição por forma (D77) continua publicada ao lado por isso mesmo.
+ */
+
+/** A partir deste preenchimento da caixa envolvente, o lote está "ok". */
+export const UTIL_A_CONFERIR = 0.85;
+
+/** Abaixo deste preenchimento, o lote é "ruim". */
+export const UTIL_RUIM = 0.7;
+
+/** O veredito de forma, nas três palavras do chat. */
+export type VereditoDeForma = "ok" | "a conferir" | "ruim";
+
+/**
+ * O veredito de um lote, a partir de quanto ele preenche a caixa de menor área.
+ *
+ * `util` é a fração preenchida — 1 é um retângulo perfeito. É o complemento da
+ * `irregularidade`, e o veredito é escrito nela, e não na irregularidade, porque
+ * foi nela que o chat decidiu: ler "85 %" como "0,15 de irregularidade" obriga
+ * quem confere a fazer a conta de cabeça, e é assim que limiar troca de lado.
+ */
+export function vereditoDeForma(util: number): VereditoDeForma {
+  if (util < UTIL_RUIM) return "ruim";
+  if (util < UTIL_A_CONFERIR) return "a conferir";
+  return "ok";
+}
+
 /** O perfil de forma de um lote. Nada aqui julga; tudo aqui mede. */
 export interface PerfilDeForma {
   /** Pela caixa alinhada aos eixos — a fórmula do Generate. Punia quem girava. */
@@ -80,6 +127,10 @@ export interface PerfilDeForma {
   verticesCrus: number;
   /** A forma, em palavra: `retângulo`, `trapézio`, `pentágono`, `polígono 6 lados`… */
   classe: string;
+  /** Quanto o lote preenche a caixa de menor área. 1 é retângulo perfeito. */
+  util: number;
+  /** O veredito da regra do chat (LAB-19). Ver `vereditoDeForma`. */
+  veredito: VereditoDeForma;
 }
 
 /** Tira pontos repetidos. Não tira colinear — isso é trabalho dos lados. */
@@ -220,13 +271,17 @@ export function classeDaForma(lados: Lado[]): string {
 /** Mede um lote. */
 export function perfilDeForma(anel: P[]): PerfilDeForma {
   const lados = ladosDoAnel(anel);
+  const irr = irregularidadeGirada(anel);
+  const util = 1 - irr;
   return {
     irregularidadeEixos: irregularidade(anel),
-    irregularidade: irregularidadeGirada(anel),
+    irregularidade: irr,
     lados: lados.length,
     ladosCurvos: lados.filter((l) => l.arestas >= 3 && Math.abs(l.giroTotal_graus) >= GIRO_DE_ARCO_GRAUS).length,
     verticesCrus: anel.length,
     classe: classeDaForma(lados),
+    util,
+    veredito: vereditoDeForma(util),
   };
 }
 
@@ -242,6 +297,11 @@ export interface DistribuicaoDeForma {
   acimaDe: Record<string, number>;
   /** A mesma contagem pela régua VELHA, dos eixos — só para se ver o estrago. */
   acimaDeUmPorCentoPelosEixos: number;
+  /** A regra do chat (LAB-19): quantos lotes `ok`, `a conferir` e `ruim`. */
+  porVeredito: Record<VereditoDeForma, number>;
+  /** A mesma contagem em fração dos lotes, que é como a tabela a mostra. */
+  pctAConferir: number | null;
+  pctRuim: number | null;
   /** Quantos lotes de cada forma. */
   porClasse: Record<string, number>;
   /** Quantos têm ao menos um lado em arco. */
@@ -263,8 +323,15 @@ export function distribuicaoDeForma(aneis: P[][]): DistribuicaoDeForma {
   const porClasse: Record<string, number> = {};
   for (const p of perfis) porClasse[p.classe] = (porClasse[p.classe] ?? 0) + 1;
 
+  const porVeredito: Record<VereditoDeForma, number> = { ok: 0, "a conferir": 0, ruim: 0 };
+  for (const p of perfis) porVeredito[p.veredito]++;
+  const fracao = (n: number): number | null => (perfis.length ? n / perfis.length : null);
+
   return {
     lotes: perfis.length,
+    porVeredito,
+    pctAConferir: fracao(porVeredito["a conferir"]),
+    pctRuim: fracao(porVeredito.ruim),
     mediana: q(0.5),
     p90: q(0.9),
     p99: q(0.99),
