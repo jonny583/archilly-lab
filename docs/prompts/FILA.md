@@ -161,6 +161,72 @@ o nome feio de propósito, D67).
 **O contrato vai ao Generate pelo chat.** O Lab não escreve no repositório
 vizinho.
 
+## A fila de 03/10 — a rampa que virou número, e a via desenhada como espinha
+
+Mandada pelo chat em 03/10/2026, com **um despertador de 60 minutos** que se
+apaga ao esgotar (D62).
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-21** | Medir, em todas as glebas e motores, **quantos trechos e cruzamentos passam dos limites de rampa**; coluna na tabela e na página do Jonny, separando **média** e **pico**, e a página dizendo que a média esconde o pico | ✅ **concluído em 03/10/2026** | nenhuma |
+| **LAB-22** | Só o Symbios reporta o pico — escrever, **por motor**, o que falta medir, e mandar **pelo chat** | ⬜ **é o próximo** | LAB-21 — **cumprida** |
+| **LAB-23** | **Via desenhada à mão como coluna vertebral do traçado**: medir o que muda nos quatro motores quando a via vem do arquivo em vez de ser inventada | ⬜ | LAB-21 |
+
+### LAB-21 · A rampa, trecho e cruzamento — ✅ concluído em 03/10/2026
+
+**Entregue:** [`../relatorios/LAB-21.md`](../relatorios/LAB-21.md),
+`docs/provas/LAB-21/rampa.json`, a coluna na tabela e **duas colunas** na página
+do Jonny, com a seção *"A rampa das ruas: a média esconde o pior trecho"*.
+
+**A notícia ruim primeiro: os 161,38 % do LAB-18 são artefato** (D94). Medida
+como rampa de rua, a mesma via dá **41,84 %**. A causa é `rampaMaxima_pct`
+calculada **vértice a vértice** sobre segmentos de mediana **0,47 m** — mede o
+degrau da grade de relevo, não o greide. A prova mais limpa: em
+`sintetico-10ha-plano`, praticamente plana, o motor declara **15,44 %** e o Lab
+mede **1,96 %**. O número saiu daqui, foi ao chat e voltou como prompt; a
+correção vai com nome.
+
+**Três defeitos da minha régua, pegos antes de publicar** (D93): o pico de
+1053 %, que era a discretização do motor; o passo menor que a célula do mapa; e
+**zero cruzamentos** numa malha de quinze vias, porque eu procurava nas pontas e
+numa grade as ruas se cruzam no meio.
+
+**Duas réguas, nunca somadas** (D92): o que o motor **declara** e o que o Lab
+**mede** passando o eixo pelo relevo. A segunda vale para os quatro — e mediu
+**34,71 %** e **46,70 %** nas candidatas do Generate, que declaram `null`.
+
+**O que a tabela mostra:** em `completo` as quatro **médias empatam** entre 6,1 %
+e 7,7 %, e os **piores trechos** vão de **34,7 % a 51,5 %**. Quem olhasse só a
+média não veria diferença nenhuma entre os quatro motores. A gleba plana é o
+controle: zero metros acima de 8 % nos quatro.
+
+**Item novo do Jonny:** a inclinação máxima de uma **rua** (D91).
+
+---
+
+### Uma ressalva de partida no LAB-21, antes de executar
+
+O prompt diz *"limites legais de rampa"*. **O Lab não tem esse limite, e não o
+invento** (CLAUDE.md §4). Procurei na família antes de escrever isto:
+
+| o que existe | onde | o que é |
+|---|---|---|
+| **declividade máxima parcelável: 30 %** | `normas/br.ts` do Generate, citando **Lei 6.766/1979, art. 3º, § único, III** | limite do **TERRENO**: acima de 30 % não se parcela sem exigência específica |
+| uso restrito de 25° a 45°, APP acima de 45° | idem, Código Florestal | limite do **TERRENO**, e **em grau**, não em porcento |
+| **limite de rampa de VIA** | **não existe** — `grep "rampa\|greide"` em `normas/` não acha nada | — |
+
+**E as duas coisas não são a mesma.** Uma rua pode ser cortada numa encosta de
+40 % e ter greide de 8 %; o terreno é um número, o greide é outro. O próprio
+comentário da norma avisa: *"ATENÇÃO À UNIDADE… misturá-las é erro silencioso"*.
+
+**Como o LAB-21 vai proceder, então:** publica a **distribuição** das rampas por
+trecho e por cruzamento, e a contagem acima de **vários cortes declarados**,
+incluindo os 30 % da lei **com o significado dele dito** (terreno, não greide).
+**Qual é a rampa máxima de via** vira item do Jonny — é urbanismo, e nenhum
+documento da família a tem.
+
+---
+
 ## A fila de 02/10 — o contrato v2, a regra de forma, e a tabela para o Jonny
 
 Mandada pelo chat em 02/10/2026, com **um despertador de 60 minutos** que se

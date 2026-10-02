@@ -4,88 +4,92 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 02/10/2026 · **Último prompt executado:** LAB-18
-**Estado:** **FILA ESGOTADA.** LAB-18, LAB-19 e LAB-20 concluídos e mesclados.
-**Aguardando o chat.** O despertador foi apagado (D62).
+**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-21
+**Estado:** **LAB-21 mesclado. O próximo é o LAB-22**, e a condição está
+cumprida. Despertador `trig_01XwSkTLT9zmyprNZcUiWy7f` ligado (60 min, :05).
 
-## Em uma frase
+## LEIA ISTO PRIMEIRO: os 161,38 % estavam errados, e o número era meu
 
-**O contrato v2 chegou, o Lab o leu sem quebrar, e o pico de rampa que o LAB-02
-achou em setembro finalmente viaja:** 161,38 % onde a média dizia 24,23 %.
+O LAB-18 reportou, e o chat agiu sobre, um pico de rampa de **161,38 %**.
+**Medida como rampa de rua, a mesma via dá 41,84 %** (D94).
 
-## O que o LAB-18 mediu
+**A causa:** `rampaMaxima_pct` era calculada **vértice a vértice**, e as vias do
+Symbios têm mediana de segmento de **0,47 m** — mede o degrau da grade de
+relevo, não o greide. **A prova mais limpa:** em `sintetico-10ha-plano`,
+praticamente plana, o motor declara **15,44 %** e o Lab mede **1,96 %**.
 
-**O adaptador não quebrou com o v2** — quem quebrou foi o `tsconfig` do Lab, por
-não espelhar o alias `@/` do Generate (D86). E o **gate de versão era do Lab**,
-errado desde o LAB-08: a esteira passa a ler `["2","1"]` (D87).
+**O que fica de pé do que foi dito antes:** o ganho do contrato v2 é real — **ter
+onde carregar o pico** —, e a metade da D67 sobre a média diluir o pico continua
+verdadeira, agora com prova melhor (ver abaixo). **O que cai é o valor.**
 
-**Os três pedidos do Lab, e a resposta de cada um:**
+## A fila de 03/10
 
-| pedido | o contrato entrega? | há dado nas glebas? |
-|---|---|---|
-| `app_nascente` + o **ponto** | **sim** | **não** — zero nas sete glebas, nem nas duas v2 deles |
-| **eixo do curso** | **sim** | **não** — as três hídricas de `geo-antonina` sem eixo |
-| `rampaMaxima_pct` **por via** | **sim** | **sim, e rendeu** |
+| Prompt | Estado |
+|---|---|
+| **LAB-21** — a rampa por trecho e cruzamento, coluna na tabela e na página | **concluído em 03/10/2026** |
+| **LAB-22** — o que falta medir em cada motor, mandado pelo chat | **é o próximo** |
+| **LAB-23** — via desenhada como coluna vertebral do traçado | aguardando o LAB-21 ✅ |
 
-**A rampa** (D89) — o Symbios já media a máxima desde o LAB-02 e não tinha onde
-escrevê-la:
+## O que o LAB-21 mediu
 
-| gleba | maior rampa média | **pior** rampa | fator |
-|---|---:|---:|---:|
-| `completo` | 24,23 % | **161,38 %** | 6,7× |
-| `geo-antonina` | 10,97 % | **113,54 %** | 10,4× |
-| `sintetico-10ha-plano` | 1,17 % | **15,44 %** | **13,2×** |
+**Duas réguas, nunca somadas** (D92): o que o motor **declara** e o que o Lab
+**mede** passando o eixo pelo relevo. A segunda vale para os quatro motores.
 
-**Só o Symbios reporta o pico.** As candidatas do Generate trazem o campo e o
-deixam `null`; o Laboratório de Parcelamento ainda escreve saída v1.
+| gleba | motor | média | pior trecho | m de rua > 8 % | cruzam. > 15 % |
+|---|---|---:|---:|---:|---:|
+| `completo` | ortogonal | 6,12 % | 34,71 % | 3 308 | 35 |
+| `completo` | espinha | 6,99 % | 46,70 % | 6 859 | 78 |
+| `completo` | Parcelamento | 7,72 % | **51,54 %** | **10 033** | 85 |
+| `completo` | Symbios | 7,19 % | 41,84 % | 13 960 | **414** |
+| `10ha-plano` | todos | 0,70–0,91 % | 1,15–1,96 % | **0** | **0** |
 
-## O que mudou na tabela do LAB-13
+**A leitura que importa:** em `completo` as quatro **médias empatam** entre 6,1 %
+e 7,7 %, e os **piores trechos** vão de **34,7 % a 51,5 %**. **Quem olhasse só a
+média não veria diferença nenhuma entre os quatro motores** — é a prova de que a
+média esconde, e é melhor que a dos 161 %, porque não depende de um número só.
 
-**Parcelamento e Symbios: nada, ao centavo**, em sessenta e tantos commits do
-Generate. É a prova de isolamento mais forte que a esteira já deu.
+**A gleba plana é o controle:** zero metros acima de 8 % nos quatro. Régua que
+acusasse rampa em terreno plano estaria medindo a si mesma.
 
-**As candidatas do Generate ganharam lote e perderam área vendável** — e medido,
-**é melhoria**: a área média do lote convergiu de **362–437 m²** para
-**360–367 m²**, com `areaAlvoLote_m2 = 360`. A área "perdida" era terra que o
-motor dava acima do alvo.
+## Três defeitos da minha própria régua, pegos antes de publicar (D93)
 
-**Dois achados do Lab estão CONSERTADOS** (D90), e a esteira os viu sem ninguém
-avisar: o quadro de áreas **fecha ao centavo** e a APP deixou de ser eco do
-parâmetro (`8fd954b`). Os dois testes do LAB-08 **viraram do lado contrário** em
-vez de serem apagados.
+1. **pico de 1053 %** — era a discretização do motor: 5 353 de 7 436 segmentos
+   do Symbios têm menos de 1 m, e o culpado tinha **15 cm**. A régua passou a
+   **caminhar a via por comprimento de arco**, atravessando vértice. **Segunda
+   vez que este mesmo erro aparece** (o primeiro foi a D75, no LAB-17), e por
+   isso virou teste: a mesma via em duas discretizações tem de dar o mesmo
+   resultado;
+2. **o passo não desce abaixo da célula do mapa** — `cotaEm` não interpola, e
+   pedir detalhe menor que a célula é inventar resolução;
+3. **zero cruzamentos** numa malha de quinze vias, porque eu procurava nas
+   pontas. Numa grade as ruas se cruzam **no meio**: agora é interseção de eixos.
 
-**O v2 confirmou a D64:** a atração de `geo-antonina` chega agora como
-`testada_de_frente`, que é o que o Lab mediu e o contrato não tinha como dizer.
+## O limite de rampa de via NÃO existe na família (D91)
 
-## O despertador — **APAGADO em 02/10/2026**
+Procurado antes de medir: `normas/br.ts` do Generate tem **declividade máxima
+parcelável de 30 %** (Lei 6.766/1979, art. 3º) — que é do **TERRENO** — e as
+faixas de uso restrito **em grau**. **Limite de greide de rua não existe em
+lugar nenhum.** O LAB-21 publica quatro **cortes de leitura** e **nenhum
+veredito**; a pergunta virou item do Jonny.
 
-Era `trig_015iiH1fhdJtSpVeigCz6mbp`. Disparou uma vez e **teve o que fazer** (o
-LAB-18). Com a fila esgotada, o próximo não teria — e disparo sem item pronto se
-apaga (D62). A ressalva da D85 não se aplica: a condição externa que ele vigiava
-**foi cumprida**.
+## O que depende do Jonny — **dois itens, nenhum trava**
 
-## O que depende do Jonny — **um item, e não trava**
+1. Confirmar a **régua de forma** (D79): útil < 85 % é "a conferir", < 70 % é
+   "ruim". Decisão do chat, valendo e explicada na página dele;
+2. **NOVO:** a **inclinação máxima de uma RUA**, em porcento, separada do limite
+   do terreno (D91).
 
-Confirmar a **régua de forma** (D79): útil < 85 % é "a conferir", < 70 % é
-"ruim". Está valendo, aplicada, e **explicada na página dele**.
+## O que vai para outro repositório — pelo chat
 
-## O que vai para o GEO — achado novo, pelo chat
-
-1. **A nascente não viaja no levantamento.** O contrato v2 tem `app_nascente` e o
-   **ponto**, e nenhuma das sete glebas os preenche. Enquanto o levantamento não
-   distinguir nascente de faixa de rio, **a regra dos 50 m do Jonny não é
-   verificável por motor nenhum** — e agora a falta é **de dado, não de
-   contrato**;
-2. **O eixo do curso d'água também não viaja.** `eixoDoCurso` existe e sai
-   `null` nas três hídricas. Sem ele, *"travessia perpendicular ao curso"* não
-   tem a quê — e o Generate já implementou a regra que o pede (`b4c33cc`).
-
-## O que espera o chat
-
-1. **Qual motor é o padrão da tela unificada**: a D68 põe o do Laboratório de
-   Parcelamento, e é justamente o que o Validator reprova em `ensaio-47ha`;
-2. **Ligar o GitHub Pages**, se quiser a comparação como página HTML de verdade;
-3. **Repassar ao Geo** os dois achados acima.
+1. **Para quem for preencher `rampaMaxima_pct`** (Generate e Laboratório de
+   Parcelamento): **não calcule vértice a vértice** — caminhe o eixo por
+   comprimento de arco, com passo não menor que a célula do modelo de relevo. O
+   Lab já consertou o próprio; o aviso é para ninguém repetir;
+2. **As duas candidatas do Generate deixam `rampaMaxima_pct` em `null`**, e o Lab
+   mediu para elas **34,71 %** e **46,70 %** em `completo`. É o conteúdo do
+   LAB-22;
+3. **Para o GEO:** a nascente e o eixo do curso existem no contrato v2 e **não
+   têm dado em gleba nenhuma** (D88).
 
 # A fila de 20/09 — a entrega e as duas correções · 20/09/2026
 

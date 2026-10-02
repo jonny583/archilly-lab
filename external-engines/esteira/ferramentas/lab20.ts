@@ -73,6 +73,16 @@ interface Forma {
   porClasse: Record<string, number>;
   comLadoCurvo: number;
 }
+interface Rampa {
+  declaradoPeloMotor_pct: number | null;
+  medida: boolean;
+  porQueNaoMedida: string | null;
+  mediaPonderada_pct: number | null;
+  pior_pct: number | null;
+  metrosAcimaDe: Record<string, number> | null;
+  cruzamentos: number | null;
+  cruzamentosAcimaDe: Record<string, number> | null;
+}
 interface MotorNaProva {
   motor: string;
   ms: number;
@@ -86,6 +96,7 @@ interface MotorNaProva {
   sobraSemLote_m2: number | null;
   pctDaMassaSemLote: number | null;
   forma: Forma | null;
+  rampa: Rampa | null;
 }
 interface GlebaNaProva {
   gleba: string;
@@ -107,6 +118,60 @@ function br(v: number, casas = 0): string {
 }
 const ha = (m2: number | null, casas = 2) => (m2 == null ? "—" : `${br(m2 / 1e4, casas)} ha`);
 const pct = (v: number | null, casas = 1) => (v == null ? "—" : `${br(v, casas)} %`);
+
+/**
+ * O que o Jonny vê nas duas colunas da rampa: a média e o pico, separados.
+ *
+ * **Separados é o ponto.** O chat pediu assim, e a razão está medida: a média
+ * de uma rua dilui o trecho que inviabiliza a obra, e foi por isso que o pico
+ * precisou entrar no contrato.
+ */
+function colunaDaRampa(r: Rampa | null): { media: string; pico: string } {
+  if (!r || !r.medida) return { media: "—", pico: "—" };
+  const m = r.mediaPonderada_pct;
+  const p = r.pior_pct;
+  const metros = r.metrosAcimaDe?.["15"] ?? 0;
+  return {
+    media: m == null ? "—" : `${br(m, 1)} %`,
+    pico:
+      p == null
+        ? "—"
+        : `**${br(p, 1)} %**` + (metros > 0 ? ` · ${br(metros)} m acima de 15 %` : ""),
+  };
+}
+
+/**
+ * O caso medido em que a média e o pico mais discordam.
+ *
+ * **Escolhido pela medição, não por mim.** Escrever os dois números à mão aqui
+ * seria o defeito que a D82 combate, e pior: o exemplo é o que o leitor
+ * acredita. Então ele sai do `tabela.json`, com o nome do terreno e do motor.
+ */
+function exemploDaRampa(): string[] {
+  let pior: { rotulo: string; media: number; pico: number } | null = null;
+  for (const g of prova.glebas) {
+    for (const id of ORDEM) {
+      const r = g.motores[id]?.rampa;
+      if (!r?.medida || r.mediaPonderada_pct == null || r.pior_pct == null) continue;
+      if (r.mediaPonderada_pct <= 0) continue;
+      if (!pior || r.pior_pct / r.mediaPonderada_pct > pior.pico / pior.media) {
+        pior = {
+          rotulo: `${NOME_DO_MOTOR[id] ?? id}, em ${NOME_DA_GLEBA[g.gleba] ?? g.gleba}`,
+          media: r.mediaPonderada_pct,
+          pico: r.pior_pct,
+        };
+      }
+    }
+  }
+  if (!pior) return ["Nenhum terreno medido tem relevo para comparar as duas."];
+  const fator = pior.pico / pior.media;
+  return [
+    `O caso em que as duas mais discordam, entre tudo o que foi medido: **${pior.rotulo}**.`,
+    `A média das ruas dele dá **${br(pior.media, 1)} %** — rua tranquila. O **pior`,
+    `trecho** dessas mesmas ruas dá **${br(pior.pico, 1)} %**, ou seja **${br(fator, 1)} vezes**`,
+    "mais. **O mesmo projeto, e dois números que contam histórias opostas.**",
+  ];
+}
 
 /** O que o Jonny vê na coluna da forma. */
 function colunaDaForma(f: Forma | null): string {
@@ -189,7 +254,25 @@ push(
   "| **Apontado pelo conferente** | quantas regras o desenho quebrou, na conta do conferente do Archilly Generate — o *Validator*. **Zero é o alvo, e é ele que diz se a proposta passa** |",
   "| **Terra sem lote** | terra dentro da área loteável que não virou lote nem rua. É prejuízo |",
   "| **Forma dos lotes** | ver a seção *A forma dos lotes*, logo abaixo |",
+  "| **Rampa média** | a inclinação média das ruas, pesada pelo comprimento de cada trecho |",
+  "| **Rampa no pior trecho** | a inclinação do **pior** pedaço de rua do projeto, e quantos metros de rua passam de 15 % |",
   "| **Tempo** | quanto o motor levou para desenhar |",
+  "",
+  "## A rampa das ruas: a média esconde o pior trecho",
+  "",
+  "**Olhe sempre as duas colunas juntas, e a segunda primeiro.** A rampa média de",
+  "um projeto pode ser mansa e confortável, e ainda assim haver um pedaço de rua",
+  "que não se constrói sem corte e aterro — porque a média dilui o trecho ruim no",
+  "meio de todos os outros.",
+  "",
+  ...exemploDaRampa(),
+  "",
+  "**Qual é a inclinação máxima que você aceita numa rua?** Isso é decisão sua, e",
+  "ainda não está respondida — está em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md).",
+  "A lei que a família tem escrita (Lei 6.766/1979) fala de **30 % de inclinação",
+  "do TERRENO** para poder lotear, que é **outra coisa**: uma rua pode ser cortada",
+  "numa encosta forte e ficar suave, e uma encosta suave pode receber uma rua",
+  "mal resolvida. Por isso a tabela mostra os números e não dá veredito.",
   "",
   "## A forma dos lotes",
   "",
@@ -232,23 +315,24 @@ for (const g of prova.glebas) {
     "",
     `**${br(g.areaDaGleba_m2 / 1e4, 1)} hectares** · identificação técnica do terreno: \`${g.gleba}\``,
     "",
-    "| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | tempo |",
-    "|---|---:|---:|---:|---:|---:|---|---:|",
+    "| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | tempo |",
+    "|---|---:|---:|---:|---:|---:|---|---:|---|---:|",
   );
   for (const id of ORDEM) {
     const m = g.motores[id];
     if (!m) continue;
     if (m.recusadoPeloEsquema) {
       push(
-        `| ${NOME_DO_MOTOR[id] ?? id} | — | — | — | **não entregou desenho válido** | — | — | ${br(m.ms / 1000, 1)} s |`,
+        `| ${NOME_DO_MOTOR[id] ?? id} | — | — | — | **não entregou desenho válido** | — | — | — | — | ${br(m.ms / 1000, 1)} s |`,
       );
       continue;
     }
+    const rampa = colunaDaRampa(m.rampa);
     push(
       `| ${NOME_DO_MOTOR[id] ?? id} | ${br(m.lotes ?? 0)} | ${ha(m.areaVendavel_m2)} | ` +
         `${pct(m.pctPrivativa)} | ${m.violacoes === 0 ? "**nenhum**" : br(m.violacoes ?? 0)} | ` +
         `${ha(m.sobraSemLote_m2)} · ${pct(m.pctDaMassaSemLote)} | ${colunaDaForma(m.forma)} | ` +
-        `${br(m.ms / 1000, 1)} s |`,
+        `${rampa.media} | ${rampa.pico} | ${br(m.ms / 1000, 1)} s |`,
     );
   }
   push("");
