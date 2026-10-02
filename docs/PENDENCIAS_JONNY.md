@@ -15,6 +15,7 @@ Refeito do zero em **14/09/2026**, no fim do LF-FINAL. Atualizado em
 - onde paramos: [`docs/ONDE_PARAMOS.md`](https://github.com/jonny583/archilly-lab/blob/main/docs/ONDE_PARAMOS.md)
 - índice de tudo: [`docs/INDEX.md`](https://github.com/jonny583/archilly-lab/blob/main/docs/INDEX.md)
 - os recados, em ordem: [`docs/relatorios/RECADOS.md`](https://github.com/jonny583/archilly-lab/blob/main/docs/relatorios/RECADOS.md)
+- **a comparação dos motores, numa página só:** [`docs/COMPARACAO_DOS_MOTORES.md`](https://github.com/jonny583/archilly-lab/blob/main/docs/COMPARACAO_DOS_MOTORES.md) — **novo em 02/10.** Quatro motores, cinco terrenos, lado a lado, com uma explicação de cada coluna. Abre no navegador, num clique, sem instalar nada.
 
 ---
 
