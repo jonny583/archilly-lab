@@ -1275,6 +1275,10 @@ urbanismo. Está decidido: **pode**, mas por exceção e com ônus declarado. Os
    urbanismo — volta ao Jonny como pergunta (quantas vezes o caminho direto? um
    comprimento absoluto?), e fica em `PENDENCIAS_JONNY.md`. Sem ele, o motor não
    tem como decidir sozinho: **por ora, nenhuma travessia é proposta.**
+   → **FECHADO em 02/10/2026 pela [D84](#d84): 3× a distância direta OU 1,5 km a
+   mais de percurso, confirmado pelo Jonny.** A pergunta era exatamente esta, e
+   as duas alternativas que ela listava eram as duas leituras possíveis; a
+   resposta foi a relativa **e** a absoluta, em OU.
 3. **A geometria da travessia:** a mais curta, e **perpendicular ao curso
    d'água** — não perpendicular à APP, nem alinhada à malha. São duas condições,
    e a segunda exige saber onde está o **eixo do curso**, que hoje o Lab não
@@ -1875,3 +1879,76 @@ apagaria a diferença entre o que ele disse e o que eu entendi.
 frase dá para o relatório técnico. A régua passou a poupar o número precedido de
 letra, dígito ou hífen. Há teste para os dois lados: o agrupamento acontece **e**
 o identificador sobrevive.
+
+---
+
+## D84 · O limiar de "desvio desproporcional": 3× a distância direta OU 1,5 km a mais de percurso · 02/10/2026
+
+**A decisão é do JONNY**, confirmada por ele e repassada pelo chat em 02/10/2026.
+Ela fecha o **item 2 da D61**, que estava aberto desde 15/09 com a anotação *"o
+limiar de desproporcional não foi dado, e não invento"*.
+
+**A regra, transcrita antes de interpretada:**
+
+> O caminho por fora da APP é desproporcional quando passa de **3× a distância
+> direta**, **ou** quando acrescenta **1,5 km a mais de percurso**. Atingido um
+> dos dois, a travessia deixa de ser proibida e passa a ser proposta — sempre
+> como exceção, sempre a mais curta e perpendicular ao curso (D61), sempre
+> declarada e lançada como item de custo.
+
+**A ambiguidade que isto desfaz, e ela era real.** O número tinha chegado em
+15/09 **de passagem**, numa frase sobre outro assunto — *"sem cumprir o critério
+dos 3× / 1,5 km"* —, e `1,5 km` podia querer dizer duas coisas muito diferentes:
+
+| leitura possível | o que significaria |
+|---|---|
+| **1,5 km A MAIS de percurso** (a certa) | a diferença entre contornar e atravessar |
+| 1,5 km de percurso total | um teto absoluto, que em gleba grande dispararia sempre |
+
+**O Jonny confirmou a primeira.** As duas leituras dão resultados opostos em
+terreno grande, e é por isso que ela ficou **à vista e não deduzida** por dezessete
+dias: regra que eu deduzi e passei a tratar como decidida é regra que se perde.
+
+**São dois gatilhos em OU, não em E.** Um critério relativo (3×) e um absoluto
+(1,5 km a mais). O relativo pega o terreno pequeno, onde contornar triplica um
+trajeto curto; o absoluto pega o grande, onde 2,5× de um trajeto longo já é
+quilômetro de rua a mais. Exigir os dois juntos deixaria os dois casos de fora.
+
+**O que ela destrava:** a D61 §2 dizia *"sem ele, o motor não tem como decidir
+sozinho: por ora, nenhuma travessia é proposta"*. **Agora tem.**
+
+**O que ela NÃO destrava, e continua medido como não aplicável:** a travessia
+**perpendicular ao curso** (D74) — o curso chega como polígono de APP, não como
+linha —, e o **raio de 50 m da nascente** (D74), porque o contrato v1 achata
+`app_nascente` em `app_hidrica`. O limiar chegou; o dado geométrico, não. E a
+**via desenhada à mão continua atravessando sem precisar de limiar nenhum**
+(D69): o desenho é a decisão.
+
+**Sai da lista do Jonny** — marcado como resolvido, nunca apagado (CLAUDE.md §5).
+
+---
+
+## D85 · Despertador que existe para VIGIAR condição externa não se apaga · 02/10/2026
+
+**Contexto:** a D62 manda apagar o despertador quando um disparo não acha item
+pronto, e foi assim que o despertador de 02/10 se apagou: só restava o LAB-18,
+aguardando o contrato v2 na `main` do Generate. Em seguida o chat escreveu: *"O
+LAB-18 continua aguardando o contrato v2 na main do Generate; **reavalie a cada
+despertador** e siga adiante."*
+
+**Decisão do chat:** quando o que resta da fila é um prompt cuja condição é
+**externa e verificável** — um arquivo que vai aparecer no repositório de outro
+aplicativo —, **vigiar é o trabalho do disparo**, e o despertador fica.
+
+**Por quê a D62 não cobre este caso.** Ela foi escrita contra o disparo que acorda
+e **não tem nada que fazer** — medido: dos 7 disparos de 15/09, **4 foram à
+toa**. Um disparo que confere a `main` do vizinho e grava o sha conferido **fez
+algo**: é a diferença entre esperar e vigiar. A prova de que vigiar não é
+desperdício está nesta rodada — entre 13h40 e 14h06 a `main` do Generate **andou**
+(`dfa2a61` → `8223873`), e sem conferir eu não saberia que andou sem o contrato.
+
+**O limite, para isto não virar desculpa:** o despertador-vigia **só vale
+enquanto houver a condição externa nomeada**. Se o LAB-18 for cancelado, ou
+executado, e a fila ficar vazia, a D62 volta a valer e ele se apaga. E a vigia
+**custa**: cada disparo gasta sessão para gravar um sha. É aceitável porque o
+chat pediu, e fica registrado que foi escolha, não inércia.

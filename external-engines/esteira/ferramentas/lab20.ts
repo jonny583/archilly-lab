@@ -118,6 +118,49 @@ function colunaDaForma(f: Forma | null): string {
   return partes.join(" · ");
 }
 
+/**
+ * Os casos em que as duas réguas discordam mais — **achados na medição, não
+ * escolhidos por mim**.
+ *
+ * Esta tabela existe para provar que forma de lote e veredito do Validator são
+ * coisas diferentes. Escrever os números à mão aqui seria o defeito que a D82
+ * combate na página inteira: a medição muda, o exemplo fica, e o exemplo é
+ * justamente o que o leitor vai acreditar. Então eles saem do `tabela.json`.
+ *
+ * O critério é o desencontro: muitos apontamentos com pouca forma ruim, ou o
+ * contrário. Dois de cada ponta.
+ */
+function desencontros(): string[] {
+  const casos: { rotulo: string; viol: number; ruim: number }[] = [];
+  for (const g of prova.glebas) {
+    for (const id of ORDEM) {
+      const m = g.motores[id];
+      if (!m || m.recusadoPeloEsquema || m.violacoes == null || !m.forma) continue;
+      casos.push({
+        rotulo: `${NOME_DO_MOTOR[id] ?? id} · ${NOME_DA_GLEBA[g.gleba] ?? g.gleba}`,
+        viol: m.violacoes,
+        ruim: m.forma.ruim,
+      });
+    }
+  }
+  // Muito apontamento e forma limpa: a régua do Validator morde, a da forma não.
+  const reprovaSemFormaRuim = casos
+    .filter((c) => c.viol > 0 && c.ruim === 0)
+    .sort((a, b) => b.viol - a.viol)
+    .slice(0, 2);
+  // Forma ruim e Validator quieto: o contrário exato.
+  const formaRuimSemReprova = casos
+    .filter((c) => c.ruim > 0)
+    .sort((a, b) => b.ruim - a.ruim || a.viol - b.viol)
+    .slice(0, 2);
+
+  const linha = (c: { rotulo: string; viol: number; ruim: number }) =>
+    `| ${c.rotulo} | ${c.viol === 0 ? "**nenhum**" : `**${br(c.viol)}**`} | ` +
+    `${c.ruim === 0 ? "**nenhum**" : `**${br(c.ruim)}**`} |`;
+
+  return [...reprovaSemFormaRuim, ...formaRuimSemReprova].map(linha);
+}
+
 const L: string[] = [];
 const push = (...linhas: string[]) => L.push(...linhas);
 
@@ -129,9 +172,10 @@ push(
   "diferente do que a medição diz hoje.",
   "",
   "**Quatro motores, cinco terrenos, a mesma régua para todos.** A régua é o",
-  "conferente e o contador de lotes do **Archilly Generate** — o laboratório não",
-  "tem régua própria, de propósito, para não haver como passar mais fácil por ser",
-  "de fora.",
+  "**conferente do Archilly Generate** — o *Validator*, no nome que ele tem no",
+  "código — mais o contador de lotes dele. O laboratório **não tem régua",
+  "própria**, de propósito, para não haver como um motor de fora passar mais",
+  "fácil por ser de fora.",
   "",
   "---",
   "",
@@ -142,7 +186,7 @@ push(
   "| **Lotes** | quantos lotes o motor desenhou |",
   "| **Área vendável** | a soma dos lotes, em hectares |",
   "| **Virou lote** | quanto do terreno virou lote, em porcentagem. O resto é rua, praça, área de preservação e sobra |",
-  "| **Apontado pelo conferente** | quantas regras do Archilly Generate o desenho quebrou. **Zero é o alvo** |",
+  "| **Apontado pelo conferente** | quantas regras o desenho quebrou, na conta do conferente do Archilly Generate — o *Validator*. **Zero é o alvo, e é ele que diz se a proposta passa** |",
   "| **Terra sem lote** | terra dentro da área loteável que não virou lote nem rua. É prejuízo |",
   "| **Forma dos lotes** | ver a seção *A forma dos lotes*, logo abaixo |",
   "| **Tempo** | quanto o motor levou para desenhar |",
@@ -157,14 +201,25 @@ push(
   `- aproveita **menos de ${br(100 * prova.regraDeForma.aConferirAbaixoDe)} %** → **a conferir**;`,
   `- aproveita **menos de ${br(100 * prova.regraDeForma.ruimAbaixoDe)} %** → **ruim**.`,
   "",
-  "**Esta linha foi decidida no chat, e está esperando o seu OK** — está no item 2",
-  "de [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md). Até você confirmar, ela vale",
-  "para o trabalho não parar.",
+  "**Esta linha foi decidida no chat, e está esperando o seu OK** — é o item que",
+  "sobrou em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md). Até você confirmar, ela",
+  "vale para o trabalho não parar; se o número que você tem na cabeça for outro, é",
+  "só dizer qual.",
   "",
-  "**Atenção a uma coisa que esta coluna não faz:** ela não aprova nem reprova",
-  "nada. Quem diz se uma proposta passa é o conferente do Archilly Generate, e",
-  "forma de lote não é regra dele. Um motor pode ter **todos os lotes ok e muitos",
-  "apontamentos do conferente** — e o contrário também acontece.",
+  "### Esta coluna INFORMA; quem aprova é o Validator",
+  "",
+  "**A coluna da forma não aprova nem reprova nada.** Quem diz se uma proposta",
+  "passa é o **conferente do Archilly Generate — o Validator** —, e **forma de",
+  "lote não é uma regra dele**. São duas réguas diferentes, e os quadros abaixo",
+  "provam que elas não andam juntas:",
+  "",
+  "| caso medido | apontado pelo Validator | lotes de forma ruim |",
+  "|---|---:|---:|",
+  ...desencontros(),
+  "",
+  "Ou seja: **um motor pode ter todos os lotes bem formados e ainda assim ser",
+  "reprovado pelo conferente**, e pode passar no conferente com lotes de forma",
+  "ruim. Somar as duas colunas numa nota só esconderia justamente isso.",
   "",
   "---",
   "",

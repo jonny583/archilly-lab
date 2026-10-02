@@ -89,6 +89,27 @@ describe("a página de comparação", () => {
     expect(p).toContain("não aprova nem reprova");
   });
 
+  test("a página NOMEIA o Validator como quem aprova — pedido do chat em 02/10", () => {
+    const p = lida();
+    expect(p).toContain("Validator");
+    expect(p).toContain("quem aprova é o Validator");
+    // E diz, na própria legenda da coluna, que é ele que decide.
+    expect(p).toContain("é ele que diz se a proposta passa");
+  });
+
+  test("a tabela das duas réguas vem da medição, não escrita à mão", () => {
+    // Ela existe para provar que forma e Validator discordam. Se os números
+    // fossem fixos no gerador, o exemplo envelheceria — e o exemplo é
+    // justamente o que o leitor acredita (D82).
+    const p = lida();
+    const inicio = p.indexOf("| caso medido |");
+    const bloco = p.slice(inicio, p.indexOf("\n\n", inicio));
+    const linhas = bloco.split("\n").filter((l) => l.startsWith("| ") && l.includes(" · "));
+    expect(linhas.length).toBe(4);
+    // Duas pontas: reprovado pelo Validator com forma limpa, e o contrário.
+    expect(linhas.filter((l) => l.endsWith("**nenhum** |")).length).toBe(2);
+  });
+
   test("diz de onde vêm os números: semente, contrato e o arquivo de provas", () => {
     const p = lida();
     expect(p).toContain("20260913");

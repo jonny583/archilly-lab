@@ -140,7 +140,41 @@ A `main` deles andou; o contrato, não.
 
 ---
 
-## 9 · O que fica pronto
+## 9 · O reforço do mesmo dia, a pedido do chat
+
+O chat pediu, depois da entrega, que a página **nomeasse o Validator** e
+deixasse claro que a coluna de forma **informa** e quem aprova é ele. A página já
+dizia isso, mas em palavra de leigo — *"o conferente do Archilly Generate"* — e
+**nunca usava o nome que a família usa**. Para o Jonny ler o chat e a página e
+saber que falam da mesma coisa, o nome tem de aparecer.
+
+O que mudou:
+
+1. **a abertura** nomeia a régua: *"o conferente do Archilly Generate — o
+   Validator, no nome que ele tem no código"*;
+2. **a legenda da coluna** passou a dizer *"é ele que diz se a proposta passa"*;
+3. **uma seção própria**, *"Esta coluna INFORMA; quem aprova é o Validator"*, com
+   uma **tabela dos desencontros entre as duas réguas**.
+
+**A tabela dos desencontros é computada, não escrita.** Ela mostra os dois
+extremos — muito apontamento com forma limpa, e forma ruim com Validator quieto —
+escolhidos **pela medição**: 29 apontamentos com zero lotes de forma ruim no
+Laboratório de Parcelamento em terreno plano, 4 apontamentos com 87 lotes ruins
+no Symbios em Antonina.
+
+**Escrever esses três números à mão seria o defeito que a D82 combate**, e pior
+que na tabela: o exemplo é justamente o que o leitor acredita. Então eles saem do
+`tabela.json`, e há teste que confere que a tabela tem quatro linhas e duas
+pontas.
+
+**Um defeito corrigido junto:** a página apontava a régua de forma como *"item 2
+de `PENDENCIAS_JONNY.md`"*, e com o limiar da travessia fechado (D84) ela passou a
+ser **o item 1** — o único. O texto agora diz *"o item que sobrou"*, que não
+quebra quando a lista muda.
+
+---
+
+## 10 · O que fica pronto
 
 - `docs/COMPARACAO_DOS_MOTORES.md` — a página, 169 linhas, gerada;
 - `external-engines/esteira/ferramentas/lab20.ts` — o gerador;

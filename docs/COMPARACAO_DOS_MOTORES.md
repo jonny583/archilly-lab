@@ -5,9 +5,10 @@ desatualizada em silêncio: há teste que a regera e reprova se o arquivo estive
 diferente do que a medição diz hoje.
 
 **Quatro motores, cinco terrenos, a mesma régua para todos.** A régua é o
-conferente e o contador de lotes do **Archilly Generate** — o laboratório não
-tem régua própria, de propósito, para não haver como passar mais fácil por ser
-de fora.
+**conferente do Archilly Generate** — o *Validator*, no nome que ele tem no
+código — mais o contador de lotes dele. O laboratório **não tem régua
+própria**, de propósito, para não haver como um motor de fora passar mais
+fácil por ser de fora.
 
 ---
 
@@ -18,7 +19,7 @@ de fora.
 | **Lotes** | quantos lotes o motor desenhou |
 | **Área vendável** | a soma dos lotes, em hectares |
 | **Virou lote** | quanto do terreno virou lote, em porcentagem. O resto é rua, praça, área de preservação e sobra |
-| **Apontado pelo conferente** | quantas regras do Archilly Generate o desenho quebrou. **Zero é o alvo** |
+| **Apontado pelo conferente** | quantas regras o desenho quebrou, na conta do conferente do Archilly Generate — o *Validator*. **Zero é o alvo, e é ele que diz se a proposta passa** |
 | **Terra sem lote** | terra dentro da área loteável que não virou lote nem rua. É prejuízo |
 | **Forma dos lotes** | ver a seção *A forma dos lotes*, logo abaixo |
 | **Tempo** | quanto o motor levou para desenhar |
@@ -33,14 +34,28 @@ Um lote retangular aproveita 100 %. Um triângulo, 50 %.
 - aproveita **menos de 85 %** → **a conferir**;
 - aproveita **menos de 70 %** → **ruim**.
 
-**Esta linha foi decidida no chat, e está esperando o seu OK** — está no item 2
-de [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md). Até você confirmar, ela vale
-para o trabalho não parar.
+**Esta linha foi decidida no chat, e está esperando o seu OK** — é o item que
+sobrou em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md). Até você confirmar, ela
+vale para o trabalho não parar; se o número que você tem na cabeça for outro, é
+só dizer qual.
 
-**Atenção a uma coisa que esta coluna não faz:** ela não aprova nem reprova
-nada. Quem diz se uma proposta passa é o conferente do Archilly Generate, e
-forma de lote não é regra dele. Um motor pode ter **todos os lotes ok e muitos
-apontamentos do conferente** — e o contrário também acontece.
+### Esta coluna INFORMA; quem aprova é o Validator
+
+**A coluna da forma não aprova nem reprova nada.** Quem diz se uma proposta
+passa é o **conferente do Archilly Generate — o Validator** —, e **forma de
+lote não é uma regra dele**. São duas réguas diferentes, e os quadros abaixo
+provam que elas não andam juntas:
+
+| caso medido | apontado pelo Validator | lotes de forma ruim |
+|---|---:|---:|
+| Laboratório de Parcelamento · Terreno sintético plano | **29** | **nenhum** |
+| Laboratório de Parcelamento · Terreno de teste completo — com áreas de preservação | **25** | **nenhum** |
+| Symbios (motor de fora) + divisão de lotes do laboratório · Antonina (PR) — terreno real, levantado pelo Archilly Geo | **4** | **87** |
+| Symbios (motor de fora) + divisão de lotes do laboratório · Terreno de teste completo — com áreas de preservação | **1** | **74** |
+
+Ou seja: **um motor pode ter todos os lotes bem formados e ainda assim ser
+reprovado pelo conferente**, e pode passar no conferente com lotes de forma
+ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 
 ---
 
