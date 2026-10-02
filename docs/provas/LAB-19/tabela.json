@@ -22,7 +22,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 1758.37,
+          "ms": 2215.24,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -35,6 +35,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 699975,
           "pctDaMassaSemLote": 49.38,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 6.12,
+            "pior_pct": 34.71,
+            "trechos": 1250,
+            "trechosAcimaDe": {
+              "8": 334,
+              "15": 119,
+              "20": 41,
+              "30": 3
+            },
+            "metrosAcimaDe": {
+              "8": 3308.66,
+              "15": 1182.94,
+              "20": 402.94,
+              "30": 22.94
+            },
+            "cruzamentos": 35,
+            "cruzamentosAcimaDe": {
+              "8": 35,
+              "15": 35,
+              "20": 35,
+              "30": 10
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -84,7 +111,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 1746.13,
+          "ms": 2202.09,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -99,6 +126,33 @@
           },
           "sobraSemLote_m2": 529150,
           "pctDaMassaSemLote": 37.33,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 6.99,
+            "pior_pct": 46.7,
+            "trechos": 2010,
+            "trechosAcimaDe": {
+              "8": 691,
+              "15": 242,
+              "20": 75,
+              "30": 9
+            },
+            "metrosAcimaDe": {
+              "8": 6859.57,
+              "15": 2396.75,
+              "20": 732.8,
+              "30": 78
+            },
+            "cruzamentos": 78,
+            "cruzamentosAcimaDe": {
+              "8": 78,
+              "15": 78,
+              "20": 78,
+              "30": 24
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -180,7 +234,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "ortogonal (1º de 7 no ranking dele)",
-          "ms": 5463.62,
+          "ms": 6581.64,
           "naoSoubeFazer": [
             "13 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 990.4 m de eixo que saía da gleba (0.21 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -197,6 +251,33 @@
           },
           "sobraSemLote_m2": 194425,
           "pctDaMassaSemLote": 13.72,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 7.72,
+            "pior_pct": 51.54,
+            "trechos": 2486,
+            "trechosAcimaDe": {
+              "8": 1006,
+              "15": 348,
+              "20": 126,
+              "30": 14
+            },
+            "metrosAcimaDe": {
+              "8": 10033.66,
+              "15": 3467.51,
+              "20": 1247.51,
+              "30": 134.68
+            },
+            "cruzamentos": 85,
+            "cruzamentosAcimaDe": {
+              "8": 85,
+              "15": 85,
+              "20": 85,
+              "30": 51
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -222,7 +303,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 5971.98,
+          "ms": 6586.76,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -239,6 +320,33 @@
           },
           "sobraSemLote_m2": 821775,
           "pctDaMassaSemLote": 57.97,
+          "rampa": {
+            "declaradoPeloMotor_pct": 161.37868021309583,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 7.19,
+            "pior_pct": 41.84,
+            "trechos": 3942,
+            "trechosAcimaDe": {
+              "8": 1426,
+              "15": 563,
+              "20": 232,
+              "30": 20
+            },
+            "metrosAcimaDe": {
+              "8": 13960.79,
+              "15": 5492,
+              "20": 2255.93,
+              "30": 192.23
+            },
+            "cruzamentos": 508,
+            "cruzamentosAcimaDe": {
+              "8": 489,
+              "15": 414,
+              "20": 297,
+              "30": 55
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -280,7 +388,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 433.85,
+          "ms": 551.95,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -293,6 +401,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 53375,
           "pctDaMassaSemLote": 10.68,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 4.2,
+            "pior_pct": 14,
+            "trechos": 810,
+            "trechosAcimaDe": {
+              "8": 116,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1153.36,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 28,
+            "cruzamentosAcimaDe": {
+              "8": 28,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -334,7 +469,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 403.59,
+          "ms": 461.55,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -347,6 +482,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 106075,
           "pctDaMassaSemLote": 21.22,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 4.24,
+            "pior_pct": 20.58,
+            "trechos": 862,
+            "trechosAcimaDe": {
+              "8": 117,
+              "15": 1,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1170,
+              "15": 10,
+              "20": 10,
+              "30": 0
+            },
+            "cruzamentos": 32,
+            "cruzamentosAcimaDe": {
+              "8": 32,
+              "15": 5,
+              "20": 5,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -404,7 +566,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 19 no ranking dele)",
-          "ms": 2337.8,
+          "ms": 2387.61,
           "naoSoubeFazer": [
             "1 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 556.0 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -422,6 +584,33 @@
           },
           "sobraSemLote_m2": 2300,
           "pctDaMassaSemLote": 0.46,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 4.54,
+            "pior_pct": 18.79,
+            "trechos": 709,
+            "trechosAcimaDe": {
+              "8": 113,
+              "15": 4,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1119.9,
+              "15": 32.97,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 11,
+            "cruzamentosAcimaDe": {
+              "8": 11,
+              "15": 3,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -446,7 +635,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 1358.66,
+          "ms": 1508.89,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -461,6 +650,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 262625,
           "pctDaMassaSemLote": 52.54,
+          "rampa": {
+            "declaradoPeloMotor_pct": 64.0997538478201,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 4.65,
+            "pior_pct": 25.62,
+            "trechos": 1830,
+            "trechosAcimaDe": {
+              "8": 391,
+              "15": 15,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 3806.58,
+              "15": 118.22,
+              "20": 4.33,
+              "30": 0
+            },
+            "cruzamentos": 218,
+            "cruzamentosAcimaDe": {
+              "8": 198,
+              "15": 48,
+              "20": 2,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -499,7 +715,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 87.88,
+          "ms": 69.43,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -512,6 +728,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 21150,
           "pctDaMassaSemLote": 21.13,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 0.91,
+            "pior_pct": 1.36,
+            "trechos": 141,
+            "trechosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 4,
+            "cruzamentosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -543,7 +786,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 90.65,
+          "ms": 91.98,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -556,6 +799,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 26450,
           "pctDaMassaSemLote": 26.43,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 0.9,
+            "pior_pct": 1.8,
+            "trechos": 195,
+            "trechosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 8,
+            "cruzamentosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -596,7 +866,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 269.49,
+          "ms": 285,
           "naoSoubeFazer": [
             "o Lab aparou 237.1 m de eixo que saía da gleba (0.65 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -612,6 +882,33 @@
           },
           "sobraSemLote_m2": 600,
           "pctDaMassaSemLote": 0.6,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 0.7,
+            "pior_pct": 1.15,
+            "trechos": 167,
+            "trechosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 4,
+            "cruzamentosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -636,7 +933,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 487.98,
+          "ms": 476.47,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -651,6 +948,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 60900,
           "pctDaMassaSemLote": 60.85,
+          "rampa": {
+            "declaradoPeloMotor_pct": 15.441055474537746,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 0.83,
+            "pior_pct": 1.96,
+            "trechos": 196,
+            "trechosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 9,
+            "cruzamentosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -684,7 +1008,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 374.96,
+          "ms": 420.72,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -696,6 +1020,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 34750,
           "pctDaMassaSemLote": 7.43,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.84,
+            "pior_pct": 17.56,
+            "trechos": 725,
+            "trechosAcimaDe": {
+              "8": 246,
+              "15": 15,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 2456.45,
+              "15": 150,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 20,
+            "cruzamentosAcimaDe": {
+              "8": 20,
+              "15": 12,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -724,7 +1075,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 397.57,
+          "ms": 457.02,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -736,6 +1087,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 60125,
           "pctDaMassaSemLote": 12.85,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.46,
+            "pior_pct": 22.9,
+            "trechos": 921,
+            "trechosAcimaDe": {
+              "8": 241,
+              "15": 29,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 2386.98,
+              "15": 286.81,
+              "20": 10,
+              "30": 0
+            },
+            "cruzamentos": 38,
+            "cruzamentosAcimaDe": {
+              "8": 38,
+              "15": 25,
+              "20": 8,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -785,7 +1163,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 1620,
+          "ms": 1740.05,
           "naoSoubeFazer": [
             "o Lab aparou 505.5 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -801,6 +1179,33 @@
           },
           "sobraSemLote_m2": 400,
           "pctDaMassaSemLote": 0.09,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.08,
+            "pior_pct": 17.92,
+            "trechos": 643,
+            "trechosAcimaDe": {
+              "8": 159,
+              "15": 7,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1574.17,
+              "15": 65.82,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 5,
+            "cruzamentosAcimaDe": {
+              "8": 5,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -825,7 +1230,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 759.14,
+          "ms": 823.6,
           "naoSoubeFazer": [
             "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
@@ -841,6 +1246,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 271275,
           "pctDaMassaSemLote": 57.96,
+          "rampa": {
+            "declaradoPeloMotor_pct": 77.42631670986275,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.36,
+            "pior_pct": 22.76,
+            "trechos": 1700,
+            "trechosAcimaDe": {
+              "8": 483,
+              "15": 60,
+              "20": 3,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 4735.67,
+              "15": 556.25,
+              "20": 22.25,
+              "30": 0
+            },
+            "cruzamentos": 208,
+            "cruzamentosAcimaDe": {
+              "8": 200,
+              "15": 101,
+              "20": 19,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -880,7 +1312,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 508.87,
+          "ms": 523.95,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -895,6 +1327,33 @@
           },
           "sobraSemLote_m2": 794500,
           "pctDaMassaSemLote": 56.05,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 3,
+            "pior_pct": 24.48,
+            "trechos": 1105,
+            "trechosAcimaDe": {
+              "8": 46,
+              "15": 1,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 454.35,
+              "15": 4.35,
+              "20": 4.35,
+              "30": 0
+            },
+            "cruzamentos": 40,
+            "cruzamentosAcimaDe": {
+              "8": 38,
+              "15": 3,
+              "20": 3,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -932,7 +1391,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 520.52,
+          "ms": 595.12,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -945,6 +1404,33 @@
           "violacoesPorRegra": {},
           "sobraSemLote_m2": 674875,
           "pctDaMassaSemLote": 47.61,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 3.57,
+            "pior_pct": 23.03,
+            "trechos": 1352,
+            "trechosAcimaDe": {
+              "8": 105,
+              "15": 3,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1039.11,
+              "15": 20,
+              "20": 5,
+              "30": 0
+            },
+            "cruzamentos": 43,
+            "cruzamentosAcimaDe": {
+              "8": 43,
+              "15": 3,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -995,7 +1481,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "ortogonal (1º de 18 no ranking dele)",
-          "ms": 6511.77,
+          "ms": 7545.81,
           "naoSoubeFazer": [
             "2 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 833.1 m de eixo que saía da gleba (0.17 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -1012,6 +1498,33 @@
           },
           "sobraSemLote_m2": 60850,
           "pctDaMassaSemLote": 4.29,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 3.44,
+            "pior_pct": 17.09,
+            "trechos": 2471,
+            "trechosAcimaDe": {
+              "8": 210,
+              "15": 2,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 2084.18,
+              "15": 20,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 82,
+            "cruzamentosAcimaDe": {
+              "8": 82,
+              "15": 16,
+              "20": 0,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -1036,7 +1549,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 9567.76,
+          "ms": 10492.26,
           "naoSoubeFazer": [
             "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
@@ -1057,6 +1570,33 @@
           },
           "sobraSemLote_m2": 651500,
           "pctDaMassaSemLote": 45.96,
+          "rampa": {
+            "declaradoPeloMotor_pct": 113.53527271428791,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 3.27,
+            "pior_pct": 27.73,
+            "trechos": 6188,
+            "trechosAcimaDe": {
+              "8": 553,
+              "15": 9,
+              "20": 2,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 5266.87,
+              "15": 46.02,
+              "20": 6.66,
+              "30": 0
+            },
+            "cruzamentos": 1006,
+            "cruzamentosAcimaDe": {
+              "8": 747,
+              "15": 35,
+              "20": 5,
+              "30": 0
+            }
+          },
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,

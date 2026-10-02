@@ -82,6 +82,26 @@ describe("a página de comparação", () => {
     expect(p).not.toMatch(/recomend(o|amos|ado)/i);
   });
 
+  test("a rampa aparece com média e pico SEPARADOS, e a página diz que a média esconde", () => {
+    const p = lida();
+    expect(p).toContain("| rampa média | rampa no pior trecho |");
+    expect(p).toContain("A rampa das ruas: a média esconde o pior trecho");
+    expect(p).toContain("Olhe sempre as duas colunas juntas");
+    // E o exemplo do desencontro vem da medição, com nome de terreno e motor.
+    expect(p).toContain("O caso em que as duas mais discordam");
+    expect(p).toMatch(/\*\*\d+,\d+ vezes\*\*/);
+  });
+
+  test("a página NÃO inventa limite legal de rampa de via", () => {
+    const p = lida();
+    // Os 30 % da Lei 6.766 podem aparecer, mas só com o significado certo.
+    expect(p).toContain("30 % de inclinação");
+    expect(p).toContain("do TERRENO");
+    expect(p).toContain("que é **outra coisa**");
+    // E a pergunta fica aberta, não respondida por mim.
+    expect(p).toContain("Qual é a inclinação máxima que você aceita numa rua?");
+  });
+
   test("a régua de forma aparece com os dois limiares e com o aviso de que não aprova", () => {
     const p = lida();
     expect(p).toContain("85 %");

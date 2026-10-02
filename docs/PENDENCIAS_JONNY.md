@@ -39,6 +39,7 @@ nenhuma**, porque não tinha como saber quando ela se justifica. Agora tem.
 | # | o que | quanto custa | o que muda se você responder |
 |---|---|---|---|
 | **1** | **Confirmar a régua de forma de lote que veio pelo chat:** lote que aproveita **menos de 85 %** do retângulo em volta dele fica marcado *"a conferir"*; **menos de 70 %**, *"ruim"*. | 2 min | é a linha que decide quais lotes aparecem marcados na comparação entre motores |
+| **2** | **Qual a inclinação máxima que você aceita numa RUA?** Em porcento, e separado do limite do terreno. | 2 min | passa a existir uma linha para dizer "este trecho de rua não passa" — hoje eu só mostro o número e não julgo |
 
 **Ela já está valendo e aplicada** — está na
 [página de comparação dos motores](https://github.com/jonny583/archilly-lab/blob/main/docs/COMPARACAO_DOS_MOTORES.md),
@@ -191,6 +192,38 @@ Isto está aqui para você não ficar procurando.
 - **Levar os achados aos outros aplicativos** — é do chat, não seu e não meu.
 - **A fila do laboratório** — o chat escreveu uma nova em 15/09 (LAB-04, LAB-05
   e uma conferência final). O laboratório a executa sozinho.
+
+---
+
+## 5-C · A inclinação máxima de uma RUA — pergunta nova, de 03/10
+
+**O que eu passei a medir.** Agora eu pego o eixo de cada rua que o motor
+desenhou, passo por cima do relevo do terreno e meço a inclinação dela de 10 em
+10 metros. Saem dois números por projeto:
+
+- a **inclinação média** das ruas, pesada pelo comprimento de cada trecho;
+- a **inclinação do pior trecho**, que é o número que decide se vai precisar de
+  corte e aterro.
+
+**E eles discordam muito.** No terreno real de Antonina, o motor Symbios tem
+média de **3,3 %** — rua tranquila — e pior trecho de **27,7 %**, **oito vezes e
+meia** mais. O mesmo projeto, e dois números que contam histórias opostas. Por
+isso os dois aparecem lado a lado na
+[página de comparação](https://github.com/jonny583/archilly-lab/blob/main/docs/COMPARACAO_DOS_MOTORES.md),
+com um aviso de ler a segunda coluna primeiro.
+
+**A pergunta, e por que é sua.** Eu mostro quantos **metros de rua** passam de
+8 %, 15 %, 20 % e 30 %, e quantos **cruzamentos** passam de cada um. Mas **não
+digo qual deles reprova**, porque não sei — e não vou escolher por você.
+
+**Uma coisa que eu NÃO fiz, e é importante:** o único limite de inclinação que a
+família tem escrito é o da **Lei 6.766/1979** — não se loteia terreno com mais
+de **30 %** de inclinação. **Esse é o limite do TERRENO, não da rua**, e são
+coisas diferentes: uma rua pode ser cortada numa encosta forte e ficar suave, e
+uma encosta suave pode receber uma rua mal resolvida. Usar os 30 % da lei como
+se fossem o limite da rua seria inventar uma regra e pôr o seu nome nela.
+
+**Nada trava.** Todos os números continuam saindo.
 
 ---
 

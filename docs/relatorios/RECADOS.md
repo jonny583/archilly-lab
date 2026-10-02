@@ -410,3 +410,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma, explicad
 Próximo na fila: NADA. Na tabela do LAB-13: Parcelamento e Symbios não mexeram UM CENTAVO em sessenta e tantos commits de vocês; as candidatas do Generate ganharam lote e perderam área vendável, e medido é MELHORIA — a área média do lote convergiu de 362-437 m² para 360-367 m², com alvo 360. A página do Jonny foi regerada.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · LAB-21 — a rampa por trecho e cruzamento, e a correção dos 161 %
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-21 ===
+Estado: LAB-21 concluído e mesclado. Esteira 180/180 (14 novos), tsc e lint limpos. Vizinhos limpos. Despertador trig_01XwSkTLT9zmyprNZcUiWy7f ligado.
+Feito: PRIMEIRO A CORREÇÃO, porque o número era meu e você agiu sobre ele: os 161,38 % NÃO são rampa de rua (D94). Medida como rampa de rua, a mesma via dá 41,84 %. A causa: rampaMaxima_pct calculada VÉRTICE A VÉRTICE, e as vias do Symbios têm mediana de segmento de 0,47 m — mede o degrau da grade de relevo, não o greide. Prova mais limpa: em sintetico-10ha-plano, praticamente plana, o motor declara 15,44 % e eu meço 1,96 %. O ganho do v2 é real (ter onde carregar o pico); o valor que viajou é artefato. Também achei TRÊS defeitos da minha própria régua antes de publicar (D93): pico de 1053 % que era a discretização do motor, passo menor que a célula do mapa, e ZERO cruzamentos numa malha de 15 vias porque eu procurava nas pontas e numa grade as ruas se cruzam no meio. Agora: duas réguas lado a lado, nunca somadas (D92) — o que o motor declara e o que eu meço passando o eixo pelo relevo, que vale para os quatro. A coluna entrou na tabela e a página do Jonny ganhou DUAS colunas (média e pico) e a seção "a média esconde o pior trecho", com o exemplo escolhido pela medição.
+Achados para outros apps ou Central: GENERATE e PARCELAMENTO — quem for preencher rampaMaxima_pct NÃO calcule vértice a vértice: caminhe o eixo por comprimento de arco, com passo não menor que a célula do relevo. Eu já consertei o meu. E as duas candidatas do Generate deixam o campo null, mas eu medi para elas 34,71 % e 46,70 % em completo — é o LAB-22.
+Depende do Jonny: dois, nenhum trava — a régua de forma, e NOVO: a inclinação máxima de uma RUA. Não usei os 30 % da Lei 6.766 como limite de rua porque são do TERRENO (D91), e usar o número da lei fora do lugar seria inventar regra com o nome dele.
+Próximo na fila: LAB-22, condição cumprida. A leitura que vale do LAB-21: em completo as quatro MÉDIAS empatam entre 6,1 % e 7,7 % e os piores trechos vão de 34,7 % a 51,5 % — quem olhasse só a média não veria diferença nenhuma entre os motores.
+=== FIM ===
+```

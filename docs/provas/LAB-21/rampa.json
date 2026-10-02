@@ -1,0 +1,968 @@
+{
+  "prompt": "LAB-21",
+  "geradoEm": "2026-09-19T00:00:00.000Z",
+  "semente": 20260913,
+  "cortesDeLeitura_pct": [
+    8,
+    15,
+    20,
+    30
+  ],
+  "sobreOsCortes": "nenhum destes cortes é limite legal de rampa de VIA — esse limite não existe na família. O de 30 % é a declividade máxima parcelável do TERRENO (Lei 6.766/1979, art. 3º, § único, III), que é outra coisa. Ver docs/PENDENCIAS_JONNY.md.",
+  "duasReguas": {
+    "declaradoPeloMotor": "vias[].rampaMaxima_pct da SAÍDA — o motor diz que calculou o greide",
+    "medidoPeloLab": "o eixo de cada via amostrado de 5 em 5 m sobre o relevo da gleba — vale para motor que não diz nada"
+  },
+  "glebas": [
+    {
+      "prompt": "LAB-21",
+      "gleba": "completo",
+      "curvasDeNivel": 1060,
+      "temMapaDeCotas": true,
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "vias": 22,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 1250,
+            "comprimentoTotal_m": 12441.29,
+            "rampaMediaPonderada_pct": 6.12,
+            "rampaMediana_pct": 4.59,
+            "rampaPior_pct": 34.71,
+            "trechosAcimaDe": {
+              "8": 334,
+              "15": 119,
+              "20": 41,
+              "30": 3
+            },
+            "metrosAcimaDe": {
+              "8": 3308.66,
+              "15": 1182.94,
+              "20": 402.94,
+              "30": 22.94
+            },
+            "cruzamentos": 35,
+            "cruzamentosAcimaDe": {
+              "8": 35,
+              "15": 35,
+              "20": 35,
+              "30": 10
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VP-01-r2",
+                "VS-08"
+              ],
+              "piorRampa_pct": 34.71380783828694,
+              "onde": {
+                "x": -123.469,
+                "y": 1.755
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "vias": 67,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 2010,
+            "comprimentoTotal_m": 19931.93,
+            "rampaMediaPonderada_pct": 6.99,
+            "rampaMediana_pct": 5.13,
+            "rampaPior_pct": 46.7,
+            "trechosAcimaDe": {
+              "8": 691,
+              "15": 242,
+              "20": 75,
+              "30": 9
+            },
+            "metrosAcimaDe": {
+              "8": 6859.57,
+              "15": 2396.75,
+              "20": 732.8,
+              "30": 78
+            },
+            "cruzamentos": 78,
+            "cruzamentosAcimaDe": {
+              "8": 78,
+              "15": 78,
+              "20": 78,
+              "30": 24
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VR-01",
+                "VS-22"
+              ],
+              "piorRampa_pct": 46.6999491097138,
+              "onde": {
+                "x": 54.09899999999999,
+                "y": 348.422
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "vias": 26,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 2486,
+            "comprimentoTotal_m": 24775.31,
+            "rampaMediaPonderada_pct": 7.72,
+            "rampaMediana_pct": 6.05,
+            "rampaPior_pct": 51.54,
+            "trechosAcimaDe": {
+              "8": 1006,
+              "15": 348,
+              "20": 126,
+              "30": 14
+            },
+            "metrosAcimaDe": {
+              "8": 10033.66,
+              "15": 3467.51,
+              "20": 1247.51,
+              "30": 134.68
+            },
+            "cruzamentos": 85,
+            "cruzamentosAcimaDe": {
+              "8": 85,
+              "15": 85,
+              "20": 85,
+              "30": 51
+            },
+            "piorCruzamento": {
+              "vias": [
+                "V13",
+                "V2"
+              ],
+              "piorRampa_pct": 51.5354250746623,
+              "onde": {
+                "x": -443.1660642458498,
+                "y": -454.26961675610465
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "vias": 273,
+          "declaradoPeloMotor_pct": 161.37868021309583,
+          "oMotorDeclaraOPico": true,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 3942,
+            "comprimentoTotal_m": 38651.45,
+            "rampaMediaPonderada_pct": 7.19,
+            "rampaMediana_pct": 4.92,
+            "rampaPior_pct": 41.84,
+            "trechosAcimaDe": {
+              "8": 1426,
+              "15": 563,
+              "20": 232,
+              "30": 20
+            },
+            "metrosAcimaDe": {
+              "8": 13960.79,
+              "15": 5492,
+              "20": 2255.93,
+              "30": 192.23
+            },
+            "cruzamentos": 508,
+            "cruzamentosAcimaDe": {
+              "8": 489,
+              "15": 414,
+              "20": 297,
+              "30": 55
+            },
+            "piorCruzamento": {
+              "vias": [
+                "via-17",
+                "via-237"
+              ],
+              "piorRampa_pct": 41.83632024548624,
+              "onde": {
+                "x": -302.8490349988132,
+                "y": 469.76427034025414
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-21",
+      "gleba": "sintetico-50ha-ondulado",
+      "curvasDeNivel": 575,
+      "temMapaDeCotas": true,
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "vias": 15,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 810,
+            "comprimentoTotal_m": 8059.37,
+            "rampaMediaPonderada_pct": 4.2,
+            "rampaMediana_pct": 3.68,
+            "rampaPior_pct": 14,
+            "trechosAcimaDe": {
+              "8": 116,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1153.36,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 28,
+            "cruzamentosAcimaDe": {
+              "8": 28,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VP-01",
+                "VS-06"
+              ],
+              "piorRampa_pct": 14.0045166015625,
+              "onde": {
+                "x": 120.039,
+                "y": -114.194
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "vias": 27,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 862,
+            "comprimentoTotal_m": 8543.38,
+            "rampaMediaPonderada_pct": 4.24,
+            "rampaMediana_pct": 3.72,
+            "rampaPior_pct": 20.58,
+            "trechosAcimaDe": {
+              "8": 117,
+              "15": 1,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1170,
+              "15": 10,
+              "20": 10,
+              "30": 0
+            },
+            "cruzamentos": 32,
+            "cruzamentosAcimaDe": {
+              "8": 32,
+              "15": 5,
+              "20": 5,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VR-01",
+                "VT-11"
+              ],
+              "piorRampa_pct": 20.58345931493575,
+              "onde": {
+                "x": 89.065,
+                "y": -57.086
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "vias": 12,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 709,
+            "comprimentoTotal_m": 7042.45,
+            "rampaMediaPonderada_pct": 4.54,
+            "rampaMediana_pct": 3.9,
+            "rampaPior_pct": 18.79,
+            "trechosAcimaDe": {
+              "8": 113,
+              "15": 4,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1119.9,
+              "15": 32.97,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 11,
+            "cruzamentosAcimaDe": {
+              "8": 11,
+              "15": 3,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "V1",
+                "V4"
+              ],
+              "piorRampa_pct": 18.79284474534281,
+              "onde": {
+                "x": -204.0640055195495,
+                "y": 169.11206530583127
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "vias": 111,
+          "declaradoPeloMotor_pct": 64.0997538478201,
+          "oMotorDeclaraOPico": true,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 1830,
+            "comprimentoTotal_m": 17952.71,
+            "rampaMediaPonderada_pct": 4.65,
+            "rampaMediana_pct": 3.85,
+            "rampaPior_pct": 25.62,
+            "trechosAcimaDe": {
+              "8": 391,
+              "15": 15,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 3806.58,
+              "15": 118.22,
+              "20": 4.33,
+              "30": 0
+            },
+            "cruzamentos": 218,
+            "cruzamentosAcimaDe": {
+              "8": 198,
+              "15": 48,
+              "20": 2,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "via-44",
+                "via-9"
+              ],
+              "piorRampa_pct": 25.61616663670605,
+              "onde": {
+                "x": -67.88728574630045,
+                "y": -246.0420375209693
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-21",
+      "gleba": "sintetico-10ha-plano",
+      "curvasDeNivel": 204,
+      "temMapaDeCotas": true,
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "vias": 5,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 141,
+            "comprimentoTotal_m": 1391.49,
+            "rampaMediaPonderada_pct": 0.91,
+            "rampaMediana_pct": 1.05,
+            "rampaPior_pct": 1.36,
+            "trechosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 4,
+            "cruzamentosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VP-01",
+                "VS-03"
+              ],
+              "piorRampa_pct": 1.3618101771999551,
+              "onde": {
+                "x": -13.416,
+                "y": -78.601
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "vias": 13,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 195,
+            "comprimentoTotal_m": 1923.15,
+            "rampaMediaPonderada_pct": 0.9,
+            "rampaMediana_pct": 1.05,
+            "rampaPior_pct": 1.8,
+            "trechosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 8,
+            "cruzamentosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VP-01",
+                "VS-02"
+              ],
+              "piorRampa_pct": 1.7975698881220268,
+              "onde": {
+                "x": -16.897,
+                "y": 32.187
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "vias": 7,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 167,
+            "comprimentoTotal_m": 1661.44,
+            "rampaMediaPonderada_pct": 0.7,
+            "rampaMediana_pct": 0.51,
+            "rampaPior_pct": 1.15,
+            "trechosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 4,
+            "cruzamentosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "V1",
+                "V6"
+              ],
+              "piorRampa_pct": 1.1462402343749991,
+              "onde": {
+                "x": 120.08875419662428,
+                "y": -4.325619422739976
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "vias": 11,
+          "declaradoPeloMotor_pct": 15.441055474537746,
+          "oMotorDeclaraOPico": true,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 196,
+            "comprimentoTotal_m": 1933.55,
+            "rampaMediaPonderada_pct": 0.83,
+            "rampaMediana_pct": 1.05,
+            "rampaPior_pct": 1.96,
+            "trechosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 9,
+            "cruzamentosAcimaDe": {
+              "8": 0,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "via-0",
+                "via-6"
+              ],
+              "piorRampa_pct": 1.9620128504414365,
+              "onde": {
+                "x": -156.8851868724924,
+                "y": 26.92994208724224
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-21",
+      "gleba": "ensaio-47ha",
+      "curvasDeNivel": 163,
+      "temMapaDeCotas": true,
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "vias": 11,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 725,
+            "comprimentoTotal_m": 7231.4,
+            "rampaMediaPonderada_pct": 5.84,
+            "rampaMediana_pct": 5.35,
+            "rampaPior_pct": 17.56,
+            "trechosAcimaDe": {
+              "8": 246,
+              "15": 15,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 2456.45,
+              "15": 150,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 20,
+            "cruzamentosAcimaDe": {
+              "8": 20,
+              "15": 12,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VS-01",
+                "VT-02"
+              ],
+              "piorRampa_pct": 17.562265396118164,
+              "onde": {
+                "x": 610.75,
+                "y": 94
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "vias": 33,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 921,
+            "comprimentoTotal_m": 9135.48,
+            "rampaMediaPonderada_pct": 5.46,
+            "rampaMediana_pct": 4.68,
+            "rampaPior_pct": 22.9,
+            "trechosAcimaDe": {
+              "8": 241,
+              "15": 29,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 2386.98,
+              "15": 286.81,
+              "20": 10,
+              "30": 0
+            },
+            "cruzamentos": 38,
+            "cruzamentosAcimaDe": {
+              "8": 38,
+              "15": 25,
+              "20": 8,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VP-01",
+                "VR-01"
+              ],
+              "piorRampa_pct": 22.898054122924854,
+              "onde": {
+                "x": 400,
+                "y": 0
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "vias": 12,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 643,
+            "comprimentoTotal_m": 6384.43,
+            "rampaMediaPonderada_pct": 5.08,
+            "rampaMediana_pct": 4.59,
+            "rampaPior_pct": 17.92,
+            "trechosAcimaDe": {
+              "8": 159,
+              "15": 7,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1574.17,
+              "15": 65.82,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 5,
+            "cruzamentosAcimaDe": {
+              "8": 5,
+              "15": 0,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "V1",
+                "V4"
+              ],
+              "piorRampa_pct": 14.243907928466706,
+              "onde": {
+                "x": 136.5430788199326,
+                "y": 47.37762273784047
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "vias": 94,
+          "declaradoPeloMotor_pct": 77.42631670986275,
+          "oMotorDeclaraOPico": true,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 1700,
+            "comprimentoTotal_m": 16733.87,
+            "rampaMediaPonderada_pct": 5.36,
+            "rampaMediana_pct": 3.82,
+            "rampaPior_pct": 22.76,
+            "trechosAcimaDe": {
+              "8": 483,
+              "15": 60,
+              "20": 3,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 4735.67,
+              "15": 556.25,
+              "20": 22.25,
+              "30": 0
+            },
+            "cruzamentos": 208,
+            "cruzamentosAcimaDe": {
+              "8": 200,
+              "15": 101,
+              "20": 19,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "via-58",
+                "via-6"
+              ],
+              "piorRampa_pct": 22.758122355787908,
+              "onde": {
+                "x": 518.0749,
+                "y": 356.39676
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-21",
+      "gleba": "geo-antonina",
+      "curvasDeNivel": 250,
+      "temMapaDeCotas": true,
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "vias": 15,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 1105,
+            "comprimentoTotal_m": 11013.11,
+            "rampaMediaPonderada_pct": 3,
+            "rampaMediana_pct": 2.31,
+            "rampaPior_pct": 24.48,
+            "trechosAcimaDe": {
+              "8": 46,
+              "15": 1,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 454.35,
+              "15": 4.35,
+              "20": 4.35,
+              "30": 0
+            },
+            "cruzamentos": 40,
+            "cruzamentosAcimaDe": {
+              "8": 38,
+              "15": 3,
+              "20": 3,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VP-01",
+                "VS-03"
+              ],
+              "piorRampa_pct": 24.477553154007424,
+              "onde": {
+                "x": -144.703,
+                "y": -77.546
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "vias": 24,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 1352,
+            "comprimentoTotal_m": 13444.82,
+            "rampaMediaPonderada_pct": 3.57,
+            "rampaMediana_pct": 3.06,
+            "rampaPior_pct": 23.03,
+            "trechosAcimaDe": {
+              "8": 105,
+              "15": 3,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1039.11,
+              "15": 20,
+              "20": 5,
+              "30": 0
+            },
+            "cruzamentos": 43,
+            "cruzamentosAcimaDe": {
+              "8": 43,
+              "15": 3,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "VP-01",
+                "VS-15"
+              ],
+              "piorRampa_pct": 15.051336288452111,
+              "onde": {
+                "x": 899.208,
+                "y": 431.357
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "vias": 25,
+          "declaradoPeloMotor_pct": null,
+          "oMotorDeclaraOPico": false,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 2471,
+            "comprimentoTotal_m": 24625.61,
+            "rampaMediaPonderada_pct": 3.44,
+            "rampaMediana_pct": 2.75,
+            "rampaPior_pct": 17.09,
+            "trechosAcimaDe": {
+              "8": 210,
+              "15": 2,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 2084.18,
+              "15": 20,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 82,
+            "cruzamentosAcimaDe": {
+              "8": 82,
+              "15": 16,
+              "20": 0,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "V1",
+                "V17"
+              ],
+              "piorRampa_pct": 17.091876268386873,
+              "onde": {
+                "x": 451.60837044990905,
+                "y": 766.6319443893137
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "vias": 455,
+          "declaradoPeloMotor_pct": 113.53527271428791,
+          "oMotorDeclaraOPico": true,
+          "medidoPeloLab": {
+            "medida": true,
+            "porQueNaoMedida": null,
+            "trechos": 6188,
+            "comprimentoTotal_m": 60646.72,
+            "rampaMediaPonderada_pct": 3.27,
+            "rampaMediana_pct": 2.39,
+            "rampaPior_pct": 27.73,
+            "trechosAcimaDe": {
+              "8": 553,
+              "15": 9,
+              "20": 2,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 5266.87,
+              "15": 46.02,
+              "20": 6.66,
+              "30": 0
+            },
+            "cruzamentos": 1006,
+            "cruzamentosAcimaDe": {
+              "8": 747,
+              "15": 35,
+              "20": 5,
+              "30": 0
+            },
+            "piorCruzamento": {
+              "vias": [
+                "via-192",
+                "via-58"
+              ],
+              "piorRampa_pct": 27.728138360730252,
+              "onde": {
+                "x": 876.1718000000001,
+                "y": 709.4803400000001
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

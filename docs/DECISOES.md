@@ -2083,3 +2083,132 @@ ali.
 **Consequência boa:** é a primeira vez que a esteira do Lab pega um **conserto**
 do vizinho em vez de um defeito. O ciclo fechou: o Lab mediu, reportou pelo chat,
 eles consertaram, e a esteira viu o conserto **sem ninguém avisar**.
+
+---
+
+## D91 · Limite de rampa de VIA não existe na família, e eu não o invento · 03/10/2026
+
+**Contexto:** o LAB-21 foi mandado medir *"quantos trechos e cruzamentos passam
+dos limites legais de rampa"*.
+
+**Procurado antes de medir qualquer coisa:**
+
+| o que existe | onde | o que é |
+|---|---|---|
+| declividade máxima parcelável **30 %** | `normas/br.ts` do Generate, **Lei 6.766/1979, art. 3º, § único, III** | limite do **TERRENO** |
+| uso restrito 25°–45°, APP acima de 45° | idem, Código Florestal | **TERRENO**, e em **grau** |
+| limite de rampa de **VIA** | **nada** | — |
+
+**Decisão:** o LAB-21 publica a **distribuição** e a contagem em quatro **cortes
+de leitura** — 8 %, 15 %, 20 %, 30 % — em **trechos, metros de rua e
+cruzamentos**. O de 30 % sai **sempre com o significado dele dito**. *"Qual é a
+inclinação máxima de uma rua"* virou item do Jonny.
+
+**Por que não usar os 30 % da lei como limite de rua:** porque é **outra coisa**.
+Uma rua pode ser cortada numa encosta de 40 % e ter greide de 8 %; uma encosta
+mansa pode receber uma rua mal resolvida. O próprio comentário da norma avisa que
+misturar as unidades *"é erro silencioso"*. Usar o número da lei fora do lugar
+seria inventar regra urbanística **e pôr o nome do Jonny nela** — pior que
+inventar, porque vem com crachá.
+
+**Medido, e é o que dá ao item do Jonny um porquê concreto:** em
+`sintetico-10ha-plano` nenhum motor passa de 2 % e **nenhum corte acusa nada**;
+em `completo` os quatro passam dos 30 % em algum trecho. Sem a linha dele, os dois
+casos saem iguais: "números publicados, nenhum veredito".
+
+---
+
+## D92 · Duas réguas de rampa, nunca somadas · 03/10/2026
+
+**Contexto:** só o Symbios declara `rampaMaxima_pct`. Uma tabela de rampa com
+três colunas vazias não mede nada.
+
+**Decisão:** o Lab passa a **medir a rampa por conta própria** — o eixo de cada
+via amostrado sobre o relevo da gleba — e as duas saem **lado a lado**:
+
+| quem mede | o que significa |
+|---|---|
+| o **motor** | *"eu calculei o greide e ele é este"* |
+| o **Lab** | *"passei o eixo dele pelo relevo da gleba e deu isto"* |
+
+**Por que as duas, e nunca a soma:** são respostas diferentes à mesma pergunta.
+Um motor que não calcula greide pode ter traçado uma rua que o relevo reprova
+**sem saber** — e foi exatamente o que apareceu: o Lab mede piores trechos de
+**34,71 %** e **46,70 %** nas candidatas do Generate, que declaram `null`.
+
+**E a diferença entre as duas é informação, não ruído** — foi ela que achou o
+defeito da D94.
+
+---
+
+## D93 · A régua caminha a via por comprimento de arco, atravessando vértice · 03/10/2026
+
+**Medido no LAB-21:** a primeira passada deu **1053,55 %** de pico. Três passos
+para achar o culpado, e nenhum deles foi palpite:
+
+1. **o mapa não consegue dar aquilo:** célula de 5 m e degrau máximo de **3,666 m**
+   entre células vizinhas — por construção, nada acima de **73,3 %** sai dele;
+2. **o trecho culpado:** `via-324`, segmento de **0,15 m**, 1,576 m de desnível;
+3. **não era caso isolado:** as vias do Symbios em `completo` têm **5 353 de
+   7 436 segmentos abaixo de 1 m**, mediana de **0,47 m**.
+
+**Decisão:** a régua **caminha a via inteira por comprimento de arco**, em passos
+iguais de `max(10 m, célula do mapa)`, **atravessando vértice sem parar nele**.
+
+**Por quê:** **a densidade de vértices é escolha de quem desenhou, não
+propriedade da rua.** Amostrar dentro de cada segmento mede a discretização do
+motor. É a mesma lição do LAB-17 (D75), onde olhar vértice em vez de amostrar pôs
+três de quatro vias desenhadas no balde errado — **segunda vez que o mesmo erro
+de forma apareceu em régua diferente**, e por isso virou teste: a mesma via, em
+duas discretizações, tem de dar o mesmo resultado.
+
+**E o limite de resolução sai dito, não suposto:** `cotaEm` não interpola, então
+a régua **não vê detalhe mais fino que a célula do mapa**. Dizer que vê seria
+inventar resolução.
+
+**Cruzamento, no mesmo pacote:** a primeira passada procurava nós nas **pontas**
+e deu **zero cruzamentos** em quinze vias — numa grade, as ruas se cruzam **no
+meio**. Agora é **interseção de eixos**, com teste da malha 3 × 3 devolvendo nove.
+
+---
+
+## D94 · Os 161,38 % do LAB-18 são artefato, e a correção vai com nome · 03/10/2026
+
+**O que foi medido:** com a régua consertada, o declarado e o medido divergem nas
+**cinco** glebas, na mesma direção:
+
+| gleba | o Symbios **declara** | o Lab **mede** | fator |
+|---|---:|---:|---:|
+| `completo` | **161,38 %** | **41,84 %** | 3,9× |
+| `geo-antonina` | 113,54 % | 27,73 % | 4,1× |
+| `sintetico-10ha-plano` | **15,44 %** | **1,96 %** | **7,9×** |
+
+**A prova mais limpa é a última:** `sintetico-10ha-plano` é praticamente plana. Não
+há 15 % de rampa num terreno plano; há 15 % entre dois pontos a 20 cm um do outro.
+
+**A causa, nomeada:** `refazerMedidas`, em `recorte.ts` do adaptador do Symbios,
+calcula `rampaMaxima_pct` como o máximo de `|Δcota| / d` **entre vértices
+consecutivos**. Com mediana de 0,47 m, mede o degrau da grade de relevo.
+
+**O que esta decisão corrige, e de quem é a culpa — minha:**
+
+- o **LAB-02** mediu *"um pico de 161 % num cruzamento"*. O número existe; **como
+  rampa de rua, não**;
+- a **D67** fica **meio certa**: a metade sobre a média diluir o pico **continua
+  verdadeira**, e a tabela do LAB-21 a prova (em `completo`, as quatro médias
+  empatam entre 6,1 % e 7,7 % e os piores trechos vão de 34,7 % a 51,5 %). A
+  metade que citava os 161 % como medida de rua **estava errada**;
+- o **LAB-18** repassou os 161 % ao chat como conquista do v2. **O ganho do v2 é
+  real** — ter onde carregar o pico —, mas **o primeiro valor que viajou é
+  artefato**, e o chat agiu sobre ele.
+
+**Por que a correção fica escrita assim, com nome:** porque o número saiu daqui,
+foi para o chat e voltou como prompt. Corrigir em silêncio deixaria a família
+decidindo sobre 161 % por mais uma rodada. A disciplina do §6 serve para o
+motor do vizinho **e para o meu próprio número de ontem**.
+
+**O que NÃO está corrigido, e também vai dito:** a régua do Lab anda de 10 em
+10 m sobre grade de 5 m, então **não vê um trecho curtíssimo genuinamente
+íngreme**. As duas réguas têm limite; a do motor mede numa escala onde a pergunta
+não faz sentido, a do Lab mede na escala em que greide se define para
+terraplenagem.

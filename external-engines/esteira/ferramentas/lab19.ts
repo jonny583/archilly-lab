@@ -39,6 +39,7 @@ import type { EntradaMotorV1 } from "@generate/contratos/motor-v1/index.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
 import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
 import { julgar, type P, type Rodada, type Veredito } from "../src/motores/comum.ts";
+import { mapaDaGleba, perfilDeRampa } from "../src/rampa.ts";
 import {
   UTIL_A_CONFERIR,
   UTIL_RUIM,
@@ -89,6 +90,22 @@ function rodar(id: string, e: EntradaMinima): Rodada {
   return rodarSymbios(wasm, e, SEMENTE, CARIMBO);
 }
 
+/** As vias da SAÍDA, para a régua de rampa, com o que o motor declarou. */
+function viasDaSaida(saida: unknown): {
+  vias: { id: string; pontos: P[] }[];
+  declaradoPeloMotor: number | null;
+} {
+  const s = saida as {
+    vias?: { id?: string; pontos?: P[]; eixo?: P[]; rampaMaxima_pct?: number | null }[];
+  } | null;
+  const brutas = s?.vias ?? [];
+  const vias = brutas
+    .map((v, i) => ({ id: v.id ?? `v${i}`, pontos: v.eixo ?? v.pontos ?? [] }))
+    .filter((v) => v.pontos.length >= 2);
+  const picos = brutas.map((v) => v.rampaMaxima_pct).filter((r): r is number => typeof r === "number");
+  return { vias, declaradoPeloMotor: picos.length ? Math.max(...picos) : null };
+}
+
 /** Os anéis dos lotes, pelo mesmo caminho do `julgar` — a régua é uma só. */
 function lotesDaSaida(saida: unknown, entrada: EntradaMinima): P[][] | null {
   const l = montarParcelamentoExterno(saida as never, { entrada: entrada as unknown as EntradaMotorV1 });
@@ -106,6 +123,8 @@ const glebas: Record<string, unknown>[] = [];
 for (const { id, entrada } of GLEBAS) {
   const { terreno } = glebaParaOSymbios(entrada);
   const areaGleba = areaPoligono((terreno as Terreno).gleba);
+  // O mapa de cotas é montado UMA vez por gleba: ele é da gleba, não do motor.
+  const mapa = mapaDaGleba(terreno as Terreno);
   console.log(`\n══════════ ${id} · ${(areaGleba / 1e4).toFixed(1)} ha ══════════`);
   console.log(
     `  ${"motor".padEnd(30)} ${"lotes".padStart(5)} ${"vendável".padStart(9)} ` +
@@ -119,6 +138,8 @@ for (const { id, entrada } of GLEBAS) {
     const v: Veredito | null = r.saida ? julgar(r.saida, entrada) : null;
     const aneis = r.saida ? lotesDaSaida(r.saida, entrada) : null;
     const d = aneis ? distribuicaoDeForma(aneis) : null;
+    const { vias, declaradoPeloMotor } = viasDaSaida(r.saida);
+    const ramp = perfilDeRampa(vias, mapa);
 
     porMotor[m.id] = {
       motor: m.nome,
@@ -133,6 +154,23 @@ for (const { id, entrada } of GLEBAS) {
       violacoesPorRegra: v?.porTipo ?? null,
       sobraSemLote_m2: v?.sobras ? n2(v.sobras.areaSobra_m2) : null,
       pctDaMassaSemLote: v?.sobras ? pc(v.sobras.areaSobra_m2, v.sobras.massa_m2) : null,
+      // ── a coluna da rampa, do LAB-21 ────────────────────────────────────
+      //
+      // DUAS réguas, nunca somadas: o que o motor DECLARA e o que o Lab MEDE
+      // passando o eixo dele pelo relevo. A segunda vale para os quatro, e a
+      // primeira só para quem calcula greide.
+      rampa: {
+        declaradoPeloMotor_pct: declaradoPeloMotor,
+        medida: ramp.medida,
+        porQueNaoMedida: ramp.porQueNaoMedida,
+        mediaPonderada_pct: ramp.rampaMediaPonderada_pct,
+        pior_pct: ramp.rampaPior_pct,
+        trechos: ramp.trechos,
+        trechosAcimaDe: ramp.trechosAcimaDe,
+        metrosAcimaDe: ramp.metrosAcimaDe,
+        cruzamentos: ramp.cruzamentos,
+        cruzamentosAcimaDe: ramp.cruzamentosAcimaDe,
+      },
       // ── a coluna nova, do LAB-19 ────────────────────────────────────────
       forma: d
         ? {
