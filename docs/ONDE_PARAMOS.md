@@ -4,92 +4,88 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 02/10/2026 · **Último prompt executado:** LAB-20
-**Estado:** **O CONTRATO v2 SAIU.** O LAB-18 está **pronto** e é o próximo. As
-duas confirmações do chat estão gravadas: o limiar da travessia virou **decisão
-do Jonny** (D84), e a régua de forma segue como decisão do chat.
+**Última atualização:** 02/10/2026 · **Último prompt executado:** LAB-18
+**Estado:** **FILA ESGOTADA.** LAB-18, LAB-19 e LAB-20 concluídos e mesclados.
+**Aguardando o chat.** O despertador foi apagado (D62).
 
-## A notícia da rodada: o contrato v2 do Generate saiu
+## Em uma frase
 
-`origin/main` do Generate = **`5b7e9b4`** (02/10, 15h21). **Os três pedidos do
-Lab foram atendidos**, conferidos um por um:
+**O contrato v2 chegou, o Lab o leu sem quebrar, e o pico de rampa que o LAB-02
+achou em setembro finalmente viaja:** 161,38 % onde a média dizia 24,23 %.
 
-| o que o Lab pediu | está lá? | onde |
+## O que o LAB-18 mediu
+
+**O adaptador não quebrou com o v2** — quem quebrou foi o `tsconfig` do Lab, por
+não espelhar o alias `@/` do Generate (D86). E o **gate de versão era do Lab**,
+errado desde o LAB-08: a esteira passa a ler `["2","1"]` (D87).
+
+**Os três pedidos do Lab, e a resposta de cada um:**
+
+| pedido | o contrato entrega? | há dado nas glebas? |
 |---|---|---|
-| `app_nascente` como tipo próprio, com o **ponto** e a **linha do curso** | **sim** | `tipos.ts:144` e `:157`, mais `eixoDoCurso` |
-| `rampaMaxima_pct` **por via na SAÍDA** | **sim** | `tipos.ts:319`, dentro do objeto da via |
-| **dois tipos** no lugar de `via_existente` | **sim** | `tipos.ts:205` — `via_desenhada` e `testada_de_frente` |
+| `app_nascente` + o **ponto** | **sim** | **não** — zero nas sete glebas, nem nas duas v2 deles |
+| **eixo do curso** | **sim** | **não** — as três hídricas de `geo-antonina` sem eixo |
+| `rampaMaxima_pct` **por via** | **sim** | **sim, e rendeu** |
 
-Eles escreveram a razão **creditada ao Lab**: *"`via_existente` FOI PARTIDA EM
-DUAS, **a pedido do Laboratório (§3)**"*. E fizeram o **leitor assimétrico** —
-`via_existente` continua aceito na leitura e convertido —, então **o adaptador
-não quebra** ao revendorizar.
+**A rampa** (D89) — o Symbios já media a máxima desde o LAB-02 e não tinha onde
+escrevê-la:
 
-**O que o v2 destrava, e estava medido como não aplicável:** a regra dos **50 m
-da nascente** (D74), a **travessia perpendicular ao curso** (D74) e a **rampa
-máxima por via**, que o LAB-13 teve de rebatizar por não existir (D67).
+| gleba | maior rampa média | **pior** rampa | fator |
+|---|---:|---:|---:|
+| `completo` | 24,23 % | **161,38 %** | 6,7× |
+| `geo-antonina` | 10,97 % | **113,54 %** | 10,4× |
+| `sintetico-10ha-plano` | 1,17 % | **15,44 %** | **13,2×** |
 
-## O despertador deste repositório — **um só**
+**Só o Symbios reporta o pico.** As candidatas do Generate trazem o campo e o
+deixam `null`; o Laboratório de Parcelamento ainda escreve saída v1.
 
-**`trig_015iiH1fhdJtSpVeigCz6mbp`** · cron `5 * * * *` · criado em 02/10 para
-**executar o LAB-18**, cuja condição está cumprida. Apagar quando a fila esgotar
-(D62) — com a ressalva da **D85**: despertador que existe para **vigiar condição
-externa nomeada** não se apaga, porque vigiar é o trabalho do disparo.
+## O que mudou na tabela do LAB-13
 
-## A fila de 02/10
+**Parcelamento e Symbios: nada, ao centavo**, em sessenta e tantos commits do
+Generate. É a prova de isolamento mais forte que a esteira já deu.
 
-| Prompt | Estado |
-|---|---|
-| **LAB-18** — revendorizar o contrato v2 e rodar a esteira de novo | ⬜ **PRONTO — é o próximo** |
-| **LAB-19** — a regra de forma do chat, na tabela, nos quatro motores | **concluído em 02/10/2026** |
-| **LAB-20** — página de tabela em `docs/`, para o Jonny olhar sem terminal | **concluído em 02/10/2026** |
+**As candidatas do Generate ganharam lote e perderam área vendável** — e medido,
+**é melhoria**: a área média do lote convergiu de **362–437 m²** para
+**360–367 m²**, com `areaAlvoLote_m2 = 360`. A área "perdida" era terra que o
+motor dava acima do alvo.
 
-## As duas confirmações do chat, de 02/10
+**Dois achados do Lab estão CONSERTADOS** (D90), e a esteira os viu sem ninguém
+avisar: o quadro de áreas **fecha ao centavo** e a APP deixou de ser eco do
+parâmetro (`8fd954b`). Os dois testes do LAB-08 **viraram do lado contrário** em
+vez de serem apagados.
 
-**1 · O limiar da travessia é DECISÃO DO JONNY** (D84), e saiu da lista dele:
+**O v2 confirmou a D64:** a atração de `geo-antonina` chega agora como
+`testada_de_frente`, que é o que o Lab mediu e o contrato não tinha como dizer.
 
-> O caminho por fora da APP é desproporcional quando passa de **3× a distância
-> direta**, **ou** quando acrescenta **1,5 km a mais de percurso**.
+## O despertador — **APAGADO em 02/10/2026**
 
-**Isto desfaz uma ambiguidade real.** O número chegou em 15/09 de passagem, e
-`1,5 km` podia ser *"a mais de percurso"* ou *"percurso total"* — leituras com
-resultados **opostos** em terreno grande. O Jonny confirmou a primeira. E são
-dois gatilhos em **OU**: o relativo pega o terreno pequeno, o absoluto pega o
-grande.
-
-**O que destrava:** a D61 §2 dizia *"sem ele, nenhuma travessia é proposta"*.
-Agora é. **O que não destrava:** a perpendicular ao curso e os 50 m da nascente
-dependiam de **dado geométrico**, não de limiar — e é o v2 que os traz.
-
-**2 · A régua de forma segue como decisão do chat** (D79), à espera do Jonny.
-É **o único item na lista dele**, e não trava nada.
-
-## O que o LAB-20 entregou, e o reforço do mesmo dia
-
-**[`COMPARACAO_DOS_MOTORES.md`](COMPARACAO_DOS_MOTORES.md)** — 184 linhas,
-**gerada** por `bun run lab20`. É Markdown porque o GitHub renderiza Markdown e
-mostra HTML como código-fonte (D81), e há teste que a regera e reprova se o
-arquivo estiver diferente (D82).
-
-**Reforçada no mesmo dia, a pedido do chat:** a página agora **nomeia o
-Validator** — na abertura, na legenda da coluna (*"é ele que diz se a proposta
-passa"*) e numa seção própria, *"Esta coluna INFORMA; quem aprova é o
-Validator"*. E essa seção traz uma **tabela de desencontros entre as duas
-réguas, computada da medição** — 29 apontamentos com zero lotes de forma ruim
-num caso, 4 apontamentos com 87 lotes ruins noutro. Escrever esses números à mão
-seria o defeito que a D82 combate: o exemplo é justamente o que o leitor
-acredita.
+Era `trig_015iiH1fhdJtSpVeigCz6mbp`. Disparou uma vez e **teve o que fazer** (o
+LAB-18). Com a fila esgotada, o próximo não teria — e disparo sem item pronto se
+apaga (D62). A ressalva da D85 não se aplica: a condição externa que ele vigiava
+**foi cumprida**.
 
 ## O que depende do Jonny — **um item, e não trava**
 
-Confirmar a **régua de forma** (D79). Está valendo, aplicada, e **aparece
-explicada na página dele**.
+Confirmar a **régua de forma** (D79): útil < 85 % é "a conferir", < 70 % é
+"ruim". Está valendo, aplicada, e **explicada na página dele**.
+
+## O que vai para o GEO — achado novo, pelo chat
+
+1. **A nascente não viaja no levantamento.** O contrato v2 tem `app_nascente` e o
+   **ponto**, e nenhuma das sete glebas os preenche. Enquanto o levantamento não
+   distinguir nascente de faixa de rio, **a regra dos 50 m do Jonny não é
+   verificável por motor nenhum** — e agora a falta é **de dado, não de
+   contrato**;
+2. **O eixo do curso d'água também não viaja.** `eixoDoCurso` existe e sai
+   `null` nas três hídricas. Sem ele, *"travessia perpendicular ao curso"* não
+   tem a quê — e o Generate já implementou a regra que o pede (`b4c33cc`).
 
 ## O que espera o chat
 
 1. **Qual motor é o padrão da tela unificada**: a D68 põe o do Laboratório de
    Parcelamento, e é justamente o que o Validator reprova em `ensaio-47ha`;
-2. **Ligar o GitHub Pages**, se quiser a comparação como página HTML de verdade.
+2. **Ligar o GitHub Pages**, se quiser a comparação como página HTML de verdade;
+3. **Repassar ao Geo** os dois achados acima.
 
 # A fila de 20/09 — a entrega e as duas correções · 20/09/2026
 

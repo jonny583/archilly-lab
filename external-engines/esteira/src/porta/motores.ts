@@ -36,19 +36,26 @@ function indicadoresDa(saida: unknown): Indicadores {
   const s = saida as {
     lotes?: unknown[];
     quadras?: unknown[];
-    vias?: { comprimento_m?: number; rampaMedia_pct?: number | null }[];
+    vias?: {
+      comprimento_m?: number;
+      rampaMedia_pct?: number | null;
+      rampaMaxima_pct?: number | null;
+    }[];
     indicadores?: { areaPrivativa_m2?: number; areaViaria_m2?: number };
   } | null;
   if (!s) {
     return {
       lotes: null, areaPrivativa_m2: null, areaViaria_m2: null,
       comprimentoDeVia_m: null, quadras: null, rampaMediaMaxima_pct: null,
+      rampaPior_pct: null,
     };
   }
   const vias = s.vias ?? [];
-  // `rampaMedia_pct` é o que o contrato v1 carrega; máxima por via não existe
-  // na SAÍDA — ver `Indicadores.rampaMediaMaxima_pct`.
-  const rampas = vias.map((v) => v.rampaMedia_pct).filter((r): r is number => typeof r === "number");
+  // Duas réguas, de propósito: a v1 só carrega a média por via, e o v2 trouxe
+  // a máxima. Ver `Indicadores.rampaMediaMaxima_pct` e `rampaPior_pct`.
+  const num = (r: unknown): r is number => typeof r === "number";
+  const rampas = vias.map((v) => v.rampaMedia_pct).filter(num);
+  const piores = vias.map((v) => v.rampaMaxima_pct).filter(num);
   return {
     lotes: s.lotes?.length ?? null,
     areaPrivativa_m2: s.indicadores?.areaPrivativa_m2 ?? null,
@@ -57,6 +64,8 @@ function indicadoresDa(saida: unknown): Indicadores {
     quadras: s.quadras?.length ?? null,
     // `null`, e não zero, quando o motor não calcula greide (D23).
     rampaMediaMaxima_pct: rampas.length ? Math.max(...rampas) : null,
+    // `null` aqui é "o motor não reporta o pico", não "o terreno é plano".
+    rampaPior_pct: piores.length ? Math.max(...piores) : null,
   };
 }
 

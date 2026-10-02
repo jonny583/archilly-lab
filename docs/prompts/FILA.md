@@ -169,7 +169,7 @@ que dependa do Jonny.**
 
 | # | prompt | estado | condição |
 |---|---|---|---|
-| **LAB-18** | Revendorizar o **contrato v2** do Generate e rodar a esteira de novo nas cinco glebas, dizendo o que muda na tabela do LAB-13 | ⬜ **PRONTO — é o próximo** | **cumprida em 02/10 às 15h21**: o v2 saiu na `main` deles (`5b7e9b4`) |
+| **LAB-18** | Revendorizar o **contrato v2** do Generate e rodar a esteira de novo nas cinco glebas, dizendo o que muda na tabela do LAB-13 | ✅ **concluído em 02/10/2026** | cumprida às 15h21 (`5b7e9b4`) |
 | **LAB-19** | Aplicar a regra de forma decidida pelo chat (**útil < 85 % = "a conferir"; < 70 % = "ruim"**), pôr a coluna na tabela e medir os quatro motores | ✅ **concluído em 02/10/2026** | nenhuma |
 | **LAB-20** | Deixar o resultado legível para quem não programa: **página de tabela gerada em `docs/`**, motores lado a lado, sem terminal | ✅ **concluído em 02/10/2026** · reforçado no mesmo dia a pedido do chat | nenhuma |
 
@@ -235,36 +235,45 @@ zero "ruim" num caso, 1 violação com 382 fora do "ok" noutro.
 
 ---
 
-### LAB-18 · O contrato v2 — ✅ CONDIÇÃO CUMPRIDA em 02/10 às 15h21
+### LAB-18 · O contrato v2, revendorizado — ✅ concluído em 02/10/2026
 
-**O v2 saiu.** `origin/main` do Generate = **`5b7e9b4`** (02/10, 15h21). Os três
-pedidos do Lab foram atendidos, conferidos um por um no clone de leitura:
+**Entregue:** [`../relatorios/LAB-18.md`](../relatorios/LAB-18.md) e
+`docs/provas/LAB-18/contrato-v2.json`. Clone do Generate de `22502b3` (10/09) a
+`5b7e9b4` (02/10).
 
-| o que o Lab pediu | está lá? | onde |
-|---|---|---|
-| `app_nascente` como tipo próprio, com o **ponto** da nascente e a **linha do curso** | **sim** | `tipos.ts:144` (`"app_nascente"` no enum), `:157` (*"O PONTO DA NASCENTE, obrigatório quando `tipo === app_nascente`"*), mais `eixoDoCurso` |
-| `rampaMaxima_pct` **por via na SAÍDA** | **sim** | `tipos.ts:319`, dentro do objeto da via, ao lado de `rampaMedia_pct` |
-| **dois tipos** no lugar de `via_existente` | **sim** | `tipos.ts:205` — `"via_desenhada" \| "testada_de_frente" \| "ponto_de_interesse" \| "outra"` |
+**O adaptador não quebrou — o tsconfig do Lab sim** (D86): dois erros de `@/`,
+que é o alias interno do Generate. Quem lê por caminho tem de espelhá-lo; uma
+linha nos `paths`.
 
-**Eles escreveram a razão com as nossas palavras**, e creditada: *"`via_existente`
-FOI PARTIDA EM DUAS, **a pedido do Laboratório (§3)**"*, com o motivo que o LAB-13
-mediu — *"tratar a segunda como a primeira faz o motor construir uma rua paralela
-à que já existe, a um metro dela — asfalto pago duas vezes"*.
+**O gate de versão era do Lab, e estava errado desde o LAB-08** (D87): cinco
+testes vermelhos com *"esta esteira lê o contrato "1"; chegou versão "2""*. A
+esteira passa a ler `["2","1"]`, pela regra que o Generate escreveu — e as
+fixtures em `"1"` ficam, porque são **prova de medição antiga**.
 
-**E eles fizeram o leitor assimétrico:** `via_existente` continua **aceito na
-leitura** e convertido; quem **escreve** emite só os dois novos. Isso significa
-que **o adaptador do Lab não quebra** ao revendorizar — o que muda é o que ele
-pode passar a declarar.
+**Os três pedidos, e a resposta desconfortável de dois** (D88): nascente e eixo
+do curso **existem no contrato e não têm dado em gleba nenhuma** — nem nas duas
+v2 deles. O bloqueio **mudou de endereço**: era falta de contrato, agora é falta
+de levantamento. **Achado para o Geo.**
 
-**O LAB-18 é o próximo prompt**, e o que ele tem de fazer:
+**A rampa rendeu** (D89): o Symbios já media a máxima desde o LAB-02 e não tinha
+onde escrevê-la. Agora a saída dele é v2 e o pico viaja — `completo` dá média
+**24,23 %** e pior **161,38 %**, fator de **6,7×**; `10ha-plano` dá 1,17 % contra
+15,44 %, fator de **13,2×**. Os dois indicadores ficam lado a lado, porque motor
+que só fala v1 preenche só o antigo.
 
-1. revendorizar o contrato;
-2. rodar a esteira nas cinco glebas;
-3. **dizer o que muda na tabela do LAB-13**;
-4. e três coisas que o v2 agora deixa medir e antes não deixava: a **regra dos
-   50 m da nascente** (D74, que estava escrita e marcada "não aplicável"), a
-   **travessia perpendicular ao curso** (D74, idem) e a **rampa máxima por via**,
-   que o LAB-13 teve de rebatizar `rampaMediaMaxima_pct` por não existir (D67).
+**Na tabela do LAB-13:** Parcelamento e Symbios **não mexeram um centavo** em
+sessenta e tantos commits do Generate — a prova de isolamento mais forte que a
+esteira já deu. As candidatas do Generate **ganharam lote e perderam área
+vendável**, e medido: a área média do lote **convergiu de 362–437 m² para
+360–367 m²**, com `areaAlvoLote_m2 = 360`. Não é perda, é o motor **deixando de
+passar do alvo**.
+
+**E dois achados do Lab estão CONSERTADOS** (D90): o quadro de áreas fecha ao
+centavo e a APP deixou de ser eco do parâmetro (`8fd954b`). Os dois testes do
+LAB-08 **viraram do lado contrário** em vez de serem apagados — é no lugar onde
+o bug já esteve que ele volta.
+
+**A página do Jonny foi regerada**, porque a medição mudou.
 
 ---
 

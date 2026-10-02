@@ -16,8 +16,15 @@
  *
  * # O que NÃO é inventado
  *
- * - **`rampaMedia_pct`**: o Symbios mede, então vai preenchida. É o contrário
- *   do outro motor, que não calcula greide e sai `null` (LAB-07, §7).
+ * - **`rampaMedia_pct`** e **`rampaMaxima_pct`**: o Symbios mede as duas, então
+ *   as duas vão preenchidas. É o contrário do outro motor, que não calcula
+ *   greide e sai `null` (LAB-07, §7).
+ *
+ *   A **máxima** só passou a sair no LAB-18, e não porque faltasse medir: o
+ *   adaptador do Symbios a calcula desde o LAB-02, em `recorte.ts`. **Faltava
+ *   onde escrevê-la** — o contrato v1 só tinha a média, e foi por isso que o
+ *   LAB-13 teve de batizar o indicador `rampaMediaMaxima_pct`, de propósito
+ *   feio (D67). O v2 trouxe o campo, a pedido do Lab, e o nome feio pode morrer.
  * - **`lotes`, `areasEspeciais`**: vazios, não fabricados.
  * - **`areaPrivativa_m2`**: zero de verdade — não há lote.
  * - **`areaViaria_m2`**: comprimento × faixa de domínio, com o cruzamento
@@ -45,6 +52,8 @@ export interface SaidaMinima {
     pontos: PontoV1[];
     largura_m: number;
     rampaMedia_pct: number | null;
+    /** v2 — a PIOR rampa da via, em porcento. `null` quando não medida. */
+    rampaMaxima_pct: number | null;
   }[];
   quadras: { id: string; pontos: PontoV1[]; area_m2: number }[];
   lotes: {
@@ -159,7 +168,8 @@ export function symbiosParaOContrato(
     saida: {
       archilly: {
         schema: "archilly-motor-saida",
-        versao: "1",
+        // v2 desde o LAB-18: esta saída carrega `rampaMaxima_pct` por via.
+        versao: "2",
         origem: `archilly-lab · esteira · Symbios ${o.versaoMotor}`,
         geradoEm: o.geradoEm,
       },
@@ -175,6 +185,7 @@ export function symbiosParaOContrato(
         pontos: v.pontos.map((p) => ({ x: p.x, y: p.y })),
         largura_m: v.faixaDominio_m,
         rampaMedia_pct: v.rampaMedia_pct,
+        rampaMaxima_pct: v.rampaMaxima_pct,
       })),
       quadras: quadras.map((q) => ({
         id: q.id,

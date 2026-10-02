@@ -22,26 +22,26 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 2432.2,
+          "ms": 1758.37,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
           "recusadoPeloEsquema": null,
-          "lotes": 1605,
-          "areaVendavel_m2": 614114.2,
-          "pctPrivativa": 43.32,
+          "lotes": 1606,
+          "areaVendavel_m2": 583251.73,
+          "pctPrivativa": 41.14,
           "violacoes": 0,
           "violacoesPorRegra": {},
-          "sobraSemLote_m2": 668325,
-          "pctDaMassaSemLote": 47.14,
+          "sobraSemLote_m2": 699975,
+          "pctDaMassaSemLote": 49.38,
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
               "ruimAbaixoDe": 0.7
             },
-            "lotes": 1605,
-            "ok": 1603,
+            "lotes": 1606,
+            "ok": 1604,
             "aConferir": 2,
             "ruim": 0,
             "pctAConferir": 0.12,
@@ -50,10 +50,10 @@
             "utilPior": 0.7458,
             "porClasse": {
               "trapézio": 2,
-              "retângulo": 1526,
+              "retângulo": 1525,
+              "pentágono": 36,
               "polígono 10 lados": 2,
               "polígono 28 lados com 1 lado(s) curvo(s)": 1,
-              "pentágono": 34,
               "polígono 8 lados": 3,
               "polígono 19 lados com 1 lado(s) curvo(s)": 1,
               "polígono 36 lados": 1,
@@ -84,28 +84,28 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 2188.03,
+          "ms": 1746.13,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
           "recusadoPeloEsquema": null,
-          "lotes": 1803,
-          "areaVendavel_m2": 699111.74,
-          "pctPrivativa": 49.32,
+          "lotes": 1805,
+          "areaVendavel_m2": 649404.86,
+          "pctPrivativa": 45.81,
           "violacoes": 1,
           "violacoesPorRegra": {
             "faixa-legal": 1
           },
-          "sobraSemLote_m2": 487150,
-          "pctDaMassaSemLote": 34.36,
+          "sobraSemLote_m2": 529150,
+          "pctDaMassaSemLote": 37.33,
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
               "ruimAbaixoDe": 0.7
             },
-            "lotes": 1803,
-            "ok": 1767,
+            "lotes": 1805,
+            "ok": 1769,
             "aConferir": 1,
             "ruim": 35,
             "pctAConferir": 0.06,
@@ -113,22 +113,22 @@
             "utilMediana": 1,
             "utilPior": 0.4622,
             "porClasse": {
-              "retângulo": 1563,
-              "pentágono": 90,
-              "polígono 33 lados com 2 lado(s) curvo(s)": 4,
+              "retângulo": 1546,
+              "pentágono": 109,
+              "polígono 33 lados com 2 lado(s) curvo(s)": 5,
               "polígono 18 lados": 1,
               "quadrilátero": 11,
               "polígono 29 lados com 1 lado(s) curvo(s)": 2,
               "polígono 11 lados com 1 lado(s) curvo(s)": 1,
               "polígono 11 lados": 2,
-              "polígono 30 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 31 lados com 3 lado(s) curvo(s)": 1,
               "polígono 12 lados com 1 lado(s) curvo(s)": 3,
               "polígono 22 lados com 1 lado(s) curvo(s)": 2,
               "polígono 30 lados com 1 lado(s) curvo(s)": 2,
-              "polígono 34 lados com 2 lado(s) curvo(s)": 4,
+              "polígono 34 lados com 2 lado(s) curvo(s)": 3,
               "polígono 13 lados": 2,
               "polígono 35 lados com 2 lado(s) curvo(s)": 4,
-              "polígono 32 lados com 2 lado(s) curvo(s)": 5,
+              "polígono 32 lados com 2 lado(s) curvo(s)": 6,
               "polígono 12 lados": 3,
               "polígono 28 lados com 2 lado(s) curvo(s)": 2,
               "polígono 18 lados com 1 lado(s) curvo(s)": 2,
@@ -137,7 +137,7 @@
               "polígono 16 lados com 1 lado(s) curvo(s)": 4,
               "polígono 31 lados com 1 lado(s) curvo(s)": 4,
               "polígono 38 lados": 1,
-              "polígono 14 lados": 3,
+              "polígono 14 lados": 4,
               "polígono 28 lados": 1,
               "polígono 36 lados com 2 lado(s) curvo(s)": 4,
               "polígono 11 lados com 2 lado(s) curvo(s)": 1,
@@ -162,7 +162,6 @@
               "polígono 7 lados": 2,
               "polígono 15 lados com 1 lado(s) curvo(s)": 2,
               "polígono 27 lados com 1 lado(s) curvo(s)": 2,
-              "polígono 54 lados com 1 lado(s) curvo(s)": 1,
               "polígono 33 lados com 1 lado(s) curvo(s)": 2,
               "polígono 14 lados com 1 lado(s) curvo(s)": 1,
               "polígono 34 lados com 1 lado(s) curvo(s)": 3,
@@ -170,7 +169,7 @@
               "polígono 8 lados com 1 lado(s) curvo(s)": 1,
               "polígono 20 lados com 3 lado(s) curvo(s)": 1,
               "polígono 15 lados com 2 lado(s) curvo(s)": 2,
-              "polígono 15 lados": 4,
+              "polígono 15 lados": 3,
               "polígono 35 lados": 2,
               "polígono 44 lados": 1,
               "polígono 54 lados": 1
@@ -181,7 +180,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "ortogonal (1º de 7 no ranking dele)",
-          "ms": 7136.93,
+          "ms": 5463.62,
           "naoSoubeFazer": [
             "13 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 990.4 m de eixo que saía da gleba (0.21 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -223,7 +222,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 7472.59,
+          "ms": 5971.98,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -281,19 +280,19 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 548.79,
+          "ms": 433.85,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
           "recusadoPeloEsquema": null,
           "lotes": 1003,
-          "areaVendavel_m2": 372956.56,
-          "pctPrivativa": 74.59,
+          "areaVendavel_m2": 363684.65,
+          "pctPrivativa": 72.74,
           "violacoes": 0,
           "violacoesPorRegra": {},
-          "sobraSemLote_m2": 43275,
-          "pctDaMassaSemLote": 8.66,
+          "sobraSemLote_m2": 53375,
+          "pctDaMassaSemLote": 10.68,
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -308,10 +307,8 @@
             "utilMediana": 1,
             "utilPior": 0.8788,
             "porClasse": {
-              "retângulo": 934,
+              "retângulo": 937,
               "pentágono": 33,
-              "polígono 21 lados": 1,
-              "polígono 19 lados": 4,
               "polígono 15 lados": 3,
               "polígono 30 lados": 6,
               "polígono 7 lados": 1,
@@ -320,13 +317,14 @@
               "polígono 27 lados": 1,
               "polígono 17 lados": 1,
               "polígono 9 lados": 1,
-              "polígono 23 lados": 3,
+              "polígono 24 lados": 2,
               "polígono 26 lados": 1,
-              "polígono 18 lados": 3,
               "polígono 10 lados": 1,
-              "polígono 24 lados": 1,
               "polígono 14 lados": 3,
               "polígono 16 lados": 1,
+              "polígono 18 lados": 2,
+              "polígono 23 lados": 2,
+              "polígono 19 lados": 3,
               "polígono 29 lados": 1,
               "polígono 22 lados": 2
             },
@@ -336,48 +334,48 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 582.69,
+          "ms": 403.59,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
           "recusadoPeloEsquema": null,
-          "lotes": 785,
-          "areaVendavel_m2": 333429.56,
-          "pctPrivativa": 66.69,
+          "lotes": 788,
+          "areaVendavel_m2": 285129.99,
+          "pctPrivativa": 57.03,
           "violacoes": 0,
           "violacoesPorRegra": {},
-          "sobraSemLote_m2": 62675,
-          "pctDaMassaSemLote": 12.54,
+          "sobraSemLote_m2": 106075,
+          "pctDaMassaSemLote": 21.22,
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
               "ruimAbaixoDe": 0.7
             },
-            "lotes": 785,
-            "ok": 772,
+            "lotes": 788,
+            "ok": 774,
             "aConferir": 0,
-            "ruim": 13,
+            "ruim": 14,
             "pctAConferir": 0,
-            "pctRuim": 1.66,
+            "pctRuim": 1.78,
             "utilMediana": 1,
             "utilPior": 0.4896,
             "porClasse": {
-              "retângulo": 713,
-              "polígono 16 lados": 3,
-              "polígono 32 lados com 1 lado(s) curvo(s)": 5,
-              "pentágono": 15,
+              "retângulo": 706,
+              "polígono 13 lados com 1 lado(s) curvo(s)": 8,
+              "polígono 32 lados com 1 lado(s) curvo(s)": 4,
+              "pentágono": 23,
               "polígono 15 lados com 1 lado(s) curvo(s)": 1,
               "polígono 38 lados com 2 lado(s) curvo(s)": 2,
               "quadrilátero": 5,
               "polígono 20 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 27 lados": 1,
               "polígono 37 lados com 1 lado(s) curvo(s)": 1,
               "polígono 26 lados com 1 lado(s) curvo(s)": 1,
-              "polígono 13 lados com 1 lado(s) curvo(s)": 8,
               "polígono 27 lados com 1 lado(s) curvo(s)": 1,
               "polígono 22 lados com 1 lado(s) curvo(s)": 1,
-              "polígono 12 lados": 1,
-              "polígono 30 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 13 lados": 2,
+              "polígono 30 lados com 2 lado(s) curvo(s)": 2,
               "polígono 35 lados com 2 lado(s) curvo(s)": 1,
               "polígono 14 lados": 1,
               "polígono 34 lados com 2 lado(s) curvo(s)": 1,
@@ -385,27 +383,28 @@
               "polígono 36 lados com 2 lado(s) curvo(s)": 1,
               "polígono 39 lados com 1 lado(s) curvo(s)": 1,
               "polígono 30 lados": 2,
-              "polígono 13 lados": 1,
-              "polígono 14 lados com 1 lado(s) curvo(s)": 5,
+              "polígono 15 lados": 4,
+              "polígono 29 lados com 1 lado(s) curvo(s)": 1,
               "polígono 33 lados": 1,
+              "polígono 14 lados com 1 lado(s) curvo(s)": 5,
               "polígono 28 lados com 1 lado(s) curvo(s)": 1,
               "polígono 29 lados com 2 lado(s) curvo(s)": 1,
-              "polígono 15 lados": 1,
               "polígono 31 lados com 2 lado(s) curvo(s)": 1,
-              "polígono 33 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 33 lados com 1 lado(s) curvo(s)": 1,
               "polígono 17 lados com 1 lado(s) curvo(s)": 1,
               "polígono 18 lados com 2 lado(s) curvo(s)": 1,
-              "polígono 16 lados com 1 lado(s) curvo(s)": 1,
-              "polígono 31 lados com 1 lado(s) curvo(s)": 1,
-              "polígono 54 lados": 1
+              "polígono 30 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 53 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 54 lados": 1,
+              "polígono 52 lados com 1 lado(s) curvo(s)": 1
             },
-            "comLadoCurvo": 41
+            "comLadoCurvo": 42
           }
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 19 no ranking dele)",
-          "ms": 2651.85,
+          "ms": 2337.8,
           "naoSoubeFazer": [
             "1 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 556.0 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -447,7 +446,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 1752.92,
+          "ms": 1358.66,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -500,19 +499,19 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 73.01,
+          "ms": 87.88,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
           "recusadoPeloEsquema": null,
           "lotes": 171,
-          "areaVendavel_m2": 69571.02,
-          "pctPrivativa": 69.57,
+          "areaVendavel_m2": 62809.91,
+          "pctPrivativa": 62.81,
           "violacoes": 0,
           "violacoesPorRegra": {},
-          "sobraSemLote_m2": 14175,
-          "pctDaMassaSemLote": 14.16,
+          "sobraSemLote_m2": 21150,
+          "pctDaMassaSemLote": 21.13,
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -529,8 +528,8 @@
             "porClasse": {
               "polígono 23 lados": 5,
               "polígono 15 lados": 2,
-              "retângulo": 147,
-              "pentágono": 10,
+              "retângulo": 146,
+              "pentágono": 11,
               "polígono 26 lados": 1,
               "polígono 14 lados": 1,
               "polígono 19 lados": 2,
@@ -544,60 +543,60 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 77.64,
+          "ms": 90.65,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
           "recusadoPeloEsquema": null,
-          "lotes": 139,
-          "areaVendavel_m2": 60699.8,
-          "pctPrivativa": 60.7,
+          "lotes": 137,
+          "areaVendavel_m2": 49994.7,
+          "pctPrivativa": 49.99,
           "violacoes": 0,
           "violacoesPorRegra": {},
-          "sobraSemLote_m2": 17650,
-          "pctDaMassaSemLote": 17.64,
+          "sobraSemLote_m2": 26450,
+          "pctDaMassaSemLote": 26.43,
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
               "ruimAbaixoDe": 0.7
             },
-            "lotes": 139,
-            "ok": 132,
+            "lotes": 137,
+            "ok": 129,
             "aConferir": 0,
-            "ruim": 7,
+            "ruim": 8,
             "pctAConferir": 0,
-            "pctRuim": 5.04,
+            "pctRuim": 5.84,
             "utilMediana": 1,
             "utilPior": 0.4666,
             "porClasse": {
-              "retângulo": 115,
-              "polígono 31 lados com 1 lado(s) curvo(s)": 2,
+              "retângulo": 110,
+              "polígono 29 lados com 1 lado(s) curvo(s)": 2,
               "quadrilátero": 3,
               "polígono 12 lados": 1,
-              "polígono 34 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 32 lados com 2 lado(s) curvo(s)": 1,
               "polígono 35 lados com 2 lado(s) curvo(s)": 1,
               "polígono 31 lados": 1,
               "polígono 24 lados com 1 lado(s) curvo(s)": 2,
               "polígono 17 lados com 1 lado(s) curvo(s)": 1,
-              "polígono 32 lados com 2 lado(s) curvo(s)": 1,
-              "pentágono": 1,
+              "polígono 18 lados com 1 lado(s) curvo(s)": 2,
+              "pentágono": 2,
               "polígono 35 lados com 3 lado(s) curvo(s)": 1,
-              "polígono 29 lados com 1 lado(s) curvo(s)": 1,
               "polígono 17 lados com 2 lado(s) curvo(s)": 1,
-              "polígono 15 lados": 3,
+              "polígono 15 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 15 lados": 2,
+              "polígono 31 lados com 1 lado(s) curvo(s)": 1,
               "polígono 28 lados com 1 lado(s) curvo(s)": 1,
-              "polígono 18 lados com 1 lado(s) curvo(s)": 1,
               "polígono 18 lados com 2 lado(s) curvo(s)": 1,
-              "polígono 43 lados": 1
+              "polígono 43 lados": 3
             },
-            "comLadoCurvo": 14
+            "comLadoCurvo": 15
           }
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 326.25,
+          "ms": 269.49,
           "naoSoubeFazer": [
             "o Lab aparou 237.1 m de eixo que saía da gleba (0.65 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -637,7 +636,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 550.78,
+          "ms": 487.98,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -685,7 +684,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 456.23,
+          "ms": 374.96,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -725,25 +724,25 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 423.08,
+          "ms": 397.57,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
           "recusadoPeloEsquema": null,
-          "lotes": 776,
-          "areaVendavel_m2": 302763.13,
-          "pctPrivativa": 64.42,
+          "lotes": 778,
+          "areaVendavel_m2": 282075.86,
+          "pctPrivativa": 60.02,
           "violacoes": 0,
           "violacoesPorRegra": {},
-          "sobraSemLote_m2": 46075,
-          "pctDaMassaSemLote": 9.85,
+          "sobraSemLote_m2": 60125,
+          "pctDaMassaSemLote": 12.85,
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
               "ruimAbaixoDe": 0.7
             },
-            "lotes": 776,
-            "ok": 760,
+            "lotes": 778,
+            "ok": 762,
             "aConferir": 2,
             "ruim": 14,
             "pctAConferir": 0.26,
@@ -751,11 +750,11 @@
             "utilMediana": 1,
             "utilPior": 0.5432,
             "porClasse": {
-              "retângulo": 689,
+              "retângulo": 680,
               "polígono 6 lados": 1,
               "polígono 33 lados com 2 lado(s) curvo(s)": 2,
               "quadrilátero": 10,
-              "pentágono": 39,
+              "pentágono": 51,
               "polígono 27 lados com 1 lado(s) curvo(s)": 1,
               "polígono 27 lados com 2 lado(s) curvo(s)": 1,
               "polígono 32 lados com 2 lado(s) curvo(s)": 1,
@@ -764,7 +763,7 @@
               "polígono 33 lados com 1 lado(s) curvo(s)": 3,
               "polígono 12 lados com 1 lado(s) curvo(s)": 5,
               "polígono 31 lados com 1 lado(s) curvo(s)": 1,
-              "polígono 11 lados": 2,
+              "polígono 12 lados": 1,
               "polígono 35 lados": 1,
               "polígono 14 lados": 1,
               "polígono 28 lados com 2 lado(s) curvo(s)": 1,
@@ -772,14 +771,13 @@
               "polígono 17 lados com 1 lado(s) curvo(s)": 1,
               "polígono 17 lados com 2 lado(s) curvo(s)": 1,
               "polígono 16 lados com 1 lado(s) curvo(s)": 2,
-              "polígono 13 lados com 2 lado(s) curvo(s)": 1,
-              "polígono 19 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 14 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 11 lados": 1,
+              "polígono 19 lados com 1 lado(s) curvo(s)": 2,
               "polígono 15 lados": 1,
               "polígono 34 lados com 1 lado(s) curvo(s)": 1,
               "polígono 18 lados com 1 lado(s) curvo(s)": 2,
-              "polígono 36 lados com 2 lado(s) curvo(s)": 1,
-              "polígono 35 lados com 1 lado(s) curvo(s)": 1,
-              "polígono 30 lados": 1
+              "polígono 36 lados com 2 lado(s) curvo(s)": 1
             },
             "comLadoCurvo": 31
           }
@@ -787,7 +785,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 1954.6,
+          "ms": 1620,
           "naoSoubeFazer": [
             "o Lab aparou 505.5 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -827,7 +825,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 895.28,
+          "ms": 759.14,
           "naoSoubeFazer": [
             "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
@@ -882,28 +880,28 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 487.24,
+          "ms": 508.87,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
           ],
           "recusadoPeloEsquema": null,
-          "lotes": 1389,
-          "areaVendavel_m2": 508580.76,
-          "pctPrivativa": 35.88,
+          "lotes": 1390,
+          "areaVendavel_m2": 501716.04,
+          "pctPrivativa": 35.39,
           "violacoes": 1,
           "violacoesPorRegra": {
             "face-quadra": 1
           },
-          "sobraSemLote_m2": 788400,
-          "pctDaMassaSemLote": 55.62,
+          "sobraSemLote_m2": 794500,
+          "pctDaMassaSemLote": 56.05,
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
               "ruimAbaixoDe": 0.7
             },
-            "lotes": 1389,
-            "ok": 1389,
+            "lotes": 1390,
+            "ok": 1390,
             "aConferir": 0,
             "ruim": 0,
             "pctAConferir": 0,
@@ -911,21 +909,22 @@
             "utilMediana": 1,
             "utilPior": 0.8789,
             "porClasse": {
-              "retângulo": 1350,
+              "retângulo": 1352,
               "pentágono": 18,
               "polígono 14 lados": 1,
               "polígono 30 lados": 1,
               "polígono 26 lados": 1,
               "polígono 17 lados": 1,
               "polígono 24 lados": 2,
-              "polígono 19 lados": 2,
               "polígono 20 lados": 2,
-              "polígono 22 lados": 3,
+              "polígono 25 lados": 1,
               "polígono 15 lados": 1,
               "polígono 31 lados": 1,
               "polígono 9 lados": 1,
               "polígono 23 lados": 2,
-              "polígono 18 lados": 3
+              "polígono 18 lados": 3,
+              "polígono 22 lados": 2,
+              "polígono 19 lados": 1
             },
             "comLadoCurvo": 0
           }
@@ -933,19 +932,19 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 616.48,
+          "ms": 520.52,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
           ],
           "recusadoPeloEsquema": null,
           "lotes": 1657,
-          "areaVendavel_m2": 617449.63,
-          "pctPrivativa": 43.56,
+          "areaVendavel_m2": 596222.12,
+          "pctPrivativa": 42.06,
           "violacoes": 0,
           "violacoesPorRegra": {},
-          "sobraSemLote_m2": 653175,
-          "pctDaMassaSemLote": 46.08,
+          "sobraSemLote_m2": 674875,
+          "pctDaMassaSemLote": 47.61,
           "forma": {
             "regra": {
               "aConferirAbaixoDe": 0.85,
@@ -988,7 +987,7 @@
               "polígono 11 lados": 1,
               "polígono 16 lados com 1 lado(s) curvo(s)": 1,
               "polígono 15 lados com 1 lado(s) curvo(s)": 1,
-              "polígono 48 lados com 1 lado(s) curvo(s)": 1
+              "polígono 52 lados com 1 lado(s) curvo(s)": 1
             },
             "comLadoCurvo": 28
           }
@@ -996,7 +995,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "ortogonal (1º de 18 no ranking dele)",
-          "ms": 7660.54,
+          "ms": 6511.77,
           "naoSoubeFazer": [
             "2 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 833.1 m de eixo que saía da gleba (0.17 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -1037,7 +1036,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 11344.82,
+          "ms": 9567.76,
           "naoSoubeFazer": [
             "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",

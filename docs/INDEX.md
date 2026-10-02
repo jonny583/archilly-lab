@@ -31,6 +31,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-18.md`](relatorios/LAB-18.md) | **O contrato v2, revendorizado**: o pico de rampa que passou a viajar (161 % contra 24 % de média), os dois achados do Lab que o Generate consertou, e por que a área vendável que as candidatas dele "perderam" é melhoria |
 | [`COMPARACAO_DOS_MOTORES.md`](COMPARACAO_DOS_MOTORES.md) | **A comparação numa página, para quem não programa** (LAB-20): quatro motores, cinco terrenos, lado a lado. **Gerada por medição**, com teste que reprova se envelhecer |
 | [`relatorios/LAB-20.md`](relatorios/LAB-20.md) | **Por que a página é Markdown e não HTML**, por que é gerada, e o defeito de legibilidade que a primeira versão tinha |
 | [`relatorios/LAB-19.md`](relatorios/LAB-19.md) | **A regra de forma do chat na tabela**: útil < 85 % é "a conferir", < 70 % é "ruim" — três motores sem problema de forma, e o Symbios com um terço dos lotes na faixa do meio |

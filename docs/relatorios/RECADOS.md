@@ -396,3 +396,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma, que já 
 Próximo na fila: LAB-18, condição CUMPRIDA. Criei o despertador para executá-lo; ele vai revendorizar, rodar as cinco glebas, dizer o que muda na tabela do LAB-13 e medir as três coisas que o v2 passou a permitir. D84 e D85.
 === FIM ===
 ```
+
+---
+
+## 02/10/2026 · LAB-18 — o contrato v2 revendorizado
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-18 ===
+Estado: LAB-18 concluído e mesclado. Esteira 164/164 (8 novos), tsc e lint limpos. Vizinhos limpos. FILA ESGOTADA — apaguei o despertador (D62).
+Feito: clone do Generate de 22502b3 a 5b7e9b4. O ADAPTADOR NÃO QUEBROU; quem quebrou foi o tsconfig do Lab, por não espelhar o alias @/ deles (D86), e o GATE DE VERSÃO, que era meu e estava errado desde o LAB-08 — a esteira passa a ler ["2","1"] (D87). A RAMPA RENDEU: o Symbios já media a máxima desde o LAB-02 e não tinha onde escrevê-la; agora a saída dele é v2 e o pico viaja — em completo a média diz 24,23 % e a PIOR diz 161,38 %, fator de 6,7x; em 10ha-plano, 1,17 % contra 15,44 %, fator de 13,2x. São os mesmos 161 % do LAB-02. Só o Symbios reporta o pico: as candidatas de vocês trazem o campo e o deixam null, e o Parcelamento ainda escreve v1 (D89).
+Achados para outros apps ou Central: GEO, NOVO E É DELES AGORA — a nascente e o eixo do curso EXISTEM no contrato v2 e não têm dado em gleba nenhuma, nem nas duas v2 do Generate. O bloqueio mudou de endereço: era falta de contrato, virou falta de levantamento, e enquanto isso a regra dos 50 m do Jonny não é verificável por motor nenhum (D88). GENERATE — obrigado: os três pedidos entregues, e DOIS achados do Lab consertados (8fd954b), que a esteira viu sem ninguém avisar: o quadro de áreas fecha ao centavo e a APP deixou de ser eco do parâmetro. Os dois testes do LAB-08 viraram do lado contrário em vez de apagados (D90).
+Depende do Jonny: um só, e não trava — confirmar a régua de forma, explicada na página dele.
+Próximo na fila: NADA. Na tabela do LAB-13: Parcelamento e Symbios não mexeram UM CENTAVO em sessenta e tantos commits de vocês; as candidatas do Generate ganharam lote e perderam área vendável, e medido é MELHORIA — a área média do lote convergiu de 362-437 m² para 360-367 m², com alvo 360. A página do Jonny foi regerada.
+=== FIM ===
+```
