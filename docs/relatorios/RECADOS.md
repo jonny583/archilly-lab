@@ -382,3 +382,17 @@ Depende do Jonny: dois, nenhum trava — o "3x / 1,5 km" e o OK na régua de for
 Próximo na fila: NADA pronto. Esperam o chat: (1) o contrato v2, que destrava o LAB-18; (2) ligar o GitHub Pages, se quiser a comparação como página HTML de verdade — eu não liguei por minha conta; (3) qual motor é o padrão da tela unificada, já que a D68 põe justamente o que o Validator reprova.
 === FIM ===
 ```
+
+---
+
+## 02/10/2026 · As duas confirmações, o reforço da página, e o contrato v2 que saiu
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-20 (reforço) ===
+Estado: Esteira 156/156, tsc e lint limpos. Vizinhos limpos. ATENÇÃO À PRIMEIRA LINHA DOS ACHADOS: o contrato v2 SAIU, e o LAB-18 está PRONTO.
+Feito: (1) o limiar da travessia virou DECISÃO DO JONNY (D84) e saiu da lista dele, marcado como resolvido, nunca apagado — 3x a distância direta OU 1,5 km A MAIS DE PERCURSO, dois gatilhos em OU. Isso desfaz uma ambiguidade real: "1,5 km" podia ser "a mais de percurso" ou "percurso total", e as duas dão resultados OPOSTOS em terreno grande; o Jonny confirmou a primeira. Fecha a D61 §2, que dizia "sem ele, nenhuma travessia é proposta". (2) a régua de forma segue como decisão do chat (D79) e é agora o ÚNICO item da lista do Jonny, sem travar nada. (3) O LAB-20 já estava pronto e mesclado (PR #24) — não refiz; reforcei como você pediu: a página agora NOMEIA o Validator na abertura, na legenda da coluna ("é ele que diz se a proposta passa") e numa seção própria "Esta coluna INFORMA; quem aprova é o Validator", com uma tabela de DESENCONTROS entre as duas réguas computada da medição (29 apontamentos com zero forma ruim num caso; 4 apontamentos com 87 lotes ruins noutro) — escrever esses números à mão seria o defeito que a D82 combate, porque o exemplo é o que o leitor acredita.
+Achados para outros apps ou Central: GENERATE — O CONTRATO v2 SAIU (origin/main 5b7e9b4, 02/10 15h21) e os TRÊS pedidos do Lab foram atendidos: app_nascente com o PONTO e o eixoDoCurso (tipos.ts:144 e :157); rampaMaxima_pct POR VIA na saída (tipos.ts:319); e via_existente partida em via_desenhada + testada_de_frente (tipos.ts:205), com a razão creditada ao Lab no próprio comentário. Vocês fizeram o leitor assimétrico, então o adaptador não quebra. Obrigado — isso destrava os 50 m da nascente e a perpendicular ao curso, que estavam escritos e marcados "não aplicável" (D74).
+Depende do Jonny: um só, e não trava — confirmar a régua de forma, que já aparece explicada na página dele.
+Próximo na fila: LAB-18, condição CUMPRIDA. Criei o despertador para executá-lo; ele vai revendorizar, rodar as cinco glebas, dizer o que muda na tabela do LAB-13 e medir as três coisas que o v2 passou a permitir. D84 e D85.
+=== FIM ===
+```

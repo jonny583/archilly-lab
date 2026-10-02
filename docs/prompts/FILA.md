@@ -169,9 +169,9 @@ que dependa do Jonny.**
 
 | # | prompt | estado | condição |
 |---|---|---|---|
-| **LAB-18** | Revendorizar o **contrato v2** do Generate e rodar a esteira de novo nas cinco glebas, dizendo o que muda na tabela do LAB-13 | ⏸ **aguardando — é o único item que resta** | o v2 publicado na `main` **deles** — reavaliar a cada despertador |
+| **LAB-18** | Revendorizar o **contrato v2** do Generate e rodar a esteira de novo nas cinco glebas, dizendo o que muda na tabela do LAB-13 | ⬜ **PRONTO — é o próximo** | **cumprida em 02/10 às 15h21**: o v2 saiu na `main` deles (`5b7e9b4`) |
 | **LAB-19** | Aplicar a regra de forma decidida pelo chat (**útil < 85 % = "a conferir"; < 70 % = "ruim"**), pôr a coluna na tabela e medir os quatro motores | ✅ **concluído em 02/10/2026** | nenhuma |
-| **LAB-20** | Deixar o resultado legível para quem não programa: **página de tabela gerada em `docs/`**, motores lado a lado, sem terminal | ✅ **concluído em 02/10/2026** | nenhuma |
+| **LAB-20** | Deixar o resultado legível para quem não programa: **página de tabela gerada em `docs/`**, motores lado a lado, sem terminal | ✅ **concluído em 02/10/2026** · reforçado no mesmo dia a pedido do chat | nenhuma |
 
 ### LAB-20 · A página para quem não programa — ✅ concluído em 02/10/2026
 
@@ -235,19 +235,36 @@ zero "ruim" num caso, 1 violação com 382 fora do "ok" noutro.
 
 ---
 
-### LAB-18 · O contrato v2 — ⏸ aguardando, e a condição foi MEDIDA
+### LAB-18 · O contrato v2 — ✅ CONDIÇÃO CUMPRIDA em 02/10 às 15h21
 
-**Conferido em 02/10/2026**, no clone de leitura do Generate
-(`origin/main` = `dfa2a61`, de 20/09): **o contrato v2 não existe lá.**
+**O v2 saiu.** `origin/main` do Generate = **`5b7e9b4`** (02/10, 15h21). Os três
+pedidos do Lab foram atendidos, conferidos um por um no clone de leitura:
 
-| o que o v2 traria | está na `main` deles? | como foi conferido |
+| o que o Lab pediu | está lá? | onde |
 |---|---|---|
-| `app_nascente` como tipo próprio, com o **ponto** e a **linha do curso** | **não** | `grep app_nascente src/lib/contratos/motor-v1/` — nenhuma ocorrência |
-| `rampaMaxima_pct` **por via na SAÍDA** | **não** | o `rampaMaxima_pct` que existe é **parâmetro de ENTRADA** (o teto permitido), em `esquema.ts:97`; a saída segue só com `vias[].rampaMedia_pct` |
-| **dois tipos** no lugar de `via_existente` | **não** | `tipos.ts:150` ainda é `"via_existente" \| "ponto_de_interesse" \| "outra"` |
+| `app_nascente` como tipo próprio, com o **ponto** da nascente e a **linha do curso** | **sim** | `tipos.ts:144` (`"app_nascente"` no enum), `:157` (*"O PONTO DA NASCENTE, obrigatório quando `tipo === app_nascente`"*), mais `eixoDoCurso` |
+| `rampaMaxima_pct` **por via na SAÍDA** | **sim** | `tipos.ts:319`, dentro do objeto da via, ao lado de `rampaMedia_pct` |
+| **dois tipos** no lugar de `via_existente` | **sim** | `tipos.ts:205` — `"via_desenhada" \| "testada_de_frente" \| "ponto_de_interesse" \| "outra"` |
 
-Não há `src/lib/contratos/motor-v2/`, e a pasta do contrato não é tocada desde
-**10/09** (`22502b3`). **Reavaliar a cada despertador**, sem escrever nada lá.
+**Eles escreveram a razão com as nossas palavras**, e creditada: *"`via_existente`
+FOI PARTIDA EM DUAS, **a pedido do Laboratório (§3)**"*, com o motivo que o LAB-13
+mediu — *"tratar a segunda como a primeira faz o motor construir uma rua paralela
+à que já existe, a um metro dela — asfalto pago duas vezes"*.
+
+**E eles fizeram o leitor assimétrico:** `via_existente` continua **aceito na
+leitura** e convertido; quem **escreve** emite só os dois novos. Isso significa
+que **o adaptador do Lab não quebra** ao revendorizar — o que muda é o que ele
+pode passar a declarar.
+
+**O LAB-18 é o próximo prompt**, e o que ele tem de fazer:
+
+1. revendorizar o contrato;
+2. rodar a esteira nas cinco glebas;
+3. **dizer o que muda na tabela do LAB-13**;
+4. e três coisas que o v2 agora deixa medir e antes não deixava: a **regra dos
+   50 m da nascente** (D74, que estava escrita e marcada "não aplicável"), a
+   **travessia perpendicular ao curso** (D74, idem) e a **rampa máxima por via**,
+   que o LAB-13 teve de rebatizar `rampaMediaMaxima_pct` por não existir (D67).
 
 ---
 

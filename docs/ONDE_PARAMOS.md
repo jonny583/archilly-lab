@@ -5,80 +5,91 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 02/10/2026 · **Último prompt executado:** LAB-20
-**Estado:** **A fila de 02/10 acabou o que podia fazer.** LAB-19 e LAB-20
-concluídos e mesclados. **Só resta o LAB-18, e ele aguarda o contrato v2 do
-Generate.** Aguardando o chat.
+**Estado:** **O CONTRATO v2 SAIU.** O LAB-18 está **pronto** e é o próximo. As
+duas confirmações do chat estão gravadas: o limiar da travessia virou **decisão
+do Jonny** (D84), e a régua de forma segue como decisão do chat.
 
-## O despertador deste repositório — **APAGADO em 02/10/2026**
+## A notícia da rodada: o contrato v2 do Generate saiu
 
-Era **`trig_01R5tGpexnnGCHouc1aQGsi9`** · cron `5 * * * *` · criado em 02/10 e
-apagado no mesmo dia. **Ele disparou uma vez e teve o que fazer** (o LAB-20).
-Com só o LAB-18 restando, e ele **aguardando repositório vizinho**, o próximo
-disparo não teria item pronto — e **disparo sem item pronto se apaga** (D62).
-**O chat o recria quando o v2 sair.**
+`origin/main` do Generate = **`5b7e9b4`** (02/10, 15h21). **Os três pedidos do
+Lab foram atendidos**, conferidos um por um:
 
-Este nasceu **com** os conectores do GitHub, ao contrário do de 20/09 (D29).
+| o que o Lab pediu | está lá? | onde |
+|---|---|---|
+| `app_nascente` como tipo próprio, com o **ponto** e a **linha do curso** | **sim** | `tipos.ts:144` e `:157`, mais `eixoDoCurso` |
+| `rampaMaxima_pct` **por via na SAÍDA** | **sim** | `tipos.ts:319`, dentro do objeto da via |
+| **dois tipos** no lugar de `via_existente` | **sim** | `tipos.ts:205` — `via_desenhada` e `testada_de_frente` |
+
+Eles escreveram a razão **creditada ao Lab**: *"`via_existente` FOI PARTIDA EM
+DUAS, **a pedido do Laboratório (§3)**"*. E fizeram o **leitor assimétrico** —
+`via_existente` continua aceito na leitura e convertido —, então **o adaptador
+não quebra** ao revendorizar.
+
+**O que o v2 destrava, e estava medido como não aplicável:** a regra dos **50 m
+da nascente** (D74), a **travessia perpendicular ao curso** (D74) e a **rampa
+máxima por via**, que o LAB-13 teve de rebatizar por não existir (D67).
+
+## O despertador deste repositório — **um só**
+
+**`trig_015iiH1fhdJtSpVeigCz6mbp`** · cron `5 * * * *` · criado em 02/10 para
+**executar o LAB-18**, cuja condição está cumprida. Apagar quando a fila esgotar
+(D62) — com a ressalva da **D85**: despertador que existe para **vigiar condição
+externa nomeada** não se apaga, porque vigiar é o trabalho do disparo.
 
 ## A fila de 02/10
 
 | Prompt | Estado |
 |---|---|
-| **LAB-18** — revendorizar o contrato v2 do Generate e rodar a esteira de novo | ⏸ **aguardando — o único que resta** |
+| **LAB-18** — revendorizar o contrato v2 e rodar a esteira de novo | ⬜ **PRONTO — é o próximo** |
 | **LAB-19** — a regra de forma do chat, na tabela, nos quatro motores | **concluído em 02/10/2026** |
 | **LAB-20** — página de tabela em `docs/`, para o Jonny olhar sem terminal | **concluído em 02/10/2026** |
 
-## O LAB-18 — a condição foi medida DUAS vezes em 02/10, e não está cumprida
+## As duas confirmações do chat, de 02/10
 
-| conferido às | `origin/main` do Generate | o contrato v2 saiu? |
-|---|---|---|
-| 13h40 | `dfa2a61` (20/09) | não |
-| 14h06 | **`8223873`** (02/10, 13h52) | **não** |
+**1 · O limiar da travessia é DECISÃO DO JONNY** (D84), e saiu da lista dele:
 
-**A `main` deles andou; o contrato, não.** Um por um:
+> O caminho por fora da APP é desproporcional quando passa de **3× a distância
+> direta**, **ou** quando acrescenta **1,5 km a mais de percurso**.
 
-- `app_nascente` — **zero ocorrências** em `src/lib/contratos/`;
-- `rampaMaxima_pct` **por via na SAÍDA** — não. O que existe é **parâmetro de
-  ENTRADA** (o teto permitido), em `esquema.ts:97`; a saída segue só com
-  `vias[].rampaMedia_pct`;
-- **dois tipos** no lugar de `via_existente` — não; `tipos.ts:150` ainda é
-  `"via_existente" | "ponto_de_interesse" | "outra"`.
+**Isto desfaz uma ambiguidade real.** O número chegou em 15/09 de passagem, e
+`1,5 km` podia ser *"a mais de percurso"* ou *"percurso total"* — leituras com
+resultados **opostos** em terreno grande. O Jonny confirmou a primeira. E são
+dois gatilhos em **OU**: o relativo pega o terreno pequeno, o absoluto pega o
+grande.
 
-Não existe `src/lib/contratos/motor-v2/`. **Nada foi escrito lá.**
+**O que destrava:** a D61 §2 dizia *"sem ele, nenhuma travessia é proposta"*.
+Agora é. **O que não destrava:** a perpendicular ao curso e os 50 m da nascente
+dependiam de **dado geométrico**, não de limiar — e é o v2 que os traz.
 
-## O que o LAB-20 entregou
+**2 · A régua de forma segue como decisão do chat** (D79), à espera do Jonny.
+É **o único item na lista dele**, e não trava nada.
 
-**[`COMPARACAO_DOS_MOTORES.md`](COMPARACAO_DOS_MOTORES.md)** — 169 linhas, quatro
-motores e cinco terrenos lado a lado, com uma linha explicando cada coluna em
-palavra de pessoa. **Gerada** por `bun run lab20` a partir do `tabela.json` do
-LAB-19.
+## O que o LAB-20 entregou, e o reforço do mesmo dia
 
-**É Markdown, e foi medida, não gosto** (D81): o GitHub renderiza Markdown e
-mostra HTML como **código-fonte**. Para servir HTML de verdade falta **ligar o
-GitHub Pages**, que é configuração de repositório — está **proposto ao chat**, não
-feito.
+**[`COMPARACAO_DOS_MOTORES.md`](COMPARACAO_DOS_MOTORES.md)** — 184 linhas,
+**gerada** por `bun run lab20`. É Markdown porque o GitHub renderiza Markdown e
+mostra HTML como código-fonte (D81), e há teste que a regera e reprova se o
+arquivo estiver diferente (D82).
 
-**Há teste que a prende à medição** (D82): `tests/pagina.test.ts` regera a página
-e reprova se o arquivo estiver diferente — mais os sete que fixam os cinco
-terrenos, os quatro motores, os limiares, o aviso de que a forma não aprova nada,
-a proibição de "Testfit" e a de recomendar motor.
+**Reforçada no mesmo dia, a pedido do chat:** a página agora **nomeia o
+Validator** — na abertura, na legenda da coluna (*"é ele que diz se a proposta
+passa"*) e numa seção própria, *"Esta coluna INFORMA; quem aprova é o
+Validator"*. E essa seção traz uma **tabela de desencontros entre as duas
+réguas, computada da medição** — 29 apontamentos com zero lotes de forma ruim
+num caso, 4 apontamentos com 87 lotes ruins noutro. Escrever esses números à mão
+seria o defeito que a D82 combate: o exemplo é justamente o que o leitor
+acredita.
 
-**Defeito pego na primeira versão** (D83): a seção de ressalvas saiu ilegível —
-cinco linhas que eram a mesma queixa com números diferentes. Agora agrupam, **sem
-reescrever a frase do motor**; e o agrupamento, que comia `D51` e `LAB-08`, passou
-a poupar identificador.
+## O que depende do Jonny — **um item, e não trava**
 
-## O que depende do Jonny — **dois itens, nenhum trava**
-
-1. Confirmar o **"3× / 1,5 km"** (D61);
-2. Confirmar a **régua de forma** que veio pelo chat (D79) — está valendo e
-   aplicada, e agora **aparece explicada na página dele**.
+Confirmar a **régua de forma** (D79). Está valendo, aplicada, e **aparece
+explicada na página dele**.
 
 ## O que espera o chat
 
-1. **O contrato v2 do Generate** — destrava o LAB-18 e recria o despertador;
-2. **Ligar o GitHub Pages**, se quiser a comparação como página HTML de verdade;
-3. **Qual motor é o padrão da tela unificada**: a D68 põe o do Laboratório de
-   Parcelamento, e é justamente o que o Validator reprova em `ensaio-47ha`.
+1. **Qual motor é o padrão da tela unificada**: a D68 põe o do Laboratório de
+   Parcelamento, e é justamente o que o Validator reprova em `ensaio-47ha`;
+2. **Ligar o GitHub Pages**, se quiser a comparação como página HTML de verdade.
 
 # A fila de 20/09 — a entrega e as duas correções · 20/09/2026
 

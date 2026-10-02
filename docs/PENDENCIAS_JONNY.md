@@ -21,28 +21,33 @@ Refeito do zero em **14/09/2026**, no fim do LF-FINAL. Atualizado em
 
 ## Em cinco minutos
 
-**Você respondeu a pergunta da ponte** — obrigado. A resposta está gravada e
-valendo (D61): travessia sobre área de preservação é **exceção**, tenta-se
-primeiro contornar, e quando ela for mesmo necessária sai **a mais curta e
-perpendicular ao rio**, aparecendo na tela e virando **item de custo**.
+**Você respondeu as duas perguntas da ponte** — obrigado. As duas estão gravadas
+e valendo:
 
-**A sua resposta abriu uma pergunta nova**, e é a única coisa que depende de
-você agora:
+- **travessia sobre área de preservação é exceção** (D61): tenta-se primeiro
+  contornar, e quando for mesmo necessária sai a mais curta e perpendicular ao
+  rio, aparecendo na tela e virando item de custo;
+- **e agora o número** (D84): contornar deixa de valer a pena quando o caminho
+  por fora passa de **3 vezes a distância direta**, **ou** quando acrescenta
+  **1,5 km a mais de percurso**. Qualquer um dos dois já basta.
+
+**O que o seu número destravou.** Até ontem o motor **não propunha travessia
+nenhuma**, porque não tinha como saber quando ela se justifica. Agora tem.
+
+**Fica faltando uma coisa só, e ela é de confirmação:**
 
 | # | o que | quanto custa | o que muda se você responder |
 |---|---|---|---|
-| **1** | **Confirmar o número que veio pelo chat:** "desvio desproporcional" é **3 vezes** o caminho direto, **ou 1,5 km**? | 1 min | é o número que decide quando contornar o rio deixa de valer a pena e a ponte entra |
-| **2** | **Confirmar a régua de forma de lote que veio pelo chat:** lote que aproveita **menos de 85 %** do retângulo em volta dele fica marcado *"a conferir"*; **menos de 70 %**, *"ruim"*. | 2 min | é a linha que decide quais lotes aparecem marcados na comparação entre motores |
+| **1** | **Confirmar a régua de forma de lote que veio pelo chat:** lote que aproveita **menos de 85 %** do retângulo em volta dele fica marcado *"a conferir"*; **menos de 70 %**, *"ruim"*. | 2 min | é a linha que decide quais lotes aparecem marcados na comparação entre motores |
 
-**Por que ainda está aqui, se o número chegou.** Ele chegou **de passagem**, numa
-frase sobre outro assunto — *"sem cumprir o critério dos 3× / 1,5 km"* —, e nunca
-como resposta a esta pergunta. Gravei com a leitura mais direta possível, e deixo
-à vista até você confirmar: **regra que eu deduzi e passei a tratar como decidida
-é regra que se perde**.
+**Ela já está valendo e aplicada** — está na
+[página de comparação dos motores](https://github.com/jonny583/archilly-lab/blob/main/docs/COMPARACAO_DOS_MOTORES.md),
+com a explicação ao lado. **Nada trava enquanto você não responder.** Ela está
+aqui à vista porque é regra de urbanismo e veio **pelo chat, não por você** — e
+regra que eu passo a tratar como sua sem você ter dito é regra que se perde.
 
-Enquanto isso nada quebra, e mudou uma coisa a seu favor: **a rua que você mesmo
-desenhar atravessa o rio sem precisar de número nenhum** — o desenho é a decisão
-(item 2 abaixo).
+**Se o número que você tem na cabeça for outro, é só dizer qual** — a régua é uma
+linha no código, e trocá-la é trocar dois números.
 
 ---
 
@@ -209,8 +214,9 @@ lados, e é isso que a faixa do meio pegou.
 
 **Por que ainda está na sua lista.** A régua veio **do chat, não de você**, e é
 regra de urbanismo — é sua por direito. Está valendo para o trabalho não parar, e
-fica aqui à vista até você dizer "é isso" ou dar outro número. É o mesmo
-tratamento do item 1.
+fica aqui à vista até você dizer "é isso" ou dar outro número. Foi o mesmo
+tratamento que a pergunta da ponte teve, e ela acabou de ser respondida por
+você — o número dela virou decisão sua em 02/10 (D84).
 
 ---
 
@@ -266,6 +272,11 @@ existe, em uma linha cada:
 
 ## Já resolvidos — não precisa fazer nada
 
+- ~~**"Desvio desproporcional" é 3 vezes o caminho direto, ou 1,5 km?**~~ —
+  **respondido por você em 02/10/2026** e gravado como decisão sua (D84): é
+  **3× a distância direta OU 1,5 km a mais de percurso**, qualquer um dos dois.
+  Era a última coisa que faltava para o motor poder propor travessia; antes
+  disso ele não propunha nenhuma. **Fechado.**
 - ~~**Você usa `cluster`, `organico` ou `radial` na tela?**~~ — **decidido pelo
   chat em 14/09**, e desde então o laboratório de parcelamento corrigiu vários
   traçados. Não precisa mais de resposta.
@@ -274,4 +285,4 @@ existe, em uma linha cada:
 - ~~**Colar dois recados nos repositórios vizinhos**~~ — **passou para o chat em
   14/09.**
 - ~~**A calçada: sai do lote ou da rua?**~~ — **decidido em 14/09** e
-  **confirmado em 15/09**: é da rua. Está fechado — é o item 2 acima, riscado.
+  **confirmado em 15/09**: é da rua. Está fechado.
