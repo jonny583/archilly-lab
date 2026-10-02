@@ -169,9 +169,42 @@ que dependa do Jonny.**
 
 | # | prompt | estado | condição |
 |---|---|---|---|
-| **LAB-18** | Revendorizar o **contrato v2** do Generate e rodar a esteira de novo nas cinco glebas, dizendo o que muda na tabela do LAB-13 | ⏸ **aguardando** | o v2 publicado na `main` **deles** — reavaliar a cada despertador |
+| **LAB-18** | Revendorizar o **contrato v2** do Generate e rodar a esteira de novo nas cinco glebas, dizendo o que muda na tabela do LAB-13 | ⏸ **aguardando — é o único item que resta** | o v2 publicado na `main` **deles** — reavaliar a cada despertador |
 | **LAB-19** | Aplicar a regra de forma decidida pelo chat (**útil < 85 % = "a conferir"; < 70 % = "ruim"**), pôr a coluna na tabela e medir os quatro motores | ✅ **concluído em 02/10/2026** | nenhuma |
-| **LAB-20** | Deixar o resultado legível para quem não programa: **página de tabela gerada em `docs/`**, motores lado a lado, sem terminal | ⬜ **é o próximo** | LAB-19 — **cumprida** |
+| **LAB-20** | Deixar o resultado legível para quem não programa: **página de tabela gerada em `docs/`**, motores lado a lado, sem terminal | ✅ **concluído em 02/10/2026** | nenhuma |
+
+### LAB-20 · A página para quem não programa — ✅ concluído em 02/10/2026
+
+**Entregue:** [`../COMPARACAO_DOS_MOTORES.md`](../COMPARACAO_DOS_MOTORES.md) —
+169 linhas, **gerada** por `ferramentas/lab20.ts` a partir do `tabela.json` do
+LAB-19 —, e [`../relatorios/LAB-20.md`](../relatorios/LAB-20.md).
+
+**É Markdown, e isso foi medido** (D81): o GitHub **renderiza Markdown** e mostra
+**HTML como código-fonte**. Uma página `.html` daria ao Jonny uma tela de
+`<table>` — o contrário de "olhar sem terminal". Markdown é o meio que ele já usa.
+
+**É gerada, e há teste que a prende à medição** (D82): `tests/pagina.test.ts`
+regera a página e reprova se o arquivo estiver diferente. Tabela copiada à mão
+envelhece em silêncio, e o precedente é a regra do RECADO — sete de oito recados
+passaram do teto enquanto ela era só um texto.
+
+**Defeito pego na primeira versão** (D83): a seção de ressalvas saiu ilegível, com
+cinco linhas que eram a mesma queixa com números diferentes. Agora elas agrupam,
+com "em quantos dos cinco terrenos". **Sem reescrever a frase do motor** — o que
+ele declara não ter feito é dado dele. E o conserto comeu `D51` e `LAB-08`, que
+são identificadores: a régua passou a poupá-los, com teste dos dois lados.
+
+---
+
+### Proposto ao chat: **ligar o GitHub Pages**
+
+Se o chat quiser a comparação como **página HTML de verdade** — com cor, com
+destaque, imprimível —, o que falta é **ligar o GitHub Pages** no repositório.
+Isso é configuração de repositório, e eu **não liguei por minha conta**. O
+gerador já separa dados de apresentação, então a versão HTML sai do mesmo
+`tabela.json` sem medir nada de novo.
+
+---
 
 ### LAB-19 · A regra de forma do chat — ✅ concluído em 02/10/2026
 

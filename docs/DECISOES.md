@@ -1805,3 +1805,73 @@ tabela e na página do Jonny; ela não entra na conta do ranking.
 `completo`). Ela não faz lote levemente fora de esquadro: faz retângulo perfeito
 ou desastre. São 0,5 a 5 % dos lotes, e a faixa do meio, que apanharia um erro
 gradual, fica vazia.
+
+---
+
+## D81 · A página do Jonny é MARKDOWN, e isso foi medido · 02/10/2026
+
+**Contexto:** o LAB-20 pediu *"uma página de tabela gerada em `docs/`"* para o
+Jonny olhar **sem abrir terminal**. A escolha óbvia seria HTML.
+
+**Decisão:** **Markdown.**
+
+**Por quê:** o GitHub **renderiza Markdown no navegador** e mostra **HTML como
+código-fonte**. Uma página `.html` no repositório daria ao Jonny uma tela de
+`<table>` e `<td>` — exatamente o contrário do que o prompt pediu. E Markdown é o
+meio que ele **já usa**: `PENDENCIAS_JONNY.md` é lido por link desde 14/09.
+
+**O que fica proposto, não feito:** servir HTML de verdade exige **ligar o GitHub
+Pages**, que é configuração de repositório. Está **proposto ao chat** na
+`FILA.md`. Ligar por minha conta seria mexer na configuração do repositório sem
+mandato.
+
+**E isto não é interface** (CLAUDE.md §4): é arquivo de texto gerado por medição,
+no `docs/`, sem servidor, sem botão e sem estado.
+
+---
+
+## D82 · Página de medição é gerada, e um teste a prende à medição · 02/10/2026
+
+**Decisão:** a página de comparação é **gerada** por `ferramentas/lab20.ts`, e
+`tests/pagina.test.ts` a **regera e reprova se o arquivo do repositório estiver
+diferente**.
+
+**Por quê:** tabela copiada à mão **envelhece em silêncio** — a medição muda, o
+texto fica, e quem lê não tem como saber. É o pior defeito possível numa página
+cujo propósito é ser a única coisa que uma pessoa vai ler.
+
+**O precedente que fecha o argumento:** a regra do RECADO era só um texto no
+CLAUDE.md, e **sete de oito recados passaram do teto** antes de alguém medir
+(LF-FINAL-2). O que não é medido volta a acontecer, e este repositório inteiro é
+sobre isso.
+
+**O teste fixa também o que a página não pode perder:** os cinco terrenos, os
+quatro motores em cada quadro, os dois limiares da régua de forma, o aviso de que
+ela não aprova nada, a semente e o arquivo de provas — mais duas regras de casa:
+**"Testfit" não aparece** (§5) e **a página não recomenda motor**.
+
+---
+
+## D83 · Queixa repetida se AGRUPA; ela não se reescreve · 02/10/2026
+
+**Contexto:** a primeira versão da página saiu com dez linhas na seção *"o que o
+motor não soube fazer"* do Laboratório de Parcelamento, cinco delas a **mesma
+queixa com números diferentes** — *"1 de 20 variantes"*, *"13 de 20 variantes"*,
+*"o Lab aparou 237.1 m"*, *"o Lab aparou 505.5 m"*…
+
+**Decisão:** queixas iguais a menos de número viram **uma linha**, com os números
+trocados por reticências e **em quantos dos cinco terrenos** ela apareceu. **A
+frase continua sendo a do motor**, e a página declara isso: *"as frases são do
+próprio motor, não minhas"*.
+
+**Por quê as duas metades:** uma lista que o leitor desiste de ler não informa
+nada, e esta é a página de quem não programa — então agrupar é obrigatório.
+Mas **melhorar a redação da declaração de outro motor é pôr palavra na boca
+dele**: o que ele declara não ter feito é dado dele, não meu, e reescrever
+apagaria a diferença entre o que ele disse e o que eu entendi.
+
+**O defeito dentro do conserto, pego em seguida:** tirar os números comeu `D51` e
+`LAB-08`, que são **identificadores**, não medidas — e são o único ponteiro que a
+frase dá para o relatório técnico. A régua passou a poupar o número precedido de
+letra, dígito ou hífen. Há teste para os dois lados: o agrupamento acontece **e**
+o identificador sobrevive.

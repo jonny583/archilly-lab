@@ -368,3 +368,17 @@ Depende do Jonny: dois, nenhum trava — (1) o "3x / 1,5 km"; (2) confirmar esta
 Próximo na fila: LAB-20, condição cumprida — a página de tabela em docs/ para o Jonny olhar sem terminal. O tabela.json do LAB-19 já é a entrada dela.
 === FIM ===
 ```
+
+---
+
+## 02/10/2026 · LAB-20 — a comparação numa página, para quem não programa
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-20 ===
+Estado: LAB-20 concluído e mesclado. Esteira 154/154 (8 novos), tsc e lint limpos. Vizinhos limpos. Fila de 02/10 fez o que podia: só resta o LAB-18, aguardando vocês — por isso APAGUEI o despertador trig_01R5tGpexnnGCHouc1aQGsi9 (D62). Recrie quando o v2 sair.
+Feito: docs/COMPARACAO_DOS_MOTORES.md — 169 linhas, quatro motores e cinco terrenos lado a lado, com uma linha explicando cada coluna em palavra de pessoa, e a régua de forma explicada pelo retângulo em volta do lote. É MARKDOWN, e isso foi medido, não gosto (D81): o GitHub renderiza Markdown e mostra HTML como CÓDIGO-FONTE — uma página .html daria ao Jonny uma tela de <table>, o contrário de "olhar sem terminal". É GERADA, e tests/pagina.test.ts a regera e reprova se o arquivo estiver diferente (D82): tabela copiada à mão envelhece em silêncio, e o precedente é a regra do RECADO, que sete de oito recados furaram enquanto era só texto. Defeito pego na primeira versão (D83): a seção de ressalvas saiu ilegível, cinco linhas que eram a mesma queixa com números diferentes; agora agrupam com "em quantos dos cinco terrenos" — SEM reescrever a frase do motor, que é dado dele. E o agrupamento comia D51 e LAB-08, que são identificadores: passou a poupá-los, com teste dos dois lados.
+Achados para outros apps ou Central: GENERATE — LAB-18 AGUARDANDO, condição medida DUAS vezes hoje: às 13h40 (origin/main dfa2a61) e às 14h06 (8223873, de hoje 13h52). A main de vocês andou; o CONTRATO não. app_nascente: zero ocorrências. rampaMaxima_pct: o que existe é parâmetro de ENTRADA, não saída por via. via_existente: ainda tipo único. Não existe motor-v2/.
+Depende do Jonny: dois, nenhum trava — o "3x / 1,5 km" e o OK na régua de forma, que agora aparece explicada na página dele.
+Próximo na fila: NADA pronto. Esperam o chat: (1) o contrato v2, que destrava o LAB-18; (2) ligar o GitHub Pages, se quiser a comparação como página HTML de verdade — eu não liguei por minha conta; (3) qual motor é o padrão da tela unificada, já que a D68 põe justamente o que o Validator reprova.
+=== FIM ===
+```

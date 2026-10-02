@@ -12,6 +12,9 @@
     "lab13": "bun ferramentas/lab13.ts",
     "lab06": "bun ferramentas/lab06.ts",
     "lab17": "bun ferramentas/lab17.ts",
+    "lab16": "bun ferramentas/lab16.ts",
+    "lab19": "bun ferramentas/lab19.ts",
+    "lab20": "bun ferramentas/lab20.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."

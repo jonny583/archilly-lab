@@ -4,75 +4,81 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 02/10/2026 · **Último prompt executado:** LAB-19
-**Estado:** **LAB-19 mesclado. O próximo é o LAB-20**, e a condição está
-cumprida. O despertador de 60 minutos está ligado.
+**Última atualização:** 02/10/2026 · **Último prompt executado:** LAB-20
+**Estado:** **A fila de 02/10 acabou o que podia fazer.** LAB-19 e LAB-20
+concluídos e mesclados. **Só resta o LAB-18, e ele aguarda o contrato v2 do
+Generate.** Aguardando o chat.
 
-## O despertador deste repositório — **um só**
+## O despertador deste repositório — **APAGADO em 02/10/2026**
 
-**`trig_01R5tGpexnnGCHouc1aQGsi9`** · "Despertador da fila autônoma — Archilly
-Lab (60 min)" · cron `5 * * * *` · criado em 02/10/2026. **Este nasceu COM os
-conectores do GitHub** — ao contrário do de 20/09, que nasceu sem (D29). Apagar
-quando a fila esgotar, ou quando o que restar for só o LAB-18 aguardando (D62).
+Era **`trig_01R5tGpexnnGCHouc1aQGsi9`** · cron `5 * * * *` · criado em 02/10 e
+apagado no mesmo dia. **Ele disparou uma vez e teve o que fazer** (o LAB-20).
+Com só o LAB-18 restando, e ele **aguardando repositório vizinho**, o próximo
+disparo não teria item pronto — e **disparo sem item pronto se apaga** (D62).
+**O chat o recria quando o v2 sair.**
+
+Este nasceu **com** os conectores do GitHub, ao contrário do de 20/09 (D29).
 
 ## A fila de 02/10
 
 | Prompt | Estado |
 |---|---|
-| **LAB-18** — revendorizar o contrato v2 do Generate e rodar a esteira de novo | ⏸ **aguardando o v2 na `main` deles** |
+| **LAB-18** — revendorizar o contrato v2 do Generate e rodar a esteira de novo | ⏸ **aguardando — o único que resta** |
 | **LAB-19** — a regra de forma do chat, na tabela, nos quatro motores | **concluído em 02/10/2026** |
-| **LAB-20** — página de tabela em `docs/`, para o Jonny olhar sem terminal | **é o próximo** |
+| **LAB-20** — página de tabela em `docs/`, para o Jonny olhar sem terminal | **concluído em 02/10/2026** |
 
-## O LAB-18 — a condição foi MEDIDA, e não está cumprida
+## O LAB-18 — a condição foi medida DUAS vezes em 02/10, e não está cumprida
 
-Conferido em 02/10 no clone de leitura do Generate (`origin/main` = **`dfa2a61`**,
-de 20/09). **O contrato v2 não existe lá:**
+| conferido às | `origin/main` do Generate | o contrato v2 saiu? |
+|---|---|---|
+| 13h40 | `dfa2a61` (20/09) | não |
+| 14h06 | **`8223873`** (02/10, 13h52) | **não** |
 
-- `app_nascente` — **nenhuma ocorrência** em `src/lib/contratos/motor-v1/`;
-- `rampaMaxima_pct` **por via na SAÍDA** — não; o que existe é **parâmetro de
-  ENTRADA** (o teto permitido), em `esquema.ts:97`. A saída segue só com
+**A `main` deles andou; o contrato, não.** Um por um:
+
+- `app_nascente` — **zero ocorrências** em `src/lib/contratos/`;
+- `rampaMaxima_pct` **por via na SAÍDA** — não. O que existe é **parâmetro de
+  ENTRADA** (o teto permitido), em `esquema.ts:97`; a saída segue só com
   `vias[].rampaMedia_pct`;
 - **dois tipos** no lugar de `via_existente` — não; `tipos.ts:150` ainda é
   `"via_existente" | "ponto_de_interesse" | "outra"`.
 
-Não há `motor-v2/`, e a pasta do contrato não é tocada desde **10/09**
-(`22502b3`). **Reavaliar a cada despertador**, sem escrever nada lá.
+Não existe `src/lib/contratos/motor-v2/`. **Nada foi escrito lá.**
 
-## O que o LAB-19 mediu
+## O que o LAB-20 entregou
 
-**A regra do chat (D79):** útil < 85 % = "a conferir"; < 70 % = "ruim".
+**[`COMPARACAO_DOS_MOTORES.md`](COMPARACAO_DOS_MOTORES.md)** — 169 linhas, quatro
+motores e cinco terrenos lado a lado, com uma linha explicando cada coluna em
+palavra de pessoa. **Gerada** por `bun run lab20` a partir do `tabela.json` do
+LAB-19.
 
-| motor | "a conferir" nas cinco glebas | "ruim" |
-|---|---|---|
-| Generate · ortogonal | 0,1 % · 0 · 0 · 0 · 0 | **zero em todas** |
-| Generate · espinha | 0,1 % · 0 · 0 · 0,3 % · 0 | 1,9 · 1,7 · 5,0 · 1,8 · 0,5 % |
-| Laboratório de Parcelamento | 0,1 · 0,8 · 3,2 · 1,5 · 0 % | **zero em todas** |
-| Symbios + subdivisão do Lab | **33,0 · 39,3 · 22,7 · 34,1 · 36,0 %** | 7,9 · 6,6 · 3,0 · 3,7 · 8,6 % |
+**É Markdown, e foi medida, não gosto** (D81): o GitHub renderiza Markdown e
+mostra HTML como **código-fonte**. Para servir HTML de verdade falta **ligar o
+GitHub Pages**, que é configuração de repositório — está **proposto ao chat**, não
+feito.
 
-**Três dos quatro motores não têm problema de forma.** O Symbios é o único, e é
-na faixa do meio — pentágonos e hexágonos do campo tensor.
+**Há teste que a prende à medição** (D82): `tests/pagina.test.ts` regera a página
+e reprova se o arquivo estiver diferente — mais os sete que fixam os cinco
+terrenos, os quatro motores, os limiares, o aviso de que a forma não aprova nada,
+a proibição de "Testfit" e a de recomendar motor.
 
-**A regra absolveu o que o meu corte de 1 % condenava à toa:** em `geo-antonina`,
-o Laboratório de Parcelamento vai de **34 marcados a zero**, porque os 34 eram
-trapézios de rua curva (96,7 % de preenchimento).
-
-**Achado novo:** a candidata **espinha é bimodal** — mais "ruim" que "a conferir"
-(35 contra 1 em `completo`). Retângulo perfeito **ou** desastre; a faixa do meio
-fica vazia.
-
-**A coluna informa, não aprova** (D80). Quem aprova é o Validator do Generate.
+**Defeito pego na primeira versão** (D83): a seção de ressalvas saiu ilegível —
+cinco linhas que eram a mesma queixa com números diferentes. Agora agrupam, **sem
+reescrever a frase do motor**; e o agrupamento, que comia `D51` e `LAB-08`, passou
+a poupar identificador.
 
 ## O que depende do Jonny — **dois itens, nenhum trava**
 
 1. Confirmar o **"3× / 1,5 km"** (D61);
 2. Confirmar a **régua de forma** que veio pelo chat (D79) — está valendo e
-   aplicada; é regra de urbanismo, e por isso fica à vista.
+   aplicada, e agora **aparece explicada na página dele**.
 
-Os dois estão escritos para leigo em
-[`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md). **Ordem do chat em 02/10: não parar
-por nada que dependa do Jonny.**
+## O que espera o chat
 
----
+1. **O contrato v2 do Generate** — destrava o LAB-18 e recria o despertador;
+2. **Ligar o GitHub Pages**, se quiser a comparação como página HTML de verdade;
+3. **Qual motor é o padrão da tela unificada**: a D68 põe o do Laboratório de
+   Parcelamento, e é justamente o que o Validator reprova em `ensaio-47ha`.
 
 # A fila de 20/09 — a entrega e as duas correções · 20/09/2026
 
