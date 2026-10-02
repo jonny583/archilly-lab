@@ -1,5 +1,5 @@
 /**
- * A ENTRADA do contrato de motor v1 → o `Terreno` que o Symbios consome.
+ * A ENTRADA do contrato de motor (v1 **e** v2) → o `Terreno` que o Symbios consome.
  *
  * # Por que este arquivo existe
  *
@@ -28,6 +28,47 @@ import type {
 } from "@symbios/contrato.ts";
 import { calcularOrigem } from "@symbios/geo.ts";
 
+/**
+ * AS VERSÕES DO CONTRATO QUE ESTA ESTEIRA LÊ, da mais nova para a mais velha.
+ *
+ * # Por que duas, e não só a nova (LAB-18)
+ *
+ * Porque é a regra que o próprio Generate adotou, e com a razão escrita no
+ * contrato deles: *"quem lê tem de aguentar o outro lado evoluir — o
+ * Laboratório e o Testfit vendorizam este contrato e não se atualizam no mesmo
+ * dia que nós; recusar o arquivo da versão anterior faria a evolução do contrato
+ * virar quebra de integração"*.
+ *
+ * O Lab deve a eles a mesma cortesia na direção contrária: as fixtures gravadas
+ * em `docs/fixtures/` declaram `"1"`, e são **prova de medição antiga** — refazê-las
+ * para caber na versão nova falsificaria a prova.
+ *
+ * # Como foi descoberto que o gate existia
+ *
+ * Ao revendorizar o v2, **cinco testes ficaram vermelhos** com
+ * `esta esteira lê o contrato "1"; chegou versão "2"`. Não era defeito do
+ * contrato novo: era **o gate do Lab**, que exigia igualdade exata em vez de
+ * pertencer a um conjunto. O defeito estava aqui desde o LAB-08.
+ */
+export const VERSOES_LIDAS = ["2", "1"] as const;
+export type VersaoLida = (typeof VERSOES_LIDAS)[number];
+
+/**
+ * O que a versão v1 **não carrega**, e que a v2 trouxe a pedido do Lab.
+ *
+ * Isto é declaração, não remendo: quando chega um arquivo v1, estes campos
+ * **não existem**, e o que depende deles sai `null` — "não medido" —, nunca zero
+ * (D23). Uma entrada v1 e uma v2 não fizeram a mesma prova, e quem lê a medição
+ * tem de poder saber disso.
+ */
+export const FALTA_NA_V1 = [
+  "restricoes[].tipo === \"app_nascente\" — a nascente chegava dentro de `app_hidrica`",
+  "restricoes[].nascente — o PONTO da nascente, de onde se medem os 50 m",
+  "restricoes[].eixoDoCurso — a LINHA do curso, sem a qual não há perpendicular",
+  "atracoes[].tipo === \"via_desenhada\" | \"testada_de_frente\" — as duas chegavam como `via_existente`",
+  "vias[].rampaMaxima_pct na SAÍDA — só havia a rampa média, que esconde o pior trecho",
+] as const;
+
 /** O que não atravessou, com o motivo. Mesmo formato do LAB-07. */
 export interface PerdaNaGleba {
   campo: string;
@@ -49,6 +90,10 @@ export interface EntradaMinima {
     nome: string;
     desconta: boolean;
     geometria: { tipo: string; aneis?: Ponto[][]; pontos?: Ponto[]; ponto?: Ponto };
+    /** v2 — o PONTO da nascente, obrigatório quando `tipo === "app_nascente"`. */
+    nascente?: Ponto | null;
+    /** v2 — o EIXO do curso d'água, para `app_hidrica` e `curso_dagua`. */
+    eixoDoCurso?: Ponto[] | null;
   }[];
   atracoes: { id: string; geometria: { tipo: string } }[];
   acessos: unknown[];
@@ -59,8 +104,11 @@ export function glebaParaOSymbios(e: EntradaMinima): {
   terreno: Terreno;
   perdas: PerdaNaGleba[];
 } {
-  if (e.archilly.versao !== "1") {
-    throw new Error(`esta esteira lê o contrato "1"; chegou versão "${e.archilly.versao}"`);
+  if (!(VERSOES_LIDAS as readonly string[]).includes(e.archilly.versao)) {
+    throw new Error(
+      `esta esteira lê o contrato ${VERSOES_LIDAS.map((v) => `"${v}"`).join(" e ")}; ` +
+        `chegou versão "${e.archilly.versao}"`,
+    );
   }
   if (e.crs.unidade !== "m") {
     throw new Error(`o núcleo é em metro; o CRS declarou "${e.crs.unidade}"`);

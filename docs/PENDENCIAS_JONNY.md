@@ -253,20 +253,42 @@ a tabela só diz a forma; quem diz se a forma presta é você.
 
 ---
 
-## 6 · O que o laboratório descobriu e ainda não foi repassado
+## 6 · O que o laboratório descobriu — e o que já foi consertado
 
-Não é pendência sua — **é do chat**. Fica registrado aqui para você saber que
-existe, em uma linha cada:
+Não é pendência sua — **é do chat e dos outros aplicativos**. Fica aqui para você
+saber que existe.
 
-- **O conferente do Generate não olha a rampa das ruas** de um motor de fora. A
-  régua existe lá dentro, mas roda só no motor dele; e o arquivo de troca só
-  carrega a rampa *média*, que esconde um pico de 161 % num cruzamento.
-- **O quadro de áreas de referência do Generate, na gleba de ensaio, não
-  fecha:** ele soma 15,8 % mais terra do que o terreno tem, porque anuncia 7 ha
-  de área de preservação num terreno que declara nenhuma.
+**Consertados em 02/10, e o laboratório viu o conserto sem ninguém avisar:**
+
+- ~~**O arquivo de troca só carrega a rampa média da rua**, escondendo um pico
+  de 161 % num cruzamento~~ — **o Archilly Generate acrescentou a pior rampa de
+  cada rua**, a pedido do laboratório. O pico de **161 %** agora aparece, e com
+  ele a conta fica assim: onde a média dizia 24 %, a pior rampa diz **161 %** —
+  seis vezes mais. É rua que não se constrói sem corte e aterro, e agora ela
+  aparece antes da obra.
+- ~~**O quadro de áreas da gleba de ensaio não fecha:** soma 15,8 % mais terra
+  do que o terreno tem~~ — **consertado.** As partes agora somam o terreno **ao
+  centavo**, e a área de preservação deixou de ser cópia do percentual pedido.
+
+**Ainda de pé:**
+
 - **O jeito de o Generate calcular a altura do terreno faz o traçado virar
   grade** e parar de acompanhar o morro — e, em terreno plano, inventa curva
   onde não há.
+
+**Novo, e é do levantamento do terreno (Archilly Geo), não do Generate:**
+
+- **A nascente não viaja no levantamento.** A sua regra é clara — **50 metros
+  intocáveis em volta da nascente, e nem rua desenhada vence isso**. O arquivo
+  que chega aos motores **agora tem onde dizer onde está a nascente**, e
+  **nenhum dos terrenos medidos diz**: as áreas de preservação de Antonina
+  chegam todas como "faixa de rio", sem distinguir qual delas é nascente.
+  Enquanto o levantamento não separar, **nenhum motor consegue cumprir a sua
+  regra** — e, importante, **a culpa deixou de ser do arquivo e passou a ser do
+  levantamento**. Antes nem havia onde escrever; agora há, e falta escrever.
+- **O rumo do rio também não viaja.** A travessia tem de sair **perpendicular ao
+  curso d'água**, e para isso é preciso saber para onde o rio corre. O arquivo
+  tem o campo; os terrenos chegam com ele vazio.
 
 ---
 

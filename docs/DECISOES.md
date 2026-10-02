@@ -1952,3 +1952,134 @@ enquanto houver a condição externa nomeada**. Se o LAB-18 for cancelado, ou
 executado, e a fila ficar vazia, a D62 volta a valer e ele se apaga. E a vigia
 **custa**: cada disparo gasta sessão para gravar um sha. É aceitável porque o
 chat pediu, e fica registrado que foi escolha, não inércia.
+
+---
+
+## D86 · O Lab espelha o alias interno do Generate · 02/10/2026
+
+**Medido no LAB-18:** ao revendorizar o contrato v2, o `tsc` acusou dois erros —
+`empreendimentos/types.ts: Cannot find module '@/lib/apontar'` e `'@/lib/funil'`.
+
+**Não é defeito deles.** A cadeia é `engine/lot-rules.ts` →
+`empreendimentos/types.ts`, e esse arquivo usa `@/`, que é o **alias interno do
+Generate**. Um repositório tem o direito de usar o próprio alias no próprio
+código; **quem lê por caminho é que tem de espelhá-lo** (D16).
+
+**Decisão:** `"@/*": ["../../../urban-create-hub-41d93a4d/src/*"]` nos `paths` do
+`tsconfig.json` da esteira — o **único** lugar do Lab que sabe onde os irmãos
+ficam.
+
+**Por que não contornar de outro jeito:** copiar os dois arquivos criaria a
+segunda cópia envelhecendo em silêncio que a D16 proíbe; e `skipLibCheck` ou um
+`// @ts-expect-error` apagariam um erro real do caminho de leitura.
+
+---
+
+## D87 · A esteira lê o contrato "2" E "1" · 02/10/2026
+
+**Medido no LAB-18:** com o v2, **cinco testes ficaram vermelhos** com *"esta
+esteira lê o contrato "1"; chegou versão "2""*. O exportador do Generate passou a
+emitir `"2"` e `glebaParaOSymbios` exigia **igualdade exata**. Não era o contrato
+novo recusando o Lab: era **o Lab recusando o contrato novo**, e o defeito estava
+ali desde o LAB-08.
+
+**Decisão:** `VERSOES_LIDAS = ["2", "1"]`, da mais nova para a mais velha. Versão
+fora da lista continua estourando, e a mensagem diz quais ela lê — aceitar duas
+não é aceitar qualquer uma.
+
+**Por quê:** é a regra que o próprio Generate escreveu no contrato deles — *"quem
+lê tem de aguentar o outro lado evoluir; o Laboratório e o Testfit vendorizam
+este contrato e não se atualizam no mesmo dia que nós"*. O Lab deve a cortesia na
+direção contrária: as fixtures em `docs/fixtures/` declaram `"1"` e são **prova de
+medição antiga**. Refazê-las para caber na versão nova **falsificaria a prova**.
+
+**E a ausência fica declarada, não suposta:** `FALTA_NA_V1` lista os cinco campos
+que a v1 não carrega, com teste. Uma entrada v1 e uma v2 **não fizeram a mesma
+prova**, e quem lê a medição tem de poder saber disso.
+
+---
+
+## D88 · A nascente e o eixo do curso: o bloqueio mudou de lugar · 02/10/2026
+
+**O v2 entregou os dois campos** que a D74 pedia: `app_nascente` como tipo
+próprio com o **ponto**, e `eixoDoCurso`.
+
+**Medido:** **zero das sete glebas** preenche qualquer um dos dois — incluindo as
+duas glebas-padrão **v2 do próprio Generate**. As três APP hídricas de
+`geo-antonina` seguem genéricas e sem eixo.
+
+**Decisão:** a regra dos 50 m e a travessia perpendicular continuam **escritas e
+marcadas como não verificáveis**, e **nenhuma aproximação é inventada** — a razão
+da D74 não mudou. Mas o **motivo** mudou, e a mudança vai escrita:
+
+| antes | agora |
+|---|---|
+| impossível **por falta de contrato** | possível por contrato, impossível **por falta de dado** |
+| achado para o **Generate** | achado para o **Geo** |
+
+**Por que a distinção importa:** enquanto era falta de contrato, ninguém na
+família podia cumprir a regra do Jonny — nem o motor interno. Agora **qualquer
+motor poderia**, e o que falta é o levantamento declarar a nascente e o eixo. O
+pedido muda de endereço, e endereço errado é pedido que não chega.
+
+**E o que já não é trabalho do Lab:** o Generate implementou a regra inteira da
+travessia (`b4c33cc`), com o limiar que o Jonny confirmou (D84). O Lab não a
+reimplementa.
+
+---
+
+## D89 · Os dois indicadores de rampa ficam lado a lado · 02/10/2026
+
+**Contexto:** o v2 trouxe `rampaMaxima_pct` por via, a pedido do Lab. A tentação
+é trocar o indicador antigo pelo novo e apagar o nome feio que a D67 criou.
+
+**Decisão:** os dois ficam — `rampaMediaMaxima_pct` (o máximo de um conjunto de
+médias) e `rampaPior_pct` (a pior rampa de verdade).
+
+**Por quê, com a medida:** porque **motor que só fala v1 preenche apenas o
+primeiro**, e a diferença entre os dois **é informação, não ruído**:
+
+| gleba | maior rampa média | pior rampa | fator |
+|---|---:|---:|---:|
+| `completo` | 24,23 % | **161,38 %** | 6,7× |
+| `geo-antonina` | 10,97 % | **113,54 %** | 10,4× |
+| `sintetico-10ha-plano` | 1,17 % | **15,44 %** | 13,2× |
+
+Trocar um pelo outro faria o histórico mentir: as medições de LAB-02 a LAB-19
+foram feitas com o primeiro, e um relatório antigo passaria a ser lido com régua
+nova. **O nome feio continua feio de propósito** (D67), e agora tem um vizinho
+honesto ao lado.
+
+**`rampaPior_pct` sai `null` quando o motor não reporta o pico — e `null` não quer
+dizer terreno plano** (D23). Medido: **só o Symbios reporta.** As duas candidatas
+do Generate trazem o campo e o deixam `null`; o Laboratório de Parcelamento ainda
+escreve saída v1.
+
+**Nota sobre quem já media:** o Symbios **calculava a rampa máxima desde o
+LAB-02**, em `recorte.ts`. Nunca foi falta de medir — era falta de onde escrever.
+
+---
+
+## D90 · Teste que fixava defeito alheio NÃO se apaga quando o defeito morre · 02/10/2026
+
+**Medido no LAB-18:** dois testes do LAB-08 ficaram vermelhos **porque o defeito
+que eles fixavam deixou de existir.** Eram os dois achados que o Lab mandou ao
+Generate pelo chat, e o Generate consertou (`8fd954b [quadro-areas] GF-11`):
+
+| o achado, como o Lab o reportou | agora |
+|---|---|
+| *"o quadro não fecha: soma 15,8 % mais terra do que o terreno tem"* | **fecha ao centavo** |
+| *"declara 7 ha de APP num terreno que declara nenhuma — eco do parâmetro"* | **18 537,16 m² medidos** |
+
+**Decisão:** os testes **não se apagam**; eles **viram do lado contrário**. O que
+era *"não fecha"* passou a ser *"fecha ao centavo"*, e o cabeçalho conta a
+história — o que o teste fixava antes, quem consertou, em que commit.
+
+**Por quê:** apagar perderia a guarda **justamente no lugar onde o bug já esteve
+uma vez**, e é onde já esteve que ele volta. E o cabeçalho é o que impede alguém,
+daqui a seis meses, de ler o teste virado e achar que o Lab nunca encontrou nada
+ali.
+
+**Consequência boa:** é a primeira vez que a esteira do Lab pega um **conserto**
+do vizinho em vez de um defeito. O ciclo fechou: o Lab mediu, reportou pelo chat,
+eles consertaram, e a esteira viu o conserto **sem ninguém avisar**.

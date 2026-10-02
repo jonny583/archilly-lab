@@ -35,6 +35,15 @@
     "paths": {
       "@testfit/*": ["../../../motor-testfit/src/lib/lab/*"],
       "@generate/*": ["../../../urban-create-hub-41d93a4d/src/lib/*"],
+      // O alias DELES, espelhado. Medido no LAB-18: o contrato v2 trouxe
+      // `engine/lot-rules.ts` → `empreendimentos/types.ts`, e esse arquivo
+      // importa `@/lib/apontar` e `@/lib/funil` — o `@/` é o alias interno do
+      // Generate, que o tsconfig deles mapeia e o do Lab não mapeava.
+      //
+      // Não é defeito deles: um repositório tem o direito de usar o próprio
+      // alias no próprio código. Quem lê por caminho é que tem de espelhá-lo, e
+      // este é o único lugar do Lab que sabe onde os irmãos ficam.
+      "@/*": ["../../../urban-create-hub-41d93a4d/src/*"],
       "@symbios/*": ["../symbios/adapter/src/*"]
     }
   },

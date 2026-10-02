@@ -1,0 +1,276 @@
+{
+  "prompt": "LAB-18",
+  "geradoEm": "2026-09-19T00:00:00.000Z",
+  "semente": 20260913,
+  "contratoLidoPelaEsteira": [
+    "2",
+    "1"
+  ],
+  "generateEm": "5b7e9b4bac07fa6d1f12a0d1f85864eea274a098",
+  "oQueAV1NaoCarrega": [
+    "restricoes[].tipo === \"app_nascente\" — a nascente chegava dentro de `app_hidrica`",
+    "restricoes[].nascente — o PONTO da nascente, de onde se medem os 50 m",
+    "restricoes[].eixoDoCurso — a LINHA do curso, sem a qual não há perpendicular",
+    "atracoes[].tipo === \"via_desenhada\" | \"testada_de_frente\" — as duas chegavam como `via_existente`",
+    "vias[].rampaMaxima_pct na SAÍDA — só havia a rampa média, que esconde o pior trecho"
+  ],
+  "raioDaNascente_m": 50,
+  "camposNovosDoV2": [
+    {
+      "gleba": "completo",
+      "versaoDeclarada": "1",
+      "restricoes": 3,
+      "tiposDeRestricao": [
+        "app_rio",
+        "app_declividade",
+        "reserva_legal"
+      ],
+      "comTipoNascente": 0,
+      "comPontoDaNascente": 0,
+      "hidricas": 0,
+      "comEixoDoCurso": 0,
+      "tiposDeAtracao": []
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "versaoDeclarada": "1",
+      "restricoes": 0,
+      "tiposDeRestricao": [],
+      "comTipoNascente": 0,
+      "comPontoDaNascente": 0,
+      "hidricas": 0,
+      "comEixoDoCurso": 0,
+      "tiposDeAtracao": []
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "versaoDeclarada": "1",
+      "restricoes": 0,
+      "tiposDeRestricao": [],
+      "comTipoNascente": 0,
+      "comPontoDaNascente": 0,
+      "hidricas": 0,
+      "comEixoDoCurso": 0,
+      "tiposDeAtracao": []
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "versaoDeclarada": "1",
+      "restricoes": 0,
+      "tiposDeRestricao": [],
+      "comTipoNascente": 0,
+      "comPontoDaNascente": 0,
+      "hidricas": 0,
+      "comEixoDoCurso": 0,
+      "tiposDeAtracao": []
+    },
+    {
+      "gleba": "geo-antonina",
+      "versaoDeclarada": "1",
+      "restricoes": 3,
+      "tiposDeRestricao": [
+        "app_hidrica"
+      ],
+      "comTipoNascente": 0,
+      "comPontoDaNascente": 0,
+      "hidricas": 3,
+      "comEixoDoCurso": 0,
+      "tiposDeAtracao": [
+        "via_existente"
+      ]
+    },
+    {
+      "gleba": "ensaio-47ha (do Generate, v2)",
+      "versaoDeclarada": "2",
+      "restricoes": 0,
+      "tiposDeRestricao": [],
+      "comTipoNascente": 0,
+      "comPontoDaNascente": 0,
+      "hidricas": 0,
+      "comEixoDoCurso": 0,
+      "tiposDeAtracao": []
+    },
+    {
+      "gleba": "geo-antonina (do Generate, v2)",
+      "versaoDeclarada": "2",
+      "restricoes": 3,
+      "tiposDeRestricao": [
+        "app_hidrica"
+      ],
+      "comTipoNascente": 0,
+      "comPontoDaNascente": 0,
+      "hidricas": 3,
+      "comEixoDoCurso": 0,
+      "tiposDeAtracao": [
+        "testada_de_frente"
+      ]
+    }
+  ],
+  "rampaPorVia": [
+    {
+      "gleba": "completo",
+      "motores": {
+        "generate-ortogonal": {
+          "saidaVersao": "2",
+          "vias": 22,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "generate-espinha": {
+          "saidaVersao": "2",
+          "vias": 67,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "parcelamento": {
+          "saidaVersao": "1",
+          "vias": 26,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "symbios": {
+          "saidaVersao": "2",
+          "vias": 273,
+          "maiorRampaMedia_pct": 24.23,
+          "piorRampa_pct": 161.38,
+          "reportaOPico": true
+        }
+      }
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "motores": {
+        "generate-ortogonal": {
+          "saidaVersao": "2",
+          "vias": 15,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "generate-espinha": {
+          "saidaVersao": "2",
+          "vias": 27,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "parcelamento": {
+          "saidaVersao": "1",
+          "vias": 12,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "symbios": {
+          "saidaVersao": "2",
+          "vias": 111,
+          "maiorRampaMedia_pct": 11.53,
+          "piorRampa_pct": 64.1,
+          "reportaOPico": true
+        }
+      }
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "motores": {
+        "generate-ortogonal": {
+          "saidaVersao": "2",
+          "vias": 5,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "generate-espinha": {
+          "saidaVersao": "2",
+          "vias": 13,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "parcelamento": {
+          "saidaVersao": "1",
+          "vias": 7,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "symbios": {
+          "saidaVersao": "2",
+          "vias": 11,
+          "maiorRampaMedia_pct": 1.17,
+          "piorRampa_pct": 15.44,
+          "reportaOPico": true
+        }
+      }
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "motores": {
+        "generate-ortogonal": {
+          "saidaVersao": "2",
+          "vias": 11,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "generate-espinha": {
+          "saidaVersao": "2",
+          "vias": 33,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "parcelamento": {
+          "saidaVersao": "1",
+          "vias": 12,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "symbios": {
+          "saidaVersao": "2",
+          "vias": 94,
+          "maiorRampaMedia_pct": 13.24,
+          "piorRampa_pct": 77.43,
+          "reportaOPico": true
+        }
+      }
+    },
+    {
+      "gleba": "geo-antonina",
+      "motores": {
+        "generate-ortogonal": {
+          "saidaVersao": "2",
+          "vias": 15,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "generate-espinha": {
+          "saidaVersao": "2",
+          "vias": 24,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "parcelamento": {
+          "saidaVersao": "1",
+          "vias": 25,
+          "maiorRampaMedia_pct": null,
+          "piorRampa_pct": null,
+          "reportaOPico": false
+        },
+        "symbios": {
+          "saidaVersao": "2",
+          "vias": 455,
+          "maiorRampaMedia_pct": 10.97,
+          "piorRampa_pct": 113.54,
+          "reportaOPico": true
+        }
+      }
+    }
+  ]
+}

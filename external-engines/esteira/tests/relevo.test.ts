@@ -168,17 +168,39 @@ describe("LAB-08 · o quadro de áreas do Generate, na gleba de ensaio", () => {
     expect(e.parametros.pctLazer).toBe(10);
   });
 
-  test("e mesmo assim o quadro de referência declara 15 % de APP — é eco do parâmetro", () => {
+  /**
+   * ── CONSERTADO PELO GENERATE, e o teste virou do lado contrário (LAB-18) ──
+   *
+   * Até o LAB-08 estes dois testes fixavam um **defeito**: na gleba de ensaio,
+   * que declara ZERO restrições, o quadro de referência do Generate anunciava
+   * **15 % de APP e 10 % de lazer** — eco puro dos parâmetros — e por isso a
+   * soma das partes passava do terreno em **9 % a 15,8 %**.
+   *
+   * Foi um dos três achados que o Lab mandou ao Generate pelo chat. **Eles
+   * consertaram**, no commit `8fd954b [quadro-areas] GF-11: as partes do
+   * terreno voltam a somar o terreno`, e o conserto apareceu aqui ao
+   * revendorizar o contrato v2: os dois testes ficaram vermelhos **porque o
+   * defeito deixou de existir**.
+   *
+   * Eles continuam existindo, virados: o que era *"não fecha"* passou a ser
+   * *"fecha ao centavo"*. Apagá-los perderia a guarda justamente no lugar onde
+   * o bug já esteve uma vez — e é no lugar onde já esteve que ele volta.
+   */
+  test("o quadro de referência NÃO é mais eco do parâmetro — consertado em 8fd954b", () => {
+    const e = JSON.parse(readFileSync(join(RES, "ensaio-47ha.entrada.json"), "utf8"));
     const v = JSON.parse(
       readFileSync(join(RES, "resultados", "ensaio-47ha.ortogonal.veredito.json"), "utf8"),
     );
     const q = v.quadroDeAreas;
-    // Os dois números são a porcentagem do parâmetro vezes a área, ao centavo.
-    expect(q.areaAPP_m2).toBeCloseTo(q.areaTotal_m2 * 0.15, 2);
-    expect(q.areaLazer_m2).toBeCloseTo(q.areaTotal_m2 * 0.1, 2);
+    // Os parâmetros continuam pedindo 15 % e 10 %...
+    expect(e.parametros.pctAPP).toBe(15);
+    expect(e.parametros.pctLazer).toBe(10);
+    // ...e o quadro NÃO os repete mais. 15 % de 470 000 seriam 70 500.
+    expect(q.areaAPP_m2).not.toBeCloseTo(q.areaTotal_m2 * 0.15, 2);
+    expect(q.areaLazer_m2).not.toBeCloseTo(q.areaTotal_m2 * 0.1, 2);
   });
 
-  test("por isso o quadro não fecha: sobra mais terra do que a gleba tem", () => {
+  test("e por isso o quadro FECHA: as partes somam o terreno, ao centavo", () => {
     for (const motor of ["ortogonal", "espinha"]) {
       const v = JSON.parse(
         readFileSync(join(RES, "resultados", `ensaio-47ha.${motor}.veredito.json`), "utf8"),
@@ -186,7 +208,8 @@ describe("LAB-08 · o quadro de áreas do Generate, na gleba de ensaio", () => {
       const q = v.quadroDeAreas;
       const soma = Object.entries(q).reduce(
         (s, [k, x]) => (k === "areaTotal_m2" ? s : s + (x as number)), 0);
-      expect(soma).toBeGreaterThan(q.areaTotal_m2 * 1.09);
+      // Um centavo de folga: o quadro é arredondado a duas casas em cada linha.
+      expect(Math.abs(soma - q.areaTotal_m2)).toBeLessThanOrEqual(0.02);
     }
   });
 

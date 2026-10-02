@@ -231,16 +231,27 @@ export interface Indicadores {
    * A **maior rampa média** entre as vias, em porcento. `null` quando o motor
    * não calcula greide.
    *
-   * **Média, e não máxima, porque o contrato v1 não carrega a máxima.** A SAÍDA
-   * tem `vias[].rampaMedia_pct` e nada mais; `rampaMaxima_pct` só existe na
-   * ENTRADA, como o limite que o usuário pede. Nenhum motor consegue reportar o
-   * pico por este contrato — e o pico é o que reprova: o LAB-02 mediu 161 % num
-   * cruzamento, diluído numa média mansa.
+   * **O nome é feio de propósito, e continua sendo** (D67): é o máximo de um
+   * conjunto de médias, não a pior rampa. A média de uma via dilui o trecho que
+   * inviabiliza a obra — o LAB-02 mediu **161 %** num cruzamento, mansinho
+   * dentro de uma média.
    *
-   * **É achado aberto para o Generate**, já repassado pelo chat, e a razão de o
-   * documento pedir `rampaMaxima_pct` por via na v2.
+   * **Ele deixou de ser o único**: o contrato v2 trouxe `rampaMaxima_pct` por
+   * via, a pedido do Lab, e o `rampaPior_pct` abaixo é a pior rampa de verdade.
+   * Os dois ficam, lado a lado, porque motor que só fala v1 preenche apenas
+   * este — e a diferença entre os dois é informação, não ruído.
    */
   rampaMediaMaxima_pct: number | null;
+  /**
+   * A **pior rampa de qualquer via**, em porcento — `vias[].rampaMaxima_pct` da
+   * SAÍDA v2. `null` quando o motor não a declara.
+   *
+   * **`null` aqui não quer dizer terreno plano**, e a distinção importa: quer
+   * dizer *"este motor não reporta o pico"*. Medido no LAB-18: das quatro
+   * saídas, só a do Symbios o reporta — as do Generate trazem o campo e o
+   * deixam `null`, e a do Laboratório de Parcelamento ainda escreve v1.
+   */
+  rampaPior_pct: number | null;
 }
 
 /** O que volta do motor. */
