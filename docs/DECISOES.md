@@ -2212,3 +2212,77 @@ motor do vizinho **e para o meu próprio número de ontem**.
 íngreme**. As duas réguas têm limite; a do motor mede numa escala onde a pergunta
 não faz sentido, a do Lab mede na escala em que greide se define para
 terraplenagem.
+
+---
+
+## D95 · 30 % é do LOTE e reprova; 15 % é da RUA e só avisa · 03/10/2026
+
+**A decisão é do JONNY**, repassada pelo chat em 03/10/2026. Ela fecha a **D91**,
+que deixara a pergunta aberta de propósito.
+
+| o quê | limite | força | fonte |
+|---|---|---|---|
+| **LOTE** | **30 %** de declividade do terreno | **REPROVA** | Lei 6.766/1979, art. 3º — e ele confirmou que é do **lote** |
+| **RUA** | **15 %** de rampa | **só AVISA** | prática dele |
+
+**A razão da assimetria, nas palavras dele:** *"trecho acima pode ser resolvido
+com terraplenagem ou com mudança de traçado, e isso é decisão de projeto com
+custo, que o motor não toma"*.
+
+**A precisão que isto acrescenta à D91:** eu havia registrado os 30 % como
+limite "do TERRENO", de forma vaga, e usara essa vagueza para **não** aplicá-los.
+Estava certo em não aplicar sem saber, e **errado na leitura**: são do **lote**,
+e portanto aplicáveis — ao lote. O número da rua simplesmente não existia na
+família, e agora existe, **de outra natureza**: um é lei, o outro é ofício.
+
+**O que mudou no código, e é a parte que importa:** a régua da rua **não ganhou
+veredito nenhum**. Há teste que reprova se alguém acrescentar `reprova`, `passa`
+ou `aprovado` ao bloco da via. `lote.reprovaPelaLei` é o **único** veredito do
+bloco inteiro.
+
+**Medido com a regra nova:** **os quatro motores reprovam** em `completo` — 95,
+113, 67 e 49 lotes com parte acima de 30 % —, e em nenhuma outra gleba.
+
+---
+
+## D96 · "Parte acima" e "principalmente acima" saem os dois · 03/10/2026
+
+**Contexto:** a lei não tem faixa de tolerância — lote com **qualquer** parte
+acima de 30 % reprova. Mas um lote que encosta num talude por 2 m² não é o mesmo
+problema que um lote inteiro na encosta.
+
+**Decisão:** saem **os dois** — `lotesComParteAcima` e
+`lotesPrincipalmenteAcima` (mais de metade da área).
+
+**Medido, e a diferença é enorme:** em `completo`, **95 contra 3**, **113 contra
+3**, **67 contra 1**, **49 contra 2**. **Quase tudo é borda.**
+
+**Por que os dois, e nunca um só:** publicar apenas o primeiro faria parecer que
+há uma centena de lotes inviáveis onde há três; publicar apenas o segundo
+**esconderia a reprovação legal**, que não liga para fração. O veredito segue o
+primeiro, porque é o que a lei diz; a leitura de projeto precisa do segundo.
+
+---
+
+## D97 · O bloco entrega a ENTRADA do cálculo de terraplenagem, não o volume · 03/10/2026
+
+**Contexto:** o chat pediu os números *"num formato que o Generate possa mostrar
+na tela e o Orçamento possa ler como entrada de custo"*.
+
+**Decisão:** o bloco entrega **metros lineares e metros quadrados sujeitos a
+terraplenagem**, e **declara, no próprio formato proposto, que não é volume de
+corte e aterro**.
+
+**Por quê:** volume pede o **greide projetado** — a cota que a rua vai ter depois
+da obra — e **nenhum motor da família entrega isso**. Com a cota natural e o eixo
+só se sabe **onde** vai haver movimento de terra e **quanto de área**, não quantos
+metros cúbicos.
+
+**É o mal-entendido mais caro possível neste caminho:** um orçamento que lesse
+`areaAcimaDoLimite_m2` como volume erraria por um fator que depende da altura de
+corte — e ninguém notaria, porque o número tem a cara certa. Por isso a ressalva
+não fica só no relatório: ela viaja **dentro do JSON**, em `regras`.
+
+**E a proposta leva exemplo preenchido**, não só esquema: formato sem instância é
+convite a interpretar errado, e quem for implementar do outro lado não tem como
+perguntar.

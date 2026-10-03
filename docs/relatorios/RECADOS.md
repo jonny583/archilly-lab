@@ -424,3 +424,17 @@ Depende do Jonny: dois, nenhum trava — a régua de forma, e NOVO: a inclinaç�
 Próximo na fila: LAB-22, condição cumprida. A leitura que vale do LAB-21: em completo as quatro MÉDIAS empatam entre 6,1 % e 7,7 % e os piores trechos vão de 34,7 % a 51,5 % — quem olhasse só a média não veria diferença nenhuma entre os motores.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · LAB-24 — o bloco de indicadores de terreno
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-24 ===
+Estado: LAB-24 concluído e mesclado. Esteira 200/200 (17 novos), tsc e lint limpos. Vizinhos limpos. Despertador trig_01XwSkTLT9zmyprNZcUiWy7f ligado — ele disparou 4 vezes enquanto eu trabalhava, e os 4 cairam no mesmo prompt em curso.
+Feito: o bloco igual para os quatro motores, com a assimetria que o Jonny deu (D95): 30 % no LOTE REPROVA (lei) e 15 % na RUA só AVISA — e a régua da via NÃO ganhou veredito nenhum, com teste que reprova quem acrescentar "reprova", "passa" ou "aprovado" nela. Medido: os QUATRO motores reprovam em completo (95, 113, 67 e 49 lotes com parte acima de 30 %) e nenhum nas outras quatro glebas; a área é menos de 1,1 % da vendável em todos. "Parte acima" e "principalmente acima" saem os dois (D96) porque são 95 contra 3, 113 contra 3, 67 contra 1, 49 contra 2 — quase tudo é borda encostando no talude; a lei não tem tolerância e o projeto tem. ACHADO DA RODADA: os dois indicadores ORDENAM OS MOTORES AO CONTRÁRIO — o Symbios é 1º em rua em declive (5 183 m) e ÚLTIMO em lote em declive (2 938 m²): ele manda a rua para a encosta e guarda o plano para o lote; a ortogonal faz o inverso. Qual presta é decisão de projeto. Na tabela e na página do Jonny, com o nome da peça pior (VT-02, L1655) para achar no desenho.
+Achados para outros apps ou Central: GENERATE e ORÇAMENTO — o formato proposto está em docs/provas/LAB-24/formato-proposto.json, com esquema E instância preenchida, e separa o que é para a tela do que é entrada de custo. Ele declara DENTRO do JSON que NÃO é volume de corte e aterro (D97): volume pede o greide projetado, que nenhum motor entrega. É o mal-entendido mais caro do caminho, porque o número tem a cara certa — um orçamento que lesse m² como volume erraria por um fator que ninguém notaria.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma. A pergunta da rampa de rua SAIU da lista: ele respondeu.
+Próximo na fila: LAB-22, condição cumprida. Nota: a D91 ficou mais precisa com a resposta dele — eu lera os 30 % como "do terreno", vago, e usara a vagueza para não aplicá-los; certo em não aplicar sem saber, errado na leitura.
+=== FIM ===
+```

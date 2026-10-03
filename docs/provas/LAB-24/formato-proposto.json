@@ -1,0 +1,85 @@
+{
+  "archilly": {
+    "schema": "archilly-indicadores-de-terreno",
+    "versao": "1"
+  },
+  "proposto_por": "archilly-lab · LAB-24 · 03/10/2026",
+  "vai_ao_generate_e_ao_orcamento": "pelo chat — o Lab não escreve nos repositórios deles",
+  "paraQuemServeCadaCampo": {
+    "tela_do_generate": [
+      "via.pctDoComprimento e via.pctDaArea — um número por plano, comparável entre motores",
+      "lote.reprovaPelaLei — a única linha que dá veredito, e dá porque é lei",
+      "via.pior e lote.pior — têm `onde`, para a tela destacar o ponto no desenho"
+    ],
+    "entrada_de_custo_do_orcamento": [
+      "via.areaAcimaDoLimite_m2 — m² de leito sujeito a terraplenagem",
+      "via.comprimentoAcimaDoLimite_m — metros lineares, para serviço medido por metro",
+      "lote.areaAcimaDoLimite_m2 — m² de lote sujeito a terraplenagem"
+    ]
+  },
+  "limites": {
+    "lote_pct": 30,
+    "rua_pct": 15,
+    "forca": {
+      "lote": "REPROVA",
+      "rua": "AVISA"
+    },
+    "fonte": {
+      "lote": "Lei 6.766/1979, art. 3º, § único, III — confirmado pelo Jonny em 03/10/2026 como limite do LOTE",
+      "rua": "prática do Jonny, confirmada em 03/10/2026 — é AVISO, não reprovação: o trecho acima se resolve com terraplenagem ou mudança de traçado, e isso é decisão de projeto com custo"
+    }
+  },
+  "unidades": {
+    "comprimento": "metro",
+    "area": "metro quadrado",
+    "declividade": "porcento",
+    "onde": "ponto no CRS da ENTRADA, em metros locais"
+  },
+  "regras": [
+    "`null` é NÃO MEDIDO, nunca zero — gleba sem duas cotas de relevo devolve medido=false com o motivo",
+    "nenhum campo de via dá veredito: a decisão de terraplenar ou mudar o traçado é de projeto, com custo",
+    "`lote.reprovaPelaLei` é o ÚNICO veredito do bloco",
+    "não há volume de corte e aterro aqui: isso pede o greide projetado, que nenhum motor entrega"
+  ],
+  "exemplo": {
+    "gleba": "completo",
+    "motor": "generate-espinha",
+    "indicadores": {
+      "medido": true,
+      "porQueNaoMedido": null,
+      "via": {
+        "comprimentoTotal_m": 19935.2,
+        "comprimentoAcimaDoLimite_m": 2179.05,
+        "pctDoComprimento": 10.93,
+        "areaTotal_m2": 207465.88,
+        "areaAcimaDoLimite_m2": 22781.46,
+        "pctDaArea": 10.98,
+        "pior": {
+          "id": "VR-01",
+          "valor_pct": 48.88,
+          "onde": {
+            "x": -80.38,
+            "y": 439.98
+          }
+        }
+      },
+      "lote": {
+        "lotes": 1805,
+        "areaTotal_m2": 649404.75,
+        "areaAcimaDoLimite_m2": 7152.7,
+        "pctDaArea": 1.1,
+        "lotesComParteAcima": 113,
+        "lotesPrincipalmenteAcima": 3,
+        "reprovaPelaLei": true,
+        "pior": {
+          "id": "L1655",
+          "valor_pct": 52.22,
+          "onde": {
+            "x": -647.9,
+            "y": -481.52
+          }
+        }
+      }
+    }
+  }
+}

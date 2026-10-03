@@ -40,6 +40,7 @@ import { glebaDoLab } from "../src/gleba-do-lab.ts";
 import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
 import { julgar, type P, type Rodada, type Veredito } from "../src/motores/comum.ts";
 import { mapaDaGleba, perfilDeRampa } from "../src/rampa.ts";
+import { indicadoresDeTerreno } from "../src/terreno-indicadores.ts";
 import {
   UTIL_A_CONFERIR,
   UTIL_RUIM,
@@ -92,15 +93,23 @@ function rodar(id: string, e: EntradaMinima): Rodada {
 
 /** As vias da SAÍDA, para a régua de rampa, com o que o motor declarou. */
 function viasDaSaida(saida: unknown): {
-  vias: { id: string; pontos: P[] }[];
+  vias: { id: string; pontos: P[]; largura_m: number }[];
   declaradoPeloMotor: number | null;
 } {
   const s = saida as {
-    vias?: { id?: string; pontos?: P[]; eixo?: P[]; rampaMaxima_pct?: number | null }[];
+    vias?: {
+      id?: string; pontos?: P[]; eixo?: P[];
+      largura_m?: number; caixa_m?: number;
+      rampaMaxima_pct?: number | null;
+    }[];
   } | null;
   const brutas = s?.vias ?? [];
   const vias = brutas
-    .map((v, i) => ({ id: v.id ?? `v${i}`, pontos: v.eixo ?? v.pontos ?? [] }))
+    .map((v, i) => ({
+      id: v.id ?? `v${i}`,
+      pontos: v.eixo ?? v.pontos ?? [],
+      largura_m: v.largura_m ?? v.caixa_m ?? 0,
+    }))
     .filter((v) => v.pontos.length >= 2);
   const picos = brutas.map((v) => v.rampaMaxima_pct).filter((r): r is number => typeof r === "number");
   return { vias, declaradoPeloMotor: picos.length ? Math.max(...picos) : null };
@@ -111,6 +120,16 @@ function lotesDaSaida(saida: unknown, entrada: EntradaMinima): P[][] | null {
   const l = montarParcelamentoExterno(saida as never, { entrada: entrada as unknown as EntradaMotorV1 });
   if (!l.conferencia.valido || !l.externo) return null;
   return (l.externo.resultado.lotes as { pontos: P[] }[]).map((lo) => lo.pontos);
+}
+
+/** Os lotes com id, para o bloco de terreno poder dizer QUAL é o pior. */
+function lotesComId(saida: unknown, entrada: EntradaMinima): { id: string; pontos: P[] }[] {
+  const l = montarParcelamentoExterno(saida as never, { entrada: entrada as unknown as EntradaMotorV1 });
+  if (!l.conferencia.valido || !l.externo) return [];
+  return (l.externo.resultado.lotes as { id?: string; pontos: P[] }[]).map((lo, i) => ({
+    id: lo.id ?? `lote-${i}`,
+    pontos: lo.pontos,
+  }));
 }
 
 console.log(
@@ -140,6 +159,13 @@ for (const { id, entrada } of GLEBAS) {
     const d = aneis ? distribuicaoDeForma(aneis) : null;
     const { vias, declaradoPeloMotor } = viasDaSaida(r.saida);
     const ramp = perfilDeRampa(vias, mapa);
+    // O bloco de terreno (LAB-24): os dois limites do Jonny, com forças
+    // diferentes — 30 % no lote REPROVA, 15 % na rua só AVISA.
+    const terreno_ = indicadoresDeTerreno(
+      vias.filter((v) => v.largura_m > 0),
+      r.saida ? lotesComId(r.saida, entrada) : [],
+      mapa,
+    );
 
     porMotor[m.id] = {
       motor: m.nome,
@@ -171,6 +197,8 @@ for (const { id, entrada } of GLEBAS) {
         cruzamentos: ramp.cruzamentos,
         cruzamentosAcimaDe: ramp.cruzamentosAcimaDe,
       },
+      // ── o bloco de indicadores de terreno, do LAB-24 ────────────────────
+      terreno: terreno_,
       // ── a coluna nova, do LAB-19 ────────────────────────────────────────
       forma: d
         ? {

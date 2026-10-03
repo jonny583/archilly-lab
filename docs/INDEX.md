@@ -31,6 +31,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-24.md`](relatorios/LAB-24.md) | **O bloco de indicadores de terreno**: 30 % no lote reprova, 15 % na rua só avisa — e os dois indicadores ordenam os motores ao contrário. Mais o formato proposto ao Generate e ao Orçamento |
 | [`relatorios/LAB-21.md`](relatorios/LAB-21.md) | **A rampa, trecho e cruzamento** — e a correção dos 161,38 %: o número do LAB-18 era a discretização do motor, não o greide da rua. Mais as duas réguas, os três defeitos da minha própria e a coluna na página do Jonny |
 | [`relatorios/LAB-18.md`](relatorios/LAB-18.md) | **O contrato v2, revendorizado**: o pico de rampa que passou a viajar (161 % contra 24 % de média), os dois achados do Lab que o Generate consertou, e por que a área vendável que as candidatas dele "perderam" é melhoria |
 | [`COMPARACAO_DOS_MOTORES.md`](COMPARACAO_DOS_MOTORES.md) | **A comparação numa página, para quem não programa** (LAB-20): quatro motores, cinco terrenos, lado a lado. **Gerada por medição**, com teste que reprova se envelhecer |
@@ -85,6 +86,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 | onde | o que tem |
 |---|---|
 | [`../external-engines/symbios/`](../external-engines/symbios/) | `upstream/` intocado, a ponte Rust → WASM, o adaptador do LAB-01, o recorte do LAB-02 e o **recortador de polígono** do LAB-05 (D57) |
+| [`../external-engines/esteira/src/terreno-indicadores.ts`](../external-engines/esteira/src/terreno-indicadores.ts) | **O bloco de terreno** (LAB-24): os dois limites do Jonny com as fontes, a declividade medida nas duas direções, e **nenhum veredito na via** — só no lote, porque lá é lei (D95) |
 | [`../external-engines/esteira/src/rampa.ts`](../external-engines/esteira/src/rampa.ts) | **A régua de rampa** (LAB-21): caminha a via por comprimento de arco, acha cruzamento por interseção de eixos, e publica quatro cortes de leitura — nenhum deles limite legal, porque esse limite não existe (D91) |
 | [`../external-engines/esteira/src/forma.ts`](../external-engines/esteira/src/forma.ts) | **A régua de forma do lote** (LAB-16): perfil por lote, lados, arco, classe, e a distribuição nos três cortes declarados. Ela mede; quem lê decide (D76, D77) |
 | [`../external-engines/testfit/`](../external-engines/testfit/) | O adaptador do LAB-07 — ida, volta, aparo, esteira. Sem `upstream/`: o motor é da família (D16) |

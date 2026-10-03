@@ -34,12 +34,17 @@ e valendo:
 **O que o seu número destravou.** Até ontem o motor **não propunha travessia
 nenhuma**, porque não tinha como saber quando ela se justifica. Agora tem.
 
+**Você respondeu também a pergunta da inclinação da rua** (item 5-C abaixo):
+30 % é do lote e **reprova**; 15 % é da rua e **só avisa**. Está valendo, medida
+nos quatro motores, e a sua razão para a rua só avisar foi para dentro do código
+com as suas palavras.
+
 **Fica faltando uma coisa só, e ela é de confirmação:**
 
 | # | o que | quanto custa | o que muda se você responder |
 |---|---|---|---|
 | **1** | **Confirmar a régua de forma de lote que veio pelo chat:** lote que aproveita **menos de 85 %** do retângulo em volta dele fica marcado *"a conferir"*; **menos de 70 %**, *"ruim"*. | 2 min | é a linha que decide quais lotes aparecem marcados na comparação entre motores |
-| **2** | **Qual a inclinação máxima que você aceita numa RUA?** Em porcento, e separado do limite do terreno. | 2 min | passa a existir uma linha para dizer "este trecho de rua não passa" — hoje eu só mostro o número e não julgo |
+
 
 **Ela já está valendo e aplicada** — está na
 [página de comparação dos motores](https://github.com/jonny583/archilly-lab/blob/main/docs/COMPARACAO_DOS_MOTORES.md),
@@ -195,7 +200,36 @@ Isto está aqui para você não ficar procurando.
 
 ---
 
-## 5-C · A inclinação máxima de uma RUA — pergunta nova, de 03/10
+## 5-C · A inclinação máxima de uma RUA — **você respondeu em 03/10. Obrigado.**
+
+**A sua resposta, gravada e valendo (D95):**
+
+| o quê | limite | o que acontece |
+|---|---|---|
+| **Lote** | **30 %** | **reprova** — é a Lei 6.766 |
+| **Rua** | **15 %** | **só avisa** — o trecho se resolve com terraplenagem ou mudando o traçado |
+
+**E a sua razão para a rua só avisar está no código, com as suas palavras.** Não
+há nenhum lugar onde eu diga que uma rua "não passa": a coluna diz **quanto**, e
+quem decide terraplenar ou mudar o traçado é quem faz o projeto.
+
+**O que eu medi com a sua régua, no terreno de teste:** **os quatro motores
+reprovam** — de 49 a 113 lotes com alguma parte acima de 30 %. Mas olhe o outro
+número ao lado: **de 1 a 3 lotes** estão acima na **maior parte** da área. Quase
+tudo é **borda de lote encostando no talude**, e é por isso que eu publico os
+dois: a lei não tem tolerância, e o seu projeto tem.
+
+**Uma coisa que apareceu e vale a pena você ver:** os dois indicadores **ordenam
+os motores ao contrário**. O motor Symbios é o que põe **mais rua** em declive e
+o que põe **menos lote** — ele manda a rua para a encosta e guarda o plano para
+os lotes. O traçado ortogonal faz o contrário. Qual dos dois presta é escolha
+sua, e está na
+[página de comparação](https://github.com/jonny583/archilly-lab/blob/main/docs/COMPARACAO_DOS_MOTORES.md),
+na seção *"Terreno em declive"*.
+
+---
+
+## 5-D · Como a pergunta estava antes da sua resposta — o registro
 
 **O que eu passei a medir.** Agora eu pego o eixo de cada rua que o motor
 desenhou, passo por cima do relevo do terreno e meço a inclinação dela de 10 em
