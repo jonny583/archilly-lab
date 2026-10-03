@@ -125,11 +125,11 @@
           "reportaOPico": false
         },
         "parcelamento": {
-          "saidaVersao": "1",
+          "saidaVersao": "2",
           "vias": 26,
-          "maiorRampaMedia_pct": null,
-          "piorRampa_pct": null,
-          "reportaOPico": false
+          "maiorRampaMedia_pct": 4.94,
+          "piorRampa_pct": 16.84,
+          "reportaOPico": true
         },
         "symbios": {
           "saidaVersao": "2",
@@ -158,11 +158,11 @@
           "reportaOPico": false
         },
         "parcelamento": {
-          "saidaVersao": "1",
+          "saidaVersao": "2",
           "vias": 12,
-          "maiorRampaMedia_pct": null,
-          "piorRampa_pct": null,
-          "reportaOPico": false
+          "maiorRampaMedia_pct": 2.1,
+          "piorRampa_pct": 10.15,
+          "reportaOPico": true
         },
         "symbios": {
           "saidaVersao": "2",
@@ -191,11 +191,11 @@
           "reportaOPico": false
         },
         "parcelamento": {
-          "saidaVersao": "1",
+          "saidaVersao": "2",
           "vias": 7,
-          "maiorRampaMedia_pct": null,
-          "piorRampa_pct": null,
-          "reportaOPico": false
+          "maiorRampaMedia_pct": 0.7,
+          "piorRampa_pct": 1.5,
+          "reportaOPico": true
         },
         "symbios": {
           "saidaVersao": "2",
@@ -224,11 +224,11 @@
           "reportaOPico": false
         },
         "parcelamento": {
-          "saidaVersao": "1",
+          "saidaVersao": "2",
           "vias": 12,
-          "maiorRampaMedia_pct": null,
-          "piorRampa_pct": null,
-          "reportaOPico": false
+          "maiorRampaMedia_pct": 0.76,
+          "piorRampa_pct": 8.82,
+          "reportaOPico": true
         },
         "symbios": {
           "saidaVersao": "2",
@@ -257,11 +257,11 @@
           "reportaOPico": false
         },
         "parcelamento": {
-          "saidaVersao": "1",
+          "saidaVersao": "2",
           "vias": 25,
-          "maiorRampaMedia_pct": null,
-          "piorRampa_pct": null,
-          "reportaOPico": false
+          "maiorRampaMedia_pct": 1.76,
+          "piorRampa_pct": 8.27,
+          "reportaOPico": true
         },
         "symbios": {
           "saidaVersao": "2",

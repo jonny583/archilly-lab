@@ -438,3 +438,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma. A pergun
 Próximo na fila: LAB-22, condição cumprida. Nota: a D91 ficou mais precisa com a resposta dele — eu lera os 30 % como "do terreno", vago, e usara a vagueza para não aplicá-los; certo em não aplicar sem saber, errado na leitura.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · LAB-22 — o que falta medir em cada motor, e a lacuna que era minha
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-22 ===
+Estado: LAB-22 concluído e mesclado. Esteira verde (1 teste meu virado), tsc e lint limpos. Vizinhos limpos. Despertador trig_01XwSkTLT9zmyprNZcUiWy7f ligado.
+Feito: a medição mudou a lista, e a PRIMEIRA LACUNA ERA MINHA (D98). O Laboratório de Parcelamento MEDE a rampa desde o T03 dele, de 14/09, e quem jogava fora era a ponte do Lab — a mesma que eu usei no LAB-18 para te dizer que "o Parcelamento não reporta o pico". A frase do meu adaptador era verdadeira no LAB-07 e venceu um dia depois; ficou três semanas no código. Consertada: a ponte lê as duas rampas e escreve saída v2. É a TERCEIRA vez que a disciplina do §6 me pega no mesmo ponto cego (D75, D93/D94, esta), e nas três eu estava a um passo de acusar o motor do vizinho. O que a correção revelou (D99): os DOIS motores que reportam reportam ERRADO, em direções OPOSTAS — o Symbios superestima (vértice a vértice, 0,47 m de mediana) e o Parcelamento subestima (12 amostras fixas por via, passo de 83 a 157 m). A célula do relevo é 5 m: um mede um décimo dela, o outro 17 a 31 vezes. Em completo o Parcelamento declara 16,84 % onde eu meço 51,54 %. Nenhum dos dois erros é visível sem uma segunda régua, e os dois têm a cara de um número certo.
+Achados para outros apps ou Central: a lista para você levar está em docs/O_QUE_FALTA_MEDIR_POR_MOTOR.md, escrita para eles. PARCELAMENTO: uma coisa só — trocar AMOSTRAS_POR_VIA = 12 por passo em METROS, não maior que a célula do relevo. GENERATE: as duas candidatas não calculam; campo presente e null em tudo, e eu meço 34,71 % (ortogonal) e 46,70 % (espinha) em completo — a espinha é a mais urgente, com 2 179 m de rua acima de 15 % contra 1 202 m. Nota que pode poupar trabalho deles: já têm declividade(p) em engine/topografia.ts; falta percorrer o eixo com passo fixo.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma.
+Próximo na fila: LAB-23, o último de 03/10. E um achado de forma (D100): a capacidade leRelevo ENVELHECEU SOZINHA e o teste de falsificação do LAB-14 a pegou; precisou ser partida em duas, porque o Parcelamento é o primeiro motor que LÊ o relevo e NÃO DESVIA por ele.
+=== FIM ===
+```

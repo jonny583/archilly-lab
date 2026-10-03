@@ -126,9 +126,18 @@ export function voltaParaOContrato(
     // O corredor que EXISTE, medido: o lote encosta a `caixa_m / 2` do eixo.
     // Ver o cabeçalho — a calçada é declarada e não é reservada.
     largura_m: v.caixa_m,
-    // O motor não calcula greide. `null` é a resposta honesta, e o contrato a
-    // admite explicitamente ("pode ser null quando você não mediu").
-    rampaMedia_pct: null,
+    // ── O motor MEDE as duas rampas, e este adaptador as jogava fora ──────
+    //
+    // Até o LAB-22 aqui estava `rampaMedia_pct: null`, com a justificativa de
+    // que *"o motor não calcula greide"*. Era verdade quando o LAB-07 escreveu
+    // esta ponte, e **deixou de ser em 14/09**, quando o T03 do motor passou a
+    // medir rampa média e máxima por via a partir das cotas do terreno.
+    //
+    // A ponte não percebeu, e por quase três semanas o Lab publicou `null` —
+    // e, pior, reportou ao chat que *"o Laboratório de Parcelamento não reporta
+    // o pico"*. O que não reportava era **esta ponte**. Medido no LAB-22.
+    rampaMedia_pct: v.rampaMedia_pct,
+    rampaMaxima_pct: v.rampaMaxima_pct,
   }));
   const calcadaDeclarada = plano.vias.reduce((s, v) => s + v.calcada_m * 2 * dist(v.eixo[0], v.eixo[1]), 0);
   if (calcadaDeclarada > 0) {
@@ -143,14 +152,19 @@ export function voltaParaOContrato(
       gravidade: "alta",
     });
   }
-  if (plano.vias.length > 0) {
+  // A perda que existia aqui foi APAGADA no LAB-22, porque o motor passou a
+  // medir. O que sobra é a perda de VERDADE: quando a gleba não traz cota, o
+  // motor devolve `null`, e aí sim não há greide — mas a razão é a gleba, não o
+  // motor, e dizer "o motor não calcula" seria culpar o lado errado.
+  const semRampa = plano.vias.filter((v) => v.rampaMedia_pct == null).length;
+  if (semRampa > 0) {
     perdas.push({
       campo: "vias[].rampaMedia_pct",
-      oQueHavia: `${plano.vias.length} via(s) sem cota`,
+      oQueHavia: `${semRampa} de ${plano.vias.length} via(s) sem rampa medida`,
       motivo:
-        "o motor não calcula greide — nenhuma via tem elevação em lugar nenhum do `Plano`. " +
-        "Sai `null`, como o contrato permite, e toda a conferência de rampa fica com o Validator",
-      gravidade: "alta",
+        "o motor mede a rampa a partir das cotas do terreno (T03 dele); sem cota na ENTRADA " +
+        "ele devolve `null`, que é a resposta certa. A falta é da gleba, não do motor",
+      gravidade: semRampa === plano.vias.length ? "alta" : "baixa",
     });
   }
 

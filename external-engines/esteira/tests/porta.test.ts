@@ -17,7 +17,8 @@
  * | campo | como se desmente |
  * |---|---|
  * | `entrega` | `lote` com saída sem lote, ou `quadra` com lotes |
- * | `leRelevo` | mesma gleba com e sem curvas: mudou? |
+ * | `leRelevo` | mesma gleba com e sem curvas: a SAÍDA mudou? |
+ * | `relevoMudaOTracado` | idem, comparando só a GEOMETRIA (sem os campos de rampa) |
  * | `aceitaSemente` | duas sementes: mudou? |
  * | `determinista` | duas rodadas iguais: a SAÍDA inteira bate? |
  * | `respeitaViaDesenhada` | via desenhada no miolo: o motor a seguiu? |
@@ -152,6 +153,33 @@ describe("a declaração é falsificável — um experimento por campo", () => {
         expect(com, `${c.id} declarou LER relevo e a saída não mudou`).not.toBe(sem);
       } else {
         expect(com, `${c.id} declarou NÃO ler relevo e a saída mudou`).toBe(sem);
+      }
+    }
+  });
+
+  /**
+   * A geometria, sem os campos de rampa.
+   *
+   * Tirar a rampa é o que separa as duas perguntas: um motor que mede a rampa e
+   * traça igual tem `leRelevo: true` e `relevoMudaOTracado: false`, e sem este
+   * recorte as duas declarações não seriam distinguíveis. Ver `porta.ts`.
+   */
+  const soGeometria = (saida: unknown): string =>
+    JSON.stringify(saida, (chave, valor) =>
+      chave === "rampaMedia_pct" || chave === "rampaMaxima_pct" ? undefined : valor,
+    );
+
+  test("`relevoMudaOTracado`: a GEOMETRIA muda se e só se ele desvia pelo relevo", () => {
+    const v1 = glebaDoLab(GLEBA);
+    for (const m of motores) {
+      const c = m.capacidades();
+      if (c.exigeRelevo) continue; // já coberto acima: ele recusa sem relevo
+      const com = soGeometria(m.gerar(entradaCom(v1)).saida);
+      const sem = soGeometria(m.gerar(entradaCom(semRelevo(v1))).saida);
+      if (c.relevoMudaOTracado) {
+        expect(com, `${c.id} declarou DESVIAR pelo relevo e a geometria não mudou`).not.toBe(sem);
+      } else {
+        expect(com, `${c.id} declarou NÃO desviar pelo relevo e a geometria mudou`).toBe(sem);
       }
     }
   });

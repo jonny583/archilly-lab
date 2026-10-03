@@ -4,82 +4,82 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-24
-**Estado:** **LAB-24 mesclado. O próximo é o LAB-22.** Despertador
-`trig_01XwSkTLT9zmyprNZcUiWy7f` ligado (60 min, :05).
+**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-22
+**Estado:** **LAB-22 mesclado. O próximo é o LAB-23**, o último da fila de 03/10.
+Despertador `trig_01XwSkTLT9zmyprNZcUiWy7f` ligado (60 min, :05).
 
-## A resposta do Jonny, e a assimetria que ela traz (D95)
+## LEIA ISTO PRIMEIRO: a lacuna do LAB-18 era minha
 
-| o quê | limite | força |
-|---|---|---|
-| **LOTE** | **30 %** de declividade | **REPROVA** — Lei 6.766/1979 |
-| **RUA** | **15 %** de rampa | **só AVISA** — prática dele |
+No LAB-18 eu reportei ao chat que *"o Laboratório de Parcelamento não reporta o
+pico de rampa e ainda escreve saída v1"*. **Era falso, e o defeito era meu**
+(D98):
 
-**A razão, nas palavras dele:** *"trecho acima pode ser resolvido com
-terraplenagem ou com mudança de traçado, e isso é decisão de projeto com custo,
-que o motor não toma"*.
+| onde | o que está lá |
+|---|---|
+| `motor-testfit/.../relevo.ts` | mede rampa **média e máxima** por via, desde o **T03 dele, de 14/09** |
+| `external-engines/testfit/adapter/src/volta.ts` | escrevia **`null`**, *"porque o motor não calcula greide"* |
 
-**Isto fecha a D91 e corrige a leitura dela:** eu havia registrado os 30 % como
-limite "do TERRENO", de forma vaga, e usara a vagueza para **não** aplicá-los.
-Certo em não aplicar sem saber; **errado na leitura** — são do **lote**.
+**A frase do meu adaptador era verdadeira no LAB-07 e venceu um dia depois.**
+Ficou três semanas. Consertado: a ponte lê as duas e escreve **v2**.
 
-**A régua da rua não ganhou veredito nenhum**, e há teste que reprova quem
-acrescentar `reprova`, `passa` ou `aprovado` ao bloco da via.
+**Terceira vez que o §6 me pega no mesmo ponto cego** — D75, D93/D94 e esta —, e
+**nas três eu estava a um passo de acusar o motor do vizinho.**
 
-## O que o LAB-24 mediu
+## O que a correção revelou (D99)
 
-| gleba | motor | m rua > 15 % | m² lote > 30 % | lotes | reprova |
-|---|---|---:|---:|---:|---|
-| `completo` | ortogonal | 1 202 | **5 704** | 95 | **SIM** |
-| `completo` | espinha | 2 179 | **7 153** | 113 | **SIM** |
-| `completo` | Parcelamento | 3 441 | 3 595 | 67 | **SIM** |
-| `completo` | Symbios | **5 183** | **2 938** | **49** | **SIM** |
-| as outras quatro glebas | todos | 0 a 700 | **0** | 0 | não |
+**Os dois motores que reportam rampa reportam errado, em direções opostas:**
 
-**O achado da rodada: os dois indicadores ordenam os motores AO CONTRÁRIO.** O
-Symbios é **1º** em rua em declive e **último** em lote em declive — ele manda a
-rua para a encosta e guarda o plano para o lote. A ortogonal faz o inverso.
-**Qual presta é decisão de projeto, não de medição.**
+| motor | método | passo efetivo | erro |
+|---|---|---|---|
+| **Symbios** (adaptador do Lab) | vértice a vértice | **0,47 m** | **superestima 2,5× a 7,9×** |
+| **Parcelamento** (motor) | 12 amostras fixas por via | **83 a 157 m** | **subestima ~3×** |
 
-**Os quatro reprovam, e a área é pequena:** menos de **1,1 %** da área vendável
-em todos. A lei não tem faixa de tolerância, e 1 % é ajuste, não partido — as
-duas metades são verdadeiras, e o bloco não esconde nenhuma.
+A célula do relevo é de **5 m**: um mede um décimo dela, o outro 17 a 31 vezes.
+Em `completo`, o Parcelamento declara **16,84 %** onde eu meço **51,54 %**.
 
-**"Parte acima" e "principalmente acima" saem os dois** (D96): **95 contra 3**,
-**113 contra 3**, **67 contra 1**, **49 contra 2**. Quase tudo é borda de lote
-encostando no talude.
+**Nenhum dos dois erros é visível sem uma segunda régua**, e os dois têm a cara
+de um número certo. É a melhor justificativa que a D92 podia receber.
 
-## O formato proposto — vai pelo chat
+## A declaração de capacidade envelheceu sozinha, e o teste a pegou (D100)
 
-`docs/provas/LAB-24/formato-proposto.json`, com esquema **e instância
-preenchida**. Ele declara, **dentro do JSON**, que **não é volume de corte e
-aterro** (D97): volume pede o greide projetado, que nenhum motor entrega. É o
-mal-entendido mais caro possível, porque o número tem a cara certa.
+No instante em que a ponte passou a carregar a rampa, **três testes de
+falsificação do LAB-14 ficaram vermelhos** — e isso é o teste funcionando. O
+Parcelamento declarava `calculaGreide: false` e `leRelevo: false`; as duas eram
+verdade em 13/09 e viraram mentira em 14/09, **porque o motor melhorou**.
+
+**E `leRelevo` precisou ser partida em duas**, porque ele **lê** o relevo (mede a
+rampa) e **não desvia** por ele (traça idêntico — LAB-08, lote a lote). Com um
+campo só, uma das duas verdades teria de virar mentira. Agora são `leRelevo` e
+`relevoMudaOTracado`, cada uma com o seu teste; dos quatro motores, **só o
+Symbios desvia**.
 
 ## A fila de 03/10
 
 | Prompt | Estado |
 |---|---|
-| **LAB-21** — a rampa por trecho e cruzamento | **concluído em 03/10/2026** |
-| **LAB-24** — o bloco de indicadores de terreno | **concluído em 03/10/2026** |
-| **LAB-22** — o que falta medir em cada motor, mandado pelo chat | **é o próximo** |
-| **LAB-23** — via desenhada como coluna vertebral do traçado | aguardando o LAB-22 |
+| **LAB-21** — a rampa por trecho e cruzamento | **concluído** |
+| **LAB-24** — o bloco de indicadores de terreno | **concluído** |
+| **LAB-22** — o que falta medir em cada motor | **concluído** |
+| **LAB-23** — via desenhada como coluna vertebral do traçado | **é o próximo** |
+
+## O que vai ao chat — e é o entregável do LAB-22
+
+**[`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](O_QUE_FALTA_MEDIR_POR_MOTOR.md)**, escrito
+para eles lerem:
+
+| motor | o que falta |
+|---|---|
+| **Parcelamento** | **uma coisa só:** trocar `AMOSTRAS_POR_VIA = 12` por **passo em metros**, não maior que a célula do relevo |
+| **Symbios** | nada para eles — era o adaptador do Lab, consertado |
+| **Generate · ortogonal** | **o cálculo.** Campo presente, `null` em tudo; o Lab mede **34,71 %** em `completo` |
+| **Generate · espinha** | idem, e **é a mais urgente**: **46,70 %**, e **2 179 m** de rua acima de 15 % contra 1 202 m da ortogonal |
+
+Mais o formato de indicadores de terreno (LAB-24) e os dois achados do Geo (D88).
 
 ## O que depende do Jonny — **um item, e não trava**
 
-Confirmar a **régua de forma** (D79): útil < 85 % é "a conferir", < 70 % é
-"ruim". Decisão do chat, valendo e explicada na página dele. **A pergunta da
-rampa de rua saiu da lista — ele a respondeu.**
-
-## O que vai para outro repositório — pelo chat
-
-1. **O formato de indicadores de terreno**, para a tela do Generate e a entrada
-   de custo do Orçamento;
-2. **Quem for preencher `rampaMaxima_pct`: não calcule vértice a vértice** —
-   caminhe o eixo por comprimento de arco, com passo não menor que a célula do
-   relevo (D93/D94);
-3. **Para o GEO:** a nascente e o eixo do curso existem no contrato v2 e **não
-   têm dado em gleba nenhuma** (D88).
+Confirmar a **régua de forma** (D79). A pergunta da rampa de rua ele já
+respondeu (D95).
 
 # A fila de 20/09 — a entrega e as duas correções · 20/09/2026
 

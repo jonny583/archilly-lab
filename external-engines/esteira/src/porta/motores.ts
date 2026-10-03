@@ -131,6 +131,7 @@ export function motorDoGenerate(candidata: Candidata): MotorNaPorta {
       entrega: "lote",
       // Medido no LAB-13: com e sem relevo, saída idêntica nas cinco glebas.
       leRelevo: false,
+      relevoMudaOTracado: false,
       respeitaViaDesenhada: false,
       respeitaTestadaDeFrente: false,
       respeitaAcesso: true,
@@ -175,16 +176,27 @@ export function motorDoParcelamento(): MotorNaPorta {
       nome: "Laboratório de Parcelamento",
       versao: "T02",
       entrega: "lote",
-      // Medido no LAB-08, lote a lote: com e sem relevo, 599 e 599; 1391 e 1391.
-      leRelevo: false,
+      // ── As duas respostas são DIFERENTES para este motor (LAB-22) ───────
+      //
+      // Ele **lê** o relevo: desde o T03 dele, de 14/09, mede a rampa média e
+      // máxima de cada via a partir das cotas do terreno. E **não desvia** por
+      // causa dela — medido no LAB-08, lote a lote: com e sem relevo, 599 e
+      // 599 lotes, 1 391 e 1 391, geometria idêntica.
+      //
+      // Até o LAB-22 este motor declarava `leRelevo: false`, e a declaração
+      // **passou de verdadeira a falsa sem ninguém mexer nela** — porque o que
+      // mudou foi o motor, e a ponte do Lab levou três semanas para notar.
+      leRelevo: true,
+      relevoMudaOTracado: false,
       respeitaViaDesenhada: false,
       respeitaTestadaDeFrente: false,
       respeitaAcesso: false,
       respeitaRestricao: true,
       aceitaSemente: true,
       determinista: true,
-      // Ele não calcula greide: o LAB-07 mediu `rampaMedia_pct` saindo `null`.
-      calculaGreide: false,
+      // Ele CALCULA greide desde o T03 dele (14/09). O `null` que o LAB-07
+      // mediu era da ponte do Lab, que descartava a medida — não do motor.
+      calculaGreide: true,
       exigeRelevo: false,
       geometrias: [
         "ortogonal", "espinha", "pente", "diagonal", "loop",
@@ -245,6 +257,9 @@ export function motorDoSymbios(wasm: Motor): MotorNaPorta {
       entrega: "lote",
       // É o único dos quatro que lê relevo: o traçado nasce do campo tensorial.
       leRelevo: true,
+      // O traçado dele NASCE do campo tensorial do relevo: sem relevo ele
+      // recusa, e com relevo diferente o traçado é outro.
+      relevoMudaOTracado: true,
       respeitaViaDesenhada: false,
       respeitaTestadaDeFrente: false,
       respeitaAcesso: false,

@@ -2286,3 +2286,95 @@ não fica só no relatório: ela viaja **dentro do JSON**, em `regras`.
 **E a proposta leva exemplo preenchido**, não só esquema: formato sem instância é
 convite a interpretar errado, e quem for implementar do outro lado não tem como
 perguntar.
+
+---
+
+## D98 · A ponte do Lab descartava uma medição do motor, e a frase que a justificava tinha vencido · 03/10/2026
+
+**Medido no LAB-22, antes de escrever o relatório que acusaria o vizinho:**
+
+| onde | o que está lá |
+|---|---|
+| `motor-testfit/src/lib/lab/relevo.ts` | `rampaDaVia` devolve **média e máxima**, desde o **T03 dele, de 14/09/2026** |
+| `motor-testfit/.../motor.ts:245` | preenche **as duas** em cada via do `Plano` |
+| `external-engines/testfit/adapter/src/volta.ts:131` | **`rampaMedia_pct: null`**, *"porque o motor não calcula greide"* |
+
+**A frase do meu adaptador era verdadeira no LAB-07 e deixou de ser no dia
+seguinte.** Ficou **três semanas**, e no LAB-18 eu a repassei ao chat como fato
+sobre o vizinho: *"o Parcelamento ainda escreve v1 e não reporta o pico"*.
+
+**Decisão:** a ponte lê `rampaMedia_pct` e `rampaMaxima_pct` do plano e escreve
+saída **v2**. E a perda declarada **muda de dono**: onde dizia *"o motor não
+calcula greide"*, agora diz *"sem cota na ENTRADA ele devolve `null`, que é a
+resposta certa; a falta é da gleba, não do motor"*.
+
+**Terceira vez que a disciplina do §6 me pega, e as três no mesmo ponto cego:**
+D75 (vértices em vez de amostras), D93/D94 (o mesmo erro em régua diferente) e
+esta. **Nas três eu estava a um passo de acusar o motor de outro repositório.**
+
+**O que isto ensina sobre a forma, e não só sobre o caso:** uma justificativa
+escrita num comentário **não se revalida sozinha**. Quando a razão de um `null`
+é *"o outro lado não faz"*, ela é uma afirmação **sobre código que muda** — e
+precisa de teste, não de comentário.
+
+---
+
+## D99 · Os dois motores que reportam rampa reportam errado, em direções opostas · 03/10/2026
+
+**Medido, com a mesma régua, nos dois:**
+
+| motor | método | passo efetivo | erro |
+|---|---|---|---|
+| **Symbios** (adaptador do Lab) | vértice a vértice | **0,47 m** de mediana | **superestima 2,5× a 7,9×** |
+| **Parcelamento** (motor) | `AMOSTRAS_POR_VIA = 12`, fixo | **83 a 157 m** | **subestima ~3×** |
+
+A célula do modelo de relevo é de **5 m**. Um mede **um décimo** dela; o outro,
+**17 a 31 vezes** ela.
+
+| gleba | Parcelamento declara | o Lab mede |
+|---|---:|---:|
+| `completo` | **16,84 %** | **51,54 %** |
+| `sintetico-50ha-ondulado` | 10,15 % | 18,79 % |
+
+**A regra que sai disso, e vale para os quatro:** o passo da rampa deve ser dado
+**em metros** e **não exceder a célula do modelo de relevo** — nem contagem fixa
+por via, que faz a média do morro, nem vértice a vértice, que mede a grade. E o
+eixo deve ser **caminhado por comprimento de arco**, atravessando vértices.
+
+**Por que isto é a melhor justificativa que a D92 podia receber:** **nenhum dos
+dois erros é visível sem uma segunda régua**, e os dois têm a cara de um número
+certo. Duas réguas lado a lado, nunca somadas, não é redundância — é a única
+forma de pegar este tipo de erro.
+
+---
+
+## D100 · `leRelevo` partida em duas: ler o relevo e desviar por ele não são a mesma coisa · 03/10/2026
+
+**Contexto:** ao consertar a declaração do Parcelamento, **três testes de
+falsificação do LAB-14 ficaram vermelhos** — e isso é o teste funcionando. O
+motor declarava `calculaGreide: false` e `leRelevo: false`; as duas eram verdade
+em 13/09 e **passaram a ser mentira em 14/09, porque o motor melhorou**. Ninguém
+mexeu na declaração: ela apodreceu no lugar.
+
+**O conflito que o campo único escondia:**
+
+| pergunta | o Parcelamento |
+|---|---|
+| o relevo muda a **SAÍDA**? | **sim** — mede a rampa de cada via |
+| o relevo muda o **TRAÇADO**? | **não** — LAB-08, lote a lote: 599 e 599, 1 391 e 1 391 |
+
+O doc do `leRelevo` perguntava *"o traçado muda?"* e o teste comparava **a saída
+inteira**. **Até aqui isso nunca importou**, porque nos motores de antes as duas
+coisas andavam juntas. O Parcelamento é o primeiro em que **não andam**, e com um
+campo só **uma das duas verdades teria de virar mentira**.
+
+**Decisão:** duas capacidades, **cada uma com o seu teste de falsificação**:
+
+- **`leRelevo`** — o relevo muda a SAÍDA, qualquer parte dela;
+- **`relevoMudaOTracado`** — o relevo muda a GEOMETRIA: eixos, quadras, lotes. O
+  teste compara a saída **descartando os campos de rampa**.
+
+**Por que a distinção importa ao urbanista, e não é burocracia:** um motor que
+**mede** a rampa e **não desvia** por ela **informa**, mas **não projeta com o
+terreno**. Quem escolhe motor precisa saber de qual dos dois se trata — e hoje,
+dos quatro, só o Symbios desvia.
