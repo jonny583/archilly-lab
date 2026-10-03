@@ -183,8 +183,20 @@ disparos de 15/09 sem o que fazer.
 motivo em `ONDE_PARAMOS` e **apagar o despertador**. O chat o recria com fila nova.
 
 **Estado agora:** a fila de 03/10 está **cumprida** (LAB-21, 24, 22, 23, 25, 26 e a
-1ª rodada do 27) e os achados novos estão todos *"proposto ao chat"*. **No próximo
-disparo, previsivelmente, não há item pronto.**
+1ª rodada do 27) e os achados novos estão todos *"proposto ao chat"*.
+
+## 🔴 A FILA DE 03/10 ESGOTOU — o despertador está DESLIGADO
+
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 03/10/2026, 11:07 UTC.** O
+disparo das 11:05 não achou item pronto, que é o caso da D62. O LAB-27 é contínuo e
+não havia mudança para carregar (D111).
+
+**Desligado, não apagado, e a diferença é declarada** (D112): apagar a rotina apaga
+as sessões que ela iniciou, e ela está presa à sessão onde o dia de trabalho está
+registrado. O efeito pedido é o mesmo — ele não acorda mais.
+
+**O que vem agora vem do chat.** Reabilitar este despertador preserva o histórico de
+disparos; apagá-lo e criar outro também serve.
 
 ### Duas notas de estado, para não refazer trabalho
 

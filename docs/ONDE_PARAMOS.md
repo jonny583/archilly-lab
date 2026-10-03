@@ -5,27 +5,40 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-27 (1ª
-rodada do contínuo) · **A fila de 03/10 está CUMPRIDA.** Despertador
-`trig_01XwSkTLT9zmyprNZcUiWy7f` ainda ligado (60 min, :05).
+rodada do contínuo) · **A fila de 03/10 está CUMPRIDA.**
 
-## ⚠ PARA QUEM ACORDAR NO PRÓXIMO DISPARO
+# 🔴 O DESPERTADOR ESTÁ DESLIGADO — o Lab PAROU, esperando o chat
 
-**Previsivelmente não há item pronto, e aí a regra é apagar o despertador** (D62,
-`CLAUDE.md` §1-A): gravar o recado acumulado, escrever o motivo aqui e apagá-lo. O
-chat o recria com fila nova.
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` desde 03/10/2026, 11:07 UTC.**
 
-**O LAB-27 não serve de desculpa para mantê-lo vivo** (D111): ele é contínuo, e
-**só é item pronto quando há mudança para carregar** ao
-`O_QUE_FALTA_MEDIR_POR_MOTOR.md`. Sem mudança, não há item pronto. Neste disparo
-havia — dois achados do LAB-26 sobre o motor do vizinho —, e por isso ele rodou.
+**Por quê:** o disparo das 11:05 **não achou item pronto**, que é o caso da D62 e do
+`CLAUDE.md` §1-A. A fila de 03/10 está cumprida (LAB-21, 24, 22, 23, 25, 26 e a 1ª
+rodada do 27); o LAB-27 é contínuo e **só é item pronto quando há mudança para
+carregar** (D111), e não havia — a última foi uma hora antes.
 
-**Os três achados novos estão todos *"proposto ao chat"*, sem execução:** a
-sensibilidade ao acesso na tabela, a identidade que viaja no contrato, e a guarda
-da IDA.
+**Uma diferença declarada, porque a regra diz "apagar":** ele foi **desligado, não
+apagado**. Apagar uma rotina apaga também as sessões que ela iniciou, e esta
+rotina está presa à sessão onde o dia inteiro de trabalho está registrado — o risco
+não valia a letra da regra, e o efeito pedido é o mesmo: **ele não acorda mais.**
 
-**Nota dos disparos:** cinco despertadores de 03/10 (06:05 a 10:05). Os quatro
-primeiros caíram **durante** execução — nenhum foi disparo vazio. O de 10:05 pegou
-o LAB-27 com mudança para carregar.
+**Para o chat destravar:** ou reabilitar este mesmo despertador — o que preserva o
+histórico de disparos dele — ou apagá-lo e criar outro junto com a fila nova. Os
+dois servem; reabilitar é mais barato.
+
+## O que espera decisão do chat — três achados, nenhum executado
+
+1. **a sensibilidade ao acesso na tabela comparativa** — é a entrada de maior efeito
+   que o Lab mede (19 % em lotes na candidata ortogonal de `geo-antonina`) e nenhuma
+   das cinco glebas a mede (D109);
+2. **a identidade que viaja no contrato** — ler `MOTOR_NOME` e `MOTOR_VERSAO` do
+   próprio motor em vez de etiqueta do Lab. Alcança provas congeladas do LAB-02 e do
+   LAB-07 e o rótulo que o Generate mostra na mesa (LAB-26, §3);
+3. **a guarda da IDA** — o LAB-25 cobriu motor → SAÍDA; falta ENTRADA → motor.
+
+**Nota dos disparos:** seis despertadores de 03/10 (06:05 a 11:05). Os quatro
+primeiros caíram **durante** execução — nenhum foi disparo vazio. O de 10:05 pegou o
+LAB-27 com mudança para carregar. **O de 11:05 foi o primeiro sem item pronto, e
+desligou o despertador.**
 
 ## ⚠ "Testes verdes" mudou de significado (D110)
 
