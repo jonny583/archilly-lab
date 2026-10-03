@@ -31,6 +31,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-23.md`](relatorios/LAB-23.md) | **A via desenhada como coluna vertebral**: provado por diferença que os quatro a ignoram, e uma reta geométrica cega para o relevo batendo os quatro no pior trecho do terreno real |
 | [`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](O_QUE_FALTA_MEDIR_POR_MOTOR.md) | **A lista, motor por motor, do que falta medir** (LAB-22) — escrita para o chat levar ao Generate e ao Laboratório de Parcelamento |
 | [`relatorios/LAB-22.md`](relatorios/LAB-22.md) | **A lacuna que era minha**: o Parcelamento mede a rampa desde 14/09 e a minha ponte jogava fora. Mais os dois motores que reportam errado em direções opostas, e a capacidade que envelheceu sozinha |
 | [`relatorios/LAB-24.md`](relatorios/LAB-24.md) | **O bloco de indicadores de terreno**: 30 % no lote reprova, 15 % na rua só avisa — e os dois indicadores ordenam os motores ao contrário. Mais o formato proposto ao Generate e ao Orçamento |

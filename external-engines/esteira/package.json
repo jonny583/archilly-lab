@@ -18,6 +18,7 @@
     "lab18": "bun ferramentas/lab18.ts",
     "lab21": "bun ferramentas/lab21.ts",
     "lab24": "bun ferramentas/lab24.ts",
+    "lab23": "bun ferramentas/lab23.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."

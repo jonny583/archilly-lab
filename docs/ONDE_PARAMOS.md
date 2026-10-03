@@ -4,82 +4,76 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-22
-**Estado:** **LAB-22 mesclado. O próximo é o LAB-23**, o último da fila de 03/10.
-Despertador `trig_01XwSkTLT9zmyprNZcUiWy7f` ligado (60 min, :05).
+**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-23
+**Estado:** **A fila de 03/10 acabou** (LAB-21, 24, 22, 23). **Fila nova mandada
+no mesmo dia: o próximo é o LAB-25.** Despertador
+`trig_01XwSkTLT9zmyprNZcUiWy7f` ligado (60 min, :05).
 
-## LEIA ISTO PRIMEIRO: a lacuna do LAB-18 era minha
-
-No LAB-18 eu reportei ao chat que *"o Laboratório de Parcelamento não reporta o
-pico de rampa e ainda escreve saída v1"*. **Era falso, e o defeito era meu**
-(D98):
-
-| onde | o que está lá |
-|---|---|
-| `motor-testfit/.../relevo.ts` | mede rampa **média e máxima** por via, desde o **T03 dele, de 14/09** |
-| `external-engines/testfit/adapter/src/volta.ts` | escrevia **`null`**, *"porque o motor não calcula greide"* |
-
-**A frase do meu adaptador era verdadeira no LAB-07 e venceu um dia depois.**
-Ficou três semanas. Consertado: a ponte lê as duas e escreve **v2**.
-
-**Terceira vez que o §6 me pega no mesmo ponto cego** — D75, D93/D94 e esta —, e
-**nas três eu estava a um passo de acusar o motor do vizinho.**
-
-## O que a correção revelou (D99)
-
-**Os dois motores que reportam rampa reportam errado, em direções opostas:**
-
-| motor | método | passo efetivo | erro |
-|---|---|---|---|
-| **Symbios** (adaptador do Lab) | vértice a vértice | **0,47 m** | **superestima 2,5× a 7,9×** |
-| **Parcelamento** (motor) | 12 amostras fixas por via | **83 a 157 m** | **subestima ~3×** |
-
-A célula do relevo é de **5 m**: um mede um décimo dela, o outro 17 a 31 vezes.
-Em `completo`, o Parcelamento declara **16,84 %** onde eu meço **51,54 %**.
-
-**Nenhum dos dois erros é visível sem uma segunda régua**, e os dois têm a cara
-de um número certo. É a melhor justificativa que a D92 podia receber.
-
-## A declaração de capacidade envelheceu sozinha, e o teste a pegou (D100)
-
-No instante em que a ponte passou a carregar a rampa, **três testes de
-falsificação do LAB-14 ficaram vermelhos** — e isso é o teste funcionando. O
-Parcelamento declarava `calculaGreide: false` e `leRelevo: false`; as duas eram
-verdade em 13/09 e viraram mentira em 14/09, **porque o motor melhorou**.
-
-**E `leRelevo` precisou ser partida em duas**, porque ele **lê** o relevo (mede a
-rampa) e **não desvia** por ele (traça idêntico — LAB-08, lote a lote). Com um
-campo só, uma das duas verdades teria de virar mentira. Agora são `leRelevo` e
-`relevoMudaOTracado`, cada uma com o seu teste; dos quatro motores, **só o
-Symbios desvia**.
-
-## A fila de 03/10
+## A fila nova de 03/10 — a guarda contra o próprio ponto cego
 
 | Prompt | Estado |
 |---|---|
-| **LAB-21** — a rampa por trecho e cruzamento | **concluído** |
-| **LAB-24** — o bloco de indicadores de terreno | **concluído** |
-| **LAB-22** — o que falta medir em cada motor | **concluído** |
-| **LAB-23** — via desenhada como coluna vertebral do traçado | **é o próximo** |
+| **LAB-25** — o teste que reprova quando a ponte descarta campo que o motor publica | **é o próximo** |
+| **LAB-26** — varrer as capacidades que o teste de falsificação ainda não cobre | aguardando o LAB-25 |
+| **LAB-27** — manter o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` e avisar quando mudar | contínuo |
 
-## O que vai ao chat — e é o entregável do LAB-22
+**Três notas de estado, para não refazer trabalho:**
 
-**[`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](O_QUE_FALTA_MEDIR_POR_MOTOR.md)**, escrito
-para eles lerem:
+1. **o LAB-26 já está metade feito** — `leRelevo` foi partida em duas no LAB-22
+   (D100), com teste para cada. Sobra a **varredura**;
+2. **a corda reta das vias curvas fica na V3, sem mexer** (decisão do chat em
+   03/10). O fato: a ponte publica cada via como a reta entre as duas pontas do
+   eixo (`volta.ts:125`);
+3. **a régua de forma** segue como decisão do chat até o Jonny confirmar, e não
+   trava nada.
 
-| motor | o que falta |
-|---|---|
-| **Parcelamento** | **uma coisa só:** trocar `AMOSTRAS_POR_VIA = 12` por **passo em metros**, não maior que a célula do relevo |
-| **Symbios** | nada para eles — era o adaptador do Lab, consertado |
-| **Generate · ortogonal** | **o cálculo.** Campo presente, `null` em tudo; o Lab mede **34,71 %** em `completo` |
-| **Generate · espinha** | idem, e **é a mais urgente**: **46,70 %**, e **2 179 m** de rua acima de 15 % contra 1 202 m da ortogonal |
+## O que o LAB-23 mediu
 
-Mais o formato de indicadores de terreno (LAB-24) e os dois achados do Geo (D88).
+**Provado por diferença** (D101): a mesma gleba com e sem a via desenhada, SAÍDA
+byte a byte — **idêntica nos oito casos**. Os quatro ignoram, e a declaração
+deles é honesta. **O teste fica**, e morde se algum passar a respeitar.
+
+**A resposta depende da gleba** (D102):
+
+| gleba | a linha desenhada | os quatro motores |
+|---|---|---|
+| `antonina-com-via` (real) | pior trecho **12,62 %**, **zero** m acima de 15 % | 17,09 % a 27,73 % |
+| `ensaio-com-via` (sintético) | pior trecho **30,91 %** | 17,56 % a 22,90 % |
+
+**As duas pontas estão em teste**, para a leitura não sobreviver à medição.
+
+**A ressalva que muda a leitura** (D103): **quem desenhou a linha fui eu**, pela
+geometria da gleba (D73). Então não é *"a mão vence a máquina"* — é um resultado
+**sobre os motores**: uma reta **cega para o relevo** bate os quatro no pior
+trecho do terreno real. **Falta uma via desenhada por pessoa**, numa gleba real —
+proposto ao chat.
+
+## O ponto cego que o LAB-25 vai guardar
+
+O §6 me pegou **três vezes no mesmo lugar** — e as três no mesmo mecanismo:
+
+| quando | o que eu ia atribuir ao vizinho | o que era |
+|---|---|---|
+| **D75** (LAB-17) | 3 de 4 vias desenhadas no balde errado | régua minha, olhando vértice |
+| **D93/D94** (LAB-21) | pico de rampa de 161 % | régua minha, mesmo erro de forma |
+| **D98** (LAB-22) | *"o Parcelamento não reporta o pico"* | **a minha ponte descartava o campo** |
+
+**A D98 é a mais perigosa das três**, porque a justificativa estava **escrita num
+comentário** — *"o motor não calcula greide"* — e comentário **não se revalida
+sozinho**. Quando a razão de um `null` é *"o outro lado não faz"*, ela é uma
+afirmação **sobre código que muda**, e precisa de teste.
 
 ## O que depende do Jonny — **um item, e não trava**
 
-Confirmar a **régua de forma** (D79). A pergunta da rampa de rua ele já
-respondeu (D95).
+Confirmar a **régua de forma** (D79).
+
+## O que vai ao chat
+
+1. **[`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](O_QUE_FALTA_MEDIR_POR_MOTOR.md)** — o
+   chat repassa ao Generate e ao Testfit; o LAB-27 mantém e avisa quando mudar;
+2. **o formato de indicadores de terreno** (LAB-24);
+3. **os dois achados do Geo** (D88): nascente e eixo do curso sem dado;
+4. **proposto:** uma via desenhada **por pessoa**, numa gleba real (D103).
 
 # A fila de 20/09 — a entrega e as duas correções · 20/09/2026
 

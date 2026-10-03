@@ -2378,3 +2378,74 @@ campo só **uma das duas verdades teria de virar mentira**.
 **mede** a rampa e **não desvia** por ela **informa**, mas **não projeta com o
 terreno**. Quem escolhe motor precisa saber de qual dos dois se trata — e hoje,
 dos quatro, só o Symbios desvia.
+
+---
+
+## D101 · Declaração de capacidade se prova por DIFERENÇA, não por palavra · 03/10/2026
+
+**Contexto:** o LAB-17 mediu que os quatro motores **declaram**
+`respeitaViaDesenhada: false`. Declaração é promessa.
+
+**Decisão:** a prova é **rodar a mesma gleba com e sem a via desenhada no
+arquivo e comparar a SAÍDA byte a byte**. Medido: **idêntica nos oito casos** —
+duas glebas, quatro motores. A declaração dos quatro é honesta.
+
+**Por que o teste fica, e é o que importa:** se algum dia um motor passar a
+respeitar a via, **este teste morde antes de qualquer relatório sair errado**. É
+o mesmo princípio da D100 — a declaração que apodreceu no lugar só foi pega
+porque havia experimento, não porque alguém releu o comentário.
+
+**E o controle é cirúrgico, também testado:** tirar as vias desenhadas **não
+tira a testada de frente** de `antonina-com-via`. Ela não é via desenhada (D64),
+e apagá-la faria a comparação medir duas coisas ao mesmo tempo.
+
+---
+
+## D102 · Quando o resultado depende da gleba, as DUAS pontas vão para o teste · 03/10/2026
+
+**Medido no LAB-23**, comparando a linha desenhada com as vias de cada motor pela
+mesma régua de rampa:
+
+| gleba | a linha desenhada | os quatro motores |
+|---|---|---|
+| `antonina-com-via` (real) | pior trecho **12,62 %**, **zero** metros acima de 15 % | 17,09 % a 27,73 % |
+| `ensaio-com-via` (sintético) | pior trecho **30,91 %** | 17,56 % a 22,90 % |
+
+**Ela ganha numa gleba e perde na outra.**
+
+**Decisão:** **as duas pontas vão para teste**, não só a que confirma a leitura
+do relatório. Um teste que fixasse só *"a linha desenhada é melhor"* deixaria a
+conclusão sobreviver a uma medição que a contradiz — e a conclusão é o que o
+leitor leva.
+
+**É a forma geral do que a D90 fez num caso particular:** teste guarda o que foi
+medido, inclusive o que incomoda. Resultado que depende do caso **tem de ter o
+caso no teste.**
+
+---
+
+## D103 · A linha "desenhada à mão" das fixtures não é de urbanista, e a conclusão muda com isso · 03/10/2026
+
+**Contexto:** o LAB-23 mediu que, em `antonina-com-via`, a linha desenhada fica
+melhor assentada no terreno que as vias dos quatro motores. A leitura tentadora é
+*"a mão do urbanista vence a máquina"*.
+
+**Ela está errada**, e a razão está na **D73**: o traçado das duas glebas de
+referência é **geométrico** — principal pelo meio do lado maior da caixa,
+secundárias perpendiculares — e existe para ser **imposição conhecida**, não bom
+partido. **Quem o desenhou fui eu.**
+
+**Decisão:** a conclusão fica escrita na forma modesta e verdadeira:
+
+> Em `antonina-com-via`, **uma reta escolhida pela geometria da gleba — sem olhar
+> o relevo** — ficou melhor assentada que as vias dos quatro motores.
+
+**E assim ela vale mais, não menos:** é um resultado **sobre os motores**. Se uma
+reta geométrica cega bate os quatro no pior trecho, **os quatro não usam o relevo
+para escolher por onde a rua passa** — o que a D100 mediu por outro caminho, ao
+achar que **só o Symbios desvia pelo relevo**, e mesmo ele perde aqui.
+
+**O que falta para fechar a pergunta de verdade:** uma via desenhada **por
+pessoa**, numa gleba real. Vai à fila como proposto ao chat — **o Lab não inventa
+partido urbanístico** (CLAUDE.md §4), e inventar um "bom traçado" para depois
+elogiá-lo seria inventar duas vezes.
