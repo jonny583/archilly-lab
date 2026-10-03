@@ -2733,3 +2733,128 @@ tem **duas** saídas e não uma:
 despertador sem trabalho **pare de queimar disparo** (4 de 7 em 15/09). Desligar
 cumpre isso. Apagar cumpre isso **e mais uma coisa que ninguém pediu** — destruir o
 registro. Entre cumprir a regra e cumprir a regra mais um estrago, a regra ganha.
+
+---
+
+## D113 · A sensibilidade ao acesso é medida em SEIS pontos, por arco, e a amplitude é um PISO · 03/10/2026
+
+O LAB-26 achou de raspão que mover o ponto de acesso muda o resultado, e eu relatei
+ao chat **19 %** — a diferença entre **dois** pontos escolhidos por serem os vértices
+mais distantes. O LAB-28 mediu com método, e o número era muito maior: **108,26 %**
+na candidata espinha do Generate, em `completo`.
+
+**Dois pontos subestimam porque são dois.** A escolha "os vértices mais distantes"
+não tem nada a ver com rendimento — é a maior distância geométrica, não o maior
+contraste de resultado.
+
+**Decisão, com os três pedaços que a tornam honesta:**
+
+1. **seis pontos, igualmente espaçados por COMPRIMENTO DE ARCO.** Por arco e não
+   por vértice: um anel de levantamento tem os vértices amontoados onde a divisa é
+   recortada, e `anel[i * k]` poria quase todas as amostras no mesmo canto. É o
+   terceiro lugar em que esse erro de forma aparece (D75, D93), e aqui ele entrou
+   no teste antes de entrar na medição;
+2. **seis, e não trinta, por custo declarado:** cada posição é uma rodada completa
+   do motor **mais** o Validator e o Judge do Generate. Trinta posições poriam a
+   tabela em meia hora e ninguém a regeraria;
+3. **a amplitude é um PISO, e a ressalva viaja no objeto** (`amplitudeEhPiso: true`),
+   não só na prosa: seis pontos não varrem o perímetro, e o melhor e o pior ponto
+   reais podem cair entre duas amostras. A diferença verdadeira é **igual ou
+   maior** que a publicada. O D82 puniu número cravado em prosa; ressalva só em
+   prosa é o mesmo defeito do outro lado.
+
+**`amplitudePct` é sobre o MÍNIMO**, de propósito: a frase que o número responde é
+*"o melhor ponto rende quanto acima do pior"*. Sobre a média daria um número menor e
+uma frase que ninguém faz.
+
+---
+
+## D114 · A manchete do LAB-28 estava errada, e a medição a derrubou antes de a página sair · 03/10/2026
+
+A frase que eu ia publicar era: **"a entrada da rua pesa mais que a escolha do
+motor"**. Medido nas cinco glebas, ela é **falsa como regra geral**:
+
+| gleba | maior amplitude do acesso | entre os 3 motores de lote | o que pesa mais |
+|---|---:|---:|---|
+| `completo` | **+108,26 %** | +29,12 % | **a entrada** |
+| `geo-antonina` | **+44,21 %** | +19,55 % | **a entrada** |
+| `ensaio-47ha` | +53,16 % | +62,60 % | o programa |
+| `sintetico-10ha-plano` | +27,68 % | +44,72 % | o programa |
+| `sintetico-50ha-ondulado` | +16,86 % | +95,68 % | o programa |
+
+**Duas de cinco.** E a primeira versão da conta era pior ainda: comparava a
+amplitude com a diferença entre **os quatro** motores, o que dava **uma** de cinco —
+porque incluir o Symbios infla a diferença até **355 %**, e essa não é uma escolha
+que alguém faça entre dois loteamentos: ele entrega **quadra**, e os lotes dele vêm
+da subdivisão do Lab (D50). É a distância entre duas **etapas**, não entre duas
+opções.
+
+**Decisão:** publicar **as duas contas**, com a razão de cada uma, e a manchete que
+**não** depende de comparação:
+
+> O **mesmo** programa, no **mesmo** terreno, com as **mesmas** regras, varia até
+> **+108 %** em lotes só mudando por onde a rua entra.
+
+Essa é incondicional e é a que serve a quem compra terreno. A outra — *"pesa mais
+que o programa"* — sai com o número de 2 em 5 e sem adjetivo.
+
+**Por que isto é decisão e não revisão de texto:** a manchete boa era *minha*, não
+da medição, e a página do Jonny é lida por quem decide compra. **O ponto cego da §6
+tem uma irmã**: ali eu ia atribuir ao vizinho um defeito meu; aqui eu ia atribuir à
+medição uma conclusão minha. As duas se consertam do mesmo jeito — medindo antes.
+
+---
+
+## D115 · A coluna do acesso entra na tabela, e com ela a tabela admite o que ela é · 03/10/2026
+
+Com o acesso fixo, a tabela comparativa responde *"qual motor é melhor NESTE ponto
+de entrada"* e se apresenta como *"qual motor é melhor"*. Medido, isso não é detalhe:
+em `completo`, a candidata espinha vai de **860 a 1 791 lotes** sem que nada além da
+entrada mude — mais que o dobro.
+
+**Decisão:** a coluna *"se a entrada da rua mudar"* entra na tabela comparativa e na
+página do Jonny, em lotes e em área vendável, com **três cuidados escritos na página**
+em linguagem de leigo:
+
+1. **o melhor ponto pode não existir na vida real** — o Lab põe a entrada em seis
+   pontos **sem perguntar se há rua ali fora**. A coluna continua útil: ela mostra
+   quanto se perde por não poder usá-lo;
+2. **a variação é o mínimo, não o máximo** (D113);
+3. **o Lab não escolhe a entrada** — depende da rua de fora, da faixa de domínio e
+   da licença. É decisão de projeto, e é do Jonny (CLAUDE.md §4).
+
+**E o zero sai por extenso.** O Symbios dá amplitude **0 %** nas cinco glebas, e a
+página escreve *"não muda nada"*: `+0 %` numa coluna de variação lê-se como erro de
+medição, e aqui é medição — ele não recebe ponto de acesso, e isso já estava
+declarado na ida (D109 confirmou por diferença).
+
+---
+
+## D116 · Duas réguas para a mesma grandeza, cometido por mim, na minha própria grandeza · 03/10/2026
+
+O confronto do LAB-28 — *"a amplitude do acesso é maior que a diferença entre
+programas?"* — nasceu **calculado em dois lugares**: na ferramenta `lab28.ts` e, de
+novo, no gerador da página do Jonny. Os dois usavam referências diferentes para o
+rendimento de cada motor:
+
+| onde | referência quando a gleba NÃO declara acesso |
+|---|---|
+| `lab28.ts` | a **primeira posição amostrada** |
+| `lab20.ts` (a página) | o número da **linha da tabela** — a gleba rodando como veio, sem acesso nenhum |
+
+**Resultado:** `completo` saía com **+29,12 %** de diferença entre programas na
+ferramenta e **+70 %** na página. Mesma gleba, mesma pergunta, dois números — e os
+dois publicados, em arquivos que o Jonny lê lado a lado.
+
+**É exatamente o defeito que o D20 proíbe no Validator**, e eu o cometi numa grandeza
+**minha**, dois dias depois de escrever a guarda do LAB-25 contra a mesma família de
+erro. O que o pegou foi ler a página gerada antes de mesclar — não um teste.
+
+**Decisão:** a fórmula mora na régua. `referenciaDe()` e `amplitudePctDe()` ficam em
+`src/acesso.ts`; `lab19.ts` calcula o confronto **uma vez** e o grava em
+`tabela.json` (`confrontoDoAcesso`); a página **lê** e não recalcula; `lab28.ts`
+importa as mesmas duas funções.
+
+**A regra que isto deixa, e que vale além do acesso:** quando um número aparece em
+dois arquivos de saída, ele tem de ser **calculado uma vez e copiado**, nunca
+calculado duas. Página que recalcula é página que vai divergir — não "se", "quando".

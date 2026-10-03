@@ -1,0 +1,259 @@
+/**
+ * A SENSIBILIDADE AO ACESSO — quanto o resultado depende de ONDE entra a rua.
+ * (LAB-28)
+ *
+ * # Por que esta régua existe
+ *
+ * O LAB-26 foi varrer as capacidades declaradas da porta e achou que
+ * `respeitaAcesso` **não tinha experimento nenhum** — e que era justamente nele
+ * que a declaração estava falsa (D109). Ao escrever o experimento, apareceu um
+ * número que não era o assunto do prompt e é maior que ele:
+ *
+ * > Mover o ponto de acesso muda o resultado **mais do que qualquer outra
+ * > entrada que o Lab mede**. Na candidata ortogonal do Generate, em
+ * > `geo-antonina`, de **1 723 a 1 390 lotes** — 19 %.
+ *
+ * E as cinco glebas da tabela declaram **um** acesso cada, sem ninguém medir
+ * quanto o resultado depende dele. Uma tabela que compara motores com o acesso
+ * fixo responde *"qual motor é melhor NESTE ponto de entrada"* — e apresenta isso
+ * como *"qual motor é melhor"*.
+ *
+ * # Como se mede, e o que o número é
+ *
+ * O acesso é posto em **{@link POSICOES_DE_ACESSO} pontos igualmente espaçados
+ * por comprimento de arco** no perímetro da gleba, e o motor roda em cada um. O
+ * que sai é a **amplitude**: quanto o melhor ponto rende acima do pior, em lotes
+ * e em área vendável.
+ *
+ * **A amplitude medida é um PISO, não o valor verdadeiro.** Seis pontos não
+ * varrem o perímetro: o melhor e o pior ponto reais podem cair entre duas
+ * amostras, e aí a sensibilidade de verdade é **maior** que a publicada. Dizer
+ * "amplitude de 19 %" sem dizer isso seria vender precisão que a amostra não tem.
+ *
+ * # Por que seis, e não trinta
+ *
+ * Cada posição é uma rodada completa do motor **mais** o Validator e o Judge do
+ * Generate — a régua é a do dono, sempre (D20). Em `geo-antonina`, 141,8 ha, isso
+ * é da ordem de 17 s por posição somando os quatro motores. Trinta posições
+ * poriam a tabela em meia hora de execução e ninguém a regeraria; seis cabem, e a
+ * ressalva do piso fica escrita em vez de o número fingir ser exato.
+ *
+ * # O que esta régua NÃO faz
+ *
+ * - **Não escolhe o acesso.** Onde a entrada pode ficar é decisão de projeto e de
+ *   licença — dá na rua que existe, respeita a faixa de domínio, atravessa ou não
+ *   o curso d'água. O Lab mede a consequência; a escolha é do Jonny (CLAUDE.md §4).
+ * - **Não diz que o melhor ponto é viável.** O ponto de maior rendimento pode cair
+ *   onde não há rua nenhuma do lado de fora. Por isso a medição publica também o
+ *   **acesso declarado na gleba**, que é o único que alguém afirmou existir.
+ */
+import type { P } from "./motores/comum.ts";
+import type { EntradaMinima } from "./gleba-v1.ts";
+
+/**
+ * Quantos pontos de acesso entram na varredura.
+ *
+ * Seis, por custo — ver o cabeçalho. O número é declarado e viaja na prova, para
+ * que ninguém compare uma amplitude de seis pontos com outra de trinta.
+ */
+export const POSICOES_DE_ACESSO = 6;
+
+/** Perímetro do anel, em metros. */
+function perimetro(anel: readonly P[]): number {
+  let s = 0;
+  for (let i = 0; i < anel.length; i++) {
+    const a = anel[i]!;
+    const b = anel[(i + 1) % anel.length]!;
+    s += Math.hypot(b.x - a.x, b.y - a.y);
+  }
+  return s;
+}
+
+/**
+ * `n` pontos igualmente espaçados **por comprimento de arco** no perímetro.
+ *
+ * Por arco, e não por vértice: um anel de levantamento tem os vértices
+ * amontoados onde a divisa é recortada e esparsos onde ela é reta, e tomar
+ * `anel[i * k]` poria quase todas as amostras no mesmo canto do terreno. É o
+ * mesmo erro de forma que o D75 e o D93 pegaram, nas duas vezes em que uma régua
+ * minha mediu vértice onde devia medir linha.
+ */
+export function posicoesDeAcesso(anel: readonly P[], n = POSICOES_DE_ACESSO): P[] {
+  const total = perimetro(anel);
+  if (anel.length < 3 || total <= 0 || n < 1) return [];
+  const passo = total / n;
+  const saida: P[] = [];
+  let alvo = 0;
+  let andado = 0;
+  for (let i = 0; i < anel.length && saida.length < n; i++) {
+    const a = anel[i]!;
+    const b = anel[(i + 1) % anel.length]!;
+    const d = Math.hypot(b.x - a.x, b.y - a.y);
+    while (saida.length < n && alvo <= andado + d) {
+      const t = d === 0 ? 0 : (alvo - andado) / d;
+      saida.push({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
+      alvo += passo;
+    }
+    andado += d;
+  }
+  return saida;
+}
+
+/**
+ * A mesma gleba com o acesso num ponto dado.
+ *
+ * Substitui a lista inteira em vez de acrescentar: dois acessos é outra pergunta,
+ * e o adaptador do Laboratório de Parcelamento já declara que descarta os demais.
+ */
+export function comAcessoEm(e: EntradaMinima, ponto: P): EntradaMinima {
+  return {
+    ...e,
+    acessos: [
+      { id: "A1", nome: "Acesso principal", papel: "principal", ponto, segmento: null, sugerido: false },
+    ],
+  };
+}
+
+/** O que um motor rende num ponto de acesso. `null` = o esquema recusou. */
+export interface RendimentoNoAcesso {
+  ponto: P;
+  lotes: number | null;
+  areaVendavel_m2: number | null;
+}
+
+/** A amplitude de uma grandeza entre as posições. */
+export interface Amplitude {
+  minimo: number | null;
+  maximo: number | null;
+  mediana: number | null;
+  /** `maximo − minimo`. */
+  amplitude: number | null;
+  /** A amplitude como porcentagem do MÍNIMO: "o melhor ponto rende X % acima do pior". */
+  amplitudePct: number | null;
+}
+
+export interface SensibilidadeAoAcesso {
+  /** Quantas posições entraram, e quantas o esquema aceitou. */
+  posicoes: number;
+  posicoesMedidas: number;
+  /** A ressalva, viajando com o número: a amplitude é um piso. */
+  amplitudeEhPiso: true;
+  lotes: Amplitude;
+  areaVendavel_m2: Amplitude;
+  /** O ponto de maior e de menor rendimento em LOTES, entre os amostrados. */
+  melhorPonto: P | null;
+  piorPonto: P | null;
+  /**
+   * O que o acesso **declarado na gleba** rende — `null` quando a gleba não
+   * declara nenhum.
+   *
+   * É o único ponto que alguém afirmou existir, e por isso ele não se mistura com
+   * os amostrados: os seis são hipóteses do Lab; este é dado.
+   */
+  acessoDeclarado: RendimentoNoAcesso | null;
+  /** Cada posição, crua, para a prova ser auditável. */
+  porPosicao: RendimentoNoAcesso[];
+}
+
+const mediana = (v: number[]): number | null => {
+  if (!v.length) return null;
+  const o = [...v].sort((a, b) => a - b);
+  const m = Math.floor(o.length / 2);
+  return o.length % 2 ? o[m]! : (o[m - 1]! + o[m]!) / 2;
+};
+
+function amplitudeDe(valores: (number | null)[], casas: number): Amplitude {
+  const v = valores.filter((x): x is number => typeof x === "number");
+  if (!v.length) {
+    return { minimo: null, maximo: null, mediana: null, amplitude: null, amplitudePct: null };
+  }
+  const n = (x: number) => Number(x.toFixed(casas));
+  const minimo = Math.min(...v);
+  const maximo = Math.max(...v);
+  return {
+    minimo: n(minimo),
+    maximo: n(maximo),
+    mediana: n(mediana(v)!),
+    amplitude: n(maximo - minimo),
+    // Sobre o MÍNIMO, de propósito: a frase que o número responde é "o melhor
+    // ponto rende quanto acima do pior". Sobre a média, a mesma diferença daria
+    // um número menor e uma frase que ninguém faz.
+    amplitudePct: minimo > 0 ? Number(((100 * (maximo - minimo)) / minimo).toFixed(2)) : null,
+  };
+}
+
+/**
+ * Mede a sensibilidade ao acesso de UM motor numa gleba.
+ *
+ * @param medir roda o motor e devolve o que interessa. Fica fora de propósito:
+ *   quem julga é o Validator e o Judge do Generate, e esta régua não os conhece.
+ */
+export function sensibilidadeAoAcesso(
+  entrada: EntradaMinima,
+  medir: (e: EntradaMinima) => { lotes: number | null; areaVendavel_m2: number | null },
+  n = POSICOES_DE_ACESSO,
+): SensibilidadeAoAcesso {
+  const pontos = posicoesDeAcesso(entrada.gleba.anel as P[], n);
+  const porPosicao: RendimentoNoAcesso[] = pontos.map((ponto) => ({
+    ponto,
+    ...medir(comAcessoEm(entrada, ponto)),
+  }));
+
+  const comLote = porPosicao.filter((r) => r.lotes != null);
+  const melhor = comLote.reduce<RendimentoNoAcesso | null>(
+    (a, r) => (a == null || r.lotes! > a.lotes! ? r : a),
+    null,
+  );
+  const pior = comLote.reduce<RendimentoNoAcesso | null>(
+    (a, r) => (a == null || r.lotes! < a.lotes! ? r : a),
+    null,
+  );
+
+  const declarado = (entrada.acessos ?? []) as { ponto?: P }[];
+  const pontoDeclarado = declarado[0]?.ponto ?? null;
+
+  return {
+    posicoes: pontos.length,
+    posicoesMedidas: comLote.length,
+    amplitudeEhPiso: true,
+    lotes: amplitudeDe(porPosicao.map((r) => r.lotes), 0),
+    areaVendavel_m2: amplitudeDe(porPosicao.map((r) => r.areaVendavel_m2), 2),
+    melhorPonto: melhor?.ponto ?? null,
+    piorPonto: pior?.ponto ?? null,
+    acessoDeclarado: pontoDeclarado
+      ? { ponto: pontoDeclarado, ...medir(entrada) }
+      : null,
+    porPosicao,
+  };
+}
+
+/**
+ * A referência de uma sensibilidade: **o rendimento no acesso que a gleba
+ * declara**, ou, quando ela não declara nenhum, **na primeira posição amostrada**.
+ *
+ * Esta função existe porque a primeira versão do LAB-28 tinha **duas** respostas
+ * para ela: a ferramenta caía na primeira posição amostrada e a página do Jonny
+ * caía no número da linha da tabela (que é a gleba rodando como ela veio, sem
+ * acesso nenhum nas três sintéticas). Deu dois confrontos diferentes para a mesma
+ * gleba — `completo` com +29 % num lugar e +70 % no outro.
+ *
+ * **É exatamente o defeito que o D20 proíbe no Validator**, cometido por mim numa
+ * grandeza minha. Agora a fórmula mora aqui, e quem a quiser importa.
+ */
+export function referenciaDe(s: SensibilidadeAoAcesso): number | null {
+  return s.acessoDeclarado?.lotes ?? s.porPosicao[0]?.lotes ?? null;
+}
+
+/**
+ * A amplitude de um conjunto de valores, em porcentagem **do mínimo**.
+ *
+ * A mesma conta de `amplitudePct`, pela mesma razão: a frase que o número responde
+ * é *"o maior é quanto acima do menor"*.
+ */
+export function amplitudePctDe(valores: readonly (number | null)[]): number {
+  const v = valores.filter((x): x is number => typeof x === "number");
+  if (v.length < 2) return 0;
+  const min = Math.min(...v);
+  if (min <= 0) return 0;
+  return Number(((100 * (Math.max(...v) - min)) / min).toFixed(2));
+}

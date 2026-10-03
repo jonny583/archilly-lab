@@ -31,6 +31,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-28.md`](relatorios/LAB-28.md) | **A sensibilidade ao acesso** (LAB-28): o mesmo programa, no mesmo terreno, varia **até +108 % em lotes** só mudando por onde a rua entra — e a manchete *"a entrada pesa mais que o motor"*, que vale em 2 das 5 glebas e não em todas (D113 a D115) |
 | [`relatorios/LAB-27.md`](relatorios/LAB-27.md) | **O documento vivo, 1ª atualização** (LAB-27): os dois achados do LAB-26 que são sobre o motor do vizinho — a ficha do Lab dizendo para fora que ele ignora o acesso, e a identidade que ele publica e a ponte ignora — mais a regra do contínuo (D111) |
 | [`relatorios/LAB-26.md`](relatorios/LAB-26.md) | **A varredura das capacidades** (LAB-26): três campos sem experimento, a declaração falsa num deles (`respeitaAcesso`, 703 → 603 lotes) — e a suíte do pacote `testfit` **vermelha há duas semanas**, calando as travas do D98 e do D104 (D108 a D110) |
 | [`relatorios/LAB-25.md`](relatorios/LAB-25.md) | **A guarda que impede a quarta vez** (LAB-25): o teste que reprova quando a ponte do Lab descarta campo que o motor publica — e que achou a quarta vez na primeira rodada, em 110 de 110 lotes (D104 a D107) |
@@ -92,6 +93,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 | onde | o que tem |
 |---|---|
 | [`../external-engines/symbios/`](../external-engines/symbios/) | `upstream/` intocado, a ponte Rust → WASM, o adaptador do LAB-01, o recorte do LAB-02 e o **recortador de polígono** do LAB-05 (D57) |
+| [`../external-engines/esteira/src/acesso.ts`](../external-engines/esteira/src/acesso.ts) | **A régua do acesso** (LAB-28): seis pontos por **comprimento de arco** no perímetro, a amplitude sobre o mínimo, e a ressalva de que ela é um **piso** viajando no próprio objeto (D113) |
 | [`../external-engines/conferir.sh`](../external-engines/conferir.sh) | **O que "testes verdes" quer dizer** (LAB-26): `typecheck`, `lint` e `test` nos **dois** pacotes. Rodando só um, a suíte do `testfit` ficou vermelha 14 de 14 por duas semanas (D110) |
 | [`../external-engines/esteira/src/porta/experimentos.ts`](../external-engines/esteira/src/porta/experimentos.ts) | **Um experimento por capacidade** (LAB-26): a cobertura de cada campo de `Capacidades`, com o nome do teste que o desmente — e dois testes de varredura que exigem cobertura e existência (D108) |
 | [`../external-engines/esteira/src/guarda-da-ponte.ts`](../external-engines/esteira/src/guarda-da-ponte.ts) | **A guarda da ponte** (LAB-25): três regras conferidas contra o motor rodando — `campo-vazio` e `campo-novo` reprovam, `mapa-velho` avisa. A primeira **não acredita no inventário**, casa por nome (D105) |

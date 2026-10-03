@@ -185,7 +185,57 @@ motivo em `ONDE_PARAMOS` e **apagar o despertador**. O chat o recria com fila no
 **Estado agora:** a fila de 03/10 está **cumprida** (LAB-21, 24, 22, 23, 25, 26 e a
 1ª rodada do 27) e os achados novos estão todos *"proposto ao chat"*.
 
-## 🔴 A FILA DE 03/10 ESGOTOU — o despertador está DESLIGADO
+## A fila de 03/10, terceira parte — o acesso, a identidade e a guarda que falta
+
+Mandada pelo chat em 03/10/2026, com o **despertador reabilitado** (`enabled: true`
+às 13:58 UTC). O chat registrou que **a decisão de desligar em vez de apagar foi
+melhor que a letra da regra** (D112), e mandou reabilitar em vez de recriar.
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-28** | **A sensibilidade ao acesso** — o mais importante: medir nas cinco glebas e nos quatro motores quanto muda em **lotes** e em **área vendável**, pôr na tabela e na página do Jonny, e dizer **em uma frase o que significa para quem compra terreno** | ✅ **concluído em 03/10/2026** | nenhuma |
+| **LAB-29** | **A identidade que viaja no contrato** — ler `MOTOR_NOME` e `MOTOR_VERSAO` do próprio motor, alcançando as provas congeladas do LAB-02 e do LAB-07 e o rótulo na mesa do Generate | ⬜ **é o próximo** | LAB-28 mesclado ✅ |
+| **LAB-30** | **A guarda da IDA** (do LAB-25), *"se ainda não estiver fechada"* — e ela **não está**: a guarda do LAB-25 cobre motor → SAÍDA, e o sentido ENTRADA → motor não tem nada | ⬜ | LAB-29 |
+
+### O que o chat manteve, sem mudança
+
+- **a régua de forma** (útil < 85 % / < 70 %) segue **decisão do chat** até o Jonny
+  confirmar — o único item na lista dele, e não trava nada;
+- **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-28 · A sensibilidade ao acesso — ✅ concluído em 03/10/2026
+
+**Entregue:** [`../relatorios/LAB-28.md`](../relatorios/LAB-28.md),
+`docs/provas/LAB-28/acesso.json`, a coluna na
+[`../COMPARACAO_DOS_MOTORES.md`](../COMPARACAO_DOS_MOTORES.md) e o bloco `acesso` por
+motor na `provas/LAB-19/tabela.json`.
+
+**O número que eu havia dado ao chat era pequeno:** 19 %, de dois pontos. Com seis
+pontos por comprimento de arco, a candidata espinha do Generate vai de **860 a 1 791
+lotes** em `completo` — **+108,3 %**, com a área vendável indo de 30,96 a 64,67 ha. O
+Symbios dá **0 %** nas cinco, e isso é medição (D113).
+
+**A manchete caiu, e isso é o principal** (D114): *"a entrada pesa mais que a escolha
+do motor"* vale em **2 das 5** glebas, não em todas — e a primeira versão da conta
+dava 1 de 5, porque incluía o Symbios, que entrega quadra. **As duas contas estão
+publicadas.** O que fica é a frase que não compara nada: *o mesmo programa, no mesmo
+terreno, varia até +108 % só mudando por onde a rua entra.*
+
+**Na página, três cuidados em linguagem de leigo** (D115): o melhor ponto pode não
+existir na vida real; a variação medida é o mínimo e não o máximo; e **o Lab não
+escolhe a entrada** — isso é decisão do Jonny.
+
+### Uma nota sobre o texto guardado no despertador
+
+O prompt que o despertador dispara ainda nomeia **a fila de 03/10 na primeira
+versão** (LAB-21, 22, 23). Não foi reescrito, porque o chat mandou reabilitar e não
+reescrever — e **o passo 1 do próprio prompt manda ler esta fila primeiro**, que é a
+oficial (CLAUDE.md §1-A). Quem acordar: **vale o que está aqui**, não a lista do
+despertador.
+
+---
+
+## 🔴 A fila de 03/10 (segunda parte) esgotou — e o despertador foi RELIGADO depois
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 03/10/2026, 11:07 UTC.** O
 disparo das 11:05 não achou item pronto, que é o caso da D62. O LAB-27 é contínuo e
@@ -195,8 +245,9 @@ não havia mudança para carregar (D111).
 as sessões que ela iniciou, e ela está presa à sessão onde o dia de trabalho está
 registrado. O efeito pedido é o mesmo — ele não acorda mais.
 
-**O que vem agora vem do chat.** Reabilitar este despertador preserva o histórico de
-disparos; apagá-lo e criar outro também serve.
+**O que vem agora vem do chat** — e veio: a terceira parte da fila, acima. O
+despertador foi **reabilitado** às 13:58 UTC, preservando o histórico de disparos,
+que era a saída mais barata das duas.
 
 ### Duas notas de estado, para não refazer trabalho
 

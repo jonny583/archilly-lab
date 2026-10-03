@@ -24,7 +24,60 @@ fácil por ser de fora.
 | **Forma dos lotes** | ver a seção *A forma dos lotes*, logo abaixo |
 | **Rampa média** | a inclinação média das ruas, pesada pelo comprimento de cada trecho |
 | **Rampa no pior trecho** | a inclinação do **pior** pedaço de rua do projeto, e quantos metros de rua passam de 15 % |
+| **Se a entrada da rua mudar** | ver a seção *A entrada da rua*, logo abaixo. É a coluna de maior efeito da tabela |
 | **Tempo** | quanto o motor levou para desenhar |
+
+## A entrada da rua: a mesma coisa, desenhada duas vezes, dá até o dobro
+
+**Cada terreno foi desenhado seis vezes por programa, mudando só UMA coisa: por
+onde a rua entra.** Mesmo terreno, mesmo programa, mesmas regras, mesma conta de
+lotes feita pelo mesmo conferente. E o resultado muda assim:
+
+**108 % mais lotes.** O maior caso medido:
+
+- **terreno:** Terreno de teste completo — com áreas de preservação
+- **programa:** Archilly Generate — traçado espinha de peixe
+- **o que mudou:** só o ponto por onde a rua entra
+
+Esse número não depende de opinião nenhuma e não compara programas: é o **mesmo**
+programa, duas vezes.
+
+### E a entrada pesa mais que a escolha do programa?
+
+**Às vezes — e é menos do que parece.** Posto lado a lado com o quanto os três
+programas que entregam lote diferem entre si:
+
+| terreno | o quanto muda só pela entrada | o quanto muda trocando de programa | o que pesa mais |
+|---|---|---|---|
+| Terreno de teste completo — com áreas de preservação | **+108 %** (Archilly Generate — traçado espinha de peixe) | +29 % | **a entrada** |
+| Terreno sintético ondulado | **+17 %** (Laboratório de Parcelamento) | +96 % | o programa |
+| Terreno sintético plano | **+28 %** (Laboratório de Parcelamento) | +45 % | o programa |
+| Gleba de ensaio do Archilly Generate | **+53 %** (Laboratório de Parcelamento) | +63 % | o programa |
+| Antonina (PR) — terreno real, levantado pelo Archilly Geo | **+44 %** (Archilly Generate — traçado ortogonal) | +20 % | **a entrada** |
+
+**Em 2 dos 5 terrenos a entrada pesa mais; nos outros, o
+programa.** As duas coisas importam, e nenhuma das duas dispensa a outra — era o
+que valia medir, e a resposta não foi a mais vistosa.
+
+### O que isso significa para quem compra terreno
+
+**Por onde a entrada pode passar é parte do preço do terreno, e se descobre antes
+de comprar, olhando a rua que já existe do lado de fora.** Dois terrenos do mesmo
+tamanho e do mesmo preço não valem o mesmo se um só admite entrada pelo canto
+ruim: a diferença cai direto no número de lotes que se vende.
+
+**Três cuidados, para o número não ser lido além do que ele é:**
+
+1. **o melhor ponto pode não existir na vida real.** O laboratório põe a entrada
+   em seis pontos da volta do terreno **sem perguntar se há rua ali fora**. Se o
+   melhor ponto cai no fundo, onde não passa ninguém, ele não serve — e a coluna
+   continua útil, porque mostra quanto se perde por não poder usá-lo;
+2. **a variação medida é o mínimo, não o máximo.** Seis pontos não cobrem a volta
+   inteira do terreno; o melhor e o pior ponto de verdade podem estar entre dois
+   dos seis. A diferença real é **igual ou maior** que a publicada;
+3. **o laboratório não escolhe a entrada.** Onde ela pode ficar depende da rua de
+   fora, da faixa que a prefeitura exige e da licença — é decisão de projeto, e
+   é sua. O laboratório só mede quanto ela custa.
 
 ## A rampa das ruas: a média esconde o pior trecho
 
@@ -84,56 +137,56 @@ ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 
 **141,8 hectares** · identificação técnica do terreno: `completo`
 
-| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | tempo |
-|---|---:|---:|---:|---:|---:|---|---:|---|---:|
-| Archilly Generate — traçado ortogonal | 1.606 | 58,33 ha | 41,1 % | **nenhum** | 70,00 ha · 49,4 % | 2 a conferir (0,1 %) | 6,1 % | **34,7 %** · 1.183 m acima de 15 % | 2,2 s |
-| Archilly Generate — traçado espinha de peixe | 1.805 | 64,94 ha | 45,8 % | 1 | 52,92 ha · 37,3 % | 1 a conferir (0,1 %) · **35 ruins (1,9 %)** | 7,0 % | **46,7 %** · 2.397 m acima de 15 % | 2,2 s |
-| Laboratório de Parcelamento | 1.060 | 42,44 ha | 29,9 % | 25 | 19,44 ha · 13,7 % | 1 a conferir (0,1 %) | 7,7 % | **51,5 %** · 3.468 m acima de 15 % | 6,9 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 932 | 28,73 ha | 20,3 % | 1 | 82,18 ha · 58,0 % | 308 a conferir (33,1 %) · **74 ruins (7,9 %)** | 7,2 % | **41,8 %** · 5.492 m acima de 15 % | 6,6 s |
+| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
+|---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
+| Archilly Generate — traçado ortogonal | 1.606 | 58,33 ha | 41,1 % | **nenhum** | 70,00 ha · 49,4 % | 2 a conferir (0,1 %) | 6,1 % | **34,7 %** · 1.183 m acima de 15 % | 998 a 1.654 lotes · **+66 %** | 2,2 s |
+| Archilly Generate — traçado espinha de peixe | 1.805 | 64,94 ha | 45,8 % | 1 | 52,92 ha · 37,3 % | 1 a conferir (0,1 %) · **35 ruins (1,9 %)** | 7,0 % | **46,7 %** · 2.397 m acima de 15 % | 860 a 1.791 lotes · **+108 %** | 2,0 s |
+| Laboratório de Parcelamento | 1.060 | 42,44 ha | 29,9 % | 25 | 19,44 ha · 13,7 % | 1 a conferir (0,1 %) | 7,7 % | **51,5 %** · 3.468 m acima de 15 % | 962 a 1.114 lotes · **+16 %** | 6,7 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 932 | 28,73 ha | 20,3 % | 1 | 82,18 ha · 58,0 % | 308 a conferir (33,1 %) · **74 ruins (7,9 %)** | 7,2 % | **41,8 %** · 5.492 m acima de 15 % | **não muda nada** | 6,5 s |
 
 ## Terreno sintético ondulado
 
 **50,0 hectares** · identificação técnica do terreno: `sintetico-50ha-ondulado`
 
-| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | tempo |
-|---|---:|---:|---:|---:|---:|---|---:|---|---:|
-| Archilly Generate — traçado ortogonal | 1.003 | 36,37 ha | 72,7 % | **nenhum** | 5,34 ha · 10,7 % | **todos ok** | 4,2 % | **14,0 %** | 0,6 s |
-| Archilly Generate — traçado espinha de peixe | 788 | 28,51 ha | 57,0 % | **nenhum** | 10,61 ha · 21,2 % | **14 ruins (1,8 %)** | 4,2 % | **20,6 %** · 10 m acima de 15 % | 0,5 s |
-| Laboratório de Parcelamento | 501 | 19,99 ha | 40,0 % | 18 | 0,23 ha · 0,5 % | 4 a conferir (0,8 %) | 4,5 % | **18,8 %** · 33 m acima de 15 % | 2,4 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 318 | 9,59 ha | 19,2 % | **nenhum** | 26,26 ha · 52,5 % | 125 a conferir (39,3 %) · **21 ruins (6,6 %)** | 4,7 % | **25,6 %** · 118 m acima de 15 % | 1,5 s |
+| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
+|---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
+| Archilly Generate — traçado ortogonal | 1.003 | 36,37 ha | 72,7 % | **nenhum** | 5,34 ha · 10,7 % | **todos ok** | 4,2 % | **14,0 %** | **não muda nada** | 0,6 s |
+| Archilly Generate — traçado espinha de peixe | 788 | 28,51 ha | 57,0 % | **nenhum** | 10,61 ha · 21,2 % | **14 ruins (1,8 %)** | 4,2 % | **20,6 %** · 10 m acima de 15 % | 736 a 805 lotes · **+9 %** | 0,5 s |
+| Laboratório de Parcelamento | 501 | 19,99 ha | 40,0 % | 18 | 0,23 ha · 0,5 % | 4 a conferir (0,8 %) | 4,5 % | **18,8 %** · 33 m acima de 15 % | 510 a 596 lotes · **+17 %** | 2,6 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 318 | 9,59 ha | 19,2 % | **nenhum** | 26,26 ha · 52,5 % | 125 a conferir (39,3 %) · **21 ruins (6,6 %)** | 4,7 % | **25,6 %** · 118 m acima de 15 % | **não muda nada** | 1,7 s |
 
 ## Terreno sintético plano
 
 **10,0 hectares** · identificação técnica do terreno: `sintetico-10ha-plano`
 
-| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | tempo |
-|---|---:|---:|---:|---:|---:|---|---:|---|---:|
-| Archilly Generate — traçado ortogonal | 171 | 6,28 ha | 62,8 % | **nenhum** | 2,12 ha · 21,1 % | **todos ok** | 0,9 % | **1,4 %** | 0,1 s |
-| Archilly Generate — traçado espinha de peixe | 137 | 5,00 ha | 50,0 % | **nenhum** | 2,65 ha · 26,4 % | **8 ruins (5,8 %)** | 0,9 % | **1,8 %** | 0,1 s |
-| Laboratório de Parcelamento | 124 | 4,90 ha | 49,0 % | 29 | 0,06 ha · 0,6 % | 4 a conferir (3,2 %) | 0,7 % | **1,2 %** | 0,3 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 66 | 2,35 ha | 23,5 % | **nenhum** | 6,09 ha · 60,9 % | 15 a conferir (22,7 %) · **2 ruins (3,0 %)** | 0,8 % | **2,0 %** | 0,5 s |
+| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
+|---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
+| Archilly Generate — traçado ortogonal | 171 | 6,28 ha | 62,8 % | **nenhum** | 2,12 ha · 21,1 % | **todos ok** | 0,9 % | **1,4 %** | 169 a 185 lotes · **+9 %** | 0,1 s |
+| Archilly Generate — traçado espinha de peixe | 137 | 5,00 ha | 50,0 % | **nenhum** | 2,65 ha · 26,4 % | **8 ruins (5,8 %)** | 0,9 % | **1,8 %** | 123 a 141 lotes · **+15 %** | 0,1 s |
+| Laboratório de Parcelamento | 124 | 4,90 ha | 49,0 % | 29 | 0,06 ha · 0,6 % | 4 a conferir (3,2 %) | 0,7 % | **1,2 %** | 112 a 143 lotes · **+28 %** | 0,4 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 66 | 2,35 ha | 23,5 % | **nenhum** | 6,09 ha · 60,9 % | 15 a conferir (22,7 %) · **2 ruins (3,0 %)** | 0,8 % | **2,0 %** | **não muda nada** | 0,5 s |
 
 ## Gleba de ensaio do Archilly Generate
 
 **47,0 hectares** · identificação técnica do terreno: `ensaio-47ha`
 
-| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | tempo |
-|---|---:|---:|---:|---:|---:|---|---:|---|---:|
-| Archilly Generate — traçado ortogonal | 974 | 35,33 ha | 75,2 % | **nenhum** | 3,48 ha · 7,4 % | **todos ok** | 5,8 % | **17,6 %** · 150 m acima de 15 % | 0,4 s |
-| Archilly Generate — traçado espinha de peixe | 778 | 28,21 ha | 60,0 % | **nenhum** | 6,01 ha · 12,9 % | 2 a conferir (0,3 %) · **14 ruins (1,8 %)** | 5,5 % | **22,9 %** · 287 m acima de 15 % | 0,4 s |
-| Laboratório de Parcelamento | 599 | 23,82 ha | 50,7 % | 16 | 0,04 ha · 0,1 % | 9 a conferir (1,5 %) | 5,1 % | **17,9 %** · 66 m acima de 15 % | 1,8 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 214 | 6,61 ha | 14,1 % | **nenhum** | 27,13 ha · 58,0 % | 73 a conferir (34,1 %) · **8 ruins (3,7 %)** | 5,4 % | **22,8 %** · 556 m acima de 15 % | 0,9 s |
+| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
+|---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
+| Archilly Generate — traçado ortogonal | 974 | 35,33 ha | 75,2 % | **nenhum** | 3,48 ha · 7,4 % | **todos ok** | 5,8 % | **17,6 %** · 150 m acima de 15 % | 960 a 1.024 lotes · **+7 %** | 0,5 s |
+| Archilly Generate — traçado espinha de peixe | 778 | 28,21 ha | 60,0 % | **nenhum** | 6,01 ha · 12,9 % | 2 a conferir (0,3 %) · **14 ruins (1,8 %)** | 5,5 % | **22,9 %** · 287 m acima de 15 % | 721 a 745 lotes · **+3 %** | 0,5 s |
+| Laboratório de Parcelamento | 599 | 23,82 ha | 50,7 % | 16 | 0,04 ha · 0,1 % | 9 a conferir (1,5 %) | 5,1 % | **17,9 %** · 66 m acima de 15 % | 459 a 703 lotes · **+53 %** | 1,9 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 214 | 6,61 ha | 14,1 % | **nenhum** | 27,13 ha · 58,0 % | 73 a conferir (34,1 %) · **8 ruins (3,7 %)** | 5,4 % | **22,8 %** · 556 m acima de 15 % | **não muda nada** | 0,8 s |
 
 ## Antonina (PR) — terreno real, levantado pelo Archilly Geo
 
 **141,8 hectares** · identificação técnica do terreno: `geo-antonina`
 
-| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | tempo |
-|---|---:|---:|---:|---:|---:|---|---:|---|---:|
-| Archilly Generate — traçado ortogonal | 1.390 | 50,17 ha | 35,4 % | 1 | 79,45 ha · 56,1 % | **todos ok** | 3,0 % | **24,5 %** · 4 m acima de 15 % | 0,6 s |
-| Archilly Generate — traçado espinha de peixe | 1.657 | 59,62 ha | 42,1 % | **nenhum** | 67,49 ha · 47,6 % | **9 ruins (0,5 %)** | 3,6 % | **23,0 %** · 20 m acima de 15 % | 0,6 s |
-| Laboratório de Parcelamento | 1.386 | 55,50 ha | 39,2 % | 15 | 6,09 ha · 4,3 % | **todos ok** | 3,4 % | **17,1 %** · 20 m acima de 15 % | 7,6 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 1.014 | 29,85 ha | 21,1 % | 4 | 65,15 ha · 46,0 % | 365 a conferir (36,0 %) · **87 ruins (8,6 %)** | 3,3 % | **27,7 %** · 46 m acima de 15 % | 11,3 s |
+| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
+|---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
+| Archilly Generate — traçado ortogonal | 1.390 | 50,17 ha | 35,4 % | 1 | 79,45 ha · 56,1 % | **todos ok** | 3,0 % | **24,5 %** · 4 m acima de 15 % | 1.346 a 1.941 lotes · **+44 %** | 0,7 s |
+| Archilly Generate — traçado espinha de peixe | 1.657 | 59,62 ha | 42,1 % | **nenhum** | 67,49 ha · 47,6 % | **9 ruins (0,5 %)** | 3,6 % | **23,0 %** · 20 m acima de 15 % | 1.478 a 1.917 lotes · **+30 %** | 0,6 s |
+| Laboratório de Parcelamento | 1.386 | 55,50 ha | 39,2 % | 15 | 6,09 ha · 4,3 % | **todos ok** | 3,4 % | **17,1 %** · 20 m acima de 15 % | 1.386 a 1.454 lotes · **+5 %** | 7,7 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 1.014 | 29,85 ha | 21,1 % | 4 | 65,15 ha · 46,0 % | 365 a conferir (36,0 %) · **87 ruins (8,6 %)** | 3,3 % | **27,7 %** · 46 m acima de 15 % | **não muda nada** | 11,2 s |
 
 ---
 

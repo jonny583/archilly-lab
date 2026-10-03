@@ -83,6 +83,13 @@ interface Rampa {
   cruzamentos: number | null;
   cruzamentosAcimaDe: Record<string, number> | null;
 }
+interface Acesso {
+  posicoes: number;
+  posicoesMedidas: number;
+  lotes: { minimo: number | null; maximo: number | null; mediana: number | null; amplitudePct: number | null };
+  areaVendavel_m2: { minimo: number | null; maximo: number | null; amplitudePct: number | null };
+  acessoDeclarado: { lotes: number | null; areaVendavel_m2: number | null } | null;
+}
 interface Terreno {
   medido: boolean;
   via: {
@@ -115,10 +122,24 @@ interface MotorNaProva {
   forma: Forma | null;
   rampa: Rampa | null;
   terreno: Terreno | null;
+  acesso: Acesso | null;
 }
 interface GlebaNaProva {
   gleba: string;
   areaDaGleba_m2: number;
+  /**
+   * O confronto do acesso, **calculado na medição** e não aqui.
+   *
+   * A primeira versão desta página recalculava a diferença entre motores com uma
+   * referência própria, e dava números diferentes dos da ferramenta — `completo`
+   * com +29 % num lugar e +70 % no outro. Duas réguas para a mesma grandeza é o
+   * que o D20 proíbe, e eu o cometi numa grandeza minha (D116).
+   */
+  confrontoDoAcesso: {
+    maiorAmplitude_pct: number;
+    entreOsQuatroMotores_pct: number;
+    entreOsMotoresDeLote_pct: number;
+  };
   motores: Record<string, MotorNaProva>;
 }
 interface Prova {
@@ -192,6 +213,75 @@ function exemploDaRampa(): string[] {
 }
 
 /** O que o Jonny vê na coluna da forma. */
+/**
+ * O que o Jonny vê na coluna do acesso.
+ *
+ * A faixa de lotes entre o melhor e o pior ponto de entrada, e o quanto isso é.
+ * **Não** o número do acesso declarado — esse já está na coluna "lotes", e repeti-lo
+ * aqui faria a coluna parecer uma segunda contagem em vez de uma variação.
+ */
+function colunaDoAcesso(a: Acesso | null): string {
+  if (!a || a.lotes.minimo == null || a.lotes.maximo == null) return "—";
+  if (a.lotes.amplitudePct === 0) return "**não muda nada**";
+  return `${br(a.lotes.minimo)} a ${br(a.lotes.maximo)} lotes · **+${br(a.lotes.amplitudePct ?? 0, 0)} %**`;
+}
+
+/**
+ * Os números da seção do acesso, computados da prova — nunca escritos à mão.
+ *
+ * O D82 nasceu de prosa com número cravado envelhecendo na página, e o LAB-21
+ * reincidiu nisso em prosa que falava com pessoa. Aqui a frase se monta do JSON.
+ */
+function exemploDoAcesso(): {
+  linhas: string[];
+  glebasEmQueOAcessoPesaMais: number;
+  totalDeGlebas: number;
+  maiorAmplitude: number;
+  ondeFoiAMaior: string;
+  quemVariouMais: string;
+} {
+  const linhas: string[] = [];
+  let pesaMais = 0;
+  let maiorDeTodas = 0;
+  let ondeFoiAMaior = "";
+  let quemVariouMais = "";
+
+  for (const g of prova.glebas) {
+    const nome = NOME_DA_GLEBA[g.gleba] ?? g.gleba;
+    // Os dois números vêm da PROVA. A comparação é com os motores que entregam
+    // lote por conta própria — o Symbios entrega quadra, e a distância entre ele e
+    // um motor de lote é a distância entre duas etapas, não entre duas opções.
+    const maiorAmplitude = g.confrontoDoAcesso.maiorAmplitude_pct;
+    const entreMotores = g.confrontoDoAcesso.entreOsMotoresDeLote_pct;
+    let quemVaria = "";
+    for (const id of ORDEM) {
+      const m = g.motores[id];
+      if (!m?.acesso) continue;
+      if ((m.acesso.lotes.amplitudePct ?? 0) === maiorAmplitude && !quemVaria) {
+        quemVaria = NOME_DO_MOTOR[id] ?? id;
+      }
+    }
+    if (maiorAmplitude > entreMotores) pesaMais++;
+    if (maiorAmplitude > maiorDeTodas) {
+      maiorDeTodas = maiorAmplitude;
+      ondeFoiAMaior = nome;
+      quemVariouMais = quemVaria;
+    }
+    linhas.push(
+      `| ${nome} | **+${br(maiorAmplitude, 0)} %** (${quemVaria}) | +${br(entreMotores, 0)} % | ` +
+        `${maiorAmplitude > entreMotores ? "**a entrada**" : "o programa"} |`,
+    );
+  }
+  return {
+    linhas,
+    glebasEmQueOAcessoPesaMais: pesaMais,
+    totalDeGlebas: prova.glebas.length,
+    maiorAmplitude: maiorDeTodas,
+    ondeFoiAMaior,
+    quemVariouMais,
+  };
+}
+
 function colunaDaForma(f: Forma | null): string {
   if (!f) return "—";
   if (f.aConferir === 0 && f.ruim === 0) return "**todos ok**";
@@ -244,6 +334,8 @@ function desencontros(): string[] {
   return [...reprovaSemFormaRuim, ...formaRuimSemReprova].map(linha);
 }
 
+const acesso = exemploDoAcesso();
+
 const L: string[] = [];
 const push = (...linhas: string[]) => L.push(...linhas);
 
@@ -274,7 +366,56 @@ push(
   "| **Forma dos lotes** | ver a seção *A forma dos lotes*, logo abaixo |",
   "| **Rampa média** | a inclinação média das ruas, pesada pelo comprimento de cada trecho |",
   "| **Rampa no pior trecho** | a inclinação do **pior** pedaço de rua do projeto, e quantos metros de rua passam de 15 % |",
+  "| **Se a entrada da rua mudar** | ver a seção *A entrada da rua*, logo abaixo. É a coluna de maior efeito da tabela |",
   "| **Tempo** | quanto o motor levou para desenhar |",
+  "",
+  "## A entrada da rua: a mesma coisa, desenhada duas vezes, dá até o dobro",
+  "",
+  "**Cada terreno foi desenhado seis vezes por programa, mudando só UMA coisa: por",
+  "onde a rua entra.** Mesmo terreno, mesmo programa, mesmas regras, mesma conta de",
+  "lotes feita pelo mesmo conferente. E o resultado muda assim:",
+  "",
+  `**${br(acesso.maiorAmplitude, 0)} % mais lotes.** O maior caso medido:`,
+  "",
+  `- **terreno:** ${acesso.ondeFoiAMaior}`,
+  `- **programa:** ${acesso.quemVariouMais}`,
+  `- **o que mudou:** só o ponto por onde a rua entra`,
+  "",
+  "Esse número não depende de opinião nenhuma e não compara programas: é o **mesmo**",
+  "programa, duas vezes.",
+  "",
+  "### E a entrada pesa mais que a escolha do programa?",
+  "",
+  "**Às vezes — e é menos do que parece.** Posto lado a lado com o quanto os três",
+  "programas que entregam lote diferem entre si:",
+  "",
+  "| terreno | o quanto muda só pela entrada | o quanto muda trocando de programa | o que pesa mais |",
+  "|---|---|---|---|",
+  ...acesso.linhas,
+  "",
+  `**Em ${acesso.glebasEmQueOAcessoPesaMais} dos ${acesso.totalDeGlebas} terrenos a entrada pesa mais; nos outros, o`,
+  "programa.** As duas coisas importam, e nenhuma das duas dispensa a outra — era o",
+  "que valia medir, e a resposta não foi a mais vistosa.",
+  "",
+  "### O que isso significa para quem compra terreno",
+  "",
+  "**Por onde a entrada pode passar é parte do preço do terreno, e se descobre antes",
+  "de comprar, olhando a rua que já existe do lado de fora.** Dois terrenos do mesmo",
+  "tamanho e do mesmo preço não valem o mesmo se um só admite entrada pelo canto",
+  "ruim: a diferença cai direto no número de lotes que se vende.",
+  "",
+  "**Três cuidados, para o número não ser lido além do que ele é:**",
+  "",
+  "1. **o melhor ponto pode não existir na vida real.** O laboratório põe a entrada",
+  "   em seis pontos da volta do terreno **sem perguntar se há rua ali fora**. Se o",
+  "   melhor ponto cai no fundo, onde não passa ninguém, ele não serve — e a coluna",
+  "   continua útil, porque mostra quanto se perde por não poder usá-lo;",
+  "2. **a variação medida é o mínimo, não o máximo.** Seis pontos não cobrem a volta",
+  "   inteira do terreno; o melhor e o pior ponto de verdade podem estar entre dois",
+  "   dos seis. A diferença real é **igual ou maior** que a publicada;",
+  "3. **o laboratório não escolhe a entrada.** Onde ela pode ficar depende da rua de",
+  "   fora, da faixa que a prefeitura exige e da licença — é decisão de projeto, e",
+  "   é sua. O laboratório só mede quanto ela custa.",
   "",
   "## A rampa das ruas: a média esconde o pior trecho",
   "",
@@ -333,15 +474,15 @@ for (const g of prova.glebas) {
     "",
     `**${br(g.areaDaGleba_m2 / 1e4, 1)} hectares** · identificação técnica do terreno: \`${g.gleba}\``,
     "",
-    "| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | tempo |",
-    "|---|---:|---:|---:|---:|---:|---|---:|---|---:|",
+    "| motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |",
+    "|---|---:|---:|---:|---:|---:|---|---:|---|---|---:|",
   );
   for (const id of ORDEM) {
     const m = g.motores[id];
     if (!m) continue;
     if (m.recusadoPeloEsquema) {
       push(
-        `| ${NOME_DO_MOTOR[id] ?? id} | — | — | — | **não entregou desenho válido** | — | — | — | — | ${br(m.ms / 1000, 1)} s |`,
+        `| ${NOME_DO_MOTOR[id] ?? id} | — | — | — | **não entregou desenho válido** | — | — | — | — | — | ${br(m.ms / 1000, 1)} s |`,
       );
       continue;
     }
@@ -350,7 +491,7 @@ for (const g of prova.glebas) {
       `| ${NOME_DO_MOTOR[id] ?? id} | ${br(m.lotes ?? 0)} | ${ha(m.areaVendavel_m2)} | ` +
         `${pct(m.pctPrivativa)} | ${m.violacoes === 0 ? "**nenhum**" : br(m.violacoes ?? 0)} | ` +
         `${ha(m.sobraSemLote_m2)} · ${pct(m.pctDaMassaSemLote)} | ${colunaDaForma(m.forma)} | ` +
-        `${rampa.media} | ${rampa.pico} | ${br(m.ms / 1000, 1)} s |`,
+        `${rampa.media} | ${rampa.pico} | ${colunaDoAcesso(m.acesso)} | ${br(m.ms / 1000, 1)} s |`,
     );
   }
   push("");
