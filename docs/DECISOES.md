@@ -2858,3 +2858,77 @@ importa as mesmas duas funções.
 **A regra que isto deixa, e que vale além do acesso:** quando um número aparece em
 dois arquivos de saída, ele tem de ser **calculado uma vez e copiado**, nunca
 calculado duas. Página que recalcula é página que vai divergir — não "se", "quando".
+
+---
+
+## D117 · A identidade que viaja no contrato é a que o motor publica · 03/10/2026
+
+A SAÍDA do Laboratório de Parcelamento dizia:
+
+```json
+"motor": { "nome": "motor-testfit", "versao": "T00-A+espinha" }
+```
+
+**As duas etiquetas eram minhas, e nenhuma era identidade de motor:**
+
+| campo | o que estava escrito | o que é | onde o motor publica a dele |
+|---|---|---|---|
+| `nome` | `motor-testfit` | o nome do **repositório** | `MOTOR_NOME = "laboratorio-de-parcelamento"` |
+| `versao` | `T00-A` | o nome de um **prompt do Lab** | `MOTOR_VERSAO`, com a nota *"sobe quando o desenho muda de forma que o Generate veja"* |
+
+**Mesma forma do D104, um nível acima** — o Lab inventando onde o motor publica —, e
+com a consequência que o D108 mediu: a etiqueta envelheceu no lugar (o motor foi do
+T00-A ao T05 e o campo continuou dizendo T00-A) e estava escrita **em dois arquivos**
+do Lab, com valores diferentes.
+
+**Decisão, em quatro partes:**
+
+1. **`motor.nome` e `motor.versao` são importados do motor.** Para o Parcelamento é
+   literal: `import { MOTOR_NOME, MOTOR_VERSAO } from "@testfit/contrato/tipos.ts"`.
+   Não há tradução a fazer — havia invenção a parar;
+2. **`VERSAO_MOTOR_MEDIDA` foi apagada**, e o parâmetro `versaoMotor` de
+   `voltaParaOContrato` **deixou de existir**. Apagar o parâmetro foi de propósito:
+   ele obrigou cada chamador a ser revisitado, que é o que uma correção de raiz
+   deve fazer;
+3. **o `+<partido>` fica, e é a única coisa que o Lab acrescenta à versão.** A mesa
+   do Generate mostra `externo · <nome> v<versão>`, e sem o partido as dez variantes
+   do motor viram dez linhas idênticas;
+4. **o rótulo da rodada do Lab vai em `archilly.origem`** — o campo de quem **rodou**,
+   que é diferente de quem **é**. A separação é o coração da decisão: enquanto a
+   etiqueta do Lab morava em `motor.versao`, ela **tinha** de envelhecer.
+
+**O Symbios não tem o que importar** — o motor dele é WASM compilado de Rust. Então o
+Lab guarda `VERSAO_DO_SYMBIOS = "0.4.1"` e `NOME_DO_SYMBIOS = "symbios-tensor"`, **com
+a fonte citada ao `upstream/VERSION`** e um **teste que lê aquele arquivo** e reprova
+se divergirem. `upstream/` é intocável (CLAUDE.md §3), e **intocável não quer dizer
+ilegível** — copiar sem conferir é exatamente como o "T00-A" envelheceu.
+
+**E o `+ subdivisão do Lab` saiu da versão dele.** `0.4.1` é do motor; a dupla é do
+Lab. A informação não se perde: vive no **nome de tela** da porta (*"Symbios Tensor +
+subdivisão do Lab"*, que é o que o urbanista lê) e no `archilly.origem` da SAÍDA.
+
+---
+
+## D118 · Prova congelada não se regera para consertar etiqueta · 03/10/2026
+
+Cinco arquivos carregam o rótulo antigo: as três SAÍDAS do LAB-07 e as duas do LAB-08
+em `docs/contratos/saidas/`. O conserto do D117 **alcança** esses arquivos, e havia
+duas saídas.
+
+**Decisão: não são regerados.** Eles são o **registro de uma medição feita naquele
+dia, com o motor daquele dia**, e os números deles são citados nos relatórios do
+LAB-07 e do LAB-08. Regerá-los **apagaria a medição para consertar uma etiqueta** —
+e o Lab já decidiu, na D90, que o passado se vira com a história escrita, não se
+apaga.
+
+**O que entra no lugar:** [`docs/provas/LEIA-ME.md`](provas/LEIA-ME.md), que diz
+quais arquivos trazem o rótulo antigo, **o que cada etiqueta queria dizer**, por que
+não foram regerados, e onde está a identidade de verdade. Há **teste exigindo que
+esse arquivo exista e cite as três coisas** — aviso que depende de alguém lembrar
+não é aviso.
+
+**A exceção, e ela tem razão:** a prova do **LAB-26** (`varredura.json`) **foi**
+regerada. Ela não é registro de uma medição congelada — é a leitura ao vivo das
+declarações da porta, e o campo `versaoDeclarada` é justamente o que mudou. Deixá-la
+velha seria publicar como declaração atual uma que não é. As conclusões do LAB-26
+não dependem do valor da etiqueta, e continuam idênticas.

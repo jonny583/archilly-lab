@@ -14,10 +14,7 @@ import { areaPoligono } from "@symbios/geo.ts";
 import type { Motor } from "@symbios/index.ts";
 import { rodarMotor } from "@testfit/api.ts";
 
-import {
-  CARIMBO_FIXO,
-  VERSAO_MOTOR_MEDIDA,
-} from "../../testfit/adapter/src/esteira.ts";
+import { CARIMBO_FIXO } from "../../testfit/adapter/src/esteira.ts";
 import { idaParaOMotor } from "../../testfit/adapter/src/ida.ts";
 import { voltaParaOContrato } from "../../testfit/adapter/src/volta.ts";
 import type { EntradaV1 } from "../../testfit/adapter/src/contrato-v1.ts";
@@ -28,7 +25,7 @@ import {
   objetosDaPonteDoParcelamento,
   objetosDaPonteDoSymbios,
 } from "./inventario-das-pontes.ts";
-import { redeDoSymbios } from "./motores/symbios.ts";
+import { redeDoSymbios, VERSAO_DO_SYMBIOS } from "./motores/symbios.ts";
 import { symbiosParaOContrato } from "./symbios-para-contrato.ts";
 
 type Linha = Record<string, unknown>;
@@ -65,8 +62,8 @@ export function auditarParcelamento(entrada: EntradaMinima, semente: number): Po
   }
   const { saida } = voltaParaOContrato(plano as never, v1, {
     semente,
-    versaoMotor: VERSAO_MOTOR_MEDIDA,
     geradoEm: CARIMBO_FIXO,
+    rotuloDoLab: "archilly-lab · guarda da ponte (LAB-25)",
   });
   const objetos = objetosDaPonteDoParcelamento(plano, saida as unknown as Linha);
   return {
@@ -91,7 +88,8 @@ export function auditarSymbios(
     areaDaGleba_m2: areaPoligono(t.gleba),
     areaQueDesconta_m2: 0,
     semente,
-    versaoMotor: "guarda da ponte (LAB-25)",
+    versaoMotor: VERSAO_DO_SYMBIOS,
+    acrescimoDoLab: "guarda da ponte (LAB-25)",
     geradoEm,
     crs: entrada.crs as never,
     parametrosUsados: entrada.parametros as never,

@@ -14,7 +14,7 @@
       "campo": "nome",
       "cobertura": "sem-regua",
       "teste": null,
-      "porque": "rótulo para pessoa, escolhido pelo Lab para a tela. O achado medido — o motor publica o próprio nome e a ponte escreve outro — está proposto ao chat"
+      "porque": "rótulo de TELA, escolhido pelo Lab para a lista de motores — é ele que diz \"Symbios + subdivisão do Lab\", que a versão do motor não pode dizer. O achado que estava aqui (a SAÍDA escrevia o nome do repositório onde o motor publica o próprio) foi resolvido no LAB-29, e `tests/identidade.test.ts` o trava"
     },
     {
       "campo": "versao",
@@ -147,8 +147,8 @@
           "declaracaoBateComOMedido": true,
           "lotesComAcessoEmA": 703,
           "lotesComAcessoEmB": 603,
-          "versaoDeclarada": "T00-A",
-          "versaoNaSaida": "T00-A+espinha",
+          "versaoDeclarada": "1.0",
+          "versaoNaSaida": "1.0+espinha",
           "geometriaEntregue": "espinha",
           "geometriasDeclaradas": [
             "ortogonal",
@@ -170,8 +170,8 @@
           "declaracaoBateComOMedido": true,
           "lotesComAcessoEmA": 214,
           "lotesComAcessoEmB": 214,
-          "versaoDeclarada": "0.4.1 + subdivisão do Lab (LAB-04)",
-          "versaoNaSaida": "0.4.1 + subdivisão do Lab (LAB-04)",
+          "versaoDeclarada": "0.4.1",
+          "versaoNaSaida": "0.4.1",
           "geometriaEntregue": "tensorial",
           "geometriasDeclaradas": [
             "tensorial"
@@ -225,8 +225,8 @@
           "declaracaoBateComOMedido": true,
           "lotesComAcessoEmA": 1454,
           "lotesComAcessoEmB": 1393,
-          "versaoDeclarada": "T00-A",
-          "versaoNaSaida": "T00-A+ortogonal",
+          "versaoDeclarada": "1.0",
+          "versaoNaSaida": "1.0+ortogonal",
           "geometriaEntregue": "ortogonal",
           "geometriasDeclaradas": [
             "ortogonal",
@@ -248,8 +248,8 @@
           "declaracaoBateComOMedido": true,
           "lotesComAcessoEmA": 1014,
           "lotesComAcessoEmB": 1014,
-          "versaoDeclarada": "0.4.1 + subdivisão do Lab (LAB-04)",
-          "versaoNaSaida": "0.4.1 + subdivisão do Lab (LAB-04)",
+          "versaoDeclarada": "0.4.1",
+          "versaoNaSaida": "0.4.1",
           "geometriaEntregue": "tensorial",
           "geometriasDeclaradas": [
             "tensorial"
@@ -303,8 +303,8 @@
           "declaracaoBateComOMedido": true,
           "lotesComAcessoEmA": 112,
           "lotesComAcessoEmB": 138,
-          "versaoDeclarada": "T00-A",
-          "versaoNaSaida": "T00-A+diagonal",
+          "versaoDeclarada": "1.0",
+          "versaoNaSaida": "1.0+diagonal",
           "geometriaEntregue": "diagonal",
           "geometriasDeclaradas": [
             "ortogonal",
@@ -326,8 +326,8 @@
           "declaracaoBateComOMedido": true,
           "lotesComAcessoEmA": 66,
           "lotesComAcessoEmB": 66,
-          "versaoDeclarada": "0.4.1 + subdivisão do Lab (LAB-04)",
-          "versaoNaSaida": "0.4.1 + subdivisão do Lab (LAB-04)",
+          "versaoDeclarada": "0.4.1",
+          "versaoNaSaida": "0.4.1",
           "geometriaEntregue": "tensorial",
           "geometriasDeclaradas": [
             "tensorial"

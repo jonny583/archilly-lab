@@ -536,3 +536,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma. Na pági
 Próximo na fila: LAB-29, a identidade que viaja no contrato (MOTOR_NOME e MOTOR_VERSAO lidos do próprio motor). Uma nota: o prompt guardado no despertador ainda nomeia a fila de 03/10 na PRIMEIRA versão (LAB-21/22/23) — não o reescrevi porque você mandou reabilitar, e o passo 1 dele manda ler a FILA.md, que é a oficial. Se quiser que eu reescreva o texto guardado, é uma linha.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · LAB-29 — a identidade que viaja no contrato
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-29 ===
+Estado: LAB-29 concluído e mesclado por PR. Os dois pacotes verdes: 265 testes na esteira (10 novos, todos de identidade) + 14 no testfit, typecheck e lint limpos, vizinhos sem uma alteração. Resta só o LAB-30 na fila — a guarda da IDA, e ela não está fechada.
+Feito: as duas etiquetas de identidade eram MINHAS. A SAÍDA dizia nome: "motor-testfit" — que é o nome do REPOSITÓRIO dele — e versao: "T00-A+espinha", que é o nome de um PROMPT meu. O motor publica as duas em contrato/tipos.ts, e documenta a versão: "sobe quando o desenho muda de forma que o Generate veja" — exatamente o uso que eu precisava e estava ignorando. Agora são importadas. A separação é o coração do conserto: `motor` é de quem É, `archilly.origem` é de quem RODOU. Enquanto a minha etiqueta morava em motor.versao, ela TINHA de envelhecer — o motor foi ao T05 e o campo continuou dizendo T00-A. Apaguei três coisas em vez de ajustá-las: a constante VERSAO_MOTOR_MEDIDA, o parâmetro versaoMotor de voltaParaOContrato (o que obrigou a revisitar sete chamadas, inclusive seis testes) e o "+ subdivisão do Lab" de dentro da versão do Symbios. O +<partido> fica, e é a única coisa que acrescento: sem ele as dez variantes do motor viram dez linhas idênticas na mesa.
+Achados para outros apps ou Central: 1) O RÓTULO NA MESA DO GENERATE, que era o terceiro pedido: "externo · motor-testfit vT00-A+espinha" virou "externo · laboratorio-de-parcelamento v1.0+espinha"; e o do Symbios perdeu o acréscimo do Lab, que agora vive no nome de tela e no origem. 2) O SYMBIOS NÃO TEM O QUE IMPORTAR (é WASM de Rust): guardo a constante com a fonte citada ao upstream/VERSION e UM TESTE LÊ AQUELE ARQUIVO e reprova se divergirem — upstream/ é intocável, e intocável não quer dizer ilegível. 3) AS PROVAS CONGELADAS FORAM ALCANÇADAS E NÃO REGERADAS (D118): cinco arquivos do LAB-07 e do LAB-08 guardam o rótulo antigo, porque são o registro de uma medição daquele dia, com o motor daquele dia — regerá-los apagaria a medição para consertar uma etiqueta. Em lugar disso há docs/provas/LEIA-ME.md dizendo quais arquivos são, o que cada etiqueta queria dizer e onde está a identidade de verdade, COM TESTE exigindo que ele exista e cite as três coisas. A única exceção é a prova do LAB-26, que foi regerada porque não é registro congelado: é a leitura ao vivo das declarações da porta. 4) A PERGUNTA AO PARCELAMENTO FICOU MAIS URGENTE, não menos: eu agora DEPENDO do MOTOR_VERSAO deles. Ele está em 1.0, e entre o T00-A e o T05 o desenho mudou de forma visível ao Generate pelo menos duas vezes. Se a versão não subiu nessas, ela não me diz que preciso remedir.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma.
+Próximo na fila: LAB-30, a guarda da IDA — o LAB-25 cobriu motor → SAÍDA, e o sentido ENTRADA → motor não tem nada. É o último item da fila que você mandou.
+=== FIM ===
+```

@@ -34,6 +34,8 @@
  */
 import type { Quadra, Via } from "@symbios/contrato.ts";
 
+import { NOME_DO_SYMBIOS } from "./motores/symbios.ts";
+
 /** Um ponto do contrato. */
 export interface PontoV1 {
   x: number;
@@ -84,6 +86,12 @@ export interface OpcoesVolta {
   areaQueDesconta_m2: number;
   semente: number;
   versaoMotor: string;
+  /**
+   * O que o **Lab** acrescentou ao motor, em uma frase. Vai em `archilly.origem`,
+   * **nunca** em `motor.versao` (LAB-29): a versão é do motor, e misturar as duas
+   * fazia o contrato declarar como versão do Symbios uma coisa que o Symbios não é.
+   */
+  acrescimoDoLab?: string;
   geradoEm: string;
   crs: { codigo: string; unidade: "m"; origemGeografica: { lat: number; lon: number } | null };
   parametrosUsados: Record<string, number | null>;
@@ -170,10 +178,17 @@ export function symbiosParaOContrato(
         schema: "archilly-motor-saida",
         // v2 desde o LAB-18: esta saída carrega `rampaMaxima_pct` por via.
         versao: "2",
-        origem: `archilly-lab · esteira · Symbios ${o.versaoMotor}`,
+        // Quem RODOU, que é diferente de quem É (LAB-29). É aqui que o
+        // acréscimo do Lab é declarado — e não em `motor.versao`.
+        origem:
+          `archilly-lab · esteira · Symbios ${o.versaoMotor}` +
+          (o.acrescimoDoLab ? ` + ${o.acrescimoDoLab}` : ""),
         geradoEm: o.geradoEm,
       },
-      motor: { nome: "symbios-tensor", versao: o.versaoMotor, semente: String(o.semente) },
+      // `nome` e `versao` são do MOTOR. O "symbios-tensor" é o nome que o próprio
+      // `upstream/VERSION` lhe dá, e a versão vem da constante conferida por teste
+      // contra aquele arquivo (LAB-29, D117).
+      motor: { nome: NOME_DO_SYMBIOS, versao: o.versaoMotor, semente: String(o.semente) },
       entrada: { projetoId: o.projetoId, glebaId: o.glebaId, contrato: "1" },
       crs: o.crs,
       vias: vias.map((v) => ({

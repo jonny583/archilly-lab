@@ -42,13 +42,18 @@
  * 3. **Os bolsões viram `retorno`, não via.** É o que o contrato manda, e a
  *    razão dele é boa: no Generate o bulbo é superfície de FRENTE, a testada em
  *    arco é legal, e tratá-lo como leito reprovaria justamente o lote bem-feito.
- * 4. **`areaViaria_m2` do motor é residual.** Ele calcula
+ * 4. **A identidade no contrato é a que o motor publica** (LAB-29). `motor.nome` e
+ *    `motor.versao` vêm de `MOTOR_NOME` e `MOTOR_VERSAO`, do próprio motor. O que o
+ *    Lab acrescenta é o `+<formato>`, para a opção não virar anônima na mesa, e o
+ *    rótulo da rodada, que vai em `archilly.origem`.
+ * 5. **`areaViaria_m2` do motor é residual.** Ele calcula
  *    `bruta − quadras − especiais`, não a área dos corredores. Num plano que não
  *    preenche a gleba, o "viário" engorda com terra que não é rua. O número
  *    atravessa como está — corrigi-lo aqui seria o adaptador inventando uma
  *    medição que o motor não fez — e a distorção vai medida no relatório.
  */
 import { area } from "@testfit/geo.ts";
+import { MOTOR_NOME, MOTOR_VERSAO } from "@testfit/contrato/tipos.ts";
 import type { Plano } from "@testfit/tipos.ts";
 import type { AreaEspecial } from "@testfit/tipos.ts";
 
@@ -114,7 +119,12 @@ const dist = (a: { x: number; y: number }, b: { x: number; y: number }) =>
 export function voltaParaOContrato(
   plano: Plano,
   entrada: EntradaV1,
-  opcoes: { semente: number; versaoMotor: string; geradoEm?: string },
+  /**
+   * `versaoMotor` **não existe mais** (LAB-29): a versão é do motor, lida de
+   * `MOTOR_VERSAO`. Quem quiser marcar a rodada usa `rotuloDoLab`, que vai em
+   * `archilly.origem` — o campo de quem rodou.
+   */
+  opcoes: { semente: number; geradoEm?: string; rotuloDoLab?: string },
 ): ResultadoVolta {
   const perdas: Perda[] = [];
 
@@ -363,15 +373,32 @@ export function voltaParaOContrato(
     archilly: {
       schema: "archilly-motor-saida",
       versao: CONTRATO,
-      origem: "archilly-lab · LAB-07",
+      // Quem RODOU, que é diferente de quem É. O rótulo do prompt do Lab mora
+      // aqui desde o LAB-29 — antes ele se disfarçava de versão do motor.
+      origem: opcoes.rotuloDoLab ?? "archilly-lab · LAB-07",
       // O motor não põe data na saída de propósito (carimbo quebraria a
       // comparação byte a byte). O contrato exige `geradoEm`; quem carimba é
       // esta ponte, e o campo fica FORA da assinatura de determinismo.
       geradoEm: opcoes.geradoEm ?? new Date().toISOString(),
     },
+    // ── A IDENTIDADE É DO MOTOR, não etiqueta minha (LAB-29, D117) ─────────
+    //
+    // Estava `nome: "motor-testfit"` — o nome do REPOSITÓRIO — e
+    // `versao: "T00-A+<formato>"`, que é **rótulo de prompt do Lab**, não versão
+    // de motor nenhum. O motor publica as duas, em `contrato/tipos.ts`:
+    // `MOTOR_NOME = "laboratorio-de-parcelamento"` e `MOTOR_VERSAO`, com a nota
+    // *"sobe quando o desenho muda de forma que o Generate veja"*.
+    //
+    // Mesma forma do D104, um nível acima: o Lab inventando onde o motor publica.
+    // Aqui não há sequer tradução a fazer — é importar.
+    //
+    // **O `+<formato>` fica**, e é a única coisa que o Lab acrescenta: sem ele a
+    // opção vira anônima na mesa do Generate, que mostra
+    // `externo · <nome> v<versão>`. O rótulo do Lab vai em `origem`, que é o campo
+    // de quem RODOU — não de quem é.
     motor: {
-      nome: "motor-testfit",
-      versao: `${opcoes.versaoMotor}+${plano.formato}`,
+      nome: MOTOR_NOME,
+      versao: `${MOTOR_VERSAO}+${plano.formato}`,
       semente: String(opcoes.semente),
     },
     entrada: {

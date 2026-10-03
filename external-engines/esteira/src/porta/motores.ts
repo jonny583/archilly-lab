@@ -15,8 +15,9 @@ import type { EntradaMinima } from "../gleba-v1.ts";
 import { linhasDaEntrada } from "../motores/comum.ts";
 import { rodarGenerate, type Candidata } from "../motores/generate.ts";
 import { rodarTestfit } from "../motores/testfit.ts";
-import { rodarSymbios, VERSAO_DA_DUPLA } from "../motores/symbios.ts";
-import { VERSAO_MOTOR_MEDIDA } from "../../../testfit/adapter/src/esteira.ts";
+import { MOTOR_VERSAO } from "@testfit/contrato/tipos.ts";
+
+import { rodarSymbios, VERSAO_DO_SYMBIOS } from "../motores/symbios.ts";
 import type {
   Capacidades,
   Entrada,
@@ -175,15 +176,14 @@ export function motorDoParcelamento(): MotorNaPorta {
     capacidades: () => ({
       id: "parcelamento",
       nome: "Laboratório de Parcelamento",
-      // ── A versão vem de onde a SAÍDA a escreve, não de uma segunda cópia ──
+      // ── A versão é a que o MOTOR publica (LAB-29, D117) ──────────────────
       //
-      // Estava `"T02"` aqui e `"T00-A"` na esteira (LAB-26). Duas respostas para
-      // a mesma pergunta, nenhum teste conferindo — e **as duas são rótulo de
-      // prompt do Lab, não versão do motor**: o motor publica a própria, em
-      // `contrato/tipos.ts` (`MOTOR_VERSAO = "1.0"`). Ler a versão de lá é a
-      // correção de raiz, e está **proposta ao chat**: ela muda a identidade que
-      // viaja no contrato, e isso passa do escopo deste prompt.
-      versao: VERSAO_MOTOR_MEDIDA,
+      // Passou por três etapas, e vale lembrar as três: era `"T02"` aqui e
+      // `"T00-A"` na esteira — duas respostas, nenhum teste conferindo (D108). O
+      // LAB-26 as unificou numa só, e a unificação ainda era **rótulo de prompt
+      // do Lab**. Agora é `MOTOR_VERSAO`, do próprio motor, e não há mais cópia
+      // nenhuma para envelhecer.
+      versao: MOTOR_VERSAO,
       entrega: "lote",
       // ── As duas respostas são DIFERENTES para este motor (LAB-22) ───────
       //
@@ -272,8 +272,10 @@ export function motorDoSymbios(wasm: Motor): MotorNaPorta {
     capacidades: () => ({
       id: "symbios",
       nome: "Symbios Tensor + subdivisão do Lab",
-      // Mesma razão do motor acima: um lugar só (LAB-26).
-      versao: VERSAO_DA_DUPLA,
+      // A versão do UPSTREAM, citada ao `upstream/VERSION` e conferida por teste
+      // (LAB-29). O "+ subdivisão do Lab" é do Lab e vive no `nome` acima, que é
+      // rótulo de tela — a versão é do motor, e só dele.
+      versao: VERSAO_DO_SYMBIOS,
       entrega: "lote",
       // É o único dos quatro que lê relevo: o traçado nasce do campo tensorial.
       leRelevo: true,
