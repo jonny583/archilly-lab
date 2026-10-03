@@ -169,7 +169,27 @@ function relevoDoContrato(e: EntradaV1, perdas: Perda[]): { x: number; y: number
  */
 export function idaParaOMotor(
   e: EntradaV1,
-  opcoes: { semente: number; variantes?: number; formatos?: EntradaMotor["formatos"] } = {
+  opcoes: {
+    semente: number;
+    variantes?: number;
+    formatos?: EntradaMotor["formatos"];
+    /**
+     * A **coluna vertebral desenhada à mão**, quando quem chama souber qual é.
+     *
+     * Nasceu no LAB-30, e a razão é desconfortável: o motor tem o campo
+     * `viaManual` — *"coluna vertebral desenhada à mão, quando houver"* — **e esta
+     * ida nunca o preencheu**. O Lab publicou duas vezes que *o motor* ignora via
+     * desenhada (LAB-17, LAB-23); medido, quem a ignorava era esta ponte.
+     *
+     * **Por que vem por opção e não só daqui:** no contrato **v2** a via desenhada
+     * tem tipo próprio (`via_desenhada`), e aí esta ida a lê sozinha. No **v1** ela
+     * chega como `via_existente`, que é o mesmo tipo da testada de frente — e
+     * separar as duas exige medir a distância à divisa, que é o remendo do LAB-13 e
+     * mora na esteira. Reescrevê-lo aqui seria a segunda régua que o D20 proíbe e o
+     * D116 acabou de punir; então quem já sabe separar **passa pronto**.
+     */
+    viaManual?: Ponto[] | null;
+  } = {
     semente: 20260913,
   },
 ): ResultadoIda {
@@ -298,9 +318,21 @@ export function idaParaOMotor(
       perdas.push({
         campo: `atracoes[${i}] (${a.id})`,
         oQueHavia: `${a.tipo} "${a.nome}" como ${a.geometria.tipo}`,
+        // ── Este motivo era FALSO desde sempre, e o LAB-30 o corrigiu ─────────
+        //
+        // Ele dizia que a atração como LINHA *"é justamente a que não entra"*. O
+        // motor tem `viaManual` — coluna vertebral desenhada à mão — desde sempre;
+        // o que não entrava era por esta ponte não a preencher. E o Lab publicou
+        // duas vezes que o MOTOR ignorava via desenhada (D119).
+        //
+        // Agora a linha desenhada entra como coluna vertebral, e esta perda vale
+        // para o que de fato não tem destino: atração como linha que **não** é via
+        // desenhada (ponto de interesse, outra), e a segunda linha desenhada em
+        // diante — o motor tem uma coluna vertebral só.
         motivo:
-          "o motor só entende atração como polígono. As vias do entorno viajam no contrato " +
-          "como LINHA, que é a forma natural delas — e é justamente a que não entra",
+          "o motor recebe atração como POLÍGONO (ímã) e **uma** via desenhada como linha " +
+          "(`viaManual`, a coluna vertebral). Esta linha não é nenhuma das duas coisas: ou " +
+          "não é via desenhada, ou é a segunda em diante — e aí não há onde entrar",
         gravidade: "alta",
       });
       return;
@@ -434,11 +466,41 @@ export function idaParaOMotor(
     });
   }
 
+  // ───────────────────────── a coluna vertebral desenhada (LAB-30) ──────────
+  //
+  // O v2 dá tipo próprio à via desenhada, e aí esta ida a lê sozinha; no v1 ela
+  // vem como `via_existente`, indistinguível da testada de frente, e quem chama
+  // passa pronto (ver a opção). **O motor só tem UMA coluna vertebral**: entre
+  // várias desenhadas vai a mais longa, e as outras saem como perda declarada —
+  // escolher a mais longa é escolha do Lab, e por isso vai dita.
+  const desenhadasDoV2 = (e.atracoes ?? [])
+    .filter((a) => a.tipo === "via_desenhada" && a.geometria.tipo === "linha")
+    .map((a) => ("pontos" in a.geometria ? a.geometria.pontos : []).map(paraPonto))
+    .filter((l) => l.length >= 2);
+  const candidatas = opcoes.viaManual ? [opcoes.viaManual] : desenhadasDoV2;
+  const comprimento = (l: Ponto[]) =>
+    l.reduce((s, p, i) => (i === 0 ? 0 : s + Math.hypot(p.x - l[i - 1]!.x, p.y - l[i - 1]!.y)), 0);
+  const viaManual = candidatas.length
+    ? [...candidatas].sort((a, b) => comprimento(b) - comprimento(a))[0]!
+    : null;
+  if (candidatas.length > 1) {
+    perdas.push({
+      campo: "atracoes (via desenhada)",
+      oQueHavia: `${candidatas.length} vias desenhadas`,
+      motivo:
+        "o motor tem UMA coluna vertebral (`viaManual: Ponto[] | null`). Entrou a mais longa " +
+        `(${comprimento(viaManual!).toFixed(1)} m); as outras ${candidatas.length - 1} não têm ` +
+        "onde entrar. A escolha pela mais longa é do Lab, não do motor",
+      gravidade: "media",
+    });
+  }
+
   const entrada: EntradaMotor = {
     terreno,
     semente: opcoes.semente,
     ...(opcoes.variantes != null ? { variantes: opcoes.variantes } : {}),
     ...(opcoes.formatos ? { formatos: opcoes.formatos } : {}),
+    ...(viaManual ? { viaManual } : {}),
   };
 
   return { entrada, perdas };

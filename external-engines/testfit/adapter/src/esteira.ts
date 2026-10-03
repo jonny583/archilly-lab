@@ -145,6 +145,11 @@ export interface OpcoesEsteira {
    * dos dez partidos do catálogo dele. Medir no padrão mede um décimo do motor.
    */
   formatos?: readonly FormatoId[];
+  /**
+   * A coluna vertebral desenhada à mão, quando quem chama souber separá-la da
+   * testada de frente (LAB-30). Repassada à ida; ver a opção lá.
+   */
+  viaManual?: { x: number; y: number }[] | null;
 }
 
 const agora = () => performance.now();
@@ -171,6 +176,7 @@ export function rodarEsteira(
     semente,
     variantes,
     ...(opcoes.formatos ? { formatos: [...opcoes.formatos] } : {}),
+    ...(opcoes.viaManual ? { viaManual: opcoes.viaManual } : {}),
   });
   const ida_ms = agora() - tIda;
 

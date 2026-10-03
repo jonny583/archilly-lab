@@ -79,11 +79,37 @@ describe("a prova por diferença, como a ferramenta a gravou", () => {
     for (const g of prova.glebas) expect(g.viasDesenhadas).toBe(4);
   });
 
-  test("NENHUM motor muda a saída quando a via sai do arquivo", () => {
-    // Oito casos — e se um dia um motor passar a respeitar a via, este teste
-    // morde antes de qualquer relatório sair errado.
+  /**
+   * **VIRADO no LAB-30, e esta virada é a mais cara do repositório.**
+   *
+   * O nome dele era *"NENHUM motor muda a saída quando a via sai do arquivo"*, e o
+   * comentário dizia, com orgulho, *"se um dia um motor passar a respeitar a via,
+   * este teste morde antes de qualquer relatório sair errado"*.
+   *
+   * **Ele não mordeu, e o relatório saiu errado — duas vezes.** A SAÍDA do
+   * Laboratório de Parcelamento era idêntica com e sem a via porque **a ida do Lab
+   * nunca entregava a via ao motor**. O campo `viaManual` existe nele desde sempre.
+   * O LAB-17 e o LAB-23 publicaram que *o motor* ignorava via desenhada; quem a
+   * ignorava era a ponte (D119).
+   *
+   * **E havia um segundo defeito, mais fino:** este teste lê a PROVA CONGELADA
+   * (`coluna-vertebral.json`), não o motor rodando. Teste de falsificação que lê
+   * prova velha não falsifica nada — ele repete. A prova foi regerada, e o que
+   * garante que ela não envelheça de novo é o `guarda-da-ida.test.ts`, que mede.
+   *
+   * Agora ele exige o que está medido: **três dos quatro** não mudam, e **o
+   * Parcelamento muda**.
+   */
+  test("três dos quatro ignoram a via; o Parcelamento MUDA a saída com ela", () => {
     for (const g of prova.glebas) {
       for (const [id, m] of Object.entries(g.motores)) {
+        if (id === "parcelamento") {
+          expect(
+            m.saidaIdenticaSemAVia,
+            `${id} em ${g.gleba}: a via chega ao motor desde o LAB-30 e a saída tem de mudar`,
+          ).toBe(false);
+          continue;
+        }
         expect(m.saidaIdenticaSemAVia, `${id} em ${g.gleba} mudou a saída`).toBe(true);
       }
     }

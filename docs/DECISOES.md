@@ -2383,6 +2383,16 @@ dos quatro, só o Symbios desvia.
 
 ## D101 · Declaração de capacidade se prova por DIFERENÇA, não por palavra · 03/10/2026
 
+> **⚠ CORRIGIDA EM 03/10/2026 PELO LAB-30 (ver D119).** O princípio desta decisão
+> está certo e vale mais do que nunca — **declaração se prova por diferença**. A
+> aplicação dela aqui estava errada: a SAÍDA do Laboratório de Parcelamento saía
+> idêntica com e sem a via porque **a ida do Lab nunca entregava a via ao motor**.
+> Prova verdadeira, conclusão falsa. **Leia "os quatro" como "três dos quatro".**
+>
+> E a lição que a correção acrescenta ao princípio: **prova por diferença só vale se
+> a diferença chegou ao motor.** Comparar duas saídas de uma entrada que não mudou do
+> lado de dentro mede a ponte, não o motor.
+
 **Contexto:** o LAB-17 mediu que os quatro motores **declaram**
 `respeitaViaDesenhada: false`. Declaração é promessa.
 
@@ -2932,3 +2942,101 @@ regerada. Ela não é registro de uma medição congelada — é a leitura ao vi
 declarações da porta, e o campo `versaoDeclarada` é justamente o que mudou. Deixá-la
 velha seria publicar como declaração atual uma que não é. As conclusões do LAB-26
 não dependem do valor da etiqueta, e continuam idênticas.
+
+---
+
+## D119 · A quinta vez do ponto cego — e a primeira que já tinha saído para o chat · 03/10/2026
+
+O motor do Laboratório de Parcelamento tem um campo de **entrada** chamado
+`viaManual`: *"coluna vertebral desenhada à mão, quando houver"*. **A ida do Lab
+nunca o preencheu.**
+
+**Medido, preenchendo-o:** `antonina-com-via` vai de **25 para 32 vias**, e a SAÍDA
+deixa de ser idêntica sem a via. Em `ensaio-com-via`, de 599 para 585 lotes.
+
+**E o Lab publicou, duas vezes, que o MOTOR ignorava via desenhada:**
+
+| onde | o que foi publicado | o que era |
+|---|---|---|
+| **LAB-17** | *"os quatro declaram que ignoram via desenhada, e os quatro ignoram"* | três ignoram; o quarto nunca a recebeu |
+| **LAB-23** | *"provado por diferença: SAÍDA idêntica nos oito casos"* | a prova era verdadeira e a conclusão falsa — **a via nunca chegava ao motor** |
+
+**A diferença entre esta e as quatro vezes anteriores** (D18, D75, D93/D94, D98,
+D104) é a que importa: as outras foram pegas **antes** de sair. Esta **já tinha
+saído**, em dois recados, e ficou publicada por duas semanas.
+
+**E o pior detalhe:** o LAB-23 escreveu, com orgulho, que o teste dele *"morde antes
+de qualquer relatório sair errado"* se um motor passar a respeitar a via. **Não
+mordeu** — porque ele lia a **prova congelada**, não o motor rodando. Teste de
+falsificação que lê prova velha não falsifica: repete.
+
+**Decisão:** a ida entrega a via. O v2 tem tipo próprio (`via_desenhada`) e a ida o
+lê sozinha; no v1 a linha chega como `via_existente`, indistinguível da testada de
+frente, e **quem separa é o remendo do LAB-13, na esteira**, que passa a linha
+pronta — reescrever o remendo dentro do adaptador seria a segunda régua que o D20
+proíbe e que o D116 acabou de punir. **O motor tem uma coluna vertebral só**: entra a
+mais longa, e isso vai dito como escolha do Lab.
+
+**Corrigido o que estava publicado:** o relatório do LAB-17, o do LAB-23, a D101, a
+prova dos dois, e a trava do LAB-23 — **virada, não apagada** (D90), exigindo agora o
+que está medido: três dos quatro ignoram, e o Parcelamento muda.
+
+---
+
+## D120 · "Respeitar a via desenhada" eram duas perguntas, e só se viu depois de entregá-la · 03/10/2026
+
+Entregue a via, a declaração `respeitaViaDesenhada` ficou impossível de responder com
+honestidade num campo só:
+
+| pergunta | o Parcelamento | como se mede |
+|---|---|---|
+| **lê** a via? (a SAÍDA muda?) | **sim** | mesma gleba com e sem a via, byte a byte |
+| **assenta** o traçado nela? | **não** — aderência de 11 % | fração da linha com eixo gerado a menos de meia caixa |
+
+**Mesmo caso do `leRelevo` (D100)**, e pela mesma razão: o Parcelamento é o primeiro
+motor em que as duas respostas diferem. Com um campo só, uma das duas verdades teria
+de virar mentira.
+
+**Decisão:** `leViaDesenhada` nasce ao lado de `respeitaViaDesenhada`, cada uma com
+o seu experimento, e a varredura do LAB-26 passa de **13 para 14 falsificáveis** — o
+`Record<keyof Capacidades>` do registro acusou o campo que faltava no mesmo segundo
+em que o campo nasceu, que é exatamente o que ele existe para fazer.
+
+**E o `naoAtendido` mudou de postura:** quem lê a via e não assenta nela **não
+"ignorou"** — ele **substituiu**. A distinção é para quem lê o resultado: *"a rua
+desenhada não aparece"* e *"ela entrou como coluna vertebral e o traçado saiu por
+perto"* são dois desenhos diferentes.
+
+---
+
+## D121 · A dívida declarada: um destino para "o motor tem onde receber e eu não entrego" · 03/10/2026
+
+A guarda da ida achou um segundo caso, e ele **não é limite do motor**: a **testada
+de frente** chega ao contrato como linha, e o motor tem `facesLoteamento` —
+*"faces do perímetro que recebem lotes virados para a rua existente"* — esperando por
+ela. **A ida não entrega.**
+
+As três saídas que não servem, e por quê:
+
+| saída | por que não |
+|---|---|
+| declarar `perda` | **mentira**: `perda` quer dizer *"o motor não tem onde receber"*, e ele tem |
+| declarar `entregue` | mentira maior |
+| deixar fora do inventário | a guarda reprova, e **guarda vermelha por dívida conhecida vira guarda desligada** |
+
+**Decisão:** um quinto destino, `divida`, que **não reprova e é publicado** — na
+prova (`dividasDoLab`), no relatório e no recado ao chat —, nomeando o campo do motor
+que espera (`onde`) e o que falta fazer (`proposto`). É o único destino que não é uma
+resposta: é uma confissão com prazo.
+
+**E ela custou alcance, o que vai dito:** com `atracoes` entrando como dívida, a
+guarda **genérica** deixou de pegar o caso do D119 — porque a linha tem três destinos
+possíveis e qual vale depende do tipo da atração, que no v1 só se descobre medindo.
+Quem impede o D119 de voltar são **duas travas específicas**: a ida preenche
+`viaManual`, e com ela o motor desenha diferente. **Guarda genérica tem alcance
+genérico**; caso específico pede trava específica, e dizer isso é melhor que fingir
+que uma cobre a outra.
+
+**Consequência para a declaração da porta:** enquanto a dívida existir,
+`respeitaTestadaDeFrente: false` no Parcelamento é **dívida do Lab, não limitação do
+motor** — e está escrito assim no inventário, onde quem for pegar a dívida vai ler.

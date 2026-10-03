@@ -23,7 +23,7 @@ import { rodarEsteira } from "../../../testfit/adapter/src/esteira.ts";
 import type { EntradaV1 } from "../../../testfit/adapter/src/contrato-v1.ts";
 
 import type { EntradaMinima } from "../gleba-v1.ts";
-import type { Rodada } from "./comum.ts";
+import { linhasDaEntrada, type Rodada } from "./comum.ts";
 
 /**
  * Os dez partidos de traçado do catálogo dele.
@@ -41,11 +41,30 @@ export const VARIANTES = 20;
 
 export function rodarTestfit(entrada: EntradaMinima, semente: number): Rodada {
   const t0 = performance.now();
+  // ── A COLUNA VERTEBRAL DESENHADA, que eu nunca entreguei (LAB-30, D119) ────
+  //
+  // O motor tem `viaManual` desde sempre, e a ida do Lab nunca a preencheu —
+  // então o Lab publicou, duas vezes, que **o motor** ignora via desenhada
+  // (LAB-17 e LAB-23). Medido: preenchendo-a, `antonina-com-via` vai de 25 para 32
+  // vias. Quem ignorava era a ponte.
+  //
+  // A separação entre via desenhada e testada de frente mora aqui, no remendo do
+  // LAB-13 (`linhasDaEntrada`), porque o contrato **v1** manda as duas com o mesmo
+  // tipo. Quem sabe separar é que passa pronto — reescrever o remendo dentro do
+  // adaptador seria a segunda régua que o D20 proíbe.
+  const { desenhadas } = linhasDaEntrada(entrada);
+  const comprimento = (l: { x: number; y: number }[]) =>
+    l.reduce((s, p, i) => (i === 0 ? 0 : s + Math.hypot(p.x - l[i - 1]!.x, p.y - l[i - 1]!.y)), 0);
+  const colunaVertebral = desenhadas.length
+    ? [...desenhadas].sort((a, b) => comprimento(b) - comprimento(a))[0]!
+    : null;
+
   const r = rodarEsteira(entrada as unknown as EntradaV1, {
     semente,
     variantes: VARIANTES,
     aparar: true,
     formatos: [...FORMATOS],
+    ...(colunaVertebral ? { viaManual: colunaVertebral } : {}),
   });
   const ms = performance.now() - t0;
 

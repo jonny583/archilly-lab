@@ -1,5 +1,26 @@
 # LAB-17 — duas glebas COM via desenhada à mão, os quatro motores, e a D69
 
+> # ⚠ CORRIGIDO EM 03/10/2026 PELO LAB-30
+>
+> **A conclusão central deste relatório estava errada, e o erro era meu.** Onde está
+> escrito que *"os quatro motores ignoram a via desenhada"*, leia-se **três dos
+> quatro**: o motor do Laboratório de Parcelamento tem um campo de entrada chamado
+> `viaManual` — *"coluna vertebral desenhada à mão"* — e **a ida do Lab nunca o
+> preencheu**.
+>
+> **Medido no LAB-30:** entregando a via, `antonina-com-via` vai de **25 para 32
+> vias** e a SAÍDA deixa de ser idêntica sem ela.
+>
+> **O que continua valendo:** a aderência medida. Mesmo recebendo a via, o motor
+> **não assenta os eixos nela** — a aderência fica em 11 %. Ler a via e seguir a via
+> são perguntas diferentes, e o LAB-30 as separou em `leViaDesenhada` e
+> `respeitaViaDesenhada` (D120). Os números desta página foram remedidos na prova.
+>
+> **Por que o relatório não foi reescrito:** ele é o registro do que foi medido e
+> concluído naquele dia. A correção fica no alto, onde não se lê por acidente — ver
+> **D119**.
+
+
 **Data:** 20/09/2026 · **Semente:** 20260913 · **Contrato:** `archilly-motor-entrada` v1
 **Provas:** [`docs/provas/LAB-17/medicoes.json`](../provas/LAB-17/medicoes.json)
 **Fixtures:** [`docs/fixtures/glebas-com-via-desenhada/`](../fixtures/glebas-com-via-desenhada/)

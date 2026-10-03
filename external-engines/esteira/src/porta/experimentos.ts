@@ -97,6 +97,10 @@ export const EXPERIMENTOS: Record<keyof Capacidades, Cobertura> = {
     tipo: "falsificavel",
     teste: "`relevoMudaOTracado`: a GEOMETRIA muda se e só se ele desvia pelo relevo",
   },
+  leViaDesenhada: {
+    tipo: "falsificavel",
+    teste: "`leViaDesenhada`: a SAÍDA muda se e só se a via desenhada chega ao motor",
+  },
   respeitaViaDesenhada: {
     tipo: "falsificavel",
     teste: "`respeitaViaDesenhada`: com uma via no miolo, ele a segue se e só se declarou",

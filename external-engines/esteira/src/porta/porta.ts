@@ -123,10 +123,35 @@ export interface Capacidades {
   relevoMudaOTracado: boolean;
 
   /**
-   * O motor segue a via que o urbanista desenhou à mão dentro da gleba?
+   * A via desenhada à mão muda a **SAÍDA** deste motor — qualquer parte dela?
    *
-   * *Como se desmente:* dá uma via desenhada e mede a aderência. Declarou
-   * `true` e não seguiu — mentiu.
+   * *Como se desmente:* a mesma gleba com e sem a via no arquivo, SAÍDA comparada
+   * byte a byte. Declarou `false` e mudou — mentiu; declarou `true` e ficou
+   * idêntica — mentiu também.
+   *
+   * **Nasceu partida de `respeitaViaDesenhada` no LAB-30**, pela mesma razão que
+   * partiu `leRelevo` no LAB-22 (D100): o Laboratório de Parcelamento é o primeiro
+   * motor em que as duas respostas **diferem**. Ele **lê** a via — dando-a a ele,
+   * `antonina-com-via` vai de 25 para 32 vias — e **não assenta os eixos nela**:
+   * a aderência medida fica em 11 %. Com um campo só, uma das duas verdades teria
+   * de virar mentira.
+   *
+   * **E a razão de isto ter demorado é pior que a do D100:** até o LAB-30 a ida do
+   * Lab **nunca entregou a via ao motor**. O campo `viaManual` existia nele desde
+   * sempre; a ponte não o preenchia, e o Lab publicou duas vezes que *o motor*
+   * ignorava via desenhada (D119).
+   */
+  leViaDesenhada: boolean;
+
+  /**
+   * O motor **assenta o traçado** na via que o urbanista desenhou?
+   *
+   * *Como se desmente:* dá uma via desenhada e mede a **aderência** — a fração do
+   * comprimento da linha que tem eixo de via gerada a menos de meia caixa.
+   * Declarou `true` e a aderência é baixa — mentiu.
+   *
+   * **Não confunda com `leViaDesenhada`**, acima. Ler é uma coisa; pôr a rua em
+   * cima da linha é outra, e é esta a que o urbanista vê no desenho.
    */
   respeitaViaDesenhada: boolean;
 

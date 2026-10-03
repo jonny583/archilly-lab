@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-29 ·
+**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-30 ·
 **Despertador `trig_01XwSkTLT9zmyprNZcUiWy7f` LIGADO** de novo (60 min, :05) — o chat
 mandou reabilitar em vez de recriar, e registrou que preservar a sessão foi melhor que
 a letra da regra (D112).
@@ -15,7 +15,41 @@ a letra da regra (D112).
 |---|---|
 | **LAB-28** — a sensibilidade ao acesso, na tabela e na página do Jonny | **concluído em 03/10/2026** |
 | **LAB-29** — a identidade que viaja no contrato (`MOTOR_NOME`, `MOTOR_VERSAO`) | **concluído em 03/10/2026** |
-| **LAB-30** — a guarda da IDA, do LAB-25 (não está fechada) | **é o próximo, e é o último da fila** |
+| **LAB-30** — a guarda da IDA, do LAB-25 | **concluído em 03/10/2026** |
+
+## 🔴 A FILA DE 03/10 (terceira parte) ESGOTOU
+
+**No próximo disparo não há item pronto** — e aí vale a D62 e o `CLAUDE.md` §1-A:
+gravar o recado, escrever o motivo aqui e **parar o despertador**. Como na vez
+anterior, ele será **desligado e não apagado** (D112), e isso vai declarado.
+
+**O que espera o chat:** a dívida da testada de frente (D121) — mapear a linha para as
+faces do perímetro e entregá-la em `facesLoteamento`. É geometria nova, e prompt fora
+da fila não existe.
+
+## ⚠ O que o LAB-30 achou, e o que foi CORRIGIDO do que já estava publicado
+
+**A quinta vez do ponto cego da §6, e a primeira que já tinha saído para o chat**
+(D119): o motor do Parcelamento tem `viaManual` — *"coluna vertebral desenhada à
+mão"* — e **a ida do Lab nunca o preencheu**. Entregando a via:
+
+| gleba | sem a via | com a via |
+|---|---|---|
+| `antonina-com-via` | 25 vias, 1 386 lotes | **32 vias**, 1 379 lotes |
+| `ensaio-com-via` | 12 vias, 599 lotes | 12 vias, **585 lotes** |
+
+**O LAB-17 e o LAB-23 publicaram que o MOTOR ignorava a via desenhada.** Quem a
+ignorava era a ponte. Os dois relatórios ganharam aviso no alto, a **D101** ganhou a
+ressalva (*prova por diferença só vale se a diferença chegou ao motor*), e a trava do
+LAB-23 foi **virada** — ela lia a **prova congelada** em vez de medir, e por isso não
+mordeu.
+
+**"Respeitar a via" eram duas perguntas** (D120): ele **lê** (a saída muda) e **não
+assenta** (aderência 11 %). Separadas em `leViaDesenhada` e `respeitaViaDesenhada`.
+
+**Nasceu a DÍVIDA DECLARADA** (D121): a testada de frente tem `facesLoteamento`
+esperando no motor e a ida não entrega. Não reprova, **é publicada**, e enquanto durar,
+`respeitaTestadaDeFrente: false` é dívida do Lab e não limitação do motor.
 
 ## O que o LAB-29 fez
 
