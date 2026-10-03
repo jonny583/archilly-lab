@@ -1,0 +1,658 @@
+{
+  "prompt": "LAB-25",
+  "geradoEm": "2026-10-03",
+  "semente": 20260913,
+  "contrato": "2",
+  "pontesAuditadas": [
+    "parcelamento",
+    "symbios"
+  ],
+  "porRegra": {
+    "campo-vazio": 0,
+    "campo-novo": 0,
+    "mapa-velho": 30
+  },
+  "reprovamNoTotal": 0,
+  "glebas": {
+    "completo": {
+      "pontes": [
+        {
+          "ponte": "parcelamento",
+          "amostras": {
+            "via": 26,
+            "lote": 1060,
+            "area": 52,
+            "bolsao": 0,
+            "metricas": 1,
+            "plano": 1
+          },
+          "achados": [
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 1060
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].externo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 1060
+              },
+              "diagnostico": "o inventário descreve `externo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 52
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].conteudo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 52
+              },
+              "diagnostico": "o inventário descreve `conteudo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].centro",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `centro` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].raio",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `raio` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            }
+          ],
+          "reprovam": 0
+        },
+        {
+          "ponte": "symbios",
+          "amostras": {
+            "via": 273,
+            "quadra": 535
+          },
+          "achados": [],
+          "reprovam": 0
+        }
+      ],
+      "faceDeRua": {
+        "idsDeViaBatem": true,
+        "aOrdemDasViasMuda": true,
+        "lotes": 1060,
+        "publicadosPelaPonte": 1047,
+        "nulosNaPonte": 13,
+        "concordam": 965,
+        "divergem": 76,
+        "soAPonteMediu": 6,
+        "soOGenerateMediu": 0,
+        "concordanciaEntreOsQueAsDuasMediram": 92.7,
+        "exemplosDeDivergencia": [
+          {
+            "lote": "v1-l17",
+            "ponte": "V17",
+            "generate": "V4"
+          },
+          {
+            "lote": "v1-l18",
+            "ponte": "V18",
+            "generate": "V3"
+          },
+          {
+            "lote": "v1-l34",
+            "ponte": "V18",
+            "generate": "V4"
+          },
+          {
+            "lote": "v1-l40",
+            "ponte": "V21",
+            "generate": "V3"
+          },
+          {
+            "lote": "v1-l48",
+            "ponte": "V16",
+            "generate": "V3"
+          }
+        ]
+      }
+    },
+    "sintetico-50ha-ondulado": {
+      "pontes": [
+        {
+          "ponte": "parcelamento",
+          "amostras": {
+            "via": 15,
+            "lote": 479,
+            "area": 24,
+            "bolsao": 0,
+            "metricas": 1,
+            "plano": 1
+          },
+          "achados": [
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 479
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].externo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 479
+              },
+              "diagnostico": "o inventário descreve `externo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 24
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].conteudo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 24
+              },
+              "diagnostico": "o inventário descreve `conteudo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].centro",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `centro` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].raio",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `raio` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            }
+          ],
+          "reprovam": 0
+        },
+        {
+          "ponte": "symbios",
+          "amostras": {
+            "via": 111,
+            "quadra": 135
+          },
+          "achados": [],
+          "reprovam": 0
+        }
+      ],
+      "faceDeRua": {
+        "idsDeViaBatem": true,
+        "aOrdemDasViasMuda": false,
+        "lotes": 501,
+        "publicadosPelaPonte": 501,
+        "nulosNaPonte": 0,
+        "concordam": 487,
+        "divergem": 11,
+        "soAPonteMediu": 3,
+        "soOGenerateMediu": 0,
+        "concordanciaEntreOsQueAsDuasMediram": 97.79,
+        "exemplosDeDivergencia": [
+          {
+            "lote": "v12-l33",
+            "ponte": "V6",
+            "generate": "V1"
+          },
+          {
+            "lote": "v12-l90",
+            "ponte": "V6",
+            "generate": "V1"
+          },
+          {
+            "lote": "v12-l216",
+            "ponte": "V9",
+            "generate": "V1"
+          },
+          {
+            "lote": "v12-l247",
+            "ponte": "V8",
+            "generate": "V1"
+          },
+          {
+            "lote": "v12-l248",
+            "ponte": "V9",
+            "generate": "V1"
+          }
+        ]
+      }
+    },
+    "sintetico-10ha-plano": {
+      "pontes": [
+        {
+          "ponte": "parcelamento",
+          "amostras": {
+            "via": 7,
+            "lote": 110,
+            "area": 6,
+            "bolsao": 0,
+            "metricas": 1,
+            "plano": 1
+          },
+          "achados": [
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 110
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].externo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 110
+              },
+              "diagnostico": "o inventário descreve `externo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 6
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].conteudo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 6
+              },
+              "diagnostico": "o inventário descreve `conteudo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].centro",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `centro` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].raio",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `raio` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            }
+          ],
+          "reprovam": 0
+        },
+        {
+          "ponte": "symbios",
+          "amostras": {
+            "via": 11,
+            "quadra": 5
+          },
+          "achados": [],
+          "reprovam": 0
+        }
+      ],
+      "faceDeRua": {
+        "idsDeViaBatem": true,
+        "aOrdemDasViasMuda": false,
+        "lotes": 124,
+        "publicadosPelaPonte": 124,
+        "nulosNaPonte": 0,
+        "concordam": 116,
+        "divergem": 7,
+        "soAPonteMediu": 1,
+        "soOGenerateMediu": 0,
+        "concordanciaEntreOsQueAsDuasMediram": 94.31,
+        "exemplosDeDivergencia": [
+          {
+            "lote": "v12-l15",
+            "ponte": "V4",
+            "generate": "V1"
+          },
+          {
+            "lote": "v12-l28",
+            "ponte": "V4",
+            "generate": "V1"
+          },
+          {
+            "lote": "v12-l41",
+            "ponte": "V3",
+            "generate": "V1"
+          },
+          {
+            "lote": "v12-l80",
+            "ponte": "V6",
+            "generate": "V1"
+          },
+          {
+            "lote": "v12-l90",
+            "ponte": "V5",
+            "generate": "V1"
+          }
+        ]
+      }
+    },
+    "ensaio-47ha": {
+      "pontes": [
+        {
+          "ponte": "parcelamento",
+          "amostras": {
+            "via": 12,
+            "lote": 441,
+            "area": 19,
+            "bolsao": 0,
+            "metricas": 1,
+            "plano": 1
+          },
+          "achados": [
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 441
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].externo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 441
+              },
+              "diagnostico": "o inventário descreve `externo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 19
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].conteudo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 19
+              },
+              "diagnostico": "o inventário descreve `conteudo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].centro",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `centro` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].raio",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `raio` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            }
+          ],
+          "reprovam": 0
+        },
+        {
+          "ponte": "symbios",
+          "amostras": {
+            "via": 94,
+            "quadra": 94
+          },
+          "achados": [],
+          "reprovam": 0
+        }
+      ],
+      "faceDeRua": {
+        "idsDeViaBatem": true,
+        "aOrdemDasViasMuda": false,
+        "lotes": 599,
+        "publicadosPelaPonte": 599,
+        "nulosNaPonte": 0,
+        "concordam": 598,
+        "divergem": 1,
+        "soAPonteMediu": 0,
+        "soOGenerateMediu": 0,
+        "concordanciaEntreOsQueAsDuasMediram": 99.83,
+        "exemplosDeDivergencia": [
+          {
+            "lote": "v12-l151",
+            "ponte": "V5",
+            "generate": "V1"
+          }
+        ]
+      }
+    },
+    "geo-antonina": {
+      "pontes": [
+        {
+          "ponte": "parcelamento",
+          "amostras": {
+            "via": 25,
+            "lote": 1386,
+            "area": 55,
+            "bolsao": 0,
+            "metricas": 1,
+            "plano": 1
+          },
+          "achados": [
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 1386
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "lote",
+              "campo": "lote[].externo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 1386
+              },
+              "diagnostico": "o inventário descreve `externo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].travado",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 55
+              },
+              "diagnostico": "o inventário descreve `travado` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "area",
+              "campo": "area[].conteudo",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 55
+              },
+              "diagnostico": "o inventário descreve `conteudo` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].centro",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `centro` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            },
+            {
+              "ponte": "parcelamento",
+              "objeto": "bolsao",
+              "campo": "bolsao[].raio",
+              "regra": "mapa-velho",
+              "amostras": {
+                "comAchado": 0,
+                "total": 0
+              },
+              "diagnostico": "o inventário descreve `raio` e nenhuma amostra o traz. Pode ser campo opcional que esta gleba não exerce — por isso isto avisa e não reprova"
+            }
+          ],
+          "reprovam": 0
+        },
+        {
+          "ponte": "symbios",
+          "amostras": {
+            "via": 455,
+            "quadra": 702
+          },
+          "achados": [],
+          "reprovam": 0
+        }
+      ],
+      "faceDeRua": {
+        "idsDeViaBatem": true,
+        "aOrdemDasViasMuda": true,
+        "lotes": 1386,
+        "publicadosPelaPonte": 1378,
+        "nulosNaPonte": 8,
+        "concordam": 1256,
+        "divergem": 117,
+        "soAPonteMediu": 5,
+        "soOGenerateMediu": 0,
+        "concordanciaEntreOsQueAsDuasMediram": 91.48,
+        "exemplosDeDivergencia": [
+          {
+            "lote": "v1-l1",
+            "ponte": "V16",
+            "generate": "V3"
+          },
+          {
+            "lote": "v1-l17",
+            "ponte": "V16",
+            "generate": "V4"
+          },
+          {
+            "lote": "v1-l18",
+            "ponte": "V17",
+            "generate": "V3"
+          },
+          {
+            "lote": "v1-l34",
+            "ponte": "V17",
+            "generate": "V4"
+          },
+          {
+            "lote": "v1-l35",
+            "ponte": "V19",
+            "generate": "V3"
+          }
+        ]
+      }
+    }
+  }
+}

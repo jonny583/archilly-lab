@@ -2449,3 +2449,117 @@ achar que **só o Symbios desvia pelo relevo**, e mesmo ele perde aqui.
 pessoa**, numa gleba real. Vai à fila como proposto ao chat — **o Lab não inventa
 partido urbanístico** (CLAUDE.md §4), e inventar um "bom traçado" para depois
 elogiá-lo seria inventar duas vezes.
+
+---
+
+## D104 · A quarta vez do mesmo ponto cego, e quem a achou foi a guarda · 03/10/2026
+
+**O LAB-25 pediu a guarda que impede a quarta vez.** Ela ficou pronta, rodou uma
+vez, e **achou a quarta vez na mesma hora**: a ponte do Laboratório de
+Parcelamento escrevia `faceDeRua: null` em **110 de 110 lotes**, com o comentário
+
+> *"o motor sabe a testada mas não guarda de QUAL via ela é frente"*
+
+O motor guarda **desde o T02 dele** (`face.ts`), e a tradução dele mesmo escreve
+exatamente isto (`contrato/traducao.ts:453`). O comentário não envelheceu
+sozinho: ele foi escrito **antes** do T02 e nunca mais foi conferido. É a mesma
+forma do **D98**, e a quarta da família da §6:
+
+| quando | o que eu ia dizer | o que era |
+|---|---|---|
+| D18 (LAB-07) | "441 de 441 lotes sem frente" | distância medida errado pelo adaptador |
+| D75 (LAB-17) | "o motor erra a classe da via desenhada" | a régua media vértice, não linha |
+| D93/D94 (LAB-21) | "o motor entrega rampa de 161 %" | a régua media dentro do segmento |
+| D98 (LAB-22) | "o Parcelamento não reporta o pico" | a ponte do Lab jogava a medição fora |
+| **D104 (LAB-25)** | *(nada — eu não vi)* | **a ponte jogava a via de frente fora** |
+
+**Decisão:** a ponte traduz o índice do motor no id da via (`i` → `V<i+1>`, a
+mesma numeração que ela escreve nas vias), e índice fora da lista sai `null` —
+porque o esquema do Generate **recusa o arquivo inteiro** quando um lote faz
+frente para via que não está nele, e um id inventado é pior que um campo
+incompleto.
+
+**O que ela comprou, medido — e é pouco, e está dito:** o Generate **não acredita**
+no `faceDeRua` que recebe de fora. O `paraResultado` dele o descarta e o
+`paraSaida` o recalcula com a régua do invariante. Regerando a tabela do LAB-19
+inteira depois do conserto, **nenhum número medido mudou** — só o tempo de parede.
+Então o conserto **não compra ponto no Judge**: ele conserta a honestidade do Lab
+e serve quem lê o campo (tela, exportação, Orçamento). Dizer que melhorou a
+comparação seria vender ganho que não houve.
+
+**E o número descartado era bom:** posto contra a régua independente do Generate
+nas cinco glebas, ele concorda em **91,5 % a 99,8 %** dos lotes. As duas réguas
+são diferentes de propósito — a do motor é *um dos dois lados do comprimento da
+testada*, a do Generate é *a faixa de leito mais perto de qualquer vértice* —, e
+num lote de esquina as duas estão certas escolhendo ruas diferentes.
+
+---
+
+## D105 · A justificativa de uma perda sai do comentário e vira inventário conferido · 03/10/2026
+
+**O problema não é o comentário errado; é que comentário não se revalida.** O do
+D98 era verdadeiro no dia em que foi escrito. O do D104 também. Os dois ficaram
+falsos por um movimento do vizinho, e nenhum teste podia saber.
+
+**Decisão:** cada campo que um motor publica tem destino escrito em
+`external-engines/esteira/src/inventario-das-pontes.ts` — **atravessa**,
+**traduzido**, **perda declarada** ou **mecânica interna** —, e
+`guarda-da-ponte.ts` confere o inventário **contra o motor rodando**, com três
+regras:
+
+| regra | o que pega | reprova? |
+|---|---|---|
+| `campo-vazio` | SAÍDA sai `null` e o motor publica valor na MESMA linha | **sim** |
+| `campo-novo` | o motor publica campo que o inventário não conhece | **sim** |
+| `mapa-velho` | inventário descreve campo que nenhuma amostra traz | não — avisa |
+
+**A `campo-vazio` não acredita no inventário.** O casamento é por **nome**, lido
+do objeto que o motor devolveu: uma ponte que declarasse a perda com motivo
+bonito seria pega igual. Era literalmente o caso do D98, e o teste prova isso com
+um inventário que mente de propósito.
+
+**A `mapa-velho` avisa e não reprova, de propósito.** Campo opcional (`travado`,
+`externo`, `conteudo`) falta legitimamente numa gleba e aparece noutra. Guarda que
+grita por isso é guarda que se aprende a desligar — e a utilidade inteira desta
+depende de ela nunca gritar sem razão.
+
+**Regra escrita no `CLAUDE.md` §4**, que é onde moram as coisas que este
+repositório nunca faz.
+
+---
+
+## D106 · A guarda prova que sabe ficar VERMELHA · 03/10/2026
+
+Um teste que só ficou verde nunca provou nada. Três testes do andar 2 de
+`tests/guarda-da-ponte.test.ts` **sabotam a ponte de propósito** e exigem o
+achado: escrever `null` na rampa que o motor mede (o D98 reencenado), escrever
+`null` no `faceDeRua` (o D104 reencenado) e **apagar uma entrada do inventário**
+(que tem de virar `campo-novo`).
+
+**Por que isto é decisão e não zelo:** a guarda inteira é uma afirmação sobre o
+futuro — *"se a ponte descartar, isto reprova"*. Essa afirmação é tão falsificável
+quanto as capacidades do LAB-14, e merece o mesmo tratamento que a D101 deu às
+declarações de motor: **prova por diferença, não por palavra.**
+
+---
+
+## D107 · Encher `faceDeRua` obriga o aparo a apagar o que ficou órfão · 03/10/2026
+
+Consequência que só existe **porque** o campo deixou de ser `null`: o aparo do Lab
+(`aparo.ts`) descarta a via que cai inteiramente fora da gleba, e um lote podia
+ficar apontando para via que **não está mais no arquivo** — o esquema do Generate
+recusa o desenho inteiro nesse caso.
+
+**Decisão:** o aparo volta esse `faceDeRua` para `null` e **conta** em
+`facesApagadas`. As três saídas possíveis, e por que as outras duas são piores:
+
+1. **apagar e contar** — perde informação, e a perda está medida. É esta;
+2. **deixar o id morto** — o Generate recusa o arquivo inteiro. Pior;
+3. **apontar para a via sobrevivente mais próxima** — o Lab inventando frente que
+   o motor não mediu. Muito pior.
+
+O cabeçalho do `aparo.ts` dizia *"só as vias são tocadas; lote, quadra e área
+especial saem exatamente como o motor os desenhou"*. **Ficou falso com este
+conserto, e foi corrigido no mesmo commit** — que é exatamente a disciplina que a
+D105 criou. Medido: na gleba inteira, `facesApagadas = 0`; numa gleba minúscula de
+teste, que descarta quase toda a rede, ele apaga e a conta aparece.

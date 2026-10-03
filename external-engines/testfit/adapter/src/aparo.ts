@@ -57,6 +57,17 @@ export interface ResultadoAparo {
   viasDescartadas: number;
   comprimentoOriginal_m: number;
   comprimentoAparado_m: number;
+  /**
+   * Lotes cujo `faceDeRua` apontava para via que o aparo descartou.
+   *
+   * Nasceu no LAB-25, junto com o conserto que fez o campo deixar de sair
+   * `null`: enquanto ele era sempre `null`, descartar uma via não tinha
+   * consequência. Agora tem — o esquema do Generate **recusa o arquivo inteiro**
+   * quando um lote faz frente para via que não está nele
+   * (`motor-v1/esquema.ts`, a conferência de `faceDeRua`). O aparo é conserto
+   * declarado do Lab, e esta é a conta dele.
+   */
+  facesApagadas: number;
 }
 
 const dist = (a: PontoV1, b: PontoV1) => Math.hypot(b.x - a.x, b.y - a.y);
@@ -139,8 +150,13 @@ function recortarSegmento(
 /**
  * Apara os eixos viários pelo perímetro da gleba.
  *
- * Só as vias são tocadas. Lote, quadra e área especial saem exatamente como o
- * motor os desenhou — ver o cabeçalho.
+ * **Geometria:** só as vias são tocadas. Lote, quadra e área especial saem com o
+ * desenho exato do motor — ver o cabeçalho.
+ *
+ * **Um campo, não geométrico, também muda** desde o LAB-25: o `faceDeRua` do
+ * lote que apontava para via descartada volta a `null`, e a conta sai em
+ * `facesApagadas`. Enquanto o campo era sempre `null` isto não existia; a
+ * guarda da ponte cobrou o campo, e o campo cobrou isto.
  */
 export function apararVias(saida: SaidaV1, anelDaGleba: PontoV1[]): ResultadoAparo {
   const comprimentoDe = (vias: ViaV1[]) =>
@@ -161,8 +177,22 @@ export function apararVias(saida: SaidaV1, anelDaGleba: PontoV1[]): ResultadoApa
     if (recorte) vias.push({ ...v, pontos: [recorte[0], recorte[1]] });
   }
 
+  // Quem sobrou, pelo id. O lote que fazia frente para via descartada volta a
+  // `faceDeRua: null` — que é a verdade depois do aparo: a via para a qual ele
+  // fazia frente não está mais no arquivo. Apagar é perder informação, e está
+  // contado; inventar outro id seria pior, e deixar o id morto faz o Generate
+  // recusar o desenho inteiro.
+  const idsQueSobraram = new Set(vias.map((v) => v.id));
+  let facesApagadas = 0;
+  const lotes = saida.lotes.map((l) => {
+    if (l.faceDeRua == null || idsQueSobraram.has(l.faceDeRua)) return l;
+    facesApagadas++;
+    return { ...l, faceDeRua: null };
+  });
+
   return {
-    saida: { ...saida, vias },
+    saida: { ...saida, vias, lotes },
+    facesApagadas,
     aparou: vias.length !== saida.vias.length || comprimentoDe(vias) < comprimentoOriginal_m - 1,
     viasOriginais: saida.vias.length,
     viasRestantes: vias.length,

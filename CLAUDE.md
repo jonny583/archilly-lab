@@ -129,6 +129,16 @@ em silêncio.
   desligado por padrão, e a medição sai nas duas passagens — com e sem.
 - **Não inventa dado.** O que o motor não mede sai `null`, nunca zero. Zero é uma
   medição; `null` é "não medido" (D23).
+- **Não descarta em silêncio campo que o motor publica.** Todo campo que um motor
+  entrega tem destino escrito no inventário da ponte
+  (`external-engines/esteira/src/inventario-das-pontes.ts`): *atravessa*,
+  *traduzido*, *perda declarada* ou *mecânica interna*. A
+  `guarda-da-ponte.ts` confere o inventário **contra o motor rodando**, e
+  reprova em dois casos: campo da SAÍDA que sai `null` enquanto o motor publica
+  valor, e campo novo do motor sem destino escrito. **O motivo de uma perda não
+  mora em comentário** — comentário não se revalida, e foi assim que o Lab
+  publicou `null` por três semanas e atribuiu a falta ao motor do vizinho (D98,
+  D104).
 - **Não decide urbanismo.** Regra urbanística é do Jonny: vira item em
   `docs/PENDENCIAS_JONNY.md`, não escolha minha.
 
@@ -161,6 +171,20 @@ repositório errado.
 
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
+
+**O ponto cego tem forma, e ela se repetiu quatro vezes** — sempre *o Lab a um
+passo de acusar o motor de um vizinho por um defeito do Lab*:
+
+| quando | o que eu ia dizer | o que era |
+|---|---|---|
+| D18 (LAB-07) | "441 de 441 lotes sem frente" | distância medida errado pelo adaptador |
+| D75 (LAB-17) | "o motor erra a classe da via desenhada" | a régua media **vértice**, não linha |
+| D93/D94 (LAB-21) | "o motor entrega rampa de 161 %" | a régua media **dentro** do segmento |
+| D98 (LAB-22) | "o Parcelamento não reporta o pico" | a **ponte do Lab** jogava a medição dele fora |
+
+A quarta foi diferente das três primeiras: não houve erro de conta, houve um
+**comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
+dessa forma, o `faceDeRua` do D104, **não fui eu que achei: foi ela**.
 
 ---
 
