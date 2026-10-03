@@ -5,27 +5,52 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-30 ·
-**Despertador `trig_01XwSkTLT9zmyprNZcUiWy7f` LIGADO** de novo (60 min, :05) — o chat
-mandou reabilitar em vez de recriar, e registrou que preservar a sessão foi melhor que
-a letra da regra (D112).
+**A fila de 03/10 (terceira parte) está CUMPRIDA, inteira.**
 
-## A fila nova de 03/10 (terceira parte)
+# 🔴 O DESPERTADOR ESTÁ DESLIGADO — o Lab PAROU, esperando o chat
 
-| Prompt | Estado |
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` desde 03/10/2026, 16:06 UTC.**
+
+**Por quê:** o disparo das 16:05 **não achou item pronto**. A fila de 03/10 teve três
+partes e as três estão cumpridas — LAB-21, 24, 22, 23, 25, 26, 27, 28, 29 e 30 —, e
+os achados novos estão todos *"proposto ao chat"*. É o caso da D62 e do `CLAUDE.md`
+§1-A.
+
+**Desligado e não apagado**, como na primeira vez (D112), e o chat ratificou essa
+escolha ao mandar **reabilitar em vez de recriar**. **Para destravar:** reabilitar este
+mesmo despertador (preserva o histórico de disparos, é mais barato) ou apagá-lo e criar
+outro junto com a fila nova.
+
+## O que espera decisão do chat
+
+1. **a dívida da testada de frente** (D121) — mapear a linha para as **faces do
+   perímetro** que ela cobre e entregá-la em `facesLoteamento`. Enquanto não for feito,
+   `respeitaTestadaDeFrente: false` no Parcelamento é **dívida do Lab, não limitação do
+   motor**, e está escrito assim no inventário;
+2. **a pergunta ao Parcelamento, que ficou mais urgente** (LAB-29): o `MOTOR_VERSAO`
+   deles está em `1.0` e o Lab agora **depende** dele. Entre o T00-A e o T05 o desenho
+   mudou de forma visível ao Generate pelo menos duas vezes;
+3. **a via desenhada por PESSOA, numa gleba real** (D103) — a linha das fixtures é
+   geométrica, desenhada por mim.
+
+## Os doze prompts de 03/10, em uma linha cada
+
+| prompt | o que ficou |
 |---|---|
-| **LAB-28** — a sensibilidade ao acesso, na tabela e na página do Jonny | **concluído em 03/10/2026** |
-| **LAB-29** — a identidade que viaja no contrato (`MOTOR_NOME`, `MOTOR_VERSAO`) | **concluído em 03/10/2026** |
-| **LAB-30** — a guarda da IDA, do LAB-25 | **concluído em 03/10/2026** |
+| **LAB-21** | a rampa por trecho e cruzamento; os 161 % do LAB-18 eram a discretização do motor |
+| **LAB-24** | o bloco de terreno: 30 % no lote reprova, 15 % na rua só avisa |
+| **LAB-22** | a lacuna da rampa era da ponte do Lab, não do motor |
+| **LAB-23** | a via desenhada medida contra as vias dos motores — **conclusão corrigida pelo LAB-30** |
+| **LAB-25** | a guarda da SAÍDA, que achou o `faceDeRua` descartado em 110 de 110 lotes |
+| **LAB-26** | a varredura: 3 capacidades sem experimento, e a suíte do `testfit` vermelha há duas semanas |
+| **LAB-27** | o documento vivo, com os dois achados que são do vizinho |
+| **LAB-28** | a sensibilidade ao acesso: **+108 %** em lotes só mudando a entrada |
+| **LAB-29** | a identidade do contrato passou a ser a que o motor publica |
+| **LAB-30** | a guarda da IDA, e a **quinta** vez do ponto cego — a primeira já publicada |
 
-## 🔴 A FILA DE 03/10 (terceira parte) ESGOTOU
-
-**No próximo disparo não há item pronto** — e aí vale a D62 e o `CLAUDE.md` §1-A:
-gravar o recado, escrever o motivo aqui e **parar o despertador**. Como na vez
-anterior, ele será **desligado e não apagado** (D112), e isso vai declarado.
-
-**O que espera o chat:** a dívida da testada de frente (D121) — mapear a linha para as
-faces do perímetro e entregá-la em `facesLoteamento`. É geometria nova, e prompt fora
-da fila não existe.
+**O ponto cego da §6 foi pego cinco vezes nesta fila** (D104, D114, D116, D119 e a
+régua de `parametros` do LAB-30), e **três delas eram réguas minhas acusando a si
+mesmas**. A tabela das cinco está no `CLAUDE.md` §6.
 
 ## ⚠ O que o LAB-30 achou, e o que foi CORRIGIDO do que já estava publicado
 

@@ -564,3 +564,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma.
 Próximo na fila: NADA PRONTO. PROPOSTO: a dívida da testada de frente — mapear a linha para as faces do perímetro que ela cobre e entregá-la em facesLoteamento. Enquanto não for feito, respeitaTestadaDeFrente: false no Parcelamento é dívida do Lab e não limitação do motor, e está escrito assim no inventário. É geometria nova, e prompt fora da fila não existe.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · A fila de 03/10 esgotou — o despertador parou
+
+```
+=== RECADO PARA O CHAT — Lab · — ===
+Estado: PAREI, e de propósito. O disparo das 16:05 não achou item pronto: as TRÊS partes da fila de 03/10 estão cumpridas — dez prompts, LAB-21 a LAB-30 — e os achados novos estão todos "proposto ao chat". É o caso da D62. O despertador trig_01XwSkTLT9zmyprNZcUiWy7f está FORA DO AR desde 16:06 UTC, DESLIGADO e não apagado (D112, a escolha que você ratificou ao mandar reabilitar em vez de recriar). main em 73fea13, árvore limpa, os dois pacotes verdes (300 testes), vizinhos sem uma alteração.
+Feito: nada de medição — este disparo não tinha o que medir. O que ficou registrado: o motivo em ONDE_PARAMOS, o fim da fila na FILA.md, e um resumo dos dez prompts em uma linha cada.
+Achados para outros apps ou Central: O SALDO DO DIA, em uma frase: o ponto cego do §6 foi pego CINCO vezes nesta fila (D104, D114, D116, D119 e a régua de parametros do LAB-30), e TRÊS delas eram réguas minhas acusando a si mesmas. A pior é a D119, a única que já tinha saído para você: eu reportei duas vezes que o motor do Parcelamento ignorava via desenhada, e quem a ignorava era a minha ponte — o campo viaManual existe nele desde sempre. Corrigi o que estava publicado (LAB-17, LAB-23, D101), virei a trava que devia ter mordido, e escrevi as duas guardas que fecham os dois sentidos da ponte: LAB-25 para motor → SAÍDA e LAB-30 para contrato → motor. O que elas não cobrem está declarado como DÍVIDA, com o campo que espera e o que falta fazer, em vez de ficar calado.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma (útil < 85 % = "a conferir", < 70 % = "ruim").
+Próximo na fila: NADA. O Lab está parado esperando fila nova. Três coisas esperam você: (a) a DÍVIDA DA TESTADA DE FRENTE — mapear a linha para as faces do perímetro e entregá-la em facesLoteamento; enquanto não for feito, respeitaTestadaDeFrente: false no Parcelamento é dívida minha e não limitação do motor; (b) a PERGUNTA AO PARCELAMENTO, que ficou mais urgente porque agora eu dependo dela — o MOTOR_VERSAO deles está em 1.0 e o desenho mudou de forma visível ao Generate pelo menos duas vezes entre o T00-A e o T05; (c) a VIA DESENHADA POR PESSOA numa gleba real, que a D103 pediu e eu não posso inventar. Reabilite o despertador com a fila nova e eu volto a andar.
+=== FIM ===
+```
