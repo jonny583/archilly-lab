@@ -170,7 +170,21 @@ Mandada pelo chat em 03/10/2026, com **o despertador que já está de pé**
 |---|---|---|---|
 | **LAB-25** | **A guarda que impede a quarta vez:** um teste que reprove quando a ponte do Lab descartar campo que o motor publica, e a regra escrita no documento. *"Vale mais que qualquer medição nova."* | ✅ **concluído em 03/10/2026** | nenhuma |
 | **LAB-26** | Partir `leRelevo` em duas (**já feito no LAB-22, D100**) e **varrer as outras capacidades declaradas** que o teste de falsificação ainda não cobre | ✅ **concluído em 03/10/2026** | LAB-25 mesclado ✅ |
-| **LAB-27** | Manter [`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](../O_QUE_FALTA_MEDIR_POR_MOTOR.md) atualizado e **avisar quando mudar** | ⬜ **contínuo — é o que resta** | LAB-26 mesclado ✅ |
+| **LAB-27** | Manter [`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](../O_QUE_FALTA_MEDIR_POR_MOTOR.md) atualizado e **avisar quando mudar** | 🔁 **contínuo · 1ª atualização em 03/10/2026** | LAB-26 mesclado ✅ |
+
+### ⚠ A regra do contínuo — leia antes de acordar de novo (D111)
+
+**O LAB-27 só é item pronto quando há mudança para carregar.** Um item que nunca
+acaba manteria o despertador vivo para sempre: ele acorda, declara *"o LAB-27 está
+pronto"*, não acha nada e se mantém. É o desperdício que a D62 mediu — 4 dos 7
+disparos de 15/09 sem o que fazer.
+
+**Sem mudança no documento, NÃO há item pronto**: gravar o recado, escrever o
+motivo em `ONDE_PARAMOS` e **apagar o despertador**. O chat o recria com fila nova.
+
+**Estado agora:** a fila de 03/10 está **cumprida** (LAB-21, 24, 22, 23, 25, 26 e a
+1ª rodada do 27) e os achados novos estão todos *"proposto ao chat"*. **No próximo
+disparo, previsivelmente, não há item pronto.**
 
 ### Duas notas de estado, para não refazer trabalho
 
@@ -235,6 +249,26 @@ viraram v2 e o portão da ida ainda gateava `"1"` (gêmeo do D87). Dois daqueles
 testes eram as travas do D98 e do D104: **a suíte invisível calou os próprios
 alarmes.** Agora `./external-engines/conferir.sh` roda os dois pacotes, e o
 `CLAUDE.md` §7 diz que *"testes verdes"* é isso.
+
+### LAB-27 · O documento vivo — 🔁 1ª atualização em 03/10/2026
+
+**Entregue:** [`../relatorios/LAB-27.md`](../relatorios/LAB-27.md). Sem ferramenta
+própria: este prompt não mede, carrega o que outros mediram.
+
+**O que mudou no
+[`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](../O_QUE_FALTA_MEDIR_POR_MOTOR.md)** — dois
+achados do LAB-26 que são sobre o motor do vizinho, não sobre o Lab:
+
+- **§1-B (nova)** — a ficha de capacidades do Lab dizia, **por escrito e para
+  fora**, que o motor do Parcelamento ignora o ponto de acesso. Falso: **703 → 603
+  lotes**. Ficha voltada para fora atribuindo limitação que o motor não tem se
+  **avisa**, não se conserta calado;
+- **§1-C (nova)** — eles publicam `MOTOR_NOME` e `MOTOR_VERSAO` e a ponte do Lab
+  escreve outros dois. Com a única pergunta que o documento faz a eles hoje: *a
+  versão subiu no T02 e no T03?* Se não subiu, ela não serve para o Lab saber que
+  precisa remedir;
+- **§6 (ampliada)** — a estatística do LAB-26: das 15 declarações, três sem
+  experimento, e a falsa numa delas. Um em três.
 
 ### Proposto ao chat — três, nenhum executado
 
