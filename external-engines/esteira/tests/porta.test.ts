@@ -25,9 +25,26 @@
  * | `respeitaTestadaDeFrente` | há lote com aresta na testada? |
  * | `calculaGreide` | a saída traz rampa, ou `null`? |
  * | `respeitaRestricao` | a área privativa cai quando a APP entra? |
+ * | `respeitaAcesso` | mover o acesso muda o traçado? **(LAB-26)** |
+ * | `geometrias` | o partido que saiu está entre os oferecidos? **(LAB-26)** |
+ * | `versao` | a versão declarada é a que a SAÍDA carrega? **(LAB-26)** |
  *
  * **Um motor que declarar errado quebra o teste.** É o que separa declaração de
  * propaganda — e é por isso que este arquivo é curto em prosa e longo em medida.
+ *
+ * # As três últimas linhas chegaram no LAB-26, e uma delas pegou uma mentira
+ *
+ * Até lá a tabela tinha nove linhas, e o cabeçalho afirmava que o teste
+ * falsificava **todos** os campos. Não falsificava: **três não tinham
+ * experimento nenhum**. E a declaração falsa estava justamente num deles — o
+ * Laboratório de Parcelamento dizia `respeitaAcesso: false` e vai de **703 para
+ * 603 lotes** quando o acesso se move 992,6 m.
+ *
+ * **Afirmação sobre o futuro em prosa não se revalida** — é o mesmo defeito que
+ * o LAB-25 tirou dos comentários da ponte, uma camada acima. Agora quem garante
+ * a frase é `src/porta/experimentos.ts`, com os dois testes de varredura no fim
+ * deste arquivo: **cobertura** (campo novo sem experimento reprova) e
+ * **existência** (nome citado que não existe aqui reprova).
  *
  * # O que ele NÃO prova
  *
@@ -45,6 +62,7 @@ import { glebaDoLab } from "../src/gleba-do-lab.ts";
 import type { EntradaMinima } from "../src/gleba-v1.ts";
 import { lotesNaTestadaDeFrente, aderenciaAViaDesenhada, type P } from "../src/motores/comum.ts";
 import { entradaDaPorta, type Capacidades, type MotorNaPorta } from "../src/porta/porta.ts";
+import { contagem, EXPERIMENTOS, testesCitados } from "../src/porta/experimentos.ts";
 import {
   motorDoGenerate,
   motorDoParcelamento,
@@ -90,6 +108,22 @@ const entradaCom = (v1: EntradaMinima, semente = SEMENTE) =>
 function semRelevo(v1: EntradaMinima): EntradaMinima {
   return { ...v1, relevo: { curvas: [] } };
 }
+
+/**
+ * A geometria, sem os campos de rampa.
+ *
+ * Tirar a rampa é o que separa as duas perguntas: um motor que mede a rampa e
+ * traça igual tem `leRelevo: true` e `relevoMudaOTracado: false`, e sem este
+ * recorte as duas declarações não seriam distinguíveis. Ver `porta.ts`.
+ *
+ * **Subiu para o escopo do arquivo no LAB-26**, quando o experimento do
+ * `respeitaAcesso` passou a precisar da mesma régua: duas cópias dela
+ * responderiam à mesma pergunta de dois jeitos, que é o defeito que o D20 proíbe.
+ */
+const soGeometria = (saida: unknown): string =>
+  JSON.stringify(saida, (chave, valor) =>
+    chave === "rampaMedia_pct" || chave === "rampaMaxima_pct" ? undefined : valor,
+  );
 
 function lotesDa(saida: unknown): { pontos: P[] }[] {
   return ((saida as { lotes?: { pontos: P[] }[] } | null)?.lotes ?? []) as { pontos: P[] }[];
@@ -156,18 +190,6 @@ describe("a declaração é falsificável — um experimento por campo", () => {
       }
     }
   });
-
-  /**
-   * A geometria, sem os campos de rampa.
-   *
-   * Tirar a rampa é o que separa as duas perguntas: um motor que mede a rampa e
-   * traça igual tem `leRelevo: true` e `relevoMudaOTracado: false`, e sem este
-   * recorte as duas declarações não seriam distinguíveis. Ver `porta.ts`.
-   */
-  const soGeometria = (saida: unknown): string =>
-    JSON.stringify(saida, (chave, valor) =>
-      chave === "rampaMedia_pct" || chave === "rampaMaxima_pct" ? undefined : valor,
-    );
 
   test("`relevoMudaOTracado`: a GEOMETRIA muda se e só se ele desvia pelo relevo", () => {
     const v1 = glebaDoLab(GLEBA);
@@ -316,6 +338,111 @@ describe("a declaração é falsificável — um experimento por campo", () => {
       }
     }
   }, 120_000);
+
+  // ══════════════ os três que faltavam, achados pela varredura ══════════════
+
+  test("`respeitaAcesso`: mover o acesso muda o traçado se e só se ele o lê", () => {
+    // A gleba de prova é a `ensaio-47ha`, que **declara acesso** no arquivo. A
+    // experiência move o acesso entre os dois vértices mais distantes do anel —
+    // 992,6 m — porque mover pouco não distingue "não lê" de "lê e mudou pouco".
+    const v1 = lerFixture("ensaio-47ha");
+    const anel = v1.gleba.anel as P[];
+    let i0 = 0;
+    let i1 = 0;
+    let maior = -1;
+    for (let i = 0; i < anel.length; i++) {
+      for (let j = i + 1; j < anel.length; j++) {
+        const d = Math.hypot(anel[j]!.x - anel[i]!.x, anel[j]!.y - anel[i]!.y);
+        if (d > maior) {
+          maior = d;
+          i0 = i;
+          i1 = j;
+        }
+      }
+    }
+    expect(maior).toBeGreaterThan(100);
+    const comAcessoEm = (p: P): EntradaMinima => ({
+      ...v1,
+      acessos: [
+        { id: "A1", nome: "Acesso principal", papel: "principal", ponto: p, segmento: null, sugerido: false },
+      ],
+    });
+
+    for (const m of motores) {
+      const c = m.capacidades();
+      const a = soGeometria(m.gerar(entradaCom(comAcessoEm(anel[i0]!))).saida);
+      const b = soGeometria(m.gerar(entradaCom(comAcessoEm(anel[i1]!))).saida);
+      if (c.respeitaAcesso) {
+        expect(a, `${c.id} declarou respeitar o acesso e o traçado não mudou`).not.toBe(b);
+      } else {
+        expect(a, `${c.id} declarou IGNORAR o acesso e o traçado mudou`).toBe(b);
+      }
+    }
+  }, 240_000);
+
+  test("`geometrias`: o partido que saiu é um dos que ele ofereceu", () => {
+    // Declarar dez partidos e entregar um que não está na lista é propaganda com
+    // outro nome: a tela mostra a lista declarada e o urbanista escolhe por ela.
+    const e = entradaCom(glebaDoLab(GLEBA));
+    for (const m of motores) {
+      const c = m.capacidades();
+      const r = m.gerar(e);
+      if (r.geometria == null) continue;
+      expect(c.geometrias, `${c.id} entregou "${r.geometria}", que não declarou`).toContain(
+        r.geometria,
+      );
+    }
+  });
+
+  test("`versao`: a versão declarada é a que a SAÍDA carrega", () => {
+    // Duas terras, uma envelhece: estava `"T02"` na porta e `"T00-A"` na esteira,
+    // e nada conferia (LAB-26). O sufixo é permitido — o Parcelamento acrescenta
+    // o partido à versão, de propósito, para a opção não virar anônima na mesa.
+    const e = entradaCom(glebaDoLab(GLEBA));
+    for (const m of motores) {
+      const c = m.capacidades();
+      const saida = m.gerar(e).saida as { motor?: { versao?: string } } | null;
+      if (!saida?.motor?.versao) continue;
+      expect(
+        saida.motor.versao.startsWith(c.versao),
+        `${c.id} declara versão "${c.versao}" e a SAÍDA carrega "${saida.motor.versao}"`,
+      ).toBe(true);
+    }
+  });
+});
+
+// ═══════════ a varredura: a frase "o teste falsifica todos" é testada ════════
+
+describe("a varredura das capacidades — nenhum campo sem quem o desminta", () => {
+  test("todo campo de `Capacidades` tem cobertura escrita", () => {
+    // Contra um objeto DE VERDADE, não contra o tipo: o tipo vale em tempo de
+    // compilação, e campo novo pode entrar por caminho que o `Record` não barra.
+    for (const m of motores) {
+      for (const campo of Object.keys(m.capacidades())) {
+        expect(
+          EXPERIMENTOS[campo as keyof Capacidades],
+          `o campo \`${campo}\` de \`Capacidades\` não tem experimento nem razão escrita em src/porta/experimentos.ts`,
+        ).toBeDefined();
+      }
+    }
+  });
+
+  test("todo teste citado no registro existe NESTE arquivo", () => {
+    // Sem isto o registro seria mais uma lista afirmando coisas sobre um arquivo
+    // que ela não lê — exatamente o defeito que ele existe para consertar.
+    const fonte = readFileSync(join(import.meta.dirname, "porta.test.ts"), "utf8");
+    for (const nome of testesCitados()) {
+      expect(fonte.includes(nome), `o registro cita o teste "${nome}", que não existe aqui`).toBe(
+        true,
+      );
+    }
+  });
+
+  test("a contagem da varredura é a que o relatório do LAB-26 publica", () => {
+    // Treze falsificáveis, um conferido (`id`) e um sem régua (`nome`). Quando
+    // este número mudar, o relatório está velho — e é bom que alguém saiba.
+    expect(contagem()).toEqual({ falsificavel: 13, conferido: 1, "sem-regua": 1 });
+  });
 });
 
 describe("o que o motor não soube fazer — o campo que a porta obriga", () => {

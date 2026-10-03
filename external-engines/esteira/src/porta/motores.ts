@@ -15,7 +15,8 @@ import type { EntradaMinima } from "../gleba-v1.ts";
 import { linhasDaEntrada } from "../motores/comum.ts";
 import { rodarGenerate, type Candidata } from "../motores/generate.ts";
 import { rodarTestfit } from "../motores/testfit.ts";
-import { rodarSymbios } from "../motores/symbios.ts";
+import { rodarSymbios, VERSAO_DA_DUPLA } from "../motores/symbios.ts";
+import { VERSAO_MOTOR_MEDIDA } from "../../../testfit/adapter/src/esteira.ts";
 import type {
   Capacidades,
   Entrada,
@@ -174,7 +175,15 @@ export function motorDoParcelamento(): MotorNaPorta {
     capacidades: () => ({
       id: "parcelamento",
       nome: "Laboratório de Parcelamento",
-      versao: "T02",
+      // ── A versão vem de onde a SAÍDA a escreve, não de uma segunda cópia ──
+      //
+      // Estava `"T02"` aqui e `"T00-A"` na esteira (LAB-26). Duas respostas para
+      // a mesma pergunta, nenhum teste conferindo — e **as duas são rótulo de
+      // prompt do Lab, não versão do motor**: o motor publica a própria, em
+      // `contrato/tipos.ts` (`MOTOR_VERSAO = "1.0"`). Ler a versão de lá é a
+      // correção de raiz, e está **proposta ao chat**: ela muda a identidade que
+      // viaja no contrato, e isso passa do escopo deste prompt.
+      versao: VERSAO_MOTOR_MEDIDA,
       entrega: "lote",
       // ── As duas respostas são DIFERENTES para este motor (LAB-22) ───────
       //
@@ -190,7 +199,17 @@ export function motorDoParcelamento(): MotorNaPorta {
       relevoMudaOTracado: false,
       respeitaViaDesenhada: false,
       respeitaTestadaDeFrente: false,
-      respeitaAcesso: false,
+      // ── MEDIDO no LAB-26, e a declaração estava errada ───────────────────
+      //
+      // Dizia `false`. A ida deste adaptador **passa o acesso** ao motor
+      // (`Terreno.acesso`, `ida.ts`), e o motor parte dali: movendo o acesso
+      // 992,6 m entre os dois vértices mais distantes de `ensaio-47ha`, o
+      // traçado muda e os lotes vão de **703 para 603** — 14 % de diferença.
+      //
+      // `respeitaAcesso` não tinha experimento nenhum até este prompt, e foi
+      // justamente nele que a declaração estava falsa. É o argumento inteiro da
+      // porta numa linha: campo sem experimento é campo que ninguém conferiu.
+      respeitaAcesso: true,
       respeitaRestricao: true,
       aceitaSemente: true,
       determinista: true,
@@ -253,7 +272,8 @@ export function motorDoSymbios(wasm: Motor): MotorNaPorta {
     capacidades: () => ({
       id: "symbios",
       nome: "Symbios Tensor + subdivisão do Lab",
-      versao: "0.4.1 + LAB-04",
+      // Mesma razão do motor acima: um lugar só (LAB-26).
+      versao: VERSAO_DA_DUPLA,
       entrega: "lote",
       // É o único dos quatro que lê relevo: o traçado nasce do campo tensorial.
       leRelevo: true,
@@ -262,6 +282,10 @@ export function motorDoSymbios(wasm: Motor): MotorNaPorta {
       relevoMudaOTracado: true,
       respeitaViaDesenhada: false,
       respeitaTestadaDeFrente: false,
+      // MEDIDO no LAB-26, e aqui a declaração estava CERTA: movendo o acesso
+      // 992,6 m em `ensaio-47ha`, a geometria sai **idêntica** e os lotes ficam
+      // em 214. O motor não recebe ponto de acesso — a ida já declara a perda
+      // (`gleba-v1.ts`), e ligar a rede ao acesso é trabalho de quem consumir.
       respeitaAcesso: false,
       respeitaRestricao: true,
       aceitaSemente: true,

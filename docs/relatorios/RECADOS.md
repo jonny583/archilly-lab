@@ -480,3 +480,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma.
 Próximo na fila: LAB-26, a varredura das capacidades sem teste de falsificação (metade já feita no LAB-22, D100). PROPOSTO AO CHAT: a guarda da IDA — cobri motor → SAÍDA, que foi o que você pediu; o sentido ENTRADA → motor tem o mesmo risco e o mesmo mecanismo serve, e não executei porque prompt fora da fila não existe.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · LAB-26 — a varredura das capacidades, e a suíte vermelha há duas semanas
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-26 ===
+Estado: LAB-26 concluído e mesclado por PR (despertador COM conectores). Os DOIS pacotes verdes pela primeira vez — 247 testes (233 na esteira, 14 no testfit), typecheck e lint limpos em ambos; vizinhos sem uma alteração. Da fila de 03/10 resta só o LAB-27, que é CONTÍNUO: no próximo disparo não há item pronto, e a regra manda apagar o despertador (D62) até você mandar fila nova.
+Feito: a varredura (D108) — o porta.ts afirmava EM PROSA que o teste falsificava todos os campos, e TRÊS não tinham experimento nenhum: respeitaAcesso, geometrias e versao. Mesmo defeito do LAB-25 uma camada acima: afirmação sobre o futuro morando em texto. Agora quem sustenta a frase é src/porta/experimentos.ts, com dois testes de varredura — cobertura (campo novo sem experimento reprova) e existência (nome de teste citado que não existe reprova). 13 falsificáveis, 1 conferido, 1 sem régua, e a contagem está em teste. A declaração FALSA estava num dos três (D109): o Parcelamento dizia respeitaAcesso: false e vai de 703 para 603 lotes quando o acesso se move 992,6 m — a ida dele passa o acesso ao motor desde o LAB-07, então a declaração era do Lab. O Symbios continua false, agora provado: geometria idêntica nas três glebas.
+Achados para outros apps ou Central: 1) O PIOR ACHADO NÃO É DE CAPACIDADE (D110) — a suíte do pacote testfit estava VERMELHA, 14 de 14, por duas semanas, e todo relatório meu dizia "testes verdes" rodando só o outro pacote. Causa medida: as glebas-padrão do Generate viraram v2 e o portão da ida ainda gateava "1" — gêmeo exato do D87, que eu alarguei numa terra e não na outra. NÃO é defeito do vizinho. E dói: dois daqueles 14 eram as travas das minhas próprias correções (um exigia saida.versao "1", o outro exigia faceDeRua e rampa nulos) — se a suíte rodasse, ela teria mordido no D98 e no D104. A suíte invisível calou os próprios alarmes. Consertado: portão alargado, três testes VIRADOS com a história no cabeçalho (D90), e ./external-engines/conferir.sh rodando os dois pacotes; CLAUDE.md §7 agora diz que "testes verdes" é esse comando. 2) O @/* do tsconfig do testfit também faltava (gêmeo do D86) — três coisas alargadas numa terra e não na outra, no mesmo prompt.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma.
+Próximo na fila: nada pronto. TRÊS PROPOSTOS, nenhum executado: (a) medir a SENSIBILIDADE AO ACESSO na tabela comparativa — é a entrada de maior efeito que o Lab mede, 19 % em lotes na candidata ortogonal de geo-antonina, e as cinco glebas declaram um acesso sem ninguém medir quanto o resultado depende dele; (b) a IDENTIDADE que viaja no contrato — o motor do Parcelamento publica MOTOR_NOME e MOTOR_VERSAO e a ponte do Lab escreve outros (mesma forma do D104, um nível acima, mas alcança provas congeladas); (c) a guarda da IDA, do LAB-25.
+=== FIM ===
+```

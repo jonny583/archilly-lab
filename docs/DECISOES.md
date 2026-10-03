@@ -2563,3 +2563,110 @@ especial saem exatamente como o motor os desenhou"*. **Ficou falso com este
 conserto, e foi corrigido no mesmo commit** — que é exatamente a disciplina que a
 D105 criou. Medido: na gleba inteira, `facesApagadas = 0`; numa gleba minúscula de
 teste, que descarta quase toda a rede, ele apaga e a conta aparece.
+
+---
+
+## D108 · A frase "o teste falsifica todos" era prosa, e três campos não tinham experimento · 03/10/2026
+
+O `porta.ts` do LAB-14 afirma, no alto:
+
+> *"Cada campo é falsificável, e o `tests/porta.test.ts` falsifica todos."*
+
+**A segunda metade era falsa.** Dos 15 campos de `Capacidades`, **três não tinham
+experimento nenhum**: `respeitaAcesso`, `geometrias` e `versao`. E a declaração
+errada estava **justamente num deles** — ver a D109.
+
+É o mesmo defeito que o LAB-25 tirou dos comentários da ponte, **uma camada
+acima**: uma afirmação sobre o futuro morando em prosa. Lá era *"o motor não
+calcula greide"*; aqui era *"o teste falsifica todos"*. Nenhuma das duas se
+revalida.
+
+**Decisão:** `src/porta/experimentos.ts` dá a cada campo de `Capacidades` uma
+cobertura escrita — `falsificavel` (com o **nome do teste**), `conferido` ou
+`sem-regua` (com a razão) —, e **dois testes de varredura** sustentam a frase:
+
+| teste | o que ele impede |
+|---|---|
+| **cobertura** | campo novo na porta sem experimento — reprova no mesmo dia |
+| **existência** | nome citado no registro que não existe no arquivo de teste |
+
+A segunda é a que dá peso à primeira: sem ela, o registro seria mais uma lista
+afirmando coisas sobre um arquivo que ela não lê. Contagem publicada e **testada**:
+**13 falsificáveis, 1 conferido (`id`), 1 sem régua (`nome`)**.
+
+**O que `sem-regua` não é:** porta de fuga. É para campo em que não há o que
+medir, com a razão escrita — `nome` é rótulo de tela, escolhido pelo Lab. Pôr
+capacidade de motor ali seria calar o teste, e o registro diz isso.
+
+---
+
+## D109 · `respeitaAcesso` não tinha experimento, e era onde a mentira estava · 03/10/2026
+
+O Laboratório de Parcelamento declarava `respeitaAcesso: false`. **Medido, muda
+tudo:** movendo o ponto de acesso entre os dois vértices mais distantes do anel,
+
+| gleba | distância | lotes |
+|---|---:|---|
+| `ensaio-47ha` | 992,6 m | **703 → 603** (−14 %) |
+| `geo-antonina` | 2 255,3 m | **1 454 → 1 393** |
+| `sintetico-10ha-plano` | 504,5 m | **112 → 138** (+23 %) |
+
+A ida deste adaptador **passa o acesso** ao motor (`Terreno.acesso`, `ida.ts`,
+desde o LAB-07) e o motor parte dali. A declaração era do **Lab**, não do motor.
+
+**Decisão:** `respeitaAcesso: true` para ele, e o experimento fica. O Symbios
+continua `false`, e agora **provado**: geometria byte a byte idêntica, 214 lotes
+nas duas posições — ele não recebe ponto de acesso, e a ida já declarava a perda.
+
+**O que isto diz sobre a porta, e é o argumento dela inteiro numa linha:** dos
+quinze campos, o único com declaração falsa era um dos três sem experimento. Não é
+coincidência — **campo sem experimento é campo que ninguém conferiu.**
+
+**E um achado de tamanho, para quem for ler a tabela comparativa:** mover o acesso
+mexe no resultado mais do que qualquer outra entrada que o Lab mede — a candidata
+ortogonal do Generate vai de **1 723 a 1 390 lotes** em `geo-antonina`, 19 % de
+diferença. As glebas da tabela declaram **um** acesso, e nenhuma mede a
+sensibilidade a ele. Vai à fila como **proposto ao chat**.
+
+---
+
+## D110 · "Testes verdes" era meia verdade: a segunda suíte estava vermelha há duas semanas · 03/10/2026
+
+**O pior achado do LAB-26, e ele não é sobre capacidade nenhuma.** O repositório
+tem **dois** pacotes, de propósito (D14, D17): `esteira` e `testfit`. Todo
+relatório meu dizia *"testes verdes"* rodando **só o primeiro**.
+
+A suíte do `testfit` estava **vermelha, 14 de 14**. A causa, medida e atribuída
+corretamente: as glebas-padrão que ela carrega vêm do repositório do Generate, e
+elas **viraram v2** quando ele publicou o contrato v2 (commit `5b70e5f`, *"as três
+coisas que o Laboratório pediu"*). O `ida.ts` do adaptador gateava
+`versao !== "1"` e passou a recusar a própria fixture.
+
+**Não é defeito do vizinho** — eles são donos do contrato, e o leitor deles é
+assimétrico de propósito. É o **gêmeo exato do D87**: o LAB-18 alargou este mesmo
+portão em `esteira/src/gleba-v1.ts` e **não alargou o do `testfit`**. Portão em
+duas terras envelhece numa delas, a frase que o `CLAUDE.md` §1-A já diz sobre o id
+do despertador.
+
+**E a parte que dói:** dois dos 14 testes vermelhos eram **as travas das minhas
+próprias correções**. Um exigia `saida.archilly.versao === "1"` — o LAB-22 passou a
+escrever v2. O outro chamava-se *"nada é inventado: faceDeRua e rampa saem nulos"*
+e exigia os dois `null` — eram o D98 e o D104. **Se a suíte estivesse rodando, ela
+teria mordido nas duas ocasiões.** A suíte invisível silenciou os próprios alarmes.
+
+**Decisão, em três partes:**
+
+1. **o portão alargado** para `["2","1"]`, com a razão escrita no código: os campos
+   do v2 são **adições**, e o que a ida não conhece ela já declara como perda;
+2. **os três testes virados, não apagados** (D90), com a história no cabeçalho de
+   cada um — inclusive o *"nada é inventado"*, que **continua valendo** e passou a
+   medir a coisa certa: o que a ponte publica tem de vir do motor, e o `null` do
+   motor continua `null`;
+3. **`external-engines/conferir.sh`** roda `typecheck`, `lint` e `test` dos **dois**
+   pacotes e falha se qualquer um falhar. *"Testes verdes"* passa a significar
+   isto, e o `CLAUDE.md` §7 diz qual é o comando.
+
+**O `@/*` também faltava aqui** (gêmeo do D86): o `tsconfig.json` do `testfit` não
+espelhava o alias interno do Generate, e o `tsc` dele acusava dois erros dentro do
+repositório deles. Três coisas alargadas numa terra e não na outra, no mesmo
+prompt.

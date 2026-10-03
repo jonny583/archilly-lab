@@ -83,11 +83,32 @@ describe("ida — o contrato vira entrada do motor", () => {
     expect(perdas.some((p) => p.campo.startsWith("atracoes") && p.gravidade === "alta")).toBe(true);
   });
 
-  test("recusa versão, unidade e gleba degenerada", () => {
+  /**
+   * **Este teste foi VIRADO no LAB-26, não apagado.**
+   *
+   * Ele exigia que a ida **recusasse** a versão "2", e estava certo quando foi
+   * escrito: no LAB-07 o contrato tinha uma versão só. O Generate publicou o v2
+   * — com as três coisas que o Laboratório pediu —, as glebas-padrão que este
+   * arquivo carrega **viraram v2**, e a ida passou a recusar a própria fixture:
+   * **14 de 14 testes vermelhos**, por duas semanas, invisíveis porque o
+   * `bun test` do Lab rodava só o pacote `esteira`.
+   *
+   * Agora ele exige o contrário — que v2 **entre** — e que uma versão que
+   * ninguém publicou (`"9"`) seja recusada, que é a metade da pergunta que
+   * continua valendo. Virar em vez de apagar é o que a D90 decidiu: o teste
+   * guarda a história de ter estado certo.
+   */
+  test("aceita as versões publicadas, recusa unidade e gleba degenerada", () => {
     const base = carregar("ensaio-47ha");
     expect(() =>
       idaParaOMotor({ ...base, archilly: { ...base.archilly, versao: "2" } }, { semente: 1 }),
-    ).toThrow(/versão "2"/);
+    ).not.toThrow();
+    expect(() =>
+      idaParaOMotor({ ...base, archilly: { ...base.archilly, versao: "1" } }, { semente: 1 }),
+    ).not.toThrow();
+    expect(() =>
+      idaParaOMotor({ ...base, archilly: { ...base.archilly, versao: "9" } }, { semente: 1 }),
+    ).toThrow(/versão "9"/);
     expect(() =>
       idaParaOMotor({ ...base, crs: { ...base.crs, unidade: "ft" as "m" } }, { semente: 1 }),
     ).toThrow(/metro/);
@@ -131,8 +152,12 @@ describe("volta — o plano vira SAÍDA do contrato", () => {
     const plano = rodarMotor(em).opcoes[0]!.plano;
     const { saida } = voltaParaOContrato(plano, entrada, { semente: 1, versaoMotor: "T00-A" });
     expect(saida.crs).toEqual(entrada.crs);
-    expect(saida.archilly.versao).toBe("1");
-    expect(saida.entrada.contrato).toBe("1");
+    // VIRADO no LAB-26: a volta escreve **v2** desde o LAB-22, porque passou a
+    // carregar `rampaMaxima_pct` por via. Este `toBe("1")` guardava a verdade do
+    // LAB-07 e virou o alarme que ninguém ouviu — a suíte estava vermelha por
+    // outro motivo, e este teste nunca chegou a reprovar a mudança.
+    expect(saida.archilly.versao).toBe("2");
+    expect(saida.entrada.contrato).toBe("2");
   });
 
   test("o quadro de áreas fecha na área bruta", () => {
@@ -146,13 +171,38 @@ describe("volta — o plano vira SAÍDA do contrato", () => {
     expect(Math.abs(soma - q.areaTotal_m2)).toBeLessThan(q.areaTotal_m2 * 0.001);
   });
 
-  test("nada é inventado: faceDeRua e rampa saem nulos", () => {
+  /**
+   * **VIRADO no LAB-26, e esta é a virada que dói.**
+   *
+   * O nome dele era *"nada é inventado: faceDeRua e rampa saem nulos"*, e ele
+   * exigia os dois `null`. Os dois `null` eram **defeito desta ponte**, não
+   * honestidade: o motor mede a rampa desde o T03 dele (D98) e a via de frente
+   * desde o T02 (D104). Este teste era a trava que teria mordido nas duas
+   * ocasiões — e não mordeu, porque a suíte inteira já estava vermelha e
+   * ninguém a rodava.
+   *
+   * **Nada é inventado continua valendo**, e é o que ele mede agora: o que a
+   * ponte publica tem de vir do motor, e o `null` que sobra tem de ser `null` no
+   * motor também.
+   */
+  test("nada é inventado: o que sai veio do motor, e o null do motor continua null", () => {
     const entrada = carregar("ensaio-47ha");
     const { entrada: em } = idaParaOMotor(entrada, { semente: SEMENTE, variantes: 1 });
     const plano = rodarMotor(em).opcoes[0]!.plano;
     const { saida } = voltaParaOContrato(plano, entrada, { semente: 1, versaoMotor: "T00-A" });
-    for (const l of saida.lotes) expect(l.faceDeRua).toBeNull();
-    for (const v of saida.vias) expect(v.rampaMedia_pct).toBeNull();
+    const ids = new Set(saida.vias.map((v) => v.id));
+
+    // A via de frente: o motor dá índice, a ponte dá id — e nenhum id inventado.
+    saida.lotes.forEach((l, i) => {
+      const doMotor = plano.lotes[i]!.faceDeRua;
+      if (doMotor == null) expect(l.faceDeRua).toBeNull();
+      else expect(ids.has(l.faceDeRua!)).toBe(true);
+    });
+    // A rampa: atravessa como o motor a mediu, inclusive quando é `null`.
+    saida.vias.forEach((v, i) => {
+      expect(v.rampaMedia_pct).toBe(plano.vias[i]!.rampaMedia_pct);
+      expect(v.rampaMaxima_pct).toBe(plano.vias[i]!.rampaMaxima_pct);
+    });
   });
 });
 
