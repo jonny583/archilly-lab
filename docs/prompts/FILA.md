@@ -168,8 +168,8 @@ Mandada pelo chat em 03/10/2026, com **o despertador que já está de pé**
 
 | # | prompt | estado | condição |
 |---|---|---|---|
-| **LAB-25** | **A guarda que impede a quarta vez:** um teste que reprove quando a ponte do Lab descartar campo que o motor publica, e a regra escrita no documento. *"Vale mais que qualquer medição nova."* | ⬜ **é o próximo** | nenhuma |
-| **LAB-26** | Partir `leRelevo` em duas (**já feito no LAB-22, D100**) e **varrer as outras capacidades declaradas** que o teste de falsificação ainda não cobre | ⬜ | LAB-25 |
+| **LAB-25** | **A guarda que impede a quarta vez:** um teste que reprove quando a ponte do Lab descartar campo que o motor publica, e a regra escrita no documento. *"Vale mais que qualquer medição nova."* | ✅ **concluído em 03/10/2026** | nenhuma |
+| **LAB-26** | Partir `leRelevo` em duas (**já feito no LAB-22, D100**) e **varrer as outras capacidades declaradas** que o teste de falsificação ainda não cobre | ⬜ **é o próximo** | LAB-25 mesclado ✅ |
 | **LAB-27** | Manter [`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](../O_QUE_FALTA_MEDIR_POR_MOTOR.md) atualizado e **avisar quando mudar** | ⬜ **contínuo** | LAB-26 |
 
 ### Duas notas de estado, para não refazer trabalho
@@ -186,6 +186,39 @@ declaradas **ainda não têm experimento** que as desminta.
 
 **3 · A régua de forma** (útil < 85 % / < 70 %) segue como **decisão do chat**
 até o Jonny confirmar, e **não trava nada** — é o único item na lista dele.
+
+---
+
+### LAB-25 · A guarda que impede a quarta vez — ✅ concluído em 03/10/2026
+
+**Entregue:** [`../relatorios/LAB-25.md`](../relatorios/LAB-25.md) e
+`docs/provas/LAB-25/guarda-da-ponte.json`.
+
+**Ela achou a quarta vez na primeira rodada** (D104): a ponte do Parcelamento
+escrevia `faceDeRua: null` em 110 de 110 lotes, atrás de um comentário escrito
+**antes** do T02 do motor e nunca mais conferido. O motor mede desde então.
+
+**O desenho, para não envelhecer como a lista que ela substitui** (D105):
+inventário de destino por campo + três regras conferidas **contra o motor
+rodando** — `campo-vazio` e `campo-novo` reprovam, `mapa-velho` avisa. A
+`campo-vazio` **não acredita no inventário**: casa por nome, lido do objeto que o
+motor devolveu.
+
+**E ela prova que sabe ficar vermelha** (D106): três testes sabotam a ponte de
+propósito e exigem o achado.
+
+**O que o conserto comprou, medido:** o campo descartado concorda com a régua
+independente do Generate em **91,5 % a 99,8 %** dos lotes nas cinco glebas — era
+bom. Mas o Generate **recalcula** o campo ao ler, então encher `faceDeRua`
+**não muda número nenhum da tabela** (regerada, só os tempos de parede mudaram).
+O ganho é de honestidade e de quem lê o campo — tela, exportação, Orçamento.
+
+### Proposto ao chat — a guarda da IDA
+
+A guarda cobre o sentido **motor → SAÍDA**, que é o que o LAB-25 pediu. O sentido
+**ENTRADA → motor** tem a mesma forma de risco (campo do contrato que a ponte não
+entrega ao motor) e o mesmo mecanismo serve. **Não executado**, porque prompt fora
+da fila não existe.
 
 ---
 

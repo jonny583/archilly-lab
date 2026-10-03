@@ -4,17 +4,21 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-23
-**Estado:** **A fila de 03/10 acabou** (LAB-21, 24, 22, 23). **Fila nova mandada
-no mesmo dia: o próximo é o LAB-25.** Despertador
+**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-25
+**Estado:** LAB-25 **mesclado na `main`**; **o próximo é o LAB-26** (a varredura
+das capacidades sem teste de falsificação — metade dele já está feita). Despertador
 `trig_01XwSkTLT9zmyprNZcUiWy7f` ligado (60 min, :05).
+
+**Nota dos disparos:** três despertadores (06:05, 07:05 e 08:05 de 03/10) caíram
+**durante** a execução do LAB-25. Um prompt por despertador: nenhum deles abriu
+item novo, e isto não é disparo vazio — havia item em curso.
 
 ## A fila nova de 03/10 — a guarda contra o próprio ponto cego
 
 | Prompt | Estado |
 |---|---|
-| **LAB-25** — o teste que reprova quando a ponte descarta campo que o motor publica | **é o próximo** |
-| **LAB-26** — varrer as capacidades que o teste de falsificação ainda não cobre | aguardando o LAB-25 |
+| **LAB-25** — o teste que reprova quando a ponte descarta campo que o motor publica | **concluído em 03/10/2026** |
+| **LAB-26** — varrer as capacidades que o teste de falsificação ainda não cobre | **é o próximo** |
 | **LAB-27** — manter o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` e avisar quando mudar | contínuo |
 
 **Três notas de estado, para não refazer trabalho:**
@@ -48,20 +52,41 @@ geometria da gleba (D73). Então não é *"a mão vence a máquina"* — é um r
 trecho do terreno real. **Falta uma via desenhada por pessoa**, numa gleba real —
 proposto ao chat.
 
-## O ponto cego que o LAB-25 vai guardar
+## O que o LAB-25 fez — e o que a guarda achou na primeira rodada
 
-O §6 me pegou **três vezes no mesmo lugar** — e as três no mesmo mecanismo:
+O §6 me pegou **três vezes no mesmo lugar**, sempre com a mesma forma: o Lab a um
+passo de acusar o motor de um vizinho por um defeito do Lab. A pior era a D98,
+porque a justificativa estava **escrita num comentário** — *"o motor não calcula
+greide"* — e **comentário não se revalida sozinho**.
+
+**A guarda ficou pronta, rodou uma vez, e achou a quarta vez** (D104): a ponte do
+Parcelamento escrevia `faceDeRua: null` em **110 de 110 lotes**, atrás do
+comentário *"o motor não guarda de QUAL via ela é frente"*. O motor guarda **desde
+o T02 dele** — o comentário foi escrito **antes** disso e nunca mais foi conferido.
 
 | quando | o que eu ia atribuir ao vizinho | o que era |
 |---|---|---|
 | **D75** (LAB-17) | 3 de 4 vias desenhadas no balde errado | régua minha, olhando vértice |
 | **D93/D94** (LAB-21) | pico de rampa de 161 % | régua minha, mesmo erro de forma |
-| **D98** (LAB-22) | *"o Parcelamento não reporta o pico"* | **a minha ponte descartava o campo** |
+| **D98** (LAB-22) | *"o Parcelamento não reporta o pico"* | **a minha ponte descartava a rampa** |
+| **D104** (LAB-25) | *nada — eu não vi* | **a minha ponte descartava a via de frente** |
 
-**A D98 é a mais perigosa das três**, porque a justificativa estava **escrita num
-comentário** — *"o motor não calcula greide"* — e comentário **não se revalida
-sozinho**. Quando a razão de um `null` é *"o outro lado não faz"*, ela é uma
-afirmação **sobre código que muda**, e precisa de teste.
+**O desenho da guarda** (D105): inventário de destino por campo
+(`atravessa` / `traduzido` / `perda` / `interno`), conferido **contra o motor
+rodando**. `campo-vazio` e `campo-novo` reprovam; `mapa-velho` avisa. A
+`campo-vazio` **não acredita no inventário** — casa por nome, no objeto devolvido.
+E há três testes que **sabotam a ponte de propósito** para provar que ela sabe
+ficar vermelha (D106).
+
+**O que o conserto comprou, medido:** o campo descartado concorda com a régua
+independente do Generate em **91,5 % a 99,8 %** dos lotes, nas cinco glebas — era
+bom. Mas o Generate **recalcula** o campo ao ler, então **nenhum número da tabela
+mudou** (regerada; só os tempos de parede). O ganho é de honestidade e de quem lê o
+campo: tela, exportação, Orçamento. **Não é ganho de comparação, e está dito.**
+
+**Consequência de encher o campo** (D107): o aparo descarta via que sai da gleba, e
+lote apontando para via ausente faz o Generate **recusar o arquivo inteiro**. O
+aparo agora apaga essa face e **conta** (`facesApagadas`); na gleba inteira é zero.
 
 ## O que depende do Jonny — **um item, e não trava**
 
@@ -73,7 +98,12 @@ Confirmar a **régua de forma** (D79).
    chat repassa ao Generate e ao Testfit; o LAB-27 mantém e avisa quando mudar;
 2. **o formato de indicadores de terreno** (LAB-24);
 3. **os dois achados do Geo** (D88): nascente e eixo do curso sem dado;
-4. **proposto:** uma via desenhada **por pessoa**, numa gleba real (D103).
+4. **proposto:** uma via desenhada **por pessoa**, numa gleba real (D103);
+5. **proposto:** a **guarda da IDA** — o LAB-25 cobriu motor → SAÍDA; o sentido
+   ENTRADA → motor tem o mesmo risco e o mesmo mecanismo serve (LAB-25, §8);
+6. **aviso do LAB-27:** o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` **mudou** — §1-A (o
+   `faceDeRua` era falta minha, e o número descartado era bom) e §7 (pedido ao
+   Generate: avisar quando ele recalcular o campo e divergir).
 
 # A fila de 20/09 — a entrega e as duas correções · 20/09/2026
 

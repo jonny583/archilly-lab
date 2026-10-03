@@ -31,12 +31,15 @@ import type { Rodada } from "./comum.ts";
 
 const n2 = (v: number) => Number(v.toFixed(2));
 
-export function rodarSymbios(
-  motor: Motor,
-  entrada: EntradaMinima,
-  semente: number,
-  geradoEm: string,
-): Rodada {
+/**
+ * A rede do motor, já recortada pela gleba — o que o motor PUBLICA.
+ *
+ * Separada de `rodarSymbios` no LAB-25 para que a guarda da ponte possa auditar
+ * exatamente os objetos que a ponte recebe, sem reescrever o caminho: dois
+ * caminhos para a mesma coisa é o defeito que o D20 proíbe no Validator, e
+ * valeria aqui também.
+ */
+export function redeDoSymbios(motor: Motor, entrada: EntradaMinima, semente: number) {
   const { terreno, perdas } = glebaParaOSymbios(entrada);
   const t = terreno as Terreno;
 
@@ -48,12 +51,22 @@ export function rodarSymbios(
     testadaMinLote_m: p.testadaMinLote_m ?? 10,
   };
 
-  const t0 = performance.now();
   const bruto = gerarRedeViaria(motor, t, {}, semente);
   const corte = recortarPelaGleba(bruto, t, {
     ladoDoLoteMinimo_m: Math.sqrt(params.areaMinLote_m2),
     recortarQuadraQueAtravessa: true,
   });
+  return { t, params, corte, perdas };
+}
+
+export function rodarSymbios(
+  motor: Motor,
+  entrada: EntradaMinima,
+  semente: number,
+  geradoEm: string,
+): Rodada {
+  const t0 = performance.now();
+  const { t, params, corte, perdas } = redeDoSymbios(motor, entrada, semente);
 
   const vias: EixoDeVia[] = corte.vias.map((v) => ({ pontos: v.pontos, largura_m: v.faixaDominio_m }));
   const lotes: LoteParaOContrato[] = [];

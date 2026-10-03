@@ -188,9 +188,27 @@ export function voltaParaOContrato(
       pontos: l.poligono.map(pt),
       area_m2: l.area_m2,
       testada_m: l.testada_m,
-      // O motor sabe a testada mas não guarda de QUAL via ela é frente. O
-      // contrato manda preferir `null` a chutar.
-      faceDeRua: null,
+      // ── A QUARTA VEZ DO MESMO PONTO CEGO, e quem a pegou foi a guarda ─────
+      //
+      // Até o LAB-25 aqui estava `faceDeRua: null`, com o comentário *"o motor
+      // sabe a testada mas não guarda de QUAL via ela é frente"*. Ele mede
+      // **desde o T02** (`face.ts` dele), e a tradução própria dele escreve
+      // exatamente isto (`contrato/traducao.ts:453`). O comentário não
+      // envelheceu sozinho: ele foi escrito antes do T02 e nunca mais foi
+      // conferido — a mesma forma do D98.
+      //
+      // Quem apontou não fui eu: foi a `guarda-da-ponte.ts`, na primeira
+      // rodada, em 110 de 110 lotes (D104). É para isso que ela existe.
+      //
+      // O motor dá o ÍNDICE em `plano.vias`; o contrato quer o id. A numeração
+      // é a mesma que as vias acima receberam, então `i` → `V<i+1>`. Índice
+      // fora da lista sai `null`: o esquema do Generate recusa o arquivo
+      // inteiro quando um lote aponta para via que não está nele, e inventar um
+      // id seria trocar um campo incompleto por um campo mentiroso.
+      faceDeRua:
+        l.faceDeRua != null && l.faceDeRua >= 0 && l.faceDeRua < vias.length
+          ? vias[l.faceDeRua]!.id
+          : null,
     };
   });
   const semQuadra = plano.lotes.filter((l) => l.quadra === 0).length;
@@ -205,13 +223,18 @@ export function voltaParaOContrato(
       gravidade: "baixa",
     });
   }
-  if (lotes.length > 0) {
+  // A perda que existia aqui era FALSA, e ficou falsa por três semanas: ela
+  // dizia que o motor não guardava a via de frente. Guarda desde o T02. O que
+  // sobra é a perda de verdade — os lotes em que o PRÓPRIO motor não mediu.
+  const semFace = plano.lotes.filter((l) => l.faceDeRua == null).length;
+  if (semFace > 0) {
     perdas.push({
       campo: "lotes[].faceDeRua",
-      oQueHavia: `${lotes.length} lote(s)`,
+      oQueHavia: `${semFace} de ${plano.lotes.length} lote(s) sem via de frente medida`,
       motivo:
-        "o motor guarda a testada em metros mas não a via de frente; sai `null`, como o " +
-        "contrato prefere. O Validator mede a frente por conta própria",
+        "o motor devolve `null` quando nenhuma via está a uma distância plausível da frente " +
+        "do lote (`face.ts` dele, D19 dele). `null` é não medido, e o Validator do Generate " +
+        "mede a frente por conta própria com a régua dele",
       gravidade: "baixa",
     });
   }

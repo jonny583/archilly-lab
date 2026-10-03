@@ -31,6 +31,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-25.md`](relatorios/LAB-25.md) | **A guarda que impede a quarta vez** (LAB-25): o teste que reprova quando a ponte do Lab descarta campo que o motor publica — e que achou a quarta vez na primeira rodada, em 110 de 110 lotes (D104 a D107) |
 | [`relatorios/LAB-23.md`](relatorios/LAB-23.md) | **A via desenhada como coluna vertebral**: provado por diferença que os quatro a ignoram, e uma reta geométrica cega para o relevo batendo os quatro no pior trecho do terreno real |
 | [`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](O_QUE_FALTA_MEDIR_POR_MOTOR.md) | **A lista, motor por motor, do que falta medir** (LAB-22) — escrita para o chat levar ao Generate e ao Laboratório de Parcelamento |
 | [`relatorios/LAB-22.md`](relatorios/LAB-22.md) | **A lacuna que era minha**: o Parcelamento mede a rampa desde 14/09 e a minha ponte jogava fora. Mais os dois motores que reportam errado em direções opostas, e a capacidade que envelheceu sozinha |
@@ -89,6 +90,8 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 | onde | o que tem |
 |---|---|
 | [`../external-engines/symbios/`](../external-engines/symbios/) | `upstream/` intocado, a ponte Rust → WASM, o adaptador do LAB-01, o recorte do LAB-02 e o **recortador de polígono** do LAB-05 (D57) |
+| [`../external-engines/esteira/src/guarda-da-ponte.ts`](../external-engines/esteira/src/guarda-da-ponte.ts) | **A guarda da ponte** (LAB-25): três regras conferidas contra o motor rodando — `campo-vazio` e `campo-novo` reprovam, `mapa-velho` avisa. A primeira **não acredita no inventário**, casa por nome (D105) |
+| [`../external-engines/esteira/src/inventario-das-pontes.ts`](../external-engines/esteira/src/inventario-das-pontes.ts) | **O destino de cada campo que os motores publicam** (LAB-25): `atravessa`, `traduzido`, `perda` com motivo, ou `interno`. É a justificativa que antes morava em comentário — e comentário não se revalida |
 | [`../external-engines/esteira/src/terreno-indicadores.ts`](../external-engines/esteira/src/terreno-indicadores.ts) | **O bloco de terreno** (LAB-24): os dois limites do Jonny com as fontes, a declividade medida nas duas direções, e **nenhum veredito na via** — só no lote, porque lá é lei (D95) |
 | [`../external-engines/esteira/src/rampa.ts`](../external-engines/esteira/src/rampa.ts) | **A régua de rampa** (LAB-21): caminha a via por comprimento de arco, acha cruzamento por interseção de eixos, e publica quatro cortes de leitura — nenhum deles limite legal, porque esse limite não existe (D91) |
 | [`../external-engines/esteira/src/forma.ts`](../external-engines/esteira/src/forma.ts) | **A régua de forma do lote** (LAB-16): perfil por lote, lados, arco, classe, e a distribuição nos três cortes declarados. Ela mede; quem lê decide (D76, D77) |

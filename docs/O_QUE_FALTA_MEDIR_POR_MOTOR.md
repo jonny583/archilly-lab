@@ -6,6 +6,10 @@ O Laboratório **não escreve nos repositórios deles** — isto é lista, não 
 **Gerado pelo LAB-22, em 03/10/2026.** Tudo aqui é medido, com a gleba e o
 número; nada é impressão.
 
+**Atualizado pelo LAB-25, em 03/10/2026** — §1-A e §7 são novos. O LAB-27 manda
+manter este documento vivo e **avisar quando ele mudar**: mudou, e o recado do
+LAB-25 diz isso.
+
 ---
 
 ## O resumo, antes dos detalhes
@@ -62,6 +66,29 @@ escreve saída **v2**.
 pontas sobre o comprimento** — que é a definição certa de rampa média de um
 trecho, e não a média aritmética das rampas dos pedaços. Essa parte está
 melhor que a de muita ferramenta.
+
+### 1-A · A MESMA coisa aconteceu de novo, com outro campo — e de novo era meu
+
+**Acrescentado pelo LAB-25.** Vocês medem a **via de frente de cada lote** desde o
+T02 (`face.ts`, e a tradução de vocês escreve o id em `contrato/traducao.ts:453`).
+**A ponte do Laboratório escrevia `faceDeRua: null` em todos os lotes**, com o
+comentário *"o motor sabe a testada mas não guarda de QUAL via ela é frente"* —
+escrito antes do T02 e nunca mais conferido.
+
+**Consertado, e com guarda:** a ponte traduz o índice no id (`i` → `V<i+1>`) e há
+agora um teste que reprova quando a ponte descarta campo que o motor publica, para
+não haver uma quinta vez (`guarda-da-ponte.ts`).
+
+**O que isto diz a vocês, e é elogio:** o campo que estava sendo jogado fora
+**estava bom**. Posto contra a régua independente do Generate — que recalcula a
+frente pela faixa de leito do invariante dele —, ele concorda em **91,5 % a
+99,8 %** dos lotes, nas cinco glebas. Onde divergem, as duas réguas estão certas:
+a de vocês é *um dos dois lados do comprimento da testada*; a dele é *a faixa de
+leito mais perto de qualquer vértice*. Num lote de esquina elas escolhem ruas
+diferentes.
+
+**Nada a fazer do lado de vocês.** Está aqui porque o documento é de contas
+honestas, e duas delas em três semanas eram minhas.
 
 ---
 
@@ -162,3 +189,24 @@ teste de falsificação para cada uma das duas.
 **Foi esse teste que pegou a declaração vencida**, no instante em que a ponte
 passou a carregar a rampa. É o melhor argumento que tenho a favor de declaração
 falsificável: ela não depende de alguém lembrar.
+
+
+---
+
+## 7 · Para o Generate, uma coisa pequena e medida
+
+**Acrescentado pelo LAB-25.** O `paraResultado` descarta o `faceDeRua` que chega de
+um motor externo, e o `paraSaida` o recalcula com a régua do invariante. **Isso
+está certo** — a régua da casa é a régua da casa, e é o mesmo argumento do D20 do
+Laboratório.
+
+**Só uma observação de contrato:** como o campo é descartado na leitura, um motor
+externo não tem como saber se o que ele declarou foi aceito ou substituído. Hoje
+isso é invisível. **Um aviso em `conferencia.avisos`** do tipo *"o `faceDeRua` de
+N lotes foi recalculado e divergiu do declarado"* fecharia a volta: o motor de
+fora aprenderia que a régua dele discorda da de vocês, que é informação que ele
+não tem de nenhuma outra forma.
+
+**Medido, para dar tamanho ao pedido:** nas cinco glebas, a divergência entre as
+duas réguas vai de **1 lote em 599** (`ensaio-47ha`) a **117 em 1 386**
+(`geo-antonina`).

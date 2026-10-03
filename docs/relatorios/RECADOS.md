@@ -466,3 +466,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma.
 Próximo na fila: LAB-25, a guarda contra o meu ponto cego. Duas notas para não refazer trabalho: o LAB-26 já está METADE FEITO (leRelevo foi partida em duas no LAB-22, D100; sobra a varredura), e a corda reta das vias curvas fica na V3 sem mexer, como você mandou — o fato é que a ponte publica cada via como a reta entre as duas pontas do eixo (volta.ts:125).
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · LAB-25 — a guarda que impede a quarta vez
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-25 ===
+Estado: LAB-25 concluído e mesclado por PR (este despertador acordou COM os conectores do GitHub). Esteira verde: 227 testes, 18 novos; tsc e lint limpos; os três clones vizinhos sem uma alteração. Três despertadores caíram durante a execução (06:05, 07:05, 08:05) — nenhum era disparo vazio, havia item em curso.
+Feito: a guarda ficou pronta, rodou UMA vez e ACHOU A QUARTA VEZ (D104): a ponte do Parcelamento escrevia faceDeRua: null em 110 de 110 lotes, atrás do comentário "o motor não guarda de QUAL via ela é frente" — escrito ANTES do T02 dele e nunca mais conferido. O motor mede desde então. O desenho, para não envelhecer como a lista que substitui (D105): inventário de destino por campo (atravessa / traduzido / perda com motivo / interno) conferido CONTRA O MOTOR RODANDO; campo-vazio e campo-novo reprovam, mapa-velho avisa. A campo-vazio NÃO acredita no inventário: casa por nome, no objeto devolvido — era literalmente o caso do D98. E ela prova que sabe ficar VERMELHA (D106): três testes sabotam a ponte de propósito e exigem o achado. Regra escrita no CLAUDE.md §4, e a tabela das quatro vezes no §6.
+Achados para outros apps ou Central: 1) O número que eu jogava fora ERA BOM: posto contra a régua independente do Generate (que recalcula a frente pela faixa de leito do invariante dele), concorda em 91,5 % a 99,8 % dos lotes nas cinco glebas; onde diverge, as duas réguas estão certas — lote de esquina. 2) MAS o conserto NÃO compra ponto: o paraResultado do Generate DESCARTA o faceDeRua que vem de fora e o paraSaida o recalcula, então regerei a tabela do LAB-19 inteira e nenhum número medido mudou, só tempo de parede. Ganho de honestidade e de quem LÊ o campo (tela, exportação, Orçamento) — não de comparação, e está escrito assim no relatório. 3) O_QUE_FALTA_MEDIR_POR_MOTOR.md MUDOU (aviso do LAB-27): §1-A diz ao Parcelamento que a segunda falta em três semanas também era minha, e §7 pede ao Generate um aviso em conferencia.avisos quando ele recalcular o campo e divergir — hoje o motor de fora não tem como saber. 4) §6 contra a MINHA PRÓPRIA régua de conferência: a primeira versão acusou "os ids de via não batem" em duas glebas; era eu comparando ORDEM onde o casamento é por NOME (o paraSaida emite principal antes de secundária e sobe a V19 na lista). Os 26 ids eram os mesmos 26.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma.
+Próximo na fila: LAB-26, a varredura das capacidades sem teste de falsificação (metade já feita no LAB-22, D100). PROPOSTO AO CHAT: a guarda da IDA — cobri motor → SAÍDA, que foi o que você pediu; o sentido ENTRADA → motor tem o mesmo risco e o mesmo mecanismo serve, e não executei porque prompt fora da fila não existe.
+=== FIM ===
+```
