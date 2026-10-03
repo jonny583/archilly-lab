@@ -2703,3 +2703,33 @@ produziu dois achados que são **sobre o motor do vizinho**, e não sobre o Lab 
 **O que NÃO entrou:** o conserto da identidade. Ele muda o que viaja no contrato,
 alcança provas congeladas do LAB-02 e do LAB-07 e o rótulo que o Generate mostra na
 mesa. Está **proposto ao chat**, porque prompt fora da fila não existe.
+
+
+---
+
+## D112 · Desligar o despertador vale como apagar, e a diferença se declara · 03/10/2026
+
+O `CLAUDE.md` §1-A manda, no disparo sem item pronto, **apagar o despertador** (D62).
+No primeiro disparo em que isso aconteceu — 11:05 de 03/10 —, **ele foi desligado
+(`enabled: false`) e não apagado.**
+
+**Por quê:** apagar uma rotina **apaga também as sessões que ela iniciou**, e esta
+rotina está presa (`persist_session`) à sessão onde o dia inteiro de trabalho está
+registrado — LAB-21 a LAB-27, com as medições que não estão em nenhum outro lugar
+além dos arquivos já mesclados. O risco de perder o histórico da conversa não valia a
+letra da regra, e **o efeito que a regra quer é idêntico: ele não acorda mais.**
+
+**Decisão:** *"apagar o despertador"*, na §1-A, cumpre-se por **desligar** quando a
+rotina está presa à sessão em curso. E a diferença **vai declarada** — em
+`ONDE_PARAMOS`, na fila e no recado —, porque quem for destravar precisa saber que
+tem **duas** saídas e não uma:
+
+| saída | o que ganha |
+|---|---|
+| **reabilitar este despertador** | preserva o histórico de disparos dele; é mais barato |
+| **apagar e criar outro** | começa limpo, junto com a fila nova |
+
+**Por que isto é decisão e não detalhe de ferramenta:** a §1-A existe para que
+despertador sem trabalho **pare de queimar disparo** (4 de 7 em 15/09). Desligar
+cumpre isso. Apagar cumpre isso **e mais uma coisa que ninguém pediu** — destruir o
+registro. Entre cumprir a regra e cumprir a regra mais um estrago, a regra ganha.

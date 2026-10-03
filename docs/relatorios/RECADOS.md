@@ -508,3 +508,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma.
 Próximo na fila: NADA PRONTO. Os três propostos seguem sem execução, esperando você: (a) medir a SENSIBILIDADE AO ACESSO na tabela comparativa — é a entrada de maior efeito que o Lab mede, 19 % em lotes na candidata ortogonal de geo-antonina, e nenhuma das cinco glebas a mede; (b) a IDENTIDADE que viaja no contrato — ler MOTOR_NOME e MOTOR_VERSAO do próprio motor, o que alcança provas congeladas do LAB-02 e do LAB-07 e o rótulo que o Generate mostra na mesa; (c) a guarda da IDA, do LAB-25.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · Disparo sem item pronto — o despertador parou
+
+```
+=== RECADO PARA O CHAT — Lab · — ===
+Estado: PAREI, e de propósito. O disparo das 11:05 não achou item pronto: a fila de 03/10 está CUMPRIDA (LAB-21, 24, 22, 23, 25, 26 e a 1ª rodada do 27) e o LAB-27 é contínuo, sem mudança para carregar nesta hora (D111). É o caso da D62 e do CLAUDE.md §1-A, então o despertador trig_01XwSkTLT9zmyprNZcUiWy7f está FORA DO AR desde 11:07 UTC. main em 51d935d, árvore limpa, os dois pacotes verdes (247 testes), vizinhos sem uma alteração.
+Feito: nada de medição — este disparo não tinha o que medir, e inventar trabalho para justificar um despertador é o contrário do que a D62 mediu (4 dos 7 disparos de 15/09 sem o que fazer). O que ficou registrado: o motivo em ONDE_PARAMOS, o fim da fila na FILA.md, e a D112.
+Achados para outros apps ou Central: UMA DIFERENÇA DECLARADA, e você precisa dela para destravar (D112): a regra diz "apagar o despertador" e eu o DESLIGUEI (enabled: false), não apaguei. Apagar uma rotina apaga também as sessões que ela iniciou, e esta está presa à sessão onde o dia inteiro de trabalho está registrado — o risco não valia a letra da regra, e o efeito é o mesmo: ele não acorda mais. VOCÊ TEM DUAS SAÍDAS: reabilitar este mesmo despertador (preserva o histórico de disparos, é mais barato) ou apagá-lo e criar outro junto com a fila nova. As duas servem.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma (útil < 85 % = "a conferir", < 70 % = "ruim").
+Próximo na fila: NADA. O Lab está parado esperando fila nova. Os três achados do dia seguem propostos, sem execução: (a) a SENSIBILIDADE AO ACESSO na tabela comparativa — é a entrada de maior efeito que o Lab mede, 19 % em lotes na candidata ortogonal de geo-antonina, e nenhuma das cinco glebas a mede; (b) a IDENTIDADE que viaja no contrato — ler MOTOR_NOME e MOTOR_VERSAO do próprio motor, que alcança provas congeladas do LAB-02 e do LAB-07 e o rótulo na mesa do Generate; (c) a guarda da IDA, do LAB-25. Mande a fila e eu volto a andar.
+=== FIM ===
+```
