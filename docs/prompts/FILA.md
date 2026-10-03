@@ -185,6 +185,15 @@ motivo em `ONDE_PARAMOS` e **apagar o despertador**. O chat o recria com fila no
 **Estado agora:** a fila de 03/10 está **cumprida** (LAB-21, 24, 22, 23, 25, 26 e a
 1ª rodada do 27) e os achados novos estão todos *"proposto ao chat"*.
 
+## 🔴 A fila de 03/10 (terceira parte) ESGOTOU — o despertador está DESLIGADO
+
+**`enabled: false` em 03/10/2026, 16:06 UTC.** O disparo das 16:05 não achou item
+pronto: as três partes da fila de 03/10 estão cumpridas (dez prompts, LAB-21 a LAB-30)
+e os achados novos estão todos *"proposto ao chat"*. É o caso da D62.
+
+**Desligado e não apagado** (D112), escolha que o chat ratificou ao mandar reabilitar
+em vez de recriar. **O que vem agora vem do chat.**
+
 ## A fila de 03/10, terceira parte — o acesso, a identidade e a guarda que falta
 
 Mandada pelo chat em 03/10/2026, com o **despertador reabilitado** (`enabled: true`
