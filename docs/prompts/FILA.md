@@ -194,14 +194,38 @@ melhor que a letra da regra** (D112), e mandou reabilitar em vez de recriar.
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-28** | **A sensibilidade ao acesso** — o mais importante: medir nas cinco glebas e nos quatro motores quanto muda em **lotes** e em **área vendável**, pôr na tabela e na página do Jonny, e dizer **em uma frase o que significa para quem compra terreno** | ✅ **concluído em 03/10/2026** | nenhuma |
-| **LAB-29** | **A identidade que viaja no contrato** — ler `MOTOR_NOME` e `MOTOR_VERSAO` do próprio motor, alcançando as provas congeladas do LAB-02 e do LAB-07 e o rótulo na mesa do Generate | ⬜ **é o próximo** | LAB-28 mesclado ✅ |
-| **LAB-30** | **A guarda da IDA** (do LAB-25), *"se ainda não estiver fechada"* — e ela **não está**: a guarda do LAB-25 cobre motor → SAÍDA, e o sentido ENTRADA → motor não tem nada | ⬜ | LAB-29 |
+| **LAB-29** | **A identidade que viaja no contrato** — ler `MOTOR_NOME` e `MOTOR_VERSAO` do próprio motor, alcançando as provas congeladas do LAB-02 e do LAB-07 e o rótulo na mesa do Generate | ✅ **concluído em 03/10/2026** | LAB-28 mesclado ✅ |
+| **LAB-30** | **A guarda da IDA** (do LAB-25), *"se ainda não estiver fechada"* — e ela **não está**: a guarda do LAB-25 cobre motor → SAÍDA, e o sentido ENTRADA → motor não tem nada | ⬜ **é o próximo, e é o último da fila** | LAB-29 mesclado ✅ |
 
 ### O que o chat manteve, sem mudança
 
 - **a régua de forma** (útil < 85 % / < 70 %) segue **decisão do chat** até o Jonny
   confirmar — o único item na lista dele, e não trava nada;
 - **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-29 · A identidade que viaja no contrato — ✅ concluído em 03/10/2026
+
+**Entregue:** [`../relatorios/LAB-29.md`](../relatorios/LAB-29.md),
+`tests/identidade.test.ts` (10 travas) e [`../provas/LEIA-ME.md`](../provas/LEIA-ME.md).
+
+**As duas etiquetas eram minhas** (D117): `motor-testfit` é o nome do **repositório**
+e `T00-A` é o nome de um **prompt do Lab**. O motor publica as duas, e documenta a
+versão — *"sobe quando o desenho muda de forma que o Generate veja"*. Agora são
+importadas, e a separação é o coração: **`motor` é de quem É, `archilly.origem` é de
+quem RODOU.**
+
+**O Symbios não tem o que importar** (é WASM de Rust): o Lab guarda a constante **com
+a fonte citada ao `upstream/VERSION`** e um teste lê aquele arquivo. Intocável não
+quer dizer ilegível.
+
+**O rótulo na mesa do Generate**, que era o terceiro pedido:
+`externo · motor-testfit vT00-A+espinha` virou
+`externo · laboratorio-de-parcelamento v1.0+espinha`.
+
+**As provas congeladas foram alcançadas e NÃO regeradas** (D118): cinco arquivos do
+LAB-07 e do LAB-08 guardam o rótulo antigo, porque são registro de uma medição daquele
+dia. Em lugar de reescrevê-los, o `provas/LEIA-ME.md` diz o que cada etiqueta queria
+dizer — **com teste exigindo que ele exista e cite as três coisas.**
 
 ### LAB-28 · A sensibilidade ao acesso — ✅ concluído em 03/10/2026
 

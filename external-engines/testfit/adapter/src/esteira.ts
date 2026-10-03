@@ -51,8 +51,24 @@ import { voltaParaOContrato } from "./volta.ts";
 import { apararVias, type ResultadoAparo } from "./aparo.ts";
 import type { EntradaV1, Perda, SaidaV1 } from "./contrato-v1.ts";
 
-/** A versão do motor do Testfit que a esteira está medindo. */
-export const VERSAO_MOTOR_MEDIDA = "T00-A";
+/**
+ * **Era `VERSAO_MOTOR_MEDIDA = "T00-A"`, e foi APAGADA no LAB-29.**
+ *
+ * "T00-A" é o nome de um **prompt do Lab**, não a versão de motor nenhum. Ela
+ * viajava no contrato como `motor.versao` e envelheceu no lugar: o motor foi ao
+ * T05, e o Lab continuou dizendo T00-A por três semanas. Pior, o mesmo número
+ * estava escrito **em dois lugares** — aqui e na porta, que dizia "T02" (D108).
+ *
+ * Quem quer a versão do motor **importa a do motor**:
+ *
+ * ```ts
+ * import { MOTOR_NOME, MOTOR_VERSAO } from "@testfit/contrato/tipos.ts";
+ * ```
+ *
+ * Esta nota fica porque o nome velho aparece em provas congeladas do LAB-02 e do
+ * LAB-07, e quem as for ler precisa saber o que aquele campo queria dizer.
+ */
+export const ROTULO_DA_ESTEIRA = "archilly-lab · esteira do LAB-07";
 
 /**
  * Carimbo fixo no `geradoEm` da SAÍDA.
@@ -183,8 +199,8 @@ export function rodarEsteira(
 
     const { saida: saidaFiel, perdas } = voltaParaOContrato(plano, entrada, {
       semente,
-      versaoMotor: VERSAO_MOTOR_MEDIDA,
       geradoEm: CARIMBO_FIXO,
+      rotuloDoLab: ROTULO_DA_ESTEIRA,
     });
 
     // Quando se apara, a passagem FIEL é medida assim mesmo — é ela que diz o

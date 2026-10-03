@@ -44,12 +44,13 @@
  * - **`versao`** é afirmação sobre o motor, e **ganhou experimento neste prompt**:
  *   a versão que a porta declara tem de ser a que a SAÍDA carrega. Estava `"T02"`
  *   na porta e `"T00-A"` na esteira — duas respostas, nenhuma conferida;
- * - **`nome`** é rótulo para pessoa, escolhido pelo Lab para a tela. Não há o que
- *   medir nele, e dizer isso é melhor que inventar uma régua. O que **há** é um
- *   achado medido e fora do escopo deste prompt: o motor do Parcelamento publica
- *   o próprio nome (`MOTOR_NOME = "laboratorio-de-parcelamento"`) e a ponte do
- *   Lab escreve `"motor-testfit"` na SAÍDA. Está **proposto ao chat**, porque
- *   mexer na identidade que viaja no contrato tem alcance maior que uma varredura.
+ * - **`nome`** é rótulo **de tela**, escolhido pelo Lab para a lista de motores, e
+ *   nisso não há o que medir. **O achado que estava aqui foi resolvido no LAB-29**:
+ *   a SAÍDA escrevia `"motor-testfit"` — o nome do repositório — onde o motor
+ *   publica `MOTOR_NOME = "laboratorio-de-parcelamento"`. A identidade do contrato
+ *   agora é importada do motor, e `tests/identidade.test.ts` a trava (D117). O
+ *   `nome` da porta continua sendo o rótulo de tela, de propósito: é ele que diz
+ *   *"Symbios + subdivisão do Lab"*, que a versão do motor não pode dizer.
  */
 import type { Capacidades } from "./porta.ts";
 
@@ -78,8 +79,10 @@ export const EXPERIMENTOS: Record<keyof Capacidades, Cobertura> = {
   nome: {
     tipo: "sem-regua",
     porque:
-      "rótulo para pessoa, escolhido pelo Lab para a tela. O achado medido — o motor publica " +
-      "o próprio nome e a ponte escreve outro — está proposto ao chat",
+      "rótulo de TELA, escolhido pelo Lab para a lista de motores — é ele que diz \"Symbios + " +
+      "subdivisão do Lab\", que a versão do motor não pode dizer. O achado que estava aqui (a " +
+      "SAÍDA escrevia o nome do repositório onde o motor publica o próprio) foi resolvido no " +
+      "LAB-29, e `tests/identidade.test.ts` o trava",
   },
   versao: {
     tipo: "falsificavel",

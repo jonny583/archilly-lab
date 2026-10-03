@@ -129,7 +129,7 @@ describe("volta — o plano vira SAÍDA do contrato", () => {
     const entrada = carregar("ensaio-47ha");
     const { entrada: em } = idaParaOMotor(entrada, { semente: SEMENTE, variantes: 1 });
     const plano = rodarMotor(em).opcoes[0]!.plano;
-    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1, versaoMotor: "T00-A" });
+    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1 });
     for (const [i, v] of saida.vias.entries()) {
       expect(v.largura_m).toBe(plano.vias[i]!.caixa_m);
     }
@@ -139,7 +139,7 @@ describe("volta — o plano vira SAÍDA do contrato", () => {
     const entrada = carregar("ensaio-47ha");
     const { entrada: em } = idaParaOMotor(entrada, { semente: SEMENTE, variantes: 1 });
     const plano = rodarMotor(em).opcoes[0]!.plano;
-    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1, versaoMotor: "T00-A" });
+    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1 });
     const ids = new Set(saida.quadras.map((q) => q.id));
     for (const l of saida.lotes) {
       if (l.quadraId !== "") expect(ids.has(l.quadraId)).toBe(true);
@@ -150,7 +150,7 @@ describe("volta — o plano vira SAÍDA do contrato", () => {
     const entrada = carregar("geo-antonina");
     const { entrada: em } = idaParaOMotor(entrada, { semente: SEMENTE, variantes: 1 });
     const plano = rodarMotor(em).opcoes[0]!.plano;
-    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1, versaoMotor: "T00-A" });
+    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1 });
     expect(saida.crs).toEqual(entrada.crs);
     // VIRADO no LAB-26: a volta escreve **v2** desde o LAB-22, porque passou a
     // carregar `rampaMaxima_pct` por via. Este `toBe("1")` guardava a verdade do
@@ -164,7 +164,7 @@ describe("volta — o plano vira SAÍDA do contrato", () => {
     const entrada = carregar("ensaio-47ha");
     const { entrada: em } = idaParaOMotor(entrada, { semente: SEMENTE, variantes: 1 });
     const plano = rodarMotor(em).opcoes[0]!.plano;
-    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1, versaoMotor: "T00-A" });
+    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1 });
     const q = saida.quadroDeAreas;
     const soma =
       q.areaPrivativa_m2 + q.areaViaria_m2 + q.areaLazer_m2 + q.areaAPP_m2 + q.areaNaoAproveitada_m2;
@@ -189,7 +189,7 @@ describe("volta — o plano vira SAÍDA do contrato", () => {
     const entrada = carregar("ensaio-47ha");
     const { entrada: em } = idaParaOMotor(entrada, { semente: SEMENTE, variantes: 1 });
     const plano = rodarMotor(em).opcoes[0]!.plano;
-    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1, versaoMotor: "T00-A" });
+    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1 });
     const ids = new Set(saida.vias.map((v) => v.id));
 
     // A via de frente: o motor dá índice, a ponte dá id — e nenhum id inventado.
@@ -211,7 +211,7 @@ describe("aparo — o conserto declarado", () => {
     const entrada = carregar("ensaio-47ha");
     const { entrada: em } = idaParaOMotor(entrada, { semente: SEMENTE, variantes: 1 });
     const plano = rodarMotor(em).opcoes[0]!.plano;
-    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1, versaoMotor: "T00-A" });
+    const { saida } = voltaParaOContrato(plano, entrada, { semente: 1 });
     const r = apararVias(saida, entrada.gleba.anel);
 
     expect(r.comprimentoAparado_m).toBeLessThan(r.comprimentoOriginal_m);

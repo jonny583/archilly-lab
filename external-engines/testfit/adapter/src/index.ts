@@ -18,7 +18,7 @@ export { apararVias, type ResultadoAparo } from "./aparo.ts";
 export {
   rodarEsteira,
   CARIMBO_FIXO,
-  VERSAO_MOTOR_MEDIDA,
+  ROTULO_DA_ESTEIRA,
   type OpcoesEsteira,
   type RodadaMedida,
   type VarianteMedida,

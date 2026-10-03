@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-28 ·
+**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-29 ·
 **Despertador `trig_01XwSkTLT9zmyprNZcUiWy7f` LIGADO** de novo (60 min, :05) — o chat
 mandou reabilitar em vez de recriar, e registrou que preservar a sessão foi melhor que
 a letra da regra (D112).
@@ -14,8 +14,32 @@ a letra da regra (D112).
 | Prompt | Estado |
 |---|---|
 | **LAB-28** — a sensibilidade ao acesso, na tabela e na página do Jonny | **concluído em 03/10/2026** |
-| **LAB-29** — a identidade que viaja no contrato (`MOTOR_NOME`, `MOTOR_VERSAO`) | **é o próximo** |
-| **LAB-30** — a guarda da IDA, do LAB-25 (não está fechada) | aguardando o LAB-29 |
+| **LAB-29** — a identidade que viaja no contrato (`MOTOR_NOME`, `MOTOR_VERSAO`) | **concluído em 03/10/2026** |
+| **LAB-30** — a guarda da IDA, do LAB-25 (não está fechada) | **é o próximo, e é o último da fila** |
+
+## O que o LAB-29 fez
+
+**As duas etiquetas de identidade eram minhas** (D117): a SAÍDA dizia
+`nome: "motor-testfit"` (o nome do **repositório**) e `versao: "T00-A+espinha"` (o nome
+de um **prompt do Lab**). O motor publica as duas, em `contrato/tipos.ts`. Agora são
+**importadas**, e a separação é o coração do conserto:
+
+| campo | de quem é |
+|---|---|
+| `motor.nome`, `motor.versao` | **do motor** — importados |
+| `archilly.origem` | **do Lab** — quem rodou |
+
+Enquanto a etiqueta do Lab morava em `motor.versao`, ela **tinha** de envelhecer: o
+motor foi ao T05 e o campo continuou dizendo T00-A.
+
+**O Symbios é WASM de Rust e não tem o que importar:** a constante é citada ao
+`upstream/VERSION` e **um teste lê aquele arquivo**. Intocável não quer dizer ilegível.
+
+**O rótulo na mesa do Generate:** `externo · laboratorio-de-parcelamento v1.0+espinha`.
+
+**As provas congeladas não foram regeradas** (D118) — são registro de uma medição
+daquele dia. Em lugar disso há [`provas/LEIA-ME.md`](provas/LEIA-ME.md), com teste
+exigindo que ele exista e explique a etiqueta antiga.
 
 ## O que o LAB-28 mediu, e a manchete que ele derrubou
 

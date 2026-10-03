@@ -32,14 +32,29 @@ import type { Rodada } from "./comum.ts";
 const n2 = (v: number) => Number(v.toFixed(2));
 
 /**
- * A versão desta dupla, **num lugar só**. (LAB-26)
+ * A versão do **motor**, e só dela. (LAB-29, D117)
  *
- * Estava escrita em dois: aqui, `"0.4.1 + subdivisão do Lab (LAB-13)"`, e na
- * porta, `"0.4.1 + LAB-04"`. Duas respostas para *"que versão é esta?"*, e nenhum
- * teste conferia — é a varredura do LAB-26 que achou. Versão em duas terras
- * envelhece numa delas, a mesma frase do CLAUDE.md §1-A.
+ * Passou por três etapas. Estava escrita em **dois** lugares — aqui como
+ * `"0.4.1 + subdivisão do Lab (LAB-13)"` e na porta como `"0.4.1 + LAB-04"` —, e
+ * nenhum teste conferia (D108). O LAB-26 as unificou. E a unificação ainda
+ * **misturava duas coisas**: `0.4.1` é do motor, e `+ subdivisão do Lab` é do Lab.
+ *
+ * Agora a versão é só a do motor. **A fonte é o `upstream/VERSION`**, que diz
+ * *"Upstream version: 0.4.1 (Cargo.toml)"*, e há **teste que lê aquele arquivo** e
+ * reprova se esta constante divergir — porque `upstream/` é intocável mas não é
+ * ilegível, e copiar sem conferir é como o "T00-A" envelheceu.
+ *
+ * **O que o Lab acrescenta vive em dois lugares, nenhum deles aqui:** o nome de
+ * tela na porta (*"Symbios Tensor + subdivisão do Lab"*) e o `archilly.origem` da
+ * SAÍDA, que é o campo de quem rodou.
  */
-export const VERSAO_DA_DUPLA = "0.4.1 + subdivisão do Lab (LAB-04)";
+export const VERSAO_DO_SYMBIOS = "0.4.1";
+
+/** O nome com que o motor se apresenta, também do `upstream/VERSION`. */
+export const NOME_DO_SYMBIOS = "symbios-tensor";
+
+/** O que o Lab acrescenta, para o `origem` da SAÍDA poder dizê-lo. */
+export const ACRESCIMO_DO_LAB = "subdivisão do Lab (LAB-04)";
 
 /**
  * A rede do motor, já recortada pela gleba — o que o motor PUBLICA.
@@ -122,7 +137,8 @@ export function rodarSymbios(
       areaDaGleba_m2: areaPoligono(t.gleba),
       areaQueDesconta_m2: areaQueDesconta,
       semente,
-      versaoMotor: VERSAO_DA_DUPLA,
+      versaoMotor: VERSAO_DO_SYMBIOS,
+      acrescimoDoLab: ACRESCIMO_DO_LAB,
       geradoEm,
       crs: entrada.crs as never,
       parametrosUsados: entrada.parametros,
