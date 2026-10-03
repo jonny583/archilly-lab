@@ -34,7 +34,17 @@
     // Ver external-engines/testfit/README.md.
     "paths": {
       "@testfit/*": ["../../../motor-testfit/src/lib/lab/*"],
-      "@generate/*": ["../../../urban-create-hub-41d93a4d/src/lib/*"]
+      "@generate/*": ["../../../urban-create-hub-41d93a4d/src/lib/*"],
+      // O alias DELES, espelhado — o GÊMEO do D86. (LAB-26)
+      //
+      // O LAB-18 espelhou `@/*` no tsconfig do pacote `esteira` e **não neste**,
+      // e o `tsc` daqui acusava dois erros dentro do repositório do Generate.
+      // Não é defeito deles: um repositório tem o direito de usar o próprio alias
+      // no próprio código, e quem lê por caminho é que tem de espelhá-lo.
+      //
+      // É a terceira coisa que o LAB-26 achou alargada numa terra e não na outra
+      // — junto com o portão de versão da ida e o `bun test` de um pacote só.
+      "@/*": ["../../../urban-create-hub-41d93a4d/src/*"]
     }
   },
   "include": ["adapter", "ferramentas", "tests", "tipos"]

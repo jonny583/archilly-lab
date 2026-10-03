@@ -36,6 +36,28 @@ import type { EntradaMotor } from "@testfit/api.ts";
 
 import type { EntradaV1, GeometriaV1, Perda, PontoV1 } from "./contrato-v1.ts";
 
+/**
+ * As versões do contrato que esta ida lê. (LAB-26)
+ *
+ * **Era `"1"` cravado, e isso quebrou 14 testes em silêncio.** As glebas-padrão
+ * que a suíte deste pacote carrega vêm do repositório do Generate, e elas
+ * **viraram v2** quando ele publicou o contrato v2 — as três coisas que o Lab
+ * pediu. A partir daquele dia a ida recusava a própria fixture, e ninguém viu,
+ * porque o `bun test` que eu rodava era só o do pacote `esteira`.
+ *
+ * É o **gêmeo exato do D87**: o LAB-18 alargou esta mesma porta em
+ * `esteira/src/gleba-v1.ts` e **não alargou esta**. Portão de versão em duas
+ * terras envelhece numa delas — a mesma frase que o CLAUDE.md §1-A já diz sobre
+ * o id do despertador.
+ *
+ * **Ler v2 aqui é seguro**, e não por otimismo: os campos que o v2 acrescentou
+ * (`nascente`, `eixoDoCurso`, `rampaMaxima_pct`, `via_desenhada` separada de
+ * `testada_de_frente`) são **adições**, e o que esta ida não conhece ela já
+ * declara como perda, um por um. O risco de recusar é concreto e foi medido: a
+ * suíte inteira.
+ */
+export const VERSOES_LIDAS = ["2", "1"] as const;
+
 export interface ResultadoIda {
   entrada: EntradaMotor;
   perdas: Perda[];
@@ -158,9 +180,10 @@ export function idaParaOMotor(
       `Esperava o schema "archilly-motor-entrada" e veio "${e.archilly?.schema ?? "nenhum"}".`,
     );
   }
-  if (e.archilly.versao !== "1") {
+  if (!(VERSOES_LIDAS as readonly string[]).includes(e.archilly.versao)) {
     throw new Error(
-      `Contrato de motor versão "${e.archilly.versao}" — este adaptador entende a versão "1".`,
+      `Contrato de motor versão "${e.archilly.versao}" — este adaptador entende ` +
+        `${VERSOES_LIDAS.map((v) => `"${v}"`).join(" e ")}.`,
     );
   }
   if (e.crs.unidade !== "m") {

@@ -32,6 +32,16 @@ import type { Rodada } from "./comum.ts";
 const n2 = (v: number) => Number(v.toFixed(2));
 
 /**
+ * A versão desta dupla, **num lugar só**. (LAB-26)
+ *
+ * Estava escrita em dois: aqui, `"0.4.1 + subdivisão do Lab (LAB-13)"`, e na
+ * porta, `"0.4.1 + LAB-04"`. Duas respostas para *"que versão é esta?"*, e nenhum
+ * teste conferia — é a varredura do LAB-26 que achou. Versão em duas terras
+ * envelhece numa delas, a mesma frase do CLAUDE.md §1-A.
+ */
+export const VERSAO_DA_DUPLA = "0.4.1 + subdivisão do Lab (LAB-04)";
+
+/**
  * A rede do motor, já recortada pela gleba — o que o motor PUBLICA.
  *
  * Separada de `rodarSymbios` no LAB-25 para que a guarda da ponte possa auditar
@@ -112,7 +122,7 @@ export function rodarSymbios(
       areaDaGleba_m2: areaPoligono(t.gleba),
       areaQueDesconta_m2: areaQueDesconta,
       semente,
-      versaoMotor: "0.4.1 + subdivisão do Lab (LAB-13)",
+      versaoMotor: VERSAO_DA_DUPLA,
       geradoEm,
       crs: entrada.crs as never,
       parametrosUsados: entrada.parametros,

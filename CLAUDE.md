@@ -203,3 +203,15 @@ provado.
 Duas pilhas convivem, de propósito (D14, D17): o adaptador do Symbios roda em
 **Node 22+ sem dependência npm**; o do LAB-07 roda em **Bun**, porque compila
 fonte TypeScript de três repositórios ao mesmo tempo.
+
+**"Testes verdes" quer dizer os DOIS pacotes**, e o comando é um só:
+
+```sh
+./external-engines/conferir.sh
+```
+
+Ele roda `typecheck`, `lint` e `test` em `esteira` **e** em `testfit`, e falha se
+qualquer um falhar. **Não é zelo:** rodando só o primeiro, a suíte do `testfit`
+ficou **vermelha, 14 de 14, por duas semanas**, e dois daqueles testes eram as
+travas das minhas próprias correções (D110). Suíte que ninguém roda não protege
+nada — e ainda cala os alarmes que ela mesma tinha.

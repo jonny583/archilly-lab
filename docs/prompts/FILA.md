@@ -169,8 +169,8 @@ Mandada pelo chat em 03/10/2026, com **o despertador que já está de pé**
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-25** | **A guarda que impede a quarta vez:** um teste que reprove quando a ponte do Lab descartar campo que o motor publica, e a regra escrita no documento. *"Vale mais que qualquer medição nova."* | ✅ **concluído em 03/10/2026** | nenhuma |
-| **LAB-26** | Partir `leRelevo` em duas (**já feito no LAB-22, D100**) e **varrer as outras capacidades declaradas** que o teste de falsificação ainda não cobre | ⬜ **é o próximo** | LAB-25 mesclado ✅ |
-| **LAB-27** | Manter [`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](../O_QUE_FALTA_MEDIR_POR_MOTOR.md) atualizado e **avisar quando mudar** | ⬜ **contínuo** | LAB-26 |
+| **LAB-26** | Partir `leRelevo` em duas (**já feito no LAB-22, D100**) e **varrer as outras capacidades declaradas** que o teste de falsificação ainda não cobre | ✅ **concluído em 03/10/2026** | LAB-25 mesclado ✅ |
+| **LAB-27** | Manter [`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](../O_QUE_FALTA_MEDIR_POR_MOTOR.md) atualizado e **avisar quando mudar** | ⬜ **contínuo — é o que resta** | LAB-26 mesclado ✅ |
 
 ### Duas notas de estado, para não refazer trabalho
 
@@ -213,12 +213,47 @@ bom. Mas o Generate **recalcula** o campo ao ler, então encher `faceDeRua`
 **não muda número nenhum da tabela** (regerada, só os tempos de parede mudaram).
 O ganho é de honestidade e de quem lê o campo — tela, exportação, Orçamento.
 
-### Proposto ao chat — a guarda da IDA
+### LAB-26 · A varredura das capacidades — ✅ concluído em 03/10/2026
 
-A guarda cobre o sentido **motor → SAÍDA**, que é o que o LAB-25 pediu. O sentido
-**ENTRADA → motor** tem a mesma forma de risco (campo do contrato que a ponte não
-entrega ao motor) e o mesmo mecanismo serve. **Não executado**, porque prompt fora
-da fila não existe.
+**Entregue:** [`../relatorios/LAB-26.md`](../relatorios/LAB-26.md) e
+`docs/provas/LAB-26/varredura.json`.
+
+**Três campos não tinham experimento** (D108) — `respeitaAcesso`, `geometrias` e
+`versao` —, e o `porta.ts` afirmava em prosa que o teste falsificava todos. Agora
+quem sustenta a frase é `src/porta/experimentos.ts`, com dois testes de varredura:
+**cobertura** (campo novo sem experimento reprova) e **existência** (nome citado
+que não existe reprova). 13 falsificáveis, 1 conferido, 1 sem régua.
+
+**A declaração falsa estava num dos três** (D109): o Parcelamento dizia
+`respeitaAcesso: false` e vai de **703 para 603 lotes** quando o acesso se move
+992,6 m. A ida dele passa o acesso ao motor desde o LAB-07 — a declaração era do
+Lab. O Symbios continua `false`, agora provado.
+
+**E o pior achado não é de capacidade** (D110): a suíte do pacote **`testfit`
+estava vermelha, 14 de 14, há duas semanas** — as glebas-padrão do Generate
+viraram v2 e o portão da ida ainda gateava `"1"` (gêmeo do D87). Dois daqueles
+testes eram as travas do D98 e do D104: **a suíte invisível calou os próprios
+alarmes.** Agora `./external-engines/conferir.sh` roda os dois pacotes, e o
+`CLAUDE.md` §7 diz que *"testes verdes"* é isso.
+
+### Proposto ao chat — três, nenhum executado
+
+**1 · A sensibilidade ao acesso na tabela comparativa.** Mover o acesso mexe no
+resultado **mais que qualquer outra entrada que o Lab mede** — 19 % em lotes na
+candidata ortogonal de `geo-antonina`. As cinco glebas declaram **um** acesso e
+ninguém mediu quanto o resultado depende dele (LAB-26, §2).
+
+**2 · A identidade que viaja no contrato.** O motor do Parcelamento publica
+`MOTOR_NOME = "laboratorio-de-parcelamento"` e `MOTOR_VERSAO = "1.0"`; a ponte do
+Lab escreve `"motor-testfit"` e um rótulo de prompt. Mesma forma do D104, um nível
+acima. Ler de lá alcança provas congeladas e o rótulo na mesa do Generate — passa
+do escopo de uma varredura (LAB-26, §3).
+
+**3 · A guarda da IDA.** A guarda do LAB-25 cobre o sentido **motor → SAÍDA**, que
+é o que ele pediu. O sentido **ENTRADA → motor** tem a mesma forma de risco (campo
+do contrato que a ponte não entrega ao motor) e o mesmo mecanismo serve.
+
+**Nenhum dos três executado**, porque prompt fora da fila não existe.
 
 ---
 

@@ -4,21 +4,33 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-25
-**Estado:** LAB-25 **mesclado na `main`**; **o próximo é o LAB-26** (a varredura
-das capacidades sem teste de falsificação — metade dele já está feita). Despertador
+**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-26
+**Estado:** LAB-26 **mesclado na `main`**. Da fila de 03/10 resta **só o LAB-27**,
+que é **contínuo** (manter o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` e avisar quando
+mudar) — ele não é item que se "execute" num despertador. Despertador
 `trig_01XwSkTLT9zmyprNZcUiWy7f` ligado (60 min, :05).
 
-**Nota dos disparos:** três despertadores (06:05, 07:05 e 08:05 de 03/10) caíram
-**durante** a execução do LAB-25. Um prompt por despertador: nenhum deles abriu
-item novo, e isto não é disparo vazio — havia item em curso.
+**Atenção para o próximo disparo:** se não houver item **pronto** — e hoje não há,
+porque o LAB-27 é contínuo e os três achados novos estão *"proposto ao chat"* —, a
+regra do `CLAUDE.md` §1-A manda **apagar o despertador** (D62) e esperar fila nova.
+
+**Nota dos disparos:** quatro despertadores (06:05, 07:05, 08:05 e 09:05 de 03/10)
+caíram **durante** execução. Um prompt por despertador: nenhum abriu item novo, e
+nenhum foi disparo vazio — havia item em curso.
+
+## ⚠ "Testes verdes" mudou de significado (D110)
+
+**O comando é `./external-engines/conferir.sh`**, e ele roda `typecheck`, `lint` e
+`test` nos **dois** pacotes (`esteira` e `testfit`). Rodando só o primeiro — como
+todo relatório meu fez até aqui —, a suíte do `testfit` ficou **vermelha, 14 de 14,
+por duas semanas**, e dois daqueles testes eram as travas do D98 e do D104.
 
 ## A fila nova de 03/10 — a guarda contra o próprio ponto cego
 
 | Prompt | Estado |
 |---|---|
 | **LAB-25** — o teste que reprova quando a ponte descarta campo que o motor publica | **concluído em 03/10/2026** |
-| **LAB-26** — varrer as capacidades que o teste de falsificação ainda não cobre | **é o próximo** |
+| **LAB-26** — varrer as capacidades que o teste de falsificação ainda não cobre | **concluído em 03/10/2026** |
 | **LAB-27** — manter o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` e avisar quando mudar | contínuo |
 
 **Três notas de estado, para não refazer trabalho:**
@@ -51,6 +63,34 @@ geometria da gleba (D73). Então não é *"a mão vence a máquina"* — é um r
 **sobre os motores**: uma reta **cega para o relevo** bate os quatro no pior
 trecho do terreno real. **Falta uma via desenhada por pessoa**, numa gleba real —
 proposto ao chat.
+
+## O que o LAB-26 achou
+
+**Três campos de `Capacidades` não tinham experimento** (D108) — `respeitaAcesso`,
+`geometrias` e `versao` —, e o `porta.ts` afirmava **em prosa** que o teste
+falsificava todos. Mesmo defeito do LAB-25, uma camada acima. Agora quem sustenta
+a frase é `src/porta/experimentos.ts` + dois testes de varredura: **cobertura** e
+**existência**.
+
+**A declaração falsa estava num dos três** (D109). O Parcelamento dizia
+`respeitaAcesso: false`:
+
+| gleba | acesso movido | lotes |
+|---|---:|---|
+| `ensaio-47ha` | 992,6 m | **703 → 603** |
+| `geo-antonina` | 2 255,3 m | 1 454 → 1 393 |
+| `sintetico-10ha-plano` | 504,5 m | **112 → 138** |
+
+A ida dele passa o acesso ao motor desde o LAB-07. **Campo sem experimento é campo
+que ninguém conferiu**, e dos quinze era justamente num dos três descobertos que a
+mentira estava.
+
+**O pior achado não é de capacidade** (D110): a suíte do pacote `testfit` estava
+**vermelha, 14 de 14**, desde que as glebas-padrão do Generate viraram v2 — o
+portão da ida ainda gateava `"1"`, gêmeo do D87. Dois daqueles testes eram as
+travas do D98 e do D104: **a suíte invisível calou os próprios alarmes.** Três
+coisas alargadas numa terra e não na outra, no mesmo prompt (o portão, o `@/*` do
+`tsconfig` e o `bun test`).
 
 ## O que o LAB-25 fez — e o que a guarda achou na primeira rodada
 
@@ -103,7 +143,12 @@ Confirmar a **régua de forma** (D79).
    ENTRADA → motor tem o mesmo risco e o mesmo mecanismo serve (LAB-25, §8);
 6. **aviso do LAB-27:** o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` **mudou** — §1-A (o
    `faceDeRua` era falta minha, e o número descartado era bom) e §7 (pedido ao
-   Generate: avisar quando ele recalcular o campo e divergir).
+   Generate: avisar quando ele recalcular o campo e divergir);
+7. **proposto:** medir a **sensibilidade ao acesso** na tabela comparativa — é a
+   entrada de maior efeito que o Lab mede, 19 % em lotes, e ninguém a mede (D109);
+8. **proposto:** a **identidade que viaja no contrato** — o motor do Parcelamento
+   publica o próprio nome e a própria versão, e a ponte do Lab escreve outros
+   (D108, §3 do relatório do LAB-26).
 
 # A fila de 20/09 — a entrega e as duas correções · 20/09/2026
 

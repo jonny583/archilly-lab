@@ -1,0 +1,339 @@
+{
+  "prompt": "LAB-26",
+  "geradoEm": "2026-10-03",
+  "semente": 20260913,
+  "contrato": "2",
+  "varredura": [
+    {
+      "campo": "id",
+      "cobertura": "conferido",
+      "teste": "todos declaram capacidades completas e coerentes",
+      "porque": "é chave de tela: o que importa é não colidir entre motores"
+    },
+    {
+      "campo": "nome",
+      "cobertura": "sem-regua",
+      "teste": null,
+      "porque": "rótulo para pessoa, escolhido pelo Lab para a tela. O achado medido — o motor publica o próprio nome e a ponte escreve outro — está proposto ao chat"
+    },
+    {
+      "campo": "versao",
+      "cobertura": "falsificavel",
+      "teste": "`versao`: a versão declarada é a que a SAÍDA carrega",
+      "porque": null
+    },
+    {
+      "campo": "entrega",
+      "cobertura": "falsificavel",
+      "teste": "`entrega`: quem diz lote entrega lote",
+      "porque": null
+    },
+    {
+      "campo": "leRelevo",
+      "cobertura": "falsificavel",
+      "teste": "`leRelevo`: com e sem curvas de nível, a saída muda se e só se ele lê",
+      "porque": null
+    },
+    {
+      "campo": "relevoMudaOTracado",
+      "cobertura": "falsificavel",
+      "teste": "`relevoMudaOTracado`: a GEOMETRIA muda se e só se ele desvia pelo relevo",
+      "porque": null
+    },
+    {
+      "campo": "respeitaViaDesenhada",
+      "cobertura": "falsificavel",
+      "teste": "`respeitaViaDesenhada`: com uma via no miolo, ele a segue se e só se declarou",
+      "porque": null
+    },
+    {
+      "campo": "respeitaTestadaDeFrente",
+      "cobertura": "falsificavel",
+      "teste": "`respeitaTestadaDeFrente`: há lote com aresta na testada se e só se declarou",
+      "porque": null
+    },
+    {
+      "campo": "respeitaAcesso",
+      "cobertura": "falsificavel",
+      "teste": "`respeitaAcesso`: mover o acesso muda o traçado se e só se ele o lê",
+      "porque": null
+    },
+    {
+      "campo": "respeitaRestricao",
+      "cobertura": "falsificavel",
+      "teste": "`respeitaRestricao`: tirar a APP muda o resultado de quem a respeita",
+      "porque": null
+    },
+    {
+      "campo": "aceitaSemente",
+      "cobertura": "falsificavel",
+      "teste": "`aceitaSemente`: duas sementes mudam a saída se e só se ele a lê",
+      "porque": null
+    },
+    {
+      "campo": "determinista",
+      "cobertura": "falsificavel",
+      "teste": "`determinista`: a mesma entrada, a SAÍDA inteira igual",
+      "porque": null
+    },
+    {
+      "campo": "calculaGreide",
+      "cobertura": "falsificavel",
+      "teste": "`calculaGreide`: a rampa vem em número ou vem null — nunca zero de mentira",
+      "porque": null
+    },
+    {
+      "campo": "exigeRelevo",
+      "cobertura": "falsificavel",
+      "teste": "`exigeRelevo`: sem relevo ele RECUSA pela porta, e não estoura",
+      "porque": null
+    },
+    {
+      "campo": "geometrias",
+      "cobertura": "falsificavel",
+      "teste": "`geometrias`: o partido que saiu é um dos que ele ofereceu",
+      "porque": null
+    }
+  ],
+  "contagem": {
+    "falsificavel": 13,
+    "conferido": 1,
+    "sem-regua": 1
+  },
+  "respeitaAcesso": {
+    "ensaio-47ha": {
+      "acessoMovido_m": 992.6,
+      "de": {
+        "x": 0,
+        "y": 0
+      },
+      "para": {
+        "x": 800,
+        "y": 587.5
+      },
+      "motores": [
+        {
+          "motor": "generate-ortogonal",
+          "declara_respeitaAcesso": true,
+          "aGeometriaMudou": true,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 966,
+          "lotesComAcessoEmB": 978,
+          "versaoDeclarada": "1",
+          "versaoNaSaida": "1",
+          "geometriaEntregue": "ortogonal",
+          "geometriasDeclaradas": [
+            "ortogonal"
+          ]
+        },
+        {
+          "motor": "generate-espinha",
+          "declara_respeitaAcesso": true,
+          "aGeometriaMudou": true,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 724,
+          "lotesComAcessoEmB": 721,
+          "versaoDeclarada": "1",
+          "versaoNaSaida": "1",
+          "geometriaEntregue": "espinha",
+          "geometriasDeclaradas": [
+            "espinha"
+          ]
+        },
+        {
+          "motor": "parcelamento",
+          "declara_respeitaAcesso": true,
+          "aGeometriaMudou": true,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 703,
+          "lotesComAcessoEmB": 603,
+          "versaoDeclarada": "T00-A",
+          "versaoNaSaida": "T00-A+espinha",
+          "geometriaEntregue": "espinha",
+          "geometriasDeclaradas": [
+            "ortogonal",
+            "espinha",
+            "pente",
+            "diagonal",
+            "loop",
+            "cluster",
+            "radial",
+            "organico",
+            "superquadra",
+            "mioloVerde"
+          ]
+        },
+        {
+          "motor": "symbios",
+          "declara_respeitaAcesso": false,
+          "aGeometriaMudou": false,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 214,
+          "lotesComAcessoEmB": 214,
+          "versaoDeclarada": "0.4.1 + subdivisão do Lab (LAB-04)",
+          "versaoNaSaida": "0.4.1 + subdivisão do Lab (LAB-04)",
+          "geometriaEntregue": "tensorial",
+          "geometriasDeclaradas": [
+            "tensorial"
+          ]
+        }
+      ]
+    },
+    "geo-antonina": {
+      "acessoMovido_m": 2255.3,
+      "de": {
+        "x": 1168.371,
+        "y": 725.619
+      },
+      "para": {
+        "x": -634.46,
+        "y": -629.453
+      },
+      "motores": [
+        {
+          "motor": "generate-ortogonal",
+          "declara_respeitaAcesso": true,
+          "aGeometriaMudou": true,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 1723,
+          "lotesComAcessoEmB": 1390,
+          "versaoDeclarada": "1",
+          "versaoNaSaida": "1",
+          "geometriaEntregue": "ortogonal",
+          "geometriasDeclaradas": [
+            "ortogonal"
+          ]
+        },
+        {
+          "motor": "generate-espinha",
+          "declara_respeitaAcesso": true,
+          "aGeometriaMudou": true,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 1513,
+          "lotesComAcessoEmB": 1782,
+          "versaoDeclarada": "1",
+          "versaoNaSaida": "1",
+          "geometriaEntregue": "espinha",
+          "geometriasDeclaradas": [
+            "espinha"
+          ]
+        },
+        {
+          "motor": "parcelamento",
+          "declara_respeitaAcesso": true,
+          "aGeometriaMudou": true,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 1454,
+          "lotesComAcessoEmB": 1393,
+          "versaoDeclarada": "T00-A",
+          "versaoNaSaida": "T00-A+ortogonal",
+          "geometriaEntregue": "ortogonal",
+          "geometriasDeclaradas": [
+            "ortogonal",
+            "espinha",
+            "pente",
+            "diagonal",
+            "loop",
+            "cluster",
+            "radial",
+            "organico",
+            "superquadra",
+            "mioloVerde"
+          ]
+        },
+        {
+          "motor": "symbios",
+          "declara_respeitaAcesso": false,
+          "aGeometriaMudou": false,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 1014,
+          "lotesComAcessoEmB": 1014,
+          "versaoDeclarada": "0.4.1 + subdivisão do Lab (LAB-04)",
+          "versaoNaSaida": "0.4.1 + subdivisão do Lab (LAB-04)",
+          "geometriaEntregue": "tensorial",
+          "geometriasDeclaradas": [
+            "tensorial"
+          ]
+        }
+      ]
+    },
+    "sintetico-10ha-plano": {
+      "acessoMovido_m": 504.5,
+      "de": {
+        "x": -269.5271668724924,
+        "y": 0
+      },
+      "para": {
+        "x": 219.87668473672903,
+        "y": -122.2998107439721
+      },
+      "motores": [
+        {
+          "motor": "generate-ortogonal",
+          "declara_respeitaAcesso": true,
+          "aGeometriaMudou": true,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 175,
+          "lotesComAcessoEmB": 174,
+          "versaoDeclarada": "1",
+          "versaoNaSaida": "1",
+          "geometriaEntregue": "ortogonal",
+          "geometriasDeclaradas": [
+            "ortogonal"
+          ]
+        },
+        {
+          "motor": "generate-espinha",
+          "declara_respeitaAcesso": true,
+          "aGeometriaMudou": true,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 123,
+          "lotesComAcessoEmB": 123,
+          "versaoDeclarada": "1",
+          "versaoNaSaida": "1",
+          "geometriaEntregue": "espinha",
+          "geometriasDeclaradas": [
+            "espinha"
+          ]
+        },
+        {
+          "motor": "parcelamento",
+          "declara_respeitaAcesso": true,
+          "aGeometriaMudou": true,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 112,
+          "lotesComAcessoEmB": 138,
+          "versaoDeclarada": "T00-A",
+          "versaoNaSaida": "T00-A+diagonal",
+          "geometriaEntregue": "diagonal",
+          "geometriasDeclaradas": [
+            "ortogonal",
+            "espinha",
+            "pente",
+            "diagonal",
+            "loop",
+            "cluster",
+            "radial",
+            "organico",
+            "superquadra",
+            "mioloVerde"
+          ]
+        },
+        {
+          "motor": "symbios",
+          "declara_respeitaAcesso": false,
+          "aGeometriaMudou": false,
+          "declaracaoBateComOMedido": true,
+          "lotesComAcessoEmA": 66,
+          "lotesComAcessoEmB": 66,
+          "versaoDeclarada": "0.4.1 + subdivisão do Lab (LAB-04)",
+          "versaoNaSaida": "0.4.1 + subdivisão do Lab (LAB-04)",
+          "geometriaEntregue": "tensorial",
+          "geometriasDeclaradas": [
+            "tensorial"
+          ]
+        }
+      ]
+    }
+  }
+}
