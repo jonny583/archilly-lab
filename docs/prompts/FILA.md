@@ -161,6 +161,58 @@ o nome feio de propósito, D67).
 **O contrato vai ao Generate pelo chat.** O Lab não escreve no repositório
 vizinho.
 
+## A fila de 03/10, segunda parte — a guarda contra o próprio ponto cego
+
+Mandada pelo chat em 03/10/2026, com **o despertador que já está de pé**
+(`trig_01XwSkTLT9zmyprNZcUiWy7f`).
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-25** | **A guarda que impede a quarta vez:** um teste que reprove quando a ponte do Lab descartar campo que o motor publica, e a regra escrita no documento. *"Vale mais que qualquer medição nova."* | ⬜ **é o próximo** | nenhuma |
+| **LAB-26** | Partir `leRelevo` em duas (**já feito no LAB-22, D100**) e **varrer as outras capacidades declaradas** que o teste de falsificação ainda não cobre | ⬜ | LAB-25 |
+| **LAB-27** | Manter [`O_QUE_FALTA_MEDIR_POR_MOTOR.md`](../O_QUE_FALTA_MEDIR_POR_MOTOR.md) atualizado e **avisar quando mudar** | ⬜ **contínuo** | LAB-26 |
+
+### Duas notas de estado, para não refazer trabalho
+
+**1 · O LAB-26 já está metade feito.** `leRelevo` **foi partida em duas no
+LAB-22** — `leRelevo` e `relevoMudaOTracado`, cada uma com o seu teste de
+falsificação (D100). O que sobra do LAB-26 é a **varredura**: quais capacidades
+declaradas **ainda não têm experimento** que as desminta.
+
+**2 · A corda reta das vias curvas fica na V3, sem mexer.** Decisão do chat em
+03/10. O fato, para quem for pegá-la: a ponte do Lab publica cada via como a
+**reta entre as duas pontas do eixo** (`volta.ts:125`), e o tipo `eixo` do motor
+é de dois pontos. **Não tocado nesta rodada.**
+
+**3 · A régua de forma** (útil < 85 % / < 70 %) segue como **decisão do chat**
+até o Jonny confirmar, e **não trava nada** — é o único item na lista dele.
+
+---
+
+### LAB-23 · A via desenhada como coluna vertebral — ✅ concluído em 03/10/2026
+
+**Entregue:** [`../relatorios/LAB-23.md`](../relatorios/LAB-23.md) e
+`docs/provas/LAB-23/coluna-vertebral.json`.
+
+**Provado por diferença** (D101): a mesma gleba com e sem a via desenhada, SAÍDA
+comparada byte a byte — **idêntica nos oito casos**. Os quatro ignoram a via, e
+a declaração deles é honesta. **O teste fica**: se um motor passar a respeitá-la,
+ele morde antes de qualquer relatório sair errado.
+
+**A pergunta nova, e a resposta depende da gleba** (D102): em `antonina-com-via`
+a linha desenhada tem pior trecho de **12,62 %** e **zero** metros acima de
+15 % — contra 17,09 % a 27,73 % dos quatro motores. Em `ensaio-com-via` ela
+**perde**, com 30,91 %. **As duas pontas estão em teste**, para a leitura não
+sobreviver à medição.
+
+**A ressalva que muda tudo** (D103): **quem desenhou a linha fui eu**, pela
+geometria da gleba (D73) — não um urbanista. Então a conclusão não é *"a mão
+vence a máquina"*; é um resultado **sobre os motores**: uma reta geométrica
+**cega para o relevo** bate os quatro no pior trecho. **Falta uma via desenhada
+por pessoa, numa gleba real** — proposto ao chat.
+
+---
+
 ## A fila de 03/10 — a rampa que virou número, e a via desenhada como espinha
 
 Mandada pelo chat em 03/10/2026, com **um despertador de 60 minutos** que se
@@ -171,7 +223,7 @@ apaga ao esgotar (D62).
 | **LAB-21** | Medir, em todas as glebas e motores, **quantos trechos e cruzamentos passam dos limites de rampa**; coluna na tabela e na página do Jonny, separando **média** e **pico**, e a página dizendo que a média esconde o pico | ✅ **concluído em 03/10/2026** | nenhuma |
 | **LAB-24** | **Resposta do Jonny:** 30 % é do **LOTE** (reprova, é lei) e 15 % é da **RUA** (só **aviso**). Bloco de indicadores de terreno igual para os quatro motores | ✅ **concluído em 03/10/2026** | nenhuma |
 | **LAB-22** | Só o Symbios reporta o pico — escrever, **por motor**, o que falta medir, e mandar **pelo chat** | ✅ **concluído em 03/10/2026** | nenhuma |
-| **LAB-23** | **Via desenhada à mão como coluna vertebral do traçado**: medir o que muda nos quatro motores quando a via vem do arquivo em vez de ser inventada | ⬜ **é o próximo** | LAB-22 — **cumprida** |
+| **LAB-23** | **Via desenhada à mão como coluna vertebral do traçado**: medir o que muda nos quatro motores quando a via vem do arquivo em vez de ser inventada | ✅ **concluído em 03/10/2026** | nenhuma |
 
 ### LAB-22 · O que falta medir em cada motor — ✅ concluído em 03/10/2026
 

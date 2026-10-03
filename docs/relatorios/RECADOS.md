@@ -452,3 +452,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma.
 Próximo na fila: LAB-23, o último de 03/10. E um achado de forma (D100): a capacidade leRelevo ENVELHECEU SOZINHA e o teste de falsificação do LAB-14 a pegou; precisou ser partida em duas, porque o Parcelamento é o primeiro motor que LÊ o relevo e NÃO DESVIA por ele.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · LAB-23 — a via desenhada como coluna vertebral
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-23 ===
+Estado: LAB-23 concluído e mesclado. Esteira verde (7 testes novos), tsc e lint limpos. Vizinhos limpos. A fila de 03/10 acabou; a nova está gravada e o próximo é o LAB-25.
+Feito: PROVADO POR DIFERENÇA (D101) — a mesma gleba com e sem a via desenhada no arquivo, SAÍDA comparada byte a byte: IDÊNTICA nos oito casos (duas glebas, quatro motores). Os quatro ignoram a via, e a declaração deles é honesta. O teste fica e morde se algum passar a respeitá-la. A pergunta nova, com a régua de rampa do LAB-21: em antonina-com-via a linha desenhada tem pior trecho de 12,62 % e ZERO metros acima de 15 % — contra 17,09 % a 27,73 % dos quatro; em ensaio-com-via ela PERDE, com 30,91 %. Depende da gleba, e as DUAS pontas estão em teste (D102) para a leitura não sobreviver à medição.
+Achados para outros apps ou Central: A RESSALVA QUE MUDA A LEITURA (D103) — quem desenhou aquela linha fui EU, pela geometria da gleba (D73), não um urbanista. Então não é "a mão vence a máquina": é resultado SOBRE OS MOTORES. Uma reta escolhida pela caixa da gleba, CEGA PARA O RELEVO, bate os quatro no pior trecho do terreno real — e isso casa com a D100, que achou que só o Symbios desvia pelo relevo, e mesmo ele perde aqui. PROPOSTO: falta uma via desenhada POR PESSOA, numa gleba real; eu não invento partido urbanístico.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma.
+Próximo na fila: LAB-25, a guarda contra o meu ponto cego. Duas notas para não refazer trabalho: o LAB-26 já está METADE FEITO (leRelevo foi partida em duas no LAB-22, D100; sobra a varredura), e a corda reta das vias curvas fica na V3 sem mexer, como você mandou — o fato é que a ponte publica cada via como a reta entre as duas pontas do eixo (volta.ts:125).
+=== FIM ===
+```

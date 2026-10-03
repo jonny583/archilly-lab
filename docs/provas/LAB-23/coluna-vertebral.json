@@ -1,0 +1,131 @@
+{
+  "prompt": "LAB-23",
+  "geradoEm": "2026-09-19T00:00:00.000Z",
+  "semente": 20260913,
+  "limiteDaRua_pct": 15,
+  "oQueEstaMedido": {
+    "provaPorDiferenca": "a mesma gleba com e sem a via desenhada no arquivo, SAÍDA comparada byte a byte. Declaração é promessa; diferença é prova",
+    "assentamentoNoTerreno": "a rampa da linha da mão contra a rampa das vias que o motor inventou, pela mesma régua"
+  },
+  "oQueNaoEstaMedido": "se respeitar a via desenhada daria mais lote, menos sobra ou menos violação: isso exige um motor que a respeite, e nenhum dos quatro respeita. O que se mede aqui é o CUSTO DE TERRENO da escolha, não o ganho de projeto",
+  "glebas": [
+    {
+      "prompt": "LAB-23",
+      "gleba": "ensaio-com-via",
+      "semente": 20260913,
+      "contrato": "1",
+      "viasDesenhadas": 4,
+      "caixaDosParametros_m": 11.5,
+      "aLinhaDaMao": {
+        "medida": true,
+        "porQueNaoMedida": null,
+        "comprimento_m": 2554.51,
+        "rampaMedia_pct": 5.85,
+        "rampaPior_pct": 30.91,
+        "metrosAcimaDoLimiteDaRua": 39.7,
+        "pctAcimaDoLimiteDaRua": 1.55
+      },
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "declarouRespeitar": null,
+          "saidaIdenticaSemAVia": true,
+          "rampaDoMotor": {
+            "media_pct": 5.84,
+            "pior_pct": 17.56
+          },
+          "ms": 764.35
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "declarouRespeitar": null,
+          "saidaIdenticaSemAVia": true,
+          "rampaDoMotor": {
+            "media_pct": 5.46,
+            "pior_pct": 22.9
+          },
+          "ms": 556.07
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "declarouRespeitar": null,
+          "saidaIdenticaSemAVia": true,
+          "rampaDoMotor": {
+            "media_pct": 5.08,
+            "pior_pct": 17.92
+          },
+          "ms": 2126.5
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "declarouRespeitar": null,
+          "saidaIdenticaSemAVia": true,
+          "rampaDoMotor": {
+            "media_pct": 5.36,
+            "pior_pct": 22.76
+          },
+          "ms": 1018.21
+        }
+      }
+    },
+    {
+      "prompt": "LAB-23",
+      "gleba": "antonina-com-via",
+      "semente": 20260913,
+      "contrato": "1",
+      "viasDesenhadas": 4,
+      "caixaDosParametros_m": 11.5,
+      "aLinhaDaMao": {
+        "medida": true,
+        "porQueNaoMedida": null,
+        "comprimento_m": 4085.5,
+        "rampaMedia_pct": 3.62,
+        "rampaPior_pct": 12.62,
+        "metrosAcimaDoLimiteDaRua": 0,
+        "pctAcimaDoLimiteDaRua": 0
+      },
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "declarouRespeitar": null,
+          "saidaIdenticaSemAVia": true,
+          "rampaDoMotor": {
+            "media_pct": 3,
+            "pior_pct": 24.48
+          },
+          "ms": 724.34
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "declarouRespeitar": null,
+          "saidaIdenticaSemAVia": true,
+          "rampaDoMotor": {
+            "media_pct": 3.57,
+            "pior_pct": 23.03
+          },
+          "ms": 697.64
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "declarouRespeitar": null,
+          "saidaIdenticaSemAVia": true,
+          "rampaDoMotor": {
+            "media_pct": 3.44,
+            "pior_pct": 17.09
+          },
+          "ms": 7599.35
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "declarouRespeitar": null,
+          "saidaIdenticaSemAVia": true,
+          "rampaDoMotor": {
+            "media_pct": 3.27,
+            "pior_pct": 27.73
+          },
+          "ms": 10439.63
+        }
+      }
+    }
+  ]
+}
