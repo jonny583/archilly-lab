@@ -494,3 +494,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma.
 Próximo na fila: nada pronto. TRÊS PROPOSTOS, nenhum executado: (a) medir a SENSIBILIDADE AO ACESSO na tabela comparativa — é a entrada de maior efeito que o Lab mede, 19 % em lotes na candidata ortogonal de geo-antonina, e as cinco glebas declaram um acesso sem ninguém medir quanto o resultado depende dele; (b) a IDENTIDADE que viaja no contrato — o motor do Parcelamento publica MOTOR_NOME e MOTOR_VERSAO e a ponte do Lab escreve outros (mesma forma do D104, um nível acima, mas alcança provas congeladas); (c) a guarda da IDA, do LAB-25.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · LAB-27 — o documento vivo, primeira atualização
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-27 ===
+Estado: LAB-27 rodado e mesclado por PR (despertador COM conectores). Os dois pacotes verdes — 247 testes, typecheck e lint limpos; vizinhos sem uma alteração. A FILA DE 03/10 ESTÁ CUMPRIDA: LAB-21, 24, 22, 23, 25, 26 e a 1ª rodada do 27. No próximo disparo, previsivelmente, não há item pronto — e aí a regra manda APAGAR O DESPERTADOR (D62) e esperar fila nova de você.
+Feito: o LAB-27 não mede, carrega. O O_QUE_FALTA_MEDIR_POR_MOTOR.md ganhou duas seções com achados do LAB-26 que são sobre o MOTOR DO VIZINHO e não sobre o Lab — §1-B: a ficha de capacidades do Lab dizia, por escrito e PARA FORA, que o motor do Parcelamento ignora o ponto de acesso; é falso (703 → 603 lotes quando o acesso se move 992,6 m) e o erro era do Lab. Ficha voltada para fora atribuindo ao motor de outro uma limitação que ele não tem se AVISA, não se conserta calado. §1-C: eles publicam MOTOR_NOME = "laboratorio-de-parcelamento" e MOTOR_VERSAO = "1.0" e a ponte do Lab escreve "motor-testfit" e um rótulo de prompt meu — mesma forma do D104, um nível acima. E §6 ampliada com a estatística do LAB-26: das 15 declarações da ficha, três sem experimento, e a falsa numa delas. Um em três.
+Achados para outros apps ou Central: 1) AVISO DO LAB-27, o documento MUDOU — §1-B, §1-C e §6. É para você levar ao Laboratório de Parcelamento. 2) A única coisa que o documento PEDE a eles hoje é uma confirmação: o MOTOR_VERSAO deles diz "sobe quando o desenho muda de forma que o Generate veja" e está em 1.0 — entre o T00-A e o T05 o desenho mudou de forma visível ao Generate pelo menos duas vezes (o greide do T03 e a via de frente do T02, as duas que eu medi). Se a versão não subiu nessas, ela não serve para o Lab saber que precisa remedir, e é justamente para isso que eu quero usá-la. 3) REGRA NOVA, gravada (D111): o LAB-27 é contínuo e só é item pronto QUANDO HÁ MUDANÇA para carregar — sem mudança não há item pronto, e o despertador se apaga. Item que nunca acaba não pode manter despertador vivo para sempre; foi o que a D62 mediu em 15/09, 4 disparos de 7 sem o que fazer.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma.
+Próximo na fila: NADA PRONTO. Os três propostos seguem sem execução, esperando você: (a) medir a SENSIBILIDADE AO ACESSO na tabela comparativa — é a entrada de maior efeito que o Lab mede, 19 % em lotes na candidata ortogonal de geo-antonina, e nenhuma das cinco glebas a mede; (b) a IDENTIDADE que viaja no contrato — ler MOTOR_NOME e MOTOR_VERSAO do próprio motor, o que alcança provas congeladas do LAB-02 e do LAB-07 e o rótulo que o Generate mostra na mesa; (c) a guarda da IDA, do LAB-25.
+=== FIM ===
+```

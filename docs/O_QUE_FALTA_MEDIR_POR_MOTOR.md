@@ -6,9 +6,10 @@ O Laboratório **não escreve nos repositórios deles** — isto é lista, não 
 **Gerado pelo LAB-22, em 03/10/2026.** Tudo aqui é medido, com a gleba e o
 número; nada é impressão.
 
-**Atualizado pelo LAB-25, em 03/10/2026** — §1-A e §7 são novos. O LAB-27 manda
-manter este documento vivo e **avisar quando ele mudar**: mudou, e o recado do
-LAB-25 diz isso.
+**Atualizado pelo LAB-25, em 03/10/2026** — §1-A e §7. **E pelo LAB-27, no mesmo
+dia** — §1-B e §1-C, com dois achados do LAB-26 que são sobre vocês. O LAB-27
+manda manter este documento vivo e **avisar quando ele mudar**: mudou duas vezes
+hoje, e o recado de cada prompt diz isso.
 
 ---
 
@@ -89,6 +90,62 @@ diferentes.
 
 **Nada a fazer do lado de vocês.** Está aqui porque o documento é de contas
 honestas, e duas delas em três semanas eram minhas.
+
+### 1-B · O Laboratório estava dizendo, por escrito, que o motor de vocês ignora o acesso
+
+**Acrescentado pelo LAB-27, do achado do LAB-26.** A porta comum do Lab publica
+uma ficha de capacidades por motor — é ela que uma tela com vários motores lado a
+lado leria para dizer ao urbanista o que cada um sabe fazer. Na ficha de vocês
+estava `respeitaAcesso: false`.
+
+**É falso, e medido.** Movendo o ponto de acesso entre os dois vértices mais
+distantes do anel:
+
+| gleba | acesso movido | lotes |
+|---|---:|---|
+| `ensaio-47ha` | 992,6 m | **703 → 603** |
+| `geo-antonina` | 2 255,3 m | 1 454 → 1 393 |
+| `sintetico-10ha-plano` | 504,5 m | **112 → 138** |
+
+A ida do adaptador do Lab **passa o acesso** ao `Terreno.acesso` de vocês desde o
+LAB-07, e o traçado parte dali. **A declaração errada era do Lab**, no arquivo do
+Lab — vocês não declaram nada a respeito, e o motor faz a coisa certa.
+
+**Por que vale um aviso e não só um conserto silencioso:** aquela ficha é
+**voltada para fora**. Enquanto ela dizia `false`, qualquer leitura da porta do
+Lab atribuiria ao motor de vocês uma limitação que ele não tem. Corrigido para
+`true`, com experimento que o desmente se voltar a mentir.
+
+**Nada a fazer do lado de vocês.** De novo.
+
+### 1-C · Vocês publicam nome e versão, e a ponte do Lab escreve outros
+
+**Acrescentado pelo LAB-27, do achado do LAB-26.** Vocês publicam a própria
+identidade, em `src/lib/lab/contrato/tipos.ts`:
+
+```ts
+export const MOTOR_NOME = "laboratorio-de-parcelamento" as const;
+export const MOTOR_VERSAO = "1.0" as const;
+```
+
+**A ponte do Lab ignora as duas** e escreve, na SAÍDA que julga vocês,
+`motor.nome = "motor-testfit"` (o nome do repositório) e uma versão que é **rótulo
+de prompt do Lab** — estava `"T00-A"` na esteira e `"T02"` na porta, duas respostas
+para a mesma pergunta, nenhum teste conferindo. Hoje é uma só, e há experimento;
+mas continua sendo **a minha etiqueta, não a sua**.
+
+**É a mesma forma do §1-A, um nível acima:** o Lab inventando onde vocês publicam.
+**A correção de raiz é ler de lá**, e ela está **proposta ao chat** em vez de feita,
+porque muda a identidade que viaja no contrato — alcança provas congeladas do
+LAB-02 e do LAB-07 e o rótulo que o Generate mostra na mesa (`externo · <motor>
+v<versão>`).
+
+**O que isto pede de vocês: nada — mas confirmem uma coisa.** O `MOTOR_VERSAO`
+diz *"sobe quando o desenho muda de forma que o Generate veja"*. Ele está em
+**`1.0`** desde quando? Entre o T00-A e o T05 o desenho mudou de forma visível ao
+Generate **mais de uma vez** — o greide do T03 e a via de frente do T02 são as
+duas que o Lab mediu. Se a versão não subiu nessas, ela não serve para o Lab
+saber que precisa remedir, e é justamente para isso que eu quero usá-la.
 
 ---
 
@@ -189,6 +246,16 @@ teste de falsificação para cada uma das duas.
 **Foi esse teste que pegou a declaração vencida**, no instante em que a ponte
 passou a carregar a rampa. É o melhor argumento que tenho a favor de declaração
 falsificável: ela não depende de alguém lembrar.
+
+**E o argumento ficou mais forte depois do LAB-26**, que contou quantas das 15
+declarações da ficha tinham de fato um experimento: **três não tinham nenhum**, e a
+declaração falsa estava **justamente numa delas** (o `respeitaAcesso` do §1-B). Agora
+cada campo aponta para o nome do teste que o desmente, e dois testes de varredura
+exigem que todo campo tenha cobertura e que todo teste citado exista de verdade.
+
+**O que isto vale para vocês, se quiserem a ideia emprestada:** declaração sem
+experimento não é declaração conservadora, é declaração não conferida — e a
+estatística aqui foi brutal, um em três.
 
 
 ---

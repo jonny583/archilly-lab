@@ -4,19 +4,28 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-26
-**Estado:** LAB-26 **mesclado na `main`**. Da fila de 03/10 resta **só o LAB-27**,
-que é **contínuo** (manter o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` e avisar quando
-mudar) — ele não é item que se "execute" num despertador. Despertador
-`trig_01XwSkTLT9zmyprNZcUiWy7f` ligado (60 min, :05).
+**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-27 (1ª
+rodada do contínuo) · **A fila de 03/10 está CUMPRIDA.** Despertador
+`trig_01XwSkTLT9zmyprNZcUiWy7f` ainda ligado (60 min, :05).
 
-**Atenção para o próximo disparo:** se não houver item **pronto** — e hoje não há,
-porque o LAB-27 é contínuo e os três achados novos estão *"proposto ao chat"* —, a
-regra do `CLAUDE.md` §1-A manda **apagar o despertador** (D62) e esperar fila nova.
+## ⚠ PARA QUEM ACORDAR NO PRÓXIMO DISPARO
 
-**Nota dos disparos:** quatro despertadores (06:05, 07:05, 08:05 e 09:05 de 03/10)
-caíram **durante** execução. Um prompt por despertador: nenhum abriu item novo, e
-nenhum foi disparo vazio — havia item em curso.
+**Previsivelmente não há item pronto, e aí a regra é apagar o despertador** (D62,
+`CLAUDE.md` §1-A): gravar o recado acumulado, escrever o motivo aqui e apagá-lo. O
+chat o recria com fila nova.
+
+**O LAB-27 não serve de desculpa para mantê-lo vivo** (D111): ele é contínuo, e
+**só é item pronto quando há mudança para carregar** ao
+`O_QUE_FALTA_MEDIR_POR_MOTOR.md`. Sem mudança, não há item pronto. Neste disparo
+havia — dois achados do LAB-26 sobre o motor do vizinho —, e por isso ele rodou.
+
+**Os três achados novos estão todos *"proposto ao chat"*, sem execução:** a
+sensibilidade ao acesso na tabela, a identidade que viaja no contrato, e a guarda
+da IDA.
+
+**Nota dos disparos:** cinco despertadores de 03/10 (06:05 a 10:05). Os quatro
+primeiros caíram **durante** execução — nenhum foi disparo vazio. O de 10:05 pegou
+o LAB-27 com mudança para carregar.
 
 ## ⚠ "Testes verdes" mudou de significado (D110)
 
@@ -31,7 +40,7 @@ por duas semanas**, e dois daqueles testes eram as travas do D98 e do D104.
 |---|---|
 | **LAB-25** — o teste que reprova quando a ponte descarta campo que o motor publica | **concluído em 03/10/2026** |
 | **LAB-26** — varrer as capacidades que o teste de falsificação ainda não cobre | **concluído em 03/10/2026** |
-| **LAB-27** — manter o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` e avisar quando mudar | contínuo |
+| **LAB-27** — manter o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` e avisar quando mudar | **contínuo · 1ª rodada em 03/10/2026** |
 
 **Três notas de estado, para não refazer trabalho:**
 

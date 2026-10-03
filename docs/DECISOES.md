@@ -2670,3 +2670,36 @@ teria mordido nas duas ocasiões.** A suíte invisível silenciou os próprios a
 espelhava o alias interno do Generate, e o `tsc` dele acusava dois erros dentro do
 repositório deles. Três coisas alargadas numa terra e não na outra, no mesmo
 prompt.
+
+---
+
+## D111 · O LAB-27 é contínuo, e "contínuo" não é licença para o despertador viver para sempre · 03/10/2026
+
+O LAB-27 — *"manter o `O_QUE_FALTA_MEDIR_POR_MOTOR.md` atualizado e avisar quando
+mudar"* — é o único item que sobrou da fila de 03/10, e ele **não acaba**. Isso cria
+um risco de leitura: um despertador que acorda, declara *"o LAB-27 está pronto"*,
+não acha nada para fazer e se mantém vivo — exatamente o desperdício que a D62
+mediu (4 dos 7 disparos de 15/09 sem o que fazer).
+
+**Decisão, escrita na fila para o próximo que acordar:**
+
+> **O LAB-27 só é item pronto quando há mudança para carregar.** Quando o
+> documento não precisa mudar, **não há item pronto** — vale a D62: gravar o
+> recado, escrever o motivo em `ONDE_PARAMOS` e **apagar o despertador**.
+
+**Neste disparo havia mudança**, e é por isso que ele foi executado: o LAB-26
+produziu dois achados que são **sobre o motor do vizinho**, e não sobre o Lab —
+
+1. **§1-B** — a ficha de capacidades do Lab dizia, por escrito e para fora, que o
+   motor do Parcelamento **ignora o ponto de acesso**. É falso (703 → 603 lotes), e
+   o erro era do Lab. Uma ficha voltada para fora atribuindo ao motor de outro uma
+   limitação que ele não tem é coisa que se avisa, não se conserta calado;
+2. **§1-C** — eles **publicam** `MOTOR_NOME` e `MOTOR_VERSAO`, e a ponte do Lab
+   escreve outros dois. Mesma forma do D104, um nível acima. Com uma pergunta de
+   volta, que é a única coisa que o documento pede deles hoje: *a versão subiu no
+   T02 e no T03?* Se não subiu, ela não serve para o Lab saber que precisa remedir
+   — e é justamente para isso que o Lab quer usá-la.
+
+**O que NÃO entrou:** o conserto da identidade. Ele muda o que viaja no contrato,
+alcança provas congeladas do LAB-02 e do LAB-07 e o rótulo que o Generate mostra na
+mesa. Está **proposto ao chat**, porque prompt fora da fila não existe.

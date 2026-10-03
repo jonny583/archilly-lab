@@ -31,6 +31,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-27.md`](relatorios/LAB-27.md) | **O documento vivo, 1ª atualização** (LAB-27): os dois achados do LAB-26 que são sobre o motor do vizinho — a ficha do Lab dizendo para fora que ele ignora o acesso, e a identidade que ele publica e a ponte ignora — mais a regra do contínuo (D111) |
 | [`relatorios/LAB-26.md`](relatorios/LAB-26.md) | **A varredura das capacidades** (LAB-26): três campos sem experimento, a declaração falsa num deles (`respeitaAcesso`, 703 → 603 lotes) — e a suíte do pacote `testfit` **vermelha há duas semanas**, calando as travas do D98 e do D104 (D108 a D110) |
 | [`relatorios/LAB-25.md`](relatorios/LAB-25.md) | **A guarda que impede a quarta vez** (LAB-25): o teste que reprova quando a ponte do Lab descarta campo que o motor publica — e que achou a quarta vez na primeira rodada, em 110 de 110 lotes (D104 a D107) |
 | [`relatorios/LAB-23.md`](relatorios/LAB-23.md) | **A via desenhada como coluna vertebral**: provado por diferença que os quatro a ignoram, e uma reta geométrica cega para o relevo batendo os quatro no pior trecho do terreno real |
