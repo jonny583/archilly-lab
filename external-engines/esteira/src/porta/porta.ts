@@ -94,13 +94,33 @@ export interface Capacidades {
   entrega: Entrega;
 
   /**
-   * O traçado muda quando o relevo muda?
+   * O relevo muda a **SAÍDA** deste motor — qualquer parte dela?
    *
-   * *Como se desmente:* roda a mesma gleba com e sem curvas de nível. Declarou
-   * `false` e a saída mudou — mentiu. Declarou `true` e a saída ficou idêntica —
-   * mentiu também.
+   * *Como se desmente:* roda a mesma gleba com e sem curvas de nível e compara
+   * a SAÍDA inteira. Declarou `false` e mudou — mentiu. Declarou `true` e ficou
+   * idêntica — mentiu também.
+   *
+   * **Não confunda com `relevoMudaOTracado`**, abaixo. Até o LAB-22 havia um
+   * campo só, e ele dava conta: nos motores de então, ler relevo e desviar o
+   * traçado por causa dele eram a mesma coisa. O Laboratório de Parcelamento é
+   * o primeiro em que **não são** — ele mede a rampa de cada via e **traça
+   * exatamente igual**. Com um campo só, uma das duas verdades teria de virar
+   * mentira.
    */
   leRelevo: boolean;
+
+  /**
+   * O relevo muda a **GEOMETRIA** do traçado — onde as ruas e os lotes ficam?
+   *
+   * *Como se desmente:* a mesma gleba com e sem curvas, comparando **só a
+   * geometria** — eixos, quadras, lotes —, sem os campos de rampa.
+   *
+   * **Por que ela é a pergunta que interessa ao urbanista:** um motor que mede a
+   * rampa e não desvia por ela **informa**, mas não projeta com o terreno.
+   * Medido no LAB-08, lote a lote: o Laboratório de Parcelamento dá 599 e 599
+   * lotes, 1 391 e 1 391, com e sem relevo.
+   */
+  relevoMudaOTracado: boolean;
 
   /**
    * O motor segue a via que o urbanista desenhou à mão dentro da gleba?
@@ -143,7 +163,13 @@ export interface Capacidades {
    */
   determinista: boolean;
 
-  /** O motor calcula greide (cota ao longo da via)? */
+  /**
+   * O motor calcula greide — cota ao longo da via?
+   *
+   * *Como se desmente:* a saída traz rampa em número, ou traz `null`. **Zero não
+   * conta**: via plana de verdade é rara, e afirmar rampa zero sem medir é pior
+   * que dizer `null` (D23).
+   */
   calculaGreide: boolean;
 
   /**

@@ -170,8 +170,34 @@ apaga ao esgotar (D62).
 |---|---|---|---|
 | **LAB-21** | Medir, em todas as glebas e motores, **quantos trechos e cruzamentos passam dos limites de rampa**; coluna na tabela e na página do Jonny, separando **média** e **pico**, e a página dizendo que a média esconde o pico | ✅ **concluído em 03/10/2026** | nenhuma |
 | **LAB-24** | **Resposta do Jonny:** 30 % é do **LOTE** (reprova, é lei) e 15 % é da **RUA** (só **aviso**). Bloco de indicadores de terreno igual para os quatro motores | ✅ **concluído em 03/10/2026** | nenhuma |
-| **LAB-22** | Só o Symbios reporta o pico — escrever, **por motor**, o que falta medir, e mandar **pelo chat** | ⬜ **é o próximo** | LAB-24 — **cumprida** |
-| **LAB-23** | **Via desenhada à mão como coluna vertebral do traçado**: medir o que muda nos quatro motores quando a via vem do arquivo em vez de ser inventada | ⬜ | LAB-22 |
+| **LAB-22** | Só o Symbios reporta o pico — escrever, **por motor**, o que falta medir, e mandar **pelo chat** | ✅ **concluído em 03/10/2026** | nenhuma |
+| **LAB-23** | **Via desenhada à mão como coluna vertebral do traçado**: medir o que muda nos quatro motores quando a via vem do arquivo em vez de ser inventada | ⬜ **é o próximo** | LAB-22 — **cumprida** |
+
+### LAB-22 · O que falta medir em cada motor — ✅ concluído em 03/10/2026
+
+**Entregue:** [`../O_QUE_FALTA_MEDIR_POR_MOTOR.md`](../O_QUE_FALTA_MEDIR_POR_MOTOR.md)
+(a lista para o chat levar) e [`../relatorios/LAB-22.md`](../relatorios/LAB-22.md).
+
+**A medição mudou a lista, e a primeira lacuna era MINHA** (D98): o Laboratório
+de Parcelamento **mede a rampa desde o T03 dele, de 14/09**, e quem a jogava fora
+era **a ponte do Lab** — a mesma que eu usei no LAB-18 para reportar ao chat que
+*"o Parcelamento não reporta o pico"*. A frase do meu adaptador era verdadeira no
+LAB-07 e venceu um dia depois; ficou três semanas. **Terceira vez que o §6 me
+pega no mesmo ponto cego** (D75, D93/D94, e esta).
+
+**O que a correção revelou** (D99): **os dois motores que reportam, reportam
+errado, em direções opostas** — o Symbios **superestima** (vértice a vértice,
+0,47 m de mediana) e o Parcelamento **subestima** (12 amostras fixas por via,
+passo de 83 a 157 m). A célula do relevo é de 5 m: um mede um décimo dela, o
+outro 17 a 31 vezes. **Nenhum dos dois erros é visível sem uma segunda régua.**
+
+**A declaração de capacidade envelheceu sozinha, e o teste a pegou** (D100): no
+instante em que a ponte passou a carregar a rampa, três testes de falsificação do
+LAB-14 ficaram vermelhos. E `leRelevo` **precisou ser partida em duas**, porque o
+Parcelamento é o primeiro motor que **lê** o relevo e **não desvia** por ele —
+com um campo só, uma das duas verdades teria de virar mentira.
+
+---
 
 ### LAB-24 · O bloco de indicadores de terreno — ✅ concluído em 03/10/2026
 

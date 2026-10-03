@@ -20,6 +20,18 @@
  *   uma rua que não se constrói;
  * - **`rampaPior_pct` sai `null` quando o motor não reporta** — e `null` não
  *   quer dizer terreno plano (D23).
+ *
+ * # Um destes testes mudou de lista no LAB-22, e a razão vai registrada
+ *
+ * Quando este arquivo foi escrito, no LAB-18, **três** motores saíam `null`: as
+ * duas candidatas do Generate **e o Laboratório de Parcelamento**. No LAB-22
+ * mediu-se que o Parcelamento **mede a rampa desde 14/09** e que quem a jogava
+ * fora era **a ponte do Lab** (D98). Consertada a ponte, ele passou a reportar —
+ * e este teste ficou vermelho **porque o defeito dele deixou de existir**.
+ *
+ * A lista encolheu para dois, e o teste continua: é o mesmo tratamento da D90 —
+ * teste que fixava um defeito não se apaga quando o defeito morre, **vira do
+ * lado contrário**, com a história no cabeçalho.
  */
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
@@ -91,10 +103,22 @@ const doSymbios = motorDoSymbios(wasm).gerar(entrada);
 const semPico = [
   motorDoGenerate("ortogonal"),
   motorDoGenerate("espinha"),
-  motorDoParcelamento(),
 ].map((m) => ({ id: m.capacidades().id, r: m.gerar(entrada) }));
 
+/** E o Parcelamento, que entrou na lista dos que REPORTAM (LAB-22). */
+const doParcelamento = motorDoParcelamento().gerar(entrada);
+
 describe("a rampa por via: a média que diluía, e o pico que o v2 deixou passar", () => {
+  test("o Parcelamento REPORTA o pico — a ponte do Lab deixou de jogar fora (D98)", () => {
+    const i = doParcelamento.indicadores as Indicadores;
+    const s = doParcelamento.saida as { archilly: { versao: string } };
+    expect(s.archilly.versao).toBe("2");
+    expect(i.rampaPior_pct).not.toBeNull();
+    // E ele SUBESTIMA, ao contrário do Symbios: 12 amostras fixas por via dão
+    // passo de 83 a 157 m numa grade de 5 m, e isso faz a média do morro (D99).
+    expect(i.rampaPior_pct!).toBeLessThan(30);
+  });
+
   test("a saída do Symbios declara v2 e carrega a rampa máxima", () => {
     const s = doSymbios.saida as { archilly: { versao: string }; vias: { rampaMaxima_pct: number | null }[] };
     expect(s.archilly.versao).toBe("2");
@@ -112,7 +136,8 @@ describe("a rampa por via: a média que diluía, e o pico que o v2 deixou passar
   });
 
   test("quem não reporta o pico sai null — e null não é terreno plano", () => {
-    expect(semPico).toHaveLength(3);
+    // DOIS, não três: o Parcelamento saiu desta lista no LAB-22. Ver o cabeçalho.
+    expect(semPico).toHaveLength(2);
     for (const { id, r } of semPico) {
       const i = r.indicadores as Indicadores;
       expect(i.rampaPior_pct, `${id} deveria sair null`).toBeNull();

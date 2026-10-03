@@ -115,8 +115,8 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "vias": 26,
-          "declaradoPeloMotor_pct": null,
-          "oMotorDeclaraOPico": false,
+          "declaradoPeloMotor_pct": 16.84256773146412,
+          "oMotorDeclaraOPico": true,
           "medidoPeloLab": {
             "medida": true,
             "porQueNaoMedida": null,
@@ -305,8 +305,8 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "vias": 12,
-          "declaradoPeloMotor_pct": null,
-          "oMotorDeclaraOPico": false,
+          "declaradoPeloMotor_pct": 10.147666510500043,
+          "oMotorDeclaraOPico": true,
           "medidoPeloLab": {
             "medida": true,
             "porQueNaoMedida": null,
@@ -495,8 +495,8 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "vias": 7,
-          "declaradoPeloMotor_pct": null,
-          "oMotorDeclaraOPico": false,
+          "declaradoPeloMotor_pct": 1.5014626621743048,
+          "oMotorDeclaraOPico": true,
           "medidoPeloLab": {
             "medida": true,
             "porQueNaoMedida": null,
@@ -685,8 +685,8 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "vias": 12,
-          "declaradoPeloMotor_pct": null,
-          "oMotorDeclaraOPico": false,
+          "declaradoPeloMotor_pct": 8.817888232071622,
+          "oMotorDeclaraOPico": true,
           "medidoPeloLab": {
             "medida": true,
             "porQueNaoMedida": null,
@@ -875,8 +875,8 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "vias": 25,
-          "declaradoPeloMotor_pct": null,
-          "oMotorDeclaraOPico": false,
+          "declaradoPeloMotor_pct": 8.269675892302384,
+          "oMotorDeclaraOPico": true,
           "medidoPeloLab": {
             "medida": true,
             "porQueNaoMedida": null,

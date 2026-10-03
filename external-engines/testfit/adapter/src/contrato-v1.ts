@@ -156,6 +156,8 @@ export interface ViaV1 {
   pontos: PontoV1[];
   largura_m: number;
   rampaMedia_pct: number | null;
+  /** v2 — a PIOR rampa da via, em porcento. `null` quando não medida. */
+  rampaMaxima_pct: number | null;
 }
 
 export interface QuadraV1 {
@@ -225,7 +227,14 @@ export interface SaidaV1 {
 }
 
 /** A versão do contrato que este adaptador lê e escreve. */
-export const CONTRATO = "1";
+/**
+ * A versão da SAÍDA que este adaptador escreve.
+ *
+ * **v2 desde o LAB-22**, e a razão é um conserto: o motor mede a rampa por via
+ * desde 14/09 (o T03 dele), e este adaptador a jogava fora, declarando que *"o
+ * motor não calcula greide"* — frase que **era verdadeira e deixou de ser**.
+ */
+export const CONTRATO = "2";
 
 /**
  * Uma informação do contrato que não atravessou a ponte, com o motivo.
