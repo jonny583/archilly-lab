@@ -22,6 +22,7 @@
     "lab25": "bun ferramentas/lab25.ts",
     "lab26": "bun ferramentas/lab26.ts",
     "lab28": "bun ferramentas/lab28.ts",
+    "lab30": "bun ferramentas/lab30.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."

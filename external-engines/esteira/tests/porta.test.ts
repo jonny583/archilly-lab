@@ -264,6 +264,47 @@ describe("a declaração é falsificável — um experimento por campo", () => {
     }
   }, 120_000);
 
+  test("`leViaDesenhada`: a SAÍDA muda se e só se a via desenhada chega ao motor", () => {
+    // A pergunta que o LAB-30 separou de `respeitaViaDesenhada`: LER a via e
+    // ASSENTAR o traçado nela são coisas diferentes, e o Laboratório de
+    // Parcelamento é o primeiro motor em que as duas respostas divergem.
+    //
+    // E a razão de isto ter demorado: até o LAB-30 a ida do Lab nunca entregou a
+    // via ao motor, e o Lab publicou duas vezes que **o motor** a ignorava.
+    const v1 = glebaDoLab(GLEBA);
+    const anel = v1.gleba.anel;
+    const centro = anel.reduce(
+      (s, p) => ({ x: s.x + p.x / anel.length, y: s.y + p.y / anel.length }),
+      { x: 0, y: 0 },
+    );
+    const comVia: EntradaMinima = {
+      ...v1,
+      atracoes: [
+        {
+          id: "T1",
+          tipo: "via_existente",
+          geometria: {
+            tipo: "linha",
+            pontos: [
+              { x: centro.x - 80, y: centro.y },
+              { x: centro.x + 80, y: centro.y },
+            ],
+          },
+        } as never,
+      ],
+    };
+    for (const m of motores) {
+      const c = m.capacidades();
+      const com = JSON.stringify(m.gerar(entradaCom(comVia)).saida);
+      const sem = JSON.stringify(m.gerar(entradaCom({ ...v1, atracoes: [] })).saida);
+      if (c.leViaDesenhada) {
+        expect(com, `${c.id} declarou LER a via desenhada e a saída não mudou`).not.toBe(sem);
+      } else {
+        expect(com, `${c.id} declarou NÃO ler a via desenhada e a saída mudou`).toBe(sem);
+      }
+    }
+  }, 120_000);
+
   test("`respeitaViaDesenhada`: com uma via no miolo, ele a segue se e só se declarou", () => {
     const v1 = glebaDoLab(GLEBA);
     const anel = v1.gleba.anel;
@@ -439,9 +480,9 @@ describe("a varredura das capacidades — nenhum campo sem quem o desminta", () 
   });
 
   test("a contagem da varredura é a que o relatório do LAB-26 publica", () => {
-    // Treze falsificáveis, um conferido (`id`) e um sem régua (`nome`). Quando
+    // Catorze falsificáveis, um conferido (`id`) e um sem régua (`nome`). Quando
     // este número mudar, o relatório está velho — e é bom que alguém saiba.
-    expect(contagem()).toEqual({ falsificavel: 13, conferido: 1, "sem-regua": 1 });
+    expect(contagem()).toEqual({ falsificavel: 14, conferido: 1, "sem-regua": 1 });
   });
 });
 

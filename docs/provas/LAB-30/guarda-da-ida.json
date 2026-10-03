@@ -1,0 +1,2405 @@
+{
+  "prompt": "LAB-30",
+  "geradoEm": "2026-10-03",
+  "contrato": "2",
+  "idasAuditadas": [
+    "parcelamento",
+    "symbios"
+  ],
+  "inventario": {
+    "parcelamento": {
+      "campos": 72,
+      "entregue": 11,
+      "traduzido": 23,
+      "perda": 16,
+      "interno": 16,
+      "divida": 6
+    },
+    "symbios": {
+      "campos": 44,
+      "entregue": 10,
+      "traduzido": 8,
+      "perda": 13,
+      "interno": 13
+    }
+  },
+  "porRegra": {
+    "campo-nao-entregue": 0,
+    "campo-novo-no-contrato": 0,
+    "mapa-velho": 310,
+    "divida-do-lab": 18
+  },
+  "reprovamNoTotal": 0,
+  "dividasDoLab": [
+    "parcelamento · atracoes → terreno.atracoes · viaManual · facesLoteamento",
+    "parcelamento · atracoes[].id → terreno.atracoes · viaManual · facesLoteamento",
+    "parcelamento · atracoes[].tipo → viaManual · terreno.atracoes · facesLoteamento",
+    "parcelamento · atracoes[].nome → terreno.atracoes · viaManual · facesLoteamento",
+    "parcelamento · atracoes[].geometria → terreno.atracoes · viaManual · facesLoteamento",
+    "parcelamento · atracoes[].geometria.pontos → viaManual · facesLoteamento"
+  ],
+  "glebas": {
+    "completo": [
+      {
+        "ida": "parcelamento",
+        "achados": [
+          {
+            "ida": "parcelamento",
+            "campo": "archilly.origem",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "archilly.geradoEm",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.calcada_m",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.pctAreaPublica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.rampaMaxima_pct",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].papel",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].papel` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].sugerido",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].sugerido` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "regiaoNormativa",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 32
+      },
+      {
+        "ida": "symbios",
+        "achados": [
+          {
+            "ida": "symbios",
+            "campo": "archilly.origem",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "archilly.geradoEm",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "regiaoNormativa",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "atracoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "acessos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 14
+      }
+    ],
+    "sintetico-50ha-ondulado": [
+      {
+        "ida": "parcelamento",
+        "achados": [
+          {
+            "ida": "parcelamento",
+            "campo": "archilly.origem",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "archilly.geradoEm",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].desconta",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.calcada_m",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.pctAreaPublica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.rampaMaxima_pct",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].papel",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].papel` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].sugerido",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].sugerido` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "regiaoNormativa",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 40
+      },
+      {
+        "ida": "symbios",
+        "achados": [
+          {
+            "ida": "symbios",
+            "campo": "archilly.origem",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "archilly.geradoEm",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].desconta",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "regiaoNormativa",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "atracoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "acessos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 22
+      }
+    ],
+    "sintetico-10ha-plano": [
+      {
+        "ida": "parcelamento",
+        "achados": [
+          {
+            "ida": "parcelamento",
+            "campo": "archilly.origem",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "archilly.geradoEm",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].desconta",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.calcada_m",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.pctAreaPublica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.rampaMaxima_pct",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].papel",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].papel` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].sugerido",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].sugerido` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "regiaoNormativa",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 40
+      },
+      {
+        "ida": "symbios",
+        "achados": [
+          {
+            "ida": "symbios",
+            "campo": "archilly.origem",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "archilly.geradoEm",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].desconta",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "regiaoNormativa",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "atracoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "acessos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 22
+      }
+    ],
+    "ensaio-47ha": [
+      {
+        "ida": "parcelamento",
+        "achados": [
+          {
+            "ida": "parcelamento",
+            "campo": "crs.origemGeografica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "crs.origemGeografica.lat",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "crs.origemGeografica.lon",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].desconta",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.calcada_m",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.pctAreaPublica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.rampaMaxima_pct",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 32
+      },
+      {
+        "ida": "symbios",
+        "achados": [
+          {
+            "ida": "symbios",
+            "campo": "crs.origemGeografica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "crs.origemGeografica.lat",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "crs.origemGeografica.lon",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].desconta",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "atracoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 21
+      }
+    ],
+    "geo-antonina": [
+      {
+        "ida": "parcelamento",
+        "achados": [
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: a testada de frente chega como linha e o motor tem `facesLoteamento` esperando por ela; falta mapear a linha para as faces do perímetro que ela cobre. Proposto ao chat no LAB-30 — e enquanto não for feito, `respeitaTestadaDeFrente: false` é dívida do Lab, não limitação do motor",
+            "exemplo": [
+              {
+                "id": "T1",
+                "tipo": "via_existente",
+                "nome": "Testada de frente L1",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": -128.25748698641038,
+                      "y": -830.9425583345736
+                    },
+                    {
+                      "x": -16.35900388661331,
+                      "y": -689.6719401510867
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].id` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
+            "exemplo": "T1"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "divida-do-lab",
+            "destino": "viaManual · terreno.atracoes · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].tipo` e o motor TEM onde recebê-lo (`viaManual · terreno.atracoes · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: o tipo decide o destino, e um dos três destinos ainda não é entregue: ver `atracoes`",
+            "exemplo": "via_existente"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].nome` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
+            "exemplo": "Testada de frente L1"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].geometria` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`: polígono vira ímã, via desenhada vira coluna vertebral, e a testada de frente ainda não tem quem a entregue",
+            "exemplo": {
+              "tipo": "linha",
+              "pontos": [
+                {
+                  "x": -128.25748698641038,
+                  "y": -830.9425583345736
+                },
+                {
+                  "x": -16.35900388661331,
+                  "y": -689.6719401510867
+                }
+              ]
+            }
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "divida-do-lab",
+            "destino": "viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].geometria.pontos` e o motor TEM onde recebê-lo (`viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: atração como LINHA: desde o LAB-30 a via desenhada vai para `viaManual`. As outras linhas (ponto de interesse, outra) continuam sem destino, e a perda é declarada",
+            "exemplo": [
+              {
+                "x": -128.25748698641038,
+                "y": -830.9425583345736
+              },
+              {
+                "x": -16.35900388661331,
+                "y": -689.6719401510867
+              }
+            ]
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.calcada_m",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.pctAreaPublica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.rampaMaxima_pct",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 19
+      },
+      {
+        "ida": "symbios",
+        "achados": [
+          {
+            "ida": "symbios",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 8
+      }
+    ],
+    "ensaio-com-via": [
+      {
+        "ida": "parcelamento",
+        "achados": [
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: a testada de frente chega como linha e o motor tem `facesLoteamento` esperando por ela; falta mapear a linha para as faces do perímetro que ela cobre. Proposto ao chat no LAB-30 — e enquanto não for feito, `respeitaTestadaDeFrente: false` é dívida do Lab, não limitação do motor",
+            "exemplo": [
+              {
+                "id": "VD1",
+                "tipo": "via_existente",
+                "nome": "Via principal desenhada (principal)",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": 0,
+                      "y": 293.75
+                    },
+                    {
+                      "x": 798,
+                      "y": 293.75
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "VD2",
+                "tipo": "via_existente",
+                "nome": "Via secundária desenhada 1 (secundaria)",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": 200,
+                      "y": 0
+                    },
+                    {
+                      "x": 200,
+                      "y": 585.501700680272
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "VD3",
+                "tipo": "via_existente",
+                "nome": "Via secundária desenhada 2 (secundaria)",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": 400,
+                      "y": 0
+                    },
+                    {
+                      "x": 400,
+                      "y": 585.501700680272
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "VD4",
+                "tipo": "via_existente",
+                "nome": "Via secundária desenhada 3 (secundaria)",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": 600,
+                      "y": 0
+                    },
+                    {
+                      "x": 600,
+                      "y": 585.501700680272
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].id` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
+            "exemplo": "VD1"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "divida-do-lab",
+            "destino": "viaManual · terreno.atracoes · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].tipo` e o motor TEM onde recebê-lo (`viaManual · terreno.atracoes · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: o tipo decide o destino, e um dos três destinos ainda não é entregue: ver `atracoes`",
+            "exemplo": "via_existente"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].nome` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
+            "exemplo": "Via principal desenhada (principal)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].geometria` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`: polígono vira ímã, via desenhada vira coluna vertebral, e a testada de frente ainda não tem quem a entregue",
+            "exemplo": {
+              "tipo": "linha",
+              "pontos": [
+                {
+                  "x": 0,
+                  "y": 293.75
+                },
+                {
+                  "x": 798,
+                  "y": 293.75
+                }
+              ]
+            }
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "divida-do-lab",
+            "destino": "viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].geometria.pontos` e o motor TEM onde recebê-lo (`viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: atração como LINHA: desde o LAB-30 a via desenhada vai para `viaManual`. As outras linhas (ponto de interesse, outra) continuam sem destino, e a perda é declarada",
+            "exemplo": [
+              {
+                "x": 0,
+                "y": 293.75
+              },
+              {
+                "x": 798,
+                "y": 293.75
+              }
+            ]
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "crs.origemGeografica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "crs.origemGeografica.lat",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "crs.origemGeografica.lon",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].desconta",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.calcada_m",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.pctAreaPublica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.rampaMaxima_pct",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 31
+      },
+      {
+        "ida": "symbios",
+        "achados": [
+          {
+            "ida": "symbios",
+            "campo": "crs.origemGeografica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "crs.origemGeografica.lat",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "crs.origemGeografica.lon",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].id",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nome",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].desconta",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.tipo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "geo",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 20
+      }
+    ],
+    "antonina-com-via": [
+      {
+        "ida": "parcelamento",
+        "achados": [
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: a testada de frente chega como linha e o motor tem `facesLoteamento` esperando por ela; falta mapear a linha para as faces do perímetro que ela cobre. Proposto ao chat no LAB-30 — e enquanto não for feito, `respeitaTestadaDeFrente: false` é dívida do Lab, não limitação do motor",
+            "exemplo": [
+              {
+                "id": "T1",
+                "tipo": "via_existente",
+                "nome": "Testada de frente L1",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": -128.25748698641038,
+                      "y": -830.9425583345736
+                    },
+                    {
+                      "x": -16.35900388661331,
+                      "y": -689.6719401510867
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "VD1",
+                "tipo": "via_existente",
+                "nome": "Via principal desenhada (principal)",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": 266.95550000000003,
+                      "y": -350.9528121546961
+                    },
+                    {
+                      "x": 266.95550000000003,
+                      "y": 891.0217988950276
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "VD2",
+                "tipo": "via_existente",
+                "nome": "Via secundária desenhada 1 (secundaria)",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": -532.5260964523281,
+                      "y": -378.45225
+                    },
+                    {
+                      "x": 242.9710521064302,
+                      "y": -378.45225
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "VD3",
+                "tipo": "via_existente",
+                "nome": "Via secundária desenhada 2 (secundaria)",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": -328.6582893569845,
+                      "y": 74.0385
+                    },
+                    {
+                      "x": 622.7248104212861,
+                      "y": 74.0385
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "VD4",
+                "tipo": "via_existente",
+                "nome": "Via secundária desenhada 3 (secundaria)",
+                "geometria": {
+                  "tipo": "linha",
+                  "pontos": [
+                    {
+                      "x": -120.7930742793792,
+                      "y": 526.52925
+                    },
+                    {
+                      "x": 1000.4798647450111,
+                      "y": 526.52925
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].id` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
+            "exemplo": "T1"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "divida-do-lab",
+            "destino": "viaManual · terreno.atracoes · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].tipo` e o motor TEM onde recebê-lo (`viaManual · terreno.atracoes · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: o tipo decide o destino, e um dos três destinos ainda não é entregue: ver `atracoes`",
+            "exemplo": "via_existente"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].nome` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
+            "exemplo": "Testada de frente L1"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "divida-do-lab",
+            "destino": "terreno.atracoes · viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].geometria` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`: polígono vira ímã, via desenhada vira coluna vertebral, e a testada de frente ainda não tem quem a entregue",
+            "exemplo": {
+              "tipo": "linha",
+              "pontos": [
+                {
+                  "x": -128.25748698641038,
+                  "y": -830.9425583345736
+                },
+                {
+                  "x": -16.35900388661331,
+                  "y": -689.6719401510867
+                }
+              ]
+            }
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "divida-do-lab",
+            "destino": "viaManual · facesLoteamento",
+            "diagnostico": "o contrato trouxe `atracoes[].geometria.pontos` e o motor TEM onde recebê-lo (`viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: atração como LINHA: desde o LAB-30 a via desenhada vai para `viaManual`. As outras linhas (ponto de interesse, outra) continuam sem destino, e a perda é declarada",
+            "exemplo": [
+              {
+                "x": -128.25748698641038,
+                "y": -830.9425583345736
+              },
+              {
+                "x": -16.35900388661331,
+                "y": -689.6719401510867
+              }
+            ]
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.calcada_m",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.pctAreaPublica",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "parametros.rampaMaxima_pct",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.aneis",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 19
+      },
+      {
+        "ida": "symbios",
+        "achados": [
+          {
+            "ida": "symbios",
+            "campo": "gleba.furos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].baseLegal",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.x",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto.y",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.pontos",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].geometria.ponto",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].nascente",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          },
+          {
+            "ida": "symbios",
+            "campo": "restricoes[].eixoDoCurso",
+            "regra": "mapa-velho",
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+          }
+        ],
+        "reprovam": 0,
+        "avisos": 8
+      }
+    ]
+  }
+}

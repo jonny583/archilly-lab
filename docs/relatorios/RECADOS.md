@@ -550,3 +550,17 @@ Depende do Jonny: um só, e não trava — confirmar a régua de forma.
 Próximo na fila: LAB-30, a guarda da IDA — o LAB-25 cobriu motor → SAÍDA, e o sentido ENTRADA → motor não tem nada. É o último item da fila que você mandou.
 === FIM ===
 ```
+
+---
+
+## 03/10/2026 · LAB-30 — a guarda da IDA, e a quinta vez do ponto cego
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-30 ===
+Estado: LAB-30 concluído e mesclado por PR. A FILA DE 03/10 (terceira parte) ESGOTOU. Os dois pacotes verdes: 286 na esteira (21 novos) + 14 no testfit, typecheck e lint limpos, vizinhos sem uma alteração. No próximo disparo não há item pronto, e o despertador para — desligado, não apagado, como na vez anterior (D112).
+Feito: a guarda da IDA, e ela achou no LEVANTAMENTO a quinta vez do meu ponto cego — a primeira que JÁ TINHA SAÍDO PARA VOCÊ (D119). O motor do Parcelamento tem um campo de entrada chamado viaManual, "coluna vertebral desenhada à mão", e a ida do Lab NUNCA o preencheu. Medido: entregando a via, antonina-com-via vai de 25 para 32 vias; ensaio-com-via vai de 599 para 585 lotes. Eu te disse duas vezes que O MOTOR ignorava via desenhada — no LAB-17 ("os quatro ignoram") e no LAB-23 ("provado por diferença, SAÍDA idêntica nos oito casos"). A prova era verdadeira e a conclusão era falsa: a saída saía idêntica porque a via nunca chegava ao motor. Pior: o LAB-23 escreveu que o teste dele "morde antes de qualquer relatório sair errado". Não mordeu — ele lia a PROVA CONGELADA em vez de medir. Teste de falsificação que lê prova velha não falsifica, repete.
+Achados para outros apps ou Central: 1) CORRIGI O QUE ESTAVA PUBLICADO: aviso no alto dos relatórios do LAB-17 e do LAB-23 (não reescritos — são o registro daquele dia), ressalva na D101 (o princípio "declaração se prova por diferença" está certo e vale mais do que nunca; falta a ele que PROVA POR DIFERENÇA SÓ VALE SE A DIFERENÇA CHEGOU AO MOTOR), provas dos dois regeradas, e a trava do LAB-23 VIRADA (D90): agora exige o medido — três dos quatro ignoram, e o Parcelamento muda. 2) ENTREGUE A VIA, "RESPEITAR" VIROU DUAS PERGUNTAS (D120), como o leRelevo no LAB-22: ele LÊ a via (a saída muda) e NÃO ASSENTA os eixos nela (aderência 11 %). leViaDesenhada nasceu ao lado de respeitaViaDesenhada, e a varredura do LAB-26 foi de 13 para 14 falsificáveis — o registro acusou o campo faltando no mesmo segundo em que ele nasceu, que é a melhor hora que aquele mecanismo já teve. 3) NASCEU UM DESTINO NOVO, A DÍVIDA DECLARADA (D121): a testada de frente tem facesLoteamento esperando no motor e a ida não entrega. Não é "perda" — o motor TEM onde receber. Ela não reprova e é PUBLICADA, nomeando o campo que espera e o que falta fazer. E custou alcance, o que vai dito: a guarda genérica deixou de pegar o caso do viaManual, porque a linha tem três destinos e qual vale depende do tipo; quem impede a volta são duas travas específicas.
+Depende do Jonny: um só, e não trava — confirmar a régua de forma.
+Próximo na fila: NADA PRONTO. PROPOSTO: a dívida da testada de frente — mapear a linha para as faces do perímetro que ela cobre e entregá-la em facesLoteamento. Enquanto não for feito, respeitaTestadaDeFrente: false no Parcelamento é dívida do Lab e não limitação do motor, e está escrito assim no inventário. É geometria nova, e prompt fora da fila não existe.
+=== FIM ===
+```

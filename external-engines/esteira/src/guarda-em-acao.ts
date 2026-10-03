@@ -20,7 +20,10 @@ import { voltaParaOContrato } from "../../testfit/adapter/src/volta.ts";
 import type { EntradaV1 } from "../../testfit/adapter/src/contrato-v1.ts";
 
 import { auditarPonte, type Achado } from "./guarda-da-ponte.ts";
-import type { EntradaMinima } from "./gleba-v1.ts";
+import { auditarIda, type AchadoDaIda } from "./guarda-da-ida.ts";
+import { IDA_DO_PARCELAMENTO, IDA_DO_SYMBIOS } from "./inventario-das-idas.ts";
+import { linhasDaEntrada } from "./motores/comum.ts";
+import { glebaParaOSymbios, type EntradaMinima } from "./gleba-v1.ts";
 import {
   objetosDaPonteDoParcelamento,
   objetosDaPonteDoSymbios,
@@ -115,3 +118,67 @@ export function auditarAsPontes(
 ): PonteEmAcao[] {
   return [auditarParcelamento(entrada, semente), auditarSymbios(motor, entrada, semente)];
 }
+
+
+// ═══════════════════════════ a guarda da IDA (LAB-30) ══════════════════════
+
+export interface IdaEmAcao {
+  ida: string;
+  gleba: string;
+  achados: AchadoDaIda[];
+}
+
+/**
+ * A ida do Laboratório de Parcelamento, auditada **como a esteira a chama**.
+ *
+ * Como a esteira a chama, e não como ela poderia ser chamada sozinha: é a esteira
+ * que separa via desenhada de testada de frente (o remendo do LAB-13), e auditar a
+ * ida sem essa separação mediria um caminho que ninguém percorre. O mesmo
+ * princípio da guarda da SAÍDA, que audita a volta como a esteira a usa.
+ */
+export function auditarIdaDoParcelamento(entrada: EntradaMinima): IdaEmAcao {
+  const v1 = entrada as unknown as EntradaV1;
+  const { desenhadas } = linhasDaEntrada(entrada);
+  const comprimento = (l: { x: number; y: number }[]) =>
+    l.reduce((s, p, i) => (i === 0 ? 0 : s + Math.hypot(p.x - l[i - 1]!.x, p.y - l[i - 1]!.y)), 0);
+  const coluna = desenhadas.length
+    ? [...desenhadas].sort((a, b) => comprimento(b) - comprimento(a))[0]!
+    : null;
+
+  const { entrada: entradaMotor } = idaParaOMotor(v1, {
+    semente: 1,
+    variantes: 1,
+    ...(coluna ? { viaManual: coluna } : {}),
+  });
+  return {
+    ida: "parcelamento",
+    gleba: entrada.projeto.id ?? "sem id",
+    achados: auditarIda({
+      nome: "parcelamento",
+      inventario: IDA_DO_PARCELAMENTO,
+      doContrato: entrada as unknown as Linha,
+      doMotor: entradaMotor as unknown as Linha,
+    }),
+  };
+}
+
+/** A ida do Symbios, auditada. */
+export function auditarIdaDoSymbios(entrada: EntradaMinima): IdaEmAcao {
+  const { terreno } = glebaParaOSymbios(entrada);
+  return {
+    ida: "symbios",
+    gleba: entrada.projeto.id ?? "sem id",
+    achados: auditarIda({
+      nome: "symbios",
+      inventario: IDA_DO_SYMBIOS,
+      doContrato: entrada as unknown as Linha,
+      doMotor: terreno as unknown as Linha,
+    }),
+  };
+}
+
+/** As duas idas, na mesma gleba. */
+export const auditarAsIdas = (entrada: EntradaMinima): IdaEmAcao[] => [
+  auditarIdaDoParcelamento(entrada),
+  auditarIdaDoSymbios(entrada),
+];

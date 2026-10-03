@@ -1,0 +1,362 @@
+/**
+ * A GUARDA DA IDA — e a quinta vez do ponto cego, a mais cara de todas. (LAB-30)
+ *
+ * ```sh
+ * bun test tests/guarda-da-ida.test.ts
+ * ```
+ *
+ * # O que ela achou no dia em que nasceu
+ *
+ * O motor do Laboratório de Parcelamento tem um campo de entrada chamado
+ * `viaManual` — *"coluna vertebral desenhada à mão, quando houver"*. **A ida do Lab
+ * nunca o preencheu.** Medido: preenchendo, `antonina-com-via` vai de **25 para 32
+ * vias**, e a SAÍDA deixa de ser idêntica sem a via.
+ *
+ * E o Lab publicou, **duas vezes**, que *o motor* ignora via desenhada — o LAB-17 e
+ * o LAB-23, este último *"provado por diferença"*. A prova era verdadeira e a
+ * conclusão era falsa: a SAÍDA saía idêntica porque **a via nunca chegava ao motor**.
+ *
+ * **A diferença entre esta e as quatro anteriores:** as outras foram pegas antes de
+ * sair. Esta já tinha saído para o chat, e ficou publicada por duas semanas.
+ *
+ * # Os quatro andares, na ordem em que doem
+ *
+ * | andar | o que prova |
+ * |---|---|
+ * | **1 · o mecanismo** | as três regras pegam o que prometem |
+ * | **2 · a falsificação** | uma ida sabotada É pega — inclusive a sabotagem exata do `viaManual` |
+ * | **3 · as idas de verdade** | hoje nenhuma das duas deixa de entregar o que o contrato traz |
+ * | **4 · o D119 não volta** | a via desenhada chega ao motor, e muda o desenho |
+ */
+import { beforeAll, describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
+import { rodarMotor } from "@testfit/api.ts";
+
+import { idaParaOMotor } from "../../testfit/adapter/src/ida.ts";
+import type { EntradaV1 } from "../../testfit/adapter/src/contrato-v1.ts";
+
+import { glebaDoLab } from "../src/gleba-do-lab.ts";
+import type { EntradaMinima } from "../src/gleba-v1.ts";
+import {
+  REGRAS_DA_IDA_QUE_REPROVAM,
+  auditarIda,
+  caminhosDe,
+  dividasDoLab,
+  reprovamNaIda,
+  valorEm,
+} from "../src/guarda-da-ida.ts";
+import { auditarIdaDoParcelamento, auditarIdaDoSymbios } from "../src/guarda-em-acao.ts";
+import { IDA_DO_PARCELAMENTO, IDA_DO_SYMBIOS } from "../src/inventario-das-idas.ts";
+import { linhasDaEntrada, type P } from "../src/motores/comum.ts";
+
+const RAIZ = join(import.meta.dirname, "..", "..", "..");
+const COM_VIA = join(RAIZ, "docs", "fixtures", "glebas-com-via-desenhada");
+const GLEBA = "sintetico-10ha-plano";
+
+let antonina: EntradaMinima;
+beforeAll(() => {
+  antonina = JSON.parse(readFileSync(join(COM_VIA, "antonina-com-via.entrada.json"), "utf8"));
+});
+
+// ═════════════════════ andar 1 · o mecanismo das três regras ═══════════════
+
+describe("as três regras pegam o que prometem", () => {
+  test("`campo-nao-entregue`: o contrato trouxe e o destino chegou vazio", () => {
+    const a = reprovamNaIda(
+      auditarIda({
+        nome: "falsa",
+        // O `gleba` entra porque a guarda cobra o pai também: inventário incompleto
+        // é achado, e num teste de mentira isso é ruído — no código de verdade é o
+        // que faz a regra 2 valer.
+        inventario: {
+          gleba: { tipo: "traduzido", caminho: "terreno", como: "o conjunto" },
+          "gleba.anel": { tipo: "entregue", caminho: "terreno.perimetro" },
+        },
+        doContrato: { gleba: { anel: [{ x: 0, y: 0 }, { x: 1, y: 1 }, { x: 0, y: 1 }] } },
+        doMotor: { terreno: { perimetro: [] } },
+      }),
+    );
+    expect(a).toHaveLength(1);
+    expect(a[0]!.regra).toBe("campo-nao-entregue");
+    expect(a[0]!.destino).toBe("terreno.perimetro");
+  });
+
+  test("`campo-nao-entregue` NÃO acusa quando o contrato não trouxe nada", () => {
+    // A metade que importa: campo vazio na ENTRADA é o contrato não trazendo, e a
+    // ponte não tem culpa de não entregar o que não recebeu.
+    expect(
+      reprovamNaIda(
+        auditarIda({
+          nome: "falsa",
+          inventario: {
+            gleba: { tipo: "traduzido", caminho: "terreno", como: "o conjunto" },
+            "gleba.anel": { tipo: "entregue", caminho: "terreno.perimetro" },
+          },
+          doContrato: { gleba: { anel: [] } },
+          doMotor: { terreno: { perimetro: [] } },
+        }),
+      ),
+    ).toHaveLength(0);
+  });
+
+  test("`campo-novo-no-contrato`: é a regra que pegaria a v2", () => {
+    // `nascente` entrou no contrato v2 ao lado de `geometria`, DENTRO de uma
+    // `restricoes` que já estava declarada. É por isso que a guarda achata os
+    // caminhos dentro das listas: declarar só `restricoes` deixaria passar.
+    const a = reprovamNaIda(
+      auditarIda({
+        nome: "falsa",
+        inventario: { restricoes: { tipo: "entregue", caminho: "restricoes" } },
+        doContrato: { restricoes: [{ nascente: { x: 1, y: 2 } }] },
+        doMotor: { restricoes: [{ area: {} }] },
+      }),
+    );
+    expect(a.some((x) => x.campo === "restricoes[].nascente")).toBe(true);
+    expect(a.find((x) => x.campo === "restricoes[].nascente")!.regra).toBe(
+      "campo-novo-no-contrato",
+    );
+  });
+
+  test("`cobreFilhos` cala o blob opaco, e SÓ ele", () => {
+    const comBlob = auditarIda({
+      nome: "falsa",
+      inventario: { geo: { tipo: "perda", motivo: "documento inteiro do Geo", cobreFilhos: true } },
+      doContrato: { geo: { archilly: { schema: "x", versao: "1" }, features: [{ type: "F" }] } },
+      doMotor: {},
+    });
+    expect(reprovamNaIda(comBlob)).toHaveLength(0);
+    // Sem a marca, cada campo de dentro é cobrado — que é o comportamento normal.
+    const semMarca = auditarIda({
+      nome: "falsa",
+      inventario: { geo: { tipo: "perda", motivo: "documento inteiro do Geo" } },
+      doContrato: { geo: { archilly: { schema: "x" } } },
+      doMotor: {},
+    });
+    expect(reprovamNaIda(semMarca).length).toBeGreaterThan(0);
+  });
+
+  test("`mapa-velho` avisa e NÃO reprova", () => {
+    const todos = auditarIda({
+      nome: "falsa",
+      inventario: {
+        gleba: { tipo: "traduzido", caminho: "terreno", como: "o conjunto" },
+        "gleba.anel": { tipo: "entregue", caminho: "terreno.perimetro" },
+        "restricoes[].nascente": { tipo: "perda", motivo: "v2 sem dado em gleba nenhuma" },
+      },
+      doContrato: { gleba: { anel: [{ x: 0, y: 0 }, { x: 1, y: 0 }, { x: 0, y: 1 }] } },
+      doMotor: { terreno: { perimetro: [{ x: 0, y: 0 }] } },
+    });
+    expect(todos.map((x) => x.regra)).toEqual(["mapa-velho"]);
+    expect(reprovamNaIda(todos)).toHaveLength(0);
+    expect(REGRAS_DA_IDA_QUE_REPROVAM).not.toContain("mapa-velho");
+  });
+
+  test("destino com ALTERNATIVAS aceita qualquer uma — e não inventa achado", () => {
+    // A atração vai para `terreno.atracoes` quando é polígono e para `viaManual`
+    // quando é a via desenhada. Exigir um caminho só produziria achado inventado —
+    // e eu produzi um hoje, declarando `faixas` onde o destino é `terreno.padroes`.
+    const o = {
+      nome: "falsa" as const,
+      inventario: {
+        atracoes: { tipo: "traduzido" as const, caminho: "terreno.atracoes | viaManual", como: "x" },
+      },
+      // Sem campo de dentro: a lista com um objeto de uma chave faria a guarda
+      // cobrar `atracoes[].id`, que é ela cumprindo a regra 2 e aqui é ruído.
+      doContrato: { atracoes: [{}] },
+    };
+    expect(reprovamNaIda(auditarIda({ ...o, doMotor: { viaManual: [{ x: 0, y: 0 }] } }))).toHaveLength(0);
+    expect(reprovamNaIda(auditarIda({ ...o, doMotor: { terreno: { atracoes: [{}] } } }))).toHaveLength(0);
+    expect(reprovamNaIda(auditarIda({ ...o, doMotor: {} })).length).toBe(1);
+  });
+
+  test("`caminhosDe` para nas listas de pontos — geometria é folha", () => {
+    const c = caminhosDe({ gleba: { anel: [{ x: 1, y: 2 }, { x: 3, y: 4 }] } });
+    expect(c.has("gleba.anel")).toBe(true);
+    expect(c.has("gleba.anel[].x")).toBe(false);
+  });
+
+  test("`valorEm` acha o primeiro valor NÃO vazio da lista", () => {
+    const o = { restricoes: [{ nascente: null }, { nascente: { x: 1, y: 2 } }] };
+    expect(valorEm(o, "restricoes.nascente")).toEqual({ x: 1, y: 2 });
+    expect(valorEm(o, "restricoes.inexistente")).toBeUndefined();
+  });
+});
+
+// ═══════════════ andar 2 · a guarda sabe ficar VERMELHA ════════════════════
+
+describe("a falsificação — uma ida sabotada é pega", () => {
+  /**
+   * **O alcance da guarda genérica, dito com honestidade.**
+   *
+   * A linha do contrato tem **três** destinos possíveis no motor — ímã
+   * (`terreno.atracoes`), coluna vertebral (`viaManual`) e face de loteamento
+   * (`facesLoteamento`) — e **qual deles vale depende do tipo da atração**, que no
+   * v1 só se descobre medindo a distância à divisa. A guarda genérica não sabe
+   * escolher entre os três, e por isso `atracoes` entra como **dívida declarada**:
+   * ela aponta que o motor espera e a ida não entrega tudo, sem reprovar.
+   *
+   * **Consequência que não escondo:** a guarda genérica **não** é o que impede o
+   * D119 de voltar. O que impede são as duas travas específicas do andar 4 — a ida
+   * preenche `viaManual`, e com ela o motor desenha diferente. Guarda genérica tem
+   * alcance genérico; o caso específico pede trava específica.
+   */
+  test("a ida como ERA aparece como dívida, e a trava do D119 é a específica", () => {
+    const { desenhadas } = linhasDaEntrada(antonina);
+    expect(desenhadas.length).toBeGreaterThan(0);
+    // A ida COMO ERA até o LAB-30: sem passar a coluna vertebral.
+    const { entrada: comoEra } = idaParaOMotor(antonina as unknown as EntradaV1, {
+      semente: 1,
+      variantes: 1,
+    });
+    const todos = auditarIda({
+      nome: "sabotada",
+      inventario: IDA_DO_PARCELAMENTO,
+      doContrato: antonina as unknown as Record<string, unknown>,
+      doMotor: comoEra as unknown as Record<string, unknown>,
+    });
+    // Nada reprova — e é por isso que a trava específica existe.
+    expect(reprovamNaIda(todos)).toHaveLength(0);
+    // Mas a dívida aparece, nomeando os três destinos que a linha pode ter.
+    const d = dividasDoLab(todos);
+    expect(d.length).toBeGreaterThan(0);
+    expect(d.map((x) => x.destino).join(" ")).toContain("viaManual");
+    expect(d.map((x) => x.destino).join(" ")).toContain("facesLoteamento");
+  });
+
+  test("apagar uma entrada do inventário reprova por `campo-novo-no-contrato`", () => {
+    const sem = { ...IDA_DO_SYMBIOS };
+    delete (sem as Record<string, unknown>)["gleba.anel"];
+    const a = reprovamNaIda(
+      auditarIda({
+        nome: "sabotada",
+        inventario: sem,
+        doContrato: glebaDoLab(GLEBA) as unknown as Record<string, unknown>,
+        doMotor: { gleba: { externo: [{ x: 0, y: 0 }] } },
+      }),
+    );
+    expect(a.some((x) => x.campo === "gleba.anel" && x.regra === "campo-novo-no-contrato")).toBe(true);
+  });
+});
+
+// ═══════════════ andar 3 · as duas idas de verdade, hoje ═══════════════════
+
+describe("as idas do Lab entregam o que o contrato traz", () => {
+  test("a ida do Laboratório de Parcelamento está limpa, na gleba sintética", () => {
+    const a = reprovamNaIda(auditarIdaDoParcelamento(glebaDoLab(GLEBA)).achados);
+    expect(a.map((x) => `${x.regra} ${x.campo}`)).toEqual([]);
+  });
+
+  test("a ida do Symbios está limpa, na gleba sintética", () => {
+    const a = reprovamNaIda(auditarIdaDoSymbios(glebaDoLab(GLEBA)).achados);
+    expect(a.map((x) => `${x.regra} ${x.campo}`)).toEqual([]);
+  });
+
+  test("as duas estão limpas na gleba COM via desenhada — a que pegou o D119", () => {
+    for (const r of [auditarIdaDoParcelamento(antonina), auditarIdaDoSymbios(antonina)]) {
+      expect(reprovamNaIda(r.achados).map((x) => `${x.regra} ${x.campo}`), r.ida).toEqual([]);
+    }
+  });
+
+  test("a nascente do v2 é PERDA DECLARADA nas duas, e não esquecimento", () => {
+    // Ela não tem dado em gleba nenhuma (D88), então hoje isto é um aviso. Quando o
+    // Geo passar a trazê-la, o aviso vira exigência — e é esse o ponto.
+    for (const inv of [IDA_DO_PARCELAMENTO, IDA_DO_SYMBIOS]) {
+      const d = inv["restricoes[].nascente"];
+      expect(d).toBeDefined();
+      expect(d!.tipo).toBe("perda");
+      if (d!.tipo === "perda") expect(d!.motivo).toContain("v2");
+    }
+  });
+});
+
+// ═══════════════ andar 4 · o D119 não volta ════════════════════════════════
+
+describe("a via desenhada chega ao motor, e muda o desenho", () => {
+  test("a ida preenche `viaManual` com a linha mais longa", () => {
+    const { desenhadas } = linhasDaEntrada(antonina);
+    const comprimento = (l: P[]) =>
+      l.reduce((s, p, i) => (i === 0 ? 0 : s + Math.hypot(p.x - l[i - 1]!.x, p.y - l[i - 1]!.y)), 0);
+    const maisLonga = [...desenhadas].sort((a, b) => comprimento(b) - comprimento(a))[0]!;
+    const { entrada } = idaParaOMotor(antonina as unknown as EntradaV1, {
+      semente: 1,
+      variantes: 1,
+      viaManual: maisLonga,
+    });
+    expect((entrada as { viaManual?: P[] }).viaManual).toEqual(maisLonga);
+  });
+
+  test("com a via, o motor desenha diferente — medido, não declarado", () => {
+    const { desenhadas } = linhasDaEntrada(antonina);
+    const base = { semente: 20260913, variantes: 1, formatos: ["ortogonal"] as never };
+    const sem = idaParaOMotor(antonina as unknown as EntradaV1, base).entrada;
+    const com = idaParaOMotor(antonina as unknown as EntradaV1, {
+      ...base,
+      viaManual: desenhadas[0]!,
+    }).entrada;
+    const vias = (e: typeof sem) => rodarMotor(e).opcoes[0]!.plano.vias.length;
+    // Medido no LAB-30: 25 vias sem a coluna vertebral, 32 com ela.
+    expect(vias(com)).not.toBe(vias(sem));
+  }, 120_000);
+
+  test("mais de uma via desenhada: entra a mais longa e a perda é declarada", () => {
+    const { desenhadas } = linhasDaEntrada(antonina);
+    expect(desenhadas.length).toBeGreaterThan(1);
+    const { perdas } = idaParaOMotor(antonina as unknown as EntradaV1, {
+      semente: 1,
+      variantes: 1,
+      viaManual: desenhadas[0]!,
+    });
+    // O motor tem UMA coluna vertebral, e isso vai dito nos dois lugares: no
+    // inventário, como destino, e na perda que a ida declara quando sobra linha.
+    const d = IDA_DO_PARCELAMENTO["atracoes[].tipo"]!;
+    expect(d.tipo).toBe("divida");
+    if (d.tipo === "divida") expect(d.onde).toContain("viaManual");
+    expect(
+      perdas.some((x) => x.campo.includes("atracoes") || x.campo.includes("via desenhada")),
+      "sobrou linha desenhada e a ida não declarou a perda",
+    ).toBe(true);
+  });
+});
+
+describe("a dívida declarada — a confissão que não vira desculpa", () => {
+  test("`divida` NÃO reprova, e aparece contada", () => {
+    // O motor TEM `facesLoteamento` esperando a testada de frente, e a ida ainda
+    // não a entrega. Chamar isso de `perda` seria mentir — `perda` quer dizer que o
+    // motor não tem onde receber. Então a dívida é um destino próprio: ela não
+    // reprova, e **é publicada**, na prova, no relatório e no recado ao chat.
+    const a = auditarIda({
+      nome: "falsa",
+      inventario: {
+        atracoes: { tipo: "divida", onde: "facesLoteamento", proposto: "mapear a linha" },
+      },
+      doContrato: { atracoes: [{}] },
+      doMotor: {},
+    });
+    expect(reprovamNaIda(a)).toHaveLength(0);
+    expect(dividasDoLab(a)).toHaveLength(1);
+    expect(dividasDoLab(a)[0]!.destino).toBe("facesLoteamento");
+    expect(dividasDoLab(a)[0]!.diagnostico).toContain("mapear a linha");
+    expect(REGRAS_DA_IDA_QUE_REPROVAM).not.toContain("divida-do-lab");
+  });
+
+  test("a dívida da testada de frente está declarada, e nomeia o campo do motor", () => {
+    const d = IDA_DO_PARCELAMENTO["atracoes"];
+    expect(d!.tipo).toBe("divida");
+    if (d!.tipo === "divida") {
+      expect(d!.onde).toContain("facesLoteamento");
+      expect(d!.proposto).toContain("faces do perímetro");
+    }
+  });
+
+  test("a prova do LAB-30 publica a dívida — ela não fica só no código", () => {
+    const prova = JSON.parse(
+      readFileSync(join(RAIZ, "docs", "provas", "LAB-30", "guarda-da-ida.json"), "utf8"),
+    ) as { reprovamNoTotal: number; dividasDoLab: string[]; porRegra: Record<string, number> };
+    expect(prova.reprovamNoTotal).toBe(0);
+    expect(prova.dividasDoLab.length).toBeGreaterThan(0);
+    expect(prova.dividasDoLab.join(" ")).toContain("facesLoteamento");
+    expect(prova.porRegra["divida-do-lab"]).toBeGreaterThan(0);
+  });
+});

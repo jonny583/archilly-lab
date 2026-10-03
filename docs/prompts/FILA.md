@@ -195,13 +195,44 @@ melhor que a letra da regra** (D112), e mandou reabilitar em vez de recriar.
 |---|---|---|---|
 | **LAB-28** | **A sensibilidade ao acesso** — o mais importante: medir nas cinco glebas e nos quatro motores quanto muda em **lotes** e em **área vendável**, pôr na tabela e na página do Jonny, e dizer **em uma frase o que significa para quem compra terreno** | ✅ **concluído em 03/10/2026** | nenhuma |
 | **LAB-29** | **A identidade que viaja no contrato** — ler `MOTOR_NOME` e `MOTOR_VERSAO` do próprio motor, alcançando as provas congeladas do LAB-02 e do LAB-07 e o rótulo na mesa do Generate | ✅ **concluído em 03/10/2026** | LAB-28 mesclado ✅ |
-| **LAB-30** | **A guarda da IDA** (do LAB-25), *"se ainda não estiver fechada"* — e ela **não está**: a guarda do LAB-25 cobre motor → SAÍDA, e o sentido ENTRADA → motor não tem nada | ⬜ **é o próximo, e é o último da fila** | LAB-29 mesclado ✅ |
+| **LAB-30** | **A guarda da IDA** (do LAB-25), *"se ainda não estiver fechada"* — e ela **não estava** | ✅ **concluído em 03/10/2026** · a fila ESGOTOU | LAB-29 mesclado ✅ |
 
 ### O que o chat manteve, sem mudança
 
 - **a régua de forma** (útil < 85 % / < 70 %) segue **decisão do chat** até o Jonny
   confirmar — o único item na lista dele, e não trava nada;
 - **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-30 · A guarda da IDA — ✅ concluído em 03/10/2026 · **a fila esgotou**
+
+**Entregue:** [`../relatorios/LAB-30.md`](../relatorios/LAB-30.md),
+`docs/provas/LAB-30/guarda-da-ida.json`, `tests/guarda-da-ida.test.ts` (20 travas).
+
+**Ela achou a QUINTA vez do ponto cego da §6, e a primeira que já tinha saído para o
+chat** (D119): o motor do Parcelamento tem `viaManual` — *"coluna vertebral desenhada
+à mão"* — e **a ida do Lab nunca o preencheu**. Entregando, `antonina-com-via` vai de
+**25 para 32 vias**. O LAB-17 e o LAB-23 publicaram que **o motor** ignorava a via;
+quem a ignorava era a ponte. **Os dois relatórios foram corrigidos no alto**, a D101
+ganhou a ressalva, e a trava do LAB-23 foi **virada** (D90).
+
+**Entregue a via, "respeitar" virou duas perguntas** (D120): ele **lê** a via (a saída
+muda) e **não assenta** nela (aderência 11 %). `leViaDesenhada` nasceu ao lado de
+`respeitaViaDesenhada`, e a varredura do LAB-26 foi de 13 para 14 falsificáveis — o
+registro acusou o campo faltando **no mesmo segundo** em que ele nasceu.
+
+**E nasceu um destino novo, a DÍVIDA DECLARADA** (D121): a testada de frente tem
+`facesLoteamento` esperando no motor e a ida não entrega. Não é `perda` — o motor tem
+onde receber. Ela **não reprova e é publicada**, com o campo que espera e o que falta
+fazer. **Custou alcance, e isso vai dito:** a guarda genérica deixou de pegar o caso
+do D119, e quem o impede de voltar são duas travas específicas.
+
+### Proposto ao chat — a dívida da testada de frente
+
+Mapear a linha da testada de frente para as **faces do perímetro** que ela cobre, e
+entregá-la em `facesLoteamento`. Enquanto não for feito,
+`respeitaTestadaDeFrente: false` no Parcelamento é **dívida do Lab, não limitação do
+motor** — e está escrito assim no inventário. **Não executado:** é geometria nova, e
+prompt fora da fila não existe.
 
 ### LAB-29 · A identidade que viaja no contrato — ✅ concluído em 03/10/2026
 

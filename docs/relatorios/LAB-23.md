@@ -1,5 +1,28 @@
 # LAB-23 — a via desenhada à mão como coluna vertebral do traçado
 
+> # ⚠ CORRIGIDO EM 03/10/2026 PELO LAB-30
+>
+> **A prova deste relatório era verdadeira e a conclusão era falsa.** A SAÍDA saía
+> idêntica com e sem a via desenhada porque **a via nunca chegava ao motor** do
+> Laboratório de Parcelamento: o campo `viaManual` existe nele desde sempre, e a ida
+> do Lab não o preenchia.
+>
+> **Leia "os quatro ignoram" como "três dos quatro ignoram".** Medido no LAB-30:
+> entregando a via, `antonina-com-via` vai de 25 para 32 vias.
+>
+> **E a frase mais cara deste relatório era esta:** *"o teste fica, e morde antes de
+> qualquer relatório sair errado se um motor passar a respeitar a via"*. **Ele não
+> mordeu** — porque lia a **prova congelada**, não o motor rodando. Teste de
+> falsificação que lê prova velha não falsifica: repete. A trava foi **virada** (D90)
+> e agora exige o que está medido.
+>
+> **O que continua valendo, inteiro:** a comparação da linha desenhada com as vias
+> dos motores pela régua de rampa (§ sobre `antonina-com-via` e `ensaio-com-via`), e
+> a ressalva da D103 — **quem desenhou a linha fui eu**, pela geometria da gleba.
+>
+> Ver **D119**, **D120** e **D121**.
+
+
 **Data:** 03/10/2026 · **Semente:** 20260913
 **Provas:** [`docs/provas/LAB-23/coluna-vertebral.json`](../provas/LAB-23/coluna-vertebral.json)
 **Ferramenta:** `bun run lab23` · **Testes:** `tests/coluna-vertebral.test.ts` — 7

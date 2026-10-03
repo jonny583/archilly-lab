@@ -71,7 +71,17 @@ export interface RestricaoV1 {
 
 export interface AtracaoV1 {
   id: string;
-  tipo: "via_existente" | "ponto_de_interesse" | "outra";
+  /**
+   * O v2 **partiu `via_existente` em duas** — `via_desenhada` (rua traçada à mão
+   * DENTRO da gleba) e `testada_de_frente` (a divisa que encosta numa rua que já
+   * existe) —, a pedido do Lab, porque com um tipo só o motor não tinha como
+   * distinguir *"siga esta linha"* de *"dê frente para esta linha"*.
+   *
+   * **Este tipo não conhecia os dois até o LAB-30**, e o `gleba-v1.ts` da esteira
+   * já os conhecia desde o LAB-18: mais um par alargado numa terra e não na outra,
+   * como o portão de versão do D110. O v1 continua aceito — `via_existente` fica.
+   */
+  tipo: "via_existente" | "via_desenhada" | "testada_de_frente" | "ponto_de_interesse" | "outra";
   nome: string;
   geometria: GeometriaV1;
 }

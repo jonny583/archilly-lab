@@ -42,7 +42,7 @@
           "lotes": 974,
           "violacoes": 0,
           "recusado": null,
-          "ms": 599.85
+          "ms": 842.38
         },
         "generate-espinha": {
           "motor": "Archilly Generate · candidata espinha",
@@ -50,10 +50,10 @@
           "aderenciaMedida": 0.205,
           "declaracaoBateComOMedido": true,
           "declarouTerIgnorado": true,
-          "lotes": 776,
+          "lotes": 778,
           "violacoes": 0,
           "recusado": null,
-          "ms": 492.01
+          "ms": 585.77
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
@@ -61,10 +61,10 @@
           "aderenciaMedida": 0.113,
           "declaracaoBateComOMedido": true,
           "declarouTerIgnorado": true,
-          "lotes": 599,
+          "lotes": 585,
           "violacoes": 16,
           "recusado": null,
-          "ms": 1725.68
+          "ms": 2142.9
         },
         "symbios": {
           "motor": "Symbios Tensor + subdivisão do Lab",
@@ -75,7 +75,7 @@
           "lotes": 214,
           "violacoes": 0,
           "recusado": null,
-          "ms": 900.16
+          "ms": 998.16
         }
       }
     },
@@ -142,10 +142,10 @@
           "aderenciaMedida": 0.28,
           "declaracaoBateComOMedido": true,
           "declarouTerIgnorado": true,
-          "lotes": 1389,
+          "lotes": 1390,
           "violacoes": 1,
           "recusado": null,
-          "ms": 630.34
+          "ms": 941.53
         },
         "generate-espinha": {
           "motor": "Archilly Generate · candidata espinha",
@@ -156,18 +156,18 @@
           "lotes": 1657,
           "violacoes": 0,
           "recusado": null,
-          "ms": 604.16
+          "ms": 750.08
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "declarouRespeitarViaDesenhada": false,
-          "aderenciaMedida": 0.174,
+          "aderenciaMedida": 0.112,
           "declaracaoBateComOMedido": true,
           "declarouTerIgnorado": true,
-          "lotes": 1386,
-          "violacoes": 15,
+          "lotes": 1245,
+          "violacoes": 28,
           "recusado": null,
-          "ms": 6515.8
+          "ms": 8469.58
         },
         "symbios": {
           "motor": "Symbios Tensor + subdivisão do Lab",
@@ -178,7 +178,7 @@
           "lotes": 1014,
           "violacoes": 4,
           "recusado": null,
-          "ms": 9361.56
+          "ms": 11141.15
         }
       }
     }

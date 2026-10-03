@@ -84,12 +84,27 @@ function ignorados(e: Entrada, cap: Capacidades): NaoAtendido[] {
     });
   }
   if (e.viasDesenhadas.length > 0 && !cap.respeitaViaDesenhada) {
-    fora.push({
-      campo: "viasDesenhadas",
-      oQueChegou: `${e.viasDesenhadas.length} via(s) traçada(s) à mão`,
-      postura: "ignorei",
-      consequencia: "a rua que o urbanista desenhou não aparece no resultado",
-    });
+    // Quem LÊ a via e não assenta nela não "ignorou": ele substituiu. A distinção
+    // importa para quem lê o resultado — "não apareceu" e "entrou como coluna
+    // vertebral e o traçado saiu por perto" são dois desenhos diferentes (LAB-30).
+    fora.push(
+      cap.leViaDesenhada
+        ? {
+            campo: "viasDesenhadas",
+            oQueChegou: `${e.viasDesenhadas.length} via(s) traçada(s) à mão`,
+            postura: "substitui",
+            consequencia:
+              "a mais longa entrou como coluna vertebral e mudou o traçado, mas as ruas " +
+              "geradas não ficam SOBRE a linha desenhada — a aderência medida é baixa. As " +
+              "outras linhas não entraram: o motor tem uma coluna vertebral só",
+          }
+        : {
+            campo: "viasDesenhadas",
+            oQueChegou: `${e.viasDesenhadas.length} via(s) traçada(s) à mão`,
+            postura: "ignorei",
+            consequencia: "a rua que o urbanista desenhou não aparece no resultado",
+          },
+    );
   }
   if (e.testadasDeFrente.length > 0 && !cap.respeitaTestadaDeFrente) {
     fora.push({
@@ -134,6 +149,9 @@ export function motorDoGenerate(candidata: Candidata): MotorNaPorta {
       // Medido no LAB-13: com e sem relevo, saída idêntica nas cinco glebas.
       leRelevo: false,
       relevoMudaOTracado: false,
+      // Medido por diferença no LAB-23 e remedido no LAB-30: a SAÍDA destas duas
+      // candidatas é byte a byte idêntica com e sem a via no arquivo.
+      leViaDesenhada: false,
       respeitaViaDesenhada: false,
       respeitaTestadaDeFrente: false,
       respeitaAcesso: true,
@@ -197,6 +215,18 @@ export function motorDoParcelamento(): MotorNaPorta {
       // mudou foi o motor, e a ponte do Lab levou três semanas para notar.
       leRelevo: true,
       relevoMudaOTracado: false,
+      // ── As duas respostas DIFEREM aqui também, e a razão é um defeito meu ──
+      //
+      // Ele **lê** a via desenhada: o campo `viaManual` existe no motor desde
+      // sempre, e desde o LAB-30 a ida do Lab o preenche — `antonina-com-via` vai
+      // de 25 para 32 vias, e a SAÍDA deixa de ser idêntica sem a via.
+      //
+      // E ele **não assenta os eixos nela**: a aderência medida fica em 11 %. Ler
+      // e seguir são perguntas diferentes, como `leRelevo` e `relevoMudaOTracado`
+      // (D100) — e aqui elas só puderam ser separadas depois que a via começou a
+      // chegar ao motor. Até o LAB-30 eu publicava que *o motor* ignorava a via
+      // desenhada; quem a ignorava era a minha ponte (D119).
+      leViaDesenhada: true,
       respeitaViaDesenhada: false,
       respeitaTestadaDeFrente: false,
       // ── MEDIDO no LAB-26, e a declaração estava errada ───────────────────
@@ -282,6 +312,10 @@ export function motorDoSymbios(wasm: Motor): MotorNaPorta {
       // O traçado dele NASCE do campo tensorial do relevo: sem relevo ele
       // recusa, e com relevo diferente o traçado é outro.
       relevoMudaOTracado: true,
+      // O Symbios não tem conceito de atração: o traçado dele nasce do campo
+      // tensorial do relevo, e não há onde pendurar uma linha. Provado por
+      // diferença no LAB-23 e remedido no LAB-30.
+      leViaDesenhada: false,
       respeitaViaDesenhada: false,
       respeitaTestadaDeFrente: false,
       // MEDIDO no LAB-26, e aqui a declaração estava CERTA: movendo o acesso
