@@ -40,6 +40,13 @@ import { glebaDoLab } from "../src/gleba-do-lab.ts";
 import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
 import { julgar, type P, type Rodada, type Veredito } from "../src/motores/comum.ts";
 import { mapaDaGleba, perfilDeRampa } from "../src/rampa.ts";
+import {
+  POSICOES_DE_ACESSO,
+  amplitudePctDe,
+  referenciaDe,
+  sensibilidadeAoAcesso,
+  type SensibilidadeAoAcesso,
+} from "../src/acesso.ts";
 import { indicadoresDeTerreno } from "../src/terreno-indicadores.ts";
 import {
   UTIL_A_CONFERIR,
@@ -147,10 +154,13 @@ for (const { id, entrada } of GLEBAS) {
   console.log(`\n══════════ ${id} · ${(areaGleba / 1e4).toFixed(1)} ha ══════════`);
   console.log(
     `  ${"motor".padEnd(30)} ${"lotes".padStart(5)} ${"vendável".padStart(9)} ` +
-      `${"viol".padStart(5)} ${"ok".padStart(5)} ${"a conferir".padStart(11)} ${"ruim".padStart(7)} ${"útil med".padStart(9)}`,
+      `${"viol".padStart(5)} ${"ok".padStart(5)} ${"a conferir".padStart(11)} ${"ruim".padStart(7)} ${"útil med".padStart(9)} ` +
+      `${`lotes em ${POSICOES_DE_ACESSO} acessos`.padStart(20)}`,
   );
 
   const porMotor: Record<string, unknown> = {};
+  /** As sensibilidades da gleba, para o confronto sair daqui e não da página. */
+  const sensPorMotor: Record<string, SensibilidadeAoAcesso> = {};
 
   for (const m of MOTORES) {
     const r = rodar(m.id, entrada);
@@ -166,7 +176,20 @@ for (const { id, entrada } of GLEBAS) {
       r.saida ? lotesComId(r.saida, entrada) : [],
       mapa,
     );
+    // A sensibilidade ao acesso (LAB-28). O motor roda de novo em cada posição,
+    // e quem julga continua sendo o Validator do Generate — `julgar`, o mesmo
+    // desta linha de tabela. Duas réguas para a mesma grandeza é o que o D20
+    // proíbe, e aqui seria fácil cair nisso contando lotes por conta própria.
+    const acessoSens = sensibilidadeAoAcesso(entrada, (x) => {
+      const rr = rodar(m.id, x);
+      const vv = rr.saida ? julgar(rr.saida, x) : null;
+      return {
+        lotes: vv?.lotes ?? null,
+        areaVendavel_m2: vv?.areaPrivativa_m2 == null ? null : n2(vv.areaPrivativa_m2),
+      };
+    });
 
+    sensPorMotor[m.id] = acessoSens;
     porMotor[m.id] = {
       motor: m.nome,
       variante: r.variante,
@@ -199,6 +222,15 @@ for (const { id, entrada } of GLEBAS) {
       },
       // ── o bloco de indicadores de terreno, do LAB-24 ────────────────────
       terreno: terreno_,
+      // ── a sensibilidade ao acesso, do LAB-28 ────────────────────────────
+      //
+      // A coluna que faltava, e é a de maior efeito que o Lab mede: a MESMA
+      // gleba e o MESMO motor, com a entrada da rua em seis pontos do perímetro.
+      // Sem ela, esta tabela responde "qual motor é melhor NESTE ponto de
+      // entrada" e se apresenta como "qual motor é melhor".
+      //
+      // A amplitude é PISO: seis pontos não varrem o perímetro (ver `acesso.ts`).
+      acesso: acessoSens,
       // ── a coluna nova, do LAB-19 ────────────────────────────────────────
       forma: d
         ? {
@@ -228,9 +260,33 @@ for (const { id, entrada } of GLEBAS) {
         `${String(d.porVeredito.ok).padStart(5)} ` +
         `${`${d.porVeredito["a conferir"]} (${(100 * (d.pctAConferir ?? 0)).toFixed(1)}%)`.padStart(11)} ` +
         `${`${d.porVeredito.ruim} (${(100 * (d.pctRuim ?? 0)).toFixed(1)}%)`.padStart(7)} ` +
-        `${(1 - (d.mediana ?? 0)).toFixed(3).padStart(9)}`,
+        `${(1 - (d.mediana ?? 0)).toFixed(3).padStart(9)} ` +
+        `${`${acessoSens.lotes.minimo}–${acessoSens.lotes.maximo} (+${acessoSens.lotes.amplitudePct ?? "—"}%)`.padStart(20)}`,
     );
   }
+
+  // ── O confronto do acesso, calculado AQUI e não na página (LAB-28) ─────────
+  //
+  // De um lado, a maior amplitude que um MESMO motor exibe só mudando a entrada.
+  // Do outro, quanto os motores que entregam **lote** diferem entre si na mesma
+  // referência. O Symbios fica fora da segunda conta porque entrega **quadra** e
+  // os lotes dele são da subdivisão do Lab (D50): incluí-lo infla a diferença até
+  // 355 %, que é a distância entre duas ETAPAS e não entre duas opções.
+  //
+  // A referência de cada motor vem da `referenciaDe`, que é a única — a primeira
+  // versão tinha duas, e dava dois confrontos para a mesma gleba (D116).
+  const amplitudes = Object.values(sensPorMotor).map((x) => x.lotes.amplitudePct ?? 0);
+  const confrontoDoAcesso = {
+    maiorAmplitude_pct: amplitudes.length ? Math.max(...amplitudes) : 0,
+    entreOsQuatroMotores_pct: amplitudePctDe(
+      Object.values(sensPorMotor).map((x) => referenciaDe(x)),
+    ),
+    entreOsMotoresDeLote_pct: amplitudePctDe(
+      MOTORES.filter((m) => m.id !== "symbios").map((m) =>
+        sensPorMotor[m.id] ? referenciaDe(sensPorMotor[m.id]!) : null,
+      ),
+    ),
+  };
 
   glebas.push({
     prompt: "LAB-19",
@@ -238,6 +294,7 @@ for (const { id, entrada } of GLEBAS) {
     areaDaGleba_m2: n2(areaGleba),
     semente: SEMENTE,
     contrato: "1",
+    confrontoDoAcesso,
     motores: porMotor,
   });
 }

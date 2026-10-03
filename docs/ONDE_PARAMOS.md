@@ -4,26 +4,43 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-27 (1ª
-rodada do contínuo) · **A fila de 03/10 está CUMPRIDA.**
+**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-28 ·
+**Despertador `trig_01XwSkTLT9zmyprNZcUiWy7f` LIGADO** de novo (60 min, :05) — o chat
+mandou reabilitar em vez de recriar, e registrou que preservar a sessão foi melhor que
+a letra da regra (D112).
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — o Lab PAROU, esperando o chat
+## A fila nova de 03/10 (terceira parte)
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` desde 03/10/2026, 11:07 UTC.**
+| Prompt | Estado |
+|---|---|
+| **LAB-28** — a sensibilidade ao acesso, na tabela e na página do Jonny | **concluído em 03/10/2026** |
+| **LAB-29** — a identidade que viaja no contrato (`MOTOR_NOME`, `MOTOR_VERSAO`) | **é o próximo** |
+| **LAB-30** — a guarda da IDA, do LAB-25 (não está fechada) | aguardando o LAB-29 |
 
-**Por quê:** o disparo das 11:05 **não achou item pronto**, que é o caso da D62 e do
-`CLAUDE.md` §1-A. A fila de 03/10 está cumprida (LAB-21, 24, 22, 23, 25, 26 e a 1ª
-rodada do 27); o LAB-27 é contínuo e **só é item pronto quando há mudança para
-carregar** (D111), e não havia — a última foi uma hora antes.
+## O que o LAB-28 mediu, e a manchete que ele derrubou
 
-**Uma diferença declarada, porque a regra diz "apagar":** ele foi **desligado, não
-apagado**. Apagar uma rotina apaga também as sessões que ela iniciou, e esta
-rotina está presa à sessão onde o dia inteiro de trabalho está registrado — o risco
-não valia a letra da regra, e o efeito pedido é o mesmo: **ele não acorda mais.**
+**O número que eu havia dado ao chat era PEQUENO.** Eu disse 19 %, de dois pontos.
+Com **seis pontos por comprimento de arco** no perímetro:
 
-**Para o chat destravar:** ou reabilitar este mesmo despertador — o que preserva o
-histórico de disparos dele — ou apagá-lo e criar outro junto com a fila nova. Os
-dois servem; reabilitar é mais barato.
+| gleba | quem varia mais | lotes | amplitude |
+|---|---|---|---|
+| `completo` | Generate espinha | 860 → 1 791 | **+108,3 %** |
+| `ensaio-47ha` | Laboratório de Parcelamento | 459 → 703 | **+53,2 %** |
+| `geo-antonina` | Generate ortogonal | 1 346 → 1 941 | **+44,2 %** |
+| `sintetico-10ha-plano` | Laboratório de Parcelamento | 112 → 143 | +27,7 % |
+| `sintetico-50ha-ondulado` | Laboratório de Parcelamento | 510 → 596 | +16,9 % |
+
+A área vendável acompanha quase exatamente. O Symbios dá **0 %** nas cinco, e é
+medição: ele não recebe ponto de acesso.
+
+**A manchete que eu ia escrever era falsa** (D114): *"a entrada pesa mais que a
+escolha do motor"* vale em **2 das 5** glebas. A que fica é a que não compara nada —
+*o mesmo programa, no mesmo terreno, varia até +108 % só mudando por onde a rua
+entra.* **O ponto cego da §6 tem uma irmã:** lá eu ia atribuir ao vizinho um defeito
+meu; aqui, à medição uma conclusão minha.
+
+**A amplitude é um PISO** (D113): seis pontos não varrem o perímetro, e a ressalva
+viaja **no objeto** (`amplitudeEhPiso: true`), não só na prosa.
 
 ## O que espera decisão do chat — três achados, nenhum executado
 

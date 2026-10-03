@@ -156,6 +156,49 @@ describe("a página de comparação", () => {
     expect(linhas.filter((l) => l.endsWith("**nenhum** |")).length).toBe(2);
   });
 
+  test("a entrada da rua tem seção, e a manchete é a MEDIDA, não a frase bonita", () => {
+    // O LAB-28 mediu e a conclusão veio mais modesta que a manchete: "o acesso
+    // pesa mais que a escolha do programa" vale em 2 dos 5 terrenos, não em
+    // todos. A página tem de dizer as duas coisas — o número incondicional (a
+    // mesma coisa desenhada duas vezes dá até o dobro) e a ressalva.
+    const p = lida();
+    expect(p).toContain("## A entrada da rua");
+    expect(p).toContain("Mesmo terreno, mesmo programa");
+    expect(p).toMatch(/Em \d+ dos \d+ terrenos a entrada pesa mais; nos outros, o/);
+    // A ressalva de que a variação medida é um PISO não pode sumir: seis pontos
+    // não varrem o perímetro, e sem isso o número finge ser exato.
+    expect(p).toContain("a variação medida é o mínimo, não o máximo");
+    // E a página não pode prometer que o melhor ponto existe na vida real.
+    expect(p).toContain("o melhor ponto pode não existir na vida real");
+  });
+
+  test("a coluna do acesso está na tabela de cada terreno, e vem da prova", () => {
+    const p = lida();
+    expect(p).toContain("se a entrada da rua mudar");
+    const prova = JSON.parse(
+      readFileSync(join(RAIZ, "docs", "provas", "LAB-19", "tabela.json"), "utf8"),
+    ) as {
+      glebas: { motores: Record<string, { acesso?: { lotes: { amplitudePct: number | null } } }> }[];
+    };
+    // Todos os quatro motores, nas cinco glebas, têm o bloco medido — o `null`
+    // aqui seria "não medido", e não é o caso de nenhum.
+    for (const g of prova.glebas) {
+      for (const m of Object.values(g.motores)) {
+        expect(m.acesso).toBeDefined();
+        expect(m.acesso!.lotes.amplitudePct).not.toBeNull();
+      }
+    }
+    // O Symbios dá amplitude ZERO, e a página escreve isso por extenso em vez de
+    // "+0 %", que se lê como erro de medição.
+    expect(p).toContain("**não muda nada**");
+  });
+
+  test("a página NÃO escolhe a entrada — isso é decisão do Jonny", () => {
+    const p = lida();
+    expect(p).toContain("o laboratório não escolhe a entrada");
+    expect(p.toLowerCase()).not.toContain("entre pelo ponto");
+  });
+
   test("diz de onde vêm os números: semente, contrato e o arquivo de provas", () => {
     const p = lida();
     expect(p).toContain("20260913");

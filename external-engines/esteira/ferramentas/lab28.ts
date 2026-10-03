@@ -1,0 +1,256 @@
+#!/usr/bin/env bun
+/**
+ * LAB-28 — a sensibilidade ao acesso. (03/10/2026)
+ *
+ * ```sh
+ * bun run lab28
+ * ```
+ *
+ * # A pergunta, e por que ela é a mais importante da fila
+ *
+ * O LAB-26 descobriu, de raspão, que mover o ponto de acesso muda o resultado
+ * **mais do que qualquer outra entrada que o Lab mede**. E as cinco glebas da
+ * tabela comparativa declaram **um** acesso cada, sem ninguém medir quanto o
+ * resultado depende dele.
+ *
+ * Isso tem uma consequência desconfortável para a tabela inteira: com o acesso
+ * fixo, ela responde *"qual motor é melhor NESTE ponto de entrada"* e se
+ * apresenta como *"qual motor é melhor"*. Se a amplitude do acesso for maior que
+ * a diferença entre motores, **a tabela está comparando a coisa errada** — e esta
+ * ferramenta existe para dizer se é o caso, com número.
+ *
+ * # Como se mede
+ *
+ * A régua é a `src/acesso.ts`: o acesso vai a **seis pontos igualmente espaçados
+ * por comprimento de arco** no perímetro, o motor roda em cada um, e quem conta
+ * lotes e área vendável é o **Validator do Generate**, o mesmo da tabela (D20).
+ *
+ * **A amplitude é piso, não valor exato** — seis pontos não varrem o perímetro.
+ *
+ * # O que esta ferramenta NÃO faz
+ *
+ * Não escolhe o acesso, e não diz que o melhor ponto é viável: onde a entrada pode
+ * ficar depende da rua que existe do lado de fora, da faixa de domínio e da
+ * licença. Por isso ela publica também o **acesso declarado na gleba** — o único
+ * que alguém afirmou existir. A escolha é do Jonny (CLAUDE.md §4).
+ */
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+
+import { Motor } from "@symbios/index.ts";
+import { areaPoligono } from "@symbios/geo.ts";
+import type { Terreno } from "@symbios/contrato.ts";
+
+import {
+  POSICOES_DE_ACESSO,
+  amplitudePctDe,
+  referenciaDe,
+  sensibilidadeAoAcesso,
+  type SensibilidadeAoAcesso,
+} from "../src/acesso.ts";
+import { glebaDoLab } from "../src/gleba-do-lab.ts";
+import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
+import { julgar, type Rodada } from "../src/motores/comum.ts";
+import { rodarGenerate } from "../src/motores/generate.ts";
+import { rodarTestfit } from "../src/motores/testfit.ts";
+import { rodarSymbios } from "../src/motores/symbios.ts";
+
+const RAIZ = join(import.meta.dirname, "..", "..", "..");
+const SAIDA = join(RAIZ, "docs", "provas", "LAB-28");
+const FIXTURES = join(RAIZ, "docs", "fixtures", "glebas-padrao-com-relevo");
+const WASM = join(
+  RAIZ, "external-engines", "symbios", "archilly", "wasm", "target",
+  "wasm32-unknown-unknown", "release", "archilly_symbios_wasm.wasm",
+);
+
+const SEMENTE = 20260913;
+const CARIMBO = "2026-09-19T00:00:00.000Z";
+const CONTRATO = "2";
+const n2 = (v: number | null) => (v == null ? null : Number(v.toFixed(2)));
+
+const wasm = await Motor.carregar(readFileSync(WASM));
+mkdirSync(SAIDA, { recursive: true });
+
+const GLEBAS: { id: string; entrada: EntradaMinima }[] = [
+  { id: "completo", entrada: glebaDoLab("completo") },
+  { id: "sintetico-50ha-ondulado", entrada: glebaDoLab("sintetico-50ha-ondulado") },
+  { id: "sintetico-10ha-plano", entrada: glebaDoLab("sintetico-10ha-plano") },
+  { id: "ensaio-47ha", entrada: JSON.parse(readFileSync(join(FIXTURES, "ensaio-47ha.entrada.json"), "utf8")) },
+  { id: "geo-antonina", entrada: JSON.parse(readFileSync(join(FIXTURES, "geo-antonina.entrada.json"), "utf8")) },
+];
+
+const MOTORES = [
+  { id: "generate-ortogonal", nome: "Generate · candidata ortogonal" },
+  { id: "generate-espinha", nome: "Generate · candidata espinha" },
+  { id: "parcelamento", nome: "Laboratório de Parcelamento" },
+  { id: "symbios", nome: "Symbios + subdivisão do Lab" },
+] as const;
+
+function rodar(id: string, e: EntradaMinima): Rodada {
+  if (id === "generate-ortogonal") return rodarGenerate(e, "ortogonal", CARIMBO);
+  if (id === "generate-espinha") return rodarGenerate(e, "espinha", CARIMBO);
+  if (id === "parcelamento") return rodarTestfit(e, SEMENTE);
+  return rodarSymbios(wasm, e, SEMENTE, CARIMBO);
+}
+
+console.log(
+  `[LAB-28] o acesso em ${POSICOES_DE_ACESSO} pontos do perímetro, por comprimento de arco.\n` +
+    "          A amplitude é PISO: o melhor e o pior ponto reais podem cair entre duas amostras.",
+);
+
+const porGleba: Record<string, unknown> = {};
+/** Para a conclusão: a amplitude do acesso contra a diferença entre motores. */
+const confrontos: {
+  gleba: string;
+  amplitudeDoAcesso_pct: number;
+  entreMotores_pct: number;
+  entreOsDeLote_pct: number;
+}[] = [];
+
+/**
+ * Os motores que entregam **lote** por conta própria.
+ *
+ * O Symbios fica fora desta lista porque ele entrega **quadra**, e os lotes dele
+ * são da subdivisão do Lab (D50). A diferença entre ele e um motor de lote não é
+ * uma escolha de projeto — é a distância entre duas etapas.
+ */
+const MOTORES_DE_LOTE = ["generate-ortogonal", "generate-espinha", "parcelamento"] as const;
+
+for (const { id, entrada } of GLEBAS) {
+  const { terreno } = glebaParaOSymbios(entrada);
+  const areaGleba = areaPoligono((terreno as Terreno).gleba);
+  console.log(`\n══════════ ${id} · ${(areaGleba / 1e4).toFixed(1)} ha ══════════`);
+  console.log(
+    `  ${"motor".padEnd(30)} ${"lotes".padStart(13)} ${"+%".padStart(7)} ` +
+      `${"vendável (ha)".padStart(15)} ${"+%".padStart(7)} ${"declarado".padStart(10)}`,
+  );
+
+  const motores: Record<string, unknown> = {};
+  const sens: Record<string, SensibilidadeAoAcesso> = {};
+  const lotesComAcessoDeclarado: number[] = [];
+  let maiorAmplitude = 0;
+
+  for (const m of MOTORES) {
+    const t0 = performance.now();
+    const s = sensibilidadeAoAcesso(entrada, (x) => {
+      const r = rodar(m.id, x);
+      const v = r.saida ? julgar(r.saida, x) : null;
+      return { lotes: v?.lotes ?? null, areaVendavel_m2: n2(v?.areaPrivativa_m2 ?? null) };
+    });
+    const ms = performance.now() - t0;
+    sens[m.id] = s;
+    motores[m.id] = { motor: m.nome, ms: n2(ms), ...s };
+
+    if (s.lotes.amplitudePct != null) maiorAmplitude = Math.max(maiorAmplitude, s.lotes.amplitudePct);
+    const decl = s.acessoDeclarado?.lotes ?? null;
+    if (decl != null) lotesComAcessoDeclarado.push(decl);
+
+    const faixa = `${s.lotes.minimo ?? "—"}–${s.lotes.maximo ?? "—"}`;
+    const vend =
+      s.areaVendavel_m2.minimo == null
+        ? "—"
+        : `${(s.areaVendavel_m2.minimo / 1e4).toFixed(2)}–${(s.areaVendavel_m2.maximo! / 1e4).toFixed(2)}`;
+    console.log(
+      `  ${m.nome.padEnd(30)} ${faixa.padStart(13)} ${String(s.lotes.amplitudePct ?? "—").padStart(7)} ` +
+        `${vend.padStart(15)} ${String(s.areaVendavel_m2.amplitudePct ?? "—").padStart(7)} ` +
+        `${String(decl ?? "—").padStart(10)}`,
+    );
+  }
+
+  // ── O confronto, e por que ele sai em DUAS versões ────────────────────────
+  //
+  // De um lado, quanto um MESMO motor varia só mudando a entrada da rua. Do
+  // outro, quanto os motores diferem entre si no acesso que a gleba declara (ou,
+  // sem acesso declarado, na primeira posição amostrada — e isso vai dito).
+  //
+  // **A primeira versão desta conta comparou os quatro, e a comparação estava
+  // contaminada**: o Symbios entrega QUADRA, e os lotes dele vêm da subdivisão do
+  // Lab (D50). Pôr "Symbios + subdivisão" ao lado de um motor de lote infla a
+  // diferença entre motores — em `ensaio-47ha` ela dá 355 %, que não é uma
+  // escolha que alguém faça entre dois loteamentos, é a distância entre duas
+  // etapas de projeto.
+  //
+  // Então saem as duas, e a segunda é a que responde à pergunta de verdade —
+  // *"trocar o programa que desenha rende mais que mudar a entrada?"*. As duas vão
+  // publicadas, para ninguém dizer que eu escolhi a que dava a manchete melhor.
+  // A fórmula mora na régua (`acesso.ts`), não aqui: a página do Jonny e esta
+  // ferramenta tinham duas, e davam dois confrontos para a mesma gleba (D116).
+  const refDe = (ids: readonly string[]) =>
+    ids.map((mid) => (sens[mid] ? referenciaDe(sens[mid]!) : null));
+
+  const entreQuatro = amplitudePctDe(refDe(MOTORES.map((m) => m.id)));
+  const entreOsDeLote = amplitudePctDe(refDe(MOTORES_DE_LOTE));
+  void lotesComAcessoDeclarado;
+
+  confrontos.push({
+    gleba: id,
+    amplitudeDoAcesso_pct: maiorAmplitude,
+    entreMotores_pct: entreQuatro,
+    entreOsDeLote_pct: entreOsDeLote,
+  });
+  console.log(
+    `  → maior amplitude do ACESSO ${maiorAmplitude} % · entre os quatro motores ${entreQuatro} % · ` +
+      `entre os três que entregam LOTE ${entreOsDeLote} %` +
+      `${maiorAmplitude > entreOsDeLote ? "  ← aqui o acesso pesa mais" : ""}`,
+  );
+
+  porGleba[id] = {
+    areaDaGleba_m2: n2(areaGleba),
+    temAcessoDeclarado: (entrada.acessos?.length ?? 0) > 0,
+    motores,
+    confronto: {
+      amplitudeDoAcesso_pct: maiorAmplitude,
+      entreMotores_pct: entreQuatro,
+      entreOsDeLote_pct: entreOsDeLote,
+    },
+  };
+}
+
+const ganhaDosQuatro = confrontos.filter((c) => c.amplitudeDoAcesso_pct > c.entreMotores_pct).length;
+const ganhaDosDeLote = confrontos.filter((c) => c.amplitudeDoAcesso_pct > c.entreOsDeLote_pct).length;
+const maiorDeTodas = Math.max(...confrontos.map((c) => c.amplitudeDoAcesso_pct));
+
+console.log(
+  `\n══════════ a conclusão, e ela é mais modesta que a manchete ══════════\n` +
+    `  O MESMO motor, no MESMO terreno, varia até +${maiorDeTodas} % em lotes só mudando a entrada da rua.\n` +
+    `  Isso é incondicional, e é o número que importa.\n` +
+    `  Mas "o acesso pesa mais que a escolha do motor" NÃO é geral: vale em ` +
+    `${ganhaDosDeLote} das ${confrontos.length} glebas\n` +
+    `  comparando os três motores que entregam lote, e em ${ganhaDosQuatro} das ${confrontos.length} ` +
+    `comparando os quatro.`,
+);
+
+writeFileSync(
+  join(SAIDA, "acesso.json"),
+  JSON.stringify(
+    {
+      prompt: "LAB-28",
+      geradoEm: "2026-10-03",
+      semente: SEMENTE,
+      contrato: CONTRATO,
+      posicoesDeAcesso: POSICOES_DE_ACESSO,
+      amplitudeEhPiso: true,
+      comoSeMede:
+        `o acesso vai a ${POSICOES_DE_ACESSO} pontos igualmente espaçados por comprimento de arco no ` +
+        "perímetro da gleba; o motor roda em cada um e quem conta lotes e área vendável é o " +
+        "Validator do Generate, o mesmo da tabela comparativa",
+      ressalva:
+        `a amplitude é um PISO: ${POSICOES_DE_ACESSO} pontos não varrem o perímetro, e o melhor e o ` +
+        "pior ponto reais podem cair entre duas amostras",
+      maiorAmplitudeDeTodas_pct: maiorDeTodas,
+      glebasEmQueOAcessoPesaMaisQueOsQuatroMotores: ganhaDosQuatro,
+      glebasEmQueOAcessoPesaMaisQueOsMotoresDeLote: ganhaDosDeLote,
+      porQueDuasContas:
+        "a diferença entre os QUATRO motores inclui o Symbios, que entrega quadra e cujos lotes " +
+        "vêm da subdivisão do Lab (D50) — isso infla a conta até 355 %, que não é escolha de " +
+        "projeto. A conta entre os três que entregam lote é a que responde \"trocar o programa " +
+        "rende mais que mudar a entrada?\". As duas saem publicadas",
+      glebas: porGleba,
+      confrontos,
+    },
+    null,
+    2,
+  ) + "\n",
+);
+
+console.log("\ndocs/provas/LAB-28/acesso.json");
