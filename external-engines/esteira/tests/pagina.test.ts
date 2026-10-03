@@ -102,6 +102,32 @@ describe("a página de comparação", () => {
     expect(p).toContain("Qual é a inclinação máxima que você aceita numa rua?");
   });
 
+  test("o bloco de terreno diz para que serve, e separa as duas forças", () => {
+    const p = lida();
+    expect(p).toContain("Terreno em declive: o que vai dar terraplenagem");
+    expect(p).toContain("comparar planos");
+    expect(p).toContain("estimar");
+    // As duas forças, e a assimetria entre elas.
+    expect(p).toContain("**reprova** — é a Lei 6.766/1979");
+    expect(p).toContain("**só avisa**");
+    expect(p).toContain('a coluna da rua não diz "passa" nem "não passa"');
+  });
+
+  test("o bloco de terreno traz o pior trecho e o pior lote com NOME", () => {
+    const p = lida();
+    const inicio = p.indexOf("| motor | rua acima de 15 % |");
+    expect(inicio).toBeGreaterThan(-1);
+    const bloco = p.slice(inicio, p.indexOf("\n\n", inicio));
+    const linhas = bloco.split("\n").filter((l) => l.startsWith("| Archilly") || l.startsWith("| Laborat") || l.startsWith("| Symbios"));
+    expect(linhas).toHaveLength(4);
+    // Cada linha nomeia a peça pior, entre acentos graves.
+    for (const l of linhas) expect(l).toMatch(/`[^`]+`.*`[^`]+`/);
+  });
+
+  test("o bloco de terreno diz que NÃO calcula volume de corte e aterro", () => {
+    expect(lida()).toContain("não calcula volume de corte e aterro");
+  });
+
   test("a régua de forma aparece com os dois limiares e com o aviso de que não aprova", () => {
     const p = lida();
     expect(p).toContain("85 %");

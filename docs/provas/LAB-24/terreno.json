@@ -1,0 +1,865 @@
+{
+  "prompt": "LAB-24",
+  "geradoEm": "2026-09-19T00:00:00.000Z",
+  "semente": 20260913,
+  "contrato": "1",
+  "limites": {
+    "lote_pct": 30,
+    "rua_pct": 15,
+    "forca": {
+      "lote": "REPROVA — é limite legal",
+      "rua": "AVISA — não reprova; o trecho se resolve com terraplenagem ou mudança de traçado"
+    },
+    "fonte": {
+      "lote": "Lei 6.766/1979, art. 3º, § único, III — confirmado pelo Jonny em 03/10/2026 como limite do LOTE",
+      "rua": "prática do Jonny, confirmada em 03/10/2026 — é AVISO, não reprovação: o trecho acima se resolve com terraplenagem ou mudança de traçado, e isso é decisão de projeto com custo"
+    }
+  },
+  "paraQueServe": [
+    "comparar planos",
+    "estimar terraplenagem"
+  ],
+  "oQueNaoFaz": "não calcula volume de corte e aterro: isso pede o greide projetado, que nenhum motor da família entrega. O que sai aqui é a área e o comprimento SUJEITOS a terraplenagem, que é a entrada do cálculo.",
+  "glebas": [
+    {
+      "prompt": "LAB-24",
+      "gleba": "completo",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 12449.29,
+              "comprimentoAcimaDoLimite_m": 1202.06,
+              "pctDoComprimento": 9.66,
+              "areaTotal_m2": 125832.22,
+              "areaAcimaDoLimite_m2": 12235.85,
+              "pctDaArea": 9.72,
+              "pior": {
+                "id": "VT-02",
+                "valor_pct": 31.76,
+                "onde": {
+                  "x": -544.22,
+                  "y": -321.12
+                }
+              }
+            },
+            "lote": {
+              "lotes": 1606,
+              "areaTotal_m2": 583251.81,
+              "areaAcimaDoLimite_m2": 5703.74,
+              "pctDaArea": 0.98,
+              "lotesComParteAcima": 95,
+              "lotesPrincipalmenteAcima": 3,
+              "reprovaPelaLei": true,
+              "pior": {
+                "id": "L372",
+                "valor_pct": 50.94,
+                "onde": {
+                  "x": -484.22,
+                  "y": -303.25
+                }
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 19935.2,
+              "comprimentoAcimaDoLimite_m": 2179.05,
+              "pctDoComprimento": 10.93,
+              "areaTotal_m2": 207465.88,
+              "areaAcimaDoLimite_m2": 22781.46,
+              "pctDaArea": 10.98,
+              "pior": {
+                "id": "VR-01",
+                "valor_pct": 48.88,
+                "onde": {
+                  "x": -80.38,
+                  "y": 439.98
+                }
+              }
+            },
+            "lote": {
+              "lotes": 1805,
+              "areaTotal_m2": 649404.75,
+              "areaAcimaDoLimite_m2": 7152.7,
+              "pctDaArea": 1.1,
+              "lotesComParteAcima": 113,
+              "lotesPrincipalmenteAcima": 3,
+              "reprovaPelaLei": true,
+              "pior": {
+                "id": "L1655",
+                "valor_pct": 52.22,
+                "onde": {
+                  "x": -647.9,
+                  "y": -481.52
+                }
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 24784.03,
+              "comprimentoAcimaDoLimite_m": 3441.45,
+              "pctDoComprimento": 13.89,
+              "areaTotal_m2": 249570.34,
+              "areaAcimaDoLimite_m2": 34850.73,
+              "pctDaArea": 13.96,
+              "pior": {
+                "id": "V13",
+                "valor_pct": 36.71,
+                "onde": {
+                  "x": -638.8,
+                  "y": -491.31
+                }
+              }
+            },
+            "lote": {
+              "lotes": 1060,
+              "areaTotal_m2": 424439.5,
+              "areaAcimaDoLimite_m2": 3595.2,
+              "pctDaArea": 0.85,
+              "lotesComParteAcima": 67,
+              "lotesPrincipalmenteAcima": 1,
+              "reprovaPelaLei": true,
+              "pior": {
+                "id": "v1-l635",
+                "valor_pct": 45.08,
+                "onde": {
+                  "x": -63.21,
+                  "y": -325.08
+                }
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 36218.99,
+              "comprimentoAcimaDoLimite_m": 5183.23,
+              "pctDoComprimento": 14.31,
+              "areaTotal_m2": 304239.51,
+              "areaAcimaDoLimite_m2": 43539.12,
+              "pctDaArea": 14.31,
+              "pior": {
+                "id": "via-198",
+                "valor_pct": 52.01,
+                "onde": {
+                  "x": 675.82,
+                  "y": -252.75
+                }
+              }
+            },
+            "lote": {
+              "lotes": 932,
+              "areaTotal_m2": 287286.93,
+              "areaAcimaDoLimite_m2": 2938.32,
+              "pctDaArea": 1.02,
+              "lotesComParteAcima": 49,
+              "lotesPrincipalmenteAcima": 2,
+              "reprovaPelaLei": true,
+              "pior": {
+                "id": "L924",
+                "valor_pct": 51.45,
+                "onde": {
+                  "x": -613.14,
+                  "y": -484.61
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-24",
+      "gleba": "sintetico-50ha-ondulado",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 8062.13,
+              "comprimentoAcimaDoLimite_m": 10.25,
+              "pctDoComprimento": 0.13,
+              "areaTotal_m2": 81728.33,
+              "areaAcimaDoLimite_m2": 117.88,
+              "pctDaArea": 0.14,
+              "pior": {
+                "id": "VP-01",
+                "valor_pct": 16.57,
+                "onde": {
+                  "x": 120.04,
+                  "y": -88.57
+                }
+              }
+            },
+            "lote": {
+              "lotes": 1003,
+              "areaTotal_m2": 363684.62,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L91",
+                "valor_pct": 19.82,
+                "onde": {
+                  "x": -50.71,
+                  "y": -219.19
+                }
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 8537.07,
+              "comprimentoAcimaDoLimite_m": 11.73,
+              "pctDoComprimento": 0.14,
+              "areaTotal_m2": 87778.49,
+              "areaAcimaDoLimite_m2": 117.34,
+              "pctDaArea": 0.13,
+              "pior": {
+                "id": "VT-11",
+                "valor_pct": 22.07,
+                "onde": {
+                  "x": 48.29,
+                  "y": -84.58
+                }
+              }
+            },
+            "lote": {
+              "lotes": 788,
+              "areaTotal_m2": 285129.96,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L564",
+                "valor_pct": 19.82,
+                "onde": {
+                  "x": -52.67,
+                  "y": -233.18
+                }
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 7046.59,
+              "comprimentoAcimaDoLimite_m": 30.14,
+              "pctDoComprimento": 0.43,
+              "areaTotal_m2": 71672.42,
+              "areaAcimaDoLimite_m2": 301.35,
+              "pctDaArea": 0.42,
+              "pior": {
+                "id": "V8",
+                "valor_pct": 17.46,
+                "onde": {
+                  "x": 27.15,
+                  "y": -50.16
+                }
+              }
+            },
+            "lote": {
+              "lotes": 501,
+              "areaTotal_m2": 199892.2,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "v12-l227",
+                "valor_pct": 19.82,
+                "onde": {
+                  "x": -57.11,
+                  "y": -220.61
+                }
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 16868.5,
+              "comprimentoAcimaDoLimite_m": 96.43,
+              "pctDoComprimento": 0.57,
+              "areaTotal_m2": 141695.43,
+              "areaAcimaDoLimite_m2": 809.99,
+              "pctDaArea": 0.57,
+              "pior": {
+                "id": "via-108",
+                "valor_pct": 17.05,
+                "onde": {
+                  "x": 7.67,
+                  "y": -90.51
+                }
+              }
+            },
+            "lote": {
+              "lotes": 318,
+              "areaTotal_m2": 95885.17,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L75",
+                "valor_pct": 18.2,
+                "onde": {
+                  "x": -228.09,
+                  "y": -105.96
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-24",
+      "gleba": "sintetico-10ha-plano",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 1392.01,
+              "comprimentoAcimaDoLimite_m": 0,
+              "pctDoComprimento": 0,
+              "areaTotal_m2": 14370.84,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "pior": {
+                "id": "VS-03",
+                "valor_pct": 1.55,
+                "onde": {
+                  "x": -34.47,
+                  "y": -78.6
+                }
+              }
+            },
+            "lote": {
+              "lotes": 171,
+              "areaTotal_m2": 62809.85,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L30",
+                "valor_pct": 1.27,
+                "onde": {
+                  "x": -174.17,
+                  "y": -55.6
+                }
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 1929.06,
+              "comprimentoAcimaDoLimite_m": 0,
+              "pctDoComprimento": 0,
+              "areaTotal_m2": 20242.57,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "pior": {
+                "id": "VR-02",
+                "valor_pct": 1.64,
+                "onde": {
+                  "x": -67.21,
+                  "y": -107.06
+                }
+              }
+            },
+            "lote": {
+              "lotes": 137,
+              "areaTotal_m2": 49994.78,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L94",
+                "valor_pct": 1.29,
+                "onde": {
+                  "x": 112.63,
+                  "y": -68.2
+                }
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 1664.36,
+              "comprimentoAcimaDoLimite_m": 0,
+              "pctDoComprimento": 0,
+              "areaTotal_m2": 17138.97,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "pior": {
+                "id": "V6",
+                "valor_pct": 1.14,
+                "onde": {
+                  "x": 109.95,
+                  "y": -78.81
+                }
+              }
+            },
+            "lote": {
+              "lotes": 124,
+              "areaTotal_m2": 49028.69,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "v12-l58",
+                "valor_pct": 1.28,
+                "onde": {
+                  "x": -70.95,
+                  "y": -82.57
+                }
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 1926.29,
+              "comprimentoAcimaDoLimite_m": 0,
+              "pctDoComprimento": 0,
+              "areaTotal_m2": 16180.83,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "pior": {
+                "id": "via-10",
+                "valor_pct": 1.41,
+                "onde": {
+                  "x": -91.83,
+                  "y": -119.37
+                }
+              }
+            },
+            "lote": {
+              "lotes": 66,
+              "areaTotal_m2": 23534.81,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L2",
+                "valor_pct": 1.27,
+                "onde": {
+                  "x": -88.81,
+                  "y": -73.64
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-24",
+      "gleba": "ensaio-47ha",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 7231.4,
+              "comprimentoAcimaDoLimite_m": 206.16,
+              "pctDoComprimento": 2.85,
+              "areaTotal_m2": 73159.25,
+              "areaAcimaDoLimite_m2": 2061.65,
+              "pctDaArea": 2.82,
+              "pior": {
+                "id": "VS-04",
+                "valor_pct": 21.09,
+                "onde": {
+                  "x": 397.13,
+                  "y": 340
+                }
+              }
+            },
+            "lote": {
+              "lotes": 974,
+              "areaTotal_m2": 353306.71,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L656",
+                "valor_pct": 20.36,
+                "onde": {
+                  "x": 620.87,
+                  "y": 399
+                }
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 9147.63,
+              "comprimentoAcimaDoLimite_m": 307.79,
+              "pctDoComprimento": 3.36,
+              "areaTotal_m2": 94472.43,
+              "areaAcimaDoLimite_m2": 3167.56,
+              "pctDaArea": 3.35,
+              "pior": {
+                "id": "VT-07",
+                "valor_pct": 27.13,
+                "onde": {
+                  "x": 432.98,
+                  "y": 170.07
+                }
+              }
+            },
+            "lote": {
+              "lotes": 778,
+              "areaTotal_m2": 282075.72,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L425",
+                "valor_pct": 20.36,
+                "onde": {
+                  "x": 623.93,
+                  "y": 411.15
+                }
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 6384.43,
+              "comprimentoAcimaDoLimite_m": 49.64,
+              "pctDoComprimento": 0.78,
+              "areaTotal_m2": 64452.99,
+              "areaAcimaDoLimite_m2": 496.44,
+              "pctDaArea": 0.77,
+              "pior": {
+                "id": "V9",
+                "valor_pct": 18.32,
+                "onde": {
+                  "x": 630.58,
+                  "y": 581.83
+                }
+              }
+            },
+            "lote": {
+              "lotes": 599,
+              "areaTotal_m2": 238189.76,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "v12-l482",
+                "valor_pct": 20.36,
+                "onde": {
+                  "x": 621.45,
+                  "y": 406.31
+                }
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 15445.02,
+              "comprimentoAcimaDoLimite_m": 700.02,
+              "pctDoComprimento": 4.53,
+              "areaTotal_m2": 129738.19,
+              "areaAcimaDoLimite_m2": 5880.2,
+              "pctDaArea": 4.53,
+              "pior": {
+                "id": "via-29-2",
+                "valor_pct": 22.41,
+                "onde": {
+                  "x": 438.8,
+                  "y": 116.85
+                }
+              }
+            },
+            "lote": {
+              "lotes": 214,
+              "areaTotal_m2": 66144.84,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L144",
+                "valor_pct": 19.12,
+                "onde": {
+                  "x": 777.11,
+                  "y": 278.06
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-24",
+      "gleba": "geo-antonina",
+      "semente": 20260913,
+      "contrato": "1",
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · ortogonal",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 11014.92,
+              "comprimentoAcimaDoLimite_m": 0,
+              "pctDoComprimento": 0,
+              "areaTotal_m2": 111379.22,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "pior": {
+                "id": "VS-06",
+                "valor_pct": 13.84,
+                "onde": {
+                  "x": 101.3,
+                  "y": 358.2
+                }
+              }
+            },
+            "lote": {
+              "lotes": 1390,
+              "areaTotal_m2": 501716.01,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L660",
+                "valor_pct": 19.57,
+                "onde": {
+                  "x": 124.3,
+                  "y": 353.2
+                }
+              }
+            }
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · espinha",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 13451.45,
+              "comprimentoAcimaDoLimite_m": 0,
+              "pctDoComprimento": 0,
+              "areaTotal_m2": 136013.14,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "pior": {
+                "id": "VS-contorno-26",
+                "valor_pct": 14.27,
+                "onde": {
+                  "x": 5.4,
+                  "y": -43.25
+                }
+              }
+            },
+            "lote": {
+              "lotes": 1657,
+              "areaTotal_m2": 596222.14,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L195",
+                "valor_pct": 17.97,
+                "onde": {
+                  "x": 124.17,
+                  "y": 352.3
+                }
+              }
+            }
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 24629.62,
+              "comprimentoAcimaDoLimite_m": 0,
+              "pctDoComprimento": 0,
+              "areaTotal_m2": 248911.83,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "pior": {
+                "id": "V17",
+                "valor_pct": 14.93,
+                "onde": {
+                  "x": 126.97,
+                  "y": -131.83
+                }
+              }
+            },
+            "lote": {
+              "lotes": 1386,
+              "areaTotal_m2": 555017.12,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "v1-l271",
+                "valor_pct": 19.57,
+                "onde": {
+                  "x": 112.39,
+                  "y": 356
+                }
+              }
+            }
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "indicadores": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 56838.17,
+              "comprimentoAcimaDoLimite_m": 157.16,
+              "pctDoComprimento": 0.28,
+              "areaTotal_m2": 477440.66,
+              "areaAcimaDoLimite_m2": 1320.13,
+              "pctDaArea": 0.28,
+              "pior": {
+                "id": "via-48",
+                "valor_pct": 25.97,
+                "onde": {
+                  "x": 842.63,
+                  "y": 500.01
+                }
+              }
+            },
+            "lote": {
+              "lotes": 1014,
+              "areaTotal_m2": 298475.19,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L1006",
+                "valor_pct": 20.25,
+                "onde": {
+                  "x": -464.82,
+                  "y": -325.83
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

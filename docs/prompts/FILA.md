@@ -169,8 +169,37 @@ apaga ao esgotar (D62).
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-21** | Medir, em todas as glebas e motores, **quantos trechos e cruzamentos passam dos limites de rampa**; coluna na tabela e na página do Jonny, separando **média** e **pico**, e a página dizendo que a média esconde o pico | ✅ **concluído em 03/10/2026** | nenhuma |
-| **LAB-22** | Só o Symbios reporta o pico — escrever, **por motor**, o que falta medir, e mandar **pelo chat** | ⬜ **é o próximo** | LAB-21 — **cumprida** |
-| **LAB-23** | **Via desenhada à mão como coluna vertebral do traçado**: medir o que muda nos quatro motores quando a via vem do arquivo em vez de ser inventada | ⬜ | LAB-21 |
+| **LAB-24** | **Resposta do Jonny:** 30 % é do **LOTE** (reprova, é lei) e 15 % é da **RUA** (só **aviso**). Bloco de indicadores de terreno igual para os quatro motores | ✅ **concluído em 03/10/2026** | nenhuma |
+| **LAB-22** | Só o Symbios reporta o pico — escrever, **por motor**, o que falta medir, e mandar **pelo chat** | ⬜ **é o próximo** | LAB-24 — **cumprida** |
+| **LAB-23** | **Via desenhada à mão como coluna vertebral do traçado**: medir o que muda nos quatro motores quando a via vem do arquivo em vez de ser inventada | ⬜ | LAB-22 |
+
+### LAB-24 · O bloco de indicadores de terreno — ✅ concluído em 03/10/2026
+
+**Entregue:** [`../relatorios/LAB-24.md`](../relatorios/LAB-24.md),
+`docs/provas/LAB-24/terreno.json`, o **formato proposto** em
+`formato-proposto.json`, o bloco na tabela e a seção *"Terreno em declive"* na
+página do Jonny.
+
+**A resposta dele traz uma assimetria** (D95): **30 % no LOTE reprova** (lei) e
+**15 % na RUA só avisa**, porque *"o trecho se resolve com terraplenagem ou
+mudança de traçado, e isso é decisão de projeto com custo"*. A régua da rua
+**não ganhou veredito nenhum**, e há teste que reprova quem acrescentar um.
+
+**Medido: os quatro motores REPROVAM** em `completo` — 95, 113, 67 e 49 lotes com
+parte acima de 30 % —, e em nenhuma outra gleba. Mas **"parte acima" e
+"principalmente acima" saem os dois** (D96): são **95 contra 3**, **113 contra
+3**, **67 contra 1**, **49 contra 2**. Quase tudo é borda encostando no talude.
+
+**O achado da rodada: os dois indicadores ordenam os motores AO CONTRÁRIO.** O
+Symbios é **1º** em rua em declive (5 183 m) e **último** em lote em declive
+(2 938 m²) — ele manda a rua para a encosta e guarda o plano para o lote; a
+ortogonal faz o inverso. Qual presta é decisão de projeto.
+
+**O formato proposto declara, dentro do JSON, que não é volume de corte e
+aterro** (D97): volume pede o greide projetado, que nenhum motor entrega. É o
+mal-entendido mais caro possível no caminho, porque o número tem a cara certa.
+
+---
 
 ### LAB-21 · A rampa, trecho e cruzamento — ✅ concluído em 03/10/2026
 

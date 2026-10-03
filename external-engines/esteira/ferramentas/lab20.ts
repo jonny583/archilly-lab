@@ -83,6 +83,23 @@ interface Rampa {
   cruzamentos: number | null;
   cruzamentosAcimaDe: Record<string, number> | null;
 }
+interface Terreno {
+  medido: boolean;
+  via: {
+    comprimentoAcimaDoLimite_m: number;
+    pctDoComprimento: number;
+    areaAcimaDoLimite_m2: number;
+    pctDaArea: number;
+    pior: { id: string; valor_pct: number; onde: { x: number; y: number } } | null;
+  } | null;
+  lote: {
+    areaAcimaDoLimite_m2: number;
+    pctDaArea: number;
+    lotesComParteAcima: number;
+    reprovaPelaLei: boolean;
+    pior: { id: string; valor_pct: number; onde: { x: number; y: number } } | null;
+  } | null;
+}
 interface MotorNaProva {
   motor: string;
   ms: number;
@@ -97,6 +114,7 @@ interface MotorNaProva {
   pctDaMassaSemLote: number | null;
   forma: Forma | null;
   rampa: Rampa | null;
+  terreno: Terreno | null;
 }
 interface GlebaNaProva {
   gleba: string;
@@ -337,6 +355,66 @@ for (const g of prova.glebas) {
   }
   push("");
 }
+
+// ── O bloco de terreno: rua avisa, lote reprova ───────────────────────────
+push(
+  "---",
+  "",
+  "## Terreno em declive: o que vai dar terraplenagem",
+  "",
+  "**Para que este quadro serve:** **comparar planos** e **estimar",
+  "terraplenagem**. Os metros e metros quadrados abaixo são o que vira volume de",
+  "corte e aterro no orçamento.",
+  "",
+  "**Os dois limites não têm a mesma força, e você mesmo separou as duas:**",
+  "",
+  "| o quê | limite | o que acontece |",
+  "|---|---|---|",
+  "| **Lote** | **30 %** de inclinação do terreno | **reprova** — é a Lei 6.766/1979 |",
+  "| **Rua** | **15 %** de inclinação | **só avisa** — o trecho se resolve com terraplenagem ou mudando o traçado, e isso é decisão de projeto, com custo |",
+  "",
+  "**Por isso a coluna da rua não diz \"passa\" nem \"não passa\".** Ela diz",
+  "*quanto*, para quem for pôr preço.",
+  "",
+);
+for (const g of prova.glebas) {
+  const comDado = ORDEM.filter((id) => g.motores[id]?.terreno?.medido);
+  if (comDado.length === 0) continue;
+  push(
+    `### ${NOME_DA_GLEBA[g.gleba] ?? g.gleba}`,
+    "",
+    "| motor | rua acima de 15 % | lote acima de 30 % | pior trecho de rua | pior lote |",
+    "|---|---|---|---|---|",
+  );
+  for (const id of comDado) {
+    const t = g.motores[id]!.terreno!;
+    const v = t.via;
+    const lo = t.lote;
+    const rua = v
+      ? `${br(v.comprimentoAcimaDoLimite_m)} m · ${br(v.areaAcimaDoLimite_m2)} m² · **${br(v.pctDoComprimento, 1)} %** do total`
+      : "—";
+    const lote = lo
+      ? lo.lotesComParteAcima === 0
+        ? "**nenhum**"
+        : `${br(lo.areaAcimaDoLimite_m2)} m² · ${br(lo.pctDaArea, 2)} % · ${br(lo.lotesComParteAcima)} lotes · **REPROVA**`
+      : "—";
+    const piorV = v?.pior ? `${br(v.pior.valor_pct, 1)} % em \`${v.pior.id}\`` : "—";
+    const piorL = lo?.pior ? `${br(lo.pior.valor_pct, 1)} % em \`${lo.pior.id}\`` : "—";
+    push(`| ${NOME_DO_MOTOR[id] ?? id} | ${rua} | ${lote} | ${piorV} | ${piorL} |`);
+  }
+  push("");
+}
+push(
+  "**O \"pior trecho\" e o \"pior lote\" vêm com o nome da peça**, para você achar",
+  "no desenho. As coordenadas exatas estão em",
+  "[`provas/LAB-24/terreno.json`](provas/LAB-24/terreno.json).",
+  "",
+  "**O que este quadro NÃO faz:** não calcula volume de corte e aterro. Isso pede",
+  "o perfil da rua já projetado, que nenhum motor da família entrega hoje. O que",
+  "sai aqui é **a área e o comprimento sujeitos a terraplenagem** — a entrada da",
+  "conta, não o resultado dela.",
+  "",
+);
 
 // ── O que cada motor não soube fazer ──────────────────────────────────────
 push(
