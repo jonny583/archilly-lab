@@ -119,6 +119,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "a prova no navegador mede o `.wasm` carregando em Chromium de verdade, sem terreno nenhum",
     "LAB-31/sabotagem.json":
       "o registro da sabotagem do comando único: mede o script e o código de saída, não terreno",
+    "LAB-38/ci.json":
+      "os três disparos do CI, com a sabotagem de propósito: mede o workflow e os códigos de saída dele, não terreno",
   };
 
   /**
