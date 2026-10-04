@@ -7,7 +7,8 @@ Quem escreve: o Claude, a cada rodada. **Quem risca: você.** Item resolvido é
 marcado, nunca apagado — para a decisão não se perder.
 
 Refeito do zero em **14/09/2026**, no fim do LF-FINAL. Atualizado em
-**15/09/2026**, depois da sua resposta sobre a travessia.
+**15/09/2026**, depois da sua resposta sobre a travessia, e em **04/10/2026**, com o
+item 7 — um resultado estranho do Laboratório de Parcelamento que é decisão sua.
 
 **Os endereços, prontos para clicar:**
 
@@ -39,11 +40,12 @@ nenhuma**, porque não tinha como saber quando ela se justifica. Agora tem.
 nos quatro motores, e a sua razão para a rua só avisar foi para dentro do código
 com as suas palavras.
 
-**Fica faltando uma coisa só, e ela é de confirmação:**
+**Ficam faltando duas coisas, e as duas são de olhar e dizer:**
 
 | # | o que | quanto custa | o que muda se você responder |
 |---|---|---|---|
 | **1** | **Confirmar a régua de forma de lote que veio pelo chat:** lote que aproveita **menos de 85 %** do retângulo em volta dele fica marcado *"a conferir"*; **menos de 70 %**, *"ruim"*. | 2 min | é a linha que decide quais lotes aparecem marcados na comparação entre motores |
+| **2** | **Olhar um resultado estranho do Laboratório de Parcelamento em Antonina:** ele passou a escolher, para si mesmo, um plano de **33 lotes** quando tinha um de **1 228** à disposição. Ver o item **7** abaixo. | 10 min, olhando a tabela | se for de propósito, nada muda e eu paro de achar estranho; se não for, é conserto no Laboratório de Parcelamento |
 
 
 **Ela já está valendo e aplicada** — está na
@@ -317,6 +319,74 @@ normal**, e a palavra "irregular" estava dando um veredito que não é meu. Agor
 a tabela só diz a forma; quem diz se a forma presta é você.
 
 **Nada trava enquanto isso.** Todas as medições continuam saindo.
+
+---
+
+## 7 · O Laboratório de Parcelamento escolheu 33 lotes tendo 1 228 à mão — isso é de propósito?
+
+**Novo em 04/10/2026.** É o item mais estranho que apareceu até agora, e ele não é
+defeito meu: eu medi, conferi duas vezes, e o número é esse.
+
+### O que aconteceu, na ordem
+
+No terreno de **Antonina** há uma **rua que já existe**, encostada na divisa — 180 m
+dela. Até 04/10 eu **não contava isso ao programa**: ele tinha um lugar para receber
+essa informação e eu nunca a entregava. Era uma dívida minha, e está escrita como tal
+desde o começo.
+
+**Entreguei.** E o programa fez o certo: passou a desenhar **lotes de frente para
+aquela rua** — de **nenhum** para **catorze**, em todos os dez partidos de traçado que
+ele testa. Isso é bom, é o que se esperava, e confirmou que o problema era meu.
+
+**Mas aconteceu outra coisa junto.** O Laboratório de Parcelamento desenha dez planos
+diferentes e **dá nota a cada um, pela régua dele**; eu publico o que ele mesmo escolheu
+— porque escolher por ele seria eu decidindo no lugar do programa. E a escolha mudou:
+
+| plano | lotes | nota que ele deu |
+|---|---:|---:|
+| **o que ele escolheu** (`superquadra`) | **33** | **0,6226** |
+| outro que estava lá (`ortogonal`) | **1 228** | 0,5881 |
+
+**Ele preferiu 33 lotes a 1 228, no mesmo terreno.**
+
+### Por que isso mudou agora
+
+O plano de 33 lotes **nem existia antes**: naquele terreno ele desenhava **zero** lotes e
+era descartado. Quando a rua existente passou a render lotes de frente, aquele plano
+ganhou catorze lotes, deixou de ser vazio — e a nota dele é a mais alta.
+
+### As duas leituras possíveis, e eu não escolho entre elas
+
+1. **É de propósito.** Poucos lotes grandes é um produto legítimo — chácara, lote de
+   alto padrão, condomínio de poucas unidades. A régua de nota do Laboratório de
+   Parcelamento pode estar premiando isso de propósito, e nesse caso **não há nada para
+   consertar**: o programa está fazendo o que foi feito para fazer, e eu é que estranhei.
+2. **É efeito colateral.** A rua existente abriu uma porta que ninguém pensou em fechar,
+   e a nota passou a premiar um plano que, naquele terreno, ninguém quereria. Nesse caso
+   é conserto no **Laboratório de Parcelamento** — na régua de nota dele, não na minha.
+
+**Eu não tenho como decidir isso**: é regra de produto e de urbanismo, não de código.
+
+### O que eu faço enquanto você não olhar
+
+**Nada muda, e nada fica escondido.** Sigo rodando o programa como ele é, publicando o
+**33** na tabela, e **com a razão colada ao número** — na página de comparação, debaixo
+do quadro de Antonina, está escrito que o ranking dele escolheu um plano de 33 lotes
+tendo um de 1 228, com as duas notas. Quem lê a tabela não vai concluir que o programa
+desenha mal o terreno.
+
+**O que eu não faço:** escolher o plano por ele (seria eu decidindo no lugar do
+programa) nem esconder a informação dele (seria repetir o erro que acabei de consertar).
+
+### Onde olhar, se quiser conferir
+
+- a [página de comparação dos motores](https://github.com/jonny583/archilly-lab/blob/main/docs/COMPARACAO_DOS_MOTORES.md),
+  no quadro **Antonina (PR)** — o aviso está logo abaixo da tabela;
+- e o relatório técnico, se der curiosidade:
+  [`docs/relatorios/LAB-37.md`](https://github.com/jonny583/archilly-lab/blob/main/docs/relatorios/LAB-37.md).
+
+**Você nunca abriu esse programa**, e o chat disse que não é hora de abrir — então isto
+fica aqui, à vista, até você querer olhar. **Não trava nada.**
 
 ---
 

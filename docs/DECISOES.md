@@ -3647,3 +3647,102 @@ onde o número aparece, não escondido"*.
 **E vira item para o Laboratório de Parcelamento, numerado no relatório, sem commit
 lá:** a nota deles prefere 33 lotes a 1 228 na mesma gleba. Pode ser intencional — plano
 de poucos lotes grandes é um produto — mas **se não for, está medido**.
+
+---
+
+## D141 · O CI existe, e ele diz a verdade sobre o que NÃO pode rodar · 04/10/2026
+
+O chat mandou: *"CI para o comando único — não há workflow neste repositório, então
+nada roda o verde sozinho; crie e prove quebrando um teste de propósito. É o mesmo
+buraco do Orçamento e do Generate, e foi ele que deixou uma suíte vermelha duas semanas
+sem ninguém ver."*
+
+**O levantamento mudou o formato da resposta.** O verde completo precisa de **dois
+clones vizinhos** — `jonny583/motor-testfit` e `jonny583/urban-create-hub-41d93a4d` —,
+que o `tsconfig` do adaptador lê por caminho: é a exceção medida do **D16**, que existe
+justamente para não haver segunda cópia envelhecendo em silêncio.
+
+**E medido:** este repositório é **PÚBLICO**; os dois vizinhos são **PRIVADOS**. O
+`GITHUB_TOKEN` que o Actions entrega a um workflow **só alcança o próprio
+repositório**. Então **o verde completo não roda sem um segredo que só o Jonny pode
+criar** — e isso não é detalhe de configuração, é o fato que decide o desenho.
+
+**As duas saídas erradas, e por que são erradas:**
+
+| saída | por que não |
+|---|---|
+| um CI que roda *parte* da suíte e fica **verde** | **falso verde**, e é literalmente o defeito do D110: um check verde que não roda o verde ensina a confiar no que não protege |
+| vendorizar as fontes dos vizinhos para o CI alcançá-las | **segunda cópia envelhecendo**, que é o que o D16 proíbe |
+
+**Decisão: o workflow tem DOIS trabalhos, e os nomes não enganam.**
+
+1. **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** — roda hoje, sem
+   segredo: **64 travas** em 5 arquivos que não importam nada dos vizinhos. São as que
+   leem **arquivo do próprio repositório** — a página do Jonny estar atualizada, o
+   formato do RECADO, a cobertura do próprio `conferir.sh`, as regras do `CLAUDE.md` — e
+   as de geometria pura do esqueleto reto. É pouco em número de testes e **muito** em
+   tipo de apodrecimento: é exatamente o que ninguém nota à mão;
+2. **`o verde completo (precisa do segredo VIZINHOS_TOKEN)`** — sem o segredo, **FALHA
+   com a receita** (D124): como criar um token *fine-grained* restrito a
+   `Contents: Read-only` nos dois repositórios, onde colá-lo, e a ressalva de que
+   segredo em repositório público é decisão de quem configura (a alternativa é tornar os
+   vizinhos públicos, e essa é do Jonny).
+
+> **Um CI vermelho por falta de configuração é honesto. Um CI verde que não roda o verde
+> é a mentira que o D110 custou duas semanas.**
+
+**E a lista do trabalho 1 tem guarda**, porque lista é o que envelhece: `regras.test.ts`
+lê o YAML, extrai os arquivos de teste citados, e **reprova se algum deles importar**
+`@generate/*`, `@testfit/*`, `@symbios/*` ou o adaptador — caso em que o trabalho
+passaria a falhar no CI por falta de clone, e alguém "consertaria" afrouxando. Mais as
+travas de que o YAML roda o comando único, de que a precondição sai com erro e traz a
+receita, de que não há `continue-on-error` nem `|| true`, e de que o nome diz **"NÃO é o
+verde"**.
+
+## D142 · A DÉCIMA vez do ponto cego: a régua leu MENÇÃO, não importação · 04/10/2026
+
+A primeira versão da guarda da lista do CI usava `fonte.includes("@generate/")` — e
+reprovou **o próprio `regras.test.ts`**, que cita `@generate/` como **texto**, na trava
+que confere que o `comum.ts` importa o Validator de lá.
+
+**É a mesma forma do D137, duas vezes no mesmo dia:** régua que casa por aparição da
+palavra mede **ortografia ou menção**, não **conteúdo**. A régua passou a extrair o
+especificador do `import ... from "…"` e a comparar o começo dele.
+
+**Décima vez, e a quinta pega dentro do próprio prompt.** O que esta acrescenta à lista
+do §6 é pequeno e prático: **quando a régua procura um nome em código, procure-o no
+lugar da gramática onde ele significa aquilo** — num `import`, não no arquivo inteiro.
+
+## D143 · O CI achou um defeito na minha guarda no PRIMEIRO disparo · 04/10/2026
+
+O primeiro disparo do workflow do LAB-38 deu **os dois trabalhos vermelhos**. Um era o
+esperado — o verde completo falhando na precondição do segredo, imprimindo a receita. **O
+outro não.**
+
+O trabalho sem clones rodou **68 travas, 67 passaram e 1 falhou**:
+
+> `§4 · não escreve em repositório vizinho > os clones somente-leitura estão limpos — e
+> quantos foram conferidos sai dito`
+
+**Era a minha guarda do D136, e o defeito é dela.** Ela exigia `conferidos.length > 0` e
+`toContain("motor-testfit")`, com o comentário *"zero clones conferidos significaria que
+algo mudou de lugar"*. **No runner do CI não há clone nenhum** — e não há por um motivo
+legítimo: aquele trabalho roda exatamente as travas que não dependem dos vizinhos. A
+asserção acusava o ambiente de um defeito que era dela.
+
+**E a proteção que eu queria ali já existia, estrutural:** o verde completo **não passa**
+sem os clones — o `typecheck` e mais de 300 travas quebram na hora. Nenhum teste precisa
+afirmar isso; afirmar criou uma trava que só valia numa máquina.
+
+**Decisão:** a trava mede o que pode medir — **clone que existe está limpo**, sempre — e
+exige que o ambiente seja **um dos dois declarados**: *completo* (tem o clone do motor, e
+aí a suíte inteira roda) ou *só-guardas* (não tem nenhum). **Meio estado reprova**: ter o
+Generate sem o motor faria o verde falhar por motivo obscuro, que é o que o D124 manda
+evitar.
+
+**Por que esta decisão vale mais que o conserto:** é o argumento de que o CI serve, dado
+pelo próprio CI, no primeiro disparo. Eu rodei aquela trava dezenas de vezes nesta
+máquina e ela sempre passou — **porque esta máquina tem os clones**. A guarda era
+verdadeira sobre um ambiente e falsa sobre outro, e **só um segundo ambiente podia
+mostrar isso**. Era, em miniatura, a própria tese do prompt: o que ninguém executa num
+lugar diferente não está testado, está confirmado.

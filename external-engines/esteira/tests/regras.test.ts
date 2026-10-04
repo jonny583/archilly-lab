@@ -119,6 +119,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "a prova no navegador mede o `.wasm` carregando em Chromium de verdade, sem terreno nenhum",
     "LAB-31/sabotagem.json":
       "o registro da sabotagem do comando único: mede o script e o código de saída, não terreno",
+    "LAB-38/ci.json":
+      "os três disparos do CI, com a sabotagem de propósito: mede o workflow e os códigos de saída dele, não terreno",
   };
 
   /**
@@ -260,10 +262,22 @@ describe("§5 · \"Testfit\" é nome interno", () => {
 });
 
 describe("§4 · não escreve em repositório vizinho", () => {
-  test("os clones somente-leitura estão limpos — e quantos foram conferidos sai dito", () => {
-    // A regra é conferida à mão ao fim de toda rodada e dita no relatório. Aqui ela
-    // vira guarda. Clone ausente não é falha: nada há para sujar — mas a CONTA sai,
-    // para "0 clones conferidos" não passar por verde.
+  test("os clones somente-leitura estão limpos, e o ambiente é um dos dois declarados", () => {
+    // ── O CI ACHOU UM DEFEITO AQUI NO PRIMEIRO DISPARO (LAB-38, D143) ────────
+    //
+    // A primeira versão desta trava exigia `conferidos.length > 0` e
+    // `toContain("motor-testfit")`, com o comentário "zero clones conferidos
+    // significaria que algo mudou de lugar". **No runner do CI não há clone
+    // nenhum** — e não há por um motivo legítimo: ele roda só as travas que não
+    // dependem dos vizinhos. A asserção acusava o ambiente de um defeito que era
+    // da asserção.
+    //
+    // **E a proteção contra o falso verde que eu queria aqui já existe, e é
+    // estrutural:** o verde completo NÃO PASSA sem os clones — o `typecheck` e
+    // mais de 300 travas quebram na hora. Nenhum teste precisa afirmar isso.
+    //
+    // Então esta trava mede o que pode medir: clone que existe está limpo, e o
+    // ambiente é um dos DOIS declarados, nunca um meio estado.
     const VIZINHOS = ["motor-testfit", "urban-create-hub-41d93a4d", "urban-scout-tool"];
     const casa = join(RAIZ, "..");
     const conferidos: string[] = [];
@@ -273,12 +287,85 @@ describe("§4 · não escreve em repositório vizinho", () => {
       if (!existsSync(join(dir, ".git"))) continue;
       conferidos.push(v);
       const saida = execFileSync("git", ["-C", dir, "status", "--porcelain"], { encoding: "utf8" });
-      if (saida.trim().length > 0) sujos.push(`${v}: ${saida.trim().split("\\n").length} arquivo(s)`);
+      if (saida.trim().length > 0) sujos.push(`${v}: ${saida.trim().split("\n").length} arquivo(s)`);
     }
+    // Isto vale SEMPRE, e é o coração da §4.
     expect(sujos, "o Lab escreveu em repositório vizinho — a §4 proíbe").toEqual([]);
-    // O `testfit` é lido por caminho pelo `tsconfig`, então ele existe sempre que a
-    // suíte roda: zero clones conferidos significaria que algo mudou de lugar.
-    expect(conferidos.length, "nenhum clone vizinho foi conferido").toBeGreaterThan(0);
-    expect(conferidos).toContain("motor-testfit");
+
+    // E o ambiente é um dos dois, nunca pela metade: ou tem o clone do motor (e aí
+    // a suíte inteira pode rodar), ou não tem nenhum (e aí só estas travas rodam).
+    // Ter o Generate sem o motor, ou vice-versa, é ambiente quebrado — e o verde
+    // falharia por motivo obscuro, que é o que o D124 manda evitar.
+    if (!conferidos.includes("motor-testfit")) {
+      expect(
+        conferidos,
+        "ambiente pela metade: há clone vizinho mas falta o do motor, que o tsconfig lê",
+      ).toEqual([]);
+    }
+  });
+});
+
+describe("§7 · o CI existe, e a lista dele não é mentira (LAB-38)", () => {
+  const CI = join(RAIZ, ".github", "workflows", "verde.yml");
+
+  test("existe workflow, e ele roda o comando único", () => {
+    // Até o LAB-38 não havia nenhum, e a dívida estava escrita no D125: o comando
+    // existia, estava provado por sabotagem, e NADA o executava sozinho.
+    expect(existsSync(CI), "o CI do LAB-38 desapareceu").toBe(true);
+    const y = readFileSync(CI, "utf8");
+    expect(y, "o trabalho do verde tem de rodar o comando único, não um pedaço dele").toContain(
+      "./external-engines/conferir.sh",
+    );
+  });
+
+  test("a lista do trabalho `guardas-sem-clones` só tem testes que NÃO precisam dos clones", () => {
+    // Esta é a trava que impede o CI de virar FALSO VERDE: se alguém puser na
+    // lista um teste que importa `@generate/*` ou `@testfit/*`, o trabalho passa a
+    // falhar no CI por falta de clone — ou, pior, alguém "conserta" afrouxando.
+    const y = readFileSync(CI, "utf8");
+    const listados = [...y.matchAll(/tests\/([\w.-]+\.test\.ts)/g)].map((m) => m[1]!);
+    expect(listados.length, "a lista do trabalho sem clones ficou vazia").toBeGreaterThan(0);
+
+    const pasta = import.meta.dirname;
+    for (const nome of new Set(listados)) {
+      const caminho = join(pasta, nome);
+      expect(existsSync(caminho), `o CI lista ${nome}, que não existe`).toBe(true);
+      // ── E a régua tem de olhar o `from`, não a MENÇÃO (LAB-38) ───────────
+      //
+      // A primeira versão disto usava `fonte.includes("@generate/")` e reprovou
+      // **este próprio arquivo**: ele cita `@generate/` como TEXTO, na trava que
+      // confere que o `comum.ts` importa o Validator de lá. Medir menção em vez de
+      // importação é a mesma forma do D137, e é a segunda vez que ela me pega — a
+      // régua agora lê o especificador do `import`.
+      const fonte = readFileSync(caminho, "utf8");
+      const importados = [...fonte.matchAll(/^\s*import[^;]*?from\s+["']([^"']+)["']/gm)].map(
+        (m) => m[1]!,
+      );
+      const proibidos = ["@generate/", "@testfit/", "@symbios/", "../../testfit/"];
+      const presos = importados.filter((i) => proibidos.some((pr) => i.startsWith(pr)));
+      expect(
+        presos,
+        `${nome} está na lista do trabalho que roda SEM os clones, e importa daqui`,
+      ).toEqual([]);
+    }
+  });
+
+  test("a precondição do segredo FALHA, e não pula — e traz a receita", () => {
+    const y = readFileSync(CI, "utf8");
+    expect(y, "sem o segredo o trabalho tem de sair com erro").toContain("exit 1");
+    // A receita, para quem lê o log não ficar sem saber o que fazer (D124).
+    expect(y).toContain("personal-access-tokens");
+    expect(y).toContain("Contents: Read-only");
+    expect(y).toContain("VIZINHOS_TOKEN");
+    // E nada de engolir falha.
+    expect(y).not.toContain("continue-on-error");
+    expect(y).not.toContain("|| true");
+  });
+
+  test("o CI diz, por escrito, que o trabalho sem clones NÃO é o verde", () => {
+    // Nome que engana é pior que CI nenhum: alguém leria o check verde como "o
+    // repositório está verde", que é a mentira que o D110 custou duas semanas.
+    const y = readFileSync(CI, "utf8");
+    expect(y).toContain("NÃO é o verde");
   });
 });

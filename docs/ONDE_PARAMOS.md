@@ -4,19 +4,56 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-37 ·
-**A fila de 04/10 está CUMPRIDA, inteira: os SETE prompts, LAB-31 a LAB-37.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-38 ·
+**Fila nova de 04/10 (segunda): 1 de 5 feito — LAB-38 a LAB-42.**
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 04/10 esgotou
+# 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-38 a LAB-42
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 04/10/2026.**
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 14:20 UTC.** É o
+**mesmo** despertador, reabilitado pela **quarta** vez em vez de recriado (D112).
 
-**Por quê:** os **sete** prompts da fila de 04/10 estão cumpridos — LAB-31 a LAB-37 — e
-os achados novos estão todos *"proposto ao chat"*. É o caso da D62 e do `CLAUDE.md` §1-A.
+**O próximo é o LAB-39**, e a condição dele está cumprida (LAB-38 mesclado).
 
-**Desligado e não apagado**, pela terceira vez (D112): é a escolha que o chat ratificou
-duas vezes, mandando reabilitar em vez de recriar. **Para destravar:** reabilitar este
-mesmo despertador com a fila nova.
+## A decisão do chat que veio com a fila: o 33 lotes é PENDÊNCIA DO JONNY
+
+**O ranking do Parcelamento preferir 33 lotes a 1 228 em `geo-antonina` (D140) não se
+resolve agora** — o Jonny nunca abriu aquele motor. Virou **item 7 do
+`PENDENCIAS_JONNY.md`**, escrito para leigo, com o número, a razão e as **duas leituras
+possíveis**: produto de poucos lotes grandes, ou efeito indesejado da entrega da testada.
+
+**Ordem do chat, e é a que eu já seguia:** rodar com o comportamento atual e publicar o
+dado **como está, com a razão colada ao número** — *não esconder, e não escolher por
+ele*.
+
+## O que o LAB-38 fez — o CI, e o que ele não pode rodar
+
+**O levantamento mudou o formato da resposta.** O verde completo lê **dois clones
+vizinhos** por caminho (a exceção medida do D16): `motor-testfit` e
+`urban-create-hub-41d93a4d`. **Medido: este repositório é PÚBLICO e os dois vizinhos são
+PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
+
+**Então o workflow tem dois trabalhos, e os nomes não enganam** (D141):
+
+| trabalho | o que faz |
+|---|---|
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 64 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
+
+> **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
+> é a mentira que o D110 custou duas semanas.**
+
+**E a lista do trabalho 1 tem guarda**, porque lista é o que envelhece: o `regras.test.ts`
+lê o YAML e reprova se algum teste citado importar dos vizinhos.
+
+**O CI ACHOU UM DEFEITO MEU NO PRIMEIRO DISPARO** (D143): a trava dos clones vizinhos, do
+LAB-36, exigia *"pelo menos um clone conferido"* — e no runner não há nenhum, por um
+motivo legítimo. **Eu rodei aquela trava dezenas de vezes aqui e ela sempre passou, porque
+esta máquina tem os clones.** Era verdadeira sobre um ambiente e falsa sobre outro, e só
+um segundo ambiente podia mostrar. É a tese do prompt provada pelo próprio prompt.
+
+---
+
+# A fila anterior de 04/10 — CUMPRIDA, inteira · sete prompts
 
 ## Os sete prompts de 04/10, em uma linha cada
 
