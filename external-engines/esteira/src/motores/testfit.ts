@@ -164,6 +164,33 @@ export function rodarTestfit(entrada: EntradaMinima, semente: number): Rodada {
     }
   }
 
+  // ── O LOTE DA TESTADA NÃO TEM VIA DO PLANO, e isso vai dito (LAB-45) ──────
+  //
+  // Medido em `ensaio-com-testada`: entregue a face da rua existente, o motor cria
+  // **51** lotes externos (ids `…-eN`), e **os 51** publicam `faceDeRua: null` — o
+  // próprio motor diz que eles não fazem frente para via NENHUMA do plano, porque a
+  // rua deles **já existe e está fora da gleba**. O Validator do Generate, cuja regra
+  // `frente` é *"nenhuma aresta encosta em via"*, acusa **47** deles.
+  //
+  // Então o mesmo lote é **"de frente para a rua existente"** por uma régua e **"sem
+  // frente para rua"** pela outra, e as duas estão certas sobre o que medem. Publicar
+  // as violações sem esta linha faria o número ler como defeito do motor — é o
+  // princípio do LAB-34, a razão colada ao número.
+  if (escolhida && faces.length) {
+    const lotes = (escolhida.saida as { lotes?: { id: string; faceDeRua?: string | null }[] }).lotes ?? [];
+    const externos = lotes.filter((l) => /-e\d+$/.test(l.id));
+    const semVia = externos.filter((l) => l.faceDeRua == null).length;
+    if (externos.length) {
+      naoSoubeFazer.push(
+        `${externos.length} lote(s) externo(s) nasceram da testada, e ${semVia} deles publicam ` +
+          "`faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do " +
+          "plano para apontar. O invariante `frente` do Generate (\"nenhuma aresta encosta em " +
+          'via") conta esses lotes como violação: o mesmo lote é "de frente para a rua ' +
+          'existente" por uma régua e "sem frente para rua" pela outra',
+      );
+    }
+  }
+
   if (!escolhida) {
     return { saida: null, ms, naoSoubeFazer: [...naoSoubeFazer, "nenhuma variante passou no esquema"], variante: null };
   }

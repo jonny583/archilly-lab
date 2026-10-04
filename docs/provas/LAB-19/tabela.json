@@ -65,7 +65,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 2110.33,
+          "ms": 1747.38,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -269,7 +269,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 1919.84,
+          "ms": 1620.99,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -507,7 +507,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "ortogonal (1º de 7 no ranking dele)",
-          "ms": 6270.43,
+          "ms": 5455.82,
           "naoSoubeFazer": [
             "13 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 990.4 m de eixo que saía da gleba (0.21 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -691,7 +691,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 5963.92,
+          "ms": 5512.85,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -916,7 +916,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 479.54,
+          "ms": 489.84,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1112,7 +1112,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 436.23,
+          "ms": 418.42,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1324,7 +1324,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 19 no ranking dele)",
-          "ms": 2313.27,
+          "ms": 2155.94,
           "naoSoubeFazer": [
             "1 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 556.0 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -1508,7 +1508,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 1402.03,
+          "ms": 1181.12,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -1739,7 +1739,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 89.81,
+          "ms": 87.04,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1925,7 +1925,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 82.35,
+          "ms": 70.89,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -2120,7 +2120,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 254.31,
+          "ms": 272.74,
           "naoSoubeFazer": [
             "o Lab aparou 237.1 m de eixo que saía da gleba (0.65 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -2302,7 +2302,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 482.21,
+          "ms": 432.75,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -2544,7 +2544,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 370.15,
+          "ms": 413.27,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -2733,7 +2733,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 384.15,
+          "ms": 395.82,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -2943,7 +2943,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 1643.75,
+          "ms": 1540.51,
           "naoSoubeFazer": [
             "o Lab aparou 505.5 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -3132,7 +3132,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 794.13,
+          "ms": 630.72,
           "naoSoubeFazer": [
             "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
@@ -3389,7 +3389,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 809.91,
+          "ms": 605.62,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -3590,7 +3590,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 576.15,
+          "ms": 526.04,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -3802,12 +3802,13 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "superquadra (1º de 20 no ranking dele)",
-          "ms": 5924.66,
+          "ms": 5732.79,
           "naoSoubeFazer": [
             "o Lab aparou 809.0 m de eixo que saía da gleba (0.17 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote",
             "a testada de frente entrou como 1 face(s) do perímetro (`facesLoteamento: [0]`) — lote virado para a rua existente",
-            "o RANKING DELE escolheu \"superquadra\" com 33 lotes (nota 0.6226); entre as aceitas, \"ortogonal\" dá 1228 lotes (nota 0.5881). A escolha da variante é do motor, não do Lab — e aqui ela custa lote"
+            "o RANKING DELE escolheu \"superquadra\" com 33 lotes (nota 0.6226); entre as aceitas, \"ortogonal\" dá 1228 lotes (nota 0.5881). A escolha da variante é do motor, não do Lab — e aqui ela custa lote",
+            "33 lote(s) externo(s) nasceram da testada, e 33 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate (\"nenhuma aresta encosta em via\") conta esses lotes como violação: o mesmo lote é \"de frente para a rua existente\" por uma régua e \"sem frente para rua\" pela outra"
           ],
           "recusadoPeloEsquema": null,
           "lotes": 33,
@@ -3992,7 +3993,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 9395.02,
+          "ms": 8368.89,
           "naoSoubeFazer": [
             "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
@@ -4188,6 +4189,1686 @@
               "polígono 11 lados": 2,
               "paralelogramo": 1,
               "polígono 10 lados": 2
+            },
+            "comLadoCurvo": 0
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-19",
+      "gleba": "ensaio-com-promessas",
+      "areaDaGleba_m2": 460000,
+      "semente": 20260913,
+      "contrato": "1",
+      "confrontoDoAcesso": {
+        "maiorAmplitude_pct": 55.88,
+        "entreOsQuatroMotores_pct": 368.93,
+        "entreOsMotoresDeLote_pct": 37.41
+      },
+      "ordemDoAcesso": {
+        "posicoes": 6,
+        "posicoesComparaveis": 6,
+        "ordens": [
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ]
+        ],
+        "ordensDistintas": 1,
+        "vencedores": [
+          "generate-ortogonal"
+        ],
+        "naoResponderam": {}
+      },
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · candidata ortogonal",
+          "variante": "ortogonal",
+          "ms": 456.41,
+          "naoSoubeFazer": [
+            "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
+            "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
+            "1 atração(ões) na entrada não entram no traçado deste motor"
+          ],
+          "recusadoPeloEsquema": null,
+          "lotes": 990,
+          "areaVendavel_m2": 359317.02,
+          "pctPrivativa": 78.11,
+          "violacoes": 40,
+          "violacoesPorRegra": {
+            "massa": 40
+          },
+          "sobraSemLote_m2": 29800,
+          "pctDaMassaSemLote": 6.51,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.23,
+            "pior_pct": 22.49,
+            "trechos": 725,
+            "trechosAcimaDe": {
+              "8": 197,
+              "15": 8,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1962.9,
+              "15": 76.45,
+              "20": 6.45,
+              "30": 0
+            },
+            "cruzamentos": 20,
+            "cruzamentosAcimaDe": {
+              "8": 20,
+              "15": 11,
+              "20": 7,
+              "30": 0
+            }
+          },
+          "terreno": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 7231.4,
+              "comprimentoAcimaDoLimite_m": 99.84,
+              "pctDoComprimento": 1.38,
+              "areaTotal_m2": 73159.25,
+              "areaAcimaDoLimite_m2": 998.37,
+              "pctDaArea": 1.36,
+              "pior": {
+                "id": "VT-02",
+                "valor_pct": 16.98,
+                "onde": {
+                  "x": 610.75,
+                  "y": 519.98
+                }
+              }
+            },
+            "lote": {
+              "lotes": 990,
+              "areaTotal_m2": 359317.05,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L726",
+                "valor_pct": 20.04,
+                "onde": {
+                  "x": 620.87,
+                  "y": 388.5
+                }
+              }
+            }
+          },
+          "acesso": {
+            "posicoes": 6,
+            "posicoesMedidas": 6,
+            "amplitudeEhPiso": true,
+            "lotes": {
+              "minimo": 960,
+              "maximo": 1024,
+              "mediana": 972,
+              "amplitude": 64,
+              "amplitudePct": 6.67
+            },
+            "areaVendavel_m2": {
+              "minimo": 348415.22,
+              "maximo": 377884.44,
+              "mediana": 354094.32,
+              "amplitude": 29469.22,
+              "amplitudePct": 8.46
+            },
+            "melhorPonto": {
+              "x": 800,
+              "y": 125
+            },
+            "piorPonto": {
+              "x": 462.5,
+              "y": 0
+            },
+            "acessoDeclarado": null,
+            "porPosicao": [
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "lotes": 966,
+                "areaVendavel_m2": 350359.69
+              },
+              {
+                "ponto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "lotes": 960,
+                "areaVendavel_m2": 348415.22
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "lotes": 1024,
+                "areaVendavel_m2": 377884.44
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 587.5
+                },
+                "lotes": 978,
+                "areaVendavel_m2": 354912.35
+              },
+              {
+                "ponto": {
+                  "x": 337.5,
+                  "y": 587.5
+                },
+                "lotes": 973,
+                "areaVendavel_m2": 353276.29
+              },
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 462.5
+                },
+                "lotes": 970,
+                "areaVendavel_m2": 357953.32
+              }
+            ]
+          },
+          "forma": {
+            "regra": {
+              "aConferirAbaixoDe": 0.85,
+              "ruimAbaixoDe": 0.7
+            },
+            "lotes": 990,
+            "ok": 990,
+            "aConferir": 0,
+            "ruim": 0,
+            "pctAConferir": 0,
+            "pctRuim": 0,
+            "utilMediana": 1,
+            "utilPior": 0.8821,
+            "porClasse": {
+              "retângulo": 914,
+              "polígono 9 lados": 4,
+              "polígono 14 lados": 1,
+              "polígono 15 lados": 1,
+              "polígono 30 lados": 24,
+              "polígono 16 lados": 24,
+              "pentágono": 22
+            },
+            "comLadoCurvo": 0
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · candidata espinha",
+          "variante": "espinha",
+          "ms": 347.66,
+          "naoSoubeFazer": [
+            "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
+            "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
+            "1 atração(ões) na entrada não entram no traçado deste motor"
+          ],
+          "recusadoPeloEsquema": null,
+          "lotes": 781,
+          "areaVendavel_m2": 283259.65,
+          "pctPrivativa": 61.58,
+          "violacoes": 21,
+          "violacoesPorRegra": {
+            "massa": 20,
+            "fora-do-contorno": 1
+          },
+          "sobraSemLote_m2": 55325,
+          "pctDaMassaSemLote": 12.08,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.56,
+            "pior_pct": 22.56,
+            "trechos": 918,
+            "trechosAcimaDe": {
+              "8": 263,
+              "15": 31,
+              "20": 3,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 2608.99,
+              "15": 309.5,
+              "20": 30,
+              "30": 0
+            },
+            "cruzamentos": 36,
+            "cruzamentosAcimaDe": {
+              "8": 34,
+              "15": 23,
+              "20": 6,
+              "30": 0
+            }
+          },
+          "terreno": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 9118.84,
+              "comprimentoAcimaDoLimite_m": 279.26,
+              "pctDoComprimento": 3.06,
+              "areaTotal_m2": 94205.23,
+              "areaAcimaDoLimite_m2": 2861.22,
+              "pctDaArea": 3.04,
+              "pior": {
+                "id": "VS-06",
+                "valor_pct": 24.21,
+                "onde": {
+                  "x": 792.82,
+                  "y": 336.83
+                }
+              }
+            },
+            "lote": {
+              "lotes": 781,
+              "areaTotal_m2": 283259.71,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L222",
+                "valor_pct": 20.36,
+                "onde": {
+                  "x": 610.77,
+                  "y": 412.15
+                }
+              }
+            }
+          },
+          "acesso": {
+            "posicoes": 6,
+            "posicoesMedidas": 6,
+            "amplitudeEhPiso": true,
+            "lotes": {
+              "minimo": 721,
+              "maximo": 745,
+              "mediana": 736,
+              "amplitude": 24,
+              "amplitudePct": 3.33
+            },
+            "areaVendavel_m2": {
+              "minimo": 259028.91,
+              "maximo": 270317.3,
+              "mediana": 264560.82,
+              "amplitude": 11288.39,
+              "amplitudePct": 4.36
+            },
+            "melhorPonto": {
+              "x": 462.5,
+              "y": 0
+            },
+            "piorPonto": {
+              "x": 800,
+              "y": 587.5
+            },
+            "acessoDeclarado": null,
+            "porPosicao": [
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "lotes": 724,
+                "areaVendavel_m2": 259945.68
+              },
+              {
+                "ponto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "lotes": 745,
+                "areaVendavel_m2": 270140.66
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "lotes": 735,
+                "areaVendavel_m2": 264159.64
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 587.5
+                },
+                "lotes": 721,
+                "areaVendavel_m2": 259028.91
+              },
+              {
+                "ponto": {
+                  "x": 337.5,
+                  "y": 587.5
+                },
+                "lotes": 745,
+                "areaVendavel_m2": 270317.3
+              },
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 462.5
+                },
+                "lotes": 737,
+                "areaVendavel_m2": 264962
+              }
+            ]
+          },
+          "forma": {
+            "regra": {
+              "aConferirAbaixoDe": 0.85,
+              "ruimAbaixoDe": 0.7
+            },
+            "lotes": 781,
+            "ok": 765,
+            "aConferir": 3,
+            "ruim": 13,
+            "pctAConferir": 0.38,
+            "pctRuim": 1.66,
+            "utilMediana": 1,
+            "utilPior": 0.5525,
+            "porClasse": {
+              "retângulo": 684,
+              "polígono 6 lados": 1,
+              "polígono 33 lados com 2 lado(s) curvo(s)": 2,
+              "quadrilátero": 10,
+              "pentágono": 51,
+              "polígono 28 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 31 lados com 1 lado(s) curvo(s)": 4,
+              "polígono 12 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 28 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 14 lados": 1,
+              "polígono 33 lados": 1,
+              "polígono 13 lados": 1,
+              "polígono 28 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 13 lados com 1 lado(s) curvo(s)": 4,
+              "polígono 14 lados com 1 lado(s) curvo(s)": 3,
+              "polígono 35 lados": 1,
+              "polígono 12 lados": 1,
+              "polígono 32 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 29 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 11 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 18 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 18 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 32 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 16 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 37 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 17 lados com 1 lado(s) curvo(s)": 2
+            },
+            "comLadoCurvo": 30
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "variante": "espinha (1º de 20 no ranking dele)",
+          "ms": 1434.86,
+          "naoSoubeFazer": [
+            "o Lab aparou 493.1 m de eixo que saía da gleba (0.31 % do comprimento) — sem isso o contrato recusa o arquivo",
+            "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote",
+            "1 atração(ões) na entrada não entram no traçado deste motor"
+          ],
+          "recusadoPeloEsquema": null,
+          "lotes": 589,
+          "areaVendavel_m2": 235177.45,
+          "pctPrivativa": 51.13,
+          "violacoes": 25,
+          "violacoesPorRegra": {
+            "massa": 19,
+            "face-quadra": 6
+          },
+          "sobraSemLote_m2": 725,
+          "pctDaMassaSemLote": 0.16,
+          "rampa": {
+            "declaradoPeloMotor_pct": 10.250262913458172,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 4.96,
+            "pior_pct": 21.16,
+            "trechos": 645,
+            "trechosAcimaDe": {
+              "8": 152,
+              "15": 10,
+              "20": 2,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1490.58,
+              "15": 85.29,
+              "20": 5.29,
+              "30": 0
+            },
+            "cruzamentos": 5,
+            "cruzamentosAcimaDe": {
+              "8": 5,
+              "15": 5,
+              "20": 2,
+              "30": 0
+            }
+          },
+          "terreno": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 6386.02,
+              "comprimentoAcimaDoLimite_m": 60.3,
+              "pctDoComprimento": 0.94,
+              "areaTotal_m2": 64464.91,
+              "areaAcimaDoLimite_m2": 618.15,
+              "pctDaArea": 0.96,
+              "pior": {
+                "id": "V10",
+                "valor_pct": 17.36,
+                "onde": {
+                  "x": 623.8,
+                  "y": 571.8
+                }
+              }
+            },
+            "lote": {
+              "lotes": 589,
+              "areaTotal_m2": 235177.45,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "v2-l426",
+                "valor_pct": 20.36,
+                "onde": {
+                  "x": 624.54,
+                  "y": 414.05
+                }
+              }
+            }
+          },
+          "acesso": {
+            "posicoes": 6,
+            "posicoesMedidas": 6,
+            "amplitudeEhPiso": true,
+            "lotes": {
+              "minimo": 451,
+              "maximo": 703,
+              "mediana": 597,
+              "amplitude": 252,
+              "amplitudePct": 55.88
+            },
+            "areaVendavel_m2": {
+              "minimo": 178540.4,
+              "maximo": 280107.62,
+              "mediana": 236849.01,
+              "amplitude": 101567.22,
+              "amplitudePct": 56.89
+            },
+            "melhorPonto": {
+              "x": 0,
+              "y": 0
+            },
+            "piorPonto": {
+              "x": 800,
+              "y": 125
+            },
+            "acessoDeclarado": null,
+            "porPosicao": [
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "lotes": 703,
+                "areaVendavel_m2": 280107.62
+              },
+              {
+                "ponto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "lotes": 597,
+                "areaVendavel_m2": 237219.26
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "lotes": 451,
+                "areaVendavel_m2": 178540.4
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 587.5
+                },
+                "lotes": 603,
+                "areaVendavel_m2": 240863.55
+              },
+              {
+                "ponto": {
+                  "x": 337.5,
+                  "y": 587.5
+                },
+                "lotes": 597,
+                "areaVendavel_m2": 236478.75
+              },
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 462.5
+                },
+                "lotes": 473,
+                "areaVendavel_m2": 188856.37
+              }
+            ]
+          },
+          "forma": {
+            "regra": {
+              "aConferirAbaixoDe": 0.85,
+              "ruimAbaixoDe": 0.7
+            },
+            "lotes": 589,
+            "ok": 581,
+            "aConferir": 8,
+            "ruim": 0,
+            "pctAConferir": 1.36,
+            "pctRuim": 0,
+            "utilMediana": 1,
+            "utilPior": 0.7849,
+            "porClasse": {
+              "retângulo": 580,
+              "trapézio": 8,
+              "pentágono": 1
+            },
+            "comLadoCurvo": 0
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "variante": "tensorial + esqueleto reto",
+          "ms": 663.65,
+          "naoSoubeFazer": [
+            "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
+            "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",
+            "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
+            "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
+            "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
+            "12 de 93 quadras foram puladas: o esqueleto não fechou nelas (D51)",
+            "1 atração(ões) na entrada não entram no traçado deste motor"
+          ],
+          "recusadoPeloEsquema": null,
+          "lotes": 206,
+          "areaVendavel_m2": 63854.39,
+          "pctPrivativa": 13.88,
+          "violacoes": 9,
+          "violacoesPorRegra": {
+            "frente": 1,
+            "massa": 8
+          },
+          "sobraSemLote_m2": 267800,
+          "pctDaMassaSemLote": 58.47,
+          "rampa": {
+            "declaradoPeloMotor_pct": 77.42631670986275,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.31,
+            "pior_pct": 22.76,
+            "trechos": 1657,
+            "trechosAcimaDe": {
+              "8": 461,
+              "15": 60,
+              "20": 3,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 4514.64,
+              "15": 559.5,
+              "20": 22.25,
+              "30": 0
+            },
+            "cruzamentos": 201,
+            "cruzamentosAcimaDe": {
+              "8": 193,
+              "15": 101,
+              "20": 19,
+              "30": 0
+            }
+          },
+          "terreno": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 15030.86,
+              "comprimentoAcimaDoLimite_m": 655.6,
+              "pctDoComprimento": 4.36,
+              "areaTotal_m2": 126259.21,
+              "areaAcimaDoLimite_m2": 5507.02,
+              "pctDaArea": 4.36,
+              "pior": {
+                "id": "via-29-2",
+                "valor_pct": 22.41,
+                "onde": {
+                  "x": 438.8,
+                  "y": 116.85
+                }
+              }
+            },
+            "lote": {
+              "lotes": 206,
+              "areaTotal_m2": 63854.36,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L136",
+                "valor_pct": 19.12,
+                "onde": {
+                  "x": 777.11,
+                  "y": 278.06
+                }
+              }
+            }
+          },
+          "acesso": {
+            "posicoes": 6,
+            "posicoesMedidas": 6,
+            "amplitudeEhPiso": true,
+            "lotes": {
+              "minimo": 206,
+              "maximo": 206,
+              "mediana": 206,
+              "amplitude": 0,
+              "amplitudePct": 0
+            },
+            "areaVendavel_m2": {
+              "minimo": 63854.39,
+              "maximo": 63854.39,
+              "mediana": 63854.39,
+              "amplitude": 0,
+              "amplitudePct": 0
+            },
+            "melhorPonto": {
+              "x": 0,
+              "y": 0
+            },
+            "piorPonto": {
+              "x": 0,
+              "y": 0
+            },
+            "acessoDeclarado": null,
+            "porPosicao": [
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "lotes": 206,
+                "areaVendavel_m2": 63854.39
+              },
+              {
+                "ponto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "lotes": 206,
+                "areaVendavel_m2": 63854.39
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "lotes": 206,
+                "areaVendavel_m2": 63854.39
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 587.5
+                },
+                "lotes": 206,
+                "areaVendavel_m2": 63854.39
+              },
+              {
+                "ponto": {
+                  "x": 337.5,
+                  "y": 587.5
+                },
+                "lotes": 206,
+                "areaVendavel_m2": 63854.39
+              },
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 462.5
+                },
+                "lotes": 206,
+                "areaVendavel_m2": 63854.39
+              }
+            ]
+          },
+          "forma": {
+            "regra": {
+              "aConferirAbaixoDe": 0.85,
+              "ruimAbaixoDe": 0.7
+            },
+            "lotes": 206,
+            "ok": 130,
+            "aConferir": 70,
+            "ruim": 6,
+            "pctAConferir": 33.98,
+            "pctRuim": 2.91,
+            "utilMediana": 0.8964,
+            "utilPior": 0.6285,
+            "porClasse": {
+              "pentágono": 77,
+              "polígono 7 lados": 5,
+              "polígono 6 lados": 28,
+              "quadrilátero": 14,
+              "trapézio": 52,
+              "retângulo": 24,
+              "polígono 8 lados": 4,
+              "polígono 10 lados": 1,
+              "polígono 9 lados": 1
+            },
+            "comLadoCurvo": 0
+          }
+        }
+      }
+    },
+    {
+      "prompt": "LAB-19",
+      "gleba": "ensaio-com-testada",
+      "areaDaGleba_m2": 470000,
+      "semente": 20260913,
+      "contrato": "1",
+      "confrontoDoAcesso": {
+        "maiorAmplitude_pct": 26.59,
+        "entreOsQuatroMotores_pct": 355.14,
+        "entreOsMotoresDeLote_pct": 52.19
+      },
+      "ordemDoAcesso": {
+        "posicoes": 6,
+        "posicoesComparaveis": 6,
+        "ordens": [
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ]
+        ],
+        "ordensDistintas": 1,
+        "vencedores": [
+          "generate-ortogonal"
+        ],
+        "naoResponderam": {}
+      },
+      "motores": {
+        "generate-ortogonal": {
+          "motor": "Generate · candidata ortogonal",
+          "variante": "ortogonal",
+          "ms": 430.14,
+          "naoSoubeFazer": [
+            "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
+            "1 atração(ões) na entrada não entram no traçado deste motor"
+          ],
+          "recusadoPeloEsquema": null,
+          "lotes": 974,
+          "areaVendavel_m2": 353306.7,
+          "pctPrivativa": 75.17,
+          "violacoes": 0,
+          "violacoesPorRegra": {},
+          "sobraSemLote_m2": 34750,
+          "pctDaMassaSemLote": 7.43,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.84,
+            "pior_pct": 17.56,
+            "trechos": 725,
+            "trechosAcimaDe": {
+              "8": 246,
+              "15": 15,
+              "20": 0,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 2456.45,
+              "15": 150,
+              "20": 0,
+              "30": 0
+            },
+            "cruzamentos": 20,
+            "cruzamentosAcimaDe": {
+              "8": 20,
+              "15": 12,
+              "20": 0,
+              "30": 0
+            }
+          },
+          "terreno": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 7231.4,
+              "comprimentoAcimaDoLimite_m": 206.16,
+              "pctDoComprimento": 2.85,
+              "areaTotal_m2": 73159.25,
+              "areaAcimaDoLimite_m2": 2061.65,
+              "pctDaArea": 2.82,
+              "pior": {
+                "id": "VS-04",
+                "valor_pct": 21.09,
+                "onde": {
+                  "x": 397.13,
+                  "y": 340
+                }
+              }
+            },
+            "lote": {
+              "lotes": 974,
+              "areaTotal_m2": 353306.71,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L656",
+                "valor_pct": 20.36,
+                "onde": {
+                  "x": 620.87,
+                  "y": 399
+                }
+              }
+            }
+          },
+          "acesso": {
+            "posicoes": 6,
+            "posicoesMedidas": 6,
+            "amplitudeEhPiso": true,
+            "lotes": {
+              "minimo": 960,
+              "maximo": 1024,
+              "mediana": 972,
+              "amplitude": 64,
+              "amplitudePct": 6.67
+            },
+            "areaVendavel_m2": {
+              "minimo": 348415.22,
+              "maximo": 377884.44,
+              "mediana": 354094.32,
+              "amplitude": 29469.22,
+              "amplitudePct": 8.46
+            },
+            "melhorPonto": {
+              "x": 800,
+              "y": 125
+            },
+            "piorPonto": {
+              "x": 462.5,
+              "y": 0
+            },
+            "acessoDeclarado": {
+              "ponto": {
+                "x": 400,
+                "y": 0
+              },
+              "lotes": 974,
+              "areaVendavel_m2": 353306.7
+            },
+            "porPosicao": [
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "lotes": 966,
+                "areaVendavel_m2": 350359.69
+              },
+              {
+                "ponto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "lotes": 960,
+                "areaVendavel_m2": 348415.22
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "lotes": 1024,
+                "areaVendavel_m2": 377884.44
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 587.5
+                },
+                "lotes": 978,
+                "areaVendavel_m2": 354912.35
+              },
+              {
+                "ponto": {
+                  "x": 337.5,
+                  "y": 587.5
+                },
+                "lotes": 973,
+                "areaVendavel_m2": 353276.29
+              },
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 462.5
+                },
+                "lotes": 970,
+                "areaVendavel_m2": 357953.32
+              }
+            ]
+          },
+          "forma": {
+            "regra": {
+              "aConferirAbaixoDe": 0.85,
+              "ruimAbaixoDe": 0.7
+            },
+            "lotes": 974,
+            "ok": 974,
+            "aConferir": 0,
+            "ruim": 0,
+            "pctAConferir": 0,
+            "pctRuim": 0,
+            "utilMediana": 1,
+            "utilPior": 0.8821,
+            "porClasse": {
+              "retângulo": 902,
+              "polígono 30 lados": 22,
+              "polígono 16 lados": 22,
+              "pentágono": 22,
+              "polígono 9 lados": 4,
+              "polígono 15 lados": 1,
+              "polígono 14 lados": 1
+            },
+            "comLadoCurvo": 0
+          }
+        },
+        "generate-espinha": {
+          "motor": "Generate · candidata espinha",
+          "variante": "espinha",
+          "ms": 422.72,
+          "naoSoubeFazer": [
+            "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
+            "1 atração(ões) na entrada não entram no traçado deste motor"
+          ],
+          "recusadoPeloEsquema": null,
+          "lotes": 778,
+          "areaVendavel_m2": 282075.86,
+          "pctPrivativa": 60.02,
+          "violacoes": 0,
+          "violacoesPorRegra": {},
+          "sobraSemLote_m2": 60125,
+          "pctDaMassaSemLote": 12.85,
+          "rampa": {
+            "declaradoPeloMotor_pct": null,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.46,
+            "pior_pct": 22.9,
+            "trechos": 921,
+            "trechosAcimaDe": {
+              "8": 241,
+              "15": 29,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 2386.98,
+              "15": 286.81,
+              "20": 10,
+              "30": 0
+            },
+            "cruzamentos": 38,
+            "cruzamentosAcimaDe": {
+              "8": 38,
+              "15": 25,
+              "20": 8,
+              "30": 0
+            }
+          },
+          "terreno": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 9147.63,
+              "comprimentoAcimaDoLimite_m": 307.79,
+              "pctDoComprimento": 3.36,
+              "areaTotal_m2": 94472.43,
+              "areaAcimaDoLimite_m2": 3167.56,
+              "pctDaArea": 3.35,
+              "pior": {
+                "id": "VT-07",
+                "valor_pct": 27.13,
+                "onde": {
+                  "x": 432.98,
+                  "y": 170.07
+                }
+              }
+            },
+            "lote": {
+              "lotes": 778,
+              "areaTotal_m2": 282075.72,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L425",
+                "valor_pct": 20.36,
+                "onde": {
+                  "x": 623.93,
+                  "y": 411.15
+                }
+              }
+            }
+          },
+          "acesso": {
+            "posicoes": 6,
+            "posicoesMedidas": 6,
+            "amplitudeEhPiso": true,
+            "lotes": {
+              "minimo": 721,
+              "maximo": 745,
+              "mediana": 736,
+              "amplitude": 24,
+              "amplitudePct": 3.33
+            },
+            "areaVendavel_m2": {
+              "minimo": 259028.91,
+              "maximo": 270317.3,
+              "mediana": 264560.82,
+              "amplitude": 11288.39,
+              "amplitudePct": 4.36
+            },
+            "melhorPonto": {
+              "x": 462.5,
+              "y": 0
+            },
+            "piorPonto": {
+              "x": 800,
+              "y": 587.5
+            },
+            "acessoDeclarado": {
+              "ponto": {
+                "x": 400,
+                "y": 0
+              },
+              "lotes": 778,
+              "areaVendavel_m2": 282075.86
+            },
+            "porPosicao": [
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "lotes": 724,
+                "areaVendavel_m2": 259945.68
+              },
+              {
+                "ponto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "lotes": 745,
+                "areaVendavel_m2": 270140.66
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "lotes": 735,
+                "areaVendavel_m2": 264159.64
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 587.5
+                },
+                "lotes": 721,
+                "areaVendavel_m2": 259028.91
+              },
+              {
+                "ponto": {
+                  "x": 337.5,
+                  "y": 587.5
+                },
+                "lotes": 745,
+                "areaVendavel_m2": 270317.3
+              },
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 462.5
+                },
+                "lotes": 737,
+                "areaVendavel_m2": 264962
+              }
+            ]
+          },
+          "forma": {
+            "regra": {
+              "aConferirAbaixoDe": 0.85,
+              "ruimAbaixoDe": 0.7
+            },
+            "lotes": 778,
+            "ok": 762,
+            "aConferir": 2,
+            "ruim": 14,
+            "pctAConferir": 0.26,
+            "pctRuim": 1.8,
+            "utilMediana": 1,
+            "utilPior": 0.5432,
+            "porClasse": {
+              "retângulo": 680,
+              "polígono 6 lados": 1,
+              "polígono 33 lados com 2 lado(s) curvo(s)": 2,
+              "quadrilátero": 10,
+              "pentágono": 51,
+              "polígono 27 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 27 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 32 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 13 lados com 1 lado(s) curvo(s)": 3,
+              "polígono 29 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 33 lados com 1 lado(s) curvo(s)": 3,
+              "polígono 12 lados com 1 lado(s) curvo(s)": 5,
+              "polígono 31 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 12 lados": 1,
+              "polígono 35 lados": 1,
+              "polígono 14 lados": 1,
+              "polígono 28 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 15 lados com 3 lado(s) curvo(s)": 1,
+              "polígono 17 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 17 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 16 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 14 lados com 2 lado(s) curvo(s)": 1,
+              "polígono 11 lados": 1,
+              "polígono 19 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 15 lados": 1,
+              "polígono 34 lados com 1 lado(s) curvo(s)": 1,
+              "polígono 18 lados com 1 lado(s) curvo(s)": 2,
+              "polígono 36 lados com 2 lado(s) curvo(s)": 1
+            },
+            "comLadoCurvo": 31
+          }
+        },
+        "parcelamento": {
+          "motor": "Laboratório de Parcelamento",
+          "variante": "espinha (1º de 20 no ranking dele)",
+          "ms": 1241.1,
+          "naoSoubeFazer": [
+            "o Lab aparou 477.3 m de eixo que saía da gleba (0.30 % do comprimento) — sem isso o contrato recusa o arquivo",
+            "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote",
+            "a testada de frente entrou como 1 face(s) do perímetro (`facesLoteamento: [1]`) — lote virado para a rua existente",
+            "51 lote(s) externo(s) nasceram da testada, e 51 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate (\"nenhuma aresta encosta em via\") conta esses lotes como violação: o mesmo lote é \"de frente para a rua existente\" por uma régua e \"sem frente para rua\" pela outra"
+          ],
+          "recusadoPeloEsquema": null,
+          "lotes": 640,
+          "areaVendavel_m2": 254831.24,
+          "pctPrivativa": 54.22,
+          "violacoes": 68,
+          "violacoesPorRegra": {
+            "frente": 47,
+            "via-sobre-lote": 15,
+            "face-quadra": 6
+          },
+          "sobraSemLote_m2": 625,
+          "pctDaMassaSemLote": 0.13,
+          "rampa": {
+            "declaradoPeloMotor_pct": 11.570905636023705,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 4.98,
+            "pior_pct": 20.15,
+            "trechos": 628,
+            "trechosAcimaDe": {
+              "8": 153,
+              "15": 9,
+              "20": 1,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 1522.4,
+              "15": 82.65,
+              "20": 2.65,
+              "30": 0
+            },
+            "cruzamentos": 5,
+            "cruzamentosAcimaDe": {
+              "8": 5,
+              "15": 5,
+              "20": 1,
+              "30": 0
+            }
+          },
+          "terreno": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 6244.75,
+              "comprimentoAcimaDoLimite_m": 60.25,
+              "pctDoComprimento": 0.96,
+              "areaTotal_m2": 63052.24,
+              "areaAcimaDoLimite_m2": 617.66,
+              "pctDaArea": 0.98,
+              "pior": {
+                "id": "V10",
+                "valor_pct": 17.36,
+                "onde": {
+                  "x": 623.8,
+                  "y": 571.8
+                }
+              }
+            },
+            "lote": {
+              "lotes": 640,
+              "areaTotal_m2": 254831.24,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "v2-l579",
+                "valor_pct": 20.36,
+                "onde": {
+                  "x": 624.54,
+                  "y": 414.05
+                }
+              }
+            }
+          },
+          "acesso": {
+            "posicoes": 6,
+            "posicoesMedidas": 6,
+            "amplitudeEhPiso": true,
+            "lotes": {
+              "minimo": 519,
+              "maximo": 657,
+              "mediana": 648,
+              "amplitude": 138,
+              "amplitudePct": 26.59
+            },
+            "areaVendavel_m2": {
+              "minimo": 198881.22,
+              "maximo": 256532.2,
+              "mediana": 254128.83,
+              "amplitude": 57650.98,
+              "amplitudePct": 28.99
+            },
+            "melhorPonto": {
+              "x": 800,
+              "y": 587.5
+            },
+            "piorPonto": {
+              "x": 800,
+              "y": 125
+            },
+            "acessoDeclarado": {
+              "ponto": {
+                "x": 400,
+                "y": 0
+              },
+              "lotes": 640,
+              "areaVendavel_m2": 254831.24
+            },
+            "porPosicao": [
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "lotes": 655,
+                "areaVendavel_m2": 253840.69
+              },
+              {
+                "ponto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "lotes": 648,
+                "areaVendavel_m2": 256532.2
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "lotes": 519,
+                "areaVendavel_m2": 198881.22
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 587.5
+                },
+                "lotes": 657,
+                "areaVendavel_m2": 254416.96
+              },
+              {
+                "ponto": {
+                  "x": 337.5,
+                  "y": 587.5
+                },
+                "lotes": 648,
+                "areaVendavel_m2": 256132.54
+              },
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 462.5
+                },
+                "lotes": 519,
+                "areaVendavel_m2": 199370.91
+              }
+            ]
+          },
+          "forma": {
+            "regra": {
+              "aConferirAbaixoDe": 0.85,
+              "ruimAbaixoDe": 0.7
+            },
+            "lotes": 640,
+            "ok": 632,
+            "aConferir": 8,
+            "ruim": 0,
+            "pctAConferir": 1.25,
+            "pctRuim": 0,
+            "utilMediana": 1,
+            "utilPior": 0.7849,
+            "porClasse": {
+              "retângulo": 631,
+              "pentágono": 1,
+              "trapézio": 8
+            },
+            "comLadoCurvo": 0
+          }
+        },
+        "symbios": {
+          "motor": "Symbios + subdivisão do Lab",
+          "variante": "tensorial + esqueleto reto",
+          "ms": 613.25,
+          "naoSoubeFazer": [
+            "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
+            "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",
+            "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
+            "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
+            "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
+            "13 de 94 quadras foram puladas: o esqueleto não fechou nelas (D51)",
+            "1 atração(ões) na entrada não entram no traçado deste motor"
+          ],
+          "recusadoPeloEsquema": null,
+          "lotes": 214,
+          "areaVendavel_m2": 66144.86,
+          "pctPrivativa": 14.07,
+          "violacoes": 0,
+          "violacoesPorRegra": {},
+          "sobraSemLote_m2": 271275,
+          "pctDaMassaSemLote": 57.96,
+          "rampa": {
+            "declaradoPeloMotor_pct": 77.42631670986275,
+            "medida": true,
+            "porQueNaoMedida": null,
+            "mediaPonderada_pct": 5.36,
+            "pior_pct": 22.76,
+            "trechos": 1700,
+            "trechosAcimaDe": {
+              "8": 483,
+              "15": 60,
+              "20": 3,
+              "30": 0
+            },
+            "metrosAcimaDe": {
+              "8": 4735.67,
+              "15": 556.25,
+              "20": 22.25,
+              "30": 0
+            },
+            "cruzamentos": 208,
+            "cruzamentosAcimaDe": {
+              "8": 200,
+              "15": 101,
+              "20": 19,
+              "30": 0
+            }
+          },
+          "terreno": {
+            "medido": true,
+            "porQueNaoMedido": null,
+            "via": {
+              "comprimentoTotal_m": 15445.02,
+              "comprimentoAcimaDoLimite_m": 700.02,
+              "pctDoComprimento": 4.53,
+              "areaTotal_m2": 129738.19,
+              "areaAcimaDoLimite_m2": 5880.2,
+              "pctDaArea": 4.53,
+              "pior": {
+                "id": "via-29-2",
+                "valor_pct": 22.41,
+                "onde": {
+                  "x": 438.8,
+                  "y": 116.85
+                }
+              }
+            },
+            "lote": {
+              "lotes": 214,
+              "areaTotal_m2": 66144.84,
+              "areaAcimaDoLimite_m2": 0,
+              "pctDaArea": 0,
+              "lotesComParteAcima": 0,
+              "lotesPrincipalmenteAcima": 0,
+              "reprovaPelaLei": false,
+              "pior": {
+                "id": "L144",
+                "valor_pct": 19.12,
+                "onde": {
+                  "x": 777.11,
+                  "y": 278.06
+                }
+              }
+            }
+          },
+          "acesso": {
+            "posicoes": 6,
+            "posicoesMedidas": 6,
+            "amplitudeEhPiso": true,
+            "lotes": {
+              "minimo": 214,
+              "maximo": 214,
+              "mediana": 214,
+              "amplitude": 0,
+              "amplitudePct": 0
+            },
+            "areaVendavel_m2": {
+              "minimo": 66144.86,
+              "maximo": 66144.86,
+              "mediana": 66144.86,
+              "amplitude": 0,
+              "amplitudePct": 0
+            },
+            "melhorPonto": {
+              "x": 0,
+              "y": 0
+            },
+            "piorPonto": {
+              "x": 0,
+              "y": 0
+            },
+            "acessoDeclarado": {
+              "ponto": {
+                "x": 400,
+                "y": 0
+              },
+              "lotes": 214,
+              "areaVendavel_m2": 66144.86
+            },
+            "porPosicao": [
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "lotes": 214,
+                "areaVendavel_m2": 66144.86
+              },
+              {
+                "ponto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "lotes": 214,
+                "areaVendavel_m2": 66144.86
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "lotes": 214,
+                "areaVendavel_m2": 66144.86
+              },
+              {
+                "ponto": {
+                  "x": 800,
+                  "y": 587.5
+                },
+                "lotes": 214,
+                "areaVendavel_m2": 66144.86
+              },
+              {
+                "ponto": {
+                  "x": 337.5,
+                  "y": 587.5
+                },
+                "lotes": 214,
+                "areaVendavel_m2": 66144.86
+              },
+              {
+                "ponto": {
+                  "x": 0,
+                  "y": 462.5
+                },
+                "lotes": 214,
+                "areaVendavel_m2": 66144.86
+              }
+            ]
+          },
+          "forma": {
+            "regra": {
+              "aConferirAbaixoDe": 0.85,
+              "ruimAbaixoDe": 0.7
+            },
+            "lotes": 214,
+            "ok": 133,
+            "aConferir": 73,
+            "ruim": 8,
+            "pctAConferir": 34.11,
+            "pctRuim": 3.74,
+            "utilMediana": 0.8958,
+            "utilPior": 0.6134,
+            "porClasse": {
+              "pentágono": 82,
+              "polígono 7 lados": 6,
+              "polígono 6 lados": 28,
+              "quadrilátero": 14,
+              "trapézio": 54,
+              "retângulo": 24,
+              "polígono 8 lados": 4,
+              "polígono 10 lados": 1,
+              "polígono 9 lados": 1
             },
             "comLadoCurvo": 0
           }

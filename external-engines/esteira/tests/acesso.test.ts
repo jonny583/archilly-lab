@@ -327,10 +327,16 @@ describe("o confronto é calculado UMA vez, e CONFERIDO contra os números crus"
     }
   });
 
-  test("as duas provas trazem as cinco glebas e os quatro motores", () => {
+  test("as duas provas trazem as SETE glebas e os quatro motores", () => {
     // Sem isto, um laço vazio passaria verde dizendo que conferiu tudo.
+    //
+    // **Sete desde o LAB-45**, e as duas provas têm de ter as MESMAS: o detector de
+    // prova velha abaixo compara os números crus de uma com os da outra, e conjunto
+    // diferente quebra a comparação por fora. Quando a tabela ganhou as duas fixtures
+    // do LAB-40, a prova do acesso ganhou também — a alternativa era afrouxar a trava
+    // para caber a mudança, que é o contrário do D143.
     for (const a of ARQUIVOS) {
-      expect(a.glebas, a.arquivo).toHaveLength(5);
+      expect(a.glebas, a.arquivo).toHaveLength(7);
       for (const g of a.glebas) {
         expect(Object.keys(g.motores).sort(), `${a.arquivo} · ${g.gleba}`).toEqual([
           "generate-espinha",
@@ -540,7 +546,7 @@ describe("a ordem dos motores aguenta o acesso mudar? — a régua do LAB-34", (
     expect(o.vencedores).toEqual([]);
   });
 
-  test("o medido nas cinco glebas: a ordem muda em 3, e o vencedor em 2", () => {
+  test("o medido nas SETE glebas: a ordem muda em 3, e o vencedor em 2", () => {
     // Lido da prova e conferido contra a régua — e é detector de prova velha, não
     // fonte da verdade (D131): se a medição mudar, isto reprova e manda regerar.
     const prova = JSON.parse(
@@ -551,16 +557,22 @@ describe("a ordem dos motores aguenta o acesso mudar? — a régua do LAB-34", (
         ordemDoAcesso: { posicoesComparaveis: number; ordensDistintas: number; vencedores: string[] };
       }[];
     };
-    expect(prova.glebas).toHaveLength(5);
+    expect(prova.glebas).toHaveLength(7);
     const mudaAOrdem = prova.glebas.filter((g) => g.ordemDoAcesso.ordensDistintas > 1);
     const mudaOVencedor = prova.glebas.filter((g) => g.ordemDoAcesso.vencedores.length > 1);
     expect(mudaAOrdem.length, "regere com bun run lab19 — a ordem mudou de comportamento").toBe(3);
     expect(mudaOVencedor.length, "regere com bun run lab19").toBe(2);
 
-    // E a única gleba em que a ordem aguenta as SEIS posições é a `ensaio-47ha`.
+    // As glebas em que a ordem aguenta as SEIS posições: a `ensaio-47ha` e as duas
+    // fixtures que nasceram dela (LAB-45) — e isso é coerente, não coincidência: as
+    // três são o mesmo retângulo de 800 × 587,5 m, a uma variável de distância.
     const estaveis = prova.glebas.filter(
       (g) => g.ordemDoAcesso.ordensDistintas === 1 && g.ordemDoAcesso.posicoesComparaveis === 6,
     );
-    expect(estaveis.map((g) => g.gleba)).toEqual(["ensaio-47ha"]);
+    expect(estaveis.map((g) => g.gleba).sort()).toEqual([
+      "ensaio-47ha",
+      "ensaio-com-promessas",
+      "ensaio-com-testada",
+    ]);
   });
 });

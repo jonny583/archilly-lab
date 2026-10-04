@@ -45,6 +45,10 @@ const NOME_DA_GLEBA: Record<string, string> = {
   "sintetico-10ha-plano": "Terreno sintético plano",
   "ensaio-47ha": "Gleba de ensaio do Archilly Generate",
   "geo-antonina": "Antonina (PR) — terreno real, levantado pelo Archilly Geo",
+  // As duas do LAB-45, e os nomes dizem PARA QUE elas existem: quem lê a página
+  // precisa saber que não são terrenos de cliente, são casos montados de propósito.
+  "ensaio-com-promessas": "Gleba de ensaio — montada com furo, calçada, praça e acesso em faixa",
+  "ensaio-com-testada": "Gleba de ensaio — montada com uma rua existente na lateral",
 };
 
 /**
@@ -526,13 +530,26 @@ push(
  * **Só sobem as queixas que explicam um número do quadro** — não a lista inteira,
  * que é longa e tem o seu lugar no fim da página.
  */
-const EXPLICAM_UM_NUMERO = ["o RANKING DELE escolheu", "a testada de frente entrou como"];
+const EXPLICAM_UM_NUMERO = [
+  "o RANKING DELE escolheu",
+  "a testada de frente entrou como",
+  // LAB-45: a razão das violações da gleba com testada. Sem ela, o 68 lê como
+  // defeito do motor — e o que há é duas réguas certas sobre coisas diferentes.
+  "lote(s) externo(s) nasceram da testada",
+];
 
 function avisosDoQuadro(g: GlebaNaProva): string[] {
   const linhas: string[] = [];
   for (const id of ORDEM) {
     for (const q of g.motores[id]?.naoSoubeFazer ?? []) {
-      if (!EXPLICAM_UM_NUMERO.some((m) => q.startsWith(m))) continue;
+      // `includes`, e não `startsWith` — achado ao LER a página gerada (LAB-45).
+      //
+      // A linha nova dos lotes externos **começa com o número** ("51 lote(s)
+      // externo(s) nasceram da testada…"), então com `startsWith` ela nunca subia:
+      // ia para a lista do fim da página, onde os números são normalizados para "…".
+      // O casador media POSIÇÃO do marcador, não conteúdo — a mesma forma do D155, e
+      // quem pegou foi ler a página antes de mesclar, como no D116.
+      if (!EXPLICAM_UM_NUMERO.some((m) => q.includes(m))) continue;
       linhas.push(`> **${NOME_DO_MOTOR[id] ?? id}:** ${q}.`);
     }
   }

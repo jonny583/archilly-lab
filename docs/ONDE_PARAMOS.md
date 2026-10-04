@@ -4,15 +4,15 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-44 ·
-**Fila de 04/10 (terceira): LAB-43 a LAB-47, 2 de 5 feitos.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-45 ·
+**Fila de 04/10 (terceira): LAB-43 a LAB-47, 3 de 5 feitos.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-43 a LAB-47
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 19:12 UTC.** É o
 **mesmo** despertador, reabilitado pela **quinta** vez em vez de recriado (D112).
 
-**O próximo é o LAB-45**, e a condição dele está cumprida (LAB-44 mesclado).
+**O próximo é o LAB-46**, e a condição dele está cumprida (LAB-45 mesclado). **Parte da pergunta dele já foi respondida pelo LAB-45** (D159): em Antonina o partido de 33 lotes é feito **só de lotes externos**.
 
 ## A fila, na ordem que o chat aprovou
 
@@ -20,9 +20,37 @@
 |---|---|---|
 | **LAB-43** | as quatro provas que declaram `contrato: "2"` quando entrada nenhuma é `"2"` (D146) | ✅ **04/10/2026** |
 | **LAB-44** | um **nome só** para cada número do confronto do acesso (D145) | ✅ **04/10/2026** |
-| **LAB-45** | as duas fixtures novas **na tabela**, com ela regerada | ⏳ **o próximo** |
-| **LAB-46** | medir **em Antonina as três amostragens** do D148 — **o Jonny quer ver** | ⏳ pronto |
+| **LAB-45** | as duas fixtures novas **na tabela**, com ela regerada | ✅ **04/10/2026** |
+| **LAB-46** | medir **em Antonina as três amostragens** do D148 — **o Jonny quer ver** | ⏳ **o próximo** |
 | **LAB-47** | a chave de IA plantada no código | ⛔ **aguardando: o pedido chegou cortado** |
+
+## O que o LAB-45 fez — as duas fixtures na tabela, e o que elas revelaram
+
+**A tabela e a prova do acesso passaram a SETE glebas.** As fixtures do LAB-40 eram
+medidas pelas travas e pela ferramenta dele, **não pela esteira inteira** — e nenhuma das
+cinco antigas tem furo, calçada declarada, atração poligonal, acesso em segmento ou
+testada fora de Antonina.
+
+**Três travas caíram, e as três estavam certas** (D158): diziam *"as cinco glebas"*, e o
+detector de prova velha do LAB-39 compara a tabela com a prova do acesso — **conjunto
+diferente quebra a comparação por fora**. A prova do acesso **foi com a tabela**, em vez de
+eu afrouxar a comparação para caber a mudança (o contrário do D143).
+
+**Dois números que estavam DECLARADOS e nunca tinham preço** (D159): os **19 `massa`** da
+gleba com furo são a **perda declarada** do inventário — *"o furo vira área que o motor acha
+livre"* —, e os **47 `frente`** da gleba com testada vêm de o contrato não ter como dizer
+*"este lote faz frente para rua que já existe, fora da gleba"*: **51 lotes externos, os 51
+com `faceDeRua: null`**, 47 acusados pelo invariante do Generate. *O mesmo lote é "de frente
+para a rua existente" por uma régua e "sem frente para rua" pela outra, e as duas estão
+certas.*
+
+**E ISTO FECHA O D140:** em Antonina o partido que o ranking escolheu tem **33 lotes, e os
+33 são externos** — **nenhum no miolo**, 29 acusados por `frente`. A leitura *"produto de
+poucos lotes grandes"* **caiu com a medição**: os 33 somam 1,03 ha, cerca de 310 m² cada. O
+item 7 do Jonny recebeu isso escrito para leigo, com a tabela das duas leituras, e **a
+decisão segue dele**.
+
+---
 
 ## O que o LAB-44 fez — um nome só para cada número do confronto
 

@@ -4240,3 +4240,77 @@ interface divirjam: se uma ganhar ou perder chave sem a outra, **não compila**.
 **Provado por sabotagem:** renomeada uma chave na prova publicada, a suíte vai de **31
 verdes a 2 vermelhas** — a trava das chaves e, de carona, a do D144, que não acha mais o
 número onde esperava. Desfeito, volta ao verde.
+
+---
+
+## D158 · A tabela passou a SETE glebas — e a prova do acesso foi com ela, em vez de a trava ser afrouxada · 04/10/2026
+
+O chat aprovou: *"as duas fixtures novas com a tabela comparativa regerada."* As fixtures
+do LAB-40 existiam e eram medidas **pelas travas e pela ferramenta do LAB-40** — e não
+pela **esteira inteira**, que é a diferença que o próprio LAB-40 havia escrito como
+pendência.
+
+**Três travas caíram ao regerar, e as três estavam certas:** duas do LAB-39 e uma do
+LAB-34 diziam *"as cinco glebas"*. A tabela tinha sete e a prova do acesso, cinco.
+
+> **O detector de prova velha do LAB-39 compara os números crus da tabela com os da prova
+> do acesso.** Conjunto de glebas diferente **quebra a comparação por fora**.
+
+**Decisão, e ela é sobre método:** a prova do acesso (`lab28`) ganhou as **mesmas** sete
+glebas, e as travas passaram a dizer sete. **A alternativa era afrouxar a comparação para
+caber a minha mudança** — ensinar o detector a comparar só a interseção —, e isso é o
+contrário do que o D143 deixou: *consertei sem afrouxar*.
+
+**O que a medição nova deu, nas sete:** a ordem muda em **3** (as mesmas: `completo`,
+`sintetico-10ha-plano`, `geo-antonina`) e o vencedor em **2**. As três glebas em que a
+ordem aguenta as seis posições são `ensaio-47ha` e as **duas fixtures nascidas dela** — e
+isso é coerência, não coincidência: são o mesmo retângulo a uma variável de distância
+(D149).
+
+**E um literal meu, da família do D153:** o `lab39.ts` imprimia
+`ARQUIVOS.length * 5` confrontos — com o **cinco escrito à mão**. O trabalho estava certo
+(56 agregados, 336 posições), o **número impresso** ficou errado quando a tabela foi para
+sete. Agora é **contado**, não multiplicado.
+
+---
+
+## D159 · O lote da testada é "de frente" por uma régua e "sem frente" pela outra — e as duas estão certas · 04/10/2026
+
+O achado que a regeração da tabela trouxe, e ele fecha o D140.
+
+**Medido em `ensaio-com-testada`:** entregue a face da rua existente, o Parcelamento cria
+**51 lotes externos** (ids `…-eN`) e **os 51** publicam `faceDeRua: null` — o próprio
+motor diz que eles não fazem frente para via nenhuma **do plano**. O Validator do
+Generate, cuja regra `frente` é *"nenhuma aresta encosta em via"*, acusa **47** deles. Na
+base `ensaio-47ha`, sem testada: **0 lotes externos, 0 `faceDeRua: null`**.
+
+| gleba | lotes | violações | por regra |
+|---|---|---|---|
+| `ensaio-47ha` (base) | 599 | 16 | `testada: 10`, `face-quadra: 6` |
+| `ensaio-com-testada` | 640 | **68** | **`frente: 47`**, `via-sobre-lote: 15`, `face-quadra: 6` |
+| `ensaio-com-promessas` | 589 | 25 | **`massa: 19`**, `face-quadra: 6` |
+
+**Nenhum dos dois saltos é defeito escondido — os dois estavam declarados:**
+
+- os **19 `massa`** da gleba com furo são a **perda declarada** do inventário, agora com
+  preço: *"o motor tem um perímetro só; gleba com furo entra como o anel externo, e **o
+  furo vira área que o motor acha livre**"*. Ele lotea sobre o furo, e o Validator do
+  Generate — que **conhece** o furo pela entrada — acusa. Era teoria; virou número;
+- os **47 `frente`** são a consequência de o contrato **não ter como dizer** *"este lote
+  faz frente para uma rua que já existe e está fora da gleba"*.
+
+**E isto FECHA o D140.** Em `geo-antonina`, o partido que o ranking do motor escolheu tem
+**33 lotes, e os 33 são externos** — `faceDeRua: null` em todos, 29 acusados por `frente`.
+**O plano não tem um único lote no miolo.** Então a primeira das duas leituras do item 7
+do Jonny — *"produto de poucos lotes grandes"* — **está enfraquecida pela medição**: os 33
+somam 1,03 ha, cerca de **310 m² cada**. A decisão segue sendo dele (é régua de nota, não
+código), mas agora ela se toma sabendo **o que** são os 33 lotes.
+
+**O que eu NÃO faço:** mexer na régua de nota do vizinho, nem no invariante do Generate.
+Vai como **lista numerada** no relatório do LAB-45, e pelo chat.
+
+**E a razão vai colada ao número** (princípio do LAB-34): a linha dos lotes externos nasce
+no `naoSoubeFazer` do motor e a página a levanta para **debaixo do quadro** do terreno.
+**Achado ao LER a página gerada**, como no D116: o casador usava `startsWith`, e a minha
+linha **começa com o número** — ela nunca subia, ia para a lista do fim, onde os números
+são normalizados para `…`. O casador media **posição** do marcador, não conteúdo.
