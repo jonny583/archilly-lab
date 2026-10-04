@@ -4,15 +4,33 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-41 ·
-**Fila nova de 04/10 (segunda): 4 de 5 feitos — LAB-38 a LAB-42.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-42 ·
+**Fila de 04/10 (segunda): 5 de 5 feitos — LAB-38 a LAB-42. A FILA ESGOTOU.**
 
-# 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-38 a LAB-42
+# 🔴 A FILA ESGOTOU — o despertador está DESLIGADO
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 14:20 UTC.** É o
-**mesmo** despertador, reabilitado pela **quarta** vez em vez de recriado (D112).
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 04/10/2026, depois do LAB-42.**
 
-**O próximo é o LAB-42**, o último desta fila, e a condição dele está cumprida (LAB-41 mesclado).
+**Motivo:** os cinco prompts da fila de 04/10 (segunda parte) — **LAB-38 a LAB-42** — foram
+executados e mesclados na `main` hoje. **Não há item "pronto" na fila**, e disparo sem item
+pronto é desperdício medido: dos 7 disparos do despertador de 15/09, **4 não tiveram o que
+fazer** (D62).
+
+**Desligado e NÃO apagado** (D112): o chat ratificou essa escolha três vezes e mandou
+**reabilitar em vez de recriar** — é o mesmo despertador desde o começo, e o id acima é o
+único lugar onde ele vive.
+
+**Para retomar:** o chat escreve a fila nova na [`prompts/FILA.md`](prompts/FILA.md) e
+reabilita este id (`enabled: true`). **Há quatro propostas minhas esperando decisão**, na
+seção *Proposto ao chat* da fila: o **LAB-43** (quatro provas declaram `contrato: "2"` e
+entrada nenhuma do repositório é `"2"`), **um nome só** para cada número do confronto do
+acesso, as **duas fixtures novas na tabela** comparativa, e **medir em Antonina as três
+amostragens** do D148 — que é o que falta para eu poder dizer se o 33 contra 1 228 é caso
+único.
+
+**O saldo desta fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §3** — no
+arquivo que o LAB-42 criou exatamente para isso, e que é a primeira vez que um saldo de
+fila não depende de alguém o reconstruir a partir dos relatórios.
 
 ## A decisão do chat que veio com a fila: o 33 lotes é PENDÊNCIA DO JONNY
 
@@ -24,6 +42,37 @@ possíveis**: produto de poucos lotes grandes, ou efeito indesejado da entrega d
 **Ordem do chat, e é a que eu já seguia:** rodar com o comportamento atual e publicar o
 dado **como está, com a razão colada ao número** — *não esconder, e não escolher por
 ele*.
+
+## O que o LAB-42 fez — o balanço ganhou arquivo
+
+**O prejuízo que ele fecha foi medido:** o balanço de 03/10 foi para o chat e **não para um
+arquivo**; no dia seguinte a lista dele teve de ser **re-derivada** com uma varredura
+inteira do `CLAUDE.md` — e ao ser recuperada era **cinco linhas, não quatro, e duas estavam
+falsas** (D136, D137).
+
+**O [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md) tem duas partes, e a divisão é a
+lição do D116:** o §1 guarda os balanços que foram **só para o chat** — transcritos, ou
+**reconstruídos com etiqueta de reconstrução e a fonte de cada linha** —, e o §2 é
+**índice** dos que já moram num recado, porque copiá-los criaria a segunda montagem. O §3
+já traz o saldo desta fila.
+
+**E o arquivo registra o que o balanço ERROU:** o de 03/10 dizia *"quatro regras sem
+teste"* quando eram **cinco, e duas eram slogan**. *Balanço recuperado se confere, não se
+obedece.*
+
+**A regra é a §1-B do `CLAUDE.md`**, ao lado da do RECADO. O chat ordenou o **arquivo**; a
+regra é o que o mantém alimentado — sem ela ele volta a depender de eu lembrar, que é a
+forma do D104. **Se o chat preferir sem ela, é uma seção a remover.** Tem guarda: 6 travas
+no `balancos.test.ts` e 1 no `regras.test.ts`, **provadas por sabotagem**.
+
+**O achado do caminho** (D153): pôr o teste novo na lista do CI levou o número de travas
+protegidas de **64** a **76** — e ele estava **à mão em quatro arquivos**. *Número com
+quatro casas envelhece em três delas.* Ganhou trava de concordância, e a **primeira versão
+dela reprovou por defeito dela mesma**, casando por uma das frases em vez do número (a
+forma do D137). Os números **históricos** não se mexem: recado antigo reescrito falsifica o
+registro.
+
+---
 
 ## O que o LAB-41 fez — a ausência da ortogonal tinha causa
 
@@ -138,7 +187,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 64 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 76 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

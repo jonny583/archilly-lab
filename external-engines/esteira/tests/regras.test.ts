@@ -318,6 +318,74 @@ describe("§7 · o CI existe, e a lista dele não é mentira (LAB-38)", () => {
     );
   });
 
+  test("§1-B existe, e o arquivo que ela manda alimentar existe", () => {
+    // ── Regra que ninguém pode desmentir é slogan (D136) ─────────────────────
+    //
+    // A §1-B nasceu no LAB-42 e manda todo balanço para um arquivo. Sem trava, ela
+    // seria exatamente o que o LAB-36 achou em duas regras do §4 e do §7: afirmação
+    // sem nada que reprove quando deixar de ser verdade.
+    const claude = readFileSync(join(RAIZ, "CLAUDE.md"), "utf8");
+    expect(claude, "a §1-B saiu do CLAUDE.md").toContain("## 1-B · O BALANÇO vai para um arquivo");
+    expect(claude, "a §1-B tem de nomear o arquivo").toContain("docs/relatorios/BALANCOS.md");
+    expect(
+      existsSync(join(RAIZ, "docs", "relatorios", "BALANCOS.md")),
+      "a §1-B manda alimentar um arquivo que não existe",
+    ).toBe(true);
+    // A lição que é a razão da regra viaja com ela — a mesma disciplina do §4 sobre
+    // motivo de perda não morar em comentário (D104).
+    expect(claude, "a razão da §1-B tem de estar escrita nela").toContain(
+      "O que vai ao chat e não vai a um arquivo não existe amanhã",
+    );
+  });
+
+  test("o número de travas do trabalho sem clones é o MESMO em todo lugar que o cita", () => {
+    // ── Um número copiado em quatro arquivos é a forma do D116 (LAB-42) ──────
+    //
+    // "as 64 travas" nasceu no LAB-38 e foi colado no `CLAUDE.md`, no
+    // `ONDE_PARAMOS`, na `FILA` e no comentário do próprio YAML. No LAB-42 entrou um
+    // arquivo de teste novo na lista e o número virou **74** — em quatro lugares, à
+    // mão. Número com quatro casas envelhece em três delas.
+    //
+    // Esta trava não calcula o número (contar `test(` com regex mediria texto, não
+    // suíte); ela exige que as quatro cópias **concordem**, que é exatamente o
+    // apodrecimento que aconteceria.
+    //
+    // **O que esta trava NÃO faz, e vai dito:** ela não confere se o número é o
+    // VERDADEIRO — para isso teria de rodar a suíte, e contar `test(` com regex
+    // mediria texto. Ela confere que as quatro cópias **concordam**, que é o
+    // apodrecimento que de fato aconteceu: o LAB-42 pôs um arquivo na lista e as
+    // quatro cópias precisaram da minha mão. O valor é meu para atualizar; a
+    // divergência é dela para acusar.
+    //
+    // E a PRIMEIRA versão dela reprovou por defeito dela mesma: eu casei por
+    // `"NN travas que leem arquivo"` e a `FILA.md` dizia só `"protege NN travas"` —
+    // régua medindo UMA DAS FRASES em vez do número, a forma do D137. O conserto é
+    // declarar a frase canônica e exigi-la nos quatro: régua que casa por frase tem de
+    // dizer qual frase, e a frase tem de estar escrita nos quatro lugares.
+    const onde: Record<string, string> = {
+      "CLAUDE.md": readFileSync(join(RAIZ, "CLAUDE.md"), "utf8"),
+      "docs/ONDE_PARAMOS.md": readFileSync(join(RAIZ, "docs", "ONDE_PARAMOS.md"), "utf8"),
+      "docs/prompts/FILA.md": readFileSync(join(RAIZ, "docs", "prompts", "FILA.md"), "utf8"),
+      ".github/workflows/verde.yml": readFileSync(CI, "utf8"),
+    };
+    const achados: Record<string, string[]> = {};
+    for (const [arquivo, texto] of Object.entries(onde)) {
+      // Só a frase VIVA, a que fala do trabalho do CI — e não qualquer "NN travas"
+      // perdido no histórico do arquivo.
+      achados[arquivo] = [
+        ...texto.matchAll(/(\d+) travas que (?:leem arquivo do próprio repositório|não)/g),
+      ].map((m) => m[1]!);
+    }
+    for (const [arquivo, ns] of Object.entries(achados)) {
+      expect(ns.length, `${arquivo}: a frase do número de travas do CI desapareceu`).toBe(1);
+    }
+    const distintos = [...new Set(Object.values(achados).flat())];
+    expect(
+      distintos,
+      `o número de travas do CI divergiu entre os arquivos: ${JSON.stringify(achados)}`,
+    ).toHaveLength(1);
+  });
+
   test("a lista do trabalho `guardas-sem-clones` só tem testes que NÃO precisam dos clones", () => {
     // Esta é a trava que impede o CI de virar FALSO VERDE: se alguém puser na
     // lista um teste que importa `@generate/*` ou `@testfit/*`, o trabalho passa a

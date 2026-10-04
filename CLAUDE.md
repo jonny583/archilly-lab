@@ -42,6 +42,34 @@ arquivo, e não uma reconstrução a partir dos relatórios.
 
 ---
 
+## 1-B · O BALANÇO vai para um arquivo
+
+**Balanço é resposta que faz as contas** — de uma fila que acabou, de um conjunto de
+dívidas, do estado do repositório. Ele **não** é relatório de prompt nem recado de
+entrega, e por isso não tinha onde morar.
+
+**Todo balanço é acrescentado a
+[`docs/relatorios/BALANCOS.md`](docs/relatorios/BALANCOS.md)**, com data, origem, o que
+continha, o que produziu e onde está a prova. **Balanço que já mora num recado não se
+copia**: entra no índice daquele arquivo, apontando para a seção do `RECADOS.md` — copiar
+criaria a segunda montagem que o D116 proíbe. **Reconstrução sai etiquetada como
+reconstrução**, com a fonte de cada linha.
+
+**Por quê, medido:** em 03/10/2026 o chat pediu um balanço fora da fila; a resposta foi
+para o chat e **não para um arquivo**. No dia seguinte ele mandou executar um item dela, e
+a lista **não existia em lugar nenhum** — custou uma varredura inteira do `CLAUDE.md` para
+recuperar cinco linhas, e ao recuperá-las elas eram **cinco, não quatro, e duas estavam
+falsas** (D136, D137). Daí a regra, e daí a segunda metade dela: **balanço recuperado se
+confere, não se obedece.**
+
+> **O que vai ao chat e não vai a um arquivo não existe amanhã.**
+
+**Há guarda** (`esteira/tests/balancos.test.ts`): os campos de cada entrada, o índice
+apontando para seção que existe, os arquivos citados existindo, e a ordem cronológica.
+Regra que ninguém pode desmentir é slogan (D136), e esta pode.
+
+---
+
 ## 1-A · A fila é autônoma
 
 `docs/prompts/FILA.md` é a **fila oficial**, escrita pelo chat. Este repositório
@@ -83,6 +111,7 @@ adaptador isolado, **sempre passando pelo Validator e pelo Judge dele**.
 | `docs/referencia/LABORATORIO.md` | a especificação (Etapas A a G) |
 | `docs/relatorios/` | as medições, um arquivo por prompt |
 | `docs/relatorios/RECADOS.md` | todos os recados para o chat, em ordem |
+| `docs/relatorios/BALANCOS.md` | os balanços, em ordem — o que faz as contas (§1-B) |
 | `docs/provas/` | os números crus, em JSON |
 
 A família: **Geo** (`urban-scout-tool`) capta o terreno · **Generate**
@@ -280,7 +309,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 64 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 76 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê
