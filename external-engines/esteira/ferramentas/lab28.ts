@@ -49,7 +49,7 @@ import {
   type SensibilidadeAoAcesso,
 } from "../src/acesso.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
-import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
+import { contratoDasEntradas, glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
 import { julgar, type Rodada } from "../src/motores/comum.ts";
 import { rodarGenerate } from "../src/motores/generate.ts";
 import { rodarTestfit } from "../src/motores/testfit.ts";
@@ -65,7 +65,7 @@ const WASM = join(
 
 const SEMENTE = 20260913;
 const CARIMBO = "2026-09-19T00:00:00.000Z";
-const CONTRATO = "2";
+
 const n2 = (v: number | null) => (v == null ? null : Number(v.toFixed(2)));
 
 const wasm = await Motor.carregar(readFileSync(WASM));
@@ -78,6 +78,17 @@ const GLEBAS: { id: string; entrada: EntradaMinima }[] = [
   { id: "ensaio-47ha", entrada: JSON.parse(readFileSync(join(FIXTURES, "ensaio-47ha.entrada.json"), "utf8")) },
   { id: "geo-antonina", entrada: JSON.parse(readFileSync(join(FIXTURES, "geo-antonina.entrada.json"), "utf8")) },
 ];
+
+// ── A etiqueta sai do MEDIDO, não da minha mão (LAB-43, D146) ─────────────
+//
+// Aqui estava `const CONTRATO = "2"`, escrito à mão — e **errado**: todas as glebas
+// que esta ferramenta mede declaram `archilly.versao: "1"`, e entrada nenhuma do
+// repositório é `"2"`. A esteira LÊ `["2","1"]`; nada que ela mede É `"2"`.
+//
+// `contratoDasEntradas` mora no `gleba-v1.ts` e **reprova conjunto misto** em vez de
+// eleger a primeira: duas versões numa prova só esconderiam uma delas. Fica DEPOIS da
+// lista de glebas, porque ela é a fonte.
+const CONTRATO = contratoDasEntradas(GLEBAS.map((g) => g.entrada));
 
 const MOTORES = [
   { id: "generate-ortogonal", nome: "Generate · candidata ortogonal" },

@@ -18,6 +18,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
+import { contratoDasEntradas } from "../src/gleba-v1.ts";
 import type { EntradaMinima } from "../src/gleba-v1.ts";
 import {
   dividasDoLab,
@@ -122,7 +123,11 @@ writeFileSync(
     {
       prompt: "LAB-30",
       geradoEm: "2026-10-03",
-      contrato: "2",
+      // ── A etiqueta sai do MEDIDO (LAB-43, D146) ────────────────────────
+      //
+      // Aqui estava `"2"`, à mão e errado: as sete glebas auditadas declaram
+      // `archilly.versao: "1"`, e entrada nenhuma do repositório é `"2"`.
+      contrato: contratoDasEntradas(GLEBAS.map((g) => g.entrada)),
       // A semente faltava, e o LAB-36 a cobrou: a guarda roda os motores, e rodar
       // motor com semente é o que o §7 manda declarar. Sem ela, a prova não dizia
       // com que sorteio foi medida.

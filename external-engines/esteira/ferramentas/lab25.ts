@@ -32,7 +32,7 @@ import { paraSaida } from "@generate/contratos/motor-v1/traducao.ts";
 import type { EntradaMotorV1 } from "@generate/contratos/motor-v1/index.ts";
 
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
-import type { EntradaMinima } from "../src/gleba-v1.ts";
+import { contratoDasEntradas, type EntradaMinima } from "../src/gleba-v1.ts";
 import { emLinhas, reprovam, type Achado } from "../src/guarda-da-ponte.ts";
 import { auditarParcelamento, auditarSymbios } from "../src/guarda-em-acao.ts";
 import { rodarTestfit } from "../src/motores/testfit.ts";
@@ -46,7 +46,6 @@ const WASM = join(
 );
 
 const SEMENTE = 20260913;
-const CONTRATO = "2";
 
 const wasm = await Motor.carregar(readFileSync(WASM));
 mkdirSync(SAIDA, { recursive: true });
@@ -58,6 +57,17 @@ const GLEBAS: { id: string; entrada: EntradaMinima }[] = [
   { id: "ensaio-47ha", entrada: JSON.parse(readFileSync(join(FIXTURES, "ensaio-47ha.entrada.json"), "utf8")) },
   { id: "geo-antonina", entrada: JSON.parse(readFileSync(join(FIXTURES, "geo-antonina.entrada.json"), "utf8")) },
 ];
+
+// ── A etiqueta sai do MEDIDO, não da minha mão (LAB-43, D146) ─────────────
+//
+// Aqui estava `const CONTRATO = "2"`, escrito à mão — e **errado**: todas as glebas
+// que esta ferramenta mede declaram `archilly.versao: "1"`, e entrada nenhuma do
+// repositório é `"2"`. A esteira LÊ `["2","1"]`; nada que ela mede É `"2"`.
+//
+// `contratoDasEntradas` mora no `gleba-v1.ts` e **reprova conjunto misto** em vez de
+// eleger a primeira: duas versões numa prova só esconderiam uma delas. Fica DEPOIS da
+// lista de glebas, porque ela é a fonte.
+const CONTRATO = contratoDasEntradas(GLEBAS.map((g) => g.entrada));
 
 /**
  * As duas réguas do `faceDeRua`, uma contra a outra.

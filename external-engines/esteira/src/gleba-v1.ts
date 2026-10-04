@@ -51,6 +51,44 @@ import { calcularOrigem } from "@symbios/geo.ts";
  * pertencer a um conjunto. O defeito estava aqui desde o LAB-08.
  */
 export const VERSOES_LIDAS = ["2", "1"] as const;
+
+/**
+ * A VERSÃO DO CONTRATO QUE UM CONJUNTO DE ENTRADAS DECLARA. (LAB-43)
+ *
+ * O §7 manda toda prova de medição trazer a **versão do contrato**. Até o LAB-43 esse
+ * valor era **escrito à mão** em catorze ferramentas — e em quatro delas estava
+ * **errado**: `lab25`, `lab26`, `lab28` e `lab30` publicavam `"2"` quando **todas** as
+ * glebas que elas medem declaram `"1"` (D146).
+ *
+ * **A etiqueta sai do medido, não do autor.** É a mesma disciplina do D104 (motivo de
+ * perda não mora em comentário) aplicada a um campo de prova: valor à mão não se
+ * revalida, e este envelheceu em quatro arquivos sem nada acusar — a guarda do §7
+ * conferia que a chave **existe**, nunca que ela **corresponde**.
+ *
+ * **Ela REPROVA quando o conjunto é misto**, em vez de eleger a primeira: duas glebas de
+ * contratos diferentes na mesma prova não têm uma versão só, e publicar uma delas
+ * esconderia a outra. Prova misturada é outra prova.
+ */
+export function contratoDasEntradas(entradas: readonly { archilly: { versao: string } }[]): string {
+  const versoes = [...new Set(entradas.map((e) => e.archilly.versao))];
+  if (versoes.length === 0) {
+    throw new Error("contratoDasEntradas: nenhuma entrada — não há contrato a declarar");
+  }
+  if (versoes.length > 1) {
+    throw new Error(
+      `contratoDasEntradas: as entradas declaram contratos diferentes (${versoes
+        .map((v) => `"${v}"`)
+        .join(", ")}) — uma prova só não pode carregar duas versões`,
+    );
+  }
+  const unica = versoes[0]!;
+  if (!(VERSOES_LIDAS as readonly string[]).includes(unica)) {
+    throw new Error(
+      `contratoDasEntradas: as entradas declaram o contrato "${unica}", que esta esteira não lê`,
+    );
+  }
+  return unica;
+}
 export type VersaoLida = (typeof VERSOES_LIDAS)[number];
 
 /**

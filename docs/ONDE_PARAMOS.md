@@ -4,44 +4,70 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-42 ·
-**Fila de 04/10 (segunda): 5 de 5 feitos — LAB-38 a LAB-42. A FILA ESGOTOU.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-43 ·
+**Fila de 04/10 (terceira): LAB-43 a LAB-47, 1 de 5 feitos.**
 
-# 🔴 A FILA ESGOTOU — o despertador está DESLIGADO
+# 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-43 a LAB-47
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 04/10/2026, depois do LAB-42.**
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 19:12 UTC.** É o
+**mesmo** despertador, reabilitado pela **quinta** vez em vez de recriado (D112).
 
-**Motivo:** os cinco prompts da fila de 04/10 (segunda parte) — **LAB-38 a LAB-42** — foram
-executados e mesclados na `main` hoje. **Não há item "pronto" na fila**, e disparo sem item
-pronto é desperdício medido: dos 7 disparos do despertador de 15/09, **4 não tiveram o que
-fazer** (D62).
+**O próximo é o LAB-44**, e a condição dele está cumprida (LAB-43 mesclado).
 
-**Desligado e NÃO apagado** (D112): o chat ratificou essa escolha três vezes e mandou
-**reabilitar em vez de recriar** — é o mesmo despertador desde o começo, e o id acima é o
-único lugar onde ele vive.
+## A fila, na ordem que o chat aprovou
 
-**Para retomar:** o chat escreve a fila nova na [`prompts/FILA.md`](prompts/FILA.md) e
-reabilita este id (`enabled: true`). **Há quatro propostas minhas esperando decisão**, na
-seção *Proposto ao chat* da fila: o **LAB-43** (quatro provas declaram `contrato: "2"` e
-entrada nenhuma do repositório é `"2"`), **um nome só** para cada número do confronto do
-acesso, as **duas fixtures novas na tabela** comparativa, e **medir em Antonina as três
-amostragens** do D148 — que é o que falta para eu poder dizer se o 33 contra 1 228 é caso
-único.
+| # | em uma linha | estado |
+|---|---|---|
+| **LAB-43** | as quatro provas que declaram `contrato: "2"` quando entrada nenhuma é `"2"` (D146) | ✅ **04/10/2026** |
+| **LAB-44** | um **nome só** para cada número do confronto do acesso (D145) | ⏳ **o próximo** |
+| **LAB-45** | as duas fixtures novas **na tabela**, com ela regerada | ⏳ pronto |
+| **LAB-46** | medir **em Antonina as três amostragens** do D148 — **o Jonny quer ver** | ⏳ pronto |
+| **LAB-47** | a chave de IA plantada no código | ⛔ **aguardando: o pedido chegou cortado** |
 
-**O saldo desta fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §3** — no
-arquivo que o LAB-42 criou exatamente para isso, e que é a primeira vez que um saldo de
-fila não depende de alguém o reconstruir a partir dos relatórios.
+## O que o LAB-43 fez — a etiqueta do contrato sai do medido
 
-## A decisão do chat que veio com a fila: o 33 lotes é PENDÊNCIA DO JONNY
+**Quatro provas declaravam `contrato: "2"` e entrada nenhuma do repositório é `"2"`.** O
+conserto é de **causa**: `contratoDasEntradas()` tira a versão **das entradas que a
+ferramenta mede**, mora num lugar só, e **reprova conjunto misto** em vez de eleger a
+primeira. As quatro provas foram regeradas e dizem **`"1"`**.
 
-**O ranking do Parcelamento preferir 33 lotes a 1 228 em `geo-antonina` (D140) não se
-resolve agora** — o Jonny nunca abriu aquele motor. Virou **item 7 do
-`PENDENCIAS_JONNY.md`**, escrito para leigo, com o número, a razão e as **duas leituras
-possíveis**: produto de poucos lotes grandes, ou efeito indesejado da entrega da testada.
+**A guarda é sobre a FERRAMENTA** — conferir a prova exigiria saber quais glebas ela mediu.
+São sete travas, e a que impede o apodrecimento é a lista das **treze** ferramentas antigas
+que ainda escrevem literal: **cada valor tem de ser igual à versão que todas as entradas
+declaram**, então uma entrada `"2"` nova faz cada caso virar decisão (D118 proíbe regerar
+prova congelada para consertar etiqueta).
 
-**Ordem do chat, e é a que eu já seguia:** rodar com o comportamento atual e publicar o
-dado **como está, com a razão colada ao número** — *não esconder, e não escolher por
-ele*.
+**A régua errou primeiro, e é a DÉCIMA SEGUNDA vez** (D155): ela reprovou o arquivo que eu
+**acabara de consertar**, porque o comentário do conserto **citava** o defeito. Terceira
+vez da mesma sub-família (D137, D142, esta). *Comentário é onde um nome significa "eu estou
+falando sobre", não "eu faço".*
+
+**E a regeração revelou DUAS PROVAS VELHAS e caladas** (D156): a do LAB-30 desde o LAB-40
+(inventário de 72 para 74 campos) e a do LAB-25 desde o LAB-37 (em Antonina a variante
+escolhida virou a de 33 lotes). **Nenhuma das duas tem detector de prova velha** — o
+LAB-33 deu detector só ao LAB-23 e ao LAB-28, e as duas estão propostas ao chat. Com elas
+veio um número que **não atribuo sem medir**: a ponte publica `faceDeRua: null` nos 33
+lotes e a régua do Generate mede 5.
+
+---
+
+## ⛔ O LAB-47 está travado, e o motivo é de uma linha
+
+O pedido do chat **termina no verbo**: *"faça o mesmo teste aqui, escreva"*. Não executo
+instrução lida pela metade — adivinhar o que foi pedido é exatamente o defeito que a §6
+cataloga. **Dois pedidos ao chat:** reenviar a frase inteira, e confirmar a numeração (ele
+o chamou de "LAB-44", mas esse número já é o do nome único do confronto nesta fila; ficou
+**LAB-47**, o próximo livre).
+
+**E nada foi escrito:** nenhuma chave, de nenhum formato, entrou em arquivo deste
+repositório.
+
+## A §1-B ficou, ratificada pelo chat
+
+*"A regra fica — arquivo que depende de alguém lembrar é o defeito que você mesma
+catalogou."* A seção do `CLAUDE.md` e a guarda dela seguem como estão.
+
+---
 
 ## O que o LAB-42 fez — o balanço ganhou arquivo
 
@@ -187,7 +213,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 76 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 83 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

@@ -38,7 +38,75 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## 🟢 A FILA DE AGORA — 04/10/2026 (segunda), LAB-38 a LAB-42
+## 🟢 A FILA DE AGORA — 04/10/2026 (terceira), LAB-43 a LAB-47
+
+Mandada pelo chat em 04/10/2026, com o **despertador reabilitado pela quinta vez**
+(`enabled: true`, próximo disparo 20:05 UTC). **Os quatro primeiros saíram da minha
+própria lista de "proposto ao chat"** — é a terceira fila seguida assim.
+
+**E o chat ratificou a §1-B:** *"a regra fica — arquivo que depende de alguém lembrar é o
+defeito que você mesma catalogou."* A seção do `CLAUDE.md` e a guarda dela ficam como
+estão.
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-43** | As **quatro provas que declaram `contrato: "2"`** quando **entrada nenhuma** do repositório é `"2"` (D146) — consertar a etiqueta na ferramenta e regerar | ✅ **concluído em 04/10/2026** | nenhuma — é o primeiro da ordem |
+| **LAB-44** | **Um nome só para cada número do confronto do acesso** — hoje as mesmas três contas saem com **chaves diferentes em dois arquivos** (D145) | ⏳ **pronto, é o próximo** | LAB-43 mesclado ✅ |
+| **LAB-45** | As **duas fixtures novas** do LAB-40 **na tabela comparativa**, com ela **regerada** | ⏳ **pronto** | LAB-44 mesclado |
+| **LAB-46** | Medir **em Antonina as três amostragens** do D148 — *"é o que decide se o 33 contra 1.228 é caso único ou a mesma troca vista de outro ângulo"*. **O Jonny quer ver este resultado** | ⏳ **pronto** | LAB-45 mesclado |
+| **LAB-47** | **A chave de IA plantada no código** — o pedido do chat **chegou cortado**, ver abaixo | ⛔ **aguardando o chat** | o pedido completo |
+
+### LAB-43 · A etiqueta do contrato sai do medido — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-43.md`](../relatorios/LAB-43.md), as **quatro provas
+regeradas** (LAB-25, 26, 28, 30 — todas dizendo `"1"`), `contratoDasEntradas()` no
+`gleba-v1.ts`, `tests/contrato.test.ts` (7 travas), D154 a D156.
+
+**O conserto é de causa:** a etiqueta sai **das entradas que a ferramenta mede**, e a conta
+**reprova conjunto misto** em vez de eleger a primeira. A guarda é sobre a **ferramenta**,
+porque conferir a prova exigiria saber quais glebas ela mediu — e a **lista das treze que
+ainda escrevem literal se revalida**: cada valor tem de ser igual à versão que todas as
+entradas declaram, então uma entrada `"2"` nova faz cada caso virar decisão.
+
+**A régua errou primeiro, e é a DÉCIMA SEGUNDA vez** (D155): ela casou o literal no texto
+cru e reprovou o arquivo que eu **acabara de consertar**, porque o comentário do conserto
+**citava** o defeito. Terceira vez da mesma sub-família (D137, D142, esta). *Comentário é
+onde um nome significa "eu estou falando sobre", não "eu faço".*
+
+**E a regeração revelou duas provas VELHAS e caladas** (D156): a do LAB-30 desde o LAB-40
+(inventário 72 → 74 campos) e a do LAB-25 desde o LAB-37 (em Antonina a variante escolhida
+virou a de 33 lotes). **Elas não têm detector de prova velha** — o LAB-33 deu detector só
+ao LAB-23 e ao LAB-28. **Proposto ao chat**, junto de um número que eu não atribuo sem
+medir: a ponte publica `faceDeRua: null` nos 33 lotes e a régua do Generate mede 5.
+
+---
+
+### ⛔ O LAB-47 chegou cortado, e eu não executo instrução lida pela metade### ⛔ O LAB-47 chegou cortado, e eu não executo instrução lida pela metade
+
+**O que chegou, literalmente, e é onde a mensagem termina:**
+
+> *"LAB-44: o Render plantou uma chave de IA com formato real dentro do código e todos os
+> testes passaram verdes; faça o mesmo teste aqui, escreva"*
+
+**A frase para no verbo.** *"escreva"* o quê — a guarda, o relatório, a chave? E o teste é
+plantar a chave **e ver se algo acusa**, ou escrever a guarda **antes** e provar que ela
+pega? As duas leituras dão trabalhos diferentes, e **adivinhar qual seria exatamente o
+defeito que a §6 cataloga**: agir sobre o que eu *acho* que foi pedido.
+
+**Então ele fica `aguardando`, e eu pulo para o seguinte** (§1-A). Dois pedidos ao chat,
+os dois de uma linha:
+
+1. **reenviar a frase inteira do prompt;**
+2. **confirmar a numeração.** O chat chamou-o de "LAB-44", mas **LAB-44 já é** o nome único
+   do confronto do acesso nesta mesma fila. Numerei-o **LAB-47**, o próximo livre, para não
+   haver dois LAB-44 no repositório — se o chat preferir outro número, é um `sed`.
+
+**O que eu NÃO fiz, de propósito:** nenhuma chave, de nenhum formato, foi escrita em
+nenhum arquivo deste repositório enquanto o pedido não estiver inteiro.
+
+---
+
+## ✅ A fila de 04/10 (segunda) — CUMPRIDA, cinco de cinco, LAB-38 a LAB-42
 
 Mandada pelo chat em 04/10/2026, com o **despertador reabilitado** pela quarta vez
 (`enabled: true`, próximo disparo 15:05 UTC). **Os cinco prompts saíram da minha própria
@@ -70,18 +138,20 @@ não escolha por ele"*.
 - **a régua de forma** segue **com o Jonny** e **não trava nada**;
 - **a corda reta das vias curvas fica na V3**, sem mexer.
 
-## 🔴 A fila de 04/10 (segunda parte) ESGOTOU — o despertador está DESLIGADO
+## 🔴 A fila de 04/10 (segunda parte) esgotou — e o despertador foi RELIGADO depois
 
 **Os cinco prompts (LAB-38 a LAB-42) foram executados e mesclados em 04/10/2026.** Com o
-LAB-42, não há item "pronto" nesta fila, e o `trig_01XwSkTLT9zmyprNZcUiWy7f` foi
+LAB-42 não havia item "pronto", e o `trig_01XwSkTLT9zmyprNZcUiWy7f` foi
 **desligado — não apagado** (D112, ratificado três vezes pelo chat, que mandou **reabilitar
 em vez de recriar**).
 
 **O saldo da fila está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §3** —
 no arquivo que o próprio LAB-42 criou para isso.
 
-**O que espera decisão do chat** está na seção *Proposto ao chat* desta fila, e as quatro
-novas desta rodada são: o **LAB-43** (quatro provas declaram `contrato: "2"` e entrada
+**E o chat religou o despertador no mesmo dia**, com a fila de LAB-43 a LAB-47 — a quinta
+vez que ele **reabilita em vez de recriar**, e a terceira fila seguida tirada da minha
+lista de propostas. **As quatro propostas abaixo foram APROVADAS nessa ordem**, e viraram
+LAB-43 a LAB-46: o **LAB-43** (quatro provas declaram `contrato: "2"` e entrada
 nenhuma é `"2"`), **um nome só** para cada número do confronto do acesso, as **duas
 fixtures novas na tabela**, e **medir em Antonina as três amostragens** do D148.
 
@@ -215,7 +285,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 76 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 83 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -1266,15 +1336,18 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   total muda com o conjunto de variantes**. Medir as três em Antonina diria se aquele caso
   é extremo ou se é a mesma troca vista por um ângulo ruim — e é o que falta para eu poder
   dizer ao Jonny que Antonina é caso único. **Não executado** — escopo novo.
-- **LAB-43 · a etiqueta do contrato, que quatro provas declaram errada** (LAB-39, D146).
-  `lab25.ts`, `lab26.ts`, `lab28.ts` e `lab30.ts` publicam `contrato: "2"` escrito à mão,
-  e **nenhuma entrada deste repositório declara `"2"`** — todas as glebas e as quatro
-  fixtures dizem `"1"`. O conserto no código é **uma linha por ferramenta**
-  (`entrada.archilly.versao`, como o `lab23.ts` já faz) **mais uma guarda** que confira o
-  valor contra o medido, e não só a presença da chave. O que pesa é que a etiqueta só
-  muda no arquivo quando a prova é **regerada** — e o LAB-28 são 5 glebas × 4 motores × 6
-  posições com Validator e Judge. Proponho **casar com o próximo prompt que regere essas
-  provas por outro motivo**. **Não executado** (§1-A); o valor certo está nomeado no D146.
+- ~~**a etiqueta do contrato, que quatro provas declaravam errada** (D146)~~ — ✅
+  **executado no LAB-43**: a etiqueta sai do medido, as quatro provas regeradas dizem
+  `"1"`, e a lista das treze que ainda escrevem literal **se revalida** (D154).
+- **DETECTOR DE PROVA VELHA para o LAB-25 e o LAB-30** (LAB-43, D156). Regerar as quatro
+  provas mostrou que **duas estavam defasadas há prompts e nada acusava**: a do LAB-30
+  desde o LAB-40, a do LAB-25 desde o LAB-37. O LAB-33 deu detector ao LAB-23 e ao LAB-28;
+  estas duas ficaram sem. **Não executado** — escopo novo.
+- **O `faceDeRua` nulo nos 33 lotes de `geo-antonina`** (LAB-43, D156). Na prova regerada
+  do LAB-25, a ponte publica `faceDeRua: null` nos **33** lotes da variante escolhida e a
+  régua do Generate mede **5**. Tem a forma do D104, mas a guarda **não reprova** e a
+  variante mudou entre as rodadas — pode ser propriedade da variante de superquadra, pode
+  ser a ponte. **Não medido, e não atribuído** (§6).
 - **Um nome só para cada número do confronto do acesso** (LAB-39, D145). As mesmas três
   contas saem com chaves diferentes nos dois arquivos — `amplitudeDoAcesso_pct` ×
   `maiorAmplitude_pct`, `entreMotores_pct` × `entreOsQuatroMotores_pct`. **Dois nomes para
