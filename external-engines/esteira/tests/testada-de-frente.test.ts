@@ -176,3 +176,94 @@ describe("o motor RESPEITA a testada — e a D121 estava certa (LAB-37, D138)", 
     expect(ditas, "a escolha que custa lote tem de sair declarada").toContain("RANKING DELE escolheu");
   }, 120_000);
 });
+
+describe("a testada de frente FORA de Antonina (LAB-40)", () => {
+  /**
+   * A cobrança do chat: *"a testada de frente fora de Antonina; sem isso tudo que
+   * você mediu vale para uma gleba só."*
+   *
+   * E ela valia: as duas únicas glebas com testada eram **as duas de Antonina**, a
+   * mesma face (0), o mesmo comprimento (180 m) e a linha **sobre** a divisa. Três
+   * coisas que podiam estar carregando o resultado sem ninguém saber.
+   *
+   * A fixture do LAB-40 muda as três: **face 1**, **587,5 m**, e a linha meio metro
+   * **fora** da divisa.
+   */
+  const comTestada = (): EntradaMinima =>
+    JSON.parse(
+      readFileSync(
+        join(RAIZ, "docs", "fixtures", "glebas-que-exercem-as-promessas", "ensaio-com-testada.entrada.json"),
+        "utf8",
+      ),
+    );
+
+  test("a linha meio metro FORA da divisa é classificada como testada, não como via desenhada", () => {
+    // A distinção tem tolerância declarada (`TOL_DIVISA_M`, 1 m) e é a mediana das
+    // amostras que decide — a lição do D75, em que medir vértice pôs três de quatro
+    // vias no balde errado. Meio metro passa, e passa sem empatar com o limite.
+    const { desenhadas, testadasDeFrente } = linhasDaEntrada(comTestada());
+    expect(testadasDeFrente, "a linha fora da divisa não entrou como testada").toHaveLength(1);
+    expect(desenhadas, "e não pode ter virado coluna vertebral").toHaveLength(0);
+  });
+
+  test("a face entregue é a 1, de 587,5 m — e não a 0 de Antonina", () => {
+    const e = comTestada();
+    const { testadasDeFrente } = linhasDaEntrada(e);
+    const { faces, porFace } = facesCobertasPelaLinha(e.gleba.anel, testadasDeFrente);
+    expect(faces, "a face entregue mudou de índice").toEqual([1]);
+    const f1 = porFace.find((f) => f.face === 1)!;
+    expect(f1.comprimento_m).toBeCloseTo(587.5, 6);
+    expect(f1.fracaoCoberta).toBeCloseTo(1, 6);
+    // As faces vizinhas tocam a linha no canto e ficam FORA — é o D75 outra vez,
+    // e aqui o toque de vértice é de 0 %, não de 3 % como em Antonina.
+    for (const f of porFace.filter((x) => x.face !== 1)) {
+      expect(f.fracaoCoberta, `face ${f.face} entrou por toque de vértice`).toBeLessThan(
+        FRACAO_MINIMA_DA_FACE,
+      );
+    }
+  });
+
+  test("entregue a face 1, o motor põe lote de frente onde não havia nenhum", () => {
+    // O que esta trava afirma é a FRENTE, e só ela — porque é o que se sustentou nas
+    // três amostragens do LAB-40. O TOTAL de lotes não se sustentou, e a história
+    // disso é a lição do prompt (D148):
+    //
+    // | amostragem | sem as faces | com as faces | na testada |
+    // |---|---|---|---|
+    // | 2 variantes · espinha | 680 | 640 (−40) | 0 → 51 |
+    // | 2 variantes · ortogonal | 441 | 437 (−4) | 2 → 50 |
+    // | completo, 20 aceitas | 599 | 640 (+41) | 0 → 51 |
+    //
+    // Eu ia publicar o +41 como *"aqui a entrega não custa lote"*. O sinal muda com a
+    // amostragem porque **"espinha, posição 1" não é a mesma variante num conjunto de
+    // 2 e num de 20**: o rótulo bate, a geometria não. Posição no ranking é rótulo, e
+    // rótulo não é identidade.
+    const e = comTestada();
+    const { testadasDeFrente } = linhasDaEntrada(e);
+    const faces = oQueAEsteiraPassaPronto(e).facesLoteamento;
+    const rodar = (comAsFaces: boolean) =>
+      rodarEsteira(e as unknown as EntradaV1, {
+        semente: SEMENTE,
+        variantes: 2,
+        aparar: true,
+        formatos: ["espinha"],
+        ...(comAsFaces ? { facesLoteamento: faces } : {}),
+      });
+    const lotesDe = (r: ReturnType<typeof rodarEsteira>) =>
+      (r.variantes.filter((v) => v.relatorio)[0]!.saida as unknown as { lotes: { pontos: P[] }[] }).lotes;
+
+    const semLotes = lotesDe(rodar(false));
+    const comLotes = lotesDe(rodar(true));
+    const sem = lotesNaTestadaDeFrente(semLotes, testadasDeFrente)!;
+    const com = lotesNaTestadaDeFrente(comLotes, testadasDeFrente)!;
+    expect(sem.lotes, "sem as faces, nenhum lote fazia frente para a rua existente").toBe(0);
+    expect(com.lotes, "com as faces, o motor tem de pôr lote de frente").toBeGreaterThan(10);
+    // E a testada medida é a mesma nas duas: a régua não mudou, a entrega mudou.
+    expect(com.comprimentoDaTestada_m).toBeCloseTo(sem.comprimentoDaTestada_m, 6);
+    expect(com.comprimentoDaTestada_m).toBeCloseTo(587.5, 1);
+    // Nesta amostragem, FIXADA, a frente custa por dentro — e o custo é medido, não
+    // suposto. Afirmar o contrário era o erro que a terceira amostragem desfez.
+    expect(comLotes.length, "fixada a amostragem, a frente troca lote de dentro por lote de frente")
+      .toBeLessThan(semLotes.length);
+  }, 120_000);
+});

@@ -4,15 +4,15 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-39 ·
-**Fila nova de 04/10 (segunda): 2 de 5 feitos — LAB-38 a LAB-42.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-40 ·
+**Fila nova de 04/10 (segunda): 3 de 5 feitos — LAB-38 a LAB-42.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-38 a LAB-42
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 14:20 UTC.** É o
 **mesmo** despertador, reabilitado pela **quarta** vez em vez de recriado (D112).
 
-**O próximo é o LAB-40**, e a condição dele está cumprida (LAB-39 mesclado).
+**O próximo é o LAB-41**, e a condição dele está cumprida (LAB-40 mesclado).
 
 ## A decisão do chat que veio com a fila: o 33 lotes é PENDÊNCIA DO JONNY
 
@@ -24,6 +24,37 @@ possíveis**: produto de poucos lotes grandes, ou efeito indesejado da entrega d
 **Ordem do chat, e é a que eu já seguia:** rodar com o comportamento atual e publicar o
 dado **como está, com a razão colada ao número** — *não esconder, e não escolher por
 ele*.
+
+## O que o LAB-40 fez — as fixtures que exercem as promessas
+
+**O número que sobrevive ao prompt:** das **60** promessas dos dois inventários da ida, as
+que **gleba nenhuma** exercitava eram **6** e hoje são **0** — e há trava varrendo as dez
+glebas do repositório, nas duas direções. As entradas montadas **em memória** do LAB-35
+viraram **duas fixtures em disco**, em `docs/fixtures/glebas-que-exercem-as-promessas/`,
+nascidas de `ensaio-47ha` **a uma variável de distância** (D149).
+
+**O primeiro achado veio antes da primeira medição** (D147): a fixture fez a guarda da ida
+**reprovar** `acessos[].segmento.a` e `.b` — dois campos sem destino escrito desde o
+LAB-30, numa regra que existia e **nunca falou**, porque *campo que gleba nenhuma traz não
+existe para a guarda*. Cega por cinco prompts.
+
+**A testada fora de Antonina** muda as três coisas que podiam carregar o resultado: face
+**1**, **587,5 m**, linha **0,5 m fora** da divisa. `facesLoteamento = [1]`, face coberta a
+100 %, toque de vértice a 0 % (em Antonina era 3 %).
+
+**E a §6 pegou a DÉCIMA PRIMEIRA vez, dentro do prompt** (D148). Eu ia publicar *"aqui a
+entrega da testada não custa lote — 599 → 640"*. Nas três amostragens o sinal **muda**:
+−40, −4, **+41**. A causa não é o motor: *"espinha, posição 1"* **não é a mesma variante**
+num conjunto de 2 e num de 20 — **680 contra 599 na mesma gleba sem as faces**. **Estável
+é a frente** (0 → 51 lotes virados para a rua existente), não o total.
+
+> **Posição no ranking é rótulo. Rótulo não é identidade.**
+
+O item 7 do Jonny recebeu a medição nova **com a ressalva**: o 33 contra 1 228 continua
+sendo estranheza de Antonina, e eu **não** afirmo que é caso único, porque não medi o mesmo
+lá. Medir as três amostragens em Antonina está *"proposto ao chat"*.
+
+---
 
 ## O que o LAB-39 fez — a trava que comparava duas provas passou a MEDIR
 

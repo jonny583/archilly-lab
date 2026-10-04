@@ -3855,3 +3855,111 @@ glebas × 4 motores × 6 posições de acesso com Validator e Judge. Prova conge
 regera para consertar etiqueta (D118). Então o número fica **nomeado aqui**, como o
 D137 fez com as congeladas, e o prompt que regerar essas provas por outro motivo leva o
 conserto junto.
+
+---
+
+## D147 · A fixture achou dois campos sem destino ANTES de medir número nenhum · 04/10/2026
+
+A primeira coisa que a fixture nova do LAB-40 fez não foi render medição: foi **a guarda
+da ida reprovar**.
+
+```
+ensaio-com-promessas · parcelamento · REPROVAM:
+  acessos[].segmento.a : campo-novo-no-contrato
+  acessos[].segmento.b : campo-novo-no-contrato
+```
+
+`acessos[].segmento` estava declarado no inventário desde o LAB-30. **As pontas dele,
+`a` e `b`, não.** A guarda tem a regra exata para isso — `campo-novo-no-contrato`, a que
+pegaria a v2 — e ela **nunca falou**, por um motivo simples e inquietante:
+
+> **Campo que gleba nenhuma traz não existe para a guarda.** A regra varre os caminhos
+> que o CONTRATO trouxe; se nenhuma gleba declara acesso como segmento, não há
+> `segmento.a` para a guarda achar sem destino.
+
+**É a tese do LAB-40 em miniatura, e provada pelo próprio prompt:** o LAB-35 provou as
+quatro promessas com entrada montada **em memória**, dentro do teste, e isso exercita o
+caminho **naquele teste**. A guarda da ida, que roda sobre as glebas do repositório,
+continuou cega — e ficou cega por cinco prompts.
+
+**Decisão:** `acessos[].segmento.a` e `.b` entram no inventário como `traduzido` para
+`terreno.acesso` (as duas pontas entram na média que dá o meio). E `cobreFilhos` **não**
+serve aqui: ele existe para blob opaco, e irmão não declarado é justamente o que a regra
+2 existe para pegar — foi assim que a v2 entrou, com `nascente` ao lado de `geometria`.
+
+**A regra que isto deixa:** *promessa provada em memória é promessa provada para o
+teste, não para o repositório.* A trava que sobrevive é a do LAB-40: **nenhuma das 60
+promessas dos dois inventários pode ficar sem uma gleba que a exerça** — 6 ficavam, e
+hoje são 0.
+
+---
+
+## D148 · A DÉCIMA PRIMEIRA vez do ponto cego: posição no ranking é rótulo, e rótulo não é identidade · 04/10/2026
+
+Eu tinha a frase pronta, e ela era boa: *"em `ensaio-com-testada` a entrega da testada
+de frente **não custa lote** — 599 para 640, mais 41. A inversão de Antonina (D140) é
+daquela gleba."* Medido numa comparação só.
+
+Escrita como **teste**, com o conjunto de variantes reduzido, a mesma pergunta deu o
+**contrário**. Então medi as três:
+
+| amostragem | sem as faces | com as faces | na testada |
+|---|---|---|---|
+| 2 variantes · espinha | 680 | **640 (−40)** | 0 → 51 |
+| 2 variantes · ortogonal | 441 | **437 (−4)** | 2 → 50 |
+| completo, 20 aceitas | 599 | **640 (+41)** | 0 → 51 |
+
+**O que é estável é a FRENTE, não o total.** Nas três, a entrega põe lote virado para a
+rua existente onde não havia nenhum. O total **muda de sinal** conforme a amostragem.
+
+**E a causa não é o motor:** *"espinha, posição 1"* **não é a mesma variante** num
+conjunto de 2 e num de 20 — 680 contra 599 na **mesma gleba, sem as faces**. O rótulo
+bate e a geometria não.
+
+> **Posição no ranking é RÓTULO. Rótulo não é identidade.** Comparar dois totais porque
+> as duas rodadas trazem o mesmo `formato` e a mesma `posicaoNoMotor` é comparar dois
+> partidos diferentes e chamar de antes-e-depois.
+
+A minha própria verificação tinha o defeito: eu havia escrito um campo `mesmoPartido`
+que comparava **formato + posição** — régua afirmando identidade onde só viu etiqueta.
+Hoje ele se chama `mesmoRotuloDeVariante`, e o que ele diz é o que ele vê.
+
+**É a décima primeira vez da forma do §6, e a sexta pega dentro do próprio prompt**
+(D128, D133, D135, D137, D142, esta). A família é a mesma das anteriores — régua medindo
+nome em vez de conteúdo (D137: a chave `"gleba"` literal; D142: a menção em vez do
+`import`; aqui: o rótulo da variante em vez da geometria).
+
+**O que eu publico, então:** a frente (0 → 51, 2 → 50, 0 → 51), as três amostragens com
+o delta de cada uma, e a frase honesta — *fixada a amostragem, a frente troca lote de
+dentro por lote de frente; entre amostragens, o total não é comparável*. O que **não**
+publico é que Antonina é caso isolado: para isso faltaria medir a mesma coisa lá, e não
+foi medido.
+
+---
+
+## D149 · Fixture nasce de uma base, a UMA variável de distância, e a procedência mora no arquivo · 04/10/2026
+
+O método das duas fixtures do LAB-40, registrado porque a próxima vai imitá-lo.
+
+1. **Uma base, uma variável.** As duas nascem de `ensaio-47ha` — retângulo de 800 ×
+   587,5 m, quatro vértices — e trocam **uma coisa** sobre ela. Há teste exigindo que a
+   fixture continue sendo a base a uma variável: mesmo anel, mesmo relevo, mesmo
+   contrato. Sem isso a comparação mede duas coisas ao mesmo tempo.
+2. **Retângulo de propósito.** As faces do perímetro têm índice e comprimento que se
+   conferem de cabeça — e face é o que a testada de frente endereça.
+3. **O acesso como segmento tem o MEIO no ponto que a base declarava.** A fixture troca
+   a **forma** da declaração sem mover o acesso um centímetro: se o número mudasse, a
+   diferença seria da tradução, não do lugar.
+4. **A procedência mora no arquivo**, em `archilly.origem`, não num `LEIA-ME` ao lado —
+   D104: texto que mora longe do dado não se revalida.
+5. **A versão do contrato é copiada da base, nunca escrita à mão.** O D146 acabou de
+   mostrar o que um literal faz com uma etiqueta: quatro provas declarando `"2"` onde
+   entrada nenhuma é `"2"`.
+6. **A área declarada é a de VERDADE.** Com o furo de 100 m, a gleba tem 460 000 m², não
+   470 000. Medido antes de escolher: o adaptador do Symbios compara
+   `areaDeclarada_m2` com a área do polígono — que **desconta furos** — e avisa acima de
+   2 %. Os 10 000 m² do furo são **2,1 %**: declarar a área do anel passaria **raspando**
+   do avisador, e seria publicar um número que eu sei errado.
+
+**O que estas fixtures NÃO são:** projeto de urbanismo. A geometria é geométrica e está
+dita assim em cada arquivo, como no D73 — a regra urbanística é do Jonny (§4).

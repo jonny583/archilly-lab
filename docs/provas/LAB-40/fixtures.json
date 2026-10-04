@@ -1,0 +1,212 @@
+{
+  "prompt": "LAB-40",
+  "geradoEm": "2026-10-04T17:00:00.000Z",
+  "semente": 20260913,
+  "contrato": "1",
+  "oQueEhMedido": "se as quatro promessas do LAB-35 passam a ser exercitadas por gleba do repositório, e o que a testada de frente rende FORA de Antonina",
+  "fixturesEscritas": [
+    {
+      "gleba": "ensaio-com-promessas",
+      "arquivo": "docs/fixtures/glebas-que-exercem-as-promessas/ensaio-com-promessas.entrada.json",
+      "origem": "archilly-lab · LAB-40 · fixture: ensaio-47ha com as QUATRO promessas do LAB-35 exercitadas — furo da gleba (100 m, 10 000 m², área declarada 460 000 = a do anel menos o furo), calcada_m declarada (3,5 m), atração POLIGONAL (ímã de 100 m) e acesso como SEGMENTO (meio em x=400, y=0, o mesmo ponto que a base declarava). Geometria, não projeto de urbanismo (D73)"
+    },
+    {
+      "gleba": "ensaio-com-testada",
+      "arquivo": "docs/fixtures/glebas-que-exercem-as-promessas/ensaio-com-testada.entrada.json",
+      "origem": "archilly-lab · LAB-40 · fixture: ensaio-47ha com TESTADA DE FRENTE fora de Antonina — linha de 587,5 m meio metro FORA da face 1 do perímetro (x=800,5). Face diferente (1, não 0), comprimento diferente (587,5 m, não 180) e linha fora da divisa, não sobre ela. Geometria, não projeto de urbanismo (D73)"
+    }
+  ],
+  "glebasVarridas": {
+    "antes": [
+      "completo",
+      "pequeno",
+      "sintetico-50ha-ondulado",
+      "sintetico-10ha-plano",
+      "ensaio-47ha",
+      "geo-antonina",
+      "ensaio-com-via",
+      "antonina-com-via"
+    ],
+    "depois": [
+      "completo",
+      "pequeno",
+      "sintetico-50ha-ondulado",
+      "sintetico-10ha-plano",
+      "ensaio-47ha",
+      "geo-antonina",
+      "ensaio-com-via",
+      "antonina-com-via",
+      "ensaio-com-promessas",
+      "ensaio-com-testada"
+    ]
+  },
+  "promessas": [
+    {
+      "ida": "parcelamento",
+      "campo": "parametros.calcada_m",
+      "exercitadaAntesPor": [],
+      "exercitadaDepoisPor": [
+        "ensaio-com-promessas"
+      ]
+    },
+    {
+      "ida": "parcelamento",
+      "campo": "atracoes[].geometria.aneis",
+      "exercitadaAntesPor": [],
+      "exercitadaDepoisPor": [
+        "ensaio-com-promessas"
+      ]
+    },
+    {
+      "ida": "parcelamento",
+      "campo": "acessos[].segmento",
+      "exercitadaAntesPor": [],
+      "exercitadaDepoisPor": [
+        "ensaio-com-promessas"
+      ]
+    },
+    {
+      "ida": "symbios",
+      "campo": "gleba.furos",
+      "exercitadaAntesPor": [],
+      "exercitadaDepoisPor": [
+        "ensaio-com-promessas"
+      ]
+    }
+  ],
+  "promessasSemExercicio": {
+    "asQuatroDoLab35": {
+      "antes": 4,
+      "depois": 0
+    },
+    "todasAsPromessas": {
+      "total": 60,
+      "semExercicioAntes": [
+        "parcelamento·parametros.calcada_m",
+        "parcelamento·atracoes[].geometria.aneis",
+        "parcelamento·acessos[].segmento",
+        "parcelamento·acessos[].segmento.a",
+        "parcelamento·acessos[].segmento.b",
+        "symbios·gleba.furos"
+      ],
+      "semExercicioDepois": []
+    }
+  },
+  "testadaDeFrente": {
+    "gleba": "ensaio-com-testada",
+    "motor": "Laboratório de Parcelamento",
+    "regua": {
+      "toleranciaDaClassificacao_m": 1,
+      "toleranciaDaFace_m": 1,
+      "fracaoMinimaDaFace": 0.5
+    },
+    "linha": {
+      "comprimento_m": 587.5,
+      "distanciaDaDivisa_m": 0.5,
+      "classificadaComo": "testada de frente"
+    },
+    "porFace": [
+      {
+        "face": 0,
+        "comprimento_m": 800,
+        "fracaoCoberta": 0.0024937655860349127
+      },
+      {
+        "face": 1,
+        "comprimento_m": 587.5,
+        "fracaoCoberta": 1
+      },
+      {
+        "face": 2,
+        "comprimento_m": 800,
+        "fracaoCoberta": 0.0024937655860349127
+      }
+    ],
+    "facesLoteamento": [
+      1
+    ],
+    "oQueEhEstavel": "a FRENTE: nas três amostragens a entrega põe lote virado para a rua existente onde não havia (0 → 51, 2 → 50, 0 → 51)",
+    "oQueNaoEhEstavel": "o TOTAL de lotes: −40 na espinha com 2 variantes, −4 na ortogonal com 2, +41 no conjunto completo. `espinha, posição 1` não é a mesma variante num conjunto de 2 e num de 20 — o rótulo bate e a geometria não (680 contra 599 na mesma gleba sem as faces). Posição no ranking é rótulo, e rótulo não é identidade",
+    "medicoes": [
+      {
+        "amostragem": "2 variantes · espinha",
+        "variantes": 2,
+        "formatos": [
+          "espinha"
+        ],
+        "semAsFaces": {
+          "formato": "espinha",
+          "posicaoNoMotor": 1,
+          "lotes": 680,
+          "lotesNaTestada": 0,
+          "comprimentoDaTestada_m": 587.5
+        },
+        "comAsFaces": {
+          "formato": "espinha",
+          "posicaoNoMotor": 1,
+          "lotes": 640,
+          "lotesNaTestada": 51,
+          "comprimentoDaTestada_m": 587.5
+        },
+        "deltaDeLotes": -40,
+        "mesmoRotuloDeVariante": true
+      },
+      {
+        "amostragem": "2 variantes · ortogonal",
+        "variantes": 2,
+        "formatos": [
+          "ortogonal"
+        ],
+        "semAsFaces": {
+          "formato": "ortogonal",
+          "posicaoNoMotor": 1,
+          "lotes": 441,
+          "lotesNaTestada": 2,
+          "comprimentoDaTestada_m": 587.5
+        },
+        "comAsFaces": {
+          "formato": "ortogonal",
+          "posicaoNoMotor": 1,
+          "lotes": 437,
+          "lotesNaTestada": 50,
+          "comprimentoDaTestada_m": 587.5
+        },
+        "deltaDeLotes": -4,
+        "mesmoRotuloDeVariante": true
+      },
+      {
+        "amostragem": "completo (o que o Lab publica)",
+        "variantes": 20,
+        "formatos": [
+          "ortogonal",
+          "espinha",
+          "pente",
+          "diagonal",
+          "loop",
+          "cluster",
+          "radial",
+          "organico",
+          "superquadra",
+          "mioloVerde"
+        ],
+        "semAsFaces": {
+          "formato": "espinha",
+          "posicaoNoMotor": 1,
+          "lotes": 599,
+          "lotesNaTestada": 0,
+          "comprimentoDaTestada_m": 587.5
+        },
+        "comAsFaces": {
+          "formato": "espinha",
+          "posicaoNoMotor": 1,
+          "lotes": 640,
+          "lotesNaTestada": 51,
+          "comprimentoDaTestada_m": 587.5
+        },
+        "deltaDeLotes": 41,
+        "mesmoRotuloDeVariante": true
+      }
+    ],
+    "determinista": true
+  }
+}

@@ -49,8 +49,8 @@ trabalho o que eu havia listado como pendente.
 |---|---|---|---|
 | **LAB-38** | **CI para o comando único** — não há workflow neste repositório, então nada roda o verde sozinho. Criar e **provar quebrando um teste de propósito**. *"É o mesmo buraco do Orçamento e do Generate, e foi ele que deixou uma suíte vermelha duas semanas sem ninguém ver"* | ✅ **concluído em 04/10/2026** | nenhuma — prioridade |
 | **LAB-39** | A **última trava que se repete**: o teste do D116 compara **duas provas entre si** — consertar para **medir**, não para comparar prova com prova | ✅ **concluído em 04/10/2026** | LAB-38 mesclado ✅ |
-| **LAB-40** | **Fixtures** que exerçam as quatro promessas do LAB-35 **e a testada de frente fora de Antonina** — sem isso tudo que foi medido vale para uma gleba só | ⏳ **pronto, é o próximo** | LAB-39 mesclado ✅ |
-| **LAB-41** | As **posições de acesso em que a candidata ortogonal do Generate não entrega nada aceitável**, 5 de 6 numa gleba — investigar e dizer se é **defeito do motor ou limite real do terreno** | ⏳ **pronto** | LAB-40 mesclado |
+| **LAB-40** | **Fixtures** que exerçam as quatro promessas do LAB-35 **e a testada de frente fora de Antonina** — sem isso tudo que foi medido vale para uma gleba só | ✅ **concluído em 04/10/2026** | LAB-39 mesclado ✅ |
+| **LAB-41** | As **posições de acesso em que a candidata ortogonal do Generate não entrega nada aceitável**, 5 de 6 numa gleba — investigar e dizer se é **defeito do motor ou limite real do terreno** | ⏳ **pronto, é o próximo** | LAB-40 mesclado ✅ |
 | **LAB-42** | Criar **`docs/relatorios/BALANCOS.md`** e registrar ali os balanços, inclusive os que foram **só para o chat**, para nenhuma lista precisar ser re-derivada de novo | ⏳ **pronto** | LAB-41 mesclado |
 
 ### A decisão que o chat tomou junto com a fila
@@ -69,6 +69,34 @@ não escolha por ele"*.
 
 - **a régua de forma** segue **com o Jonny** e **não trava nada**;
 - **a corda reta das vias curvas fica na V3**, sem mexer.
+
+### LAB-40 · As fixtures que exercem as promessas — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-40.md`](../relatorios/LAB-40.md),
+`docs/fixtures/glebas-que-exercem-as-promessas/` (duas), `docs/provas/LAB-40/fixtures.json`,
+`ferramentas/lab40.ts`, travas novas, D147 a D149, `CLAUDE.md` §6 com **onze** linhas.
+
+**O número que sobrevive ao prompt:** das **60** promessas dos dois inventários, as que
+**gleba nenhuma** exercitava eram **6** e hoje são **0** — e há trava varrendo as dez
+glebas, nas duas direções (promessa nova sem fixture, fixture mutilada).
+
+**O primeiro achado veio antes da primeira medição** (D147): a fixture fez a guarda da
+ida **reprovar** `acessos[].segmento.a` e `.b`, dois campos sem destino escrito desde o
+LAB-30. A regra existia e **nunca falou** — *campo que gleba nenhuma traz não existe para
+a guarda*. É a tese do prompt provada pelo próprio prompt.
+
+**A testada fora de Antonina muda as três coisas** que podiam carregar o resultado: face
+**1** (não 0), **587,5 m** (não 180) e a linha **0,5 m fora** da divisa (não sobre ela).
+`facesLoteamento = [1]`, face coberta a 100 %, toque de vértice a 0 %.
+
+**E a §6 pegou a DÉCIMA PRIMEIRA vez, dentro do prompt** (D148): eu ia publicar *"aqui a
+entrega não custa lote, 599 → 640"*. Medidas três amostragens, o sinal **muda** (−40, −4,
++41) — porque *"espinha, posição 1"* **não é a mesma variante** num conjunto de 2 e num de
+20: 680 contra 599 na mesma gleba sem as faces. **Estável é a frente** (0 → 51), não o
+total. *Posição no ranking é rótulo, e rótulo não é identidade.* O item 7 do Jonny recebeu
+a ressalva escrita para leigo.
+
+---
 
 ### LAB-39 · A trava que comparava duas provas, consertada para medir — ✅ concluído em 04/10/2026
 
@@ -1140,11 +1168,9 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   03/10 que originou o LAB-36 — **não tem arquivo, e some**: foi por isso que a lista das
   "quatro regras" teve de ser re-derivada. Proponho um `docs/relatorios/BALANCOS.md`, na
   forma do `RECADOS.md`. **Não executado:** mexeria no `CLAUDE.md` §1, que é regra sua.
-- **Fixtures que exerçam as quatro promessas** (LAB-35). Elas estão provadas por teste,
-  com entrada montada em memória — mas **nenhuma gleba do repositório** tem furo, atração
-  poligonal, calçada declarada ou acesso como segmento, então quem roda a esteira inteira
-  continua sem exercer esses caminhos. **Escopo novo**, não executado; é um prompt
-  pequeno se o chat quiser.
+- ~~**Fixtures que exerçam as quatro promessas** (LAB-35)~~ — ✅ **executado no LAB-40**:
+  duas fixtures em `docs/fixtures/glebas-que-exercem-as-promessas/`, as promessas sem
+  exercício de **6 para 0**, e dois campos sem destino achados no caminho (D147).
 - **As posições em que a candidata ortogonal do Generate não entrega nada aceitável**
   (LAB-34). No `sintetico-50ha-ondulado` são **5 de 6**; no `sintetico-10ha-plano`, 3 de
   6. Está publicado como ausência, mas **não foi investigado** — pode ser limite do
@@ -1154,6 +1180,17 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 - ~~**A última trava que repete** (LAB-33, D131)~~ — ✅ **executado no LAB-39**, com o
   desenho proposto: o agregado refeito dos números crus de cada arquivo, sem rodar motor
   nenhum. 40 agregados, 10 confrontos, 240 posições, 0 divergências (D144).
+- **As duas fixtures novas na TABELA comparativa** (LAB-40). `ensaio-com-promessas` e
+  `ensaio-com-testada` existem e são medidas pela ferramenta do LAB-40 e pelas travas, mas
+  **não entram na tabela** do LAB-19/LAB-20 — entrariam como duas glebas novas, e isso é
+  regerar a tabela inteira (5 glebas × 4 motores × 6 posições de acesso) e a página do
+  Jonny. **Não executado** — escopo novo, e vale decidir junto com o LAB-43, que também
+  pede regeração.
+- **Medir em Antonina a mesma pergunta das três amostragens** (LAB-40, D148). O 33 contra
+  1 228 foi medido numa amostragem só; o `ensaio-com-testada` mostrou que o **sinal do
+  total muda com o conjunto de variantes**. Medir as três em Antonina diria se aquele caso
+  é extremo ou se é a mesma troca vista por um ângulo ruim — e é o que falta para eu poder
+  dizer ao Jonny que Antonina é caso único. **Não executado** — escopo novo.
 - **LAB-43 · a etiqueta do contrato, que quatro provas declaram errada** (LAB-39, D146).
   `lab25.ts`, `lab26.ts`, `lab28.ts` e `lab30.ts` publicam `contrato: "2"` escrito à mão,
   e **nenhuma entrada deste repositório declara `"2"`** — todas as glebas e as quatro

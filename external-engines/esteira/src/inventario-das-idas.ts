@@ -199,6 +199,26 @@ export const IDA_DO_PARCELAMENTO: Record<string, DestinoNaIda> = {
     "o motor tem um ÚNICO ponto de acesso; um segmento é uma testada inteira liberada, e o " +
       "meio dela é o palpite menos errado. A perda vai declarada, com gravidade alta",
   ),
+  // ── Os dois IRMÃOS que faltavam, e quem os achou foi uma fixture (LAB-40) ──
+  //
+  // `acessos[].segmento` estava declarado; as pontas dele, `a` e `b`, não. A guarda
+  // tem a regra exata para isso — `campo-novo-no-contrato` — e ela **nunca falou**,
+  // porque gleba nenhuma do repositório declarava acesso como segmento: caminho que
+  // ninguém percorre não tem campo para a guarda achar.
+  //
+  // **Foi a primeira coisa que a fixture nova fez**, antes de medir qualquer número:
+  // reprovar dois campos sem destino escrito. É a tese do LAB-40 em miniatura, e a
+  // razão de `cobreFilhos` não servir aqui — irmão não declarado é justamente o que
+  // a regra 2 existe para pegar (a v2 entrou assim, com `nascente` ao lado de
+  // `geometria`).
+  "acessos[].segmento.a": traduzido(
+    "terreno.acesso",
+    "a ponta A entra na média que dá o meio do segmento — o ponto único que o motor aceita",
+  ),
+  "acessos[].segmento.b": traduzido(
+    "terreno.acesso",
+    "a ponta B entra na média que dá o meio do segmento — o ponto único que o motor aceita",
+  ),
   "acessos[].sugerido": perda(
     "o motor não distingue acesso marcado de palpite do Geo; o traçado parte dali como se " +
       "fosse decisão do usuário. O contrato carrega essa marca justamente para não calá-la",
