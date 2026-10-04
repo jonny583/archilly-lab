@@ -108,6 +108,10 @@ const LOTE = [...MOTORES_DE_LOTE];
 const saida: Record<string, unknown> = {};
 let posicoesConferidas = 0;
 let agregadosConferidos = 0;
+// Contado, não multiplicado: aqui havia `ARQUIVOS.length * 5`, com o CINCO escrito à
+// mão — e no LAB-45 a tabela passou a ter SETE glebas, então o número impresso ficou
+// errado enquanto o trabalho estava certo. É a família do D153, num literal meu.
+let confrontosConferidos = 0;
 let divergencias = 0;
 
 console.log(
@@ -122,6 +126,7 @@ for (const a of ARQUIVOS) {
     const sens = Object.fromEntries(Object.entries(g.motores).map(([k, v]) => [k, sensDaProva(v)]));
     const refeito = confrontoDoAcesso(sens, LOTE);
     const confere = JSON.stringify(refeito) === JSON.stringify(g.publicado);
+    confrontosConferidos += 1;
 
     const porMotor: Record<string, unknown> = {};
     for (const [mid, bloco] of Object.entries(g.motores)) {
@@ -172,7 +177,7 @@ for (const a of ARQUIVOS) {
 }
 
 console.log(
-  `\n  ${agregadosConferidos} agregados de motor e ${ARQUIVOS.length * 5} confrontos refeitos, ` +
+  `\n  ${agregadosConferidos} agregados de motor e ${confrontosConferidos} confrontos refeitos, ` +
     `sobre ${posicoesConferidas} posições cruas · divergências: ${divergencias}`,
 );
 
@@ -194,6 +199,7 @@ writeFileSync(
       posicoesDeAcesso: POSICOES_DE_ACESSO,
       motoresDeLote: LOTE,
       agregadosConferidos,
+      confrontosConferidos,
       posicoesCruasConferidas: posicoesConferidas,
       divergencias,
       aTravaAntiga: {

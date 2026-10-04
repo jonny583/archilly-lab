@@ -59,6 +59,7 @@ import { rodarSymbios } from "../src/motores/symbios.ts";
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-28");
 const FIXTURES = join(RAIZ, "docs", "fixtures", "glebas-padrao-com-relevo");
+const PROMESSAS = join(RAIZ, "docs", "fixtures", "glebas-que-exercem-as-promessas");
 const WASM = join(
   RAIZ, "external-engines", "symbios", "archilly", "wasm", "target",
   "wasm32-unknown-unknown", "release", "archilly_symbios_wasm.wasm",
@@ -72,12 +73,23 @@ const n2 = (v: number | null) => (v == null ? null : Number(v.toFixed(2)));
 const wasm = await Motor.carregar(readFileSync(WASM));
 mkdirSync(SAIDA, { recursive: true });
 
+/**
+ * As MESMAS glebas da tabela do LAB-19 — sete desde o LAB-45.
+ *
+ * Elas têm de ser as mesmas, e isso não é arrumação: o detector de prova velha do
+ * LAB-39 compara os números crus do acesso **desta** prova com os da tabela, e um
+ * conjunto de glebas diferente quebra a comparação por fora. Quando a tabela ganha
+ * gleba, esta prova ganha também — a alternativa seria **afrouxar a trava** para
+ * caber a minha mudança, que é o contrário do que o D143 ensinou.
+ */
 const GLEBAS: { id: string; entrada: EntradaMinima }[] = [
   { id: "completo", entrada: glebaDoLab("completo") },
   { id: "sintetico-50ha-ondulado", entrada: glebaDoLab("sintetico-50ha-ondulado") },
   { id: "sintetico-10ha-plano", entrada: glebaDoLab("sintetico-10ha-plano") },
   { id: "ensaio-47ha", entrada: JSON.parse(readFileSync(join(FIXTURES, "ensaio-47ha.entrada.json"), "utf8")) },
   { id: "geo-antonina", entrada: JSON.parse(readFileSync(join(FIXTURES, "geo-antonina.entrada.json"), "utf8")) },
+  { id: "ensaio-com-promessas", entrada: JSON.parse(readFileSync(join(PROMESSAS, "ensaio-com-promessas.entrada.json"), "utf8")) },
+  { id: "ensaio-com-testada", entrada: JSON.parse(readFileSync(join(PROMESSAS, "ensaio-com-testada.entrada.json"), "utf8")) },
 ];
 
 // ── A etiqueta sai do MEDIDO, não da minha mão (LAB-43, D146) ─────────────

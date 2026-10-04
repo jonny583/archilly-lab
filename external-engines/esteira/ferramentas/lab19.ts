@@ -60,6 +60,7 @@ import { rodarSymbios } from "../src/motores/symbios.ts";
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-19");
 const FIXTURES = join(RAIZ, "docs", "fixtures", "glebas-padrao-com-relevo");
+const PROMESSAS = join(RAIZ, "docs", "fixtures", "glebas-que-exercem-as-promessas");
 const WASM = join(
   RAIZ, "external-engines", "symbios", "archilly", "wasm", "target",
   "wasm32-unknown-unknown", "release", "archilly_symbios_wasm.wasm",
@@ -76,12 +77,24 @@ const pc = (a: number, b: number) => (b > 0 ? Number(((100 * a) / b).toFixed(2))
 const wasm = await Motor.carregar(readFileSync(WASM));
 mkdirSync(SAIDA, { recursive: true });
 
+/**
+ * As glebas da tabela — CINCO até o LAB-45, SETE daqui em diante.
+ *
+ * As duas últimas são as fixtures do LAB-40, e entram porque sem elas **tudo o que a
+ * tabela compara acontece em gleba que não exercita caminho nenhum dos novos**: nenhuma
+ * das cinco antigas tem furo, calçada declarada, atração poligonal, acesso como segmento
+ * ou testada de frente fora de Antonina. Elas eram medidas pelas travas e pela ferramenta
+ * do LAB-40, e **não pela esteira inteira** — que é a diferença que o LAB-40 já havia
+ * escrito como pendência.
+ */
 const GLEBAS: { id: string; entrada: EntradaMinima }[] = [
   { id: "completo", entrada: glebaDoLab("completo") },
   { id: "sintetico-50ha-ondulado", entrada: glebaDoLab("sintetico-50ha-ondulado") },
   { id: "sintetico-10ha-plano", entrada: glebaDoLab("sintetico-10ha-plano") },
   { id: "ensaio-47ha", entrada: JSON.parse(readFileSync(join(FIXTURES, "ensaio-47ha.entrada.json"), "utf8")) },
   { id: "geo-antonina", entrada: JSON.parse(readFileSync(join(FIXTURES, "geo-antonina.entrada.json"), "utf8")) },
+  { id: "ensaio-com-promessas", entrada: JSON.parse(readFileSync(join(PROMESSAS, "ensaio-com-promessas.entrada.json"), "utf8")) },
+  { id: "ensaio-com-testada", entrada: JSON.parse(readFileSync(join(PROMESSAS, "ensaio-com-testada.entrada.json"), "utf8")) },
 ];
 
 const MOTORES = [

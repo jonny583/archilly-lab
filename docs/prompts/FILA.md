@@ -52,11 +52,35 @@ estão.
 |---|---|---|---|
 | **LAB-43** | As **quatro provas que declaram `contrato: "2"`** quando **entrada nenhuma** do repositório é `"2"` (D146) — consertar a etiqueta na ferramenta e regerar | ✅ **concluído em 04/10/2026** | nenhuma — é o primeiro da ordem |
 | **LAB-44** | **Um nome só para cada número do confronto do acesso** — hoje as mesmas três contas saem com **chaves diferentes em dois arquivos** (D145) | ✅ **concluído em 04/10/2026** | LAB-43 mesclado ✅ |
-| **LAB-45** | As **duas fixtures novas** do LAB-40 **na tabela comparativa**, com ela **regerada** | ⏳ **pronto, é o próximo** | LAB-44 mesclado ✅ |
-| **LAB-46** | Medir **em Antonina as três amostragens** do D148 — *"é o que decide se o 33 contra 1.228 é caso único ou a mesma troca vista de outro ângulo"*. **O Jonny quer ver este resultado** | ⏳ **pronto** | LAB-45 mesclado |
+| **LAB-45** | As **duas fixtures novas** do LAB-40 **na tabela comparativa**, com ela **regerada** | ✅ **concluído em 04/10/2026** | LAB-44 mesclado ✅ |
+| **LAB-46** | Medir **em Antonina as três amostragens** do D148 — *"é o que decide se o 33 contra 1.228 é caso único ou a mesma troca vista de outro ângulo"*. **O Jonny quer ver este resultado** | ⏳ **pronto, é o próximo** · parte da pergunta **já foi respondida** pelo LAB-45 (D159) | LAB-45 mesclado ✅ |
 | **LAB-47** | **A chave de IA plantada no código** — o pedido do chat **chegou cortado**, ver abaixo | ⛔ **aguardando o chat** | o pedido completo |
 
-### LAB-44 · Um nome só para cada número do confronto — ✅ concluído em 04/10/2026
+### LAB-45 · As duas fixtures na tabela — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-45.md`](../relatorios/LAB-45.md), a tabela e a prova do
+acesso com **sete** glebas, a página do Jonny regerada, D158 e D159.
+
+**Três travas caíram ao regerar, e as três estavam certas:** diziam *"as cinco glebas"*, e
+o detector de prova velha do LAB-39 compara a tabela com a prova do acesso — conjunto
+diferente quebra a comparação por fora. **A prova do acesso foi com a tabela**, em vez de
+a comparação ser afrouxada para caber a mudança (o contrário do D143).
+
+**E as duas glebas novas revelaram dois números que estavam declarados e nunca tinham
+preço** (D159): os **19 `massa`** da gleba com furo são a **perda declarada** do inventário
+(*"o furo vira área que o motor acha livre"*), e os **47 `frente`** da gleba com testada são
+a consequência de o contrato não ter como dizer *"este lote faz frente para rua que já
+existe, fora da gleba"* — medido: **51 lotes externos, os 51 com `faceDeRua: null`**, 47
+acusados pelo invariante do Generate.
+
+**ISTO FECHA O D140:** em Antonina o partido escolhido tem **33 lotes, e os 33 são
+externos** — nenhum no miolo, 29 acusados por `frente`. A leitura *"poucos lotes grandes"*
+**caiu com a medição**: os 33 somam 1,03 ha, ~310 m² cada. O item 7 do Jonny recebeu isso
+escrito para leigo, e **a decisão segue dele**.
+
+---
+
+### LAB-44 · Um nome só para cada número do confronto — ✅ concluído em 04/10/2026### LAB-44 · Um nome só para cada número do confronto — ✅ concluído em 04/10/2026
 
 **Entregue:** [`../relatorios/LAB-44.md`](../relatorios/LAB-44.md), a prova do LAB-28
 regerada com os nomes da régua, `CHAVES_DO_CONFRONTO` + trava de tipo no `acesso.ts`, uma
@@ -1351,12 +1375,9 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 - ~~**A última trava que repete** (LAB-33, D131)~~ — ✅ **executado no LAB-39**, com o
   desenho proposto: o agregado refeito dos números crus de cada arquivo, sem rodar motor
   nenhum. 40 agregados, 10 confrontos, 240 posições, 0 divergências (D144).
-- **As duas fixtures novas na TABELA comparativa** (LAB-40). `ensaio-com-promessas` e
-  `ensaio-com-testada` existem e são medidas pela ferramenta do LAB-40 e pelas travas, mas
-  **não entram na tabela** do LAB-19/LAB-20 — entrariam como duas glebas novas, e isso é
-  regerar a tabela inteira (5 glebas × 4 motores × 6 posições de acesso) e a página do
-  Jonny. **Não executado** — escopo novo, e vale decidir junto com o LAB-43, que também
-  pede regeração.
+- ~~**As duas fixtures novas na TABELA comparativa** (LAB-40)~~ — ✅ **executado no
+  LAB-45**: sete glebas na tabela e na prova do acesso, com as travas acompanhando em vez
+  de serem afrouxadas (D158), e dois achados que fecharam o D140 (D159).
 - **Medir em Antonina a mesma pergunta das três amostragens** (LAB-40, D148). O 33 contra
   1 228 foi medido numa amostragem só; o `ensaio-com-testada` mostrou que o **sinal do
   total muda com o conjunto de variantes**. Medir as três em Antonina diria se aquele caso

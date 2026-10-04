@@ -395,6 +395,36 @@ estranheza de Antonina**, e não um defeito geral de entregar a rua. Mas eu **n�
 mesmo caso lá de novo, então também não afirmo que Antonina é caso único. A sua decisão
 segue de pé, e segue sendo sobre produto, não sobre código.
 
+### Novidade de 04/10, a mais importante: MEDI o que são aqueles 33 lotes
+
+Pondo as duas glebas novas na tabela de comparação, o programa rodou Antonina outra vez
+e eu olhei **de que são feitos** os 33 lotes. A resposta muda a leitura:
+
+> **Os 33 lotes são, todos os 33, lotes da beira da rua que já existe.** O plano que o
+> programa escolheu **não tem um único lote no miolo do terreno** — é só a fileira
+> encostada na rua de fora.
+
+E tem mais, medido pela régua do próprio Archilly Generate: **29 daqueles 33 lotes são
+contados como "sem frente para rua"**. Não é contradição — é que a rua deles **já existe
+e está fora do terreno**, então ela não é uma rua *do plano*, e a régua que confere "este
+lote tem frente para rua?" não a encontra. O mesmo lote é **"de frente para a rua
+existente"** por uma régua e **"sem frente para rua"** pela outra, e **as duas estão
+certas sobre o que medem**.
+
+**O que isso faz com as duas leituras que eu te dei:**
+
+| a leitura | como ela fica depois da medição |
+|---|---|
+| *"é de propósito — poucos lotes grandes são um produto"* | **enfraquecida**: os 33 lotes somam 1,03 ha, ou seja ~310 m² cada. **Não são lotes grandes**, e não há nada no miolo |
+| *"é efeito colateral"* | **reforçada**: aquele plano desenhava **zero** lotes antes; a rua existente deu-lhe 33 lotes de beira, ele deixou de ser vazio, e a nota dele passou à frente |
+
+**A decisão continua sua**, e não mudou de natureza: é sobre o que a régua de nota do
+Laboratório de Parcelamento **deve** premiar. Eu não escolho o plano por ele e não
+escondo o dado dele — só agora dá para decidir sabendo **o que** são os 33 lotes.
+
+**Onde ver:** a página de comparação, no quadro **Antonina (PR)**, traz a linha com os 33
+lotes externos e o `faceDeRua` logo abaixo da tabela.
+
 ### O que eu faço enquanto você não olhar
 
 **Nada muda, e nada fica escondido.** Sigo rodando o programa como ele é, publicando o
