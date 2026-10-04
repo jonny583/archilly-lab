@@ -12,9 +12,16 @@
 > vias** e a SAÍDA deixa de ser idêntica sem ela.
 >
 > **O que continua valendo:** a aderência medida. Mesmo recebendo a via, o motor
-> **não assenta os eixos nela** — a aderência fica em 11 %. Ler a via e seguir a via
-> são perguntas diferentes, e o LAB-30 as separou em `leViaDesenhada` e
-> `respeitaViaDesenhada` (D120). Os números desta página foram remedidos na prova.
+> **não assenta os eixos nela**. Ler a via e seguir a via são perguntas diferentes, e o
+> LAB-30 as separou em `leViaDesenhada` e `respeitaViaDesenhada` (D120). Os números
+> desta página foram remedidos na prova.
+>
+> **E uma TERCEIRA pergunta, achada só no LAB-32** (D127): ele **alinha o partido** à
+> direção da linha — o campo `viaManual` do motor dá a ela o ângulo base do traçado e
+> transforma a faixa dela em área bloqueada. A régua desta página — *"há eixo sobre a
+> linha?"* — não mede isso, e por isso leu obediência como queda. A aderência de 11,2 %
+> publicada no LAB-30 é de um partido diferente da de 17,4 %: no mesmo partido a queda
+> é 17,4 → 14,0 %. Ver [`LAB-32.md`](LAB-32.md).
 >
 > **Por que o relatório não foi reescrito:** ele é o registro do que foi medido e
 > concluído naquele dia. A correção fica no alto, onde não se lê por acidente — ver

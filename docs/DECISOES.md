@@ -3007,6 +3007,21 @@ em que o campo nasceu, que é exatamente o que ele existe para fazer.
 desenhada não aparece"* e *"ela entrou como coluna vertebral e o traçado saiu por
 perto"* são dois desenhos diferentes.
 
+> **⚠ Ressalva do LAB-32 (D127): eram TRÊS perguntas, não duas.** A terceira é *"ele
+> alinha o partido à direção da linha?"*, e a resposta é **sim** — o campo `viaManual`
+> do motor dá à linha o ângulo base do traçado e transforma a faixa dela em área
+> bloqueada. As duas são cumpridas, medidas. O que esta decisão chama de *"aderência de
+> 11 %"* é a régua certa para a **segunda** pergunta e **cega para a terceira**: alinhar
+> o partido gira a rede toda, e girar a rede tira eixos de cima das outras linhas
+> desenhadas. Daí 17,4 % cair para 11,2 % quando o motor passou a OBEDECER.
+>
+> E o número 11,2 não é comparável com o 17,4: são **partidos diferentes** — o ranking
+> do motor trocou `ortogonal` por `espinha`. No mesmo partido, 17,4 → 14,0 %.
+>
+> **O que esta decisão acertou e segue de pé:** partir uma declaração quando as
+> respostas divergem. O que lhe faltou foi perguntar *"que mais este campo faz no
+> motor?"* antes de eleger a régua.
+
 ---
 
 ## D121 · A dívida declarada: um destino para "o motor tem onde receber e eu não entrego" · 03/10/2026
@@ -3142,3 +3157,101 @@ nos três arquivos), com o antes e o depois em `docs/provas/LAB-31/sabotagem.jso
 passos de cada pacote viverem no mesmo comando.
 
 **Uma coisa a sabotagem NÃO prova:** que o comando rode. Ver D125.
+
+---
+
+## D127 · A queda que eu publiquei sem investigar era o motor OBEDECENDO · 04/10/2026
+
+O chat cobrou com a palavra certa: *"a aderência do Parcelamento caiu de 17,4 para 11,2
+por cento depois do conserto do LAB-30 e você publicou sem investigar."* Publiquei. E o
+resultado era suspeito do jeito que o §6 descreve — *"entreguei a linha ao motor e ele
+passou a segui-la MENOS"* é uma frase que pede medição antes de virar conclusão.
+
+Medida, a queda de 6,2 pp tem **duas** parcelas, e nenhuma é desrespeito:
+
+| parcela | quanto | o que é |
+|---|---|---|
+| troca de partido | **2,8 pp** | o ranking do próprio motor trocou `ortogonal` (nota 0,6176) por `espinha` (0,6318) |
+| o efeito da via no mesmo partido | **3,4 pp** | ortogonal com a via: 17,4 → 14,0 % |
+
+A primeira parcela diz que **eu comparei dois desenhos diferentes**: 17,4 % era o
+ortogonal, 11,2 % é a espinha. A variante que representa o motor é a de melhor nota
+*dele*, e trocar de ideia sobre qual partido vence é direito do motor — só não é
+comparação.
+
+E a segunda parcela não é desobediência, é a **minha régua medindo outra coisa**. Lido o
+motor (só leitura, `motor-testfit/src/lib/lab/motor.ts`), `viaManual` faz exatamente
+duas coisas, e nenhuma é assentar eixo na linha:
+
+1. **`anguloBase()`** — a direção da linha passa a ser o **ângulo base do partido
+   inteiro**, no lugar do ângulo da caixa envolvente da gleba;
+2. **`faixaDaViaManual()`** — a caixa da linha mais as calçadas viram **área bloqueada
+   antes de qualquer lote nascer**.
+
+A régua da aderência pergunta *"há eixo gerado sobre este ponto da linha?"*. É a
+pergunta certa para um motor que promete assentar a rua na linha — e **este não
+promete**. Pior: alinhar o partido **gira a rede toda**, e girar a rede tira eixos de
+cima das outras três linhas desenhadas. **A régua lê obediência como queda.**
+
+**As duas promessas, medidas em `antonina-com-via`, são CUMPRIDAS:**
+
+| promessa | medida | resultado |
+|---|---|---|
+| ângulo base da linha | fração do comprimento de eixo a menos de **10°** da linha | ortogonal **0,0 → 72,9 %**; pente 0,0 → 82,7 %; loop 0,0 → 72,4 %; mioloVerde 0,0 → 70,1 %; orgânico 0,0 → 27,2 % |
+| faixa livre de lote | lotes com o **centro** dentro da faixa | **0 em 10 de 10 partidos**, nas duas glebas (vinham de 9, 17, 20, 16…) |
+
+**Por que `ensaio-com-via` não se moveu e `antonina-com-via` se moveu inteira:** no
+ensaio a principal desenhada corre pelo meio do lado maior, que **já é** a direção da
+caixa envolvente — o ângulo base muda de quase nada para nada. Em Antonina, real e
+irregular, a linha faz ângulo com ela, e alinhar o partido move a rede toda. A gleba
+sintética não tinha como mostrar o efeito.
+
+**Decisão:** nasce `alinhaOPartidoAViaDesenhada`, ao lado de `leViaDesenhada` e
+`respeitaViaDesenhada`, com o seu experimento no registro — a varredura vai de 14 para
+**15 falsificáveis**. `respeitaViaDesenhada: false` **continua**, porque é literalmente
+verdade: ele não põe a rua sobre a linha. As três convivem porque as três respostas
+diferem, e é o terceiro caso da mesma família (D100, D120).
+
+**A ressalva que vai junto, porque sem ela o campo engana:** o ângulo base obedece à
+linha, mas cada variante sorteia **±30°** em cima dele (`variacaoAngular`, no motor).
+Então a obediência aparece em alguns partidos e some em outros — na variante que o
+ranking dele escolhe em `antonina-com-via` o ganho é de **5,6 pp**, não de 72,9. Isso é
+achado para o Laboratório de Parcelamento, numerado no relatório, **sem commit lá**.
+
+## D128 · A SEXTA vez do ponto cego, e esta eu peguei dentro do próprio prompt · 04/10/2026
+
+A régua da faixa, na primeira versão que eu escrevi hoje, contava **lotes com vértice
+dentro da faixa** da via. Ela deu, no partido ortogonal de Antonina, **27 → 34 lotes** —
+e eu estava a um passo de publicar *"o motor não cumpre a segunda promessa: dando-lhe a
+linha, ele põe MAIS lote em cima dela"*.
+
+**O lote que faz frente para a faixa encosta nela de direito.** A faixa é a caixa da rua
+mais as calçadas: o lote defronte tem de tocá-la, é isso que "fazer frente" significa.
+Medir invasão por vértice conta todo vizinho como invasor.
+
+**Invasão é o CENTRO do lote dentro da faixa.** Medida assim: **0 invasores em 10 de 10
+partidos, nas duas glebas**. A promessa é cumprida com folga, e a conclusão oposta estava
+a um `git commit` de distância.
+
+**Decisão:** a régua mede o centro, publica a vizinhança **ao lado e pelo nome**
+(`soEncostam`), e as duas travas do teste são justamente o par — o lote em cima
+(invasor) e o lote defronte (não). A sexta vez do ponto cego tem a forma das outras
+cinco, com uma diferença que vai registrada: **das seis, três foram réguas minhas
+acusando a si mesmas, e esta foi pega antes de sair** — não por disciplina nova, mas por
+desconfiar de um número que caminhava para o lado que eu já queria.
+
+## D129 · A guarda da existência lia um arquivo só, e reprovou o teste certo · 04/10/2026
+
+O registro das capacidades (LAB-26) tem duas varreduras: **cobertura** (campo sem
+experimento reprova) e **existência** (nome de teste citado que não existe reprova). A
+segunda lia **apenas `tests/porta.test.ts`** — e hoje ela reprovou o teste novo do
+`alinhaOPartidoAViaDesenhada` por ele morar em `tests/alinhamento.test.ts`.
+
+Duas saídas: mudar o teste de arquivo, ou mudar a guarda. **A regra do registro é *"todo
+campo tem quem o desminta"*, não *"todos os desmentidos moram num arquivo"*** — e a
+primeira saída transformaria `porta.test.ts` em depósito, o que é como as suítes grandes
+ficam ilegíveis.
+
+**Decisão:** a guarda varre `tests/*.test.ts`. Ela continua lendo **o arquivo de
+verdade**, que é a propriedade de que ela depende; só deixou de confundir *onde* a trava
+mora com *se* ela existe. Guarda que obriga arquivo único é guarda ditando arquitetura.

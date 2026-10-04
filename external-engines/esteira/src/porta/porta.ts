@@ -156,6 +156,37 @@ export interface Capacidades {
   respeitaViaDesenhada: boolean;
 
   /**
+   * O motor tira o **ângulo do partido** da via desenhada?
+   *
+   * *Como se desmente:* mede-se, por partido, a fração do comprimento de eixo
+   * gerado cuja **direção** fica a menos de um corte declarado da direção da
+   * linha, com e sem a via no arquivo. Declarou `true` e a fração não subiu —
+   * mentiu.
+   *
+   * **Nasceu no LAB-32, e nasceu de um erro meu** (D127). O LAB-30 entregou a
+   * `viaManual` ao Laboratório de Parcelamento e a aderência medida *caiu* de
+   * 17,4 % para 11,2 %. Eu publiquei a queda sem investigar. Lido o motor (só
+   * leitura), o campo faz duas coisas — a direção da linha vira o ângulo base do
+   * partido, e a faixa dela vira área bloqueada — e **nenhuma das duas é assentar
+   * eixo na linha**. A régua da aderência mede uma terceira coisa, e por isso leu
+   * obediência como desobediência: alinhar o partido **gira a rede toda**, e
+   * girar a rede tira eixos de cima das outras linhas desenhadas.
+   *
+   * **Medido em `antonina-com-via`, por partido, a 10°:** ortogonal 0,0 → 72,9 %,
+   * pente 0,0 → 82,7 %, loop 0,0 → 72,4 %, mioloVerde 0,0 → 70,1 %, orgânico
+   * 0,0 → 27,2 %. Nos outros três motores a fração fica **idêntica** com e sem a
+   * via — eles não têm onde recebê-la.
+   *
+   * **A ressalva que vai junto, porque sem ela o campo engana:** o ângulo base
+   * obedece à linha, mas cada variante sorteia **±30°** em cima dele
+   * (`variacaoAngular`, no motor). Então a obediência aparece em alguns partidos
+   * e some em outros — na variante que o ranking dele escolhe em
+   * `antonina-com-via` o ganho é de 5,6 pp, não de 72,9. É achado para o
+   * Laboratório de Parcelamento, e está numerado no relatório do LAB-32.
+   */
+  alinhaOPartidoAViaDesenhada: boolean;
+
+  /**
    * O motor dá **lote de frente** para a testada de frente — a linha onde a
    * gleba encosta numa rua que já existe?
    *

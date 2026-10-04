@@ -42,6 +42,13 @@ frase — **cobertura** (campo novo sem experimento reprova no mesmo dia) e
 
 Contagem publicada e **testada**: **13 falsificáveis, 1 conferido, 1 sem régua.**
 
+> **Atualizada desde então, e o teste é que avisou:** 14 no LAB-30 (`leViaDesenhada`)
+> e **15 no LAB-32** (`alinhaOPartidoAViaDesenhada`). Cada vez que uma pergunta se
+> partiu em duas, a trava da contagem acusou no mesmo segundo. **E a guarda da
+> existência mudou no LAB-32:** ela lia só `porta.test.ts`, e reprovou um teste novo
+> por ele morar noutro arquivo — a regra é *"todo campo tem quem o desminta"*, não
+> *"todos os desmentidos num arquivo"*. Agora ela varre a pasta de testes.
+
 ---
 
 ## 2 · O campo descoberto era o que guardava a mentira (D109)

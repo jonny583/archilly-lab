@@ -53,7 +53,7 @@
  * — foi assim que `respeitaTestadaDeFrente` nasceu, no LAB-13.
  */
 import { beforeAll, describe, expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 import { Motor } from "@symbios/index.ts";
@@ -468,21 +468,36 @@ describe("a varredura das capacidades — nenhum campo sem quem o desminta", () 
     }
   });
 
-  test("todo teste citado no registro existe NESTE arquivo", () => {
+  test("todo teste citado no registro existe em ALGUM arquivo de teste", () => {
     // Sem isto o registro seria mais uma lista afirmando coisas sobre um arquivo
     // que ela não lê — exatamente o defeito que ele existe para consertar.
-    const fonte = readFileSync(join(import.meta.dirname, "porta.test.ts"), "utf8");
+    //
+    // **Ele lia só este arquivo até o LAB-32**, e isso o fez reprovar o teste
+    // novo do `alinhaOPartidoAViaDesenhada` por ele morar em
+    // `alinhamento.test.ts`. A regra do registro é *"todo campo tem quem o
+    // desminta"*, não *"todos os desmentidos moram num arquivo"* — e forçar o
+    // segundo transformaria este arquivo em depósito. Agora ele varre a pasta,
+    // e continua lendo o arquivo de verdade, que é o que importa.
+    const pasta = import.meta.dirname;
+    const fonte = readdirSync(pasta)
+      .filter((f) => f.endsWith(".test.ts"))
+      .map((f) => readFileSync(join(pasta, f), "utf8"))
+      .join("\n");
     for (const nome of testesCitados()) {
-      expect(fonte.includes(nome), `o registro cita o teste "${nome}", que não existe aqui`).toBe(
+      expect(fonte.includes(nome), `o registro cita o teste "${nome}", que não existe em teste nenhum`).toBe(
         true,
       );
     }
   });
 
   test("a contagem da varredura é a que o relatório do LAB-26 publica", () => {
-    // Catorze falsificáveis, um conferido (`id`) e um sem régua (`nome`). Quando
+    // Quinze falsificáveis, um conferido (`id`) e um sem régua (`nome`). Quando
     // este número mudar, o relatório está velho — e é bom que alguém saiba.
-    expect(contagem()).toEqual({ falsificavel: 14, conferido: 1, "sem-regua": 1 });
+    //
+    // Foi 13 no LAB-26, 14 no LAB-30 (`leViaDesenhada`) e 15 no LAB-32
+    // (`alinhaOPartidoAViaDesenhada`): cada vez que uma pergunta se partiu em
+    // duas, este número avisou no mesmo segundo.
+    expect(contagem()).toEqual({ falsificavel: 15, conferido: 1, "sem-regua": 1 });
   });
 });
 
