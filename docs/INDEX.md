@@ -23,6 +23,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 | [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — a fila de 19/09, a da tela unificada, esgotou |
 | [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 72 decisões numeradas, com o que se perde em cada uma. A D61 é do Jonny: travessia sobre APP é exceção |
 | [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) | O que depende de uma pessoa. Quem escreve sou eu; quem risca é ele. Hoje: **quanto é "desvio desproporcional"?** — o número que destrava a D61 |
+| [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md) | **Os balanços, em ordem** (LAB-42): os que foram só para o chat, reconstruídos com etiqueta e fonte, e o índice dos que moram num recado. Regra no `CLAUDE.md` §1-B, com guarda |
 | [`relatorios/RECADOS.md`](relatorios/RECADOS.md) | **Todos os recados para o chat**, em ordem, um por prompt |
 
 ## As medições — um relatório por prompt
@@ -31,6 +32,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-42.md`](relatorios/LAB-42.md) | **O balanço ganhou arquivo** (LAB-42): o `BALANCOS.md`, com os balanços que foram **só para o chat** reconstruídos **com etiqueta e fonte** — e com o que cada um **errou**. Mais a regra §1-B, sete travas provadas por sabotagem, e o número do CI que estava à mão em quatro arquivos (D152, D153) |
 | [`relatorios/LAB-41.md`](relatorios/LAB-41.md) | **A ausência da ortogonal tinha causa** (LAB-41): a candidata **produz** plano e o contrato do **próprio Generate** o recusa porque a **via sai da gleba** (2,97 a 83,49 m). Seis hipóteses mortas com medição, e o diagnóstico de uma linha: uma restrição de **100 m² fora da gleba** leva as duas glebas a 6/6. Mais o defeito de método — **controle com menos medição que o acusado não é controle** (D150, D151) |
 | [`relatorios/LAB-40.md`](relatorios/LAB-40.md) | **As fixtures que exercem as promessas** (LAB-40): as promessas sem exercício de **6 para 0**, dois campos sem destino achados **antes da primeira medição**, e a testada de frente medida fora de Antonina — noutra face, noutro comprimento e com a linha fora da divisa. Mais a décima primeira vez do ponto cego: **rótulo não é identidade** (D147 a D149) |
 | [`relatorios/LAB-39.md`](relatorios/LAB-39.md) | **A trava que comparava duas provas, consertada para MEDIR** (LAB-39): o agregado publicado conferido contra os números crus de cada arquivo — 40 agregados, 10 confrontos, 240 posições, **0 divergências**, sem rodar motor nenhum. Mais a montagem do confronto que também morava em dois lugares, e quatro provas que declaram um contrato que entrada nenhuma tem (D144 a D146) |

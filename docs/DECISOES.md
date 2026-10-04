@@ -4043,3 +4043,66 @@ engana do mesmo jeito, porque a diferença entre os dois grupos vem do método.
 (`sintetico-50ha-ondulado`, face 12) ele **diminui** — de 124,88 m a 1,07 m até aceitar.
 A assinatura é *"varia continuamente com a posição"*, que é mais fraca e é a que os
 números sustentam. Foi a varredura que corrigiu a frase, e é por isso que ela existe.
+
+---
+
+## D152 · O balanço ganhou arquivo, e a regra que o mantém vivo · 04/10/2026
+
+O chat ordenou: *"crie `docs/relatorios/BALANCOS.md` e registre ali os balanços, inclusive
+os que foram só para o chat, para nenhuma lista precisar ser re-derivada de novo."*
+
+**O prejuízo que o pedido fecha foi medido:** o balanço de 03/10 foi para o chat e **não
+para um arquivo**; no dia seguinte a lista dele teve de ser **re-derivada** com uma
+varredura inteira do `CLAUDE.md`, e ao ser recuperada era **cinco linhas, não quatro, e
+duas estavam falsas** (D136, D137).
+
+**O arquivo tem duas partes, e a divisão é a lição do D116:**
+
+| parte | o que entra | por quê |
+|---|---|---|
+| §1 | os balanços que foram **só para o chat** | não têm outro lugar onde morar |
+| §2 | **índice** dos que já moram num recado | copiá-los criaria a segunda montagem |
+
+**Duas disciplinas escritas no próprio arquivo:**
+
+1. **reconstrução sai etiquetada como reconstrução**, com a fonte de cada linha — sem a
+   etiqueta é invenção com cara de registro;
+2. **balanço recuperado se confere, não se obedece.** O de 03/10 dizia *"quatro regras"*;
+   eram cinco, e duas eram slogan. O arquivo registra **o que o balanço errou**.
+
+**A regra é a §1-B do `CLAUDE.md`**, ao lado da do RECADO. O chat ordenou o **arquivo**; a
+regra é o que o mantém alimentado, e sem ela o arquivo volta a depender de eu lembrar —
+que é a forma do D104. **Se o chat preferir sem ela, é uma seção a remover.**
+
+**E a regra tem guarda, porque regra que ninguém pode desmentir é slogan** (D136): seis
+travas em `balancos.test.ts` — campos de cada entrada, a etiqueta de reconstrução, o
+índice apontando para seção que **existe** no `RECADOS.md`, os arquivos citados existindo,
+a ordem cronológica — e uma no `regras.test.ts`, que exige a §1-B e o arquivo. **Provado
+por sabotagem:** renomeado um título citado, a suíte vai de 6 verdes a 1 vermelha.
+
+---
+
+## D153 · Número copiado em quatro arquivos: a forma do D116 numa grandeza de prosa · 04/10/2026
+
+Pôr um arquivo de teste na lista do trabalho do CI levou o número de travas protegidas de
+**64** a **76** — e ele estava **à mão em quatro lugares**: `CLAUDE.md`, `ONDE_PARAMOS.md`,
+`FILA.md` e o comentário do próprio YAML.
+
+> **Número com quatro casas envelhece em três delas.**
+
+**Decisão:** os quatro foram atualizados e ganharam **trava de concordância** — e o que ela
+**não** faz está escrito nela: ela não confere se o número é o **verdadeiro**, porque para
+isso teria de rodar a suíte, e contar `test(` com regex mediria texto, não suíte. **O valor
+é meu para atualizar; a divergência é dela para acusar** — e divergência foi o que de fato
+aconteceu, não valor errado.
+
+**A primeira versão da trava reprovou por defeito dela mesma**, e é a forma do D137 de
+novo: eu casei por `"NN travas que leem arquivo"` e a `FILA.md` dizia só *"protege NN
+travas"* — **régua medindo uma das frases em vez do número**. Conserto: declarar a frase
+canônica e exigi-la nos quatro. **Régua que casa por frase tem de dizer qual frase, e a
+frase tem de estar escrita onde ela procura.**
+
+**Os números históricos não se mexem:** o relatório do LAB-38, os recados e a prova do
+LAB-38 seguem dizendo **64**, porque era verdade quando foram escritos. Reescrever recado
+antigo falsifica o registro — a mesma razão por que o teto de 12 linhas só olha o
+**último**.

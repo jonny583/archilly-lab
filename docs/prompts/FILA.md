@@ -51,7 +51,7 @@ trabalho o que eu havia listado como pendente.
 | **LAB-39** | A **última trava que se repete**: o teste do D116 compara **duas provas entre si** — consertar para **medir**, não para comparar prova com prova | ✅ **concluído em 04/10/2026** | LAB-38 mesclado ✅ |
 | **LAB-40** | **Fixtures** que exerçam as quatro promessas do LAB-35 **e a testada de frente fora de Antonina** — sem isso tudo que foi medido vale para uma gleba só | ✅ **concluído em 04/10/2026** | LAB-39 mesclado ✅ |
 | **LAB-41** | As **posições de acesso em que a candidata ortogonal do Generate não entrega nada aceitável**, 5 de 6 numa gleba — investigar e dizer se é **defeito do motor ou limite real do terreno** | ✅ **concluído em 04/10/2026** | LAB-40 mesclado ✅ |
-| **LAB-42** | Criar **`docs/relatorios/BALANCOS.md`** e registrar ali os balanços, inclusive os que foram **só para o chat**, para nenhuma lista precisar ser re-derivada de novo | ⏳ **pronto, é o próximo** | LAB-41 mesclado ✅ |
+| **LAB-42** | Criar **`docs/relatorios/BALANCOS.md`** e registrar ali os balanços, inclusive os que foram **só para o chat**, para nenhuma lista precisar ser re-derivada de novo | ✅ **concluído em 04/10/2026** · **a fila ESGOTOU** | LAB-41 mesclado ✅ |
 
 ### A decisão que o chat tomou junto com a fila
 
@@ -70,7 +70,51 @@ não escolha por ele"*.
 - **a régua de forma** segue **com o Jonny** e **não trava nada**;
 - **a corda reta das vias curvas fica na V3**, sem mexer.
 
-### LAB-41 · A ausência da ortogonal tinha causa — ✅ concluído em 04/10/2026
+## 🔴 A fila de 04/10 (segunda parte) ESGOTOU — o despertador está DESLIGADO
+
+**Os cinco prompts (LAB-38 a LAB-42) foram executados e mesclados em 04/10/2026.** Com o
+LAB-42, não há item "pronto" nesta fila, e o `trig_01XwSkTLT9zmyprNZcUiWy7f` foi
+**desligado — não apagado** (D112, ratificado três vezes pelo chat, que mandou **reabilitar
+em vez de recriar**).
+
+**O saldo da fila está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §3** —
+no arquivo que o próprio LAB-42 criou para isso.
+
+**O que espera decisão do chat** está na seção *Proposto ao chat* desta fila, e as quatro
+novas desta rodada são: o **LAB-43** (quatro provas declaram `contrato: "2"` e entrada
+nenhuma é `"2"`), **um nome só** para cada número do confronto do acesso, as **duas
+fixtures novas na tabela**, e **medir em Antonina as três amostragens** do D148.
+
+---
+
+### LAB-42 · O balanço ganhou arquivo — ✅ concluído em 04/10/2026 · **a fila esgotou**
+
+**Entregue:** [`../relatorios/LAB-42.md`](../relatorios/LAB-42.md),
+[`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), `tests/balancos.test.ts` (6
+travas), `CLAUDE.md` **§1-B**, D152 e D153.
+
+**O arquivo tem duas partes, e a divisão é a lição do D116:** o §1 guarda os balanços que
+foram **só para o chat** (transcritos ou **reconstruídos, com etiqueta de reconstrução e a
+fonte de cada linha**); o §2 é **índice** dos que já moram num recado, porque copiá-los
+criaria a segunda montagem. E o arquivo registra **o que o balanço errou**: o de 03/10
+dizia *"quatro regras sem teste"* quando eram **cinco, e duas eram slogan**. *Balanço
+recuperado se confere, não se obedece.*
+
+**A regra que o mantém vivo é a §1-B**, ao lado da do RECADO — o chat ordenou o arquivo, e
+sem a regra ele volta a depender de eu lembrar, que é a forma do D104. **Se o chat preferir
+sem ela, é uma seção a remover.** Tem guarda: 6 travas no arquivo novo e 1 no
+`regras.test.ts`, **provadas por sabotagem** (título citado renomeado → 6 verdes viram 1
+vermelha).
+
+**O achado do caminho** (D153): pôr o teste novo na lista do CI levou o número de travas de
+**64** a **76**, e ele estava **à mão em quatro arquivos**. *Número com quatro casas
+envelhece em três delas.* Os quatro ganharam trava de concordância — e a **primeira versão
+dela reprovou por defeito dela mesma**, casando por uma das frases em vez do número (a
+forma do D137).
+
+---
+
+### LAB-41 · A ausência da ortogonal tinha causa — ✅ concluído em 04/10/2026### LAB-41 · A ausência da ortogonal tinha causa — ✅ concluído em 04/10/2026
 
 **Entregue:** [`../relatorios/LAB-41.md`](../relatorios/LAB-41.md),
 `docs/provas/LAB-41/ortogonal-fora-da-gleba.json`, `ferramentas/lab41.ts`, a razão colada
@@ -171,7 +215,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 64 travas, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 76 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -1196,11 +1240,10 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   **perpendicular ao curso** — e o Lab recebe a restrição como **polígono de
   APP**, não como a linha d'água. Sem o eixo, "perpendicular" não tem a quê. É
   achado para o Geo, e o chat é que o leva.
-- **O balanço fora da fila não tem onde morar** (LAB-36). Os RECADOS têm `RECADOS.md`;
-  os relatórios têm `docs/relatorios/`. Uma resposta fora da fila — como o balanço de
-  03/10 que originou o LAB-36 — **não tem arquivo, e some**: foi por isso que a lista das
-  "quatro regras" teve de ser re-derivada. Proponho um `docs/relatorios/BALANCOS.md`, na
-  forma do `RECADOS.md`. **Não executado:** mexeria no `CLAUDE.md` §1, que é regra sua.
+- ~~**O balanço fora da fila não tem onde morar** (LAB-36)~~ — ✅ **executado no LAB-42**:
+  [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), com a regra **§1-B** do
+  `CLAUDE.md` e sete travas. O balanço de 03/10 está lá **reconstruído**, com etiqueta e
+  fonte, e com o que ele errou (D152).
 - ~~**Fixtures que exerçam as quatro promessas** (LAB-35)~~ — ✅ **executado no LAB-40**:
   duas fixtures em `docs/fixtures/glebas-que-exercem-as-promessas/`, as promessas sem
   exercício de **6 para 0**, e dois campos sem destino achados no caminho (D147).
