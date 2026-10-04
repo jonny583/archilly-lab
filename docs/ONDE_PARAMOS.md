@@ -4,25 +4,49 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-43 ·
-**Fila de 04/10 (terceira): LAB-43 a LAB-47, 1 de 5 feitos.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-44 ·
+**Fila de 04/10 (terceira): LAB-43 a LAB-47, 2 de 5 feitos.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-43 a LAB-47
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 19:12 UTC.** É o
 **mesmo** despertador, reabilitado pela **quinta** vez em vez de recriado (D112).
 
-**O próximo é o LAB-44**, e a condição dele está cumprida (LAB-43 mesclado).
+**O próximo é o LAB-45**, e a condição dele está cumprida (LAB-44 mesclado).
 
 ## A fila, na ordem que o chat aprovou
 
 | # | em uma linha | estado |
 |---|---|---|
 | **LAB-43** | as quatro provas que declaram `contrato: "2"` quando entrada nenhuma é `"2"` (D146) | ✅ **04/10/2026** |
-| **LAB-44** | um **nome só** para cada número do confronto do acesso (D145) | ⏳ **o próximo** |
-| **LAB-45** | as duas fixtures novas **na tabela**, com ela regerada | ⏳ pronto |
+| **LAB-44** | um **nome só** para cada número do confronto do acesso (D145) | ✅ **04/10/2026** |
+| **LAB-45** | as duas fixtures novas **na tabela**, com ela regerada | ⏳ **o próximo** |
 | **LAB-46** | medir **em Antonina as três amostragens** do D148 — **o Jonny quer ver** | ⏳ pronto |
 | **LAB-47** | a chave de IA plantada no código | ⛔ **aguardando: o pedido chegou cortado** |
+
+## O que o LAB-44 fez — um nome só para cada número do confronto
+
+**O defeito era mais sorrateiro que o do D116.** Ali eram duas **montagens** da mesma
+conta e os valores divergiram; aqui eram dois **nomes** para a mesma saída, e **os valores
+batiam** — nada acusava, porque não havia número errado. Só havia
+`amplitudeDoAcesso_pct` na prova do LAB-28 e `maiorAmplitude_pct` na tabela do LAB-19,
+nos dois arquivos que o Jonny lê lado a lado.
+
+**Valem os nomes da régua**, e a ferramenta **publica o objeto inteiro, sem renomear no
+caminho** — era o renomear ao publicar que criava o segundo nome. A prova foi regerada, e
+os dois leitores perderam a tradução que só existia por causa disso.
+
+**E o que não é sobre nome:** a lista virou **DADO** (`CHAVES_DO_CONFRONTO`), porque
+**tipo de TypeScript não existe em tempo de execução** — e era disso que o defeito
+precisava para sobreviver num arquivo **publicado**. Hoje a guarda confere as chaves do
+JSON contra a lista, e uma trava de tipo impede que lista e interface divirjam: se uma
+mudar sem a outra, **não compila**. **Provado por sabotagem:** chave renomeada na prova →
+31 verdes viram 2 vermelhas.
+
+**Dois disparos do despertador caíram no meio deste prompt** (21:05 e 22:05), e os dois
+foram atendidos pela regra de sempre: *termine o prompt aberto antes de começar outro.*
+
+---
 
 ## O que o LAB-43 fez — a etiqueta do contrato sai do medido
 

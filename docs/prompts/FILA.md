@@ -51,12 +51,38 @@ estão.
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-43** | As **quatro provas que declaram `contrato: "2"`** quando **entrada nenhuma** do repositório é `"2"` (D146) — consertar a etiqueta na ferramenta e regerar | ✅ **concluído em 04/10/2026** | nenhuma — é o primeiro da ordem |
-| **LAB-44** | **Um nome só para cada número do confronto do acesso** — hoje as mesmas três contas saem com **chaves diferentes em dois arquivos** (D145) | ⏳ **pronto, é o próximo** | LAB-43 mesclado ✅ |
-| **LAB-45** | As **duas fixtures novas** do LAB-40 **na tabela comparativa**, com ela **regerada** | ⏳ **pronto** | LAB-44 mesclado |
+| **LAB-44** | **Um nome só para cada número do confronto do acesso** — hoje as mesmas três contas saem com **chaves diferentes em dois arquivos** (D145) | ✅ **concluído em 04/10/2026** | LAB-43 mesclado ✅ |
+| **LAB-45** | As **duas fixtures novas** do LAB-40 **na tabela comparativa**, com ela **regerada** | ⏳ **pronto, é o próximo** | LAB-44 mesclado ✅ |
 | **LAB-46** | Medir **em Antonina as três amostragens** do D148 — *"é o que decide se o 33 contra 1.228 é caso único ou a mesma troca vista de outro ângulo"*. **O Jonny quer ver este resultado** | ⏳ **pronto** | LAB-45 mesclado |
 | **LAB-47** | **A chave de IA plantada no código** — o pedido do chat **chegou cortado**, ver abaixo | ⛔ **aguardando o chat** | o pedido completo |
 
-### LAB-43 · A etiqueta do contrato sai do medido — ✅ concluído em 04/10/2026
+### LAB-44 · Um nome só para cada número do confronto — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-44.md`](../relatorios/LAB-44.md), a prova do LAB-28
+regerada com os nomes da régua, `CHAVES_DO_CONFRONTO` + trava de tipo no `acesso.ts`, uma
+trava nova, D157.
+
+**O defeito era mais sorrateiro que o do D116:** ali eram duas **montagens** e os valores
+divergiram (+29,12 % contra +70 %); aqui são dois **nomes** para a mesma saída, e **os
+valores batiam** — nada acusava, porque não havia número errado. Só havia duas maneiras de
+chamar o mesmo número em dois arquivos que o Jonny lê lado a lado.
+
+**O conserto:** valem os nomes da régua, e a ferramenta **publica o objeto inteiro, sem
+renomear no caminho** — era o renomear ao publicar que criava o segundo nome. Os dois
+leitores perderam a tradução que só existia por causa disso.
+
+**E o que não é sobre nome:** a lista dos nomes virou **DADO** (`CHAVES_DO_CONFRONTO`),
+porque **tipo não existe em tempo de execução** — e era disso que o defeito precisava para
+sobreviver num arquivo publicado. Agora a guarda confere as chaves do JSON, e uma trava de
+tipo impede que a lista e a interface divirjam: se uma mudar sem a outra, **não compila**.
+**Provado por sabotagem:** chave renomeada na prova → 31 verdes viram 2 vermelhas.
+
+**Dois disparos do despertador caíram no meio deste prompt** (21:05 e 22:05), e os dois
+foram atendidos pela regra de sempre: *termine o prompt aberto antes de começar outro.*
+
+---
+
+### LAB-43 · A etiqueta do contrato sai do medido — ✅ concluído em 04/10/2026### LAB-43 · A etiqueta do contrato sai do medido — ✅ concluído em 04/10/2026
 
 **Entregue:** [`../relatorios/LAB-43.md`](../relatorios/LAB-43.md), as **quatro provas
 regeradas** (LAB-25, 26, 28, 30 — todas dizendo `"1"`), `contratoDasEntradas()` no

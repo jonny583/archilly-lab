@@ -46,6 +46,7 @@ import {
   POSICOES_DE_ACESSO,
   confrontoDoAcesso,
   sensibilidadeAoAcesso,
+  type ConfrontoDoAcesso,
   type SensibilidadeAoAcesso,
 } from "../src/acesso.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
@@ -110,13 +111,16 @@ console.log(
 );
 
 const porGleba: Record<string, unknown> = {};
-/** Para a conclusão: a amplitude do acesso contra a diferença entre motores. */
-const confrontos: {
-  gleba: string;
-  amplitudeDoAcesso_pct: number;
-  entreMotores_pct: number;
-  entreOsDeLote_pct: number;
-}[] = [];
+/**
+ * Para a conclusão: a amplitude do acesso contra a diferença entre motores.
+ *
+ * **Os nomes são os da RÉGUA** (`ConfrontoDoAcesso`), e não mais os deste arquivo
+ * (LAB-44, D145). Até aqui esta prova publicava `amplitudeDoAcesso_pct` e a tabela do
+ * LAB-19 publicava `maiorAmplitude_pct` — **as mesmas três contas com chaves
+ * diferentes em dois arquivos que o Jonny lê lado a lado**. Dois nomes para um número é
+ * meio caminho para dois números, e é assim que o D116 começou.
+ */
+const confrontos: (ConfrontoDoAcesso & { gleba: string })[] = [];
 
 for (const { id, entrada } of GLEBAS) {
   const { terreno } = glebaParaOSymbios(entrada);
@@ -179,20 +183,15 @@ for (const { id, entrada } of GLEBAS) {
   // dos motores de lote, que aqui estava declarada e na ferramenta do LAB-19
   // escrita como `MOTORES.filter(… !== "symbios")`.
   //
-  // Os nomes das chaves publicadas continuam os deste arquivo: trocá-los mudaria a
-  // forma de uma prova publicada, e isso é outro prompt.
+  // E os nomes das chaves publicadas são os DA RÉGUA (LAB-44): o objeto vai inteiro,
+  // sem renomear no caminho. Renomear ao publicar é o que criava o segundo nome.
   const confronto = confrontoDoAcesso(sens, MOTORES_DE_LOTE);
   const maiorAmplitude = confronto.maiorAmplitude_pct;
   const entreQuatro = confronto.entreOsQuatroMotores_pct;
   const entreOsDeLote = confronto.entreOsMotoresDeLote_pct;
   void lotesComAcessoDeclarado;
 
-  confrontos.push({
-    gleba: id,
-    amplitudeDoAcesso_pct: maiorAmplitude,
-    entreMotores_pct: entreQuatro,
-    entreOsDeLote_pct: entreOsDeLote,
-  });
+  confrontos.push({ gleba: id, ...confronto });
   console.log(
     `  → maior amplitude do ACESSO ${maiorAmplitude} % · entre os quatro motores ${entreQuatro} % · ` +
       `entre os três que entregam LOTE ${entreOsDeLote} %` +
@@ -203,17 +202,13 @@ for (const { id, entrada } of GLEBAS) {
     areaDaGleba_m2: n2(areaGleba),
     temAcessoDeclarado: (entrada.acessos?.length ?? 0) > 0,
     motores,
-    confronto: {
-      amplitudeDoAcesso_pct: maiorAmplitude,
-      entreMotores_pct: entreQuatro,
-      entreOsDeLote_pct: entreOsDeLote,
-    },
+    confronto,
   };
 }
 
-const ganhaDosQuatro = confrontos.filter((c) => c.amplitudeDoAcesso_pct > c.entreMotores_pct).length;
-const ganhaDosDeLote = confrontos.filter((c) => c.amplitudeDoAcesso_pct > c.entreOsDeLote_pct).length;
-const maiorDeTodas = Math.max(...confrontos.map((c) => c.amplitudeDoAcesso_pct));
+const ganhaDosQuatro = confrontos.filter((c) => c.maiorAmplitude_pct > c.entreOsQuatroMotores_pct).length;
+const ganhaDosDeLote = confrontos.filter((c) => c.maiorAmplitude_pct > c.entreOsMotoresDeLote_pct).length;
+const maiorDeTodas = Math.max(...confrontos.map((c) => c.maiorAmplitude_pct));
 
 console.log(
   `\n══════════ a conclusão, e ela é mais modesta que a manchete ══════════\n` +

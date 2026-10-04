@@ -4202,3 +4202,41 @@ outra coisa entre as duas rodadas. **Pode ser propriedade da variante de 33 lote
 de superquadra que não faz frente para via publicada) **e pode ser a ponte**. Não medi, e
 não acuso: está **proposto ao chat** como prompt próprio, junto do detector que falta para
 estas duas provas.
+
+---
+
+## D157 · Um nome só para cada número — e o nome passa a ser DADO, não só tipo · 04/10/2026
+
+O chat aprovou o que o D145 havia proposto: **as mesmas três contas do confronto do acesso
+saíam com chaves diferentes nos dois arquivos que o Jonny lê lado a lado.**
+
+| a conta | na tabela do LAB-19 | na prova do LAB-28 |
+|---|---|---|
+| a maior amplitude de um mesmo motor | `maiorAmplitude_pct` | `amplitudeDoAcesso_pct` |
+| a diferença entre os quatro | `entreOsQuatroMotores_pct` | `entreMotores_pct` |
+| a diferença entre os de lote | `entreOsMotoresDeLote_pct` | `entreOsDeLote_pct` |
+
+> **Dois nomes para um número é meio caminho para dois números.** No D116 eram duas
+> *montagens* da mesma conta; aqui, dois *nomes* para a mesma saída — e a segunda forma é
+> mais sorrateira, porque os valores batiam.
+
+**Decisão:** valem os nomes da **régua** (`ConfrontoDoAcesso`, em `src/acesso.ts`), e a
+ferramenta do LAB-28 **publica o objeto inteiro, sem renomear no caminho** — era o
+renomear ao publicar que criava o segundo nome. A prova foi regerada; os dois leitores
+(`lab39.ts` e `acesso.test.ts`) **perderam a tradução** que existia só por causa disso.
+
+**E o essencial, que não é o nome: a LISTA dos nomes virou DADO.**
+
+```ts
+export const CHAVES_DO_CONFRONTO = ["maiorAmplitude_pct", …] as const;
+```
+
+**Por que isso importa:** tipo de TypeScript **não existe em tempo de execução**, e era
+disso que o defeito precisava para sobreviver num **arquivo publicado** — nenhuma trava
+podia conferir o JSON contra um `interface`. Com a lista como dado, a guarda confere as
+chaves do arquivo; e uma **trava de tipo** (`MesmasChaves`) impede que a lista e a
+interface divirjam: se uma ganhar ou perder chave sem a outra, **não compila**.
+
+**Provado por sabotagem:** renomeada uma chave na prova publicada, a suíte vai de **31
+verdes a 2 vermelhas** — a trava das chaves e, de carona, a do D144, que não acha mais o
+número onde esperava. Desfeito, volta ao verde.

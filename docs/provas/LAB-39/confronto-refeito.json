@@ -1406,7 +1406,7 @@
       "arquivo": "LAB-28/acesso.json",
       "regere": "bun run lab28",
       "semente": 20260913,
-      "contrato": "2",
+      "contrato": "1",
       "glebas": {
         "completo": {
           "gleba": "completo",
