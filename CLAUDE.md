@@ -177,7 +177,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu NOVE vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu DEZ vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -191,6 +191,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D133 (LAB-34) | "a ordem dos motores muda em 4 das 5 glebas" | em parte **faltava dado**, não mudava a ordem |
 | D135 (LAB-35) | "a ida não entrega o furo da gleba" | o furo mora em **`terreno.gleba.furos`**, e o caminho errado era do meu teste |
 | D137 (LAB-36) | "um terço das provas viola a §7" | a régua exigia a chave `"gleba"` **literal** e media **ortografia**, não conteúdo |
+| D142 (LAB-38) | "este teste importa do Generate e não podia" | a régua leu **menção** da palavra, e não o `import` |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -202,8 +203,8 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**Das NOVE, CINCO foram réguas minhas acusando a si mesmas**, e as quatro últimas
-foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137).
+**Das DEZ, SEIS foram réguas minhas acusando a si mesmas**, e as cinco últimas
+foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142).
 
 **A regra que as oito ensinam, e ela é curta:**
 
@@ -211,9 +212,10 @@ foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137
 > você está lendo**; antes de dizer que um número mudou, confira se ele
 > **existe**; e antes de acusar em volume, pergunte se a sua régua aceita os
 > **nomes que a coisa de fato usa** — régua que casa por nome exato mede
-> ortografia, não conteúdo. Nove de nove vezes o defeito estava na régua antes de
-> estar no medido, e em quatro delas a régua era o teste que eu acabara de
-> escrever.
+> ortografia, não conteúdo — e quando a régua procura um nome em código, procure-o
+> **no lugar da gramática onde ele significa aquilo** (num `import`, não no arquivo
+> inteiro). Dez de dez vezes o defeito estava na régua antes de estar no medido, e
+> em cinco delas a régua era o teste que eu acabara de escrever.
 
 ---
 
@@ -269,5 +271,20 @@ ainda cala os alarmes que ela mesma tinha.
 
 Que ele **reprova** está provado por sabotagem, não por confiança: um teste quebrado de
 propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabotagem.json`).
-E o que ele não faz está dito: **não há CI neste repositório** — quem executa o comando
-sou eu, antes do commit (D125).
+
+**E desde o LAB-38 existe CI** (`.github/workflows/verde.yml`), com **dois trabalhos e
+nomes que não enganam** (D141):
+
+- **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
+  sem segredo: as 64 travas que leem arquivo do próprio repositório — página do Jonny
+  atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
+  as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
+- **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê
+  **dois clones privados** por caminho (D16) e este repositório é público: o
+  `GITHUB_TOKEN` do Actions não os alcança. Sem o segredo ele **falha com a receita**, e
+  **não pula** (D124).
+
+> **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
+> é a mentira que o D110 custou duas semanas.**
+
+Enquanto o segredo não existir, **quem roda o verde completo sou eu, antes do commit**.

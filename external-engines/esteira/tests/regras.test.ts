@@ -260,10 +260,22 @@ describe("§5 · \"Testfit\" é nome interno", () => {
 });
 
 describe("§4 · não escreve em repositório vizinho", () => {
-  test("os clones somente-leitura estão limpos — e quantos foram conferidos sai dito", () => {
-    // A regra é conferida à mão ao fim de toda rodada e dita no relatório. Aqui ela
-    // vira guarda. Clone ausente não é falha: nada há para sujar — mas a CONTA sai,
-    // para "0 clones conferidos" não passar por verde.
+  test("os clones somente-leitura estão limpos, e o ambiente é um dos dois declarados", () => {
+    // ── O CI ACHOU UM DEFEITO AQUI NO PRIMEIRO DISPARO (LAB-38, D143) ────────
+    //
+    // A primeira versão desta trava exigia `conferidos.length > 0` e
+    // `toContain("motor-testfit")`, com o comentário "zero clones conferidos
+    // significaria que algo mudou de lugar". **No runner do CI não há clone
+    // nenhum** — e não há por um motivo legítimo: ele roda só as travas que não
+    // dependem dos vizinhos. A asserção acusava o ambiente de um defeito que era
+    // da asserção.
+    //
+    // **E a proteção contra o falso verde que eu queria aqui já existe, e é
+    // estrutural:** o verde completo NÃO PASSA sem os clones — o `typecheck` e
+    // mais de 300 travas quebram na hora. Nenhum teste precisa afirmar isso.
+    //
+    // Então esta trava mede o que pode medir: clone que existe está limpo, e o
+    // ambiente é um dos DOIS declarados, nunca um meio estado.
     const VIZINHOS = ["motor-testfit", "urban-create-hub-41d93a4d", "urban-scout-tool"];
     const casa = join(RAIZ, "..");
     const conferidos: string[] = [];
@@ -273,13 +285,21 @@ describe("§4 · não escreve em repositório vizinho", () => {
       if (!existsSync(join(dir, ".git"))) continue;
       conferidos.push(v);
       const saida = execFileSync("git", ["-C", dir, "status", "--porcelain"], { encoding: "utf8" });
-      if (saida.trim().length > 0) sujos.push(`${v}: ${saida.trim().split("\\n").length} arquivo(s)`);
+      if (saida.trim().length > 0) sujos.push(`${v}: ${saida.trim().split("\n").length} arquivo(s)`);
     }
+    // Isto vale SEMPRE, e é o coração da §4.
     expect(sujos, "o Lab escreveu em repositório vizinho — a §4 proíbe").toEqual([]);
-    // O `testfit` é lido por caminho pelo `tsconfig`, então ele existe sempre que a
-    // suíte roda: zero clones conferidos significaria que algo mudou de lugar.
-    expect(conferidos.length, "nenhum clone vizinho foi conferido").toBeGreaterThan(0);
-    expect(conferidos).toContain("motor-testfit");
+
+    // E o ambiente é um dos dois, nunca pela metade: ou tem o clone do motor (e aí
+    // a suíte inteira pode rodar), ou não tem nenhum (e aí só estas travas rodam).
+    // Ter o Generate sem o motor, ou vice-versa, é ambiente quebrado — e o verde
+    // falharia por motivo obscuro, que é o que o D124 manda evitar.
+    if (!conferidos.includes("motor-testfit")) {
+      expect(
+        conferidos,
+        "ambiente pela metade: há clone vizinho mas falta o do motor, que o tsconfig lê",
+      ).toEqual([]);
+    }
   });
 });
 
