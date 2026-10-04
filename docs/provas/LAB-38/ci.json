@@ -1,0 +1,68 @@
+{
+  "prompt": "LAB-38",
+  "oQueEh": "a prova de que o CI existe, roda e REPROVA — três disparos do workflow, um deles com sabotagem de propósito",
+  "geradoEm": "2026-10-04",
+  "workflow": ".github/workflows/verde.yml",
+  "repositorio": "jonny583/archilly-lab",
+  "oQueOLevantamentoAchou": {
+    "esteRepositorio": "publico",
+    "clonesQueOVerdeCompletoLePorCaminho": [
+      {
+        "repo": "jonny583/motor-testfit",
+        "visibilidade": "privado"
+      },
+      {
+        "repo": "jonny583/urban-create-hub-41d93a4d",
+        "visibilidade": "privado"
+      }
+    ],
+    "consequencia": "o GITHUB_TOKEN do Actions só alcança o próprio repositório, então o verde completo depende de um segredo que só o Jonny pode criar"
+  },
+  "disparos": [
+    {
+      "n": 1,
+      "run": 37209442979,
+      "oQueEuEsperava": "trabalho 1 verde, trabalho 2 vermelho na precondição",
+      "resultado": {
+        "guardas-sem-clones": "failure",
+        "verde-completo": "failure"
+      },
+      "oQueAconteceu": "o trabalho 2 falhou como desenhado, imprimindo a receita inteira. O trabalho 1 NÃO era esperado vermelho: 68 travas, 67 passaram, e 1 falhou — a guarda dos clones vizinhos do D136, que exigia 'pelo menos um clone conferido'. No runner não há clone nenhum, por um motivo legítimo. O CI achou um defeito meu no primeiro disparo (D143)"
+    },
+    {
+      "n": 2,
+      "run": 37209625506,
+      "oQueEuEsperava": "trabalho 1 verde, trabalho 2 vermelho na precondição",
+      "resultado": {
+        "guardas-sem-clones": "success",
+        "verde-completo": "failure"
+      },
+      "oQueAconteceu": "o estado desenhado: 64 travas protegidas em todo push, e o verde completo dizendo em voz alta o que falta para ele poder rodar"
+    },
+    {
+      "n": 3,
+      "run": 37209732926,
+      "oQueEuEsperava": "o trabalho 1 VERMELHO, porque um teste dele foi quebrado de propósito",
+      "sabotagem": {
+        "onde": "external-engines/esteira/tests/verde.test.ts, linha 72",
+        "oQue": "expect(script()).toContain(\"prova-automatica.ts\") → toContain(\"SABOTAGEM-LAB-38\")",
+        "revertida": true,
+        "conferido": "grep -c SABOTAGEM no arquivo = 0, e a suíte dele volta a 6 pass / 0 fail"
+      },
+      "resultado": {
+        "guardas-sem-clones": "failure",
+        "verde-completo": "failure"
+      },
+      "conclusaoDoRun": "failure",
+      "oQueAconteceu": "o CI pintou vermelho por causa do teste quebrado — era o que faltava provar. O trabalho 2 segue vermelho pela precondição do segredo, como nos outros disparos"
+    }
+  ],
+  "oQueIssoNaoProva": "que o verde COMPLETO rode no CI. Ele não roda, e falha com a receita, até alguém criar o segredo VIZINHOS_TOKEN — ou tornar os dois vizinhos públicos, que é decisão do Jonny",
+  "naoEhMedicaoDeGleba": "mede o workflow e os códigos de saída dele, não terreno",
+  "oQueOsTresDisparosProvam": [
+    "o workflow EXISTE e roda em todo push (3 disparos, 3 execuções)",
+    "ele PASSA quando a suíte passa (disparo 2: guardas-sem-clones success)",
+    "ele REPROVA quando um teste é quebrado de propósito (disparo 3: failure) — e esta é a metade que o chat pediu",
+    "e ele não finge sobre o que não pode rodar: o verde completo falha com a receita nos TRÊS disparos"
+  ]
+}
