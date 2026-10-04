@@ -22,7 +22,7 @@ import type { EntradaV1 } from "../../testfit/adapter/src/contrato-v1.ts";
 import { auditarPonte, type Achado } from "./guarda-da-ponte.ts";
 import { auditarIda, type AchadoDaIda } from "./guarda-da-ida.ts";
 import { IDA_DO_PARCELAMENTO, IDA_DO_SYMBIOS } from "./inventario-das-idas.ts";
-import { linhasDaEntrada } from "./motores/comum.ts";
+import { oQueAEsteiraPassaPronto } from "./motores/comum.ts";
 import { glebaParaOSymbios, type EntradaMinima } from "./gleba-v1.ts";
 import {
   objetosDaPonteDoParcelamento,
@@ -138,17 +138,20 @@ export interface IdaEmAcao {
  */
 export function auditarIdaDoParcelamento(entrada: EntradaMinima): IdaEmAcao {
   const v1 = entrada as unknown as EntradaV1;
-  const { desenhadas } = linhasDaEntrada(entrada);
-  const comprimento = (l: { x: number; y: number }[]) =>
-    l.reduce((s, p, i) => (i === 0 ? 0 : s + Math.hypot(p.x - l[i - 1]!.x, p.y - l[i - 1]!.y)), 0);
-  const coluna = desenhadas.length
-    ? [...desenhadas].sort((a, b) => comprimento(b) - comprimento(a))[0]!
-    : null;
+  // ── A MESMA função que a esteira usa, e não uma cópia (LAB-37, D139) ───────
+  //
+  // Este arnês calculava só a coluna vertebral, e a esteira de verdade passa
+  // também as faces da testada de frente. A guarda auditava, portanto, um caminho
+  // que não era o caminho — e reprovou `atracoes` em `geo-antonina` dizendo que a
+  // testada não chegava ao motor. Estava certa sobre o arnês e errada sobre a
+  // esteira: guarda medindo outra coisa é pior que guarda reprovando à toa.
+  const pronto = oQueAEsteiraPassaPronto(entrada);
 
   const { entrada: entradaMotor } = idaParaOMotor(v1, {
     semente: 1,
     variantes: 1,
-    ...(coluna ? { viaManual: coluna } : {}),
+    ...(pronto.viaManual ? { viaManual: pronto.viaManual } : {}),
+    ...(pronto.facesLoteamento.length ? { facesLoteamento: pronto.facesLoteamento } : {}),
   });
   return {
     ida: "parcelamento",

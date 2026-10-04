@@ -247,7 +247,14 @@ export function motorDoParcelamento(): MotorNaPorta {
       // queda: eu publiquei a aderência caindo de 17,4 % para 11,2 % quando
       // finalmente entreguei a via, sem investigar.
       alinhaOPartidoAViaDesenhada: true,
-      respeitaTestadaDeFrente: false,
+      // ── A DÍVIDA PAGA, e a D121 estava certa (LAB-37, D138) ──────────────
+      //
+      // Até o LAB-37 isto era `false`, e a D121 dizia por escrito que enquanto a
+      // ida não entregasse `facesLoteamento` o `false` era **dívida do Lab, não
+      // limitação do motor**. Entregue, medido nas duas glebas que têm testada de
+      // frente: lotes com aresta na testada vão de **0 para 14 a 18**, em 10 de 10
+      // partidos. A D121 estava certa.
+      respeitaTestadaDeFrente: true,
       // ── MEDIDO no LAB-26, e a declaração estava errada ───────────────────
       //
       // Dizia `false`. A ida deste adaptador **passa o acesso** ao motor

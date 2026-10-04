@@ -512,6 +512,34 @@ push(
 );
 
 /**
+ * OS AVISOS QUE EXPLICAM UM NÚMERO DO QUADRO. (LAB-37)
+ *
+ * **O princípio é o do LAB-34, aplicado a outro número:** *"ponha o aviso onde o
+ * número aparece, não escondido"*. A seção *"o que cada motor NÃO soube fazer"*, no
+ * fim da página, agrupa as queixas e **elide os números** — então um 33 na coluna
+ * `lotes` ficava sem explicação justamente onde ele é lido.
+ *
+ * Nasceu de um caso concreto: entregue a testada de frente em Antonina, o ranking do
+ * próprio Laboratório de Parcelamento passou a preferir um partido de **33 lotes**
+ * sobre um de **1 228**. O número é fiel, e sem a razão ele engana.
+ *
+ * **Só sobem as queixas que explicam um número do quadro** — não a lista inteira,
+ * que é longa e tem o seu lugar no fim da página.
+ */
+const EXPLICAM_UM_NUMERO = ["o RANKING DELE escolheu", "a testada de frente entrou como"];
+
+function avisosDoQuadro(g: GlebaNaProva): string[] {
+  const linhas: string[] = [];
+  for (const id of ORDEM) {
+    for (const q of g.motores[id]?.naoSoubeFazer ?? []) {
+      if (!EXPLICAM_UM_NUMERO.some((m) => q.startsWith(m))) continue;
+      linhas.push(`> **${NOME_DO_MOTOR[id] ?? id}:** ${q}.`);
+    }
+  }
+  return linhas;
+}
+
+/**
  * O AVISO DEBAIXO DA TABELA — onde a ordem aparece. (LAB-34)
  *
  * O número de lotes acima é de **um** ponto de acesso. Quem lê a coluna ordena os
@@ -590,6 +618,7 @@ for (const g of prova.glebas) {
     );
   }
   push("", avisoDaOrdem(g), "");
+  for (const l of avisosDoQuadro(g)) push(l, "");
 }
 
 // ── O bloco de terreno: rua avisa, lote reprova ───────────────────────────

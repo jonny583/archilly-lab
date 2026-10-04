@@ -189,6 +189,21 @@ export function idaParaOMotor(
      * D116 acabou de punir; então quem já sabe separar **passa pronto**.
      */
     viaManual?: Ponto[] | null;
+    /**
+     * **As faces do perímetro que recebem lote virado para a rua existente.**
+     *
+     * Paga a última dívida declarada do inventário (D121, LAB-37). A **testada de
+     * frente** chega ao contrato como linha, e o motor tem `facesLoteamento`
+     * esperando: *"índices das faces do perímetro que recebem lotes voltados para a
+     * rua"*. Esta ida nunca entregou.
+     *
+     * **Por que vem por opção, como a `viaManual`:** no v1 a testada de frente e a
+     * via desenhada chegam com o MESMO tipo (`via_existente`), e separá-las exige
+     * medir a distância à divisa — régua que mora na esteira (remendo do LAB-13).
+     * Mapear a linha para as faces é a `facesCobertasPelaLinha`, que mora lá pelo
+     * mesmo motivo: duas réguas para a mesma grandeza é o que o D116 puniu.
+     */
+    facesLoteamento?: number[] | null;
   } = {
     semente: 20260913,
   },
@@ -501,6 +516,8 @@ export function idaParaOMotor(
     ...(opcoes.variantes != null ? { variantes: opcoes.variantes } : {}),
     ...(opcoes.formatos ? { formatos: opcoes.formatos } : {}),
     ...(viaManual ? { viaManual } : {}),
+    // ── A testada de frente, finalmente entregue (LAB-37) ──────────────────
+    ...(opcoes.facesLoteamento?.length ? { facesLoteamento: opcoes.facesLoteamento } : {}),
   };
 
   return { entrada, perdas };

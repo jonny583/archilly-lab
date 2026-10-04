@@ -11,7 +11,12 @@ dia** — §1-B e §1-C, com dois achados do LAB-26 que são sobre vocês. O LAB
 manda manter este documento vivo e **avisar quando ele mudar**: mudou duas vezes
 naquele dia, e o recado de cada prompt diz isso.
 
-> **⚠ MUDOU DE NOVO, pelo LAB-32, em 04/10/2026 — §1-D.** É o único item novo, e é
+> **⚠ MUDOU DUAS VEZES em 04/10/2026 — §1-D (LAB-32) e §1-E (LAB-37).** A do LAB-37 é a
+> **terceira** vez que um campo de vocês existia e a ida do Lab não o preenchia; entregue,
+> vocês respeitam. E trouxe uma pergunta que é decisão de vocês: a nota prefere 33 lotes a
+> 1 228 na mesma gleba.
+>
+> **⚠ MUDOU pelo LAB-32, em 04/10/2026 — §1-D.** É o único item novo, e é
 > **a terceira vez seguida** que uma acusação ao motor de vocês acaba sendo defeito do
 > Lab. Desta vez não era nem defeito de conta: era a régua do Lab medindo uma promessa
 > que o campo de vocês nunca fez.
@@ -199,6 +204,34 @@ estreitado, quando `viaManual` vier preenchida: linha desenhada à mão é inten
 explícita (a D69 da família diz isso), e sortear ±30° em cima de uma intenção explícita
 é outra decisão do que sortear em cima de um ângulo de caixa envolvente. **Medição do
 Lab, decisão de vocês** — e nenhuma linha escrita no repositório de vocês.
+
+### 1-E · A nota de vocês prefere 33 lotes a 1 228 na mesma gleba
+
+**Acrescentado pelo LAB-37, em 04/10/2026.** Desde este prompt o Lab finalmente entrega
+a **testada de frente** em `facesLoteamento` — o campo existia em vocês desde sempre e a
+ida do Lab não o preenchia; é a **terceira vez** que essa história se repete (§1-A, §1-D,
+e agora esta). Entregando, o motor de vocês **respeita**: lotes com aresta na testada vão
+de **0 para 14 a 18**, em 10 de 10 partidos, nas duas glebas que têm testada.
+
+**E apareceu uma coisa que é decisão de vocês, não defeito.** Em `geo-antonina`, com a
+testada entregue, **o ranking de vocês passou a preferir um partido `superquadra` de 33
+lotes a um `ortogonal` de 1 228**:
+
+| partido | lotes | nota de vocês |
+|---|---|---|
+| `superquadra` | **33** | **0,6226** |
+| `ortogonal` | **1 228** | 0,5881 |
+
+**O que mudou:** antes da entrega, o `superquadra` desenhava **zero** lotes naquela gleba
+e era inválido. Com os lotes externos da testada ele passou a valer — e a nota dele é a
+maior.
+
+**Pode ser intencional:** plano de poucos lotes grandes é um produto, e a nota de vocês
+mede o que ela mede. **Se não for, está medido.** O Lab **não escolhe a variante** — a
+regra dele é a de melhor nota de vocês, e ele publica o 33 com a razão colada ao número,
+para ninguém ler "este motor desenha mal a gleba".
+
+**Nada a consertar do lado de vocês se for intencional.** É a única pergunta deste item.
 
 ## 2 · Symbios + subdivisão do Lab — **reporta, e superestima**
 

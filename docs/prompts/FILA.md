@@ -38,6 +38,14 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
+## 🔴 A FILA DE 04/10 ESGOTOU — o despertador está DESLIGADO
+
+**`enabled: false` em 04/10/2026.** Os **sete** prompts estão cumpridos, LAB-31 a
+LAB-37, e os achados novos estão todos *"proposto ao chat"*.
+
+**Desligado e não apagado** (D112), que é a escolha que o chat ratificou duas vezes e
+mandou reabilitar em vez de recriar. **O que vem agora vem do chat.**
+
 ## 🟢 A FILA DE AGORA — 04/10/2026, LAB-31 a LAB-37
 
 Mandada pelo chat em 04/10/2026, com o **despertador reabilitado**
@@ -56,13 +64,37 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 | **LAB-34** | A **tabela comparativa** ordena os motores num **único ponto de acesso**, e só a seção do acesso avisa que isso muda até **108 %** — *"ponha o aviso onde a ordem aparece, não escondido"* | ✅ **concluído em 04/10/2026** | LAB-33 mesclado ✅ |
 | **LAB-35** | A guarda da ida cospe **310 avisos `mapa-velho`** — conferir se há **caso real escondido nesse volume** e reduzir o ruído | ✅ **concluído em 04/10/2026** | LAB-34 mesclado ✅ |
 | **LAB-36** | As **quatro regras sem teste** que eu listei **viram guarda ou saem do documento** | ✅ **concluído em 04/10/2026** · eram **cinco**, e duas eram falsas | LAB-35 mesclado ✅ |
-| **LAB-37** | A **dívida da testada de frente** (D121) — mapear a linha para as faces do perímetro — *"escreva o tamanho e execute se couber"* | ⏳ **pronto, é o último** | LAB-36 mesclado ✅ |
+| **LAB-37** | A **dívida da testada de frente** (D121) — mapear a linha para as faces do perímetro — *"escreva o tamanho e execute se couber"* | ✅ **concluído em 04/10/2026** · **a fila ESGOTOU** | LAB-36 mesclado ✅ |
 
 ### O que o chat manteve, sem mudança
 
 - **a régua de forma** (útil < 85 % / < 70 %) segue **com o Jonny** e **não trava
   nada** — é o único item na lista dele;
 - **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-37 · A dívida da testada de frente, paga — ✅ concluído em 04/10/2026 · **a fila esgotou**
+
+**Entregue:** [`../relatorios/LAB-37.md`](../relatorios/LAB-37.md),
+`docs/provas/LAB-37/testada-de-frente.json`, `tests/testada-de-frente.test.ts` (12
+travas), a tabela e a página do Jonny regeradas.
+
+**O tamanho estava escrito e cabia:** a régua, a opção na ida, a passagem, o cálculo, o
+inventário, a declaração, as travas. **Medido, a D121 estava certa:** lotes com aresta na
+testada vão de **0 para 14 a 18**, em 10 de 10 partidos, nas duas glebas que têm testada,
+e `respeitaTestadaDeFrente` virou `true`. A linha de 180 m cobre a **face 0** a 100 %; a
+face 19 encosta a 3 % — o vértice, não a testada, e é por isso que a fração mínima da face
+é parâmetro declarado (a lição do D75).
+
+**A categoria `divida` está vazia hoje**, e a dívida paga **devolveu o alcance** que ela
+custou: a ida "como era" passou a ser reprovada pela guarda genérica.
+
+**Dois achados que não estavam na conta:** o **arnês da guarda** media um caminho que não
+era o caminho — calculava a coluna vertebral e não as faces (D139, consertado com uma
+montagem única) —, e **o ranking do próprio motor passou a preferir 33 lotes a 1 228** em
+Antonina, uma vez que a testada validou um partido que antes desenhava zero (D140). O 33
+é publicado **com a razão colada ao número**, pelo princípio do LAB-34.
+
+---
 
 ### LAB-36 · As regras que eram só afirmação — ✅ concluído em 04/10/2026
 

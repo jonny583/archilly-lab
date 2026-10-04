@@ -28,7 +28,21 @@ const perda = (motivo: string): DestinoNaIda => ({ tipo: "perda", motivo });
 const interno = (motivo: string): DestinoNaIda => ({ tipo: "interno", motivo });
 /** Blob opaco, descartado em bloco e com o motivo declarado. Ver `DestinoNaIda`. */
 const perdaEmBloco = (motivo: string): DestinoNaIda => ({ tipo: "perda", motivo, cobreFilhos: true });
-/** Dívida do Lab: o motor tem onde receber e a ida ainda não entrega. Ver `DestinoNaIda`. */
+/**
+ * Dívida do Lab: o motor tem onde receber e a ida ainda não entrega. Ver
+ * `DestinoNaIda`.
+ *
+ * **HOJE A CATEGORIA ESTÁ VAZIA, e isso é notícia** (LAB-37): a única dívida que
+ * existiu — a testada de frente esperando em `facesLoteamento` — foi paga no LAB-37,
+ * depois de sete prompts declarada. Era o destino que o D121 criou para não ter de
+ * escolher entre mentir (`perda`, que quer dizer *"o motor não tem onde receber"*) e
+ * desligar a guarda.
+ *
+ * **O ajudante fica**, sem uso, de propósito: a próxima dívida não precisa
+ * reinventá-lo, e a categoria vazia é a prova de que ele cumpriu o que prometia —
+ * ser uma confissão **com prazo**, não uma gaveta.
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const divida = (onde: string, proposto: string): DestinoNaIda => ({ tipo: "divida", onde, proposto });
 
 /** O que é escrituração do contrato nas duas idas, e não dado de terreno. */
@@ -127,44 +141,51 @@ export const IDA_DO_PARCELAMENTO: Record<string, DestinoNaIda> = {
   // ── Três destinos, e o terceiro é uma DÍVIDA (LAB-30) ─────────────────────
   //
   // Atração como **polígono** vira ímã em `terreno.atracoes`. **Via desenhada**
-  // vira a coluna vertebral em `viaManual` — consertado neste prompt. E a
-  // **testada de frente**, que também chega como linha, tem onde ir no motor:
+  // vira a coluna vertebral em `viaManual` — consertado no LAB-30. E a **testada de
+  // frente**, que também chega como linha, tem onde ir no motor:
   // `facesLoteamento` — *"faces do perímetro que recebem lotes virados para a rua
-  // existente"* — e a ida **ainda não a entrega**.
+  // existente"*.
   //
-  // Isso é dívida do Lab, não limite do motor, e por isso não entra como `perda`:
-  // `perda` quer dizer que o motor não tem onde receber, e aqui ele tem. Mapear a
-  // linha para QUAIS faces do perímetro ela cobre é geometria nova, e prompt novo.
-  atracoes: divida(
-    "terreno.atracoes · viaManual · facesLoteamento",
-    "a testada de frente chega como linha e o motor tem `facesLoteamento` esperando por ela; " +
-      "falta mapear a linha para as faces do perímetro que ela cobre. Proposto ao chat no " +
-      "LAB-30 — e enquanto não for feito, `respeitaTestadaDeFrente: false` é dívida do Lab, " +
-      "não limitação do motor",
+  // **A DÍVIDA FOI PAGA NO LAB-37** (D138). Era a única `divida` do inventário, e
+  // durou do LAB-30 ao LAB-37: a `facesCobertasPelaLinha` mapeia a linha para os
+  // índices de aresta que ela cobre, e a esteira passa prontos. Medido, lotes com
+  // aresta na testada vão de **0 para 14 a 18**, em 10 de 10 partidos, nas duas
+  // glebas que têm testada — então `respeitaTestadaDeFrente` virou `true`, como a
+  // D121 previu.
+  //
+  // Os três destinos agora existem, e o `|` diz isso: polígono vira ímã, via
+  // desenhada vira coluna vertebral, testada de frente vira face de loteamento.
+  atracoes: traduzido(
+    "terreno.atracoes | viaManual | facesLoteamento",
+    "atração poligonal vira ímã; a via desenhada vira `viaManual` (LAB-30) e a testada de " +
+      "frente vira `facesLoteamento` (LAB-37). Qual dos três vale depende do tipo, e no v1 o " +
+      "tipo não distingue via desenhada de testada — quem separa é o remendo do LAB-13, na " +
+      "esteira, que passa as duas prontas",
   ),
-  "atracoes[].id": divida("terreno.atracoes · viaManual · facesLoteamento", "ver `atracoes`"),
+  "atracoes[].id": traduzido("terreno.atracoes | viaManual | facesLoteamento", "ver `atracoes`"),
   // **O campo que o LAB-30 consertou — e metade dele continua dívida.**
   //
   // `via_desenhada` (v2) vira a coluna vertebral; no v1 ela chega como
   // `via_existente`, indistinguível da testada de frente, e quem separa é o remendo
   // do LAB-13, na esteira, que passa a linha pronta. A outra metade do tipo — a
   // testada de frente — espera em `facesLoteamento`. Ver `atracoes`.
-  "atracoes[].tipo": divida(
-    "viaManual · terreno.atracoes · facesLoteamento",
-    "o tipo decide o destino, e um dos três destinos ainda não é entregue: ver `atracoes`",
+  "atracoes[].tipo": traduzido(
+    "terreno.atracoes | viaManual | facesLoteamento",
+    "o tipo decide o destino, e desde o LAB-37 os três existem: ver `atracoes`",
   ),
-  "atracoes[].nome": divida("terreno.atracoes · viaManual · facesLoteamento", "ver `atracoes`"),
-  "atracoes[].geometria": divida(
-    "terreno.atracoes · viaManual · facesLoteamento",
-    "ver `atracoes`: polígono vira ímã, via desenhada vira coluna vertebral, e a testada de " +
-      "frente ainda não tem quem a entregue",
+  "atracoes[].nome": traduzido("terreno.atracoes | viaManual | facesLoteamento", "ver `atracoes`"),
+  "atracoes[].geometria": traduzido(
+    "terreno.atracoes | viaManual | facesLoteamento",
+    "ver `atracoes`: polígono vira ímã, via desenhada vira coluna vertebral, testada de " +
+      "frente vira face de loteamento",
   ),
   "atracoes[].geometria.tipo": interno("qual forma veio"),
   "atracoes[].geometria.aneis": entregue("terreno.atracoes"),
-  "atracoes[].geometria.pontos": divida(
-    "viaManual · facesLoteamento",
-    "atração como LINHA: desde o LAB-30 a via desenhada vai para `viaManual`. As outras " +
-      "linhas (ponto de interesse, outra) continuam sem destino, e a perda é declarada",
+  "atracoes[].geometria.pontos": traduzido(
+    "viaManual | facesLoteamento",
+    "atração como LINHA: a via desenhada vai para `viaManual` (LAB-30) e a testada de frente " +
+      "vira face de loteamento (LAB-37). As outras linhas — ponto de interesse, outra — " +
+      "continuam sem destino, e a perda sai declarada em `naoAtendido`",
   ),
   acessos: traduzido("terreno.acesso", "o acesso principal vira o ponto de partida do traçado"),
   "acessos[].id": interno("identificação do acesso"),

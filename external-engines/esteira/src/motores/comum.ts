@@ -593,3 +593,102 @@ export function lotesNaFaixaDaVia(
   }
   return { centroDentro, soEncostam };
 }
+
+/**
+ * AS FACES DO PERÍMETRO QUE A TESTADA DE FRENTE COBRE. (LAB-37)
+ *
+ * # A dívida que esta régua paga
+ *
+ * A **testada de frente** — a linha onde a gleba encosta numa rua que já existe —
+ * chega ao contrato como linha, e o motor do Laboratório de Parcelamento tem
+ * `facesLoteamento` esperando por ela: *"índices das faces do perímetro que recebem
+ * lotes voltados para a rua"*. **A ida do Lab nunca entregou.** Era a única dívida
+ * declarada do inventário (D121), e o jeito de pagá-la é este: mapear a linha para
+ * os índices de aresta que ela cobre.
+ *
+ * # Os dois parâmetros são DECLARADOS, e o segundo é a lição do D75
+ *
+ * - **`tol_m`** — a que distância da linha um ponto da face conta como coberto. Vale
+ *   a tolerância de divisa do contrato, 5 cm, arredondada para 1 m: a linha e o
+ *   perímetro vêm de levantamentos diferentes e não coincidem ao centímetro. Medido
+ *   em `geo-antonina`, de 1 a 5 m dá a **mesma** resposta, o que diz que a escolha
+ *   não está mandando no resultado;
+ * - **`fracaoMinima`** — quanto da face precisa estar coberto. **Sem isto a régua
+ *   repete o D75:** a face vizinha toca a linha no vértice compartilhado e sairia
+ *   como coberta. Medido, a face 0 de `geo-antonina` sai **100 %** coberta e a face
+ *   19 sai **3 a 10 %** — que é o canto, não a testada. Meia face é o corte, e é
+ *   generoso de propósito: a linha pode ser mais curta que a aresta do levantamento.
+ *
+ * **O que esta régua NÃO decide:** se a face vai render lote. O motor pula face mais
+ * curta que a testada do lote externo, e isso é decisão dele.
+ */
+export const TOL_DA_FACE_M = 1;
+export const FRACAO_MINIMA_DA_FACE = 0.5;
+
+export function facesCobertasPelaLinha(
+  anel: P[],
+  linhas: readonly P[][],
+  tol_m = TOL_DA_FACE_M,
+  fracaoMinima = FRACAO_MINIMA_DA_FACE,
+): { faces: number[]; porFace: { face: number; comprimento_m: number; fracaoCoberta: number }[] } {
+  const porFace: { face: number; comprimento_m: number; fracaoCoberta: number }[] = [];
+  if (anel.length < 3 || linhas.length === 0) return { faces: [], porFace };
+
+  const distAsLinhas = (p: P) => {
+    let d = Infinity;
+    for (const l of linhas) {
+      for (let i = 1; i < l.length; i++) d = Math.min(d, distSeg(p, l[i - 1]!, l[i]!));
+    }
+    return d;
+  };
+
+  for (let i = 0; i < anel.length; i++) {
+    const a = anel[i]!;
+    const b = anel[(i + 1) % anel.length]!;
+    const comp = Math.hypot(b.x - a.x, b.y - a.y);
+    if (comp < 1e-9) continue;
+    // Amostra de 2 em 2 metros, e nunca menos de dois pontos: face curta também
+    // precisa de mais de uma amostra, ou a fração só pode dar 0 ou 1.
+    const n = Math.max(2, Math.ceil(comp / 2));
+    let dentro = 0;
+    for (let k = 0; k <= n; k++) {
+      const t = k / n;
+      if (distAsLinhas({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t }) <= tol_m) dentro++;
+    }
+    const fracao = dentro / (n + 1);
+    if (fracao > 0) porFace.push({ face: i, comprimento_m: comp, fracaoCoberta: fracao });
+  }
+
+  return {
+    faces: porFace.filter((f) => f.fracaoCoberta >= fracaoMinima).map((f) => f.face),
+    porFace,
+  };
+}
+
+/**
+ * O QUE A ESTEIRA PASSA PRONTO À IDA DO PARCELAMENTO. (LAB-37)
+ *
+ * Num lugar só, e a razão é concreta: o `rodarTestfit` calculava a coluna vertebral
+ * e as faces, e o arnês da guarda (`auditarIdaDoParcelamento`) calculava **só a
+ * coluna** — então a guarda auditava um caminho que não era o caminho de verdade, e
+ * reprovou `atracoes` em `geo-antonina` dizendo que a testada de frente não chegava.
+ * **Ela estava certa sobre o arnês e errada sobre a esteira**, e isso é pior que
+ * reprovar à toa: é guarda medindo outra coisa.
+ *
+ * Duas montagens da mesma coisa envelhecem em direções diferentes — é o D116, e aqui
+ * ele apareceu dentro da própria guarda que existe para impedir isso.
+ */
+export function oQueAEsteiraPassaPronto(entrada: EntradaMinima): {
+  viaManual: P[] | null;
+  facesLoteamento: number[];
+} {
+  const { desenhadas, testadasDeFrente } = linhasDaEntrada(entrada);
+  const comp = (l: P[]) =>
+    l.reduce((s, p, i) => (i === 0 ? 0 : s + Math.hypot(p.x - l[i - 1]!.x, p.y - l[i - 1]!.y)), 0);
+  return {
+    // O motor tem UMA coluna vertebral: entre várias desenhadas vai a mais longa, e
+    // a escolha é do Lab — está dita na perda declarada da ida.
+    viaManual: desenhadas.length ? [...desenhadas].sort((a, b) => comp(b) - comp(a))[0]! : null,
+    facesLoteamento: facesCobertasPelaLinha(entrada.gleba.anel, testadasDeFrente).faces,
+  };
+}

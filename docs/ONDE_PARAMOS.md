@@ -4,16 +4,35 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-36 ·
-**A fila de 04/10 está em andamento: 6 de 7 feitos — falta o LAB-37.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-37 ·
+**A fila de 04/10 está CUMPRIDA, inteira: os SETE prompts, LAB-31 a LAB-37.**
 
-# 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-31 a LAB-37
+# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 04/10 esgotou
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` desde 04/10/2026 · 60 min, minuto
-:05.** É o **mesmo** despertador: o chat mandou **reabilitar em vez de recriar** pela
-terceira vez, e isso preserva o histórico de disparos.
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 04/10/2026.**
 
-**O próximo é o LAB-37, o último da fila**, e a condição dele está cumprida (LAB-36 mesclado).
+**Por quê:** os **sete** prompts da fila de 04/10 estão cumpridos — LAB-31 a LAB-37 — e
+os achados novos estão todos *"proposto ao chat"*. É o caso da D62 e do `CLAUDE.md` §1-A.
+
+**Desligado e não apagado**, pela terceira vez (D112): é a escolha que o chat ratificou
+duas vezes, mandando reabilitar em vez de recriar. **Para destravar:** reabilitar este
+mesmo despertador com a fila nova.
+
+## Os sete prompts de 04/10, em uma linha cada
+
+| prompt | o que ficou |
+|---|---|
+| **LAB-31** | "verde" é UM comando, sete passos, provado por sabotagem |
+| **LAB-32** | a queda da aderência era o motor **obedecendo** — a régua media outra promessa |
+| **LAB-33** | a trava do LAB-23 passou a **medir**; prova congelada virou detector de prova velha |
+| **LAB-34** | o aviso foi para **debaixo de cada quadro**: a ordem muda em 3 dos 5 terrenos |
+| **LAB-35** | nos 310 avisos havia **4 promessas** que gleba nenhuma exercitava |
+| **LAB-36** | eram **cinco** regras sem teste, e **duas estavam falsas** |
+| **LAB-37** | a **dívida paga**: a testada de frente entregue, e a D121 estava certa |
+
+**O ponto cego da §6 foi pego CINCO vezes nesta fila** (D128, D133, D135, D137 e o arnês
+do D139), e **as cinco dentro do próprio prompt, antes de sair**. A tabela das nove está
+no `CLAUDE.md` §6.
 
 ## A fila de 04/10 — sete prompts, todos tirados da minha própria lista de dívidas
 
@@ -30,6 +49,50 @@ cobrado. A fila por extenso está em [`prompts/FILA.md`](prompts/FILA.md).
 | **LAB-35** | havia: **4 promessas** que gleba nenhuma exercitava — a guarda nunca as verificou | ✅ **04/10/2026** |
 | **LAB-36** | eram **cinco**, e **duas eram falsas** — viraram guarda ou se estreitaram | ✅ **04/10/2026** |
 | **LAB-37** | a dívida da testada de frente (D121) — tamanho escrito, executar se couber | ⏳ **o próximo, e o último** |
+
+## O que o LAB-37 fez — a última dívida, paga
+
+**O chat mandou:** *"a dívida da testada de frente — mapear a linha para as faces do
+perímetro e entregá-la em `facesLoteamento`: escreva o tamanho e execute se couber."*
+**Cabia, e caiu dentro.**
+
+A **testada de frente** chega ao contrato como linha, e o motor tem `facesLoteamento`
+esperando desde sempre. A ida do Lab nunca entregou — era a **única `divida`** do
+inventário, do LAB-30 ao LAB-37.
+
+**O mapeamento, medido:** em `geo-antonina`, a linha de 180 m cobre a **face 0** do
+perímetro **a 100 %**; a face 19 encosta nela **a 3 %** — o vértice compartilhado, não a
+testada. Daí a **fração mínima da face** ser parâmetro declarado: sem ela a régua
+repetiria o D75. A tolerância de 1 m dá o mesmo que 5 m.
+
+**O resultado:**
+
+| | sem as faces | com as faces |
+|---|---|---|
+| lotes com aresta na testada, em **10 de 10** partidos, nas **duas** glebas | **0** | **14 a 18** |
+
+**A D121 dizia que `respeitaTestadaDeFrente: false` era dívida do Lab e não limitação do
+motor. Medido: estava certa.** A declaração virou `true`. **A categoria `divida` está
+vazia hoje**, e pagar a dívida **devolveu o alcance** que ela custou: a ida "como era"
+passou a ser reprovada pela guarda genérica, o que não podia acontecer enquanto o campo
+fosse `divida`.
+
+**Dois achados que não estavam na conta:**
+
+1. **o arnês da guarda media um caminho que não era o caminho** (D139): o `rodarTestfit`
+   calculava a coluna vertebral **e** as faces, e o arnês calculava só a coluna. A guarda
+   reprovou 6 campos dizendo que a testada não chegava — **certa sobre o que mediu,
+   errada sobre a esteira**. Pior que reprovar à toa é medir outra coisa, e a divergência
+   nasceu dentro da guarda que existe para impedir isso (D116). Agora há **uma** montagem,
+   e trava exigindo que os dois arquivos a citem;
+2. **o ranking do próprio motor passou a preferir 33 lotes a 1 228** em Antonina (D140),
+   porque a testada validou um partido que antes desenhava zero. **A escolha da variante
+   segue sendo do motor** — escolher por mim seria o Lab decidindo —, e o 33 é publicado
+   **com a razão colada ao número**, pelo princípio que o chat ensinou no LAB-34.
+
+**E os detectores de prova velha fizeram o trabalho deles:** mudar a ponte invalidou as
+provas do LAB-23 e do LAB-28, e as duas acusaram sozinhas. Regeradas, mais a tabela e a
+página do Jonny.
 
 ## O que o LAB-36 fez — e as duas regras que eram FALSAS
 

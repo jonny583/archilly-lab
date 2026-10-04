@@ -65,7 +65,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 2009.5,
+          "ms": 2110.33,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -269,7 +269,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 1785.45,
+          "ms": 1919.84,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -507,7 +507,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "ortogonal (1º de 7 no ranking dele)",
-          "ms": 5823.01,
+          "ms": 6270.43,
           "naoSoubeFazer": [
             "13 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 990.4 m de eixo que saía da gleba (0.21 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -691,7 +691,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 5117.15,
+          "ms": 5963.92,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -916,7 +916,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 461.13,
+          "ms": 479.54,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1112,7 +1112,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 412.54,
+          "ms": 436.23,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1324,7 +1324,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 19 no ranking dele)",
-          "ms": 2042.38,
+          "ms": 2313.27,
           "naoSoubeFazer": [
             "1 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 556.0 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -1508,7 +1508,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 1240.03,
+          "ms": 1402.03,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -1739,7 +1739,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 107.75,
+          "ms": 89.81,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1925,7 +1925,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 64.48,
+          "ms": 82.35,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -2120,7 +2120,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 274.84,
+          "ms": 254.31,
           "naoSoubeFazer": [
             "o Lab aparou 237.1 m de eixo que saía da gleba (0.65 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -2302,7 +2302,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 410.86,
+          "ms": 482.21,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -2544,7 +2544,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 401.86,
+          "ms": 370.15,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -2733,7 +2733,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 365.58,
+          "ms": 384.15,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -2943,7 +2943,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 1223.49,
+          "ms": 1643.75,
           "naoSoubeFazer": [
             "o Lab aparou 505.5 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -3132,7 +3132,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 605.79,
+          "ms": 794.13,
           "naoSoubeFazer": [
             "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
@@ -3333,9 +3333,9 @@
       "semente": 20260913,
       "contrato": "1",
       "confrontoDoAcesso": {
-        "maiorAmplitude_pct": 44.21,
-        "entreOsQuatroMotores_pct": 63.41,
-        "entreOsMotoresDeLote_pct": 19.55
+        "maiorAmplitude_pct": 3775.76,
+        "entreOsQuatroMotores_pct": 4921.21,
+        "entreOsMotoresDeLote_pct": 4921.21
       },
       "ordemDoAcesso": {
         "posicoes": 6,
@@ -3344,8 +3344,8 @@
           [
             "generate-espinha",
             "generate-ortogonal",
-            "parcelamento",
-            "symbios"
+            "symbios",
+            "parcelamento"
           ],
           [
             "generate-ortogonal",
@@ -3373,12 +3373,12 @@
           ],
           [
             "generate-espinha",
-            "parcelamento",
             "generate-ortogonal",
-            "symbios"
+            "symbios",
+            "parcelamento"
           ]
         ],
-        "ordensDistintas": 3,
+        "ordensDistintas": 2,
         "vencedores": [
           "generate-espinha",
           "generate-ortogonal"
@@ -3389,7 +3389,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 790.04,
+          "ms": 809.91,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -3590,7 +3590,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 435.24,
+          "ms": 576.15,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -3801,47 +3801,48 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "variante": "ortogonal (1º de 18 no ranking dele)",
-          "ms": 6569.39,
+          "variante": "superquadra (1º de 20 no ranking dele)",
+          "ms": 5924.66,
           "naoSoubeFazer": [
-            "2 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
-            "o Lab aparou 833.1 m de eixo que saía da gleba (0.17 % do comprimento) — sem isso o contrato recusa o arquivo",
+            "o Lab aparou 809.0 m de eixo que saía da gleba (0.17 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote",
-            "1 atração(ões) na entrada não entram no traçado deste motor"
+            "a testada de frente entrou como 1 face(s) do perímetro (`facesLoteamento: [0]`) — lote virado para a rua existente",
+            "o RANKING DELE escolheu \"superquadra\" com 33 lotes (nota 0.6226); entre as aceitas, \"ortogonal\" dá 1228 lotes (nota 0.5881). A escolha da variante é do motor, não do Lab — e aqui ela custa lote"
           ],
           "recusadoPeloEsquema": null,
-          "lotes": 1386,
-          "areaVendavel_m2": 555017.12,
-          "pctPrivativa": 39.15,
-          "violacoes": 15,
+          "lotes": 33,
+          "areaVendavel_m2": 10329.1,
+          "pctPrivativa": 0.73,
+          "violacoes": 40,
           "violacoesPorRegra": {
-            "frente": 15
+            "frente": 29,
+            "via-sobre-lote": 11
           },
-          "sobraSemLote_m2": 60850,
-          "pctDaMassaSemLote": 4.29,
+          "sobraSemLote_m2": 83225,
+          "pctDaMassaSemLote": 5.87,
           "rampa": {
-            "declaradoPeloMotor_pct": 8.269675892302384,
+            "declaradoPeloMotor_pct": 7.260783510287496,
             "medida": true,
             "porQueNaoMedida": null,
-            "mediaPonderada_pct": 3.44,
-            "pior_pct": 17.09,
-            "trechos": 2471,
+            "mediaPonderada_pct": 3.47,
+            "pior_pct": 16.2,
+            "trechos": 908,
             "trechosAcimaDe": {
-              "8": 210,
-              "15": 2,
+              "8": 82,
+              "15": 1,
               "20": 0,
               "30": 0
             },
             "metrosAcimaDe": {
-              "8": 2084.18,
-              "15": 20,
+              "8": 814.76,
+              "15": 10,
               "20": 0,
               "30": 0
             },
-            "cruzamentos": 82,
+            "cruzamentos": 15,
             "cruzamentosAcimaDe": {
-              "8": 82,
-              "15": 16,
+              "8": 15,
+              "15": 6,
               "20": 0,
               "30": 0
             }
@@ -3850,35 +3851,35 @@
             "medido": true,
             "porQueNaoMedido": null,
             "via": {
-              "comprimentoTotal_m": 24629.62,
-              "comprimentoAcimaDoLimite_m": 0,
-              "pctDoComprimento": 0,
-              "areaTotal_m2": 248911.83,
-              "areaAcimaDoLimite_m2": 0,
-              "pctDaArea": 0,
+              "comprimentoTotal_m": 9052.69,
+              "comprimentoAcimaDoLimite_m": 9.99,
+              "pctDoComprimento": 0.11,
+              "areaTotal_m2": 100269.02,
+              "areaAcimaDoLimite_m2": 114.9,
+              "pctDaArea": 0.11,
               "pior": {
-                "id": "V17",
-                "valor_pct": 14.93,
+                "id": "V2",
+                "valor_pct": 16.21,
                 "onde": {
-                  "x": 126.97,
-                  "y": -131.83
+                  "x": 152.17,
+                  "y": -191.62
                 }
               }
             },
             "lote": {
-              "lotes": 1386,
-              "areaTotal_m2": 555017.12,
+              "lotes": 33,
+              "areaTotal_m2": 10329.1,
               "areaAcimaDoLimite_m2": 0,
               "pctDaArea": 0,
               "lotesComParteAcima": 0,
               "lotesPrincipalmenteAcima": 0,
               "reprovaPelaLei": false,
               "pior": {
-                "id": "v1-l271",
-                "valor_pct": 19.57,
+                "id": "v19-e11",
+                "valor_pct": 13.92,
                 "onde": {
-                  "x": 112.39,
-                  "y": 356
+                  "x": -51.97,
+                  "y": -716.93
                 }
               }
             }
@@ -3888,18 +3889,18 @@
             "posicoesMedidas": 6,
             "amplitudeEhPiso": true,
             "lotes": {
-              "minimo": 1386,
-              "maximo": 1454,
-              "mediana": 1393,
-              "amplitude": 68,
-              "amplitudePct": 4.91
+              "minimo": 33,
+              "maximo": 1279,
+              "mediana": 1215,
+              "amplitude": 1246,
+              "amplitudePct": 3775.76
             },
             "areaVendavel_m2": {
-              "minimo": 555017.12,
-              "maximo": 582348.39,
-              "mediana": 557952.74,
-              "amplitude": 27331.27,
-              "amplitudePct": 4.92
+              "minimo": 10329.1,
+              "maximo": 513069.12,
+              "mediana": 487106.84,
+              "amplitude": 502740.02,
+              "amplitudePct": 4867.22
             },
             "melhorPonto": {
               "x": 1041.6778622619722,
@@ -3914,8 +3915,8 @@
                 "x": -72.308,
                 "y": -760.307
               },
-              "lotes": 1386,
-              "areaVendavel_m2": 555017.12
+              "lotes": 33,
+              "areaVendavel_m2": 10329.1
             },
             "porPosicao": [
               {
@@ -3923,48 +3924,48 @@
                   "x": -128.257,
                   "y": -830.943
                 },
-                "lotes": 1386,
-                "areaVendavel_m2": 555017.12
+                "lotes": 33,
+                "areaVendavel_m2": 10329.1
               },
               {
                 "ponto": {
                   "x": 454.8197749749432,
                   "y": -126.79684733815941
                 },
-                "lotes": 1420,
-                "areaVendavel_m2": 568684.21
+                "lotes": 1266,
+                "areaVendavel_m2": 507763.71
               },
               {
                 "ponto": {
                   "x": 1041.6778622619722,
                   "y": 574.270036436664
                 },
-                "lotes": 1454,
-                "areaVendavel_m2": 582348.39
+                "lotes": 1279,
+                "areaVendavel_m2": 513069.12
               },
               {
                 "ponto": {
                   "x": 469.0055263298908,
                   "y": 816.2866418683504
                 },
-                "lotes": 1386,
-                "areaVendavel_m2": 555017.12
+                "lotes": 1228,
+                "areaVendavel_m2": 492570.67
               },
               {
                 "ponto": {
                   "x": -121.33354280414841,
                   "y": 527.6311829780141
                 },
-                "lotes": 1393,
-                "areaVendavel_m2": 557952.74
+                "lotes": 1201,
+                "areaVendavel_m2": 481643.02
               },
               {
                 "ponto": {
                   "x": -502.1139272981369,
                   "y": -303.5441526502805
                 },
-                "lotes": 1393,
-                "areaVendavel_m2": 557952.74
+                "lotes": 33,
+                "areaVendavel_m2": 10329.1
               }
             ]
           },
@@ -3973,18 +3974,17 @@
               "aConferirAbaixoDe": 0.85,
               "ruimAbaixoDe": 0.7
             },
-            "lotes": 1386,
-            "ok": 1386,
-            "aConferir": 0,
+            "lotes": 33,
+            "ok": 32,
+            "aConferir": 1,
             "ruim": 0,
-            "pctAConferir": 0,
+            "pctAConferir": 3.03,
             "pctRuim": 0,
-            "utilMediana": 1,
-            "utilPior": 0.9174,
+            "utilMediana": 0.9935,
+            "utilPior": 0.8232,
             "porClasse": {
-              "retângulo": 1347,
-              "pentágono": 9,
-              "trapézio": 30
+              "trapézio": 2,
+              "retângulo": 31
             },
             "comLadoCurvo": 0
           }
@@ -3992,7 +3992,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 9174.81,
+          "ms": 9395.02,
           "naoSoubeFazer": [
             "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",

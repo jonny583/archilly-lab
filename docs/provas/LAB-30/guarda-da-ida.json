@@ -11,10 +11,9 @@
     "parcelamento": {
       "campos": 72,
       "entregue": 11,
-      "traduzido": 23,
+      "traduzido": 29,
       "perda": 16,
-      "interno": 16,
-      "divida": 6
+      "interno": 16
     },
     "symbios": {
       "campos": 44,
@@ -27,19 +26,12 @@
   "porRegra": {
     "campo-nao-entregue": 0,
     "campo-novo-no-contrato": 0,
-    "promessa-nao-exercitada": 99,
+    "promessa-nao-exercitada": 123,
     "mapa-velho": 187,
-    "divida-do-lab": 18
+    "divida-do-lab": 0
   },
   "reprovamNoTotal": 0,
-  "dividasDoLab": [
-    "parcelamento · atracoes → terreno.atracoes · viaManual · facesLoteamento",
-    "parcelamento · atracoes[].id → terreno.atracoes · viaManual · facesLoteamento",
-    "parcelamento · atracoes[].tipo → viaManual · terreno.atracoes · facesLoteamento",
-    "parcelamento · atracoes[].nome → terreno.atracoes · viaManual · facesLoteamento",
-    "parcelamento · atracoes[].geometria → terreno.atracoes · viaManual · facesLoteamento",
-    "parcelamento · atracoes[].geometria.pontos → viaManual · facesLoteamento"
-  ],
+  "dividasDoLab": [],
   "promessasQueNenhumaGlebaExercita": [
     {
       "ida": "parcelamento",
@@ -152,6 +144,41 @@
           },
           {
             "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].id` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].tipo` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].nome` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
             "campo": "atracoes[].geometria.tipo",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
@@ -162,6 +189,13 @@
             "regra": "promessa-nao-exercitada",
             "destino": "terreno.atracoes",
             "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "promessa-nao-exercitada",
+            "destino": "viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.pontos` a `viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -237,7 +271,7 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 8,
+        "promessasNaoExercitadas": 14,
         "mapaVelho": 18
       },
       {
@@ -474,6 +508,41 @@
           },
           {
             "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].id` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].tipo` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].nome` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
             "campo": "atracoes[].geometria.tipo",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
@@ -484,6 +553,13 @@
             "regra": "promessa-nao-exercitada",
             "destino": "terreno.atracoes",
             "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "promessa-nao-exercitada",
+            "destino": "viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.pontos` a `viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -559,7 +635,7 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 15,
+        "promessasNaoExercitadas": 21,
         "mapaVelho": 19
       },
       {
@@ -851,6 +927,41 @@
           },
           {
             "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].id` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].tipo` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].nome` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
             "campo": "atracoes[].geometria.tipo",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
@@ -861,6 +972,13 @@
             "regra": "promessa-nao-exercitada",
             "destino": "terreno.atracoes",
             "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "promessa-nao-exercitada",
+            "destino": "viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.pontos` a `viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -936,7 +1054,7 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 15,
+        "promessasNaoExercitadas": 21,
         "mapaVelho": 19
       },
       {
@@ -1234,6 +1352,41 @@
           },
           {
             "ida": "parcelamento",
+            "campo": "atracoes",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].id",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].id` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].tipo",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].tipo` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].nome",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].nome` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes | viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria` a `terreno.atracoes | viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
             "campo": "atracoes[].geometria.tipo",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
@@ -1244,6 +1397,13 @@
             "regra": "promessa-nao-exercitada",
             "destino": "terreno.atracoes",
             "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "atracoes[].geometria.pontos",
+            "regra": "promessa-nao-exercitada",
+            "destino": "viaManual | facesLoteamento",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.pontos` a `viaManual | facesLoteamento` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -1260,7 +1420,7 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 10,
+        "promessasNaoExercitadas": 16,
         "mapaVelho": 16
       },
       {
@@ -1412,94 +1572,6 @@
         "achados": [
           {
             "ida": "parcelamento",
-            "campo": "atracoes",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: a testada de frente chega como linha e o motor tem `facesLoteamento` esperando por ela; falta mapear a linha para as faces do perímetro que ela cobre. Proposto ao chat no LAB-30 — e enquanto não for feito, `respeitaTestadaDeFrente: false` é dívida do Lab, não limitação do motor",
-            "exemplo": [
-              {
-                "id": "T1",
-                "tipo": "via_existente",
-                "nome": "Testada de frente L1",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": -128.25748698641038,
-                      "y": -830.9425583345736
-                    },
-                    {
-                      "x": -16.35900388661331,
-                      "y": -689.6719401510867
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].id",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].id` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
-            "exemplo": "T1"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].tipo",
-            "regra": "divida-do-lab",
-            "destino": "viaManual · terreno.atracoes · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].tipo` e o motor TEM onde recebê-lo (`viaManual · terreno.atracoes · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: o tipo decide o destino, e um dos três destinos ainda não é entregue: ver `atracoes`",
-            "exemplo": "via_existente"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].nome",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].nome` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
-            "exemplo": "Testada de frente L1"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].geometria` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`: polígono vira ímã, via desenhada vira coluna vertebral, e a testada de frente ainda não tem quem a entregue",
-            "exemplo": {
-              "tipo": "linha",
-              "pontos": [
-                {
-                  "x": -128.25748698641038,
-                  "y": -830.9425583345736
-                },
-                {
-                  "x": -16.35900388661331,
-                  "y": -689.6719401510867
-                }
-              ]
-            }
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria.pontos",
-            "regra": "divida-do-lab",
-            "destino": "viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].geometria.pontos` e o motor TEM onde recebê-lo (`viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: atração como LINHA: desde o LAB-30 a via desenhada vai para `viaManual`. As outras linhas (ponto de interesse, outra) continuam sem destino, e a perda é declarada",
-            "exemplo": [
-              {
-                "x": -128.25748698641038,
-                "y": -830.9425583345736
-              },
-              {
-                "x": -16.35900388661331,
-                "y": -689.6719401510867
-              }
-            ]
-          },
-          {
-            "ida": "parcelamento",
             "campo": "gleba.furos",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `gleba.furos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
@@ -1646,148 +1718,6 @@
       {
         "ida": "parcelamento",
         "achados": [
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: a testada de frente chega como linha e o motor tem `facesLoteamento` esperando por ela; falta mapear a linha para as faces do perímetro que ela cobre. Proposto ao chat no LAB-30 — e enquanto não for feito, `respeitaTestadaDeFrente: false` é dívida do Lab, não limitação do motor",
-            "exemplo": [
-              {
-                "id": "VD1",
-                "tipo": "via_existente",
-                "nome": "Via principal desenhada (principal)",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": 0,
-                      "y": 293.75
-                    },
-                    {
-                      "x": 798,
-                      "y": 293.75
-                    }
-                  ]
-                }
-              },
-              {
-                "id": "VD2",
-                "tipo": "via_existente",
-                "nome": "Via secundária desenhada 1 (secundaria)",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": 200,
-                      "y": 0
-                    },
-                    {
-                      "x": 200,
-                      "y": 585.501700680272
-                    }
-                  ]
-                }
-              },
-              {
-                "id": "VD3",
-                "tipo": "via_existente",
-                "nome": "Via secundária desenhada 2 (secundaria)",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": 400,
-                      "y": 0
-                    },
-                    {
-                      "x": 400,
-                      "y": 585.501700680272
-                    }
-                  ]
-                }
-              },
-              {
-                "id": "VD4",
-                "tipo": "via_existente",
-                "nome": "Via secundária desenhada 3 (secundaria)",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": 600,
-                      "y": 0
-                    },
-                    {
-                      "x": 600,
-                      "y": 585.501700680272
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].id",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].id` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
-            "exemplo": "VD1"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].tipo",
-            "regra": "divida-do-lab",
-            "destino": "viaManual · terreno.atracoes · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].tipo` e o motor TEM onde recebê-lo (`viaManual · terreno.atracoes · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: o tipo decide o destino, e um dos três destinos ainda não é entregue: ver `atracoes`",
-            "exemplo": "via_existente"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].nome",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].nome` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
-            "exemplo": "Via principal desenhada (principal)"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].geometria` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`: polígono vira ímã, via desenhada vira coluna vertebral, e a testada de frente ainda não tem quem a entregue",
-            "exemplo": {
-              "tipo": "linha",
-              "pontos": [
-                {
-                  "x": 0,
-                  "y": 293.75
-                },
-                {
-                  "x": 798,
-                  "y": 293.75
-                }
-              ]
-            }
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria.pontos",
-            "regra": "divida-do-lab",
-            "destino": "viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].geometria.pontos` e o motor TEM onde recebê-lo (`viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: atração como LINHA: desde o LAB-30 a via desenhada vai para `viaManual`. As outras linhas (ponto de interesse, outra) continuam sem destino, e a perda é declarada",
-            "exemplo": [
-              {
-                "x": 0,
-                "y": 293.75
-              },
-              {
-                "x": 798,
-                "y": 293.75
-              }
-            ]
-          },
           {
             "ida": "parcelamento",
             "campo": "crs.origemGeografica",
@@ -2094,166 +2024,6 @@
       {
         "ida": "parcelamento",
         "achados": [
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: a testada de frente chega como linha e o motor tem `facesLoteamento` esperando por ela; falta mapear a linha para as faces do perímetro que ela cobre. Proposto ao chat no LAB-30 — e enquanto não for feito, `respeitaTestadaDeFrente: false` é dívida do Lab, não limitação do motor",
-            "exemplo": [
-              {
-                "id": "T1",
-                "tipo": "via_existente",
-                "nome": "Testada de frente L1",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": -128.25748698641038,
-                      "y": -830.9425583345736
-                    },
-                    {
-                      "x": -16.35900388661331,
-                      "y": -689.6719401510867
-                    }
-                  ]
-                }
-              },
-              {
-                "id": "VD1",
-                "tipo": "via_existente",
-                "nome": "Via principal desenhada (principal)",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": 266.95550000000003,
-                      "y": -350.9528121546961
-                    },
-                    {
-                      "x": 266.95550000000003,
-                      "y": 891.0217988950276
-                    }
-                  ]
-                }
-              },
-              {
-                "id": "VD2",
-                "tipo": "via_existente",
-                "nome": "Via secundária desenhada 1 (secundaria)",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": -532.5260964523281,
-                      "y": -378.45225
-                    },
-                    {
-                      "x": 242.9710521064302,
-                      "y": -378.45225
-                    }
-                  ]
-                }
-              },
-              {
-                "id": "VD3",
-                "tipo": "via_existente",
-                "nome": "Via secundária desenhada 2 (secundaria)",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": -328.6582893569845,
-                      "y": 74.0385
-                    },
-                    {
-                      "x": 622.7248104212861,
-                      "y": 74.0385
-                    }
-                  ]
-                }
-              },
-              {
-                "id": "VD4",
-                "tipo": "via_existente",
-                "nome": "Via secundária desenhada 3 (secundaria)",
-                "geometria": {
-                  "tipo": "linha",
-                  "pontos": [
-                    {
-                      "x": -120.7930742793792,
-                      "y": 526.52925
-                    },
-                    {
-                      "x": 1000.4798647450111,
-                      "y": 526.52925
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].id",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].id` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
-            "exemplo": "T1"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].tipo",
-            "regra": "divida-do-lab",
-            "destino": "viaManual · terreno.atracoes · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].tipo` e o motor TEM onde recebê-lo (`viaManual · terreno.atracoes · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: o tipo decide o destino, e um dos três destinos ainda não é entregue: ver `atracoes`",
-            "exemplo": "via_existente"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].nome",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].nome` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`",
-            "exemplo": "Testada de frente L1"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria",
-            "regra": "divida-do-lab",
-            "destino": "terreno.atracoes · viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].geometria` e o motor TEM onde recebê-lo (`terreno.atracoes · viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: ver `atracoes`: polígono vira ímã, via desenhada vira coluna vertebral, e a testada de frente ainda não tem quem a entregue",
-            "exemplo": {
-              "tipo": "linha",
-              "pontos": [
-                {
-                  "x": -128.25748698641038,
-                  "y": -830.9425583345736
-                },
-                {
-                  "x": -16.35900388661331,
-                  "y": -689.6719401510867
-                }
-              ]
-            }
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria.pontos",
-            "regra": "divida-do-lab",
-            "destino": "viaManual · facesLoteamento",
-            "diagnostico": "o contrato trouxe `atracoes[].geometria.pontos` e o motor TEM onde recebê-lo (`viaManual · facesLoteamento`) — a ida do Lab ainda não entrega. Dívida declarada: atração como LINHA: desde o LAB-30 a via desenhada vai para `viaManual`. As outras linhas (ponto de interesse, outra) continuam sem destino, e a perda é declarada",
-            "exemplo": [
-              {
-                "x": -128.25748698641038,
-                "y": -830.9425583345736
-              },
-              {
-                "x": -16.35900388661331,
-                "y": -689.6719401510867
-              }
-            ]
-          },
           {
             "ida": "parcelamento",
             "campo": "gleba.furos",
