@@ -1,0 +1,160 @@
+# ════════════════════════════════════════════════════════════════════════════
+#  O CI DO ARCHILLY LAB — e o que ele pode e não pode rodar hoje. (LAB-38)
+# ════════════════════════════════════════════════════════════════════════════
+#
+# Até o LAB-38 **não havia workflow nenhum neste repositório**, e isso estava
+# escrito como dívida desde o LAB-31 (D125): o comando único existia, estava
+# provado por sabotagem (D126) — e **nada o executava sozinho**. Quem o rodava era
+# eu, antes do commit; se eu esquecesse, nada pintava vermelho.
+#
+# **Foi exatamente esse buraco que deixou a suíte do `testfit` vermelha, 14 de 14,
+# por duas semanas** (D110), com dois daqueles testes sendo as travas das minhas
+# próprias correções.
+#
+# # Por que são DOIS trabalhos, e não um
+#
+# O verde completo (`./external-engines/conferir.sh`) precisa de **dois clones
+# vizinhos**: `jonny583/motor-testfit` e `jonny583/urban-create-hub-41d93a4d`, que
+# o `tsconfig` do adaptador lê por caminho (a exceção medida do D16 — motor da
+# própria família não ganha cópia, para não haver segunda cópia envelhecendo).
+#
+# **Medido: este repositório é PÚBLICO e os dois vizinhos são PRIVADOS.** O
+# `GITHUB_TOKEN` que o Actions dá a um workflow só alcança o próprio repositório,
+# então **o verde completo não roda sem um segredo** que só o Jonny pode criar.
+#
+# Em vez de fingir, o workflow diz a verdade em duas partes:
+#
+#   1. **`guardas-sem-clones`** roda hoje, sem segredo nenhum: as 64 travas que não
+#      dependem de clone vizinho — a página do Jonny estar atualizada, o formato do
+#      RECADO, a cobertura do próprio `conferir.sh` e as regras do `CLAUDE.md`.
+#      **Ele NÃO é o verde**, e o nome diz isso;
+#   2. **`verde-completo`** é o verde. Sem o segredo ele **FALHA com a receita** —
+#      nunca "pula" (D124), porque pular é o que cala alarme.
+#
+# **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o
+# verde é a mentira que o D110 custou duas semanas.**
+name: verde
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # ── O que roda HOJE, sem segredo nenhum ──────────────────────────────────
+  #
+  # São as travas que leem ARQUIVO do próprio repositório, e as de geometria pura
+  # do esqueleto reto. Nenhuma importa `@generate/*` nem `@testfit/*` — conferido
+  # por teste (`regras.test.ts`), para esta lista não virar mentira com o tempo.
+  guardas-sem-clones:
+    name: guardas que não precisam dos clones vizinhos (NÃO é o verde)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3.11"
+      - name: instalar dependências do pacote `esteira`
+        working-directory: external-engines/esteira
+        run: bun install --frozen-lockfile
+      - name: as travas que não dependem de clone vizinho
+        working-directory: external-engines/esteira
+        run: |
+          bun test \
+            tests/pagina.test.ts \
+            tests/recado.test.ts \
+            tests/verde.test.ts \
+            tests/regras.test.ts \
+            tests/esqueleto.test.ts
+
+  # ── O VERDE de verdade — e por que ele falha até alguém configurar ────────
+  verde-completo:
+    name: o verde completo (precisa do segredo VIZINHOS_TOKEN)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: archilly-lab
+
+      # A precondição, e ela FALHA com a receita em vez de pular (D124).
+      - name: precondição — o segredo que dá acesso aos dois clones privados
+        env:
+          VIZINHOS_TOKEN: ${{ secrets.VIZINHOS_TOKEN }}
+        run: |
+          if [ -z "$VIZINHOS_TOKEN" ]; then
+            echo "✗ O VERDE COMPLETO NÃO PODE RODAR: falta o segredo VIZINHOS_TOKEN."
+            echo ""
+            echo "  Por quê: o comando único precisa de dois clones vizinhos, que o"
+            echo "  tsconfig do adaptador lê por caminho (D16):"
+            echo "    · jonny583/motor-testfit            (PRIVADO)"
+            echo "    · jonny583/urban-create-hub-41d93a4d (PRIVADO)"
+            echo ""
+            echo "  Este repositório é PÚBLICO, e o GITHUB_TOKEN do Actions só alcança"
+            echo "  o próprio repositório. Então o verde completo depende de um segredo."
+            echo ""
+            echo "  A RECEITA, e ela é uma vez só:"
+            echo "    1. crie um token de acesso pessoal 'fine-grained' em"
+            echo "       https://github.com/settings/personal-access-tokens/new"
+            echo "    2. dê a ele acesso APENAS a motor-testfit e"
+            echo "       urban-create-hub-41d93a4d, e APENAS 'Contents: Read-only'"
+            echo "    3. cole-o em https://github.com/jonny583/archilly-lab/settings/secrets/actions"
+            echo "       com o nome VIZINHOS_TOKEN"
+            echo ""
+            echo "  ATENÇÃO, e isto é decisão de quem configura: este repositório é"
+            echo "  público. Segredo em repositório público não é exposto a fork"
+            echo "  (o Actions não o entrega a pull_request de fork), mas existe nas"
+            echo "  configurações dele. Se isso não for aceitável, a alternativa é"
+            echo "  tornar os dois vizinhos públicos — e essa é decisão do Jonny."
+            echo ""
+            echo "  ENQUANTO ISSO: o trabalho 'guardas-sem-clones' roda e protege 64"
+            echo "  travas; e o verde completo continua sendo rodado à mão, antes de"
+            echo "  cada commit, como está no CLAUDE.md §7."
+            exit 1
+          fi
+          echo "✓ segredo presente"
+
+      - name: clonar o motor do Laboratório de Parcelamento (somente leitura)
+        env:
+          VIZINHOS_TOKEN: ${{ secrets.VIZINHOS_TOKEN }}
+        run: |
+          git clone --depth 1 \
+            "https://x-access-token:${VIZINHOS_TOKEN}@github.com/jonny583/motor-testfit.git" \
+            motor-testfit
+
+      - name: clonar o Archilly Generate (somente leitura)
+        env:
+          VIZINHOS_TOKEN: ${{ secrets.VIZINHOS_TOKEN }}
+        run: |
+          git clone --depth 1 \
+            "https://x-access-token:${VIZINHOS_TOKEN}@github.com/jonny583/urban-create-hub-41d93a4d.git" \
+            urban-create-hub-41d93a4d
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.3.11"
+
+      # O `.wasm` do Symbios NÃO é versionado, de propósito (o `.gitignore`
+      # argumenta que binário velho no git é pior que binário ausente). Então o CI
+      # o compila, com a mesma receita que o `conferir.sh` imprime quando ele falta.
+      - name: compilar o `.wasm` do Symbios
+        working-directory: archilly-lab/external-engines/symbios/archilly/wasm
+        run: |
+          rustup target add wasm32-unknown-unknown
+          RUSTFLAGS='--cfg getrandom_backend="custom"' \
+            cargo build --release --target wasm32-unknown-unknown
+
+      - name: instalar o Chromium da prova no navegador
+        working-directory: archilly-lab/external-engines/esteira
+        run: |
+          bun install --frozen-lockfile
+          bunx playwright install --with-deps chromium
+
+      - name: instalar as dependências do pacote `testfit`
+        working-directory: archilly-lab/external-engines/testfit
+        run: bun install --frozen-lockfile
+
+      # ── E aqui é o verde: UM comando, os sete passos ─────────────────────
+      - name: ./external-engines/conferir.sh
+        working-directory: archilly-lab
+        run: ./external-engines/conferir.sh

@@ -282,3 +282,68 @@ describe("§4 · não escreve em repositório vizinho", () => {
     expect(conferidos).toContain("motor-testfit");
   });
 });
+
+describe("§7 · o CI existe, e a lista dele não é mentira (LAB-38)", () => {
+  const CI = join(RAIZ, ".github", "workflows", "verde.yml");
+
+  test("existe workflow, e ele roda o comando único", () => {
+    // Até o LAB-38 não havia nenhum, e a dívida estava escrita no D125: o comando
+    // existia, estava provado por sabotagem, e NADA o executava sozinho.
+    expect(existsSync(CI), "o CI do LAB-38 desapareceu").toBe(true);
+    const y = readFileSync(CI, "utf8");
+    expect(y, "o trabalho do verde tem de rodar o comando único, não um pedaço dele").toContain(
+      "./external-engines/conferir.sh",
+    );
+  });
+
+  test("a lista do trabalho `guardas-sem-clones` só tem testes que NÃO precisam dos clones", () => {
+    // Esta é a trava que impede o CI de virar FALSO VERDE: se alguém puser na
+    // lista um teste que importa `@generate/*` ou `@testfit/*`, o trabalho passa a
+    // falhar no CI por falta de clone — ou, pior, alguém "conserta" afrouxando.
+    const y = readFileSync(CI, "utf8");
+    const listados = [...y.matchAll(/tests\/([\w.-]+\.test\.ts)/g)].map((m) => m[1]!);
+    expect(listados.length, "a lista do trabalho sem clones ficou vazia").toBeGreaterThan(0);
+
+    const pasta = import.meta.dirname;
+    for (const nome of new Set(listados)) {
+      const caminho = join(pasta, nome);
+      expect(existsSync(caminho), `o CI lista ${nome}, que não existe`).toBe(true);
+      // ── E a régua tem de olhar o `from`, não a MENÇÃO (LAB-38) ───────────
+      //
+      // A primeira versão disto usava `fonte.includes("@generate/")` e reprovou
+      // **este próprio arquivo**: ele cita `@generate/` como TEXTO, na trava que
+      // confere que o `comum.ts` importa o Validator de lá. Medir menção em vez de
+      // importação é a mesma forma do D137, e é a segunda vez que ela me pega — a
+      // régua agora lê o especificador do `import`.
+      const fonte = readFileSync(caminho, "utf8");
+      const importados = [...fonte.matchAll(/^\s*import[^;]*?from\s+["']([^"']+)["']/gm)].map(
+        (m) => m[1]!,
+      );
+      const proibidos = ["@generate/", "@testfit/", "@symbios/", "../../testfit/"];
+      const presos = importados.filter((i) => proibidos.some((pr) => i.startsWith(pr)));
+      expect(
+        presos,
+        `${nome} está na lista do trabalho que roda SEM os clones, e importa daqui`,
+      ).toEqual([]);
+    }
+  });
+
+  test("a precondição do segredo FALHA, e não pula — e traz a receita", () => {
+    const y = readFileSync(CI, "utf8");
+    expect(y, "sem o segredo o trabalho tem de sair com erro").toContain("exit 1");
+    // A receita, para quem lê o log não ficar sem saber o que fazer (D124).
+    expect(y).toContain("personal-access-tokens");
+    expect(y).toContain("Contents: Read-only");
+    expect(y).toContain("VIZINHOS_TOKEN");
+    // E nada de engolir falha.
+    expect(y).not.toContain("continue-on-error");
+    expect(y).not.toContain("|| true");
+  });
+
+  test("o CI diz, por escrito, que o trabalho sem clones NÃO é o verde", () => {
+    // Nome que engana é pior que CI nenhum: alguém leria o check verde como "o
+    // repositório está verde", que é a mentira que o D110 custou duas semanas.
+    const y = readFileSync(CI, "utf8");
+    expect(y).toContain("NÃO é o verde");
+  });
+});
