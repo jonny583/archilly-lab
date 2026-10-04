@@ -4,34 +4,76 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 03/10/2026 · **Último prompt executado:** LAB-30 ·
-**A fila de 03/10 (terceira parte) está CUMPRIDA, inteira.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-31 ·
+**A fila de 04/10 está em andamento: 1 de 7 feito.**
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — o Lab PAROU, esperando o chat
+# 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-31 a LAB-37
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` desde 03/10/2026, 16:06 UTC.**
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` desde 04/10/2026 · 60 min, minuto
+:05.** É o **mesmo** despertador: o chat mandou **reabilitar em vez de recriar** pela
+terceira vez, e isso preserva o histórico de disparos.
 
-**Por quê:** o disparo das 16:05 **não achou item pronto**. A fila de 03/10 teve três
-partes e as três estão cumpridas — LAB-21, 24, 22, 23, 25, 26, 27, 28, 29 e 30 —, e
-os achados novos estão todos *"proposto ao chat"*. É o caso da D62 e do `CLAUDE.md`
-§1-A.
+**O próximo é o LAB-32**, e a condição dele está cumprida (LAB-31 mesclado).
 
-**Desligado e não apagado**, como na primeira vez (D112), e o chat ratificou essa
-escolha ao mandar **reabilitar em vez de recriar**. **Para destravar:** reabilitar este
-mesmo despertador (preserva o histórico de disparos, é mais barato) ou apagá-lo e criar
-outro junto com a fila nova.
+## A fila de 04/10 — sete prompts, todos tirados da minha própria lista de dívidas
+
+O chat leu o balanço que pediu fora da fila em 03/10 e **transformou em fila o que eu
+tinha listado como "mal resolvido"** — inclusive os erros meus que ninguém tinha
+cobrado. A fila por extenso está em [`prompts/FILA.md`](prompts/FILA.md).
+
+| # | em uma linha | estado |
+|---|---|---|
+| **LAB-31** | "verde" é UM comando que roda tudo, provado por sabotagem | ✅ **04/10/2026** |
+| **LAB-32** | a aderência caiu de 17,4 para 11,2 % e **eu publiquei sem investigar** | ⏳ **o próximo** |
+| **LAB-33** | a trava do LAB-23 ainda lê prova congelada — *"conserte de verdade"* | ⏳ pronto |
+| **LAB-34** | o aviso dos 108 % tem de ficar **onde a ordem dos motores aparece** | ⏳ pronto |
+| **LAB-35** | 310 avisos `mapa-velho`: há caso real escondido nesse volume? | ⏳ pronto |
+| **LAB-36** | as quatro regras sem teste **viram guarda ou saem do documento** | ⏳ pronto |
+| **LAB-37** | a dívida da testada de frente (D121) — tamanho escrito, executar se couber | ⏳ pronto |
+
+## O que o LAB-31 fez — e o que ele achou de graça
+
+**"Verde" é `./external-engines/conferir.sh`, e agora são SETE passos:** `typecheck`,
+`lint` e `test` nos dois pacotes, mais a **prova no navegador** (o `.wasm` do Symbios
+carregando em Chromium de verdade). Antes deles, duas guardas: **cobertura** — descobre
+todo `package.json` do repositório e reprova se achar um fora da lista (D122) — e a
+**precondição do `.wasm`**, que reprova **com a receita** em vez de pular (D124). O
+script roda **todos** os passos mesmo depois de um falhar.
+
+**O achado que eu não fui procurar** (D123): a prova no navegador existia desde o
+LAB-01 e era **inteiramente manual** — a última etapa era *ler os números na tela*.
+Rodou **uma vez, em 10/09/2026**, e nunca mais. Agora a página publica
+`window.__prova` como dado e um roteiro Playwright compara com os números daquele dia:
+os cinco bateram exatamente (0.4.1 · 6 242 nós · 6 514 arestas · 275 quadras · 193 174
+bytes). O `ms` **não** é conferido, e está dito por quê.
+
+**E um defeito do §6 pego pela própria comparação, no primeiro uso dela:** eu escrevi
+`r.arestas.filter(a => a.ativa).length` — as arestas são **tuplas** `[ia, ib, tipo]`, e
+a prova teria publicado **0 arestas em silêncio, para sempre**, como se fosse medição.
+
+**A sabotagem que o chat pediu** (D126): um teste quebrado de propósito em cada frente
+→ `exit 0 → exit 1`, com **quatro** passos nomeados — o `lint` do `esteira` caiu junto,
+de graça, porque a sabotagem deixou um import sem uso. Três arquivos restaurados e
+conferidos.
+
+**O que o comando NÃO faz, dito em vez de suposto** (D125): **não há CI neste
+repositório**. Nada roda o `conferir.sh` automaticamente; quem o roda sou eu, antes do
+commit. Criar o CI está em *"proposto ao chat"*.
 
 ## O que espera decisão do chat
 
-1. **a dívida da testada de frente** (D121) — mapear a linha para as **faces do
-   perímetro** que ela cobre e entregá-la em `facesLoteamento`. Enquanto não for feito,
-   `respeitaTestadaDeFrente: false` no Parcelamento é **dívida do Lab, não limitação do
-   motor**, e está escrito assim no inventário;
-2. **a pergunta ao Parcelamento, que ficou mais urgente** (LAB-29): o `MOTOR_VERSAO`
-   deles está em `1.0` e o Lab agora **depende** dele. Entre o T00-A e o T05 o desenho
-   mudou de forma visível ao Generate pelo menos duas vezes;
+1. **o CI** (D125) — sem ele, "verde" é *"verde quando alguém lembra"*;
+2. **a pergunta ao Parcelamento** (LAB-29): o `MOTOR_VERSAO` deles está em `1.0` e o Lab
+   agora **depende** dele. Entre o T00-A e o T05 o desenho mudou de forma visível ao
+   Generate pelo menos duas vezes;
 3. **a via desenhada por PESSOA, numa gleba real** (D103) — a linha das fixtures é
    geométrica, desenhada por mim.
+
+> A **dívida da testada de frente** (D121) saiu desta lista: virou o **LAB-37**.
+
+---
+
+# A fila de 03/10 — CUMPRIDA, inteira · dez prompts
 
 ## Os doze prompts de 03/10, em uma linha cada
 

@@ -1,0 +1,40 @@
+{
+  "prompt": "LAB-31",
+  "oQueEh": "a prova de que o comando único REPROVA — três sabotagens de propósito, uma em cada frente",
+  "geradoEm": "2026-10-04",
+  "comando": "./external-engines/conferir.sh",
+  "sabotagens": [
+    {
+      "onde": "external-engines/esteira/tests/identidade.test.ts",
+      "oQue": "expect(saida.motor.nome).toBe(MOTOR_NOME) → toBe(\"SABOTAGEM-LAB-31\")",
+      "frente": "pacote esteira"
+    },
+    {
+      "onde": "external-engines/testfit/tests/esteira.test.ts",
+      "oQue": "expect(saida.archilly.versao).toBe(\"2\") → toBe(\"SABOTAGEM-LAB-31\")",
+      "frente": "pacote testfit — o que ficou vermelho duas semanas no D110"
+    },
+    {
+      "onde": "external-engines/symbios/adapter/ferramentas/navegador/prova.js",
+      "oQue": "quadras: r.quadras.length → 999999",
+      "frente": "prova no navegador — manual até este prompt"
+    }
+  ],
+  "resultadoAntesDaSabotagem": {
+    "exit": 0,
+    "passos": 7,
+    "veredito": "VERDE"
+  },
+  "resultadoComASabotagem": {
+    "exit": 1,
+    "passosQueFalharam": [
+      "esteira · lint",
+      "esteira · test",
+      "testfit · test",
+      "prova no navegador (Chromium)"
+    ],
+    "veredito": "NÃO ESTÁ VERDE"
+  },
+  "observacao": "o `esteira · lint` falhou junto, sem eu ter sabotado o lint: a sabotagem deixou o import `MOTOR_NOME` sem uso. Dano colateral pego de graça — e é mais uma razão para os três passos de cada pacote estarem no mesmo comando",
+  "oQueIssoNaoProva": "que o comando rode automaticamente. NÃO HÁ CI neste repositório: quem o executa é uma pessoa ou o despertador. Proposto ao chat"
+}

@@ -3040,3 +3040,105 @@ que uma cobre a outra.
 **Consequência para a declaração da porta:** enquanto a dívida existir,
 `respeitaTestadaDeFrente: false` no Parcelamento é **dívida do Lab, não limitação do
 motor** — e está escrito assim no inventário, onde quem for pegar a dívida vai ler.
+
+---
+
+## D122 · "Verde" é um comando só, e ele DESCOBRE os pacotes em vez de listá-los · 04/10/2026
+
+O `conferir.sh` nasceu no D110 para consertar o defeito que deixou a suíte do
+`testfit` **vermelha, 14 de 14, por duas semanas**: eu rodava `bun test` num pacote e
+chamava aquilo de "testes verdes". Mas ele nasceu **listando os dois pacotes à mão**, e
+por isso carregava o mesmo defeito em potência: o terceiro pacote nasceria fora da
+lista, ninguém notaria, e a história se repetiria com outro nome.
+
+**Decisão:** o script **descobre** todo `package.json` do repositório
+(`find … -name package.json -not -path "*/node_modules/*"`) e **reprova** quando acha
+um que não esteja em `COBERTOS`. A mensagem de falha diz onde acrescentar e cita o
+D110, para quem ler não achar que é burocracia.
+
+O jeito de um pacote ficar de fora deixou de existir — não porque eu lembrei de todos,
+mas porque **esquecer agora pinta vermelho**. E há um teste
+(`esteira/tests/verde.test.ts`) que lê o próprio script, extrai o `COBERTOS=(…)` e
+confere contra os pacotes reais: a guarda tem guarda.
+
+## D123 · Prova que depende de olho humano é prova que roda uma vez · 04/10/2026
+
+A prova no navegador existia desde o LAB-01, em
+`symbios/adapter/ferramentas/navegador/`: compilar o `.wasm`, copiar, servir, abrir o
+Chromium **e ler os números na tela**. Ela rodou **uma vez, em 10/09/2026**, e nunca
+mais — e isso não é desleixo de ninguém, é o que acontece com toda prova cuja última
+etapa é um olho.
+
+**Decisão:** a página publica os números como **dado**
+(`window.__prova = { ok, versao_motor, nos, arestas, quadras, bytesDoWasm, ms }`), e um
+roteiro (`prova-automatica.ts`) sobe o servidor, abre o Chromium do Playwright, espera
+o `window.__provaConcluida`, **compara com os números de 10/09** e sai 1 se divergir.
+Entrou no `conferir.sh` como sétimo passo.
+
+Medido agora, os cinco números bateram exatamente: `0.4.1` · 6 242 nós · 6 514 arestas
+· 275 quadras · 193 174 bytes. **O `ms` não é conferido** e está dito no JSON: tempo de
+parede varia por máquina, e trava que pisca por carga da máquina é trava que se
+desliga.
+
+**Um defeito pego no caminho, e ele é do §6:** a primeira versão da linha das arestas
+era `r.arestas.filter(a => a.ativa).length`. As arestas são **tuplas**
+`[ia, ib, tipo]`, não objetos — `.ativa` é `undefined` em todas, e a prova teria
+publicado **0 arestas** em silêncio, para sempre, como se fosse medição. Pego porque o
+número não bateu com o de 10/09; ou seja, **pela comparação que este prompt acabou de
+criar**.
+
+## D124 · Precondição que falta é FALHA, com a receita — nunca "pulado" · 04/10/2026
+
+O `.wasm` do Symbios **não é versionado**, e de propósito: o próprio `.gitignore`
+argumenta que binário velho no git é pior que binário ausente. Mas sem ele tudo que
+carrega o Symbios falha **por outro motivo** — erro de carregamento, não de medição —,
+e manda quem conserta para o lugar errado.
+
+A saída cômoda seria `skip`. **Decisão: não.** `skip` é exatamente a forma de calar
+alarme que o D110 custou duas semanas para ensinar. O script confere o arquivo, e se
+ele não existir **reprova**, imprimindo a receita exata:
+
+```
+rustup target add wasm32-unknown-unknown
+cd external-engines/symbios/archilly/wasm
+RUSTFLAGS='--cfg getrandom_backend="custom"' cargo build --release --target wasm32-unknown-unknown
+```
+
+Vale para toda precondição que vier depois: **falta de precondição é vermelho com
+receita**, nunca verde com ressalva.
+
+## D125 · Não há CI neste repositório, e isso fica escrito em vez de suposto · 04/10/2026
+
+O chat pediu *"um comando só que roda tudo"*. Ele existe e está provado. Mas a pergunta
+seguinte — *quem o executa?* — tem uma resposta que convém não esconder: **não existe
+`.github/workflows` neste repositório**. Nada roda o `conferir.sh` automaticamente. Em
+PR aberto por mim, quem o roda sou eu, antes do commit; e se um dia eu esquecer,
+**nada pinta vermelho**.
+
+**Decisão:** está dito no alto do próprio script, no relatório e no recado, e a
+proposta de criar o CI entra na fila como *"proposto ao chat"* — ampliar escopo por
+conta própria é o que o §1-A proíbe. O que eu **não** faço é chamar de "verde
+garantido" o que é "verde quando alguém lembra".
+
+## D126 · A prova de que a trava morde é sabotagem de propósito, nos três lugares · 04/10/2026
+
+O chat não pediu o comando: pediu *"prove quebrando de propósito um teste de cada
+pacote e mostrando que o comando único reprova"*. A diferença importa — um comando que
+roda tudo e **nunca reprova** é indistinguível, de fora, de um comando que não roda
+nada. Foi literalmente o estado do `testfit` no D110.
+
+Três sabotagens, uma por frente, todas revertidas e conferidas (`grep -c SABOTAGEM` = 0
+nos três arquivos), com o antes e o depois em `docs/provas/LAB-31/sabotagem.json`:
+
+| frente | sabotagem | resultado |
+|---|---|---|
+| pacote `esteira` | `motor.nome` → `"SABOTAGEM-LAB-31"` | `esteira · test` vermelho |
+| pacote `testfit` | `archilly.versao` → `"SABOTAGEM-LAB-31"` | `testfit · test` vermelho |
+| navegador | `quadras` → `999999` | prova no navegador vermelha |
+
+`exit 0 → exit 1`, com os quatro passos nomeados. **Quatro, não três:** o
+`esteira · lint` caiu junto, sem eu ter sabotado o lint — a sabotagem deixou o import
+`MOTOR_NOME` sem uso. Dano colateral pego de graça, e um argumento a mais para os três
+passos de cada pacote viverem no mesmo comando.
+
+**Uma coisa a sabotagem NÃO prova:** que o comando rode. Ver D125.

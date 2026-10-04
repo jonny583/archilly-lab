@@ -38,6 +38,59 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
+## 🟢 A FILA DE AGORA — 04/10/2026, LAB-31 a LAB-37
+
+Mandada pelo chat em 04/10/2026, com o **despertador reabilitado**
+(`enabled: true`, próximo disparo 04/10 02:05 UTC). É a terceira vez que o chat manda
+**reabilitar em vez de recriar** o mesmo despertador.
+
+**Os sete prompts saíram da minha própria lista de dívidas** — o chat leu o balanço que
+pedi fora da fila em 03/10 e transformou em fila o que eu tinha listado como "mal
+resolvido", inclusive os erros meus que ninguém tinha cobrado.
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-31** | **"Verde" passa a ser UM comando só** que roda tudo — os dois pacotes, provas de navegador e o que mais existir; nada de suíte que fica fora e cala alarme. **Provar quebrando de propósito** um teste de cada pacote e mostrando que o comando único reprova | ✅ **concluído em 04/10/2026** | nenhuma — prioridade |
+| **LAB-32** | A **aderência do Parcelamento caiu de 17,4 para 11,2 %** depois do conserto do LAB-30 e **eu publiquei sem investigar** — investigar, achar o culpado e dizer se o número novo é o certo ou se há outro defeito | ⏳ **pronto** | LAB-31 mesclado ✅ |
+| **LAB-33** | A **trava do LAB-23** continua lendo **prova congelada** em vez de medir — *"conserte de verdade, não vire o sinal"* | ⏳ **pronto** | LAB-32 mesclado |
+| **LAB-34** | A **tabela comparativa** ordena os motores num **único ponto de acesso**, e só a seção do acesso avisa que isso muda até **108 %** — *"ponha o aviso onde a ordem aparece, não escondido"* | ⏳ **pronto** | LAB-33 mesclado |
+| **LAB-35** | A guarda da ida cospe **310 avisos `mapa-velho`** — conferir se há **caso real escondido nesse volume** e reduzir o ruído | ⏳ **pronto** | LAB-34 mesclado |
+| **LAB-36** | As **quatro regras sem teste** que eu listei **viram guarda ou saem do documento** | ⏳ **pronto** | LAB-35 mesclado |
+| **LAB-37** | A **dívida da testada de frente** (D121) — mapear a linha para as faces do perímetro — *"escreva o tamanho e execute se couber"* | ⏳ **pronto** | LAB-36 mesclado |
+
+### O que o chat manteve, sem mudança
+
+- **a régua de forma** (útil < 85 % / < 70 %) segue **com o Jonny** e **não trava
+  nada** — é o único item na lista dele;
+- **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-31 · "Verde" é um comando só — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-31.md`](../relatorios/LAB-31.md),
+`docs/provas/LAB-31/sabotagem.json` e `navegador.json`,
+`esteira/tests/verde.test.ts` (6 travas que leem o próprio script).
+
+`./external-engines/conferir.sh` tem agora **sete passos** — `typecheck`, `lint` e
+`test` nos dois pacotes, mais a **prova no navegador** —, duas guardas antes deles
+(**cobertura**, que descobre todo `package.json` e reprova se achar um fora da lista,
+D122; e a **precondição do `.wasm`**, que reprova com a receita em vez de pular, D124),
+e roda **todos** os passos mesmo depois de um falhar.
+
+**O achado:** a prova no navegador existia desde o LAB-01 e era **inteiramente
+manual** — a última etapa era *ler os números na tela*. Rodou **uma vez, em
+10/09/2026**, e nunca mais (D123). Agora a página publica `window.__prova` como dado e
+um roteiro Playwright compara com os números daquele dia: os cinco bateram exatamente.
+
+**A sabotagem, que o chat pediu** (D126): um teste quebrado de propósito em cada
+frente → `exit 0 → exit 1`, com **quatro** passos nomeados (o `lint` do `esteira` caiu
+junto, de graça, porque a sabotagem deixou um import sem uso). Os três arquivos
+restaurados e conferidos.
+
+**E o que o comando NÃO faz, dito em vez de suposto** (D125): **não há CI neste
+repositório**. Criá-lo é *"proposto ao chat"* — está na seção das propostas.
+
+---
+
 ## O quadro — a fila de 15/09/2026
 
 Escrita pelo chat depois que a fila de 14/09 esgotou.
@@ -845,6 +898,12 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   **perpendicular ao curso** — e o Lab recebe a restrição como **polígono de
   APP**, não como a linha d'água. Sem o eixo, "perpendicular" não tem a quê. É
   achado para o Geo, e o chat é que o leva.
+- **CI para o comando único** (LAB-31, D125). O `conferir.sh` existe, roda tudo e está
+  provado que reprova — mas **não existe `.github/workflows` neste repositório**, então
+  **nada o executa automaticamente**: quem o roda sou eu, antes do commit, e se eu
+  esquecer nada pinta vermelho. Um workflow de uma página resolveria, e ele precisaria
+  do `rustup target add wasm32-unknown-unknown` e do Chromium do Playwright no
+  executor. **Não executado por conta própria** — é escopo novo, e o §1-A proíbe.
 
 ---
 
