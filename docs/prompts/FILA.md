@@ -38,13 +38,57 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## 🔴 A FILA DE 04/10 ESGOTOU — o despertador está DESLIGADO
+## 🟢 A FILA DE AGORA — 04/10/2026 (segunda), LAB-38 a LAB-42
 
-**`enabled: false` em 04/10/2026.** Os **sete** prompts estão cumpridos, LAB-31 a
-LAB-37, e os achados novos estão todos *"proposto ao chat"*.
+Mandada pelo chat em 04/10/2026, com o **despertador reabilitado** pela quarta vez
+(`enabled: true`, próximo disparo 15:05 UTC). **Os cinco prompts saíram da minha própria
+lista de "proposto ao chat"** — é a segunda fila seguida em que o chat transforma em
+trabalho o que eu havia listado como pendente.
 
-**Desligado e não apagado** (D112), que é a escolha que o chat ratificou duas vezes e
-mandou reabilitar em vez de recriar. **O que vem agora vem do chat.**
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-38** | **CI para o comando único** — não há workflow neste repositório, então nada roda o verde sozinho. Criar e **provar quebrando um teste de propósito**. *"É o mesmo buraco do Orçamento e do Generate, e foi ele que deixou uma suíte vermelha duas semanas sem ninguém ver"* | ✅ **concluído em 04/10/2026** | nenhuma — prioridade |
+| **LAB-39** | A **última trava que se repete**: o teste do D116 compara **duas provas entre si** — consertar para **medir**, não para comparar prova com prova | ⏳ **pronto, é o próximo** | LAB-38 mesclado ✅ |
+| **LAB-40** | **Fixtures** que exerçam as quatro promessas do LAB-35 **e a testada de frente fora de Antonina** — sem isso tudo que foi medido vale para uma gleba só | ⏳ **pronto** | LAB-39 mesclado |
+| **LAB-41** | As **posições de acesso em que a candidata ortogonal do Generate não entrega nada aceitável**, 5 de 6 numa gleba — investigar e dizer se é **defeito do motor ou limite real do terreno** | ⏳ **pronto** | LAB-40 mesclado |
+| **LAB-42** | Criar **`docs/relatorios/BALANCOS.md`** e registrar ali os balanços, inclusive os que foram **só para o chat**, para nenhuma lista precisar ser re-derivada de novo | ⏳ **pronto** | LAB-41 mesclado |
+
+### A decisão que o chat tomou junto com a fila
+
+**O ranking do Parcelamento preferir 33 lotes a 1 228 em `geo-antonina` (D140) NÃO se
+resolve agora.** O Jonny **nunca abriu aquele motor**, então aquilo virou **pendência
+dele**, registrada no `PENDENCIAS_JONNY.md` como **item 7**, com o número, a razão e as
+**duas leituras possíveis** (produto de poucos lotes grandes, ou efeito indesejado da
+entrega da testada).
+
+**O que eu faço enquanto isso, por ordem do chat:** seguir rodando com o comportamento
+atual e publicando o dado **como está, com a razão colada ao número** — *"não esconda e
+não escolha por ele"*.
+
+### O que o chat manteve, sem mudança
+
+- **a régua de forma** segue **com o Jonny** e **não trava nada**;
+- **a corda reta das vias curvas fica na V3**, sem mexer.
+
+### LAB-38 · O CI do comando único — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-38.md`](../relatorios/LAB-38.md),
+`.github/workflows/verde.yml`, 4 travas novas no `regras.test.ts`.
+
+**O levantamento mudou o formato da resposta:** o verde completo lê **dois clones
+privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
+Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
+enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
+e protege 64 travas, e `o verde completo`, que **falha com a receita** até alguém criar o
+segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
+roda o verde é a mentira que o D110 custou duas semanas.*
+
+**E o CI achou um defeito meu no PRIMEIRO disparo** (D143): a trava dos clones vizinhos,
+do LAB-36, exigia *"pelo menos um clone conferido"* — e no runner não há nenhum, por um
+motivo legítimo. Ela era verdadeira nesta máquina e falsa noutra, e **só um segundo
+ambiente podia mostrar isso**.
+
+---
 
 ## 🟢 A FILA DE AGORA — 04/10/2026, LAB-31 a LAB-37
 

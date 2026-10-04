@@ -3712,3 +3712,37 @@ especificador do `import ... from "…"` e a comparar o começo dele.
 **Décima vez, e a quinta pega dentro do próprio prompt.** O que esta acrescenta à lista
 do §6 é pequeno e prático: **quando a régua procura um nome em código, procure-o no
 lugar da gramática onde ele significa aquilo** — num `import`, não no arquivo inteiro.
+
+## D143 · O CI achou um defeito na minha guarda no PRIMEIRO disparo · 04/10/2026
+
+O primeiro disparo do workflow do LAB-38 deu **os dois trabalhos vermelhos**. Um era o
+esperado — o verde completo falhando na precondição do segredo, imprimindo a receita. **O
+outro não.**
+
+O trabalho sem clones rodou **68 travas, 67 passaram e 1 falhou**:
+
+> `§4 · não escreve em repositório vizinho > os clones somente-leitura estão limpos — e
+> quantos foram conferidos sai dito`
+
+**Era a minha guarda do D136, e o defeito é dela.** Ela exigia `conferidos.length > 0` e
+`toContain("motor-testfit")`, com o comentário *"zero clones conferidos significaria que
+algo mudou de lugar"*. **No runner do CI não há clone nenhum** — e não há por um motivo
+legítimo: aquele trabalho roda exatamente as travas que não dependem dos vizinhos. A
+asserção acusava o ambiente de um defeito que era dela.
+
+**E a proteção que eu queria ali já existia, estrutural:** o verde completo **não passa**
+sem os clones — o `typecheck` e mais de 300 travas quebram na hora. Nenhum teste precisa
+afirmar isso; afirmar criou uma trava que só valia numa máquina.
+
+**Decisão:** a trava mede o que pode medir — **clone que existe está limpo**, sempre — e
+exige que o ambiente seja **um dos dois declarados**: *completo* (tem o clone do motor, e
+aí a suíte inteira roda) ou *só-guardas* (não tem nenhum). **Meio estado reprova**: ter o
+Generate sem o motor faria o verde falhar por motivo obscuro, que é o que o D124 manda
+evitar.
+
+**Por que esta decisão vale mais que o conserto:** é o argumento de que o CI serve, dado
+pelo próprio CI, no primeiro disparo. Eu rodei aquela trava dezenas de vezes nesta
+máquina e ela sempre passou — **porque esta máquina tem os clones**. A guarda era
+verdadeira sobre um ambiente e falsa sobre outro, e **só um segundo ambiente podia
+mostrar isso**. Era, em miniatura, a própria tese do prompt: o que ninguém executa num
+lugar diferente não está testado, está confirmado.

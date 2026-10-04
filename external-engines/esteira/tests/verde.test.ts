@@ -69,7 +69,7 @@ describe("o comando único cobre tudo o que existe", () => {
 
   test("a prova no NAVEGADOR é um passo do comando, não um README", () => {
     // Ela era manual desde o LAB-01 e rodou uma vez, em 10/09/2026.
-    expect(script()).toContain("prova-automatica.ts");
+    expect(script()).toContain("SABOTAGEM-LAB-38"); // SABOTAGEM DE PROPÓSITO — revertida no commit seguinte
     expect(script()).toContain("navegador");
   });
 
