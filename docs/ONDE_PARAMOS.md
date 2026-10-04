@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-32 ·
-**A fila de 04/10 está em andamento: 2 de 7 feitos.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-33 ·
+**A fila de 04/10 está em andamento: 3 de 7 feitos.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-31 a LAB-37
 
@@ -13,7 +13,7 @@
 :05.** É o **mesmo** despertador: o chat mandou **reabilitar em vez de recriar** pela
 terceira vez, e isso preserva o histórico de disparos.
 
-**O próximo é o LAB-33**, e a condição dele está cumprida (LAB-32 mesclado).
+**O próximo é o LAB-34**, e a condição dele está cumprida (LAB-33 mesclado).
 
 ## A fila de 04/10 — sete prompts, todos tirados da minha própria lista de dívidas
 
@@ -25,11 +25,41 @@ cobrado. A fila por extenso está em [`prompts/FILA.md`](prompts/FILA.md).
 |---|---|---|
 | **LAB-31** | "verde" é UM comando que roda tudo, provado por sabotagem | ✅ **04/10/2026** |
 | **LAB-32** | a queda da aderência era o motor **obedecendo** — e a sexta vez do ponto cego | ✅ **04/10/2026** |
-| **LAB-33** | a trava do LAB-23 ainda lê prova congelada — *"conserte de verdade"* | ⏳ **o próximo** |
-| **LAB-34** | o aviso dos 108 % tem de ficar **onde a ordem dos motores aparece** | ⏳ pronto |
+| **LAB-33** | a trava passou a **medir**, e a prova congelada virou detector de prova velha | ✅ **04/10/2026** |
+| **LAB-34** | o aviso dos 108 % tem de ficar **onde a ordem dos motores aparece** | ⏳ **o próximo** |
 | **LAB-35** | 310 avisos `mapa-velho`: há caso real escondido nesse volume? | ⏳ pronto |
 | **LAB-36** | as quatro regras sem teste **viram guarda ou saem do documento** | ⏳ pronto |
 | **LAB-37** | a dívida da testada de frente (D121) — tamanho escrito, executar se couber | ⏳ pronto |
+
+## O que o LAB-33 fez — e o defeito que virar o sinal não tocava
+
+**O chat mandou:** *"a trava do LAB-23 continua lendo prova congelada em vez de medir;
+conserte de verdade, não vire o sinal."* No LAB-30 eu virei o sinal e chamei de conserto;
+**o teste continuou lendo um `JSON`**.
+
+**Agora os motores rodam no teste.** Os oito cenários — duas glebas × quatro motores ×
+com e sem a via — são medidos no processo, num memo. **Nenhuma asserção sai de arquivo.**
+
+**O defeito de projeto, que é a parte que importa:** *"saída idêntica"* significa **duas**
+coisas — *o motor ignora a linha* **ou** *a ponte não a entrega*. Sem separá-las o teste
+passa nas duas, e foi a segunda que aconteceu por três semanas (D119). Três travas novas
+medem **a ponte**, direto na `idaParaOMotor`, sem motor no meio: no v2 ela lê a
+`via_desenhada` sozinha, sem via não inventa `viaManual`, e respeita a linha que recebe
+pronta. **É a trava que teria mordido em 13/09.**
+
+**A regra geral que saiu disso** (D131):
+
+> Teste que **lê** prova congelada para responder à pergunta não falsifica: ele
+> **repete**. O único uso honesto de um arquivo de prova dentro de um teste é ser
+> **comparado** com a medição feita ali, para acusar que o arquivo envelheceu.
+
+Com **varredura nas outras seis** travas que leem `docs/provas/`: cinco são detectores
+legítimos, **uma repete** — o teste do D116, que compara duas provas entre si. Está
+**proposta ao chat** com o conserto barato descrito, e **não executada** (§1-A).
+
+**O preço, dito em vez de escondido:** a suíte do `esteira` foi de **108 s para 176 s**.
+É o custo de o teste responder pelo motor em vez de responder por um arquivo — e o LAB-23
+custou dois relatórios publicados com a conclusão trocada.
 
 ## O que o LAB-32 achou — e o veredito que o chat pediu
 

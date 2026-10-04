@@ -3255,3 +3255,77 @@ ficam ilegíveis.
 **Decisão:** a guarda varre `tests/*.test.ts`. Ela continua lendo **o arquivo de
 verdade**, que é a propriedade de que ela depende; só deixou de confundir *onde* a trava
 mora com *se* ela existe. Guarda que obriga arquivo único é guarda ditando arquitetura.
+
+---
+
+## D130 · A trava do LAB-23 passa a MEDIR — virar o sinal não tinha consertado nada · 04/10/2026
+
+O chat mandou: *"a trava do LAB-23 continua lendo prova congelada em vez de medir;
+conserte de verdade, não vire o sinal."* Era exatamente isso, e a história inteira vale
+mais que o conserto:
+
+| quando | o que o teste dizia | por que não servia |
+|---|---|---|
+| **LAB-23** | *"NENHUM motor muda a saída quando a via sai do arquivo"*, com o comentário *"se um dia um motor passar a respeitar, este teste morde antes de o relatório sair errado"* | **o relatório saiu errado duas vezes e ele não mordeu** |
+| **LAB-30** | virei o sinal: o Parcelamento passou a ser exigido **mudando** | **continuou lendo `coluna-vertebral.json`** — afirmação sobre arquivo, não sobre motor |
+
+**Por que não mordeu, no LAB-23:** a SAÍDA do Parcelamento era idêntica com e sem a via
+porque **a ida do Lab nunca entregava a via ao motor** (D119). E aqui está o defeito de
+projeto do teste, que virar o sinal não toca: ***"saída idêntica" significa duas
+coisas*** — *o motor ignora a linha* **ou** *a ponte não a entrega* — e sem separá-las o
+teste passa nas duas. Ele estava medindo a conjunção e lendo como se fosse uma das
+parcelas.
+
+**Decisão, em três partes:**
+
+1. **os motores RODAM no teste.** As oito rodadas (duas glebas × quatro motores × com e
+   sem a via) vivem num memo e são medidas neste processo. Nenhuma asserção sai de
+   arquivo;
+2. **a ambiguidade fica travada à parte.** Três testes medem a **ponte**, direto na
+   `idaParaOMotor`, sem motor no meio: no v2 ela lê a `via_desenhada` sozinha e preenche
+   `viaManual`; sem via no arquivo não inventa; e respeita a linha que recebe pronta. É
+   a trava que teria mordido em 13/09;
+3. **a prova congelada vira detector de prova velha** (D131).
+
+**O preço, e ele vai dito:** a suíte do `esteira` foi de **108 s para 176 s**. Medir de
+verdade custa — a rodada de `antonina-com-via` leva ~22 s por passagem —, e esse é o
+preço de o teste responder pelo motor em vez de responder por um `JSON`. Teste rápido
+que não falsifica nada é barato do jeito errado.
+
+**Um defeito meu no caminho, pequeno e instrutivo:** eu memoizei o `.wasm` com
+`Motor.carregar` **sem `await`**. O memo guardou a *promessa*, e o Symbios morreu com
+`motor.comSessao is not a function`. Resolvido com top-level await, e o comentário do
+tropeço ficou no arquivo.
+
+## D131 · Prova congelada tem UM uso honesto: detectar prova velha · 04/10/2026
+
+Da D130 sai uma regra geral, porque o defeito não é do LAB-23 — é da forma.
+
+> **Teste que LÊ prova congelada para responder à pergunta não falsifica: ele repete.**
+> O único uso honesto de um arquivo de prova dentro de um teste é ser **comparado** com
+> a medição feita ali, para acusar que o arquivo envelheceu.
+
+É o que o último `describe` do `coluna-vertebral.test.ts` faz agora: mede e compara com
+`docs/provas/LAB-23/coluna-vertebral.json`, reprovando com *"regere com `bun run
+lab23`"*. O arquivo ganhou função — avisar — e perdeu a que não era dele, responder.
+
+**Varredura nas outras seis travas que leem `docs/provas/`**, porque regra nova sem
+varredura é regra que só vale para o caso que a criou:
+
+| trava | o que ela lê | veredito |
+|---|---|---|
+| `acesso.test.ts` · posições declaradas | constante do código **vs** prova | ✅ detector de prova velha |
+| `acesso.test.ts` · o confronto do D116 | prova do LAB-19 **vs** prova do LAB-28 | ⚠️ **repete** — duas provas comparadas entre si, nenhuma medida |
+| `guarda-da-ida.test.ts` · a dívida publicada | o conteúdo da prova | ✅ a propriedade é *"foi publicado"*, e as outras 19 travas do arquivo medem ao vivo |
+| `identidade.test.ts` · as provas congeladas do LAB-02/07 | o `LEIA-ME.md` que as explica | ✅ é sobre o texto existir |
+| `pagina.test.ts` · a página contra a tabela | prova **vs** página gerada | ✅ detector de página velha |
+| `verde.test.ts` · a sabotagem | o registro de um experimento manual | ✅ não é remensurável sem sabotar de novo, e está dito |
+
+**Uma só repete, e eu NÃO a consertei aqui** (§1-A, não ampliar escopo): o teste do
+D116 confere que a tabela do LAB-19 e a prova do LAB-28 trazem os mesmos números de
+confronto — mas se as duas forem regeradas erradas do mesmo jeito, ele passa. **O
+conserto é barato e está proposto ao chat:** recalcular o agregado a partir dos números
+crus que a própria prova já carrega, com `referenciaDe`/`amplitudePctDe` do
+`acesso.ts` — sem rodar motor nenhum, portanto sem custo de suíte. Medir ao vivo o
+confronto inteiro custaria as 5 glebas × 4 motores × 6 posições de acesso do LAB-28, que
+é outra ordem de grandeza.
