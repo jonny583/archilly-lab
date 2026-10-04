@@ -123,4 +123,23 @@ for (const [ia, ib, tipo] of r.arestas) {
   ctx.stroke();
 }
 log("desenho pronto: azul = via principal (contorno), vermelho = via local (gradiente)");
+// ── Para a prova poder ser LIDA sem olho humano (LAB-31) ───────────────────
+//
+// Até aqui esta página só escrevia no `#log`, e a conferência era alguém abrir o
+// navegador e ler. Uma prova que depende de olho humano é uma prova que não roda
+// — esta rodou **uma vez**, em 10/09/2026, e nunca mais.
+//
+// O objeto vai inteiro, e não só o texto: automação que lê prosa quebra quando a
+// prosa muda, e aí o alarme volta a ser calado por acidente.
+window.__prova = {
+  ok: r.ok,
+  versao_motor: r.versao_motor,
+  nos: r.nos.length,
+  // `r.arestas` é lista de TUPLAS `[ia, ib, tipo]`, não de objetos — a primeira
+  // versão desta linha filtrou por `.ativa` e teria devolvido 0 em silêncio.
+  arestas: r.arestas.length,
+  quadras: r.quadras.length,
+  bytesDoWasm: bytes.byteLength,
+  ms: Math.round(performance.now() - t0),
+};
 window.__provaConcluida = true;

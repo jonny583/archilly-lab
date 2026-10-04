@@ -204,14 +204,32 @@ Duas pilhas convivem, de propósito (D14, D17): o adaptador do Symbios roda em
 **Node 22+ sem dependência npm**; o do LAB-07 roda em **Bun**, porque compila
 fonte TypeScript de três repositórios ao mesmo tempo.
 
-**"Testes verdes" quer dizer os DOIS pacotes**, e o comando é um só:
+**"Verde" é UM comando, e ele roda tudo:**
 
 ```sh
 ./external-engines/conferir.sh
 ```
 
-Ele roda `typecheck`, `lint` e `test` em `esteira` **e** em `testfit`, e falha se
-qualquer um falhar. **Não é zelo:** rodando só o primeiro, a suíte do `testfit`
-ficou **vermelha, 14 de 14, por duas semanas**, e dois daqueles testes eram as
-travas das minhas próprias correções (D110). Suíte que ninguém roda não protege
-nada — e ainda cala os alarmes que ela mesma tinha.
+Sete passos: `typecheck`, `lint` e `test` em **`esteira`** e em **`testfit`**, mais a
+**prova no navegador** — o `.wasm` do Symbios carregando em Chromium de verdade. Antes
+dos sete, duas guardas:
+
+- **cobertura** — o script **descobre** todo `package.json` do repositório e **reprova**
+  se achar um que não esteja na lista dele (D122). Pacote novo não nasce de fora;
+- **precondição** — o `.wasm` não é versionado, e se faltar o script **reprova com a
+  receita de compilá-lo**, nunca "pula" (D124).
+
+E ele **roda todos os passos mesmo depois de um falhar**: quem conserta quer a lista
+inteira, não o primeiro erro.
+
+**Nada fica fora dele.** Duas vezes "testes verdes" foi meia verdade aqui: a suíte do
+`testfit` ficou **vermelha, 14 de 14, por duas semanas** porque eu rodava só o outro
+pacote, e dois daqueles testes eram as travas das minhas próprias correções (D110); e a
+prova no navegador, cuja última etapa era **ler os números com o olho**, rodou **uma
+vez em 10/09/2026** e nunca mais (D123). Suíte que ninguém roda não protege nada — e
+ainda cala os alarmes que ela mesma tinha.
+
+Que ele **reprova** está provado por sabotagem, não por confiança: um teste quebrado de
+propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabotagem.json`).
+E o que ele não faz está dito: **não há CI neste repositório** — quem executa o comando
+sou eu, antes do commit (D125).
