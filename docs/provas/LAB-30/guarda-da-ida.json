@@ -1,7 +1,7 @@
 {
   "prompt": "LAB-30",
   "geradoEm": "2026-10-03",
-  "contrato": "2",
+  "contrato": "1",
   "semente": 20260913,
   "idasAuditadas": [
     "parcelamento",
@@ -9,9 +9,9 @@
   ],
   "inventario": {
     "parcelamento": {
-      "campos": 72,
+      "campos": 74,
       "entregue": 11,
-      "traduzido": 29,
+      "traduzido": 31,
       "perda": 16,
       "interno": 16
     },
@@ -26,7 +26,7 @@
   "porRegra": {
     "campo-nao-entregue": 0,
     "campo-novo-no-contrato": 0,
-    "promessa-nao-exercitada": 123,
+    "promessa-nao-exercitada": 137,
     "mapa-velho": 187,
     "divida-do-lab": 0
   },
@@ -48,6 +48,18 @@
     {
       "ida": "parcelamento",
       "campo": "acessos[].segmento",
+      "destino": "terreno.acesso",
+      "emTodasAsGlebas": 7
+    },
+    {
+      "ida": "parcelamento",
+      "campo": "acessos[].segmento.a",
+      "destino": "terreno.acesso",
+      "emTodasAsGlebas": 7
+    },
+    {
+      "ida": "parcelamento",
+      "campo": "acessos[].segmento.b",
       "destino": "terreno.acesso",
       "emTodasAsGlebas": 7
     },
@@ -253,6 +265,20 @@
           },
           {
             "ida": "parcelamento",
+            "campo": "acessos[].segmento.a",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.a` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento.b",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.b` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
             "campo": "acessos[].sugerido",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `acessos[].sugerido` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
@@ -271,7 +297,7 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 14,
+        "promessasNaoExercitadas": 16,
         "mapaVelho": 18
       },
       {
@@ -617,6 +643,20 @@
           },
           {
             "ida": "parcelamento",
+            "campo": "acessos[].segmento.a",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.a` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento.b",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.b` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
             "campo": "acessos[].sugerido",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `acessos[].sugerido` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
@@ -635,7 +675,7 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 21,
+        "promessasNaoExercitadas": 23,
         "mapaVelho": 19
       },
       {
@@ -1036,6 +1076,20 @@
           },
           {
             "ida": "parcelamento",
+            "campo": "acessos[].segmento.a",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.a` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento.b",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.b` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
             "campo": "acessos[].sugerido",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `acessos[].sugerido` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
@@ -1054,7 +1108,7 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 21,
+        "promessasNaoExercitadas": 23,
         "mapaVelho": 19
       },
       {
@@ -1414,13 +1468,27 @@
           },
           {
             "ida": "parcelamento",
+            "campo": "acessos[].segmento.a",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.a` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento.b",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.b` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
             "campo": "geo",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 16,
+        "promessasNaoExercitadas": 18,
         "mapaVelho": 16
       },
       {
@@ -1650,10 +1718,24 @@
             "regra": "promessa-nao-exercitada",
             "destino": "terreno.acesso",
             "diagnostico": "o inventário PROMETE levar `acessos[].segmento` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento.a",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.a` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento.b",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.b` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 3,
+        "promessasNaoExercitadas": 5,
         "mapaVelho": 10
       },
       {
@@ -1874,13 +1956,27 @@
           },
           {
             "ida": "parcelamento",
+            "campo": "acessos[].segmento.a",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.a` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento.b",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.b` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
             "campo": "geo",
             "regra": "mapa-velho",
             "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 10,
+        "promessasNaoExercitadas": 12,
         "mapaVelho": 15
       },
       {
@@ -2104,10 +2200,24 @@
             "regra": "promessa-nao-exercitada",
             "destino": "terreno.acesso",
             "diagnostico": "o inventário PROMETE levar `acessos[].segmento` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento.a",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.a` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+          },
+          {
+            "ida": "parcelamento",
+            "campo": "acessos[].segmento.b",
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento.b` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 3,
+        "promessasNaoExercitadas": 5,
         "mapaVelho": 10
       },
       {

@@ -2,7 +2,7 @@
   "prompt": "LAB-26",
   "geradoEm": "2026-10-03",
   "semente": 20260913,
-  "contrato": "2",
+  "contrato": "1",
   "varredura": [
     {
       "campo": "id",
@@ -41,9 +41,21 @@
       "porque": null
     },
     {
+      "campo": "leViaDesenhada",
+      "cobertura": "falsificavel",
+      "teste": "`leViaDesenhada`: a SAÍDA muda se e só se a via desenhada chega ao motor",
+      "porque": null
+    },
+    {
       "campo": "respeitaViaDesenhada",
       "cobertura": "falsificavel",
       "teste": "`respeitaViaDesenhada`: com uma via no miolo, ele a segue se e só se declarou",
+      "porque": null
+    },
+    {
+      "campo": "alinhaOPartidoAViaDesenhada",
+      "cobertura": "falsificavel",
+      "teste": "`alinhaOPartidoAViaDesenhada`: a DIREÇÃO dos eixos se aproxima da linha se e só se declarou",
       "porque": null
     },
     {
@@ -96,7 +108,7 @@
     }
   ],
   "contagem": {
-    "falsificavel": 13,
+    "falsificavel": 15,
     "conferido": 1,
     "sem-regua": 1
   },
@@ -223,8 +235,8 @@
           "declara_respeitaAcesso": true,
           "aGeometriaMudou": true,
           "declaracaoBateComOMedido": true,
-          "lotesComAcessoEmA": 1454,
-          "lotesComAcessoEmB": 1393,
+          "lotesComAcessoEmA": 1279,
+          "lotesComAcessoEmB": 33,
           "versaoDeclarada": "1.0",
           "versaoNaSaida": "1.0+ortogonal",
           "geometriaEntregue": "ortogonal",

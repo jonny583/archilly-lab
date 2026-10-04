@@ -4106,3 +4106,99 @@ frase tem de estar escrita onde ela procura.**
 LAB-38 seguem dizendo **64**, porque era verdade quando foram escritos. Reescrever recado
 antigo falsifica o registro — a mesma razão por que o teto de 12 linhas só olha o
 **último**.
+
+---
+
+## D154 · A etiqueta do contrato sai do MEDIDO, não da minha mão · 04/10/2026
+
+O chat aprovou o conserto que o D146 havia proposto: **quatro provas declaravam
+`contrato: "2"` quando entrada nenhuma do repositório é `"2"`.**
+
+**O conserto é de causa, não de etiqueta.** `contratoDasEntradas()` mora em
+`src/gleba-v1.ts` e tira a versão **das entradas que a ferramenta de fato mede**;
+`lab25`, `lab26`, `lab28` e `lab30` passaram a chamá-la, e as quatro provas foram
+regeradas — as quatro agora dizem **`"1"`**, que é o que todas as glebas declaram.
+
+**Ela REPROVA conjunto misto em vez de eleger a primeira:** duas glebas de contratos
+diferentes na mesma prova não têm uma versão só, e publicar uma esconderia a outra.
+Prova misturada é outra prova. Também reprova versão que a esteira não lê.
+
+**A guarda é sobre a FERRAMENTA, e a razão é concreta:** conferir uma prova publicada
+contra as glebas que ela mediu exigiria saber **quais** glebas cada prova mediu, e isso
+nem sempre está no arquivo. A causa, porém, é estática — **nenhuma ferramenta deve
+escrever o literal**. São sete travas em `tests/contrato.test.ts`:
+
+| trava | o que ela impede |
+|---|---|
+| toda entrada do repositório declara a **mesma** versão, e a esteira a lê | a varredura virar afirmação |
+| `contratoDasEntradas` reprova misto, vazio e versão não lida | a conta eleger um valor em silêncio |
+| as **quatro** consertadas usam a conta e **não** têm literal | a volta do literal |
+| a lista das que **ainda** têm literal é **fechada** | ferramenta nova nascer com etiqueta à mão |
+| todo literal da lista é **igual** à versão que as entradas declaram | a lista envelhecer |
+| toda exceção tem motivo escrito | exceção sem revisão |
+| as quatro provas regeradas trazem a etiqueta certa | o conserto sair do código e não do arquivo |
+
+**A lista das treze que ainda escrevem literal se revalida**, e é isso que a torna
+honesta: no dia em que entrar uma entrada `"2"`, a quinta trava reprova e **cada caso
+vira decisão**. Regerar prova congelada só para consertar etiqueta é o que o D118 proíbe —
+então o valor fica **conferido na lista**, não perdido.
+
+---
+
+## D155 · A DÉCIMA SEGUNDA vez do ponto cego: a régua leu o comentário que eu acabara de escrever · 04/10/2026
+
+A primeira versão da trava do D154 casou `/contrato: "\d+"/` no texto cru dos arquivos e
+**reprovou `lab25.ts` — que eu havia acabado de consertar.**
+
+O motivo é quase engraçado: o comentário que explica o conserto **cita** o defeito —
+*"aqui estava `const CONTRATO = "2"`, escrito à mão"* — e a régua leu a citação como se
+fosse código.
+
+> **Comentário é onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*.**
+
+**É a terceira vez desta sub-família**, e as três são a mesma frase com roupas diferentes:
+
+| | a régua casava | onde o nome de fato significa aquilo |
+|---|---|---|
+| D137 | a chave `"gleba"` **literal** | o conceito, pelos nomes que as provas usam |
+| D142 | a **menção** de `@generate/` | o `import` |
+| **D155** | o literal `contrato: "…"` **no arquivo inteiro** | o **código**, sem os comentários |
+
+**Decisão:** a trava passa por `semComentarios()` antes de casar, e a função carrega a
+explicação — porque a próxima régua que varrer código vai ter a mesma tentação.
+
+**O que isto confirma, e é mais útil que o conserto:** a régua errou **a favor** do
+alarme, não contra. Varredura estática em texto de código **sempre** mede duas coisas ao
+mesmo tempo, o que o código faz e o que ele diz sobre si, e **só uma delas é o objeto**.
+
+---
+
+## D156 · Regerar revelou duas provas VELHAS e caladas — e um número que pede medição · 04/10/2026
+
+Regenerar as quatro provas do D154 mostrou que **duas delas estavam defasadas há
+prompts**, e **nada acusava**:
+
+| prova | desde quando | o que estava velho |
+|---|---|---|
+| `LAB-30/guarda-da-ida.json` | **LAB-40** | o inventário da ida foi de **72 para 74** campos (os dois irmãos do `segmento`, D147); `traduzido` 29 → 31; promessas não exercitadas 123 → 137 |
+| `LAB-25/guarda-da-ponte.json` | **LAB-37** | em `geo-antonina`, a variante que o motor escolhe passou a ser a de **33 lotes** (D140), e o bloco do `faceDeRua` carregava os números da variante antiga (1 386 lotes) |
+
+**Por que ninguém viu:** o LAB-33 criou **detectores de prova velha** para o LAB-23 e o
+LAB-28 — medem ao vivo e comparam com o arquivo (D131). **O LAB-25 e o LAB-30 não têm
+detector**, e as provas deles envelheceram em silêncio. A conta é a mesma do D110: prova
+que ninguém revalida não protege nada.
+
+**E apareceu um número que eu NÃO vou atribuir sem medir** (§6). Na prova regerada do
+LAB-25, em `geo-antonina`:
+
+```
+faceDeRua · lotes 33 · publicadosPelaPonte 0 · nulosNaPonte 33 · soOGenerateMediu 5
+```
+
+A ponte publica `faceDeRua: null` para os 33 lotes da variante escolhida, e a régua do
+Generate mede 5. **Tem a forma do D104** — o `faceDeRua` saindo `null` enquanto o outro
+lado mede —, mas a guarda da ponte **não reprova**, e a variante mudou de superquadra para
+outra coisa entre as duas rodadas. **Pode ser propriedade da variante de 33 lotes** (lote
+de superquadra que não faz frente para via publicada) **e pode ser a ponte**. Não medi, e
+não acuso: está **proposto ao chat** como prompt próprio, junto do detector que falta para
+estas duas provas.

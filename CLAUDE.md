@@ -206,7 +206,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu ONZE vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu DOZE vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -222,6 +222,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D137 (LAB-36) | "um terço das provas viola a §7" | a régua exigia a chave `"gleba"` **literal** e media **ortografia**, não conteúdo |
 | D142 (LAB-38) | "este teste importa do Generate e não podia" | a régua leu **menção** da palavra, e não o `import` |
 | D148 (LAB-40) | "aqui a entrega da testada não custa lote" | a régua comparou dois partidos pelo **rótulo** da variante |
+| D155 (LAB-43) | "esta ferramenta ainda escreve o literal do contrato" | a régua leu o **comentário** que explicava o conserto |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -233,9 +234,15 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**Das ONZE, SETE foram réguas minhas acusando a si mesmas**, e as seis últimas
+**Das DOZE, OITO foram réguas minhas acusando a si mesmas**, e as sete últimas
 foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142,
-D148).
+D148, D155).
+
+**E três delas são a MESMA sub-família** — régua que varre código e casa o nome no lugar
+errado da gramática (D137, D142, D155). A terceira reprovou o arquivo que eu **acabara de
+consertar**, porque o comentário do conserto **citava** o defeito: varredura estática em
+texto de código mede **o que o código faz** e **o que ele diz sobre si**, e só uma delas é
+o objeto.
 
 **A regra que as oito ensinam, e ela é curta:**
 
@@ -247,8 +254,10 @@ D148).
 > **no lugar da gramática onde ele significa aquilo** (num `import`, não no arquivo
 > inteiro); e antes de comparar duas medições, confira se o que você casou é a
 > **coisa** ou só a **etiqueta** dela — posição num ranking é rótulo, e rótulo não é
-> identidade. Onze de onze vezes o defeito estava na régua antes de estar no medido,
-> e em seis delas a régua era o teste que eu acabara de escrever.
+> identidade; e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
+> onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*. Doze de doze vezes o
+> defeito estava na régua antes de estar no medido, e em sete delas a régua era o teste que
+> eu acabara de escrever.
 
 ---
 
@@ -309,7 +318,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 76 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 83 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

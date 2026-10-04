@@ -24,7 +24,7 @@
 #
 # Em vez de fingir, o workflow diz a verdade em duas partes:
 #
-#   1. **`guardas-sem-clones`** roda hoje, sem segredo nenhum: as 76 travas que não
+#   1. **`guardas-sem-clones`** roda hoje, sem segredo nenhum: as 83 travas que não
 #      dependem de clone vizinho — a página do Jonny estar atualizada, o formato do
 #      RECADO, a cobertura do próprio `conferir.sh` e as regras do `CLAUDE.md`.
 #      **Ele NÃO é o verde**, e o nome diz isso;
@@ -65,6 +65,7 @@ jobs:
             tests/pagina.test.ts \
             tests/recado.test.ts \
             tests/balancos.test.ts \
+            tests/contrato.test.ts \
             tests/verde.test.ts \
             tests/regras.test.ts \
             tests/esqueleto.test.ts
