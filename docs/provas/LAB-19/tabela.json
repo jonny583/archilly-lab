@@ -23,11 +23,49 @@
         "entreOsQuatroMotores_pct": 45.6,
         "entreOsMotoresDeLote_pct": 29.12
       },
+      "ordemDoAcesso": {
+        "posicoes": 6,
+        "posicoesComparaveis": 4,
+        "ordens": [
+          [
+            "generate-espinha",
+            "generate-ortogonal",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-espinha",
+            "generate-ortogonal",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "parcelamento",
+            "symbios",
+            "generate-espinha"
+          ]
+        ],
+        "ordensDistintas": 3,
+        "vencedores": [
+          "generate-espinha",
+          "generate-ortogonal"
+        ],
+        "naoResponderam": {
+          "generate-espinha": 2
+        }
+      },
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 2158.96,
+          "ms": 2009.5,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -231,7 +269,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 2008.27,
+          "ms": 1785.45,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -469,7 +507,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "ortogonal (1º de 7 no ranking dele)",
-          "ms": 6742.14,
+          "ms": 5823.01,
           "naoSoubeFazer": [
             "13 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 990.4 m de eixo que saía da gleba (0.21 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -653,7 +691,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 6511.66,
+          "ms": 5117.15,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -854,11 +892,31 @@
         "entreOsQuatroMotores_pct": 227.36,
         "entreOsMotoresDeLote_pct": 95.68
       },
+      "ordemDoAcesso": {
+        "posicoes": 6,
+        "posicoesComparaveis": 1,
+        "ordens": [
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ]
+        ],
+        "ordensDistintas": 1,
+        "vencedores": [
+          "generate-ortogonal"
+        ],
+        "naoResponderam": {
+          "generate-ortogonal": 5,
+          "generate-espinha": 1
+        }
+      },
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 603.59,
+          "ms": 461.13,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1054,7 +1112,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 536.48,
+          "ms": 412.54,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1266,7 +1324,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 19 no ranking dele)",
-          "ms": 2554.4,
+          "ms": 2042.38,
           "naoSoubeFazer": [
             "1 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 556.0 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -1450,7 +1508,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 1658.03,
+          "ms": 1240.03,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -1646,11 +1704,42 @@
         "entreOsQuatroMotores_pct": 169.7,
         "entreOsMotoresDeLote_pct": 44.72
       },
+      "ordemDoAcesso": {
+        "posicoes": 6,
+        "posicoesComparaveis": 3,
+        "ordens": [
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "parcelamento",
+            "generate-espinha",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ]
+        ],
+        "ordensDistintas": 2,
+        "vencedores": [
+          "generate-ortogonal"
+        ],
+        "naoResponderam": {
+          "generate-ortogonal": 3
+        }
+      },
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 96.87,
+          "ms": 107.75,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1836,7 +1925,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 75.02,
+          "ms": 64.48,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -2031,7 +2120,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 354.6,
+          "ms": 274.84,
           "naoSoubeFazer": [
             "o Lab aparou 237.1 m de eixo que saía da gleba (0.65 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -2213,7 +2302,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 510.1,
+          "ms": 410.86,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -2404,11 +2493,58 @@
         "entreOsQuatroMotores_pct": 355.14,
         "entreOsMotoresDeLote_pct": 62.6
       },
+      "ordemDoAcesso": {
+        "posicoes": 6,
+        "posicoesComparaveis": 6,
+        "ordens": [
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ]
+        ],
+        "ordensDistintas": 1,
+        "vencedores": [
+          "generate-ortogonal"
+        ],
+        "naoResponderam": {}
+      },
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 463.29,
+          "ms": 401.86,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -2597,7 +2733,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 488.17,
+          "ms": 365.58,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -2807,7 +2943,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 1919.57,
+          "ms": 1223.49,
           "naoSoubeFazer": [
             "o Lab aparou 505.5 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -2996,7 +3132,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 803.5,
+          "ms": 605.79,
           "naoSoubeFazer": [
             "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
@@ -3201,11 +3337,59 @@
         "entreOsQuatroMotores_pct": 63.41,
         "entreOsMotoresDeLote_pct": 19.55
       },
+      "ordemDoAcesso": {
+        "posicoes": 6,
+        "posicoesComparaveis": 6,
+        "ordens": [
+          [
+            "generate-espinha",
+            "generate-ortogonal",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-ortogonal",
+            "generate-espinha",
+            "parcelamento",
+            "symbios"
+          ],
+          [
+            "generate-espinha",
+            "parcelamento",
+            "generate-ortogonal",
+            "symbios"
+          ]
+        ],
+        "ordensDistintas": 3,
+        "vencedores": [
+          "generate-espinha",
+          "generate-ortogonal"
+        ],
+        "naoResponderam": {}
+      },
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 657.8,
+          "ms": 790.04,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -3406,7 +3590,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 636.89,
+          "ms": 435.24,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -3618,7 +3802,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "ortogonal (1º de 18 no ranking dele)",
-          "ms": 7661.61,
+          "ms": 6569.39,
           "naoSoubeFazer": [
             "2 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 833.1 m de eixo que saía da gleba (0.17 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -3808,7 +3992,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 11217.62,
+          "ms": 9174.81,
           "naoSoubeFazer": [
             "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",

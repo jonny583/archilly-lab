@@ -53,8 +53,8 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 | **LAB-31** | **"Verde" passa a ser UM comando só** que roda tudo — os dois pacotes, provas de navegador e o que mais existir; nada de suíte que fica fora e cala alarme. **Provar quebrando de propósito** um teste de cada pacote e mostrando que o comando único reprova | ✅ **concluído em 04/10/2026** | nenhuma — prioridade |
 | **LAB-32** | A **aderência do Parcelamento caiu de 17,4 para 11,2 %** depois do conserto do LAB-30 e **eu publiquei sem investigar** — investigar, achar o culpado e dizer se o número novo é o certo ou se há outro defeito | ✅ **concluído em 04/10/2026** | LAB-31 mesclado ✅ |
 | **LAB-33** | A **trava do LAB-23** continua lendo **prova congelada** em vez de medir — *"conserte de verdade, não vire o sinal"* | ✅ **concluído em 04/10/2026** | LAB-32 mesclado ✅ |
-| **LAB-34** | A **tabela comparativa** ordena os motores num **único ponto de acesso**, e só a seção do acesso avisa que isso muda até **108 %** — *"ponha o aviso onde a ordem aparece, não escondido"* | ⏳ **pronto, é o próximo** | LAB-33 mesclado ✅ |
-| **LAB-35** | A guarda da ida cospe **310 avisos `mapa-velho`** — conferir se há **caso real escondido nesse volume** e reduzir o ruído | ⏳ **pronto** | LAB-34 mesclado |
+| **LAB-34** | A **tabela comparativa** ordena os motores num **único ponto de acesso**, e só a seção do acesso avisa que isso muda até **108 %** — *"ponha o aviso onde a ordem aparece, não escondido"* | ✅ **concluído em 04/10/2026** | LAB-33 mesclado ✅ |
+| **LAB-35** | A guarda da ida cospe **310 avisos `mapa-velho`** — conferir se há **caso real escondido nesse volume** e reduzir o ruído | ⏳ **pronto, é o próximo** | LAB-34 mesclado ✅ |
 | **LAB-36** | As **quatro regras sem teste** que eu listei **viram guarda ou saem do documento** | ⏳ **pronto** | LAB-35 mesclado |
 | **LAB-37** | A **dívida da testada de frente** (D121) — mapear a linha para as faces do perímetro — *"escreva o tamanho e execute se couber"* | ⏳ **pronto** | LAB-36 mesclado |
 
@@ -63,6 +63,31 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 - **a régua de forma** (útil < 85 % / < 70 %) segue **com o Jonny** e **não trava
   nada** — é o único item na lista dele;
 - **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-34 · O aviso onde a ordem aparece — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-34.md`](../relatorios/LAB-34.md),
+`COMPARACAO_DOS_MOTORES.md` regerada, `instabilidadeDaOrdem` no `acesso.ts`, 8 travas
+novas.
+
+**A segunda metade do pedido era que o aviso respondia à pergunta errada:** *"varia
+108 %"* e *"a ordem muda"* são afirmações diferentes — um motor pode variar muito e
+continuar sempre na frente. Medido com as seis posições de acesso: **a ordem muda em 3
+dos 5 terrenos, e o primeiro lugar em 2**. Em `geo-antonina`, na posição 5, a candidata
+ortogonal **cai para terceiro**.
+
+O aviso agora nasce **debaixo de cada um dos cinco quadros**, com o que foi medido
+*naquela* gleba — inclusive o ✅ da `ensaio-47ha`, a única em que a ordem aguenta as seis
+posições —, mais a legenda da coluna `Lotes` e um apontador na seção do acesso. **Aviso
+igual em todo lugar vira decoração**, e há trava exigindo que os cinco não sejam o mesmo
+texto.
+
+**A SÉTIMA vez do ponto cego** (D133), e a primeira sem motor de vizinho envolvido: minha
+primeira contagem dava *"4 de 5"* porque incluía posições em que **um motor não
+respondeu** — e aí o que muda é um motor sair da comparação, não a ordem. Com a conta
+certa, 3 de 5. A ausência não foi descartada: sai contada, nomeada e no aviso.
+
+---
 
 ### LAB-33 · A trava que lia um arquivo — ✅ concluído em 04/10/2026
 
@@ -951,6 +976,12 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   **perpendicular ao curso** — e o Lab recebe a restrição como **polígono de
   APP**, não como a linha d'água. Sem o eixo, "perpendicular" não tem a quê. É
   achado para o Geo, e o chat é que o leva.
+- **As posições em que a candidata ortogonal do Generate não entrega nada aceitável**
+  (LAB-34). No `sintetico-50ha-ondulado` são **5 de 6**; no `sintetico-10ha-plano`, 3 de
+  6. Está publicado como ausência, mas **não foi investigado** — pode ser limite do
+  motor, pode ser a gleba sintética, pode ser a ponte, e a §6 diz que a terceira
+  hipótese merece medição antes de qualquer acusação. Enquanto não for medido, a tabela
+  daquela gleba não sustenta ordem nenhuma. **Não executado** — escopo novo.
 - **A última trava que repete** (LAB-33, D131). O teste do D116 em `acesso.test.ts`
   confere que a tabela do LAB-19 e a prova do LAB-28 trazem os mesmos números de
   confronto do acesso — mas **se as duas forem regeradas erradas do mesmo jeito, ele

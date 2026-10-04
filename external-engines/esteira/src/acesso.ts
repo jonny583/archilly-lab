@@ -257,3 +257,76 @@ export function amplitudePctDe(valores: readonly (number | null)[]): number {
   if (min <= 0) return 0;
   return Number(((100 * (Math.max(...v) - min)) / min).toFixed(2));
 }
+
+/**
+ * A ORDEM DOS MOTORES É ESTÁVEL quando o acesso muda? (LAB-34)
+ *
+ * # Por que esta régua existe
+ *
+ * A tabela comparativa põe os quatro motores lado a lado **num único ponto de
+ * acesso** — e quem lê a coluna *lotes* ordena os motores com os olhos. O aviso de
+ * que esse número varia (até **108 %**, D113) morava **só na seção do acesso**,
+ * páginas abaixo de onde a ordem aparece. O chat cobrou: *"ponha o aviso onde a
+ * ordem aparece, não escondido."*
+ *
+ * **Mas "varia 108 %" e "a ordem muda" são afirmações diferentes**, e a segunda é a
+ * que importa para quem compara. Um motor pode variar muito e continuar sempre na
+ * frente. Então a régua mede a ordem, não a amplitude.
+ *
+ * # A armadilha que esta régua tem de evitar, e por que ela é do §6
+ *
+ * Nem todo motor responde em toda posição de acesso: no `sintetico-50ha-ondulado`
+ * a candidata ortogonal do Generate entrega desenho aceito pelo contrato em **1 de
+ * 6** posições. Contar ordens incluindo essas posições diz *"a ordem muda"* quando
+ * o que aconteceu foi **um motor sair da comparação** — duas coisas diferentes, e a
+ * primeira contagem que eu fiz misturava as duas (dava 4 de 5 glebas em vez de 3).
+ *
+ * Então: a ordem só é comparada nas **posições em que TODOS responderam**, e as
+ * ausências saem ao lado, contadas e nomeadas (`naoResponderam`) — porque *"este
+ * motor não desenha nada aceitável se a rua entrar aqui"* também é resposta.
+ */
+export interface InstabilidadeDaOrdem {
+  /** Quantas posições de acesso foram amostradas. */
+  posicoes: number;
+  /** As posições em que **todos** os motores responderam — as únicas comparáveis. */
+  posicoesComparaveis: number;
+  /** A ordem (ids, do mais lotes para o menos) em cada posição comparável. */
+  ordens: string[][];
+  /** Quantas ordens DISTINTAS aparecem. 1 = a ordem é estável. */
+  ordensDistintas: number;
+  /** Quem ficou em primeiro, em alguma posição. Mais de um = o vencedor muda. */
+  vencedores: string[];
+  /** Por motor, em quantas posições ele não entregou desenho aceito. */
+  naoResponderam: Record<string, number>;
+}
+
+export function instabilidadeDaOrdem(
+  porMotor: Readonly<Record<string, SensibilidadeAoAcesso>>,
+): InstabilidadeDaOrdem {
+  const ids = Object.keys(porMotor);
+  const posicoes = ids.length ? Math.max(...ids.map((m) => porMotor[m]!.porPosicao.length)) : 0;
+
+  const ordens: string[][] = [];
+  for (let i = 0; i < posicoes; i++) {
+    const nesta = ids.map((m) => ({ id: m, lotes: porMotor[m]!.porPosicao[i]?.lotes ?? null }));
+    // Só as posições em que TODOS responderam entram na conta da ordem.
+    if (nesta.some((x) => x.lotes == null)) continue;
+    ordens.push([...nesta].sort((a, b) => b.lotes! - a.lotes!).map((x) => x.id));
+  }
+
+  const vistas = new Set(ordens.map((o) => o.join(">")));
+  const naoResponderam: Record<string, number> = {};
+  for (const m of ids) {
+    const faltam = porMotor[m]!.posicoes - porMotor[m]!.posicoesMedidas;
+    if (faltam > 0) naoResponderam[m] = faltam;
+  }
+
+  return {
+    posicoes,
+    posicoesComparaveis: ordens.length,
+    ordens,
+    ordensDistintas: vistas.size,
+    vencedores: [...new Set(ordens.map((o) => o[0]!))],
+    naoResponderam,
+  };
+}
