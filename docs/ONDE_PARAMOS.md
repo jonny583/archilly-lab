@@ -4,15 +4,15 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-40 ·
-**Fila nova de 04/10 (segunda): 3 de 5 feitos — LAB-38 a LAB-42.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-41 ·
+**Fila nova de 04/10 (segunda): 4 de 5 feitos — LAB-38 a LAB-42.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-38 a LAB-42
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 14:20 UTC.** É o
 **mesmo** despertador, reabilitado pela **quarta** vez em vez de recriado (D112).
 
-**O próximo é o LAB-41**, e a condição dele está cumprida (LAB-40 mesclado).
+**O próximo é o LAB-42**, o último desta fila, e a condição dele está cumprida (LAB-41 mesclado).
 
 ## A decisão do chat que veio com a fila: o 33 lotes é PENDÊNCIA DO JONNY
 
@@ -24,6 +24,46 @@ possíveis**: produto de poucos lotes grandes, ou efeito indesejado da entrega d
 **Ordem do chat, e é a que eu já seguia:** rodar com o comportamento atual e publicar o
 dado **como está, com a razão colada ao número** — *não esconder, e não escolher por
 ele*.
+
+## O que o LAB-41 fez — a ausência da ortogonal tinha causa
+
+**A pergunta do chat era binária e a resposta não é nenhuma das duas.** A candidata
+ortogonal do Generate **produz plano** em todas as posições de acesso; o plano é recusado
+pelo **contrato do próprio Generate** porque a **via sai da gleba** — de **2,97 a 83,49 m**
+além da divisa, a culpada sendo a `VP-01` (a principal, a que nasce no acesso) em 6 dos 9
+casos. **A recusa não é régua minha.**
+
+**Seis hipóteses morreram, cada uma com a medição que a matou:** ponto de acesso fora da
+divisa (0 a 3 × 10⁻¹⁴ m — era a mais importante de matar, porque seria defeito do Lab),
+limite do terreno (a **espinha** entrega em **11 das 12** posições recusadas), defeito
+geral da ortogonal (**36 pontos** de controle em três glebas, todos aceitos), gleba
+côncava (Antonina tem 11 vértices reflexos e aceita 6/6), preenchimento do retângulo
+envolvente (43 % em Antonina, aceita), e os percentuais de APP e lazer (os mesmos metros,
+dígito por dígito).
+
+**O diagnóstico que fechou é de uma linha:** uma restrição de **100 m² posta FORA da
+gleba** — que não desconta área útil nenhuma — leva `sintetico-50ha-ondulado` de **1/6 a
+6/6** e `sintetico-10ha-plano` de **3/6 a 6/6**.
+
+> **A ortogonal toma outro caminho quando `restricoes` está vazio, e nesse caminho a via
+> não é aparada pela gleba.**
+
+**Mecanismo provável, lido no código deles:** a `VP-01` nasce do **retângulo envolvente**
+da massa, e numa gleba que não é o próprio retângulo uma reta de ponta a ponta na
+coordenada do acesso sai do polígono. **O que não foi medido** vai dito: a linha que apara
+a via no caminho com restrições é deles.
+
+**Seis itens numerados para o Generate** no §5 do relatório, com reprodução e teste de
+regressão barato. **Nada escrito no vizinho** — só leitura, e os três clones ficaram limpos.
+
+**A razão está colada ao número na página do Jonny**, debaixo dos dois quadros afetados, e
+os relatórios LAB-28 e LAB-34 ganharam o aviso: eles publicavam a ausência **sem causa**.
+
+**E o prompt pegou um defeito de MÉTODO meu** (D151): 21 pontos no acusado contra 6 no
+controle, e eu ia escrever *"só as sintéticas falham"*. **Controle que recebeu menos
+medição que o acusado não é controle: é alívio.**
+
+---
 
 ## O que o LAB-40 fez — as fixtures que exercem as promessas
 

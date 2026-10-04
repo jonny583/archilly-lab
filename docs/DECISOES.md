@@ -3963,3 +3963,83 @@ O método das duas fixtures do LAB-40, registrado porque a próxima vai imitá-l
 
 **O que estas fixtures NÃO são:** projeto de urbanismo. A geometria é geométrica e está
 dita assim em cada arquivo, como no D73 — a regra urbanística é do Jonny (§4).
+
+---
+
+## D150 · A ausência da ortogonal não era limite do terreno: é via FORA da gleba, no caminho de `restricoes` vazio · 04/10/2026
+
+A pergunta do chat era binária — *"defeito do motor ou limite real do terreno?"* — e a
+resposta medida **não é nenhuma das duas como estavam postas**.
+
+**O que o número era:** o LAB-28 publicou *"a candidata ortogonal entrega em 1 de 6
+posições"* como **ausência contada**, sem motivo. `posicoesMedidas` dizia que não havia
+resultado; não dizia por quê.
+
+**O que ele é:** a candidata **produz plano**, e o plano é recusado pelo **contrato do
+próprio Generate** (`contratos/motor-v1/esquema.ts`) porque a **via sai da gleba** — de
+**1,2 a 83,5 m** além da divisa, e a peça culpada é a `VP-01` (a principal) em 6 dos 9
+casos, uma secundária nos outros. **A recusa não é régua minha.**
+
+**Seis hipóteses morreram, cada uma com a medição que a matou:**
+
+| hipótese | o que a matou |
+|---|---|
+| o ponto de acesso cai fora da divisa (defeito do Lab) | distância do ponto ao anel: **0 a 3 × 10⁻¹⁴ m** |
+| limite real do terreno | a **espinha** entrega em **11 das 12** posições que a ortogonal recusa |
+| defeito geral da candidata ortogonal | **36 pontos** de controle em três glebas, **todos** aceitos |
+| gleba côncava | `geo-antonina` tem **11 vértices reflexos** e aceita 6/6 |
+| a gleba preenche pouco o retângulo envolvente | `geo-antonina` preenche **43 %** e aceita 6/6 |
+| os percentuais de APP e de lazer | com `pctAPP`/`pctLazer` nulos, **os mesmos metros**, dígito por dígito |
+
+**O diagnóstico que fechou, e ele é de uma linha:** uma restrição de **100 m², posta
+FORA da gleba** — que não desconta área útil nenhuma e só faz `restricoes` deixar de ser
+vazio — leva `sintetico-50ha-ondulado` de **1/6 para 6/6** e `sintetico-10ha-plano` de
+**3/6 para 6/6**.
+
+> **A candidata ortogonal toma outro caminho quando `restricoes` está vazio, e nesse
+> caminho a via não é aparada pela gleba.**
+
+**O mecanismo provável, lido no código deles** (`engine/gerar-v1-motor.ts`, a montagem
+da `VP-01`): a via principal nasce do **retângulo envolvente** da massa — a posição
+transversal é a coordenada do acesso, limitada só para a *caixa* caber no retângulo, e a
+extensão vai de ponta a ponta dele com 15 m de margem. Numa gleba que **não é** o próprio
+retângulo, uma reta de ponta a ponta na coordenada do acesso **sai do polígono**. Sustenta
+isso o controle `ensaio-47ha`, que **é** o próprio retângulo e aceita 12/12; e a
+varredura, em que o transbordo varia **continuamente** com a posição do acesso na aresta
+— assinatura de montagem geométrica, não de sorte. **Não** sustenta o preenchimento do
+retângulo: 43 % em Antonina, que passa.
+
+**O que NÃO foi medido, e vai dito:** a linha de código que apara (ou não) a via no
+caminho com restrições. Essa é do Generate — e o §4 manda: **lista numerada em relatório,
+nunca commit no vizinho.**
+
+**O que muda aqui:** a ausência deixa de ser publicada sem causa. A página do Jonny já
+traz, debaixo dos dois quadros afetados, a razão **colada ao número**, em linguagem de
+leigo — pelo princípio do LAB-34 — e o relatório do LAB-28 ganhou o aviso.
+
+---
+
+## D151 · Controle medido com menos rigor que o acusado não é controle · 04/10/2026
+
+Um defeito de método meu neste prompt, pego antes de concluir, e vale mais que o achado.
+
+Eu tinha **21 pontos** nas duas glebas acusadas — 6 posições mais 15 de varredura ao
+longo das arestas — e **6 pontos** em cada gleba de controle. Com isso eu ia escrever
+*"só as sintéticas falham"*. A frase pode até ser verdadeira, mas **a evidência não a
+sustentava**: evidência assimétrica entre o acusado e o controle mede o esforço de
+medição, não o objeto.
+
+Varridos os controles com a mesma régua — 3 arestas × 4 pontos em cada uma das três
+glebas, **36 pontos** —, nenhuma recusa. Aí a frase passou a ter base.
+
+> **Controle que recebeu menos medição que o acusado não é controle: é alívio.**
+
+É parente do §6 pelo outro lado. A tabela do ponto cego é sobre régua que mede a coisa
+errada; esta é sobre régua **certa** aplicada em **doses desiguais** — e o resultado
+engana do mesmo jeito, porque a diferença entre os dois grupos vem do método.
+
+**E uma segunda, menor, da mesma rodada:** eu ia publicar que o transbordo cresce com a
+**distância do acesso ao vértice** da aresta. Numa das arestas varridas
+(`sintetico-50ha-ondulado`, face 12) ele **diminui** — de 124,88 m a 1,07 m até aceitar.
+A assinatura é *"varia continuamente com a posição"*, que é mais fraca e é a que os
+números sustentam. Foi a varredura que corrigiu a frase, e é por isso que ela existe.

@@ -4,6 +4,22 @@
 [`../provas/LAB-28/acesso.json`](../provas/LAB-28/acesso.json) e, por motor e por
 gleba, em [`../provas/LAB-19/tabela.json`](../provas/LAB-19/tabela.json)**
 
+> ### ⚠️ Aviso acrescentado em 04/10/2026 — a ausência tem CAUSA desde o LAB-41
+>
+> Este relatório publica, nas duas glebas sintéticas, que **a candidata ortogonal do
+> Generate não entregou desenho aceito** em 5 de 6 e em 3 de 6 posições de acesso — e
+> publica isso como **ausência contada**, sem motivo, porque motivo não havia.
+>
+> **O [LAB-41](LAB-41.md) mediu o motivo:** a candidata **produz plano**, e o plano é
+> recusado pelo **contrato do próprio Generate** porque a **via sai da gleba**, de 1,2 a
+> 83,5 m além da divisa. **Não é limite do terreno** — a espinha entrega em 11 das 12
+> posições — e **não é defeito geral da ortogonal** — 36 pontos de controle em três
+> glebas, todos aceitos. Uma restrição de **100 m² posta FORA da gleba**, que não
+> desconta área nenhuma, leva as duas glebas a **6/6**.
+>
+> Os números deste relatório **seguem válidos**: eles medem o que foi aceito. O que muda
+> é a leitura da ausência.
+
 O chat mandou: *"se é a entrada de maior efeito do Lab, ela precisa estar na tabela e
 na página do Jonny: meça nas cinco glebas e nos quatro motores, mostre quanto muda em
 lotes e em área vendável, e escreva em uma frase o que isso significa para quem compra
