@@ -62,7 +62,9 @@ const lab28 = JSON.parse(
     string,
     {
       motores: Record<string, BlocoDeMotor>;
-      confronto: { amplitudeDoAcesso_pct: number; entreMotores_pct: number; entreOsDeLote_pct: number };
+      // Desde o LAB-44 os nomes são os da RÉGUA nos DOIS arquivos: a tradução que
+      // morava aqui existia só porque esta prova publicava chaves próprias (D145).
+      confronto: ConfrontoDoAcesso;
     }
   >;
 };
@@ -87,11 +89,7 @@ const ARQUIVOS = [
     glebas: Object.entries(lab28.glebas).map(([gleba, g]) => ({
       gleba,
       motores: g.motores,
-      publicado: {
-        maiorAmplitude_pct: g.confronto.amplitudeDoAcesso_pct,
-        entreOsQuatroMotores_pct: g.confronto.entreMotores_pct,
-        entreOsMotoresDeLote_pct: g.confronto.entreOsDeLote_pct,
-      } satisfies ConfrontoDoAcesso,
+      publicado: g.confronto,
     })),
   },
 ];

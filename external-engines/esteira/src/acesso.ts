@@ -332,6 +332,24 @@ export const MOTORES_DE_LOTE = ["generate-ortogonal", "generate-espinha", "parce
  * si na mesma referência, com e sem o Symbios. As duas vão publicadas para
  * ninguém dizer que eu escolhi a que dava a manchete melhor.
  */
+/**
+ * OS NOMES DAS TRÊS CONTAS, em UM lugar — e por que eles são DADO e não só tipo.
+ *
+ * Tipo de TypeScript não existe em tempo de execução, e era disso que o defeito
+ * precisava para sobreviver: as mesmas três contas saíam com **chaves diferentes em dois
+ * arquivos publicados** — `amplitudeDoAcesso_pct` na prova do LAB-28 e
+ * `maiorAmplitude_pct` na tabela do LAB-19 (D145). Dois nomes para um número é meio
+ * caminho para dois números, e foi exatamente assim que o D116 começou.
+ *
+ * Com a lista aqui, **a guarda pode conferir o arquivo publicado** contra ela, e o
+ * compilador garante que a lista e a interface não divirjam (ver `_chavesConferidas`).
+ */
+export const CHAVES_DO_CONFRONTO = [
+  "maiorAmplitude_pct",
+  "entreOsQuatroMotores_pct",
+  "entreOsMotoresDeLote_pct",
+] as const;
+
 export interface ConfrontoDoAcesso {
   /** A maior amplitude que um MESMO motor exibe só mudando o acesso. */
   maiorAmplitude_pct: number;
@@ -340,6 +358,20 @@ export interface ConfrontoDoAcesso {
   /** A mesma diferença só entre os que entregam lote — a que responde à pergunta. */
   entreOsMotoresDeLote_pct: number;
 }
+
+/**
+ * A trava de TIPO entre a lista e a interface: se uma ganhar ou perder chave sem a
+ * outra, isto **não compila**. É a mesma disciplina do D116 — um lugar só —, agora com o
+ * compilador cobrando em vez de mim lembrando.
+ */
+type ChaveDaLista = (typeof CHAVES_DO_CONFRONTO)[number];
+type MesmasChaves<A extends string, B extends string> = [A] extends [B]
+  ? [B] extends [A]
+    ? true
+    : never
+  : never;
+const _chavesConferidas: MesmasChaves<ChaveDaLista, keyof ConfrontoDoAcesso> = true;
+void _chavesConferidas;
 
 export function confrontoDoAcesso(
   porMotor: Readonly<Record<string, SensibilidadeAoAcesso>>,

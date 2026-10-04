@@ -15,6 +15,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
+  CHAVES_DO_CONFRONTO,
   MOTORES_DE_LOTE,
   POSICOES_DE_ACESSO,
   agregadosDasPosicoes,
@@ -273,11 +274,8 @@ describe("o confronto é calculado UMA vez, e CONFERIDO contra os números crus"
         string,
         {
           motores: Record<string, BlocoDeMotor>;
-          confronto: {
-            amplitudeDoAcesso_pct: number;
-            entreMotores_pct: number;
-            entreOsDeLote_pct: number;
-          };
+          // Os nomes da RÉGUA nos dois arquivos, desde o LAB-44 (D157).
+          confronto: ConfrontoDoAcesso;
         }
       >;
     };
@@ -300,18 +298,34 @@ describe("o confronto é calculado UMA vez, e CONFERIDO contra os números crus"
         glebas: Object.entries(lab28.glebas).map(([gleba, g]) => ({
           gleba,
           motores: g.motores,
-          // A prova do LAB-28 escreve as MESMAS três contas com outros nomes de
-          // chave. Isso está registrado como achado do LAB-39: dois nomes para um
-          // número é meio caminho para dois números.
-          publicado: {
-            maiorAmplitude_pct: g.confronto.amplitudeDoAcesso_pct,
-            entreOsQuatroMotores_pct: g.confronto.entreMotores_pct,
-            entreOsMotoresDeLote_pct: g.confronto.entreOsDeLote_pct,
-          },
+          publicado: g.confronto,
         })),
       },
     ];
   })();
+
+  test("os dois arquivos publicam o confronto com os MESMOS nomes de chave", () => {
+    // ── A trava do LAB-44, e o defeito que ela fecha (D145, D157) ────────────
+    //
+    // As mesmas três contas saíam com **chaves diferentes nos dois arquivos que o
+    // Jonny lê lado a lado**: `amplitudeDoAcesso_pct` na prova do LAB-28 e
+    // `maiorAmplitude_pct` na tabela do LAB-19. **Dois nomes para um número é meio
+    // caminho para dois números**, e é assim que o D116 começou — ali eram duas
+    // montagens da mesma conta; aqui, dois nomes para a mesma saída.
+    //
+    // A lista dos nomes é DADO (`CHAVES_DO_CONFRONTO`), não só tipo, porque tipo de
+    // TypeScript não existe em tempo de execução — e era disso que o defeito
+    // precisava para sobreviver num arquivo publicado.
+    const esperadas = [...CHAVES_DO_CONFRONTO].sort();
+    for (const a of ARQUIVOS) {
+      for (const g of a.glebas) {
+        expect(
+          Object.keys(g.publicado).sort(),
+          `${a.arquivo} · ${g.gleba}: as chaves do confronto divergiram da régua`,
+        ).toEqual(esperadas);
+      }
+    }
+  });
 
   test("as duas provas trazem as cinco glebas e os quatro motores", () => {
     // Sem isto, um laço vazio passaria verde dizendo que conferiu tudo.

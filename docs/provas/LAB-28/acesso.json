@@ -18,7 +18,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 9025.25,
+          "ms": 8792.98,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -98,7 +98,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 11962.27,
+          "ms": 11177.19,
           "posicoes": 6,
           "posicoesMedidas": 4,
           "amplitudeEhPiso": true,
@@ -178,7 +178,7 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 43782.77,
+          "ms": 43253.72,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -258,7 +258,7 @@
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 47516.59,
+          "ms": 46422.34,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -338,9 +338,9 @@
         }
       },
       "confronto": {
-        "amplitudeDoAcesso_pct": 108.26,
-        "entreMotores_pct": 45.6,
-        "entreOsDeLote_pct": 29.12
+        "maiorAmplitude_pct": 108.26,
+        "entreOsQuatroMotores_pct": 45.6,
+        "entreOsMotoresDeLote_pct": 29.12
       }
     },
     "sintetico-50ha-ondulado": {
@@ -349,7 +349,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 3221.01,
+          "ms": 3340.09,
           "posicoes": 6,
           "posicoesMedidas": 1,
           "amplitudeEhPiso": true,
@@ -429,7 +429,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 4549.12,
+          "ms": 4711.85,
           "posicoes": 6,
           "posicoesMedidas": 5,
           "amplitudeEhPiso": true,
@@ -509,7 +509,7 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 16264.75,
+          "ms": 16584.57,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -589,7 +589,7 @@
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 11147.4,
+          "ms": 12223.96,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -669,9 +669,9 @@
         }
       },
       "confronto": {
-        "amplitudeDoAcesso_pct": 16.86,
-        "entreMotores_pct": 227.36,
-        "entreOsDeLote_pct": 95.68
+        "maiorAmplitude_pct": 16.86,
+        "entreOsQuatroMotores_pct": 227.36,
+        "entreOsMotoresDeLote_pct": 95.68
       }
     },
     "sintetico-10ha-plano": {
@@ -680,7 +680,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 547.81,
+          "ms": 550.16,
           "posicoes": 6,
           "posicoesMedidas": 3,
           "amplitudeEhPiso": true,
@@ -760,7 +760,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 626.43,
+          "ms": 660.21,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -840,7 +840,7 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 2150.14,
+          "ms": 2076.49,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -920,7 +920,7 @@
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 3395.79,
+          "ms": 3039.6,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1000,9 +1000,9 @@
         }
       },
       "confronto": {
-        "amplitudeDoAcesso_pct": 27.68,
-        "entreMotores_pct": 169.7,
-        "entreOsDeLote_pct": 44.72
+        "maiorAmplitude_pct": 27.68,
+        "entreOsQuatroMotores_pct": 169.7,
+        "entreOsMotoresDeLote_pct": 44.72
       }
     },
     "ensaio-47ha": {
@@ -1011,7 +1011,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 3881.58,
+          "ms": 3505.61,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1098,7 +1098,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 4967.72,
+          "ms": 4987.88,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1185,7 +1185,7 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 13025.27,
+          "ms": 13396.01,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1272,7 +1272,7 @@
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 7881.02,
+          "ms": 7768.26,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1359,9 +1359,9 @@
         }
       },
       "confronto": {
-        "amplitudeDoAcesso_pct": 53.16,
-        "entreMotores_pct": 355.14,
-        "entreOsDeLote_pct": 62.6
+        "maiorAmplitude_pct": 53.16,
+        "entreOsQuatroMotores_pct": 355.14,
+        "entreOsMotoresDeLote_pct": 62.6
       }
     },
     "geo-antonina": {
@@ -1370,7 +1370,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 7827.04,
+          "ms": 7815.81,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1457,7 +1457,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 8830.98,
+          "ms": 8781.57,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1544,7 +1544,7 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 49370.68,
+          "ms": 49230.95,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1631,7 +1631,7 @@
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 98009.07,
+          "ms": 94629.55,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1718,42 +1718,42 @@
         }
       },
       "confronto": {
-        "amplitudeDoAcesso_pct": 3775.76,
-        "entreMotores_pct": 4921.21,
-        "entreOsDeLote_pct": 4921.21
+        "maiorAmplitude_pct": 3775.76,
+        "entreOsQuatroMotores_pct": 4921.21,
+        "entreOsMotoresDeLote_pct": 4921.21
       }
     }
   },
   "confrontos": [
     {
       "gleba": "completo",
-      "amplitudeDoAcesso_pct": 108.26,
-      "entreMotores_pct": 45.6,
-      "entreOsDeLote_pct": 29.12
+      "maiorAmplitude_pct": 108.26,
+      "entreOsQuatroMotores_pct": 45.6,
+      "entreOsMotoresDeLote_pct": 29.12
     },
     {
       "gleba": "sintetico-50ha-ondulado",
-      "amplitudeDoAcesso_pct": 16.86,
-      "entreMotores_pct": 227.36,
-      "entreOsDeLote_pct": 95.68
+      "maiorAmplitude_pct": 16.86,
+      "entreOsQuatroMotores_pct": 227.36,
+      "entreOsMotoresDeLote_pct": 95.68
     },
     {
       "gleba": "sintetico-10ha-plano",
-      "amplitudeDoAcesso_pct": 27.68,
-      "entreMotores_pct": 169.7,
-      "entreOsDeLote_pct": 44.72
+      "maiorAmplitude_pct": 27.68,
+      "entreOsQuatroMotores_pct": 169.7,
+      "entreOsMotoresDeLote_pct": 44.72
     },
     {
       "gleba": "ensaio-47ha",
-      "amplitudeDoAcesso_pct": 53.16,
-      "entreMotores_pct": 355.14,
-      "entreOsDeLote_pct": 62.6
+      "maiorAmplitude_pct": 53.16,
+      "entreOsQuatroMotores_pct": 355.14,
+      "entreOsMotoresDeLote_pct": 62.6
     },
     {
       "gleba": "geo-antonina",
-      "amplitudeDoAcesso_pct": 3775.76,
-      "entreMotores_pct": 4921.21,
-      "entreOsDeLote_pct": 4921.21
+      "maiorAmplitude_pct": 3775.76,
+      "entreOsQuatroMotores_pct": 4921.21,
+      "entreOsMotoresDeLote_pct": 4921.21
     }
   ]
 }

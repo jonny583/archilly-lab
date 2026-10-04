@@ -760,3 +760,17 @@ Depende do Jonny: nada novo, e nada trava — seguem a régua de forma, o item 7
 Próximo na fila: LAB-44, condição cumprida — um nome só para cada número do confronto do acesso, que hoje sai com chaves diferentes em dois arquivos (D145). Propostos novos, dos dois achados de hoje: o detector de prova velha para o LAB-25 e o LAB-30, e medir o faceDeRua nulo nos 33 lotes de Antonina (a ponte publica null nos 33 e a régua do Generate mede 5 — tem a forma do D104, mas a guarda não reprova e a variante mudou, então não atribuo sem medir).
 === FIM ===
 ```
+
+---
+
+## 04/10/2026 · LAB-44 — um nome só para cada número do confronto
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-44 ===
+Estado: LAB-44 FEITO e mesclado na main. Verde: 7 passos, 401 travas (eram 400), exit 0. Vizinhos limpos nos três clones. Dois disparos do despertador (21:05 e 22:05) caíram no meio deste prompt e os dois foram atendidos pela regra: termine o prompt aberto antes de começar outro.
+Feito: o defeito era MAIS SORRATEIRO que o do D116. Ali eram duas MONTAGENS da mesma conta e os valores divergiram (+29,12 % contra +70 %); aqui eram dois NOMES para a mesma saída, e OS VALORES BATIAM — nada acusava, porque não havia número errado. Só havia amplitudeDoAcesso_pct na prova do LAB-28 e maiorAmplitude_pct na tabela do LAB-19, nos dois arquivos que o Jonny lê lado a lado, mais entreMotores_pct × entreOsQuatroMotores_pct e entreOsDeLote_pct × entreOsMotoresDeLote_pct. O conserto: valem os nomes da RÉGUA, e a ferramenta publica o OBJETO INTEIRO sem renomear no caminho — era o renomear ao publicar que criava o segundo nome. A prova foi regerada, e os dois leitores (lab39.ts e acesso.test.ts) perderam a tradução que existia só por causa disso.
+Achados para outros apps ou Central: UM, e ele é a parte que não é sobre nome (D157). A LISTA DOS NOMES VIROU DADO — CHAVES_DO_CONFRONTO, uma const —, porque TIPO DE TYPESCRIPT NÃO EXISTE EM TEMPO DE EXECUÇÃO, e era disso que o defeito precisava para sobreviver num ARQUIVO PUBLICADO: nenhuma trava podia conferir o JSON contra um interface. Com a lista como dado, a guarda confere as chaves do arquivo, e uma trava de TIPO (MesmasChaves) impede que a lista e a interface divirjam — se uma ganhar ou perder chave sem a outra, NÃO COMPILA: o compilador cobra em vez de eu lembrar. Para o Generate e o Orçamento, a regra curta: nome de chave que sai em arquivo publicado precisa de uma fonte que exista EM EXECUÇÃO, senão a guarda não alcança o lugar onde o defeito mora. Provado por sabotagem: chave renomeada na prova publicada leva a suíte de 31 verdes a 2 vermelhas — a trava das chaves e, de carona, a do D144, que não acha mais o número onde esperava.
+Depende do Jonny: nada novo, e nada trava — seguem a régua de forma, o item 7 (os 33 lotes, que o LAB-46 decide) e o segredo VIZINHOS_TOKEN do CI. E SEGUE DE PÉ O PEDIDO AO CHAT: o LAB-47 chegou cortado, termina no verbo "escreva"; preciso da frase inteira e da confirmação da numeração. Nenhuma chave, de nenhum formato, foi escrita em arquivo nenhum.
+Próximo na fila: LAB-45, condição cumprida — as duas fixtures novas do LAB-40 na tabela comparativa, com ela regerada. Depois o LAB-46, que é o que você disse que o Jonny quer ver: medir em Antonina as três amostragens do D148, para dizer se o 33 contra 1.228 é caso único ou a mesma troca vista de outro ângulo.
+=== FIM ===
+```
