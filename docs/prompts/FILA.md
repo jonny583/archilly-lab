@@ -52,8 +52,8 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 |---|---|---|---|
 | **LAB-31** | **"Verde" passa a ser UM comando só** que roda tudo — os dois pacotes, provas de navegador e o que mais existir; nada de suíte que fica fora e cala alarme. **Provar quebrando de propósito** um teste de cada pacote e mostrando que o comando único reprova | ✅ **concluído em 04/10/2026** | nenhuma — prioridade |
 | **LAB-32** | A **aderência do Parcelamento caiu de 17,4 para 11,2 %** depois do conserto do LAB-30 e **eu publiquei sem investigar** — investigar, achar o culpado e dizer se o número novo é o certo ou se há outro defeito | ✅ **concluído em 04/10/2026** | LAB-31 mesclado ✅ |
-| **LAB-33** | A **trava do LAB-23** continua lendo **prova congelada** em vez de medir — *"conserte de verdade, não vire o sinal"* | ⏳ **pronto, é o próximo** | LAB-32 mesclado ✅ |
-| **LAB-34** | A **tabela comparativa** ordena os motores num **único ponto de acesso**, e só a seção do acesso avisa que isso muda até **108 %** — *"ponha o aviso onde a ordem aparece, não escondido"* | ⏳ **pronto** | LAB-33 mesclado |
+| **LAB-33** | A **trava do LAB-23** continua lendo **prova congelada** em vez de medir — *"conserte de verdade, não vire o sinal"* | ✅ **concluído em 04/10/2026** | LAB-32 mesclado ✅ |
+| **LAB-34** | A **tabela comparativa** ordena os motores num **único ponto de acesso**, e só a seção do acesso avisa que isso muda até **108 %** — *"ponha o aviso onde a ordem aparece, não escondido"* | ⏳ **pronto, é o próximo** | LAB-33 mesclado ✅ |
 | **LAB-35** | A guarda da ida cospe **310 avisos `mapa-velho`** — conferir se há **caso real escondido nesse volume** e reduzir o ruído | ⏳ **pronto** | LAB-34 mesclado |
 | **LAB-36** | As **quatro regras sem teste** que eu listei **viram guarda ou saem do documento** | ⏳ **pronto** | LAB-35 mesclado |
 | **LAB-37** | A **dívida da testada de frente** (D121) — mapear a linha para as faces do perímetro — *"escreva o tamanho e execute se couber"* | ⏳ **pronto** | LAB-36 mesclado |
@@ -63,6 +63,31 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 - **a régua de forma** (útil < 85 % / < 70 %) segue **com o Jonny** e **não trava
   nada** — é o único item na lista dele;
 - **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-33 · A trava que lia um arquivo — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-33.md`](../relatorios/LAB-33.md),
+`esteira/tests/coluna-vertebral.test.ts` refeito (12 travas, **todas medindo**).
+
+**No LAB-30 eu virei o sinal e chamei de conserto; o teste continuou lendo um `JSON`.**
+Agora os **oito** cenários (duas glebas × quatro motores × com e sem a via) rodam no
+teste, e nenhuma asserção sai de arquivo.
+
+**E o defeito de projeto que virar o sinal não tocava:** *"saída idêntica"* significa
+duas coisas — *o motor ignora a linha* **ou** *a ponte não a entrega* —, e sem separá-las
+o teste passa nas duas; foi a segunda que aconteceu por três semanas (D119). Três travas
+novas medem **a ponte**, direto na `idaParaOMotor`, sem motor no meio. **É a trava que
+teria mordido em 13/09.**
+
+**A prova congelada virou detector de prova velha** (D131), com a regra geral escrita e a
+**varredura nas outras seis** travas que leem `docs/provas/`: cinco são detectores
+legítimos, **uma repete** — e essa está proposta ao chat, com o conserto barato
+descrito, sem executar (§1-A).
+
+**O preço, dito:** a suíte foi de **108 s para 176 s**. É o custo de o teste responder
+pelo motor em vez de responder por um arquivo.
+
+---
 
 ### LAB-32 · A queda da aderência — ✅ concluído em 04/10/2026
 
@@ -926,6 +951,13 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   **perpendicular ao curso** — e o Lab recebe a restrição como **polígono de
   APP**, não como a linha d'água. Sem o eixo, "perpendicular" não tem a quê. É
   achado para o Geo, e o chat é que o leva.
+- **A última trava que repete** (LAB-33, D131). O teste do D116 em `acesso.test.ts`
+  confere que a tabela do LAB-19 e a prova do LAB-28 trazem os mesmos números de
+  confronto do acesso — mas **se as duas forem regeradas erradas do mesmo jeito, ele
+  passa**. O conserto é barato: recalcular o agregado a partir dos números crus que a
+  prova já carrega, com `referenciaDe`/`amplitudePctDe` do `acesso.ts`, **sem rodar
+  motor nenhum**. Medir ao vivo o confronto inteiro custaria as 5 glebas × 4 motores × 6
+  posições do LAB-28. **Não executado** — escopo novo.
 - **CI para o comando único** (LAB-31, D125). O `conferir.sh` existe, roda tudo e está
   provado que reprova — mas **não existe `.github/workflows` neste repositório**, então
   **nada o executa automaticamente**: quem o roda sou eu, antes do commit, e se eu
