@@ -177,7 +177,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu DEZ vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu ONZE vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -192,6 +192,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D135 (LAB-35) | "a ida não entrega o furo da gleba" | o furo mora em **`terreno.gleba.furos`**, e o caminho errado era do meu teste |
 | D137 (LAB-36) | "um terço das provas viola a §7" | a régua exigia a chave `"gleba"` **literal** e media **ortografia**, não conteúdo |
 | D142 (LAB-38) | "este teste importa do Generate e não podia" | a régua leu **menção** da palavra, e não o `import` |
+| D148 (LAB-40) | "aqui a entrega da testada não custa lote" | a régua comparou dois partidos pelo **rótulo** da variante |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -203,8 +204,9 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**Das DEZ, SEIS foram réguas minhas acusando a si mesmas**, e as cinco últimas
-foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142).
+**Das ONZE, SETE foram réguas minhas acusando a si mesmas**, e as seis últimas
+foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142,
+D148).
 
 **A regra que as oito ensinam, e ela é curta:**
 
@@ -214,8 +216,10 @@ foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137
 > **nomes que a coisa de fato usa** — régua que casa por nome exato mede
 > ortografia, não conteúdo — e quando a régua procura um nome em código, procure-o
 > **no lugar da gramática onde ele significa aquilo** (num `import`, não no arquivo
-> inteiro). Dez de dez vezes o defeito estava na régua antes de estar no medido, e
-> em cinco delas a régua era o teste que eu acabara de escrever.
+> inteiro); e antes de comparar duas medições, confira se o que você casou é a
+> **coisa** ou só a **etiqueta** dela — posição num ranking é rótulo, e rótulo não é
+> identidade. Onze de onze vezes o defeito estava na régua antes de estar no medido,
+> e em seis delas a régua era o teste que eu acabara de escrever.
 
 ---
 

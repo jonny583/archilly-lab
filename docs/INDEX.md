@@ -31,6 +31,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`../entrega/registro-de-motores/`](../entrega/registro-de-motores/) | **A peça pronta para o Generate** (LAB-06): registro de motores, liga/desliga, escolha salva e a regra do ranking. Sem dependência nenhuma — quem instala é o GU-03 |
 | [`relatorios/LAB-06.md`](relatorios/LAB-06.md) | **A entrega, e o teste de que apagar o Lab não quebra o Generate** |
+| [`relatorios/LAB-40.md`](relatorios/LAB-40.md) | **As fixtures que exercem as promessas** (LAB-40): as promessas sem exercício de **6 para 0**, dois campos sem destino achados **antes da primeira medição**, e a testada de frente medida fora de Antonina — noutra face, noutro comprimento e com a linha fora da divisa. Mais a décima primeira vez do ponto cego: **rótulo não é identidade** (D147 a D149) |
 | [`relatorios/LAB-39.md`](relatorios/LAB-39.md) | **A trava que comparava duas provas, consertada para MEDIR** (LAB-39): o agregado publicado conferido contra os números crus de cada arquivo — 40 agregados, 10 confrontos, 240 posições, **0 divergências**, sem rodar motor nenhum. Mais a montagem do confronto que também morava em dois lugares, e quatro provas que declaram um contrato que entrada nenhuma tem (D144 a D146) |
 | [`relatorios/LAB-38.md`](relatorios/LAB-38.md) | **O CI do comando único** (LAB-38): dois trabalhos com nomes que não enganam, porque o verde completo lê dois clones **privados** e este repositório é **público**. E o CI achou um defeito na minha própria guarda **no primeiro disparo** (D141 a D143) |
 | [`relatorios/LAB-37.md`](relatorios/LAB-37.md) | **A dívida da testada de frente, paga** (LAB-37): a linha mapeada para as faces do perímetro, e lotes de frente para a rua existente indo de **0 para 14 a 18** em 10 de 10 partidos — a D121 previu e estava certa. Mais o arnês da guarda que media outro caminho, e o ranking do motor preferindo 33 lotes a 1 228 (D138 a D140) |
@@ -98,6 +99,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 |---|---|
 | [`terrenos/`](terrenos/) | Os 4 terrenos no contrato `archilly-terreno` 1.1, com procedência declarada |
 | [`fixtures/glebas-padrao-com-relevo/`](fixtures/glebas-padrao-com-relevo/) | As duas glebas-padrão do Generate **com relevo sintético declarado** (LAB-03) — poligonal e parâmetros dele, intocados |
+| [`fixtures/glebas-que-exercem-as-promessas/`](fixtures/glebas-que-exercem-as-promessas/) | As duas glebas do **LAB-40**: `ensaio-com-promessas` (furo, calçada declarada, atração poligonal e acesso como segmento) e `ensaio-com-testada` (testada de frente **fora de Antonina**, face 1, 587,5 m, meio metro fora da divisa). Nascem de `ensaio-47ha` **a uma variável de distância** (D149) |
 | [`fixtures/glebas-com-via-desenhada/`](fixtures/glebas-com-via-desenhada/) | As duas glebas de referência **com via principal e secundárias desenhadas à mão** (LAB-17). O traçado é geométrico, **não é projeto de urbanismo** (D73) |
 
 ## O código

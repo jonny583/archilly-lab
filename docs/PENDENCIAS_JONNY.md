@@ -367,6 +367,34 @@ ganhou catorze lotes, deixou de ser vazio — e a nota dele é a mais alta.
 
 **Eu não tenho como decidir isso**: é regra de produto e de urbanismo, não de código.
 
+### Novidade de 04/10, mais tarde: medi a MESMA coisa noutro terreno
+
+Era a pergunta óbvia — *"isso acontece em todo terreno ou só em Antonina?"* — e eu não
+tinha como responder, porque **Antonina era o único terreno do laboratório com rua
+existente encostada na divisa**. Agora há um segundo, feito para isso: um retângulo de
+47 hectares com uma rua existente de 587 m numa das laterais.
+
+**O que se repetiu lá:** o programa põe lotes de frente para a rua existente onde não
+havia **nenhum** — **51 lotes**. A entrega funciona, e funciona fora de Antonina.
+
+**O que NÃO se repetiu:** o plano escolhido não virou um plano minúsculo. Nada parecido
+com 33 contra 1 228.
+
+**E uma coisa que aprendi medindo, e que muda como eu conto isto:** quando entrego a rua
+existente, o total de lotes do terreno às vezes **sobe** e às vezes **desce**, dependendo
+de quantos planos o programa testou naquela rodada. Os lotes de frente para a rua
+ocupam espaço que ia virar lote de dentro — é uma **troca**, não um ganho puro. Então a
+frase honesta é esta:
+
+> **Entregar a rua existente põe lotes de frente para ela — isso é certo. Dizer que
+> "aumenta" ou que "diminui" o total depende da rodada, e eu não vou afirmar nenhuma
+> das duas.**
+
+**O que isso diz sobre a sua pendência:** o 33 contra 1 228 **continua sendo uma
+estranheza de Antonina**, e não um defeito geral de entregar a rua. Mas eu **não** medi o
+mesmo caso lá de novo, então também não afirmo que Antonina é caso único. A sua decisão
+segue de pé, e segue sendo sobre produto, não sobre código.
+
 ### O que eu faço enquanto você não olhar
 
 **Nada muda, e nada fica escondido.** Sigo rodando o programa como ele é, publicando o

@@ -61,11 +61,19 @@ import {
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const COM_VIA = join(RAIZ, "docs", "fixtures", "glebas-com-via-desenhada");
+const PROMESSAS = join(RAIZ, "docs", "fixtures", "glebas-que-exercem-as-promessas");
 const GLEBA = "sintetico-10ha-plano";
 
 let antonina: EntradaMinima;
+let comPromessas: EntradaMinima;
+let comTestada: EntradaMinima;
 beforeAll(() => {
   antonina = JSON.parse(readFileSync(join(COM_VIA, "antonina-com-via.entrada.json"), "utf8"));
+  // As duas fixtures do LAB-40: a que exerce as quatro promessas e a da testada de
+  // frente fora de Antonina. Elas entram aqui porque foi a primeira delas que fez
+  // esta guarda falar — `acessos[].segmento.a` e `.b` sem destino escrito (D147).
+  comPromessas = JSON.parse(readFileSync(join(PROMESSAS, "ensaio-com-promessas.entrada.json"), "utf8"));
+  comTestada = JSON.parse(readFileSync(join(PROMESSAS, "ensaio-com-testada.entrada.json"), "utf8"));
 });
 
 // ═════════════════════ andar 1 · o mecanismo das três regras ═══════════════
@@ -488,8 +496,12 @@ describe("a regra 3 partida: promessa não exercitada × mapa-velho", () => {
     expect(a).toHaveLength(0);
   });
 
-  test("nas sete glebas de verdade, NADA reprova e o ruído some do relatório", () => {
-    const glebas: EntradaMinima[] = [glebaDoLab(GLEBA), antonina];
+  test("nas QUATRO glebas que esta trava roda, NADA reprova e o ruído some do relatório", () => {
+    // O nome dizia "nas sete glebas" e a lista tinha **duas** — rótulo prometendo
+    // mais do que a trava faz, que é a família de defeito do LAB-39. Corrigido no
+    // LAB-40, e com as duas fixtures novas dentro: a varredura das dez glebas mora no
+    // `promessas.test.ts`, e esta aqui guarda o caso que importa de perto.
+    const glebas: EntradaMinima[] = [glebaDoLab(GLEBA), antonina, comPromessas, comTestada];
     for (const g of glebas) {
       for (const r of [auditarIdaDoParcelamento(g), auditarIdaDoSymbios(g)]) {
         expect(reprovamNaIda(r.achados)).toHaveLength(0);
