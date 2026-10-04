@@ -551,12 +551,26 @@ function avisosDoQuadro(g: GlebaNaProva): string[] {
 function avisoDaOrdem(g: GlebaNaProva): string {
   const o = g.ordemDoAcesso;
   const ausentes = Object.entries(o.naoResponderam);
+  // ── A ausência tem RAZÃO desde o LAB-41, e ela vai colada ao número ───────
+  //
+  // Esta frase dizia só *"naquela entrada, aquele programa não desenha nada
+  // aceitável"*. Medido, é menos e é mais que isso: o programa **desenha**, e o
+  // desenho é recusado pelo **contrato do próprio Archilly Generate** porque a rua
+  // sai do terreno — de 3 a 83 m para fora da divisa. Deixar a frase antiga sozinha
+  // seria publicar uma ausência sem causa depois de ter a causa medida.
+  const razaoDaAusencia = ausentes.some(([id]) => id === "generate-ortogonal")
+    ? " **A razão foi medida** (LAB-41): nesses pontos o programa **desenha**, mas o desenho " +
+      "põe **rua fora do terreno** — de 3 a 83 m além da divisa — e o contrato do próprio " +
+      "Archilly Generate recusa. Não é limite do terreno: nos mesmos pontos o outro traçado " +
+      "dele entrega normalmente."
+    : "";
   const nota = ausentes.length
     ? " Nos pontos restantes, " +
       ausentes
         .map(([id, n]) => `**${NOME_DO_MOTOR[id] ?? id}** não entregou desenho válido em ${n} ponto${n > 1 ? "s" : ""}`)
         .join("; ") +
-      " — o que também é resposta: naquela entrada, aquele programa não desenha nada aceitável."
+      " — o que também é resposta: naquela entrada, aquele programa não desenha nada aceitável." +
+      razaoDaAusencia
     : "";
 
   if (o.posicoesComparaveis < 2) {

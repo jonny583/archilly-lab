@@ -50,8 +50,8 @@ trabalho o que eu havia listado como pendente.
 | **LAB-38** | **CI para o comando único** — não há workflow neste repositório, então nada roda o verde sozinho. Criar e **provar quebrando um teste de propósito**. *"É o mesmo buraco do Orçamento e do Generate, e foi ele que deixou uma suíte vermelha duas semanas sem ninguém ver"* | ✅ **concluído em 04/10/2026** | nenhuma — prioridade |
 | **LAB-39** | A **última trava que se repete**: o teste do D116 compara **duas provas entre si** — consertar para **medir**, não para comparar prova com prova | ✅ **concluído em 04/10/2026** | LAB-38 mesclado ✅ |
 | **LAB-40** | **Fixtures** que exerçam as quatro promessas do LAB-35 **e a testada de frente fora de Antonina** — sem isso tudo que foi medido vale para uma gleba só | ✅ **concluído em 04/10/2026** | LAB-39 mesclado ✅ |
-| **LAB-41** | As **posições de acesso em que a candidata ortogonal do Generate não entrega nada aceitável**, 5 de 6 numa gleba — investigar e dizer se é **defeito do motor ou limite real do terreno** | ⏳ **pronto, é o próximo** | LAB-40 mesclado ✅ |
-| **LAB-42** | Criar **`docs/relatorios/BALANCOS.md`** e registrar ali os balanços, inclusive os que foram **só para o chat**, para nenhuma lista precisar ser re-derivada de novo | ⏳ **pronto** | LAB-41 mesclado |
+| **LAB-41** | As **posições de acesso em que a candidata ortogonal do Generate não entrega nada aceitável**, 5 de 6 numa gleba — investigar e dizer se é **defeito do motor ou limite real do terreno** | ✅ **concluído em 04/10/2026** | LAB-40 mesclado ✅ |
+| **LAB-42** | Criar **`docs/relatorios/BALANCOS.md`** e registrar ali os balanços, inclusive os que foram **só para o chat**, para nenhuma lista precisar ser re-derivada de novo | ⏳ **pronto, é o próximo** | LAB-41 mesclado ✅ |
 
 ### A decisão que o chat tomou junto com a fila
 
@@ -69,6 +69,39 @@ não escolha por ele"*.
 
 - **a régua de forma** segue **com o Jonny** e **não trava nada**;
 - **a corda reta das vias curvas fica na V3**, sem mexer.
+
+### LAB-41 · A ausência da ortogonal tinha causa — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-41.md`](../relatorios/LAB-41.md),
+`docs/provas/LAB-41/ortogonal-fora-da-gleba.json`, `ferramentas/lab41.ts`, a razão colada
+ao número na página do Jonny, avisos no LAB-28 e no LAB-34, D150 e D151.
+
+**A resposta não é nenhuma das duas que a pergunta oferecia.** A candidata ortogonal
+**produz plano** em todas as posições, e o plano é recusado pelo **contrato do próprio
+Generate** porque a **via sai da gleba** — de **2,97 a 83,49 m** além da divisa, a culpada
+sendo a `VP-01` em 6 dos 9 casos.
+
+**Seis hipóteses morreram com medição:** ponto fora da divisa (0 a 3e-14 m), limite do
+terreno (a espinha entrega em 11 de 12), defeito geral da ortogonal (**36 pontos** de
+controle, todos aceitos), gleba côncava (Antonina tem 11 reflexos e passa 6/6),
+preenchimento do retângulo (43 % em Antonina, passa), e os percentuais de APP e lazer
+(mesmos metros, dígito por dígito).
+
+**O diagnóstico que fechou é de uma linha:** uma restrição de **100 m² posta FORA da
+gleba**, que não desconta área nenhuma, leva `sintetico-50ha-ondulado` de 1/6 a **6/6** e
+`sintetico-10ha-plano` de 3/6 a **6/6**. *A ortogonal toma outro caminho quando
+`restricoes` está vazio, e nesse caminho a via não é aparada pela gleba.*
+
+**Para o Generate: lista numerada de 6 itens no §5 do relatório**, com a reprodução, a
+peça culpada, o mecanismo provável (a `VP-01` montada pelo retângulo envolvente) e um
+teste de regressão barato. **Nada foi escrito no vizinho** — ele foi só lido.
+
+**E o prompt pegou um defeito de método meu** (D151): eu tinha 21 pontos no acusado e 6 no
+controle, e ia escrever *"só as sintéticas falham"*. **Controle que recebeu menos medição
+que o acusado não é controle: é alívio.** Varridos os controles com a mesma régua, a frase
+passou a ter base.
+
+---
 
 ### LAB-40 · As fixtures que exercem as promessas — ✅ concluído em 04/10/2026
 
@@ -1171,12 +1204,11 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 - ~~**Fixtures que exerçam as quatro promessas** (LAB-35)~~ — ✅ **executado no LAB-40**:
   duas fixtures em `docs/fixtures/glebas-que-exercem-as-promessas/`, as promessas sem
   exercício de **6 para 0**, e dois campos sem destino achados no caminho (D147).
-- **As posições em que a candidata ortogonal do Generate não entrega nada aceitável**
-  (LAB-34). No `sintetico-50ha-ondulado` são **5 de 6**; no `sintetico-10ha-plano`, 3 de
-  6. Está publicado como ausência, mas **não foi investigado** — pode ser limite do
-  motor, pode ser a gleba sintética, pode ser a ponte, e a §6 diz que a terceira
-  hipótese merece medição antes de qualquer acusação. Enquanto não for medido, a tabela
-  daquela gleba não sustenta ordem nenhuma. **Não executado** — escopo novo.
+- ~~**As posições em que a candidata ortogonal do Generate não entrega nada aceitável**
+  (LAB-34)~~ — ✅ **executado no LAB-41**: a candidata **produz** plano, e o contrato do
+  próprio Generate o recusa porque a **via sai da gleba** (2,97 a 83,49 m). Não é limite do
+  terreno nem defeito geral dela; é o caminho de `restricoes` vazio, e uma restrição de
+  100 m² fora da gleba leva as duas a 6/6 (D150).
 - ~~**A última trava que repete** (LAB-33, D131)~~ — ✅ **executado no LAB-39**, com o
   desenho proposto: o agregado refeito dos números crus de cada arquivo, sem rodar motor
   nenhum. 40 agregados, 10 confrontos, 240 posições, 0 divergências (D144).

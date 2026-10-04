@@ -1,0 +1,846 @@
+{
+  "prompt": "LAB-41",
+  "geradoEm": "2026-10-04T00:00:00.000Z",
+  "semente": 20260913,
+  "contrato": "1",
+  "posicoesDeAcesso": 6,
+  "aPergunta": "defeito do motor ou limite real do terreno?",
+  "aResposta": "nem uma nem outra como estavam postas: a candidata ortogonal PRODUZ plano, e o plano é recusado pelo CONTRATO DO PRÓPRIO GENERATE porque a via sai da gleba — de 1,2 a 83,5 m para fora da divisa. Não é limite do terreno (a espinha entrega nos mesmos acessos) e não é defeito geral da ortogonal (ela entrega 6/6 nas três glebas de controle)",
+  "oMecanismoProvavel": {
+    "onde": "urban-create-hub-41d93a4d/src/lib/engine/gerar-v1-motor.ts, a montagem da VP-01 (por volta das linhas 600-680)",
+    "oQue": "a via principal é montada a partir do RETÂNGULO ENVOLVENTE da massa: a posição transversal é a coordenada do acesso, limitada só para a CAIXA caber no retângulo (`bb.minX + totalVia/2 + 1` … `bb.maxX − totalVia/2 − 1`), e a extensão vai de `bb.maxY − margem` a `bb.minY + margem`. Numa gleba que não é o próprio retângulo, uma reta de ponta a ponta do retângulo na coordenada do acesso SAI do polígono",
+    "oQueSustenta": "o retângulo `ensaio-47ha` é o próprio bounding box e aceita 12/12 pontos; e o transbordo varia de forma contínua com a posição do acesso na aresta, que é assinatura de montagem geométrica e não de sorte",
+    "oQueNAOSustenta": "preencher pouco o retângulo envolvente não prediz a falha — `geo-antonina` preenche 43 % e aceita 6/6. O que prediz é `restricoes` vazio, e a razão disso mora no código deles"
+  },
+  "aQuemCabe": "ao Generate, na montagem do traçado da candidata ortogonal. O Lab é o mensageiro: a recusa vem do esquema deles (contratos/motor-v1/esquema.ts), não de régua minha",
+  "oQueNaoFoiMedido": "a causa dentro do código da candidata ortogonal. Lê-se o sintoma (a via sai) e a assinatura (o transbordo cresce com a distância do acesso ao vértice da aresta); a linha de código é deles",
+  "glebasAcusadas": {
+    "sintetico-50ha-ondulado": {
+      "gleba": "sintetico-50ha-ondulado",
+      "motor": "Generate · candidatas ortogonal e espinha",
+      "semente": 20260913,
+      "vertices": 14,
+      "verticesReflexos": 4,
+      "aceitas": {
+        "ortogonal": 1,
+        "espinha": 5
+      },
+      "posicoes": [
+        {
+          "posicao": 0,
+          "ponto": {
+            "x": 408.81952245670226,
+            "y": -3.9357094156770523e-10
+          },
+          "distanciaDoAnel_m": 0,
+          "face": 0,
+          "tNaFace": 0,
+          "metrosDoVertice": 0,
+          "comprimentoDaFace_m": 143.5,
+          "azimuteDaFace_graus": 108.64,
+          "ortogonal": {
+            "aceito": true,
+            "lotes": 1041,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 805,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        },
+        {
+          "posicao": 1,
+          "ponto": {
+            "x": 209.02875230551723,
+            "y": 366.5071094190004
+          },
+          "distanciaDoAnel_m": 0,
+          "face": 2,
+          "tNaFace": 0.54,
+          "metrosDoVertice": 139.7,
+          "comprimentoDaFace_m": 256.7,
+          "azimuteDaFace_graus": 168.51,
+          "ortogonal": {
+            "aceito": false,
+            "lotes": null,
+            "semPlano": false,
+            "texto": "2 peça(s) do parcelamento saem da gleba — a pior é a via VP-01, a 11.07 m para fora da divisa.",
+            "pecasFora": 2,
+            "pior": "via VP-01",
+            "fora_m": 11.07
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 777,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        },
+        {
+          "posicao": 2,
+          "ponto": {
+            "x": -197.33327248500626,
+            "y": 237.12398673612526
+          },
+          "distanciaDoAnel_m": 2.8e-14,
+          "face": 4,
+          "tNaFace": 0.42,
+          "metrosDoVertice": 106.68,
+          "comprimentoDaFace_m": 252.02,
+          "azimuteDaFace_graus": 163.76,
+          "ortogonal": {
+            "aceito": false,
+            "lotes": null,
+            "semPlano": false,
+            "texto": "4 peça(s) do parcelamento saem da gleba — a pior é a via VP-01, a 77.44 m para fora da divisa.",
+            "pecasFora": 4,
+            "pior": "via VP-01",
+            "fora_m": 77.44
+          },
+          "espinha": {
+            "aceito": false,
+            "lotes": null,
+            "semPlano": false,
+            "texto": "1 peça(s) do parcelamento saem da gleba — a pior é a área ROT-01, a 0.24 m para fora da divisa.",
+            "pecasFora": 1,
+            "pior": "área ROT-01",
+            "fora_m": 0.24
+          }
+        },
+        {
+          "posicao": 3,
+          "ponto": {
+            "x": -559.6959528492866,
+            "y": 27.150566851623495
+          },
+          "distanciaDoAnel_m": 2.8e-14,
+          "face": 6,
+          "tNaFace": 0.83,
+          "metrosDoVertice": 150.64,
+          "comprimentoDaFace_m": 181.86,
+          "azimuteDaFace_graus": -119.59,
+          "ortogonal": {
+            "aceito": false,
+            "lotes": null,
+            "semPlano": false,
+            "texto": "1 peça(s) do parcelamento saem da gleba — a pior é a via VP-01, a 2.97 m para fora da divisa.",
+            "pecasFora": 1,
+            "pior": "via VP-01",
+            "fora_m": 2.97
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 736,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        },
+        {
+          "posicao": 4,
+          "ponto": {
+            "x": -228.63467197034984,
+            "y": -186.13994056660312
+          },
+          "distanciaDoAnel_m": 0,
+          "face": 9,
+          "tNaFace": 0.03,
+          "metrosDoVertice": 4.54,
+          "comprimentoDaFace_m": 170.52,
+          "azimuteDaFace_graus": -53.84,
+          "ortogonal": {
+            "aceito": false,
+            "lotes": null,
+            "semPlano": false,
+            "texto": "5 peça(s) do parcelamento saem da gleba — a pior é a via VS-09, a 83.49 m para fora da divisa.",
+            "pecasFora": 5,
+            "pior": "via VS-09",
+            "fora_m": 83.49
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 765,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        },
+        {
+          "posicao": 5,
+          "ponto": {
+            "x": 160.28675470864184,
+            "y": -383.56385131413185
+          },
+          "distanciaDoAnel_m": 0,
+          "face": 11,
+          "tNaFace": 0.29,
+          "metrosDoVertice": 66.7,
+          "comprimentoDaFace_m": 231.07,
+          "azimuteDaFace_graus": 31.56,
+          "ortogonal": {
+            "aceito": false,
+            "lotes": null,
+            "semPlano": false,
+            "texto": "1 peça(s) do parcelamento saem da gleba — a pior é a via VP-01, a 19.52 m para fora da divisa.",
+            "pecasFora": 1,
+            "pior": "via VP-01",
+            "fora_m": 19.52
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 777,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        }
+      ]
+    },
+    "sintetico-10ha-plano": {
+      "gleba": "sintetico-10ha-plano",
+      "motor": "Generate · candidatas ortogonal e espinha",
+      "semente": 20260913,
+      "vertices": 10,
+      "verticesReflexos": 2,
+      "aceitas": {
+        "ortogonal": 3,
+        "espinha": 6
+      },
+      "posicoes": [
+        {
+          "posicao": 0,
+          "ponto": {
+            "x": 139.16805490613143,
+            "y": 0
+          },
+          "distanciaDoAnel_m": 0,
+          "face": 0,
+          "tNaFace": 0,
+          "metrosDoVertice": 0,
+          "comprimentoDaFace_m": 89.32,
+          "azimuteDaFace_graus": 80.22,
+          "ortogonal": {
+            "aceito": true,
+            "lotes": 178,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 136,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        },
+        {
+          "posicao": 1,
+          "ponto": {
+            "x": 53.02122354884004,
+            "y": 171.86069085126167
+          },
+          "distanciaDoAnel_m": 0,
+          "face": 2,
+          "tNaFace": 0.07,
+          "metrosDoVertice": 10.39,
+          "comprimentoDaFace_m": 158.48,
+          "azimuteDaFace_graus": 177.08,
+          "ortogonal": {
+            "aceito": true,
+            "lotes": 185,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 135,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        },
+        {
+          "posicao": 2,
+          "ponto": {
+            "x": -116.36004943979229,
+            "y": 107.58137515676174
+          },
+          "distanciaDoAnel_m": 1.4e-14,
+          "face": 3,
+          "tNaFace": 0.61,
+          "metrosDoVertice": 74.96,
+          "comprimentoDaFace_m": 123.69,
+          "azimuteDaFace_graus": -106.65,
+          "ortogonal": {
+            "aceito": false,
+            "lotes": null,
+            "semPlano": false,
+            "texto": "1 peça(s) do parcelamento saem da gleba — a pior é a via VP-01, a 17.14 m para fora da divisa.",
+            "pecasFora": 1,
+            "pior": "via VP-01",
+            "fora_m": 17.14
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 141,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        },
+        {
+          "posicao": 3,
+          "ponto": {
+            "x": -255.0419524143536,
+            "y": -17.06328816242104
+          },
+          "distanciaDoAnel_m": 3.6e-15,
+          "face": 5,
+          "tNaFace": 0.18,
+          "metrosDoVertice": 22.38,
+          "comprimentoDaFace_m": 121.46,
+          "azimuteDaFace_graus": -49.67,
+          "ortogonal": {
+            "aceito": false,
+            "lotes": null,
+            "semPlano": false,
+            "texto": "2 peça(s) do parcelamento saem da gleba — a pior é a via VS-05, a 4.87 m para fora da divisa.",
+            "pecasFora": 2,
+            "pior": "via VS-05",
+            "fora_m": 4.87
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 123,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        },
+        {
+          "posicao": 4,
+          "ponto": {
+            "x": -78.7004580632876,
+            "y": -145.08972813677127
+          },
+          "distanciaDoAnel_m": 0,
+          "face": 7,
+          "tNaFace": 0.01,
+          "metrosDoVertice": 0.71,
+          "comprimentoDaFace_m": 128.62,
+          "azimuteDaFace_graus": 2.44,
+          "ortogonal": {
+            "aceito": true,
+            "lotes": 169,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 138,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        },
+        {
+          "posicao": 5,
+          "ponto": {
+            "x": 143.74746040073947,
+            "y": -130.02645175493907
+          },
+          "distanciaDoAnel_m": 0,
+          "face": 8,
+          "tNaFace": 0.55,
+          "metrosDoVertice": 95.14,
+          "comprimentoDaFace_m": 171.66,
+          "azimuteDaFace_graus": 5.8,
+          "ortogonal": {
+            "aceito": false,
+            "lotes": null,
+            "semPlano": false,
+            "texto": "2 peça(s) do parcelamento saem da gleba — a pior é a via VS-03, a 15.05 m para fora da divisa.",
+            "pecasFora": 2,
+            "pior": "via VS-03",
+            "fora_m": 15.05
+          },
+          "espinha": {
+            "aceito": true,
+            "lotes": 124,
+            "semPlano": false,
+            "texto": null,
+            "pecasFora": null,
+            "pior": null,
+            "fora_m": null
+          }
+        }
+      ]
+    }
+  },
+  "controle": [
+    {
+      "gleba": "geo-antonina",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "vertices": 20,
+      "verticesReflexos": 11,
+      "aceitas": 6,
+      "recusas": []
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "vertices": 4,
+      "verticesReflexos": 0,
+      "aceitas": 6,
+      "recusas": []
+    },
+    {
+      "gleba": "completo",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "vertices": 20,
+      "verticesReflexos": 5,
+      "aceitas": 6,
+      "recusas": []
+    }
+  ],
+  "varreduraAoLongoDaAresta": [
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "face": 0,
+      "comprimentoDaFace_m": 143.5,
+      "pontos": [
+        {
+          "t": 0.05,
+          "metrosDoVertice": 7.18,
+          "aceito": true,
+          "lotes": 1047,
+          "fora_m": null
+        },
+        {
+          "t": 0.2,
+          "metrosDoVertice": 28.7,
+          "aceito": true,
+          "lotes": 1039,
+          "fora_m": null
+        },
+        {
+          "t": 0.35,
+          "metrosDoVertice": 50.23,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 3.84
+        },
+        {
+          "t": 0.5,
+          "metrosDoVertice": 71.75,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 10.36
+        },
+        {
+          "t": 0.65,
+          "metrosDoVertice": 93.28,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 16.89
+        },
+        {
+          "t": 0.8,
+          "metrosDoVertice": 114.8,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 23.41
+        },
+        {
+          "t": 0.95,
+          "metrosDoVertice": 136.33,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 29.93
+        }
+      ]
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "face": 4,
+      "comprimentoDaFace_m": 252.02,
+      "pontos": [
+        {
+          "t": 0.05,
+          "metrosDoVertice": 12.6,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 72.12
+        },
+        {
+          "t": 0.2,
+          "metrosDoVertice": 50.4,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 73.06
+        },
+        {
+          "t": 0.35,
+          "metrosDoVertice": 88.21,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 63.21
+        },
+        {
+          "t": 0.5,
+          "metrosDoVertice": 126.01,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 92.42
+        },
+        {
+          "t": 0.65,
+          "metrosDoVertice": 163.81,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 121.72
+        },
+        {
+          "t": 0.8,
+          "metrosDoVertice": 201.61,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 151.02
+        },
+        {
+          "t": 0.95,
+          "metrosDoVertice": 239.42,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 180.32
+        }
+      ]
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "face": 12,
+      "comprimentoDaFace_m": 175.24,
+      "pontos": [
+        {
+          "t": 0.05,
+          "metrosDoVertice": 8.76,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 124.88
+        },
+        {
+          "t": 0.2,
+          "metrosDoVertice": 35.05,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 99.07
+        },
+        {
+          "t": 0.35,
+          "metrosDoVertice": 61.33,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 73.27
+        },
+        {
+          "t": 0.5,
+          "metrosDoVertice": 87.62,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 47.46
+        },
+        {
+          "t": 0.65,
+          "metrosDoVertice": 113.91,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 21.72
+        },
+        {
+          "t": 0.8,
+          "metrosDoVertice": 140.19,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 1.07
+        },
+        {
+          "t": 0.95,
+          "metrosDoVertice": 166.48,
+          "aceito": true,
+          "lotes": 1009,
+          "fora_m": null
+        }
+      ]
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "face": 0,
+      "comprimentoDaFace_m": 89.32,
+      "pontos": [
+        {
+          "t": 0.05,
+          "metrosDoVertice": 4.47,
+          "aceito": true,
+          "lotes": 189,
+          "fora_m": null
+        },
+        {
+          "t": 0.2,
+          "metrosDoVertice": 17.86,
+          "aceito": true,
+          "lotes": 189,
+          "fora_m": null
+        },
+        {
+          "t": 0.35,
+          "metrosDoVertice": 31.26,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 1.21
+        },
+        {
+          "t": 0.5,
+          "metrosDoVertice": 44.66,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 18.57
+        },
+        {
+          "t": 0.65,
+          "metrosDoVertice": 58.06,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 30.67
+        },
+        {
+          "t": 0.8,
+          "metrosDoVertice": 71.46,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 42.77
+        },
+        {
+          "t": 0.95,
+          "metrosDoVertice": 84.85,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 54.86
+        }
+      ]
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "face": 3,
+      "comprimentoDaFace_m": 123.69,
+      "pontos": [
+        {
+          "t": 0.05,
+          "metrosDoVertice": 6.18,
+          "aceito": true,
+          "lotes": 166,
+          "fora_m": null
+        },
+        {
+          "t": 0.2,
+          "metrosDoVertice": 24.74,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 3.35
+        },
+        {
+          "t": 0.35,
+          "metrosDoVertice": 43.29,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 8.45
+        },
+        {
+          "t": 0.5,
+          "metrosDoVertice": 61.85,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 13.54
+        },
+        {
+          "t": 0.65,
+          "metrosDoVertice": 80.4,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 5.55
+        },
+        {
+          "t": 0.8,
+          "metrosDoVertice": 98.95,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 7.82
+        },
+        {
+          "t": 0.95,
+          "metrosDoVertice": 117.51,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 10.83
+        }
+      ]
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "face": 8,
+      "comprimentoDaFace_m": 171.66,
+      "pontos": [
+        {
+          "t": 0.05,
+          "metrosDoVertice": 8.58,
+          "aceito": true,
+          "lotes": 161,
+          "fora_m": null
+        },
+        {
+          "t": 0.2,
+          "metrosDoVertice": 34.33,
+          "aceito": true,
+          "lotes": 162,
+          "fora_m": null
+        },
+        {
+          "t": 0.35,
+          "metrosDoVertice": 60.08,
+          "aceito": true,
+          "lotes": 158,
+          "fora_m": null
+        },
+        {
+          "t": 0.5,
+          "metrosDoVertice": 85.83,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 8.8
+        },
+        {
+          "t": 0.65,
+          "metrosDoVertice": 111.58,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 26.1
+        },
+        {
+          "t": 0.8,
+          "metrosDoVertice": 137.33,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 46.29
+        },
+        {
+          "t": 0.95,
+          "metrosDoVertice": 163.07,
+          "aceito": false,
+          "lotes": null,
+          "fora_m": 32.43
+        }
+      ]
+    }
+  ],
+  "diagnosticoDaRestricaoFalsa": [
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "aceitasSemRestricao": 1,
+      "aceitasComRestricaoFalsa": 6,
+      "lotesSemRestricao": [
+        1041,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "lotesComRestricaoFalsa": [
+        1041,
+        984,
+        843,
+        1044,
+        865,
+        1026
+      ],
+      "oQueIssoProva": "a candidata ortogonal toma OUTRO caminho quando `restricoes` está vazio, e nesse caminho a via não é aparada pela gleba. Uma restrição que não desconta área nenhuma basta para as 6 posições passarem"
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "motor": "Generate · candidata ortogonal",
+      "semente": 20260913,
+      "aceitasSemRestricao": 3,
+      "aceitasComRestricaoFalsa": 6,
+      "lotesSemRestricao": [
+        178,
+        185,
+        null,
+        null,
+        169,
+        null
+      ],
+      "lotesComRestricaoFalsa": [
+        178,
+        185,
+        167,
+        184,
+        169,
+        126
+      ],
+      "oQueIssoProva": "a candidata ortogonal toma OUTRO caminho quando `restricoes` está vazio, e nesse caminho a via não é aparada pela gleba. Uma restrição que não desconta área nenhuma basta para as 6 posições passarem"
+    }
+  ]
+}
