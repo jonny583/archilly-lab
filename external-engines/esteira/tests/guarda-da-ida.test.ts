@@ -50,8 +50,14 @@ import {
   valorEm,
 } from "../src/guarda-da-ida.ts";
 import { auditarIdaDoParcelamento, auditarIdaDoSymbios } from "../src/guarda-em-acao.ts";
+import { rodarEsteira } from "../../testfit/adapter/src/esteira.ts";
 import { IDA_DO_PARCELAMENTO, IDA_DO_SYMBIOS } from "../src/inventario-das-idas.ts";
-import { linhasDaEntrada, type P } from "../src/motores/comum.ts";
+import {
+  linhasDaEntrada,
+  lotesNaTestadaDeFrente,
+  oQueAEsteiraPassaPronto,
+  type P,
+} from "../src/motores/comum.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const COM_VIA = join(RAIZ, "docs", "fixtures", "glebas-com-via-desenhada");
@@ -218,13 +224,21 @@ describe("a falsificação — uma ida sabotada é pega", () => {
       doContrato: antonina as unknown as Record<string, unknown>,
       doMotor: comoEra as unknown as Record<string, unknown>,
     });
-    // Nada reprova — e é por isso que a trava específica existe.
-    expect(reprovamNaIda(todos)).toHaveLength(0);
-    // Mas a dívida aparece, nomeando os três destinos que a linha pode ter.
-    const d = dividasDoLab(todos);
-    expect(d.length).toBeGreaterThan(0);
-    expect(d.map((x) => x.destino).join(" ")).toContain("viaManual");
-    expect(d.map((x) => x.destino).join(" ")).toContain("facesLoteamento");
+    // ── E DESDE O LAB-37 ELA REPROVA, o que é a notícia boa (D138) ──────────
+    //
+    // Até o LAB-36 esta trava dizia "nada reprova — e é por isso que a trava
+    // específica existe": com `atracoes` declarado como DÍVIDA, a guarda genérica
+    // não podia morder, porque dívida não reprova. Paga a dívida, `atracoes` virou
+    // ENTREGA com três destinos alternativos — e aí a ida como era, que não entrega
+    // nenhum dos três, **é pega pela guarda genérica**.
+    //
+    // O alcance que o D121 custou (ele disse isso, por escrito) foi devolvido.
+    const reprovam = reprovamNaIda(todos);
+    expect(reprovam.length, "a ida como ERA tem de ser pega agora").toBeGreaterThan(0);
+    expect(reprovam.map((x) => x.destino).join(" ")).toContain("viaManual");
+    expect(reprovam.map((x) => x.destino).join(" ")).toContain("facesLoteamento");
+    // E dívida nenhuma, porque não há mais.
+    expect(dividasDoLab(todos)).toHaveLength(0);
   });
 
   test("apagar uma entrada do inventário reprova por `campo-novo-no-contrato`", () => {
@@ -313,8 +327,8 @@ describe("a via desenhada chega ao motor, e muda o desenho", () => {
     // O motor tem UMA coluna vertebral, e isso vai dito nos dois lugares: no
     // inventário, como destino, e na perda que a ida declara quando sobra linha.
     const d = IDA_DO_PARCELAMENTO["atracoes[].tipo"]!;
-    expect(d.tipo).toBe("divida");
-    if (d.tipo === "divida") expect(d.onde).toContain("viaManual");
+    expect(d.tipo, "virou entrega quando a dívida foi paga, no LAB-37").toBe("traduzido");
+    if (d.tipo === "traduzido") expect(d.caminho).toContain("viaManual");
     expect(
       perdas.some((x) => x.campo.includes("atracoes") || x.campo.includes("via desenhada")),
       "sobrou linha desenhada e a ida não declarou a perda",
@@ -343,24 +357,75 @@ describe("a dívida declarada — a confissão que não vira desculpa", () => {
     expect(REGRAS_DA_IDA_QUE_REPROVAM).not.toContain("divida-do-lab");
   });
 
-  test("a dívida da testada de frente está declarada, e nomeia o campo do motor", () => {
+  test("A DÍVIDA FOI PAGA: `atracoes` é ENTREGA, e nomeia os três destinos", () => {
+    // Virada no LAB-37, e virada porque a dívida foi paga — não porque o sinal
+    // incomodava (a lição do LAB-33). Os três destinos agora existem: ímã para
+    // polígono, `viaManual` para via desenhada, `facesLoteamento` para testada de
+    // frente.
     const d = IDA_DO_PARCELAMENTO["atracoes"];
-    expect(d!.tipo).toBe("divida");
-    if (d!.tipo === "divida") {
-      expect(d!.onde).toContain("facesLoteamento");
-      expect(d!.proposto).toContain("faces do perímetro");
+    expect(d!.tipo, "a dívida foi paga no LAB-37: isto é entrega, não confissão").toBe("traduzido");
+    if (d!.tipo === "traduzido") {
+      expect(d!.caminho).toContain("facesLoteamento");
+      expect(d!.caminho).toContain("viaManual");
+      expect(d!.caminho).toContain("terreno.atracoes");
     }
   });
 
-  test("a prova do LAB-30 publica a dívida — ela não fica só no código", () => {
+  test("não há dívida declarada em NENHUM dos dois inventários — e isso é medido", () => {
+    // A categoria existe e está vazia. Se alguém declarar dívida nova, esta trava
+    // não reprova — o que reprova é a dívida não ser publicada (abaixo).
+    const dividas = [
+      ...Object.entries(IDA_DO_PARCELAMENTO),
+      ...Object.entries(IDA_DO_SYMBIOS),
+    ].filter(([, d]) => d.tipo === "divida");
+    expect(dividas.map(([c]) => c), "dívida nova: publique-a na prova e no recado").toEqual([]);
+  });
+
+  test("a prova do LAB-30 publica a conta da dívida — zero hoje, e o campo existe", () => {
+    // O campo **continua na prova** com zero: *"não há dívida"* e *"ninguém mediu"*
+    // são respostas opostas, e sumir com o campo leria como a segunda (D23).
     const prova = JSON.parse(
       readFileSync(join(RAIZ, "docs", "provas", "LAB-30", "guarda-da-ida.json"), "utf8"),
     ) as { reprovamNoTotal: number; dividasDoLab: string[]; porRegra: Record<string, number> };
     expect(prova.reprovamNoTotal).toBe(0);
-    expect(prova.dividasDoLab.length).toBeGreaterThan(0);
-    expect(prova.dividasDoLab.join(" ")).toContain("facesLoteamento");
-    expect(prova.porRegra["divida-do-lab"]).toBeGreaterThan(0);
+    expect(prova.dividasDoLab, "a dívida foi paga no LAB-37").toEqual([]);
+    expect(prova.porRegra["divida-do-lab"], "o campo tem de existir, mesmo zerado").toBe(0);
+    expect(Object.keys(prova.porRegra)).toContain("divida-do-lab");
   });
+
+  test("a TESTADA DE FRENTE chega ao motor, e lote faz frente para ela — medido", () => {
+    // A trava do que a dívida prometia. `geo-antonina` é a gleba com testada de
+    // frente (180 m, face 0 do perímetro coberta a 100 %).
+    // `antonina-com-via` é a fixture já carregada que tem testada de frente: a
+    // `glebaDoLab` lê de `docs/terrenos/`, onde a Antonina não mora.
+    const e = antonina;
+    const { testadasDeFrente } = linhasDaEntrada(e);
+    expect(testadasDeFrente.length, "a fixture precisa ter testada de frente").toBe(1);
+
+    const pronto = oQueAEsteiraPassaPronto(e);
+    expect(pronto.facesLoteamento, "a esteira tem de passar a face coberta").toEqual([0]);
+
+    // E o motor usa: lotes com aresta na testada vão de zero a mais de dez.
+    const r = rodarEsteira(e as unknown as EntradaV1, {
+      semente: 20260913,
+      variantes: 2,
+      aparar: true,
+      formatos: ["ortogonal"],
+    });
+    const rCom = rodarEsteira(e as unknown as EntradaV1, {
+      semente: 20260913,
+      variantes: 2,
+      aparar: true,
+      formatos: ["ortogonal"],
+      facesLoteamento: pronto.facesLoteamento,
+    });
+    const lotesDe = (x: typeof r) =>
+      (x.variantes.filter((v) => v.relatorio)[0]!.saida as unknown as { lotes: { pontos: P[] }[] }).lotes;
+    const sem = lotesNaTestadaDeFrente(lotesDe(r), testadasDeFrente)!;
+    const com = lotesNaTestadaDeFrente(lotesDe(rCom), testadasDeFrente)!;
+    expect(sem.lotes, "sem as faces não havia lote de frente para a rua existente").toBe(0);
+    expect(com.lotes, "com as faces o motor tem de pôr lote de frente").toBeGreaterThan(10);
+  }, 120_000);
 });
 
 // ═════════════════ andar 5 · o ruído separado do sinal (LAB-35) ════════════

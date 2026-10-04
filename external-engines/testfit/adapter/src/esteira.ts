@@ -150,6 +150,8 @@ export interface OpcoesEsteira {
    * testada de frente (LAB-30). Repassada à ida; ver a opção lá.
    */
   viaManual?: { x: number; y: number }[] | null;
+  /** As faces do perímetro que recebem lote virado para a rua existente (LAB-37). */
+  facesLoteamento?: number[] | null;
 }
 
 const agora = () => performance.now();
@@ -177,6 +179,7 @@ export function rodarEsteira(
     variantes,
     ...(opcoes.formatos ? { formatos: [...opcoes.formatos] } : {}),
     ...(opcoes.viaManual ? { viaManual: opcoes.viaManual } : {}),
+    ...(opcoes.facesLoteamento?.length ? { facesLoteamento: opcoes.facesLoteamento } : {}),
   });
   const ida_ms = agora() - tIda;
 

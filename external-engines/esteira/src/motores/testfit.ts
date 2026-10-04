@@ -23,7 +23,7 @@ import { rodarEsteira } from "../../../testfit/adapter/src/esteira.ts";
 import type { EntradaV1 } from "../../../testfit/adapter/src/contrato-v1.ts";
 
 import type { EntradaMinima } from "../gleba-v1.ts";
-import { linhasDaEntrada, type Rodada } from "./comum.ts";
+import { linhasDaEntrada, oQueAEsteiraPassaPronto, type Rodada } from "./comum.ts";
 
 /**
  * Os dez partidos de traçado do catálogo dele.
@@ -52,12 +52,20 @@ export function rodarTestfit(entrada: EntradaMinima, semente: number): Rodada {
   // LAB-13 (`linhasDaEntrada`), porque o contrato **v1** manda as duas com o mesmo
   // tipo. Quem sabe separar é que passa pronto — reescrever o remendo dentro do
   // adaptador seria a segunda régua que o D20 proíbe.
-  const { desenhadas } = linhasDaEntrada(entrada);
-  const comprimento = (l: { x: number; y: number }[]) =>
-    l.reduce((s, p, i) => (i === 0 ? 0 : s + Math.hypot(p.x - l[i - 1]!.x, p.y - l[i - 1]!.y)), 0);
-  const colunaVertebral = desenhadas.length
-    ? [...desenhadas].sort((a, b) => comprimento(b) - comprimento(a))[0]!
-    : null;
+  const { testadasDeFrente } = linhasDaEntrada(entrada);
+  const { viaManual: colunaVertebral } = oQueAEsteiraPassaPronto(entrada);
+
+  // ── A TESTADA DE FRENTE, a última dívida declarada (LAB-37, D121) ─────────
+  //
+  // Ela chega como linha e o motor tem `facesLoteamento` esperando: *"índices das
+  // faces do perímetro que recebem lotes voltados para a rua"*. A ida do Lab nunca
+  // entregou — era a única `divida` do inventário.
+  //
+  // O mapeamento mora na `facesCobertasPelaLinha`, no `comum.ts`, pelo mesmo motivo
+  // que a separação mora aqui: régua duplicada dá dois números para a mesma
+  // grandeza (D116). Os dois parâmetros dela são declarados, e o da fração mínima é
+  // a lição do D75 — a face vizinha toca a linha no VÉRTICE e não é testada.
+  const faces = oQueAEsteiraPassaPronto(entrada).facesLoteamento;
 
   const r = rodarEsteira(entrada as unknown as EntradaV1, {
     semente,
@@ -65,6 +73,7 @@ export function rodarTestfit(entrada: EntradaMinima, semente: number): Rodada {
     aparar: true,
     formatos: [...FORMATOS],
     ...(colunaVertebral ? { viaManual: colunaVertebral } : {}),
+    ...(faces.length ? { facesLoteamento: faces } : {}),
   });
   const ms = performance.now() - t0;
 
@@ -100,9 +109,59 @@ export function rodarTestfit(entrada: EntradaMinima, semente: number): Rodada {
     );
   }
   if (entrada.atracoes?.length) {
-    naoSoubeFazer.push(
-      `${entrada.atracoes.length} atração(ões) na entrada não entram no traçado deste motor`,
+    // ── A frase era falsa em duas pontas desde o LAB-30 (LAB-37) ─────────────
+    //
+    // Ela dizia que NENHUMA atração entra no traçado. Desde o LAB-30 a via
+    // desenhada entra como coluna vertebral, e desde este prompt a testada de
+    // frente entra como `facesLoteamento`. O que de fato não entra é o resto.
+    const entram = (colunaVertebral ? 1 : 0) + (faces.length ? testadasDeFrente.length : 0);
+    const sobram = entrada.atracoes.length - entram;
+    if (colunaVertebral) {
+      naoSoubeFazer.push("a via desenhada entrou como coluna vertebral do traçado (`viaManual`)");
+    }
+    if (faces.length) {
+      naoSoubeFazer.push(
+        `a testada de frente entrou como ${faces.length} face(s) do perímetro ` +
+          `(\`facesLoteamento: [${faces.join(", ")}]\`) — lote virado para a rua existente`,
+      );
+    }
+    if (sobram > 0) {
+      naoSoubeFazer.push(
+        `${sobram} atração(ões) na entrada não entram no traçado deste motor`,
+      );
+    }
+  }
+
+  // ── QUANDO A ESCOLHA DELE CUSTA LOTE, isso vai dito (LAB-37, D140) ────────
+  //
+  // A variante que representa o motor é a de melhor nota DELE — regra do Lab desde
+  // o LAB-13, e ela não muda aqui: escolher por mim seria o Lab decidindo pelo
+  // motor. Mas entregue a testada de frente em `geo-antonina`, o ranking dele passou
+  // a preferir um partido `superquadra` com **33 lotes** sobre um `ortogonal` com
+  // **1 228** — nota 0,6226 contra 0,5881.
+  //
+  // Publicar 33 lotes sem dizer isso seria número que engana: quem lê a tabela
+  // concluiria que o motor desenha mal a gleba, quando o que houve foi o ranking
+  // dele preferir outra coisa. O corte é DECLARADO — o dobro —, e a linha sai só
+  // quando há diferença grande, para não virar ruído em toda rodada.
+  const CORTE_DA_DIFERENCA = 2;
+  if (escolhida) {
+    const maisLotes = julgadas.reduce((a, b) =>
+      ((b.saida as { lotes?: unknown[] }).lotes?.length ?? 0) >
+      ((a.saida as { lotes?: unknown[] }).lotes?.length ?? 0)
+        ? b
+        : a,
     );
+    const nEscolhida = (escolhida.saida as { lotes?: unknown[] }).lotes?.length ?? 0;
+    const nMais = (maisLotes.saida as { lotes?: unknown[] }).lotes?.length ?? 0;
+    if (nMais >= CORTE_DA_DIFERENCA * Math.max(1, nEscolhida)) {
+      naoSoubeFazer.push(
+        `o RANKING DELE escolheu "${escolhida.formato}" com ${nEscolhida} lotes (nota ` +
+          `${escolhida.notaDoMotor.toFixed(4)}); entre as aceitas, "${maisLotes.formato}" dá ` +
+          `${nMais} lotes (nota ${maisLotes.notaDoMotor.toFixed(4)}). A escolha da variante é ` +
+          "do motor, não do Lab — e aqui ela custa lote",
+      );
+    }
   }
 
   if (!escolhida) {

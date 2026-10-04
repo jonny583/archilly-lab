@@ -254,6 +254,25 @@ describe("a página de comparação", () => {
     expect(new Set(avisos).size, "cinco avisos iguais significa que nenhum foi medido").toBeGreaterThan(1);
   });
 
+  test("a queixa que EXPLICA um número está colada ao quadro, não só no fim (LAB-37)", () => {
+    // O princípio do LAB-34, aplicado a outro número: a seção do fim agrupa as
+    // queixas e ELIDE os números, então um 33 na coluna `lotes` ficava sem
+    // explicação justamente onde é lido.
+    const p = lida();
+    const inicio = p.indexOf("identificação técnica do terreno: `geo-antonina`");
+    expect(inicio).toBeGreaterThan(-1);
+    const trecho = p.slice(inicio, inicio + 6000);
+    expect(trecho, "a entrega da testada de frente tem de aparecer no quadro").toContain(
+      "a testada de frente entrou como",
+    );
+    expect(trecho, "a escolha que custa lote tem de aparecer no quadro").toContain(
+      "o RANKING DELE escolheu",
+    );
+    // E com os NÚMEROS, que é o que o agrupamento do fim da página come.
+    expect(trecho).toContain("`facesLoteamento: [0]`");
+    expect(trecho).not.toContain("com … lotes");
+  });
+
   test("a legenda da coluna `Lotes` diz que o número é de UM ponto de entrada", () => {
     // Sem isto, a coluna que convida a ordenar não avisa nada por si.
     const p = lida();

@@ -1,0 +1,282 @@
+{
+  "prompt": "LAB-37",
+  "geradoEm": "2026-10-04T00:00:00.000Z",
+  "semente": 20260913,
+  "contrato": "1",
+  "glebas": [
+    {
+      "prompt": "LAB-37",
+      "gleba": "geo-antonina",
+      "semente": 20260913,
+      "contrato": "1",
+      "motor": "laboratorio-de-parcelamento",
+      "regua": {
+        "toleranciaDaFace_m": 1,
+        "fracaoMinimaDaFace": 0.5,
+        "porQueAFracao": "sem ela a face vizinha, que toca a linha no vértice compartilhado, sairia como coberta — a lição do D75"
+      },
+      "testadasDeFrente": [
+        {
+          "comprimento_m": 180.2
+        }
+      ],
+      "facesDoPerimetro": 20,
+      "facesTocadas": [
+        {
+          "face": 0,
+          "comprimento_m": 180.2,
+          "fracaoCoberta": 1,
+          "entregue": true
+        },
+        {
+          "face": 1,
+          "comprimento_m": 1845.7,
+          "fracaoCoberta": 0.001,
+          "entregue": false
+        },
+        {
+          "face": 19,
+          "comprimento_m": 55.2,
+          "fracaoCoberta": 0.034,
+          "entregue": false
+        }
+      ],
+      "facesLoteamentoEntregues": [
+        0
+      ],
+      "escolhaDoMotor": {
+        "semAsFaces": {
+          "formato": "ortogonal",
+          "lotes": 1386,
+          "lotesNaTestada": 0,
+          "comprimentoDaTestada_m": 180.2
+        },
+        "comAsFaces": {
+          "formato": "superquadra",
+          "lotes": 33,
+          "lotesNaTestada": 14,
+          "comprimentoDaTestada_m": 180.2
+        }
+      },
+      "porFormato": [
+        {
+          "formato": "ortogonal",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 16,
+          "lotesSemAsFaces": 1386,
+          "lotesComAsFaces": 1228,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "espinha",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 17,
+          "lotesSemAsFaces": 1391,
+          "lotesComAsFaces": 1198,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "pente",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 18,
+          "lotesSemAsFaces": 1082,
+          "lotesComAsFaces": 961,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "diagonal",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 1325,
+          "lotesComAsFaces": 1145,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "loop",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 1345,
+          "lotesComAsFaces": 1222,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "cluster",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 1227,
+          "lotesComAsFaces": 1094,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "radial",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 15,
+          "lotesSemAsFaces": 636,
+          "lotesComAsFaces": 582,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "organico",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 928,
+          "lotesComAsFaces": 833,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "superquadra",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 0,
+          "lotesComAsFaces": 33,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "mioloVerde",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 1176,
+          "lotesComAsFaces": 1077,
+          "desenhoIdentico": false
+        }
+      ]
+    },
+    {
+      "prompt": "LAB-37",
+      "gleba": "antonina-com-via",
+      "semente": 20260913,
+      "contrato": "1",
+      "motor": "laboratorio-de-parcelamento",
+      "regua": {
+        "toleranciaDaFace_m": 1,
+        "fracaoMinimaDaFace": 0.5,
+        "porQueAFracao": "sem ela a face vizinha, que toca a linha no vértice compartilhado, sairia como coberta — a lição do D75"
+      },
+      "testadasDeFrente": [
+        {
+          "comprimento_m": 180.2
+        }
+      ],
+      "facesDoPerimetro": 20,
+      "facesTocadas": [
+        {
+          "face": 0,
+          "comprimento_m": 180.2,
+          "fracaoCoberta": 1,
+          "entregue": true
+        },
+        {
+          "face": 1,
+          "comprimento_m": 1845.7,
+          "fracaoCoberta": 0.001,
+          "entregue": false
+        },
+        {
+          "face": 19,
+          "comprimento_m": 55.2,
+          "fracaoCoberta": 0.034,
+          "entregue": false
+        }
+      ],
+      "facesLoteamentoEntregues": [
+        0
+      ],
+      "escolhaDoMotor": {
+        "semAsFaces": {
+          "formato": "espinha",
+          "lotes": 1245,
+          "lotesNaTestada": 0,
+          "comprimentoDaTestada_m": 180.2
+        },
+        "comAsFaces": {
+          "formato": "superquadra",
+          "lotes": 33,
+          "lotesNaTestada": 14,
+          "comprimentoDaTestada_m": 180.2
+        }
+      },
+      "porFormato": [
+        {
+          "formato": "ortogonal",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 1379,
+          "lotesComAsFaces": 1213,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "espinha",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 16,
+          "lotesSemAsFaces": 1245,
+          "lotesComAsFaces": 1215,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "pente",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 18,
+          "lotesSemAsFaces": 1065,
+          "lotesComAsFaces": 937,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "diagonal",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 1284,
+          "lotesComAsFaces": 1149,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "loop",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 1390,
+          "lotesComAsFaces": 1253,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "cluster",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 1221,
+          "lotesComAsFaces": 1067,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "radial",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 15,
+          "lotesSemAsFaces": 619,
+          "lotesComAsFaces": 565,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "organico",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 18,
+          "lotesSemAsFaces": 889,
+          "lotesComAsFaces": 776,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "superquadra",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 0,
+          "lotesComAsFaces": 33,
+          "desenhoIdentico": false
+        },
+        {
+          "formato": "mioloVerde",
+          "lotesNaTestadaSemAsFaces": 0,
+          "lotesNaTestadaComAsFaces": 14,
+          "lotesSemAsFaces": 1140,
+          "lotesComAsFaces": 1014,
+          "desenhoIdentico": false
+        }
+      ]
+    }
+  ]
+}

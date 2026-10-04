@@ -3056,6 +3056,17 @@ que uma cobre a outra.
 `respeitaTestadaDeFrente: false` no Parcelamento é **dívida do Lab, não limitação do
 motor** — e está escrito assim no inventário, onde quem for pegar a dívida vai ler.
 
+> **✅ PAGA no LAB-37, em 04/10/2026** (D138), depois de sete prompts declarada. A
+> `facesCobertasPelaLinha` mapeia a linha para os índices de aresta que ela cobre — em
+> `geo-antonina`, a face 0, coberta a 100 % —, e medido, lotes com aresta na testada vão
+> de **0 para 14 a 18**, em 10 de 10 partidos. **`respeitaTestadaDeFrente` virou `true`:
+> esta decisão previu que seria, e estava certa.**
+>
+> E o alcance que esta decisão custou **voltou**: com `atracoes` sendo entrega e não
+> dívida, a guarda genérica passou a reprovar a ida "como era" — o que ela não podia
+> fazer enquanto o campo fosse `divida`. **A categoria está vazia hoje**, e o ajudante
+> fica no código: a gaveta vazia é a prova de que a confissão tinha prazo.
+
 ---
 
 ## D122 · "Verde" é um comando só, e ele DESCOBRE os pacotes em vez de listá-los · 04/10/2026
@@ -3543,3 +3554,96 @@ achado. A lição entra ao lado das outras:
 > fato usa.** Régua que casa por nome exato mede ortografia; régua que casa por conceito
 > mede conteúdo — e é por isso que a guarda da ida resolve **caminho**, e não nome
 > (D30).
+
+---
+
+## D138 · A dívida da testada de frente foi PAGA, e a D121 estava certa · 04/10/2026
+
+O chat mandou: *"a dívida da testada de frente — mapear a linha para as faces do
+perímetro — escreva o tamanho e execute se couber."* **Cabia.**
+
+A **testada de frente** — a linha onde a gleba encosta numa rua que já existe — chega
+ao contrato como linha, e o motor do Laboratório de Parcelamento tem `facesLoteamento`
+esperando desde sempre: *"índices das faces do perímetro que recebem lotes voltados
+para a rua"*. **A ida do Lab nunca entregou.** Era a única `divida` declarada do
+inventário, do LAB-30 ao LAB-37.
+
+**O tamanho, escrito antes de executar:** uma régua nova
+(`facesCobertasPelaLinha`), a opção na ida, a passagem na esteira do adaptador, o
+cálculo no invólucro, o inventário virando entrega, a declaração da porta, a medição e
+as travas. Comparável ao LAB-30. **Cabe num prompt.**
+
+**O mapeamento, medido em `geo-antonina`:** a linha de **180 m** cobre a **face 0** do
+perímetro **a 100 %**. A face 19 encosta nela **a 3 %** — o vértice compartilhado, não
+a testada. Daí o segundo parâmetro da régua ser a **fração mínima da face**, meia face,
+**declarada**: sem ela a régua repetiria o **D75**, em que uma régua de vértice pôs três
+de quatro vias desenhadas no balde errado. A tolerância de 1 m dá o mesmo resultado que
+5 m, o que diz que a escolha não está mandando no número.
+
+**O resultado, e ele é limpo:**
+
+| | sem as faces | com as faces |
+|---|---|---|
+| lotes com aresta na testada, em 10 de 10 partidos | **0** | **14 a 18** |
+
+**A D121 dizia, por escrito, que enquanto a dívida durasse, `respeitaTestadaDeFrente:
+false` era dívida do Lab e não limitação do motor. Medido: ela estava certa.** A
+declaração virou `true`, com o experimento do registro a desmentindo se voltar a mentir.
+
+**E a dívida paga devolveu o alcance que ela custou.** O D121 registrou que fazer de
+`atracoes` uma `divida` tirou a mordida da guarda genérica — dívida não reprova. Agora
+`atracoes` é **entrega com três destinos alternativos** (`terreno.atracoes | viaManual |
+facesLoteamento`), e a trava do D119 mostra a diferença: **a ida "como era" passou a ser
+reprovada pela guarda genérica**, que antes não podia morder.
+
+**A categoria `divida` está vazia hoje**, e o ajudante dela fica no código, sem uso, de
+propósito: a próxima dívida não precisa reinventá-lo, e a gaveta vazia é a prova de que
+ele cumpriu o que prometia — ser uma confissão **com prazo**.
+
+## D139 · O arnês da guarda media um caminho que não era o caminho · 04/10/2026
+
+Declarado `atracoes` como entrega, a guarda da ida **reprovou 6 campos em
+`geo-antonina`**, dizendo que a testada de frente não chegava ao motor. Eu tinha nas
+mãos *"a entrega não funciona"*.
+
+**Ela estava certa sobre o que mediu e errada sobre a esteira.** O `rodarTestfit`
+calculava a coluna vertebral **e** as faces; o arnês da guarda
+(`auditarIdaDoParcelamento`) calculava **só a coluna**. A guarda auditava, portanto, um
+caminho que não é o caminho de verdade.
+
+**Isso é pior que guarda reprovando à toa: é guarda medindo outra coisa** — e o pior do
+pior é que a divergência nasceu **dentro da guarda que existe justamente para impedir
+que duas montagens da mesma coisa envelheçam em direções diferentes** (D116).
+
+**Decisão:** `oQueAEsteiraPassaPronto(entrada)` devolve `{ viaManual, facesLoteamento }`
+e é **a única** montagem; o invólucro e o arnês a chamam. Com ela, a guarda volta a zero
+reprovações, e há trava exigindo que **os dois arquivos citem a função** — porque o jeito
+de isto voltar é alguém "simplificar" um dos dois.
+
+## D140 · A escolha da variante segue sendo do motor — e quando custa lote, sai dito · 04/10/2026
+
+Entregue a testada de frente em `geo-antonina`, **o ranking do próprio motor passou a
+preferir um partido `superquadra` com 33 lotes sobre um `ortogonal` com 1 228** — nota
+0,6226 contra 0,5881. Antes da entrega, o `superquadra` desenhava **zero** lotes e era
+inválido; com os lotes externos da testada ele passou a valer, e a nota dele é a maior.
+
+Três saídas, e duas são ruins:
+
+| saída | por que não |
+|---|---|
+| escolher a variante por mim (a de mais lotes) | **o Lab decidindo pelo motor** — a regra é a melhor nota DELE desde o LAB-13 |
+| não entregar a testada na rodada da tabela | **esconder dado do motor**, que é o pecado do D119 |
+
+**Decisão: entregar, publicar o 33, e dizer a razão onde o número aparece.** O
+`rodarTestfit` publica, quando a variante de mais lotes tem **o dobro ou mais** (corte
+declarado), uma linha nomeando os dois partidos, os dois números e as duas notas. E o
+gerador da página passa a pôr essa linha **debaixo do quadro do terreno**, não só na
+seção do fim — que **agrupa as queixas e elide os números**, deixando o 33 sem
+explicação justamente onde ele é lido.
+
+**É o princípio que o chat ensinou no LAB-34**, aplicado a outro número: *"ponha o aviso
+onde o número aparece, não escondido"*.
+
+**E vira item para o Laboratório de Parcelamento, numerado no relatório, sem commit
+lá:** a nota deles prefere 33 lotes a 1 228 na mesma gleba. Pode ser intencional — plano
+de poucos lotes grandes é um produto — mas **se não for, está medido**.

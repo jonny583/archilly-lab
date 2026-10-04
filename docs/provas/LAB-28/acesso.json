@@ -7,9 +7,9 @@
   "amplitudeEhPiso": true,
   "comoSeMede": "o acesso vai a 6 pontos igualmente espaçados por comprimento de arco no perímetro da gleba; o motor roda em cada um e quem conta lotes e área vendável é o Validator do Generate, o mesmo da tabela comparativa",
   "ressalva": "a amplitude é um PISO: 6 pontos não varrem o perímetro, e o melhor e o pior ponto reais podem cair entre duas amostras",
-  "maiorAmplitudeDeTodas_pct": 108.26,
+  "maiorAmplitudeDeTodas_pct": 3775.76,
   "glebasEmQueOAcessoPesaMaisQueOsQuatroMotores": 1,
-  "glebasEmQueOAcessoPesaMaisQueOsMotoresDeLote": 2,
+  "glebasEmQueOAcessoPesaMaisQueOsMotoresDeLote": 1,
   "porQueDuasContas": "a diferença entre os QUATRO motores inclui o Symbios, que entrega quadra e cujos lotes vêm da subdivisão do Lab (D50) — isso infla a conta até 355 %, que não é escolha de projeto. A conta entre os três que entregam lote é a que responde \"trocar o programa rende mais que mudar a entrada?\". As duas saem publicadas",
   "glebas": {
     "completo": {
@@ -18,7 +18,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 8211.52,
+          "ms": 7023.14,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -98,7 +98,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 10807.66,
+          "ms": 8889.89,
           "posicoes": 6,
           "posicoesMedidas": 4,
           "amplitudeEhPiso": true,
@@ -178,7 +178,7 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 41023.95,
+          "ms": 34778.12,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -258,7 +258,7 @@
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 44981.57,
+          "ms": 38728.8,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -349,7 +349,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 3134.02,
+          "ms": 2684.54,
           "posicoes": 6,
           "posicoesMedidas": 1,
           "amplitudeEhPiso": true,
@@ -429,7 +429,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 4707.96,
+          "ms": 3718.68,
           "posicoes": 6,
           "posicoesMedidas": 5,
           "amplitudeEhPiso": true,
@@ -509,7 +509,7 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 16488.61,
+          "ms": 14130.07,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -589,7 +589,7 @@
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 10963.9,
+          "ms": 9979.25,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -680,7 +680,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 504.71,
+          "ms": 406.74,
           "posicoes": 6,
           "posicoesMedidas": 3,
           "amplitudeEhPiso": true,
@@ -760,7 +760,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 592.69,
+          "ms": 465.2,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -840,7 +840,7 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 1962.83,
+          "ms": 1766.68,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -920,7 +920,7 @@
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 3076.97,
+          "ms": 3073.35,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1011,7 +1011,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 3415.42,
+          "ms": 3099.98,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1098,7 +1098,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 4767.12,
+          "ms": 4033.4,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1185,7 +1185,7 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 12872.51,
+          "ms": 11482.21,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1272,7 +1272,7 @@
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 7716.34,
+          "ms": 7065.43,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1370,7 +1370,7 @@
       "motores": {
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
-          "ms": 7526.96,
+          "ms": 6549.15,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1457,7 +1457,7 @@
         },
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
-          "ms": 8401.36,
+          "ms": 7450.7,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1544,23 +1544,23 @@
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
-          "ms": 52911.19,
+          "ms": 41819.39,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
           "lotes": {
-            "minimo": 1386,
-            "maximo": 1454,
-            "mediana": 1393,
-            "amplitude": 68,
-            "amplitudePct": 4.91
+            "minimo": 33,
+            "maximo": 1279,
+            "mediana": 1215,
+            "amplitude": 1246,
+            "amplitudePct": 3775.76
           },
           "areaVendavel_m2": {
-            "minimo": 555017.12,
-            "maximo": 582348.39,
-            "mediana": 557952.74,
-            "amplitude": 27331.27,
-            "amplitudePct": 4.92
+            "minimo": 10329.1,
+            "maximo": 513069.12,
+            "mediana": 487106.84,
+            "amplitude": 502740.02,
+            "amplitudePct": 4867.22
           },
           "melhorPonto": {
             "x": 1041.6778622619722,
@@ -1575,8 +1575,8 @@
               "x": -72.308,
               "y": -760.307
             },
-            "lotes": 1386,
-            "areaVendavel_m2": 555017.12
+            "lotes": 33,
+            "areaVendavel_m2": 10329.1
           },
           "porPosicao": [
             {
@@ -1584,54 +1584,54 @@
                 "x": -128.257,
                 "y": -830.943
               },
-              "lotes": 1386,
-              "areaVendavel_m2": 555017.12
+              "lotes": 33,
+              "areaVendavel_m2": 10329.1
             },
             {
               "ponto": {
                 "x": 454.8197749749432,
                 "y": -126.79684733815941
               },
-              "lotes": 1420,
-              "areaVendavel_m2": 568684.21
+              "lotes": 1266,
+              "areaVendavel_m2": 507763.71
             },
             {
               "ponto": {
                 "x": 1041.6778622619722,
                 "y": 574.270036436664
               },
-              "lotes": 1454,
-              "areaVendavel_m2": 582348.39
+              "lotes": 1279,
+              "areaVendavel_m2": 513069.12
             },
             {
               "ponto": {
                 "x": 469.0055263298908,
                 "y": 816.2866418683504
               },
-              "lotes": 1386,
-              "areaVendavel_m2": 555017.12
+              "lotes": 1228,
+              "areaVendavel_m2": 492570.67
             },
             {
               "ponto": {
                 "x": -121.33354280414841,
                 "y": 527.6311829780141
               },
-              "lotes": 1393,
-              "areaVendavel_m2": 557952.74
+              "lotes": 1201,
+              "areaVendavel_m2": 481643.02
             },
             {
               "ponto": {
                 "x": -502.1139272981369,
                 "y": -303.5441526502805
               },
-              "lotes": 1393,
-              "areaVendavel_m2": 557952.74
+              "lotes": 33,
+              "areaVendavel_m2": 10329.1
             }
           ]
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
-          "ms": 92207.28,
+          "ms": 79519.85,
           "posicoes": 6,
           "posicoesMedidas": 6,
           "amplitudeEhPiso": true,
@@ -1718,9 +1718,9 @@
         }
       },
       "confronto": {
-        "amplitudeDoAcesso_pct": 44.21,
-        "entreMotores_pct": 63.41,
-        "entreOsDeLote_pct": 19.55
+        "amplitudeDoAcesso_pct": 3775.76,
+        "entreMotores_pct": 4921.21,
+        "entreOsDeLote_pct": 4921.21
       }
     }
   },
@@ -1751,9 +1751,9 @@
     },
     {
       "gleba": "geo-antonina",
-      "amplitudeDoAcesso_pct": 44.21,
-      "entreMotores_pct": 63.41,
-      "entreOsDeLote_pct": 19.55
+      "amplitudeDoAcesso_pct": 3775.76,
+      "entreMotores_pct": 4921.21,
+      "entreOsDeLote_pct": 4921.21
     }
   ]
 }
