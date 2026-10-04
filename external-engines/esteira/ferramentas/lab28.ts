@@ -42,9 +42,9 @@ import { areaPoligono } from "@symbios/geo.ts";
 import type { Terreno } from "@symbios/contrato.ts";
 
 import {
+  MOTORES_DE_LOTE,
   POSICOES_DE_ACESSO,
-  amplitudePctDe,
-  referenciaDe,
+  confrontoDoAcesso,
   sensibilidadeAoAcesso,
   type SensibilidadeAoAcesso,
 } from "../src/acesso.ts";
@@ -107,15 +107,6 @@ const confrontos: {
   entreOsDeLote_pct: number;
 }[] = [];
 
-/**
- * Os motores que entregam **lote** por conta própria.
- *
- * O Symbios fica fora desta lista porque ele entrega **quadra**, e os lotes dele
- * são da subdivisão do Lab (D50). A diferença entre ele e um motor de lote não é
- * uma escolha de projeto — é a distância entre duas etapas.
- */
-const MOTORES_DE_LOTE = ["generate-ortogonal", "generate-espinha", "parcelamento"] as const;
-
 for (const { id, entrada } of GLEBAS) {
   const { terreno } = glebaParaOSymbios(entrada);
   const areaGleba = areaPoligono((terreno as Terreno).gleba);
@@ -128,7 +119,6 @@ for (const { id, entrada } of GLEBAS) {
   const motores: Record<string, unknown> = {};
   const sens: Record<string, SensibilidadeAoAcesso> = {};
   const lotesComAcessoDeclarado: number[] = [];
-  let maiorAmplitude = 0;
 
   for (const m of MOTORES) {
     const t0 = performance.now();
@@ -141,7 +131,6 @@ for (const { id, entrada } of GLEBAS) {
     sens[m.id] = s;
     motores[m.id] = { motor: m.nome, ms: n2(ms), ...s };
 
-    if (s.lotes.amplitudePct != null) maiorAmplitude = Math.max(maiorAmplitude, s.lotes.amplitudePct);
     const decl = s.acessoDeclarado?.lotes ?? null;
     if (decl != null) lotesComAcessoDeclarado.push(decl);
 
@@ -174,12 +163,17 @@ for (const { id, entrada } of GLEBAS) {
   // *"trocar o programa que desenha rende mais que mudar a entrada?"*. As duas vão
   // publicadas, para ninguém dizer que eu escolhi a que dava a manchete melhor.
   // A fórmula mora na régua (`acesso.ts`), não aqui: a página do Jonny e esta
-  // ferramenta tinham duas, e davam dois confrontos para a mesma gleba (D116).
-  const refDe = (ids: readonly string[]) =>
-    ids.map((mid) => (sens[mid] ? referenciaDe(sens[mid]!) : null));
-
-  const entreQuatro = amplitudePctDe(refDe(MOTORES.map((m) => m.id)));
-  const entreOsDeLote = amplitudePctDe(refDe(MOTORES_DE_LOTE));
+  // ferramenta tinham duas, e davam dois confrontos para a mesma gleba (D116). E
+  // desde o LAB-39 a MONTAGEM das três contas também mora lá — inclusive a lista
+  // dos motores de lote, que aqui estava declarada e na ferramenta do LAB-19
+  // escrita como `MOTORES.filter(… !== "symbios")`.
+  //
+  // Os nomes das chaves publicadas continuam os deste arquivo: trocá-los mudaria a
+  // forma de uma prova publicada, e isso é outro prompt.
+  const confronto = confrontoDoAcesso(sens, MOTORES_DE_LOTE);
+  const maiorAmplitude = confronto.maiorAmplitude_pct;
+  const entreQuatro = confronto.entreOsQuatroMotores_pct;
+  const entreOsDeLote = confronto.entreOsMotoresDeLote_pct;
   void lotesComAcessoDeclarado;
 
   confrontos.push({

@@ -1,0 +1,2794 @@
+{
+  "prompt": "LAB-39",
+  "geradoEm": "2026-10-04T16:00:00.000Z",
+  "semente": 20260913,
+  "contrato": "1",
+  "oQueEhMedido": "se o agregado publicado em cada prova SEGUE dos números crus que a própria prova carrega",
+  "oQueNaoEhMedido": "o acesso em si — quem mede isso é o LAB-28; aqui nenhum motor roda, e nenhuma gleba é desenhada de novo",
+  "posicoesDeAcesso": 6,
+  "motoresDeLote": [
+    "generate-ortogonal",
+    "generate-espinha",
+    "parcelamento"
+  ],
+  "agregadosConferidos": 40,
+  "posicoesCruasConferidas": 240,
+  "divergencias": 0,
+  "aTravaAntiga": {
+    "oQueEla": "comparava a prova do LAB-19 com a prova do LAB-28",
+    "porQueNaoMedia": "as duas saem da MESMA fórmula; regeradas erradas do mesmo jeito, a comparação passava — e regerada só uma, ela ficava vermelha sem nada estar errado",
+    "veredito": "D131 a reprovou na varredura das sete travas que leem docs/provas/"
+  },
+  "sabotagem": {
+    "oQue": "entreOsMotoresDeLote_pct da gleba `completo` na prova do LAB-19 trocado de 29.12 para 70 — justamente o número errado que o D116 publicou",
+    "comando": "bun test tests/acesso.test.ts",
+    "antes": {
+      "testes": 30,
+      "falhas": 0
+    },
+    "depois": {
+      "testes": 30,
+      "falhas": 3
+    },
+    "reprovou": true,
+    "arquivoRestaurado": true
+  },
+  "arquivos": {
+    "LAB-19/tabela.json": {
+      "arquivo": "LAB-19/tabela.json",
+      "regere": "bun run lab19",
+      "semente": 20260913,
+      "contrato": "1",
+      "glebas": {
+        "completo": {
+          "gleba": "completo",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 108.26,
+            "entreOsQuatroMotores_pct": 45.6,
+            "entreOsMotoresDeLote_pct": 29.12
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 108.26,
+            "entreOsQuatroMotores_pct": 45.6,
+            "entreOsMotoresDeLote_pct": 29.12
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1357,
+                998,
+                1643,
+                1327,
+                1654,
+                1074
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 998,
+                  "maximo": 1654,
+                  "mediana": 1342,
+                  "amplitude": 656,
+                  "amplitudePct": 65.73
+                },
+                "areaVendavel_m2": {
+                  "minimo": 359739.4,
+                  "maximo": 601164.66,
+                  "mediana": 488681.41,
+                  "amplitude": 241425.26,
+                  "amplitudePct": 67.11
+                },
+                "melhorPonto": {
+                  "x": -542.995656693147,
+                  "y": -550.6968058382074
+                },
+                "piorPonto": {
+                  "x": 359.99655051051104,
+                  "y": 393.5687294580518
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 998,
+                  "maximo": 1654,
+                  "mediana": 1342,
+                  "amplitude": 656,
+                  "amplitudePct": 65.73
+                },
+                "areaVendavel_m2": {
+                  "minimo": 359739.4,
+                  "maximo": 601164.66,
+                  "mediana": 488681.41,
+                  "amplitude": 241425.26,
+                  "amplitudePct": 67.11
+                },
+                "melhorPonto": {
+                  "x": -542.995656693147,
+                  "y": -550.6968058382074
+                },
+                "piorPonto": {
+                  "x": 359.99655051051104,
+                  "y": 393.5687294580518
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                null,
+                null,
+                1791,
+                1450,
+                1627,
+                860
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 4,
+                "lotes": {
+                  "minimo": 860,
+                  "maximo": 1791,
+                  "mediana": 1539,
+                  "amplitude": 931,
+                  "amplitudePct": 108.26
+                },
+                "areaVendavel_m2": {
+                  "minimo": 309554.6,
+                  "maximo": 646733.68,
+                  "mediana": 555396.41,
+                  "amplitude": 337179.08,
+                  "amplitudePct": 108.92
+                },
+                "melhorPonto": {
+                  "x": -399.1769513734904,
+                  "y": 561.0443490654175
+                },
+                "piorPonto": {
+                  "x": 283.76616032259676,
+                  "y": -421.08722953316544
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 4,
+                "lotes": {
+                  "minimo": 860,
+                  "maximo": 1791,
+                  "mediana": 1539,
+                  "amplitude": 931,
+                  "amplitudePct": 108.26
+                },
+                "areaVendavel_m2": {
+                  "minimo": 309554.6,
+                  "maximo": 646733.68,
+                  "mediana": 555396.41,
+                  "amplitude": 337179.08,
+                  "amplitudePct": 108.92
+                },
+                "melhorPonto": {
+                  "x": -399.1769513734904,
+                  "y": 561.0443490654175
+                },
+                "piorPonto": {
+                  "x": 283.76616032259676,
+                  "y": -421.08722953316544
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1051,
+                1011,
+                1083,
+                962,
+                1114,
+                1059
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 962,
+                  "maximo": 1114,
+                  "mediana": 1055,
+                  "amplitude": 152,
+                  "amplitudePct": 15.8
+                },
+                "areaVendavel_m2": {
+                  "minimo": 383948.06,
+                  "maximo": 445011.67,
+                  "mediana": 422394.99,
+                  "amplitude": 61063.61,
+                  "amplitudePct": 15.9
+                },
+                "melhorPonto": {
+                  "x": -542.995656693147,
+                  "y": -550.6968058382074
+                },
+                "piorPonto": {
+                  "x": -655.2692659337996,
+                  "y": -11.599225229815843
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 962,
+                  "maximo": 1114,
+                  "mediana": 1055,
+                  "amplitude": 152,
+                  "amplitudePct": 15.8
+                },
+                "areaVendavel_m2": {
+                  "minimo": 383948.06,
+                  "maximo": 445011.67,
+                  "mediana": 422394.99,
+                  "amplitude": 61063.61,
+                  "amplitudePct": 15.9
+                },
+                "melhorPonto": {
+                  "x": -542.995656693147,
+                  "y": -550.6968058382074
+                },
+                "piorPonto": {
+                  "x": -655.2692659337996,
+                  "y": -11.599225229815843
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                932,
+                932,
+                932,
+                932,
+                932,
+                932
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 932,
+                  "maximo": 932,
+                  "mediana": 932,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 287286.97,
+                  "maximo": 287286.97,
+                  "mediana": 287286.97,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 1007.7458774024602,
+                  "y": 0.000005275760983077215
+                },
+                "piorPonto": {
+                  "x": 1007.7458774024602,
+                  "y": 0.000005275760983077215
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 932,
+                  "maximo": 932,
+                  "mediana": 932,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 287286.97,
+                  "maximo": 287286.97,
+                  "mediana": 287286.97,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 1007.7458774024602,
+                  "y": 0.000005275760983077215
+                },
+                "piorPonto": {
+                  "x": 1007.7458774024602,
+                  "y": 0.000005275760983077215
+                }
+              },
+              "confere": true
+            }
+          }
+        },
+        "sintetico-50ha-ondulado": {
+          "gleba": "sintetico-50ha-ondulado",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 16.86,
+            "entreOsQuatroMotores_pct": 227.36,
+            "entreOsMotoresDeLote_pct": 95.68
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 16.86,
+            "entreOsQuatroMotores_pct": 227.36,
+            "entreOsMotoresDeLote_pct": 95.68
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1041,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 1,
+                "lotes": {
+                  "minimo": 1041,
+                  "maximo": 1041,
+                  "mediana": 1041,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 379508.59,
+                  "maximo": 379508.59,
+                  "mediana": 379508.59,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 1,
+                "lotes": {
+                  "minimo": 1041,
+                  "maximo": 1041,
+                  "mediana": 1041,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 379508.59,
+                  "maximo": 379508.59,
+                  "mediana": 379508.59,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                805,
+                777,
+                null,
+                736,
+                765,
+                777
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 5,
+                "lotes": {
+                  "minimo": 736,
+                  "maximo": 805,
+                  "mediana": 777,
+                  "amplitude": 69,
+                  "amplitudePct": 9.38
+                },
+                "areaVendavel_m2": {
+                  "minimo": 264524.75,
+                  "maximo": 290375.91,
+                  "mediana": 279748.07,
+                  "amplitude": 25851.16,
+                  "amplitudePct": 9.77
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": -559.6959528492866,
+                  "y": 27.150566851623495
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 5,
+                "lotes": {
+                  "minimo": 736,
+                  "maximo": 805,
+                  "mediana": 777,
+                  "amplitude": 69,
+                  "amplitudePct": 9.38
+                },
+                "areaVendavel_m2": {
+                  "minimo": 264524.75,
+                  "maximo": 290375.91,
+                  "mediana": 279748.07,
+                  "amplitude": 25851.16,
+                  "amplitudePct": 9.77
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": -559.6959528492866,
+                  "y": 27.150566851623495
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                532,
+                596,
+                510,
+                555,
+                555,
+                521
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 510,
+                  "maximo": 596,
+                  "mediana": 544,
+                  "amplitude": 86,
+                  "amplitudePct": 16.86
+                },
+                "areaVendavel_m2": {
+                  "minimo": 203805.32,
+                  "maximo": 237723.27,
+                  "mediana": 216464.32,
+                  "amplitude": 33917.95,
+                  "amplitudePct": 16.64
+                },
+                "melhorPonto": {
+                  "x": 209.02875230551723,
+                  "y": 366.5071094190004
+                },
+                "piorPonto": {
+                  "x": -197.33327248500626,
+                  "y": 237.12398673612526
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 510,
+                  "maximo": 596,
+                  "mediana": 544,
+                  "amplitude": 86,
+                  "amplitudePct": 16.86
+                },
+                "areaVendavel_m2": {
+                  "minimo": 203805.32,
+                  "maximo": 237723.27,
+                  "mediana": 216464.32,
+                  "amplitude": 33917.95,
+                  "amplitudePct": 16.64
+                },
+                "melhorPonto": {
+                  "x": 209.02875230551723,
+                  "y": 366.5071094190004
+                },
+                "piorPonto": {
+                  "x": -197.33327248500626,
+                  "y": 237.12398673612526
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                318,
+                318,
+                318,
+                318,
+                318,
+                318
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 318,
+                  "maximo": 318,
+                  "mediana": 318,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 95885.19,
+                  "maximo": 95885.19,
+                  "mediana": 95885.19,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 318,
+                  "maximo": 318,
+                  "mediana": 318,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 95885.19,
+                  "maximo": 95885.19,
+                  "mediana": 95885.19,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                }
+              },
+              "confere": true
+            }
+          }
+        },
+        "sintetico-10ha-plano": {
+          "gleba": "sintetico-10ha-plano",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 27.68,
+            "entreOsQuatroMotores_pct": 169.7,
+            "entreOsMotoresDeLote_pct": 44.72
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 27.68,
+            "entreOsQuatroMotores_pct": 169.7,
+            "entreOsMotoresDeLote_pct": 44.72
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                178,
+                185,
+                null,
+                null,
+                169,
+                null
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 3,
+                "lotes": {
+                  "minimo": 169,
+                  "maximo": 185,
+                  "mediana": 178,
+                  "amplitude": 16,
+                  "amplitudePct": 9.47
+                },
+                "areaVendavel_m2": {
+                  "minimo": 61350.87,
+                  "maximo": 66085.27,
+                  "mediana": 65780.68,
+                  "amplitude": 4734.4,
+                  "amplitudePct": 7.72
+                },
+                "melhorPonto": {
+                  "x": 53.02122354884004,
+                  "y": 171.86069085126167
+                },
+                "piorPonto": {
+                  "x": -78.7004580632876,
+                  "y": -145.08972813677127
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 3,
+                "lotes": {
+                  "minimo": 169,
+                  "maximo": 185,
+                  "mediana": 178,
+                  "amplitude": 16,
+                  "amplitudePct": 9.47
+                },
+                "areaVendavel_m2": {
+                  "minimo": 61350.87,
+                  "maximo": 66085.27,
+                  "mediana": 65780.68,
+                  "amplitude": 4734.4,
+                  "amplitudePct": 7.72
+                },
+                "melhorPonto": {
+                  "x": 53.02122354884004,
+                  "y": 171.86069085126167
+                },
+                "piorPonto": {
+                  "x": -78.7004580632876,
+                  "y": -145.08972813677127
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                136,
+                135,
+                141,
+                123,
+                138,
+                124
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 123,
+                  "maximo": 141,
+                  "mediana": 136,
+                  "amplitude": 18,
+                  "amplitudePct": 14.63
+                },
+                "areaVendavel_m2": {
+                  "minimo": 44815.51,
+                  "maximo": 50801.94,
+                  "mediana": 48871.56,
+                  "amplitude": 5986.43,
+                  "amplitudePct": 13.36
+                },
+                "melhorPonto": {
+                  "x": -116.36004943979229,
+                  "y": 107.58137515676174
+                },
+                "piorPonto": {
+                  "x": -255.0419524143536,
+                  "y": -17.06328816242104
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 123,
+                  "maximo": 141,
+                  "mediana": 136,
+                  "amplitude": 18,
+                  "amplitudePct": 14.63
+                },
+                "areaVendavel_m2": {
+                  "minimo": 44815.51,
+                  "maximo": 50801.94,
+                  "mediana": 48871.56,
+                  "amplitude": 5986.43,
+                  "amplitudePct": 13.36
+                },
+                "melhorPonto": {
+                  "x": -116.36004943979229,
+                  "y": 107.58137515676174
+                },
+                "piorPonto": {
+                  "x": -255.0419524143536,
+                  "y": -17.06328816242104
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                123,
+                143,
+                135,
+                112,
+                138,
+                138
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 112,
+                  "maximo": 143,
+                  "mediana": 137,
+                  "amplitude": 31,
+                  "amplitudePct": 27.68
+                },
+                "areaVendavel_m2": {
+                  "minimo": 44048.59,
+                  "maximo": 56875.76,
+                  "mediana": 54137.4,
+                  "amplitude": 12827.17,
+                  "amplitudePct": 29.12
+                },
+                "melhorPonto": {
+                  "x": 53.02122354884004,
+                  "y": 171.86069085126167
+                },
+                "piorPonto": {
+                  "x": -255.0419524143536,
+                  "y": -17.06328816242104
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 112,
+                  "maximo": 143,
+                  "mediana": 137,
+                  "amplitude": 31,
+                  "amplitudePct": 27.68
+                },
+                "areaVendavel_m2": {
+                  "minimo": 44048.59,
+                  "maximo": 56875.76,
+                  "mediana": 54137.4,
+                  "amplitude": 12827.17,
+                  "amplitudePct": 29.12
+                },
+                "melhorPonto": {
+                  "x": 53.02122354884004,
+                  "y": 171.86069085126167
+                },
+                "piorPonto": {
+                  "x": -255.0419524143536,
+                  "y": -17.06328816242104
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                66,
+                66,
+                66,
+                66,
+                66,
+                66
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 66,
+                  "maximo": 66,
+                  "mediana": 66,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 23534.87,
+                  "maximo": 23534.87,
+                  "mediana": 23534.87,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 139.16805490613143,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 139.16805490613143,
+                  "y": 0
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 66,
+                  "maximo": 66,
+                  "mediana": 66,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 23534.87,
+                  "maximo": 23534.87,
+                  "mediana": 23534.87,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 139.16805490613143,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 139.16805490613143,
+                  "y": 0
+                }
+              },
+              "confere": true
+            }
+          }
+        },
+        "ensaio-47ha": {
+          "gleba": "ensaio-47ha",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 53.16,
+            "entreOsQuatroMotores_pct": 355.14,
+            "entreOsMotoresDeLote_pct": 62.6
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 53.16,
+            "entreOsQuatroMotores_pct": 355.14,
+            "entreOsMotoresDeLote_pct": 62.6
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                966,
+                960,
+                1024,
+                978,
+                973,
+                970
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 960,
+                  "maximo": 1024,
+                  "mediana": 972,
+                  "amplitude": 64,
+                  "amplitudePct": 6.67
+                },
+                "areaVendavel_m2": {
+                  "minimo": 348415.22,
+                  "maximo": 377884.44,
+                  "mediana": 354094.32,
+                  "amplitude": 29469.22,
+                  "amplitudePct": 8.46
+                },
+                "melhorPonto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "piorPonto": {
+                  "x": 462.5,
+                  "y": 0
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 960,
+                  "maximo": 1024,
+                  "mediana": 972,
+                  "amplitude": 64,
+                  "amplitudePct": 6.67
+                },
+                "areaVendavel_m2": {
+                  "minimo": 348415.22,
+                  "maximo": 377884.44,
+                  "mediana": 354094.32,
+                  "amplitude": 29469.22,
+                  "amplitudePct": 8.46
+                },
+                "melhorPonto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "piorPonto": {
+                  "x": 462.5,
+                  "y": 0
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                724,
+                745,
+                735,
+                721,
+                745,
+                737
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 721,
+                  "maximo": 745,
+                  "mediana": 736,
+                  "amplitude": 24,
+                  "amplitudePct": 3.33
+                },
+                "areaVendavel_m2": {
+                  "minimo": 259028.91,
+                  "maximo": 270317.3,
+                  "mediana": 264560.82,
+                  "amplitude": 11288.39,
+                  "amplitudePct": 4.36
+                },
+                "melhorPonto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 800,
+                  "y": 587.5
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 721,
+                  "maximo": 745,
+                  "mediana": 736,
+                  "amplitude": 24,
+                  "amplitudePct": 3.33
+                },
+                "areaVendavel_m2": {
+                  "minimo": 259028.91,
+                  "maximo": 270317.3,
+                  "mediana": 264560.82,
+                  "amplitude": 11288.39,
+                  "amplitudePct": 4.36
+                },
+                "melhorPonto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 800,
+                  "y": 587.5
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                703,
+                597,
+                459,
+                603,
+                597,
+                473
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 459,
+                  "maximo": 703,
+                  "mediana": 597,
+                  "amplitude": 244,
+                  "amplitudePct": 53.16
+                },
+                "areaVendavel_m2": {
+                  "minimo": 182602.9,
+                  "maximo": 280107.62,
+                  "mediana": 236849.01,
+                  "amplitude": 97504.72,
+                  "amplitudePct": 53.4
+                },
+                "melhorPonto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 800,
+                  "y": 125
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 459,
+                  "maximo": 703,
+                  "mediana": 597,
+                  "amplitude": 244,
+                  "amplitudePct": 53.16
+                },
+                "areaVendavel_m2": {
+                  "minimo": 182602.9,
+                  "maximo": 280107.62,
+                  "mediana": 236849.01,
+                  "amplitude": 97504.72,
+                  "amplitudePct": 53.4
+                },
+                "melhorPonto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 800,
+                  "y": 125
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                214,
+                214,
+                214,
+                214,
+                214,
+                214
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 214,
+                  "maximo": 214,
+                  "mediana": 214,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 66144.86,
+                  "maximo": 66144.86,
+                  "mediana": 66144.86,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 214,
+                  "maximo": 214,
+                  "mediana": 214,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 66144.86,
+                  "maximo": 66144.86,
+                  "mediana": 66144.86,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "confere": true
+            }
+          }
+        },
+        "geo-antonina": {
+          "gleba": "geo-antonina",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 3775.76,
+            "entreOsQuatroMotores_pct": 4921.21,
+            "entreOsMotoresDeLote_pct": 4921.21
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 3775.76,
+            "entreOsQuatroMotores_pct": 4921.21,
+            "entreOsMotoresDeLote_pct": 4921.21
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1390,
+                1929,
+                1869,
+                1941,
+                1927,
+                1346
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1346,
+                  "maximo": 1941,
+                  "mediana": 1898,
+                  "amplitude": 595,
+                  "amplitudePct": 44.21
+                },
+                "areaVendavel_m2": {
+                  "minimo": 485991.99,
+                  "maximo": 703032.98,
+                  "mediana": 688670.32,
+                  "amplitude": 217040.99,
+                  "amplitudePct": 44.66
+                },
+                "melhorPonto": {
+                  "x": 469.0055263298908,
+                  "y": 816.2866418683504
+                },
+                "piorPonto": {
+                  "x": -502.1139272981369,
+                  "y": -303.5441526502805
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1346,
+                  "maximo": 1941,
+                  "mediana": 1898,
+                  "amplitude": 595,
+                  "amplitudePct": 44.21
+                },
+                "areaVendavel_m2": {
+                  "minimo": 485991.99,
+                  "maximo": 703032.98,
+                  "mediana": 688670.32,
+                  "amplitude": 217040.99,
+                  "amplitudePct": 44.66
+                },
+                "melhorPonto": {
+                  "x": 469.0055263298908,
+                  "y": 816.2866418683504
+                },
+                "piorPonto": {
+                  "x": -502.1139272981369,
+                  "y": -303.5441526502805
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1672,
+                1671,
+                1478,
+                1554,
+                1548,
+                1917
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1478,
+                  "maximo": 1917,
+                  "mediana": 1613,
+                  "amplitude": 439,
+                  "amplitudePct": 29.7
+                },
+                "areaVendavel_m2": {
+                  "minimo": 535841.69,
+                  "maximo": 692982.27,
+                  "mediana": 581020.57,
+                  "amplitude": 157140.58,
+                  "amplitudePct": 29.33
+                },
+                "melhorPonto": {
+                  "x": -502.1139272981369,
+                  "y": -303.5441526502805
+                },
+                "piorPonto": {
+                  "x": 1041.6778622619722,
+                  "y": 574.270036436664
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1478,
+                  "maximo": 1917,
+                  "mediana": 1613,
+                  "amplitude": 439,
+                  "amplitudePct": 29.7
+                },
+                "areaVendavel_m2": {
+                  "minimo": 535841.69,
+                  "maximo": 692982.27,
+                  "mediana": 581020.57,
+                  "amplitude": 157140.58,
+                  "amplitudePct": 29.33
+                },
+                "melhorPonto": {
+                  "x": -502.1139272981369,
+                  "y": -303.5441526502805
+                },
+                "piorPonto": {
+                  "x": 1041.6778622619722,
+                  "y": 574.270036436664
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                33,
+                1266,
+                1279,
+                1228,
+                1201,
+                33
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 33,
+                  "maximo": 1279,
+                  "mediana": 1215,
+                  "amplitude": 1246,
+                  "amplitudePct": 3775.76
+                },
+                "areaVendavel_m2": {
+                  "minimo": 10329.1,
+                  "maximo": 513069.12,
+                  "mediana": 487106.84,
+                  "amplitude": 502740.02,
+                  "amplitudePct": 4867.22
+                },
+                "melhorPonto": {
+                  "x": 1041.6778622619722,
+                  "y": 574.270036436664
+                },
+                "piorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 33,
+                  "maximo": 1279,
+                  "mediana": 1215,
+                  "amplitude": 1246,
+                  "amplitudePct": 3775.76
+                },
+                "areaVendavel_m2": {
+                  "minimo": 10329.1,
+                  "maximo": 513069.12,
+                  "mediana": 487106.84,
+                  "amplitude": 502740.02,
+                  "amplitudePct": 4867.22
+                },
+                "melhorPonto": {
+                  "x": 1041.6778622619722,
+                  "y": 574.270036436664
+                },
+                "piorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1014,
+                1014,
+                1014,
+                1014,
+                1014,
+                1014
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1014,
+                  "maximo": 1014,
+                  "mediana": 1014,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 298475.27,
+                  "maximo": 298475.27,
+                  "mediana": 298475.27,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                },
+                "piorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1014,
+                  "maximo": 1014,
+                  "mediana": 1014,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 298475.27,
+                  "maximo": 298475.27,
+                  "mediana": 298475.27,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                },
+                "piorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                }
+              },
+              "confere": true
+            }
+          }
+        }
+      }
+    },
+    "LAB-28/acesso.json": {
+      "arquivo": "LAB-28/acesso.json",
+      "regere": "bun run lab28",
+      "semente": 20260913,
+      "contrato": "2",
+      "glebas": {
+        "completo": {
+          "gleba": "completo",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 108.26,
+            "entreOsQuatroMotores_pct": 45.6,
+            "entreOsMotoresDeLote_pct": 29.12
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 108.26,
+            "entreOsQuatroMotores_pct": 45.6,
+            "entreOsMotoresDeLote_pct": 29.12
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "motor": "Generate · candidata ortogonal",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1357,
+                998,
+                1643,
+                1327,
+                1654,
+                1074
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 998,
+                  "maximo": 1654,
+                  "mediana": 1342,
+                  "amplitude": 656,
+                  "amplitudePct": 65.73
+                },
+                "areaVendavel_m2": {
+                  "minimo": 359739.4,
+                  "maximo": 601164.66,
+                  "mediana": 488681.41,
+                  "amplitude": 241425.26,
+                  "amplitudePct": 67.11
+                },
+                "melhorPonto": {
+                  "x": -542.995656693147,
+                  "y": -550.6968058382074
+                },
+                "piorPonto": {
+                  "x": 359.99655051051104,
+                  "y": 393.5687294580518
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 998,
+                  "maximo": 1654,
+                  "mediana": 1342,
+                  "amplitude": 656,
+                  "amplitudePct": 65.73
+                },
+                "areaVendavel_m2": {
+                  "minimo": 359739.4,
+                  "maximo": 601164.66,
+                  "mediana": 488681.41,
+                  "amplitude": 241425.26,
+                  "amplitudePct": 67.11
+                },
+                "melhorPonto": {
+                  "x": -542.995656693147,
+                  "y": -550.6968058382074
+                },
+                "piorPonto": {
+                  "x": 359.99655051051104,
+                  "y": 393.5687294580518
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "motor": "Generate · candidata espinha",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                null,
+                null,
+                1791,
+                1450,
+                1627,
+                860
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 4,
+                "lotes": {
+                  "minimo": 860,
+                  "maximo": 1791,
+                  "mediana": 1539,
+                  "amplitude": 931,
+                  "amplitudePct": 108.26
+                },
+                "areaVendavel_m2": {
+                  "minimo": 309554.6,
+                  "maximo": 646733.68,
+                  "mediana": 555396.41,
+                  "amplitude": 337179.08,
+                  "amplitudePct": 108.92
+                },
+                "melhorPonto": {
+                  "x": -399.1769513734904,
+                  "y": 561.0443490654175
+                },
+                "piorPonto": {
+                  "x": 283.76616032259676,
+                  "y": -421.08722953316544
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 4,
+                "lotes": {
+                  "minimo": 860,
+                  "maximo": 1791,
+                  "mediana": 1539,
+                  "amplitude": 931,
+                  "amplitudePct": 108.26
+                },
+                "areaVendavel_m2": {
+                  "minimo": 309554.6,
+                  "maximo": 646733.68,
+                  "mediana": 555396.41,
+                  "amplitude": 337179.08,
+                  "amplitudePct": 108.92
+                },
+                "melhorPonto": {
+                  "x": -399.1769513734904,
+                  "y": 561.0443490654175
+                },
+                "piorPonto": {
+                  "x": 283.76616032259676,
+                  "y": -421.08722953316544
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "motor": "Laboratório de Parcelamento",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1051,
+                1011,
+                1083,
+                962,
+                1114,
+                1059
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 962,
+                  "maximo": 1114,
+                  "mediana": 1055,
+                  "amplitude": 152,
+                  "amplitudePct": 15.8
+                },
+                "areaVendavel_m2": {
+                  "minimo": 383948.06,
+                  "maximo": 445011.67,
+                  "mediana": 422394.99,
+                  "amplitude": 61063.61,
+                  "amplitudePct": 15.9
+                },
+                "melhorPonto": {
+                  "x": -542.995656693147,
+                  "y": -550.6968058382074
+                },
+                "piorPonto": {
+                  "x": -655.2692659337996,
+                  "y": -11.599225229815843
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 962,
+                  "maximo": 1114,
+                  "mediana": 1055,
+                  "amplitude": 152,
+                  "amplitudePct": 15.8
+                },
+                "areaVendavel_m2": {
+                  "minimo": 383948.06,
+                  "maximo": 445011.67,
+                  "mediana": 422394.99,
+                  "amplitude": 61063.61,
+                  "amplitudePct": 15.9
+                },
+                "melhorPonto": {
+                  "x": -542.995656693147,
+                  "y": -550.6968058382074
+                },
+                "piorPonto": {
+                  "x": -655.2692659337996,
+                  "y": -11.599225229815843
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "motor": "Symbios + subdivisão do Lab",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                932,
+                932,
+                932,
+                932,
+                932,
+                932
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 932,
+                  "maximo": 932,
+                  "mediana": 932,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 287286.97,
+                  "maximo": 287286.97,
+                  "mediana": 287286.97,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 1007.7458774024602,
+                  "y": 0.000005275760983077215
+                },
+                "piorPonto": {
+                  "x": 1007.7458774024602,
+                  "y": 0.000005275760983077215
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 932,
+                  "maximo": 932,
+                  "mediana": 932,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 287286.97,
+                  "maximo": 287286.97,
+                  "mediana": 287286.97,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 1007.7458774024602,
+                  "y": 0.000005275760983077215
+                },
+                "piorPonto": {
+                  "x": 1007.7458774024602,
+                  "y": 0.000005275760983077215
+                }
+              },
+              "confere": true
+            }
+          }
+        },
+        "sintetico-50ha-ondulado": {
+          "gleba": "sintetico-50ha-ondulado",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 16.86,
+            "entreOsQuatroMotores_pct": 227.36,
+            "entreOsMotoresDeLote_pct": 95.68
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 16.86,
+            "entreOsQuatroMotores_pct": 227.36,
+            "entreOsMotoresDeLote_pct": 95.68
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "motor": "Generate · candidata ortogonal",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1041,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 1,
+                "lotes": {
+                  "minimo": 1041,
+                  "maximo": 1041,
+                  "mediana": 1041,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 379508.59,
+                  "maximo": 379508.59,
+                  "mediana": 379508.59,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 1,
+                "lotes": {
+                  "minimo": 1041,
+                  "maximo": 1041,
+                  "mediana": 1041,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 379508.59,
+                  "maximo": 379508.59,
+                  "mediana": 379508.59,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "motor": "Generate · candidata espinha",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                805,
+                777,
+                null,
+                736,
+                765,
+                777
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 5,
+                "lotes": {
+                  "minimo": 736,
+                  "maximo": 805,
+                  "mediana": 777,
+                  "amplitude": 69,
+                  "amplitudePct": 9.38
+                },
+                "areaVendavel_m2": {
+                  "minimo": 264524.75,
+                  "maximo": 290375.91,
+                  "mediana": 279748.07,
+                  "amplitude": 25851.16,
+                  "amplitudePct": 9.77
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": -559.6959528492866,
+                  "y": 27.150566851623495
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 5,
+                "lotes": {
+                  "minimo": 736,
+                  "maximo": 805,
+                  "mediana": 777,
+                  "amplitude": 69,
+                  "amplitudePct": 9.38
+                },
+                "areaVendavel_m2": {
+                  "minimo": 264524.75,
+                  "maximo": 290375.91,
+                  "mediana": 279748.07,
+                  "amplitude": 25851.16,
+                  "amplitudePct": 9.77
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": -559.6959528492866,
+                  "y": 27.150566851623495
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "motor": "Laboratório de Parcelamento",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                532,
+                596,
+                510,
+                555,
+                555,
+                521
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 510,
+                  "maximo": 596,
+                  "mediana": 544,
+                  "amplitude": 86,
+                  "amplitudePct": 16.86
+                },
+                "areaVendavel_m2": {
+                  "minimo": 203805.32,
+                  "maximo": 237723.27,
+                  "mediana": 216464.32,
+                  "amplitude": 33917.95,
+                  "amplitudePct": 16.64
+                },
+                "melhorPonto": {
+                  "x": 209.02875230551723,
+                  "y": 366.5071094190004
+                },
+                "piorPonto": {
+                  "x": -197.33327248500626,
+                  "y": 237.12398673612526
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 510,
+                  "maximo": 596,
+                  "mediana": 544,
+                  "amplitude": 86,
+                  "amplitudePct": 16.86
+                },
+                "areaVendavel_m2": {
+                  "minimo": 203805.32,
+                  "maximo": 237723.27,
+                  "mediana": 216464.32,
+                  "amplitude": 33917.95,
+                  "amplitudePct": 16.64
+                },
+                "melhorPonto": {
+                  "x": 209.02875230551723,
+                  "y": 366.5071094190004
+                },
+                "piorPonto": {
+                  "x": -197.33327248500626,
+                  "y": 237.12398673612526
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "motor": "Symbios + subdivisão do Lab",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                318,
+                318,
+                318,
+                318,
+                318,
+                318
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 318,
+                  "maximo": 318,
+                  "mediana": 318,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 95885.19,
+                  "maximo": 95885.19,
+                  "mediana": 95885.19,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 318,
+                  "maximo": 318,
+                  "mediana": 318,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 95885.19,
+                  "maximo": 95885.19,
+                  "mediana": 95885.19,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                },
+                "piorPonto": {
+                  "x": 408.81952245670226,
+                  "y": -3.9357094156770523e-10
+                }
+              },
+              "confere": true
+            }
+          }
+        },
+        "sintetico-10ha-plano": {
+          "gleba": "sintetico-10ha-plano",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 27.68,
+            "entreOsQuatroMotores_pct": 169.7,
+            "entreOsMotoresDeLote_pct": 44.72
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 27.68,
+            "entreOsQuatroMotores_pct": 169.7,
+            "entreOsMotoresDeLote_pct": 44.72
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "motor": "Generate · candidata ortogonal",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                178,
+                185,
+                null,
+                null,
+                169,
+                null
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 3,
+                "lotes": {
+                  "minimo": 169,
+                  "maximo": 185,
+                  "mediana": 178,
+                  "amplitude": 16,
+                  "amplitudePct": 9.47
+                },
+                "areaVendavel_m2": {
+                  "minimo": 61350.87,
+                  "maximo": 66085.27,
+                  "mediana": 65780.68,
+                  "amplitude": 4734.4,
+                  "amplitudePct": 7.72
+                },
+                "melhorPonto": {
+                  "x": 53.02122354884004,
+                  "y": 171.86069085126167
+                },
+                "piorPonto": {
+                  "x": -78.7004580632876,
+                  "y": -145.08972813677127
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 3,
+                "lotes": {
+                  "minimo": 169,
+                  "maximo": 185,
+                  "mediana": 178,
+                  "amplitude": 16,
+                  "amplitudePct": 9.47
+                },
+                "areaVendavel_m2": {
+                  "minimo": 61350.87,
+                  "maximo": 66085.27,
+                  "mediana": 65780.68,
+                  "amplitude": 4734.4,
+                  "amplitudePct": 7.72
+                },
+                "melhorPonto": {
+                  "x": 53.02122354884004,
+                  "y": 171.86069085126167
+                },
+                "piorPonto": {
+                  "x": -78.7004580632876,
+                  "y": -145.08972813677127
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "motor": "Generate · candidata espinha",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                136,
+                135,
+                141,
+                123,
+                138,
+                124
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 123,
+                  "maximo": 141,
+                  "mediana": 136,
+                  "amplitude": 18,
+                  "amplitudePct": 14.63
+                },
+                "areaVendavel_m2": {
+                  "minimo": 44815.51,
+                  "maximo": 50801.94,
+                  "mediana": 48871.56,
+                  "amplitude": 5986.43,
+                  "amplitudePct": 13.36
+                },
+                "melhorPonto": {
+                  "x": -116.36004943979229,
+                  "y": 107.58137515676174
+                },
+                "piorPonto": {
+                  "x": -255.0419524143536,
+                  "y": -17.06328816242104
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 123,
+                  "maximo": 141,
+                  "mediana": 136,
+                  "amplitude": 18,
+                  "amplitudePct": 14.63
+                },
+                "areaVendavel_m2": {
+                  "minimo": 44815.51,
+                  "maximo": 50801.94,
+                  "mediana": 48871.56,
+                  "amplitude": 5986.43,
+                  "amplitudePct": 13.36
+                },
+                "melhorPonto": {
+                  "x": -116.36004943979229,
+                  "y": 107.58137515676174
+                },
+                "piorPonto": {
+                  "x": -255.0419524143536,
+                  "y": -17.06328816242104
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "motor": "Laboratório de Parcelamento",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                123,
+                143,
+                135,
+                112,
+                138,
+                138
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 112,
+                  "maximo": 143,
+                  "mediana": 137,
+                  "amplitude": 31,
+                  "amplitudePct": 27.68
+                },
+                "areaVendavel_m2": {
+                  "minimo": 44048.59,
+                  "maximo": 56875.76,
+                  "mediana": 54137.4,
+                  "amplitude": 12827.17,
+                  "amplitudePct": 29.12
+                },
+                "melhorPonto": {
+                  "x": 53.02122354884004,
+                  "y": 171.86069085126167
+                },
+                "piorPonto": {
+                  "x": -255.0419524143536,
+                  "y": -17.06328816242104
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 112,
+                  "maximo": 143,
+                  "mediana": 137,
+                  "amplitude": 31,
+                  "amplitudePct": 27.68
+                },
+                "areaVendavel_m2": {
+                  "minimo": 44048.59,
+                  "maximo": 56875.76,
+                  "mediana": 54137.4,
+                  "amplitude": 12827.17,
+                  "amplitudePct": 29.12
+                },
+                "melhorPonto": {
+                  "x": 53.02122354884004,
+                  "y": 171.86069085126167
+                },
+                "piorPonto": {
+                  "x": -255.0419524143536,
+                  "y": -17.06328816242104
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "motor": "Symbios + subdivisão do Lab",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                66,
+                66,
+                66,
+                66,
+                66,
+                66
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 66,
+                  "maximo": 66,
+                  "mediana": 66,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 23534.87,
+                  "maximo": 23534.87,
+                  "mediana": 23534.87,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 139.16805490613143,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 139.16805490613143,
+                  "y": 0
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 66,
+                  "maximo": 66,
+                  "mediana": 66,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 23534.87,
+                  "maximo": 23534.87,
+                  "mediana": 23534.87,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 139.16805490613143,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 139.16805490613143,
+                  "y": 0
+                }
+              },
+              "confere": true
+            }
+          }
+        },
+        "ensaio-47ha": {
+          "gleba": "ensaio-47ha",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 53.16,
+            "entreOsQuatroMotores_pct": 355.14,
+            "entreOsMotoresDeLote_pct": 62.6
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 53.16,
+            "entreOsQuatroMotores_pct": 355.14,
+            "entreOsMotoresDeLote_pct": 62.6
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "motor": "Generate · candidata ortogonal",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                966,
+                960,
+                1024,
+                978,
+                973,
+                970
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 960,
+                  "maximo": 1024,
+                  "mediana": 972,
+                  "amplitude": 64,
+                  "amplitudePct": 6.67
+                },
+                "areaVendavel_m2": {
+                  "minimo": 348415.22,
+                  "maximo": 377884.44,
+                  "mediana": 354094.32,
+                  "amplitude": 29469.22,
+                  "amplitudePct": 8.46
+                },
+                "melhorPonto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "piorPonto": {
+                  "x": 462.5,
+                  "y": 0
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 960,
+                  "maximo": 1024,
+                  "mediana": 972,
+                  "amplitude": 64,
+                  "amplitudePct": 6.67
+                },
+                "areaVendavel_m2": {
+                  "minimo": 348415.22,
+                  "maximo": 377884.44,
+                  "mediana": 354094.32,
+                  "amplitude": 29469.22,
+                  "amplitudePct": 8.46
+                },
+                "melhorPonto": {
+                  "x": 800,
+                  "y": 125
+                },
+                "piorPonto": {
+                  "x": 462.5,
+                  "y": 0
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "motor": "Generate · candidata espinha",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                724,
+                745,
+                735,
+                721,
+                745,
+                737
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 721,
+                  "maximo": 745,
+                  "mediana": 736,
+                  "amplitude": 24,
+                  "amplitudePct": 3.33
+                },
+                "areaVendavel_m2": {
+                  "minimo": 259028.91,
+                  "maximo": 270317.3,
+                  "mediana": 264560.82,
+                  "amplitude": 11288.39,
+                  "amplitudePct": 4.36
+                },
+                "melhorPonto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 800,
+                  "y": 587.5
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 721,
+                  "maximo": 745,
+                  "mediana": 736,
+                  "amplitude": 24,
+                  "amplitudePct": 3.33
+                },
+                "areaVendavel_m2": {
+                  "minimo": 259028.91,
+                  "maximo": 270317.3,
+                  "mediana": 264560.82,
+                  "amplitude": 11288.39,
+                  "amplitudePct": 4.36
+                },
+                "melhorPonto": {
+                  "x": 462.5,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 800,
+                  "y": 587.5
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "motor": "Laboratório de Parcelamento",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                703,
+                597,
+                459,
+                603,
+                597,
+                473
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 459,
+                  "maximo": 703,
+                  "mediana": 597,
+                  "amplitude": 244,
+                  "amplitudePct": 53.16
+                },
+                "areaVendavel_m2": {
+                  "minimo": 182602.9,
+                  "maximo": 280107.62,
+                  "mediana": 236849.01,
+                  "amplitude": 97504.72,
+                  "amplitudePct": 53.4
+                },
+                "melhorPonto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 800,
+                  "y": 125
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 459,
+                  "maximo": 703,
+                  "mediana": 597,
+                  "amplitude": 244,
+                  "amplitudePct": 53.16
+                },
+                "areaVendavel_m2": {
+                  "minimo": 182602.9,
+                  "maximo": 280107.62,
+                  "mediana": 236849.01,
+                  "amplitude": 97504.72,
+                  "amplitudePct": 53.4
+                },
+                "melhorPonto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 800,
+                  "y": 125
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "motor": "Symbios + subdivisão do Lab",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                214,
+                214,
+                214,
+                214,
+                214,
+                214
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 214,
+                  "maximo": 214,
+                  "mediana": 214,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 66144.86,
+                  "maximo": 66144.86,
+                  "mediana": 66144.86,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 214,
+                  "maximo": 214,
+                  "mediana": 214,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 66144.86,
+                  "maximo": 66144.86,
+                  "mediana": 66144.86,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": 0,
+                  "y": 0
+                },
+                "piorPonto": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              "confere": true
+            }
+          }
+        },
+        "geo-antonina": {
+          "gleba": "geo-antonina",
+          "confrontoPublicado": {
+            "maiorAmplitude_pct": 3775.76,
+            "entreOsQuatroMotores_pct": 4921.21,
+            "entreOsMotoresDeLote_pct": 4921.21
+          },
+          "confrontoRefeitoDosCrus": {
+            "maiorAmplitude_pct": 3775.76,
+            "entreOsQuatroMotores_pct": 4921.21,
+            "entreOsMotoresDeLote_pct": 4921.21
+          },
+          "confere": true,
+          "motores": {
+            "generate-ortogonal": {
+              "motor": "Generate · candidata ortogonal",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1390,
+                1929,
+                1869,
+                1941,
+                1927,
+                1346
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1346,
+                  "maximo": 1941,
+                  "mediana": 1898,
+                  "amplitude": 595,
+                  "amplitudePct": 44.21
+                },
+                "areaVendavel_m2": {
+                  "minimo": 485991.99,
+                  "maximo": 703032.98,
+                  "mediana": 688670.32,
+                  "amplitude": 217040.99,
+                  "amplitudePct": 44.66
+                },
+                "melhorPonto": {
+                  "x": 469.0055263298908,
+                  "y": 816.2866418683504
+                },
+                "piorPonto": {
+                  "x": -502.1139272981369,
+                  "y": -303.5441526502805
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1346,
+                  "maximo": 1941,
+                  "mediana": 1898,
+                  "amplitude": 595,
+                  "amplitudePct": 44.21
+                },
+                "areaVendavel_m2": {
+                  "minimo": 485991.99,
+                  "maximo": 703032.98,
+                  "mediana": 688670.32,
+                  "amplitude": 217040.99,
+                  "amplitudePct": 44.66
+                },
+                "melhorPonto": {
+                  "x": 469.0055263298908,
+                  "y": 816.2866418683504
+                },
+                "piorPonto": {
+                  "x": -502.1139272981369,
+                  "y": -303.5441526502805
+                }
+              },
+              "confere": true
+            },
+            "generate-espinha": {
+              "motor": "Generate · candidata espinha",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1672,
+                1671,
+                1478,
+                1554,
+                1548,
+                1917
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1478,
+                  "maximo": 1917,
+                  "mediana": 1613,
+                  "amplitude": 439,
+                  "amplitudePct": 29.7
+                },
+                "areaVendavel_m2": {
+                  "minimo": 535841.69,
+                  "maximo": 692982.27,
+                  "mediana": 581020.57,
+                  "amplitude": 157140.58,
+                  "amplitudePct": 29.33
+                },
+                "melhorPonto": {
+                  "x": -502.1139272981369,
+                  "y": -303.5441526502805
+                },
+                "piorPonto": {
+                  "x": 1041.6778622619722,
+                  "y": 574.270036436664
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1478,
+                  "maximo": 1917,
+                  "mediana": 1613,
+                  "amplitude": 439,
+                  "amplitudePct": 29.7
+                },
+                "areaVendavel_m2": {
+                  "minimo": 535841.69,
+                  "maximo": 692982.27,
+                  "mediana": 581020.57,
+                  "amplitude": 157140.58,
+                  "amplitudePct": 29.33
+                },
+                "melhorPonto": {
+                  "x": -502.1139272981369,
+                  "y": -303.5441526502805
+                },
+                "piorPonto": {
+                  "x": 1041.6778622619722,
+                  "y": 574.270036436664
+                }
+              },
+              "confere": true
+            },
+            "parcelamento": {
+              "motor": "Laboratório de Parcelamento",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                33,
+                1266,
+                1279,
+                1228,
+                1201,
+                33
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 33,
+                  "maximo": 1279,
+                  "mediana": 1215,
+                  "amplitude": 1246,
+                  "amplitudePct": 3775.76
+                },
+                "areaVendavel_m2": {
+                  "minimo": 10329.1,
+                  "maximo": 513069.12,
+                  "mediana": 487106.84,
+                  "amplitude": 502740.02,
+                  "amplitudePct": 4867.22
+                },
+                "melhorPonto": {
+                  "x": 1041.6778622619722,
+                  "y": 574.270036436664
+                },
+                "piorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 33,
+                  "maximo": 1279,
+                  "mediana": 1215,
+                  "amplitude": 1246,
+                  "amplitudePct": 3775.76
+                },
+                "areaVendavel_m2": {
+                  "minimo": 10329.1,
+                  "maximo": 513069.12,
+                  "mediana": 487106.84,
+                  "amplitude": 502740.02,
+                  "amplitudePct": 4867.22
+                },
+                "melhorPonto": {
+                  "x": 1041.6778622619722,
+                  "y": 574.270036436664
+                },
+                "piorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                }
+              },
+              "confere": true
+            },
+            "symbios": {
+              "motor": "Symbios + subdivisão do Lab",
+              "posicoesCruas": 6,
+              "lotesCrus": [
+                1014,
+                1014,
+                1014,
+                1014,
+                1014,
+                1014
+              ],
+              "agregadoPublicado": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1014,
+                  "maximo": 1014,
+                  "mediana": 1014,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 298475.27,
+                  "maximo": 298475.27,
+                  "mediana": 298475.27,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                },
+                "piorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                }
+              },
+              "agregadoRefeitoDosCrus": {
+                "posicoes": 6,
+                "posicoesMedidas": 6,
+                "lotes": {
+                  "minimo": 1014,
+                  "maximo": 1014,
+                  "mediana": 1014,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "areaVendavel_m2": {
+                  "minimo": 298475.27,
+                  "maximo": 298475.27,
+                  "mediana": 298475.27,
+                  "amplitude": 0,
+                  "amplitudePct": 0
+                },
+                "melhorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                },
+                "piorPonto": {
+                  "x": -128.257,
+                  "y": -830.943
+                }
+              },
+              "confere": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

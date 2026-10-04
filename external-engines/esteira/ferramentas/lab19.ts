@@ -42,9 +42,8 @@ import { julgar, type P, type Rodada, type Veredito } from "../src/motores/comum
 import { mapaDaGleba, perfilDeRampa } from "../src/rampa.ts";
 import {
   POSICOES_DE_ACESSO,
-  amplitudePctDe,
+  confrontoDoAcesso as calcularConfronto,
   instabilidadeDaOrdem,
-  referenciaDe,
   sensibilidadeAoAcesso,
   type SensibilidadeAoAcesso,
 } from "../src/acesso.ts";
@@ -275,19 +274,12 @@ for (const { id, entrada } of GLEBAS) {
   // 355 %, que é a distância entre duas ETAPAS e não entre duas opções.
   //
   // A referência de cada motor vem da `referenciaDe`, que é a única — a primeira
-  // versão tinha duas, e dava dois confrontos para a mesma gleba (D116).
-  const amplitudes = Object.values(sensPorMotor).map((x) => x.lotes.amplitudePct ?? 0);
-  const confrontoDoAcesso = {
-    maiorAmplitude_pct: amplitudes.length ? Math.max(...amplitudes) : 0,
-    entreOsQuatroMotores_pct: amplitudePctDe(
-      Object.values(sensPorMotor).map((x) => referenciaDe(x)),
-    ),
-    entreOsMotoresDeLote_pct: amplitudePctDe(
-      MOTORES.filter((m) => m.id !== "symbios").map((m) =>
-        sensPorMotor[m.id] ? referenciaDe(sensPorMotor[m.id]!) : null,
-      ),
-    ),
-  };
+  // versão tinha duas, e dava dois confrontos para a mesma gleba (D116). E desde o
+  // LAB-39 a MONTAGEM das três contas também é uma só, no `acesso.ts`: aqui ela
+  // estava escrita com `MOTORES.filter(… !== "symbios")` e na ferramenta do LAB-28
+  // com os três nomes declarados — duas grafias do mesmo conjunto, esperando o
+  // quinto motor para divergirem.
+  const confrontoDoAcesso = calcularConfronto(sensPorMotor);
 
   // ── A ORDEM dos motores é estável quando o acesso muda? (LAB-34) ──────────
   //

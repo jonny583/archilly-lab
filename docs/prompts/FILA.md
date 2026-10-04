@@ -48,8 +48,8 @@ trabalho o que eu havia listado como pendente.
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-38** | **CI para o comando único** — não há workflow neste repositório, então nada roda o verde sozinho. Criar e **provar quebrando um teste de propósito**. *"É o mesmo buraco do Orçamento e do Generate, e foi ele que deixou uma suíte vermelha duas semanas sem ninguém ver"* | ✅ **concluído em 04/10/2026** | nenhuma — prioridade |
-| **LAB-39** | A **última trava que se repete**: o teste do D116 compara **duas provas entre si** — consertar para **medir**, não para comparar prova com prova | ⏳ **pronto, é o próximo** | LAB-38 mesclado ✅ |
-| **LAB-40** | **Fixtures** que exerçam as quatro promessas do LAB-35 **e a testada de frente fora de Antonina** — sem isso tudo que foi medido vale para uma gleba só | ⏳ **pronto** | LAB-39 mesclado |
+| **LAB-39** | A **última trava que se repete**: o teste do D116 compara **duas provas entre si** — consertar para **medir**, não para comparar prova com prova | ✅ **concluído em 04/10/2026** | LAB-38 mesclado ✅ |
+| **LAB-40** | **Fixtures** que exerçam as quatro promessas do LAB-35 **e a testada de frente fora de Antonina** — sem isso tudo que foi medido vale para uma gleba só | ⏳ **pronto, é o próximo** | LAB-39 mesclado ✅ |
 | **LAB-41** | As **posições de acesso em que a candidata ortogonal do Generate não entrega nada aceitável**, 5 de 6 numa gleba — investigar e dizer se é **defeito do motor ou limite real do terreno** | ⏳ **pronto** | LAB-40 mesclado |
 | **LAB-42** | Criar **`docs/relatorios/BALANCOS.md`** e registrar ali os balanços, inclusive os que foram **só para o chat**, para nenhuma lista precisar ser re-derivada de novo | ⏳ **pronto** | LAB-41 mesclado |
 
@@ -69,6 +69,37 @@ não escolha por ele"*.
 
 - **a régua de forma** segue **com o Jonny** e **não trava nada**;
 - **a corda reta das vias curvas fica na V3**, sem mexer.
+
+### LAB-39 · A trava que comparava duas provas, consertada para medir — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-39.md`](../relatorios/LAB-39.md),
+`docs/provas/LAB-39/confronto-refeito.json`, `esteira/ferramentas/lab39.ts`, 5 travas
+novas em `tests/acesso.test.ts`, D144 a D146.
+
+**A trava falhava nas duas direções:** falso verde porque as duas provas saem da **mesma**
+fórmula — erradas do mesmo jeito, erram juntas; e falso vermelho porque regerada **uma** e
+não a outra ela ficava vermelha **sem nada estar errado**. Agora cada arquivo é conferido
+contra o `porPosicao` **dele**: **40 agregados, 10 confrontos, 240 posições cruas, 0
+divergências**, em menos de 10 ms e **sem rodar motor nenhum**.
+
+**Provado por sabotagem:** o `entreOsMotoresDeLote_pct` de `completo` trocado de 29,12
+para **70** — o número errado que o D116 publicou — leva a suíte de **30 verdes a 3
+vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto.
+
+**Dois achados, e os dois são da mesma família do D116:**
+
+- **a MONTAGEM do confronto também morava em dois lugares** (D145), e com ela a lista dos
+  motores de lote em **duas grafias** — declarada no `lab28.ts`, derivada por
+  `filter(… !== "symbios")` no `lab19.ts`. Hoje dão o mesmo conjunto; com um quinto motor,
+  não. `MOTORES_DE_LOTE` e `confrontoDoAcesso()` passaram para a régua. *Trazer a fórmula
+  para um lugar só não basta: a montagem também é a conta;*
+- **quatro provas declaram `contrato: "2"` e nenhuma entrada do repositório é `"2"`**
+  (D146) — `lab25`, `lab26`, `lab28` e `lab30` têm o literal à mão, e todas as glebas
+  declaram `"1"`. A guarda do §7 confere que a chave **existe**, nunca que ela
+  **corresponde ao medido**: a forma do D137 um degrau acima. **Não consertado** (§1-A) —
+  virou **LAB-43**, proposto ao chat.
+
+---
 
 ### LAB-38 · O CI do comando único — ✅ concluído em 04/10/2026
 
@@ -1120,19 +1151,31 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   motor, pode ser a gleba sintética, pode ser a ponte, e a §6 diz que a terceira
   hipótese merece medição antes de qualquer acusação. Enquanto não for medido, a tabela
   daquela gleba não sustenta ordem nenhuma. **Não executado** — escopo novo.
-- **A última trava que repete** (LAB-33, D131). O teste do D116 em `acesso.test.ts`
-  confere que a tabela do LAB-19 e a prova do LAB-28 trazem os mesmos números de
-  confronto do acesso — mas **se as duas forem regeradas erradas do mesmo jeito, ele
-  passa**. O conserto é barato: recalcular o agregado a partir dos números crus que a
-  prova já carrega, com `referenciaDe`/`amplitudePctDe` do `acesso.ts`, **sem rodar
-  motor nenhum**. Medir ao vivo o confronto inteiro custaria as 5 glebas × 4 motores × 6
-  posições do LAB-28. **Não executado** — escopo novo.
+- ~~**A última trava que repete** (LAB-33, D131)~~ — ✅ **executado no LAB-39**, com o
+  desenho proposto: o agregado refeito dos números crus de cada arquivo, sem rodar motor
+  nenhum. 40 agregados, 10 confrontos, 240 posições, 0 divergências (D144).
+- **LAB-43 · a etiqueta do contrato, que quatro provas declaram errada** (LAB-39, D146).
+  `lab25.ts`, `lab26.ts`, `lab28.ts` e `lab30.ts` publicam `contrato: "2"` escrito à mão,
+  e **nenhuma entrada deste repositório declara `"2"`** — todas as glebas e as quatro
+  fixtures dizem `"1"`. O conserto no código é **uma linha por ferramenta**
+  (`entrada.archilly.versao`, como o `lab23.ts` já faz) **mais uma guarda** que confira o
+  valor contra o medido, e não só a presença da chave. O que pesa é que a etiqueta só
+  muda no arquivo quando a prova é **regerada** — e o LAB-28 são 5 glebas × 4 motores × 6
+  posições com Validator e Judge. Proponho **casar com o próximo prompt que regere essas
+  provas por outro motivo**. **Não executado** (§1-A); o valor certo está nomeado no D146.
+- **Um nome só para cada número do confronto do acesso** (LAB-39, D145). As mesmas três
+  contas saem com chaves diferentes nos dois arquivos — `amplitudeDoAcesso_pct` ×
+  `maiorAmplitude_pct`, `entreMotores_pct` × `entreOsQuatroMotores_pct`. **Dois nomes para
+  um número é meio caminho para dois números**, e foi assim que o D116 começou. Unificar
+  mexe na forma de duas provas publicadas **e** na página do Jonny, então vai junto do
+  prompt que regerar as provas. **Não executado** — escopo novo.
 - **CI para o comando único** (LAB-31, D125). O `conferir.sh` existe, roda tudo e está
   provado que reprova — mas **não existe `.github/workflows` neste repositório**, então
   **nada o executa automaticamente**: quem o roda sou eu, antes do commit, e se eu
   esquecer nada pinta vermelho. Um workflow de uma página resolveria, e ele precisaria
   do `rustup target add wasm32-unknown-unknown` e do Chromium do Playwright no
-  executor. **Não executado por conta própria** — é escopo novo, e o §1-A proíbe.
+  executor. ✅ **executado no LAB-38** — e o que falta hoje é só o segredo
+  `VIZINHOS_TOKEN`, que é do Jonny (item 6 da página dele).
 
 ---
 
