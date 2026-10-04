@@ -55,14 +55,37 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 | **LAB-33** | A **trava do LAB-23** continua lendo **prova congelada** em vez de medir — *"conserte de verdade, não vire o sinal"* | ✅ **concluído em 04/10/2026** | LAB-32 mesclado ✅ |
 | **LAB-34** | A **tabela comparativa** ordena os motores num **único ponto de acesso**, e só a seção do acesso avisa que isso muda até **108 %** — *"ponha o aviso onde a ordem aparece, não escondido"* | ✅ **concluído em 04/10/2026** | LAB-33 mesclado ✅ |
 | **LAB-35** | A guarda da ida cospe **310 avisos `mapa-velho`** — conferir se há **caso real escondido nesse volume** e reduzir o ruído | ✅ **concluído em 04/10/2026** | LAB-34 mesclado ✅ |
-| **LAB-36** | As **quatro regras sem teste** que eu listei **viram guarda ou saem do documento** | ⏳ **pronto, é o próximo** | LAB-35 mesclado ✅ |
-| **LAB-37** | A **dívida da testada de frente** (D121) — mapear a linha para as faces do perímetro — *"escreva o tamanho e execute se couber"* | ⏳ **pronto** | LAB-36 mesclado |
+| **LAB-36** | As **quatro regras sem teste** que eu listei **viram guarda ou saem do documento** | ✅ **concluído em 04/10/2026** · eram **cinco**, e duas eram falsas | LAB-35 mesclado ✅ |
+| **LAB-37** | A **dívida da testada de frente** (D121) — mapear a linha para as faces do perímetro — *"escreva o tamanho e execute se couber"* | ⏳ **pronto, é o último** | LAB-36 mesclado ✅ |
 
 ### O que o chat manteve, sem mudança
 
 - **a régua de forma** (útil < 85 % / < 70 %) segue **com o Jonny** e **não trava
   nada** — é o único item na lista dele;
 - **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-36 · As regras que eram só afirmação — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-36.md`](../relatorios/LAB-36.md),
+`esteira/tests/regras.test.ts` (13 travas), `CLAUDE.md` §4, §6 e §7 emendados.
+
+**O primeiro achado é sobre o pedido: a lista não existia.** Ela saiu num balanço fora da
+fila, foi para o chat e **não para um arquivo** — então eu varri o `CLAUDE.md` de novo,
+regra por regra. *O que vai ao chat e não vai a um arquivo não existe amanhã.*
+
+**Deram CINCO, não quatro, e DUAS estavam falsas:** §4 *"não tem interface"* (o HTML da
+bancada do navegador existe desde o LAB-01) e §7 *"prova com gleba, motor, semente e
+contrato em cada arquivo"* (**falsa em 9 de 32**). As duas foram **estreitadas para o que
+é verdade**, com a exceção declarada e guardada; as outras três ganharam guarda. E uma
+sexta, *"não escreve em repositório vizinho"*, virou teste com a **conta de clones
+conferidos** publicada.
+
+**A NONA vez do ponto cego** (D137): a primeira versão da guarda exigia a chave `"gleba"`
+**literal** e reprovou **13 de 32** provas — eu tinha nas mãos *"um terço das provas viola
+a §7"*. Era a régua **medindo ortografia, não conteúdo**: há prova que diz `glebas` no
+plural, e SAÍDA que identifica a gleba em `entrada`.
+
+---
 
 ### LAB-35 · Os 310 avisos — ✅ concluído em 04/10/2026
 
@@ -1005,6 +1028,11 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   **perpendicular ao curso** — e o Lab recebe a restrição como **polígono de
   APP**, não como a linha d'água. Sem o eixo, "perpendicular" não tem a quê. É
   achado para o Geo, e o chat é que o leva.
+- **O balanço fora da fila não tem onde morar** (LAB-36). Os RECADOS têm `RECADOS.md`;
+  os relatórios têm `docs/relatorios/`. Uma resposta fora da fila — como o balanço de
+  03/10 que originou o LAB-36 — **não tem arquivo, e some**: foi por isso que a lista das
+  "quatro regras" teve de ser re-derivada. Proponho um `docs/relatorios/BALANCOS.md`, na
+  forma do `RECADOS.md`. **Não executado:** mexeria no `CLAUDE.md` §1, que é regra sua.
 - **Fixtures que exerçam as quatro promessas** (LAB-35). Elas estão provadas por teste,
   com entrada montada em memória — mas **nenhuma gleba do repositório** tem furo, atração
   poligonal, calçada declarada ou acesso como segmento, então quem roda a esteira inteira

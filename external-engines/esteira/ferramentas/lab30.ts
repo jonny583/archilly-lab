@@ -123,6 +123,10 @@ writeFileSync(
       prompt: "LAB-30",
       geradoEm: "2026-10-03",
       contrato: "2",
+      // A semente faltava, e o LAB-36 a cobrou: a guarda roda os motores, e rodar
+      // motor com semente é o que o §7 manda declarar. Sem ela, a prova não dizia
+      // com que sorteio foi medida.
+      semente: 20260913,
       idasAuditadas: ["parcelamento", "symbios"],
       inventario: {
         parcelamento: { campos: Object.keys(IDA_DO_PARCELAMENTO).length, ...contar(IDA_DO_PARCELAMENTO) },

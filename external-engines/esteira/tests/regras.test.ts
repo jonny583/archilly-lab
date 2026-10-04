@@ -1,0 +1,284 @@
+/**
+ * AS REGRAS DO `CLAUDE.md` QUE ERAM SÓ AFIRMAÇÃO. (LAB-36)
+ *
+ * ```sh
+ * bun test tests/regras.test.ts
+ * ```
+ *
+ * # O pedido, e o que a varredura achou
+ *
+ * O chat mandou: *"as quatro regras sem teste que você listou viram guarda ou saem
+ * do documento."*
+ *
+ * **A lista original não ficou gravada em lugar nenhum** — ela saiu num balanço
+ * pedido fora da fila, foi para o chat e não para um arquivo. Isso é defeito do
+ * mesmo tipo que este prompt conserta, então em vez de confiar na memória eu
+ * **varri o `CLAUDE.md` de novo**, regra por regra, perguntando *"o que, hoje,
+ * reprovaria se isto deixasse de ser verdade?"*.
+ *
+ * Deram **cinco**, não quatro — e **duas estavam FALSAS como escritas**:
+ *
+ * | regra | estado antes | o que foi feito |
+ * |---|---|---|
+ * | §4 *"não tem interface"* | **FALSA** — o HTML da bancada do navegador já existia | a regra declara a exceção, e a guarda conta os HTML |
+ * | §7 *"prova com gleba, motor, semente e contrato **em cada arquivo**"* | **FALSA em 8 de 32** | a regra vale para prova de MEDIÇÃO, e as exceções viram lista declarada |
+ * | §4 *"não reimplementa o Validator nem o Judge"* | verdadeira, sem guarda | guarda |
+ * | §4 *"conserto do Lab vem desligado por padrão"* | verdadeira, sem guarda | guarda |
+ * | §5 *"Testfit é nome interno"* | verdadeira, sem guarda | guarda |
+ *
+ * Mais uma sexta que é da mesma família e estava igualmente solta: §4 *"não escreve
+ * em repositório vizinho"*.
+ *
+ * **Regra que ninguém pode desmentir não é regra, é slogan** — e duas delas já
+ * tinham deixado de ser verdade sem que nada acusasse.
+ */
+import { describe, expect, test } from "bun:test";
+import { execFileSync } from "node:child_process";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
+
+const RAIZ = join(import.meta.dirname, "..", "..", "..");
+const PROVAS = join(RAIZ, "docs", "provas");
+
+/** Lista todos os arquivos sob um diretório, recursivamente. */
+function arquivos(dir: string, filtro: (f: string) => boolean): string[] {
+  const achados: string[] = [];
+  for (const nome of readdirSync(dir)) {
+    if (nome === "node_modules" || nome === ".git" || nome === "target") continue;
+    const caminho = join(dir, nome);
+    if (statSync(caminho).isDirectory()) achados.push(...arquivos(caminho, filtro));
+    else if (filtro(nome)) achados.push(caminho);
+  }
+  return achados;
+}
+
+describe("§4 · não tem interface — e a única exceção é declarada", () => {
+  const HTML_PERMITIDO = join(
+    "external-engines", "symbios", "adapter", "ferramentas", "navegador", "index.html",
+  );
+
+  test("existe exatamente UM html no repositório, e é a bancada da prova no navegador", () => {
+    // Antes do LAB-36 a regra dizia "não tem interface" e este arquivo já existia:
+    // a regra era FALSA como escrita. Agora ela declara a exceção, e esta guarda
+    // reprova um segundo HTML — que seria interface de verdade entrando sem aviso.
+    const htmls = arquivos(join(RAIZ, "external-engines"), (f) => f.endsWith(".html"))
+      .map((f) => f.slice(RAIZ.length + 1))
+      .sort();
+    expect(htmls, "html novo no repositório: ou é a bancada, ou a §4 deixou de valer").toEqual([
+      HTML_PERMITIDO,
+    ]);
+  });
+
+  test("a bancada não é produto: ela carrega o `.wasm` e publica números", () => {
+    // O que distingue bancada de interface é o que a página FAZ. Esta carrega o
+    // motor e publica medição; se um dia ela ganhar formulário de usuário, a
+    // exceção deixa de se justificar.
+    const html = readFileSync(join(RAIZ, HTML_PERMITIDO), "utf8");
+    expect(html).toContain("prova.js");
+    expect(html.toLowerCase()).not.toContain("<form");
+    expect(html.toLowerCase()).not.toContain("<input");
+  });
+});
+
+describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () => {
+  /**
+   * Os CONCEITOS, e os nomes que cada um aceita. (LAB-36)
+   *
+   * A primeira versão desta guarda exigia a chave `"gleba"` literal, e reprovou 13
+   * de 32 provas — **por defeito da régua**: há prova que identifica a gleba em
+   * `glebas` (plural), e arquivo de SAÍDA que a identifica em `entrada`, com a
+   * versão do contrato dentro do bloco `archilly`. Exigir um nome só é medir
+   * ortografia, não conteúdo. Com os nomes aceitos declarados, sobram **9**, e aí
+   * cada uma é um caso de verdade.
+   */
+  const CONCEITOS: Record<string, string[]> = {
+    gleba: ["gleba", "glebas", "entrada", "montadaSobre", "projeto"],
+    semente: ["semente"],
+    contrato: ["contrato", "contratoLidoPelaEsteira", "archilly", "contratoDeSaida"],
+  };
+
+  /**
+   * Provas que **não medem gleba**, com o motivo. (LAB-36)
+   *
+   * Lista declarada, no espírito dos inventários das pontes: o que não cumpre a
+   * regra **diz por que**, e a guarda confere a lista contra os arquivos. Exceção
+   * que ninguém revalida envelhece igual a comentário (D104).
+   */
+  const NAO_MEDEM_GLEBA: Record<string, string> = {
+    "LAB-04/oraculo.json":
+      "oráculo de geometria: casos de esqueleto reto verificados contra a literatura, sem gleba",
+    "LAB-07/diagnostico-relevo.json":
+      "diagnóstico do interpolador do próprio Lab: compara nuvens de pontos, não roda motor — sem semente e sem contrato",
+    "LAB-07/lab01-50ha-ondulado.entrada.json":
+      "é uma ENTRADA guardada como prova do LAB-01, não uma medição: entrada não tem semente",
+    "LAB-24/formato-proposto.json":
+      "o formato proposto ao Generate e ao Orçamento: é contrato de dado, não medição",
+    "LAB-26/varredura.json":
+      "varredura de DECLARAÇÕES da porta: o objeto medido é a ficha de capacidades, não uma gleba",
+    "LAB-31/navegador.json":
+      "a prova no navegador mede o `.wasm` carregando em Chromium de verdade, sem terreno nenhum",
+    "LAB-31/sabotagem.json":
+      "o registro da sabotagem do comando único: mede o script e o código de saída, não terreno",
+  };
+
+  /**
+   * Provas CONGELADAS de antes da regra, e o dado que falta a cada uma. (LAB-36)
+   *
+   * **Conjunto FECHADO**: há teste exigindo que ele não cresça. Não se regera prova
+   * congelada para consertar etiqueta (D118) — então o dado que falta no arquivo
+   * **mora aqui**, nomeado, em vez de ficar perdido.
+   */
+  const CONGELADAS_ANTES_DA_REGRA: Record<string, { falta: string; oValor: string }> = {
+    "LAB-06/ranking.json": { falta: "contrato", oValor: "1 — contrato de motor v1, como diz o LAB-06.md" },
+    "LAB-07/medicoes.json": { falta: "contrato", oValor: "1 — contrato de motor v1, como diz o LAB-07.md" },
+  };
+
+  const provas = arquivos(PROVAS, (f) => f.endsWith(".json")).map((f) => f.slice(PROVAS.length + 1));
+
+  /** As chaves de um JSON, em qualquer profundidade. */
+  function chavesDe(o: unknown, acc = new Set<string>()): Set<string> {
+    if (Array.isArray(o)) for (const v of o.slice(0, 50)) chavesDe(v, acc);
+    else if (o && typeof o === "object") {
+      for (const [k, v] of Object.entries(o)) {
+        acc.add(k);
+        chavesDe(v, acc);
+      }
+    }
+    return acc;
+  }
+
+  const faltaEm = (rel: string) => {
+    const ks = chavesDe(JSON.parse(readFileSync(join(PROVAS, rel), "utf8")));
+    return Object.entries(CONCEITOS)
+      .filter(([, nomes]) => !nomes.some((n) => ks.has(n)))
+      .map(([c]) => c);
+  };
+
+  test("toda prova de medição traz os três conceitos, pelos nomes aceitos", () => {
+    const faltando: string[] = [];
+    for (const rel of provas) {
+      if (rel in NAO_MEDEM_GLEBA || rel in CONGELADAS_ANTES_DA_REGRA) continue;
+      const falta = faltaEm(rel);
+      if (falta.length) faltando.push(`${rel} (falta ${falta.join(", ")})`);
+    }
+    expect(faltando, "prova de medição incompleta — ou complete, ou declare a exceção").toEqual([]);
+  });
+
+  test("a lista de exceções não envelheceu: cada uma existe e CONTINUA precisando ser exceção", () => {
+    // As duas metades: exceção que aponta para arquivo que não existe mais, e
+    // exceção que passou a cumprir a regra. As duas são lista velha.
+    const todas = { ...NAO_MEDEM_GLEBA, ...CONGELADAS_ANTES_DA_REGRA };
+    const fantasmas = Object.keys(todas).filter((rel) => !existsSync(join(PROVAS, rel)));
+    expect(fantasmas, "a lista cita prova que não existe mais").toEqual([]);
+
+    const jaCumprem = Object.keys(todas).filter((rel) => faltaEm(rel).length === 0);
+    expect(jaCumprem, "esta prova já cumpre a regra: tire-a da lista de exceções").toEqual([]);
+  });
+
+  test("toda exceção tem motivo escrito, e não é motivo vazio", () => {
+    for (const [rel, motivo] of Object.entries(NAO_MEDEM_GLEBA)) {
+      expect(motivo.length, `${rel}: exceção sem motivo é exceção sem revisão`).toBeGreaterThan(30);
+    }
+  });
+
+  test("as congeladas são conjunto FECHADO, e o dado que falta está nomeado aqui", () => {
+    // Se esta lista crescer, alguém publicou prova nova incompleta e a chamou de
+    // "de antes da regra". Duas, e são do LAB-06 e do LAB-07.
+    expect(Object.keys(CONGELADAS_ANTES_DA_REGRA).sort()).toEqual([
+      "LAB-06/ranking.json",
+      "LAB-07/medicoes.json",
+    ]);
+    for (const [rel, { falta, oValor }] of Object.entries(CONGELADAS_ANTES_DA_REGRA)) {
+      // O que falta no arquivo tem de ser o que a guarda de fato acha faltando —
+      // senão a lista descreve um arquivo que não é este.
+      expect(faltaEm(rel), `${rel}: a lista diz que falta outra coisa`).toEqual([falta]);
+      expect(oValor.length, `${rel}: declare o valor, ou o dado se perde`).toBeGreaterThan(10);
+    }
+  });
+});
+
+describe("§4 · não reimplementa o Validator nem o Judge", () => {
+  test("o julgamento vem do Generate, por importação", () => {
+    // D20: sem versão leve, sem limiar mais frouxo por ser de fora. A forma de
+    // desmentir é simples — o julgamento ser calculado aqui.
+    const comum = readFileSync(join(import.meta.dirname, "..", "src", "motores", "comum.ts"), "utf8");
+    expect(comum, "o Validator do Generate tem de ser IMPORTADO").toContain("@generate/");
+  });
+
+  test("nenhum arquivo do Lab define um validador próprio", () => {
+    const fontes = arquivos(join(import.meta.dirname, "..", "src"), (f) => f.endsWith(".ts"));
+    const suspeitos: string[] = [];
+    for (const f of fontes) {
+      const txt = readFileSync(f, "utf8");
+      // Definir (não importar) algo chamado validador/judge é o que a regra proíbe.
+      if (/(export )?(function|class) (validar|validador|Validator|Judge|julgarLocal)\b/.test(txt)) {
+        suspeitos.push(f.slice(RAIZ.length + 1));
+      }
+    }
+    expect(suspeitos, "isto é Validator próprio, e o D20 proíbe").toEqual([]);
+  });
+});
+
+describe("§4 · conserto do Lab vem DESLIGADO por padrão", () => {
+  test("o aparo só acontece se quem chama pedir", () => {
+    // A regra: conserto do Lab é declarado e vem desligado. A forma de desmentir é
+    // o padrão ser ligado — e aí uma medição sairia consertada sem ninguém pedir.
+    const esteira = readFileSync(
+      join(import.meta.dirname, "..", "..", "testfit", "adapter", "src", "esteira.ts"),
+      "utf8",
+    );
+    expect(esteira, "o aparo tem de ser OPCIONAL no tipo").toContain("aparar?: boolean");
+    expect(esteira, "o aparo só roda sob pedido").toContain("if (opcoes.aparar)");
+    // E não pode haver valor-padrão ligando-o por trás.
+    expect(esteira).not.toContain("aparar = true");
+    expect(esteira).not.toContain("aparar ?? true");
+  });
+
+  test("quem liga o aparo DECLARA o que foi aparado", () => {
+    // Ligar o conserto é permitido; ligar em silêncio não é. O motor do
+    // Parcelamento liga, e publica o corte em `naoSoubeFazer`.
+    const testfit = readFileSync(join(import.meta.dirname, "..", "src", "motores", "testfit.ts"), "utf8");
+    expect(testfit).toContain("aparar: true");
+    expect(testfit, "ligou o conserto e não publicou o tamanho dele").toContain("o Lab aparou");
+  });
+});
+
+describe("§5 · \"Testfit\" é nome interno", () => {
+  const PARA_O_USUARIO = ["docs/PENDENCIAS_JONNY.md", "docs/COMPARACAO_DOS_MOTORES.md"];
+
+  test("texto voltado ao usuário nunca diz Testfit", () => {
+    for (const rel of PARA_O_USUARIO) {
+      const txt = readFileSync(join(RAIZ, rel), "utf8");
+      expect(txt.toLowerCase(), `${rel}: "Testfit" é nome interno (§5)`).not.toContain("testfit");
+    }
+  });
+
+  test("e diz o nome certo — a regra não é só proibir, é nomear", () => {
+    const pagina = readFileSync(join(RAIZ, "docs", "COMPARACAO_DOS_MOTORES.md"), "utf8");
+    expect(pagina).toContain("Laboratório de Parcelamento");
+  });
+});
+
+describe("§4 · não escreve em repositório vizinho", () => {
+  test("os clones somente-leitura estão limpos — e quantos foram conferidos sai dito", () => {
+    // A regra é conferida à mão ao fim de toda rodada e dita no relatório. Aqui ela
+    // vira guarda. Clone ausente não é falha: nada há para sujar — mas a CONTA sai,
+    // para "0 clones conferidos" não passar por verde.
+    const VIZINHOS = ["motor-testfit", "urban-create-hub-41d93a4d", "urban-scout-tool"];
+    const casa = join(RAIZ, "..");
+    const conferidos: string[] = [];
+    const sujos: string[] = [];
+    for (const v of VIZINHOS) {
+      const dir = join(casa, v);
+      if (!existsSync(join(dir, ".git"))) continue;
+      conferidos.push(v);
+      const saida = execFileSync("git", ["-C", dir, "status", "--porcelain"], { encoding: "utf8" });
+      if (saida.trim().length > 0) sujos.push(`${v}: ${saida.trim().split("\\n").length} arquivo(s)`);
+    }
+    expect(sujos, "o Lab escreveu em repositório vizinho — a §4 proíbe").toEqual([]);
+    // O `testfit` é lido por caminho pelo `tsconfig`, então ele existe sempre que a
+    // suíte roda: zero clones conferidos significaria que algo mudou de lugar.
+    expect(conferidos.length, "nenhum clone vizinho foi conferido").toBeGreaterThan(0);
+    expect(conferidos).toContain("motor-testfit");
+  });
+});

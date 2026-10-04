@@ -121,8 +121,13 @@ em silêncio.
   toda rodada, e dizer no relatório que ficou limpo.
 - **O que precisa mudar no vizinho vira lista numerada em relatório**, nunca
   commit lá.
-- **Não tem interface.** Prova aqui é teste, JSON e captura de plot quando
-  ajudar.
+- **Não tem interface — com UMA exceção, declarada** (LAB-36). Prova aqui é teste,
+  JSON e captura de plot quando ajudar. O único HTML do repositório é a **bancada
+  da prova no navegador**
+  (`external-engines/symbios/adapter/ferramentas/navegador/index.html`): ela não é
+  produto, é onde o `.wasm` do Symbios é carregado em Chromium de verdade (D123).
+  **Há guarda contando os HTML**, e um segundo reprova — antes do LAB-36 esta regra
+  era falsa como estava escrita, porque esse arquivo já existia.
 - **Não reimplementa o Validator nem o Judge.** Eles são importados do Generate.
   Sem versão leve, sem limiar mais frouxo por ser de fora (D20).
 - **Não conserta geometria em silêncio.** Conserto do Lab é declarado, vem
@@ -172,7 +177,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu OITO vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu NOVE vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -185,6 +190,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D127/D128 (LAB-32) | "entreguei a via e ele passou a segui-la menos" | a régua media uma coisa **que o motor não promete** |
 | D133 (LAB-34) | "a ordem dos motores muda em 4 das 5 glebas" | em parte **faltava dado**, não mudava a ordem |
 | D135 (LAB-35) | "a ida não entrega o furo da gleba" | o furo mora em **`terreno.gleba.furos`**, e o caminho errado era do meu teste |
+| D137 (LAB-36) | "um terço das provas viola a §7" | a régua exigia a chave `"gleba"` **literal** e media **ortografia**, não conteúdo |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -196,15 +202,18 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**Das OITO, QUATRO foram réguas minhas acusando a si mesmas**, e as três últimas
-foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135).
+**Das NOVE, CINCO foram réguas minhas acusando a si mesmas**, e as quatro últimas
+foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137).
 
 **A regra que as oito ensinam, e ela é curta:**
 
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
-> você está lendo** — e antes de dizer que um número mudou, confira se ele
-> **existe**. Oito de oito vezes o defeito estava na régua antes de estar no
-> medido, e em três delas a régua era o teste que eu acabara de escrever.
+> você está lendo**; antes de dizer que um número mudou, confira se ele
+> **existe**; e antes de acusar em volume, pergunte se a sua régua aceita os
+> **nomes que a coisa de fato usa** — régua que casa por nome exato mede
+> ortografia, não conteúdo. Nove de nove vezes o defeito estava na régua antes de
+> estar no medido, e em quatro delas a régua era o teste que eu acabara de
+> escrever.
 
 ---
 
@@ -216,9 +225,18 @@ Todo prompt fecha com: relatório em `docs/relatorios/`, provas em
 testes verdes, e **PR mesclado na `main`**. Relatório não volta para o chat —
 volta o RECADO, que também é acrescentado ao `RECADOS.md`.
 
-Medição é **em metros** e **em dados**: JSON em `docs/provas/<prompt>/`, com
-gleba, motor, semente e versão do contrato em cada arquivo, e determinismo
-provado.
+Medição é **em metros** e **em dados**: JSON em `docs/provas/<prompt>/`, e **toda
+prova que mede uma gleba** traz gleba, motor, semente e versão do contrato, com
+determinismo provado.
+
+**A regra vale para prova de MEDIÇÃO, e a diferença é guardada** (LAB-36): há provas
+que não medem gleba nenhuma — o oráculo de geometria do LAB-04, a varredura de
+declarações do LAB-26, a prova no navegador e a da sabotagem do LAB-31, o formato
+proposto do LAB-24. Elas estão numa **lista declarada de exceções**, cada uma com o
+motivo, e a guarda reprova em dois casos: prova de medição sem as chaves, e exceção
+na lista que **deixou de precisar** ser exceção. Lista que não se revalida envelhece
+igual a comentário (D104) — até o LAB-36 esta regra dizia *"em cada arquivo"* e era
+**falsa em 8 de 32**.
 
 Duas pilhas convivem, de propósito (D14, D17): o adaptador do Symbios roda em
 **Node 22+ sem dependência npm**; o do LAB-07 roda em **Bun**, porque compila

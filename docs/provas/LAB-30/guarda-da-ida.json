@@ -2,6 +2,7 @@
   "prompt": "LAB-30",
   "geradoEm": "2026-10-03",
   "contrato": "2",
+  "semente": 20260913,
   "idasAuditadas": [
     "parcelamento",
     "symbios"
