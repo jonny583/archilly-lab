@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-35 ·
-**A fila de 04/10 está em andamento: 5 de 7 feitos.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-36 ·
+**A fila de 04/10 está em andamento: 6 de 7 feitos — falta o LAB-37.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-31 a LAB-37
 
@@ -13,7 +13,7 @@
 :05.** É o **mesmo** despertador: o chat mandou **reabilitar em vez de recriar** pela
 terceira vez, e isso preserva o histórico de disparos.
 
-**O próximo é o LAB-36**, e a condição dele está cumprida (LAB-35 mesclado).
+**O próximo é o LAB-37, o último da fila**, e a condição dele está cumprida (LAB-36 mesclado).
 
 ## A fila de 04/10 — sete prompts, todos tirados da minha própria lista de dívidas
 
@@ -28,8 +28,39 @@ cobrado. A fila por extenso está em [`prompts/FILA.md`](prompts/FILA.md).
 | **LAB-33** | a trava passou a **medir**, e a prova congelada virou detector de prova velha | ✅ **04/10/2026** |
 | **LAB-34** | o aviso ficou **debaixo de cada quadro** — e a pergunta certa era se a **ordem** muda | ✅ **04/10/2026** |
 | **LAB-35** | havia: **4 promessas** que gleba nenhuma exercitava — a guarda nunca as verificou | ✅ **04/10/2026** |
-| **LAB-36** | as quatro regras sem teste **viram guarda ou saem do documento** | ⏳ **o próximo** |
-| **LAB-37** | a dívida da testada de frente (D121) — tamanho escrito, executar se couber | ⏳ pronto |
+| **LAB-36** | eram **cinco**, e **duas eram falsas** — viraram guarda ou se estreitaram | ✅ **04/10/2026** |
+| **LAB-37** | a dívida da testada de frente (D121) — tamanho escrito, executar se couber | ⏳ **o próximo, e o último** |
+
+## O que o LAB-36 fez — e as duas regras que eram FALSAS
+
+**O primeiro achado é sobre o próprio pedido: a lista das "quatro regras" não existia em
+lugar nenhum.** Ela saiu num balanço pedido fora da fila, foi para o chat e **não para um
+arquivo**. Então varri o `CLAUDE.md` de novo, regra por regra, com uma pergunta só: *"o
+que, hoje, reprovaria se isto deixasse de ser verdade?"*
+
+> **O que vai ao chat e não vai a um arquivo não existe amanhã.**
+
+| regra | estado antes | conserto |
+|---|---|---|
+| §4 *"não tem interface"* | ❌ **FALSA** — o HTML da bancada do navegador existe desde o LAB-01 | exceção declarada + guarda que conta os HTML |
+| §7 *"prova com as quatro chaves **em cada arquivo**"* | ❌ **FALSA em 9 de 32** | vale para prova de **medição**; exceções em lista declarada, em duas classes |
+| §4 *"não reimplementa o Validator"* | ✅ sem guarda | guarda |
+| §4 *"conserto vem desligado por padrão"* | ✅ sem guarda | guarda |
+| §5 *"Testfit é nome interno"* | ✅ sem guarda | guarda |
+| §4 *"não escreve em vizinho"* | conferido à mão | **virou teste**, com a conta de clones conferidos |
+
+**Regra que ninguém pode desmentir não é regra, é slogan** — e duas já tinham deixado de
+ser verdade sem que nada acusasse.
+
+**A NONA vez do ponto cego** (D137): a primeira versão da guarda do §7 exigia a chave
+`"gleba"` **literal** e reprovou **13 de 32** provas. Eu tinha nas mãos *"um terço das
+provas do repositório viola a §7"*. **Era a régua, medindo ortografia e não conteúdo** —
+há prova que diz `glebas` no plural, e arquivo de SAÍDA que identifica a gleba em
+`entrada`, com o contrato dentro do bloco `archilly`. Declarados os nomes aceitos por
+conceito, sobraram 9, e aí cada uma era caso de verdade.
+
+**Uma omissão consertada de verdade:** `LAB-30/guarda-da-ida.json` não trazia `semente`,
+e a guarda roda os motores — era falta, não exceção.
 
 ## O que o LAB-35 achou dentro dos 310 avisos
 

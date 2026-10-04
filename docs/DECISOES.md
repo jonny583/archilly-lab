@@ -3468,3 +3468,78 @@ entra no §6 do `CLAUDE.md`:
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que você
 > está lendo.** Oito vezes das oito, o defeito estava na régua antes de estar no medido —
 > e em três delas a régua era o próprio teste que eu acabara de escrever.
+
+---
+
+## D136 · As regras que eram só afirmação viraram guarda — e DUAS estavam falsas · 04/10/2026
+
+O chat mandou: *"as quatro regras sem teste que você listou viram guarda ou saem do
+documento."*
+
+**Primeiro achado, e ele é sobre o próprio pedido: a lista não existia em lugar
+nenhum.** Ela saiu num balanço que o chat pediu fora da fila, foi para o chat e **não
+para um arquivo**. Então eu não podia confiar na memória: **varri o `CLAUDE.md` de
+novo**, regra por regra, perguntando *"o que, hoje, reprovaria se isto deixasse de ser
+verdade?"*.
+
+> **O que vai ao chat e não vai a um arquivo não existe amanhã.** É a mesma lição do
+> `RECADOS.md` (§1), aplicada ao que eu respondo fora da fila — e desta vez ela custou
+> uma varredura inteira para recuperar uma lista de cinco linhas.
+
+**Deram CINCO, não quatro — e duas estavam FALSAS como escritas:**
+
+| regra | estado | conserto |
+|---|---|---|
+| §4 *"não tem interface"* | ❌ **FALSA** — o HTML da bancada do navegador existia desde o LAB-01 | a regra **declara a exceção**, e a guarda conta os HTML: um segundo reprova |
+| §7 *"prova com gleba, motor, semente e contrato **em cada arquivo**"* | ❌ **FALSA em 9 de 32** | a regra vale para prova de **medição**, e as exceções viram **lista declarada** |
+| §4 *"não reimplementa o Validator nem o Judge"* | ✅ verdadeira, sem guarda | guarda: o julgamento vem por `@generate/`, e nenhum arquivo define validador próprio |
+| §4 *"conserto do Lab vem desligado por padrão"* | ✅ verdadeira, sem guarda | guarda: `aparar?` é opcional, só roda sob pedido, e **quem liga declara o tamanho do corte** |
+| §5 *"Testfit é nome interno"* | ✅ verdadeira, sem guarda | guarda: texto para o usuário nunca diz o nome, **e diz o certo** |
+
+E uma sexta, da mesma família e igualmente solta: §4 *"não escreve em repositório
+vizinho"* — conferida à mão em toda rodada, agora **guarda**, com a **conta de quantos
+clones foram conferidos** publicada, para *"0 clones conferidos"* não passar por verde.
+
+**As exceções das provas têm DUAS classes, e a segunda é conjunto fechado:**
+
+- **`NAO_MEDEM_GLEBA`** (7) — o oráculo de geometria do LAB-04, o diagnóstico do
+  interpolador do LAB-07, a entrada guardada do LAB-01, o formato proposto do LAB-24, a
+  varredura de declarações do LAB-26, e as duas do LAB-31 (navegador e sabotagem). São
+  permanentes **por natureza**: não há gleba ali;
+- **`CONGELADAS_ANTES_DA_REGRA`** (2) — `LAB-06/ranking.json` e `LAB-07/medicoes.json`,
+  que não trazem a versão do contrato. **Não se regera prova congelada para consertar
+  etiqueta** (D118), então o dado que falta **mora na lista, nomeado**: contrato `1` nas
+  duas. E há teste exigindo que esse conjunto **não cresça** — senão *"de antes da
+  regra"* vira desculpa para prova nova incompleta.
+
+**A guarda das listas tem a propriedade que o LAB-33 ensinou:** ela reprova a exceção que
+aponta para arquivo inexistente **e** a exceção que passou a cumprir a regra. Lista que
+não se revalida envelhece igual a comentário (D104).
+
+**Decisão, em uma linha:** **regra que ninguém pode desmentir não é regra, é slogan** — e
+duas delas já tinham deixado de ser verdade sem que nada acusasse.
+
+## D137 · A NONA vez do ponto cego: a régua media ortografia, não conteúdo · 04/10/2026
+
+A primeira versão da guarda do §7 exigia a chave `"gleba"` **literal** e reprovou **13 de
+32** provas. Eu tinha nas mãos *"um terço das provas do repositório viola a §7"*.
+
+**Era a régua.** Há prova que identifica a gleba em **`glebas`** (plural), e arquivo de
+**SAÍDA** que a identifica em `entrada`, com a versão do contrato dentro do bloco
+`archilly` — como o contrato manda. **Exigir um nome só é medir ortografia, não
+conteúdo.**
+
+Com os nomes aceitos declarados por conceito — `gleba | glebas | entrada |
+montadaSobre | projeto`, e `contrato | contratoLidoPelaEsteira | archilly |
+contratoDeSaida` — sobraram **9**, e aí cada uma é um caso de verdade: sete que não medem
+gleba e duas congeladas antes da regra.
+
+**É a nona vez da forma do §6, e a quarta pega dentro do próprio prompt.** A diferença
+desta: o acusado não era motor de vizinho nem ponte do Lab — **eram os arquivos de prova
+do próprio repositório**, e o número (13 de 32) era grande o bastante para parecer
+achado. A lição entra ao lado das outras:
+
+> **Antes de acusar em volume, pergunte se a sua régua aceita os nomes que a coisa de
+> fato usa.** Régua que casa por nome exato mede ortografia; régua que casa por conceito
+> mede conteúdo — e é por isso que a guarda da ida resolve **caminho**, e não nome
+> (D30).
