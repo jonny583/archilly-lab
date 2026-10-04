@@ -54,8 +54,8 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 | **LAB-32** | A **aderência do Parcelamento caiu de 17,4 para 11,2 %** depois do conserto do LAB-30 e **eu publiquei sem investigar** — investigar, achar o culpado e dizer se o número novo é o certo ou se há outro defeito | ✅ **concluído em 04/10/2026** | LAB-31 mesclado ✅ |
 | **LAB-33** | A **trava do LAB-23** continua lendo **prova congelada** em vez de medir — *"conserte de verdade, não vire o sinal"* | ✅ **concluído em 04/10/2026** | LAB-32 mesclado ✅ |
 | **LAB-34** | A **tabela comparativa** ordena os motores num **único ponto de acesso**, e só a seção do acesso avisa que isso muda até **108 %** — *"ponha o aviso onde a ordem aparece, não escondido"* | ✅ **concluído em 04/10/2026** | LAB-33 mesclado ✅ |
-| **LAB-35** | A guarda da ida cospe **310 avisos `mapa-velho`** — conferir se há **caso real escondido nesse volume** e reduzir o ruído | ⏳ **pronto, é o próximo** | LAB-34 mesclado ✅ |
-| **LAB-36** | As **quatro regras sem teste** que eu listei **viram guarda ou saem do documento** | ⏳ **pronto** | LAB-35 mesclado |
+| **LAB-35** | A guarda da ida cospe **310 avisos `mapa-velho`** — conferir se há **caso real escondido nesse volume** e reduzir o ruído | ✅ **concluído em 04/10/2026** | LAB-34 mesclado ✅ |
+| **LAB-36** | As **quatro regras sem teste** que eu listei **viram guarda ou saem do documento** | ⏳ **pronto, é o próximo** | LAB-35 mesclado ✅ |
 | **LAB-37** | A **dívida da testada de frente** (D121) — mapear a linha para as faces do perímetro — *"escreva o tamanho e execute se couber"* | ⏳ **pronto** | LAB-36 mesclado |
 
 ### O que o chat manteve, sem mudança
@@ -63,6 +63,35 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 - **a régua de forma** (útil < 85 % / < 70 %) segue **com o Jonny** e **não trava
   nada** — é o único item na lista dele;
 - **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-35 · Os 310 avisos — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-35.md`](../relatorios/LAB-35.md),
+`tests/promessas.test.ts` (4 travas), andar novo no `guarda-da-ida.test.ts` (5 travas),
+prova regerada com `promessasQueNenhumaGlebaExercita`.
+
+**Havia caso real, e são quatro.** Dos 68 campos que avisavam, **21 avisavam em TODAS as
+sete glebas** — e aí *"campo opcional que esta gleba não exerce"* vira *"nenhuma gleba
+exerce isto"*. Dezessete são `perda`/`interno` (nada tinha de chegar); **quatro são
+PROMESSAS** que a guarda **nunca verificou**: `parametros.calcada_m`,
+`atracoes[].geometria.aneis` e `acessos[].segmento` no Parcelamento, e `gleba.furos` no
+Symbios. Caminho errado numa promessa que ninguém exerce é **invisível** — a forma exata
+do D119.
+
+**Exercitadas as quatro, com entradas montadas em teste: as quatro se sustentam.** O caso
+real não era promessa quebrada, era promessa que ninguém tinha olhado.
+
+**O ruído:** a regra 3 virou duas — `promessa-nao-exercitada` (99, o sinal) e
+`mapa-velho` (187, calado no relatório e gravado na prova). Os 24 que faltam eram
+entradas de **dívida** em glebas que não trazem o campo: não há o que confessar se o
+contrato não trouxe nada.
+
+**A OITAVA vez do ponto cego** (D135): dos quatro testes, **dois falharam e os dois eram
+o meu teste** — a calçada chega como **faixa** `{min,max}`, e o furo mora em
+`terreno.gleba.furos`. A segunda me deu nas mãos, por um instante, *"a ida não entrega o
+furo"*: acusação à ponte, publicável, e falsa.
+
+---
 
 ### LAB-34 · O aviso onde a ordem aparece — ✅ concluído em 04/10/2026
 
@@ -976,6 +1005,11 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   **perpendicular ao curso** — e o Lab recebe a restrição como **polígono de
   APP**, não como a linha d'água. Sem o eixo, "perpendicular" não tem a quê. É
   achado para o Geo, e o chat é que o leva.
+- **Fixtures que exerçam as quatro promessas** (LAB-35). Elas estão provadas por teste,
+  com entrada montada em memória — mas **nenhuma gleba do repositório** tem furo, atração
+  poligonal, calçada declarada ou acesso como segmento, então quem roda a esteira inteira
+  continua sem exercer esses caminhos. **Escopo novo**, não executado; é um prompt
+  pequeno se o chat quiser.
 - **As posições em que a candidata ortogonal do Generate não entrega nada aceitável**
   (LAB-34). No `sintetico-50ha-ondulado` são **5 de 6**; no `sintetico-10ha-plano`, 3 de
   6. Está publicado como ausência, mas **não foi investigado** — pode ser limite do

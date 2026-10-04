@@ -92,6 +92,23 @@ export interface ObjetoDaIda {
 export type RegraDaIda =
   | "campo-nao-entregue"
   | "campo-novo-no-contrato"
+  /**
+   * **O inventário PROMETE entregar este campo, e esta gleba não o exerce.** (LAB-35)
+   *
+   * Avisa, e é o aviso que importa: promessa que gleba nenhuma exercita é promessa
+   * que a guarda **nunca verificou**. Um caminho de destino errado numa entrada
+   * `entregue` ou `traduzido` é invisível — a regra `campo-nao-entregue` só morde
+   * quando o contrato TRAZ valor. Exatamente a forma do D119.
+   */
+  | "promessa-nao-exercitada"
+  /**
+   * O inventário descreve campo que esta gleba não traz, e o destino dele é
+   * **`perda` ou `interno`** — nada tinha de chegar ao motor.
+   *
+   * **É o aviso que não importa**, e separá-lo foi o LAB-35: dos 310 avisos que a
+   * guarda cuspia, a esmagadora maioria era disto. Fica registrado na prova e fora
+   * do relatório por padrão.
+   */
   | "mapa-velho"
   /** Dívida declarada do Lab: o motor tem onde receber e a ida ainda não entrega. */
   | "divida-do-lab";
@@ -286,16 +303,35 @@ export function auditarIda(o: ObjetoDaIda): AchadoDaIda[] {
     });
   }
 
-  // ── Regra 3 · mapa-velho (avisa) ─────────────────────────────────────────
-  for (const campo of Object.keys(o.inventario)) {
+  // ── Regra 3 · o inventário descreve e a gleba não traz (avisa) ───────────
+  //
+  // **Partida em duas no LAB-35**, porque as duas metades não têm o mesmo peso:
+  //
+  //   · se o destino é `perda` ou `interno`, **nada tinha de chegar** ao motor e a
+  //     ausência não diz nada → `mapa-velho`, o aviso que não importa;
+  //   · se o destino é `entregue` ou `traduzido`, o inventário **promete** algo, e
+  //     esta gleba não põe a promessa à prova → `promessa-nao-exercitada`. Promessa
+  //     que gleba nenhuma exercita é promessa que a guarda nunca verificou, e
+  //     caminho errado ali é invisível (a regra 1 só morde com valor no contrato).
+  //
+  // Medido ao partir: dos 310 avisos, 4 promessas não eram exercitadas por NENHUMA
+  // das sete glebas — `atracoes[].geometria.aneis` e `acessos[].segmento` e
+  // `parametros.calcada_m` no Parcelamento, e `gleba.furos` no Symbios.
+  for (const [campo, destino] of Object.entries(o.inventario)) {
     if (doContrato.has(campo) && !vazio(doContrato.get(campo))) continue;
+    if (destino.tipo === "divida") continue; // a dívida já tem regra própria
+    const promete = destino.tipo === "entregue" || destino.tipo === "traduzido";
     achados.push({
       ida: o.nome,
       campo,
-      regra: "mapa-velho",
-      diagnostico:
-        `o inventário descreve \`${campo}\` e esta gleba não o traz. Pode ser campo ` +
-        "opcional que ela não exerce — por isso isto avisa e não reprova",
+      regra: promete ? "promessa-nao-exercitada" : "mapa-velho",
+      ...(promete ? { destino: destino.caminho } : {}),
+      diagnostico: promete
+        ? `o inventário PROMETE levar \`${campo}\` a \`${destino.caminho}\` e esta gleba não ` +
+          "traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a " +
+          "guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
+        : `o inventário descreve \`${campo}\` como ${destino.tipo} e esta gleba não o traz. ` +
+          "Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa",
     });
   }
 
@@ -305,6 +341,24 @@ export function auditarIda(o: ObjetoDaIda): AchadoDaIda[] {
 /** As dívidas declaradas: o que o motor espera e a ida ainda não entrega. */
 export const dividasDoLab = (a: readonly AchadoDaIda[]): AchadoDaIda[] =>
   a.filter((x) => x.regra === "divida-do-lab");
+
+/**
+ * As promessas que esta gleba não exercitou. (LAB-35)
+ *
+ * Agregadas entre glebas, as que aparecem em **todas** são as que a guarda nunca
+ * verificou — e é essa a lista que merece olho.
+ */
+export const promessasNaoExercitadas = (a: readonly AchadoDaIda[]): AchadoDaIda[] =>
+  a.filter((x) => x.regra === "promessa-nao-exercitada");
+
+/**
+ * Os avisos que importam: tudo menos o `mapa-velho`. (LAB-35)
+ *
+ * **Guarda que grita à toa se desliga**, e a desta cuspia 310 linhas por rodada.
+ * O `mapa-velho` continua gravado na prova — some do relatório, não da medição.
+ */
+export const avisosQueImportam = (a: readonly AchadoDaIda[]): AchadoDaIda[] =>
+  a.filter((x) => x.regra !== "mapa-velho");
 
 /** Só os achados que reprovam. É o que o teste olha. */
 export const reprovamNaIda = (a: readonly AchadoDaIda[]): AchadoDaIda[] =>

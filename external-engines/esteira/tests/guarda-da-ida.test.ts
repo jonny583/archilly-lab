@@ -42,8 +42,10 @@ import type { EntradaMinima } from "../src/gleba-v1.ts";
 import {
   REGRAS_DA_IDA_QUE_REPROVAM,
   auditarIda,
+  avisosQueImportam,
   caminhosDe,
   dividasDoLab,
+  promessasNaoExercitadas,
   reprovamNaIda,
   valorEm,
 } from "../src/guarda-da-ida.ts";
@@ -359,4 +361,79 @@ describe("a dívida declarada — a confissão que não vira desculpa", () => {
     expect(prova.dividasDoLab.join(" ")).toContain("facesLoteamento");
     expect(prova.porRegra["divida-do-lab"]).toBeGreaterThan(0);
   });
+});
+
+// ═════════════════ andar 5 · o ruído separado do sinal (LAB-35) ════════════
+
+describe("a regra 3 partida: promessa não exercitada × mapa-velho", () => {
+  /** Uma ida de mentira com um campo de cada destino, e a gleba trazendo nada. */
+  const auditarVazia = () =>
+    auditarIda({
+      nome: "falsa",
+      inventario: {
+        promete: { tipo: "entregue", caminho: "terreno.promete" },
+        traduz: { tipo: "traduzido", caminho: "terreno.traduz", como: "uma conta" },
+        perde: { tipo: "perda", motivo: "o motor não tem onde receber" },
+        escritura: { tipo: "interno", motivo: "é carimbo do contrato" },
+      },
+      doContrato: {},
+      doMotor: {},
+    });
+
+  test("campo que o inventário PROMETE e a gleba não traz vira `promessa-nao-exercitada`", () => {
+    // É o aviso que importa: promessa que gleba nenhuma exercita é promessa que a
+    // guarda NUNCA verificou — e caminho errado ali é invisível, porque a regra 1
+    // só morde quando o contrato traz valor. A forma do D119.
+    const p = promessasNaoExercitadas(auditarVazia()).map((a) => a.campo).sort();
+    expect(p).toEqual(["promete", "traduz"]);
+  });
+
+  test("campo de `perda` ou `interno` que a gleba não traz vira `mapa-velho`, e cala", () => {
+    const a = auditarVazia();
+    const velhos = a.filter((x) => x.regra === "mapa-velho").map((x) => x.campo).sort();
+    expect(velhos).toEqual(["escritura", "perde"]);
+    // `avisosQueImportam` é o que o relatório lê: o mapa-velho continua gravado na
+    // prova e sai do relatório. Guarda que grita à toa se desliga, e esta cuspia
+    // 310 linhas por rodada (D134).
+    expect(avisosQueImportam(a).map((x) => x.campo).sort()).toEqual(["promete", "traduz"]);
+  });
+
+  test("promessa EXERCITADA não vira aviso nenhum", () => {
+    const a = auditarIda({
+      nome: "falsa",
+      inventario: { promete: { tipo: "entregue", caminho: "terreno.promete" } },
+      doContrato: { promete: 7 },
+      doMotor: { terreno: { promete: 7 } },
+    });
+    expect(a).toHaveLength(0);
+  });
+
+  test("a dívida declarada NÃO vira mapa-velho quando a gleba não traz o campo", () => {
+    // Antes do LAB-35 ela virava: 24 dos 310 avisos eram entradas de dívida em
+    // glebas que não trazem o campo. Não há o que confessar se o contrato não
+    // trouxe nada — a regra da dívida só fala quando há valor.
+    const a = auditarIda({
+      nome: "falsa",
+      inventario: {
+        devo: { tipo: "divida", onde: "terreno.devo", proposto: "entregar isto um dia" },
+      },
+      doContrato: {},
+      doMotor: {},
+    });
+    expect(a).toHaveLength(0);
+  });
+
+  test("nas sete glebas de verdade, NADA reprova e o ruído some do relatório", () => {
+    const glebas: EntradaMinima[] = [glebaDoLab(GLEBA), antonina];
+    for (const g of glebas) {
+      for (const r of [auditarIdaDoParcelamento(g), auditarIdaDoSymbios(g)]) {
+        expect(reprovamNaIda(r.achados)).toHaveLength(0);
+        // O que fica no relatório é só promessa não exercitada e dívida — e nunca
+        // mais a enxurrada de `mapa-velho`.
+        for (const a of avisosQueImportam(r.achados)) {
+          expect(["promessa-nao-exercitada", "divida-do-lab"]).toContain(a.regra);
+        }
+      }
+    }
+  }, 120_000);
 });
