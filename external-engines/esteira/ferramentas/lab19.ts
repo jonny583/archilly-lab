@@ -43,6 +43,7 @@ import { mapaDaGleba, perfilDeRampa } from "../src/rampa.ts";
 import {
   POSICOES_DE_ACESSO,
   amplitudePctDe,
+  instabilidadeDaOrdem,
   referenciaDe,
   sensibilidadeAoAcesso,
   type SensibilidadeAoAcesso,
@@ -288,6 +289,23 @@ for (const { id, entrada } of GLEBAS) {
     ),
   };
 
+  // ── A ORDEM dos motores é estável quando o acesso muda? (LAB-34) ──────────
+  //
+  // O aviso dos 108 % morava só na seção do acesso, e quem lê a coluna `lotes`
+  // ordena os motores com os olhos muito antes de chegar lá. A régua mora no
+  // `acesso.ts`, num lugar só; aqui ela só é chamada e gravada.
+  const ordemDoAcesso = instabilidadeDaOrdem(sensPorMotor);
+  console.log(
+    `  ordem dos motores: ${ordemDoAcesso.ordensDistintas} ordem(ns) distinta(s) em ` +
+      `${ordemDoAcesso.posicoesComparaveis} de ${ordemDoAcesso.posicoes} posições comparáveis · ` +
+      `vencedor${ordemDoAcesso.vencedores.length > 1 ? "es" : ""}: ${ordemDoAcesso.vencedores.join(", ")}` +
+      (Object.keys(ordemDoAcesso.naoResponderam).length
+        ? ` · não responderam em alguma posição: ${Object.entries(ordemDoAcesso.naoResponderam)
+            .map(([m, n]) => `${m} (${n})`)
+            .join(", ")}`
+        : ""),
+  );
+
   glebas.push({
     prompt: "LAB-19",
     gleba: id,
@@ -295,6 +313,7 @@ for (const { id, entrada } of GLEBAS) {
     semente: SEMENTE,
     contrato: "1",
     confrontoDoAcesso,
+    ordemDoAcesso,
     motores: porMotor,
   });
 }

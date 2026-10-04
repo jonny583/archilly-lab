@@ -18,9 +18,11 @@ import {
   POSICOES_DE_ACESSO,
   amplitudePctDe,
   comAcessoEm,
+  instabilidadeDaOrdem,
   posicoesDeAcesso,
   referenciaDe,
   sensibilidadeAoAcesso,
+  type SensibilidadeAoAcesso,
 } from "../src/acesso.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
 import type { EntradaMinima } from "../src/gleba-v1.ts";
@@ -282,5 +284,85 @@ describe("o confronto é calculado UMA vez — a lição do D116", () => {
     // Mínimo zero não dá porcentagem: dividir por zero daria Infinity, e
     // publicar "Infinity %" é pior que publicar 0.
     expect(amplitudePctDe([0, 50])).toBe(0);
+  });
+});
+
+describe("a ordem dos motores aguenta o acesso mudar? — a régua do LAB-34", () => {
+  /** Monta uma sensibilidade só com o que esta régua lê. */
+  const sens = (lotes: (number | null)[]) =>
+    ({
+      posicoes: lotes.length,
+      posicoesMedidas: lotes.filter((l) => l != null).length,
+      amplitudeEhPiso: true,
+      lotes: { minimo: null, maximo: null, mediana: null, amplitude: null, amplitudePct: null },
+      areaVendavel_m2: { minimo: null, maximo: null, mediana: null, amplitude: null, amplitudePct: null },
+      melhorPonto: null,
+      piorPonto: null,
+      acessoDeclarado: null,
+      porPosicao: lotes.map((l) => ({ ponto: { x: 0, y: 0 }, lotes: l, areaVendavel_m2: null })),
+    }) as unknown as SensibilidadeAoAcesso;
+
+  test("ordem estável: os números mudam, a ordem não", () => {
+    const o = instabilidadeDaOrdem({ a: sens([100, 200, 300]), b: sens([10, 20, 30]) });
+    expect(o.posicoesComparaveis).toBe(3);
+    expect(o.ordensDistintas).toBe(1);
+    expect(o.vencedores).toEqual(["a"]);
+    expect(o.naoResponderam).toEqual({});
+  });
+
+  test("ordem instável: o primeiro lugar troca de mão", () => {
+    const o = instabilidadeDaOrdem({ a: sens([100, 10]), b: sens([10, 100]) });
+    expect(o.ordensDistintas).toBe(2);
+    expect(o.vencedores.sort()).toEqual(["a", "b"]);
+  });
+
+  test("POSIÇÃO EM QUE UM MOTOR NÃO RESPONDE NÃO ENTRA na conta da ordem", () => {
+    // Esta é a trava do erro que eu quase publiquei (D132). Contando a posição em
+    // que `a` não respondeu, a ordem "mudaria" — mas o que mudou foi um motor
+    // SAIR da comparação, que é outra afirmação. A primeira contagem que eu fiz
+    // misturava as duas e dava "a ordem muda em 4 de 5 glebas" em vez de 3.
+    const o = instabilidadeDaOrdem({ a: sens([100, null]), b: sens([10, 10]) });
+    expect(o.posicoes).toBe(2);
+    expect(o.posicoesComparaveis, "a posição sem resposta de `a` tinha de ficar fora").toBe(1);
+    expect(o.ordensDistintas).toBe(1);
+    expect(o.vencedores).toEqual(["a"]);
+  });
+
+  test("a ausência não é descartada: ela sai contada e nomeada", () => {
+    // "Este motor não desenha nada aceitável se a rua entrar aqui" também é
+    // resposta, e sumir com ela seria inventar silêncio (D23, em espírito).
+    const o = instabilidadeDaOrdem({ a: sens([100, null, null]), b: sens([10, 10, 10]) });
+    expect(o.naoResponderam).toEqual({ a: 2 });
+  });
+
+  test("sem posição comparável nenhuma, a régua não finge ordem", () => {
+    const o = instabilidadeDaOrdem({ a: sens([null, null]), b: sens([10, 10]) });
+    expect(o.posicoesComparaveis).toBe(0);
+    expect(o.ordensDistintas).toBe(0);
+    expect(o.vencedores).toEqual([]);
+  });
+
+  test("o medido nas cinco glebas: a ordem muda em 3, e o vencedor em 2", () => {
+    // Lido da prova e conferido contra a régua — e é detector de prova velha, não
+    // fonte da verdade (D131): se a medição mudar, isto reprova e manda regerar.
+    const prova = JSON.parse(
+      readFileSync(join(RAIZ, "docs", "provas", "LAB-19", "tabela.json"), "utf8"),
+    ) as {
+      glebas: {
+        gleba: string;
+        ordemDoAcesso: { posicoesComparaveis: number; ordensDistintas: number; vencedores: string[] };
+      }[];
+    };
+    expect(prova.glebas).toHaveLength(5);
+    const mudaAOrdem = prova.glebas.filter((g) => g.ordemDoAcesso.ordensDistintas > 1);
+    const mudaOVencedor = prova.glebas.filter((g) => g.ordemDoAcesso.vencedores.length > 1);
+    expect(mudaAOrdem.length, "regere com bun run lab19 — a ordem mudou de comportamento").toBe(3);
+    expect(mudaOVencedor.length, "regere com bun run lab19").toBe(2);
+
+    // E a única gleba em que a ordem aguenta as SEIS posições é a `ensaio-47ha`.
+    const estaveis = prova.glebas.filter(
+      (g) => g.ordemDoAcesso.ordensDistintas === 1 && g.ordemDoAcesso.posicoesComparaveis === 6,
+    );
+    expect(estaveis.map((g) => g.gleba)).toEqual(["ensaio-47ha"]);
   });
 });

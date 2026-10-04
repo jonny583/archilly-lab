@@ -3329,3 +3329,71 @@ crus que a própria prova já carrega, com `referenciaDe`/`amplitudePctDe` do
 `acesso.ts` — sem rodar motor nenhum, portanto sem custo de suíte. Medir ao vivo o
 confronto inteiro custaria as 5 glebas × 4 motores × 6 posições de acesso do LAB-28, que
 é outra ordem de grandeza.
+
+---
+
+## D132 · O aviso vai onde a ordem aparece — e "varia 108 %" não era a pergunta · 04/10/2026
+
+O chat mandou: *"a tabela comparativa ordena os motores num único ponto de acesso, e só
+a seção do acesso avisa que isso muda até 108 por cento — ponha o aviso onde a ordem
+aparece, não escondido."*
+
+A primeira metade era fácil: mover o aviso. **A segunda metade é que o aviso estava
+respondendo à pergunta errada.**
+
+> **"Varia 108 %" e "a ordem muda" são afirmações diferentes.** Um motor pode variar
+> muito e continuar sempre na frente. Quem lê a coluna *lotes* dos quadros **ordena os
+> motores com os olhos** — e a pergunta de quem ordena é se a ordem aguenta a entrada
+> mudar, não quanto o número varia.
+
+**Medido, nas cinco glebas, com as seis posições de acesso do LAB-28:**
+
+| gleba | posições comparáveis | ordens distintas | o 1º lugar muda? |
+|---|---|---|---|
+| `completo` | 4 de 6 | **3** | **sim** (espinha e ortogonal) |
+| `sintetico-50ha-ondulado` | **1** de 6 | — | não há como saber |
+| `sintetico-10ha-plano` | 3 de 6 | **2** | não |
+| `ensaio-47ha` | **6 de 6** | **1** | não — ✅ a ordem aguenta |
+| `geo-antonina` | **6 de 6** | **3** | **sim** (espinha e ortogonal) |
+
+**A ordem muda em 3 dos 5 terrenos, e o primeiro lugar em 2.** E na única gleba real com
+as seis posições completas — `geo-antonina` — ela muda: na posição 0 a espinha ganha com
+1 672 lotes; na 3 a ortogonal ganha com 1 941; na 5 a ortogonal **cai para terceiro**,
+atrás do Parcelamento.
+
+**Decisão:** a régua `instabilidadeDaOrdem` nasce no `acesso.ts` — **num lugar só**, a
+lição do D116 —, roda na ferramenta, é gravada em `tabela.json`, e a página escreve o
+aviso **debaixo de cada quadro**, com o que foi medido *naquela* gleba: *"NÃO aguenta,
+3 ordens, o primeiro lugar muda"*, ou *"aguenta, não mudou nenhuma vez"*, ou *"não dá
+para dizer"*. Mais a legenda da coluna `Lotes` dizendo que o número é de **um** ponto, e
+um apontador na seção do acesso de volta para os quadros.
+
+**Aviso igual em todo lugar é aviso que vira decoração**, e há trava exigindo que os
+cinco não sejam o mesmo texto — justamente porque um dos cinco é um ✅.
+
+## D133 · A SÉTIMA vez do ponto cego: contar ordem onde um motor não respondeu · 04/10/2026
+
+A primeira contagem que eu fiz dizia **"a ordem muda em 4 das 5 glebas"**. Estava errada,
+e errada da forma do §6.
+
+**Nem todo motor responde em toda posição de acesso.** No `sintetico-50ha-ondulado` a
+candidata ortogonal do Generate entrega desenho aceito pelo contrato em **1 de 6**
+posições; no `completo`, a espinha falha em 2 de 6. Contando a ordem nessas posições, ela
+*"muda"* — mas o que mudou foi **um motor sair da comparação**, que é outra afirmação.
+
+**Decisão:** a ordem só é comparada nas posições em que **todos** responderam
+(`posicoesComparaveis`), e as ausências saem **ao lado, contadas e nomeadas**
+(`naoResponderam`) — porque *"este motor não desenha nada aceitável se a rua entrar
+aqui"* também é resposta, e sumir com ela seria inventar silêncio, no espírito do D23.
+Com a conta certa: **3 de 5**, não 4.
+
+É a **sétima** vez da forma do §6 e a segunda pega dentro do próprio prompt. A diferença
+desta: não houve motor de vizinho envolvido — **eu ia acusar a mim mesmo de instabilidade
+que era ausência de dado.** A trava está em `acesso.test.ts`, com o par: a posição sem
+resposta fica fora da ordem, e a ausência aparece contada.
+
+**E uma trava minha reprovou a página por um defeito dela mesma, no mesmo prompt:** a
+primeira versão do teste contava os avisos filtrando pela frase *"entrada da rua"*, que
+só as glebas instáveis usam — deu 4 de 5 e acusou a **página**. A conferência que vale é
+**por posição**: cada quadro tem de ter o seu aviso colado. Filtro por prosa é régua
+frágil medindo texto gerado.

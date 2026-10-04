@@ -193,6 +193,74 @@ describe("a página de comparação", () => {
     expect(p).toContain("**não muda nada**");
   });
 
+  test("o aviso da ORDEM está debaixo de CADA tabela, não só na seção do acesso", () => {
+    // A cobrança do chat: "a tabela comparativa ordena os motores num único ponto
+    // de acesso, e só a seção do acesso avisa que isso muda até 108 % — ponha o
+    // aviso onde a ordem aparece, não escondido." (LAB-34)
+    //
+    // Esta trava exige o aviso **colado a cada quadro**, e exige que ele diga o
+    // que foi MEDIDO naquela gleba — não um texto igual em todas, que é o jeito
+    // de um aviso virar decoração.
+    const p = lida();
+    const prova = JSON.parse(
+      readFileSync(join(RAIZ, "docs", "provas", "LAB-19", "tabela.json"), "utf8"),
+    ) as {
+      glebas: {
+        gleba: string;
+        ordemDoAcesso: { posicoesComparaveis: number; ordensDistintas: number; vencedores: string[] };
+      }[];
+    };
+
+    // Contar por frase é frágil: o aviso da gleba estável usa outras palavras
+    // ("aguenta a mudança de entrada") que o das instáveis ("de UM ponto de
+    // entrada da rua"), e a primeira versão desta trava reprovou a PÁGINA por um
+    // defeito do FILTRO — 4 de 5. A conferência que vale é por posição, abaixo:
+    // cada quadro tem de ter o seu aviso colado.
+    const avisos: string[] = [];
+
+    for (const g of prova.glebas) {
+      // O aviso tem de vir DEPOIS do título do terreno e ANTES do terreno seguinte.
+      const inicio = p.indexOf(`identificação técnica do terreno: \`${g.gleba}\``);
+      expect(inicio, `o quadro de ${g.gleba} não está na página`).toBeGreaterThan(-1);
+      const trecho = p.slice(inicio, inicio + 4000);
+      const aviso = trecho.split("\n").find((l) => l.startsWith("> "));
+      expect(aviso, `${g.gleba}: nenhum aviso colado ao quadro`).toBeDefined();
+      avisos.push(aviso!);
+
+      const o = g.ordemDoAcesso;
+      if (o.posicoesComparaveis < 2) {
+        expect(aviso, `${g.gleba}: sem ponto comparável, o aviso tem de dizer que não dá para saber`)
+          .toContain("não dá para dizer");
+      } else if (o.ordensDistintas === 1) {
+        expect(aviso, `${g.gleba}: a ordem é estável e o aviso tem de dizer isso`).toContain("aguenta");
+        expect(aviso).toContain("não mudou");
+      } else {
+        expect(aviso, `${g.gleba}: a ordem muda e o aviso tem de dizer NÃO aguenta`).toContain(
+          "NÃO aguenta",
+        );
+        expect(aviso).toContain(`**${o.ordensDistintas} ordens diferentes**`);
+        if (o.vencedores.length > 1) {
+          expect(aviso, `${g.gleba}: o primeiro lugar muda e o aviso tem de dizer`).toContain(
+            "o primeiro lugar muda de programa",
+          );
+        }
+      }
+    }
+
+    expect(avisos).toHaveLength(prova.glebas.length);
+    // E os avisos NÃO podem ser o mesmo texto nas cinco: aviso igual em todo
+    // lugar é o jeito de um aviso virar decoração — e uma das cinco glebas tem a
+    // ordem ESTÁVEL, o que precisa aparecer.
+    expect(new Set(avisos).size, "cinco avisos iguais significa que nenhum foi medido").toBeGreaterThan(1);
+  });
+
+  test("a legenda da coluna `Lotes` diz que o número é de UM ponto de entrada", () => {
+    // Sem isto, a coluna que convida a ordenar não avisa nada por si.
+    const p = lida();
+    expect(p).toContain("naquele ponto de entrada da rua");
+    expect(p).toContain("convida a ordenar");
+  });
+
   test("a página NÃO escolhe a entrada — isso é decisão do Jonny", () => {
     const p = lida();
     expect(p).toContain("o laboratório não escolhe a entrada");

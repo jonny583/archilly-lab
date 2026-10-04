@@ -140,6 +140,19 @@ interface GlebaNaProva {
     entreOsQuatroMotores_pct: number;
     entreOsMotoresDeLote_pct: number;
   };
+  /**
+   * A ORDEM dos motores é estável quando o acesso muda? (LAB-34)
+   *
+   * Medida na ferramenta, pela régua do `acesso.ts`. Esta página só a escreve —
+   * e a escreve **debaixo de cada tabela**, que é onde a ordem aparece.
+   */
+  ordemDoAcesso: {
+    posicoes: number;
+    posicoesComparaveis: number;
+    ordensDistintas: number;
+    vencedores: string[];
+    naoResponderam: Record<string, number>;
+  };
   motores: Record<string, MotorNaProva>;
 }
 interface Prova {
@@ -150,6 +163,22 @@ interface Prova {
 }
 
 const prova: Prova = JSON.parse(readFileSync(ENTRADA, "utf8"));
+
+/**
+ * O resumo da estabilidade da ordem, para a seção do acesso. (LAB-34)
+ *
+ * **Lido da medição, não recalculado.** A régua é a `instabilidadeDaOrdem` do
+ * `acesso.ts` e ela roda na ferramenta; aqui só se contam glebas. Recalcular
+ * daria a segunda régua que o D116 puniu.
+ */
+const ordem = {
+  total: prova.glebas.length,
+  mudaAOrdem: prova.glebas.filter((g) => g.ordemDoAcesso.ordensDistintas > 1).length,
+  mudaOVencedor: prova.glebas.filter((g) => g.ordemDoAcesso.vencedores.length > 1).length,
+  estaveis: prova.glebas
+    .filter((g) => g.ordemDoAcesso.ordensDistintas === 1 && g.ordemDoAcesso.posicoesComparaveis === 6)
+    .map((g) => NOME_DA_GLEBA[g.gleba] ?? g.gleba),
+};
 
 /** Número em português: vírgula decimal e ponto de milhar. */
 function br(v: number, casas = 0): string {
@@ -358,7 +387,7 @@ push(
   "",
   "| coluna | o que ela diz |",
   "|---|---|",
-  "| **Lotes** | quantos lotes o motor desenhou |",
+  "| **Lotes** | quantos lotes o motor desenhou **naquele ponto de entrada da rua**. É a coluna que convida a ordenar os programas — e debaixo de cada quadro está dito se a ordem aguenta a entrada mudar. Em terreno nenhum ela é propriedade só do programa |",
   "| **Área vendável** | a soma dos lotes, em hectares |",
   "| **Virou lote** | quanto do terreno virou lote, em porcentagem. O resto é rua, praça, área de preservação e sobra |",
   "| **Apontado pelo conferente** | quantas regras o desenho quebrou, na conta do conferente do Archilly Generate — o *Validator*. **Zero é o alvo, e é ele que diz se a proposta passa** |",
@@ -396,6 +425,21 @@ push(
   `**Em ${acesso.glebasEmQueOAcessoPesaMais} dos ${acesso.totalDeGlebas} terrenos a entrada pesa mais; nos outros, o`,
   "programa.** As duas coisas importam, e nenhuma das duas dispensa a outra — era o",
   "que valia medir, e a resposta não foi a mais vistosa.",
+  "",
+  // ── A pergunta de quem COMPARA, e ela é outra (LAB-34) ────────────────────
+  //
+  // "Varia 108 %" e "a ordem muda" são afirmações diferentes: um programa pode
+  // variar muito e continuar sempre na frente. Quem lê a coluna `lotes` dos
+  // quadros ordena os programas, e é essa pergunta que precisa de resposta —
+  // colada a cada quadro, que é onde a ordem aparece.
+  `**E a pergunta de quem compara é outra: a ORDEM dos programas aguenta a entrada`,
+  `mudar?** Medido, ela muda em **${ordem.mudaAOrdem} dos ${ordem.total} terrenos**, e em`,
+  `**${ordem.mudaOVencedor}** deles muda até **quem fica em primeiro**. Em ${ordem.estaveis.length === 0 ? "nenhum" : `**${ordem.estaveis.join("**, **")}**`}`,
+  `a ordem aguentou os seis pontos sem mudar nenhuma vez.`,
+  "",
+  "**Por isso o aviso não mora só aqui:** debaixo de cada quadro de terreno está",
+  "escrito se a ordem daquele quadro aguenta a entrada mudar — porque é ali que a",
+  "ordem aparece, e ninguém devia precisar rolar até esta seção para descobrir.",
   "",
   "### O que isso significa para quem compra terreno",
   "",
@@ -467,6 +511,57 @@ push(
   "",
 );
 
+/**
+ * O AVISO DEBAIXO DA TABELA — onde a ordem aparece. (LAB-34)
+ *
+ * O número de lotes acima é de **um** ponto de acesso. Quem lê a coluna ordena os
+ * motores com os olhos, e o aviso de que esse número varia morava **páginas
+ * abaixo**, na seção do acesso. Agora ele nasce aqui, colado na tabela, e com o
+ * que de fato foi medido nesta gleba: não *"varia tanto por cento"*, mas **a ordem
+ * muda ou não muda**, que é a pergunta de quem compara.
+ */
+function avisoDaOrdem(g: GlebaNaProva): string {
+  const o = g.ordemDoAcesso;
+  const ausentes = Object.entries(o.naoResponderam);
+  const nota = ausentes.length
+    ? " Nos pontos restantes, " +
+      ausentes
+        .map(([id, n]) => `**${NOME_DO_MOTOR[id] ?? id}** não entregou desenho válido em ${n} ponto${n > 1 ? "s" : ""}`)
+        .join("; ") +
+      " — o que também é resposta: naquela entrada, aquele programa não desenha nada aceitável."
+    : "";
+
+  if (o.posicoesComparaveis < 2) {
+    return (
+      `> ⚠️ **Esta tabela é de UM ponto de entrada da rua, e aqui não dá para dizer se a ordem ` +
+      `aguenta outro.** Dos ${o.posicoes} pontos testados, só ${o.posicoesComparaveis} teve os quatro ` +
+      `programas entregando desenho válido ao mesmo tempo.${nota} **Não ordene os programas por esta ` +
+      `tabela sem ver a seção _A entrada da rua_.**`
+    );
+  }
+
+  if (o.ordensDistintas === 1) {
+    return (
+      `> ✅ **A ordem desta tabela aguenta a mudança de entrada.** Movendo o ponto por onde a rua ` +
+      `entra pelos ${o.posicoesComparaveis} pontos comparáveis, a ordem dos programas **não mudou ` +
+      `nenhuma vez** — os números mudam, a ordem não.${nota}`
+    );
+  }
+
+  const vencedores = o.vencedores.map((id) => NOME_DO_MOTOR[id] ?? id);
+  const oVencedorMuda = vencedores.length > 1;
+  return (
+    `> ⚠️ **Esta tabela é de UM ponto de entrada da rua, e a ordem dela NÃO aguenta outro.** ` +
+    `Movendo só o ponto por onde a rua entra, nos ${o.posicoesComparaveis} pontos comparáveis ` +
+    `apareceram **${o.ordensDistintas} ordens diferentes**` +
+    (oVencedorMuda
+      ? `, e **o primeiro lugar muda de programa**: ${vencedores.join(" e ")} ganham cada um em pelo ` +
+        `menos um ponto.`
+      : `, embora o primeiro lugar seja sempre o mesmo (${vencedores[0]}).`) +
+    `${nota} **Ordenar os programas por esta tabela é ordenar por onde a rua entra.**`
+  );
+}
+
 for (const g of prova.glebas) {
   const nome = NOME_DA_GLEBA[g.gleba] ?? g.gleba;
   push(
@@ -494,7 +589,7 @@ for (const g of prova.glebas) {
         `${rampa.media} | ${rampa.pico} | ${colunaDoAcesso(m.acesso)} | ${br(m.ms / 1000, 1)} s |`,
     );
   }
-  push("");
+  push("", avisoDaOrdem(g), "");
 }
 
 // ── O bloco de terreno: rua avisa, lote reprova ───────────────────────────

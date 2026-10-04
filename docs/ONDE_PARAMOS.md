@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-33 ·
-**A fila de 04/10 está em andamento: 3 de 7 feitos.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-34 ·
+**A fila de 04/10 está em andamento: 4 de 7 feitos.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-31 a LAB-37
 
@@ -13,7 +13,7 @@
 :05.** É o **mesmo** despertador: o chat mandou **reabilitar em vez de recriar** pela
 terceira vez, e isso preserva o histórico de disparos.
 
-**O próximo é o LAB-34**, e a condição dele está cumprida (LAB-33 mesclado).
+**O próximo é o LAB-35**, e a condição dele está cumprida (LAB-34 mesclado).
 
 ## A fila de 04/10 — sete prompts, todos tirados da minha própria lista de dívidas
 
@@ -26,10 +26,44 @@ cobrado. A fila por extenso está em [`prompts/FILA.md`](prompts/FILA.md).
 | **LAB-31** | "verde" é UM comando que roda tudo, provado por sabotagem | ✅ **04/10/2026** |
 | **LAB-32** | a queda da aderência era o motor **obedecendo** — e a sexta vez do ponto cego | ✅ **04/10/2026** |
 | **LAB-33** | a trava passou a **medir**, e a prova congelada virou detector de prova velha | ✅ **04/10/2026** |
-| **LAB-34** | o aviso dos 108 % tem de ficar **onde a ordem dos motores aparece** | ⏳ **o próximo** |
-| **LAB-35** | 310 avisos `mapa-velho`: há caso real escondido nesse volume? | ⏳ pronto |
+| **LAB-34** | o aviso ficou **debaixo de cada quadro** — e a pergunta certa era se a **ordem** muda | ✅ **04/10/2026** |
+| **LAB-35** | 310 avisos `mapa-velho`: há caso real escondido nesse volume? | ⏳ **o próximo** |
 | **LAB-36** | as quatro regras sem teste **viram guarda ou saem do documento** | ⏳ pronto |
 | **LAB-37** | a dívida da testada de frente (D121) — tamanho escrito, executar se couber | ⏳ pronto |
+
+## O que o LAB-34 fez — e a pergunta que o aviso não respondia
+
+**O chat mandou:** *"a tabela comparativa ordena os motores num único ponto de acesso, e
+só a seção do acesso avisa que isso muda até 108 % — ponha o aviso onde a ordem aparece,
+não escondido."*
+
+**A segunda metade era mais séria que a primeira:** *"varia 108 %"* e *"a ordem muda"*
+são afirmações diferentes — um motor pode variar muito e continuar sempre na frente.
+Quem lê a coluna `lotes` **ordena os motores com os olhos**, e essa era a pergunta sem
+resposta.
+
+| gleba | posições comparáveis | ordens distintas | 1º lugar muda? |
+|---|---|---|---|
+| `completo` | 4 de 6 | **3** | **sim** |
+| `sintetico-50ha-ondulado` | **1** de 6 | — | não há como saber |
+| `sintetico-10ha-plano` | 3 de 6 | **2** | não |
+| `ensaio-47ha` | **6 de 6** | **1** | ✅ **a ordem aguenta** |
+| `geo-antonina` | **6 de 6** | **3** | **sim** |
+
+**A ordem muda em 3 dos 5 terrenos; o primeiro lugar, em 2.** Em `geo-antonina`, na
+posição 5, a candidata ortogonal **cai para terceiro**, atrás do Parcelamento.
+
+**Onde o aviso ficou:** debaixo de **cada** um dos cinco quadros, com o que foi medido
+naquela gleba; na legenda da coluna `Lotes`; e um apontador na seção do acesso de volta
+para os quadros. Há trava exigindo que os cinco avisos **não** sejam o mesmo texto —
+aviso igual em todo lugar vira decoração, e um dos cinco é um ✅.
+
+**A SÉTIMA vez do ponto cego da §6** (D133), e a primeira **sem motor de vizinho
+envolvido**: minha primeira contagem dava *"4 de 5"* porque incluía posições em que um
+motor **não respondeu** — e aí o que muda é um motor sair da comparação, não a ordem.
+Conferi também que os seis pontos são os mesmos para os quatro motores, índice a índice,
+antes de comparar. Com a conta certa: **3 de 5**. A ausência não foi descartada: sai
+contada, nomeada e escrita no aviso.
 
 ## O que o LAB-33 fez — e o defeito que virar o sinal não tocava
 
