@@ -3746,3 +3746,112 @@ máquina e ela sempre passou — **porque esta máquina tem os clones**. A guard
 verdadeira sobre um ambiente e falsa sobre outro, e **só um segundo ambiente podia
 mostrar isso**. Era, em miniatura, a própria tese do prompt: o que ninguém executa num
 lugar diferente não está testado, está confirmado.
+
+---
+
+## D144 · A trava que comparava duas provas passou a MEDIR cada uma contra os crus dela · 04/10/2026
+
+A última das sete travas que leem `docs/provas/` e que o D131 reprovou. Ela dizia:
+
+> *"a tabela do LAB-19 e a prova do LAB-28 trazem os MESMOS números"*
+
+**O que ela não fazia:** medir. As duas provas saem da **mesma** fórmula; erradas do
+mesmo jeito, erram juntas, e a comparação passa. E tinha o defeito simétrico, que é o
+que o chat chamou de *"trava que se repete"*: **regerada uma e não a outra, ela fica
+vermelha sem nada estar errado** — régua acusando o medido, a forma do §6.
+
+**O conserto, e ele é barato:** cada arquivo é conferido contra o `porPosicao` **dele**.
+O agregado publicado tem de **seguir** dos números crus que o próprio arquivo carrega,
+pela fórmula que mora na régua. São 5 glebas × 4 motores × 6 posições já medidas em
+disco — **nenhum motor roda**. Medir o confronto ao vivo seriam 240 rodadas completas
+com Validator e Judge, e a conferência custaria mais que a medição.
+
+**Quatro travas onde havia uma:**
+
+| trava | o que ela falsifica |
+|---|---|
+| o agregado de cada motor segue das posições cruas | 40 agregados, nos dois arquivos |
+| o confronto publicado segue dos crus | 10 confrontos, nos dois arquivos |
+| a régua reprova agregado que não segue | sabotagem **em memória**, sem tocar arquivo |
+| a montagem é falsificável num caso de cabeça | dois motores inventados, números conferidos a mão |
+
+**Provado por sabotagem, não por confiança:** trocando `entreOsMotoresDeLote_pct` da
+gleba `completo` de **29,12** para **70** — que é exatamente o número errado que o D116
+publicou —, a suíte vai de **30 verdes a 3 vermelhas**, e o arquivo foi restaurado
+(`docs/provas/LAB-39/confronto-refeito.json`, campo `sabotagem`). **A trava antiga não
+pegaria essa sabotagem se as duas provas a tivessem juntas**; esta pega em qualquer uma
+das duas, sozinha.
+
+**O que sobrou da trava antiga, declarado pelo que é:** os dois arquivos continuam
+tendo de carregar os **mesmos números crus** — mesma semente, mesmas glebas, mesmas
+posições. Isso é **detector de prova velha** (D131), não medição, e a mensagem de falha
+diz *"regere com `bun run lab19 && bun run lab28`"*.
+
+---
+
+## D145 · A MONTAGEM do confronto também morava em dois lugares — e a lista dos motores de lote, em duas grafias · 04/10/2026
+
+Escrevendo a trava do D144 apareceu o que ela precisava e não existia: **uma** conta com
+que refazer o agregado. O D116 havia trazido as **fórmulas** (`referenciaDe`,
+`amplitudePctDe`) para a régua, e eu declarei o caso encerrado. **A montagem das três
+contas continuou em dois arquivos** — e com ela a lista dos motores que entregam lote:
+
+| onde | como a lista estava escrita |
+|---|---|
+| `lab28.ts` | `["generate-ortogonal", "generate-espinha", "parcelamento"]`, declarada |
+| `lab19.ts` | `MOTORES.filter((m) => m.id !== "symbios")` |
+
+**Hoje as duas dão o mesmo conjunto, e o número publicado é o mesmo** — conferido: a
+montagem única reproduz os **10 confrontos** dos dois arquivos, número por número, sem
+regerar nada. **No dia em que entrar um quinto motor que entregue quadra**, uma inclui e
+a outra não, e volta o D116 inteiro: duas respostas para a mesma pergunta, nos dois
+arquivos que o Jonny lê lado a lado.
+
+**Decisão:** `MOTORES_DE_LOTE` e `confrontoDoAcesso()` moram em `src/acesso.ts`; as duas
+ferramentas chamam. E a lição do D116 ganha a metade que faltava:
+
+> **Trazer a FÓRMULA para um lugar só não basta: a MONTAGEM também é a conta.** Duas
+> montagens da mesma coisa divergem pelo que elas escolhem, não pelo que elas calculam.
+
+Os **nomes das chaves** publicadas continuam diferentes nos dois arquivos
+(`amplitudeDoAcesso_pct` × `maiorAmplitude_pct`) — unificá-los mudaria a forma de duas
+provas publicadas e da página, e isso é outro prompt. Fica dito aqui: **dois nomes para
+um número é meio caminho para dois números.**
+
+---
+
+## D146 · Quatro provas declaram contrato "2", e não existe entrada "2" no repositório · 04/10/2026
+
+Achado na conferência do D144, e **não consertado aqui** (§1-A, não ampliar escopo):
+está proposto ao chat como **LAB-43**.
+
+Para escrever o detector de prova velha eu precisava da precondição *"mesma semente e
+mesmo contrato"*. Os números crus dos dois arquivos são **idênticos** — e as etiquetas
+não:
+
+| arquivo | `contrato` declarado |
+|---|---|
+| `LAB-19/tabela.json` | `"1"` |
+| `LAB-28/acesso.json` | `"2"` |
+
+**Medido antes de atribuir (§6):** as cinco glebas são as mesmas nas duas ferramentas —
+três de `glebaDoLab()` e duas de `docs/fixtures/glebas-padrao-com-relevo/`. E **todas as
+cinco declaram `archilly.versao: "1"`**; varrido o repositório, **nenhuma entrada declara
+`"2"`**, inclusive as de via desenhada. A esteira *lê* `"2"` e `"1"` (`VERSOES_LIDAS`),
+mas nada que ela mede **é** `"2"`.
+
+Quem erra é a etiqueta: `lab25.ts`, `lab26.ts`, `lab28.ts` e `lab30.ts` têm
+`const CONTRATO = "2"` escrito à mão. `lab19.ts` escreve `"1"` à mão e acerta por sorte;
+**`lab23.ts` é a única honesta** — ela publica `entrada.archilly.versao`.
+
+**É a forma do D137 outra vez, um degrau acima:** a guarda do §7 confere que a chave
+`contrato` **existe**, nunca que ela **corresponde ao que foi medido**. Chave presente e
+valor errado passa — ortografia, não conteúdo. E é a forma do D104: valor escrito à mão
+que ninguém revalida envelhece em silêncio, e este envelheceu em quatro arquivos.
+
+**Por que não consertei agora:** o conserto no código é uma linha por ferramenta, mas a
+etiqueta só muda no arquivo quando a prova é **regerada** — e regerar o LAB-28 são 5
+glebas × 4 motores × 6 posições de acesso com Validator e Judge. Prova congelada não se
+regera para consertar etiqueta (D118). Então o número fica **nomeado aqui**, como o
+D137 fez com as congeladas, e o prompt que regerar essas provas por outro motivo leva o
+conserto junto.

@@ -15,13 +15,18 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
+  MOTORES_DE_LOTE,
   POSICOES_DE_ACESSO,
+  agregadosDasPosicoes,
   amplitudePctDe,
   comAcessoEm,
+  confrontoDoAcesso,
   instabilidadeDaOrdem,
   posicoesDeAcesso,
   referenciaDe,
   sensibilidadeAoAcesso,
+  type ConfrontoDoAcesso,
+  type RendimentoNoAcesso,
   type SensibilidadeAoAcesso,
 } from "../src/acesso.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
@@ -209,22 +214,56 @@ describe("a ressalva viaja com o número", () => {
   });
 });
 
-describe("o confronto é calculado UMA vez — a lição do D116", () => {
-  test("a tabela e a prova do LAB-28 trazem os MESMOS números", () => {
-    // O defeito: o confronto nascia calculado em dois lugares, com referências
-    // diferentes, e `completo` saía com +29,12 % num arquivo e +70 % no outro —
-    // dois números para a mesma pergunta, nos dois arquivos que o Jonny lê lado a
-    // lado. Quem pegou foi eu lendo a página, e isso não escala: agora é teste.
+describe("o confronto é calculado UMA vez, e CONFERIDO contra os números crus", () => {
+  /**
+   * O conserto do LAB-39.
+   *
+   * A trava que estava aqui comparava a prova do LAB-19 com a prova do LAB-28 e
+   * dizia *"trazem os mesmos números"*. O D131 varreu as sete travas que leem
+   * `docs/provas/` e esta foi a única reprovada: **duas provas comparadas entre
+   * si, nenhuma medida**. Se as duas fossem regeradas erradas do mesmo jeito —
+   * e elas saem da MESMA fórmula, então errariam juntas —, ela passava. Pior: ela
+   * ficava vermelha quando uma era regerada e a outra não, que é a família de
+   * falso alarme que o §6 chama de régua acusando o medido.
+   *
+   * Agora cada arquivo é conferido contra o `porPosicao` **dele**: o agregado
+   * publicado tem de SEGUIR dos números crus que o próprio arquivo carrega, pela
+   * fórmula que mora na régua. Não roda motor nenhum — são 5 glebas × 4 motores ×
+   * 6 posições já medidas em disco —, e falsifica de verdade: agregado que não
+   * segue dos crus reprova, em qualquer dos dois arquivos, sozinho.
+   */
+  const LOTE = [...MOTORES_DE_LOTE];
+
+  /** Um bloco de prova vira a sensibilidade que a régua sabe conferir. */
+  function sensDaProva(b: {
+    porPosicao: RendimentoNoAcesso[];
+    acessoDeclarado: RendimentoNoAcesso | null;
+  }): SensibilidadeAoAcesso {
+    return {
+      ...agregadosDasPosicoes(b.porPosicao),
+      amplitudeEhPiso: true,
+      acessoDeclarado: b.acessoDeclarado,
+      porPosicao: b.porPosicao,
+    };
+  }
+
+  interface BlocoDeMotor extends SensibilidadeAoAcesso {
+    motor: string;
+  }
+
+  /** As duas provas, cada uma com os blocos por motor e o confronto publicado. */
+  const ARQUIVOS: {
+    arquivo: string;
+    regere: string;
+    glebas: { gleba: string; motores: Record<string, BlocoDeMotor>; publicado: ConfrontoDoAcesso }[];
+  }[] = (() => {
     const tabela = JSON.parse(
       readFileSync(join(RAIZ, "docs", "provas", "LAB-19", "tabela.json"), "utf8"),
     ) as {
       glebas: {
         gleba: string;
-        confrontoDoAcesso: {
-          maiorAmplitude_pct: number;
-          entreOsQuatroMotores_pct: number;
-          entreOsMotoresDeLote_pct: number;
-        };
+        confrontoDoAcesso: ConfrontoDoAcesso;
+        motores: Record<string, { acesso: BlocoDeMotor }>;
       }[];
     };
     const lab28 = JSON.parse(
@@ -232,18 +271,163 @@ describe("o confronto é calculado UMA vez — a lição do D116", () => {
     ) as {
       glebas: Record<
         string,
-        { confronto: { amplitudeDoAcesso_pct: number; entreMotores_pct: number; entreOsDeLote_pct: number } }
+        {
+          motores: Record<string, BlocoDeMotor>;
+          confronto: {
+            amplitudeDoAcesso_pct: number;
+            entreMotores_pct: number;
+            entreOsDeLote_pct: number;
+          };
+        }
       >;
     };
+    return [
+      {
+        arquivo: "LAB-19/tabela.json",
+        regere: "bun run lab19",
+        glebas: tabela.glebas.map((g) => ({
+          gleba: g.gleba,
+          // Na tabela do LAB-19 a sensibilidade do acesso é um bloco DENTRO do
+          // motor; na prova do LAB-28 ela é o motor. Os nomes diferem, o conteúdo
+          // é o mesmo — e a régua só conhece o conteúdo.
+          motores: Object.fromEntries(Object.entries(g.motores).map(([k, v]) => [k, v.acesso])),
+          publicado: g.confrontoDoAcesso,
+        })),
+      },
+      {
+        arquivo: "LAB-28/acesso.json",
+        regere: "bun run lab28",
+        glebas: Object.entries(lab28.glebas).map(([gleba, g]) => ({
+          gleba,
+          motores: g.motores,
+          // A prova do LAB-28 escreve as MESMAS três contas com outros nomes de
+          // chave. Isso está registrado como achado do LAB-39: dois nomes para um
+          // número é meio caminho para dois números.
+          publicado: {
+            maiorAmplitude_pct: g.confronto.amplitudeDoAcesso_pct,
+            entreOsQuatroMotores_pct: g.confronto.entreMotores_pct,
+            entreOsMotoresDeLote_pct: g.confronto.entreOsDeLote_pct,
+          },
+        })),
+      },
+    ];
+  })();
 
-    expect(tabela.glebas.length).toBe(5);
-    for (const g of tabela.glebas) {
-      const outro = lab28.glebas[g.gleba]?.confronto;
-      expect(outro, `a prova do LAB-28 não tem a gleba ${g.gleba}`).toBeDefined();
-      expect(g.confrontoDoAcesso.maiorAmplitude_pct).toBe(outro!.amplitudeDoAcesso_pct);
-      expect(g.confrontoDoAcesso.entreOsQuatroMotores_pct).toBe(outro!.entreMotores_pct);
-      expect(g.confrontoDoAcesso.entreOsMotoresDeLote_pct).toBe(outro!.entreOsDeLote_pct);
+  test("as duas provas trazem as cinco glebas e os quatro motores", () => {
+    // Sem isto, um laço vazio passaria verde dizendo que conferiu tudo.
+    for (const a of ARQUIVOS) {
+      expect(a.glebas, a.arquivo).toHaveLength(5);
+      for (const g of a.glebas) {
+        expect(Object.keys(g.motores).sort(), `${a.arquivo} · ${g.gleba}`).toEqual([
+          "generate-espinha",
+          "generate-ortogonal",
+          "parcelamento",
+          "symbios",
+        ]);
+        expect(g.motores["symbios"]!.porPosicao, `${a.arquivo} · ${g.gleba}`).toHaveLength(
+          POSICOES_DE_ACESSO,
+        );
+      }
     }
+  });
+
+  test("o AGREGADO de cada motor segue das posições cruas do próprio arquivo", () => {
+    const erradas: string[] = [];
+    for (const a of ARQUIVOS) {
+      for (const g of a.glebas) {
+        for (const [mid, bloco] of Object.entries(g.motores)) {
+          const refeito = agregadosDasPosicoes(bloco.porPosicao);
+          const publicado = {
+            posicoes: bloco.posicoes,
+            posicoesMedidas: bloco.posicoesMedidas,
+            lotes: bloco.lotes,
+            areaVendavel_m2: bloco.areaVendavel_m2,
+            melhorPonto: bloco.melhorPonto,
+            piorPonto: bloco.piorPonto,
+          };
+          if (JSON.stringify(refeito) !== JSON.stringify(publicado)) {
+            erradas.push(`${a.arquivo} · ${g.gleba} · ${mid} (regere com \`${a.regere}\`)`);
+          }
+        }
+      }
+    }
+    expect(erradas, "agregado publicado que não segue das posições cruas").toEqual([]);
+  });
+
+  test("o CONFRONTO publicado segue dos números crus do próprio arquivo", () => {
+    const erradas: string[] = [];
+    for (const a of ARQUIVOS) {
+      for (const g of a.glebas) {
+        const sens = Object.fromEntries(
+          Object.entries(g.motores).map(([k, v]) => [k, sensDaProva(v)]),
+        );
+        const refeito = confrontoDoAcesso(sens, LOTE);
+        if (JSON.stringify(refeito) !== JSON.stringify(g.publicado)) {
+          erradas.push(
+            `${a.arquivo} · ${g.gleba}: publicado ${JSON.stringify(g.publicado)} ` +
+              `vs refeito dos crus ${JSON.stringify(refeito)} (regere com \`${a.regere}\`)`,
+          );
+        }
+      }
+    }
+    expect(erradas, "confronto publicado que não segue dos crus").toEqual([]);
+  });
+
+  test("a régua REPROVA um agregado que não segue dos crus — sabotagem em memória", () => {
+    // Sem isto eu teria uma trava verde e nenhuma prova de que ela aperta. A
+    // sabotagem é em memória, numa cópia: nenhum arquivo de prova é tocado.
+    const g = ARQUIVOS[0]!.glebas[0]!;
+    const sens = Object.fromEntries(
+      Object.entries(g.motores).map(([k, v]) => [k, sensDaProva(v)]),
+    );
+    expect(JSON.stringify(confrontoDoAcesso(sens, LOTE))).toBe(JSON.stringify(g.publicado));
+
+    const sabotado = JSON.parse(JSON.stringify(sens)) as Record<string, SensibilidadeAoAcesso>;
+    sabotado["generate-ortogonal"]!.porPosicao[0]!.lotes = 1;
+    expect(JSON.stringify(confrontoDoAcesso(sabotado, LOTE))).not.toBe(
+      JSON.stringify(g.publicado),
+    );
+  });
+
+  test("a montagem do confronto é falsificável num caso de cabeça", () => {
+    // Dois motores inventados, com números que se conferem de cabeça — para a
+    // régua não ser conferida só contra os arquivos que ela mesma produziu.
+    const cru = (lotes: (number | null)[]): SensibilidadeAoAcesso =>
+      sensDaProva({
+        porPosicao: lotes.map((l, i) => ({ ponto: { x: i, y: 0 }, lotes: l, areaVendavel_m2: null })),
+        acessoDeclarado: null,
+      });
+    const c = confrontoDoAcesso({ a: cru([100, 200, null]), b: cru([50, 60]) }, ["b"]);
+    // "a" vai de 100 a 200: +100 %. "b" de 50 a 60: +20 %. A maior é 100.
+    expect(c.maiorAmplitude_pct).toBe(100);
+    // Sem acesso declarado, a referência é a PRIMEIRA posição: 100 e 50 → +100 %.
+    expect(c.entreOsQuatroMotores_pct).toBe(100);
+    // Um motor só na lista de lote: menos de dois valores, nenhuma diferença.
+    expect(c.entreOsMotoresDeLote_pct).toBe(0);
+  });
+
+  test("os dois arquivos continuam carregando os MESMOS números crus — detector de prova velha", () => {
+    // Esta é a única metade da trava antiga que se salva, e ela está declarada pelo
+    // que é (D131): detector de prova velha, não medição. A propriedade é de
+    // determinismo — mesma semente, mesmas glebas, mesmas posições —, e ela só cai
+    // quando uma das duas foi regerada e a outra não.
+    const [a, b] = ARQUIVOS as [(typeof ARQUIVOS)[number], (typeof ARQUIVOS)[number]];
+    const cruzar = (x: (typeof ARQUIVOS)[number]) =>
+      Object.fromEntries(
+        x.glebas.map((g) => [
+          g.gleba,
+          Object.fromEntries(
+            Object.entries(g.motores).map(([k, v]) => [
+              k,
+              { porPosicao: v.porPosicao, acessoDeclarado: v.acessoDeclarado },
+            ]),
+          ),
+        ]),
+      );
+    expect(
+      JSON.stringify(cruzar(a)),
+      "uma das duas provas envelheceu: regere com `bun run lab19 && bun run lab28`",
+    ).toBe(JSON.stringify(cruzar(b)));
   });
 
   test("a conta entre os QUATRO motores é maior que a dos três de lote", () => {

@@ -4,15 +4,15 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-38 ·
-**Fila nova de 04/10 (segunda): 1 de 5 feito — LAB-38 a LAB-42.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-39 ·
+**Fila nova de 04/10 (segunda): 2 de 5 feitos — LAB-38 a LAB-42.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-38 a LAB-42
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 14:20 UTC.** É o
 **mesmo** despertador, reabilitado pela **quarta** vez em vez de recriado (D112).
 
-**O próximo é o LAB-39**, e a condição dele está cumprida (LAB-38 mesclado).
+**O próximo é o LAB-40**, e a condição dele está cumprida (LAB-39 mesclado).
 
 ## A decisão do chat que veio com a fila: o 33 lotes é PENDÊNCIA DO JONNY
 
@@ -24,6 +24,37 @@ possíveis**: produto de poucos lotes grandes, ou efeito indesejado da entrega d
 **Ordem do chat, e é a que eu já seguia:** rodar com o comportamento atual e publicar o
 dado **como está, com a razão colada ao número** — *não esconder, e não escolher por
 ele*.
+
+## O que o LAB-39 fez — a trava que comparava duas provas passou a MEDIR
+
+A última das sete travas que leem `docs/provas/` e que o **D131** reprovou. Ela dizia *"a
+tabela do LAB-19 e a prova do LAB-28 trazem os mesmos números"* — e falhava **nas duas
+direções**: falso verde porque as duas saem da **mesma** fórmula (erradas do mesmo jeito,
+erram juntas) e falso vermelho porque regerada **uma** e não a outra ela ficava vermelha
+**sem nada estar errado**. Era essa a *"trava que se repete"* do chat.
+
+**Agora cada arquivo é conferido contra o `porPosicao` dele:** o agregado publicado tem de
+**seguir** dos números crus que o próprio arquivo carrega. **40 agregados, 10 confrontos,
+240 posições cruas, 0 divergências**, em menos de 10 ms, **sem rodar motor nenhum** —
+medir ao vivo seriam 240 rodadas com Validator e Judge.
+
+**Provado por sabotagem** (D144): o `entreOsMotoresDeLote_pct` de `completo` trocado de
+29,12 para **70** — o número errado que o D116 publicou — leva a suíte de **30 verdes a 3
+vermelhas**, e o arquivo foi restaurado.
+
+**Dois achados, os dois da família do D116:**
+
+- **a MONTAGEM do confronto também morava em dois lugares** (D145), com a lista dos
+  motores de lote em **duas grafias**. *Trazer a fórmula para um lugar só não basta: a
+  montagem também é a conta.* `MOTORES_DE_LOTE` e `confrontoDoAcesso()` passaram para
+  `src/acesso.ts`, e a montagem única **reproduz os 10 confrontos publicados sem regerar
+  nada**;
+- **quatro provas declaram `contrato: "2"` e nenhuma entrada do repositório é `"2"`**
+  (D146). A guarda do §7 confere que a chave **existe**, nunca que ela **corresponde ao
+  medido** — a forma do D137 um degrau acima. **Não consertado** (§1-A): virou **LAB-43**,
+  proposto ao chat, com o valor certo nomeado no D146.
+
+---
 
 ## O que o LAB-38 fez — o CI, e o que ele não pode rodar
 

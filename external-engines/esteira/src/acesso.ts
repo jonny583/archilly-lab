@@ -188,6 +188,56 @@ function amplitudeDe(valores: (number | null)[], casas: number): Amplitude {
  * @param medir roda o motor e devolve o que interessa. Fica fora de propósito:
  *   quem julga é o Validator e o Judge do Generate, e esta régua não os conhece.
  */
+/**
+ * O QUE SE DERIVA DAS POSIÇÕES CRUAS — a conta, num lugar só.
+ *
+ * Tudo o que uma {@link SensibilidadeAoAcesso} publica, tirando o que não é
+ * conta: as posições cruas, o rendimento no acesso declarado e a ressalva do
+ * piso. Serve a dois leitores, e é por isso que ela existe separada:
+ *
+ * 1. a própria {@link sensibilidadeAoAcesso}, que roda o motor e agrega;
+ * 2. quem **confere uma prova já publicada** sem rodar motor nenhum — refazendo
+ *    a conta a partir do `porPosicao` que o arquivo carrega.
+ *
+ * O segundo leitor é o conserto do LAB-39: a trava do D116 comparava a prova do
+ * LAB-19 com a do LAB-28 e **não media nada** — duas provas regeradas erradas do
+ * mesmo jeito passavam. Agora cada arquivo é conferido contra os números crus
+ * **dele**, e a fórmula da conferência é esta, a mesma que produziu o número.
+ */
+export interface AgregadosDoAcesso {
+  posicoes: number;
+  posicoesMedidas: number;
+  lotes: Amplitude;
+  areaVendavel_m2: Amplitude;
+  melhorPonto: P | null;
+  piorPonto: P | null;
+}
+
+export function agregadosDasPosicoes(
+  porPosicao: readonly RendimentoNoAcesso[],
+): AgregadosDoAcesso {
+  const comLote = porPosicao.filter((r) => r.lotes != null);
+  // O `reduce` com `>` estrito guarda o PRIMEIRO em caso de empate, de propósito:
+  // sem isso o melhor ponto de uma gleba com dois pontos de igual rendimento
+  // mudaria de nome a cada regeração, e o determinismo da prova ia embora.
+  const melhor = comLote.reduce<RendimentoNoAcesso | null>(
+    (a, r) => (a == null || r.lotes! > a.lotes! ? r : a),
+    null,
+  );
+  const pior = comLote.reduce<RendimentoNoAcesso | null>(
+    (a, r) => (a == null || r.lotes! < a.lotes! ? r : a),
+    null,
+  );
+  return {
+    posicoes: porPosicao.length,
+    posicoesMedidas: comLote.length,
+    lotes: amplitudeDe(porPosicao.map((r) => r.lotes), 0),
+    areaVendavel_m2: amplitudeDe(porPosicao.map((r) => r.areaVendavel_m2), 2),
+    melhorPonto: melhor?.ponto ?? null,
+    piorPonto: pior?.ponto ?? null,
+  };
+}
+
 export function sensibilidadeAoAcesso(
   entrada: EntradaMinima,
   medir: (e: EntradaMinima) => { lotes: number | null; areaVendavel_m2: number | null },
@@ -199,27 +249,21 @@ export function sensibilidadeAoAcesso(
     ...medir(comAcessoEm(entrada, ponto)),
   }));
 
-  const comLote = porPosicao.filter((r) => r.lotes != null);
-  const melhor = comLote.reduce<RendimentoNoAcesso | null>(
-    (a, r) => (a == null || r.lotes! > a.lotes! ? r : a),
-    null,
-  );
-  const pior = comLote.reduce<RendimentoNoAcesso | null>(
-    (a, r) => (a == null || r.lotes! < a.lotes! ? r : a),
-    null,
-  );
-
   const declarado = (entrada.acessos ?? []) as { ponto?: P }[];
   const pontoDeclarado = declarado[0]?.ponto ?? null;
+  const ag = agregadosDasPosicoes(porPosicao);
 
+  // Campo por campo, e não um espalhamento: a ordem das chaves é a ordem em que
+  // elas saem no JSON das provas, e trocá-la poria diferença de arquivo inteiro
+  // na primeira regeração — ruído onde o leitor procura mudança de número.
   return {
-    posicoes: pontos.length,
-    posicoesMedidas: comLote.length,
+    posicoes: ag.posicoes,
+    posicoesMedidas: ag.posicoesMedidas,
     amplitudeEhPiso: true,
-    lotes: amplitudeDe(porPosicao.map((r) => r.lotes), 0),
-    areaVendavel_m2: amplitudeDe(porPosicao.map((r) => r.areaVendavel_m2), 2),
-    melhorPonto: melhor?.ponto ?? null,
-    piorPonto: pior?.ponto ?? null,
+    lotes: ag.lotes,
+    areaVendavel_m2: ag.areaVendavel_m2,
+    melhorPonto: ag.melhorPonto,
+    piorPonto: ag.piorPonto,
     acessoDeclarado: pontoDeclarado
       ? { ponto: pontoDeclarado, ...medir(entrada) }
       : null,
@@ -256,6 +300,62 @@ export function amplitudePctDe(valores: readonly (number | null)[]): number {
   const min = Math.min(...v);
   if (min <= 0) return 0;
   return Number(((100 * (Math.max(...v) - min)) / min).toFixed(2));
+}
+
+/**
+ * OS MOTORES QUE ENTREGAM **LOTE** por conta própria.
+ *
+ * O Symbios fica fora porque entrega **quadra**, e os lotes dele são da subdivisão
+ * do Lab (D50): pôr "Symbios + subdivisão" ao lado de um motor de lote infla a
+ * diferença entre motores — em `ensaio-47ha` ela dá 355 %, que não é uma escolha
+ * entre dois loteamentos, é a distância entre duas etapas de projeto.
+ *
+ * **A lista mora aqui porque ela estava escrita de DUAS formas** (LAB-39): a
+ * ferramenta do LAB-28 declarava os três nomes e a do LAB-19 escrevia
+ * `MOTORES.filter((m) => m.id !== "symbios")`. Hoje as duas dão o mesmo conjunto;
+ * no dia em que entrar um quinto motor que entrega quadra, uma inclui e a outra
+ * não — e volta o D116, duas respostas para a mesma pergunta.
+ */
+export const MOTORES_DE_LOTE = ["generate-ortogonal", "generate-espinha", "parcelamento"] as const;
+
+/**
+ * O CONFRONTO DO ACESSO: *"mudar a entrada da rua pesa mais que trocar o
+ * programa que desenha?"* — as três contas, montadas num lugar só.
+ *
+ * O D116 já havia trazido as **fórmulas** (`referenciaDe`, `amplitudePctDe`) para
+ * cá; a **montagem** continuou em dois arquivos, e com ela a lista dos motores de
+ * lote em duas grafias. Isto fecha o buraco um nível acima — e dá ao teste do
+ * LAB-39 uma conta só com que refazer o agregado de uma prova publicada.
+ *
+ * As três saem juntas de propósito: a primeira é quanto um MESMO motor varia só
+ * mudando a entrada; a segunda e a terceira são quanto os motores diferem entre
+ * si na mesma referência, com e sem o Symbios. As duas vão publicadas para
+ * ninguém dizer que eu escolhi a que dava a manchete melhor.
+ */
+export interface ConfrontoDoAcesso {
+  /** A maior amplitude que um MESMO motor exibe só mudando o acesso. */
+  maiorAmplitude_pct: number;
+  /** A diferença entre os quatro motores, na referência de cada um. */
+  entreOsQuatroMotores_pct: number;
+  /** A mesma diferença só entre os que entregam lote — a que responde à pergunta. */
+  entreOsMotoresDeLote_pct: number;
+}
+
+export function confrontoDoAcesso(
+  porMotor: Readonly<Record<string, SensibilidadeAoAcesso>>,
+  motoresDeLote: readonly string[] = MOTORES_DE_LOTE,
+): ConfrontoDoAcesso {
+  const todos = Object.values(porMotor);
+  // `?? 0` e não "pula": motor que não rendeu lote em posição nenhuma tem
+  // amplitude `null`, e isso é zero de variação medida, não ausência de conta.
+  const amplitudes = todos.map((x) => x.lotes.amplitudePct ?? 0);
+  return {
+    maiorAmplitude_pct: amplitudes.length ? Math.max(...amplitudes) : 0,
+    entreOsQuatroMotores_pct: amplitudePctDe(todos.map((x) => referenciaDe(x))),
+    entreOsMotoresDeLote_pct: amplitudePctDe(
+      motoresDeLote.map((id) => (porMotor[id] ? referenciaDe(porMotor[id]!) : null)),
+    ),
+  };
 }
 
 /**
