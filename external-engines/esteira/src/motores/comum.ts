@@ -500,3 +500,96 @@ export function julgar(saida: unknown, entrada: EntradaMinima): Veredito {
     ),
   };
 }
+
+/**
+ * ALINHAMENTO À VIA DESENHADA — a régua que faltava, e por que ela faltava.
+ * (LAB-32)
+ *
+ * A `aderenciaAViaDesenhada`, acima, pergunta *"há eixo gerado **sobre** esta
+ * linha?"*. É a pergunta certa para um motor que promete assentar a rua na
+ * linha. **O motor do Laboratório de Parcelamento não promete isso** — lido o
+ * código dele (só leitura), o campo `viaManual` faz exatamente duas coisas:
+ *
+ *   1. `anguloBase()` — a direção da linha passa a ser o **ângulo base do
+ *      partido inteiro**, no lugar do ângulo da caixa envolvente da gleba;
+ *   2. `faixaDaViaManual()` — a caixa da linha mais as calçadas viram **área
+ *      bloqueada antes de qualquer lote nascer**.
+ *
+ * Medir obediência a (1) com a régua da aderência faz o motor obediente parecer
+ * desobediente: alinhar o partido à linha **gira a rede toda**, e girar a rede
+ * tira eixos de cima das outras linhas desenhadas. Foi assim que a aderência
+ * medida em `antonina-com-via` *caiu* de 17,4 % para 11,2 % quando eu finalmente
+ * entreguei a via — e eu publiquei a queda sem investigar (D127).
+ *
+ * **O corte de ângulo é parâmetro declarado, não limite inventado** (§4): quem
+ * mede publica a fração em vários cortes e diz o que cada um quer dizer.
+ */
+export function alinhamentoAViaDesenhada(
+  linha: P[] | null,
+  vias: { pontos: P[] }[],
+  corte_graus: number,
+): number | null {
+  if (!linha || linha.length < 2) return null;
+  const ang = Math.atan2(
+    linha[linha.length - 1]!.y - linha[0]!.y,
+    linha[linha.length - 1]!.x - linha[0]!.x,
+  );
+  let dentro = 0;
+  let total = 0;
+  for (const v of vias) {
+    for (let i = 1; i < v.pontos.length; i++) {
+      const a = v.pontos[i - 1]!;
+      const b = v.pontos[i]!;
+      const comp = Math.hypot(b.x - a.x, b.y - a.y);
+      if (comp < 1e-9) continue;
+      // Direção de rua NÃO tem sentido: 179° e 1° são a mesma direção. Sem o
+      // módulo 180 a régua reprovaria metade de cada grade ortogonal por ela
+      // estar "ao contrário".
+      let d = Math.abs(((Math.atan2(b.y - a.y, b.x - a.x) - ang) * 180) / Math.PI) % 180;
+      if (d > 90) d = 180 - d;
+      total += comp;
+      if (d <= corte_graus) dentro += comp;
+    }
+  }
+  return total > 0 ? dentro / total : null;
+}
+
+/**
+ * Lotes sobre a faixa da via desenhada — e a distinção que a primeira versão
+ * desta régua NÃO fazia. (LAB-32)
+ *
+ * A segunda promessa do campo `viaManual` é que a faixa da linha vira **área
+ * bloqueada**: nenhum lote nasce ali. Medir isso por *"o lote tem vértice dentro
+ * da faixa?"* é errado, e errado do jeito do §6 — o lote que **faz frente** para
+ * a faixa encosta nela de direito, e seria contado como invasor. Na primeira
+ * passada do LAB-32 esta régua deu *"27 → 34 lotes"* no partido ortogonal, e eu
+ * estava a um passo de publicar que o motor não cumpre a promessa.
+ *
+ * **Invasão é o CENTRO do lote dentro da faixa.** Medida assim, a promessa é
+ * cumprida: 0 invasores em 10 de 10 partidos, nas duas glebas. A vizinhança sai
+ * ao lado, dita pelo nome, para quem quiser ver a diferença.
+ */
+export function lotesNaFaixaDaVia(
+  linha: P[] | null,
+  lotes: { pontos: P[] }[],
+  meiaFaixa_m: number,
+): { centroDentro: number; soEncostam: number } | null {
+  if (!linha || linha.length < 2) return null;
+  const dist = (p: P) => {
+    let d = Infinity;
+    for (let i = 1; i < linha.length; i++) d = Math.min(d, distSeg(p, linha[i - 1]!, linha[i]!));
+    return d;
+  };
+  let centroDentro = 0;
+  let soEncostam = 0;
+  for (const l of lotes) {
+    if (l.pontos.length === 0) continue;
+    const c = {
+      x: l.pontos.reduce((s, p) => s + p.x, 0) / l.pontos.length,
+      y: l.pontos.reduce((s, p) => s + p.y, 0) / l.pontos.length,
+    };
+    if (dist(c) <= meiaFaixa_m) centroDentro++;
+    else if (l.pontos.some((p) => dist(p) <= meiaFaixa_m)) soEncostam++;
+  }
+  return { centroDentro, soEncostam };
+}

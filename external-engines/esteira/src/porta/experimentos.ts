@@ -105,6 +105,10 @@ export const EXPERIMENTOS: Record<keyof Capacidades, Cobertura> = {
     tipo: "falsificavel",
     teste: "`respeitaViaDesenhada`: com uma via no miolo, ele a segue se e só se declarou",
   },
+  alinhaOPartidoAViaDesenhada: {
+    tipo: "falsificavel",
+    teste: "`alinhaOPartidoAViaDesenhada`: a DIREÇÃO dos eixos se aproxima da linha se e só se declarou",
+  },
   respeitaTestadaDeFrente: {
     tipo: "falsificavel",
     teste: "`respeitaTestadaDeFrente`: há lote com aresta na testada se e só se declarou",

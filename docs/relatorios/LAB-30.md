@@ -3,6 +3,23 @@
 **03/10/2026 · `bun run lab30` · provas em
 [`../provas/LAB-30/guarda-da-ida.json`](../provas/LAB-30/guarda-da-ida.json)**
 
+> ## ⚠ CORRIGIDO PELO LAB-32, em 04/10/2026 — a leitura dos 11 %
+>
+> Este relatório publica que, entregue a via, o motor **lê** e **não assenta**, *"a
+> aderência medida fica em 11 %"*, e compara esse 11,2 % com o 17,4 % de antes. **A
+> comparação é entre dois desenhos diferentes** e eu não investiguei: o ranking do
+> próprio motor trocou o partido `ortogonal` (nota 0,6176) pela `espinha` (0,6318). No
+> **mesmo** partido a queda é de 17,4 para 14,0 %, não para 11,2.
+>
+> E a queda que resta **não é desrespeito**: o campo `viaManual` do motor dá à linha o
+> **ângulo base do partido** e transforma a faixa dela em **área bloqueada** — nunca
+> prometeu assentar eixo nela. Alinhar o partido **gira a rede toda**, e girar a rede
+> tira eixos de cima das outras linhas desenhadas. Medidas as duas promessas, as duas
+> são cumpridas. Ver [`LAB-32.md`](LAB-32.md) e a D127.
+>
+> **O que continua valendo:** tudo o mais — a guarda da ida, o `viaManual` que a ponte
+> não entregava (D119), e `respeitaViaDesenhada: false`, que é literalmente verdade.
+
 O chat mandou: *"a guarda da IDA, do LAB-25, se ainda não estiver fechada."* Não
 estava. O LAB-25 fechou **motor → SAÍDA**; este fecha **contrato → motor**.
 
@@ -57,9 +74,10 @@ e isso vai dito como escolha do Lab.
 |---|---|---|
 | **lê** a via? (a SAÍDA muda?) | **sim** | com e sem a via, byte a byte |
 | **assenta** o traçado nela? | **não** — 11 % | fração da linha com eixo a menos de meia caixa |
+| **alinha o partido** à direção dela? | ⚠ **SIM** — achado só no LAB-32 (D127) | fração do comprimento de eixo a menos de 10° da linha |
 
 Mesmo caso do `leRelevo` (D100). `leViaDesenhada` nasce ao lado de
-`respeitaViaDesenhada`, e a varredura do LAB-26 vai de **13 para 14 falsificáveis** —
+`respeitaViaDesenhada`, e a varredura do LAB-26 vai de **13 para 14 falsificáveis** (e para **15** no LAB-32) —
 o `Record<keyof Capacidades>` acusou o campo que faltava **no mesmo segundo** em que o
 campo nasceu. É a melhor hora que aquele registro já teve.
 

@@ -51,8 +51,8 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-31** | **"Verde" passa a ser UM comando só** que roda tudo — os dois pacotes, provas de navegador e o que mais existir; nada de suíte que fica fora e cala alarme. **Provar quebrando de propósito** um teste de cada pacote e mostrando que o comando único reprova | ✅ **concluído em 04/10/2026** | nenhuma — prioridade |
-| **LAB-32** | A **aderência do Parcelamento caiu de 17,4 para 11,2 %** depois do conserto do LAB-30 e **eu publiquei sem investigar** — investigar, achar o culpado e dizer se o número novo é o certo ou se há outro defeito | ⏳ **pronto** | LAB-31 mesclado ✅ |
-| **LAB-33** | A **trava do LAB-23** continua lendo **prova congelada** em vez de medir — *"conserte de verdade, não vire o sinal"* | ⏳ **pronto** | LAB-32 mesclado |
+| **LAB-32** | A **aderência do Parcelamento caiu de 17,4 para 11,2 %** depois do conserto do LAB-30 e **eu publiquei sem investigar** — investigar, achar o culpado e dizer se o número novo é o certo ou se há outro defeito | ✅ **concluído em 04/10/2026** | LAB-31 mesclado ✅ |
+| **LAB-33** | A **trava do LAB-23** continua lendo **prova congelada** em vez de medir — *"conserte de verdade, não vire o sinal"* | ⏳ **pronto, é o próximo** | LAB-32 mesclado ✅ |
 | **LAB-34** | A **tabela comparativa** ordena os motores num **único ponto de acesso**, e só a seção do acesso avisa que isso muda até **108 %** — *"ponha o aviso onde a ordem aparece, não escondido"* | ⏳ **pronto** | LAB-33 mesclado |
 | **LAB-35** | A guarda da ida cospe **310 avisos `mapa-velho`** — conferir se há **caso real escondido nesse volume** e reduzir o ruído | ⏳ **pronto** | LAB-34 mesclado |
 | **LAB-36** | As **quatro regras sem teste** que eu listei **viram guarda ou saem do documento** | ⏳ **pronto** | LAB-35 mesclado |
@@ -63,6 +63,34 @@ resolvido", inclusive os erros meus que ninguém tinha cobrado.
 - **a régua de forma** (útil < 85 % / < 70 %) segue **com o Jonny** e **não trava
   nada** — é o único item na lista dele;
 - **a corda reta das vias curvas fica na V3**, sem mexer (`volta.ts:125`).
+
+### LAB-32 · A queda da aderência — ✅ concluído em 04/10/2026
+
+**Entregue:** [`../relatorios/LAB-32.md`](../relatorios/LAB-32.md),
+`docs/provas/LAB-32/aderencia.json`, `esteira/tests/alinhamento.test.ts` (12 travas).
+
+**O número novo está certo como medida e errado como comparação**, e o culpado tem duas
+metades. A primeira: o **ranking do próprio motor** trocou o partido `ortogonal` (nota
+0,6176) pela `espinha` (0,6318) — o 17,4 % era um desenho, o 11,2 % é outro. No mesmo
+partido a queda é 17,4 → 14,0 %, e **nenhum dos dez partidos se move mais de 4,3 pp**.
+
+A segunda: **a régua do Lab mede uma promessa que o campo do motor nunca fez.** Lido o
+motor (só leitura), `viaManual` dá à linha o **ângulo base do partido** e transforma a
+faixa dela em **área bloqueada** — nunca prometeu assentar eixo nela. E alinhar o
+partido **gira a rede toda**, o que tira eixos de cima das outras linhas desenhadas:
+**a régua lê obediência como queda.** Medidas as duas promessas, as duas são cumpridas —
+alinhamento a 10° vai de 0,0 para 72,9 % (ortogonal), e lotes com o **centro** na faixa
+vão a **0 em 10 de 10 partidos**, nas duas glebas.
+
+Nasceu `alinhaOPartidoAViaDesenhada`, medido nos quatro motores; a varredura do LAB-26
+foi de 14 para **15 falsificáveis** (D127). O LAB-17, o LAB-30 e a D120 ganharam aviso
+no alto.
+
+**E a SEXTA vez do ponto cego** (D128), esta pega **dentro do prompt**: a primeira versão
+da régua da faixa contava lote com *vértice* dentro dela e dava "27 → 34", a conclusão
+oposta. Invasão é o **centro** — lote que faz frente encosta de direito.
+
+---
 
 ### LAB-31 · "Verde" é um comando só — ✅ concluído em 04/10/2026
 

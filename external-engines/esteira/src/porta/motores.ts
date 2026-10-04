@@ -153,6 +153,11 @@ export function motorDoGenerate(candidata: Candidata): MotorNaPorta {
       // candidatas é byte a byte idêntica com e sem a via no arquivo.
       leViaDesenhada: false,
       respeitaViaDesenhada: false,
+      // Medido no LAB-32, com a mesma régua dos outros três: a fração do
+      // comprimento de eixo a menos de 10° da linha fica IDÊNTICA com e sem a via
+      // (ortogonal 69,3 % nas duas, espinha 1,1 % nas duas, em `antonina-com-via`).
+      // Não é desobediência: não há campo onde a linha entre.
+      alinhaOPartidoAViaDesenhada: false,
       respeitaTestadaDeFrente: false,
       respeitaAcesso: true,
       respeitaRestricao: true,
@@ -228,6 +233,20 @@ export function motorDoParcelamento(): MotorNaPorta {
       // desenhada; quem a ignorava era a minha ponte (D119).
       leViaDesenhada: true,
       respeitaViaDesenhada: false,
+      // ── A TERCEIRA resposta, e ela é SIM (LAB-32, D127) ─────────────────
+      //
+      // `respeitaViaDesenhada: false` acima é literalmente verdade — ele não
+      // assenta eixo na linha. Mas o campo `viaManual` do motor faz outra coisa:
+      // a DIREÇÃO da linha vira o ângulo base do partido (`anguloBase`), e a
+      // faixa dela vira área bloqueada (`faixaDaViaManual`). As duas são
+      // cumpridas, medidas em `antonina-com-via`: a 10°, ortogonal 0,0 → 72,9 %,
+      // pente 0,0 → 82,7 %, loop 0,0 → 72,4 %; e lotes com o CENTRO dentro da
+      // faixa vão a 0 em 10 de 10 partidos, nas duas glebas.
+      //
+      // Era a régua do Lab que media uma terceira coisa, e lia obediência como
+      // queda: eu publiquei a aderência caindo de 17,4 % para 11,2 % quando
+      // finalmente entreguei a via, sem investigar.
+      alinhaOPartidoAViaDesenhada: true,
       respeitaTestadaDeFrente: false,
       // ── MEDIDO no LAB-26, e a declaração estava errada ───────────────────
       //
@@ -317,6 +336,10 @@ export function motorDoSymbios(wasm: Motor): MotorNaPorta {
       // diferença no LAB-23 e remedido no LAB-30.
       leViaDesenhada: false,
       respeitaViaDesenhada: false,
+      // Medido no LAB-32: alinhamento a 10° idêntico com e sem a via
+      // (15,0 % nas duas, em `antonina-com-via`) — o Symbios não tem onde
+      // pendurar uma linha, e isto é a terceira medição a dizer o mesmo.
+      alinhaOPartidoAViaDesenhada: false,
       respeitaTestadaDeFrente: false,
       // MEDIDO no LAB-26, e aqui a declaração estava CERTA: movendo o acesso
       // 992,6 m em `ensaio-47ha`, a geometria sai **idêntica** e os lotes ficam

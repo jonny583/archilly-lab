@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-31 ·
-**A fila de 04/10 está em andamento: 1 de 7 feito.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-32 ·
+**A fila de 04/10 está em andamento: 2 de 7 feitos.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-31 a LAB-37
 
@@ -13,7 +13,7 @@
 :05.** É o **mesmo** despertador: o chat mandou **reabilitar em vez de recriar** pela
 terceira vez, e isso preserva o histórico de disparos.
 
-**O próximo é o LAB-32**, e a condição dele está cumprida (LAB-31 mesclado).
+**O próximo é o LAB-33**, e a condição dele está cumprida (LAB-32 mesclado).
 
 ## A fila de 04/10 — sete prompts, todos tirados da minha própria lista de dívidas
 
@@ -24,12 +24,56 @@ cobrado. A fila por extenso está em [`prompts/FILA.md`](prompts/FILA.md).
 | # | em uma linha | estado |
 |---|---|---|
 | **LAB-31** | "verde" é UM comando que roda tudo, provado por sabotagem | ✅ **04/10/2026** |
-| **LAB-32** | a aderência caiu de 17,4 para 11,2 % e **eu publiquei sem investigar** | ⏳ **o próximo** |
-| **LAB-33** | a trava do LAB-23 ainda lê prova congelada — *"conserte de verdade"* | ⏳ pronto |
+| **LAB-32** | a queda da aderência era o motor **obedecendo** — e a sexta vez do ponto cego | ✅ **04/10/2026** |
+| **LAB-33** | a trava do LAB-23 ainda lê prova congelada — *"conserte de verdade"* | ⏳ **o próximo** |
 | **LAB-34** | o aviso dos 108 % tem de ficar **onde a ordem dos motores aparece** | ⏳ pronto |
 | **LAB-35** | 310 avisos `mapa-velho`: há caso real escondido nesse volume? | ⏳ pronto |
 | **LAB-36** | as quatro regras sem teste **viram guarda ou saem do documento** | ⏳ pronto |
 | **LAB-37** | a dívida da testada de frente (D121) — tamanho escrito, executar se couber | ⏳ pronto |
+
+## O que o LAB-32 achou — e o veredito que o chat pediu
+
+**O chat cobrou:** *"a aderência caiu de 17,4 para 11,2 % depois do conserto do LAB-30 e
+você publicou sem investigar."* Publiquei.
+
+**O veredito:** o número novo está **certo como medida e errado como comparação**, e o
+culpado tem duas metades — nenhuma é o motor desrespeitando a linha.
+
+| parcela | quanto | o que é |
+|---|---|---|
+| troca de partido | **2,8 pp** | o ranking do motor trocou `ortogonal` (0,6176) por `espinha` (0,6318): **eu comparei dois desenhos** |
+| a via no mesmo partido | **3,4 pp** | ortogonal: 17,4 → 14,0 %. Nenhum dos dez partidos se move mais de 4,3 pp |
+
+**E a segunda parcela é a minha régua medindo outra coisa.** Lido o motor (só leitura),
+`viaManual` faz duas coisas: a direção da linha vira o **ângulo base do partido**, e a
+faixa dela vira **área bloqueada**. Nenhuma é assentar eixo na linha. Alinhar o partido
+**gira a rede toda**, e girar a rede tira eixos de cima das outras linhas desenhadas —
+**a régua lê obediência como queda.**
+
+**As duas promessas, medidas, são cumpridas:**
+
+| promessa | sem a via | com a via |
+|---|---|---|
+| alinhamento a 10° (ortogonal) | 0,0 % | **72,9 %** — e pente 82,7 %, loop 72,4 %, mioloVerde 70,1 % |
+| lotes com o **centro** na faixa | 9 a 20 | **0, em 10 de 10 partidos, nas duas glebas** |
+
+Nasceu `alinhaOPartidoAViaDesenhada`, **medido nos quatro** (os outros três dão
+alinhamento idêntico com e sem a via). A varredura do LAB-26 foi de 14 para **15
+falsificáveis**, e o registro acusou o campo no mesmo segundo em que ele nasceu (D127).
+
+**A SEXTA vez do ponto cego da §6** (D128), e esta eu peguei **dentro do prompt**: a
+primeira versão da régua da faixa contava lote com *vértice* dentro dela, deu "27 → 34"
+e eu ia publicar que o motor põe mais lote em cima da linha. **Invasão é o centro** — o
+lote que faz frente encosta na faixa de direito.
+
+**Por que o `ensaio` não se moveu e o `antonina` se moveu inteira:** no ensaio a linha
+desenhada corre pelo meio do lado maior, que **já é** a direção da caixa envolvente. A
+gleba sintética não tinha como mostrar o efeito — mais um argumento para a via desenhada
+**por pessoa** numa gleba real (D103).
+
+**Corrigido do que estava publicado:** aviso no alto do LAB-30 e do LAB-17, ressalva na
+D120, §1-D no `O_QUE_FALTA_MEDIR_POR_MOTOR.md` (o documento **mudou**, como o LAB-27
+manda avisar), e a contagem do LAB-26.
 
 ## O que o LAB-31 fez — e o que ele achou de graça
 

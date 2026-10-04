@@ -9,7 +9,12 @@ número; nada é impressão.
 **Atualizado pelo LAB-25, em 03/10/2026** — §1-A e §7. **E pelo LAB-27, no mesmo
 dia** — §1-B e §1-C, com dois achados do LAB-26 que são sobre vocês. O LAB-27
 manda manter este documento vivo e **avisar quando ele mudar**: mudou duas vezes
-hoje, e o recado de cada prompt diz isso.
+naquele dia, e o recado de cada prompt diz isso.
+
+> **⚠ MUDOU DE NOVO, pelo LAB-32, em 04/10/2026 — §1-D.** É o único item novo, e é
+> **a terceira vez seguida** que uma acusação ao motor de vocês acaba sendo defeito do
+> Lab. Desta vez não era nem defeito de conta: era a régua do Lab medindo uma promessa
+> que o campo de vocês nunca fez.
 
 ---
 
@@ -148,6 +153,52 @@ duas que o Lab mediu. Se a versão não subiu nessas, ela não serve para o Lab
 saber que precisa remedir, e é justamente para isso que eu quero usá-la.
 
 ---
+
+### 1-D · O Lab publicou que vocês passaram a respeitar MENOS a via desenhada — e era obediência
+
+**Acrescentado pelo LAB-32, em 04/10/2026.** No LAB-30 o Lab finalmente entregou a
+`viaManual` ao motor de vocês — o campo existia desde sempre e a ponte do Lab não o
+preenchia (§1-A é a mesma história, com outro campo). E o Lab publicou, no mesmo
+relatório, que a **aderência** medida em `antonina-com-via` **caiu de 17,4 % para
+11,2 %** depois disso. Sem investigar.
+
+**Investigado, nada daquilo era desrespeito de vocês.** Duas parcelas:
+
+| parcela | quanto | o que é |
+|---|---|---|
+| troca de partido | 2,8 pp | o **ranking de vocês** trocou `ortogonal` (nota 0,6176) por `espinha` (0,6318) — o Lab comparou dois desenhos diferentes |
+| efeito da via no mesmo partido | 3,4 pp | ortogonal: 17,4 → 14,0 % |
+
+E a segunda parcela é **a régua do Lab medindo a coisa errada**. Lendo o motor de vocês,
+`viaManual` faz exatamente duas coisas:
+
+1. **`anguloBase()`** — a direção da linha vira o **ângulo base do partido inteiro**;
+2. **`faixaDaViaManual()`** — a caixa dela mais as calçadas viram **área bloqueada antes
+   de qualquer lote nascer**.
+
+Nenhuma das duas é *"assentar eixo sobre a linha"*, que é o que a régua do Lab media. E
+o pior: **alinhar o partido gira a rede toda**, e girar a rede tira eixos de cima das
+outras linhas desenhadas — então obediência entra naquela régua como queda.
+
+**As duas promessas, medidas, são CUMPRIDAS** (`antonina-com-via`, por partido):
+
+| promessa | régua | resultado |
+|---|---|---|
+| ângulo base da linha | fração do comprimento de eixo a menos de 10° da linha | ortogonal **0,0 → 72,9 %**, pente 0,0 → 82,7 %, loop 0,0 → 72,4 %, mioloVerde 0,0 → 70,1 % |
+| faixa livre de lote | lotes com o **centro** dentro da faixa | **0 em 10 de 10 partidos**, nas duas glebas |
+
+**Nada a fazer do lado de vocês, de novo** — a ficha de capacidades do Lab ganhou
+`alinhaOPartidoAViaDesenhada: true` e os avisos no alto dos relatórios antigos.
+
+**Uma coisa, e é pequena, para vocês decidirem.** O ângulo base obedece à linha, mas
+cada variante sorteia **±30°** em cima dele (`variacaoAngular`). O efeito: na variante
+que o ranking de vocês escolhe em `antonina-com-via`, o ganho de alinhamento é de
+**5,6 pp**, não de 72,9 — a obediência existe e fica invisível. **Se o produto quer "o
+motor respeita a linha que eu desenhei"**, talvez o sorteio deva ser suprimido, ou
+estreitado, quando `viaManual` vier preenchida: linha desenhada à mão é intenção
+explícita (a D69 da família diz isso), e sortear ±30° em cima de uma intenção explícita
+é outra decisão do que sortear em cima de um ângulo de caixa envolvente. **Medição do
+Lab, decisão de vocês** — e nenhuma linha escrita no repositório de vocês.
 
 ## 2 · Symbios + subdivisão do Lab — **reporta, e superestima**
 

@@ -172,7 +172,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela se repetiu quatro vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu SEIS vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -181,10 +181,21 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D75 (LAB-17) | "o motor erra a classe da via desenhada" | a régua media **vértice**, não linha |
 | D93/D94 (LAB-21) | "o motor entrega rampa de 161 %" | a régua media **dentro** do segmento |
 | D98 (LAB-22) | "o Parcelamento não reporta o pico" | a **ponte do Lab** jogava a medição dele fora |
+| D119 (LAB-30) | "o motor ignora a via desenhada" | a **ida do Lab** nunca entregava a via |
+| D127/D128 (LAB-32) | "entreguei a via e ele passou a segui-la menos" | a régua media uma coisa **que o motor não promete** |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
 dessa forma, o `faceDeRua` do D104, **não fui eu que achei: foi ela**.
+
+**A quinta é a mais cara: já tinha saído para o chat**, duas vezes, como defeito
+do motor do vizinho (D119). **A sexta tem lição nova:** antes de eleger a régua,
+perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** do
+partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
+medir obediência pela promessa errada faz o obediente parecer desobediente.
+
+**Das seis, TRÊS foram réguas minhas acusando a si mesmas**, e a última foi pega
+**dentro do próprio prompt**, antes de sair (D128).
 
 ---
 

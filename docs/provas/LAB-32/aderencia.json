@@ -1,0 +1,937 @@
+{
+  "prompt": "LAB-32",
+  "geradoEm": "2026-10-04T00:00:00.000Z",
+  "semente": 20260913,
+  "glebas": [
+    {
+      "prompt": "LAB-32",
+      "gleba": "ensaio-com-via",
+      "montadaSobre": "ensaio-47ha",
+      "semente": 20260913,
+      "contrato": "1",
+      "motor": "laboratorio-de-parcelamento",
+      "linhasDesenhadas": 4,
+      "linhasNoTracado": 4,
+      "colunaVertebralEntregue_m": 798,
+      "escolhaDoMotor": {
+        "semAVia": {
+          "formato": "espinha",
+          "nota": 0.6020853596807476,
+          "assinatura": "2fad01d9da66bf8f",
+          "aderencia": 0.113
+        },
+        "comAVia": {
+          "formato": "espinha",
+          "nota": 0.5943470896348185,
+          "assinatura": "132d98385c3c632a",
+          "aderencia": 0.113
+        },
+        "trocouDeDesenho": true
+      },
+      "porFormato": [
+        {
+          "formato": "ortogonal",
+          "aderenciaSemAVia": 0.259,
+          "aderenciaComAVia": 0.259,
+          "viasSemAVia": 12,
+          "viasComAVia": 12,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.5064166870318398,
+          "notaDoMotorCom": 0.503519223443439
+        },
+        {
+          "formato": "espinha",
+          "aderenciaSemAVia": 0.113,
+          "aderenciaComAVia": 0.113,
+          "viasSemAVia": 12,
+          "viasComAVia": 12,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.6020853596807476,
+          "notaDoMotorCom": 0.5943470896348185
+        },
+        {
+          "formato": "pente",
+          "aderenciaSemAVia": 0.342,
+          "aderenciaComAVia": 0.342,
+          "viasSemAVia": 19,
+          "viasComAVia": 19,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.3966956473118003,
+          "notaDoMotorCom": 0.39308545963631264
+        },
+        {
+          "formato": "diagonal",
+          "aderenciaSemAVia": 0.17,
+          "aderenciaComAVia": 0.17,
+          "viasSemAVia": 17,
+          "viasComAVia": 17,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.48232748252979935,
+          "notaDoMotorCom": 0.47794547762436673
+        },
+        {
+          "formato": "loop",
+          "aderenciaSemAVia": 0.212,
+          "aderenciaComAVia": 0.338,
+          "viasSemAVia": 15,
+          "viasComAVia": 14,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.45767623940112967,
+          "notaDoMotorCom": 0.45563436709510613
+        },
+        {
+          "formato": "cluster",
+          "aderenciaSemAVia": 0.208,
+          "aderenciaComAVia": 0.208,
+          "viasSemAVia": 18,
+          "viasComAVia": 18,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.4456381087954659,
+          "notaDoMotorCom": 0.4423990796128798
+        },
+        {
+          "formato": "radial",
+          "aderenciaSemAVia": 0.234,
+          "aderenciaComAVia": 0.234,
+          "viasSemAVia": 67,
+          "viasComAVia": 67,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.33648297023711954,
+          "notaDoMotorCom": 0.33233673348518944
+        },
+        {
+          "formato": "organico",
+          "aderenciaSemAVia": 0.245,
+          "aderenciaComAVia": 0.245,
+          "viasSemAVia": 141,
+          "viasComAVia": 141,
+          "desenhoIdentico": true,
+          "notaDoMotorSem": 0.39370083681655205,
+          "notaDoMotorCom": 0.39370083681655205
+        },
+        {
+          "formato": "superquadra",
+          "aderenciaSemAVia": 0.071,
+          "aderenciaComAVia": 0.071,
+          "viasSemAVia": 4,
+          "viasComAVia": 4,
+          "desenhoIdentico": true,
+          "notaDoMotorSem": 0.21690972498913802,
+          "notaDoMotorCom": 0.21690972498913802
+        },
+        {
+          "formato": "mioloVerde",
+          "aderenciaSemAVia": 0.234,
+          "aderenciaComAVia": 0.234,
+          "viasSemAVia": 11,
+          "viasComAVia": 11,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.4789920572283879,
+          "notaDoMotorCom": 0.4719641521897187
+        }
+      ],
+      "asDuasPromessasDoCampo": {
+        "oQueOCampoFazNoMotor": "anguloBase(): a direcao da linha vira o angulo base do partido inteiro; faixaDaViaManual(): a caixa dela mais as calcadas viram area bloqueada antes de qualquer lote nascer. Nenhuma das duas assenta eixo na linha",
+        "cortesDeAngulo_graus": [
+          5,
+          10,
+          20
+        ],
+        "anguloDaLinha_graus": 0,
+        "porFormato": [
+          {
+            "formato": "ortogonal",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0.7587945347306958,
+                "comAVia": 0.7587945347306958
+              },
+              "10graus": {
+                "semAVia": 0.7587945347306958,
+                "comAVia": 0.7587945347306958
+              },
+              "20graus": {
+                "semAVia": 0.7587945347306958,
+                "comAVia": 0.7587945347306958
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 2,
+              "soEncostam": 30
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 30
+            }
+          },
+          {
+            "formato": "espinha",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "20graus": {
+                "semAVia": 0.06356347207280359,
+                "comAVia": 0.06356347207280359
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 12,
+              "soEncostam": 21
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 19
+            }
+          },
+          {
+            "formato": "pente",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0.8453028951953511,
+                "comAVia": 0.8453028951953511
+              },
+              "20graus": {
+                "semAVia": 0.8453028951953511,
+                "comAVia": 0.8453028951953511
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 5,
+              "soEncostam": 7
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 7
+            }
+          },
+          {
+            "formato": "diagonal",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "20graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 7,
+              "soEncostam": 14
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 13
+            }
+          },
+          {
+            "formato": "loop",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0.7161152035792823
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0.7161152035792823
+              },
+              "20graus": {
+                "semAVia": 0.7362585511630123,
+                "comAVia": 0.7161152035792823
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 4,
+              "soEncostam": 15
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 34
+            }
+          },
+          {
+            "formato": "cluster",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "20graus": {
+                "semAVia": 0.5923101480985891,
+                "comAVia": 0.5923101480985891
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 4,
+              "soEncostam": 27
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 27
+            }
+          },
+          {
+            "formato": "radial",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0.04885816556771792,
+                "comAVia": 0.04885816556771792
+              },
+              "10graus": {
+                "semAVia": 0.15448382317619744,
+                "comAVia": 0.15448382317619744
+              },
+              "20graus": {
+                "semAVia": 0.2668659588889894,
+                "comAVia": 0.2668659588889894
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 6,
+              "soEncostam": 16
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 14
+            }
+          },
+          {
+            "formato": "organico",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0.15803587852066198,
+                "comAVia": 0.15803587852066198
+              },
+              "10graus": {
+                "semAVia": 0.4290759089031796,
+                "comAVia": 0.4290759089031796
+              },
+              "20graus": {
+                "semAVia": 0.7993179829562272,
+                "comAVia": 0.7993179829562272
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 0,
+              "soEncostam": 1
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 1
+            }
+          },
+          {
+            "formato": "superquadra",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "20graus": {
+                "semAVia": 0.5140129152947402,
+                "comAVia": 0.5140129152947402
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 0,
+              "soEncostam": 0
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 0
+            }
+          },
+          {
+            "formato": "mioloVerde",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0.7265449990683939,
+                "comAVia": 0.7265449990683939
+              },
+              "20graus": {
+                "semAVia": 0.7265449990683939,
+                "comAVia": 0.7265449990683939
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 9,
+              "soEncostam": 15
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 15
+            }
+          }
+        ]
+      },
+      "porLinha": [
+        {
+          "id": "VD1",
+          "papel": "principal",
+          "comprimento_m": 798,
+          "entregueAoMotor": true,
+          "reconhecidaComoDesenhada": true,
+          "aderenciaSemAVia": 0.127,
+          "aderenciaComAVia": 0.127
+        },
+        {
+          "id": "VD2",
+          "papel": "secundaria",
+          "comprimento_m": 585.5,
+          "entregueAoMotor": false,
+          "reconhecidaComoDesenhada": true,
+          "aderenciaSemAVia": 0.118,
+          "aderenciaComAVia": 0.118
+        },
+        {
+          "id": "VD3",
+          "papel": "secundaria",
+          "comprimento_m": 585.5,
+          "entregueAoMotor": false,
+          "reconhecidaComoDesenhada": true,
+          "aderenciaSemAVia": 0.106,
+          "aderenciaComAVia": 0.106
+        },
+        {
+          "id": "VD4",
+          "papel": "secundaria",
+          "comprimento_m": 585.5,
+          "entregueAoMotor": false,
+          "reconhecidaComoDesenhada": true,
+          "aderenciaSemAVia": 0.096,
+          "aderenciaComAVia": 0.096
+        }
+      ],
+      "osQuatroMotores": [
+        {
+          "motor": "generate-ortogonal",
+          "nome": "Archilly Generate · candidata ortogonal",
+          "alinhamento10graus_semAVia": 0.771,
+          "alinhamento10graus_comAVia": 0.771,
+          "alinhaOPartidoMedido": false,
+          "declaraLeViaDesenhada": false,
+          "declaraRespeitaViaDesenhada": false
+        },
+        {
+          "motor": "generate-espinha",
+          "nome": "Archilly Generate · candidata espinha",
+          "alinhamento10graus_semAVia": 0.047,
+          "alinhamento10graus_comAVia": 0.047,
+          "alinhaOPartidoMedido": false,
+          "declaraLeViaDesenhada": false,
+          "declaraRespeitaViaDesenhada": false
+        },
+        {
+          "motor": "parcelamento",
+          "nome": "Laboratório de Parcelamento",
+          "alinhamento10graus_semAVia": 0,
+          "alinhamento10graus_comAVia": 0,
+          "alinhaOPartidoMedido": false,
+          "declaraLeViaDesenhada": true,
+          "declaraRespeitaViaDesenhada": false
+        },
+        {
+          "motor": "symbios",
+          "nome": "Symbios Tensor + subdivisão do Lab",
+          "alinhamento10graus_semAVia": 0.133,
+          "alinhamento10graus_comAVia": 0.133,
+          "alinhaOPartidoMedido": false,
+          "declaraLeViaDesenhada": false,
+          "declaraRespeitaViaDesenhada": false
+        }
+      ]
+    },
+    {
+      "prompt": "LAB-32",
+      "gleba": "antonina-com-via",
+      "montadaSobre": "geo-antonina",
+      "semente": 20260913,
+      "contrato": "1",
+      "motor": "laboratorio-de-parcelamento",
+      "linhasDesenhadas": 4,
+      "linhasNoTracado": 4,
+      "colunaVertebralEntregue_m": 1242,
+      "escolhaDoMotor": {
+        "semAVia": {
+          "formato": "ortogonal",
+          "nota": 0.6175972674788088,
+          "assinatura": "c78ac820fddfa4d2",
+          "aderencia": 0.174
+        },
+        "comAVia": {
+          "formato": "espinha",
+          "nota": 0.6318235204138917,
+          "assinatura": "db23d3cdb5d87f97",
+          "aderencia": 0.112
+        },
+        "trocouDeDesenho": true
+      },
+      "porFormato": [
+        {
+          "formato": "ortogonal",
+          "aderenciaSemAVia": 0.174,
+          "aderenciaComAVia": 0.14,
+          "viasSemAVia": 25,
+          "viasComAVia": 32,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.6175972674788088,
+          "notaDoMotorCom": 0.6202311957386246
+        },
+        {
+          "formato": "espinha",
+          "aderenciaSemAVia": 0.14,
+          "aderenciaComAVia": 0.112,
+          "viasSemAVia": 29,
+          "viasComAVia": 23,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.6084846070859675,
+          "notaDoMotorCom": 0.6318235204138917
+        },
+        {
+          "formato": "pente",
+          "aderenciaSemAVia": 0.263,
+          "aderenciaComAVia": 0.296,
+          "viasSemAVia": 38,
+          "viasComAVia": 52,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.5563722161575768,
+          "notaDoMotorCom": 0.5547138862049156
+        },
+        {
+          "formato": "diagonal",
+          "aderenciaSemAVia": 0.172,
+          "aderenciaComAVia": 0.169,
+          "viasSemAVia": 35,
+          "viasComAVia": 31,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.6021259598304876,
+          "notaDoMotorCom": 0.5979723650746127
+        },
+        {
+          "formato": "loop",
+          "aderenciaSemAVia": 0.184,
+          "aderenciaComAVia": 0.145,
+          "viasSemAVia": 27,
+          "viasComAVia": 34,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.6038326944955204,
+          "notaDoMotorCom": 0.6176221925617331
+        },
+        {
+          "formato": "cluster",
+          "aderenciaSemAVia": 0.199,
+          "aderenciaComAVia": 0.194,
+          "viasSemAVia": 35,
+          "viasComAVia": 42,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.5892589208816167,
+          "notaDoMotorCom": 0.5769980633972656
+        },
+        {
+          "formato": "radial",
+          "aderenciaSemAVia": 0.168,
+          "aderenciaComAVia": 0.157,
+          "viasSemAVia": 100,
+          "viasComAVia": 95,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.554685442257425,
+          "notaDoMotorCom": 0.5574114274110413
+        },
+        {
+          "formato": "organico",
+          "aderenciaSemAVia": 0.157,
+          "aderenciaComAVia": 0.17,
+          "viasSemAVia": 239,
+          "viasComAVia": 257,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.5565142149686947,
+          "notaDoMotorCom": 0.5652458196115436
+        },
+        {
+          "formato": "superquadra",
+          "aderenciaSemAVia": 0.08,
+          "aderenciaComAVia": 0.037,
+          "viasSemAVia": 9,
+          "viasComAVia": 11,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.357667377299795,
+          "notaDoMotorCom": 0.3562224324635696
+        },
+        {
+          "formato": "mioloVerde",
+          "aderenciaSemAVia": 0.157,
+          "aderenciaComAVia": 0.17,
+          "viasSemAVia": 20,
+          "viasComAVia": 27,
+          "desenhoIdentico": false,
+          "notaDoMotorSem": 0.5979808629068655,
+          "notaDoMotorCom": 0.6069710692000124
+        }
+      ],
+      "asDuasPromessasDoCampo": {
+        "oQueOCampoFazNoMotor": "anguloBase(): a direcao da linha vira o angulo base do partido inteiro; faixaDaViaManual(): a caixa dela mais as calcadas viram area bloqueada antes de qualquer lote nascer. Nenhuma das duas assenta eixo na linha",
+        "cortesDeAngulo_graus": [
+          5,
+          10,
+          20
+        ],
+        "anguloDaLinha_graus": 90,
+        "porFormato": [
+          {
+            "formato": "ortogonal",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0.7289680300135738
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0.7289680300135738
+              },
+              "20graus": {
+                "semAVia": 0.7280888818849425,
+                "comAVia": 0.7289680300135738
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 9,
+              "soEncostam": 27
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 34
+            }
+          },
+          {
+            "formato": "espinha",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0.055698847583224236
+              },
+              "20graus": {
+                "semAVia": 0,
+                "comAVia": 0.055698847583224236
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 17,
+              "soEncostam": 49
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 14
+            }
+          },
+          {
+            "formato": "pente",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0.826709336003591
+              },
+              "20graus": {
+                "semAVia": 0.8277253654692414,
+                "comAVia": 0.826709336003591
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 5,
+              "soEncostam": 20
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 26
+            }
+          },
+          {
+            "formato": "diagonal",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "20graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 20,
+              "soEncostam": 69
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 38
+            }
+          },
+          {
+            "formato": "loop",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0.7244699323031876
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0.7244699323031876
+              },
+              "20graus": {
+                "semAVia": 0,
+                "comAVia": 0.7244699323031876
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 10,
+              "soEncostam": 37
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 31
+            }
+          },
+          {
+            "formato": "cluster",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "20graus": {
+                "semAVia": 0.5833136834622612,
+                "comAVia": 0.5901549948665983
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 7,
+              "soEncostam": 27
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 34
+            }
+          },
+          {
+            "formato": "radial",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0.07146014808807488
+              },
+              "10graus": {
+                "semAVia": 0.001638190636713847,
+                "comAVia": 0.0729216273094531
+              },
+              "20graus": {
+                "semAVia": 0.0662211576776366,
+                "comAVia": 0.09576052680719403
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 6,
+              "soEncostam": 11
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 12
+            }
+          },
+          {
+            "formato": "organico",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0.27234590468810815
+              },
+              "20graus": {
+                "semAVia": 0.2951740540326906,
+                "comAVia": 0.5725543371661248
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 11,
+              "soEncostam": 33
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 15
+            }
+          },
+          {
+            "formato": "superquadra",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "20graus": {
+                "semAVia": 0.4982201066626353,
+                "comAVia": 0.509359907558922
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 0,
+              "soEncostam": 0
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 0
+            }
+          },
+          {
+            "formato": "mioloVerde",
+            "porCorte": {
+              "5graus": {
+                "semAVia": 0,
+                "comAVia": 0
+              },
+              "10graus": {
+                "semAVia": 0,
+                "comAVia": 0.7013765559703568
+              },
+              "20graus": {
+                "semAVia": 0,
+                "comAVia": 0.7013765559703568
+              }
+            },
+            "lotesNaFaixaSemAVia": {
+              "centroDentro": 16,
+              "soEncostam": 39
+            },
+            "lotesNaFaixaComAVia": {
+              "centroDentro": 0,
+              "soEncostam": 20
+            }
+          }
+        ]
+      },
+      "porLinha": [
+        {
+          "id": "VD1",
+          "papel": "principal",
+          "comprimento_m": 1242,
+          "entregueAoMotor": true,
+          "reconhecidaComoDesenhada": true,
+          "aderenciaSemAVia": 0.171,
+          "aderenciaComAVia": 0.13
+        },
+        {
+          "id": "VD2",
+          "papel": "secundaria",
+          "comprimento_m": 775.5,
+          "entregueAoMotor": false,
+          "reconhecidaComoDesenhada": true,
+          "aderenciaSemAVia": 0.164,
+          "aderenciaComAVia": 0.103
+        },
+        {
+          "id": "VD3",
+          "papel": "secundaria",
+          "comprimento_m": 951.4,
+          "entregueAoMotor": false,
+          "reconhecidaComoDesenhada": true,
+          "aderenciaSemAVia": 0.196,
+          "aderenciaComAVia": 0.084
+        },
+        {
+          "id": "VD4",
+          "papel": "secundaria",
+          "comprimento_m": 1121.3,
+          "entregueAoMotor": false,
+          "reconhecidaComoDesenhada": true,
+          "aderenciaSemAVia": 0.164,
+          "aderenciaComAVia": 0.123
+        }
+      ],
+      "osQuatroMotores": [
+        {
+          "motor": "generate-ortogonal",
+          "nome": "Archilly Generate · candidata ortogonal",
+          "alinhamento10graus_semAVia": 0.693,
+          "alinhamento10graus_comAVia": 0.693,
+          "alinhaOPartidoMedido": false,
+          "declaraLeViaDesenhada": false,
+          "declaraRespeitaViaDesenhada": false
+        },
+        {
+          "motor": "generate-espinha",
+          "nome": "Archilly Generate · candidata espinha",
+          "alinhamento10graus_semAVia": 0.011,
+          "alinhamento10graus_comAVia": 0.011,
+          "alinhaOPartidoMedido": false,
+          "declaraLeViaDesenhada": false,
+          "declaraRespeitaViaDesenhada": false
+        },
+        {
+          "motor": "parcelamento",
+          "nome": "Laboratório de Parcelamento",
+          "alinhamento10graus_semAVia": 0,
+          "alinhamento10graus_comAVia": 0.056,
+          "alinhaOPartidoMedido": false,
+          "declaraLeViaDesenhada": true,
+          "declaraRespeitaViaDesenhada": false
+        },
+        {
+          "motor": "symbios",
+          "nome": "Symbios Tensor + subdivisão do Lab",
+          "alinhamento10graus_semAVia": 0.15,
+          "alinhamento10graus_comAVia": 0.15,
+          "alinhaOPartidoMedido": false,
+          "declaraLeViaDesenhada": false,
+          "declaraRespeitaViaDesenhada": false
+        }
+      ]
+    }
+  ]
+}
