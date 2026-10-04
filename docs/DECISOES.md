@@ -3397,3 +3397,74 @@ primeira versão do teste contava os avisos filtrando pela frase *"entrada da ru
 só as glebas instáveis usam — deu 4 de 5 e acusou a **página**. A conferência que vale é
 **por posição**: cada quadro tem de ter o seu aviso colado. Filtro por prosa é régua
 frágil medindo texto gerado.
+
+---
+
+## D134 · Os 310 avisos tinham caso real dentro, e a regra 3 era duas · 04/10/2026
+
+O chat mandou: *"a guarda da ida cospe 310 avisos `mapa-velho`; confira se há caso real
+escondido nesse volume e reduza o ruído."* **Havia caso real**, e achá-lo foi uma questão
+de classificar em vez de contar.
+
+**Primeiro, a classificação.** Dos 68 campos que avisavam, **21 avisavam em TODAS as sete
+glebas**. E aí a frase do diagnóstico deixa de valer: *"pode ser campo opcional que esta
+gleba não exerce"* vira **"nenhuma gleba exerce isto"**, que é outra coisa.
+
+**Segundo, a partição.** Dos 21, **dezessete** são `perda` ou `interno` — nada tinha de
+chegar ao motor, então a ausência não diz nada. **Quatro são PROMESSAS:**
+
+| ida | campo | destino prometido |
+|---|---|---|
+| parcelamento | `parametros.calcada_m` | `terreno.padroes` |
+| parcelamento | `atracoes[].geometria.aneis` | `terreno.atracoes` |
+| parcelamento | `acessos[].segmento` | `terreno.acesso` |
+| symbios | `gleba.furos` | `gleba.furos` |
+
+**Por que isso é grave e não burocracia:** a regra `campo-nao-entregue` só morde quando o
+contrato **traz valor**. Um caminho de destino errado numa entrada `entregue` ou
+`traduzido` que gleba nenhuma exercita é **invisível** — é exatamente a forma do D119,
+onde o motor tinha o campo e ninguém media se ele chegava. **Promessa que ninguém exerce
+é promessa que a guarda nunca verificou.**
+
+**Decisão, em três partes:**
+
+1. **a regra 3 virou duas.** `promessa-nao-exercitada` quando o destino é
+   `entregue`/`traduzido` — o aviso que importa; `mapa-velho` quando é `perda`/`interno`
+   — o aviso que não importa, **gravado na prova e calado no relatório**;
+2. **a ferramenta agrega.** Por gleba, promessa não exercitada não quer dizer nada; entre
+   glebas, a que não aparece exercida em **nenhuma** vai para
+   `promessasQueNenhumaGlebaExercita`, que é a lista curta que merece olho;
+3. **as quatro foram EXERCITADAS**, com entradas montadas em teste
+   (`tests/promessas.test.ts`). Transformar *"nunca verificada"* em *"verificada"* é o
+   único conserto que vale aqui — e **as quatro se sustentam**.
+
+**A conta do ruído:** 310 → **99** promessas não exercitadas (sinal) + **187**
+`mapa-velho` (calado). Os 24 que faltam eram entradas de **dívida** em glebas que não
+trazem o campo: não há o que confessar se o contrato não trouxe nada, e a regra 3 passou
+a pular dívida — a regra dela só fala quando há valor.
+
+**E o que o relatório lê agora** é `avisosQueImportam`, que é tudo menos `mapa-velho`.
+**Guarda que grita à toa se desliga**, e esta gritava 310 vezes por rodada.
+
+## D135 · A OITAVA vez do ponto cego, e as duas foram caminho do meu teste · 04/10/2026
+
+Escrevendo os quatro testes que exercitam as promessas do D134, **dois falharam na
+primeira rodada**. Os dois pareciam defeito da ponte do Lab — o tipo mais caro, o do
+D119 — e **os dois eram o meu teste**:
+
+| o que eu ia dizer | o que era |
+|---|---|
+| *"a calçada declarada não chega ao motor"* (`toBe(3.5)` recebeu outra coisa) | o motor recebe padrão como **faixa**: `{ min: 3.5, max: 3.5 }`. A promessa estava certa |
+| *"a ida do Symbios não entrega o furo da gleba"* (`terreno.furos` veio `undefined`) | no Symbios a gleba é um `Poligono { externo, furos }`: o furo mora em **`terreno.gleba.furos`**. O caminho do inventário estava certo; o do meu teste, errado |
+
+A segunda é a que assusta: eu tinha nas mãos, por um instante, *"o inventário promete
+entregar o furo e a ida não entrega"* — uma acusação à ponte do Lab, publicável, e
+**falsa**.
+
+**Decisão:** os dois tropeços ficam **escritos nos próprios testes**, no lugar onde a
+asserção mora, porque é lá que o próximo a mexer vai ler. E a regra que eles ensinam
+entra no §6 do `CLAUDE.md`:
+
+> **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que você
+> está lendo.** Oito vezes das oito, o defeito estava na régua antes de estar no medido —
+> e em três delas a régua era o próprio teste que eu acabara de escrever.

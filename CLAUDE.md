@@ -172,7 +172,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu SEIS vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu OITO vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -183,6 +183,8 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D98 (LAB-22) | "o Parcelamento não reporta o pico" | a **ponte do Lab** jogava a medição dele fora |
 | D119 (LAB-30) | "o motor ignora a via desenhada" | a **ida do Lab** nunca entregava a via |
 | D127/D128 (LAB-32) | "entreguei a via e ele passou a segui-la menos" | a régua media uma coisa **que o motor não promete** |
+| D133 (LAB-34) | "a ordem dos motores muda em 4 das 5 glebas" | em parte **faltava dado**, não mudava a ordem |
+| D135 (LAB-35) | "a ida não entrega o furo da gleba" | o furo mora em **`terreno.gleba.furos`**, e o caminho errado era do meu teste |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -194,8 +196,15 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**Das seis, TRÊS foram réguas minhas acusando a si mesmas**, e a última foi pega
-**dentro do próprio prompt**, antes de sair (D128).
+**Das OITO, QUATRO foram réguas minhas acusando a si mesmas**, e as três últimas
+foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135).
+
+**A regra que as oito ensinam, e ela é curta:**
+
+> **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
+> você está lendo** — e antes de dizer que um número mudou, confira se ele
+> **existe**. Oito de oito vezes o defeito estava na régua antes de estar no
+> medido, e em três delas a régua era o teste que eu acabara de escrever.
 
 ---
 

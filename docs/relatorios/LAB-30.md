@@ -112,6 +112,14 @@ nenhuma (D88) —, e **o dia em que o Geo as trouxer, isto fica vermelho.**
 `campo-nao-entregue: 0`, `campo-novo-no-contrato: 0`, `divida-do-lab: 18`,
 `mapa-velho: 310`.
 
+> **⚠ Os 310 foram PARTIDOS pelo LAB-35, e dentro deles havia caso real** (D134): dos
+> 68 campos, **21 avisavam em todas as sete glebas** — e aí a ausência não é *"campo
+> opcional que esta gleba não exerce"*, é *"nenhuma gleba exerce isto"*. Quatro deles
+> são **promessas** (`entregue`/`traduzido`) que **a guarda nunca verificou**. A regra 3
+> virou duas — `promessa-nao-exercitada` (99, o aviso que importa) e `mapa-velho` (187,
+> calado no relatório e gravado na prova) —, e as quatro promessas ganharam teste que as
+> exercita. Ver [`LAB-35.md`](LAB-35.md).
+
 ---
 
 ## 4 · A dívida declarada, e o que ela custou (D121)

@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-34 ·
-**A fila de 04/10 está em andamento: 4 de 7 feitos.**
+**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-35 ·
+**A fila de 04/10 está em andamento: 5 de 7 feitos.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-31 a LAB-37
 
@@ -13,7 +13,7 @@
 :05.** É o **mesmo** despertador: o chat mandou **reabilitar em vez de recriar** pela
 terceira vez, e isso preserva o histórico de disparos.
 
-**O próximo é o LAB-35**, e a condição dele está cumprida (LAB-34 mesclado).
+**O próximo é o LAB-36**, e a condição dele está cumprida (LAB-35 mesclado).
 
 ## A fila de 04/10 — sete prompts, todos tirados da minha própria lista de dívidas
 
@@ -27,9 +27,41 @@ cobrado. A fila por extenso está em [`prompts/FILA.md`](prompts/FILA.md).
 | **LAB-32** | a queda da aderência era o motor **obedecendo** — e a sexta vez do ponto cego | ✅ **04/10/2026** |
 | **LAB-33** | a trava passou a **medir**, e a prova congelada virou detector de prova velha | ✅ **04/10/2026** |
 | **LAB-34** | o aviso ficou **debaixo de cada quadro** — e a pergunta certa era se a **ordem** muda | ✅ **04/10/2026** |
-| **LAB-35** | 310 avisos `mapa-velho`: há caso real escondido nesse volume? | ⏳ **o próximo** |
-| **LAB-36** | as quatro regras sem teste **viram guarda ou saem do documento** | ⏳ pronto |
+| **LAB-35** | havia: **4 promessas** que gleba nenhuma exercitava — a guarda nunca as verificou | ✅ **04/10/2026** |
+| **LAB-36** | as quatro regras sem teste **viram guarda ou saem do documento** | ⏳ **o próximo** |
 | **LAB-37** | a dívida da testada de frente (D121) — tamanho escrito, executar se couber | ⏳ pronto |
+
+## O que o LAB-35 achou dentro dos 310 avisos
+
+**Havia caso real, e são quatro.** Dos **68 campos** que avisavam, **21 avisavam em TODAS
+as sete glebas** — e aí o próprio diagnóstico fica falso: *"campo opcional que esta gleba
+não exerce"* vira **"nenhuma gleba exerce isto"**.
+
+| grupo | quantos |
+|---|---|
+| ausentes em **algumas** glebas (opcional de verdade) | 47 campos |
+| ausentes em **todas**, destino `perda`/`interno` (nada tinha de chegar) | 17 campos |
+| ausentes em **todas**, destino `entregue`/`traduzido` | ⚠️ **4 campos** |
+
+**As quatro promessas que a guarda nunca verificou:** `parametros.calcada_m` →
+`terreno.padroes`, `atracoes[].geometria.aneis` → `terreno.atracoes` e
+`acessos[].segmento` → `terreno.acesso` no Parcelamento, e `gleba.furos` → `gleba.furos`
+no Symbios. **Caminho errado numa promessa que ninguém exerce é invisível**, porque a
+regra `campo-nao-entregue` só morde com valor no contrato — a forma exata do D119.
+
+**Exercitadas as quatro, com entradas montadas em teste: as quatro se sustentam.** O caso
+real não era promessa quebrada, era promessa que ninguém tinha olhado.
+
+**O ruído, partido:** a regra 3 virou duas — `promessa-nao-exercitada` (**99**, o sinal) e
+`mapa-velho` (**187**, calado no relatório e gravado na prova). Os 24 restantes eram
+entradas de **dívida** em glebas que não trazem o campo, e não há o que confessar se o
+contrato não trouxe nada.
+
+**A OITAVA vez do ponto cego** (D135): dos quatro testes, **dois falharam na primeira
+rodada e os dois eram o meu teste** — a calçada chega como **faixa** `{min,max}`, e o furo
+mora em `terreno.gleba.furos` (no Symbios a gleba é um `Poligono {externo, furos}`). A
+segunda me deu nas mãos, por um instante, *"a ida do Lab não entrega o furo"*: acusação à
+ponte, publicável, e **falsa**. A regra que as oito ensinam entrou no `CLAUDE.md` §6.
 
 ## O que o LAB-34 fez — e a pergunta que o aviso não respondia
 

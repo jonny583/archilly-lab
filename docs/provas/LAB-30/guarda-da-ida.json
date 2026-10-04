@@ -26,7 +26,8 @@
   "porRegra": {
     "campo-nao-entregue": 0,
     "campo-novo-no-contrato": 0,
-    "mapa-velho": 310,
+    "promessa-nao-exercitada": 99,
+    "mapa-velho": 187,
     "divida-do-lab": 18
   },
   "reprovamNoTotal": 0,
@@ -38,6 +39,32 @@
     "parcelamento · atracoes[].geometria → terreno.atracoes · viaManual · facesLoteamento",
     "parcelamento · atracoes[].geometria.pontos → viaManual · facesLoteamento"
   ],
+  "promessasQueNenhumaGlebaExercita": [
+    {
+      "ida": "parcelamento",
+      "campo": "parametros.calcada_m",
+      "destino": "terreno.padroes",
+      "emTodasAsGlebas": 7
+    },
+    {
+      "ida": "parcelamento",
+      "campo": "atracoes[].geometria.aneis",
+      "destino": "terreno.atracoes",
+      "emTodasAsGlebas": 7
+    },
+    {
+      "ida": "parcelamento",
+      "campo": "acessos[].segmento",
+      "destino": "terreno.acesso",
+      "emTodasAsGlebas": 7
+    },
+    {
+      "ida": "symbios",
+      "campo": "gleba.furos",
+      "destino": "gleba.furos",
+      "emTodasAsGlebas": 7
+    }
+  ],
   "glebas": {
     "completo": [
       {
@@ -47,197 +74,170 @@
             "ida": "parcelamento",
             "campo": "archilly.origem",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.origem` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "archilly.geradoEm",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.geradoEm` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "gleba.furos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `gleba.furos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.calcada_m",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.padroes",
+            "diagnostico": "o inventário PROMETE levar `parametros.calcada_m` a `terreno.padroes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.pctAreaPublica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria.pontos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].id",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos[].id` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].nome",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos[].nome` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].papel",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].papel` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].papel` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].ponto",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].ponto` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].ponto.x",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso.x",
+            "diagnostico": "o inventário PROMETE levar `acessos[].ponto.x` a `terreno.acesso.x` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].ponto.y",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso.y",
+            "diagnostico": "o inventário PROMETE levar `acessos[].ponto.y` a `terreno.acesso.y` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].segmento",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].sugerido",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].sugerido` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos[].sugerido` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "regiaoNormativa",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `regiaoNormativa` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 32
+        "promessasNaoExercitadas": 8,
+        "mapaVelho": 18
       },
       {
         "ida": "symbios",
@@ -246,89 +246,91 @@
             "ida": "symbios",
             "campo": "archilly.origem",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.origem` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "archilly.geradoEm",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.geradoEm` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "gleba.furos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "gleba.furos",
+            "diagnostico": "o inventário PROMETE levar `gleba.furos` a `gleba.furos` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "regiaoNormativa",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `regiaoNormativa` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "atracoes",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `atracoes` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "acessos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 14
+        "promessasNaoExercitadas": 1,
+        "mapaVelho": 13
       }
     ],
     "sintetico-50ha-ondulado": [
@@ -339,245 +341,225 @@
             "ida": "parcelamento",
             "campo": "archilly.origem",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.origem` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "archilly.geradoEm",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.geradoEm` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "gleba.furos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `gleba.furos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].id` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].tipo` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].nome` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].desconta",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].desconta` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria.aneis` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.calcada_m",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.padroes",
+            "diagnostico": "o inventário PROMETE levar `parametros.calcada_m` a `terreno.padroes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.pctAreaPublica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria.pontos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].id",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos[].id` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].nome",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos[].nome` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].papel",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].papel` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].papel` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].ponto",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].ponto` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].ponto.x",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso.x",
+            "diagnostico": "o inventário PROMETE levar `acessos[].ponto.x` a `terreno.acesso.x` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].ponto.y",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso.y",
+            "diagnostico": "o inventário PROMETE levar `acessos[].ponto.y` a `terreno.acesso.y` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].segmento",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].sugerido",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].sugerido` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos[].sugerido` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "regiaoNormativa",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `regiaoNormativa` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 40
+        "promessasNaoExercitadas": 15,
+        "mapaVelho": 19
       },
       {
         "ida": "symbios",
@@ -586,137 +568,146 @@
             "ida": "symbios",
             "campo": "archilly.origem",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.origem` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "archilly.geradoEm",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.geradoEm` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "gleba.furos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "gleba.furos",
+            "diagnostico": "o inventário PROMETE levar `gleba.furos` a `gleba.furos` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].id` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].tipo` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].nome` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].desconta",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].desconta` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria.aneis` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "regiaoNormativa",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `regiaoNormativa` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "atracoes",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `atracoes` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "acessos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 22
+        "promessasNaoExercitadas": 8,
+        "mapaVelho": 14
       }
     ],
     "sintetico-10ha-plano": [
@@ -727,245 +718,225 @@
             "ida": "parcelamento",
             "campo": "archilly.origem",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.origem` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "archilly.geradoEm",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.geradoEm` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "gleba.furos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `gleba.furos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].id` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].tipo` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].nome` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].desconta",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].desconta` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria.aneis` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.calcada_m",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.padroes",
+            "diagnostico": "o inventário PROMETE levar `parametros.calcada_m` a `terreno.padroes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.pctAreaPublica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria.pontos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].id",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos[].id` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].nome",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos[].nome` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].papel",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].papel` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].papel` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].ponto",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].ponto` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].ponto.x",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso.x",
+            "diagnostico": "o inventário PROMETE levar `acessos[].ponto.x` a `terreno.acesso.x` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].ponto.y",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso.y",
+            "diagnostico": "o inventário PROMETE levar `acessos[].ponto.y` a `terreno.acesso.y` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].segmento",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].sugerido",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].sugerido` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos[].sugerido` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "regiaoNormativa",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `regiaoNormativa` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 40
+        "promessasNaoExercitadas": 15,
+        "mapaVelho": 19
       },
       {
         "ida": "symbios",
@@ -974,137 +945,146 @@
             "ida": "symbios",
             "campo": "archilly.origem",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.origem` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.origem` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "archilly.geradoEm",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `archilly.geradoEm` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `archilly.geradoEm` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "gleba.furos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "gleba.furos",
+            "diagnostico": "o inventário PROMETE levar `gleba.furos` a `gleba.furos` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].id` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].tipo` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].nome` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].desconta",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].desconta` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria.aneis` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "regiaoNormativa",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `regiaoNormativa` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `regiaoNormativa` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "atracoes",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `atracoes` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "acessos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `acessos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 22
+        "promessasNaoExercitadas": 8,
+        "mapaVelho": 14
       }
     ],
     "ensaio-47ha": [
@@ -1115,197 +1095,172 @@
             "ida": "parcelamento",
             "campo": "crs.origemGeografica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "crs.origemGeografica.lat",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "crs.origemGeografica.lon",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "gleba.furos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `gleba.furos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].id` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].tipo` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].nome` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].desconta",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].desconta` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria.aneis` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.calcada_m",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.padroes",
+            "diagnostico": "o inventário PROMETE levar `parametros.calcada_m` a `terreno.padroes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.pctAreaPublica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `atracoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
-          },
-          {
-            "ida": "parcelamento",
-            "campo": "atracoes[].geometria.pontos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].segmento",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 32
+        "promessasNaoExercitadas": 10,
+        "mapaVelho": 16
       },
       {
         "ida": "symbios",
@@ -1314,131 +1269,140 @@
             "ida": "symbios",
             "campo": "crs.origemGeografica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "crs.origemGeografica.lat",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "crs.origemGeografica.lon",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "gleba.furos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "gleba.furos",
+            "diagnostico": "o inventário PROMETE levar `gleba.furos` a `gleba.furos` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].id` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].tipo` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].nome` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].desconta",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].desconta` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria.aneis` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "atracoes",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `atracoes` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 21
+        "promessasNaoExercitadas": 8,
+        "mapaVelho": 13
       }
     ],
     "geo-antonina": [
@@ -1537,83 +1501,87 @@
             "ida": "parcelamento",
             "campo": "gleba.furos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `gleba.furos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.calcada_m",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.padroes",
+            "diagnostico": "o inventário PROMETE levar `parametros.calcada_m` a `terreno.padroes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.pctAreaPublica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].segmento",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           }
         ],
         "reprovam": 0,
-        "avisos": 19
+        "promessasNaoExercitadas": 3,
+        "mapaVelho": 10
       },
       {
         "ida": "symbios",
@@ -1621,54 +1589,56 @@
           {
             "ida": "symbios",
             "campo": "gleba.furos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "gleba.furos",
+            "diagnostico": "o inventário PROMETE levar `gleba.furos` a `gleba.furos` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 8
+        "promessasNaoExercitadas": 1,
+        "mapaVelho": 7
       }
     ],
     "ensaio-com-via": [
@@ -1821,155 +1791,166 @@
             "ida": "parcelamento",
             "campo": "crs.origemGeografica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "crs.origemGeografica.lat",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "crs.origemGeografica.lon",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "gleba.furos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `gleba.furos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].id` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].tipo` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].nome` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].desconta",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].desconta` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria.aneis` a `terreno.restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.calcada_m",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.padroes",
+            "diagnostico": "o inventário PROMETE levar `parametros.calcada_m` a `terreno.padroes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.pctAreaPublica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].segmento",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 31
+        "promessasNaoExercitadas": 10,
+        "mapaVelho": 15
       },
       {
         "ida": "symbios",
@@ -1978,125 +1959,134 @@
             "ida": "symbios",
             "campo": "crs.origemGeografica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "crs.origemGeografica.lat",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lat` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "crs.origemGeografica.lon",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `crs.origemGeografica.lon` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "gleba.furos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "gleba.furos",
+            "diagnostico": "o inventário PROMETE levar `gleba.furos` a `gleba.furos` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].id",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].id` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].id` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].tipo",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].tipo` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nome",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nome` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].nome` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].desconta",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].desconta` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].desconta` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.tipo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.tipo` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "restricoes",
+            "diagnostico": "o inventário PROMETE levar `restricoes[].geometria.aneis` a `restricoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "geo",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `geo` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `geo` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 20
+        "promessasNaoExercitadas": 8,
+        "mapaVelho": 12
       }
     ],
     "antonina-com-via": [
@@ -2267,83 +2257,87 @@
             "ida": "parcelamento",
             "campo": "gleba.furos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `gleba.furos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.calcada_m",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.calcada_m` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.padroes",
+            "diagnostico": "o inventário PROMETE levar `parametros.calcada_m` a `terreno.padroes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.pctAreaPublica",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.pctAreaPublica` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "parcelamento",
             "campo": "atracoes[].geometria.aneis",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `atracoes[].geometria.aneis` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.atracoes",
+            "diagnostico": "o inventário PROMETE levar `atracoes[].geometria.aneis` a `terreno.atracoes` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
             "campo": "acessos[].segmento",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `acessos[].segmento` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.acesso",
+            "diagnostico": "o inventário PROMETE levar `acessos[].segmento` a `terreno.acesso` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           }
         ],
         "reprovam": 0,
-        "avisos": 19
+        "promessasNaoExercitadas": 3,
+        "mapaVelho": 10
       },
       {
         "ida": "symbios",
@@ -2351,54 +2345,56 @@
           {
             "ida": "symbios",
             "campo": "gleba.furos",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `gleba.furos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "regra": "promessa-nao-exercitada",
+            "destino": "gleba.furos",
+            "diagnostico": "o inventário PROMETE levar `gleba.furos` a `gleba.furos` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].baseLegal",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].baseLegal` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].baseLegal` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.x",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.x` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto.y",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto.y` como interno e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.pontos",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.pontos` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].geometria.ponto",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].geometria.ponto` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].nascente",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].nascente` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].nascente` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           },
           {
             "ida": "symbios",
             "campo": "restricoes[].eixoDoCurso",
             "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` e esta gleba não o traz. Pode ser campo opcional que ela não exerce — por isso isto avisa e não reprova"
+            "diagnostico": "o inventário descreve `restricoes[].eixoDoCurso` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
           }
         ],
         "reprovam": 0,
-        "avisos": 8
+        "promessasNaoExercitadas": 1,
+        "mapaVelho": 7
       }
     ]
   }
