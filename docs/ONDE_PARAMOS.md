@@ -5,17 +5,39 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 05/10/2026 · **Último prompt executado:** LAB-46 ·
-**Fila de 04/10 (terceira): LAB-43 a LAB-47, 4 de 5 feitos — e o quinto está AGUARDANDO.**
+**Fila de 04/10 (terceira): 4 de 5 feitos. O quinto está TRAVADO e o despertador está DESLIGADO.**
 
-# 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-43 a LAB-47
+# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila travou no último item
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 19:12 UTC.** É o
-**mesmo** despertador, reabilitado pela **quinta** vez em vez de recriado (D112).
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 05/10/2026, 01:10 UTC.**
 
-**Não há próximo pronto:** os quatro executáveis estão feitos, e o **LAB-47 está
-`aguardando`** porque o pedido do chat chegou cortado. Pela regra do §1-A — disparo sem
-item pronto —, o despertador é **desligado** no próximo disparo se o pedido não tiver
-chegado.
+**Motivo, e ele não é "fila esgotada":** os quatro prompts executáveis da fila de 04/10
+(terceira) — **LAB-43 a LAB-46** — estão feitos e mesclados. **O quinto, o LAB-47, está
+`aguardando` porque o pedido do chat chegou CORTADO**, e tudo o que resta está nesse estado.
+É o caso do §1-A, segunda metade: *"vale também para a fila que existe mas está toda
+aguardando"*.
+
+**Desligado e NÃO apagado** (D112, ratificado quatro vezes): é o mesmo despertador desde o
+começo, e o id acima é o único lugar onde ele vive.
+
+## ⛔ O que falta para destravar, e são duas linhas do chat
+
+O pedido do LAB-47 **termina no verbo**:
+
+> *"LAB-44: o Render plantou uma chave de IA com formato real dentro do código e todos os
+> testes passaram verdes; faça o mesmo teste aqui, escreva"*
+
+1. **a frase inteira** — *"escreva"* o quê? E o teste é plantar a chave **e ver se algo
+   acusa**, ou escrever a guarda **antes** e provar que ela pega? São trabalhos diferentes;
+2. **o número** — o chat o chamou de "LAB-44", mas esse número já é o do nome único do
+   confronto nesta fila. Ficou **LAB-47**, o próximo livre; se preferir outro, é um `sed`.
+
+**Nada foi escrito:** nenhuma chave, de nenhum formato, entrou em arquivo deste repositório.
+
+**Para retomar:** o chat manda a frase e reabilita este id (`enabled: true`).
+
+**O saldo da fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §4** — pela
+§1-B, que o chat ratificou.
 
 ## A fila, na ordem que o chat aprovou
 

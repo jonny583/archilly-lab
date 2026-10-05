@@ -38,7 +38,19 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## 🟢 A FILA DE AGORA — 04/10/2026 (terceira), LAB-43 a LAB-47
+## 🔴 A fila de 04/10 (terceira) TRAVOU no último item — o despertador está DESLIGADO
+
+**Quatro de cinco feitos e mesclados em 04 e 05/10/2026** (LAB-43 a LAB-46). O **LAB-47
+está `aguardando`** porque o pedido chegou cortado, e com tudo o que resta nesse estado o
+`trig_01XwSkTLT9zmyprNZcUiWy7f` foi **desligado — não apagado** (§1-A, segunda metade, e
+D112). **O saldo está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §4.**
+
+**Duas linhas destravam:** a frase inteira do LAB-47 e a confirmação do número. **Nenhuma
+chave foi escrita em arquivo nenhum.**
+
+---
+
+## A FILA DE 04/10/2026 (terceira), LAB-43 a LAB-47
 
 Mandada pelo chat em 04/10/2026, com o **despertador reabilitado pela quinta vez**
 (`enabled: true`, próximo disparo 20:05 UTC). **Os quatro primeiros saíram da minha

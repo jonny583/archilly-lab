@@ -802,3 +802,17 @@ Depende do Jonny: a decisão dele FICA MAIS SIMPLES DE ENUNCIAR e continua sendo
 Próximo na fila: NADA PRONTO. Os quatro executáveis estão feitos e o LAB-47 está AGUARDANDO — o pedido chegou cortado, termina no verbo "escreva". Preciso da frase inteira e da numeração confirmada (você o chamou de "LAB-44", e esse número já é o do nome único do confronto). Se no próximo disparo o pedido não tiver chegado, DESLIGO O DESPERTADOR pela regra do §1-A, como o D112 manda — e nenhuma chave, de nenhum formato, foi escrita em arquivo nenhum.
 === FIM ===
 ```
+
+---
+
+## 05/10/2026 · Disparo sem item pronto — a fila travou no LAB-47 e o despertador parou
+
+```
+=== RECADO PARA O CHAT — Lab · — ===
+Estado: DESPERTADOR DESLIGADO (enabled: false, 05/10 01:10 UTC) — não apagado, como o D112 manda. Quatro de cinco prompts da fila de 04/10 (terceira) estão feitos e mesclados: LAB-43, LAB-44, LAB-45 e LAB-46. Verde no último: 7 passos, 401 travas, exit 0. Vizinhos limpos.
+Feito: nada neste disparo, e é de propósito. O único item que resta é o LAB-47, e ele está AGUARDANDO porque o pedido chegou cortado — termina no verbo, em "faça o mesmo teste aqui, escreva". Com tudo o que sobra nesse estado, vale a segunda metade do §1-A: disparo sem item pronto, gravar o recado, escrever o motivo no ONDE_PARAMOS e DESLIGAR o despertador. O saldo da fila foi para o BALANCOS.md §4, pela regra §1-B que você ratificou — é o segundo balanço que nasce dentro do arquivo em vez de sair só para o chat.
+Achados para outros apps ou Central: o saldo dos quatro, em uma linha cada. LAB-43: a etiqueta do contrato passou a sair do MEDIDO, quatro provas regeradas, e a lista das treze ferramentas que ainda escrevem literal SE REVALIDA. LAB-44: um nome só para cada número do confronto, e a lista dos nomes virou DADO porque tipo não existe em tempo de execução — era disso que o defeito precisava para sobreviver num arquivo publicado. LAB-45: sete glebas na tabela e na prova do acesso, com as travas acompanhando em vez de serem afrouxadas, e dois números que estavam declarados ganhando preço (o furo que o motor acha livre, e o lote que é "de frente" por uma régua e "sem frente" pela outra). LAB-46: o 33 contra 1.228 aparece em 1 DE 3 amostragens, e com o formato fixado em ortogonal o mesmo motor desenha 1.228 com a mesma entrega. Duas vezes o ponto cego da §6 nesta fila (D155 e D161), e A 13ª É A PRIMEIRA DESDE O D119 QUE JÁ TINHA SAÍDO — corrigida riscada, não apagada. Três listas numeradas para vizinhos, nenhum commit lá.
+Depende do Jonny: nada novo dele, e nada trava — seguem a régua de forma e o segredo VIZINHOS_TOKEN. A PENDÊNCIA DELE MUDOU DE NATUREZA e isso é o ganho da fila: não é mais "o programa desenha mal Antonina", é "a nota deve preferir o plano de 33 ou o de 1.228?", porque os dois estão ao alcance do mesmo motor com a mesma entrada. Está no item 7 com a tabela das três maneiras, escrita para leigo, e com a minha correção riscada à vista.
+Próximo na fila: NADA, e o destravamento são DUAS LINHAS SUAS. (1) A frase inteira do LAB-47 — "escreva" o quê? E o teste é plantar a chave e ver se algo acusa, ou escrever a guarda antes e provar que ela pega? São trabalhos diferentes e eu não adivinho. (2) O número: você o chamou de "LAB-44", e esse número já é o do nome único do confronto nesta fila; ficou LAB-47, o próximo livre, e se preferir outro é um sed. NENHUMA CHAVE, de nenhum formato, foi escrita em arquivo nenhum deste repositório. Mande a frase e reabilite o id trig_01XwSkTLT9zmyprNZcUiWy7f.
+=== FIM ===
+```
