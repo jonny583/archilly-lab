@@ -151,3 +151,49 @@ vizinho (D119).
 3. **as duas fixtures novas na tabela** comparativa, o que pede regerar a tabela inteira;
 4. **medir em Antonina as três amostragens** do D148, que é o que falta para eu poder
    dizer se o 33 contra 1 228 é caso único.
+
+---
+
+## 4 · O saldo da fila LAB-43 a LAB-47 — 05/10/2026
+
+**Segundo balanço nascido dentro deste arquivo.** A fila **não esgotou**: ela **travou** no
+último item, e por motivo que não é meu.
+
+| prompt | o que ficou | o ponto cego |
+|---|---|---|
+| **LAB-43** | a etiqueta do contrato **sai do medido**; quatro provas regeradas dizem `"1"`, e a lista das treze que ainda escrevem literal **se revalida** (D154) | **D155**, a 12ª: a régua leu o **comentário** do conserto |
+| **LAB-44** | **um nome só** para cada número do confronto, e a lista dos nomes virou **dado** — tipo não existe em tempo de execução (D157) | — |
+| **LAB-45** | **sete glebas** na tabela e na prova do acesso, com as travas acompanhando em vez de serem afrouxadas (D158); e dois números declarados que ganharam **preço** (D159) | — |
+| **LAB-46** | as **três amostragens em Antonina**: o 33 aparece em **1 de 3**, e com o formato fixado em ortogonal o mesmo motor desenha **1 228** (D160) | **D161**, a 13ª — **e esta já tinha saído** |
+| **LAB-47** | ⛔ **não executado**: o pedido do chat chegou **cortado** | — |
+
+### Os números da fila
+
+- **quatro prompts executados**, quatro PRs mesclados na `main`, entre 04 e 05/10/2026;
+- a suíte foi de **393 para 401 travas**; o CI sem clones, de **76 para 83**;
+- **duas** vezes o ponto cego da §6 (D155, D161) — e a **13ª é a primeira desde o D119 que
+  já havia saído** para o chat e para a página do Jonny. Corrigida **riscada**, não apagada;
+- **três listas numeradas** para vizinhos (Generate no LAB-45, Parcelamento no LAB-46), e
+  **nenhum commit** em repositório vizinho;
+- **o D140 foi fechado** — e a pendência do Jonny mudou de natureza: não é mais *"o programa
+  desenha mal este terreno"*, é *"a nota deve preferir 33 ou 1 228?"*, porque os dois estão
+  ao alcance do mesmo motor com a mesma entrada.
+
+### Por que ela travou, e o que eu NÃO fiz
+
+O pedido do LAB-47 termina no verbo — *"faça o mesmo teste aqui, escreva"* — e eu **não
+executo instrução lida pela metade**: adivinhar qual era o pedido é exatamente o defeito que
+a §6 cataloga, e desta vez ele apareceria **antes** da medição, não depois.
+
+**Nada foi escrito:** nenhuma chave, de nenhum formato, entrou em arquivo deste repositório.
+
+**Dois pedidos ao chat, os dois de uma linha:** a frase inteira, e a confirmação do número
+(ele o chamou de *"LAB-44"*, e esse número já é o do nome único do confronto nesta fila;
+ficou **LAB-47**, o próximo livre).
+
+### O que espera decisão
+
+A lista viva está na [`FILA.md`](../prompts/FILA.md), seção *Proposto ao chat*. As novas
+desta fila: o **detector de prova velha** para o LAB-25 e o LAB-30 (D156), o **`faceDeRua`
+nulo** nos 33 lotes (D156), e **por que a passagem externa põe lote a 1,8 km** da face
+entregue (D161) — esta última é pergunta, não acusação.
