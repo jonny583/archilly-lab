@@ -4,6 +4,20 @@
 provas em [`../provas/LAB-19/tabela.json`](../provas/LAB-19/tabela.json) e
 [`../provas/LAB-28/acesso.json`](../provas/LAB-28/acesso.json)**
 
+> ### ⚠️ Correção acrescentada em 05/10/2026 — o §4 deste relatório estava errado
+>
+> O §4 diz que os 33 lotes de Antonina são *"todos externos"* e conclui *"o plano não tem
+> um único lote no miolo"*. **A base era o ID do lote** (`…-eN`, o apelido da passagem
+> externa do motor), e não a posição.
+>
+> **Medido no [LAB-46](LAB-46.md): dos 33, só 14 encostam na testada** (≤ 0,5 m); 15 estão
+> a **mais de 50 m** e o mais distante a **1 805,7 m** — o outro canto da gleba. *`-eN` é
+> rótulo; distância é a coisa* (D161), e esta é a **décima terceira** vez do ponto cego —
+> **a primeira desde o D119 que já havia saído** para o chat e para a página do Jonny.
+>
+> **O que segue de pé:** os 33 são todos da passagem externa do motor, 29 acusados pelo
+> invariante `frente`, somando 1,03 ha (~310 m² cada). **O que cai:** *"todos na beira da
+> rua"*.
 O chat aprovou, terceiro da ordem: *"as duas fixtures novas com a tabela comparativa
 regerada."*
 

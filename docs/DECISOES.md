@@ -4314,3 +4314,88 @@ no `naoSoubeFazer` do motor e a página a levanta para **debaixo do quadro** do 
 **Achado ao LER a página gerada**, como no D116: o casador usava `startsWith`, e a minha
 linha **começa com o número** — ela nunca subia, ia para a lista do fim, onde os números
 são normalizados para `…`. O casador media **posição** do marcador, não conteúdo.
+
+---
+
+## D160 · O 33 contra 1 228 aparece em UMA das três amostragens — é artefato da escolha da variante · 05/10/2026
+
+A medição que o chat pediu, e que o Jonny queria ver: as três amostragens do D148,
+agora em `geo-antonina`.
+
+| amostragem | sem as faces | com as faces | delta | do plano escolhido |
+|---|---|---|---|---|
+| 2 variantes · espinha | **0 aceitas** | **1 088** lotes | — | 50 rotulados `-eN`, 16 encostam |
+| 2 variantes · ortogonal | 1 386 | **1 228** | **−158** | 49 rotulados, 16 encostam |
+| completo, 20 aceitas | 1 386 (ortogonal) | **33** (superquadra) | **−1 353** | 33 rotulados, 14 encostam |
+
+**A resposta é a segunda das duas que o chat pôs:** o 33 **não é um caso único do
+terreno** — é a **mesma troca vista de outro ângulo**, e o ângulo é a **escolha da
+variante**.
+
+> **Com a MESMA entrega, restringindo o formato à ortogonal, o motor desenha 1 228
+> lotes** — exatamente o partido que o ranking dele preferiu não usar na amostragem
+> completa. O 33 aparece em **1 de 3** amostragens, e é a amostragem que o Lab publica.
+
+**Dois achados que vieram junto, e nenhum deles é defeito:**
+
+1. **na espinha com 2 variantes, SEM as faces nada passa** — zero variantes aceitas — e
+   **com** elas saem 1 088 lotes. Ali a entrega **viabiliza** um plano que não existia.
+   É o oposto do caso da amostragem completa, na mesma gleba;
+2. **a entrega custa lote em Antonina nas duas amostragens comparáveis** (−158 na
+   ortogonal; na espinha não há "sem" para comparar). No `ensaio-com-testada` o sinal
+   variava; aqui ele é negativo onde dá para medir — e **continua não sendo comparável
+   entre amostragens**, pela razão do D148.
+
+**O que isto NÃO decide:** o que a régua de nota do Parcelamento **deve** premiar. Isso é
+do Jonny e do motor do vizinho. O que muda é o que ele decide **sabendo**: que o plano de
+33 lotes é o que aquele ranking escolhe **entre 20 variantes**, e que o de 1 228 está ao
+alcance do mesmo motor com a mesma entrega.
+
+---
+
+## D161 · A DÉCIMA TERCEIRA vez do ponto cego — e desta vez já tinha SAÍDO · 05/10/2026
+
+No LAB-45 eu publiquei, no relatório, no recado e **no item 7 do Jonny**:
+
+> *"Os 33 lotes são, todos os 33, lotes da beira da rua que já existe."*
+
+**A base era o ID do lote.** O motor chama de `…-eN` os lotes da passagem externa, eu
+contei os ids e chamei aquilo de *"beira da rua"*.
+
+**Medido, neste prompt:**
+
+| distância do lote à testada | quantos dos 33 |
+|---|---|
+| **≤ 0,5 m** — encostam | **14** |
+| 1 a 5 m | 1 |
+| 5 a 20 m | 1 |
+| 20 a 50 m | 2 |
+| **> 50 m** | **15** |
+
+E a distância máxima é **1 805,7 m** — o outro canto de uma gleba de 141,8 ha. O padrão
+se repete nas três amostragens: 50 rotulados e 16 encostando, 49 e 16, 33 e 14.
+
+> **`-eN` é rótulo. Distância é a coisa.**
+
+**É a terceira vez desta sub-família** — D148 (posição no ranking não é identidade), D155
+(comentário não é código), esta (id não é geometria) — e **é a primeira desde o D119 que
+JÁ TINHA SAÍDO**: estava no relatório do LAB-45, no recado ao chat e na página do Jonny.
+As doze anteriores, as sete últimas, foram pegas dentro do próprio prompt.
+
+**O que estava certo e segue de pé:** 33 lotes, **todos** da passagem externa do motor,
+29 acusados pelo invariante `frente`, somando 1,03 ha (~310 m² cada) — a leitura *"poucos
+lotes grandes"* continua enfraquecida, por área, não por posição.
+
+**O que estava errado:** *"todos na beira da rua"*. Só 14 estão.
+
+**Decisão:** o item 7 do Jonny e o relatório do LAB-45 foram **corrigidos, não
+reescritos** — o erro fica visível, com a medição ao lado, porque apagá-lo tiraria do
+registro a única coisa que ele tem de útil. E a ferramenta do LAB-46 publica a
+**distribuição de distâncias**, não só a contagem de ids: a próxima pergunta sobre
+"lote de beira" se responde com geometria.
+
+**E uma pergunta nova, NÃO medida:** por que a passagem externa do motor põe lote a 1,8 km
+da face entregue, quando `facesLoteamento` entregou **uma** face de 180 m? Pode ser que
+`facesLoteamento` signifique para ele algo mais amplo, pode ser que a passagem externa
+corra o perímetro inteiro. **Não acuso** — está na lista numerada do relatório, para o
+chat levar ao Parcelamento.

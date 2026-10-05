@@ -53,10 +53,37 @@ estão.
 | **LAB-43** | As **quatro provas que declaram `contrato: "2"`** quando **entrada nenhuma** do repositório é `"2"` (D146) — consertar a etiqueta na ferramenta e regerar | ✅ **concluído em 04/10/2026** | nenhuma — é o primeiro da ordem |
 | **LAB-44** | **Um nome só para cada número do confronto do acesso** — hoje as mesmas três contas saem com **chaves diferentes em dois arquivos** (D145) | ✅ **concluído em 04/10/2026** | LAB-43 mesclado ✅ |
 | **LAB-45** | As **duas fixtures novas** do LAB-40 **na tabela comparativa**, com ela **regerada** | ✅ **concluído em 04/10/2026** | LAB-44 mesclado ✅ |
-| **LAB-46** | Medir **em Antonina as três amostragens** do D148 — *"é o que decide se o 33 contra 1.228 é caso único ou a mesma troca vista de outro ângulo"*. **O Jonny quer ver este resultado** | ⏳ **pronto, é o próximo** · parte da pergunta **já foi respondida** pelo LAB-45 (D159) | LAB-45 mesclado ✅ |
+| **LAB-46** | Medir **em Antonina as três amostragens** do D148 — *"é o que decide se o 33 contra 1.228 é caso único ou a mesma troca vista de outro ângulo"*. **O Jonny quer ver este resultado** | ✅ **concluído em 05/10/2026** | LAB-45 mesclado ✅ |
 | **LAB-47** | **A chave de IA plantada no código** — o pedido do chat **chegou cortado**, ver abaixo | ⛔ **aguardando o chat** | o pedido completo |
 
-### LAB-45 · As duas fixtures na tabela — ✅ concluído em 04/10/2026
+### LAB-46 · As três amostragens em Antonina — ✅ concluído em 05/10/2026
+
+**Entregue:** [`../relatorios/LAB-46.md`](../relatorios/LAB-46.md),
+`docs/provas/LAB-46/antonina-tres-amostragens.json`, `ferramentas/lab46.ts`, o item 7 do
+Jonny com **a resposta**, D160 e D161.
+
+**A resposta é a segunda das duas que o chat pôs:** o 33 **não é caso único do terreno**.
+
+| amostragem | sem as faces | com as faces |
+|---|---|---|
+| 2 variantes · espinha | **0 aceitas** | **1 088** |
+| 2 variantes · ortogonal | 1 386 | **1 228** |
+| completo, 20 aceitas | 1 386 | **33** |
+
+**Com a MESMA entrega, fixado o formato em ortogonal, o motor desenha 1 228 lotes** — o
+partido que o ranking dele preferiu não usar. O 33 aparece em **1 de 3** amostragens, e é
+a que o Lab publica. E o contrário também apareceu: na espinha, **sem** a testada nada
+passa, **com** ela saem 1 088 — ali a entrega **viabiliza** o plano.
+
+**E a DÉCIMA TERCEIRA vez do ponto cego** (D161), **a primeira desde o D119 que já havia
+saído**: eu disse no LAB-45 que os 33 lotes eram *"todos da beira da rua existente"*
+contando o **id** `-eN` do motor. **Medido: 14 de 33 encostam**; 15 estão a mais de 50 m e
+o mais distante a **1 805,7 m**. *`-eN` é rótulo; distância é a coisa.* Corrigido **riscado,
+não apagado**, no item 7 e no relatório do LAB-45.
+
+---
+
+### LAB-45 · As duas fixtures na tabela — ✅ concluído em 04/10/2026### LAB-45 · As duas fixtures na tabela — ✅ concluído em 04/10/2026
 
 **Entregue:** [`../relatorios/LAB-45.md`](../relatorios/LAB-45.md), a tabela e a prova do
 acesso com **sete** glebas, a página do Jonny regerada, D158 e D159.
@@ -1378,14 +1405,17 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 - ~~**As duas fixtures novas na TABELA comparativa** (LAB-40)~~ — ✅ **executado no
   LAB-45**: sete glebas na tabela e na prova do acesso, com as travas acompanhando em vez
   de serem afrouxadas (D158), e dois achados que fecharam o D140 (D159).
-- **Medir em Antonina a mesma pergunta das três amostragens** (LAB-40, D148). O 33 contra
-  1 228 foi medido numa amostragem só; o `ensaio-com-testada` mostrou que o **sinal do
-  total muda com o conjunto de variantes**. Medir as três em Antonina diria se aquele caso
-  é extremo ou se é a mesma troca vista por um ângulo ruim — e é o que falta para eu poder
-  dizer ao Jonny que Antonina é caso único. **Não executado** — escopo novo.
+- ~~**Medir em Antonina as três amostragens** (D148)~~ — ✅ **executado no LAB-46**: o 33
+  aparece em **1 de 3** amostragens, e com o formato fixado em ortogonal o mesmo motor
+  desenha **1 228** lotes com a mesma entrega (D160).
 - ~~**a etiqueta do contrato, que quatro provas declaravam errada** (D146)~~ — ✅
   **executado no LAB-43**: a etiqueta sai do medido, as quatro provas regeradas dizem
   `"1"`, e a lista das treze que ainda escrevem literal **se revalida** (D154).
+- **Por que a passagem externa do motor põe lote a 1,8 km da face entregue** (LAB-46,
+  D161). `facesLoteamento` entregou **uma** face de 180 m e saíram 33 a 50 lotes com id
+  `-eN`, dos quais 14 a 16 encostam nela. Pode ser o significado de `facesLoteamento` para
+  o motor, pode ser a passagem externa correndo o perímetro inteiro. **Não medido, e não
+  atribuído** (§6) — está na lista numerada do LAB-46 para o chat levar ao Parcelamento.
 - **DETECTOR DE PROVA VELHA para o LAB-25 e o LAB-30** (LAB-43, D156). Regerar as quatro
   provas mostrou que **duas estavam defasadas há prompts e nada acusava**: a do LAB-30
   desde o LAB-40, a do LAB-25 desde o LAB-37. O LAB-33 deu detector ao LAB-23 e ao LAB-28;
