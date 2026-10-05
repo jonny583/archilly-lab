@@ -5,18 +5,33 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 05/10/2026 · **Último prompt executado:** LAB-47 ·
-**Fila de 04/10 (terceira): CUMPRIDA, 5 de 5. O despertador está LIGADO e sem item pronto.**
+**Fila de 04/10 (terceira): CUMPRIDA, 5 de 5. O despertador está DESLIGADO — disparo sem item pronto.**
 
-# 🟢 O DESPERTADOR ESTÁ LIGADO — e a fila acabou de esgotar
+# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila esgotou e o disparo seguinte não tinha o que fazer
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 05/10/2026**, religado pelo chat ao
-mandar a frase inteira do LAB-47. É a **sexta** vez que ele **reabilita em vez de recriar**
-(D112).
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 05/10/2026, 04:06 UTC.**
 
-**O LAB-47 fechou a fila.** Os cinco prompts de 04/10 (terceira) — **LAB-43 a LAB-47** —
-estão feitos e mesclados. **No próximo disparo, se o chat não tiver mandado fila nova, não
-haverá item pronto**: é o caso da D62 e o despertador deve ser **desligado, não apagado**
-(D112), com o motivo escrito aqui.
+**O que aconteceu, na ordem:** o chat religou o despertador em 05/10 ao mandar a frase
+inteira do LAB-47 (a **sexta** vez que ele **reabilita em vez de recriar**, D112); o LAB-47
+foi executado e mesclado nos PRs **#56** e **#57**; e **o disparo das 04:05 não achou item
+pronto** — os cinco prompts da fila de 04/10 (terceira), **LAB-43 a LAB-47**, estão feitos
+e mesclados, e o que resta na `FILA.md` está todo em *"proposto ao chat"*, que por definição
+**não se executa**.
+
+É o caso da **D62**, e o desligamento é **desligamento, não apagamento** (D112, ratificado
+cinco vezes pelo chat, que mandou reabilitar em vez de recriar). **O chat religa quando
+mandar fila nova.**
+
+**Conferido antes de declarar o disparo vazio:** nada pendente — `git status` limpo, os dois
+PRs do LAB-47 mesclados na `main` (`f3ebc39`), a branch sem commit à frente da `main`, e
+nenhum item *"pronto"* na fila. *Disparo que acorda e não tem o que fazer é desperdício
+medido: dos 7 disparos do despertador de 15/09, **4 não tiveram o que fazer**.*
+
+**Uma coisa envelheceu, e fica dita:** o **prompt guardado** deste despertador ainda descreve
+o LAB-47 como *"⛔ AGUARDANDO"* e manda pular, e ainda diz *"a próxima é a D154"* (já é a
+**D166**). Ele **não engana** — o passo 1 dele manda ler este arquivo primeiro, e este
+arquivo está certo —, mas quem o religar com fila nova deve reescrevê-lo. **Não o reescrevi
+por mim:** o prompt é do chat, e eu não mexo no que ele guarda sem ele pedir.
 
 **O saldo da fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §4** — pela
 §1-B, que o chat ratificou.
