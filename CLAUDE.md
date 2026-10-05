@@ -206,7 +206,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu DOZE vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu TREZE vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -223,6 +223,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D142 (LAB-38) | "este teste importa do Generate e não podia" | a régua leu **menção** da palavra, e não o `import` |
 | D148 (LAB-40) | "aqui a entrega da testada não custa lote" | a régua comparou dois partidos pelo **rótulo** da variante |
 | D155 (LAB-43) | "esta ferramenta ainda escreve o literal do contrato" | a régua leu o **comentário** que explicava o conserto |
+| D161 (LAB-46) | "os 33 lotes são todos da beira da rua existente" | eu contei o **id** `-eN`, e só **14 de 33** encostam |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -234,9 +235,15 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**Das DOZE, OITO foram réguas minhas acusando a si mesmas**, e as sete últimas
+**Das TREZE, NOVE foram réguas minhas acusando a si mesmas**, e sete delas
 foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142,
 D148, D155).
+
+**A décima terceira é a exceção, e é a mais cara desde o D119: ela JÁ TINHA SAÍDO** — no
+relatório do LAB-45, no recado ao chat e na página do Jonny. Eu disse que os 33 lotes de
+Antonina eram *"todos da beira da rua que já existe"* contando o **id** `-eN` do motor;
+medido, **14 de 33** encostam, e o mais distante está a **1 805,7 m**. Foi corrigida com
+a medição ao lado, não apagada (D161).
 
 **E três delas são a MESMA sub-família** — régua que varre código e casa o nome no lugar
 errado da gramática (D137, D142, D155). A terceira reprovou o arquivo que eu **acabara de
@@ -255,9 +262,11 @@ o objeto.
 > inteiro); e antes de comparar duas medições, confira se o que você casou é a
 > **coisa** ou só a **etiqueta** dela — posição num ranking é rótulo, e rótulo não é
 > identidade; e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
-> onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*. Doze de doze vezes o
-> defeito estava na régua antes de estar no medido, e em sete delas a régua era o teste que
-> eu acabara de escrever.
+> onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
+> dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
+> rótulo, e três das treze vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> D161). Treze de treze vezes o defeito estava na régua antes de estar no medido, e em sete
+> delas a régua era o teste que eu acabara de escrever.
 
 ---
 

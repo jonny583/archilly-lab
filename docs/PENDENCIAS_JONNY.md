@@ -400,9 +400,19 @@ segue de pé, e segue sendo sobre produto, não sobre código.
 Pondo as duas glebas novas na tabela de comparação, o programa rodou Antonina outra vez
 e eu olhei **de que são feitos** os 33 lotes. A resposta muda a leitura:
 
-> **Os 33 lotes são, todos os 33, lotes da beira da rua que já existe.** O plano que o
-> programa escolheu **não tem um único lote no miolo do terreno** — é só a fileira
-> encostada na rua de fora.
+> ~~**Os 33 lotes são, todos os 33, lotes da beira da rua que já existe.** O plano que o
+> programa escolheu não tem um único lote no miolo do terreno — é só a fileira encostada
+> na rua de fora.~~
+>
+> ⚠️ **CORRIGIDO em 05/10 — esta frase estava errada, e o erro era meu.** Eu me baseei no
+> **apelido** que o programa dá a esses lotes, não na posição deles. **Medido: dos 33,
+> só 14 encostam na rua existente.** Quinze estão a **mais de 50 metros** dela, e o mais
+> distante a **1.805 metros** — o outro canto do terreno. O que continua certo: os 33 são
+> todos da mesma "passagem" do programa (a que ele faz por causa da rua existente), e
+> somam 1,03 ha, cerca de 310 m² cada.
+>
+> **Deixo o erro à vista de propósito**, riscado e com a medição ao lado: apagar tiraria
+> do registro a única coisa útil que ele tem.
 
 E tem mais, medido pela régua do próprio Archilly Generate: **29 daqueles 33 lotes são
 contados como "sem frente para rua"**. Não é contradição — é que a rua deles **já existe
@@ -424,6 +434,33 @@ escondo o dado dele — só agora dá para decidir sabendo **o que** são os 33 
 
 **Onde ver:** a página de comparação, no quadro **Antonina (PR)**, traz a linha com os 33
 lotes externos e o `faceDeRua` logo abaixo da tabela.
+
+### Novidade de 05/10 — e esta é A RESPOSTA que você queria ver
+
+Eu rodei Antonina **três vezes**, de três maneiras diferentes, e a pergunta era: *aquele
+plano de 33 lotes é uma esquisitice daquele terreno, ou é o mesmo efeito visto de outro
+ângulo?*
+
+| como eu mandei o programa desenhar | sem contar a rua existente | contando a rua existente |
+|---|---|---|
+| só o traçado "espinha de peixe", 2 tentativas | **não saiu nada aceitável** | **1.088 lotes** |
+| só o traçado "ortogonal", 2 tentativas | 1.386 lotes | **1.228 lotes** |
+| todos os traçados, 20 tentativas (é o que publico) | 1.386 lotes | **33 lotes** |
+
+> **O plano de 33 lotes aparece em 1 das 3 maneiras — e é a maneira que eu publico.**
+> Com a MESMA informação da rua existente, mandando desenhar só no traçado ortogonal, o
+> programa faz **1.228 lotes**. Ou seja: aqueles 1.228 lotes **estão ao alcance do mesmo
+> programa, com a mesma informação** — ele só não os escolheu quando pôde escolher entre
+> 20 opções.
+
+**E apareceu o contrário, no mesmo terreno:** no traçado "espinha de peixe", **sem** a rua
+existente o programa não consegue desenhar nada aceitável, e **com** ela faz 1.088 lotes.
+A mesma informação que num caso parece atrapalhar, no outro **viabiliza** o desenho.
+
+**O que isso faz com a sua decisão:** ela fica mais simples de enunciar, e continua sendo
+sua — *a régua de nota do Laboratório de Parcelamento deve preferir o plano de 33 ou o de
+1.228?* Não é mais "o programa desenha mal este terreno": ele desenha os dois, e a
+**nota** é que escolhe.
 
 ### O que eu faço enquanto você não olhar
 

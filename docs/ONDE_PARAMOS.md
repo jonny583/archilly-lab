@@ -4,15 +4,18 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 04/10/2026 · **Último prompt executado:** LAB-45 ·
-**Fila de 04/10 (terceira): LAB-43 a LAB-47, 3 de 5 feitos.**
+**Última atualização:** 05/10/2026 · **Último prompt executado:** LAB-46 ·
+**Fila de 04/10 (terceira): LAB-43 a LAB-47, 4 de 5 feitos — e o quinto está AGUARDANDO.**
 
 # 🟢 O DESPERTADOR ESTÁ DE PÉ — fila nova, LAB-43 a LAB-47
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 04/10/2026, 19:12 UTC.** É o
 **mesmo** despertador, reabilitado pela **quinta** vez em vez de recriado (D112).
 
-**O próximo é o LAB-46**, e a condição dele está cumprida (LAB-45 mesclado). **Parte da pergunta dele já foi respondida pelo LAB-45** (D159): em Antonina o partido de 33 lotes é feito **só de lotes externos**.
+**Não há próximo pronto:** os quatro executáveis estão feitos, e o **LAB-47 está
+`aguardando`** porque o pedido do chat chegou cortado. Pela regra do §1-A — disparo sem
+item pronto —, o despertador é **desligado** no próximo disparo se o pedido não tiver
+chegado.
 
 ## A fila, na ordem que o chat aprovou
 
@@ -21,8 +24,42 @@
 | **LAB-43** | as quatro provas que declaram `contrato: "2"` quando entrada nenhuma é `"2"` (D146) | ✅ **04/10/2026** |
 | **LAB-44** | um **nome só** para cada número do confronto do acesso (D145) | ✅ **04/10/2026** |
 | **LAB-45** | as duas fixtures novas **na tabela**, com ela regerada | ✅ **04/10/2026** |
-| **LAB-46** | medir **em Antonina as três amostragens** do D148 — **o Jonny quer ver** | ⏳ **o próximo** |
+| **LAB-46** | medir **em Antonina as três amostragens** do D148 — **o Jonny quer ver** | ✅ **05/10/2026** |
 | **LAB-47** | a chave de IA plantada no código | ⛔ **aguardando: o pedido chegou cortado** |
+
+## O que o LAB-46 fez — a resposta que o Jonny queria ver, e um erro meu que já tinha saído
+
+| amostragem em `geo-antonina` | sem as faces | com as faces |
+|---|---|---|
+| 2 variantes · espinha | **0 aceitas** | **1 088** lotes |
+| 2 variantes · ortogonal | 1 386 | **1 228** |
+| completo, 20 aceitas | 1 386 | **33** |
+
+**O 33 aparece em 1 de 3 amostragens** — a que o Lab publica. **Com a mesma entrega,
+fixado o formato em ortogonal, o motor desenha 1 228 lotes**: o partido que o ranking dele
+preferiu não usar. Então o 33 **não é esquisitice do terreno**, é artefato de **qual
+variante o ranking escolhe entre 20**. E o contrário apareceu na mesma gleba: na espinha,
+**sem** a testada **nada passa**; com ela, 1 088 lotes — ali a entrega **viabiliza** o
+plano.
+
+**A decisão do Jonny fica mais simples de enunciar, e continua dele:** *a nota deve
+preferir o plano de 33 ou o de 1 228?* — porque os dois estão ao alcance do mesmo motor,
+com a mesma entrada.
+
+## ⚠️ A DÉCIMA TERCEIRA vez do ponto cego, e a primeira desde o D119 que JÁ TINHA SAÍDO
+
+No LAB-45 eu publiquei — relatório, recado e **página do Jonny** — que os 33 lotes eram
+*"todos da beira da rua que já existe"*. **A base era o ID do lote** (`-eN`, o apelido da
+passagem externa do motor).
+
+**Medido: 14 de 33 encostam** na testada; 15 estão a **mais de 50 m**, o mais distante a
+**1 805,7 m** — o outro canto da gleba. *`-eN` é rótulo; distância é a coisa* (D161).
+
+**Corrigido riscado, não apagado**, no item 7 e no relatório do LAB-45: apagar tiraria do
+registro a única coisa útil que o erro tem. O que segue de pé: os 33 são todos da passagem
+externa, 29 acusados pelo invariante `frente`, e somam 1,03 ha (~310 m² cada).
+
+---
 
 ## O que o LAB-45 fez — as duas fixtures na tabela, e o que elas revelaram
 

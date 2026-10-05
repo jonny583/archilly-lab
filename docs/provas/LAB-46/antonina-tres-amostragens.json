@@ -1,0 +1,232 @@
+{
+  "prompt": "LAB-46",
+  "geradoEm": "2026-10-05T00:30:00.000Z",
+  "gleba": "geo-antonina",
+  "motor": "Laboratório de Parcelamento",
+  "semente": 20260913,
+  "contrato": "1",
+  "aPergunta": "o 33 contra 1 228 é caso único de Antonina, ou a mesma troca do D148 vista de outro ângulo?",
+  "oQueOLab45JaRespondeu": "o partido escolhido na amostragem completa tem 33 lotes, todos da passagem EXTERNA do motor (id `-eN`), 29 acusados pelo invariante `frente` do Generate, e somando 1,03 ha (~310 m² cada). A leitura `produto de poucos lotes grandes` já estava enfraquecida (D159)",
+  "oQueOLab45DISSE_ERRADO_eEsteCorrige": "eu disse que os 33 eram `todos lotes da beira da rua que já existe`, contando o ID `-eN` em vez de medir. MEDIDO: só 14 encostam na testada (<= 0,5 m); 15 estão a mais de 50 m e o mais distante a 1 805,7 m, o outro canto da gleba. `-eN` é rótulo; distância é a coisa (D161)",
+  "oQueNaoFoiMedido": "`antonina-com-via` — ela tem via desenhada ALÉM da testada, e a via desenhada muda o ângulo do partido (D127). Duas variáveis de uma vez responderiam outra pergunta",
+  "facesLoteamento": [
+    0
+  ],
+  "medicoes": [
+    {
+      "amostragem": "2 variantes · espinha",
+      "variantes": 2,
+      "formatos": [
+        "espinha"
+      ],
+      "aceitasSemAsFaces": 0,
+      "aceitasComAsFaces": 1,
+      "semAsFaces": null,
+      "comAsFaces": {
+        "formato": "espinha",
+        "aceitas": 1,
+        "lotes": 1088,
+        "lotesExternos": 50,
+        "externosSemViaDoPlano": 50,
+        "naoRotuladosComoExternos": 1038,
+        "lotesNaTestada": 16,
+        "distanciaDosExternos": {
+          "faixas": {
+            "<= 0.5 m": 16,
+            "<= 1 m": 0,
+            "<= 5 m": 1,
+            "<= 20 m": 1,
+            "<= 50 m": 3,
+            "> 50 m": 29
+          },
+          "encostamNaTestada": 16,
+          "distanciaMaxima_m": 1799
+        },
+        "distanciaDeTodos": {
+          "faixas": {
+            "<= 0.5 m": 16,
+            "<= 1 m": 0,
+            "<= 5 m": 1,
+            "<= 20 m": 1,
+            "<= 50 m": 3,
+            "> 50 m": 1067
+          },
+          "encostamNaTestada": 16,
+          "distanciaMaxima_m": 1799
+        }
+      },
+      "deltaDeLotes": null,
+      "oPlanoFicouSoDeLoteExterno": false
+    },
+    {
+      "amostragem": "2 variantes · ortogonal",
+      "variantes": 2,
+      "formatos": [
+        "ortogonal"
+      ],
+      "aceitasSemAsFaces": 2,
+      "aceitasComAsFaces": 2,
+      "semAsFaces": {
+        "formato": "ortogonal",
+        "aceitas": 2,
+        "lotes": 1386,
+        "lotesExternos": 0,
+        "externosSemViaDoPlano": 0,
+        "naoRotuladosComoExternos": 1386,
+        "lotesNaTestada": 0,
+        "distanciaDosExternos": {
+          "faixas": {
+            "<= 0.5 m": 0,
+            "<= 1 m": 0,
+            "<= 5 m": 0,
+            "<= 20 m": 0,
+            "<= 50 m": 0,
+            "> 50 m": 0
+          },
+          "encostamNaTestada": 0,
+          "distanciaMaxima_m": null
+        },
+        "distanciaDeTodos": {
+          "faixas": {
+            "<= 0.5 m": 0,
+            "<= 1 m": 0,
+            "<= 5 m": 0,
+            "<= 20 m": 0,
+            "<= 50 m": 0,
+            "> 50 m": 1386
+          },
+          "encostamNaTestada": 0,
+          "distanciaMaxima_m": 1514.9
+        }
+      },
+      "comAsFaces": {
+        "formato": "ortogonal",
+        "aceitas": 2,
+        "lotes": 1228,
+        "lotesExternos": 49,
+        "externosSemViaDoPlano": 49,
+        "naoRotuladosComoExternos": 1179,
+        "lotesNaTestada": 16,
+        "distanciaDosExternos": {
+          "faixas": {
+            "<= 0.5 m": 16,
+            "<= 1 m": 0,
+            "<= 5 m": 0,
+            "<= 20 m": 2,
+            "<= 50 m": 2,
+            "> 50 m": 29
+          },
+          "encostamNaTestada": 16,
+          "distanciaMaxima_m": 1797.9
+        },
+        "distanciaDeTodos": {
+          "faixas": {
+            "<= 0.5 m": 16,
+            "<= 1 m": 0,
+            "<= 5 m": 0,
+            "<= 20 m": 2,
+            "<= 50 m": 2,
+            "> 50 m": 1208
+          },
+          "encostamNaTestada": 16,
+          "distanciaMaxima_m": 1797.9
+        }
+      },
+      "deltaDeLotes": -158,
+      "oPlanoFicouSoDeLoteExterno": false
+    },
+    {
+      "amostragem": "completo (o que o Lab publica)",
+      "variantes": 20,
+      "formatos": [
+        "ortogonal",
+        "espinha",
+        "pente",
+        "diagonal",
+        "loop",
+        "cluster",
+        "radial",
+        "organico",
+        "superquadra",
+        "mioloVerde"
+      ],
+      "aceitasSemAsFaces": 18,
+      "aceitasComAsFaces": 20,
+      "semAsFaces": {
+        "formato": "ortogonal",
+        "aceitas": 18,
+        "lotes": 1386,
+        "lotesExternos": 0,
+        "externosSemViaDoPlano": 0,
+        "naoRotuladosComoExternos": 1386,
+        "lotesNaTestada": 0,
+        "distanciaDosExternos": {
+          "faixas": {
+            "<= 0.5 m": 0,
+            "<= 1 m": 0,
+            "<= 5 m": 0,
+            "<= 20 m": 0,
+            "<= 50 m": 0,
+            "> 50 m": 0
+          },
+          "encostamNaTestada": 0,
+          "distanciaMaxima_m": null
+        },
+        "distanciaDeTodos": {
+          "faixas": {
+            "<= 0.5 m": 0,
+            "<= 1 m": 0,
+            "<= 5 m": 0,
+            "<= 20 m": 0,
+            "<= 50 m": 0,
+            "> 50 m": 1386
+          },
+          "encostamNaTestada": 0,
+          "distanciaMaxima_m": 1514.9
+        }
+      },
+      "comAsFaces": {
+        "formato": "superquadra",
+        "aceitas": 20,
+        "lotes": 33,
+        "lotesExternos": 33,
+        "externosSemViaDoPlano": 33,
+        "naoRotuladosComoExternos": 0,
+        "lotesNaTestada": 14,
+        "distanciaDosExternos": {
+          "faixas": {
+            "<= 0.5 m": 14,
+            "<= 1 m": 0,
+            "<= 5 m": 1,
+            "<= 20 m": 1,
+            "<= 50 m": 2,
+            "> 50 m": 15
+          },
+          "encostamNaTestada": 14,
+          "distanciaMaxima_m": 1805.7
+        },
+        "distanciaDeTodos": {
+          "faixas": {
+            "<= 0.5 m": 14,
+            "<= 1 m": 0,
+            "<= 5 m": 1,
+            "<= 20 m": 1,
+            "<= 50 m": 2,
+            "> 50 m": 15
+          },
+          "encostamNaTestada": 14,
+          "distanciaMaxima_m": 1805.7
+        }
+      },
+      "deltaDeLotes": -1353,
+      "oPlanoFicouSoDeLoteExterno": true
+    }
+  ],
+  "planoSoDeLoteExterno": {
+    "em": [
+      "completo (o que o Lab publica)"
+    ],
+    "de": 3
+  },
+  "determinista": true
+}
