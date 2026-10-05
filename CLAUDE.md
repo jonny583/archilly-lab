@@ -173,6 +173,16 @@ em silêncio.
   mora em comentário** — comentário não se revalida, e foi assim que o Lab
   publicou `null` por três semanas e atribuiu a falta ao motor do vizinho (D98,
   D104).
+- **Não carrega segredo na árvore.** Chave de IA, token, senha, credencial de banco:
+  nenhum valor literal em arquivo que o git carregue. **Há varredura**
+  (`esteira/src/varredura-de-segredos.ts`, 13 regras), e o que importa nela é o **escopo**,
+  não a existência: ela varre **tudo que o git carrega** — nem uma pasta de fora, nem o
+  fonte dela própria —, e o que sobra sai **nomeado com o motivo**. Antes do LAB-47 esta
+  regra não era falsa, era **não medida**: plantados cinco segredos de formato real num
+  arquivo `src/`, o verde saiu **VERDE, 7 passos, 401 travas, exit 0**, com o `tsc` e o
+  `eslint` lendo o arquivo e aprovando (D163). **Registro nenhum repete mais de doze
+  caracteres** de um segredo — e menos ainda quando os doze primeiros são a senha e não o
+  prefixo do formato.
 - **Não decide urbanismo.** Regra urbanística é do Jonny: vira item em
   `docs/PENDENCIAS_JONNY.md`, não escolha minha.
 
@@ -327,7 +337,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 83 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 98 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

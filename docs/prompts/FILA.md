@@ -38,15 +38,14 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## 🔴 A fila de 04/10 (terceira) TRAVOU no último item — o despertador está DESLIGADO
+## ✅ A fila de 04/10 (terceira) — CUMPRIDA, cinco de cinco, LAB-43 a LAB-47
 
-**Quatro de cinco feitos e mesclados em 04 e 05/10/2026** (LAB-43 a LAB-46). O **LAB-47
-está `aguardando`** porque o pedido chegou cortado, e com tudo o que resta nesse estado o
-`trig_01XwSkTLT9zmyprNZcUiWy7f` foi **desligado — não apagado** (§1-A, segunda metade, e
-D112). **O saldo está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §4.**
+**Quatro feitos em 04 e 05/10/2026, e o quinto DESTRAVADO pelo chat em 05/10.** O LAB-47
+havia parado no verbo; o chat mandou a frase inteira, **confirmou o número LAB-47** e
+reabilitou o `trig_01XwSkTLT9zmyprNZcUiWy7f` (`enabled: true`, a **sexta** vez que ele
+reabilita em vez de recriar).
 
-**Duas linhas destravam:** a frase inteira do LAB-47 e a confirmação do número. **Nenhuma
-chave foi escrita em arquivo nenhum.**
+**O saldo está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §4.**
 
 ---
 
@@ -66,7 +65,7 @@ estão.
 | **LAB-44** | **Um nome só para cada número do confronto do acesso** — hoje as mesmas três contas saem com **chaves diferentes em dois arquivos** (D145) | ✅ **concluído em 04/10/2026** | LAB-43 mesclado ✅ |
 | **LAB-45** | As **duas fixtures novas** do LAB-40 **na tabela comparativa**, com ela **regerada** | ✅ **concluído em 04/10/2026** | LAB-44 mesclado ✅ |
 | **LAB-46** | Medir **em Antonina as três amostragens** do D148 — *"é o que decide se o 33 contra 1.228 é caso único ou a mesma troca vista de outro ângulo"*. **O Jonny quer ver este resultado** | ✅ **concluído em 05/10/2026** | LAB-45 mesclado ✅ |
-| **LAB-47** | **A chave de IA plantada no código** — o pedido do chat **chegou cortado**, ver abaixo | ⛔ **aguardando o chat** | o pedido completo |
+| **LAB-47** | **A chave de IA plantada no código** — medir o estado de hoje e depois escrever a varredura | ✅ **concluído em 05/10/2026** | o pedido completo, que chegou em 05/10 ✅ |
 
 ### LAB-46 · As três amostragens em Antonina — ✅ concluído em 05/10/2026
 
@@ -170,7 +169,37 @@ medir: a ponte publica `faceDeRua: null` nos 33 lotes e a régua do Generate med
 
 ---
 
-### ⛔ O LAB-47 chegou cortado, e eu não executo instrução lida pela metade### ⛔ O LAB-47 chegou cortado, e eu não executo instrução lida pela metade
+### LAB-47 · A chave plantada e a varredura — ✅ concluído em 05/10/2026
+
+**Entregue:** [`../relatorios/LAB-47.md`](../relatorios/LAB-47.md),
+`docs/provas/LAB-47/varredura-de-segredos.json`, `src/varredura-de-segredos.ts`,
+`ferramentas/lab47.ts`, `tests/segredos.test.ts` (14 travas), `CLAUDE.md` §4, D162 a D165.
+
+**Fase (a), a medição do estado de hoje — e deu o resultado do Render.** Cinco segredos de
+formato real num arquivo `src/` **versionado**: **VERDE, 7 passos, 401 travas, exit 0**. E é
+pior que *"ninguém procurou"*: o `tsc` **compilou** o arquivo e o `eslint` saiu **0** nele.
+A rede do lado do servidor também não existia — medido: este repositório **não tem GitHub
+Advanced Security habilitada**.
+
+**Fase (b), a varredura, e o escopo é dado publicado:** 13 regras sobre **tudo que o git
+carrega** (rastreado + não-rastreado não-ignorado), **sem pasta de fora e sem
+auto-exclusão** — há trava exigindo que ela varra o próprio fonte dela, e por isso **todo
+exemplo falso é montado em pedaços**. **Zero falso positivo** em 317 arquivos e 27,8 MB,
+com o `verde.yml` dentro do escopo. O teto de **doze caracteres** é trava, e é **por
+regra**: num prefixo público mostra 12, numa senha mostra 4.
+
+**A prova nas duas escalas:** 13 de 13 formatos pegos por exemplo falso; e **o mesmo
+arquivo plantado** leva o comando único de **exit 0 (401 travas)** a **exit 1 (415)**. A
+chave foi apagada e **nunca entrou em commit nenhum**.
+
+**Dois achados contra mim, os dois dentro do prompt** (D164, D165): o teto de 2 MB que eu
+mesma pus **já excluía cinco arquivos e 13 MB** — *escopo não encolhe por decisão, encolhe
+por comodidade*, e o que o pegou foi a varredura publicar o escopo como **número** —; e o
+`verde.yml` citava **64** num lugar e **83** noutro, dentro do mesmo arquivo.
+
+---
+
+### ⛔ Como o LAB-47 chegou, e por que ficou um disparo parado — o registro
 
 **O que chegou, literalmente, e é onde a mensagem termina:**
 
@@ -191,7 +220,13 @@ os dois de uma linha:
    haver dois LAB-44 no repositório — se o chat preferir outro número, é um `sed`.
 
 **O que eu NÃO fiz, de propósito:** nenhuma chave, de nenhum formato, foi escrita em
-nenhum arquivo deste repositório enquanto o pedido não estiver inteiro.
+nenhum arquivo deste repositório enquanto o pedido não estava inteiro.
+
+**E a espera se pagou:** a frase inteira pedia **duas coisas em ordem** — medir o estado de
+hoje e **só depois** escrever a varredura. Eu havia listado as duas leituras sem escolher
+entre elas; **adivinhar era meio a meio**, e a metade errada entregaria a varredura **sem o
+número que virou o achado do prompt** (401 travas aprovando cinco segredos). Esperar custou
+um disparo do despertador; adivinhar teria custado a medição.
 
 ---
 
@@ -374,7 +409,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 83 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 98 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -1379,6 +1414,13 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 
 ## Proposto ao chat — não executar
 
+- **O cabeçalho do `conferir.sh` afirma que não há CI neste repositório** (LAB-47). O
+  comentário diz, por extenso, *"**Não há CI neste repositório** (não existe
+  `.github/workflows`)"* — e isso é **falso desde o LAB-38**, que criou
+  `.github/workflows/verde.yml`. É a forma exata do D104: comentário envelhecendo em
+  silêncio no alto do arquivo mais lido do repositório. Conserto de duas linhas; **não
+  executado**, porque prompt fora da fila não existe (§1-A). Achado ao ler o script para
+  medir a fase (a) do LAB-47.
 - **O delta contra o Padrão 1.2**, quando ele existir. A conferência do LF-FINAL
   foi feita contra a Versão 1, que é a única legível (D43). O `TF-FINAL` do
   repositório irmão espera o mesmo documento.

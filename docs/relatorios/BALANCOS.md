@@ -96,6 +96,25 @@ chat e teve de ser re-derivado; a lista de 04/10 morava na `FILA.md`, e o chat a
 transformou em fila **sem nenhuma reconstrução**. É a segunda fila seguida nascida da
 minha própria lista de pendências — e a primeira em que nada se perdeu.
 
+### 1.3 · 05/10/2026 — a auditoria da lista de pendências do Jonny, pedida pelo chat
+
+| | |
+|---|---|
+| **origem** | o chat, fora da fila, junto do destravamento do LAB-47: *"sem alterar código… responda em bloco de código, até 20 linhas"* |
+| **onde está o original** | **neste arquivo**, §5 — e é a diferença que a §1-B existe para fazer: ele nasceu aqui, não no chat |
+| **o que produziu** | o veredito dos **quatro** itens da lista do chat (os quatro vivos, nenhum morto, **um escrito errado até o LAB-46 o consertar**) e **dois** itens dele que a lista não tinha |
+| **estado** | ✅ entregue em 05/10/2026, sem alterar código, como o pedido exigia |
+
+**Por que esta entrada existe mesmo tendo ido ao chat:** é exatamente o caso do balanço de
+03/10 que criou este arquivo — resposta fora da fila, pedida em bloco de código, com contas
+dentro. Aquela foi para o chat e **teve de ser re-derivada no dia seguinte, com duas linhas
+falsas**. Esta nasce no arquivo **antes** de ir ao chat.
+
+**E a conta que ela faz, em uma linha:** dos quatro itens da lista do chat, **nenhum morreu**;
+**um estava escrito errado e foi o LAB-46 que o corrigiu** — a pendência deixou de ser *"o
+programa desenha mal Antonina"* e passou a ser *"a nota deve preferir 33 ou 1 228?"*, porque
+os dois planos estão ao alcance do mesmo motor com a mesma entrada. **Nada bloqueia fila.**
+
 ---
 
 ## 2 · Índice dos balanços que JÁ moram num recado
@@ -156,8 +175,9 @@ vizinho (D119).
 
 ## 4 · O saldo da fila LAB-43 a LAB-47 — 05/10/2026
 
-**Segundo balanço nascido dentro deste arquivo.** A fila **não esgotou**: ela **travou** no
-último item, e por motivo que não é meu.
+**Segundo balanço nascido dentro deste arquivo.** A fila **travou** no último item por um
+pedido cortado, e **foi destravada no mesmo dia**: o chat mandou a frase inteira, confirmou
+o número e religou o despertador. **Cinco de cinco.**
 
 | prompt | o que ficou | o ponto cego |
 |---|---|---|
@@ -165,12 +185,12 @@ vizinho (D119).
 | **LAB-44** | **um nome só** para cada número do confronto, e a lista dos nomes virou **dado** — tipo não existe em tempo de execução (D157) | — |
 | **LAB-45** | **sete glebas** na tabela e na prova do acesso, com as travas acompanhando em vez de serem afrouxadas (D158); e dois números declarados que ganharam **preço** (D159) | — |
 | **LAB-46** | as **três amostragens em Antonina**: o 33 aparece em **1 de 3**, e com o formato fixado em ortogonal o mesmo motor desenha **1 228** (D160) | **D161**, a 13ª — **e esta já tinha saído** |
-| **LAB-47** | ⛔ **não executado**: o pedido do chat chegou **cortado** | — |
+| **LAB-47** | a **varredura de segredos**, 13 regras sobre **tudo que o git carrega** — e a medição que a motivou: **401 travas aprovaram cinco segredos de formato real** (D162, D163) | **D164**, de escopo: o teto de 2 MB que eu mesma pus **já excluía cinco arquivos** |
 
 ### Os números da fila
 
-- **quatro prompts executados**, quatro PRs mesclados na `main`, entre 04 e 05/10/2026;
-- a suíte foi de **393 para 401 travas**; o CI sem clones, de **76 para 83**;
+- **cinco prompts executados**, cinco PRs mesclados na `main`, entre 04 e 05/10/2026;
+- a suíte foi de **393 para 415 travas**; o CI sem clones, de **76 para 98**;
 - **duas** vezes o ponto cego da §6 (D155, D161) — e a **13ª é a primeira desde o D119 que
   já havia saído** para o chat e para a página do Jonny. Corrigida **riscada**, não apagada;
 - **três listas numeradas** para vizinhos (Generate no LAB-45, Parcelamento no LAB-46), e
@@ -179,21 +199,60 @@ vizinho (D119).
   desenha mal este terreno"*, é *"a nota deve preferir 33 ou 1 228?"*, porque os dois estão
   ao alcance do mesmo motor com a mesma entrada.
 
-### Por que ela travou, e o que eu NÃO fiz
+### Por que ela travou um disparo — e por que esperar foi certo
 
-O pedido do LAB-47 termina no verbo — *"faça o mesmo teste aqui, escreva"* — e eu **não
-executo instrução lida pela metade**: adivinhar qual era o pedido é exatamente o defeito que
-a §6 cataloga, e desta vez ele apareceria **antes** da medição, não depois.
+O pedido do LAB-47 terminava no verbo — *"faça o mesmo teste aqui, escreva"* — e eu **não
+executo instrução lida pela metade**. Ficou `aguardando`, o despertador foi **desligado e
+não apagado**, e o chat mandou a frase no mesmo dia.
 
-**Nada foi escrito:** nenhuma chave, de nenhum formato, entrou em arquivo deste repositório.
+**E a frase inteira mostrou que a espera valeu:** ela pedia **duas coisas em ordem** —
+medir o estado de hoje e **só depois** escrever a varredura. Eu havia listado as duas
+leituras possíveis sem escolher; **adivinhar era meio a meio**, e a metade errada teria
+entregado a varredura **sem o número que virou o achado do prompt**.
 
-**Dois pedidos ao chat, os dois de uma linha:** a frase inteira, e a confirmação do número
-(ele o chamou de *"LAB-44"*, e esse número já é o do nome único do confronto nesta fila;
-ficou **LAB-47**, o próximo livre).
+> **Esperar custou um disparo. Adivinhar teria custado a medição.**
+
+**Enquanto o pedido estava pela metade, nada foi escrito:** nenhuma chave, de nenhum
+formato, entrou em arquivo deste repositório.
 
 ### O que espera decisão
 
 A lista viva está na [`FILA.md`](../prompts/FILA.md), seção *Proposto ao chat*. As novas
 desta fila: o **detector de prova velha** para o LAB-25 e o LAB-30 (D156), o **`faceDeRua`
-nulo** nos 33 lotes (D156), e **por que a passagem externa põe lote a 1,8 km** da face
-entregue (D161) — esta última é pergunta, não acusação.
+nulo** nos 33 lotes (D156), **por que a passagem externa põe lote a 1,8 km** da face
+entregue (D161) — esta é pergunta, não acusação — e, do LAB-47, o comentário do
+`conferir.sh` que ainda afirma *"não há CI neste repositório"*, falso desde o LAB-38.
+
+---
+
+## 5 · A auditoria da lista de pendências do Jonny — 05/10/2026
+
+**Terceiro balanço nascido dentro deste arquivo, e o primeiro que o chat pediu JÁ no formato
+de arquivo** — ele pediu resposta em bloco de código, de até 20 linhas, e §1-B manda o
+balanço para cá de todo modo. A entrada completa, com os campos, está no **§1.3**.
+
+**O pedido:** *"sem alterar código: estou refazendo a lista de pendências do Jonny e a minha
+está desatualizada"* — item por item, se vale, morreu ou está escrito errado; o que ainda é
+dele e não foi listado; e de cada item vivo, se **bloqueia** alguma fila ou só melhora.
+
+| o que a lista do chat diz | veredito | bloqueia? |
+|---|---|---|
+| a **régua de forma** do lote (útil < 85 % = *"a conferir"*, < 70 % = *"ruim"*) | ✅ **vale, e está escrita certa** — item 5-B da página dele, valendo desde 02/10 à espera do OK | **não** — nunca travou nada |
+| decidir se a nota deve **preferir 33 ou 1 228** lotes em `geo-antonina` | ✅ **vale, e a redação está certa AGORA** — foi o LAB-46 que a tornou certa; antes dizia *"o programa desenha mal este terreno"* | **não** |
+| cadastrar o segredo **`VIZINHOS_TOKEN`** | ✅ **vale, e é só dele** — ninguém mais tem as configurações do repositório | **não** à fila; **sim** ao CI: o trabalho *"o verde completo"* falha com a receita, e o verde sou **eu** antes de cada commit |
+| *(a corda reta das vias curvas: adiada para a V3)* | ✅ **registrada certa** — é decisão dele, não pendência | **não** |
+
+**O que é dele e a lista do chat NÃO tem — dois itens:**
+
+1. **o item 1 da página dele**, e é o mais antigo que ainda respira: *"desproporcional" é
+   **3 vezes** a travessia direta, ou **1,5 km**?* O chat respondeu isso em 15/09; falta **uma
+   linha do Jonny** confirmando. Enquanto não vier, **nenhuma travessia é proposta** — a
+   escolha conservadora, e reversível. **Não bloqueia fila**;
+2. **o lote que faz frente para rua que JÁ EXISTE, fora da gleba** — nascido medido no
+   LAB-45 (D159): 51 lotes externos, os 51 com `faceDeRua: null`, **47 acusados** pelo
+   invariante `frente` do Generate. *É lote válido?* É **urbanismo**, logo dele; hoje está
+   como lista numerada ao Generate, no §5 do LAB-45. **Não bloqueia fila** — sai publicado
+   com a razão colada ao número.
+
+**Nada bloqueia fila nenhuma.** O único bloqueio vivo em todo o conjunto é o `VIZINHOS_TOKEN`
+sobre **um trabalho do CI**, e ele tem contorno medido: o verde completo rodado à mão.
