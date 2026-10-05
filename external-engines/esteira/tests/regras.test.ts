@@ -121,6 +121,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro da sabotagem do comando único: mede o script e o código de saída, não terreno",
     "LAB-38/ci.json":
       "os três disparos do CI, com a sabotagem de propósito: mede o workflow e os códigos de saída dele, não terreno",
+    "LAB-47/varredura-de-segredos.json":
+      "a varredura de segredos mede a ÁRVORE DE ARQUIVOS deste repositório — escopo, regras e achados —, não terreno: não há gleba, motor nem semente no que ela mede",
   };
 
   /**
@@ -336,6 +338,19 @@ describe("§7 · o CI existe, e a lista dele não é mentira (LAB-38)", () => {
     expect(claude, "a razão da §1-B tem de estar escrita nela").toContain(
       "O que vai ao chat e não vai a um arquivo não existe amanhã",
     );
+  });
+
+  test("dentro do `verde.yml`, TODO 'NN travas' é o mesmo número (LAB-47)", () => {
+    // A trava de concordância abaixo casa só a frase VIVA, e por bom motivo: há
+    // relatório antigo citando o número de então. Mas isso deixou um buraco DENTRO
+    // do próprio workflow — a receita que ele imprime quando falta o segredo dizia
+    // "protege 64 travas" enquanto o comentário no alto dizia 83. Dois números no
+    // mesmo arquivo, e o arquivo não tem história para preservar: aqui todos têm de
+    // bater. Achado ao acrescentar a trava do LAB-47.
+    const texto = readFileSync(join(RAIZ, ".github/workflows/verde.yml"), "utf8");
+    const ns = [...texto.matchAll(/(\d+)\s*\n?#?\s*travas/g)].map((m) => m[1]);
+    expect(ns.length, "o workflow deixou de citar o número de travas").toBeGreaterThan(1);
+    expect(new Set(ns).size, `o verde.yml cita números diferentes de travas: ${ns.join(", ")}`).toBe(1);
   });
 
   test("o número de travas do trabalho sem clones é o MESMO em todo lugar que o cita", () => {

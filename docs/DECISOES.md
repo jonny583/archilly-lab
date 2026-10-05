@@ -4399,3 +4399,117 @@ da face entregue, quando `facesLoteamento` entregou **uma** face de 180 m? Pode 
 `facesLoteamento` signifique para ele algo mais amplo, pode ser que a passagem externa
 corra o perímetro inteiro. **Não acuso** — está na lista numerada do relatório, para o
 chat levar ao Parcelamento.
+
+---
+
+## D162 · A varredura de segredos existe, e o ESCOPO dela é dado publicado · 05/10/2026
+
+**O pedido veio do chat, com a lição que a Pesquisa pagou:** *"o que importa é o ESCOPO da
+varredura, não a existência — a dela cobria três formatos e uma pasta só."*
+
+**A decisão, em três partes, e cada uma tem trava:**
+
+1. **ONDE** — `arquivosQueOGitCarrega()`: tudo que o git versiona **mais** tudo que ele
+   versionaria no próximo `commit -a` (`ls-files --cached --others --exclude-standard`),
+   porque segredo recém-escrito e ainda não rastreado é o caso mais comum. **Nenhuma pasta
+   é excluída, e nem o fonte da própria régua** — há trava exigindo que a varredura passe
+   pelo próprio fonte dela e pelo próprio teste dela. Para isso ser possível, **todo
+   exemplo falso é montado em pedaços**, e há segunda trava exigindo que o literal não
+   apareça nesses dois arquivos. É a lição do D155 pelo avesso: em vez de ensinar a régua a
+   distinguir *"eu falo sobre"* de *"eu faço"*, o texto simplesmente não contém a
+   ocorrência;
+2. **O QUÊ** — **treze** regras nomeadas, cobrindo as quatro famílias que o chat pediu
+   (chave de IA, token, senha, credencial de banco), e **nenhuma delas é um formato só**.
+   Cada regra declara `oQueNaoPega` — o buraco dela —, com trava exigindo que esteja
+   escrito, e cada regra é **exercitada por um exemplo falso**: regra declarada e não
+   exercitada é a promessa do D135, e numa varredura de segredo ela fica *verde por não
+   procurar*, que é indistinguível de "está limpo";
+3. **o que ficou de FORA** sai contado, nomeado e com motivo em `escopo.deFora`. Arquivo
+   pulado em silêncio é escopo mentindo.
+
+**O jeito certo não é acusado, e com motivo escrito:** `token: "${{ secrets.X }}"` e
+`senha: "process.env.X"` são o modo **correto** de escrever a coisa, e varredura que grita
+no código correto é varredura que ninguém lê. Medido: **zero falso positivo** na árvore
+inteira — 317 arquivos, 27,8 MB —, com o `verde.yml` dentro do escopo, que é justamente um
+arquivo cheio de `TOKEN` e de `secrets.`.
+
+**Os três buracos, ditos:** não lê o **histórico do git** (segredo commitado e apagado
+continua lá, e o remédio é **rotação da chave**); não mede **entropia**; e a regra da senha
+lê o **nome**, não o valor.
+
+**Onde ela roda:** no verde, pelo `bun test` do `esteira` — o comando único não mudou —, e
+no trabalho do CI que não precisa dos clones vizinhos, que foi de **83 para 98** travas.
+
+---
+
+## D163 · A medição da fase (a): o verde aprovou cinco segredos de formato real · 05/10/2026
+
+**A ordem do chat era medir antes de consertar**, e ela produziu o número que importa.
+
+Plantados **cinco segredos de formato real** — chave de IA, token do GitHub, chave da AWS,
+credencial de banco dentro da URL e senha atribuída a um nome — num arquivo `src/`
+**versionado**. Resultado: **VERDE, 7 passos, 401 travas, exit 0.**
+
+**E é pior que "ninguém procurou":** o arquivo **foi lido** por dois dos sete passos e os
+dois o aprovaram — o `tsc --noEmit` o compilou (ele aparece no `--listFiles`) e o `eslint`
+nele saiu **0**. Não houve filtro, nem `.gitignore`, nem pasta escondida.
+
+**A rede do lado do servidor também não estava lá, e isto está medido:** este repositório
+**não tem GitHub Advanced Security habilitada** (`run_secret_scanning` responde exatamente
+isso). O buraco que **não** medi fica declarado: a *push protection* de padrões de
+parceiros é mecanismo separado, e medi-la exigiria **empurrar uma chave para o GitHub** —
+coisa que não se faz, nem com chave falsa.
+
+**A segunda regra do chat virou código:** *"o relatório nunca repete mais de doze
+caracteres do segredo, senão a chave vaza no próprio registro."* O teto é constante
+nomeada, e **cada regra declara quantos caracteres cabem na amostra dela**, porque os doze
+não valem o mesmo para todas: em `sk-ant-…` os doze primeiros são o **prefixo público do
+formato**; **numa senha, os doze primeiros são a senha** — essa mostra 4. E o fecho se
+fecha sozinho: a varredura cobre `docs/`, então **um relatório que repetisse o segredo
+seria reprovado pela própria varredura que ele descreve**.
+
+**Provado nas duas metades e nas duas escalas:** 13 de 13 formatos pegos por exemplo falso
+em diretório temporário; e **o mesmo arquivo plantado** leva o comando único de
+**exit 0 (401 travas)** a **exit 1 (415 travas)**. A chave foi apagada e **nunca entrou em
+commit nenhum** — o que importa, porque o histórico é exatamente o que a varredura não vê.
+
+---
+
+## D164 · Escopo não encolhe por decisão, encolhe por comodidade · 05/10/2026
+
+**O achado é contra mim, e aconteceu dentro do prompt que o diagnosticava.**
+
+A primeira versão da régua pôs teto de **2 MB por arquivo**, por comodidade minha. A
+varredura saiu dizendo **"310 de 316"**: os seis de fora eram **cinco saídas de geometria
+de `geo-antonina`** — **13 MB**, lidos em menos de um segundo, e exatamente o tipo de
+arquivo onde ninguém olha linha por linha.
+
+Eu tinha acabado de escrever no alto daquele arquivo que *"o que importa é o escopo"*, e **o
+escopo que eu mesma havia escrito já excluía cinco arquivos sem motivo que se sustentasse.**
+Nenhum alarme teria soado: treze regras, relatório bonito, verde — e cinco arquivos nunca
+lidos. O teto virou **64 MB**, parede contra arquivo absurdo e não filtro de rotina; hoje o
+único arquivo fora do escopo é um `.png`.
+
+**O que o pegou tem nome:** a varredura **publica o escopo como DADO**, não como prosa.
+*"310 de 316"* é um número que dá para olhar e desconfiar; *"varre a árvore toda"* não é.
+
+> **Afirmação de escopo não se confere. Número de escopo, sim.**
+
+---
+
+## D165 · Número citado duas vezes no mesmo arquivo tem de bater nas duas · 05/10/2026
+
+Ao acrescentar a trava do LAB-47, o número de travas do trabalho sem clones mudou e a
+concordância do D153 exigiu atualizar os quatro arquivos que o citam. **E ali apareceu um
+quinto lugar, dentro de um deles:** a receita que o `verde.yml` imprime quando falta o
+segredo dizia *"protege 64 travas"* enquanto o comentário no alto do **mesmo arquivo**
+dizia **83**.
+
+A trava do D153 não o pegava **por desenho**: ela casa só a **frase viva**, porque há
+relatório antigo citando legitimamente o número de então. Mas o `verde.yml` **não tem
+história para preservar** — ali todos os números têm de bater, e agora há trava exigindo
+isso.
+
+**E ela mordeu na hora:** a frase estava quebrada em duas linhas de `echo`, com o número
+numa e a palavra na outra. **A frase se arrumou para a régua a alcançar** — não a régua
+para caber na frase, que é o contrário do que o D143 proíbe.

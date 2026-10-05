@@ -1,0 +1,146 @@
+{
+  "prompt": "LAB-47",
+  "oQueIstoMede": "a árvore de hoje deste repositório, não terreno — ver a exceção declarada do §7",
+  "quando": "2026-10-05T03:51:11.779Z",
+  "faseA_aMedicaoDoEstadoDeHoje": {
+    "oQueFoiPlantado": "5 segredos de formato real num arquivo `src/` versionado, por 1 execução do verde",
+    "formatosPlantados": [
+      "chave-de-ia-anthropic",
+      "token-do-github",
+      "chave-de-acesso-da-aws",
+      "credencial-de-banco-em-url",
+      "segredo-atribuido-a-um-nome-que-o-declara"
+    ],
+    "oComandoUnico": {
+      "passos": 7,
+      "travas": 401,
+      "exit": 0,
+      "veredito": "VERDE"
+    },
+    "quemAcusou": null,
+    "lidoPorQuemNadaDisse": [
+      "tsc --noEmit (o arquivo aparece no --listFiles)",
+      "eslint (exit 0 no arquivo)"
+    ],
+    "doLadoDoServidor": "este repositório não tem GitHub Advanced Security habilitada — medido pela resposta do run_secret_scanning"
+  },
+  "faseB_aVarredura": {
+    "reprovaComAChaveEPassaSemEla": {
+      "porFormato": "13 de 13 — a trava monta o exemplo falso de CADA regra e exige que AQUELA regra o pegue",
+      "naTravaSozinha": {
+        "semAChave": "14 pass · 0 fail",
+        "comAChave": "13 pass · 1 FAIL",
+        "achados": 7,
+        "formatos": 5
+      },
+      "noComandoUnico": {
+        "mesmoArquivoPlantado": "external-engines/esteira/src/configuracao-do-provedor.ts",
+        "antesDoLAB47": {
+          "travas": 401,
+          "exit": 0,
+          "veredito": "VERDE — 7 passos"
+        },
+        "depoisDoLAB47": {
+          "travas": 415,
+          "exit": 1,
+          "veredito": "NÃO ESTÁ VERDE — 1 passo falhou: esteira · test"
+        }
+      },
+      "aChaveFoiApagada": true,
+      "entrouEmAlgumCommit": false
+    },
+    "escopo": {
+      "arquivosQueOGitCarrega": 318,
+      "arquivosVarridos": 317,
+      "bytesVarridos": 27853887,
+      "regras": 13,
+      "deFora": [
+        {
+          "arquivo": "outputs/lab01/navegador.png",
+          "porque": "binário (tem byte nulo)"
+        }
+      ]
+    },
+    "regras": [
+      {
+        "nome": "chave-de-ia-anthropic",
+        "oQue": "chave da API da Anthropic (prefixo público + corpo longo)",
+        "oQueNaoPega": "o prefixo sozinho, sem corpo — é o que um documento escreve ao falar do formato",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "chave-de-ia-openai",
+        "oQue": "chave da API da OpenAI, inclusive as de projeto (`sk-proj-`)",
+        "oQueNaoPega": "chave curta de ambiente de teste, abaixo de 32 caracteres de corpo",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "chave-de-ia-google",
+        "oQue": "chave de API do Google (Gemini, Maps e o resto da família)",
+        "oQueNaoPega": "credencial de conta de serviço em JSON, que não tem este prefixo",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "token-do-github",
+        "oQue": "token do GitHub — pessoal, de app, de OAuth, de refresh ou `fine-grained`",
+        "oQueNaoPega": "o `GITHUB_TOKEN` do Actions, que não aparece como literal em arquivo nenhum",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "token-do-slack",
+        "oQue": "token do Slack (bot, usuário, app, refresh ou legado)",
+        "oQueNaoPega": "o `signing secret` do Slack, que é hexadecimal sem prefixo",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "chave-de-acesso-da-aws",
+        "oQue": "identificador de chave de acesso da AWS (`AKIA`) ou de sessão (`ASIA`)",
+        "oQueNaoPega": "a `secret access key` que vem ao lado dela — essa cai na regra do nome que se declara",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "token-da-stripe",
+        "oQue": "chave secreta ou restrita da Stripe em modo de produção",
+        "oQueNaoPega": "as chaves de teste (`sk_test_`), que não são segredo de produção",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "token-do-npm",
+        "oQue": "token de publicação do npm, o que vaza por `.npmrc` esquecido",
+        "oQueNaoPega": "token de registro privado com outro formato",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "segredo-de-cliente-do-google",
+        "oQue": "`client secret` de OAuth do Google",
+        "oQueNaoPega": "o `client id`, que é público por desenho",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "chave-privada-em-pem",
+        "oQue": "chave privada no formato PEM — RSA, EC, OpenSSH ou PKCS#8",
+        "oQueNaoPega": "chave privada em formato binário (DER), que não tem cabeçalho de texto",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "jwt-assinado",
+        "oQue": "JSON Web Token com as três partes — é portador de sessão, e vale como credencial",
+        "oQueNaoPega": "token opaco de sessão, que não tem as três partes separadas por ponto",
+        "caracteresNaAmostra": 12
+      },
+      {
+        "nome": "credencial-de-banco-em-url",
+        "oQue": "usuário e senha dentro de uma URL de conexão (Postgres, MySQL, Mongo, Redis, AMQP)",
+        "oQueNaoPega": "URL que recebe a senha por variável — `${...}`, `%s` ou `process.env`, que é o jeito certo",
+        "caracteresNaAmostra": 4
+      },
+      {
+        "nome": "segredo-atribuido-a-um-nome-que-o-declara",
+        "oQue": "valor literal atribuído a um nome que diz ser segredo — senha, token, chave de API, `client secret`",
+        "oQueNaoPega": "segredo guardado num nome que não o declara (`const x = \"…\"`), e valor sem formato: esta regra lê o NOME, não a entropia",
+        "caracteresNaAmostra": 4
+      }
+    ],
+    "achados": []
+  }
+}

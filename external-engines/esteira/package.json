@@ -29,6 +29,7 @@
     "lab40": "bun ferramentas/lab40.ts",
     "lab41": "bun ferramentas/lab41.ts",
     "lab46": "bun ferramentas/lab46.ts",
+    "lab47": "bun ferramentas/lab47.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."

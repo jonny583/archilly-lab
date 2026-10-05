@@ -4,40 +4,61 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 05/10/2026 · **Último prompt executado:** LAB-46 ·
-**Fila de 04/10 (terceira): 4 de 5 feitos. O quinto está TRAVADO e o despertador está DESLIGADO.**
+**Última atualização:** 05/10/2026 · **Último prompt executado:** LAB-47 ·
+**Fila de 04/10 (terceira): CUMPRIDA, 5 de 5. O despertador está LIGADO e sem item pronto.**
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila travou no último item
+# 🟢 O DESPERTADOR ESTÁ LIGADO — e a fila acabou de esgotar
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 05/10/2026, 01:10 UTC.**
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 05/10/2026**, religado pelo chat ao
+mandar a frase inteira do LAB-47. É a **sexta** vez que ele **reabilita em vez de recriar**
+(D112).
 
-**Motivo, e ele não é "fila esgotada":** os quatro prompts executáveis da fila de 04/10
-(terceira) — **LAB-43 a LAB-46** — estão feitos e mesclados. **O quinto, o LAB-47, está
-`aguardando` porque o pedido do chat chegou CORTADO**, e tudo o que resta está nesse estado.
-É o caso do §1-A, segunda metade: *"vale também para a fila que existe mas está toda
-aguardando"*.
-
-**Desligado e NÃO apagado** (D112, ratificado quatro vezes): é o mesmo despertador desde o
-começo, e o id acima é o único lugar onde ele vive.
-
-## ⛔ O que falta para destravar, e são duas linhas do chat
-
-O pedido do LAB-47 **termina no verbo**:
-
-> *"LAB-44: o Render plantou uma chave de IA com formato real dentro do código e todos os
-> testes passaram verdes; faça o mesmo teste aqui, escreva"*
-
-1. **a frase inteira** — *"escreva"* o quê? E o teste é plantar a chave **e ver se algo
-   acusa**, ou escrever a guarda **antes** e provar que ela pega? São trabalhos diferentes;
-2. **o número** — o chat o chamou de "LAB-44", mas esse número já é o do nome único do
-   confronto nesta fila. Ficou **LAB-47**, o próximo livre; se preferir outro, é um `sed`.
-
-**Nada foi escrito:** nenhuma chave, de nenhum formato, entrou em arquivo deste repositório.
-
-**Para retomar:** o chat manda a frase e reabilita este id (`enabled: true`).
+**O LAB-47 fechou a fila.** Os cinco prompts de 04/10 (terceira) — **LAB-43 a LAB-47** —
+estão feitos e mesclados. **No próximo disparo, se o chat não tiver mandado fila nova, não
+haverá item pronto**: é o caso da D62 e o despertador deve ser **desligado, não apagado**
+(D112), com o motivo escrito aqui.
 
 **O saldo da fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §4** — pela
 §1-B, que o chat ratificou.
+
+## O que o LAB-47 fez — e o estado de hoje tinha um número ruim
+
+**Fase (a), a medição.** Plantados **cinco segredos de formato real** (chave de IA, token do
+GitHub, chave da AWS, credencial de banco na URL, senha) num arquivo `src/` **versionado**:
+
+```
+VERDE — 7 passos · 401 travas · exit 0 · ninguém acusou
+```
+
+E é pior que *"ninguém procurou"*: o `tsc` **compilou** o arquivo (ele está no
+`--listFiles`) e o `eslint` nele saiu **0**. A rede do lado do servidor também não estava
+lá — medido: este repositório **não tem GitHub Advanced Security habilitada**.
+
+**Fase (b), a varredura.** 13 regras sobre **tudo que o git carrega**, sem pasta de fora e
+**sem auto-exclusão** — ela varre o próprio fonte dela, e por isso todo exemplo falso é
+montado em pedaços. **Zero falso positivo** em 317 arquivos e 27,8 MB. O teto de **doze
+caracteres** é trava, e é **por regra**: prefixo público mostra 12, senha mostra 4.
+
+**A prova nas duas escalas:** 13 de 13 formatos; e **o mesmo arquivo plantado** leva o
+comando único de **exit 0 (401 travas)** a **exit 1 (415 travas)**. **A chave foi apagada e
+nunca entrou em commit nenhum** — o que importa, porque o histórico é justamente o que a
+varredura não vê.
+
+**Dois achados contra mim, os dois pegos dentro do prompt:** o teto de 2 MB que eu mesma pus
+**já excluía cinco arquivos e 13 MB** (D164 — *escopo não encolhe por decisão, encolhe por
+comodidade*; o que o pegou foi publicar o escopo como **número**, não como prosa); e o
+`verde.yml` citava **64** travas num lugar e **83** noutro, **dentro do mesmo arquivo**
+(D165).
+
+## 📋 O registro de como o LAB-47 chegou — e por que esperar foi certo
+
+O pedido chegou **terminando no verbo** (*"faça o mesmo teste aqui, escreva"*) e ficou
+`aguardando` por um disparo. A frase inteira pedia **duas coisas em ordem**: medir o estado
+de hoje e **só depois** escrever a varredura. Eu havia listado as duas leituras possíveis
+sem escolher — **adivinhar era meio a meio**, e a metade errada teria entregado a varredura
+**sem o número que virou o achado do prompt**.
+
+> **Esperar custou um disparo do despertador. Adivinhar teria custado a medição.**
 
 ## A fila, na ordem que o chat aprovou
 
@@ -47,7 +68,7 @@ O pedido do LAB-47 **termina no verbo**:
 | **LAB-44** | um **nome só** para cada número do confronto do acesso (D145) | ✅ **04/10/2026** |
 | **LAB-45** | as duas fixtures novas **na tabela**, com ela regerada | ✅ **04/10/2026** |
 | **LAB-46** | medir **em Antonina as três amostragens** do D148 — **o Jonny quer ver** | ✅ **05/10/2026** |
-| **LAB-47** | a chave de IA plantada no código | ⛔ **aguardando: o pedido chegou cortado** |
+| **LAB-47** | a chave de IA plantada no código — **e nada procurava segredo na árvore** | ✅ **05/10/2026** |
 
 ## O que o LAB-46 fez — a resposta que o Jonny queria ver, e um erro meu que já tinha saído
 
@@ -324,7 +345,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 83 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 98 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
