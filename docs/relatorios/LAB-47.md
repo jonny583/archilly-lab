@@ -202,6 +202,21 @@ NENHUM SEGREDO NA ÁRVORE.
 **Ela nunca entrou num commit**, então também não entrou no histórico — que é o buraco que
 a varredura não cobre e que, se tivesse sido commitada, só a rotação da chave resolveria.
 
+**E isso foi conferido depois da mescla, pelo CAMINHO:**
+
+```
+$ git log --all --oneline -- external-engines/esteira/src/configuracao-do-provedor.ts
+(vazio — o caminho nunca existiu em commit nenhum)
+$ git ls-tree -r --name-only origin/main | grep -c configuracao-do-provedor
+0
+```
+
+**A primeira conferência que eu tentei foi a errada, e pela décima vez da mesma família:**
+`git log -S"configuracao-do-provedor"` **acusou o commit do LAB-47** — porque esse commit
+acrescenta o **nome** do arquivo ao relatório e à prova, e o `-S` conta ocorrências do
+texto, não do arquivo. É o D155 outra vez, agora no meu comando de verificação: *nome em
+prosa não é a coisa*. A régua certa é o **caminho**, e ela diz vazio.
+
 ---
 
 ## 5 · O achado deste prompt, e ele é contra mim
