@@ -38,12 +38,17 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## ✅ A fila de 04/10 (terceira) — CUMPRIDA, cinco de cinco, LAB-43 a LAB-47
+## ✅ A fila de 04/10 (terceira) — CUMPRIDA, cinco de cinco, LAB-43 a LAB-47 · o despertador está DESLIGADO
 
 **Quatro feitos em 04 e 05/10/2026, e o quinto DESTRAVADO pelo chat em 05/10.** O LAB-47
 havia parado no verbo; o chat mandou a frase inteira, **confirmou o número LAB-47** e
 reabilitou o `trig_01XwSkTLT9zmyprNZcUiWy7f` (`enabled: true`, a **sexta** vez que ele
 reabilita em vez de recriar).
+
+**E o disparo seguinte, 04:05 UTC, não achou item pronto:** a fila esgotou com o LAB-47 e o
+que resta aqui está todo em *"proposto ao chat"*. O despertador foi **desligado — não
+apagado** (D62, D112). O motivo está em [`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md), com a
+conferência que precedeu a declaração.
 
 **O saldo está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §4.**
 

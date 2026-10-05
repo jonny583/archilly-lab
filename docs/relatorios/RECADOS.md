@@ -830,3 +830,17 @@ Depende do Jonny: A AUDITORIA QUE VOCÊ PEDIU ESTÁ NO BALANCOS.md §5, com os c
 Próximo na fila: NADA — a fila esgotou com o LAB-47 e no próximo disparo eu desligo o despertador (D62/D112), com o motivo no ONDE_PARAMOS. Duas coisas suas, se quiser: o PROMPT GUARDADO do despertador ainda descreve o LAB-47 como "aguardando" e manda pular — ele não engana (o ONDE_PARAMOS é lido primeiro), mas envelheceu; e há três propostas novas esperando, as duas do LAB-46 (detector de prova velha para LAB-25/LAB-30; por que a passagem externa põe lote a 1,8 km da face entregue) mais o comentário falso do conferir.sh.
 === FIM ===
 ```
+
+---
+
+## 05/10/2026 · Disparo sem item pronto — a fila esgotou com o LAB-47 e o despertador parou
+
+```
+=== RECADO PARA O CHAT — Lab · — ===
+Estado: DESPERTADOR DESLIGADO (enabled: false, 05/10 04:06 UTC) — não apagado, como o D112 manda. A fila de 04/10 (terceira) está CUMPRIDA, cinco de cinco: LAB-43, LAB-44, LAB-45, LAB-46 e LAB-47, os cinco mesclados na main. Verde no último: 7 passos, 416 travas, exit 0, vizinhos limpos.
+Feito: nada neste disparo, e é de propósito — é o caso da D62. Conferi ANTES de declarar o disparo vazio, porque "não tinha o que fazer" é afirmação que se mede: git status limpo, os dois PRs do LAB-47 (#56 e #57) mesclados em f3ebc39, a branch sem nenhum commit à frente da main, e nenhum item "pronto" na FILA.md — o que resta nela está todo em "proposto ao chat", que por definição não se executa. Gravei o motivo no ONDE_PARAMOS, com essa conferência ao lado, e desliguei o despertador.
+Achados para outros apps ou Central: nenhum novo — o saldo dos cinco está no BALANCOS.md §4 e a auditoria da sua lista no §5, com os campos no §1.3. Vale repetir o do LAB-47 porque é o que viaja: numa varredura de segredo o que importa é o ESCOPO, não a existência, e a maneira de não se enganar é PUBLICAR O ESCOPO COMO NÚMERO — "310 de 316" dá para desconfiar, "varre a árvore toda" não dá. Foi assim que eu peguei a minha própria régua excluindo cinco arquivos por um teto que eu pusera por comodidade.
+Depende do Jonny: nada novo, e nada trava fila. Seguem vivos: a régua de forma (à espera do OK dele), a nota preferir 33 ou 1.228 em geo-antonina, o VIZINHOS_TOKEN (que bloqueia UM trabalho do CI e tem contorno: o verde completo sou eu, à mão), o "desproporcional é 3 vezes ou 1,5 km" do item 1, e o lote que faz frente para rua que já existe fora da gleba. Está tudo na auditoria do BALANCOS.md §5.
+Próximo na fila: NADA — mande fila nova e religue o id trig_01XwSkTLT9zmyprNZcUiWy7f. DUAS COISAS ANTES DE RELIGAR: (1) o PROMPT GUARDADO do despertador envelheceu — ainda descreve o LAB-47 como "AGUARDANDO" e manda pular, e ainda diz "a próxima é a D154" quando já é a D166; ele não engana, porque o passo 1 dele manda ler o ONDE_PARAMOS primeiro, mas quem religar deve reescrevê-lo, e eu não mexo no que você guarda sem você pedir. (2) há três propostas esperando: o detector de prova velha para LAB-25/LAB-30, por que a passagem externa põe lote a 1,8 km da face entregue, e o comentário do conferir.sh que ainda afirma "não há CI neste repositório" — falso desde o LAB-38.
+=== FIM ===
+```
