@@ -4513,3 +4513,137 @@ isso.
 **E ela mordeu na hora:** a frase estava quebrada em duas linhas de `echo`, com o número
 numa e a palavra na outra. **A frase se arrumou para a régua a alcançar** — não a régua
 para caber na frase, que é o contrário do que o D143 proíbe.
+
+---
+
+## D166 · A DÉCIMA QUARTA vez do ponto cego — e 36 das 128 violações eram a minha ponte · 06/10/2026
+
+**O chat trouxe o achado do Generate:** o motor do Laboratório de Parcelamento é o motor
+**padrão** da tela unificada e **reprova no Validator nas cinco glebas**, com 15 a 29
+violações cada. Como só entra no ranking candidata aprovada, a tela nasceria com **ranking
+vazio**.
+
+**Eu estava a um passo de escrever: *"o motor padrão desenha 47 lotes com testada abaixo da
+mínima"*.** Medido, **36 dos 47 são a minha ponte.**
+
+A régua diz `testada 11.45 < 11.70820393249937`, com déficit **mediano de 1,94 cm**, em lotes
+de **316,7 m² para cima** contra área mínima de 200. E o número acusador não é declarado por
+ninguém:
+
+- a **entrada declara `testadaMinLote_m = 10` m**, nas cinco glebas;
+- a **minha ida** monta `padroes["testada"] = faixa(10 , max(10, √(360/2)))` = `faixa(10;
+  13,4164)` (`ida.ts:379-380`), e o meio dessa faixa é **5 + 3√5 = 11,70820393249937** — o
+  **ALVO** de testada da variante;
+- a **minha volta** escreve esse alvo em `parametrosUsados.testadaMinLote_m`, o campo cujo
+  nome é **MÍNIMO** (`volta.ts:462`).
+
+**E a própria função escreve, quatro linhas acima, a regra que a quinta linha quebra:**
+*"Mínimo e máximo continuam sendo os do contrato: o motor não os relaxa, ele mira dentro
+deles. O que ele escolhe é o ALVO."* Para a área ela faz certo — `areaMinLote_m2` vem do
+contrato e `areaAlvoLote_m2` recebe o sorteado. Para a testada **não há campo de alvo no
+contrato v1**, e o sorteado foi morar no mínimo.
+
+**A prova, rodando o Validator com o mínimo declarado (10 m):** **36 somem**; **11 sobram**,
+com testada de **3,56 a 9,59 m** — abaixo dos 10 m declarados, e essas são do motor.
+
+> **Campo cujo nome diz MÍNIMO e cujo valor é um ALVO não é um campo errado: é uma acusação
+> automática.** Nenhum motor sobrevive a ser medido contra o próprio alvo com 2 % de folga.
+
+**É a décima quarta vez da forma do §6, e a quarta da sub-família do D98/D104** — a ponte
+corrompendo a medição e o motor do vizinho levando a culpa. **Pega dentro do prompt**, como as
+sete anteriores. **Não consertada**, porque o chat pediu o diagnóstico antes do conserto: a
+linha fica como está e o conserto é um item da fila.
+
+---
+
+## D167 · Hipótese de ponte se mata com medição, não com argumento · 06/10/2026
+
+Catorze violações `face-quadra`: quadras com face de **351 a 597 m** contra teto de **200 m**
+declarado na entrada. A tentação era atribuir ao motor na hora — ele desenha quadra grande, e
+200 m é número redondo de urbanismo.
+
+**Mas havia uma hipótese de PONTE, e ela explicaria o número inteiro:** três quadras de 199 m
+**fundidas na minha tradução** dariam exatamente uma de 597 m. Se fosse isso, a culpa seria
+minha e eu teria mandado uma lista numerada errada ao vizinho.
+
+**Medido na SAÍDA CRUA do motor, sem o Generate no meio:** `ensaio-47ha` traz **seis quadras**
+de ~**597 × 69 m, com ~100 lotes cada**. A ponte recebeu seis e passou seis. **Hipótese morta
+por medição**, e só então o motor foi nomeado.
+
+**E a pergunta do D127 também foi feita antes de eleger a régua** — *"o que este campo faz no
+motor?"*. Lido o código dele: `comprimentoQuadra` governa o **espaçamento dos cortes num eixo
+só** (`nCortes = round(larg / (faceQuadra + caixaSecundaria))`); a outra dimensão da quadra é
+o corrimento da fileira e **não passa por esse teto**. Daí 597 × 69 — o 69 é cortado, o 597
+não.
+
+**A atribuição fica no motor mesmo assim**, e a diferença com o D127 é a que importa: lá a
+régua media uma promessa que o campo nunca fez (`viaManual` nunca prometeu pôr rua na linha);
+aqui o parâmetro chama-se **"Tamanho da quadra"**, com limites de 100 a 220 m, e **face de
+quadra de 597 m é problema urbanístico de verdade, não artefato de medição**. Quem pede quadra
+de 200 m não está pedindo um eixo de 200 m.
+
+---
+
+## D168 · Não são "duas réguas discordando": é UMA régua e UM campo que falta · 06/10/2026
+
+**Correção de moldura do D159**, e ela já saiu em três lugares — relatório do LAB-45, item 7
+do Jonny e a nota da tabela comparativa.
+
+Eu escrevi que *"o mesmo lote é 'de frente para a rua existente' por uma régua e 'sem frente
+para rua' pela outra"*, como se o Lab e o Generate medissem coisas diferentes. **Lido o
+`invariantes.ts` do Generate, eles não discordam:**
+
+> *"Superfícies onde um lote pode fazer frente: faixa de via + bulbo de retorno + **a RUA
+> PÚBLICA, quando existe**. (…) O lote de loteamento faz frente para ela **por definição**, e
+> ela corre **por FORA** do terreno: tratá-la como leito reprovaria exatamente o lote
+> bem-feito."*
+
+O campo existe (`resultado.faixaViaPublica`), o invariante o usa, e há bandeira por lote
+(`deLoteamentoFachada`) que troca o mínimo de testada pelo do regime de fachada. **A régua do
+Generate ACEITARIA esses lotes se soubesse que a rua existe.**
+
+**O que falta é um campo, e a falta tem dois degraus:** o tradutor `paraResultado` do próprio
+Generate nunca preenche `faixaViaPublica` — e **não é esquecimento dele**, porque o contrato de
+motor v1 **não tem campo onde um motor declare a rua pública existente**. Não há o que
+traduzir. Medido: **0 de 2 299 lotes** das cinco glebas chegam com a bandeira.
+
+**Provado pelo contrafactual, com a geometria DELES:** preenchendo `faixaViaPublica` com a
+função `faixaViaPublica()` do Generate, sobre a divisa que o `divisaDoAcesso()` do Generate
+escolhe, `geo-antonina` vai de **40 para 29** violações — **somem 11, e são exatamente os 11
+lotes que estão a 0 m da testada entregue**. Os outros 18 estão a 15,7 m até **1 805,7 m** e
+nenhuma faixa os alcança: esses são do motor (LAB-50).
+
+**A metade do D159 que estava certa continua certa** — o contrato não tem como dizer. A moldura
+de *"duas réguas"* estava errada. **A correção dos três lugares onde ela saiu é entrega, não
+diagnóstico, e está proposta ao chat.**
+
+---
+
+## D169 · O diagnóstico separa CULPADO de CONSERTO — e os consertos de fora do motor não aprovam uma gleba · 06/10/2026
+
+As 128 violações têm **quatro culpados**: motor 54, **ponte deste Lab 36**, contrato e tradutor
+do Generate 11, e **27 ainda não atribuídas** (declaradas como tal, com a medição que falta
+nomeada).
+
+**E a conta que o chat precisa antes de escolher onde gastar o conserto:** descontando as 36
+da minha ponte e as 11 do contrato — 47 das 128, 37 % —
+
+| gleba | hoje | depois | passa? |
+|---|---:|---:|---|
+| `completo` | 25 | 25 | não |
+| `sintetico-50ha-ondulado` | 18 | 17 | não |
+| `sintetico-10ha-plano` | 29 | 4 | não |
+| `ensaio-47ha` | 16 | 6 | não |
+| `geo-antonina` | 40 | 29 | não |
+
+**Nenhuma das cinco limpa.** O ranking só deixa de nascer vazio quando as 54 do motor e as 27
+em aberto tiverem resposta.
+
+> **"De quem é a culpa" e "onde está o conserto" são perguntas diferentes, e a segunda é a que
+> decide a ordem da fila.** Consertar 37 % das violações e aprovar zero glebas é um resultado —
+> e esconder essa conta transformaria um diagnóstico honesto numa promessa falsa.
+
+**E uma coisa que o diagnóstico mostrou de graça:** as 11 `via-sobre-lote` e as 18 `frente`
+distantes são **a mesma passagem externa do motor**, vista por dois invariantes. **29 das 40
+violações de Antonina saem de um mecanismo único** — o que faz do LAB-50, já na fila, o prompt
+mais rendoso dela.
