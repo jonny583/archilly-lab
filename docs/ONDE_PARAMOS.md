@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 06/10/2026 · **Último prompt executado:** LAB-49 ·
-**Fila de 06/10 (LAB-48 a LAB-52): 2 de 5 feitos. O despertador está LIGADO.**
+**Última atualização:** 06/10/2026 · **Último prompt executado:** LAB-50 ·
+**Fila de 06/10 (LAB-48 a LAB-52): 3 de 5 feitos. O despertador está LIGADO.**
 
 # 🟢 O DESPERTADOR ESTÁ LIGADO — fila nova, e o prompt guardado dele é MEU agora
 
@@ -32,9 +32,38 @@ duas coisas só convivem com **desligar** — apagar perde o id que ele reabilit
 |---|---|---|
 | **LAB-48** | o motor **PADRÃO** reprova no Validator nas cinco glebas — **diagnóstico, não conserto** | ✅ **06/10/2026** |
 | **LAB-49** | o **detector de prova velha** para LAB-25 e LAB-30 (D156) | ✅ **06/10/2026** |
-| **LAB-50** | por que a passagem externa põe lote a **1,8 km** da face entregue (D161) | 🟢 pronto |
+| **LAB-50** | por que a passagem externa põe lote a **1,8 km** da face entregue (D161) | ✅ **06/10/2026** |
 | **LAB-51** | o `conferir.sh` ainda afirma que **não há CI** aqui, falso desde o LAB-38 | 🟢 pronto |
 | **LAB-52** | achado da **Central**: erro de chamada não conferido, e identificador de conta como argumento | 🟢 pronto |
+
+## O que o LAB-50 respondeu — a faixa é um SEMIPLANO
+
+**A resposta:** o motor tira da face entregue só a **direção** e a **origem**, corta a gleba
+pela **RETA INFINITA** que passa por ela, e distribui os lotes pela **caixa envolvente** da
+faixa. `rect.maxX - rect.minX` é a largura da **faixa**, não o comprimento da **face**.
+
+**E a prova é a gleba de controle, não o argumento:**
+
+| | `geo-antonina` · 141,8 ha · 20 vértices · côncava | `ensaio-com-testada` · 47 ha · 4 vértices · **convexa** |
+|---|---|---|
+| perpendicular à RETA | **20,1 m** (teto 32) | **0 m** |
+| **ao LONGO** da reta | **1 805,6 m** | **0 m** |
+| lotes a ≤ 0,5 m do segmento | 14 de 33 | **51 de 51** |
+
+Numa gleba convexa o semiplano sobre a reta **é** a faixa sobre a face. Em Antonina a reta de
+uma face de 180 m **volta a entrar no terreno**, e a faixa vai com ela: os 15 lotes distantes
+não estão em outra face, estão **na mesma reta**.
+
+**A hipótese 2 do chat caiu por medição:** a passagem **não** corre o perímetro — 1 face de 20
+vértices, 1 de 4.
+
+**E a quarta previsão FALHOU, que é o que rendeu mais** (D174): matou **duas** explicações
+minhas para as 11 `via-sobre-lote` — a concavidade (acontece na convexa também, 9 lotes) e o
+derrame de meia-caixa (o eixo das vias culpadas está a **0,1 a 0,8 m da reta**, dentro da
+faixa). **O porquê fica NÃO ATRIBUÍDO**, com as duas mortas escritas na prova.
+
+**29 das 40 violações de Antonina saem de `reservarFacesExternas`** — o LAB-48 atribuiu ao
+"motor" genericamente, e agora têm mecanismo nomeado.
 
 ## O que o LAB-49 fez — e o escopo dele sai como número
 

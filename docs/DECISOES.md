@@ -4738,3 +4738,113 @@ escrito, para quem comparar na próxima vez ler antes de concluir.
 
 > **O conjunto medido é parte do número.** Dois números da mesma grandeza medidos sobre
 > conjuntos diferentes não se comparam, e a diferença entre eles não é notícia.
+
+---
+
+## D173 · A passagem externa lê a face como RETA, não como SEGMENTO · 06/10/2026
+
+**A pergunta era do D161 e o chat a pôs na fila como pergunta, não como acusação:** por que a
+passagem externa do motor do Parcelamento põe lote a **1 805,7 m** da face entregue, quando
+`facesLoteamento` entregou **uma** face de **180,2 m**?
+
+**Lido o motor** (`motor.ts`, `reservarFacesExternas`, só leitura), o mecanismo é um:
+
+```ts
+const ang   = Math.atan2(dy, dx);                                     // a DIREÇÃO vem da face
+const cBase = nx * p0.x + ny * p0.y;                                  // a ORIGEM vem da face
+const faixa = recortarSemiplano(restante, nx, ny, cBase + prof);      // SEMIPLANO
+const rect  = caixa(local);
+const n     = Math.max(1, Math.round((rect.maxX - rect.minX) / a.testadaExterna));
+```
+
+> **A faixa do lote externo é um SEMIPLANO, não um retângulo sobre a face.** `rect.maxX -
+> rect.minX` é a largura da FAIXA, não o comprimento da FACE.
+
+**E a prova é a gleba de CONTROLE, não o argumento.** Duas glebas com testada entregue:
+
+| | `geo-antonina` · 141,8 ha · 20 vértices · côncava | `ensaio-com-testada` · 47 ha · 4 vértices · **convexa** |
+|---|---|---|
+| perpendicular à RETA da face | **20,1 m** (teto 32) | **0 m** |
+| **ao LONGO** da reta | **1 805,6 m** | **0 m** |
+| lotes a ≤ 0,5 m do segmento | 14 de 33 | **51 de 51** |
+
+**Na gleba convexa o mesmo mecanismo não produz nenhum lote distante**, porque ali o
+semiplano sobre a reta **é** a faixa sobre a face. Em Antonina a reta de uma face de 180 m
+**volta a entrar no terreno** nas reentrâncias, e a faixa vai com ela: os 15 lotes a mais de
+50 m não estão em outra face, estão **na mesma reta**.
+
+**O motor não mente sobre o que promete** — `facesLoteamento` são *"índices das faces do
+perímetro que recebem lotes voltados para a rua"*. Ele lê o índice como **reta**; eu lia como
+**segmento**. É a pergunta do D127 feita de novo: *o que este campo faz no motor?*
+
+**E a hipótese 2 do chat foi descartada por MEDIÇÃO**, não por leitura: a passagem **não**
+corre o perímetro — 1 face de 20 vértices, 1 de 4.
+
+**O que isto muda na leitura do LAB-48:** as **18** violações `frente` distantes e as **11**
+`via-sobre-lote` têm agora **um** mecanismo nomeado, e é o mesmo. **29 das 40 violações de
+`geo-antonina` saem de `reservarFacesExternas`.** E a qualidade da leitura muda: não é *"o
+motor põe lote em lugar errado"*, é **uma escolha de implementação correta em gleba convexa e
+sem limite longitudinal em gleba côncava.** O conserto é **lá**, e é recortar a faixa também
+pela extensão do segmento — item 1 da lista numerada.
+
+---
+
+## D174 · Previsão que FALHA é o resultado mais útil — e hipótese morta fica escrita · 06/10/2026
+
+A ferramenta do LAB-50 pôs **quatro** previsões falsificáveis. Três se cumpriram. **A quarta
+falhou, e foi a que rendeu mais.**
+
+**P4 era "a faixa foi de fato reservada?"** — e não foi: há lote externo sobre o leito de via
+do próprio motor nas **duas** glebas (10 e 9 lotes). Até aqui, confirmação do LAB-48. **O
+resultado está no que aconteceu com as minhas explicações:**
+
+- **"corte de semiplano numa gleba CÔNCAVA não separa faixa de sobra"** — plausível, e
+  **morta pelo controle**: acontece igual na gleba **convexa** de 4 vértices. *A concavidade
+  não é a causa;*
+- **"o leito é eixo ± meia-caixa, então a via logo dentro da sobra derrama de volta para a
+  faixa"** — **morta por medição**: o eixo das vias culpadas está a **0,1 m** (`V2`),
+  **0,3 m** (`V10`) e **0,8 m** (`V1`) da **reta da face**, ou seja **dentro** da faixa e não
+  na beira dela. Não é derrame: a via está lá.
+
+**O que ficou medido, e é só isto:** *o eixo da via culpada corre praticamente sobre a reta da
+face entregue — a via do plano e a faixa do lote externo ocupam o mesmo chão.* **Por que o
+motor desenha via sobre a face que ele mesmo reservou: NÃO ATRIBUÍDO.** Tenho duas candidatas
+e **não medi nenhuma**; vão como pergunta na lista numerada.
+
+**E as duas explicações mortas ficam escritas na prova**, num campo chamado
+`explicacoesMORTAS`. O motivo é prático:
+
+> **Hipótese descartada em silêncio volta como hipótese nova no prompt seguinte.**
+
+É a mesma economia da lista de exceções do §7 e do inventário das pontes: o que foi conferido
+e não serviu vale tanto quanto o que serviu, **se estiver escrito**.
+
+**E um estimador ruim também saiu publicado, com o aviso:** a profundidade da faixa não é
+observável de fora (`prof` não sai na SAÍDA), e o meu estimador — a maior perpendicular dos
+lotes à reta — **dá 0 na gleba convexa**, onde todos os lotes caem sobre a reta. Foi ele que
+me impediu de fechar o item 2. *Estimador ruim declarado é melhor que número bonito sem
+aviso* — e virou o item 3 da lista para o vizinho.
+
+---
+
+## D175 · Caminho errado que ESTOURA é barato; o que devolve `undefined` é publicável · 06/10/2026
+
+A primeira versão da ferramenta do LAB-50 leu o perímetro da gleba em
+**`terreno.gleba.anel`** e estourou na primeira linha. O caminho certo é **`gleba.anel`**:
+`terreno.gleba` é o caminho **dentro da entrada do motor**, e não no contrato.
+
+**É literalmente o caminho do D135** — aquele em que eu publiquei, por um instante, *"a ida
+não entrega o furo da gleba"*, porque o furo mora em `terreno.gleba.furos` **na entrada do
+motor** e eu havia olhado o do contrato.
+
+**Desta vez ele mordeu do lado bom**, e a diferença merece número:
+
+> **Caminho errado que estoura é caminho errado barato. Caminho errado que devolve
+> `undefined` é uma acusação publicável.**
+
+O D135 custou dois testes vermelhos e um instante de conclusão falsa porque o acesso devolveu
+`undefined` em silêncio. Aqui o acesso a `.anel` de `undefined` **lançou**, e o custo foi uma
+linha. **A lição não é "errei de novo": é que a forma do acesso decide o preço do erro** — e
+onde der para escolher, prefira o acesso que estoura.
+
+O comentário ficou no código, ao lado da linha consertada, para a próxima pessoa não repetir.

@@ -1,0 +1,1057 @@
+{
+  "prompt": "LAB-50",
+  "oQueIstoMede": "por que a passagem externa do motor do Parcelamento põe lote longe da face entregue — quatro previsões falsificáveis",
+  "quando": "2026-10-06T22:11:02.924Z",
+  "contrato": "1",
+  "oMecanismoLidoNoMotor": {
+    "onde": "motor-testfit · src/lib/lab/motor.ts · reservarFacesExternas (somente leitura)",
+    "oQueFaz": "para cada face entregue, corta a gleba por um SEMIPLANO à distância `prof` da RETA da face, e distribui os lotes pela CAIXA ENVOLVENTE dessa faixa",
+    "aLinhaQueExplica": "const n = Math.round((rect.maxX - rect.minX) / a.testadaExterna) — a largura é a da FAIXA, não o comprimento da FACE",
+    "prof": "max(8, areaLoteExterna / testadaExterna)",
+    "oQueOMotorPromete": "`facesLoteamento` seleciona faces do perímetro que recebem lotes voltados para rua existente — e o motor as lê como RETA, não como SEGMENTO"
+  },
+  "glebas": [
+    {
+      "gleba": "geo-antonina",
+      "motor": "Laboratório de Parcelamento (motor-testfit)",
+      "semente": 20260913,
+      "variante": "superquadra (1º de 20 no ranking dele)",
+      "areaDaGleba_ha": 141.8,
+      "verticesDoPerimetro": 20,
+      "facesEntregues": [
+        {
+          "indice": 0,
+          "a": {
+            "x": -128.257,
+            "y": -830.943
+          },
+          "b": {
+            "x": -16.359,
+            "y": -689.672
+          },
+          "comprimento_m": 180.2
+        }
+      ],
+      "lotesExternos": 33,
+      "previsoes": {
+        "P1_todosPertoDaRETA": {
+          "maiorPerpendicular_m": 20.1,
+          "tetoEsperado_m": 32,
+          "cumprida": true,
+          "oQueIssoSignifica": "a faixa do lote externo é um SEMIPLANO: o motor corta a gleba pela RETA da face, não pelo segmento dela"
+        },
+        "P2_longeSoAOLONGO": {
+          "maiorAoLongo_m": 1805.6,
+          "maiorAoSegmentoDaTestada_m": 1805.7,
+          "cumprida": true
+        },
+        "P3_naoCorreOPerimetro": {
+          "facesEntregues": 1,
+          "verticesDoPerimetro": 20,
+          "cumprida": true,
+          "oQueIssoSignifica": "a hipótese 2 do chat está DESCARTADA por medição: só as faces entregues entram no laço"
+        },
+        "P4_aFaixaNaoFoiReservada": {
+          "lotesSobreLeitoDeVia": 10,
+          "exemplos": [
+            {
+              "lote": "v19-e4",
+              "verticesDentroDeLeito": 1,
+              "via": "V2"
+            },
+            {
+              "lote": "v19-e5",
+              "verticesDentroDeLeito": 2,
+              "via": "V2"
+            },
+            {
+              "lote": "v19-e6",
+              "verticesDentroDeLeito": 1,
+              "via": "V2"
+            },
+            {
+              "lote": "v19-e9",
+              "verticesDentroDeLeito": 1,
+              "via": "V2"
+            }
+          ],
+          "cumprida": true,
+          "explicacoesMORTAS": [
+            "corte de SEMIPLANO em gleba CÔNCAVA não separa faixa de sobra — MORTA: acontece também na gleba convexa de 4 vértices, 9 lotes",
+            "a via derrama meia-caixa da sobra para dentro da faixa — MORTA: o eixo das vias culpadas está a 0,1 a 0,8 m da RETA DA FACE, ou seja DENTRO da faixa, não na beira dela"
+          ],
+          "oQueFICOUMedido": "o eixo da via culpada corre praticamente SOBRE a reta da face entregue (0,1 m em geo-antonina, 0,3 m na segunda, 0,8 m em ensaio-com-testada): a via do plano e a faixa do lote externo ocupam o MESMO chão",
+          "aindaNAOAtribuido": "por que o motor desenha via sobre a face que ele mesmo reservou. Não acuso: é pergunta para o Parcelamento, e está na lista numerada do relatório",
+          "asViasCulpadas": [
+            {
+              "via": "V2",
+              "caixa_m": 11.5,
+              "meiaCaixa_m": 5.8,
+              "profundidadeEstimadaDaFaixa_m": 20.1,
+              "eixoMaisProximoDaRetaDaFace_m": 0.1,
+              "distanciaDoEixoAFronteiraDaFaixa_m": -20,
+              "derramaNaFaixa": true
+            },
+            {
+              "via": "V10",
+              "caixa_m": 11.5,
+              "meiaCaixa_m": 5.8,
+              "profundidadeEstimadaDaFaixa_m": 20.1,
+              "eixoMaisProximoDaRetaDaFace_m": 0.3,
+              "distanciaDoEixoAFronteiraDaFaixa_m": -19.8,
+              "derramaNaFaixa": true
+            }
+          ]
+        }
+      },
+      "porFaixaDeDistanciaAoSegmento": {
+        "<= 0.5 m": 14,
+        "0.5 a 50 m": 4,
+        "> 50 m": 15
+      },
+      "lotes": [
+        {
+          "lote": "v19-e1",
+          "area_m2": 273.3,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e2",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e3",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e4",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e5",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e6",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e7",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e8",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e9",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e10",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e11",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e12",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e13",
+          "area_m2": 289.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.6
+        },
+        {
+          "lote": "v19-e14",
+          "area_m2": 289.3,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 25.7
+        },
+        {
+          "lote": "v19-e15",
+          "area_m2": 292.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 2.6,
+          "aRetaDaFace_m": 0.1,
+          "aoLongoDaReta_m": 2.6,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 26
+        },
+        {
+          "lote": "v19-e16",
+          "area_m2": 297.1,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 15.7,
+          "aRetaDaFace_m": 0.4,
+          "aoLongoDaReta_m": 15.7,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 26.3
+        },
+        {
+          "lote": "v19-e17",
+          "area_m2": 301.8,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 28.9,
+          "aRetaDaFace_m": 0.8,
+          "aoLongoDaReta_m": 28.9,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 26.6
+        },
+        {
+          "lote": "v19-e18",
+          "area_m2": 306.5,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 42.1,
+          "aRetaDaFace_m": 1.1,
+          "aoLongoDaReta_m": 42.1,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 26.9
+        },
+        {
+          "lote": "v19-e19",
+          "area_m2": 311.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 55.2,
+          "aRetaDaFace_m": 1.5,
+          "aoLongoDaReta_m": 55.2,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 27.2
+        },
+        {
+          "lote": "v19-e20",
+          "area_m2": 315.9,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 68.4,
+          "aRetaDaFace_m": 1.9,
+          "aoLongoDaReta_m": 68.4,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 27.5
+        },
+        {
+          "lote": "v19-e21",
+          "area_m2": 320.6,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 81.6,
+          "aRetaDaFace_m": 2.2,
+          "aoLongoDaReta_m": 81.5,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 27.8
+        },
+        {
+          "lote": "v19-e22",
+          "area_m2": 325.2,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 94.7,
+          "aRetaDaFace_m": 2.6,
+          "aoLongoDaReta_m": 94.7,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 28.2
+        },
+        {
+          "lote": "v19-e23",
+          "area_m2": 329.9,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 107.9,
+          "aRetaDaFace_m": 2.9,
+          "aoLongoDaReta_m": 107.9,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 28.5
+        },
+        {
+          "lote": "v19-e24",
+          "area_m2": 334.6,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 121.1,
+          "aRetaDaFace_m": 3.3,
+          "aoLongoDaReta_m": 121,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 28.8
+        },
+        {
+          "lote": "v19-e25",
+          "area_m2": 339.3,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 134.2,
+          "aRetaDaFace_m": 3.6,
+          "aoLongoDaReta_m": 134.2,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 29.1
+        },
+        {
+          "lote": "v19-e26",
+          "area_m2": 344,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 147.4,
+          "aRetaDaFace_m": 4,
+          "aoLongoDaReta_m": 147.3,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 29.4
+        },
+        {
+          "lote": "v19-e27",
+          "area_m2": 348.7,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 160.6,
+          "aRetaDaFace_m": 4.3,
+          "aoLongoDaReta_m": 160.5,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 29.7
+        },
+        {
+          "lote": "v19-e28",
+          "area_m2": 353.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 173.7,
+          "aRetaDaFace_m": 4.7,
+          "aoLongoDaReta_m": 173.7,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 30.1
+        },
+        {
+          "lote": "v19-e29",
+          "area_m2": 358.1,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 186.9,
+          "aRetaDaFace_m": 5.1,
+          "aoLongoDaReta_m": 186.8,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 30.4
+        },
+        {
+          "lote": "v19-e30",
+          "area_m2": 362.7,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 200.1,
+          "aRetaDaFace_m": 5.4,
+          "aoLongoDaReta_m": 200,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 30.7
+        },
+        {
+          "lote": "v19-e31",
+          "area_m2": 367.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 213.2,
+          "aRetaDaFace_m": 5.8,
+          "aoLongoDaReta_m": 213.1,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 31
+        },
+        {
+          "lote": "v19-e32",
+          "area_m2": 372.1,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 226.4,
+          "aRetaDaFace_m": 6.1,
+          "aoLongoDaReta_m": 226.3,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 31.3
+        },
+        {
+          "lote": "v19-e33",
+          "area_m2": 315.6,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 1805.7,
+          "aRetaDaFace_m": 20.1,
+          "aoLongoDaReta_m": 1805.6,
+          "faceMaisProxima": 0,
+          "diagonalDoLote_m": 32
+        }
+      ]
+    },
+    {
+      "gleba": "ensaio-com-testada",
+      "motor": "Laboratório de Parcelamento (motor-testfit)",
+      "semente": 20260913,
+      "variante": "espinha (1º de 20 no ranking dele)",
+      "areaDaGleba_ha": 47,
+      "verticesDoPerimetro": 4,
+      "facesEntregues": [
+        {
+          "indice": 1,
+          "a": {
+            "x": 800,
+            "y": 0
+          },
+          "b": {
+            "x": 800,
+            "y": 587.5
+          },
+          "comprimento_m": 587.5
+        }
+      ],
+      "lotesExternos": 51,
+      "previsoes": {
+        "P1_todosPertoDaRETA": {
+          "maiorPerpendicular_m": 0,
+          "tetoEsperado_m": 35.4,
+          "cumprida": true,
+          "oQueIssoSignifica": "a faixa do lote externo é um SEMIPLANO: o motor corta a gleba pela RETA da face, não pelo segmento dela"
+        },
+        "P2_longeSoAOLONGO": {
+          "maiorAoLongo_m": 0,
+          "maiorAoSegmentoDaTestada_m": 0.5,
+          "cumprida": false
+        },
+        "P3_naoCorreOPerimetro": {
+          "facesEntregues": 1,
+          "verticesDoPerimetro": 4,
+          "cumprida": true,
+          "oQueIssoSignifica": "a hipótese 2 do chat está DESCARTADA por medição: só as faces entregues entram no laço"
+        },
+        "P4_aFaixaNaoFoiReservada": {
+          "lotesSobreLeitoDeVia": 9,
+          "exemplos": [
+            {
+              "lote": "v2-e5",
+              "verticesDentroDeLeito": 2,
+              "via": "V1"
+            },
+            {
+              "lote": "v2-e6",
+              "verticesDentroDeLeito": 2,
+              "via": "V1"
+            },
+            {
+              "lote": "v2-e9",
+              "verticesDentroDeLeito": 1,
+              "via": "V11"
+            },
+            {
+              "lote": "v2-e10",
+              "verticesDentroDeLeito": 2,
+              "via": "V11"
+            }
+          ],
+          "cumprida": true,
+          "explicacoesMORTAS": [
+            "corte de SEMIPLANO em gleba CÔNCAVA não separa faixa de sobra — MORTA: acontece também na gleba convexa de 4 vértices, 9 lotes",
+            "a via derrama meia-caixa da sobra para dentro da faixa — MORTA: o eixo das vias culpadas está a 0,1 a 0,8 m da RETA DA FACE, ou seja DENTRO da faixa, não na beira dela"
+          ],
+          "oQueFICOUMedido": "o eixo da via culpada corre praticamente SOBRE a reta da face entregue (0,1 m em geo-antonina, 0,3 m na segunda, 0,8 m em ensaio-com-testada): a via do plano e a faixa do lote externo ocupam o MESMO chão",
+          "aindaNAOAtribuido": "por que o motor desenha via sobre a face que ele mesmo reservou. Não acuso: é pergunta para o Parcelamento, e está na lista numerada do relatório",
+          "asViasCulpadas": [
+            {
+              "via": "V1",
+              "caixa_m": 11.5,
+              "meiaCaixa_m": 5.8,
+              "profundidadeEstimadaDaFaixa_m": 0,
+              "eixoMaisProximoDaRetaDaFace_m": 0.8,
+              "distanciaDoEixoAFronteiraDaFaixa_m": 0.8,
+              "derramaNaFaixa": true
+            },
+            {
+              "via": "V11",
+              "caixa_m": 10,
+              "meiaCaixa_m": 5,
+              "profundidadeEstimadaDaFaixa_m": 0,
+              "eixoMaisProximoDaRetaDaFace_m": 13.9,
+              "distanciaDoEixoAFronteiraDaFaixa_m": 13.9,
+              "derramaNaFaixa": false
+            }
+          ]
+        }
+      },
+      "porFaixaDeDistanciaAoSegmento": {
+        "<= 0.5 m": 51,
+        "0.5 a 50 m": 0,
+        "> 50 m": 0
+      },
+      "lotes": [
+        {
+          "lote": "v2-e1",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e2",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e3",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e4",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e5",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e6",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e7",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e8",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e9",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e10",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e11",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e12",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e13",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e14",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e15",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e16",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e17",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e18",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e19",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e20",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e21",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e22",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e23",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e24",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e25",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e26",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e27",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e28",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e29",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e30",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e31",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e32",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e33",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e34",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e35",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e36",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e37",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e38",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e39",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e40",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e41",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e42",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e43",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e44",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e45",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e46",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e47",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e48",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e49",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e50",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        },
+        {
+          "lote": "v2-e51",
+          "area_m2": 385.4,
+          "faceDeRua": null,
+          "aoSegmentoDaTestada_m": 0.5,
+          "aRetaDaFace_m": 0,
+          "aoLongoDaReta_m": 0,
+          "faceMaisProxima": 1,
+          "diagonalDoLote_m": 35.4
+        }
+      ]
+    }
+  ]
+}
