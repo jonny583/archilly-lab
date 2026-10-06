@@ -83,6 +83,21 @@ export interface ObjetoAuditado {
 
 export type Regra = "campo-vazio" | "campo-novo" | "mapa-velho";
 
+/**
+ * **As regras da ponte, como DADO.** (LAB-49) — mesma razão da `REGRAS_DA_IDA`: tipo não
+ * existe em tempo de execução (D157), e sem a lista o detector de prova velha não pode
+ * conferir o `porRegra` de uma prova contra o que a guarda sabe emitir. A trava de tipo
+ * abaixo faz a lista e a união morrerem juntas.
+ */
+export const REGRAS_DA_PONTE = ["campo-vazio", "campo-novo", "mapa-velho"] as const;
+type MesmaUniaoDaPonte<A extends string, B extends string> = [A] extends [B]
+  ? [B] extends [A]
+    ? true
+    : never
+  : never;
+const _regrasDaPonteConferidas: MesmaUniaoDaPonte<(typeof REGRAS_DA_PONTE)[number], Regra> = true;
+void _regrasDaPonteConferidas;
+
 /** As regras que reprovam. `mapa-velho` fica fora, de propósito. */
 export const REGRAS_QUE_REPROVAM: readonly Regra[] = ["campo-vazio", "campo-novo"];
 

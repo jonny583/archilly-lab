@@ -121,6 +121,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro da sabotagem do comando único: mede o script e o código de saída, não terreno",
     "LAB-38/ci.json":
       "os três disparos do CI, com a sabotagem de propósito: mede o workflow e os códigos de saída dele, não terreno",
+    "LAB-49/detector-de-prova-velha.json":
+      "mede o ESCOPO do detector de prova velha e a sabotagem que prova que ele reprova: o objeto medido são duas provas e uma trava, não terreno",
     "LAB-47/varredura-de-segredos.json":
       "a varredura de segredos mede a ÁRVORE DE ARQUIVOS deste repositório — escopo, regras e achados —, não terreno: não há gleba, motor nem semente no que ela mede",
   };

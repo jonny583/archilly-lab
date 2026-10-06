@@ -4647,3 +4647,94 @@ em aberto tiverem resposta.
 distantes são **a mesma passagem externa do motor**, vista por dois invariantes. **29 das 40
 violações de Antonina saem de um mecanismo único** — o que faz do LAB-50, já na fila, o prompt
 mais rendoso dela.
+
+---
+
+## D170 · O detector de prova velha chega ao LAB-25 e ao LAB-30, e o escopo dele sai como número · 06/10/2026
+
+**A dívida é do LAB-33.** Ele criou o detector de prova velha (D131) e o deu a **duas**
+provas — LAB-23 e LAB-28. As outras ficaram sem, e **duas apodreceram caladas** até o LAB-43
+as regerar (D156): a do LAB-30 desde o LAB-40 (inventário da ida **72 → 74 campos**) e a do
+LAB-25 desde o LAB-37 (em `geo-antonina` a variante escolhida virou a de **33 lotes**).
+Nenhuma reprovou nada enquanto mentia.
+
+> **Prova que ninguém reconfere é afirmação com data.**
+
+**O detector mede da FONTE, não compara prova com prova** (D144): o inventário é **recontado
+do módulo**, o conjunto e a ordem das glebas são **relidos das fixtures**, a etiqueta do
+contrato sai de `contratoDasEntradas()` (D146), e o que só o motor sabe é medido **rodando o
+motor** — uma trava, em `geo-antonina`, ~6 s, com o teto de tempo escrito em 60 s e o porquê
+ao lado, porque reprovar por tempo é reprovar pelo motivo errado.
+
+**E o escopo sai como NÚMERO — 11 de 19 chaves** (a lição do D164). Cada chave de primeiro
+nível das duas provas está classificada em `medida`, `medidaEmParte`, `declarada` ou
+`naoMedida`, **esta última com o motivo escrito**; a lista mora em
+`src/escopo-do-detector.ts`, **fora do teste**, porque número que só existe dentro de um
+teste não sai em prova nenhuma. **Trava nas duas direções:** chave nova na prova que ninguém
+classificou reprova, e chave classificada que desapareceu da prova reprova.
+
+**As quatro chaves não alcançadas têm um motivo só, e é custo:** recontar `porRegra`,
+`reprovamNoTotal`, `dividasDoLab` e `promessasQueNenhumaGlebaExercita` é auditar as duas
+pontes/idas em todas as glebas com os motores rodando — a ferramenta inteira dentro de um
+teste. Os zeros que importam já têm trava própria nas guardas.
+
+**Provado por sabotagem** (D126), e **duas das quatro são as mentiras históricas**, não
+invenções: os 74 campos virando 72 é a forma exata do que a prova do LAB-30 publicava, e o
+33 virando 1 228 é a variante que a do LAB-25 publicava. Os quatro casos: **15 pass · 0 fail
+→ 14 pass · 1 fail, exit 1**, e 15 · 0 depois de restaurar. *Detector apontado para o
+passado é o único teste honesto de um detector de prova velha.*
+
+**E a trava NÃO entra no trabalho do CI sem clones vizinhos**, por medição: ela roda o motor
+do Parcelamento, que é clone privado. Pôr lá seria o D143 outra vez — verdadeira nesta
+máquina e falsa no runner. O número daquele trabalho continua **98**.
+
+---
+
+## D171 · Segunda vez que "tipo não existe em tempo de execução" custa uma guarda cega · 06/10/2026
+
+`RegraDaIda` (5 regras) e `Regra` da ponte (3) eram **uniões de tipo**, e o detector de prova
+velha não tinha **contra o que** conferir as chaves do `porRegra` de uma prova. Regra nova
+numa guarda sem regerar a prova é prova que descreve uma guarda que já não existe — e nada
+acusava.
+
+Nasceram `REGRAS_DA_IDA` e `REGRAS_DA_PONTE`, **ao lado das uniões e travadas a elas em
+tempo de compilação**: se a lista e a união divergirem, **não compila**.
+
+**É literalmente o conserto do LAB-44 (D157) aplicado a um segundo lugar, pelo mesmo
+motivo.** Lá eram as chaves do confronto do acesso; aqui são os nomes das regras. A forma do
+defeito é uma: **o que precisa ser conferido em tempo de execução tem de existir em tempo de
+execução**, e uma união de tipo não existe. Duas vezes já é padrão, não coincidência — e é o
+primeiro lugar a olhar quando uma guarda parece cega.
+
+---
+
+## D172 · Régua que eu afrouxo quando ela me reprova não é régua, é enfeite · 06/10/2026
+
+**Dois achados de método, os dois contra mim, os dois dentro do prompt.**
+
+**O primeiro.** Eu escrevi uma trava exigindo que o detector *"alcance mais da metade das
+chaves das duas provas"*, e a primeira versão deu **9 de 19** — reprovada por **meio ponto**,
+pela minha própria régua. A tentação era trocar `> metade` por `>= metade`, ou tirar a trava.
+
+**O conserto foi MEDIR MAIS:** publicar as regras das duas guardas como dado (D171) e
+reconferir as chaves do `porRegra`, o que levou o número a **11 de 19**.
+
+> É o contrário exato do D143. **Lá** o CI pegou uma trava que só valia na minha máquina, e
+> eu a consertei **sem afrouxar**. **Aqui** a trava pegou o meu escopo, e o conserto foi **o
+> escopo crescer, não a trava encolher**.
+
+**O segundo, e é da família do D133 e do D151.** A prova do LAB-30 publica
+`promessasQueNenhumaGlebaExercita` com **6** entradas, e o LAB-40 publicou que esse número
+tinha ido de **6 para 0**. Eu tinha nas mãos *"a prova do LAB-30 está velha nesse campo
+também"* — publicável, e **falso**.
+
+**Medido: a ferramenta do LAB-30 mede SETE glebas; o "6 → 0" do LAB-40 foi medido sobre
+DEZ**, com as duas fixtures que aquele prompt criou. São **conjuntos diferentes**, e comparar
+os dois números é comparar coisas que não se comparam — como contar posições em que um motor
+não respondeu (D133) ou medir o controle menos que o acusado (D151).
+
+**A lição virou código:** a classificação daquele campo no `ESCOPO` carrega o aviso por
+escrito, para quem comparar na próxima vez ler antes de concluir.
+
+> **O conjunto medido é parte do número.** Dois números da mesma grandeza medidos sobre
+> conjuntos diferentes não se comparam, e a diferença entre eles não é notícia.

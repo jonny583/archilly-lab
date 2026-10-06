@@ -114,6 +114,29 @@ export type RegraDaIda =
   | "divida-do-lab";
 
 /** As regras que reprovam. `mapa-velho` fica fora, de propósito. */
+/**
+ * **As regras da ida, como DADO.** (LAB-49)
+ *
+ * A união `RegraDaIda` é tipo, e **tipo não existe em tempo de execução** (D157) — então
+ * o detector de prova velha não tinha como conferir que o `porRegra` de uma prova traz
+ * exatamente as regras que a guarda pode emitir. Agora tem, e a trava de tipo abaixo
+ * impede que a lista e a união divirjam: se uma mudar sem a outra, **não compila**.
+ */
+export const REGRAS_DA_IDA = [
+  "campo-nao-entregue",
+  "campo-novo-no-contrato",
+  "promessa-nao-exercitada",
+  "mapa-velho",
+  "divida-do-lab",
+] as const;
+type MesmaUniao<A extends string, B extends string> = [A] extends [B]
+  ? [B] extends [A]
+    ? true
+    : never
+  : never;
+const _regrasDaIdaConferidas: MesmaUniao<(typeof REGRAS_DA_IDA)[number], RegraDaIda> = true;
+void _regrasDaIdaConferidas;
+
 export const REGRAS_DA_IDA_QUE_REPROVAM: readonly RegraDaIda[] = [
   "campo-nao-entregue",
   "campo-novo-no-contrato",
