@@ -31,11 +31,31 @@
 #      resolvê-la. Pular é o que cala alarme;
 #   3. sai com código 1 se qualquer passo falhar.
 #
-# # O que ele ainda NÃO faz, e está dito
+# # Quem roda isto, e o que o CI alcança (LAB-51)
 #
-# **Não há CI neste repositório** (não existe `.github/workflows`). Então nada
-# roda isto automaticamente: "verde" continua sendo alguém — ou um despertador —
-# executando este comando. Proposto ao chat no LAB-31.
+# **Há CI desde o LAB-38**, em `.github/workflows/verde.yml`, com DOIS trabalhos e
+# nomes que não enganam (D141):
+#
+#   · `guardas que não precisam dos clones vizinhos (NÃO é o verde)` roda em todo
+#     push, sem segredo — as travas que leem arquivo do próprio repositório;
+#   · `o verde completo` É este script, e precisa do segredo `VIZINHOS_TOKEN`,
+#     porque o comando único lê DOIS CLONES PRIVADOS por caminho (D16) e este
+#     repositório é público. Sem o segredo ele FALHA COM A RECEITA, e não pula
+#     (D124).
+#
+# **Enquanto o segredo não existir, quem roda este script é uma pessoa — ou um
+# despertador — antes do commit.**
+#
+# # Este bloco mentiu por 8 dias, e agora tem guarda (LAB-51)
+#
+# Até o LAB-51 ele dizia, por extenso: *"Não há CI neste repositório (não existe
+# `.github/workflows`)"*. Era verdade quando o LAB-31 o escreveu, e **ficou falso no
+# LAB-38**, que criou o workflow — e ninguém viu, porque **comentário não se
+# revalida**. É a forma exata do D104, no alto do arquivo mais lido do repositório.
+#
+# A guarda está no `esteira/tests/verde.test.ts`: **toda afirmação deste script que
+# diz "não existe" ou "não há" sobre um CAMINHO entre crases é conferida contra o
+# disco**. Se o caminho existir, a trava reprova.
 #
 set -u
 cd "$(dirname "$0")/.."

@@ -4848,3 +4848,45 @@ linha. **A lição não é "errei de novo": é que a forma do acesso decide o pr
 onde der para escolher, prefira o acesso que estoura.
 
 O comentário ficou no código, ao lado da linha consertada, para a próxima pessoa não repetir.
+
+---
+
+## D177 · Citação marcada não é afirmação — e a régua respeita a marca · 06/10/2026
+
+O alto do `conferir.sh` — **o arquivo mais lido do repositório** — dizia *"Não há CI neste
+repositório (não existe `.github/workflows`)"*. **Verdade no LAB-31, falsa desde o LAB-38**,
+que criou o workflow. **Oito dias, e ninguém viu**: é a forma exata do D104, porque
+**comentário não se revalida**.
+
+O conserto tem duas metades, e a segunda é a que faz o prompt fechar — *regra sem guarda é
+slogan* (D136):
+
+1. **a afirmação** passa a descrever o CI que existe, **citando a frase falsa com as datas**,
+   porque apagá-la tiraria do registro a única coisa útil que ela tem;
+2. **a guarda**, duas travas no `verde.test.ts`: *nenhuma afirmação de inexistência do script
+   é desmentida pelo disco* (em toda linha que **afirma** "não existe"/"não há", todo caminho
+   entre crases tem de não existir) e *o script NOMEIA o CI* — porque **tirar a mentira não
+   basta: silêncio também envelhece.**
+
+**E a régua ia reprovar o próprio conserto.** O cabeçalho novo **cita** a frase falsa, e a
+citação carrega o caminho que existe.
+
+**É a QUARTA vez da sub-família do D137, D142 e D155** — régua que varre texto e casa o nome
+no lugar errado da gramática —, **e a primeira que eu peguei ANTES de escrever a régua**, em
+vez de depois de ela ficar vermelha. As três anteriores custaram uma suíte vermelha cada; esta
+custou uma linha.
+
+> **Régua que varre texto mede o que o texto AFIRMA e o que ele DIZ SOBRE SI, e só a primeira
+> é o objeto.**
+
+O conserto é o `semCitacoes()`, um degrau acima do `semComentarios()` do LAB-43: tira as
+**citações marcadas** antes de procurar a afirmação. **O buraco fica declarado:** afirmação
+disfarçada de citação escapa — preço menor que o de a régua reprovar o próprio conserto.
+
+**Provado por sabotagem** (D126), três casos, cada um desfeito: a frase histórica de volta sem
+a marca de citação derruba **as duas** travas (8 pass → **6 pass · 2 fail**); o apontador
+apagado derruba uma; e **uma afirmação falsa sobre um caminho qualquer** também — o que prova
+que a régua é **geral**, e não um `if` escrito para este caso.
+
+**E este prompt não tem prova em `docs/provas/`, de propósito:** ele mede um arquivo de texto
+contra o disco, e não gleba. Inventar um JSON para ter um JSON seria o contrário do §7.

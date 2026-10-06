@@ -58,8 +58,8 @@ seguida assim. E o LAB-48 é **achado novo do Generate**, trazido pelo chat.
 | **LAB-48** | **O motor PADRÃO da tela unificada reprova no Validator nas cinco glebas** — diagnóstico violação por violação | ✅ **concluído em 06/10/2026** | nenhuma |
 | **LAB-49** | O **detector de prova velha** para as provas do LAB-25 e do LAB-30 (D156) | ✅ **concluído em 06/10/2026** | LAB-48 mesclado ✅ |
 | **LAB-50** | **Por que a passagem externa põe lote a 1,8 km** da face entregue (D161) — pergunta, não acusação | ✅ **concluído em 06/10/2026** | LAB-49 mesclado ✅ |
-| **LAB-51** | O cabeçalho do `conferir.sh` ainda afirma que **não há CI neste repositório**, falso desde o LAB-38 | 🟢 **pronto** | LAB-50 mesclado ✅ |
-| **LAB-52** | **Achado da Central, duas varreduras:** erro de chamada não conferido que degrada para número que **parece** certo; e função que recebe **identificador de conta** como argumento | 🟢 **pronto** | LAB-51 mesclado |
+| **LAB-51** | O cabeçalho do `conferir.sh` ainda afirma que **não há CI neste repositório**, falso desde o LAB-38 | ✅ **concluído em 06/10/2026** | LAB-50 mesclado ✅ |
+| **LAB-52** | **Achado da Central, duas varreduras:** erro de chamada não conferido que degrada para número que **parece** certo; e função que recebe **identificador de conta** como argumento | 🟢 **pronto** · **o último** | LAB-51 mesclado ✅ |
 
 ### O que o chat mandou junto, e vale para os cinco
 
@@ -71,6 +71,33 @@ seguida assim. E o LAB-48 é **achado novo do Generate**, trazido pelo chat.
 - **com o Jonny, e nada disto para a fila:** a régua de forma, a nota preferir 33 ou 1 228,
   o `VIZINHOS_TOKEN`, o *"desproporcional"* e o lote que faz frente para rua externa. A
   auditoria dos cinco está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §5.
+
+### LAB-51 · O cabeçalho que dizia não haver CI — ✅ concluído em 06/10/2026
+
+**Entregue:** [`../relatorios/LAB-51.md`](../relatorios/LAB-51.md), o cabeçalho do
+`conferir.sh` consertado **com a história citada**, duas travas novas no `verde.test.ts` + o
+`semCitacoes()`, D177.
+
+**A mentira morava no arquivo mais lido do repositório**, era verdade no LAB-31 e ficou falsa
+no LAB-38 — **oito dias**, e ninguém viu. A forma exata do D104.
+
+**O conserto tem duas metades, e a segunda é a que fecha o prompt:** a afirmação, e **a
+guarda** — *regra sem guarda é slogan* (D136). Toda linha que **afirma** *"não existe"* ou
+*"não há"* tem os caminhos entre crases conferidos contra o disco; e o script **tem de nomear
+o CI**, porque tirar a mentira não basta: **silêncio também envelhece**.
+
+**E a régua ia reprovar o próprio conserto** (D177): o cabeçalho **cita** a frase falsa, e a
+citação carrega o caminho que existe. **Quarta vez da sub-família do D137/D142/D155, e a
+primeira pega ANTES de escrever a régua.** O `semCitacoes()` tira as citações marcadas.
+
+**Provado por sabotagem:** a frase histórica de volta sem a marca derruba **as duas** travas
+(8 → 6 pass · 2 fail); e **uma afirmação falsa sobre um caminho qualquer** também reprova — a
+régua é **geral**, não um `if` para este caso.
+
+**Sem prova em `docs/provas/`, de propósito:** mede um arquivo de texto contra o disco, não
+gleba. CI sem clones: **98 → 100**; suíte: **431 → 433**.
+
+---
 
 ### LAB-50 · A passagem externa lê a face como RETA — ✅ concluído em 06/10/2026
 
@@ -548,7 +575,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 98 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 100 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -1571,13 +1598,7 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   que o `_testadaDoLote` do Generate calcula para elas, contra a superfície que ele mesmo
   monta. Minha régua de *distância ao eixo menos meia-caixa* não serve para atribuir, e usá-la
   seria a forma do D93.
-- **O cabeçalho do `conferir.sh` afirma que não há CI neste repositório** (LAB-47). O
-  comentário diz, por extenso, *"**Não há CI neste repositório** (não existe
-  `.github/workflows`)"* — e isso é **falso desde o LAB-38**, que criou
-  `.github/workflows/verde.yml`. É a forma exata do D104: comentário envelhecendo em
-  silêncio no alto do arquivo mais lido do repositório. Conserto de duas linhas; **não
-  executado**, porque prompt fora da fila não existe (§1-A). Achado ao ler o script para
-  medir a fase (a) do LAB-47.
+- ~~**O cabeçalho do `conferir.sh` afirma que não há CI neste repositório**~~ — ✅ **executado no LAB-51**, com guarda geral (D177).
 - **O delta contra o Padrão 1.2**, quando ele existir. A conferência do LF-FINAL
   foi feita contra a Versão 1, que é a única legível (D43). O `TF-FINAL` do
   repositório irmão espera o mesmo documento.
