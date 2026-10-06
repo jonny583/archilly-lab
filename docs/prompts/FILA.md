@@ -57,8 +57,8 @@ seguida assim. E o LAB-48 é **achado novo do Generate**, trazido pelo chat.
 |---|---|---|---|
 | **LAB-48** | **O motor PADRÃO da tela unificada reprova no Validator nas cinco glebas** — diagnóstico violação por violação | ✅ **concluído em 06/10/2026** | nenhuma |
 | **LAB-49** | O **detector de prova velha** para as provas do LAB-25 e do LAB-30 (D156) | ✅ **concluído em 06/10/2026** | LAB-48 mesclado ✅ |
-| **LAB-50** | **Por que a passagem externa põe lote a 1,8 km** da face entregue (D161) — pergunta, não acusação. **O LAB-48 deu número a ela: 18 violações `frente` + 11 `via-sobre-lote` saem do mesmo mecanismo** | 🟢 **pronto** | LAB-49 mesclado ✅ |
-| **LAB-51** | O cabeçalho do `conferir.sh` ainda afirma que **não há CI neste repositório**, falso desde o LAB-38 | 🟢 **pronto** | LAB-50 mesclado |
+| **LAB-50** | **Por que a passagem externa põe lote a 1,8 km** da face entregue (D161) — pergunta, não acusação | ✅ **concluído em 06/10/2026** | LAB-49 mesclado ✅ |
+| **LAB-51** | O cabeçalho do `conferir.sh` ainda afirma que **não há CI neste repositório**, falso desde o LAB-38 | 🟢 **pronto** | LAB-50 mesclado ✅ |
 | **LAB-52** | **Achado da Central, duas varreduras:** erro de chamada não conferido que degrada para número que **parece** certo; e função que recebe **identificador de conta** como argumento | 🟢 **pronto** | LAB-51 mesclado |
 
 ### O que o chat mandou junto, e vale para os cinco
@@ -71,6 +71,35 @@ seguida assim. E o LAB-48 é **achado novo do Generate**, trazido pelo chat.
 - **com o Jonny, e nada disto para a fila:** a régua de forma, a nota preferir 33 ou 1 228,
   o `VIZINHOS_TOKEN`, o *"desproporcional"* e o lote que faz frente para rua externa. A
   auditoria dos cinco está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §5.
+
+### LAB-50 · A passagem externa lê a face como RETA — ✅ concluído em 06/10/2026
+
+**Entregue:** [`../relatorios/LAB-50.md`](../relatorios/LAB-50.md),
+`docs/provas/LAB-50/passagem-externa.json`, `ferramentas/lab50.ts`, D173 a D175.
+
+**A resposta, em duas linhas:** a faixa do lote externo é um **SEMIPLANO**, não um retângulo
+sobre a face. O motor tira da face entregue só a **direção** e a **origem**, corta a gleba
+pela **reta infinita** que passa por ela e distribui os lotes pela **caixa envolvente** da
+faixa — cuja largura é a da faixa, não o comprimento da face.
+
+**E a prova é a gleba de CONTROLE:** em `geo-antonina` (141,8 ha, 20 vértices, côncava) os 33
+lotes estão a **≤ 20,1 m da RETA** e a **1 805,6 m ao LONGO** dela; em `ensaio-com-testada`
+(47 ha, 4 vértices, **convexa**) o mesmo mecanismo dá **0 m** e **51 de 51** lotes a ≤ 0,5 m
+da face. *Numa gleba convexa o semiplano sobre a reta É a faixa sobre a face.*
+
+**A hipótese 2 do chat foi descartada por medição:** a passagem **não** corre o perímetro — 1
+face de 20 vértices, 1 de 4.
+
+**E a quarta previsão FALHOU, que foi o que rendeu mais** (D174): matou **duas** explicações
+minhas para o `via-sobre-lote` — a concavidade (acontece na convexa também) e o derrame de
+meia-caixa (o eixo das vias culpadas está a 0,1–0,8 m da reta, **dentro** da faixa). O que
+ficou medido é só isso, e o **porquê fica NÃO ATRIBUÍDO**, com as duas mortas escritas na
+prova. *Hipótese descartada em silêncio volta como hipótese nova no prompt seguinte.*
+
+**Três itens numerados para o Parcelamento**, e o segundo é pergunta e não diagnóstico. Nada
+escrito no vizinho.
+
+---
 
 ### LAB-49 · O detector de prova velha para o LAB-25 e o LAB-30 — ✅ concluído em 06/10/2026
 
@@ -1525,6 +1554,10 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 ## Proposto ao chat — não executar
 
 - ~~**O detector de prova velha para o LAB-25 e o LAB-30** (D156)~~ — ✅ **executado no LAB-49**.
+- ~~**Por que a passagem externa põe lote a 1,8 km da face entregue** (D161)~~ — ✅ **executado no LAB-50**: a faixa é um SEMIPLANO (D173).
+- **Por que o motor desenha via SOBRE a face que ele mesmo reservou** (LAB-50, D174) — as 11
+  `via-sobre-lote`. Matei duas explicações minhas e **não tenho a terceira**: é pergunta, está
+  na lista numerada para o Parcelamento, e **não atribuo sem medir**.
 - **O conserto das 36 violações que são a minha ponte** (LAB-48, D166): `testadaMinLote_m` tem
   de sair do contrato, como o `areaMinLote_m2` já sai — é **uma linha** no `volta.ts`. Não
   executado porque o chat pediu *"o diagnóstico antes de consertar qualquer coisa"*. **E junto

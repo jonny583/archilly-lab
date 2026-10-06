@@ -32,6 +32,7 @@
     "lab47": "bun ferramentas/lab47.ts",
     "lab48": "INVARIANTES_EXEMPLOS=100000 bun ferramentas/lab48.ts",
     "lab49": "bun ferramentas/lab49.ts",
+    "lab50": "bun ferramentas/lab50.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint ."
