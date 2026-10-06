@@ -38,6 +38,81 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
+## 🟢 A FILA DE 06/10/2026 — LAB-48 a LAB-52
+
+Mandada pelo chat em 06/10/2026, com o **despertador reabilitado pela sétima vez**
+(`enabled: true`, próximo disparo 21:05 UTC) e com uma autorização nova:
+
+> **"REESCREVA você mesma o prompt guardado do despertador, que envelheceu. É seu, e você
+> tem a minha autorização para mantê-lo atualizado daqui em diante, sem me perguntar."**
+
+**Feito antes de tudo**, como ele pediu: o prompt guardado trazia o LAB-47 como *"aguardando"*
+e dizia *"a próxima é a D154"* quando já era a **D166**. Reescrito com a fila nova, os números
+de travas (416 na suíte, 98 no CI) e a autorização registrada dentro dele, para não se perder.
+
+**Três dos cinco saíram da minha própria lista de "proposto ao chat"** — é a quarta fila
+seguida assim. E o LAB-48 é **achado novo do Generate**, trazido pelo chat.
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-48** | **O motor PADRÃO da tela unificada reprova no Validator nas cinco glebas** — diagnóstico violação por violação | ✅ **concluído em 06/10/2026** | nenhuma |
+| **LAB-49** | O **detector de prova velha** para as provas do LAB-25 e do LAB-30 (D156) | 🟢 **pronto** | LAB-48 mesclado ✅ |
+| **LAB-50** | **Por que a passagem externa põe lote a 1,8 km** da face entregue (D161) — pergunta, não acusação | 🟢 **pronto** | LAB-49 mesclado |
+| **LAB-51** | O cabeçalho do `conferir.sh` ainda afirma que **não há CI neste repositório**, falso desde o LAB-38 | 🟢 **pronto** | LAB-50 mesclado |
+| **LAB-52** | **Achado da Central, duas varreduras:** erro de chamada não conferido que degrada para número que **parece** certo; e função que recebe **identificador de conta** como argumento | 🟢 **pronto** | LAB-51 mesclado |
+
+### O que o chat mandou junto, e vale para os cinco
+
+- **"Traga o diagnóstico antes de consertar qualquer coisa"** — vale para o LAB-48 e é a
+  razão de ele ser diagnóstico puro: *"o Generate está fazendo o mesmo diagnóstico do lado
+  dele, e eu quero os dois para comparar"*. Diagnóstico que já vem com conserto não serve de
+  comparação, porque não se sabe mais o que ele mediu;
+- **"Ao fim de cada prompt, o recado com o status"**;
+- **com o Jonny, e nada disto para a fila:** a régua de forma, a nota preferir 33 ou 1 228,
+  o `VIZINHOS_TOKEN`, o *"desproporcional"* e o lote que faz frente para rua externa. A
+  auditoria dos cinco está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §5.
+
+### LAB-48 · Os quatro culpados das 128 violações — ✅ concluído em 06/10/2026
+
+**Entregue:** [`../relatorios/LAB-48.md`](../relatorios/LAB-48.md),
+`docs/provas/LAB-48/violacoes-do-motor-padrao.json`, `ferramentas/lab48.ts`, `CLAUDE.md` §6
+com **quatorze** linhas, D166 a D169. **Nada foi consertado**, como o chat mandou.
+
+**São 128 violações, quatro invariantes e QUATRO culpados diferentes** — nenhuma das três
+respostas que a pergunta oferecia serve sozinha:
+
+| invariante | n | de quem é |
+|---|---:|---|
+| `testada` | 47 | **36 da PONTE DESTE REPOSITÓRIO** + 11 do motor |
+| `frente` | 56 | 11 do **contrato + tradutor do Generate** · 18 do motor · **27 não atribuídas** |
+| `face-quadra` | 14 | do **motor** — e a hipótese de ponte foi medida e morreu |
+| `via-sobre-lote` | 11 | do **motor**, a passagem externa dele |
+
+**MOTOR 54 (42 %) · PONTE DESTE LAB 36 (28 %) · CONTRATO DO GENERATE 11 (9 %) · EM ABERTO 27.**
+
+**A DÉCIMA QUARTA vez do ponto cego** (D166), pega dentro do prompt: a entrada declara testada
+mínima de **10 m**, a minha ida sorteia o **alvo** da variante numa faixa e a minha volta
+escreve esse alvo em `testadaMinLote_m` — **o campo cujo nome é mínimo**. O Validator media o
+motor contra o **próprio alvo dele**, com 2 % de folga, e o acusava por **1,94 cm**.
+
+**E a conta que o chat precisa:** descontando as 36 minhas e as 11 do contrato — 37 % —
+**nenhuma das cinco glebas limpa**. O ranking só deixa de nascer vazio com as 54 do motor e as
+27 em aberto. *"De quem é a culpa" e "onde está o conserto" são perguntas diferentes.*
+
+**Duas listas numeradas**, 5 itens para o Generate e 4 para o Parcelamento. **Nada escrito em
+vizinho**; os três clones limpos.
+
+---
+
+### O despertador "que se apaga ao esgotar" — e por que eu desligo
+
+O chat pediu *"despertador de 60 minutos que se apaga ao esgotar"* **e** deu o **id deste**
+para reusar. As duas coisas só convivem com **desligar**: apagar perde o id que ele reabilita
+desde 03/10, e é o D112, ratificado seis vezes. **Desligo e escrevo o motivo**; se ele quiser
+apagado de verdade, é uma linha.
+
+---
+
 ## ✅ A fila de 04/10 (terceira) — CUMPRIDA, cinco de cinco, LAB-43 a LAB-47 · o despertador está DESLIGADO
 
 **Quatro feitos em 04 e 05/10/2026, e o quinto DESTRAVADO pelo chat em 05/10.** O LAB-47
@@ -1419,6 +1494,19 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 
 ## Proposto ao chat — não executar
 
+- **O conserto das 36 violações que são a minha ponte** (LAB-48, D166): `testadaMinLote_m` tem
+  de sair do contrato, como o `areaMinLote_m2` já sai — é **uma linha** no `volta.ts`. Não
+  executado porque o chat pediu *"o diagnóstico antes de consertar qualquer coisa"*. **E junto
+  vai a guarda**, senão a regra nasce slogan (D136): uma trava exigindo que todo campo
+  `…Min…`/`…Max…` de `parametrosUsados` venha do contrato, e nunca do sorteio.
+- **A correção da moldura do D159 nos três lugares onde ela saiu** (LAB-48, D168): relatório do
+  LAB-45, item 7 do Jonny e a nota da tabela comparativa dizem *"duas réguas discordando"*, e
+  medido são **uma régua e um campo que falta**. Corrigir a página do Jonny e a tabela é
+  **entrega**, não diagnóstico, e por isso não entrou no LAB-48.
+- **As 27 violações `frente` não atribuídas** (LAB-48, §3.2): falta **uma** medição — a testada
+  que o `_testadaDoLote` do Generate calcula para elas, contra a superfície que ele mesmo
+  monta. Minha régua de *distância ao eixo menos meia-caixa* não serve para atribuir, e usá-la
+  seria a forma do D93.
 - **O cabeçalho do `conferir.sh` afirma que não há CI neste repositório** (LAB-47). O
   comentário diz, por extenso, *"**Não há CI neste repositório** (não existe
   `.github/workflows`)"* — e isso é **falso desde o LAB-38**, que criou

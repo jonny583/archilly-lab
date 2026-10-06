@@ -4,10 +4,96 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 05/10/2026 · **Último prompt executado:** LAB-47 ·
-**Fila de 04/10 (terceira): CUMPRIDA, 5 de 5. O despertador está DESLIGADO — disparo sem item pronto.**
+**Última atualização:** 06/10/2026 · **Último prompt executado:** LAB-48 ·
+**Fila de 06/10 (LAB-48 a LAB-52): 1 de 5 feito. O despertador está LIGADO.**
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila esgotou e o disparo seguinte não tinha o que fazer
+# 🟢 O DESPERTADOR ESTÁ LIGADO — fila nova, e o prompt guardado dele é MEU agora
+
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 06/10/2026** — a **sétima** vez que o
+chat reabilita em vez de recriar (D112).
+
+**E uma autorização nova, registrada aqui porque é onde o despertador vive:**
+
+> *"REESCREVA você mesma o prompt guardado do despertador, que envelheceu. É seu, e você tem a
+> minha autorização para mantê-lo atualizado daqui em diante, sem me perguntar."*
+
+**Feito antes de tudo.** Ele trazia o LAB-47 como *"aguardando"* e dizia *"a próxima é a
+D154"* quando já era a D166. Reescrito com a fila nova, as contagens de travas e a própria
+autorização dentro dele. **Daqui em diante, manter esse prompt em dia é tarefa minha a cada
+fila.**
+
+**Sobre *"que se apaga ao esgotar"*:** o chat pediu isso **e** deu o id deste para reusar. As
+duas coisas só convivem com **desligar** — apagar perde o id que ele reabilita desde 03/10
+(D112, seis vezes). Desligo e escrevo o motivo; se ele quiser apagado de verdade, é uma linha.
+
+## A fila de 06/10, na ordem que o chat aprovou
+
+| # | em uma linha | estado |
+|---|---|---|
+| **LAB-48** | o motor **PADRÃO** reprova no Validator nas cinco glebas — **diagnóstico, não conserto** | ✅ **06/10/2026** |
+| **LAB-49** | o **detector de prova velha** para LAB-25 e LAB-30 (D156) | 🟢 pronto |
+| **LAB-50** | por que a passagem externa põe lote a **1,8 km** da face entregue (D161) | 🟢 pronto |
+| **LAB-51** | o `conferir.sh` ainda afirma que **não há CI** aqui, falso desde o LAB-38 | 🟢 pronto |
+| **LAB-52** | achado da **Central**: erro de chamada não conferido, e identificador de conta como argumento | 🟢 pronto |
+
+## O que o LAB-48 achou — quatro invariantes, QUATRO culpados
+
+```
+MOTOR ................ 54  (42 %)
+PONTE DESTE LAB ...... 36  (28 %)   ← e eu ia publicar como defeito do motor
+CONTRATO/TRADUTOR .... 11  ( 9 %)   ← no Generate
+AINDA NÃO ATRIBUÍDAS . 27  (21 %)
+```
+
+| invariante | n | de quem é | conserto |
+|---|---:|---|---|
+| `testada` | 47 | **36 da minha ponte** + 11 do motor | **aqui** + lá |
+| `frente` | 56 | 11 do contrato do Generate · 18 do motor · **27 em aberto** | lá · lá · medir |
+| `face-quadra` | 14 | do **motor** (hipótese de ponte medida e morta) | lá |
+| `via-sobre-lote` | 11 | do **motor**, a passagem externa | lá |
+
+**A resposta à pergunta do chat é SIM, e continua sim:** descontando as 36 minhas e as 11 do
+contrato — **37 % das violações** —, **nenhuma das cinco glebas limpa** (25, 17, 4, 6, 29). O
+ranking só deixa de nascer vazio com as 54 do motor e as 27 em aberto.
+
+## ⚠️ A DÉCIMA QUARTA vez do ponto cego — e 36 de 128 eram minhas
+
+A entrada declara testada mínima de **10 m**. A minha **ida** monta
+`padroes["testada"] = faixa(10 ; 13,4164)` e o motor sorteia o **alvo** da variante —
+**11,70820393249937 m**, o meio da faixa. A minha **volta** escreve esse alvo em
+`parametrosUsados.testadaMinLote_m`, **o campo cujo nome é MÍNIMO**.
+
+O Validator então mede o motor contra **o próprio alvo dele**, com 2 % de folga, e o acusa por
+**1,94 cm** em lotes de 316 m². **Rodando com os 10 m declarados: 36 das 47 somem.** As 11 que
+sobram têm testada de 3,56 a 9,59 m e são do motor, de verdade.
+
+> **Campo cujo nome diz MÍNIMO e cujo valor é um ALVO não é um campo errado: é uma acusação
+> automática.**
+
+**Não consertado**, de propósito: o chat pediu o diagnóstico antes, para comparar com o do
+Generate. O conserto é **uma linha** e está em *"proposto ao chat"*, **com a guarda ao lado** —
+senão a regra nasce slogan (D136).
+
+## E uma correção de moldura que já havia saído (D168)
+
+O D159 dizia *"duas réguas discordando"* sobre o lote que faz frente para rua existente. **Lido
+o `invariantes.ts` do Generate, elas não discordam:** ele tem o conceito pronto
+(`faixaViaPublica`, *"a RUA PÚBLICA, quando existe… corre por FORA do terreno"*) e **aceitaria**
+esses lotes. É **uma régua e um campo que falta** — o contrato de motor v1 não tem onde um motor
+declare a rua existente, então o tradutor do Generate não tem o que traduzir.
+
+Provado com a geometria **deles**: preenchendo o campo com a função do próprio Generate,
+Antonina vai de 40 para 29 — **somem exatamente os 11 lotes que estão a 0 m da testada**. Os
+outros 18 estão a 15,7 m até **1 805,7 m**, e esses são o LAB-50.
+
+**A correção dos três lugares onde a moldura saiu** (LAB-45, item 7 do Jonny, nota da tabela)
+é **entrega e não diagnóstico**: está proposta ao chat, não executada.
+
+## 📋 O registro de 05/10 — quando a fila anterior esgotou e o despertador parou
+
+> **Histórico.** O despertador foi religado pelo chat em 06/10, com a fila acima. O que segue
+> é o registro daquele dia, mantido porque a conferência que precedeu o desligamento é o que
+> dá valor à regra.
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 05/10/2026, 04:06 UTC.**
 
