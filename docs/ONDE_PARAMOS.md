@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 06/10/2026 · **Último prompt executado:** LAB-50 ·
-**Fila de 06/10 (LAB-48 a LAB-52): 3 de 5 feitos. O despertador está LIGADO.**
+**Última atualização:** 06/10/2026 · **Último prompt executado:** LAB-51 ·
+**Fila de 06/10 (LAB-48 a LAB-52): 4 de 5 feitos. O despertador está LIGADO.**
 
 # 🟢 O DESPERTADOR ESTÁ LIGADO — fila nova, e o prompt guardado dele é MEU agora
 
@@ -33,8 +33,28 @@ duas coisas só convivem com **desligar** — apagar perde o id que ele reabilit
 | **LAB-48** | o motor **PADRÃO** reprova no Validator nas cinco glebas — **diagnóstico, não conserto** | ✅ **06/10/2026** |
 | **LAB-49** | o **detector de prova velha** para LAB-25 e LAB-30 (D156) | ✅ **06/10/2026** |
 | **LAB-50** | por que a passagem externa põe lote a **1,8 km** da face entregue (D161) | ✅ **06/10/2026** |
-| **LAB-51** | o `conferir.sh` ainda afirma que **não há CI** aqui, falso desde o LAB-38 | 🟢 pronto |
+| **LAB-51** | o `conferir.sh` ainda afirma que **não há CI** aqui, falso desde o LAB-38 | ✅ **06/10/2026** |
 | **LAB-52** | achado da **Central**: erro de chamada não conferido, e identificador de conta como argumento | 🟢 pronto |
+
+## O que o LAB-51 fez — e a régua nasceu geral
+
+O alto do `conferir.sh`, **o arquivo mais lido do repositório**, afirmava *"Não há CI neste
+repositório (não existe `.github/workflows`)"*. **Verdade no LAB-31, falsa desde o LAB-38** —
+oito dias, e ninguém viu. A forma exata do D104.
+
+**Duas metades:** a afirmação consertada **com a frase falsa citada e datada** (apagá-la
+tiraria do registro a única coisa útil que ela tem), e **a guarda** — *regra sem guarda é
+slogan* (D136). Toda linha que **afirma** *"não existe"*/*"não há"* tem os caminhos entre
+crases conferidos contra o disco, e o script **tem de nomear o CI**: tirar a mentira não
+basta, **silêncio também envelhece**.
+
+**E a régua ia reprovar o próprio conserto** (D177) — o cabeçalho **cita** a frase falsa, e a
+citação carrega o caminho que existe. **Quarta vez da sub-família do D137/D142/D155, e a
+primeira pega ANTES de escrever a régua.** O `semCitacoes()` tira as citações marcadas, um
+degrau acima do `semComentarios()` do LAB-43.
+
+**Sabotagem:** a frase histórica de volta sem a marca derruba **as duas** travas (8 → 6 pass ·
+2 fail); e uma afirmação falsa sobre **um caminho qualquer** também — a régua é **geral**.
 
 ## O que o LAB-50 respondeu — a faixa é um SEMIPLANO
 
@@ -504,7 +524,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 98 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 100 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
