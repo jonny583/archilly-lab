@@ -56,8 +56,8 @@ seguida assim. E o LAB-48 é **achado novo do Generate**, trazido pelo chat.
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-48** | **O motor PADRÃO da tela unificada reprova no Validator nas cinco glebas** — diagnóstico violação por violação | ✅ **concluído em 06/10/2026** | nenhuma |
-| **LAB-49** | O **detector de prova velha** para as provas do LAB-25 e do LAB-30 (D156) | 🟢 **pronto** | LAB-48 mesclado ✅ |
-| **LAB-50** | **Por que a passagem externa põe lote a 1,8 km** da face entregue (D161) — pergunta, não acusação | 🟢 **pronto** | LAB-49 mesclado |
+| **LAB-49** | O **detector de prova velha** para as provas do LAB-25 e do LAB-30 (D156) | ✅ **concluído em 06/10/2026** | LAB-48 mesclado ✅ |
+| **LAB-50** | **Por que a passagem externa põe lote a 1,8 km** da face entregue (D161) — pergunta, não acusação. **O LAB-48 deu número a ela: 18 violações `frente` + 11 `via-sobre-lote` saem do mesmo mecanismo** | 🟢 **pronto** | LAB-49 mesclado ✅ |
 | **LAB-51** | O cabeçalho do `conferir.sh` ainda afirma que **não há CI neste repositório**, falso desde o LAB-38 | 🟢 **pronto** | LAB-50 mesclado |
 | **LAB-52** | **Achado da Central, duas varreduras:** erro de chamada não conferido que degrada para número que **parece** certo; e função que recebe **identificador de conta** como argumento | 🟢 **pronto** | LAB-51 mesclado |
 
@@ -71,6 +71,36 @@ seguida assim. E o LAB-48 é **achado novo do Generate**, trazido pelo chat.
 - **com o Jonny, e nada disto para a fila:** a régua de forma, a nota preferir 33 ou 1 228,
   o `VIZINHOS_TOKEN`, o *"desproporcional"* e o lote que faz frente para rua externa. A
   auditoria dos cinco está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §5.
+
+### LAB-49 · O detector de prova velha para o LAB-25 e o LAB-30 — ✅ concluído em 06/10/2026
+
+**Entregue:** [`../relatorios/LAB-49.md`](../relatorios/LAB-49.md),
+`docs/provas/LAB-49/detector-de-prova-velha.json`, `tests/prova-velha.test.ts` (15 travas),
+`src/escopo-do-detector.ts`, `REGRAS_DA_IDA`/`REGRAS_DA_PONTE` com trava de tipo,
+`ferramentas/lab49.ts`, D170 a D172.
+
+**A dívida era do LAB-33:** ele deu detector a **duas** provas e as do LAB-25 e do LAB-30
+ficaram sem — e apodreceram caladas (72 → 74 campos; a variante de 33 lotes). *Prova que
+ninguém reconfere é afirmação com data.*
+
+**Mede da FONTE, não compara prova com prova** (D144): inventário recontado do módulo,
+glebas relidas das fixtures, contrato de `contratoDasEntradas()`, e **uma** trava rodando o
+motor — a do `faceDeRua` de Antonina, ~6 s, com o teto de tempo escrito.
+
+**O escopo sai como NÚMERO: 11 de 19 chaves** (a lição do D164), cada uma classificada, com
+motivo escrito para as quatro não alcançadas, e trava nas duas direções.
+
+**Provado por sabotagem, e DUAS das quatro são as mentiras históricas:** 15 pass · 0 fail →
+**14 · 1, exit 1**, nos quatro casos. *Detector apontado para o passado é o único teste
+honesto de um detector de prova velha.*
+
+**E dois achados contra mim** (D172): o escopo deu **9 de 19** e raspou por baixo da minha
+própria trava — **consertei medindo mais, não baixando a régua** (o contrário do D143); e eu
+quase declarei velha uma prova que não está, comparando o `promessasQueNenhumaGlebaExercita`
+de **7** glebas com o *"6 → 0"* do LAB-40, medido sobre **10**. *O conjunto medido é parte do
+número.*
+
+---
 
 ### LAB-48 · Os quatro culpados das 128 violações — ✅ concluído em 06/10/2026
 
@@ -1494,6 +1524,7 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 
 ## Proposto ao chat — não executar
 
+- ~~**O detector de prova velha para o LAB-25 e o LAB-30** (D156)~~ — ✅ **executado no LAB-49**.
 - **O conserto das 36 violações que são a minha ponte** (LAB-48, D166): `testadaMinLote_m` tem
   de sair do contrato, como o `areaMinLote_m2` já sai — é **uma linha** no `volta.ts`. Não
   executado porque o chat pediu *"o diagnóstico antes de consertar qualquer coisa"*. **E junto

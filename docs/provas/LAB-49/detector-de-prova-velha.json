@@ -1,0 +1,107 @@
+{
+  "prompt": "LAB-49",
+  "oQueIstoMede": "o ESCOPO do detector de prova velha e a sabotagem que prova que ele reprova — mede duas provas e uma trava, não terreno",
+  "quando": "2026-10-06T21:28:34.369Z",
+  "aDividaQuePaga": "o LAB-33 deu detector a 2 provas (LAB-23 e LAB-28); as do LAB-25 e do LAB-30 ficaram sem e apodreceram caladas até o LAB-43 (D156)",
+  "escopo": {
+    "chaves": 19,
+    "alcancadas": 11,
+    "porProva": [
+      {
+        "arquivo": "LAB-25/guarda-da-ponte.json",
+        "chaves": 8,
+        "medida": 4,
+        "medidaEmParte": 1,
+        "declarada": 2,
+        "naoMedida": 1,
+        "alcancadas": 5,
+        "oQueNaoEAlcancado": [
+          {
+            "chave": "reprovamNoTotal",
+            "porque": "mesma auditoria completa do `porRegra`; e o valor que importa (zero) tem trava própria na `guarda-da-ponte.test.ts`"
+          }
+        ]
+      },
+      {
+        "arquivo": "LAB-30/guarda-da-ida.json",
+        "chaves": 11,
+        "medida": 5,
+        "medidaEmParte": 1,
+        "declarada": 2,
+        "naoMedida": 3,
+        "alcancadas": 6,
+        "oQueNaoEAlcancado": [
+          {
+            "chave": "reprovamNoTotal",
+            "porque": "mesma auditoria completa; o zero tem trava própria na `guarda-da-ida.test.ts`"
+          },
+          {
+            "chave": "dividasDoLab",
+            "porque": "mesma auditoria completa; a categoria está vazia desde o LAB-37 e a `guarda-da-ida.test.ts` cobre o caso"
+          },
+          {
+            "chave": "promessasQueNenhumaGlebaExercita",
+            "porque": "mesma auditoria completa — e CUIDADO ao comparar com o \\\"6 → 0\\\" do LAB-40: ele mediu DEZ glebas, esta prova mede SETE"
+          }
+        ]
+      }
+    ]
+  },
+  "regrasComoDado": {
+    "porque": "tipo não existe em tempo de execução (D157) — sem a lista, o `porRegra` de uma prova não tinha contra o que ser conferido",
+    "ida": [
+      "campo-nao-entregue",
+      "campo-novo-no-contrato",
+      "promessa-nao-exercitada",
+      "mapa-velho",
+      "divida-do-lab"
+    ],
+    "ponte": [
+      "campo-vazio",
+      "campo-novo",
+      "mapa-velho"
+    ]
+  },
+  "sabotagem": {
+    "base": {
+      "pass": 15,
+      "fail": 0,
+      "exit": 0
+    },
+    "casos": [
+      {
+        "sabotagem": "inventário da ida: 74 campos viram 72 — a mentira exata do D156",
+        "pass": 14,
+        "fail": 1,
+        "exit": 1,
+        "ehHistorica": true
+      },
+      {
+        "sabotagem": "porRegra da ida perde a regra `divida-do-lab`",
+        "pass": 14,
+        "fail": 1,
+        "exit": 1,
+        "ehHistorica": false
+      },
+      {
+        "sabotagem": "faceDeRua de geo-antonina: 33 lotes viram 1228 — a mentira do LAB-37",
+        "pass": 14,
+        "fail": 1,
+        "exit": 1,
+        "ehHistorica": true
+      },
+      {
+        "sabotagem": "campo novo na prova, fora do ESCOPO do detector",
+        "pass": 14,
+        "fail": 1,
+        "exit": 1,
+        "ehHistorica": false
+      }
+    ],
+    "depoisDeRestaurar": {
+      "pass": 15,
+      "fail": 0,
+      "exit": 0
+    }
+  }
+}

@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 06/10/2026 · **Último prompt executado:** LAB-48 ·
-**Fila de 06/10 (LAB-48 a LAB-52): 1 de 5 feito. O despertador está LIGADO.**
+**Última atualização:** 06/10/2026 · **Último prompt executado:** LAB-49 ·
+**Fila de 06/10 (LAB-48 a LAB-52): 2 de 5 feitos. O despertador está LIGADO.**
 
 # 🟢 O DESPERTADOR ESTÁ LIGADO — fila nova, e o prompt guardado dele é MEU agora
 
@@ -31,10 +31,39 @@ duas coisas só convivem com **desligar** — apagar perde o id que ele reabilit
 | # | em uma linha | estado |
 |---|---|---|
 | **LAB-48** | o motor **PADRÃO** reprova no Validator nas cinco glebas — **diagnóstico, não conserto** | ✅ **06/10/2026** |
-| **LAB-49** | o **detector de prova velha** para LAB-25 e LAB-30 (D156) | 🟢 pronto |
+| **LAB-49** | o **detector de prova velha** para LAB-25 e LAB-30 (D156) | ✅ **06/10/2026** |
 | **LAB-50** | por que a passagem externa põe lote a **1,8 km** da face entregue (D161) | 🟢 pronto |
 | **LAB-51** | o `conferir.sh` ainda afirma que **não há CI** aqui, falso desde o LAB-38 | 🟢 pronto |
 | **LAB-52** | achado da **Central**: erro de chamada não conferido, e identificador de conta como argumento | 🟢 pronto |
+
+## O que o LAB-49 fez — e o escopo dele sai como número
+
+**A dívida era do LAB-33:** ele criou o detector de prova velha e o deu a **duas** provas; as
+do LAB-25 e do LAB-30 ficaram sem e **apodreceram caladas** até o LAB-43 (72 → 74 campos do
+inventário; a variante de 33 lotes em Antonina). *Prova que ninguém reconfere é afirmação com
+data.*
+
+**O detector mede da FONTE** (D144): inventário recontado do módulo, glebas relidas das
+fixtures, contrato de `contratoDasEntradas()`, e **uma** trava rodando o motor — a do
+`faceDeRua` de Antonina, ~6 s, com o teto de tempo escrito em 60 s e o porquê ao lado.
+
+```
+LAB-25/guarda-da-ponte.json   5/8  alcançadas
+LAB-30/guarda-da-ida.json     6/11 alcançadas
+TOTAL                        11/19 chaves — e as quatro de fora têm motivo escrito
+```
+
+**Provado por sabotagem, e DUAS das quatro são as mentiras históricas** (74 → 72 campos; 33 →
+1 228 lotes): **15 pass · 0 fail → 14 · 1, exit 1** nos quatro casos, e 15 · 0 depois de
+restaurar.
+
+**E dois achados contra mim** (D172): o escopo deu **9 de 19** e raspou por baixo da minha
+própria trava — **consertei medindo mais, não baixando a régua**, o contrário exato do D143;
+e eu quase declarei velha uma prova que não está, comparando um número de **7** glebas com
+um de **10**. *O conjunto medido é parte do número.*
+
+**A trava não entra no CI sem clones** (roda o motor do Parcelamento, clone privado), então o
+número daquele trabalho continua **98**.
 
 ## O que o LAB-48 achou — quatro invariantes, QUATRO culpados
 
