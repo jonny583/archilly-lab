@@ -1687,6 +1687,17 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 
 ## Proposto ao chat — não executar
 
+- **A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO** (07/10, pedido do chat fora da
+  fila). O Generate disse **69** em duas saídas e **103** nas cinco glebas (17 do motor); o
+  Testfit disse **181** rodando a esteira do Generate inteira; e este Lab disse **128** e,
+  depois do LAB-53, **92**. Medido aqui: **os quatro não são o mesmo objeto** — o meu 92 soma
+  **cinco planos** de **86 candidatos**, um por gleba, o vencedor da nota do próprio motor. O
+  balanço com a minha ficha completa e as **cinco perguntas** que decidem está no
+  [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §7. **O prompt que fecharia isto:**
+  publicar uma ficha de medição obrigatória — motor, ponte, glebas, **quantos planos e quais**,
+  semente, contrato, tampa dos exemplos e quebra por tipo — e remedir as três sessões com ela.
+  **Não executado**, e o motivo é o §1-A: é prompt novo, e prompt fora da fila não existe.
+
 - ~~**O detector de prova velha para o LAB-25 e o LAB-30** (D156)~~ — ✅ **executado no LAB-49**.
 - ~~**Por que a passagem externa põe lote a 1,8 km da face entregue** (D161)~~ — ✅ **executado no LAB-50**: a faixa é um SEMIPLANO (D173).
 - **Por que o motor desenha via SOBRE a face que ele mesmo reservou** (LAB-50, D174) — as 11
