@@ -1,0 +1,33 @@
+{
+  "prompt": "LAB-58",
+  "oQueIstoMede": "que as travas do agrupamento REPROVAM — quatro sabotagens de propósito, com o código de saída de cada uma. O objeto medido são a ferramenta e a suíte, não terreno",
+  "quando": "2026-10-07",
+  "oQueMudouPORCAUSADISSO": "a PRIMEIRA sabotagem PASSOU, e a calibração foi reescrita por isso: ela comparava a minha distância com a CLASSE que o LAB-54 mediu, e só nos lotes de `frente`. Trocar a distância ao CONTORNO pela `distanciaAoPoligono` — que devolve zero para ponto DENTRO — saiu exit 0, porque a diferença entre as duas réguas só aparece em lote que está DEBAIXO do leito, e esses são `via-sobre-lote`, que não têm classe no LAB-54. A calibração passou a exigir que a minha distância RECONSTRUA o número que a função dele devolve, em TODO lote acusado",
+  "sabotagens": [
+    {
+      "n": 1,
+      "oQue": "a distância ao CONTORNO trocada pelo `distanciaAoPoligono` do motor (devolve 0 para ponto dentro)",
+      "onde": "ferramentas/lab58.ts · distAoContorno",
+      "antesDoConserto": { "exit": 0, "oQuePegou": "NADA — e foi este 0 que reescreveu a calibração" },
+      "depoisDoConserto": { "exit": 1, "oQuePegou": "a calibração reprovou em 15 lotes: 'a função DELE devolve 0 m e a MINHA distância reconstrói 13.16 m'" }
+    },
+    {
+      "n": 2,
+      "oQue": "o predicado do mecanismo `fileira-sem-via-propria` perde a condição da distância",
+      "onde": "src/mecanismos-das-violacoes.ts · MECANISMOS[2].casa",
+      "depoisDoConserto": { "exit": 1, "oQuePegou": "4 violações passaram a casar DOIS mecanismos — 'isso é dupla contagem', com os lotes nomeados" }
+    },
+    {
+      "n": 3,
+      "oQue": "um mecanismo perde a declaração de que a leitura do motor foi SÓ leitura",
+      "onde": "src/mecanismos-das-violacoes.ts · ondeNoMotor do mecanismo 1",
+      "depoisDoConserto": { "exit": 1, "oQuePegou": "1 trava de 24: '`ondeNoMotor` não diz que a leitura foi SÓ leitura (§4)'" }
+    },
+    {
+      "n": 4,
+      "oQue": "a prova declara 4 mecanismos distintos onde a lista dela tem 6",
+      "onde": "docs/provas/LAB-58/mecanismos-das-81.json · total.mecanismosDistintosComViolacao",
+      "depoisDoConserto": { "exit": 1, "oQuePegou": "1 trava de 24: '`mecanismosDistintosComViolacao` é CONTADO, não declarado'" }
+    }
+  ]
+}
