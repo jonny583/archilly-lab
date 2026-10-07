@@ -4,19 +4,18 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-53 ·
-**Fila de 07/10 (LAB-53 a LAB-57): 1 de 5. Próximo: LAB-54. Próxima decisão: D183.**
+**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-54 ·
+**Fila de 07/10 (LAB-53 a LAB-57): 2 de 5. Próximo: LAB-55. Próxima decisão: D188.**
 
-# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 07/10, quatro prompts a fazer
+# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 07/10, três prompts a fazer
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true`, a cada 60 min no minuto :05.** Reabilitado
 pelo chat em 07/10 (a **oitava** vez que ele reabilita em vez de recriar — D112), e o prompt
 guardado dele é **meu**, reescrito a cada prompt desde 06/10.
 
 **E a regra virou permanente:** *"pode DESLIGAR ao esgotar em vez de apagar; você está certa,
-e passa a ser assim daqui em diante"*. A `CLAUDE.md` §1-A foi corrigida ao abrir a fila; **a
-cópia da `FILA.md` ficou um prompt atrás** e foi corrigida no LAB-53 — *regra que vive em duas
-terras envelhece numa delas*.
+e passa a ser assim daqui em diante"*. Corrigida na `CLAUDE.md` §1-A ao abrir a fila e na
+`FILA.md` no LAB-53 — *regra que vive em duas terras envelhece numa delas*.
 
 ## 🔴 O caminho crítico do MVP, e a conta é minha — o chat a adotou
 
@@ -26,14 +25,69 @@ terras envelhece numa delas*.
 | # | em uma linha | estado |
 |---|---|---|
 | **LAB-53** | **as 36 violações que eram a MINHA ponte** — consertadas, com guarda ao lado | ✅ **07/10** · 128 → **92** · PR #64 |
-| **LAB-54** | as **27 violações `frente` não atribuídas** — com a régua DELE, não a minha | 🟢 pronto · **o próximo** |
-| **LAB-55** | por que o motor desenha via **SOBRE** a face que ele reservou (D174) | 🟢 pronto |
+| **LAB-54** | **as 27 `frente` não atribuídas** — com a régua DELE, não a minha | ✅ **07/10** · **23 motor + 4 régua** |
+| **LAB-55** | por que o motor desenha via **SOBRE** a face que ele reservou (D174) | 🟢 pronto · **o próximo** |
 | **LAB-56** | a correção da moldura do **D159** nos três lugares onde ela saiu | 🟢 pronto |
 | **LAB-57** | o resto da varredura do **D178** + a lição das duas perguntas em 5 linhas | 🟢 pronto |
 
 **Fora da fila, por ordem do chat:** o `recommendedTypeChecked` completo (646 achados) fica
-**para depois do MVP**, registrado como proposto; e o achado da *"regra desligada em silêncio"*
-vai à família **pelo chat**, não por mim.
+**para depois do MVP**, registrado como proposto; e o achado da *"regra desligada em
+silêncio"* vai à família **pelo chat**, não por mim.
+
+## ⚠️ E há uma pergunta aberta do chat, registrada e NÃO respondida
+
+Em 07/10, fora da fila: **três sessões mediram "o mesmo" e deram números diferentes** — o
+Generate **69** em duas saídas e **103** nas cinco glebas (17 do motor), o Testfit **181**
+rodando a esteira do Generate inteira, e este Lab **128** e depois **92**.
+
+**A mensagem do chat chegou CORTADA** em *"disse 181, todas de"*, e a frase **não foi
+completada por dedução**. O balanço com a minha ficha completa e **as cinco perguntas que
+decidem** está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §7 (PR #66). A resposta
+curta: **os quatro números não são o mesmo objeto** — o meu 92 soma **cinco planos** de
+**oitenta e seis** candidatos, um por gleba, o vencedor da nota do próprio motor.
+
+## O que o LAB-54 respondeu — e o RÓTULO não é o VEREDICTO
+
+**As 27: 23 do MOTOR, 4 da RÉGUA. Nem ponte nem contrato.** Os 23 são lote de miolo —
+**0 m²** sobre leito de via e borda a mais de **0,62 m** de qualquer superfície viária.
+
+**O método, e ele serve para qualquer régua de vizinho** (D183): rodar a régua dele responde
+*se* ela acusa, nunca *por quê*. A função dele (`_testadaDoLote`) testa o **ponto do MEIO** de
+cada aresta contra o contorno das superfícies viárias, com 0,75 m — e numa aresta de 34 m que
+encosta só numa ponta, o meio está a 17 m de lá. Então: **mude a AMOSTRAGEM e deixe a função
+DELE responder de novo.** Densificar o polígono muda só os pontos que ela testa; quem muda de
+resposta é o código dele sobre o mesmo polígono.
+
+```
+frente que sumiria com amostragem fina ....... 11
+das quais só TROCAM de etiqueta (viram testada)  11
+das quais de fato SOMEM .......................... 0
+```
+
+**É o achado do prompt** (D184): a frontagem real dessas 11 é de **1,5 a 5,49 m** contra um
+mínimo de 10. Eu estava a um passo de abrir um conserto na régua do Generate por *"errar em 11
+das 56"* — **ela acerta o veredicto em 11 de 11**, e erra só a mensagem. Virou item de
+MENSAGEM na lista para eles, **fora do caminho crítico**. *Medir o SALDO antes de propor o
+conserto.*
+
+**A sabotagem pegou a minha precondição pela metade** (D186): deslocar todos os pontos
+densificados em 1 cm é uma **translação**, e translação **não muda área nenhuma** — num probe
+que mede **distância** até o leito, era o pior erro possível. Agora são duas precondições:
+área **e** cada ponto novo sobre a borda original. **Terceira vez em três prompts que a
+sabotagem pega o que eu não vi** (D179, D181, D186).
+
+**E a minha própria varredura do LAB-52 reprovou o verde** (D187), com o **primeiro achado
+verdadeiro** dela — um prompt depois do dia em que ela fechou com *28 de 28 falso positivo*.
+No código novo, `const testadaFina = Number(…)` sem `Number.isFinite`: e `NaN > 0` é `false`,
+então um `NaN` classificaria o lote como `motor-sem-via-perto` — **o Lab acusando o motor do
+vizinho por um número que não é número**, no prompt cuja tese é não atribuir sem medir.
+Consertado estourando, **não** com uma entrada nova em `BENIGNOS`. *Régua cujo primeiro
+resultado é 28 de 28 falso positivo não está errada: está sem caso ainda.*
+
+**E uma frase do LAB-48 era FALSA** (D185): *"oito estão a 0,2 m ou menos"* — são **cinco**, e
+a lista com os números estava **impressa na linha de cima do próprio relatório**. Corrigida
+**riscando** (D161), com a medição ao lado: a régua dele confirma **4 dos 5**, e discorda em
+`v12-l469`. É a **15ª** vez do ponto cego da §6, e a nona pega dentro do prompt.
 
 ## O que o LAB-53 fez — e o número é 128 → 92
 

@@ -192,8 +192,22 @@ Nenhuma é externa. Medida a **distância ao eixo da via mais próxima**, com a 
 | caixa das vias | 10 e 11,5 m |
 | **distância menos meia-caixa** | **−0,05 · 0,0 · 0,0 · 0,0 · 0,2 · 1,2 · 1,6 · 3,1 · 5,6 · 5,9 · 11,1 · 11,8 …** |
 
-**Oito estão a 0,2 m ou menos da borda do leito** — uma delas **encostando** (−0,05 m). As
-outras estão 1,2 a 11,8 m **recuadas**, e essas não têm frente nenhuma: é lote de miolo.
+> ~~**Oito estão a 0,2 m ou menos da borda do leito** — uma delas **encostando**
+> (−0,05 m).~~ **FALSO, corrigido no LAB-54 (D185): são CINCO.** A lista está impressa na
+> linha de cima deste próprio relatório — `−0,05 · 0,0 · 0,0 · 0,0 · 0,2 · 1,2 · 1,6 · 3,1 ·
+> …` —, e cinco dela são ≤ 0,2 m; o **oito** é a contagem até **3,1 m**. Eu escrevi o número
+> **de memória, com a lista ao lado**. *Riscado e não apagado* (D161) — e a parte útil é que
+> **a régua do Generate confirma 4 dos 5**: o quinto, `v12-l469`, está a exatamente 0,2 m
+> pela minha régua e **continua sem frente** pela dele. *Número que o próprio relatório
+> lista ao lado não se escreve de memória.*
+
+As outras estão 1,2 a 11,8 m **recuadas**, e essas não têm frente nenhuma: é lote de miolo.
+
+**E as 27 foram ATRIBUÍDAS no LAB-54** — veja
+[`LAB-54.md`](LAB-54.md): **23 do motor** (borda a mais de 0,62 m de qualquer superfície
+viária, 0 m² sobre leito) e **4 da régua, só no RÓTULO dela** — o lote encosta, com 2,04 a
+4,16 m de frontagem, e consertar a amostragem **não derruba violação nenhuma**: as 4 só
+trocariam `frente` por `testada` (D184).
 
 **Por que eu paro aqui e não atribuo:** a minha régua é *distância ao eixo menos meia-caixa*,
 e a do Validator é `_testadaDoLote` contra as `superficiesDeFrente` dele — que incluem bulbo

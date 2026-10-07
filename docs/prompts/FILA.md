@@ -72,7 +72,7 @@ texto velho* (D104).
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-53** | **O conserto das 36 violações que são a MINHA PONTE**, com guarda ao lado (D166) | ✅ **concluído em 07/10/2026** · 128 → **92** | nenhuma |
-| **LAB-54** | As **27 violações `frente` não atribuídas** — medir com a régua DELE, não com a minha | 🟢 **pronto** · caminho crítico | LAB-53 mesclado |
+| **LAB-54** | As **27 violações `frente` não atribuídas** — medir com a régua DELE, não com a minha | ✅ **concluído em 07/10/2026** · **23 motor + 4 régua-no-rótulo** | LAB-53 mesclado ✅ |
 | **LAB-55** | **Por que o motor desenha via SOBRE a face que ele mesmo reservou** — matei duas explicações e não tenho a terceira (D174) | 🟢 **pronto** · caminho crítico | LAB-54 mesclado |
 | **LAB-56** | A **correção da moldura do D159** nos três lugares onde ela saiu (D168) | 🟢 **pronto** | LAB-55 mesclado |
 | **LAB-57** | **O resto da varredura do D178**: há outra configuração que desliga conferência sem avisar? E a lição das duas perguntas **em cinco linhas**, para o chat distribuir | 🟢 **pronto** | LAB-56 mesclado |
@@ -102,6 +102,35 @@ sabotagem pega a trava e não eu.**
 **E a prova do LAB-48 quase foi apagada** (D182): a ferramenta é a mesma, e a primeira rodada
 sobregravou o diagnóstico que o chat quer comparar com o do Generate. Restaurada do git, e o
 destino do arquivo passou a sair da **medição** do estado da ponte.
+
+### LAB-54 · As 27 `frente` atribuídas — ✅ concluído em 07/10/2026
+
+**Entregue:** [`../relatorios/LAB-54.md`](../relatorios/LAB-54.md),
+`docs/provas/LAB-54/frente-nao-atribuida.json`, `src/probe-de-amostragem.ts`,
+`ferramentas/lab54.ts`, `tests/frente.test.ts` (**15 travas**; a suíte vai a **465**) e as
+decisões **D183, D184, D185, D186**.
+
+**As 27: 23 do MOTOR, 4 da RÉGUA — e nem ponte nem contrato.** Os 23 são lote de miolo, com
+**0 m²** sobre leito e borda a mais de **0,62 m** de qualquer superfície viária.
+
+**E o achado que mais vale é a segunda metade:** as 4 (e as **11** das cinco glebas) em que a
+régua dele muda de resposta com amostragem fina **não desapareceriam** — a frontagem real é
+de **1,5 a 5,49 m** contra 10 m de mínimo, então elas só trocam `frente` por `testada`.
+**Zero somem.** *Régua que erra o RÓTULO e acerta o VEREDICTO não é régua errada* (D184), e
+isso tirou do caminho crítico um conserto que eu ia pedir ao Generate.
+
+**O método, que serve para qualquer régua de vizinho** (D183): para perguntar *"por que a
+régua DELE diz zero"* sem trocar de régua, **mude a AMOSTRAGEM** — densificar o polígono
+muda só os pontos que ela testa, e quem muda de resposta é o código dele sobre o mesmo
+polígono.
+
+**A sabotagem pegou a minha precondição pela metade** (D186): deslocar todos os pontos em
+1 cm é uma **translação**, e translação **não muda área** — num probe que mede DISTÂNCIA isso
+era o pior erro possível. **Terceira vez em três prompts** que a sabotagem pega o que eu não
+vi.
+
+**E uma frase do LAB-48 era falsa** (D185): *"oito estão a 0,2 m ou menos"* — são **cinco**, e
+a lista estava impressa na linha de cima. Corrigida **riscando** (D161).
 
 ### O que o chat tirou da fila, e para quando
 
@@ -1712,10 +1741,9 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   LAB-45, item 7 do Jonny e a nota da tabela comparativa dizem *"duas réguas discordando"*, e
   medido são **uma régua e um campo que falta**. Corrigir a página do Jonny e a tabela é
   **entrega**, não diagnóstico, e por isso não entrou no LAB-48.
-- **As 27 violações `frente` não atribuídas** (LAB-48, §3.2): falta **uma** medição — a testada
-  que o `_testadaDoLote` do Generate calcula para elas, contra a superfície que ele mesmo
-  monta. Minha régua de *distância ao eixo menos meia-caixa* não serve para atribuir, e usá-la
-  seria a forma do D93.
+- ~~**As 27 violações `frente` não atribuídas** (LAB-48, §3.2)~~ — ✅ **executado no LAB-54**:
+  **23 do motor, 4 da régua** (e só do rótulo dela — consertá-la derruba **zero** violações,
+  D184).
 - ~~**O cabeçalho do `conferir.sh` afirma que não há CI neste repositório**~~ — ✅ **executado no LAB-51**, com guarda geral (D177).
 - **Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes** (LAB-52, D178). Medido: são
   **646 achados** — 487 de `no-unnecessary-type-assertion` e ~149 de `no-unsafe-*`, que vêm
