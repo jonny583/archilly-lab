@@ -5062,3 +5062,151 @@ mecanismo, não de cuidado:
 
 > **Prova carrega número e carrega legenda, e só o número se regera. A legenda que não é
 > derivada da medição é um comentário com cara de dado.**
+
+---
+
+## D183 · As 27 `frente` atribuídas — e o probe que pergunta "por quê" sem trocar de régua · 07/10/2026
+
+O LAB-48 deixou **27 violações sem culpado**, e disse isso em vez de escolher, porque
+atribuir com régua minha seria a forma do D93 e do D127. **Atribuídas agora:**
+
+| das 27 | quem é |
+|---:|---|
+| **23** | o **motor** — lote de miolo, **0 m²** sobre leito e borda a mais de **0,62 m** de qualquer superfície viária |
+| **4** | a **régua**, e só o **rótulo** dela (ver a D184) |
+| **0** | ponte · **0** contrato — nenhuma das quatro glebas declara rua pública, e o contrafactual é `null` nas 27 |
+
+**O método é o que vale, e ele resolve um problema geral:** rodar a régua do vizinho responde
+**se** ela acusa, nunca **por quê**. A função dele testa o **ponto do MEIO** de cada aresta
+contra o contorno das superfícies viárias, com 0,75 m de tolerância — e numa aresta de 34 m
+que encosta só numa ponta, o meio está a 17 m de lá.
+
+> **Para perguntar por que a régua DELE diz zero, mude a AMOSTRAGEM e deixe a função dele
+> responder de novo.**
+
+`densificar()` insere vértices ao longo das arestas: **mesma borda, mesma área, mesmo
+polígono** — só os pontos que ela testa mudam. Quem muda de resposta é **o código dele sobre
+o mesmo polígono**, e não uma régua minha discordando da dele. O negativo vem com
+**resolução declarada** (passo de 0,25 m ⇒ nenhum ponto da borda a menos de ~0,62 m), porque
+sem o passo *"continuou zero"* não prova nada (D164). E o mecanismo tem **trava sintética**,
+sem gleba: um lote de 34 × 12 m que encosta no leito só nos 2 m da ponta, que a função dele
+recusa como está e aceita densificado — mais a trava de que **leito longe continua zero**,
+que é o probe não cegando a régua dele.
+
+---
+
+## D184 · Régua que erra o RÓTULO e acerta o VEREDICTO não é régua errada · 07/10/2026
+
+**Eu estava a um passo de escrever *"a régua do Generate erra em 11 das 56"*** e de abrir um
+item de conserto no repositório do vizinho. Medido: **ela acerta o veredicto em 11 de 11.**
+
+Os 11 lotes em que a amostragem fina muda a resposta dela têm frontagem real de **1,5 a
+5,49 m**, contra um mínimo declarado de **10 m**. Então, consertada a amostragem, o
+invariante **seguinte** acusa `testada` no mesmo lote:
+
+```
+frente que sumiria .......... 11
+das quais só TROCAM de etiqueta  11
+das quais de fato SOMEM ......... 0
+```
+
+> **Régua que erra o RÓTULO e acerta o VEREDICTO não é régua errada — e consertá-la não
+> derruba violação nenhuma.**
+
+O que ela erra é a **mensagem**: *"nenhuma aresta encosta em via"* sobre um lote que encosta
+com 2 m. Isso vale para quem **lê** o relatório, e não vale número — então saiu como item de
+**mensagem** na lista para o Generate, explicitamente **fora do caminho crítico do MVP**.
+
+**A lição de método, e é a que viaja:** *medir o SALDO antes de propor o conserto.* Sem a
+segunda metade da medição, este prompt teria entregado "a régua dele erra em 11 casos" como
+se fosse trabalho de MVP — e teria custado um prompt do vizinho para mover o total em zero.
+**Há trava no saldo** (`tests/frente.test.ts`): se `dasQuaisDeFatoSOMEM` deixar de ser zero,
+a conclusão do LAB-54 mudou, e quem lê descobre por uma trava vermelha.
+
+---
+
+## D185 · "Oito estão a 0,2 m ou menos" era FALSO — são cinco, e a lista estava ao lado · 07/10/2026
+
+O LAB-48 §3.2 escreveu *"oito estão a 0,2 m ou menos da borda do leito"*. **São cinco** — e a
+lista com os números está impressa **na linha de cima do próprio relatório**:
+`−0,05 · 0,0 · 0,0 · 0,0 · 0,2 · 1,2 · 1,6 · 3,1 · …`. O **oito** é a contagem até **3,1 m**,
+não até 0,2.
+
+**Escrevi o número de memória com a lista ao lado.** Não foi régua errada, não foi caminho
+errado, não foi comentário envelhecendo: foi contar de cabeça o que estava impresso.
+
+> **Número que o próprio relatório lista ao lado não se escreve de memória.**
+
+**Corrigido riscando, não apagando** (D161), e com a medição ao lado — porque a parte útil é
+essa: **a régua do Generate confirma 4 dos meus 5.** O quinto, `v12-l469`, está a exatamente
+0,2 m pela minha régua e **continua sem frente** pela dele, com passo de 0,25 m. *As duas
+réguas discordam num lote, e a dele é a que vale, porque o invariante é dele* — o D93/D127
+medido em vez de argumentado.
+
+É a **décima quinta** vez do ponto cego da §6, e a nona pega dentro do próprio prompt.
+
+---
+
+## D186 · Área preservada não prova borda preservada — a sabotagem da translação · 07/10/2026
+
+O probe do D183 nasceu com **uma** precondição — a área não mudar — e com a justificativa
+escrita de que *"se densificar mudasse a geometria, o probe teria consertado o lote em vez de
+medi-lo"*. **A sabotagem desmentiu a justificativa:** eu desloquei todos os pontos
+densificados em **1 cm** e a trava **PASSOU**.
+
+E ela estava certa em passar:
+
+> **Deslocar TODOS os pontos é uma TRANSLAÇÃO, e translação não muda área nenhuma.**
+
+A sabotagem era mal escolhida; o que ela revelou é defeito de verdade. **Num probe que mede
+DISTÂNCIA até o leito da via, a translação é o pior erro possível:** escorregar o lote 1 m
+para o lado da rua faria a régua do Generate dizer *"tem frente"* sobre um lote que não tem,
+e a conta de área aprovaria.
+
+> **Área preservada não prova borda preservada.** Área é invariante por translação e por
+> rotação. O que este probe precisa garantir é que **cada ponto novo está SOBRE a borda
+> original** — e isso só a distância à borda responde.
+
+São duas precondições agora: área (teto 1e-6 m²) **e** distância de cada ponto novo à borda
+original (teto 1e-9 m). Com elas, a sabotagem da translação reprova; e há uma quinta
+sabotagem, que **remove a segunda metade**, e também reprova.
+
+**Terceira vez em três prompts que a sabotagem pega o que eu não vi** (D179 — a trava lia o
+nome da regra no comentário; D181 — a trava comparava com o valor de hoje; D186 — a
+precondição media área e não borda). *Sabotar a própria trava deixou de ser zelo e passou a
+ser método, e três em três é o número que sustenta a frase.*
+
+---
+
+## D187 · A varredura de chamadas do LAB-52 teve o primeiro achado VERDADEIRO — no meu código, um prompt depois · 07/10/2026
+
+O LAB-52 fechou com um número incômodo: **28 de 28 achados eram falso positivo** da minha
+régua (D179). A varredura ficou no repositório mesmo assim, com as duas limpezas e a lista
+fechada de benignos.
+
+**Um prompt depois ela reprovou o verde**, e o achado era real. No `ferramentas/lab54.ts`
+recém-escrito, a regra `numero-sem-conferir` acusou:
+
+```ts
+const testadaFina = Number(_testadaDoLote(…).toFixed(2));   // e nenhum Number.isFinite no arquivo
+```
+
+**E aqui a degradação não é cosmética: é uma acusação publicável.** `NaN > 0` é `false`,
+então um `NaN` vindo da função do Generate faria o lote cair em **`motor-sem-via-perto`** —
+isto é, **o Lab acusaria o motor do vizinho por um número que não é número**, no mesmo prompt
+cuja tese inteira é *não atribuir sem medir*.
+
+É a classe (a) que a Central nomeou — *erro não conferido que degrada para número que PARECE
+certo* — na forma do D175: **o caminho errado que estoura é barato; o que devolve silêncio é
+uma acusação publicável.** Consertado com um `testadaDele()` que **estoura** com a frase
+inteira, e não com uma entrada nova em `BENIGNOS`: declarar benigno o que é real é afrouxar a
+régua quando ela nos reprova (D172).
+
+> **Régua cujo primeiro resultado é 28 de 28 falso positivo não está errada: está sem caso
+> ainda.** A de 28 falsos custou estreitar a régua uma vez; o primeiro verdadeiro apareceu
+> **um prompt depois**, em código meu, e o que ele impediu foi uma acusação ao vizinho.
+
+**O verde pegou, não eu.** Eu rodei `typecheck`, `test` e a ferramenta antes do commit; quem
+reprovou foi o comando único, no passo `esteira · test` — a terceira vez neste dia em que o
+§7 cobra algo que os passos parciais aprovariam (a primeira foi o `tsc` do `testfit` no
+LAB-53).

@@ -223,7 +223,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu QUATORZE vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu QUINZE vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -242,6 +242,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D155 (LAB-43) | "esta ferramenta ainda escreve o literal do contrato" | a régua leu o **comentário** que explicava o conserto |
 | D161 (LAB-46) | "os 33 lotes são todos da beira da rua existente" | eu contei o **id** `-eN`, e só **14 de 33** encostam |
 | D166 (LAB-48) | "o motor padrão desenha 47 lotes com testada abaixo da mínima" | **36 dos 47**: a minha ponte escreveu o **ALVO** sorteado no campo cujo nome é **MÍNIMO** |
+| D185 (LAB-54) | "oito das 27 estão a 0,2 m ou menos da borda do leito" | **cinco** — e a lista com os números estava **impressa na linha de cima do próprio relatório** |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -253,9 +254,15 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**Das QUATORZE, NOVE foram réguas minhas acusando a si mesmas** e **duas foram a ponte
-corrompendo a medição** (D98/D104 e D166); **OITO** foram pegas **dentro do próprio prompt**,
-antes de sair (D128, D133, D135, D137, D142, D148, D155, D166).
+**Das QUINZE, NOVE foram réguas minhas acusando a si mesmas** e **duas foram a ponte
+corrompendo a medição** (D98/D104 e D166); **NOVE** foram pegas **dentro do próprio prompt**,
+antes de sair (D128, D133, D135, D137, D142, D148, D155, D166, D185).
+
+**A décima quinta é a mais simples e a mais humilhante:** eu contei **de cabeça** uma lista
+que estava **impressa na linha de cima** do meu próprio relatório, e publiquei *"oito"* onde
+eram *"cinco"*. Não foi régua errada, não foi caminho errado, não foi comentário
+envelhecendo. *Número que o próprio relatório lista ao lado não se escreve de memória* — e
+ela foi corrigida **riscando**, com a medição ao lado (D161, D185).
 
 **A décima quarta é a mais caseira de todas, e é a que mais explica:** a entrada declarava
 testada mínima de **10 m**, a minha ida sorteava o **alvo** da variante numa faixa, e a minha
@@ -291,9 +298,17 @@ o objeto.
 > e não de quem declarou a regra (D98, D104, D166); e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
 > onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
-> rótulo, e três das quatorze vezes eu classifiquei pelo nome em vez de medir (D148, D155,
-> D161). **Quatorze de quatorze vezes o defeito estava do MEU lado — na régua ou na ponte —
-> antes de estar no medido**, e em sete delas a régua era o teste que eu acabara de escrever.
+> rótulo, e três das quinze vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
+> **Quinze de quinze vezes o defeito estava do MEU lado — na régua, na ponte ou na minha
+> cabeça — antes de estar no medido**, e em sete delas a régua era o teste que eu acabara de
+> escrever.
+
+**E há um irmão do ponto cego que não é defeito meu nem do medido, e custa igual** (D184):
+**régua que erra o RÓTULO e acerta o VEREDICTO não é régua errada.** Eu estava a um passo de
+abrir um conserto na régua do Generate por *"errar em 11 das 56"*, e medido o saldo o conserto
+derrubaria **zero** violações — as 11 só trocariam `frente` por `testada`. *Medir o SALDO
+antes de propor o conserto* é o que separa um item de contagem de um item de mensagem.
 
 ---
 
