@@ -4,10 +4,10 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-54 ·
-**Fila de 07/10 (LAB-53 a LAB-57): 2 de 5. Próximo: LAB-55. Próxima decisão: D188.**
+**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-55 ·
+**Fila de 07/10 (LAB-53 a LAB-57): 3 de 5. Próximo: LAB-56. Próxima decisão: D191.**
 
-# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 07/10, três prompts a fazer
+# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 07/10, dois prompts a fazer
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true`, a cada 60 min no minuto :05.** Reabilitado
 pelo chat em 07/10 (a **oitava** vez que ele reabilita em vez de recriar — D112), e o prompt
@@ -17,18 +17,28 @@ guardado dele é **meu**, reescrito a cada prompt desde 06/10.
 e passa a ser assim daqui em diante"*. Corrigida na `CLAUDE.md` §1-A ao abrir a fila e na
 `FILA.md` no LAB-53 — *regra que vive em duas terras envelhece numa delas*.
 
-## 🔴 O caminho crítico do MVP, e a conta é minha — o chat a adotou
+## 🔴 O caminho crítico do MVP — e ele está CUMPRIDO
 
-> *"Sobre o calendário, a sua conta é a que decide: 37 % das 128 não aprova uma gleba, então
-> trate as 54 e as 27 como o CAMINHO CRÍTICO DO MVP, à frente de qualquer outra coisa."*
+> *"Trate as 54 e as 27 como o CAMINHO CRÍTICO DO MVP, à frente de qualquer outra coisa."*
 
 | # | em uma linha | estado |
 |---|---|---|
 | **LAB-53** | **as 36 violações que eram a MINHA ponte** — consertadas, com guarda ao lado | ✅ **07/10** · 128 → **92** · PR #64 |
-| **LAB-54** | **as 27 `frente` não atribuídas** — com a régua DELE, não a minha | ✅ **07/10** · **23 motor + 4 régua** |
-| **LAB-55** | por que o motor desenha via **SOBRE** a face que ele reservou (D174) | 🟢 pronto · **o próximo** |
-| **LAB-56** | a correção da moldura do **D159** nos três lugares onde ela saiu | 🟢 pronto |
+| **LAB-54** | **as 27 `frente` não atribuídas** — com a régua DELE, não a minha | ✅ **07/10** · **23 motor + 4 régua** · PR #67 |
+| **LAB-55** | por que o motor desenha via **SOBRE** a face que ele reservou | ✅ **07/10** · **a faixa é buraco só para o LOTE** |
+| **LAB-56** | a correção da moldura do **D159** nos três lugares onde ela saiu | 🟢 pronto · **o próximo** |
 | **LAB-57** | o resto da varredura do **D178** + a lição das duas perguntas em 5 linhas | 🟢 pronto |
+
+**As 92 violações estão TODAS atribuídas agora**, e é a primeira vez desde o LAB-48:
+
+```
+MOTOR ................... 81   (23 frente de miolo + 18 frente distantes + 14 face-quadra + 11 via-sobre-lote + 11 testada + 4 régua-no-rótulo¹)
+CONTRATO (Generate) ..... 11   (as `frente` que o campo `faixaViaPublica` salvaria)
+NÃO ATRIBUÍDAS ............ 0   ← era 27 no LAB-48
+```
+
+¹ as 4 da régua **não saem da conta**: consertá-la troca `frente` por `testada` no mesmo lote
+e derruba **zero** violações (D184).
 
 **Fora da fila, por ordem do chat:** o `recommendedTypeChecked` completo (646 achados) fica
 **para depois do MVP**, registrado como proposto; e o achado da *"regra desligada em
@@ -45,6 +55,42 @@ completada por dedução**. O balanço com a minha ficha completa e **as cinco p
 decidem** está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §7 (PR #66). A resposta
 curta: **os quatro números não são o mesmo objeto** — o meu 92 soma **cinco planos** de
 **oitenta e seis** candidatos, um por gleba, o vencedor da nota do próprio motor.
+
+## O que o LAB-55 respondeu — e é uma ASSIMETRIA
+
+```
+sobreposicao   = 0     ← o LOTE respeitou a faixa reservada
+via-sobre-lote = 11    ← a VIA não respeitou
+```
+
+> **`util` (a gleba menos a faixa) governa onde nasce QUADRA e LOTE. A REDE VIÁRIA recebe UM
+> aparo, e ele é contra a DIVISA** (`apararRedeViaria(vias, terreno.perimetro)`). A faixa é
+> buraco no domínio do lote e não é buraco nenhum no domínio da via.
+
+**A assinatura, medida:** as **quatro** vias culpadas (duas glebas) têm **as duas pontas a 0 m
+do perímetro** e **uma ponta DENTRO de um lote externo**, atravessando a faixa em **4 % a
+23 %** do eixo. *Via recortada por `util` pararia na borda interna da faixa, longe do
+perímetro* — é a medida que separa as duas explicações. E são **2 de 10** vias, não todas:
+como nenhum recorte existe, passa a via que o partido por acaso traçou por ali.
+
+**O segundo andar também se mede de fora:** **zero bulbo de retorno** nas duas glebas ⇒
+`pctCulDeSac = 0` ⇒ o `aplicarCulDeSac` (o único lugar que recortaria via por `util`, e só a
+**secundária**) **nem rodou**. É o que explica uma via secundária entre as culpadas, ao lado
+de três principais, que ele nunca recortaria.
+
+**Mais duas candidatas morreram** (D189). O **corte degenerado** morreu pela **AUSÊNCIA** de
+uma violação: se `restante` tivesse ficado inteiro, quadra e lote teriam nascido sobre a faixa
+e haveria `sobreposicao` — e ela é **zero**. *Violação que não aconteceu é medição, e o
+invariante que ficou calado disse mais que os onze que falaram.* A **via de acesso** morre
+**só como mecanismo**: a pior infratora de Antonina passa a **9,6 m** do acesso e eu digo
+isso em vez de arredondar; o que a mata é haver culpada longe em toda gleba (86,7 m e
+382,5 m) e a pior de todas no controle estar a 382,5 m. **A trava que afirmava demais ficou
+vermelha, e a correção foi estreitar a conclusão, não baixar o limiar** (D172).
+
+**O achado contra mim** (D190): li a hierarquia da via no `resultado` **interno** do Generate e
+saiu **`null` em 4 de 4** — ela mora na **SAÍDA**. Eu estava a um passo de publicar *"não é
+observável de fora"*. Caminho errado que **devolve `null`** em campo que **classifica** vira
+frase publicável (D175). **16ª** vez do ponto cego da §6, e a décima pega dentro do prompt.
 
 ## O que o LAB-54 respondeu — e o RÓTULO não é o VEREDICTO
 
