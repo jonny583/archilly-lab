@@ -21,6 +21,26 @@ abrir a fila e na `FILA.md` no LAB-53.
 **O saldo da fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §8** — pela
 §1-B, gravado **junto do último prompt** e não depois.
 
+## 🔴 CHEGOU UMA FILA T-36 a T-39 — e ela é do MOTOR, não deste repositório
+
+**Recebida em 07/10/2026, depois de a fila LAB-53…57 esgotar. NÃO EXECUTADA**, e o registro
+inteiro está na [`prompts/FILA.md`](prompts/FILA.md), no alto.
+
+**Quatro coisas medidas** dizem que ela é do `motor-testfit`: `"T-36"` **não existe neste
+repositório** (zero ocorrências — aqui os prompts são `LAB-xx`, e os do motor aparecem como
+*"o T02 dele"*, seis vezes); a **`D74` citada** aqui é *"a regra dos 50 m da nascente"* e não
+tem relação com importar a esteira do Generate; o texto diz *"o conserto é **aqui**"* e
+*"confira as três **aqui**"*, e as três formas foram achadas **neste** repositório no LAB-57;
+e o **T-37 é conserto em código do vizinho**, que a §4 proíbe com teste desde o D136.
+
+**E o motivo melhor que todos esses é de ontem:** executar o T-36 aqui faria **duas sessões
+medirem a mesma coisa em paralelo**, que é exatamente o que produziu os quatro números do §7
+do [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md). *Medição duplicada entre sessões não dá
+confirmação: dá divergência.*
+
+**O despertador NÃO foi religado** (D62: disparo sem item executável é o desperdício medido em
+15/09 — 4 dos 7). Basta o chat confirmar o que é do Lab, ou mandar numeração `LAB-xx`.
+
 ## ⚠️ O QUE ESPERA O CHAT, e o primeiro item é uma pergunta dele
 
 **A mensagem de 07/10 sobre os TRÊS NÚMEROS DIFERENTES chegou CORTADA** em *"disse 181, todas

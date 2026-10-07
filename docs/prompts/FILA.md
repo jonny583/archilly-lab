@@ -44,6 +44,71 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
+## ⚠️ A FILA DE 07/10/2026 À NOITE — T-36 a T-39 · **RECEBIDA E NÃO EXECUTADA**
+
+**Chegou do chat em 07/10/2026, depois de a fila LAB-53…57 esgotar**, e **não foi executada**.
+O motivo não é formalidade: é que **ela é a fila do MOTOR, entregue nesta sessão**.
+
+### O que ela pedia
+
+| # | em uma linha |
+|---|---|
+| **T-36** | pegar as **81 do Lab**, uma a uma, e dizer **quantas são do mesmo mecanismo** |
+| **T-37** | **consertar**, começando pelo mecanismo que resolve mais violações por conserto, recontando a cada passo contra a esteira do Generate importada inteira — *"foi o que você aprendeu na **D74**"* |
+| **T-38** | dizer se consertar o mecanismo muda a **eleição da superquadra de 33 lotes** em Antonina (as 40 das 81) |
+| **T-39** | conferir **aqui** as três formas de desligar conferência que **o Lab achou** |
+
+### Por que NÃO executei — quatro coisas medidas, não lembradas
+
+1. **`T-xx` é a numeração do MOTOR, não do Lab.** `"T-36"` **não existe em lugar nenhum deste
+   repositório** (varrido: zero ocorrências). Os prompts daqui são `LAB-xx`, e este
+   repositório se refere aos do motor como *"o T02 dele"*, *"o T03 do motor"* — **seis
+   ocorrências**. O motor tem `docs/prompts/FILA.md` próprio, com `T00` a `T06` no clone.
+2. **A `D74` citada não é a D74 deste repositório.** Aqui ela é *"A regra dos 50 m da nascente
+   fica ESCRITA e marcada como não aplicável"* (20/09/2026) — **nada** sobre importar a esteira
+   do Generate inteira. A decisão citada é **do registro do motor**.
+3. **O texto se situa no motor, duas vezes:** *"o conserto é **aqui**"* e *"confira as três
+   **aqui**"*. As três formas foram achadas **neste** repositório, no LAB-57 — então o *aqui* da
+   frase é outro lugar.
+4. **O T-37 é conserto em repositório vizinho, e a §4 é absoluta:** *"Não escreve em repositório
+   vizinho… O que precisa mudar no vizinho vira lista numerada em relatório, nunca commit lá"*
+   — com teste conferindo desde o D136. E o acesso do GitHub desta sessão é só
+   `jonny583/archilly-lab`.
+
+### E há um motivo melhor que todos esses, e ele é de ontem
+
+Executar o **T-36** aqui faria **duas sessões medirem a mesma coisa em paralelo** — a do motor,
+que recebeu a fila, e esta. **Foi exatamente isso que produziu os quatro números que o chat
+passou uma mensagem inteira resolvendo**: 69, 103, 181 e 92 não eram o mesmo objeto
+([`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §7).
+
+> **Medição duplicada entre sessões não dá confirmação: dá divergência.** E a divergência de
+> ontem custou um balanço.
+
+### O que o Lab PODE fazer, se o chat redirecionar — e o que não pode
+
+| | |
+|---|---|
+| **T-36** · agrupar as 81 por mecanismo | **pode**, e a maior parte já está medida: LAB-50 (a faixa como semiplano), LAB-54 (as 23 de miolo), LAB-55 (a via não aparada por `util`) |
+| **T-38** · a eleição da superquadra | **pode, como CONTRAFACTUAL**: só candidata aprovada entra no ranking, então dá para medir se outra passa a ser aprovável — sem tocar no motor |
+| **T-39** · as três formas na configuração do motor | **pode LER** e devolver lista numerada (é o que a §4 prescreve). **Não pode consertar** |
+| **T-37** · o conserto | **não pode**, ponto. É código do vizinho |
+
+### O despertador: NÃO foi religado, e o motivo é o D62
+
+`trig_01XwSkTLT9zmyprNZcUiWy7f` continua **`enabled: false`**. Religá-lo agora garantiria um
+disparo com **nenhum item que este repositório possa executar** — que é o desperdício medido
+em 15/09 (**4 dos 7 disparos não tiveram o que fazer**). Basta o chat confirmar o que é do Lab,
+ou mandar a fila com numeração `LAB-xx`, e ele volta a ligar numa chamada.
+
+**Uma nota, e é só uma nota:** o pedido diz *"despertador que se apaga ao esgotar"*, e **ontem
+o próprio chat ratificou o contrário por escrito** — *"pode DESLIGAR ao esgotar em vez de
+apagar; você está certa, e passa a ser assim daqui em diante"* —, regra que foi gravada na
+`CLAUDE.md` §1-A e aqui. Sigo com **desligar**, porque apagar perde o id que ele reusa desde
+03/10; se ele quiser apagar de verdade, é uma linha dele.
+
+---
+
 ## 🟢 A FILA DE 07/10/2026 — LAB-53 a LAB-57
 
 Mandada pelo chat em 07/10/2026, com o **despertador reabilitado pela oitava vez**
