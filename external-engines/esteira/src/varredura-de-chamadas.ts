@@ -56,10 +56,68 @@
  * strings; *"a configuração DECLARA isto?"* as preserva. Usar a errada é a quinta vez da
  * família do D137/D142/D155/D177.
  */
+/**
+ * ── POR QUE ISTO É UM VARREDOR E NÃO DUAS REGEX (LAB-60) ─────────────────────
+ *
+ * As duas regex que estavam aqui **comiam arquivo inteiro**, e o LAB-60 mediu isso
+ * apontando a varredura ao `eslint.config.js` do motor do vizinho: ela devolveu **zero
+ * regras em `"warn"`** e **zero em `"off"`** num arquivo que traz as duas escritas.
+ *
+ * **A causa é um glob.** `"**\/*.{ts,tsx}"` contém a sequência `/*`, e
+ * `"scripts/**\/*.ts"` contém `*\/` — então o `/\/\*[\s\S]*?\*\//` casava **de dentro de
+ * uma string até dentro de outra** e apagava tudo no meio, inclusive o bloco `rules`
+ * inteiro. O mesmo valia, em menor grau, para os dois `eslint.config.js` desta casa:
+ * `"node_modules/**"` tem `/*` e `"**\/*.d.ts"` tem `*\/`.
+ *
+ * > **Limpeza que não sabe onde a string começa não limpa: ela corta.** E o corte é um
+ * > falso NEGATIVO — a espécie que o D164 descreve, em que zero de régua cega é
+ * > indistinguível de zero de árvore limpa.
+ *
+ * Então aqui há um varredor que anda o texto uma vez, sabendo em que estado está: fora,
+ * em comentário de linha, em comentário de bloco, ou dentro de `'`, `"` ou `` ` ``. O
+ * comentário sai virando espaço, as novas linhas ficam (para o número da linha não
+ * mentir), e o conteúdo de string é **preservado** — é o que separa esta função da
+ * {@link soOCodigo}.
+ *
+ * **O que ele NÃO alcança, e vai dito:** literal de expressão regular. Distinguir um
+ * literal de regex que contenha abre-comentário de uma simples divisão exige a gramática
+ * inteira, e aqui não vale o preço — os padrões deste repositório moram em `String.raw`
+ * (template), que o varredor acompanha.
+ *
+ * *E uma ironia que ficou registrada: a primeira versão deste comentário trazia o exemplo
+ * do literal de regex escrito por extenso, e a sequência de fecha-comentário dentro dele
+ * FECHOU o próprio comentário. O `tsc` pegou na hora — é o D175 do lado bom.*
+ */
 export function semComentarios(texto: string): string {
-  let fora = texto.replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, " "));
-  fora = fora.replace(/(^|[^:])\/\/[^\n]*/g, (m, p1: string) => p1 + " ".repeat(m.length - p1.length));
-  return fora;
+  const fora: string[] = [];
+  type Estado = "fora" | "linha" | "bloco" | "'" | '"' | "`";
+  let estado: Estado = "fora";
+  for (let i = 0; i < texto.length; i++) {
+    const c = texto[i]!;
+    const d = texto[i + 1];
+    if (estado === "fora") {
+      if (c === "/" && d === "*") { estado = "bloco"; fora.push(" ", " "); i++; continue; }
+      if (c === "/" && d === "/") { estado = "linha"; fora.push(" ", " "); i++; continue; }
+      if (c === "'" || c === '"' || c === "`") { estado = c; fora.push(c); continue; }
+      fora.push(c);
+      continue;
+    }
+    if (estado === "linha") {
+      if (c === "\n") { estado = "fora"; fora.push(c); continue; }
+      fora.push(" ");
+      continue;
+    }
+    if (estado === "bloco") {
+      if (c === "*" && d === "/") { estado = "fora"; fora.push(" ", " "); i++; continue; }
+      fora.push(c === "\n" ? c : " ");
+      continue;
+    }
+    // Dentro de string: a barra invertida protege o próximo caractere.
+    if (c === "\\") { fora.push(c, texto[i + 1] ?? ""); i++; continue; }
+    if (c === estado) estado = "fora";
+    fora.push(c);
+  }
+  return fora.join("");
 }
 
 /** O texto só com CÓDIGO: sem comentário, e com o conteúdo das strings esvaziado. */

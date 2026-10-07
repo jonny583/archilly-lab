@@ -40,6 +40,11 @@ export default tseslint.config(
     rules: {
       "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       "@typescript-eslint/no-explicit-any": "warn",
+      // DESLIGADA COM MOTIVO ESCRITO, e o motivo é o compilador (LAB-60): em TypeScript
+      // o `tsc` já acusa nome não definido, e o `no-undef` do eslint NÃO conhece os
+      // tipos — ele dá falso positivo em `globalThis`, em tipo só-de-tipo e em
+      // declaração de ambiente. É o que o próprio `typescript-eslint` recomenda
+      // desligar. Revisitar se um dia o lint deixar de rodar junto do typecheck.
       "no-undef": "off",
       // As três que o LAB-52 ligou, e as três precisam de tipo.
       "@typescript-eslint/no-floating-promises": "error",

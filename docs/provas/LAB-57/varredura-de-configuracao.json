@@ -2,16 +2,16 @@
   "prompt": "LAB-57",
   "oQueIstoMede": "quais configurações deste repositório desligam conferência — nas três formas: a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR, e o desligador SEM MOTIVO ESCRITO",
   "aPergunta": "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
-  "quando": "2026-10-07T07:16:09.809Z",
+  "quando": "2026-10-07T12:25:10.329Z",
   "escopo": {
-    "arquivosQueOGitCarrega": 348,
+    "arquivosQueOGitCarrega": 364,
     "configuracoesEncontradas": 27,
     "configuracoesVarridas": 11,
     "configuracoesForaDoEscopoNomeadas": 16,
-    "linhasDeConfiguracaoLidas": 647,
-    "arquivosDeCodigoVarridos": 123,
-    "linhasDeCodigoLidas": 34166,
-    "regras": 6,
+    "linhasDeConfiguracaoLidas": 662,
+    "arquivosDeCodigoVarridos": 128,
+    "linhasDeCodigoLidas": 36157,
+    "regras": 7,
     "porque": "o escopo começa no `git ls-files`, não numa lista minha — e o que ficou fora sai NOMEADO com o motivo (D164, a lição do LAB-47)"
   },
   "regras": [
@@ -50,6 +50,18 @@
       ],
       "limpeza": "semComentarios",
       "porqueEssaLimpeza": "o comentário ao lado é exatamente o que NÃO conta: a pergunta é se a chave está declarada, não se alguém falou dela",
+      "achados": 2
+    },
+    {
+      "nome": "regra-em-off",
+      "forma": "desligada",
+      "oQue": "regra de lint declarada com `\"off\"` — ela não roda, não avisa e não reprova; é a forma 1 do cabeçalho, e até o LAB-60 NENHUMA regra desta lista a procurava",
+      "oQueNaoPega": "regra que nasce desligada dentro de um conjunto `recommended`, e regra desligada por comentário `eslint-disable` — essa é da `conferencia-desligada-por-arquivo`",
+      "arquivos": [
+        "eslint.config.js"
+      ],
+      "limpeza": "semComentarios",
+      "porqueEssaLimpeza": "a pergunta é o que a configuração DECLARA, e a declaração mora na string (D179)",
       "achados": 2
     },
     {
@@ -96,8 +108,8 @@
     {
       "arquivo": ".github/workflows/verde.yml",
       "varrido": true,
-      "bytes": 7588,
-      "linhas": 165,
+      "bytes": 7669,
+      "linhas": 167,
       "regrasQueOlharam": [
         "passo-que-engole-falha"
       ]
@@ -133,19 +145,20 @@
     {
       "arquivo": "external-engines/esteira/eslint.config.js",
       "varrido": true,
-      "bytes": 2442,
-      "linhas": 51,
+      "bytes": 2859,
+      "linhas": 56,
       "regrasQueOlharam": [
         "regra-em-warn",
         "desligador-de-conferencia",
+        "regra-em-off",
         "conferencia-desligada-por-arquivo"
       ]
     },
     {
       "arquivo": "external-engines/esteira/package.json",
       "varrido": true,
-      "bytes": 2014,
-      "linhas": 54,
+      "bytes": 2193,
+      "linhas": 57,
       "regrasQueOlharam": [
         "lint-sem-max-warnings",
         "passo-que-engole-falha"
@@ -245,11 +258,12 @@
     {
       "arquivo": "external-engines/testfit/eslint.config.js",
       "varrido": true,
-      "bytes": 1411,
-      "linhas": 34,
+      "bytes": 1828,
+      "linhas": 39,
       "regrasQueOlharam": [
         "regra-em-warn",
         "desligador-de-conferencia",
+        "regra-em-off",
         "conferencia-desligada-por-arquivo"
       ]
     },
@@ -273,12 +287,31 @@
       ]
     }
   ],
+  "oFonteDaPropriaReguaForaDoEscopo": {
+    "external-engines/esteira/src/varredura-de-configuracao.ts": "é o arquivo que DEFINE os padrões: `@ts-ignore`, `@ts-nocheck` e `eslint-disable` estão nele como texto do padrão e do `exemploQuePega`",
+    "external-engines/esteira/ferramentas/lab57.ts": "publica as chaves de achado e o motivo de cada declarado, e para isso tem de escrever os literais",
+    "external-engines/esteira/ferramentas/lab60.ts": "o mesmo, apontado ao clone do motor: a lista numerada que vai ao vizinho nomeia os literais",
+    "external-engines/esteira/tests/configuracao.test.ts": "exercita cada regra com o `exemploQuePega` dela, e por isso carrega os três literais",
+    "external-engines/esteira/tests/configuracao-do-motor.test.ts": "o mesmo, para as travas do LAB-60"
+  },
   "achados": [
+    {
+      "regra": "regra-em-off",
+      "arquivo": "external-engines/esteira/eslint.config.js",
+      "linha": 48,
+      "trecho": "\"no-undef\": \"off\""
+    },
     {
       "regra": "desligador-de-conferencia",
       "arquivo": "external-engines/esteira/tsconfig.json",
       "linha": 50,
       "trecho": "\"skipLibCheck\": true"
+    },
+    {
+      "regra": "regra-em-off",
+      "arquivo": "external-engines/testfit/eslint.config.js",
+      "linha": 32,
+      "trecho": "\"no-undef\": \"off\""
     },
     {
       "regra": "desligador-de-conferencia",
@@ -301,12 +334,15 @@
   ],
   "oQueOsIgnORADOSSignificam": "são artefato de build (`target/` do Rust e o `.wasm` do navegador), e o `.gitignore` do UPSTREAM ignora `/.claude` e `.mcp.json` — dois nomes que costumam carregar credencial. Medido: nenhum dos dois existe em disco. A varredura de segredos lê `git ls-files --exclude-standard`, então se um dia existirem ali ela NÃO os verá, e upstream é intocável (§3)",
   "totalPorRegra": {
+    "regra-em-off": 2,
     "desligador-de-conferencia": 2,
     "conferencia-desligada-por-arquivo": 1
   },
   "declarados": {
     "desligador-de-conferencia|external-engines/esteira/tsconfig.json": "`skipLibCheck: true`, agora DECLARADO no próprio arquivo: medido com `false` dá ZERO erros, e fica ligado porque sem ele uma atualização de `@types/*` derruba o verde por erro dentro de dependência, que ninguém aqui conserta",
     "desligador-de-conferencia|external-engines/testfit/tsconfig.json": "o mesmo `skipLibCheck: true`, com a mesma medição (zero erros com `false`) e a mesma declaração escrita no arquivo — os dois pacotes andam juntos de propósito (D86: alargar numa terra e não na outra foi defeito três vezes)",
+    "regra-em-off|external-engines/esteira/eslint.config.js": "`\"no-undef\": \"off\"`, e o motivo está escrito no próprio arquivo desde o LAB-60: em TypeScript o compilador já acusa nome não definido, e o `no-undef` do eslint não conhece os tipos — ele dá falso positivo em `globalThis`, em tipo só-de-tipo e em declaração de ambiente. É o que o próprio `typescript-eslint` recomenda desligar",
+    "regra-em-off|external-engines/testfit/eslint.config.js": "o mesmo `\"no-undef\": \"off\"`, com o mesmo motivo escrito no arquivo — os dois pacotes andam juntos de propósito (D86)",
     "conferencia-desligada-por-arquivo|external-engines/esteira/src/inventario-das-idas.ts": "`eslint-disable-next-line @typescript-eslint/no-unused-vars` sobre o ajudante `divida()`, que fica SEM USO de propósito: a categoria vazia é a prova de que ele era confissão com prazo. O motivo está escrito nas seis linhas acima dele, e é o único desligador por arquivo do repositório"
   },
   "naoDeclarados": [],

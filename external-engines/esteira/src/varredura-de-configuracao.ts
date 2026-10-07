@@ -22,6 +22,24 @@
  * D104 aplicada a configuração, e a razão de esta varredura existir em vez de uma leitura
  * à mão.
  *
+ * # O que o LAB-60 achou AQUI, apontando esta régua para OUTRO repositório
+ *
+ * **Este cabeçalho prometia `"off"` desde o LAB-57, e nenhuma das seis regras o
+ * procurava.** A promessa só foi desmentida quando a régua foi apontada ao clone do
+ * motor: ela disse *"zero regras desligadas"* num `eslint.config.js` que traz
+ * `"@typescript-eslint/no-unused-vars": "off"` escrito em uma linha.
+ *
+ * E a mesma viagem achou a segunda: `regra-em-warn` exigia a string **solta** depois dos
+ * dois pontos, e **a forma de array é a normal quando a regra tem opção** — então
+ * `["warn", { … }]` passava invisível.
+ *
+ * > **Régua que nunca saiu de casa não sabe o que não vê.** As duas eram falso NEGATIVO,
+ * > a espécie que o D164 descreve: zero de régua parada é indistinguível de zero de
+ * > árvore limpa.
+ *
+ * As duas foram consertadas no LAB-60, e o conserto achou **dois desligadores neste
+ * repositório** que seis regras não tinham visto.
+ *
  * # Qual limpeza cada pergunta pede — e o LAB-56 pagou para aprender
  *
  * O D179 criou duas funções e escreveu para que servem. **No LAB-56 eu peguei a errada**,
@@ -70,7 +88,7 @@ export interface RegraDeConfiguracao {
 const linhaDe = (texto: string, i: number) => texto.slice(0, i).split("\n").length;
 
 /**
- * As SEIS regras, como dado.
+ * As SETE regras, como dado — eram seis até o LAB-60 acrescentar a `regra-em-off`.
  *
  * Tipo não existe em tempo de execução (D157, D171): a lista é dado para a trava poder
  * contá-la, exercitá-la uma a uma e reprovar regra sem exemplo.
@@ -97,7 +115,14 @@ export const REGRAS_DE_CONFIGURACAO: readonly RegraDeConfiguracao[] = [
     limpeza: "semComentarios",
     porqueEssaLimpeza:
       "a pergunta é o que a CONFIGURAÇÃO DECLARA, e a declaração mora na string: `semComentarios()` tira o comentário e PRESERVA a string (D179, e o erro do LAB-56)",
-    padrao: String.raw`"([^"]+)"\s*:\s*"warn"`,
+    // ── A FORMA DE ARRAY ENTROU NO LAB-60, e ela estava INVISÍVEL ──────────
+    //
+    // Apontada ao clone do motor, esta régua disse **zero regras em `"warn"`** — e o
+    // `eslint.config.js` dele traz `"react-refresh/only-export-components": ["warn", {…}]`.
+    // O padrão exigia a string SOLTA depois dos dois pontos, e a forma de array é a
+    // normal quando a regra tem opção. *Régua que só vê uma das duas sintaxes da mesma
+    // declaração mede ortografia, não conteúdo* (D137).
+    padrao: String.raw`"([^"]+)"\s*:\s*(?:"warn"|\[\s*"warn")`,
     sinais: "g",
     exemploQuePega: () => 'rules: { "no-explicit-any": "warn" }',
   },
@@ -113,6 +138,19 @@ export const REGRAS_DE_CONFIGURACAO: readonly RegraDeConfiguracao[] = [
     padrao: String.raw`"(skipLibCheck|allowJs)"\s*:\s*true|"(strict|noImplicitAny|projectService|noEmitOnError)"\s*:\s*false|(projectService)\s*:\s*false`,
     sinais: "g",
     exemploQuePega: () => '{ "compilerOptions": { "skipLibCheck": true } }',
+  },
+  {
+    nome: "regra-em-off",
+    forma: "desligada",
+    oQue: 'regra de lint declarada com `"off"` — ela não roda, não avisa e não reprova; é a forma 1 do cabeçalho, e até o LAB-60 NENHUMA regra desta lista a procurava',
+    oQueNaoPega:
+      'regra que nasce desligada dentro de um conjunto `recommended`, e regra desligada por comentário `eslint-disable` — essa é da `conferencia-desligada-por-arquivo`',
+    arquivos: ["eslint.config.js"],
+    limpeza: "semComentarios",
+    porqueEssaLimpeza: "a pergunta é o que a configuração DECLARA, e a declaração mora na string (D179)",
+    padrao: String.raw`"([^"]+)"\s*:\s*(?:"off"|\[\s*"off")`,
+    sinais: "g",
+    exemploQuePega: () => 'rules: { "no-undef": "off" }',
   },
   {
     nome: "passo-que-engole-falha",

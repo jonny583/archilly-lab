@@ -121,8 +121,42 @@ for (const f of carregados.filter(EH_CONFIGURACAO).sort()) {
 // `regra-em-warn` saiu **4** onde eram **2**. *O volume era da minha régua, não da coisa*
 // — a terceira vez dessa forma em dois prompts (D179, D193).
 const jaVarridos = new Set(porArquivo.filter((l) => l.varrido).map((l) => l.arquivo));
+
+/**
+ * ── O FONTE DA PRÓPRIA RÉGUA SAI DO ESCOPO, e isso é medido, não gosto (LAB-60) ──
+ *
+ * **O LAB-60 mediu que esta varredura acusava a si mesma dez vezes.** O
+ * `conferencia-desligada-por-arquivo` procura `@ts-ignore`, `@ts-nocheck` e
+ * `eslint-disable`, e esses três literais moram, por necessidade, no **padrão** da regra e
+ * no texto que declara os achados — onde eles significam *"eu estou falando sobre"*, e não
+ * *"eu faço"*. É a sub-família do **D155**, e a única limpeza que resolveria (tirar
+ * comentários) **cegaria esta regra por completo**, porque é dentro de comentário que o
+ * desligador vive.
+ *
+ * **O precedente é desta casa e está declarado:** a varredura de segredos do LAB-47 varre
+ * *"tudo que o git carrega — nem uma pasta de fora, nem o fonte dela própria"*. A exclusão
+ * é a mesma, e é **estreita**: só o arquivo que define os padrões e as ferramentas que
+ * publicam as chaves de achado. Nenhuma outra pasta sai.
+ */
+const FONTES_DA_PROPRIA_REGUA: Record<string, string> = {
+  "external-engines/esteira/src/varredura-de-configuracao.ts":
+    "é o arquivo que DEFINE os padrões: `@ts-ignore`, `@ts-nocheck` e `eslint-disable` estão nele como texto do padrão e do `exemploQuePega`",
+  "external-engines/esteira/ferramentas/lab57.ts":
+    "publica as chaves de achado e o motivo de cada declarado, e para isso tem de escrever os literais",
+  "external-engines/esteira/ferramentas/lab60.ts":
+    "o mesmo, apontado ao clone do motor: a lista numerada que vai ao vizinho nomeia os literais",
+  "external-engines/esteira/tests/configuracao.test.ts":
+    "exercita cada regra com o `exemploQuePega` dela, e por isso carrega os três literais",
+  "external-engines/esteira/tests/configuracao-do-motor.test.ts":
+    "o mesmo, para as travas do LAB-60",
+};
+
 const codigo = carregados.filter(
-  (f) => /\.(ts|js)$/.test(f) && !f.includes("node_modules/") && !jaVarridos.has(f),
+  (f) =>
+    /\.(ts|js)$/.test(f) &&
+    !f.includes("node_modules/") &&
+    !jaVarridos.has(f) &&
+    !(f in FONTES_DA_PROPRIA_REGUA),
 );
 let linhasDeCodigo = 0;
 for (const f of codigo) {
@@ -151,6 +185,10 @@ const DECLARADOS: Record<string, string> = {
     "`skipLibCheck: true`, agora DECLARADO no próprio arquivo: medido com `false` dá ZERO erros, e fica ligado porque sem ele uma atualização de `@types/*` derruba o verde por erro dentro de dependência, que ninguém aqui conserta",
   "desligador-de-conferencia|external-engines/testfit/tsconfig.json":
     "o mesmo `skipLibCheck: true`, com a mesma medição (zero erros com `false`) e a mesma declaração escrita no arquivo — os dois pacotes andam juntos de propósito (D86: alargar numa terra e não na outra foi defeito três vezes)",
+  "regra-em-off|external-engines/esteira/eslint.config.js":
+    "`\"no-undef\": \"off\"`, e o motivo está escrito no próprio arquivo desde o LAB-60: em TypeScript o compilador já acusa nome não definido, e o `no-undef` do eslint não conhece os tipos — ele dá falso positivo em `globalThis`, em tipo só-de-tipo e em declaração de ambiente. É o que o próprio `typescript-eslint` recomenda desligar",
+  "regra-em-off|external-engines/testfit/eslint.config.js":
+    "o mesmo `\"no-undef\": \"off\"`, com o mesmo motivo escrito no arquivo — os dois pacotes andam juntos de propósito (D86)",
   "conferencia-desligada-por-arquivo|external-engines/esteira/src/inventario-das-idas.ts":
     "`eslint-disable-next-line @typescript-eslint/no-unused-vars` sobre o ajudante `divida()`, que fica SEM USO de propósito: a categoria vazia é a prova de que ele era confissão com prazo. O motivo está escrito nas seis linhas acima dele, e é o único desligador por arquivo do repositório",
 };
@@ -209,6 +247,7 @@ writeFileSync(
         achados: porRegra[r.nome] ?? 0,
       })),
       porArquivo,
+      oFonteDaPropriaReguaForaDoEscopo: FONTES_DA_PROPRIA_REGUA,
       achados,
       arquivosIgnoradosPresentesEmDisco: ignorados,
       oQueOsIgnORADOSSignificam:
