@@ -65,7 +65,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 1747.38,
+          "ms": 2795.74,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -269,7 +269,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 1620.99,
+          "ms": 2534.9,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -507,7 +507,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "ortogonal (1º de 7 no ranking dele)",
-          "ms": 5455.82,
+          "ms": 7659.36,
           "naoSoubeFazer": [
             "13 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 990.4 m de eixo que saía da gleba (0.21 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -691,7 +691,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 5512.85,
+          "ms": 7547.08,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -916,7 +916,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 489.84,
+          "ms": 833.5,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1112,7 +1112,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 418.42,
+          "ms": 615.18,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1324,7 +1324,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 19 no ranking dele)",
-          "ms": 2155.94,
+          "ms": 2957.46,
           "naoSoubeFazer": [
             "1 de 20 variantes foram recusadas pelo esquema e ficaram fora do ranking",
             "o Lab aparou 556.0 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
@@ -1334,9 +1334,9 @@
           "lotes": 501,
           "areaVendavel_m2": 199892.2,
           "pctPrivativa": 39.98,
-          "violacoes": 18,
+          "violacoes": 17,
           "violacoesPorRegra": {
-            "testada": 7,
+            "testada": 6,
             "frente": 3,
             "face-quadra": 8
           },
@@ -1508,7 +1508,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 1181.12,
+          "ms": 1554.83,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -1739,7 +1739,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 87.04,
+          "ms": 101.58,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -1925,7 +1925,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 70.89,
+          "ms": 114.4,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
@@ -2120,7 +2120,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 272.74,
+          "ms": 379.97,
           "naoSoubeFazer": [
             "o Lab aparou 237.1 m de eixo que saía da gleba (0.65 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -2129,9 +2129,9 @@
           "lotes": 124,
           "areaVendavel_m2": 49028.69,
           "pctPrivativa": 49.03,
-          "violacoes": 29,
+          "violacoes": 4,
           "violacoesPorRegra": {
-            "testada": 28,
+            "testada": 3,
             "frente": 1
           },
           "sobraSemLote_m2": 600,
@@ -2302,7 +2302,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 432.75,
+          "ms": 537.24,
           "naoSoubeFazer": [
             "na ida: parametros (lote) — o Symbios traça via e extrai quadra; ele não parcela em lote, então todo parâmetro de lote fica sem consumidor deste lado da ponte",
             "o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)",
@@ -2544,7 +2544,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 413.27,
+          "ms": 482.75,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -2733,7 +2733,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 395.82,
+          "ms": 594.11,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado"
           ],
@@ -2943,7 +2943,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 1540.51,
+          "ms": 2494.78,
           "naoSoubeFazer": [
             "o Lab aparou 505.5 m de eixo que saía da gleba (0.32 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote"
@@ -2952,9 +2952,8 @@
           "lotes": 599,
           "areaVendavel_m2": 238189.76,
           "pctPrivativa": 50.68,
-          "violacoes": 16,
+          "violacoes": 6,
           "violacoesPorRegra": {
-            "testada": 10,
             "face-quadra": 6
           },
           "sobraSemLote_m2": 400,
@@ -3132,7 +3131,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 630.72,
+          "ms": 892.01,
           "naoSoubeFazer": [
             "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
@@ -3389,7 +3388,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 605.62,
+          "ms": 1002.68,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -3590,7 +3589,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 526.04,
+          "ms": 719.49,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -3802,13 +3801,13 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "superquadra (1º de 20 no ranking dele)",
-          "ms": 5732.79,
+          "ms": 8234,
           "naoSoubeFazer": [
             "o Lab aparou 809.0 m de eixo que saía da gleba (0.17 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote",
             "a testada de frente entrou como 1 face(s) do perímetro (`facesLoteamento: [0]`) — lote virado para a rua existente",
             "o RANKING DELE escolheu \"superquadra\" com 33 lotes (nota 0.6226); entre as aceitas, \"ortogonal\" dá 1228 lotes (nota 0.5881). A escolha da variante é do motor, não do Lab — e aqui ela custa lote",
-            "33 lote(s) externo(s) nasceram da testada, e 33 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate (\"nenhuma aresta encosta em via\") conta esses lotes como violação: o mesmo lote é \"de frente para a rua existente\" por uma régua e \"sem frente para rua\" pela outra"
+            "33 lote(s) externo(s) nasceram da testada, e 33 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate (\"nenhuma aresta encosta em via\") conta esses lotes como violação — e NÃO por discordar do motor: a régua dele ACEITA frente para rua pública, tem campo para ela (`faixaViaPublica`) e o invariante a usa. O que falta é CAMPO NO CONTRATO de motor v1 para declarar que ela existe. Parte dessas violações some com o campo preenchido e parte não — o contrafactual por gleba está em `docs/provas/LAB-53/`"
           ],
           "recusadoPeloEsquema": null,
           "lotes": 33,
@@ -3993,7 +3992,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 8368.89,
+          "ms": 12332.31,
           "naoSoubeFazer": [
             "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",
             "na ida: acessos — o Symbios não recebe ponto de acesso; a rede dele não é ancorada em entrada nenhuma, e ligar a rede ao acesso é trabalho de quem consumir a saída",
@@ -4257,7 +4256,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 456.41,
+          "ms": 574.68,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
@@ -4443,7 +4442,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 347.66,
+          "ms": 475.25,
           "naoSoubeFazer": [
             "a gleba não declarou acesso; o motor escolheu um sozinho, e o traçado depende dessa escolha",
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
@@ -4649,7 +4648,7 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 1434.86,
+          "ms": 2047.26,
           "naoSoubeFazer": [
             "o Lab aparou 493.1 m de eixo que saía da gleba (0.31 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote",
@@ -4832,7 +4831,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 663.65,
+          "ms": 856.26,
           "naoSoubeFazer": [
             "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
             "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",
@@ -5086,7 +5085,7 @@
         "generate-ortogonal": {
           "motor": "Generate · candidata ortogonal",
           "variante": "ortogonal",
-          "ms": 430.14,
+          "ms": 568.77,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -5276,7 +5275,7 @@
         "generate-espinha": {
           "motor": "Generate · candidata espinha",
           "variante": "espinha",
-          "ms": 422.72,
+          "ms": 623.39,
           "naoSoubeFazer": [
             "o relevo da gleba não foi usado: este motor não lê curva de nível no traçado",
             "1 atração(ões) na entrada não entram no traçado deste motor"
@@ -5487,12 +5486,12 @@
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "variante": "espinha (1º de 20 no ranking dele)",
-          "ms": 1241.1,
+          "ms": 1913.01,
           "naoSoubeFazer": [
             "o Lab aparou 477.3 m de eixo que saía da gleba (0.30 % do comprimento) — sem isso o contrato recusa o arquivo",
             "o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote",
             "a testada de frente entrou como 1 face(s) do perímetro (`facesLoteamento: [1]`) — lote virado para a rua existente",
-            "51 lote(s) externo(s) nasceram da testada, e 51 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate (\"nenhuma aresta encosta em via\") conta esses lotes como violação: o mesmo lote é \"de frente para a rua existente\" por uma régua e \"sem frente para rua\" pela outra"
+            "51 lote(s) externo(s) nasceram da testada, e 51 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate (\"nenhuma aresta encosta em via\") conta esses lotes como violação — e NÃO por discordar do motor: a régua dele ACEITA frente para rua pública, tem campo para ela (`faixaViaPublica`) e o invariante a usa. O que falta é CAMPO NO CONTRATO de motor v1 para declarar que ela existe. Parte dessas violações some com o campo preenchido e parte não — o contrafactual por gleba está em `docs/provas/LAB-53/`"
           ],
           "recusadoPeloEsquema": null,
           "lotes": 640,
@@ -5679,7 +5678,7 @@
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
           "variante": "tensorial + esqueleto reto",
-          "ms": 613.25,
+          "ms": 855.06,
           "naoSoubeFazer": [
             "na ida: crs.origemGeografica — sem origem geográfica não há como reverter o resultado para graus; a saída fica em metros locais, que é o que o contrato permite ao declarar codigo local",
             "na ida: atracoes — o Symbios não tem conceito de atração: o traçado dele nasce do campo tensorial do relevo, e não há onde pendurar um ímã",

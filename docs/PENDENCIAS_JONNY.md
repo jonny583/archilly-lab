@@ -415,11 +415,32 @@ e eu olhei **de que são feitos** os 33 lotes. A resposta muda a leitura:
 > do registro a única coisa útil que ele tem.
 
 E tem mais, medido pela régua do próprio Archilly Generate: **29 daqueles 33 lotes são
-contados como "sem frente para rua"**. Não é contradição — é que a rua deles **já existe
-e está fora do terreno**, então ela não é uma rua *do plano*, e a régua que confere "este
-lote tem frente para rua?" não a encontra. O mesmo lote é **"de frente para a rua
-existente"** por uma régua e **"sem frente para rua"** pela outra, e **as duas estão
-certas sobre o que medem**.
+contados como "sem frente para rua"**.
+
+> ~~Não é contradição — é que a rua deles **já existe e está fora do terreno**, então ela
+> não é uma rua *do plano*, e a régua que confere "este lote tem frente para rua?" não a
+> encontra. O mesmo lote é **"de frente para a rua existente"** por uma régua e **"sem
+> frente para rua"** pela outra, e **as duas estão certas sobre o que medem**.~~
+>
+> ⚠️ **CORRIGIDO em 07/10 — eu te expliquei isso errado, e o erro era meu.** Eu disse que
+> havia **duas réguas** medindo coisas diferentes, cada uma certa do seu jeito. **Não há
+> duas réguas.** Fui ler o conferidor do Archilly Generate e ele **concorda** com o
+> Laboratório de Parcelamento: ele **aceita** lote que faz frente para rua que já existe —
+> tem lugar certo para essa informação e usa esse lugar.
+>
+> **O que falta é uma LINHA NA FICHA que os dois programas usam para conversar.** Hoje o
+> Laboratório de Parcelamento **não tem onde escrever** *"aqui fora tem uma rua"*, então o
+> conferidor não recebe o aviso e conta o lote como se não houvesse rua nenhuma. É falta de
+> um campo, não briga de critério.
+>
+> **E tem um limite, que eu também medi:** dos 29 lotes, **11** passariam a ser aceitos no
+> dia em que essa linha existir. **Os outros 18 não** — esses estão longe da rua, de 15
+> metros a **1,8 quilômetro** dela, e aí o problema é mesmo do desenho que o programa fez.
+> Dizer *"é só a ficha que falta"* seria trocar um erro por outro.
+>
+> **Deixo o erro à vista, riscado, pelo mesmo motivo de sempre:** apagar tiraria do registro
+> a única coisa útil que ele tem. E ele **não muda a sua decisão** — ela segue sendo sobre o
+> que a régua de nota deve premiar.
 
 **O que isso faz com as duas leituras que eu te dei:**
 

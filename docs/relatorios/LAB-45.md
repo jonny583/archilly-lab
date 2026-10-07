@@ -82,8 +82,26 @@ externos** e **os 51** publicam `faceDeRua: null` — ele mesmo diz que não faz
 para via **do plano**; o invariante `frente` do Generate (*"nenhuma aresta encosta em
 via"*) acusa **47**. Na base, sem testada: **0 e 0**.
 
-> **O mesmo lote é "de frente para a rua existente" por uma régua e "sem frente para rua"
-> pela outra — e as duas estão certas sobre o que medem.**
+> ~~**O mesmo lote é "de frente para a rua existente" por uma régua e "sem frente para rua"
+> pela outra — e as duas estão certas sobre o que medem.**~~
+>
+> ⚠️ **A MOLDURA ESTAVA ERRADA — corrigida no LAB-56 (D168, D191).** Não são duas réguas
+> discordando: **é UMA régua e UM campo que falta.** Lido o `invariantes.ts` do Generate, ele
+> aceita por escrito *"a RUA PÚBLICA, quando existe"* como superfície de frente; o campo
+> existe (`resultado.faixaViaPublica`), o invariante o usa, e há até bandeira por lote
+> (`deLoteamentoFachada`) que troca o mínimo de testada. **A régua dele CONCORDA com o
+> motor** — ela aceitaria esses lotes se soubesse que a rua existe. O que falta é campo no
+> **contrato de motor v1** onde um motor declare a rua pública existente, então o tradutor
+> do próprio Generate não tem o que traduzir.
+>
+> **E a correção tem limite, também medido (LAB-54):** em `geo-antonina`, das 29 acusadas,
+> **11 somem** com o campo preenchido e **18 NÃO** — essas 18 estão a **15,7 a 1 805,7 m** da
+> face entregue e são do motor. Dizer *"é só o campo que falta"* seria o erro simétrico.
+> **Em `ensaio-com-testada` o contrafactual NÃO foi medido**, então aqui não há número para
+> as 47 — `null` é não medido (D23).
+>
+> *Riscado e não apagado* (D161): a frase saiu em cinco documentos e num gerador, e apagá-la
+> tiraria do registro a única coisa útil que ela tem.
 
 ---
 
