@@ -5715,3 +5715,69 @@ Fica **proposto ao chat** (não executado, §1-A): uma trava que reexecuta a var
 que a prova bata — e a pergunta de projeto que vem com ela é **quais provas podem ser
 regeradas dentro da trava** sem ferir o D182, que proíbe sobregravar prova "antes" com prova
 "depois".
+
+---
+
+## D205 · Lista que o chat usa para escrever fila é dívida minha · 07/10/2026
+
+O chat pediu *"continue a dívida própria com o que sobrou"*. Procurei onde a dívida é
+**declarada** — a categoria `divida` do inventário das idas (**vazia** desde o LAB-37), as
+perdas da ponte (que são perdas, não dívidas), `TODO`/`FIXME` no código (**zero**) — e achei
+no lugar que eu não estava olhando: a seção *"Proposto ao chat — não executar"* da `FILA.md`.
+
+**Medido na árvore do commit `961890b`, sem mudar nada:** de **14** itens abertos, **CINCO
+já estavam executados**, e **DOIS eram cópias de itens riscados na MESMA lista**. Mais
+**duas** propostas desta própria fila que viviam só em seções de prosa.
+
+**E o custo não é estético.** Aquela lista é o que o chat lê para escrever fila: **quatro**
+das filas que ele mandou saíram dela. Se ele a tivesse lido naquele dia, poderia ter mandado
+de volta trabalho já entregue.
+
+> **Lista que ninguém revalida envelhece igual a comentário** (D104, D136) — e quando a
+> lista é a entrada de quem escreve a fila, o apodrecimento dela não é meu: é dele.
+
+**O conserto é mecânico, e é por isso que vale:** cinco cobranças em
+`src/varredura-das-propostas.ts` — riscado diz **qual prompt** o executou; aberto diz **por
+que** segue aberto, de vocabulário **fechado** de seis motivos; nenhum aberto é **cópia** de
+riscado; nenhum motivo foge do vocabulário; nenhuma proposta vive **só em prosa**. A
+ferramenta **para** se achar problema, o *"antes"* sai do `git show`, e 19 travas exercitam a
+régua com casos sintéticos — porque régua que só é exercida pelo documento de hoje cala no
+dia em que o documento mudar de forma.
+
+**A CÓPIA pede DOIS sinais, e isso também foi medido.** A primeira versão casava só pelo
+número da decisão e **acusou uma terceira que não é cópia**: o item do `faceDeRua` cita
+`D156` porque foi o **LAB-43 que o achou**, o mesmo prompt que propôs o detector. *Régua que
+eu afrouxaria para caber no meu número é enfeite* (D172) — foi **estreitada**: decisão
+compartilhada **e** título sobreposto acima de **0,6**. Medidos: as duas cópias dão **1,00**,
+o falso positivo dá **0,00**.
+
+*E o comentário do limiar dizia "1,00 e 0,88", escrito de cabeça; medido, são dois 1,00. É o
+D185 pela quinta vez em oito prompts, e a quinta também foi pega dentro do prompt — pela
+própria ferramenta.*
+
+---
+
+## D206 · Régua que lê MENÇÃO em vez da CITAÇÃO — a sexta vez da mesma família · 07/10/2026
+
+A conferência de *"proposta que vive só em prosa"* exige que cada seção
+`### Proposto ao chat, saído do LAB-xx` seja **citada por algum item da lista**. A primeira
+versão aceitava `texto.includes("LAB-59")`.
+
+**A sabotagem PASSOU com `exit 0`:** tirei de um item a citação de origem `(LAB-59)` e deixei
+só o caminho da prova — e o nome do prompt continuava lá, dentro de
+`docs/provas/LAB-59/contrafactual-de-antonina.json`.
+
+> **É o D142 outra vez.** Lá a régua leu a **palavra** em vez do `import`; aqui leu o
+> **caminho de arquivo** em vez da citação de origem. *Quando a régua procura um nome, tem de
+> procurá-lo no lugar onde o nome significa aquilo* — e aqui esse lugar é a citação entre
+> parênteses logo depois do título, a forma que esta lista sempre usou.
+
+Consertada: `citaAOrigem(texto, prompt)` casa `(LAB-xx`. Refeita a sabotagem, **`exit 1`**,
+com a linha nomeada. A trava do caso tem as três formas — a citação pura, a citação com
+decisão, e o caminho de prova que **não** vale.
+
+*A sub-família da régua que varre texto chega a OITO casos (D137, D142, D155, D177, D179,
+D192, D203, D206). E as sabotagens que **passaram antes de pegar** são **QUATRO**, contadas
+e não lembradas: D179 (área preservada não prova borda preservada), D198 (a calibração media
+só os lotes de `frente`), D203 (a trava do glob com o `rules` fora da região comida) e esta,
+a D206. Nas quatro o `exit 0` foi o achado.*

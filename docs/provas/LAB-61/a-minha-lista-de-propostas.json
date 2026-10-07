@@ -1,0 +1,502 @@
+{
+  "prompt": "LAB-61",
+  "oQueIstoMede": "a saúde da seção 'Proposto ao chat — não executar' da FILA.md, que é a MINHA lista de dívida e é o que o chat lê para escrever fila — quatro filas saíram dela",
+  "aPergunta": "do chat: continue a dívida própria com o que sobrou",
+  "quando": "2026-10-07T13:21:23.235Z",
+  "ondeEuPROCUREIDIVIDA": {
+    "inventario-das-idas.ts · categoria `divida`": "VAZIA desde o LAB-37 (D138) — era a testada de frente, e foi paga",
+    "inventario-das-pontes.ts · `perda`": "são perdas DECLARADAS, com motivo medido: não são dívida",
+    "TODO/FIXME/XXX no código": "ZERO — este repositório não usa marcador de dívida em comentário, e é de propósito (D104)",
+    "FILA.md · 'Proposto ao chat — não executar'": "AQUI estava a dívida, e é a pior: a lista que o CHAT LÊ"
+  },
+  "aRegua": {
+    "onde": "src/varredura-das-propostas.ts",
+    "oQueCobra": [
+      "item riscado diz QUAL prompt o executou (✅ **executado no LAB-xx**)",
+      "item aberto diz POR QUE segue aberto (**Segue aberto:** `motivo`), de vocabulário FECHADO",
+      "nenhum item aberto é CÓPIA de um riscado — dois sinais: decisão compartilhada E título sobreposto",
+      "nenhum motivo foge do vocabulário",
+      "nenhuma proposta vive SÓ EM PROSA, fora da lista que o chat lê"
+    ],
+    "aCopiaPedeDOISSinais": "a primeira versão casava só pelo número da decisão, e acusou uma TERCEIRA que não é cópia (o `faceDeRua` cita D156 porque foi o LAB-43 que o achou, o mesmo prompt que propôs o detector). Régua que eu afrouxaria para caber no meu número é enfeite (D172): foi ESTREITADA",
+    "oLimiarDoTitulo": 0.6,
+    "porqueNaoEhIgualdade": "a cópia da passagem externa diz 'põe lote' num item e 'o motor põe lote' no outro — régua de título exato mede ORTOGRAFIA (D137)",
+    "oVocabulario": [
+      {
+        "id": "prompt-novo",
+        "oQue": "é prompt novo, e prompt fora da fila não existe (§1-A). Só o chat o transforma em item de fila"
+      },
+      {
+        "id": "aguardando-o-jonny",
+        "oQue": "depende de decisão de uma pessoa, e mora em `PENDENCIAS_JONNY.md`"
+      },
+      {
+        "id": "aguardando-outro-repositorio",
+        "oQue": "depende de documento ou código que ainda não existe fora daqui"
+      },
+      {
+        "id": "escopo-novo",
+        "oQue": "é trabalho novo, não dívida: mexeria em coisa que ninguém pediu para mexer"
+      },
+      {
+        "id": "nao-medido",
+        "oQue": "é suspeita sem medição, e por isso não foi atribuída (§6)"
+      },
+      {
+        "id": "depois-do-mvp",
+        "oQue": "o chat o adiou por escrito para depois do MVP"
+      }
+    ]
+  },
+  "antes": {
+    "commit": "961890b",
+    "itens": 27,
+    "riscados": 13,
+    "abertos": 14,
+    "problemas": 18,
+    "porClasse": {
+      "aberto-sem-motivo": 14,
+      "copia-de-item-riscado": 2,
+      "proposta-que-vive-so-em-prosa": 2
+    },
+    "lista": [
+      {
+        "linha": 2030,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO** (07/10, pedido do chat fora da…\""
+      },
+      {
+        "linha": 2046,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**O conserto das 36 violações que são a minha ponte** (LAB-48, D166): `testadaMinLote_m` t…\""
+      },
+      {
+        "linha": 2058,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes** (LAB-52, D178). Medido: são…\""
+      },
+      {
+        "linha": 2063,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**O delta contra o Padrão 1.2**, quando ele existir. A conferência do LF-FINAL foi feita c…\""
+      },
+      {
+        "linha": 2066,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**As 4 violações que sobraram em `geo-antonina`** (2 de sobreposição, de 0,56 e 0,70 m², e…\""
+      },
+      {
+        "linha": 2070,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**As 96 quadras de esqueleto não confiável** em `geo-antonina` (eram 86 antes do recorte):…\""
+      },
+      {
+        "linha": 2073,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**A travessia sobre a APP de `geo-antonina`** — é do Jonny, e está em `PENDENCIAS_JONNY.md…\""
+      },
+      {
+        "linha": 2076,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**A quadra dentro de APP.** O recorte do LAB-05 é pela **divisa**; quadra que cai dentro d…\""
+      },
+      {
+        "linha": 2079,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**O eixo do curso d'água, para o Geo.** A D61 manda a travessia sair **perpendicular ao cu…\""
+      },
+      {
+        "linha": 2107,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**Por que a passagem externa do motor põe lote a 1,8 km da face entregue** (LAB-46, D161).…\""
+      },
+      {
+        "linha": 2107,
+        "classe": "copia-de-item-riscado",
+        "oQue": "cita D161 e o título se sobrepõe 1 ao do item RISCADO da linha 2042 (limiar 0.6) — é cópia: \"**Por que a passagem externa do motor põe lote a 1,8 km da face entregue** (LAB-46, D161).…\""
+      },
+      {
+        "linha": 2112,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**DETECTOR DE PROVA VELHA para o LAB-25 e o LAB-30** (LAB-43, D156). Regerar as quatro pro…\""
+      },
+      {
+        "linha": 2112,
+        "classe": "copia-de-item-riscado",
+        "oQue": "cita D156 e o título se sobrepõe 1 ao do item RISCADO da linha 2041 (limiar 0.6) — é cópia: \"**DETECTOR DE PROVA VELHA para o LAB-25 e o LAB-30** (LAB-43, D156). Regerar as quatro pro…\""
+      },
+      {
+        "linha": 2116,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**O `faceDeRua` nulo nos 33 lotes de `geo-antonina`** (LAB-43, D156). Na prova regerada do…\""
+      },
+      {
+        "linha": 2121,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**Um nome só para cada número do confronto do acesso** (LAB-39, D145). As mesmas três cont…\""
+      },
+      {
+        "linha": 2127,
+        "classe": "aberto-sem-motivo",
+        "oQue": "item aberto sem `**Segue aberto:** `motivo``: \"**CI para o comando único** (LAB-31, D125). O `conferir.sh` existe, roda tudo e está prova…\""
+      },
+      {
+        "linha": 85,
+        "classe": "proposta-que-vive-so-em-prosa",
+        "oQue": "a seção de proposta do LAB-60 não é citada por item nenhum da lista — o chat a acharia por sorte"
+      },
+      {
+        "linha": 94,
+        "classe": "proposta-que-vive-so-em-prosa",
+        "oQue": "a seção de proposta do LAB-59 não é citada por item nenhum da lista — o chat a acharia por sorte"
+      }
+    ],
+    "asSobreposicoesMedidas": [
+      {
+        "marca": "passagem externa do motor",
+        "sobreposicao": 1,
+        "com": 2042
+      },
+      {
+        "marca": "DETECTOR DE PROVA VELHA",
+        "sobreposicao": 1,
+        "com": 2041
+      },
+      {
+        "marca": "faceDeRua",
+        "sobreposicao": 0,
+        "com": 2041
+      }
+    ]
+  },
+  "agora": {
+    "itens": 29,
+    "riscados": 18,
+    "abertos": 11,
+    "problemas": 0,
+    "abertosPorMotivo": {
+      "prompt-novo": 3,
+      "depois-do-mvp": 1,
+      "aguardando-outro-repositorio": 2,
+      "nao-medido": 3,
+      "aguardando-o-jonny": 1,
+      "escopo-novo": 1
+    },
+    "secoesDePropostaEmProsa": [
+      {
+        "linha": 85,
+        "prompt": "LAB-60"
+      },
+      {
+        "linha": 94,
+        "prompt": "LAB-59"
+      }
+    ]
+  },
+  "oQueFoiPAGO": [
+    "CINCO itens abertos que já estavam executados foram riscados COM o prompt que os fez: o conserto da ponte (LAB-53), a passagem externa (LAB-50), o detector de prova velha (LAB-49), um nome só para cada número (LAB-44) e o CI do comando único (LAB-38)",
+    "DOIS deles eram CÓPIA de itens riscados na MESMA lista, e isso está dito em cada um",
+    "os NOVE que seguem abertos ganharam o motivo DECLARADO, de vocabulário fechado",
+    "as DUAS propostas que viviam só em prosa (LAB-59 e LAB-60) entraram na lista, porque proposta que o chat acha por sorte não é proposta"
+  ],
+  "itens": [
+    {
+      "linha": 2030,
+      "titulo": "A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "prompt-novo",
+      "decisoes": [
+        "D182",
+        "D204"
+      ]
+    },
+    {
+      "linha": 2038,
+      "titulo": "O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "prompt-novo",
+      "decisoes": []
+    },
+    {
+      "linha": 2045,
+      "titulo": "A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "prompt-novo",
+      "decisoes": []
+    },
+    {
+      "linha": 2056,
+      "titulo": "O detector de prova velha para o LAB-25 e o LAB-30",
+      "riscado": true,
+      "executadoPor": "LAB-49",
+      "motivo": null,
+      "decisoes": [
+        "D156"
+      ]
+    },
+    {
+      "linha": 2057,
+      "titulo": "Por que a passagem externa põe lote a 1,8 km da face entregue",
+      "riscado": true,
+      "executadoPor": "LAB-50",
+      "motivo": null,
+      "decisoes": [
+        "D161",
+        "D173"
+      ]
+    },
+    {
+      "linha": 2058,
+      "titulo": "Por que o motor desenha via SOBRE a face que ele mesmo reservou",
+      "riscado": true,
+      "executadoPor": "LAB-55",
+      "motivo": null,
+      "decisoes": [
+        "D174",
+        "D188"
+      ]
+    },
+    {
+      "linha": 2061,
+      "titulo": "O conserto das 36 violações que são a minha ponte",
+      "riscado": true,
+      "executadoPor": "LAB-53",
+      "motivo": null,
+      "decisoes": [
+        "D136",
+        "D166",
+        "D180",
+        "D181"
+      ]
+    },
+    {
+      "linha": 2066,
+      "titulo": "A correção da moldura do D159 nos três lugares onde ela saiu",
+      "riscado": true,
+      "executadoPor": "LAB-56",
+      "motivo": null,
+      "decisoes": [
+        "D159",
+        "D168",
+        "D191"
+      ]
+    },
+    {
+      "linha": 2069,
+      "titulo": "As 27 violações `frente` não atribuídas",
+      "riscado": true,
+      "executadoPor": "LAB-54",
+      "motivo": null,
+      "decisoes": [
+        "D184"
+      ]
+    },
+    {
+      "linha": 2072,
+      "titulo": "O cabeçalho do `conferir.sh` afirma que não há CI neste repositório",
+      "riscado": true,
+      "executadoPor": "LAB-51",
+      "motivo": null,
+      "decisoes": [
+        "D177"
+      ]
+    },
+    {
+      "linha": 2073,
+      "titulo": "Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "depois-do-mvp",
+      "decisoes": [
+        "D178"
+      ]
+    },
+    {
+      "linha": 2078,
+      "titulo": "O delta contra o Padrão 1.2",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "aguardando-outro-repositorio",
+      "decisoes": [
+        "D43"
+      ]
+    },
+    {
+      "linha": 2081,
+      "titulo": "As 4 violações que sobraram em `geo-antonina`",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "nao-medido",
+      "decisoes": []
+    },
+    {
+      "linha": 2085,
+      "titulo": "As 96 quadras de esqueleto não confiável",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "nao-medido",
+      "decisoes": [
+        "D51"
+      ]
+    },
+    {
+      "linha": 2088,
+      "titulo": "A travessia sobre a APP de `geo-antonina`",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "aguardando-o-jonny",
+      "decisoes": [
+        "D58"
+      ]
+    },
+    {
+      "linha": 2091,
+      "titulo": "A quadra dentro de APP.",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "escopo-novo",
+      "decisoes": []
+    },
+    {
+      "linha": 2094,
+      "titulo": "O eixo do curso d'água, para o Geo.",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "aguardando-outro-repositorio",
+      "decisoes": [
+        "D61"
+      ]
+    },
+    {
+      "linha": 2098,
+      "titulo": "O balanço fora da fila não tem onde morar",
+      "riscado": true,
+      "executadoPor": "LAB-42",
+      "motivo": null,
+      "decisoes": [
+        "D152"
+      ]
+    },
+    {
+      "linha": 2102,
+      "titulo": "Fixtures que exerçam as quatro promessas",
+      "riscado": true,
+      "executadoPor": "LAB-40",
+      "motivo": null,
+      "decisoes": [
+        "D147"
+      ]
+    },
+    {
+      "linha": 2105,
+      "titulo": "As posições em que a candidata ortogonal do Generate não entrega nada aceitável",
+      "riscado": true,
+      "executadoPor": "LAB-41",
+      "motivo": null,
+      "decisoes": [
+        "D150"
+      ]
+    },
+    {
+      "linha": 2110,
+      "titulo": "A última trava que repete",
+      "riscado": true,
+      "executadoPor": "LAB-39",
+      "motivo": null,
+      "decisoes": [
+        "D131",
+        "D144"
+      ]
+    },
+    {
+      "linha": 2113,
+      "titulo": "As duas fixtures novas na TABELA comparativa",
+      "riscado": true,
+      "executadoPor": "LAB-45",
+      "motivo": null,
+      "decisoes": [
+        "D140",
+        "D158",
+        "D159"
+      ]
+    },
+    {
+      "linha": 2116,
+      "titulo": "Medir em Antonina as três amostragens",
+      "riscado": true,
+      "executadoPor": "LAB-46",
+      "motivo": null,
+      "decisoes": [
+        "D148",
+        "D160"
+      ]
+    },
+    {
+      "linha": 2119,
+      "titulo": "a etiqueta do contrato, que quatro provas declaravam errada",
+      "riscado": true,
+      "executadoPor": "LAB-43",
+      "motivo": null,
+      "decisoes": [
+        "D146",
+        "D154"
+      ]
+    },
+    {
+      "linha": 2122,
+      "titulo": "Por que a passagem externa do motor põe lote a 1,8 km da face entregue",
+      "riscado": true,
+      "executadoPor": "LAB-50",
+      "motivo": null,
+      "decisoes": [
+        "D161"
+      ]
+    },
+    {
+      "linha": 2127,
+      "titulo": "DETECTOR DE PROVA VELHA para o LAB-25 e o LAB-30",
+      "riscado": true,
+      "executadoPor": "LAB-49",
+      "motivo": null,
+      "decisoes": [
+        "D156"
+      ]
+    },
+    {
+      "linha": 2131,
+      "titulo": "O `faceDeRua` nulo nos 33 lotes de `geo-antonina`",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "nao-medido",
+      "decisoes": [
+        "D104",
+        "D156"
+      ]
+    },
+    {
+      "linha": 2136,
+      "titulo": "Um nome só para cada número do confronto do acesso",
+      "riscado": true,
+      "executadoPor": "LAB-44",
+      "motivo": null,
+      "decisoes": [
+        "D116",
+        "D145"
+      ]
+    },
+    {
+      "linha": 2142,
+      "titulo": "CI para o comando único",
+      "riscado": true,
+      "executadoPor": "LAB-38",
+      "motivo": null,
+      "decisoes": [
+        "D125",
+        "D141"
+      ]
+    }
+  ]
+}
