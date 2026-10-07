@@ -73,7 +73,7 @@ texto velho* (D104).
 |---|---|---|---|
 | **LAB-53** | **O conserto das 36 violações que são a MINHA PONTE**, com guarda ao lado (D166) | ✅ **concluído em 07/10/2026** · 128 → **92** | nenhuma |
 | **LAB-54** | As **27 violações `frente` não atribuídas** — medir com a régua DELE, não com a minha | ✅ **concluído em 07/10/2026** · **23 motor + 4 régua-no-rótulo** | LAB-53 mesclado ✅ |
-| **LAB-55** | **Por que o motor desenha via SOBRE a face que ele mesmo reservou** — matei duas explicações e não tenho a terceira (D174) | 🟢 **pronto** · caminho crítico | LAB-54 mesclado |
+| **LAB-55** | **Por que o motor desenha via SOBRE a face que ele mesmo reservou** — matei duas explicações e não tenho a terceira (D174) | ✅ **concluído em 07/10/2026** · **a faixa é buraco só para o LOTE** | LAB-54 mesclado ✅ |
 | **LAB-56** | A **correção da moldura do D159** nos três lugares onde ela saiu (D168) | 🟢 **pronto** | LAB-55 mesclado |
 | **LAB-57** | **O resto da varredura do D178**: há outra configuração que desliga conferência sem avisar? E a lição das duas perguntas **em cinco linhas**, para o chat distribuir | 🟢 **pronto** | LAB-56 mesclado |
 
@@ -131,6 +131,38 @@ vi.
 
 **E uma frase do LAB-48 era falsa** (D185): *"oito estão a 0,2 m ou menos"* — são **cinco**, e
 a lista estava impressa na linha de cima. Corrigida **riscando** (D161).
+
+### LAB-55 · A faixa é buraco no domínio do LOTE e não no da VIA — ✅ concluído em 07/10/2026
+
+**Entregue:** [`../relatorios/LAB-55.md`](../relatorios/LAB-55.md),
+`docs/provas/LAB-55/via-sobre-a-faixa.json`, `ferramentas/lab55.ts`,
+`tests/via-sobre-faixa.test.ts` (**11 travas**; a suíte vai a **476**) e as decisões
+**D188, D189, D190**.
+
+**A terceira explicação, achada — e ela é uma ASSIMETRIA:** `sobreposicao` = **0** (o LOTE
+respeitou a faixa) ao lado de `via-sobre-lote` = **11** (a VIA não respeitou). `util` recorta
+quadra e lote; a rede viária recebe **um** aparo, e é contra a **DIVISA**
+(`apararRedeViaria(vias, terreno.perimetro)`).
+
+**A assinatura, medida:** as **quatro** vias culpadas têm **as duas pontas a 0 m do
+perímetro** e **uma ponta DENTRO de um lote externo**, atravessando a faixa em **4 % a 23 %**
+do eixo. *Via recortada por `util` pararia na borda interna da faixa, longe do perímetro.*
+
+**E o segundo andar se mede de fora:** **zero bulbo de retorno** nas duas glebas ⇒
+`pctCulDeSac = 0` ⇒ o `aplicarCulDeSac` — o único lugar que recortaria via por `util`, e só a
+**secundária** — nem rodou. É o que explica uma via secundária entre as culpadas, ao lado de
+três principais.
+
+**Duas candidatas a mais morreram** (D189): o **corte degenerado**, morto pela **ausência** de
+`sobreposicao` (*violação que não aconteceu é medição*); e a **via de acesso**, que morre **só
+como mecanismo** — a pior infratora de Antonina passa a 9,6 m do acesso, e isso fica dito.
+**A trava que afirmava demais ficou vermelha e a correção foi estreitar a conclusão, não
+baixar o limiar** (D172).
+
+**O achado contra mim** (D190): li a hierarquia da via no `resultado` **interno** do Generate
+e saiu `null` em 4 de 4 — ela mora na **SAÍDA**. Caminho errado que devolve `null` em campo
+que classifica vira frase publicável. **16ª** vez do ponto cego da §6, décima pega dentro do
+prompt.
 
 ### O que o chat tirou da fila, e para quando
 
@@ -1729,9 +1761,9 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 
 - ~~**O detector de prova velha para o LAB-25 e o LAB-30** (D156)~~ — ✅ **executado no LAB-49**.
 - ~~**Por que a passagem externa põe lote a 1,8 km da face entregue** (D161)~~ — ✅ **executado no LAB-50**: a faixa é um SEMIPLANO (D173).
-- **Por que o motor desenha via SOBRE a face que ele mesmo reservou** (LAB-50, D174) — as 11
-  `via-sobre-lote`. Matei duas explicações minhas e **não tenho a terceira**: é pergunta, está
-  na lista numerada para o Parcelamento, e **não atribuo sem medir**.
+- ~~**Por que o motor desenha via SOBRE a face que ele mesmo reservou** (LAB-50, D174)~~ —
+  ✅ **executado no LAB-55**: a faixa é buraco no domínio do **lote** e não no da **via**
+  (D188). O aparo da rede é contra a **divisa**, não contra `util`.
 - **O conserto das 36 violações que são a minha ponte** (LAB-48, D166): `testadaMinLote_m` tem
   de sair do contrato, como o `areaMinLote_m2` já sai — é **uma linha** no `volta.ts`. Não
   executado porque o chat pediu *"o diagnóstico antes de consertar qualquer coisa"*. **E junto

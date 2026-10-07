@@ -1,0 +1,152 @@
+{
+  "prompt": "LAB-55",
+  "oQueIstoMede": "por que a rede viária do motor ocupa a faixa que `reservarFacesExternas` tirou da gleba — com a faixa lida nos lotes externos publicados, e o Validator do Generate como juiz",
+  "aHipotese": "`util` (a gleba menos a faixa) governa onde nasce QUADRA e LOTE (formatos.ts, `quadraRet(util, …)`), e a REDE VIÁRIA é aparada por `apararRedeViaria(vias, terreno.perimetro)` — pela DIVISA, não por `util`. A faixa é buraco no domínio do lote e não é buraco no domínio da via. O único recorte de via por `util` está no `aplicarCulDeSac`, só para via SECUNDÁRIA e só quando pctCulDeSac > 0 (formatos.ts:826)",
+  "asDuasExplicacoesMORTAS": [
+    "concavidade (D174) — acontece igual na gleba CONVEXA de 4 vértices",
+    "derrame de meia-caixa (D174) — o eixo culpado está a 0,1 a 0,8 m da RETA da face, DENTRO da faixa"
+  ],
+  "comoAFaixaFoiLida": "nos LOTES EXTERNOS publicados (id `-eN`, a marca que o motor estampa). `prof` não é observável de fora (LAB-50, item 3), então a faixa não foi reconstruída. O id diz O QUE o lote é; ONDE ele está é medido (D161)",
+  "quando": "2026-10-07T05:13:05.774Z",
+  "motor": "Laboratório de Parcelamento (motor-testfit) — o motor PADRÃO da tela unificada",
+  "semente": 20260913,
+  "contrato": "1",
+  "glebas": [
+    {
+      "gleba": "geo-antonina",
+      "convexa": false,
+      "variante": "superquadra (1º de 20 no ranking dele)",
+      "facesEntregues": 1,
+      "testadasDeFrenteNaEntrada": 1,
+      "lotesExternos": 33,
+      "vias": 10,
+      "viasQueEntramNaFaixa": 2,
+      "bulbosDeRetornoNaSaida": 0,
+      "oRecorteDeViaPorUtilRodou": "NÃO: zero bulbo de retorno na SAÍDA ⇒ `pctCulDeSac` é 0 e o `aplicarCulDeSac` retornou antes de recortar via nenhuma",
+      "viaSobreLote": 11,
+      "sobreposicao_LAB53": 0,
+      "sobreposicao_porque": "lido da prova do LAB-53, não remedido aqui (D116)",
+      "paresLoteVia": 11,
+      "passoDaAmostragem_m": 0.25
+    },
+    {
+      "gleba": "ensaio-com-testada",
+      "convexa": true,
+      "variante": "espinha (1º de 20 no ranking dele)",
+      "facesEntregues": 1,
+      "testadasDeFrenteNaEntrada": 1,
+      "lotesExternos": 51,
+      "vias": 11,
+      "viasQueEntramNaFaixa": 2,
+      "bulbosDeRetornoNaSaida": 0,
+      "oRecorteDeViaPorUtilRodou": "NÃO: zero bulbo de retorno na SAÍDA ⇒ `pctCulDeSac` é 0 e o `aplicarCulDeSac` retornou antes de recortar via nenhuma",
+      "viaSobreLote": 15,
+      "sobreposicao_LAB53": null,
+      "sobreposicao_porque": "NÃO MEDIDO: esta gleba é o controle convexo e não está entre as cinco do LAB-48/LAB-53",
+      "paresLoteVia": 17,
+      "passoDaAmostragem_m": 0.25
+    }
+  ],
+  "viasCulpadas": [
+    {
+      "gleba": "geo-antonina",
+      "via": "V2",
+      "hierarquia": "principal",
+      "largura_m": 11.5,
+      "comprimento_m": 1708.54,
+      "pontaA_aoPerimetro_m": 0,
+      "pontaB_aoPerimetro_m": 0,
+      "pontaA_dentroDeLoteExterno": false,
+      "pontaB_dentroDeLoteExterno": true,
+      "aparadaPelaDivisa": true,
+      "fracaoDoEixoDentroDaFaixa": 0.05,
+      "amostrasDoEixo": 6836,
+      "atravessaEContinua": true,
+      "distanciaDoAcesso_m": 9.55,
+      "lotesQueEleInvade": [
+        "v19-e5 (68.49 m²)",
+        "v19-e6 (137.11 m²)",
+        "v19-e7 (157.4 m²)",
+        "v19-e8 (157.4 m²)",
+        "v19-e9 (152.79 m²)",
+        "v19-e10 (111.28 m²)",
+        "v19-e11 (61.8 m²)",
+        "v19-e12 (13.87 m²)"
+      ]
+    },
+    {
+      "gleba": "geo-antonina",
+      "via": "V10",
+      "hierarquia": "principal",
+      "largura_m": 11.5,
+      "comprimento_m": 594.77,
+      "pontaA_aoPerimetro_m": 0,
+      "pontaB_aoPerimetro_m": 0,
+      "pontaA_dentroDeLoteExterno": false,
+      "pontaB_dentroDeLoteExterno": true,
+      "aparadaPelaDivisa": true,
+      "fracaoDoEixoDentroDaFaixa": 0.04,
+      "amostrasDoEixo": 2381,
+      "atravessaEContinua": true,
+      "distanciaDoAcesso_m": 86.69,
+      "lotesQueEleInvade": [
+        "v19-e13 (4.65 m²)",
+        "v19-e14 (235.47 m²)",
+        "v19-e15 (16.07 m²)"
+      ]
+    },
+    {
+      "gleba": "ensaio-com-testada",
+      "via": "V11",
+      "hierarquia": "secundaria",
+      "largura_m": 10,
+      "comprimento_m": 589.75,
+      "pontaA_aoPerimetro_m": 0,
+      "pontaB_aoPerimetro_m": 0,
+      "pontaA_dentroDeLoteExterno": true,
+      "pontaB_dentroDeLoteExterno": false,
+      "aparadaPelaDivisa": true,
+      "fracaoDoEixoDentroDaFaixa": 0.23,
+      "amostrasDoEixo": 2361,
+      "atravessaEContinua": true,
+      "distanciaDoAcesso_m": 382.49,
+      "lotesQueEleInvade": [
+        "v2-e1 (84.48 m²)",
+        "v2-e2 (116.42 m²)",
+        "v2-e3 (116.42 m²)",
+        "v2-e4 (116.42 m²)",
+        "v2-e5 (116.42 m²)",
+        "v2-e6 (116.42 m²)",
+        "v2-e7 (116.42 m²)",
+        "v2-e8 (116.42 m²)",
+        "v2-e9 (116.28 m²)",
+        "v2-e10 (104.39 m²)",
+        "v2-e11 (84.99 m²)",
+        "v2-e12 (65.59 m²)",
+        "v2-e13 (46.19 m²)",
+        "v2-e14 (26.79 m²)",
+        "v2-e15 (7.52 m²)"
+      ]
+    },
+    {
+      "gleba": "ensaio-com-testada",
+      "via": "V1",
+      "hierarquia": "principal",
+      "largura_m": 11.5,
+      "comprimento_m": 403.15,
+      "pontaA_aoPerimetro_m": 0,
+      "pontaB_aoPerimetro_m": 0,
+      "pontaA_dentroDeLoteExterno": false,
+      "pontaB_dentroDeLoteExterno": true,
+      "aparadaPelaDivisa": true,
+      "fracaoDoEixoDentroDaFaixa": 0.08,
+      "amostrasDoEixo": 1614,
+      "atravessaEContinua": true,
+      "distanciaDoAcesso_m": 0.3,
+      "lotesQueEleInvade": [
+        "v2-e5 (245.12 m²)",
+        "v2-e6 (134.48 m²)"
+      ]
+    }
+  ]
+}

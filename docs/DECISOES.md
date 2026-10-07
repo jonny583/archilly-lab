@@ -5210,3 +5210,85 @@ régua quando ela nos reprova (D172).
 reprovou foi o comando único, no passo `esteira · test` — a terceira vez neste dia em que o
 §7 cobra algo que os passos parciais aprovariam (a primeira foi o `tsc` do `testfit` no
 LAB-53).
+
+---
+
+## D188 · A faixa reservada é buraco no domínio do LOTE e não no domínio da VIA · 07/10/2026
+
+O LAB-50 deixou isto **não atribuído** de propósito, com duas explicações minhas já mortas
+(D174). A terceira está medida, e é uma **assimetria**:
+
+```
+sobreposicao   = 0     ← o LOTE respeitou a faixa reservada
+via-sobre-lote = 11    ← a VIA não respeitou
+```
+
+**O mecanismo, lido no código do motor (só leitura):** `reservarFacesExternas` tira a faixa
+de `restante` (`motor.ts:194`), `restante` vira `util` (`:198`), e **`util` recorta quadra e
+lote** (`formatos.ts`, `quadraRet(util, …)`). A rede viária recebe **um** aparo:
+
+```ts
+const vias = apararRedeViaria(viasBrutas, terreno.perimetro);   // motor.ts:247
+```
+
+**Contra a DIVISA.** E a faixa reservada está dentro da divisa.
+
+> **`util` governa onde nasce LOTE. A DIVISA governa onde fica VIA.**
+
+**A assinatura do aparo pela divisa, medida:** as **quatro** vias culpadas (duas glebas) têm
+**as duas pontas a 0 m do perímetro** e **uma ponta dentro de um lote externo**, atravessando
+a faixa em **4 % a 23 %** do eixo. *Via recortada por `util` pararia na borda interna da
+faixa, longe do perímetro* — é a medida que separa as duas explicações.
+
+**E o segundo andar também está medido de fora.** O `aplicarCulDeSac` (`formatos.ts:826`) é o
+único lugar que recortaria via por `util`, e tem dois buracos: só recorta `secundaria`, e
+começa com `if (pct <= 0) return`. O bulbo de retorno nasce só nesse caminho e o contrato o
+publica como área `retorno`: **zero `retorno` nas duas glebas** ⇒ não rodou. É o que explica
+uma via **secundária** entre as culpadas, ao lado de três **principais**, que ele nunca
+recortaria.
+
+---
+
+## D189 · Violação que NÃO aconteceu é medição — e candidata que morre só pela metade sai dita · 07/10/2026
+
+**Duas candidatas foram ao teste, e cada uma morreu de um jeito diferente.**
+
+**O corte degenerado morreu pela AUSÊNCIA de uma violação.** A candidata era
+`if (sobra.length >= 3) restante = sobra;` deixando `restante` inteiro num corte degenerado.
+Se fosse isso, `util` seria a gleba inteira e **quadra e lote teriam nascido sobre a faixa** —
+e haveria `sobreposicao` entre lote interno e lote externo. Medido: **zero**.
+
+> **Violação que não aconteceu é medição, e aqui foi ela que matou a candidata.** O invariante
+> que ficou calado disse mais que os onze que falaram.
+
+**A do acesso morreu só como mecanismo, e a honestidade está no "só".** Em `geo-antonina` a
+pior infratora (`V2`, 8 lotes) passa a **9,6 m** do ponto de acesso: **não afirmo que o acesso
+não tem parte nela.** O que morre é a candidata como *o mecanismo*, por dois números — em
+**toda** gleba há culpada longe (`V10` a 86,7 m, `V11` a 382,5 m), e no controle convexo a
+**pior de todas** está a **382,5 m** enquanto a que **é** a via de acesso invade só 2 lotes.
+
+**E isto custou uma trava vermelha minha.** A primeira versão afirmava *"a pior infratora de
+CADA gleba está a mais de 50 m do acesso"* e reprovou, por causa dos 9,6 m. **Afrouxar o
+limiar para 5 m seria a régua-enfeite do D172; a correção foi medir a afirmação que os
+números sustentam.** *Trava que reprova a sua própria conclusão está pedindo uma conclusão
+mais estreita, não um limiar mais largo.*
+
+---
+
+## D190 · A hierarquia da via mora na SAÍDA, não no `resultado` interno do Generate · 07/10/2026
+
+A primeira versão da ferramenta do LAB-55 leu a hierarquia da via culpada em
+`resultado.rede[...].hierarquia` — o objeto **interno** do Generate — e saiu **`null` em 4 de
+4**. Eu estava a um passo de escrever *"a hierarquia da via culpada não é observável de
+fora"*, que é a forma do item 3 do LAB-50 e seria **falso**: ela mora na **SAÍDA**, onde o
+contrato a publica (`vias[].hierarquia`).
+
+Família do D135 (caminho errado) e do D175, **no lado ruim dele**: o caminho errado **não
+estourou, devolveu `null`**. E `null` num campo que decide a atribuição não fica quieto — ele
+vira uma frase no relatório.
+
+> **Caminho errado que devolve `null` é uma acusação publicável — e quando o campo é o que
+> classifica, a acusação é contra quem publica o campo.**
+
+Consertado lendo `r.saida.vias[].hierarquia` por id, com o motivo escrito no código para a
+próxima pessoa não repetir. Pego **dentro do prompt**.

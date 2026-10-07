@@ -223,7 +223,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu QUINZE vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu DEZESSEIS vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -243,6 +243,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D161 (LAB-46) | "os 33 lotes são todos da beira da rua existente" | eu contei o **id** `-eN`, e só **14 de 33** encostam |
 | D166 (LAB-48) | "o motor padrão desenha 47 lotes com testada abaixo da mínima" | **36 dos 47**: a minha ponte escreveu o **ALVO** sorteado no campo cujo nome é **MÍNIMO** |
 | D185 (LAB-54) | "oito das 27 estão a 0,2 m ou menos da borda do leito" | **cinco** — e a lista com os números estava **impressa na linha de cima do próprio relatório** |
+| D190 (LAB-55) | "a hierarquia da via culpada não é observável de fora" | ela mora na **SAÍDA**; eu a li no `resultado` **interno** do Generate e saiu `null` em 4 de 4 |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -254,9 +255,16 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**Das QUINZE, NOVE foram réguas minhas acusando a si mesmas** e **duas foram a ponte
-corrompendo a medição** (D98/D104 e D166); **NOVE** foram pegas **dentro do próprio prompt**,
-antes de sair (D128, D133, D135, D137, D142, D148, D155, D166, D185).
+**Das DEZESSEIS, NOVE foram réguas minhas acusando a si mesmas**, **duas foram a ponte
+corrompendo a medição** (D98/D104 e D166) e **três foram caminho errado de leitura** (D135,
+D175, D190); **DEZ** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133,
+D135, D137, D142, D148, D155, D166, D185, D190).
+
+**A décima sexta é a terceira da família do CAMINHO, e a segunda do lado ruim dela:** o
+caminho errado **não estourou, devolveu `null`** — e `null` num campo que *classifica* não
+fica quieto, vira frase no relatório. *Caminho errado que devolve `null` é uma acusação
+publicável, e quando o campo é o que classifica, a acusação é contra quem publica o campo*
+(D175, D190).
 
 **A décima quinta é a mais simples e a mais humilhante:** eu contei **de cabeça** uma lista
 que estava **impressa na linha de cima** do meu próprio relatório, e publiquei *"oito"* onde
@@ -283,7 +291,7 @@ consertar**, porque o comentário do conserto **citava** o defeito: varredura es
 texto de código mede **o que o código faz** e **o que ele diz sobre si**, e só uma delas é
 o objeto.
 
-**A regra que as quatorze ensinam, e ela é curta:**
+**A regra que as dezesseis ensinam, e ela é curta:**
 
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
 > você está lendo**; antes de dizer que um número mudou, confira se ele
@@ -300,9 +308,9 @@ o objeto.
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
 > rótulo, e três das quinze vezes eu classifiquei pelo nome em vez de medir (D148, D155,
 > D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
-> **Quinze de quinze vezes o defeito estava do MEU lado — na régua, na ponte ou na minha
-> cabeça — antes de estar no medido**, e em sete delas a régua era o teste que eu acabara de
-> escrever.
+> **Dezesseis de dezesseis vezes o defeito estava do MEU lado — na régua, na ponte, no
+> caminho ou na minha cabeça — antes de estar no medido**, e em sete delas a régua era o teste
+> que eu acabara de escrever.
 
 **E há um irmão do ponto cego que não é defeito meu nem do medido, e custa igual** (D184):
 **régua que erra o RÓTULO e acerta o VEREDICTO não é régua errada.** Eu estava a um passo de
