@@ -11,7 +11,7 @@
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 07/10/2026.**
 
-**Os quatro prompts estão feitos e mesclados** (PRs #72, #74, #76 e o do LAB-61), e o que
+**Os quatro prompts estão feitos e mesclados** (PRs #72, #74, #76 e #78), e o que
 resta na [`prompts/FILA.md`](prompts/FILA.md) está todo em *"proposto ao chat"* — **onze
 itens, cada um agora com o MOTIVO DECLARADO** —, que por definição não se executa. É o caso
 da **D62**, e o desligamento é **desligamento, não apagamento** (D112): regra que o chat
@@ -27,7 +27,7 @@ gravado **junto** do LAB-61 e não depois.
 | **LAB-58** | as 81 do motor por **MECANISMO** — insumo da fila do motor | ✅ **07/10** · **SEIS**, zero não nomeadas · PR #72 |
 | **LAB-59** | o **contrafactual** de Antonina, as 20 candidatas em 4 cenários | ✅ **07/10** · **16 de 20**, e a nota dele ainda prefere 33 · PR #74 |
 | **LAB-60** | a configuração do motor, **só de leitura** | ✅ **07/10** · as **três vivas**, e ele **não tem CI** · PR #76 |
-| **LAB-61** | a **dívida própria** — e ela era **esta lista** | ✅ **07/10** · **18 problemas → 0** · a fila esgotou |
+| **LAB-61** | a **dívida própria** — e ela era **esta lista** | ✅ **07/10** · **18 problemas → 0** · PR #78 · a fila esgotou |
 
 # 🟩 A MAIOR ENTREGA DA FILA: a pendência do Jonny está FECHADA
 
