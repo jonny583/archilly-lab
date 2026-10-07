@@ -474,3 +474,128 @@ fila: a **reconciliação dos quatro números** (§7), o **`recommendedTypeCheck
 achados, que o chat adiou para depois do MVP), e a **varredura de segredos passar a NOMEAR o
 que é ignorado** — o `.gitignore` do upstream esconde `/.claude` e `.mcp.json`, que hoje não
 existem, e upstream é intocável.
+
+---
+
+## 9 · O saldo da fila LAB-58 a LAB-61 — 07/10/2026
+
+| | |
+|---|---|
+| **origem** | o chat, em 07/10/2026 à noite, **depois de aceitar a recusa da fila T-36…T-39** e redirecionar os três itens que eram do Lab |
+| **onde está o original** | [`../prompts/FILA.md`](../prompts/FILA.md), seção *A FILA DE 07/10/2026 (segunda)*, com as palavras dele item por item |
+| **o que continha** | quatro prompts: agrupar as 81 por mecanismo, o contrafactual de Antonina, a configuração do motor só de leitura, e a dívida própria |
+| **estado** | ✅ **quatro de quatro**, executados e mesclados em 07/10/2026 (PRs #72, #74, #76 e o do LAB-61) |
+| **onde está a prova** | `docs/provas/LAB-58/` a `docs/provas/LAB-61/`, oito arquivos |
+
+### A regra de família que nasceu antes da fila
+
+> *"Erro meu, a fila T-36 a T-39 era do motor e você acertou em não executar. A sua regra está
+> aceita e vira regra da família: **quem mede é quem vai consertar, e fila com numeração de um
+> app não se executa noutro**."*
+
+**É a primeira vez que uma recusa minha virou regra da família.** A fila anterior esgotou, o
+chat mandou uma fila com numeração `T-xx` endereçada ao motor, e eu não a executei — quatro
+coisas medidas diziam que era do vizinho, e a quinta era de método: *medição duplicada entre
+sessões não dá confirmação, dá divergência*, que é o que produziu os quatro números do §7.
+
+### Os quatro, e o que cada um moveu
+
+| # | o que entregou | o número |
+|---|---|---|
+| **LAB-58** | as 81 violações do motor agrupadas por **MECANISMO**, em lista numerada | **SEIS** mecanismos, `MECANISMO-NAO-NOMEADO` em **zero** |
+| **LAB-59** | o **contrafactual** de Antonina, as 20 candidatas por quatro cenários | **16 de 20** aprovam com os dois lados resolvidos — e a nota dele ainda prefere 33 |
+| **LAB-60** | a configuração do motor, **só de leitura**, em lista numerada | as **três formas vivas**, e ele **não tem CI** |
+| **LAB-61** | a **minha** lista de propostas, medida e consertada | **18 problemas → 0**; 5 itens executados seguiam abertos, 2 eram cópias |
+
+### O que a fila FECHOU, e é a maior entrega dela
+
+**A pendência do Jonny sobre preferir 33 ou 1 228 lotes.** O LAB-59 mediu as 20 candidatas de
+`geo-antonina` pelo Validator do Generate em quatro cenários:
+
+```
+hoje ............  0 de 20 aprovam
+só-o-contrato ...  0 de 20
+só-o-motor ......  0 de 20
+os-dois ......... 16 de 20   ← a ortogonal de 1.228 lotes ENTRE ELAS
+```
+
+E a nota **dele** continua preferindo a `superquadra` de **33** — 0,6226 contra 0,5881.
+
+> **O que escolhe o plano pequeno é a RÉGUA DE NOTA, não a validade.** A decisão que sobra
+> para o Jonny é urbanismo, não medição — e o item 7 da página dele foi marcado como **medido
+> e fechado**, com a tabela dos quatro cenários em palavra de pessoa.
+
+**As duas pontas são necessárias e nenhuma basta:** só o motor aprova zero, só o contrato
+aprova zero. É a confirmação medida do `oQueBloqueiaCadaGleba` do LAB-58.
+
+### A lista que vai ao motor, por mecanismo e em ordem de quantas glebas destrava
+
+```
+1 · o teto de face de quadra limita UM EIXO e deixa o outro correr ....... 14   2 glebas
+2 · a quadra recebe fileira de lote em face que NÃO É RUA ................ 23   3 glebas
+3 · o corte do último lote encurta a TESTADA e preserva o fundo .......... 11   3 glebas
+4 · a fileira encosta na via só de ESGUELHA ...............................  4   1 gleba
+5 · a faixa do lote externo é um SEMIPLANO ............................... 18   1 gleba
+6 · a rede viária é aparada pela DIVISA e não por `util` ................. 11   1 gleba
+```
+
+**A ordem não é a do volume** (D197): `ensaio-47ha` é bloqueada por **um mecanismo só** — o
+teto de face, 6 violações — e consertá-lo **zera uma gleba inteira, sozinho**. Três
+mecanismos bloqueiam **quatro das cinco** glebas.
+
+### Os números do repositório
+
+| | ao abrir a fila | ao fechar |
+|---|---|---|
+| suíte | **505** travas | **584** travas (567 esteira + 17 testfit) |
+| CI sem clones vizinhos | **114** | **193** |
+| decisões | D196 era a última | **D206** |
+| provas | — | **8** arquivos novos, em 4 pastas |
+
+### O que esta fila ensinou, e as quatro lições são de MÉTODO
+
+1. **Agrupamento só é medição se for partição** (D197): soma fechando, ninguém casando dois
+   grupos, e órfã saindo **nomeada e caracterizada**, nunca como balde fechado.
+2. **Valor POR OBJETO lido de prova feita sobre OUTRO objeto não é economia, é tabela que
+   erra em silêncio** (D200) — e ela **se disfarça de D116**. O D116 proíbe remedir a mesma
+   grandeza do mesmo objeto; medir a mesma grandeza de **outro** objeto é obrigação, e a
+   prova antiga vira **calibração**.
+3. **A trava que vale é a que reprova a frase que você ia publicar** (D201). No LAB-59 a soma
+   fechava, os cenários eram monótonos e as contagens batiam — **com a resposta errada**. Só
+   as duas travas **semânticas** caíram.
+4. **Régua que nunca saiu de casa não sabe o que não vê** (D202). Apontada ao clone do motor,
+   a varredura de configuração revelou **três falso-negativos meus** de uma vez.
+
+### E CINCO vezes um número meu estava errado onde eu podia medi-lo
+
+| onde | eu escrevi | era |
+|---|---|---|
+| LAB-58, relatório | *"68,3 m em **11** das 14"* | **10** das 14 |
+| LAB-59, primeira medição | *"**1** de 20 aprovam"* | **16** de 20 |
+| LAB-60, prova do LAB-57 | a prova dizia **1** | a ferramenta dizia **10** |
+| LAB-61, limiar | *"1,00 e **0,88**"* | **1,00** e **1,00** |
+| LAB-61, decisão | *"**três** sabotagens passaram"* | **quatro** |
+
+**As cinco foram pegas dentro do próprio prompt**, e quatro delas pela ferramenta ou pela
+trava — não pelo olho. *Número que o repositório guarda não se escreve de cabeça* (D185).
+
+### As sabotagens, e QUATRO delas passaram antes de pegar
+
+Nesta fila houve **nove** sabotagens. **Quatro** saíram `exit 0` e foram elas que
+consertaram a régua: a calibração que media só os lotes de `frente` (D198), a trava do glob
+com o `rules` fora da região comida (D203), a leitura de menção em vez de citação (D206) — e
+a do LAB-54, de antes desta fila (D179). *O `exit 0` de uma sabotagem é o achado, não o
+alívio.*
+
+### O que espera decisão
+
+- **do Jonny:** a régua de nota deve preferir poucos lotes grandes ou muitos lotes? Não há
+  mais dúvida de desenhabilidade atrás disso;
+- **do chat:** os **11** itens abertos da seção *Proposto ao chat*, cada um agora com o
+  **motivo declarado** — 3 `prompt-novo`, 3 `nao-medido`, 2 `aguardando-outro-repositorio`,
+  1 `depois-do-mvp`, 1 `aguardando-o-jonny`, 1 `escopo-novo`;
+- **do motor e do Generate:** as duas listas numeradas, que vão pelo chat.
+
+**O despertador foi DESLIGADO** (`enabled: false`), não apagado — é a regra que o chat
+ratificou duas vezes em 07/10. O motivo está em
+[`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md).

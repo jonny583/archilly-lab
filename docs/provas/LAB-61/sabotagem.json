@@ -1,0 +1,27 @@
+{
+  "prompt": "LAB-61",
+  "oQueIstoMede": "que as travas da lista de propostas REPROVAM — três sabotagens de propósito, com o código de saída e as travas que caíram. O objeto medido são a régua, a lista e a suíte, não terreno",
+  "quando": "2026-10-07",
+  "oQueMudouPORCAUSADISSO": "a TERCEIRA sabotagem PASSOU com exit 0, e consertou a régua: a conferência de 'proposta que vive só em prosa' aceitava `texto.includes(\"LAB-59\")`, e o nome do prompt aparecia no CAMINHO DA PROVA (`docs/provas/LAB-59/…`). Régua que lê MENÇÃO em vez da citação é o D142 outra vez — lá foi a palavra em vez do `import`, aqui o caminho de arquivo em vez da origem. Passou a exigir a citação de ORIGEM, `(LAB-xx`, que é a forma que a lista sempre usou",
+  "sabotagens": [
+    {
+      "n": 1,
+      "oQue": "o detector de CÓPIA volta a casar só pelo número da decisão, sem o sinal do título",
+      "onde": "src/varredura-das-propostas.ts · conferirPropostas",
+      "resultado": { "exit": 1, "oQuePegou": "2 travas de 18 — 'zero problemas, e o erro nomeia cada um' (o falso positivo do `faceDeRua` volta) e 'a CÓPIA reprova — e precisa dos DOIS sinais'" }
+    },
+    {
+      "n": 2,
+      "oQue": "um item já executado volta a ficar ABERTO, sem motivo declarado — o apodrecimento que este prompt pagou",
+      "onde": "docs/prompts/FILA.md · o item do LAB-44",
+      "resultado": { "exit": 1, "oQuePegou": "a FERRAMENTA para e nomeia a linha, e 3 travas caem: 'zero problemas', 'todo item aberto declara o motivo' e 'a prova bate com a lista de hoje'" }
+    },
+    {
+      "n": 3,
+      "oQue": "uma proposta volta a viver só em prosa: a citação de origem sai do item e fica só o caminho da prova",
+      "onde": "docs/prompts/FILA.md · o item do LAB-59",
+      "antesDoConserto": { "exit": 0, "oQuePegou": "NADA — e foi este 0 que consertou a régua" },
+      "depoisDoConserto": { "exit": 1, "oQuePegou": "a ferramenta para: 'a seção de proposta do LAB-59 não é citada por item nenhum da lista — o chat a acharia por sorte'" }
+    }
+  ]
+}

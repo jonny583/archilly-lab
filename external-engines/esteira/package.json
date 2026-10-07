@@ -40,6 +40,7 @@
     "lab58": "INVARIANTES_EXEMPLOS=100000 bun ferramentas/lab58.ts",
     "lab59": "INVARIANTES_EXEMPLOS=100000 bun ferramentas/lab59.ts",
     "lab60": "bun ferramentas/lab60.ts",
+    "lab61": "bun ferramentas/lab61.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0"

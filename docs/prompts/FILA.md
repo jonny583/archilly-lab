@@ -64,7 +64,7 @@ certa e eu repeti a frase velha por descuido."*
 | **LAB-58** | **As 81 do motor agrupadas por MECANISMO** — quantos mecanismos distintos existem e quantas violações cada um responde. Lista numerada, é o insumo da fila do motor | ✅ **concluído em 07/10/2026** · **SEIS**, zero não nomeadas · PR #72 | nenhuma |
 | **LAB-59** | O **T-38 como CONTRAFACTUAL**: com as 81 resolvidas, outra candidata passa a ser aprovável em Antonina? Responde sozinho a pendência do Jonny (33 ou 1.228 lotes) **sem tocar no motor** | ✅ **concluído em 07/10/2026** · **16 de 20**, e a nota dele ainda prefere 33 · PR #74 | LAB-58 mesclado ✅ |
 | **LAB-60** | A **configuração do motor, SÓ DE LEITURA**: as três formas de desligar conferência que o LAB-57 achou aqui, conferidas lá. Lista numerada — **vai pelo chat ao motor** | ✅ **concluído em 07/10/2026** · as **três vivas**, e ele **não tem CI** · PR #76 | LAB-59 mesclado ✅ |
-| **LAB-61** | **A dívida própria com o que sobrou** | ⬜ **próximo — e fecha a fila** | LAB-60 mesclado ✅ |
+| **LAB-61** | **A dívida própria com o que sobrou** | ✅ **concluído em 07/10/2026** · a dívida era **esta lista**: 18 problemas → 0 · **a fila ESGOTOU, 4 de 4** | LAB-60 mesclado ✅ |
 
 **O que o chat disse de cada um, nas palavras dele:**
 
@@ -81,6 +81,11 @@ certa e eu repeti a frase velha por descuido."*
 - **LAB-61** — *"continue a dívida própria com o que sobrou."*
 
 **Ao fim de cada prompt, o recado com o status** (palavras dele).
+
+> 🔴 **A FILA ESGOTOU em 07/10/2026, quatro de quatro.** O balanço está em
+> [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §9, gravado **junto** do LAB-61
+> como a §1-B manda, e o despertador foi **DESLIGADO** (`enabled: false`), não apagado. O
+> chat o religa com fila nova.
 
 ### Proposto ao chat, saído do LAB-60 — **não executado**
 
@@ -101,6 +106,43 @@ e a divisa** da faixa do Generate. Está caracterizado em
 [`../provas/LAB-59/contrafactual-de-antonina.json`](../provas/LAB-59/contrafactual-de-antonina.json)
 (`oQueAsNaoNomeadasTemEmComum`). **Nomear mecanismo é o LAB-58, e ampliar escopo é o que esta
 página proíbe.**
+
+### LAB-61 · A dívida própria era ESTA LISTA — ✅ concluído em 07/10/2026 · **a fila ESGOTOU**
+
+**Procurei dívida minha onde ela é declarada e achei no lugar que eu não estava olhando: a
+seção *"Proposto ao chat — não executar"* desta página.** Medido no commit `961890b`, sem
+mudar nada:
+
+```
+ANTES: 27 itens · 13 riscados · 14 abertos · 18 PROBLEMAS
+  aberto-sem-motivo .............. 14
+  copia-de-item-riscado ...........  2
+  proposta-que-vive-so-em-prosa ...  2
+
+AGORA: 29 itens · 18 riscados · 11 abertos · 0 PROBLEMAS
+```
+
+**De 14 abertos, CINCO já estavam executados** — o conserto da ponte (LAB-53), a passagem
+externa (LAB-50), o detector de prova velha (LAB-49), um nome só para cada número (LAB-44) e
+o CI do comando único (LAB-38) — **e DOIS eram cópias de itens riscados nesta mesma lista**.
+*Esta lista é o que o chat lê para escrever fila, e quatro filas saíram dela*: se ele a
+tivesse lido naquele dia, poderia ter mandado de volta trabalho já entregue (D205).
+
+**A régua cobra cinco coisas** (`src/varredura-das-propostas.ts`), e a da **cópia pede DOIS
+sinais** — decisão compartilhada **e** título sobreposto acima de 0,6 —, porque a primeira
+versão acusou um terceiro item que **não** é cópia. *Régua que eu afrouxaria para caber no
+meu número é enfeite* (D172).
+
+**E a terceira sabotagem PASSOU** (D206): a conferência de *"vive só em prosa"* aceitava uma
+**menção** ao nome do prompt, e o caminho da prova (`docs/provas/LAB-59/…`) a satisfazia. *É
+o D142 outra vez* — lá a palavra em vez do `import`, aqui o caminho em vez da citação de
+origem. Consertada, `exit 1`.
+
+- relatório: [`../relatorios/LAB-61.md`](../relatorios/LAB-61.md)
+- **o BALANÇO da fila:** [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §9
+- provas: `docs/provas/LAB-61/a-minha-lista-de-propostas.json` e `sabotagem.json`
+- ferramenta: `external-engines/esteira/ferramentas/lab61.ts` · **19 travas** em
+  `tests/propostas.test.ts`
 
 ### LAB-60 · A configuração do motor, só de leitura — ✅ concluído em 07/10/2026
 
@@ -1022,7 +1064,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 174 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 193 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2027,6 +2069,21 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 
 ## Proposto ao chat — não executar
 
+- **A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO** (LAB-60, D204). Medido: a prova do
+  LAB-57 estava **velha no momento em que foi commitada** — dizia **1** onde a ferramenta, na
+  mesma árvore, dizia **10** —, porque o último run dela aconteceu antes das edições finais
+  daquele prompt. **Nada no verde reprovava isso:** a trava confere a prova **contra si
+  mesma**, não a reexecuta. E a pergunta de projeto vem junto: **quais provas podem ser
+  regeradas dentro da trava** sem ferir o D182, que proíbe sobregravar prova *"antes"* com
+  prova *"depois"*. **Segue aberto:** `prompt-novo`
+
+- **O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER** (LAB-59). Resolvidos os seis mecanismos do
+  LAB-58 e o campo do contrato, **4 das 20** candidatas ficam de fora, **uma violação cada**,
+  e três delas têm a forma exata das 11 do contrato — lote externo sobre a rua entregue —
+  **sem** sumir com a faixa que o `faixaViaPublica` do Generate constrói. Caracterizado em
+  [`../provas/LAB-59/contrafactual-de-antonina.json`](../provas/LAB-59/contrafactual-de-antonina.json)
+  (`oQueAsNaoNomeadasTemEmComum`). Nomear mecanismo é o LAB-58. **Segue aberto:** `prompt-novo`
+
 - **A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO** (07/10, pedido do chat fora da
   fila). O Generate disse **69** em duas saídas e **103** nas cinco glebas (17 do motor); o
   Testfit disse **181** rodando a esteira do Generate inteira; e este Lab disse **128** e,
@@ -2036,14 +2093,14 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §7. **O prompt que fecharia isto:**
   publicar uma ficha de medição obrigatória — motor, ponte, glebas, **quantos planos e quais**,
   semente, contrato, tampa dos exemplos e quebra por tipo — e remedir as três sessões com ela.
-  **Não executado**, e o motivo é o §1-A: é prompt novo, e prompt fora da fila não existe.
+  **Não executado**, e o motivo é o §1-A: é prompt novo, e prompt fora da fila não existe. **Segue aberto:** `prompt-novo`
 
 - ~~**O detector de prova velha para o LAB-25 e o LAB-30** (D156)~~ — ✅ **executado no LAB-49**.
 - ~~**Por que a passagem externa põe lote a 1,8 km da face entregue** (D161)~~ — ✅ **executado no LAB-50**: a faixa é um SEMIPLANO (D173).
 - ~~**Por que o motor desenha via SOBRE a face que ele mesmo reservou** (LAB-50, D174)~~ —
   ✅ **executado no LAB-55**: a faixa é buraco no domínio do **lote** e não no da **via**
   (D188). O aparo da rede é contra a **divisa**, não contra `util`.
-- **O conserto das 36 violações que são a minha ponte** (LAB-48, D166): `testadaMinLote_m` tem
+- ~~**O conserto das 36 violações que são a minha ponte** (LAB-48, D166)~~ — ✅ **executado no LAB-53**: `testadaMinLote_m` saiu do contrato, eram TRÊS campos com a mesma forma, e a guarda veio junto (D180, D181). 128 → **92** violações. O texto de antes dizia: `testadaMinLote_m` tem
   de sair do contrato, como o `areaMinLote_m2` já sai — é **uma linha** no `volta.ts`. Não
   executado porque o chat pediu *"o diagnóstico antes de consertar qualquer coisa"*. **E junto
   vai a guarda**, senão a regra nasce slogan (D136): uma trava exigindo que todo campo
@@ -2059,27 +2116,27 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   **646 achados** — 487 de `no-unnecessary-type-assertion` e ~149 de `no-unsafe-*`, que vêm
   das pontes `as unknown as` entre três repositórios. As **três** regras da classe que a
   Central nomeou já estão ligadas e custam zero; o resto é conserto de verdade, e é outro
-  prompt.
+  prompt. **Segue aberto:** `depois-do-mvp`
 - **O delta contra o Padrão 1.2**, quando ele existir. A conferência do LF-FINAL
   foi feita contra a Versão 1, que é a única legível (D43). O `TF-FINAL` do
-  repositório irmão espera o mesmo documento.
+  repositório irmão espera o mesmo documento. **Segue aberto:** `aguardando-outro-repositorio`
 - **As 4 violações que sobraram em `geo-antonina`** (2 de sobreposição, de 0,56 e
   0,70 m², e 2 de frente) e o efeito de baixar a tolerância de simplificação de
   0,25 m. A suspeita está escrita no LAB-04, §6, e **não foi medida** — por isso
-  não foi atribuída.
+  não foi atribuída. **Segue aberto:** `nao-medido`
 - **As 96 quadras de esqueleto não confiável** em `geo-antonina` (eram 86 antes
   do recorte): é forma degenerada da quadra ou limite da esteira? Hoje elas são
-  puladas e contadas (D51), que é a resposta honesta, mas não é a resposta.
+  puladas e contadas (D51), que é a resposta honesta, mas não é a resposta. **Segue aberto:** `nao-medido`
 - **A travessia sobre a APP de `geo-antonina`** — é do Jonny, e está em
   `PENDENCIAS_JONNY.md`. Sem ela, um terço da gleba só se alcança por fora, e
-  "por fora" é terra que não é dela (D58).
+  "por fora" é terra que não é dela (D58). **Segue aberto:** `aguardando-o-jonny`
 - **A quadra dentro de APP.** O recorte do LAB-05 é pela **divisa**; quadra que
   cai dentro de APP continua de pé, e nenhum dos onze invariantes do Validator a
-  acusa. Medir quanto é, e se deve ser recortada também, é escopo novo.
+  acusa. Medir quanto é, e se deve ser recortada também, é escopo novo. **Segue aberto:** `escopo-novo`
 - **O eixo do curso d'água, para o Geo.** A D61 manda a travessia sair
   **perpendicular ao curso** — e o Lab recebe a restrição como **polígono de
   APP**, não como a linha d'água. Sem o eixo, "perpendicular" não tem a quê. É
-  achado para o Geo, e o chat é que o leva.
+  achado para o Geo, e o chat é que o leva. **Segue aberto:** `aguardando-outro-repositorio`
 - ~~**O balanço fora da fila não tem onde morar** (LAB-36)~~ — ✅ **executado no LAB-42**:
   [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), com a regra **§1-B** do
   `CLAUDE.md` e sete travas. O balanço de 03/10 está lá **reconstruído**, com etiqueta e
@@ -2104,12 +2161,12 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 - ~~**a etiqueta do contrato, que quatro provas declaravam errada** (D146)~~ — ✅
   **executado no LAB-43**: a etiqueta sai do medido, as quatro provas regeradas dizem
   `"1"`, e a lista das treze que ainda escrevem literal **se revalida** (D154).
-- **Por que a passagem externa do motor põe lote a 1,8 km da face entregue** (LAB-46,
-  D161). `facesLoteamento` entregou **uma** face de 180 m e saíram 33 a 50 lotes com id
+- ~~**Por que a passagem externa do motor põe lote a 1,8 km da face entregue** (LAB-46, D161)~~ — ✅ **executado no LAB-50**, e este item era **CÓPIA** do que já estava riscado acima: a mesma pergunta entrou duas vezes na lista, uma riscada e uma aberta.
+  O texto de antes dizia: `facesLoteamento` entregou **uma** face de 180 m e saíram 33 a 50 lotes com id
   `-eN`, dos quais 14 a 16 encostam nela. Pode ser o significado de `facesLoteamento` para
   o motor, pode ser a passagem externa correndo o perímetro inteiro. **Não medido, e não
   atribuído** (§6) — está na lista numerada do LAB-46 para o chat levar ao Parcelamento.
-- **DETECTOR DE PROVA VELHA para o LAB-25 e o LAB-30** (LAB-43, D156). Regerar as quatro
+- ~~**DETECTOR DE PROVA VELHA para o LAB-25 e o LAB-30** (LAB-43, D156)~~ — ✅ **executado no LAB-49**, e este item era **CÓPIA** do riscado acima. O texto de antes dizia: regerar as quatro
   provas mostrou que **duas estavam defasadas há prompts e nada acusava**: a do LAB-30
   desde o LAB-40, a do LAB-25 desde o LAB-37. O LAB-33 deu detector ao LAB-23 e ao LAB-28;
   estas duas ficaram sem. **Não executado** — escopo novo.
@@ -2117,14 +2174,14 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   do LAB-25, a ponte publica `faceDeRua: null` nos **33** lotes da variante escolhida e a
   régua do Generate mede **5**. Tem a forma do D104, mas a guarda **não reprova** e a
   variante mudou entre as rodadas — pode ser propriedade da variante de superquadra, pode
-  ser a ponte. **Não medido, e não atribuído** (§6).
-- **Um nome só para cada número do confronto do acesso** (LAB-39, D145). As mesmas três
+  ser a ponte. **Não medido, e não atribuído** (§6). **Segue aberto:** `nao-medido`
+- ~~**Um nome só para cada número do confronto do acesso** (LAB-39, D145)~~ — ✅ **executado no LAB-44**, em 04/10/2026, com a trava das chaves. O texto de antes dizia: as mesmas três
   contas saem com chaves diferentes nos dois arquivos — `amplitudeDoAcesso_pct` ×
   `maiorAmplitude_pct`, `entreMotores_pct` × `entreOsQuatroMotores_pct`. **Dois nomes para
   um número é meio caminho para dois números**, e foi assim que o D116 começou. Unificar
   mexe na forma de duas provas publicadas **e** na página do Jonny, então vai junto do
   prompt que regerar as provas. **Não executado** — escopo novo.
-- **CI para o comando único** (LAB-31, D125). O `conferir.sh` existe, roda tudo e está
+- ~~**CI para o comando único** (LAB-31, D125)~~ — ✅ **executado no LAB-38**: `.github/workflows/verde.yml`, com dois trabalhos e nomes que não enganam (D141). O texto de antes dizia: o `conferir.sh` existe, roda tudo e está
   provado que reprova — mas **não existe `.github/workflows` neste repositório**, então
   **nada o executa automaticamente**: quem o roda sou eu, antes do commit, e se eu
   esquecer nada pinta vermelho. Um workflow de uma página resolveria, e ele precisaria
