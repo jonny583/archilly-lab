@@ -324,6 +324,10 @@ a tabela só diz a forma; quem diz se a forma presta é você.
 
 ## 7 · O Laboratório de Parcelamento escolheu 33 lotes tendo 1 228 à mão — isso é de propósito?
 
+> ✅ **MEDIDO E FECHADO em 07/10/2026 — ver "Novidade de 07/10" mais abaixo.** O plano de
+> 1 228 lotes **é aceitável** depois dos consertos já medidos, e a **nota** do programa é que
+> prefere o de 33. **O que falta é só a sua decisão de urbanismo**, não mais medição.
+
 **Novo em 04/10/2026.** É o item mais estranho que apareceu até agora, e ele não é
 defeito meu: eu medi, conferi duas vezes, e o número é esse.
 
@@ -482,6 +486,43 @@ A mesma informação que num caso parece atrapalhar, no outro **viabiliza** o de
 sua — *a régua de nota do Laboratório de Parcelamento deve preferir o plano de 33 ou o de
 1.228?* Não é mais "o programa desenha mal este terreno": ele desenha os dois, e a
 **nota** é que escolhe.
+
+### Novidade de 07/10 — **A RESPOSTA ESTÁ FECHADA, e ela é melhor do que eu esperava**
+
+Eu consegui medir a pergunta inteira, e sem mexer no programa deles. Mandei desenhar as
+**20 opções** que ele gera em Antonina, passei **todas** pelo juiz do Archilly Generate, e
+perguntei: *consertadas as coisas que já estão medidas, quais delas passariam a ser
+aceitáveis?*
+
+| se consertarem… | quantas das 20 passam | qual o programa escolheria |
+|---|---|---|
+| nada (hoje) | **nenhuma** | — |
+| só o campo que falta no Generate | **nenhuma** | — |
+| só os seis defeitos do desenho | **nenhuma** | — |
+| **os dois** | **16 das 20** | a de **33 lotes** |
+
+> **O plano de 1 228 lotes passa a ser ACEITÁVEL.** Ele está entre as 16. E, mesmo assim, a
+> **nota** do programa continua preferindo o de 33 lotes — 0,6226 contra 0,5881.
+
+**O que isso muda para você, e é a melhor parte:** a sua pergunta deixou de ter uma dúvida
+atrás dela. Não é mais *"será que o grande nem é desenhável?"* — ele é desenhável e seria
+aceito. **A escolha do pequeno é a régua de nota, e só ela.** A decisão que sobra é a mesma
+que você já tinha, agora limpa: *a régua de nota deve preferir um plano de poucos lotes
+grandes, ou um de muitos lotes?* Isso é urbanismo, e é seu.
+
+**Duas honestidades, porque elas importam:**
+
+1. **os dois consertos são necessários e nenhum basta** — consertar só um lado deixa as 20
+   reprovadas. Um dos lados é do programa de desenho, o outro é um campo que falta no
+   Archilly Generate (o lugar de dizer *"esta rua já existe"*);
+2. **4 das 20 continuam de fora**, cada uma por **uma** pendência que eu ainda não sei
+   nomear. Está medida e anotada; não muda a resposta acima, e não a escondo.
+
+**E uma coisa que eu quase escrevi errado.** Na primeira medição deste assunto o resultado
+saiu *"só 1 das 20 passa"* — o que teria dito a você o contrário da verdade. O erro era meu:
+eu estava reaproveitando medições feitas sobre **outro** desenho, e elas não serviam para
+estes. Refeito, o número é 16. O registro técnico está no
+[`docs/relatorios/LAB-59.md`](https://github.com/jonny583/archilly-lab/blob/main/docs/relatorios/LAB-59.md).
 
 ### O que eu faço enquanto você não olhar
 

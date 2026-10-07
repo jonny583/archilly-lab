@@ -39,6 +39,47 @@ export const FORMATOS = [
 /** Quantas variantes o motor gera por rodada. O mesmo número do LAB-08. */
 export const VARIANTES = 20;
 
+/**
+ * As opções com que ESTE repositório roda a esteira dele — **uma montagem, dois leitores.**
+ *
+ * O `rodarTestfit` devolve só a variante que o ranking DELE escolheu, que é o que a porta
+ * comum pede. O LAB-59 precisa das **vinte**, para medir o contrafactual candidata a
+ * candidata — e montar as opções outra vez lá seria a segunda montagem que o **D116**
+ * proíbe: a `viaManual`, as `facesLoteamento` e o aparo decidem o que o motor desenha, e
+ * duas montagens envelheceriam em direções diferentes.
+ *
+ * Então a montagem mora aqui, e quem quer todas as variantes chama a
+ * `variantesJulgadasDoTestfit`.
+ */
+function opcoesDaEsteiraDele(entrada: EntradaMinima, semente: number) {
+  const { viaManual: colunaVertebral, facesLoteamento: faces } = oQueAEsteiraPassaPronto(entrada);
+  return {
+    semente,
+    variantes: VARIANTES,
+    aparar: true,
+    formatos: [...FORMATOS],
+    ...(colunaVertebral ? { viaManual: colunaVertebral } : {}),
+    ...(faces.length ? { facesLoteamento: faces } : {}),
+  };
+}
+
+/**
+ * TODAS as variantes que a esteira dele julgou, na ORDEM DO RANKING DELE. (LAB-59)
+ *
+ * "Julgada" é a que o esquema do contrato aceitou — as recusadas **não entram no ranking
+ * dele**, e é por isso que esta função as deixa de fora: o contrafactual pergunta qual
+ * candidata o ranking passaria a preferir, e candidata fora do ranking não é candidata.
+ *
+ * A escolha segue sendo dele: esta função **não escolhe**, ela entrega a lista ordenada
+ * pela `posicaoNoMotor`, que é a nota dele.
+ */
+export function variantesJulgadasDoTestfit(entrada: EntradaMinima, semente: number) {
+  const r = rodarEsteira(entrada as unknown as EntradaV1, opcoesDaEsteiraDele(entrada, semente));
+  return r.variantes
+    .filter((v) => v.relatorio)
+    .sort((a, b) => a.posicaoNoMotor - b.posicaoNoMotor);
+}
+
 export function rodarTestfit(entrada: EntradaMinima, semente: number): Rodada {
   const t0 = performance.now();
   // ── A COLUNA VERTEBRAL DESENHADA, que eu nunca entreguei (LAB-30, D119) ────
@@ -67,14 +108,7 @@ export function rodarTestfit(entrada: EntradaMinima, semente: number): Rodada {
   // a lição do D75 — a face vizinha toca a linha no VÉRTICE e não é testada.
   const faces = oQueAEsteiraPassaPronto(entrada).facesLoteamento;
 
-  const r = rodarEsteira(entrada as unknown as EntradaV1, {
-    semente,
-    variantes: VARIANTES,
-    aparar: true,
-    formatos: [...FORMATOS],
-    ...(colunaVertebral ? { viaManual: colunaVertebral } : {}),
-    ...(faces.length ? { facesLoteamento: faces } : {}),
-  });
+  const r = rodarEsteira(entrada as unknown as EntradaV1, opcoesDaEsteiraDele(entrada, semente));
   const ms = performance.now() - t0;
 
   const naoSoubeFazer: string[] = [];

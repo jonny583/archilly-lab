@@ -1,0 +1,1470 @@
+{
+  "prompt": "LAB-59",
+  "oQueIstoMede": "quais das candidatas julgadas de geo-antonina passariam a APROVAR em cada cenário de conserto, e qual delas o ranking DO MOTOR escolheria então — para responder se preferir 33 lotes a 1.228 é consequência das violações ou da nota dele",
+  "quando": "2026-10-07T11:26:45.587Z",
+  "gleba": "geo-antonina",
+  "motor": "Laboratório de Parcelamento (motor-testfit) — o motor PADRÃO da tela unificada",
+  "semente": 20260913,
+  "contrato": "1",
+  "aEscolhaEhDELE": "este prompt NÃO escolhe variante: ele ordena pela `notaDoMotor` e diz qual seria a primeira entre as que aprovariam. Escolher por mim seria o Lab decidindo pelo motor (§4)",
+  "aAfericao": {
+    "oQue": "a 1ª do ranking tem de reproduzir o número do LAB-53 nesta gleba",
+    "oLab53": {
+      "variante": "superquadra (1º de 20 no ranking dele)",
+      "violacoes": 40
+    },
+    "medidoAqui": {
+      "formato": "superquadra",
+      "violacoes": 40
+    },
+    "porque": "contrafactual que não reproduz o presente não mede futuro nenhum"
+  },
+  "aCalibracao": {
+    "qual": "em TODO lote acusado, a minha distância ao CONTORNO reconstrói o número do `_testadaDoLote` dele (teto 1e-6 m)",
+    "porqueOEscopoEhTODOS": "no LAB-58 uma sabotagem passou porque a calibração olhava só os lotes de `frente` (D198)",
+    "eMais": "a testada com amostragem fina e a distância à face entregue são MEDIDAS aqui para as vinte candidatas, e as provas do LAB-54 e do LAB-50 são a CALIBRAÇÃO: todo lote que elas contêm tem de receber aqui o mesmo número (teto 0,01 m e 0,1 m)",
+    "aTerceiraMedicaoViva": "o contrafactual do campo `faixaViaPublica` TAMBÉM é medido por candidata, com o `divisaDoAcesso` e o `faixaViaPublica` do Generate e o Validator dele rodando outra vez — e a prova do LAB-53 calibra a vencedora. Era a terceira consulta por lote a uma prova da candidata VENCEDORA, e deu o mesmo defeito: 237 das 238 órfãs eram lotes externos sobre a rua entregue, a forma exata das 11 do contrato",
+    "porqueNaoSaoLIDAS": "a primeira versão deste prompt as lia das provas, e 696 violações em 19 das 20 candidatas saíram MECANISMO-NAO-NOMEADO — entre elas as 40 da `ortogonal` de 1.228 lotes. Aquelas provas mediram a candidata VENCEDORA: os lotes externos dela são `v19-eN`, os da ortogonal são `v1-eN`, e não existem lá. O D116 fala de remedir a MESMA grandeza do MESMO objeto; ler de uma prova um valor POR OBJETO, para objetos que ela não contém, é tabela de consulta que erra em silêncio — e erra para o lado de atribuir ao desconhecido o que é falta de medição (D23)",
+    "discordancias": 0
+  },
+  "aOrdemDaATRIBUICAO": {
+    "qual": "o contrato do Generate vem PRIMEIRO; só o que resta vai aos predicados do LAB-58",
+    "porque": "é a ordem do LAB-53: a violação que SOME com o campo `faixaViaPublica` é do contrato, e as 11 de Antonina são assim. Atribuir ao motor uma violação que o campo faz desaparecer seria acusar o vizinho por um campo que falta no OUTRO vizinho"
+  },
+  "cenarios": [
+    {
+      "id": "hoje",
+      "oQueSupoe": "nada — é a aferição, e tem de bater com o LAB-53",
+      "resolve": [],
+      "quantasAprovam": 0,
+      "deQuantas": 20,
+      "aPrimeiraNoRankingDELE": null,
+      "todasQueAprovam": []
+    },
+    {
+      "id": "so-o-contrato",
+      "oQueSupoe": "só o campo de RUA PÚBLICA EXISTENTE no contrato de motor v1 do Generate",
+      "resolve": [
+        "contrato-do-generate-sem-campo-de-rua-publica"
+      ],
+      "quantasAprovam": 0,
+      "deQuantas": 20,
+      "aPrimeiraNoRankingDELE": null,
+      "todasQueAprovam": []
+    },
+    {
+      "id": "so-o-motor",
+      "oQueSupoe": "só os seis mecanismos do motor medidos no LAB-58 (as 81)",
+      "resolve": [
+        "faixa-externa-sem-limite-longitudinal",
+        "rede-viaria-aparada-so-pela-divisa",
+        "fileira-sem-via-propria",
+        "face-de-quadra-limitada-num-eixo-so",
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade",
+        "fileira-encosta-na-via-so-de-esguelha"
+      ],
+      "quantasAprovam": 0,
+      "deQuantas": 20,
+      "aPrimeiraNoRankingDELE": null,
+      "todasQueAprovam": []
+    },
+    {
+      "id": "os-dois",
+      "oQueSupoe": "os seis mecanismos do motor E o campo do contrato",
+      "resolve": [
+        "faixa-externa-sem-limite-longitudinal",
+        "rede-viaria-aparada-so-pela-divisa",
+        "fileira-sem-via-propria",
+        "face-de-quadra-limitada-num-eixo-so",
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade",
+        "fileira-encosta-na-via-so-de-esguelha",
+        "contrato-do-generate-sem-campo-de-rua-publica"
+      ],
+      "quantasAprovam": 16,
+      "deQuantas": 20,
+      "aPrimeiraNoRankingDELE": {
+        "formato": "superquadra",
+        "lotes": 33,
+        "notaDoMotor": 0.6226435182362932,
+        "posicaoNoRankingDele": 1
+      },
+      "todasQueAprovam": [
+        {
+          "formato": "superquadra",
+          "lotes": 33,
+          "notaDoMotor": 0.6226435182362932
+        },
+        {
+          "formato": "superquadra",
+          "lotes": 42,
+          "notaDoMotor": 0.6108924093718713
+        },
+        {
+          "formato": "ortogonal",
+          "lotes": 1228,
+          "notaDoMotor": 0.5880792794093138
+        },
+        {
+          "formato": "ortogonal",
+          "lotes": 1224,
+          "notaDoMotor": 0.5833710751320688
+        },
+        {
+          "formato": "loop",
+          "lotes": 1222,
+          "notaDoMotor": 0.58199635153119
+        },
+        {
+          "formato": "espinha",
+          "lotes": 1088,
+          "notaDoMotor": 0.57923190780934
+        },
+        {
+          "formato": "mioloVerde",
+          "lotes": 1077,
+          "notaDoMotor": 0.5742957697219307
+        },
+        {
+          "formato": "diagonal",
+          "lotes": 1145,
+          "notaDoMotor": 0.5704791101150422
+        },
+        {
+          "formato": "loop",
+          "lotes": 1102,
+          "notaDoMotor": 0.5642549194052849
+        },
+        {
+          "formato": "diagonal",
+          "lotes": 1035,
+          "notaDoMotor": 0.5624324564835361
+        },
+        {
+          "formato": "radial",
+          "lotes": 582,
+          "notaDoMotor": 0.54254182017784
+        },
+        {
+          "formato": "organico",
+          "lotes": 833,
+          "notaDoMotor": 0.5393754919226269
+        },
+        {
+          "formato": "radial",
+          "lotes": 543,
+          "notaDoMotor": 0.5379227674954565
+        },
+        {
+          "formato": "organico",
+          "lotes": 812,
+          "notaDoMotor": 0.5366825340459759
+        },
+        {
+          "formato": "cluster",
+          "lotes": 871,
+          "notaDoMotor": 0.5317744673898611
+        },
+        {
+          "formato": "pente",
+          "lotes": 714,
+          "notaDoMotor": 0.5192955113143755
+        }
+      ]
+    }
+  ],
+  "candidatas": [
+    {
+      "posicaoNoRankingDele": 1,
+      "formato": "superquadra",
+      "notaDoMotor": 0.6226435182362932,
+      "lotes": 33,
+      "quadras": 0,
+      "lotesExternos": 33,
+      "violacoesHoje": 40,
+      "porTipo": {
+        "frente": 29,
+        "via-sobre-lote": 11
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 11,
+        "faixa-externa-sem-limite-longitudinal": 18,
+        "rede-viaria-aparada-so-pela-divisa": 11
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 40,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)",
+            "faixa-externa-sem-limite-longitudinal (18)",
+            "rede-viaria-aparada-so-pela-divisa (11)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 29,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (18)",
+            "rede-viaria-aparada-so-pela-divisa (11)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 11,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 2,
+      "formato": "superquadra",
+      "notaDoMotor": 0.6108924093718713,
+      "lotes": 42,
+      "quadras": 0,
+      "lotesExternos": 42,
+      "violacoesHoje": 49,
+      "porTipo": {
+        "frente": 39,
+        "via-sobre-lote": 10
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 14,
+        "faixa-externa-sem-limite-longitudinal": 25,
+        "rede-viaria-aparada-so-pela-divisa": 10
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 49,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (14)",
+            "faixa-externa-sem-limite-longitudinal (25)",
+            "rede-viaria-aparada-so-pela-divisa (10)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 35,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (25)",
+            "rede-viaria-aparada-so-pela-divisa (10)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 14,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (14)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 3,
+      "formato": "ortogonal",
+      "notaDoMotor": 0.5880792794093138,
+      "lotes": 1228,
+      "quadras": 43,
+      "lotesExternos": 49,
+      "violacoesHoje": 93,
+      "porTipo": {
+        "frente": 57,
+        "testada": 2,
+        "via-sobre-lote": 34
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 15,
+        "faixa-externa-sem-limite-longitudinal": 25,
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade": 2,
+        "fileira-sem-via-propria": 17,
+        "rede-viaria-aparada-so-pela-divisa": 34
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 93,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (15)",
+            "faixa-externa-sem-limite-longitudinal (25)",
+            "fileira-sem-via-propria (17)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (2)",
+            "rede-viaria-aparada-so-pela-divisa (34)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 78,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (25)",
+            "fileira-sem-via-propria (17)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (2)",
+            "rede-viaria-aparada-so-pela-divisa (34)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 15,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (15)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 4,
+      "formato": "ortogonal",
+      "notaDoMotor": 0.5833710751320688,
+      "lotes": 1224,
+      "quadras": 43,
+      "lotesExternos": 33,
+      "violacoesHoje": 65,
+      "porTipo": {
+        "frente": 47,
+        "via-sobre-lote": 16,
+        "face-quadra": 2
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 14,
+        "faixa-externa-sem-limite-longitudinal": 15,
+        "fileira-sem-via-propria": 18,
+        "rede-viaria-aparada-so-pela-divisa": 16,
+        "face-de-quadra-limitada-num-eixo-so": 2
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 65,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (14)",
+            "face-de-quadra-limitada-num-eixo-so (2)",
+            "faixa-externa-sem-limite-longitudinal (15)",
+            "fileira-sem-via-propria (18)",
+            "rede-viaria-aparada-so-pela-divisa (16)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 51,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "face-de-quadra-limitada-num-eixo-so (2)",
+            "faixa-externa-sem-limite-longitudinal (15)",
+            "fileira-sem-via-propria (18)",
+            "rede-viaria-aparada-so-pela-divisa (16)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 14,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (14)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 5,
+      "formato": "loop",
+      "notaDoMotor": 0.58199635153119,
+      "lotes": 1222,
+      "quadras": 48,
+      "lotesExternos": 35,
+      "violacoesHoje": 50,
+      "porTipo": {
+        "frente": 33,
+        "via-sobre-lote": 16,
+        "face-quadra": 1
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 10,
+        "faixa-externa-sem-limite-longitudinal": 19,
+        "fileira-sem-via-propria": 3,
+        "fileira-encosta-na-via-so-de-esguelha": 1,
+        "rede-viaria-aparada-so-pela-divisa": 16,
+        "face-de-quadra-limitada-num-eixo-so": 1
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 50,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (10)",
+            "face-de-quadra-limitada-num-eixo-so (1)",
+            "faixa-externa-sem-limite-longitudinal (19)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (3)",
+            "rede-viaria-aparada-so-pela-divisa (16)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 40,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "face-de-quadra-limitada-num-eixo-so (1)",
+            "faixa-externa-sem-limite-longitudinal (19)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (3)",
+            "rede-viaria-aparada-so-pela-divisa (16)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 10,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (10)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 6,
+      "formato": "espinha",
+      "notaDoMotor": 0.5803933034801149,
+      "lotes": 1198,
+      "quadras": 11,
+      "lotesExternos": 44,
+      "violacoesHoje": 75,
+      "porTipo": {
+        "frente": 28,
+        "testada": 1,
+        "via-sobre-lote": 36,
+        "face-quadra": 10
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 12,
+        "faixa-externa-sem-limite-longitudinal": 16,
+        "MECANISMO-NAO-NOMEADO": 1,
+        "rede-viaria-aparada-so-pela-divisa": 36,
+        "face-de-quadra-limitada-num-eixo-so": 10
+      },
+      "naoNomeadas": [
+        "geo-antonina|testada|v12-l1093"
+      ],
+      "oQueAsNaoNomeadasTemEmComum": {
+        "quantas": 1,
+        "porTipo": {
+          "testada": 1
+        },
+        "externas": 0,
+        "internas": 1,
+        "aDistanciaAoContorno_m": {
+          "min": 0,
+          "max": 0
+        },
+        "encostamNaVia": 1,
+        "comTestadaFinaACIMADoMinimo": 1,
+        "lista": [
+          {
+            "chave": "geo-antonina|testada|v12-l1093",
+            "tipo": "testada",
+            "externo": false,
+            "dAoContornoDaVia_m": 0,
+            "aoSegmentoDaFaceEntregue_m": 970.4,
+            "testadaDele_m": 8.72,
+            "testadaComPassoFino_m": 10.22,
+            "testadaMin_m": 10,
+            "verticesDoLote": 4,
+            "quadraId": "Q10",
+            "profundidadeModalDaFileira_m": 34.2
+          }
+        ]
+      },
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 75,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "contrato-do-generate-sem-campo-de-rua-publica (12)",
+            "face-de-quadra-limitada-num-eixo-so (10)",
+            "faixa-externa-sem-limite-longitudinal (16)",
+            "rede-viaria-aparada-so-pela-divisa (36)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 63,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "face-de-quadra-limitada-num-eixo-so (10)",
+            "faixa-externa-sem-limite-longitudinal (16)",
+            "rede-viaria-aparada-so-pela-divisa (36)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 13,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "contrato-do-generate-sem-campo-de-rua-publica (12)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 1,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)"
+          ]
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 7,
+      "formato": "espinha",
+      "notaDoMotor": 0.57923190780934,
+      "lotes": 1088,
+      "quadras": 17,
+      "lotesExternos": 50,
+      "violacoesHoje": 84,
+      "porTipo": {
+        "frente": 38,
+        "testada": 7,
+        "via-sobre-lote": 25,
+        "face-quadra": 14
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 11,
+        "faixa-externa-sem-limite-longitudinal": 27,
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade": 7,
+        "rede-viaria-aparada-so-pela-divisa": 25,
+        "face-de-quadra-limitada-num-eixo-so": 14
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 84,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)",
+            "face-de-quadra-limitada-num-eixo-so (14)",
+            "faixa-externa-sem-limite-longitudinal (27)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (7)",
+            "rede-viaria-aparada-so-pela-divisa (25)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 73,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "face-de-quadra-limitada-num-eixo-so (14)",
+            "faixa-externa-sem-limite-longitudinal (27)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (7)",
+            "rede-viaria-aparada-so-pela-divisa (25)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 11,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 8,
+      "formato": "mioloVerde",
+      "notaDoMotor": 0.5742957697219307,
+      "lotes": 1077,
+      "quadras": 67,
+      "lotesExternos": 40,
+      "violacoesHoje": 75,
+      "porTipo": {
+        "frente": 58,
+        "via-sobre-lote": 17
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 11,
+        "faixa-externa-sem-limite-longitudinal": 25,
+        "fileira-encosta-na-via-so-de-esguelha": 2,
+        "fileira-sem-via-propria": 20,
+        "rede-viaria-aparada-so-pela-divisa": 17
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 75,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)",
+            "faixa-externa-sem-limite-longitudinal (25)",
+            "fileira-encosta-na-via-so-de-esguelha (2)",
+            "fileira-sem-via-propria (20)",
+            "rede-viaria-aparada-so-pela-divisa (17)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 64,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (25)",
+            "fileira-encosta-na-via-so-de-esguelha (2)",
+            "fileira-sem-via-propria (20)",
+            "rede-viaria-aparada-so-pela-divisa (17)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 11,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 9,
+      "formato": "diagonal",
+      "notaDoMotor": 0.5704791101150422,
+      "lotes": 1145,
+      "quadras": 44,
+      "lotesExternos": 36,
+      "violacoesHoje": 57,
+      "porTipo": {
+        "frente": 32,
+        "testada": 8,
+        "via-sobre-lote": 17
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 13,
+        "faixa-externa-sem-limite-longitudinal": 16,
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade": 8,
+        "fileira-encosta-na-via-so-de-esguelha": 1,
+        "fileira-sem-via-propria": 2,
+        "rede-viaria-aparada-so-pela-divisa": 17
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 57,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (13)",
+            "faixa-externa-sem-limite-longitudinal (16)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (2)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (8)",
+            "rede-viaria-aparada-so-pela-divisa (17)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 44,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (16)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (2)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (8)",
+            "rede-viaria-aparada-so-pela-divisa (17)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 13,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (13)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 10,
+      "formato": "loop",
+      "notaDoMotor": 0.5642549194052849,
+      "lotes": 1102,
+      "quadras": 38,
+      "lotesExternos": 48,
+      "violacoesHoje": 97,
+      "porTipo": {
+        "frente": 60,
+        "via-sobre-lote": 35,
+        "face-quadra": 2
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 17,
+        "faixa-externa-sem-limite-longitudinal": 22,
+        "fileira-encosta-na-via-so-de-esguelha": 2,
+        "fileira-sem-via-propria": 19,
+        "rede-viaria-aparada-so-pela-divisa": 35,
+        "face-de-quadra-limitada-num-eixo-so": 2
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 97,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (17)",
+            "face-de-quadra-limitada-num-eixo-so (2)",
+            "faixa-externa-sem-limite-longitudinal (22)",
+            "fileira-encosta-na-via-so-de-esguelha (2)",
+            "fileira-sem-via-propria (19)",
+            "rede-viaria-aparada-so-pela-divisa (35)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 80,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "face-de-quadra-limitada-num-eixo-so (2)",
+            "faixa-externa-sem-limite-longitudinal (22)",
+            "fileira-encosta-na-via-so-de-esguelha (2)",
+            "fileira-sem-via-propria (19)",
+            "rede-viaria-aparada-so-pela-divisa (35)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 17,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (17)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 11,
+      "formato": "cluster",
+      "notaDoMotor": 0.5638571496820507,
+      "lotes": 1094,
+      "quadras": 71,
+      "lotesExternos": 34,
+      "violacoesHoje": 61,
+      "porTipo": {
+        "frente": 43,
+        "testada": 1,
+        "via-sobre-lote": 17
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 12,
+        "MECANISMO-NAO-NOMEADO": 1,
+        "faixa-externa-sem-limite-longitudinal": 17,
+        "fileira-sem-via-propria": 11,
+        "fileira-encosta-na-via-so-de-esguelha": 2,
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade": 1,
+        "rede-viaria-aparada-so-pela-divisa": 17
+      },
+      "naoNomeadas": [
+        "geo-antonina|frente|v16-e15"
+      ],
+      "oQueAsNaoNomeadasTemEmComum": {
+        "quantas": 1,
+        "porTipo": {
+          "frente": 1
+        },
+        "externas": 1,
+        "internas": 0,
+        "aDistanciaAoContorno_m": {
+          "min": 5.54,
+          "max": 5.54
+        },
+        "encostamNaVia": 0,
+        "comTestadaFinaACIMADoMinimo": 0,
+        "lista": [
+          {
+            "chave": "geo-antonina|frente|v16-e15",
+            "tipo": "frente",
+            "externo": true,
+            "dAoContornoDaVia_m": 5.54,
+            "aoSegmentoDaFaceEntregue_m": 0.2,
+            "testadaDele_m": 0,
+            "testadaComPassoFino_m": 0,
+            "testadaMin_m": 10,
+            "verticesDoLote": 4,
+            "quadraId": "",
+            "profundidadeModalDaFileira_m": null
+          }
+        ]
+      },
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 61,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "contrato-do-generate-sem-campo-de-rua-publica (12)",
+            "faixa-externa-sem-limite-longitudinal (17)",
+            "fileira-encosta-na-via-so-de-esguelha (2)",
+            "fileira-sem-via-propria (11)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (1)",
+            "rede-viaria-aparada-so-pela-divisa (17)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 49,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "faixa-externa-sem-limite-longitudinal (17)",
+            "fileira-encosta-na-via-so-de-esguelha (2)",
+            "fileira-sem-via-propria (11)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (1)",
+            "rede-viaria-aparada-so-pela-divisa (17)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 13,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "contrato-do-generate-sem-campo-de-rua-publica (12)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 1,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)"
+          ]
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 12,
+      "formato": "diagonal",
+      "notaDoMotor": 0.5624324564835361,
+      "lotes": 1035,
+      "quadras": 39,
+      "lotesExternos": 42,
+      "violacoesHoje": 67,
+      "porTipo": {
+        "frente": 41,
+        "testada": 6,
+        "via-sobre-lote": 20
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 14,
+        "faixa-externa-sem-limite-longitudinal": 23,
+        "fileira-encosta-na-via-so-de-esguelha": 1,
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade": 6,
+        "fileira-sem-via-propria": 3,
+        "rede-viaria-aparada-so-pela-divisa": 20
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 67,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (14)",
+            "faixa-externa-sem-limite-longitudinal (23)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (3)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (6)",
+            "rede-viaria-aparada-so-pela-divisa (20)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 53,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (23)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (3)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (6)",
+            "rede-viaria-aparada-so-pela-divisa (20)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 14,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (14)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 13,
+      "formato": "mioloVerde",
+      "notaDoMotor": 0.5452616668183078,
+      "lotes": 735,
+      "quadras": 49,
+      "lotesExternos": 51,
+      "violacoesHoje": 78,
+      "porTipo": {
+        "frente": 53,
+        "via-sobre-lote": 25
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 10,
+        "MECANISMO-NAO-NOMEADO": 1,
+        "faixa-externa-sem-limite-longitudinal": 28,
+        "fileira-encosta-na-via-so-de-esguelha": 1,
+        "fileira-sem-via-propria": 13,
+        "rede-viaria-aparada-so-pela-divisa": 25
+      },
+      "naoNomeadas": [
+        "geo-antonina|frente|v20-e18"
+      ],
+      "oQueAsNaoNomeadasTemEmComum": {
+        "quantas": 1,
+        "porTipo": {
+          "frente": 1
+        },
+        "externas": 1,
+        "internas": 0,
+        "aDistanciaAoContorno_m": {
+          "min": 0.01,
+          "max": 0.01
+        },
+        "encostamNaVia": 1,
+        "comTestadaFinaACIMADoMinimo": 0,
+        "lista": [
+          {
+            "chave": "geo-antonina|frente|v20-e18",
+            "tipo": "frente",
+            "externo": true,
+            "dAoContornoDaVia_m": 0.01,
+            "aoSegmentoDaFaceEntregue_m": 0.1,
+            "testadaDele_m": 0,
+            "testadaComPassoFino_m": 1.5,
+            "testadaMin_m": 10,
+            "verticesDoLote": 4,
+            "quadraId": "",
+            "profundidadeModalDaFileira_m": null
+          }
+        ]
+      },
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 78,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "contrato-do-generate-sem-campo-de-rua-publica (10)",
+            "faixa-externa-sem-limite-longitudinal (28)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (13)",
+            "rede-viaria-aparada-so-pela-divisa (25)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 68,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "faixa-externa-sem-limite-longitudinal (28)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (13)",
+            "rede-viaria-aparada-so-pela-divisa (25)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 11,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "contrato-do-generate-sem-campo-de-rua-publica (10)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 1,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)"
+          ]
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 14,
+      "formato": "radial",
+      "notaDoMotor": 0.54254182017784,
+      "lotes": 582,
+      "quadras": 93,
+      "lotesExternos": 41,
+      "violacoesHoje": 599,
+      "porTipo": {
+        "frente": 570,
+        "testada": 4,
+        "via-sobre-lote": 25
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 11,
+        "faixa-externa-sem-limite-longitudinal": 22,
+        "fileira-sem-via-propria": 537,
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade": 4,
+        "rede-viaria-aparada-so-pela-divisa": 25
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 599,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)",
+            "faixa-externa-sem-limite-longitudinal (22)",
+            "fileira-sem-via-propria (537)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (4)",
+            "rede-viaria-aparada-so-pela-divisa (25)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 588,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (22)",
+            "fileira-sem-via-propria (537)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (4)",
+            "rede-viaria-aparada-so-pela-divisa (25)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 11,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 15,
+      "formato": "organico",
+      "notaDoMotor": 0.5393754919226269,
+      "lotes": 833,
+      "quadras": 44,
+      "lotesExternos": 42,
+      "violacoesHoje": 766,
+      "porTipo": {
+        "frente": 694,
+        "testada": 32,
+        "via-sobre-lote": 40
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 9,
+        "faixa-externa-sem-limite-longitudinal": 21,
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade": 32,
+        "fileira-sem-via-propria": 663,
+        "fileira-encosta-na-via-so-de-esguelha": 1,
+        "rede-viaria-aparada-so-pela-divisa": 40
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 766,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (9)",
+            "faixa-externa-sem-limite-longitudinal (21)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (663)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (32)",
+            "rede-viaria-aparada-so-pela-divisa (40)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 757,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (21)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (663)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (32)",
+            "rede-viaria-aparada-so-pela-divisa (40)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 9,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (9)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 16,
+      "formato": "radial",
+      "notaDoMotor": 0.5379227674954565,
+      "lotes": 543,
+      "quadras": 80,
+      "lotesExternos": 49,
+      "violacoesHoje": 558,
+      "porTipo": {
+        "frente": 526,
+        "testada": 2,
+        "via-sobre-lote": 30
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 8,
+        "faixa-externa-sem-limite-longitudinal": 26,
+        "fileira-sem-via-propria": 492,
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade": 2,
+        "rede-viaria-aparada-so-pela-divisa": 30
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 558,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (8)",
+            "faixa-externa-sem-limite-longitudinal (26)",
+            "fileira-sem-via-propria (492)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (2)",
+            "rede-viaria-aparada-so-pela-divisa (30)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 550,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (26)",
+            "fileira-sem-via-propria (492)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (2)",
+            "rede-viaria-aparada-so-pela-divisa (30)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 8,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (8)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 17,
+      "formato": "organico",
+      "notaDoMotor": 0.5366825340459759,
+      "lotes": 812,
+      "quadras": 37,
+      "lotesExternos": 64,
+      "violacoesHoje": 742,
+      "porTipo": {
+        "frente": 660,
+        "testada": 42,
+        "via-sobre-lote": 40
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 17,
+        "faixa-externa-sem-limite-longitudinal": 41,
+        "fileira-sem-via-propria": 592,
+        "fileira-encosta-na-via-so-de-esguelha": 10,
+        "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade": 42,
+        "rede-viaria-aparada-so-pela-divisa": 40
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 742,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (17)",
+            "faixa-externa-sem-limite-longitudinal (41)",
+            "fileira-encosta-na-via-so-de-esguelha (10)",
+            "fileira-sem-via-propria (592)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (42)",
+            "rede-viaria-aparada-so-pela-divisa (40)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 725,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (41)",
+            "fileira-encosta-na-via-so-de-esguelha (10)",
+            "fileira-sem-via-propria (592)",
+            "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade (42)",
+            "rede-viaria-aparada-so-pela-divisa (40)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 17,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (17)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 18,
+      "formato": "pente",
+      "notaDoMotor": 0.5356800830115201,
+      "lotes": 961,
+      "quadras": 65,
+      "lotesExternos": 52,
+      "violacoesHoje": 84,
+      "porTipo": {
+        "frente": 40,
+        "via-sobre-lote": 44
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 12,
+        "MECANISMO-NAO-NOMEADO": 1,
+        "faixa-externa-sem-limite-longitudinal": 27,
+        "rede-viaria-aparada-so-pela-divisa": 44
+      },
+      "naoNomeadas": [
+        "geo-antonina|frente|v3-e19"
+      ],
+      "oQueAsNaoNomeadasTemEmComum": {
+        "quantas": 1,
+        "porTipo": {
+          "frente": 1
+        },
+        "externas": 1,
+        "internas": 0,
+        "aDistanciaAoContorno_m": {
+          "min": 0.04,
+          "max": 0.04
+        },
+        "encostamNaVia": 1,
+        "comTestadaFinaACIMADoMinimo": 0,
+        "lista": [
+          {
+            "chave": "geo-antonina|frente|v3-e19",
+            "tipo": "frente",
+            "externo": true,
+            "dAoContornoDaVia_m": 0.04,
+            "aoSegmentoDaFaceEntregue_m": 0.3,
+            "testadaDele_m": 0,
+            "testadaComPassoFino_m": 1.5,
+            "testadaMin_m": 10,
+            "verticesDoLote": 4,
+            "quadraId": "",
+            "profundidadeModalDaFileira_m": null
+          }
+        ]
+      },
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 84,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "contrato-do-generate-sem-campo-de-rua-publica (12)",
+            "faixa-externa-sem-limite-longitudinal (27)",
+            "rede-viaria-aparada-so-pela-divisa (44)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 72,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "faixa-externa-sem-limite-longitudinal (27)",
+            "rede-viaria-aparada-so-pela-divisa (44)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 13,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)",
+            "contrato-do-generate-sem-campo-de-rua-publica (12)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 1,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "MECANISMO-NAO-NOMEADO (1)"
+          ]
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 19,
+      "formato": "cluster",
+      "notaDoMotor": 0.5317744673898611,
+      "lotes": 871,
+      "quadras": 60,
+      "lotesExternos": 36,
+      "violacoesHoje": 62,
+      "porTipo": {
+        "frente": 47,
+        "via-sobre-lote": 15
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 11,
+        "faixa-externa-sem-limite-longitudinal": 18,
+        "fileira-sem-via-propria": 17,
+        "fileira-encosta-na-via-so-de-esguelha": 1,
+        "rede-viaria-aparada-so-pela-divisa": 15
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 62,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)",
+            "faixa-externa-sem-limite-longitudinal (18)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (17)",
+            "rede-viaria-aparada-so-pela-divisa (15)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 51,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (18)",
+            "fileira-encosta-na-via-so-de-esguelha (1)",
+            "fileira-sem-via-propria (17)",
+            "rede-viaria-aparada-so-pela-divisa (15)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 11,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (11)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    },
+    {
+      "posicaoNoRankingDele": 20,
+      "formato": "pente",
+      "notaDoMotor": 0.5192955113143755,
+      "lotes": 714,
+      "quadras": 46,
+      "lotesExternos": 46,
+      "violacoesHoje": 78,
+      "porTipo": {
+        "frente": 36,
+        "via-sobre-lote": 42
+      },
+      "porMecanismo": {
+        "contrato-do-generate-sem-campo-de-rua-publica": 13,
+        "faixa-externa-sem-limite-longitudinal": 23,
+        "rede-viaria-aparada-so-pela-divisa": 42
+      },
+      "naoNomeadas": [],
+      "oQueAsNaoNomeadasTemEmComum": null,
+      "cenarios": {
+        "hoje": {
+          "violacoesQueRestam": 78,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (13)",
+            "faixa-externa-sem-limite-longitudinal (23)",
+            "rede-viaria-aparada-so-pela-divisa (42)"
+          ]
+        },
+        "so-o-contrato": {
+          "violacoesQueRestam": 65,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "faixa-externa-sem-limite-longitudinal (23)",
+            "rede-viaria-aparada-so-pela-divisa (42)"
+          ]
+        },
+        "so-o-motor": {
+          "violacoesQueRestam": 13,
+          "aprovaria": false,
+          "oQueAindaBloqueia": [
+            "contrato-do-generate-sem-campo-de-rua-publica (13)"
+          ]
+        },
+        "os-dois": {
+          "violacoesQueRestam": 0,
+          "aprovaria": true,
+          "oQueAindaBloqueia": []
+        }
+      }
+    }
+  ]
+}
