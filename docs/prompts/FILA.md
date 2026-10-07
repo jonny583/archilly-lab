@@ -62,8 +62,8 @@ certa e eu repeti a frase velha por descuido."*
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-58** | **As 81 do motor agrupadas por MECANISMO** — quantos mecanismos distintos existem e quantas violações cada um responde. Lista numerada, é o insumo da fila do motor | ✅ **concluído em 07/10/2026** · **SEIS**, zero não nomeadas · PR #72 | nenhuma |
-| **LAB-59** | O **T-38 como CONTRAFACTUAL**: com as 81 resolvidas, outra candidata passa a ser aprovável em Antonina? Responde sozinho a pendência do Jonny (33 ou 1.228 lotes) **sem tocar no motor** | ⬜ **próximo** | LAB-58 mesclado ✅ |
-| **LAB-60** | A **configuração do motor, SÓ DE LEITURA**: as três formas de desligar conferência que o LAB-57 achou aqui, conferidas lá. Lista numerada — **vai pelo chat ao motor** | ⬜ pronto | LAB-59 mesclado |
+| **LAB-59** | O **T-38 como CONTRAFACTUAL**: com as 81 resolvidas, outra candidata passa a ser aprovável em Antonina? Responde sozinho a pendência do Jonny (33 ou 1.228 lotes) **sem tocar no motor** | ✅ **concluído em 07/10/2026** · **16 de 20**, e a nota dele ainda prefere 33 | LAB-58 mesclado ✅ |
+| **LAB-60** | A **configuração do motor, SÓ DE LEITURA**: as três formas de desligar conferência que o LAB-57 achou aqui, conferidas lá. Lista numerada — **vai pelo chat ao motor** | ⬜ **próximo** | LAB-59 mesclado ✅ |
 | **LAB-61** | **A dívida própria com o que sobrou** | ⬜ pronto | LAB-60 mesclado |
 
 **O que o chat disse de cada um, nas palavras dele:**
@@ -81,6 +81,47 @@ certa e eu repeti a frase velha por descuido."*
 - **LAB-61** — *"continue a dívida própria com o que sobrou."*
 
 **Ao fim de cada prompt, o recado com o status** (palavras dele).
+
+### Proposto ao chat, saído do LAB-59 — **não executado**
+
+**O SÉTIMO MECANISMO, se houver.** Resolvidos os seis do LAB-58 e o campo do contrato, **4 das
+20** candidatas de Antonina ficam de fora, **uma violação cada**, e três delas têm a forma
+exata das 11 do contrato — lote externo sobre a rua entregue — **sem** sumir com a faixa que o
+`faixaViaPublica` do Generate constrói. Pode ser um sétimo mecanismo do motor, ou a **largura
+e a divisa** da faixa do Generate. Está caracterizado em
+[`../provas/LAB-59/contrafactual-de-antonina.json`](../provas/LAB-59/contrafactual-de-antonina.json)
+(`oQueAsNaoNomeadasTemEmComum`). **Nomear mecanismo é o LAB-58, e ampliar escopo é o que esta
+página proíbe.**
+
+### LAB-59 · O contrafactual de Antonina — ✅ concluído em 07/10/2026
+
+```
+cenário          aprovam   a 1ª no ranking DELE
+hoje ..........  0 de 20   —
+só-o-contrato .  0 de 20   —
+só-o-motor ....  0 de 20   —
+os-dois .......  16 de 20  superquadra, 33 lotes, nota 0,6226
+```
+
+**A resposta à pendência do Jonny está fechada:** a `ortogonal` de **1 228 lotes** passa a
+**aprovar**, e a nota **dele** continua preferindo a de 33 (0,6226 contra 0,5881). *O que
+escolhe o pequeno é a régua de nota, não a validade* — e a decisão que sobra é urbanismo,
+dele. **As duas pontas são necessárias e nenhuma basta:** só o motor aprova zero, só o
+contrato aprova zero.
+
+**E este prompt quase publicou o CONTRÁRIO** (D200): a primeira versão lia três valores **por
+lote** de provas feitas sobre a candidata **vencedora**, e respondeu **1 de 20**. As órfãs
+denunciaram — 696, em 19 das 20 — e o conserto foi medir as três por candidata, com as provas
+virando **calibração**: 696 → 238 → **4** órfãs, discordâncias **zero**.
+
+**A trava que vale é a que reprova a frase** (D201): as duas sabotagens que devolvem uma
+consulta ao lugar errado derrubaram **exatamente** as duas travas semânticas da resposta do
+Jonny — e **nenhuma** trava estrutural caiu, porque a soma fechava com a resposta errada.
+
+- relatório: [`../relatorios/LAB-59.md`](../relatorios/LAB-59.md)
+- provas: `docs/provas/LAB-59/contrafactual-de-antonina.json` e `sabotagem.json`
+- ferramenta: `external-engines/esteira/ferramentas/lab59.ts` · **20 travas** em
+  `tests/contrafactual.test.ts` · `variantesJulgadasDoTestfit` em `src/motores/testfit.ts`
 
 ### LAB-58 · As 81 são SEIS mecanismos — ✅ concluído em 07/10/2026
 
@@ -942,7 +983,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 138 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 158 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

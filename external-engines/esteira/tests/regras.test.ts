@@ -127,6 +127,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "mede o ESCOPO do detector de prova velha e a sabotagem que prova que ele reprova: o objeto medido são duas provas e uma trava, não terreno",
     "LAB-57/varredura-de-configuracao.json":
       "varre a ÁRVORE DE CONFIGURAÇÃO deste repositório — 27 arquivos, 6 regras, as três formas de desligar conferência —, não terreno: não há gleba, motor nem semente no que ela mede",
+    "LAB-59/sabotagem.json":
+      "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-47/varredura-de-segredos.json":

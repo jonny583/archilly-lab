@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-58 ·
+**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-59 ·
 **FILA NOVA EM EXECUÇÃO (LAB-58 a LAB-61). O despertador está LIGADO.**
 
 # 🟢 O DESPERTADOR ESTÁ LIGADO — fila nova, LAB-58 a LAB-61
@@ -28,9 +28,46 @@ certa e eu repeti a frase velha por descuido."* O T-36 virou **LAB-58**, o T-38 
 | # | em uma linha | estado |
 |---|---|---|
 | **LAB-58** | as 81 do motor por **MECANISMO** — lista numerada, insumo da fila do motor | ✅ **07/10** · **SEIS mecanismos, zero não nomeadas** · PR #72 |
-| **LAB-59** | o **contrafactual** de Antonina: com as 81 resolvidas, outra candidata passa a ser aprovável? | ⬜ próximo |
-| **LAB-60** | a configuração do motor, **só de leitura** — lista numerada pelo chat | ⬜ pronto |
+| **LAB-59** | o **contrafactual** de Antonina: com as 81 resolvidas, outra candidata passa a ser aprovável? | ✅ **07/10** · **16 de 20**, e a nota dele ainda prefere 33 |
+| **LAB-60** | a configuração do motor, **só de leitura** — lista numerada pelo chat | ⬜ **próximo** |
 | **LAB-61** | a **dívida própria** com o que sobrou | ⬜ pronto |
+
+# 🟩 O LAB-59 · A PENDÊNCIA DO JONNY ESTÁ FECHADA — e a resposta é a boa
+
+```
+cenário          aprovam   a 1ª no ranking DELE
+hoje ..........  0 de 20   —
+só-o-contrato .  0 de 20   —
+só-o-motor ....  0 de 20   —
+os-dois .......  16 de 20  superquadra, 33 lotes, nota 0,6226
+```
+
+**A `ortogonal` de 1 228 lotes PASSA A APROVAR**, e a nota **dele** continua preferindo a de
+**33** — 0,6226 contra 0,5881. *O que escolhe o pequeno é a régua de nota, não a validade*, e
+a decisão que sobra para o Jonny é **urbanismo**, não medição. O item 7 da página dele foi
+marcado como **medido e fechado**, com a tabela em palavra de pessoa.
+
+**As duas pontas são necessárias e nenhuma basta:** só o motor aprova **zero**, só o contrato
+aprova **zero**. É a confirmação medida do `oQueBloqueiaCadaGleba` do LAB-58.
+
+**E o prompt quase publicou o CONTRÁRIO** (D200): a primeira versão lia **três valores por
+lote** de provas feitas sobre a candidata **vencedora** — os ids `v19-eN` dela não existem na
+`ortogonal`, que tem `v1-eN` — e respondeu **1 de 20**. **As órfãs denunciaram**: 696 em 19
+das 20. Medidas as três por candidata, com as provas virando **calibração**, a progressão foi
+**696 → 238 → 4** e a resposta virou 16 de 20.
+
+> **O D116 proíbe remedir a MESMA grandeza do MESMO objeto; ler um valor POR OBJETO de uma
+> prova que não contém o objeto é tabela de consulta que erra em silêncio.**
+
+**A trava que vale é a que reprova a frase** (D201): as duas sabotagens que devolvem a consulta
+ao lugar errado derrubaram **as duas travas semânticas** da resposta do Jonny — e **nenhuma**
+estrutural caiu, porque a soma fechava com a resposta errada. *Medição consistente não é
+medição certa.*
+
+**Sobram 4 de 20**, uma violação cada, **sem mecanismo nomeado** e caracterizadas: três são
+lote externo sobre a rua entregue que a faixa do Generate não alcança, e uma é `testada` que
+**sumiria** com amostragem fina. Nomear mecanismo é o LAB-58 — entrou na fila como
+**proposto ao chat**.
 
 # 🔢 O LAB-58 · as 81 são SEIS mecanismos, e a ORDEM não é a do volume
 
@@ -106,9 +143,9 @@ chat adotou como calendário, está agora **medida na prática** e não prevista
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 529 travas (512 esteira + 17 testfit)   ← eram 505 ao fechar a fila anterior
-CI sem clones ...... 138 (114 → 138: as 24 travas do LAB-58 leem só arquivo deste repositório)
-decisões ........... D199 é a última. A próxima é a D200
+suíte .............. 549 travas (532 esteira + 17 testfit)   ← eram 505 ao abrir a fila
+CI sem clones ...... 158 (114 → 138 → 158: as travas do LAB-58 e do LAB-59 leem só arquivo daqui)
+decisões ........... D201 é a última. A próxima é a D202
 verde .............. 7 passos, exit 0, três clones vizinhos limpos
 ```
 
@@ -813,7 +850,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 138 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 158 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

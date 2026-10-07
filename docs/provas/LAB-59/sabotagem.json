@@ -1,0 +1,33 @@
+{
+  "prompt": "LAB-59",
+  "oQueIstoMede": "que as travas do contrafactual REPROVAM — quatro sabotagens de propósito, com o código de saída e as travas que caíram. O objeto medido são a ferramenta e a suíte, não terreno",
+  "quando": "2026-10-07",
+  "oQueAsDuasPRIMEIRASPROVAM": "elas reproduzem o defeito que este prompt teve de verdade: ler um valor POR LOTE de uma prova feita sobre OUTRA candidata. Nos dois casos o contrafactual passou a dizer 'só 1 de 20 aprova' em vez de '16 de 20' — isto é, O CONTRÁRIO da resposta à pendência do Jonny —, e nos dois as travas que caíram foram exatamente as duas que guardam essa resposta",
+  "sabotagens": [
+    {
+      "n": 1,
+      "oQue": "a distância à face entregue volta a ser LIDA da prova do LAB-50",
+      "onde": "ferramentas/lab59.ts · aoSegmento",
+      "antesDaPrecondicao": { "exit": 0, "oQuePegou": "a FERRAMENTA não pegou; as TRAVAS pegaram, 2 de 20 — 'a candidata de MAIS lotes aprova no cenário em que tudo foi resolvido' e 'a nota DELE ainda prefere a de MENOS lotes'", "oResultadoFalso": "os-dois: 1 de 20 aprovam (o certo é 16)" },
+      "depoisDaPrecondicao": { "exit": 1, "oQuePegou": "a ferramenta PARA: 'lote EXTERNO sem distância à face entregue, com a entrada entregando 1 linha de testada. null aqui não é \"não há\": é \"não medi\"'" }
+    },
+    {
+      "n": 2,
+      "oQue": "o contrafactual do campo `faixaViaPublica` volta a ser LIDO da prova do LAB-53",
+      "onde": "ferramentas/lab59.ts · someComAFaixa",
+      "resultado": { "exit": 0, "oQuePegou": "as travas, 2 de 20 — as mesmas duas da pendência do Jonny", "oResultadoFalso": "os-dois: 1 de 20 aprovam (o certo é 16)" }
+    },
+    {
+      "n": 3,
+      "oQue": "a 'primeira entre as que aprovam' deixa de ser a de melhor nota DELE",
+      "onde": "docs/provas/LAB-59/contrafactual-de-antonina.json · cenarios[os-dois].aPrimeiraNoRankingDELE",
+      "resultado": { "exit": 1, "oQuePegou": "2 travas de 20 — 'a primeira entre as que aprovam é a de melhor nota DELE' (§4: o Lab não escolhe variante) e a da resposta ao Jonny" }
+    },
+    {
+      "n": 4,
+      "oQue": "uma candidata passa a aprovar resolvendo MENOS e não resolvendo mais",
+      "onde": "docs/provas/LAB-59/contrafactual-de-antonina.json · candidatas[1].cenarios[so-o-motor].aprovaria",
+      "resultado": { "exit": 1, "oQuePegou": "1 trava de 20 — 'as contagens dos cenários são CONTADAS, não declaradas'" }
+    }
+  ]
+}

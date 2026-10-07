@@ -5566,3 +5566,62 @@ deles na fronteira, **0** entre as 81.
 as 11 "régua-no-meio-da-aresta" do LAB-54**. São conjuntos diferentes do mesmo tamanho — as do
 contrato são 11 de Antonina a ≤ 0,5 m da face (7 régua + 4 sem-via); as da régua são 7 em
 Antonina mais 4 em `completo`, e essas 4 estão DENTRO das 81.*
+
+---
+
+## D200 · Valor POR OBJETO lido de prova feita sobre OUTRO objeto não é economia, é tabela que erra em silêncio · 07/10/2026
+
+O LAB-59 pergunta qual das vinte candidatas de Antonina aprovaria em cada cenário de conserto.
+A primeira versão lia **três valores por lote** das provas anteriores — a distância à face
+entregue (LAB-50), a testada com amostragem fina (LAB-54), o contrafactual do campo
+`faixaViaPublica` (LAB-53) — e **pelo D116 isso parecia disciplina.**
+
+**Ela respondeu `1 de 20`. A resposta é `16 de 20`.**
+
+**O número denunciou antes de a frase sair:** 696 violações saíram `MECANISMO-NAO-NOMEADO`, em
+**19 das 20** candidatas, entre elas as 40 da `ortogonal` de 1 228 lotes. Eu estava a um passo
+de publicar *"nem resolvido tudo a de 1 228 aprova"*, que é **o contrário da verdade** e vai
+para a página do Jonny.
+
+**A causa é uma e as três instâncias são a mesma:** aquelas provas mediram **a candidata
+vencedora**. Os lotes externos dela são `v19-eN`; os da `ortogonal` são `v1-eN`, os da `pente`
+`v3-eN`, e **não existem lá**. A consulta devolvia `undefined`, o predicado caía, a violação
+saía órfã.
+
+> **O D116 proíbe remedir a MESMA grandeza do MESMO objeto. Ler de uma prova um valor POR
+> OBJETO, para objetos que ela não contém, é tabela de consulta que erra em silêncio** — e
+> erra para o lado de atribuir ao desconhecido o que é falta de medição (D23).
+
+**O conserto, com a progressão medida:** 696 órfãs → 238 (medindo a face e a testada fina) →
+**4** (medindo também o contrafactual do contrato). E as provas viraram o que são: **a
+calibração** — todo lote que elas contêm recebe aqui o mesmo número, discordâncias **zero**.
+
+**Mais a precondição que fecha o caminho silencioso:** lote externo sem distância à face
+entregue, numa gleba que entrega face, faz a ferramenta **parar**. `null` ali não é *"não
+há"*, é *"não medi"* (D175).
+
+*É a décima sétima vez do ponto cego da §6, e a terceira da sub-família do CAMINHO — mas com
+forma nova: aqui o caminho estava certo e o **objeto** estava errado.*
+
+---
+
+## D201 · A trava que vale é a que reprova a FRASE que você ia publicar · 07/10/2026
+
+As travas do LAB-59 poderiam ter sido só estruturais — a soma fecha, os cenários são
+monótonos, as contagens são contadas. Duas delas são **semânticas**, e escrevem a conclusão
+como medição em vez de frase:
+
+> *"a candidata de MAIS lotes aprova no cenário em que tudo foi resolvido"* e *"a nota DELE
+> ainda prefere a de MENOS lotes — é isso que responde o Jonny"*.
+
+**E foram exatamente essas duas que as duas primeiras sabotagens derrubaram**, as duas que
+devolvem uma consulta ao lugar errado. Trava estrutural nenhuma caiu: a soma fechava, os
+cenários eram monótonos, as contagens batiam — **com a resposta errada**.
+
+> **Medição consistente não é medição certa.** A trava que protege uma conclusão é a que
+> enuncia a conclusão e mede as duas pontas dela; se uma ponta virar, a frase da página do
+> Jonny precisa ser remedida, e a trava é quem avisa.
+
+*E há o lado §4 disso: a trava que exige que a primeira entre as que aprovam seja a de melhor
+`notaDoMotor`. Sem ela, o dia em que alguém puser outra ali é o dia em que o Lab passou a
+escolher variante pelo motor, e nada avisaria.*
