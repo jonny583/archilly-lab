@@ -4979,3 +4979,86 @@ limpezas distintas, que agora são duas funções com nomes diferentes:
 **E o zero de (b) vale porque as réguas olharam volume:** **0** identificadores de conta em
 **4 891 parâmetros** e **4 316 campos**, com trava exigindo que esses números não caiam —
 *é a diferença entre "não achei" e "não procurei"* (D164).
+
+---
+
+## D180 · Campo MIN/MAX vem do CONTRATO; o sorteado é ALVO — e ele vale 36 violações · 07/10/2026
+
+**O LAB-48 achou, o LAB-53 consertou**, e o caminho é curto o bastante para caber aqui: a
+ENTRADA declara `testadaMinLote_m = 10` m; a **minha ida** monta
+`padroes["testada"] = faixa(10, √(360/2))`; o motor sorteia o alvo da variante no meio dela,
+**11,70820393249937** m; e a **minha volta** escrevia esse alvo em
+`parametrosUsados.testadaMinLote_m` — **o campo cujo nome é MÍNIMO**. O tradutor do Generate o
+lê como `params.testadaMin`, e o Validator passava a medir o motor **contra o próprio alvo
+dele**, com 2 % de folga: **47 lotes de 316 m² reprovados por 1,94 cm de déficit mediano**, 36
+deles por isto.
+
+> **Campo cujo nome diz MÍNIMO e cujo valor é um ALVO não é um campo errado: é uma acusação
+> automática.**
+
+**E eram TRÊS campos, não um** — `testadaMinLote_m`, `caixaViariaMin_m` e `faceQuadraMax_m`.
+O LAB-48 nomeou um; ler a função inteira antes de tocá-la achou os outros dois.
+
+**A regra tem TRÊS saídas, e a terceira é o erro simétrico.** Dizer só *"limite vem do
+contrato"* deixaria passar o avesso: publicar no campo de limite o número do contrato quando o
+motor **não honra** aquele limite é **inventar obediência**. Então:
+
+| saída | quando | exemplo |
+|---|---|---|
+| **do contrato** | o motor mira dentro de um limite que outro declarou | `testadaMinLote_m` |
+| **`null`** | o motor **não aplica** aquele limite | `rampaMaxima_pct` — ele mede rampa (T03) e não a limita |
+| **nunca o sorteado** | o sorteado é ALVO: vai a campo de alvo, ou vira perda declarada | `testadaAlvoLote_m`, que o contrato v1 **não tem** |
+
+**Medido depois:** **128 → 92** violações, as 81 que não são `testada` sendo **os mesmos 81
+lotes** e as 11 restantes **subconjunto** das 47. O conserto é cirúrgico, e a previsão do
+LAB-48 bateu nas cinco glebas.
+
+---
+
+## D181 · A guarda mede DEPENDÊNCIA, não nome — e a sabotagem provou que precisava · 07/10/2026
+
+A trava óbvia para o D180 é *"todo campo MIN/MAX é igual ao do contrato"*. Ela está escrita e
+é a primeira das três — **e sozinha ela não serve**, e isso não é opinião: é sabotagem.
+
+Devolvido `faceQuadraMax_m: comprimentoQuadra` (o defeito de volta), **a trava de nome
+PASSOU**. O motivo é exato: a ida entrega `padroes["comprimentoQuadra"]` como faixa
+**degenerada** `(200, 200)`, então hoje o sorteado **é** o limite, e comparar valor com valor
+não distingue *"vem do contrato"* de *"vem do sorteio e por sorte coincide"*.
+
+**Quem pegou foi a segunda trava**, que não compara valores: ela roda a volta **duas vezes,
+com a mesma ENTRADA e duas amostras diferentes**, e exige que todo campo MIN/MAX **fique
+parado** enquanto o campo de ALVO **se move**.
+
+> **Trava que compara o campo com o valor de hoje mede uma coincidência, não o mecanismo.**
+
+**As duas metades da segunda trava importam.** Sem a do alvo que se move, ela passaria com a
+ponte devolvendo a ENTRADA inteira de volta — e `parametrosUsados` perderia a única função que
+tem, que é dizer no que o motor divergiu do pedido.
+
+**É a segunda vez em dois prompts que a sabotagem pega a trava e não eu** (a primeira foi a
+D179, uma hora antes). Duas em duas: **sabotar a própria trava deixou de ser zelo e passou a
+ser método.**
+
+---
+
+## D182 · Prova "antes" não se sobregrava com prova "depois" — e a legenda sai da medição · 07/10/2026
+
+A aferição do LAB-53 usa **a mesma ferramenta** do diagnóstico do LAB-48, de propósito: medir
+com outra responderia outra pergunta (D149). Mas ela escrevia sempre no mesmo arquivo, e a
+primeira rodada **apagou o diagnóstico** — justamente o arquivo que o chat quer pôr ao lado do
+diagnóstico que o Generate está fazendo do lado dele. Restaurado do git; o conserto é de
+mecanismo, não de cuidado:
+
+- **o destino do arquivo sai da MEDIÇÃO**, não de quem roda a ferramenta:
+  `oMinimoDeTestada.saoIguais`, gleba por gleba, diz se a ponte já põe o mínimo declarado.
+  Ponte com o defeito escreve em `LAB-48/`; ponte consertada escreve em `LAB-53/`. Uma rodada
+  **não pode** sobregravar a outra;
+- **gleba recusada pelo esquema não vota**, e se nenhuma foi medida a resposta não é
+  *"consertada"*: é *"não medida"* (D164);
+- **a legenda deixou de ser texto fixo.** O campo `ehDiagnostico` trazia, em `string` literal,
+  *"nada foi consertado, e a ponte não foi tocada"* — frase que este prompt tornaria **falsa
+  dentro do próprio arquivo de prova**, em silêncio. É a forma do D104 **dentro de uma
+  prova**, e teria envelhecido no mesmo prompt que a escreveu.
+
+> **Prova carrega número e carrega legenda, e só o número se regera. A legenda que não é
+> derivada da medição é um comentário com cara de dado.**

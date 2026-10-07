@@ -84,11 +84,18 @@ despertador por aplicativo; nunca se toca no de outro repositório.**
   *"proposto ao chat"*, sem executar. Não ampliar escopo.
 - O que depende do Jonny ou de outro repositório fica **"aguardando"**: pular
   para o seguinte e reavaliar a cada despertador.
-- **Disparo sem item pronto: apagar o despertador** (D62). Vale tanto para a
-  fila esgotada quanto para a fila que existe mas está toda *"aguardando"* — em
-  qualquer dos dois casos, gravar o recado acumulado, escrever em `ONDE_PARAMOS`
-  o motivo e **apagar o despertador**. O chat o recria quando destravar.
+- **Disparo sem item pronto: DESLIGAR o despertador** (D62 + D112). Vale tanto
+  para a fila esgotada quanto para a fila que existe mas está toda
+  *"aguardando"* — em qualquer dos dois casos, gravar o recado acumulado,
+  escrever em `ONDE_PARAMOS` **o motivo** e **desligar** (`enabled: false`), nunca
+  apagar. O chat o religa com fila nova.
   Medido: dos 7 disparos do despertador de 15/09, **4 não tiveram o que fazer**.
+  **Esta linha dizia "apagar" até 07/10/2026, e estava falsa na prática:** eu
+  desliguei em vez de apagar **seis vezes**, e o chat mandou **reabilitar em vez
+  de recriar** sete — até ratificá-lo por escrito: *"pode desligar ao esgotar em
+  vez de apagar; você está certa, e passa a ser assim daqui em diante."*
+  **Apagar perde o id**, que é o que ele reusa; e o id vive em `ONDE_PARAMOS`.
+  *Regra que a prática desmente seis vezes não é regra, é texto velho* (D104).
 - **O despertador nasceu sem conectores do GitHub.** Se ao acordar não houver
   `mcp__github__*`, mesclar por git direto (`git merge --no-ff` na `main`) e
   **declarar isso no relatório e no recado** (D29).

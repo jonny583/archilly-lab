@@ -288,3 +288,102 @@ describe("§2.5 — a superquadra nasce vazia", () => {
     expect(s.opcoes[0]!.plano.nota).toBeGreaterThan(0);
   }, 60_000);
 });
+
+/**
+ * ════════════════════════════════════════════════════════════════════════════
+ *  §LAB-53 — a guarda do campo MIN/MAX, ao lado do conserto
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * **Ela existe por 36 violações.** Até o LAB-53, `parametrosAplicados` escrevia o
+ * valor **sorteado** da variante em `testadaMinLote_m`, `caixaViariaMin_m` e
+ * `faceQuadraMax_m` — campos cujo nome é LIMITE. A entrada declarava
+ * `testadaMinLote_m = 10` m; o que chegava ao Validator do Generate era
+ * **11,70820393249937** m, o alvo da variante; e o Validator reprovava **47
+ * lotes** por um déficit mediano de **1,94 cm**, dos quais **36 eram esta ponte
+ * e não o motor** (LAB-48, D166).
+ *
+ * **O que ela mede, e por que não é régua de nome.** Ela não confere ortografia
+ * de campo nem lê comentário: ela roda a volta **duas vezes, com a mesma
+ * ENTRADA e duas amostras diferentes**, e exige que todo campo MIN/MAX **fique
+ * parado** enquanto o campo de ALVO **se move**. É dependência medida, não nome
+ * casado — a lição das cinco réguas de nome do §6 (D137, D142, D155, D177,
+ * D179).
+ *
+ * **As duas metades importam.** Sem a segunda — o alvo que se move — esta trava
+ * passaria com a função devolvendo a ENTRADA inteira de volta, que é o erro
+ * simétrico: `parametrosUsados` perderia a única função que tem.
+ *
+ * **E a varredura é por NOME sobre as chaves REAIS do objeto**, não sobre uma
+ * lista escrita aqui: campo MIN/MAX novo no contrato entra na trava sozinho.
+ * Lista que não se revalida envelhece igual a comentário (D104).
+ */
+describe("§LAB-53 — MÍNIMO e MÁXIMO vêm do contrato, nunca do sorteio", () => {
+  const prepararDuasAmostras = () => {
+    const entrada = carregar("ensaio-47ha");
+    const { entrada: em } = idaParaOMotor(entrada, { semente: SEMENTE, variantes: 1 });
+    const plano = rodarMotor(em).opcoes[0]!.plano;
+    // A segunda amostra é a primeira com TUDO dobrado. Nenhum motor roda com
+    // ela — e nem precisa: a pergunta é se a ponte COPIA o sorteio para um campo
+    // de limite, e para responder isso basta a ponte.
+    const outro = { ...plano, amostra: Object.fromEntries(
+      Object.entries(plano.amostra).map(([k, v]) => [k, v * 2]),
+    ) };
+    return {
+      entrada,
+      plano,
+      a: voltaParaOContrato(plano, entrada, { semente: 1 }).saida.parametrosUsados,
+      b: voltaParaOContrato(outro, entrada, { semente: 1 }).saida.parametrosUsados,
+    };
+  };
+
+  test("todo campo de LIMITE é o do contrato, ou `null` de não-aplicado", () => {
+    const { entrada, a } = prepararDuasAmostras();
+    const limites = Object.keys(a).filter((k) => /Min|Max/i.test(k));
+    // Se este número cair, a varredura parou de olhar e não é que o contrato
+    // mudou: é a diferença entre "não achei" e "não procurei" (D164).
+    expect(limites.length, "a varredura de campos MIN/MAX não achou campo nenhum").toBeGreaterThan(4);
+    for (const k of limites) {
+      const valor = (a as unknown as Record<string, number | null>)[k]!;
+      const doContrato = (entrada.parametros as unknown as Record<string, number | null>)[k]!;
+      expect(
+        valor === doContrato || valor === null,
+        `${k}: vale ${valor}, e o contrato declarou ${doContrato}. Campo cujo nome diz LIMITE ` +
+          "e cujo valor é outro é uma acusação automática (D166)",
+      ).toBe(true);
+    }
+  });
+
+  test("dobrada a amostra, nenhum LIMITE se move — e o ALVO se move", () => {
+    const { a, b } = prepararDuasAmostras();
+    for (const k of Object.keys(a).filter((x) => /Min|Max/i.test(x))) {
+      const va = (a as unknown as Record<string, number | null>)[k];
+      const vb = (b as unknown as Record<string, number | null>)[k];
+      expect(vb, `${k}: o campo de LIMITE mudou com o SORTEIO — é o defeito do D166 de volta`).toBe(va);
+    }
+    // A outra metade: a ponte não pode ter virado uma cópia da entrada.
+    expect(a.areaAlvoLote_m2).not.toBe(b.areaAlvoLote_m2);
+    expect(b.areaAlvoLote_m2).toBe(a.areaAlvoLote_m2! * 2);
+    expect(b.caixaPrincipal_m).toBe(a.caixaPrincipal_m! * 2);
+  });
+
+  test("o alvo sorteado SEM campo no contrato sai como perda declarada", () => {
+    // O contrato v1 tem o trio MIN/ALVO/MAX só para a área do lote. O alvo de
+    // testada da variante (11,708… contra os 10 m declarados) não tem onde
+    // morar, e deixar de escrevê-lo no campo do MÍNIMO não pode virar silêncio:
+    // ele sai na lista de perdas, com o número.
+    const { entrada, plano } = prepararDuasAmostras();
+    const { perdas } = voltaParaOContrato(plano, entrada, { semente: 1 });
+    const daTestada = perdas.filter((p) => p.campo === "parametrosUsados.testadaAlvoLote_m");
+    expect(daTestada.length, "o alvo de testada sumiu sem perda declarada").toBe(1);
+    expect(daTestada[0]!.oQueHavia).toContain(String(plano.amostra["testada"]));
+    expect(daTestada[0]!.motivo.length).toBeGreaterThan(20);
+    // E a perda NÃO é declarada onde não há perda: a ida entrega
+    // `comprimentoQuadra` como faixa degenerada (200, 200), então o sorteado é o
+    // limite e nada se perde. Perda que grita onde não há perda ensina a ignorar
+    // a lista.
+    const tetoDeclarado = entrada.parametros.faceQuadraMax_m;
+    expect(tetoDeclarado, "a gleba de teste deixou de declarar o teto de face de quadra").not.toBeNull();
+    expect(plano.amostra["comprimentoQuadra"]).toBe(tetoDeclarado!);
+    expect(perdas.some((p) => p.campo === "parametrosUsados.faceQuadraAlvo_m")).toBe(false);
+  });
+});
