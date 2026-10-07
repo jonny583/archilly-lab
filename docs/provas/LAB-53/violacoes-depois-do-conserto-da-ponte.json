@@ -1,0 +1,1841 @@
+{
+  "prompt": "LAB-53",
+  "oQueIstoMede": "as violações do Validator do Generate sobre o motor PADRÃO da tela unificada, uma a uma, nas cinco glebas originais",
+  "ehDiagnostico": "não — esta é a AFERIÇÃO do LAB-53: a ponte já põe o MÍNIMO do contrato em `parametrosUsados`, e o número aqui é o que sobra depois disso. O diagnóstico de antes está em docs/provas/LAB-48/.",
+  "ponteConsertada": true,
+  "comoSeiDisso": "medido, não declarado: `oMinimoDeTestada.saoIguais` em cada gleba — o mínimo que chega ao Validator contra o declarado na ENTRADA. Era 11,70820393249937 contra 10 m até o LAB-53 (D166)",
+  "quando": "2026-10-07T03:10:39.047Z",
+  "motor": "Laboratório de Parcelamento (motor-testfit) — o motor PADRÃO da tela unificada",
+  "semente": 20260913,
+  "contrato": "1",
+  "glebas": [
+    {
+      "gleba": "completo",
+      "variante": "ortogonal (1º de 7 no ranking dele)",
+      "lotes": 1060,
+      "quadras": 51,
+      "testadasDeFrenteNaEntrada": 0,
+      "violacoes": 25,
+      "porTipo": {
+        "testada": 2,
+        "frente": 23
+      },
+      "contrafactual": {
+        "naoHaTestadaNaEntrada": true,
+        "porque": "sem rua pública declarada não há faixa a construir"
+      },
+      "parametros": {
+        "testadaMin_m": 10,
+        "areaMin_m2": 200,
+        "temLoteamentoFachada": false,
+        "temLotesFrente": false
+      },
+      "lotesComBandeiraDeFachada": 0,
+      "oMinimoDeTestada": {
+        "declaradoNaEntrada_m": 10,
+        "queChegaAoValidator_m": 10,
+        "saoIguais": true,
+        "limiteEfetivo_m": 9.8,
+        "deOndeVem": "parametrosUsados.testadaMinLote_m da SAÍDA, preenchido pelo `parametrosAplicados` do adaptador do Lab (volta.ts)",
+        "contrafactual": null
+      },
+      "oTetoDeFaceDeQuadra": {
+        "declaradoNaEntrada_m": 200,
+        "queChegaAoValidator_m": 200,
+        "entregueAoMotorPelaIda": "sim — `padroes.comprimentoQuadra` fixado em faixa(teto, teto), ver ida.ts:387"
+      }
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "variante": "espinha (1º de 19 no ranking dele)",
+      "lotes": 501,
+      "quadras": 8,
+      "testadasDeFrenteNaEntrada": 0,
+      "violacoes": 17,
+      "porTipo": {
+        "testada": 6,
+        "frente": 3,
+        "face-quadra": 8
+      },
+      "contrafactual": {
+        "naoHaTestadaNaEntrada": true,
+        "porque": "sem rua pública declarada não há faixa a construir"
+      },
+      "parametros": {
+        "testadaMin_m": 10,
+        "areaMin_m2": 200,
+        "temLoteamentoFachada": false,
+        "temLotesFrente": false
+      },
+      "lotesComBandeiraDeFachada": 0,
+      "oMinimoDeTestada": {
+        "declaradoNaEntrada_m": 10,
+        "queChegaAoValidator_m": 10,
+        "saoIguais": true,
+        "limiteEfetivo_m": 9.8,
+        "deOndeVem": "parametrosUsados.testadaMinLote_m da SAÍDA, preenchido pelo `parametrosAplicados` do adaptador do Lab (volta.ts)",
+        "contrafactual": null
+      },
+      "oTetoDeFaceDeQuadra": {
+        "declaradoNaEntrada_m": 200,
+        "queChegaAoValidator_m": 200,
+        "entregueAoMotorPelaIda": "sim — `padroes.comprimentoQuadra` fixado em faixa(teto, teto), ver ida.ts:387"
+      }
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "variante": "espinha (1º de 20 no ranking dele)",
+      "lotes": 124,
+      "quadras": 5,
+      "testadasDeFrenteNaEntrada": 0,
+      "violacoes": 4,
+      "porTipo": {
+        "testada": 3,
+        "frente": 1
+      },
+      "contrafactual": {
+        "naoHaTestadaNaEntrada": true,
+        "porque": "sem rua pública declarada não há faixa a construir"
+      },
+      "parametros": {
+        "testadaMin_m": 10,
+        "areaMin_m2": 200,
+        "temLoteamentoFachada": false,
+        "temLotesFrente": false
+      },
+      "lotesComBandeiraDeFachada": 0,
+      "oMinimoDeTestada": {
+        "declaradoNaEntrada_m": 10,
+        "queChegaAoValidator_m": 10,
+        "saoIguais": true,
+        "limiteEfetivo_m": 9.8,
+        "deOndeVem": "parametrosUsados.testadaMinLote_m da SAÍDA, preenchido pelo `parametrosAplicados` do adaptador do Lab (volta.ts)",
+        "contrafactual": null
+      },
+      "oTetoDeFaceDeQuadra": {
+        "declaradoNaEntrada_m": 200,
+        "queChegaAoValidator_m": 200,
+        "entregueAoMotorPelaIda": "sim — `padroes.comprimentoQuadra` fixado em faixa(teto, teto), ver ida.ts:387"
+      }
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "variante": "espinha (1º de 20 no ranking dele)",
+      "lotes": 599,
+      "quadras": 6,
+      "testadasDeFrenteNaEntrada": 0,
+      "violacoes": 6,
+      "porTipo": {
+        "face-quadra": 6
+      },
+      "contrafactual": {
+        "naoHaTestadaNaEntrada": true,
+        "porque": "sem rua pública declarada não há faixa a construir"
+      },
+      "parametros": {
+        "testadaMin_m": 10,
+        "areaMin_m2": 200,
+        "temLoteamentoFachada": false,
+        "temLotesFrente": false
+      },
+      "lotesComBandeiraDeFachada": 0,
+      "oMinimoDeTestada": {
+        "declaradoNaEntrada_m": 10,
+        "queChegaAoValidator_m": 10,
+        "saoIguais": true,
+        "limiteEfetivo_m": 9.8,
+        "deOndeVem": "parametrosUsados.testadaMinLote_m da SAÍDA, preenchido pelo `parametrosAplicados` do adaptador do Lab (volta.ts)",
+        "contrafactual": null
+      },
+      "oTetoDeFaceDeQuadra": {
+        "declaradoNaEntrada_m": 200,
+        "queChegaAoValidator_m": 200,
+        "entregueAoMotorPelaIda": "sim — `padroes.comprimentoQuadra` fixado em faixa(teto, teto), ver ida.ts:387"
+      }
+    },
+    {
+      "gleba": "geo-antonina",
+      "variante": "superquadra (1º de 20 no ranking dele)",
+      "lotes": 33,
+      "quadras": 0,
+      "testadasDeFrenteNaEntrada": 1,
+      "violacoes": 40,
+      "porTipo": {
+        "frente": 29,
+        "via-sobre-lote": 11
+      },
+      "contrafactual": {
+        "faixaConstruidaPor": "faixaViaPublica() do Generate, largura 8 m",
+        "divisa": "testada entregue, 2 ponto(s); divisa escolhida pelo divisaDoAcesso do Generate (180.2 m)",
+        "violacoes": 29,
+        "porTipo": {
+          "frente": 18,
+          "via-sobre-lote": 11
+        },
+        "quantasSomem": 11
+      },
+      "parametros": {
+        "testadaMin_m": 10,
+        "areaMin_m2": 200,
+        "temLoteamentoFachada": false,
+        "temLotesFrente": false
+      },
+      "lotesComBandeiraDeFachada": 0,
+      "oMinimoDeTestada": {
+        "declaradoNaEntrada_m": 10,
+        "queChegaAoValidator_m": 10,
+        "saoIguais": true,
+        "limiteEfetivo_m": 9.8,
+        "deOndeVem": "parametrosUsados.testadaMinLote_m da SAÍDA, preenchido pelo `parametrosAplicados` do adaptador do Lab (volta.ts)",
+        "contrafactual": null
+      },
+      "oTetoDeFaceDeQuadra": {
+        "declaradoNaEntrada_m": 200,
+        "queChegaAoValidator_m": 200,
+        "entregueAoMotorPelaIda": "sim — `padroes.comprimentoQuadra` fixado em faixa(teto, teto), ver ida.ts:387"
+      }
+    }
+  ],
+  "total": {
+    "violacoes": 92,
+    "porTipo": {
+      "testada": 11,
+      "frente": 56,
+      "face-quadra": 14,
+      "via-sobre-lote": 11
+    },
+    "somemComAFaixaViaPublica": 11,
+    "somemComOMinimoDeclaradoNaEntrada": 0
+  },
+  "violacoes": [
+    {
+      "gleba": "completo",
+      "tipo": "testada",
+      "loteId": "v1-l259",
+      "detalhe": "testada 6.39 < 10",
+      "valor": 6.393600041772474,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 326.4,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V20",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l398",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 401.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V19",
+        "d": 5.7,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "testada",
+      "loteId": "v1-l427",
+      "detalhe": "testada 9.59 < 10",
+      "valor": 9.593073139123256,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 389.6,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V21",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l568",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 386.4,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V23",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l763",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 401.2,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V25",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l764",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 339.8,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V25",
+        "d": 10.9,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l867",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 339.8,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V3",
+        "d": 16.8,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l868",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 395.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 6.6,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l956",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 401.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V26",
+        "d": 10.6,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l957",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 401.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V26",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1006",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 290.1,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V4",
+        "d": 16.8,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1007",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 301.3,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V4",
+        "d": 28.5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1008",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 312.4,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1009",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 323.5,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1010",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 334.6,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1011",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 345.7,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1012",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 356.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1013",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 368,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1014",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 379.1,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1015",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 390.2,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1016",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 400.2,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1017",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 401.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1018",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 401.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V11",
+        "d": 39.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1019",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 401.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V5",
+        "d": 28.5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "completo",
+      "tipo": "frente",
+      "loteId": "v1-l1020",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 386.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V5",
+        "d": 16.8,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "testada",
+      "loteId": "v12-l63",
+      "detalhe": "testada 7.75 < 10",
+      "valor": 7.745082841548566,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 376.2,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V6",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "testada",
+      "loteId": "v12-l64",
+      "detalhe": "testada 8.88 < 10",
+      "valor": 8.877946378729803,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 392.9,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V6",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "testada",
+      "loteId": "v12-l186",
+      "detalhe": "testada 8.41 < 10",
+      "valor": 8.408486097818802,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 387.7,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V7",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "testada",
+      "loteId": "v12-l217",
+      "detalhe": "testada 8.14 < 10",
+      "valor": 8.13532242449438,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 330.1,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V8",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "frente",
+      "loteId": "v12-l283",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 356.8,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V9",
+        "d": 8.1,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "testada",
+      "loteId": "v12-l319",
+      "detalhe": "testada 3.56 < 10",
+      "valor": 3.5647006799888032,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 316.7,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V8",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "testada",
+      "loteId": "v12-l320",
+      "detalhe": "testada 8.49 < 10",
+      "valor": 8.487253056567383,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 388,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V5",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "frente",
+      "loteId": "v12-l469",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 389.4,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V10",
+        "d": 5.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "frente",
+      "loteId": "v12-l470",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 296,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V10",
+        "d": 16.1,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "face-quadra",
+      "loteId": "Q1",
+      "detalhe": "face 381.1 m > teto 200 m",
+      "valor": 381.085430990369,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        381.1,
+        354.2,
+        73.4,
+        68.3
+      ]
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "face-quadra",
+      "loteId": "Q2",
+      "detalhe": "face 351.4 m > teto 200 m",
+      "valor": 351.36199866401677,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        351.4,
+        313.4,
+        78.2,
+        68.3
+      ]
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "face-quadra",
+      "loteId": "Q3",
+      "detalhe": "face 411.9 m > teto 200 m",
+      "valor": 411.921222373544,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        411.9,
+        385,
+        73.4,
+        68.3
+      ]
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "face-quadra",
+      "loteId": "Q4",
+      "detalhe": "face 361.1 m > teto 200 m",
+      "valor": 361.1259060145997,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        361.1,
+        354.2,
+        68.3,
+        59.7,
+        10.2
+      ]
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "face-quadra",
+      "loteId": "Q5",
+      "detalhe": "face 415.9 m > teto 200 m",
+      "valor": 415.857966508234,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        415.9,
+        413.2,
+        68.3,
+        54.6,
+        28.6
+      ]
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "face-quadra",
+      "loteId": "Q6",
+      "detalhe": "face 394.9 m > teto 200 m",
+      "valor": 394.88937191417097,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        394.9,
+        356.9,
+        78.2,
+        68.3
+      ]
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "face-quadra",
+      "loteId": "Q7",
+      "detalhe": "face 352.4 m > teto 200 m",
+      "valor": 352.38454493052825,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        352.4,
+        340.1,
+        69.4,
+        68.3
+      ]
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tipo": "face-quadra",
+      "loteId": "Q8",
+      "detalhe": "face 400.3 m > teto 200 m",
+      "valor": 400.3149639548407,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        400.3,
+        312.1,
+        111.6,
+        68.3
+      ]
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "tipo": "testada",
+      "loteId": "v12-l53",
+      "detalhe": "testada 8.41 < 10",
+      "valor": 8.412898220689058,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 319.8,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V4",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "tipo": "testada",
+      "loteId": "v12-l67",
+      "detalhe": "testada 6.81 < 10",
+      "valor": 6.805558408488053,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 357.4,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V3",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "tipo": "frente",
+      "loteId": "v12-l89",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 317.4,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V6",
+        "d": 6.2,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "tipo": "testada",
+      "loteId": "v12-l102",
+      "detalhe": "testada 8.45 < 10",
+      "valor": 8.454539856717783,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": 380.1,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V6",
+        "d": 5,
+        "largura": 10
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "tipo": "face-quadra",
+      "loteId": "Q1",
+      "detalhe": "face 596.9 m > teto 200 m",
+      "valor": 596.9240123096693,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        596.9,
+        586.2,
+        69.4,
+        59.7,
+        8.8
+      ]
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "tipo": "face-quadra",
+      "loteId": "Q2",
+      "detalhe": "face 570.3 m > teto 200 m",
+      "valor": 570.3088609950507,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        570.3,
+        558,
+        69.4,
+        68.3
+      ]
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "tipo": "face-quadra",
+      "loteId": "Q3",
+      "detalhe": "face 596.9 m > teto 200 m",
+      "valor": 596.9240123096693,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        596.9,
+        596.9,
+        69.4,
+        69.4
+      ]
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "tipo": "face-quadra",
+      "loteId": "Q4",
+      "detalhe": "face 556.2 m > teto 200 m",
+      "valor": 556.2230595301045,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        556.2,
+        543.9,
+        69.4,
+        68.3
+      ]
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "tipo": "face-quadra",
+      "loteId": "Q5",
+      "detalhe": "face 596.9 m > teto 200 m",
+      "valor": 596.9240123096693,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        596.9,
+        596.9,
+        69.4,
+        69.4
+      ]
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "tipo": "face-quadra",
+      "loteId": "Q6",
+      "detalhe": "face 596.9 m > teto 200 m",
+      "valor": 596.9240123096693,
+      "idDizExterno": false,
+      "distanciaAteATestada_m": null,
+      "area_m2": null,
+      "someComAFaixaViaPublica": null,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": [
+        596.9,
+        596.9,
+        69.4,
+        69.4
+      ]
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e1",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 273.3,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 43.9,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e2",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 30.8,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e3",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 17.6,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e4",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 4.4,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e5",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 2.5,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e6",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 2.5,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e7",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 6.1,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e8",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 7.8,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e11",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 0.6,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e12",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 3,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e13",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": true,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V10",
+        "d": 4.2,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e16",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 15.7,
+      "area_m2": 297.1,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V10",
+        "d": 15.8,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e17",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 28.9,
+      "area_m2": 301.8,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 21.1,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e18",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 42.1,
+      "area_m2": 306.5,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 24.7,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e19",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 55.2,
+      "area_m2": 311.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 28.4,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e20",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 68.4,
+      "area_m2": 315.9,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 32,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e21",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 81.6,
+      "area_m2": 320.6,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 35.6,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e22",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 94.7,
+      "area_m2": 325.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 39.2,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e23",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 107.9,
+      "area_m2": 329.9,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 42.8,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e24",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 121.1,
+      "area_m2": 334.6,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 46.4,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e25",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 134.2,
+      "area_m2": 339.3,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 50,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e26",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 147.4,
+      "area_m2": 344,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 53.7,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e27",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 160.6,
+      "area_m2": 348.7,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 57.3,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e28",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 173.7,
+      "area_m2": 353.4,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 60.9,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e29",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 186.9,
+      "area_m2": 358.1,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 64.5,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e30",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 200.1,
+      "area_m2": 362.7,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V2",
+        "d": 68.1,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e31",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 213.2,
+      "area_m2": 367.4,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V9",
+        "d": 57.5,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e32",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 226.4,
+      "area_m2": 372.1,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V9",
+        "d": 44.9,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "frente",
+      "loteId": "v19-e33",
+      "detalhe": "nenhuma aresta encosta em via",
+      "valor": null,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 1805.7,
+      "area_m2": 315.6,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": {
+        "id": "V4",
+        "d": 39.3,
+        "largura": 11.5
+      },
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e5",
+      "detalhe": "intersecta leito de via V2 em 68.5 m²",
+      "valor": 68.49098301907361,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e6",
+      "detalhe": "intersecta leito de via V2 em 137.1 m²",
+      "valor": 137.1144296829334,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e7",
+      "detalhe": "intersecta leito de via V2 em 157.4 m²",
+      "valor": 157.40083423197575,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e8",
+      "detalhe": "intersecta leito de via V2 em 157.4 m²",
+      "valor": 157.40083423197575,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e9",
+      "detalhe": "intersecta leito de via V2 em 152.8 m²",
+      "valor": 152.78548652405152,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e10",
+      "detalhe": "intersecta leito de via V2 em 111.3 m²",
+      "valor": 111.28483029394556,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e11",
+      "detalhe": "intersecta leito de via V2 em 61.8 m²",
+      "valor": 61.798336757277866,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e12",
+      "detalhe": "intersecta leito de via V2 em 13.9 m²",
+      "valor": 13.87327729203389,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e13",
+      "detalhe": "intersecta leito de via V10 em 4.7 m²",
+      "valor": 4.6526562775597995,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.2,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e14",
+      "detalhe": "intersecta leito de via V10 em 235.5 m²",
+      "valor": 235.47377646185578,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 0,
+      "area_m2": 289.3,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "tipo": "via-sobre-lote",
+      "loteId": "v19-e15",
+      "detalhe": "intersecta leito de via V10 em 16.1 m²",
+      "valor": 16.072263222263246,
+      "idDizExterno": true,
+      "distanciaAteATestada_m": 2.6,
+      "area_m2": 292.4,
+      "someComAFaixaViaPublica": false,
+      "someComOMinimoDeclarado": null,
+      "viaMaisProxima": null,
+      "facesDaQuadra": null
+    }
+  ]
+}

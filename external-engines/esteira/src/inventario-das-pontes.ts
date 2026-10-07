@@ -165,10 +165,20 @@ export const PLANO_DO_PARCELAMENTO: Record<string, Destino> = {
   metricas: traduzido("quadroDeAreas", "ver `METRICAS_DO_PARCELAMENTO`"),
   nota: perda("a nota do motor não tem campo de propósito: quem julga é o Judge do Generate"),
   notas: perda("as notas por critério, pela mesma razão"),
+  // ── Este destino estava META-VERDADEIRO, e a metade falsa valia 36 violações ──
+  //
+  // Ele dizia "os valores SORTEADOS … é o que o contrato pede em
+  // `parametrosUsados`", e parava aí. O contrato pede o que o motor **de fato
+  // aplicou** — e um MÍNIMO que o motor não escolheu não é coisa que ele aplicou:
+  // é limite de quem o declarou. Escrever o sorteado nele fez o Validator do
+  // Generate medir o motor **contra o próprio alvo dele**, e reprovar 36 lotes de
+  // 316 m² por 1,94 cm (LAB-48, D166). Consertado no LAB-53.
   amostra: traduzido(
     "parametrosUsados",
-    "os valores SORTEADOS para esta variante, que é o que o contrato pede em " +
-      "`parametrosUsados` — copiar a ENTRADA de volta faria os dois sempre baterem",
+    "o que o motor ESCOLHEU — `areaAlvoLote_m2` e as três caixas. Os campos MIN/MAX de " +
+      "`parametrosUsados` vêm do CONTRATO, nunca do sorteio: o motor mira dentro deles, não os " +
+      "declara. O alvo sorteado de `testada` e de `comprimentoQuadra` não tem campo no contrato " +
+      "v1 e sai como perda declarada quando difere do limite",
   ),
   avisos: perda("o contrato não tem canal para aviso do motor; os avisos ficam no relatório do Lab"),
   invalido: perda(

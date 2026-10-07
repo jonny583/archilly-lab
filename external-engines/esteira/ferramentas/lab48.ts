@@ -284,14 +284,46 @@ console.log(`  somem com o campo que falta (faixaViaPublica): ${somem}`);
 console.log(`  somem com o MÍNIMO DECLARADO na entrada (10 m, não o alvo 11,708): ${somemComOMinimo}`);
 console.log(`  lotes com a bandeira deLoteamentoFachada: ${porGleba.reduce((s, g) => s + Number(g.lotesComBandeiraDeFachada ?? 0), 0)}`);
 
-mkdirSync(SAIDA, { recursive: true });
+// ── ONDE A PROVA MORA SAI DA MEDIÇÃO, não de quem roda a ferramenta ────────
+//
+// Esta mesma ferramenta responde duas perguntas em dois momentos: o DIAGNÓSTICO
+// do LAB-48, com a ponte ainda escrevendo o alvo no campo do mínimo, e a
+// AFERIÇÃO do LAB-53, depois do conserto. Se as duas escrevessem no mesmo
+// arquivo, a segunda rodada apagaria a primeira — e a comparação "antes ×
+// depois", que é o que o chat pediu para pôr ao lado do diagnóstico do Generate,
+// deixaria de existir.
+//
+// **E o estado da ponte é MEDIDO, não declarado.** O campo `ehDiagnostico`
+// dizia, em texto fixo, *"nada foi consertado, e a ponte não foi tocada"* — uma
+// legenda que o conserto do LAB-53 tornaria falsa em silêncio, que é a forma
+// exata do D104. Agora quem responde é `oMinimoDeTestada.saoIguais`, gleba por
+// gleba: o mínimo que chega ao Validator é o declarado na entrada, ou não é.
+const medidas = porGleba
+  .map((g) => (g.oMinimoDeTestada as { saoIguais?: boolean } | undefined)?.saoIguais)
+  .filter((v): v is boolean => typeof v === "boolean");
+// **Gleba recusada pelo esquema não vota.** E se NENHUMA foi medida, a resposta
+// não é "consertada": é "não medida" — a diferença que o D164 cobra.
+const ponteConsertada = medidas.length > 0 && medidas.every((v) => v);
+const DESTINO = ponteConsertada ? join(RAIZ, "docs", "provas", "LAB-53") : SAIDA;
+const ARQUIVO = ponteConsertada
+  ? "violacoes-depois-do-conserto-da-ponte.json"
+  : "violacoes-do-motor-padrao.json";
+
+mkdirSync(DESTINO, { recursive: true });
 writeFileSync(
-  join(SAIDA, "violacoes-do-motor-padrao.json"),
+  join(DESTINO, ARQUIVO),
   JSON.stringify(
     {
-      prompt: "LAB-48",
+      prompt: ponteConsertada ? "LAB-53" : "LAB-48",
       oQueIstoMede: "as violações do Validator do Generate sobre o motor PADRÃO da tela unificada, uma a uma, nas cinco glebas originais",
-      ehDiagnostico: "sim — nada foi consertado, e a ponte não foi tocada. O contrafactual é medição, não ajuste.",
+      ehDiagnostico: ponteConsertada
+        ? "não — esta é a AFERIÇÃO do LAB-53: a ponte já põe o MÍNIMO do contrato em `parametrosUsados`, " +
+          "e o número aqui é o que sobra depois disso. O diagnóstico de antes está em docs/provas/LAB-48/."
+        : "sim — nada foi consertado, e a ponte não foi tocada. O contrafactual é medição, não ajuste.",
+      ponteConsertada,
+      comoSeiDisso:
+        "medido, não declarado: `oMinimoDeTestada.saoIguais` em cada gleba — o mínimo que chega ao " +
+        "Validator contra o declarado na ENTRADA. Era 11,70820393249937 contra 10 m até o LAB-53 (D166)",
       quando: new Date().toISOString(),
       motor: "Laboratório de Parcelamento (motor-testfit) — o motor PADRÃO da tela unificada",
       semente: SEMENTE,
@@ -309,4 +341,4 @@ writeFileSync(
     2,
   ) + "\n",
 );
-console.log(`\n  docs/provas/LAB-48/violacoes-do-motor-padrao.json`);
+console.log(`\n  docs/provas/${ponteConsertada ? "LAB-53" : "LAB-48"}/${ARQUIVO}`);

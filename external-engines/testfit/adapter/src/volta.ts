@@ -423,7 +423,7 @@ export function voltaParaOContrato(
       areaNaoAproveitada_m2: naoAproveitada,
     },
     // Os parâmetros que o motor DE FATO aplicou, lidos da amostra da variante.
-    parametrosUsados: parametrosAplicados(plano, entrada),
+    parametrosUsados: parametrosAplicados(plano, entrada, perdas),
   };
 
   return { saida, perdas };
@@ -433,12 +433,50 @@ export function voltaParaOContrato(
  * Os parâmetros que o motor de fato aplicou nesta variante.
  *
  * O contrato diz que `parametrosUsados` é "o que você **de fato** aplicou", e
- * que o relatório aponta quando ele diverge do pedido. Por isso os números saem
- * de `plano.amostra` — os valores sorteados dentro das faixas para ESTA
- * variante —, e não da ENTRADA. Copiar a entrada de volta faria os dois sempre
- * baterem, e o campo perderia a única função que tem.
+ * que o relatório aponta quando ele diverge do pedido. Por isso o que o motor
+ * ESCOLHE sai de `plano.amostra` — os valores sorteados dentro das faixas para
+ * ESTA variante —, e não da ENTRADA. Copiar a entrada de volta faria os dois
+ * sempre baterem, e o campo perderia a única função que tem.
+ *
+ * # Mas MÍNIMO e MÁXIMO não são escolha do motor — e isso custou 36 violações
+ *
+ * **Esta função já escrevia a regra, e quebrava-a em três campos.** O comentário
+ * dizia *"mínimo e máximo continuam sendo os do contrato: o motor não os relaxa,
+ * ele mira dentro deles — o que ele escolhe é o ALVO"*, e logo abaixo
+ * `testadaMinLote_m`, `caixaViariaMin_m` e `faceQuadraMax_m` recebiam o valor
+ * **sorteado**.
+ *
+ * O preço, medido no LAB-48: a entrada declara `testadaMinLote_m = 10` m nas
+ * cinco glebas; o alvo sorteado da variante é **11,70820393249937** m (o meio da
+ * faixa que a ida monta, `(10 + √(360/2))/2`); e era esse número que chegava ao
+ * Validator do Generate **no campo cujo nome é MÍNIMO**. O Validator então media
+ * o motor contra **o próprio alvo dele**, com 2 % de folga, e reprovava **47
+ * lotes de 316 m² por um déficit mediano de 1,94 cm**. Trinta e seis dos 47 eram
+ * esta função — não o motor (D166).
+ *
+ * > **Campo cujo nome diz MÍNIMO e cujo valor é um ALVO não é um campo errado: é
+ * > uma acusação automática.**
+ *
+ * # As três saídas possíveis para um campo MIN/MAX, e nenhuma outra
+ *
+ * 1. **do contrato** — o valor idêntico ao que a ENTRADA declarou. É o caso
+ *    normal: o limite é de quem o declarou, e o motor mirou dentro dele;
+ * 2. **`null`** — o motor não honra aquele limite. `null` é "não aplicado", e
+ *    publicar o número do contrato aqui seria **inventar obediência**, que é o
+ *    erro simétrico deste que o LAB-53 conserta;
+ * 3. **nunca o sorteado.** O que o motor sorteia é alvo, e alvo mora em campo de
+ *    alvo — ou vira perda declarada, quando o contrato v1 não tem o campo.
+ *
+ * **Há guarda ao lado** (`tests/esteira.test.ts`, "§LAB-53"): ela roda a volta
+ * duas vezes com a mesma ENTRADA e duas amostras diferentes, e exige que **todo
+ * campo MIN/MAX fique parado** enquanto o campo de ALVO **se move**. Ela mede
+ * dependência, não ortografia — a lição das cinco réguas de nome do §6.
  */
-function parametrosAplicados(plano: Plano, entrada: EntradaV1): SaidaV1["parametrosUsados"] {
+function parametrosAplicados(
+  plano: Plano,
+  entrada: EntradaV1,
+  perdas: Perda[],
+): SaidaV1["parametrosUsados"] {
   const a = plano.amostra ?? {};
   const doContrato = entrada.parametros;
   const num = (chave: string): number | null => {
@@ -453,25 +491,61 @@ function parametrosAplicados(plano: Plano, entrada: EntradaV1): SaidaV1["paramet
   const calcadaP = num("calcadaPrincipal");
   const comprimentoQuadra = num("comprimentoQuadra");
 
+  // ── O alvo sorteado que NÃO tem onde morar, e a perda é medida ────────────
+  //
+  // O contrato v1 tem o trio MIN/ALVO/MAX **só para a área do lote**. Para a
+  // testada e para a face de quadra ele tem um limite e nada mais, então o alvo
+  // da variante não atravessa. **A perda só é declarada quando o alvo de fato
+  // DIFERE do limite** — o `comprimentoQuadra` costuma não diferir, porque a ida
+  // monta `faixa(faceQuadraMax_m, faceQuadraMax_m)`, degenerada. Perda que grita
+  // onde não há perda ensina a ignorar a lista.
+  const SEM_CAMPO_DE_ALVO: [string, number | null, number | null, string][] = [
+    ["testada", testada, doContrato.testadaMinLote_m, "testadaAlvoLote_m"],
+    ["comprimentoQuadra", comprimentoQuadra, doContrato.faceQuadraMax_m, "faceQuadraAlvo_m"],
+  ];
+  for (const [chave, alvo, limite, campoQueFalta] of SEM_CAMPO_DE_ALVO) {
+    if (alvo == null || limite == null || alvo === limite) continue;
+    perdas.push({
+      campo: `parametrosUsados.${campoQueFalta}`,
+      oQueHavia: `o alvo sorteado desta variante para \`${chave}\`: ${alvo} m (o limite declarado é ${limite} m)`,
+      motivo:
+        "o contrato de motor v1 tem o trio MIN/ALVO/MAX só para a área do lote; para a " +
+        `testada e para a face de quadra ele tem um limite e nenhum alvo, então \`${campoQueFalta}\` ` +
+        "não existe onde escrever. Até o LAB-53 este valor era escrito no campo do LIMITE, e o " +
+        "Validator do Generate passava a medir o motor contra o próprio alvo dele: 36 das 47 " +
+        "violações `testada` do LAB-48 eram isto, e não o motor (D166). O campo que falta está " +
+        "na lista numerada para o Generate",
+      gravidade: "media",
+    });
+  }
+
   return {
-    // Mínimo e máximo continuam sendo os do contrato: o motor não os relaxa,
-    // ele mira dentro deles. O que ele escolhe é o ALVO.
+    // ── MÍNIMO e MÁXIMO vêm do CONTRATO. Os três últimos vieram do sorteio até
+    // o LAB-53, e eram uma acusação automática (D166). ──────────────────────
     areaMinLote_m2: doContrato.areaMinLote_m2,
-    areaAlvoLote_m2: areaLote ?? doContrato.areaAlvoLote_m2,
     areaMaxLote_m2: doContrato.areaMaxLote_m2,
-    testadaMinLote_m: testada ?? doContrato.testadaMinLote_m,
-    caixaViariaMin_m: Math.min(
-      caixaP ?? doContrato.caixaViariaMin_m,
-      caixaS ?? doContrato.caixaViariaMin_m,
-    ),
+    testadaMinLote_m: doContrato.testadaMinLote_m,
+    caixaViariaMin_m: doContrato.caixaViariaMin_m,
+    faceQuadraMax_m: doContrato.faceQuadraMax_m,
+
+    // ── O que o motor ESCOLHE, e é por isto que o campo existe ─────────────
+    //
+    // `areaAlvoLote_m2` é o único alvo com campo no contrato v1. As três caixas
+    // não são limite nenhum: são a medida que o motor aplicou, e o sorteado é a
+    // resposta certa para elas. Nada se perde em `caixaViariaMin_m` passar a vir
+    // do contrato — os valores sorteados continuam saindo, em
+    // `caixaPrincipal_m` e `caixaSecundaria_m`, que é onde eles significam o que
+    // são.
+    areaAlvoLote_m2: areaLote ?? doContrato.areaAlvoLote_m2,
     caixaPrincipal_m: caixaP,
     caixaSecundaria_m: caixaS,
     calcada_m: calcadaP,
-    faceQuadraMax_m: comprimentoQuadra,
     pctAreaPublica: null,
     pctAPP: num("appPct"),
     pctLazer: num("lazerPct"),
-    // O motor não limita rampa. `null` diz isso, e é diferente de dizer 10 %.
+    // O motor não limita rampa. `null` diz isso, e é diferente de dizer 10 % —
+    // é a saída 2 do cabeçalho: publicar aqui o número do contrato seria
+    // inventar uma obediência que o motor não tem.
     rampaMaxima_pct: null,
   };
 }

@@ -4,67 +4,73 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-52 ·
-**Fila de 06/10 (LAB-48 a LAB-52): CUMPRIDA, 5 de 5. O despertador está DESLIGADO.**
+**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-53 ·
+**Fila de 07/10 (LAB-53 a LAB-57): 1 de 5. Próximo: LAB-54. Próxima decisão: D183.**
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 06/10 esgotou, cinco de cinco
+# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 07/10, quatro prompts a fazer
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 07/10/2026.**
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true`, a cada 60 min no minuto :05.** Reabilitado
+pelo chat em 07/10 (a **oitava** vez que ele reabilita em vez de recriar — D112), e o prompt
+guardado dele é **meu**, reescrito a cada prompt desde 06/10.
 
-**Os cinco prompts estão feitos e mesclados** (PRs #59 a #63), e o que resta na `FILA.md`
-está todo em *"proposto ao chat"*, que por definição **não se executa**. É o caso da **D62**,
-e o desligamento é **desligamento, não apagamento** (D112, ratificado seis vezes).
+**E a regra virou permanente:** *"pode DESLIGAR ao esgotar em vez de apagar; você está certa,
+e passa a ser assim daqui em diante"*. A `CLAUDE.md` §1-A foi corrigida ao abrir a fila; **a
+cópia da `FILA.md` ficou um prompt atrás** e foi corrigida no LAB-53 — *regra que vive em duas
+terras envelhece numa delas*.
 
-**O chat pediu em 06/10 um despertador *"que se apaga ao esgotar"* E deu o id deste para
-reusar.** As duas coisas só convivem com **desligar**: apagar perde o id que ele reabilita
-desde 03/10. Fica desligado, com o motivo escrito; se ele quiser apagado de verdade, é uma
-linha dele.
+## 🔴 O caminho crítico do MVP, e a conta é minha — o chat a adotou
 
-**O saldo da fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §6** — pela
-§1-B, e desta vez gravado **junto do último prompt**, não depois.
-
-## O prompt guardado do despertador é MEU desde 06/10
-
-> *"REESCREVA você mesma o prompt guardado do despertador… É seu, e você tem a minha
-> autorização para mantê-lo atualizado daqui em diante, sem me perguntar."*
-
-Reescrito **ao fim de cada um dos cinco prompts** desta fila, com o estado, o número da
-próxima decisão e as contagens de travas. Ele envelheceu **uma** vez (descrevia o LAB-47 como
-*"aguardando"* e dizia *"a próxima é a D154"* quando já era a D166) e não se repetiu.
-
-## A fila de 06/10, cinco de cinco
+> *"Sobre o calendário, a sua conta é a que decide: 37 % das 128 não aprova uma gleba, então
+> trate as 54 e as 27 como o CAMINHO CRÍTICO DO MVP, à frente de qualquer outra coisa."*
 
 | # | em uma linha | estado |
 |---|---|---|
-| **LAB-48** | o motor **PADRÃO** reprova no Validator nas cinco glebas — **quatro culpados** | ✅ **06/10** |
-| **LAB-49** | o **detector de prova velha** para LAB-25 e LAB-30 | ✅ **06/10** |
-| **LAB-50** | a passagem externa lê a face como **RETA** — a gleba convexa provou | ✅ **06/10** |
-| **LAB-51** | o `conferir.sh` que afirmava **não haver CI** | ✅ **06/10** |
-| **LAB-52** | as duas varreduras da Central — **o detector estava MUDO** | ✅ **07/10** |
+| **LAB-53** | **as 36 violações que eram a MINHA ponte** — consertadas, com guarda ao lado | ✅ **07/10** · 128 → **92** |
+| **LAB-54** | as **27 violações `frente` não atribuídas** — com a régua DELE, não a minha | 🟢 pronto · **o próximo** |
+| **LAB-55** | por que o motor desenha via **SOBRE** a face que ele reservou (D174) | 🟢 pronto |
+| **LAB-56** | a correção da moldura do **D159** nos três lugares onde ela saiu | 🟢 pronto |
+| **LAB-57** | o resto da varredura do **D178** + a lição das duas perguntas em 5 linhas | 🟢 pronto |
 
-## O que o LAB-52 achou — e não é nenhuma das contagens
+**Fora da fila, por ordem do chat:** o `recommendedTypeChecked` completo (646 achados) fica
+**para depois do MVP**, registrado como proposto; e o achado da *"regra desligada em silêncio"*
+vai à família **pelo chat**, não por mim.
 
-Os dois `eslint.config.js` traziam `projectService: false`, e **sem serviço de projeto toda
-regra type-aware fica desligada — sem avisar**. Entre elas a `no-floating-promises`, que é a
-metade mais perigosa da classe que a Central nomeou. *É a forma do D123 num lugar onde
-ninguém pensa em olhar.*
+## O que o LAB-53 fez — e o número é 128 → 92
 
-**Ligadas as três: zero achados — e o zero foi provado por sabotagem.** Preço dito: lint de
-**0,85 s para 7,9 s** no `esteira`. O `recommendedTypeChecked` completo ficou fora porque são
-**646** achados, e isso é outro prompt (proposto).
+**A ponte escrevia o ALVO sorteado da variante no campo cujo nome é MÍNIMO.** A entrada declara
+`testadaMinLote_m = 10` m; o que chegava ao Validator do Generate era **11,70820393249937** m
+— o meio da faixa que a minha ida monta —, e ele passava a medir o motor **contra o próprio
+alvo dele**, com 2 % de folga: 47 lotes de 316 m² reprovados por **1,94 cm** de déficit
+mediano.
+
+**Eram TRÊS campos, não um** (`testadaMinLote_m`, `caixaViariaMin_m`, `faceQuadraMax_m`), e a
+regra tem **três saídas**: do contrato; `null` quando o motor **não honra** o limite — publicar
+ali o número do contrato seria *inventar obediência* —; e **nunca o sorteado**.
 
 ```
-escopo: 113 arquivos .ts · 31.894 linhas · 4.891 parâmetros e 4.316 campos examinados
-catch que engole ............... 0
-?? 0 sobre chamada que falha ... 28 → 2, e os 2 benignos
-Number(...) sem conferir ....... 1, e NÃO é a classe (ele estoura, não degrada)
-identificador de conta ......... 0 em parâmetro E em campo
+LAB-48 (diagnóstico) ...... 128 violações   ← o arquivo de prova ficou INTACTO
+LAB-53 (aferição) .......... 92 violações   −36, exatamente as previstas
+  as 81 nao-testada ........ os MESMOS 81 lotes, id por id
+  as 11 testada que sobram . subconjunto das 47 — 3,56 a 9,59 m contra 10 m declarados
 ```
 
-**E a sabotagem pegou a QUINTA vez da família da régua que lê texto** (D179), dentro do teste
-escrito para honrar a quarta: a trava lia o nome da regra no **comentário** que a explica.
-Daí **duas** limpezas, porque há **duas** perguntas — `soOCodigo()` para *"o código faz?"* e
-`semComentarios()` para *"a configuração declara?"*.
+**A previsão do LAB-48 bateu nas cinco glebas** (25 · 17 · 4 · 6 · 40), e o contrafactual
+*"somem com o mínimo declarado"* foi a **0** — a medição conferindo-se sozinha.
+
+**A sabotagem achou defeito na minha própria trava** (D181): devolvido `faceQuadraMax_m` ao
+sorteio, a trava que compara com o valor do contrato **PASSOU**, porque a ida fixa aquela faixa
+em `(200, 200)` e o sorteado coincide com o limite. Quem pegou foi a trava **diferencial** —
+duas amostras, o limite parado e o alvo em movimento. **Segunda vez em dois prompts que a
+sabotagem pega a trava e não eu**: deixou de ser zelo e passou a ser método.
+
+**E a prova do LAB-48 quase foi apagada** (D182): a ferramenta é a mesma, de propósito, e a
+primeira rodada sobregravou o diagnóstico que o chat quer comparar com o do Generate.
+Restaurada do git; agora **o destino do arquivo sai da medição** do estado da ponte, e a
+legenda `ehDiagnostico` deixou de ser texto fixo.
+
+**Honesto, e é do §7:** o `tsc` do pacote `testfit` reprovou a trava nova (um `number | null`
+em `toBe`) **depois** de eu já ter rodado o typecheck — eu o rodei antes de escrever o teste e
+não de novo. Quem pegou foi **o comando único**, e é para isso que ele existe.
 
 ## 📋 O registro de 06/10 — quando a fila foi aberta
 

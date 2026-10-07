@@ -28,13 +28,87 @@ trabalha sozinho, em laço, sem esperar mensagem do chat.
   **pelo chat**, não por commit lá.
 - Toda conferência confere também `INDEX` e `ONDE_PARAMOS`.
 - Fila esgotada: gravar o recado acumulado, escrever em `ONDE_PARAMOS` *"fila
-  esgotada, aguardando o chat"* e **apagar o despertador**.
+  esgotada, aguardando o chat"* e **DESLIGAR o despertador** (`enabled: false`),
+  **não apagá-lo** — o chat tornou isso permanente em 07/10/2026: *"pode DESLIGAR
+  ao esgotar em vez de apagar; você está certa, e passa a ser assim daqui em
+  diante"*. **Esta linha dizia "apagar" até o LAB-53**, e estava falsa na prática
+  seis vezes; a `CLAUDE.md` §1-A foi corrigida ao abrir a fila de 07/10 e **esta
+  cópia ficou um prompt atrás** — regra que vive em duas terras envelhece numa
+  delas.
 
 **Regras que nunca mudam:** o Lab **não tem Validator próprio** — julga sempre
 com o Validator e o Judge do Generate; medições **em metros** e **em dados**
 (JSON em `docs/provas/`), com gleba, motor, semente e versão do contrato;
 determinismo provado; **nada de regra urbanística inventada** — regra nova é
 *"proposto ao chat"*.
+
+---
+
+## 🟢 A FILA DE 07/10/2026 — LAB-53 a LAB-57
+
+Mandada pelo chat em 07/10/2026, com o **despertador reabilitado pela oitava vez**
+(`enabled: true`, próximo disparo 03:05 UTC). **Três das cinco são propostas minhas
+APROVADAS**, e o chat disse por quê: *"são as que destravam a tela unificada"*.
+
+### 🔴 O CALENDÁRIO, e a conta é minha — o chat a adotou
+
+> *"Sobre o calendário, a sua conta é a que decide: 37 % das 128 não aprova uma gleba, então
+> trate as 54 e as 27 como o CAMINHO CRÍTICO DO MVP, à frente de qualquer outra coisa."*
+
+É a conta do LAB-48 (D169) virando prioridade: consertar a minha ponte e o contrato do
+Generate derruba 47 das 128 e **não aprova uma única gleba**. Por isso o LAB-53, o LAB-54 e
+o LAB-55 vêm primeiro.
+
+### E uma regra que o chat tornou PERMANENTE
+
+> *"Pode DESLIGAR ao esgotar em vez de apagar; você está certa, e passa a ser assim daqui em
+> diante."*
+
+**A §1-A do `CLAUDE.md` dizia "apagar o despertador" e estava FALSA na prática** — eu desliguei
+em vez de apagar **seis vezes**, e o chat ratificou **sete**. Corrigida no LAB-53, com o
+registro do que ela dizia antes: *regra que a prática desmente seis vezes não é regra, é
+texto velho* (D104).
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-53** | **O conserto das 36 violações que são a MINHA PONTE**, com guarda ao lado (D166) | ✅ **concluído em 07/10/2026** · 128 → **92** | nenhuma |
+| **LAB-54** | As **27 violações `frente` não atribuídas** — medir com a régua DELE, não com a minha | 🟢 **pronto** · caminho crítico | LAB-53 mesclado |
+| **LAB-55** | **Por que o motor desenha via SOBRE a face que ele mesmo reservou** — matei duas explicações e não tenho a terceira (D174) | 🟢 **pronto** · caminho crítico | LAB-54 mesclado |
+| **LAB-56** | A **correção da moldura do D159** nos três lugares onde ela saiu (D168) | 🟢 **pronto** | LAB-55 mesclado |
+| **LAB-57** | **O resto da varredura do D178**: há outra configuração que desliga conferência sem avisar? E a lição das duas perguntas **em cinco linhas**, para o chat distribuir | 🟢 **pronto** | LAB-56 mesclado |
+
+### LAB-53 · As 36 violações eram a minha ponte — ✅ concluído em 07/10/2026
+
+**Entregue:** [`../relatorios/LAB-53.md`](../relatorios/LAB-53.md),
+`docs/provas/LAB-53/violacoes-depois-do-conserto-da-ponte.json`, o conserto em
+`adapter/src/volta.ts`, o destino reescrito em `src/inventario-das-pontes.ts`, **3 travas
+novas** no pacote `testfit` (14 → **17**) e as decisões **D180, D181, D182**.
+
+**O número: 128 → 92**, e a previsão do LAB-48 bateu nas **cinco** glebas. O conserto é
+cirúrgico e está medido: as **81** violações que não são `testada` são **os mesmos 81 lotes**,
+id por id, e as **11** `testada` que sobram são **subconjunto** das 47 — testadas de 3,56 a
+9,59 m contra os **10 m declarados**, e essas são do motor.
+
+**Eram TRÊS campos, não um** (`testadaMinLote_m`, `caixaViariaMin_m`, `faceQuadraMax_m`), e a
+regra tem **três** saídas: do contrato, `null` quando o motor não honra o limite — publicar ali
+o número do contrato seria *inventar obediência* —, e **nunca o sorteado**.
+
+**A guarda achou um defeito na própria guarda** (D181): devolvido `faceQuadraMax_m` ao
+sorteio, a trava que compara com o valor do contrato **PASSOU**, porque a ida fixa aquela faixa
+em `(200, 200)` e o sorteado coincide com o limite. Quem pegou foi a trava **diferencial** —
+duas amostras, o limite parado e o alvo em movimento. **Segunda vez em dois prompts que a
+sabotagem pega a trava e não eu.**
+
+**E a prova do LAB-48 quase foi apagada** (D182): a ferramenta é a mesma, e a primeira rodada
+sobregravou o diagnóstico que o chat quer comparar com o do Generate. Restaurada do git, e o
+destino do arquivo passou a sair da **medição** do estado da ponte.
+
+### O que o chat tirou da fila, e para quando
+
+- **o `recommendedTypeChecked` completo** (646 achados) **fica para depois do MVP** —
+  registrado como proposto, **não executado**;
+- **o achado da "regra desligada em silêncio" vai à família pelo chat**, não por mim: *"o seu
+  achado vai para a família por mim, e aqui quero o resto da varredura"*.
 
 ---
 
