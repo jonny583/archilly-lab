@@ -82,7 +82,7 @@ texto velho* (D104).
 **Entregue:** [`../relatorios/LAB-53.md`](../relatorios/LAB-53.md),
 `docs/provas/LAB-53/violacoes-depois-do-conserto-da-ponte.json`, o conserto em
 `adapter/src/volta.ts`, o destino reescrito em `src/inventario-das-pontes.ts`, **3 travas
-novas** no pacote `testfit` (14 → **17**) e as decisões **D180, D181, D182**.
+novas** no pacote `testfit` (14 → **17**) e as decisões **D180, D181, D182**. **PR #64, mesclado.**
 
 **O número: 128 → 92**, e a previsão do LAB-48 bateu nas **cinco** glebas. O conserto é
 cirúrgico e está medido: as **81** violações que não são `testada` são **os mesmos 81 lotes**,

@@ -25,7 +25,7 @@ terras envelhece numa delas*.
 
 | # | em uma linha | estado |
 |---|---|---|
-| **LAB-53** | **as 36 violações que eram a MINHA ponte** — consertadas, com guarda ao lado | ✅ **07/10** · 128 → **92** |
+| **LAB-53** | **as 36 violações que eram a MINHA ponte** — consertadas, com guarda ao lado | ✅ **07/10** · 128 → **92** · PR #64 |
 | **LAB-54** | as **27 violações `frente` não atribuídas** — com a régua DELE, não a minha | 🟢 pronto · **o próximo** |
 | **LAB-55** | por que o motor desenha via **SOBRE** a face que ele reservou (D174) | 🟢 pronto |
 | **LAB-56** | a correção da moldura do **D159** nos três lugares onde ela saiu | 🟢 pronto |
