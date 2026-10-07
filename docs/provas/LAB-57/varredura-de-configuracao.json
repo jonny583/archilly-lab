@@ -1,0 +1,318 @@
+{
+  "prompt": "LAB-57",
+  "oQueIstoMede": "quais configurações deste repositório desligam conferência — nas três formas: a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR, e o desligador SEM MOTIVO ESCRITO",
+  "aPergunta": "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
+  "quando": "2026-10-07T07:16:09.809Z",
+  "escopo": {
+    "arquivosQueOGitCarrega": 348,
+    "configuracoesEncontradas": 27,
+    "configuracoesVarridas": 11,
+    "configuracoesForaDoEscopoNomeadas": 16,
+    "linhasDeConfiguracaoLidas": 647,
+    "arquivosDeCodigoVarridos": 123,
+    "linhasDeCodigoLidas": 34166,
+    "regras": 6,
+    "porque": "o escopo começa no `git ls-files`, não numa lista minha — e o que ficou fora sai NOMEADO com o motivo (D164, a lição do LAB-47)"
+  },
+  "regras": [
+    {
+      "nome": "lint-sem-max-warnings",
+      "forma": "nao-pode-reprovar",
+      "oQue": "script de `lint` que chama o eslint SEM `--max-warnings 0` — com ele ausente, toda regra em \"warn\" é incapaz de reprovar o passo",
+      "oQueNaoPega": "lint chamado por outro nome de script, e eslint invocado de dentro de um .ts",
+      "arquivos": [
+        "package.json"
+      ],
+      "limpeza": "cru",
+      "porqueEssaLimpeza": "JSON não tem comentário; o valor do script É o texto que importa",
+      "achados": 0
+    },
+    {
+      "nome": "regra-em-warn",
+      "forma": "nao-pode-reprovar",
+      "oQue": "regra de lint declarada com `\"warn\"`: ela aparece na saída e NÃO reprova, a menos que o script traga `--max-warnings 0`",
+      "oQueNaoPega": "regra que vem em \"warn\" de dentro de um conjunto `recommended` — essa não está escrita aqui e esta régua não a vê",
+      "arquivos": [
+        "eslint.config.js"
+      ],
+      "limpeza": "semComentarios",
+      "porqueEssaLimpeza": "a pergunta é o que a CONFIGURAÇÃO DECLARA, e a declaração mora na string: `semComentarios()` tira o comentário e PRESERVA a string (D179, e o erro do LAB-56)",
+      "achados": 0
+    },
+    {
+      "nome": "desligador-de-conferencia",
+      "forma": "desligada",
+      "oQue": "chave que DESLIGA conferência: `skipLibCheck`/`allowJs`/`projectService: false`/`strict: false`/`noImplicitAny: false`",
+      "oQueNaoPega": "desligador escrito com outro nome, e opção de compilador que afrouxa sem ser booleana",
+      "arquivos": [
+        "tsconfig.json",
+        "eslint.config.js"
+      ],
+      "limpeza": "semComentarios",
+      "porqueEssaLimpeza": "o comentário ao lado é exatamente o que NÃO conta: a pergunta é se a chave está declarada, não se alguém falou dela",
+      "achados": 2
+    },
+    {
+      "nome": "passo-que-engole-falha",
+      "forma": "nao-pode-reprovar",
+      "oQue": "passo de verde que não propaga erro: `|| true`, `continue-on-error`, `--passWithNoTests`, `exit 0` depois de falha",
+      "oQueNaoPega": "`set -e` ausente de propósito, que é o caso do `conferir.sh` e está declarado — ele acumula e sai 1 no fim",
+      "arquivos": [
+        "package.json",
+        "conferir.sh",
+        "verde.yml"
+      ],
+      "limpeza": "cru",
+      "porqueEssaLimpeza": "num script, o que engole a falha é o texto executado — comentário nenhum o desfaz",
+      "achados": 0
+    },
+    {
+      "nome": "teste-desligado",
+      "forma": "desligada",
+      "oQue": "`.only(`, `.skip(`, `.todo(`, `xdescribe`, `xit(` — e o `.only` é o pior: ele reduz a suíte a um teste e o resto sai VERDE por não ter rodado",
+      "oQueNaoPega": "teste desligado por `if (...) return` no corpo, que nenhum padrão de nome alcança",
+      "arquivos": [
+        ".test.ts"
+      ],
+      "limpeza": "cru",
+      "porqueEssaLimpeza": "aqui a pergunta é a PRIMEIRA — o código FAZ isto? —, mas `soOCodigo()` apagaria o nome do teste e não o `.only`; o padrão casa a CHAMADA, que sobrevive às duas limpezas",
+      "achados": 0
+    },
+    {
+      "nome": "conferencia-desligada-por-arquivo",
+      "forma": "sem-motivo-escrito",
+      "oQue": "`@ts-ignore`, `@ts-nocheck` ou `eslint-disable` — o desligador de UMA linha, que não aparece em configuração nenhuma",
+      "oQueNaoPega": "`@ts-expect-error`, que REPROVA quando o erro deixa de existir e por isso não envelhece em silêncio",
+      "arquivos": [
+        ".ts",
+        ".js"
+      ],
+      "limpeza": "cru",
+      "porqueEssaLimpeza": "ele VIVE num comentário: tirar os comentários antes cegaria a régua por completo",
+      "achados": 1
+    }
+  ],
+  "porArquivo": [
+    {
+      "arquivo": ".github/workflows/verde.yml",
+      "varrido": true,
+      "bytes": 7588,
+      "linhas": 165,
+      "regrasQueOlharam": [
+        "passo-que-engole-falha"
+      ]
+    },
+    {
+      "arquivo": ".gitignore",
+      "varrido": true,
+      "bytes": 376,
+      "linhas": 9,
+      "regrasQueOlharam": []
+    },
+    {
+      "arquivo": "external-engines/conferir.sh",
+      "varrido": true,
+      "bytes": 6020,
+      "linhas": 144,
+      "regrasQueOlharam": [
+        "passo-que-engole-falha"
+      ]
+    },
+    {
+      "arquivo": "external-engines/esteira/.gitignore",
+      "varrido": true,
+      "bytes": 27,
+      "linhas": 3,
+      "regrasQueOlharam": []
+    },
+    {
+      "arquivo": "external-engines/esteira/bun.lock",
+      "varrido": false,
+      "porqueFora": "lockfile não liga nem desliga conferência: ele PRENDE versão. Afrouxar versão é outra classe de risco, e não é a deste prompt"
+    },
+    {
+      "arquivo": "external-engines/esteira/eslint.config.js",
+      "varrido": true,
+      "bytes": 2442,
+      "linhas": 51,
+      "regrasQueOlharam": [
+        "regra-em-warn",
+        "desligador-de-conferencia",
+        "conferencia-desligada-por-arquivo"
+      ]
+    },
+    {
+      "arquivo": "external-engines/esteira/package.json",
+      "varrido": true,
+      "bytes": 2014,
+      "linhas": 54,
+      "regrasQueOlharam": [
+        "lint-sem-max-warnings",
+        "passo-que-engole-falha"
+      ]
+    },
+    {
+      "arquivo": "external-engines/esteira/tsconfig.json",
+      "varrido": true,
+      "bytes": 4101,
+      "linhas": 81,
+      "regrasQueOlharam": [
+        "desligador-de-conferencia"
+      ]
+    },
+    {
+      "arquivo": "external-engines/straight-skeleton/archilly/probe-rust/Cargo.toml",
+      "varrido": false,
+      "porqueFora": "governa a compilação do .wasm em Rust, que o verde cobre pela PRECONDIÇÃO (o .wasm existe ou o script reprova com a receita, D124) — e não por conferência de tipo"
+    },
+    {
+      "arquivo": "external-engines/symbios/archilly/probe/Cargo.lock",
+      "varrido": false,
+      "porqueFora": "lockfile não liga nem desliga conferência: ele PRENDE versão. Afrouxar versão é outra classe de risco, e não é a deste prompt"
+    },
+    {
+      "arquivo": "external-engines/symbios/archilly/probe/Cargo.toml",
+      "varrido": false,
+      "porqueFora": "governa a compilação do .wasm em Rust, que o verde cobre pela PRECONDIÇÃO (o .wasm existe ou o script reprova com a receita, D124) — e não por conferência de tipo"
+    },
+    {
+      "arquivo": "external-engines/symbios/archilly/probe/rust-toolchain.toml",
+      "varrido": false,
+      "porqueFora": "governa a compilação do .wasm em Rust, que o verde cobre pela PRECONDIÇÃO (o .wasm existe ou o script reprova com a receita, D124) — e não por conferência de tipo"
+    },
+    {
+      "arquivo": "external-engines/symbios/archilly/wasm-probe/Cargo.lock",
+      "varrido": false,
+      "porqueFora": "lockfile não liga nem desliga conferência: ele PRENDE versão. Afrouxar versão é outra classe de risco, e não é a deste prompt"
+    },
+    {
+      "arquivo": "external-engines/symbios/archilly/wasm-probe/Cargo.toml",
+      "varrido": false,
+      "porqueFora": "governa a compilação do .wasm em Rust, que o verde cobre pela PRECONDIÇÃO (o .wasm existe ou o script reprova com a receita, D124) — e não por conferência de tipo"
+    },
+    {
+      "arquivo": "external-engines/symbios/archilly/wasm-probe/rust-toolchain.toml",
+      "varrido": false,
+      "porqueFora": "governa a compilação do .wasm em Rust, que o verde cobre pela PRECONDIÇÃO (o .wasm existe ou o script reprova com a receita, D124) — e não por conferência de tipo"
+    },
+    {
+      "arquivo": "external-engines/symbios/archilly/wasm/Cargo.lock",
+      "varrido": false,
+      "porqueFora": "lockfile não liga nem desliga conferência: ele PRENDE versão. Afrouxar versão é outra classe de risco, e não é a deste prompt"
+    },
+    {
+      "arquivo": "external-engines/symbios/archilly/wasm/Cargo.toml",
+      "varrido": false,
+      "porqueFora": "governa a compilação do .wasm em Rust, que o verde cobre pela PRECONDIÇÃO (o .wasm existe ou o script reprova com a receita, D124) — e não por conferência de tipo"
+    },
+    {
+      "arquivo": "external-engines/symbios/archilly/wasm/rust-toolchain.toml",
+      "varrido": false,
+      "porqueFora": "governa a compilação do .wasm em Rust, que o verde cobre pela PRECONDIÇÃO (o .wasm existe ou o script reprova com a receita, D124) — e não por conferência de tipo"
+    },
+    {
+      "arquivo": "external-engines/symbios/upstream/.github/workflows/rust.yml",
+      "varrido": false,
+      "porqueFora": "é UPSTREAM e é INTOCÁVEL (§3): cópia exata do motor original, que não se edita. A configuração dele governa o projeto dele, não o verde deste repositório"
+    },
+    {
+      "arquivo": "external-engines/symbios/upstream/.gitignore",
+      "varrido": false,
+      "porqueFora": "é UPSTREAM e é INTOCÁVEL (§3): cópia exata do motor original, que não se edita. A configuração dele governa o projeto dele, não o verde deste repositório"
+    },
+    {
+      "arquivo": "external-engines/symbios/upstream/Cargo.toml",
+      "varrido": false,
+      "porqueFora": "é UPSTREAM e é INTOCÁVEL (§3): cópia exata do motor original, que não se edita. A configuração dele governa o projeto dele, não o verde deste repositório"
+    },
+    {
+      "arquivo": "external-engines/symbios/upstream/rust-toolchain.toml",
+      "varrido": false,
+      "porqueFora": "é UPSTREAM e é INTOCÁVEL (§3): cópia exata do motor original, que não se edita. A configuração dele governa o projeto dele, não o verde deste repositório"
+    },
+    {
+      "arquivo": "external-engines/testfit/.gitignore",
+      "varrido": true,
+      "bytes": 14,
+      "linhas": 2,
+      "regrasQueOlharam": []
+    },
+    {
+      "arquivo": "external-engines/testfit/bun.lock",
+      "varrido": false,
+      "porqueFora": "lockfile não liga nem desliga conferência: ele PRENDE versão. Afrouxar versão é outra classe de risco, e não é a deste prompt"
+    },
+    {
+      "arquivo": "external-engines/testfit/eslint.config.js",
+      "varrido": true,
+      "bytes": 1411,
+      "linhas": 34,
+      "regrasQueOlharam": [
+        "regra-em-warn",
+        "desligador-de-conferencia",
+        "conferencia-desligada-por-arquivo"
+      ]
+    },
+    {
+      "arquivo": "external-engines/testfit/package.json",
+      "varrido": true,
+      "bytes": 667,
+      "linhas": 23,
+      "regrasQueOlharam": [
+        "lint-sem-max-warnings",
+        "passo-que-engole-falha"
+      ]
+    },
+    {
+      "arquivo": "external-engines/testfit/tsconfig.json",
+      "varrido": true,
+      "bytes": 4079,
+      "linhas": 81,
+      "regrasQueOlharam": [
+        "desligador-de-conferencia"
+      ]
+    }
+  ],
+  "achados": [
+    {
+      "regra": "desligador-de-conferencia",
+      "arquivo": "external-engines/esteira/tsconfig.json",
+      "linha": 50,
+      "trecho": "\"skipLibCheck\": true"
+    },
+    {
+      "regra": "desligador-de-conferencia",
+      "arquivo": "external-engines/testfit/tsconfig.json",
+      "linha": 50,
+      "trecho": "\"skipLibCheck\": true"
+    },
+    {
+      "regra": "conferencia-desligada-por-arquivo",
+      "arquivo": "external-engines/esteira/src/inventario-das-idas.ts",
+      "linha": 45,
+      "trecho": "eslint-disable"
+    }
+  ],
+  "arquivosIgnoradosPresentesEmDisco": [
+    "external-engines/symbios/adapter/ferramentas/navegador/archilly_symbios_wasm.wasm",
+    "external-engines/symbios/archilly/probe/target/",
+    "external-engines/symbios/archilly/wasm-probe/target/",
+    "external-engines/symbios/archilly/wasm/target/"
+  ],
+  "oQueOsIgnORADOSSignificam": "são artefato de build (`target/` do Rust e o `.wasm` do navegador), e o `.gitignore` do UPSTREAM ignora `/.claude` e `.mcp.json` — dois nomes que costumam carregar credencial. Medido: nenhum dos dois existe em disco. A varredura de segredos lê `git ls-files --exclude-standard`, então se um dia existirem ali ela NÃO os verá, e upstream é intocável (§3)",
+  "totalPorRegra": {
+    "desligador-de-conferencia": 2,
+    "conferencia-desligada-por-arquivo": 1
+  },
+  "declarados": {
+    "desligador-de-conferencia|external-engines/esteira/tsconfig.json": "`skipLibCheck: true`, agora DECLARADO no próprio arquivo: medido com `false` dá ZERO erros, e fica ligado porque sem ele uma atualização de `@types/*` derruba o verde por erro dentro de dependência, que ninguém aqui conserta",
+    "desligador-de-conferencia|external-engines/testfit/tsconfig.json": "o mesmo `skipLibCheck: true`, com a mesma medição (zero erros com `false`) e a mesma declaração escrita no arquivo — os dois pacotes andam juntos de propósito (D86: alargar numa terra e não na outra foi defeito três vezes)",
+    "conferencia-desligada-por-arquivo|external-engines/esteira/src/inventario-das-idas.ts": "`eslint-disable-next-line @typescript-eslint/no-unused-vars` sobre o ajudante `divida()`, que fica SEM USO de propósito: a categoria vazia é a prova de que ele era confissão com prazo. O motivo está escrito nas seis linhas acima dele, e é o único desligador por arquivo do repositório"
+  },
+  "naoDeclarados": [],
+  "oQueFoiCONSERTADONesteProMPT": [
+    "`\"lint\": \"eslint .\"` → `eslint . --max-warnings 0` nos DOIS pacotes: sem a bandeira, toda regra em `\"warn\"` era incapaz de reprovar o passo. Medido antes: ZERO avisos, então nada estava escondido — mas o mecanismo estava vivo, e é a segunda forma do D178",
+    "o `skipLibCheck: true` dos dois `tsconfig.json` ganhou MOTIVO ESCRITO, com a medição (zero erros com `false`) e a condição de revisitar",
+    "o comentário que dizia `20 erros` foi remedido: são **1 604**, com **1 600** no repositório do Generate e **QUATRO AQUI** — e a frase `o código deste adaptador passou com os dois flags ligados` estava FALSA por quatro. Riscada, não apagada (D161)"
+  ]
+}

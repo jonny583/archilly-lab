@@ -6,18 +6,47 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "strict": true,
+    // ── OS DOIS FLAGS QUE FICAM DE FORA, com o número REMEDIDO (LAB-57) ────
+    //
     // `noUncheckedIndexedAccess` e `exactOptionalPropertyTypes` ficam DE FORA.
     //
     // Este programa compila também o código do Generate (o Validator e o Judge
     // entram por import, não por cópia), e o tsconfig de lá não liga esses dois
-    // flags. Ligá-los aqui faz o `tsc` acusar 20 erros dentro do repositório
-    // DELES — erros que não existem sob o tsconfig deles e que o Lab não pode
-    // corrigir, porque não escreve naquele repositório.
+    // flags. Ligá-los aqui faz o `tsc` acusar erro dentro do repositório DELES
+    // — erro que não existe sob o tsconfig deles e que o Lab não pode corrigir,
+    // porque não escreve naquele repositório.
     //
     // Um typecheck que acusa erro alheio e não tem como consertá-lo é um
-    // typecheck que se aprende a ignorar. O código deste adaptador foi escrito
-    // e passou com os dois flags ligados; alinhar com o Generate é o que
-    // mantém a saída do `tsc` significando alguma coisa.
+    // typecheck que se aprende a ignorar.
+    //
+    // ~~"faz o `tsc` acusar 20 erros"~~ · ~~"o código deste adaptador foi
+    // escrito e passou com os dois flags ligados"~~ — **as duas metades estavam
+    // velhas, e a segunda estava FALSA.** Remedido em 07/10/2026, ligando os
+    // dois: **1 604 erros**, dos quais **1 600 no repositório do Generate** e
+    // **QUATRO AQUI**:
+    //
+    //   ferramentas/lab03.ts:192   TS2532  Object is possibly 'undefined'
+    //   ferramentas/lab05.ts:328   TS18048 'q.areaRecortada_m2' possibly undefined
+    //   ferramentas/lab30.ts:109   TS2379  exactOptionalPropertyTypes
+    //   src/motores/generate.ts:130 TS2379 exactOptionalPropertyTypes
+    //
+    // Número dentro de comentário envelhece em silêncio, e este envelheceu
+    // duas ordens de grandeza (D104). A decisão de deixar os flags fora NÃO
+    // muda — 1 600 erros alheios são o argumento inteiro —, mas os QUATRO
+    // daqui são dívida declarada, e estão na lista do relatório LAB-57.
+    //
+    // ── E O `skipLibCheck`, QUE ESTAVA SEM MOTIVO ESCRITO (LAB-57) ─────────
+    //
+    // Ele ficava **nesta linha, logo abaixo do comentário acima** — e aquele
+    // comentário fala de OUTROS DOIS flags. Quem lia presumia que o motivo
+    // cobria esta linha também, e não cobria: o desligador atravessava sem
+    // declaração. É a forma do D104 aplicada a configuração.
+    //
+    // **Medido com ele em `false`: ZERO erros, nos dois pacotes.** Então ele não
+    // esconde nada hoje. Fica LIGADO assim mesmo, pelo mesmo princípio de três
+    // parágrafos acima: com ele desligado, uma atualização de `@types/*`
+    // derruba o verde por erro dentro de dependência, que ninguém aqui pode
+    // consertar. **Revisite se o verde passar a precisar de tipo de `.d.ts`.**
     "skipLibCheck": true,
     "types": ["bun"],
     "baseUrl": ".",

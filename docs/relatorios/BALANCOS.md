@@ -399,3 +399,78 @@ O texto do chat termina em *"O Testfit rodou a esteira do Generate inteira e dis
 de"* — e para aí. **Não completo a frase por dedução**: *"todas de um tipo só"* e *"todas de
 uma gleba só"* levam a conclusões opostas, e inventar a metade que falta é o oposto de medir
 (§6). O que falta está pedido no recado do dia.
+
+---
+
+## 8 · O saldo da fila LAB-53 a LAB-57 — 07/10/2026
+
+| | |
+|---|---|
+| **origem** | fim de fila. A de 07/10/2026, mandada pelo chat com o despertador religado pela **oitava** vez |
+| **onde está o original** | **aqui** — este é o saldo, escrito **junto do último prompt** e não depois, como a §1-B manda |
+| **o que continha** | cinco prompts: três aprovados da minha lista de *"proposto ao chat"* e declarados **caminho crítico do MVP** pelo chat (LAB-53, 54, 55), mais a correção de moldura (LAB-56) e a varredura de configuração (LAB-57) |
+| **o que produziu** | **as 92 violações todas atribuídas**, cinco relatórios, **17 decisões** (D180 a D196), **55 travas novas** e três consertos de configuração |
+| **onde está a prova** | `docs/provas/LAB-53/`, `LAB-54/`, `LAB-55/`, `LAB-57/` e os relatórios `LAB-53.md` a `LAB-57.md` |
+
+### Os cinco, e o que cada um moveu
+
+| # | o que entregou | o número |
+|---|---|---|
+| **LAB-53** | o conserto das 36 violações que eram **a minha ponte** (o ALVO no campo cujo nome é MÍNIMO) | **128 → 92** |
+| **LAB-54** | as **27 `frente`** não atribuídas, medidas com a régua **dele** | **23 motor + 4 régua** |
+| **LAB-55** | por que a via cai **sobre a faixa reservada**: `util` governa o lote, a **divisa** governa a via | **a assimetria** `sobreposicao`=0 × `via-sobre-lote`=11 |
+| **LAB-56** | a moldura do D159, corrigida em **cinco** documentos e **no gerador** | **5 + 1**, não os 3 contados |
+| **LAB-57** | a varredura das configurações: **três** formas de desligar, e a segunda estava viva | **27** configurações, **11** varridas, **16** nomeadas |
+
+### O que a fila FECHOU, e é a primeira vez desde o LAB-48
+
+```
+MOTOR ................... 81   CONTRATO (Generate) ..... 11   NÃO ATRIBUÍDAS ... 0   ← era 27
+```
+
+**E nenhuma das cinco glebas aprova.** O ranking da tela unificada só deixa de nascer vazio
+quando as **81 do motor** tiverem conserto, e o conserto é **lá**. A conta do LAB-48, que o
+chat adotou como calendário, continua de pé: *consertar 37 % das violações não aprova uma
+gleba* — e agora está medido na prática, não previsto.
+
+### O que esta fila ensinou sobre as minhas próprias travas
+
+**Sete sabotagens pegaram defeito meu que eu não tinha visto, em cinco prompts** — e três
+delas num prompt só:
+
+| onde | o defeito da trava |
+|---|---|
+| D181 | ela comparava o campo com **o valor de hoje**, e a faixa degenerada fazia o sorteado coincidir com o limite |
+| D186 | a precondição media **área**, e translação não muda área nenhuma |
+| D187 | a varredura do LAB-52 teve o **primeiro achado verdadeiro** — e era no meu código novo |
+| D192 | a régua casava a **minha própria frase de conserto**: régua que casa uma frase não distingue *X* de *não X* |
+| D193 (três) | a **limpeza errada** das duas do D179; a varredura no **arquivo todo**; a janela de **25 linhas** num arquivo de uma linha por relatório |
+
+> **Sabotar a própria trava deixou de ser zelo e passou a ser método — e o que ele acha, em
+> cinco prompts de cinco, é sempre a MINHA régua antes do medido.**
+
+### E TRÊS números meus estavam errados onde eu podia medi-los
+
+| decisão | eu publiquei | medido |
+|---|---|---|
+| **D185** | *"oito das 27 a 0,2 m ou menos"* | **cinco** — e a lista estava impressa na linha de cima |
+| **D191** | *"três lugares"* onde a moldura saiu | **cinco** documentos **e um gerador** |
+| **D196** | *"20 erros"* com os dois flags ligados | **1 604**, com **quatro aqui** |
+
+**As três foram achadas no prompt seguinte, por ir conferir.** O ponto cego da §6 foi de
+**quatorze para dezesseis** linhas nesta fila, e a regra que elas acrescentam é curta: *conte
+a lista, não a memória* — e isso vale para **quantos lugares** e **quantos erros**, não só
+para quantos lotes.
+
+### O que espera decisão
+
+**O primeiro item é do chat, e está aberto:** a mensagem de 07/10 sobre os **três números
+diferentes** chegou **cortada** em *"disse 181, todas de"*. A resposta medida está no **§7**
+deste arquivo — **os quatro números não são o mesmo objeto** —, e falta o resto da frase ou as
+cinco respostas das outras sessões para fechar a conta.
+
+O resto está na [`FILA.md`](../prompts/FILA.md), seção *Proposto ao chat*. As novas desta
+fila: a **reconciliação dos quatro números** (§7), o **`recommendedTypeChecked` completo** (646
+achados, que o chat adiou para depois do MVP), e a **varredura de segredos passar a NOMEAR o
+que é ignorado** — o `.gitignore` do upstream esconde `/.claude` e `.mcp.json`, que hoje não
+existem, e upstream é intocável.
