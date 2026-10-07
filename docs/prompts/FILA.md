@@ -75,7 +75,7 @@ texto velho* (D104).
 | **LAB-54** | As **27 violações `frente` não atribuídas** — medir com a régua DELE, não com a minha | ✅ **concluído em 07/10/2026** · **23 motor + 4 régua-no-rótulo** | LAB-53 mesclado ✅ |
 | **LAB-55** | **Por que o motor desenha via SOBRE a face que ele mesmo reservou** — matei duas explicações e não tenho a terceira (D174) | ✅ **concluído em 07/10/2026** · **a faixa é buraco só para o LOTE** | LAB-54 mesclado ✅ |
 | **LAB-56** | A **correção da moldura do D159** nos três lugares onde ela saiu (D168) | ✅ **concluído em 07/10/2026** · eram **cinco** e um **gerador** | LAB-55 mesclado ✅ |
-| **LAB-57** | **O resto da varredura do D178**: há outra configuração que desliga conferência sem avisar? E a lição das duas perguntas **em cinco linhas**, para o chat distribuir | 🟢 **pronto** | LAB-56 mesclado |
+| **LAB-57** | **O resto da varredura do D178**: há outra configuração que desliga conferência sem avisar? E a lição das duas perguntas **em cinco linhas**, para o chat distribuir | ✅ **concluído em 07/10/2026** · **a FILA ESGOTOU, 5 de 5** | LAB-56 mesclado ✅ |
 
 ### LAB-53 · As 36 violações eram a minha ponte — ✅ concluído em 07/10/2026
 
@@ -189,6 +189,38 @@ reprovou a minha frase de conserto (régua não distingue *X* de *não X*); usei
 errada** das duas do D179 (`soOCodigo()` esvazia string, e a nota do gerador É uma string);
 varri o **arquivo todo**; e usei janela de **25 linhas** num arquivo de **uma linha por
 relatório**. **Os três últimos eram de ESCOPO.**
+
+### LAB-57 · A varredura das configurações — ✅ concluído em 07/10/2026 · **a fila ESGOTOU**
+
+**Entregue:** [`../relatorios/LAB-57.md`](../relatorios/LAB-57.md),
+`docs/provas/LAB-57/varredura-de-configuracao.json`, `src/varredura-de-configuracao.ts`
+(**6 regras**), `ferramentas/lab57.ts`, `tests/configuracao.test.ts` (**11 travas**) e as
+decisões **D194, D195, D196**. **O SALDO DA FILA ESTÁ NO
+[`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §8**, gravado junto deste prompt.
+
+**HÁ TRÊS FORMAS DE DESLIGAR CONFERÊNCIA, e só a primeira é a óbvia** (D194): a regra
+**desligada** (a do D178, já consertada); a regra **ligada que não pode reprovar** — e essa
+**estava viva**: `"lint": "eslint ."` sem `--max-warnings 0` nos dois pacotes, com
+`no-explicit-any` em `"warn"`, aparecendo na tela e **não** derrubando o passo; e o
+desligador **sem motivo escrito**.
+
+**Consertado, com trava** — e medido antes: **zero avisos**, então nada estava escondido hoje
+e o mecanismo estava vivo.
+
+**O `skipLibCheck: true` ficava sob um comentário que explica OUTROS DOIS FLAGS** (D195).
+Medido com `false`: **zero erros** nos dois pacotes. **Ele fica**, pelo princípio que o
+arquivo já escrevia, agora **declarado** com a medição. *O conserto da terceira forma é a
+declaração, não o desligamento.*
+
+**E o número daquele comentário envelheceu OITENTA VEZES** (D196): *"20 erros"* → medidos
+**1 604**, com **1 600 no vizinho** e **QUATRO AQUI**, nomeados por arquivo e linha. A frase
+*"o adaptador passou com os dois flags ligados"* estava **falsa por quatro**. Riscada (D161).
+
+**O escopo, como número:** 27 configurações, **11 varridas**, **16 fora e NOMEADAS**, 647
+linhas de configuração, 123 arquivos de código (34 166 linhas). **Duas formas saem como ZERO
+MEDIDO:** nenhum passo engole falha, e **nenhum `.only`/`.skip`/`.todo`** na suíte.
+
+**As cinco linhas para a família** estão no §6 do relatório.
 
 ### O que o chat tirou da fila, e para quando
 

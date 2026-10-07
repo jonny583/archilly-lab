@@ -4,39 +4,97 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-56 ·
-**Fila de 07/10 (LAB-53 a LAB-57): 4 de 5. Próximo: LAB-57, o ÚLTIMO. Próxima decisão: D194.**
+**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-57 ·
+**A FILA DE 07/10 (LAB-53 a LAB-57) ESGOTOU, 5 de 5. O despertador está DESLIGADO.**
 
-# 🟢 O DESPERTADOR ESTÁ LIGADO — falta UM prompt na fila
+# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 07/10 esgotou, cinco de cinco
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true`, a cada 60 min no minuto :05.** Reabilitado
-pelo chat em 07/10 (a **oitava** vez que ele reabilita em vez de recriar — D112), e o prompt
-guardado dele é **meu**, reescrito a cada prompt desde 06/10.
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 07/10/2026.**
 
-**Ao fechar o LAB-57 a fila esgota**, e então: o **BALANÇO é obrigatório** no
-[`relatorios/BALANCOS.md`](relatorios/BALANCOS.md) (§1-B), gravado **junto** do último prompt
-e não depois; e o despertador **se DESLIGA, não se apaga** — regra que o chat tornou
-permanente em 07/10 e que foi corrigida na `CLAUDE.md` §1-A e na `FILA.md`.
+**Os cinco prompts estão feitos e mesclados** (PRs #64, #67, #68, #69 e o do LAB-57), e o que
+resta na `FILA.md` está todo em *"proposto ao chat"*, que por definição **não se executa**. É
+o caso da **D62**, e o desligamento é **desligamento, não apagamento** (D112) — regra que o
+chat tornou **permanente** em 07/10 (*"pode DESLIGAR ao esgotar em vez de apagar; você está
+certa, e passa a ser assim daqui em diante"*), e que foi corrigida na `CLAUDE.md` §1-A ao
+abrir a fila e na `FILA.md` no LAB-53.
+
+**O saldo da fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §8** — pela
+§1-B, gravado **junto do último prompt** e não depois.
+
+## ⚠️ O QUE ESPERA O CHAT, e o primeiro item é uma pergunta dele
+
+**A mensagem de 07/10 sobre os TRÊS NÚMEROS DIFERENTES chegou CORTADA** em *"disse 181, todas
+de"*. O Generate disse **69** em duas saídas e **103** nas cinco glebas (17 do motor), o
+Testfit **181** rodando a esteira do Generate inteira, e este Lab **128** e depois **92**.
+
+**A resposta medida está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §7** (PR #66):
+**os quatro números não são o mesmo objeto** — o meu 92 soma **cinco planos** de **oitenta e
+seis** candidatos, um por gleba, o vencedor da nota do próprio motor; e em `geo-antonina` esse
+vencedor é a **superquadra**, com 33 lotes e **zero quadras**, carregando **40 das 92**.
+**Falta o resto da frase, ou as cinco respostas das outras sessões.**
+
+## A fila de 07/10, cinco de cinco
 
 | # | em uma linha | estado |
 |---|---|---|
-| **LAB-53** | as 36 violações que eram a **minha ponte** | ✅ **07/10** · 128 → **92** · PR #64 |
-| **LAB-54** | as 27 `frente` não atribuídas — com a régua **dele** | ✅ **07/10** · **23 motor + 4 régua** · PR #67 |
-| **LAB-55** | por que o motor desenha via **sobre** a face que reservou | ✅ **07/10** · a faixa é buraco só para o LOTE · PR #68 |
-| **LAB-56** | a correção da **moldura do D159** | ✅ **07/10** · eram **cinco** e um **gerador** |
-| **LAB-57** | o resto da varredura do **D178** + a lição das duas perguntas | 🟢 pronto · **o último** |
+| **LAB-53** | as 36 violações que eram **a minha ponte** — o ALVO no campo cujo nome é MÍNIMO | ✅ **07/10** · 128 → **92** · PR #64 |
+| **LAB-54** | as 27 `frente` não atribuídas, com a régua **dele** | ✅ **07/10** · **23 motor + 4 régua** · PR #67 |
+| **LAB-55** | a faixa é buraco no domínio do **lote** e não no da **via** | ✅ **07/10** · PR #68 |
+| **LAB-56** | a moldura do D159 — eram **cinco** lugares e um **gerador** | ✅ **07/10** · PR #69 |
+| **LAB-57** | a varredura das configurações — **três** formas de desligar | ✅ **07/10** · a fila esgotou |
 
-## ⚠️ E há uma pergunta aberta do chat, registrada e NÃO respondida
+## A CONTA QUE FECHOU — primeira vez desde o LAB-48
 
-Em 07/10, fora da fila: **três sessões mediram "o mesmo" e deram números diferentes** — o
-Generate **69** em duas saídas e **103** nas cinco glebas (17 do motor), o Testfit **181**
-rodando a esteira do Generate inteira, e este Lab **128** e depois **92**.
+```
+MOTOR ................... 81   (23 frente de miolo + 18 frente distantes + 14 face-quadra
+                                + 11 via-sobre-lote + 11 testada + 4 régua-no-rótulo¹)
+CONTRATO (Generate) ..... 11   (as `frente` que o campo `faixaViaPublica` salvaria)
+NÃO ATRIBUÍDAS ............ 0   ← era 27 no LAB-48
+```
 
-**A mensagem do chat chegou CORTADA** em *"disse 181, todas de"*, e a frase **não foi
-completada por dedução**. O balanço com a minha ficha completa e **as cinco perguntas que
-decidem** está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §7 (PR #66). A resposta
-curta: **os quatro números não são o mesmo objeto** — o meu 92 soma **cinco planos** de
-**oitenta e seis** candidatos, um por gleba, o vencedor da nota do próprio motor.
+¹ as 4 da régua **não saem da conta**: consertá-la troca `frente` por `testada` no mesmo lote
+e derruba **zero** violações (D184).
+
+**E nenhuma das cinco glebas aprova.** O ranking da tela unificada só deixa de nascer vazio
+quando as **81 do motor** tiverem conserto, e o conserto é **lá**. A conta do LAB-48, que o
+chat adotou como calendário, está agora **medida na prática** e não prevista.
+
+## Os números do repositório, ao fechar a fila
+
+```
+suíte .............. 505 travas (488 esteira + 17 testfit)   ← eram 450 ao abrir a fila
+CI sem clones ...... 114 (inalterado; trava que lê clone privado não entra lá — D143)
+decisões ........... D196 é a última. A próxima é a D197
+verde .............. 7 passos, exit 0, três clones vizinhos limpos
+```
+
+## O que o LAB-57 respondeu — há TRÊS formas de desligar conferência
+
+| forma | o que é | aqui |
+|---|---|---|
+| **a regra DESLIGADA** | `projectService: false`, `strict: false`, `"off"` | **0** — a do D178, consertada no LAB-52 |
+| **a regra LIGADA QUE NÃO PODE REPROVAR** | `"warn"` num lint sem `--max-warnings 0` | **2** — **estava viva**, consertado |
+| **o desligador SEM MOTIVO ESCRITO** | `skipLibCheck: true` sob o comentário de **outros dois flags** | **2** — declarado |
+
+**A segunda é a mais silenciosa das três:** o passo sai **verde** com o aviso **impresso na
+tela**. Não há alarme a ouvir — há um alarme que ninguém lê. Medido antes do conserto: **zero
+avisos**, então nada estava escondido e o mecanismo estava vivo.
+
+**E o `skipLibCheck` FICA** (D195): medido com `false`, **zero erros** nos dois pacotes, e com
+ele desligado uma atualização de `@types/*` derrubaria o verde por erro dentro de dependência
+— o que o próprio arquivo já condenava. *O conserto da terceira forma é a declaração, não o
+desligamento.*
+
+**O número daquele comentário envelheceu OITENTA VEZES** (D196): *"20 erros"* → medidos
+**1 604**, com **1 600 no vizinho** e **QUATRO AQUI**, nomeados por arquivo e linha.
+
+**O contra-exemplo, que vale igual:** o `conferir.sh` **não** tem `set -e`, e isso é **certo**
+— o §7 exige a lista inteira de passos ruins. *Não é toda configuração frouxa que é defeito: é
+a frouxa e NÃO DECLARADA.*
+
+**As cinco linhas para a família** — a lição das duas perguntas, *"o código FAZ isto"* contra
+*"a configuração DECLARA isto"* — estão no §6 do relatório LAB-57, prontas para o chat
+distribuir.
 
 ## O que o LAB-56 fez — e o achado é que a frase saía de uma MÁQUINA
 

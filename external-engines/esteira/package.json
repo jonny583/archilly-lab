@@ -36,9 +36,10 @@
     "lab52": "bun ferramentas/lab52.ts",
     "lab54": "INVARIANTES_EXEMPLOS=100000 bun ferramentas/lab54.ts",
     "lab55": "INVARIANTES_EXEMPLOS=100000 bun ferramentas/lab55.ts",
+    "lab57": "bun ferramentas/lab57.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

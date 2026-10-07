@@ -9,7 +9,7 @@
     "relevo": "bun ferramentas/diagnostico-relevo.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

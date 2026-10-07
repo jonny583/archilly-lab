@@ -5392,3 +5392,94 @@ motivo escrito, e cada forma tem unidade sintética.
 
 *Quatro defeitos de trava achados por sabotagem ou pela própria trava num prompt só (com o
 D192), e nenhum pelo olho.*
+
+---
+
+## D194 · Há TRÊS formas de desligar conferência, e a segunda é a mais silenciosa · 07/10/2026
+
+O D178 achou a primeira — `projectService: false`, a regra que fica **muda**. O chat pediu o
+resto da varredura, e a classe tem três:
+
+| forma | o que é | aqui |
+|---|---|---|
+| **a regra DESLIGADA** | `projectService: false`, `strict: false`, `"off"` | **0** (consertada no LAB-52) |
+| **a regra LIGADA QUE NÃO PODE REPROVAR** | `"warn"` num lint sem `--max-warnings 0` | **2** — consertado |
+| **o desligador SEM MOTIVO ESCRITO** | ver a D195 | **2** — declarado |
+
+**A segunda estava viva:** `"lint": "eslint ."` nos dois pacotes, com
+`@typescript-eslint/no-explicit-any` em `"warn"`. O aviso **aparece na tela** e o passo sai
+**verde**.
+
+> **Regra ligada que não pode reprovar é pior que regra ausente, pela mesma razão do D178:
+> ela produz a aparência da conferência. Não há alarme a ouvir — há um alarme que ninguém
+> lê.**
+
+**Medido antes de consertar: ZERO avisos** nos dois pacotes. Então nada estava escondido
+hoje, e o mecanismo estava vivo: no dia em que um `any` aparecesse, o verde diria VERDE.
+
+**E a régua REFLETE o par em vez de opinar sobre ele.** A mesma linha `"no-explicit-any":
+"warn"` significa duas coisas opostas conforme o script do pacote, então `regra-em-warn`
+recebe `lintReprovaAviso` — **medido no `package.json`** — e deixa de acusar quando a
+bandeira existe. *Achado que depende de outro arquivo não se resolve por presunção.*
+
+**O escopo, como número** (D164): 27 configurações que o git carrega, **11 varridas**, **16
+fora e NOMEADAS** (upstream intocável, lockfiles, Cargo/rust-toolchain), 647 linhas de
+configuração e 123 arquivos de código (34 166 linhas). **E duas formas saem como ZERO
+MEDIDO:** nenhum `|| true`/`continue-on-error` no verde, e nenhum `.only`/`.skip`/`.todo` na
+suíte — *o `.only` reduziria a suíte a um teste e o resto sairia verde por não ter rodado.*
+
+**E o contra-exemplo, que importa tanto quanto:** o `conferir.sh` **não** tem `set -e`, e isso
+é **certo** — o §7 exige que ele rode todos os passos mesmo depois de um falhar. Ele acumula
+`falhou=1` e sai `exit 1`. *Não é toda configuração frouxa que é defeito: é a frouxa e NÃO
+DECLARADA.*
+
+---
+
+## D195 · Desligador sob comentário que fala de outra coisa é a forma do D104 em configuração · 07/10/2026
+
+O `skipLibCheck: true` dos dois `tsconfig.json` ficava **na linha imediatamente abaixo** de um
+comentário que explica, em doze linhas, por que **outros dois flags**
+(`noUncheckedIndexedAccess` e `exactOptionalPropertyTypes`) ficam de fora. Quem lê presume que
+o motivo cobre a linha de baixo. **Não cobria.**
+
+> **Não é falso: é mudo.** O desligador atravessa sem declaração, e a declaração é tudo o que
+> separa uma frouxidão escolhida de uma frouxidão esquecida.
+
+**Medido com `skipLibCheck: false`: ZERO erros, nos dois pacotes.** Ele não esconde nada hoje.
+
+**E ele FICA**, pelo princípio que o próprio arquivo já escrevia três parágrafos acima — *"um
+typecheck que acusa erro alheio e não tem como consertá-lo é um typecheck que se aprende a
+ignorar"*. Com ele em `false`, uma atualização de `@types/*` derruba o verde por erro dentro
+de dependência, que ninguém aqui conserta. **A assimetria decide: o que se perde é medido
+(zero) e o que se arrisca não é.**
+
+> **O conserto da terceira forma é a DECLARAÇÃO, não o desligamento.**
+
+Agora está escrito no arquivo, com a medição e com a condição de revisitar. Há trava exigindo
+que o motivo **cite o próprio nome do flag** — sem isso, o comentário volta a ser sobre outra
+coisa.
+
+---
+
+## D196 · O número do comentário envelheceu OITENTA VEZES · 07/10/2026
+
+O mesmo comentário dizia duas coisas, e as duas estavam velhas:
+
+> ~~*"Ligá-los aqui faz o `tsc` acusar **20 erros** dentro do repositório DELES"*~~ ·
+> ~~*"O código deste adaptador foi escrito e **passou com os dois flags ligados**"*~~
+
+**Remedido: 1 604 erros** — **1 600** no repositório do Generate e **QUATRO AQUI**
+(`ferramentas/lab03.ts:192`, `ferramentas/lab05.ts:328`, `ferramentas/lab30.ts:109`,
+`src/motores/generate.ts:130`).
+
+**A decisão não muda** — 1 600 erros alheios são o argumento inteiro —, **mas a segunda metade
+da frase estava FALSA por quatro**, e isso é dívida declarada, não arredondamento. Riscada e
+não apagada (D161), com os quatro nomeados por arquivo e linha, e com trava exigindo o número
+novo.
+
+> **Número dentro de comentário envelhece em silêncio.** O D104 dizia isso de um motivo; este
+> diz de uma **quantidade**, e quantidade é pior: ela parece precisa.
+
+*É a terceira vez em quatro prompts que um número meu estava errado onde eu podia medi-lo
+(D185 — "oito" eram cinco; D191 — "três lugares" eram cinco; D196 — "20 erros" eram 1 604).
+As três foram achadas no prompt seguinte, por alguém que foi conferir.*

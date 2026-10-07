@@ -125,6 +125,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "varre o CÓDIGO deste repositório atrás das duas classes que a Central nomeou — o objeto medido são 113 arquivos .ts, não terreno",
     "LAB-49/detector-de-prova-velha.json":
       "mede o ESCOPO do detector de prova velha e a sabotagem que prova que ele reprova: o objeto medido são duas provas e uma trava, não terreno",
+    "LAB-57/varredura-de-configuracao.json":
+      "varre a ÁRVORE DE CONFIGURAÇÃO deste repositório — 27 arquivos, 6 regras, as três formas de desligar conferência —, não terreno: não há gleba, motor nem semente no que ela mede",
     "LAB-47/varredura-de-segredos.json":
       "a varredura de segredos mede a ÁRVORE DE ARQUIVOS deste repositório — escopo, regras e achados —, não terreno: não há gleba, motor nem semente no que ela mede",
   };
