@@ -322,3 +322,80 @@ fila: o **conserto das 36 violações que são a minha ponte** (com a guarda ao 
 não atribuídas**; **por que o motor desenha via sobre a face que ele mesmo reservou** (D174 —
 matei duas explicações e não tenho a terceira); e **ligar o `recommendedTypeChecked`
 completo**, que são **646 achados** e é outro prompt.
+
+---
+
+## 7 · Os TRÊS números do mesmo diagnóstico — 07/10/2026
+
+| | |
+|---|---|
+| **origem** | pedido pelo chat, **fora da fila**, como *"importante antes de prosseguir"* |
+| **onde está o original** | **aqui** — é transcrição, não reconstrução. A mensagem do chat chegou **cortada** (ver o fim desta seção) |
+| **o que continha** | três sessões mediram "o mesmo" e deram números diferentes: o Generate disse **69** em duas saídas e **103** nas cinco glebas, com **17** atribuídas ao motor; o Testfit rodou a esteira do Generate inteira e disse **181**; e este Lab disse **128** no LAB-48 e **92** depois do conserto do LAB-53 |
+| **o que produziu** | a **ficha de medição deste Lab**, campo por campo, e as **cinco perguntas** que qualquer duas das três têm de responder igual antes de "divergência" querer dizer algo. Mais um prompt proposto ao chat |
+| **onde está a prova** | [`../provas/LAB-53/violacoes-depois-do-conserto-da-ponte.json`](../provas/LAB-53/violacoes-depois-do-conserto-da-ponte.json) e [`../provas/LAB-48/violacoes-do-motor-padrao.json`](../provas/LAB-48/violacoes-do-motor-padrao.json) |
+
+### A resposta curta, e ela não é "alguém errou"
+
+> **Os quatro números não são o mesmo objeto medido quatro vezes.** Contagem de violação é
+> uma **soma absoluta** sobre um conjunto de planos, não uma taxa — e nenhuma das quatro
+> sessões declarou, junto do número, **sobre quantos planos** ela somou.
+
+**Antes de dizer que três sessões discordam, confira se as três mediram a mesma coisa.** É a
+§6 aplicada entre sessões, e é literalmente o D172 — *confira se os dois conjuntos medidos são
+o mesmo* —, que já me custou uma conclusão errada dentro de casa.
+
+### A ficha deste Lab, campo por campo — tudo medido, nada estimado
+
+| campo | o que é aqui |
+|---|---|
+| **motor** | Laboratório de Parcelamento (`motor-testfit`), o motor **padrão** da tela unificada |
+| **quem julga** | o Validator do **Generate**, importado (`verificarInvariantesPlano`) — sem versão leve, sem limiar mais frouxo (D20) |
+| **caminho** | ida do Lab → motor → volta do Lab → `paraResultado` do Generate → Validator dele |
+| **glebas** | **5**: `completo`, `sintetico-50ha-ondulado`, `sintetico-10ha-plano`, `ensaio-47ha`, `geo-antonina` |
+| **PLANOS medidos** | **5 — UM por gleba**, o 1º do ranking do próprio motor. Ele gerou **86 candidatos** (7 · 19 · 20 · 20 · 20) e eu medi **5** |
+| **variante vencedora** | ortogonal · espinha · espinha · espinha · **superquadra** |
+| **lotes** | **2 317** · **quadras** 70 |
+| **semente** | 20260913 · **contrato** da entrada `1`, da saída `2` |
+| **tampa dos exemplos** | **levantada** (`INVARIANTES_EXEMPLOS=100000`), com precondição que ABORTA se `exemplos.length !== violacoes` |
+| **número** | **92**, assim: `testada` 11 · `frente` 56 · `face-quadra` 14 · `via-sobre-lote` 11 |
+| **estado da ponte** | **depois** do conserto do LAB-53, hoje às 03:10 UTC. Antes dele eram **128** |
+| **taxa** | **3,97 %** dos 2 317 lotes carregam violação |
+
+### As cinco perguntas, na ordem de quanto cada uma move o número
+
+1. **QUANTOS PLANOS?** É a maior de longe. **181 contra 92 não é contradição** se os 181
+   somam dezenas de planos: o meu 92 soma **cinco**. A unidade comparável é **por plano** e
+   **por lote**, com a quebra por tipo de invariante — nunca o total cru.
+2. **QUAL plano de cada gleba?** A minha escolha é o vencedor da **nota do próprio motor**, e
+   essa escolha é violenta: em `geo-antonina` o vencedor é a **`superquadra`, com 33 lotes e
+   ZERO quadras**, e ela carrega **40 das minhas 92** — 43 % do total num plano que tem 1,4 %
+   dos lotes. Quem tiver medido a alternativa de **1 228 lotes** mediu outra Antonina. *(É a
+   mesma escolha que está na lista do Jonny como "a nota preferir 33 ou 1 228".)*
+3. **A TAMPA DOS EXEMPLOS estava levantada?** O relatório do Validator publica `violacoes`
+   como **número** e só **cinco exemplos**, a menos que `INVARIANTES_EXEMPLOS` esteja posta —
+   e foi o **próprio Generate** que deixou a tampa levantável. Quem contou **listando**
+   exemplos sem levantá-la contou no máximo 5 por plano. É conferível em uma linha de cada
+   lado, e é a razão mais provável de um número **baixo**.
+4. **QUAL motor, e por qual ponte?** *"69 em duas saídas"* tem cara de **duas saídas
+   guardadas**, e pode ser o motor do próprio Generate; o meu é o motor do Parcelamento
+   **através do meu adaptador**. Isso importa porque as **36 violações fantasma do D166
+   existiam SÓ no meu caminho** — nenhuma contagem do lado do Generate jamais as teve.
+5. **ANTES OU DEPOIS de hoje às 03:10 UTC?** O conserto do LAB-53 derrubou **36**. Qualquer
+   número medido contra a minha ponte antes disso traz 36 que **já não existem** — e o
+   diagnóstico de antes ficou **intacto** em `LAB-48/`, de propósito, para a comparação
+   sobreviver (D182).
+
+### E as "17 atribuídas ao motor" do Generate não batem com as minhas 54 — isto é esperado
+
+Eu atribuí **54 de 128** ao motor (42 %). Se o número deles é **17 de 103**, as duas
+atribuições só seriam comparáveis se os dois tivessem medido o **mesmo plano da mesma gleba**
+— e pela pergunta 2 isso é improvável. **Não trato a diferença como erro de ninguém enquanto
+as cinco perguntas não tiverem a mesma resposta nos dois lados.**
+
+### A mensagem chegou CORTADA, e isso fica dito
+
+O texto do chat termina em *"O Testfit rodou a esteira do Generate inteira e disse 181, todas
+de"* — e para aí. **Não completo a frase por dedução**: *"todas de um tipo só"* e *"todas de
+uma gleba só"* levam a conclusões opostas, e inventar a metade que falta é o oposto de medir
+(§6). O que falta está pedido no recado do dia.
