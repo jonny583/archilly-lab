@@ -4,56 +4,74 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-57 ·
-**A FILA DE 07/10 (LAB-53 a LAB-57) ESGOTOU, 5 de 5. O despertador está DESLIGADO.**
+**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-58 ·
+**FILA NOVA EM EXECUÇÃO (LAB-58 a LAB-61). O despertador está LIGADO.**
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 07/10 esgotou, cinco de cinco
+# 🟢 O DESPERTADOR ESTÁ LIGADO — fila nova, LAB-58 a LAB-61
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 07/10/2026.**
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 07/10/2026** (reabilitado pela **nona
+vez**, minuto :05). O chat mandou a fila nova **depois de aceitar a recusa da T-36…T-39** e
+redirecionar os três itens que são do Lab.
 
-**Os cinco prompts estão feitos e mesclados** (PRs #64, #67, #68, #69 e o do LAB-57), e o que
-resta na `FILA.md` está todo em *"proposto ao chat"*, que por definição **não se executa**. É
-o caso da **D62**, e o desligamento é **desligamento, não apagamento** (D112) — regra que o
-chat tornou **permanente** em 07/10 (*"pode DESLIGAR ao esgotar em vez de apagar; você está
-certa, e passa a ser assim daqui em diante"*), e que foi corrigida na `CLAUDE.md` §1-A ao
-abrir a fila e na `FILA.md` no LAB-53.
+## A RECUSA FOI ACEITA, e virou REGRA DA FAMÍLIA
 
-**O saldo da fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §8** — pela
-§1-B, gravado **junto do último prompt** e não depois.
+> *"Erro meu, a fila T-36 a T-39 era do motor e você acertou em não executar. A sua regra está
+> aceita e vira regra da família: **quem mede é quem vai consertar, e fila com numeração de um
+> app não se executa noutro**."*
 
-## 🔴 CHEGOU UMA FILA T-36 a T-39 — e ela é do MOTOR, não deste repositório
+E a frase velha foi retirada por ele também: *"desligar ao esgotar continua valendo, você está
+certa e eu repeti a frase velha por descuido."* O T-36 virou **LAB-58**, o T-38 virou
+**LAB-59**, o T-39 virou **LAB-60**; o **T-37 ficou no motor**, que é onde ele mora.
 
-**Recebida em 07/10/2026, depois de a fila LAB-53…57 esgotar. NÃO EXECUTADA**, e o registro
-inteiro está na [`prompts/FILA.md`](prompts/FILA.md), no alto.
+## A fila de 07/10 (segunda), um de quatro
 
-**Quatro coisas medidas** dizem que ela é do `motor-testfit`: `"T-36"` **não existe neste
-repositório** (zero ocorrências — aqui os prompts são `LAB-xx`, e os do motor aparecem como
-*"o T02 dele"*, seis vezes); a **`D74` citada** aqui é *"a regra dos 50 m da nascente"* e não
-tem relação com importar a esteira do Generate; o texto diz *"o conserto é **aqui**"* e
-*"confira as três **aqui**"*, e as três formas foram achadas **neste** repositório no LAB-57;
-e o **T-37 é conserto em código do vizinho**, que a §4 proíbe com teste desde o D136.
+| # | em uma linha | estado |
+|---|---|---|
+| **LAB-58** | as 81 do motor por **MECANISMO** — lista numerada, insumo da fila do motor | ✅ **07/10** · **SEIS mecanismos, zero não nomeadas** |
+| **LAB-59** | o **contrafactual** de Antonina: com as 81 resolvidas, outra candidata passa a ser aprovável? | ⬜ próximo |
+| **LAB-60** | a configuração do motor, **só de leitura** — lista numerada pelo chat | ⬜ pronto |
+| **LAB-61** | a **dívida própria** com o que sobrou | ⬜ pronto |
 
-**E o motivo melhor que todos esses é de ontem:** executar o T-36 aqui faria **duas sessões
-medirem a mesma coisa em paralelo**, que é exatamente o que produziu os quatro números do §7
-do [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md). *Medição duplicada entre sessões não dá
-confirmação: dá divergência.*
+# 🔢 O LAB-58 · as 81 são SEIS mecanismos, e a ORDEM não é a do volume
 
-**O despertador NÃO foi religado** (D62: disparo sem item executável é o desperdício medido em
-15/09 — 4 dos 7). Basta o chat confirmar o que é do Lab, ou mandar numeração `LAB-xx`.
+```
+ 1 · o teto de face de quadra limita UM EIXO e deixa o outro correr ....... 14   2 glebas
+ 2 · a quadra recebe fileira de lote em face que NÃO É RUA ................ 23   3 glebas
+ 3 · o corte do último lote encurta a TESTADA e preserva o fundo .......... 11   3 glebas
+ 4 · a fileira encosta na via só de ESGUELHA ...............................  4   1 gleba
+ 5 · a faixa do lote externo é um SEMIPLANO: não acaba onde a face acaba .. 18   1 gleba
+ 6 · a rede viária é aparada pela DIVISA e não por `util` ................. 11   1 gleba
+    ──────────────────────────────────────────────────────────────────────── 81
+    MECANISMO-NAO-NOMEADO .................................................  0
+```
 
-## ⚠️ O QUE ESPERA O CHAT, e o primeiro item é uma pergunta dele
+**A linha que decide a fila do motor não é a contagem** (D197):
 
-**A mensagem de 07/10 sobre os TRÊS NÚMEROS DIFERENTES chegou CORTADA** em *"disse 181, todas
-de"*. O Generate disse **69** em duas saídas e **103** nas cinco glebas (17 do motor), o
-Testfit **181** rodando a esteira do Generate inteira, e este Lab **128** e depois **92**.
+> **`ensaio-47ha` é bloqueada por UM mecanismo só** — o teto de face de quadra, 6 violações.
+> Consertá-lo **zera uma gleba inteira, sozinho**, e é a única das cinco em que isso acontece.
 
-**A resposta medida está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §7** (PR #66):
-**os quatro números não são o mesmo objeto** — o meu 92 soma **cinco planos** de **oitenta e
-seis** candidatos, um por gleba, o vencedor da nota do próprio motor; e em `geo-antonina` esse
-vencedor é a **superquadra**, com 33 lotes e **zero quadras**, carregando **40 das 92**.
-**Falta o resto da frase, ou as cinco respostas das outras sessões.**
+Três mecanismos — teto de face, fileira sem rua e o corte do último lote — bloqueiam **quatro
+das cinco glebas**. Os dois de Antonina são dela sozinha, e **Antonina não zera só com o
+motor**: as 11 restantes são o campo de rua pública existente que falta no contrato v1.
 
-## A fila de 07/10, cinco de cinco
+**A sabotagem PASSOU, e reescreveu a trava** (D198): a calibração da régua nova media só os
+lotes de `frente`, e a diferença entre a distância ao **contorno** e a `distanciaAoPoligono`
+(que devolve **zero para ponto dentro**) só aparece em lote **debaixo do leito** — que é
+`via-sobre-lote`. *Trava cujo escopo exclui o lugar do defeito não é trava.* Consertada:
+a minha distância passou a ter de **reconstruir o número da função dele** em todo lote
+acusado — refeita a sabotagem, **exit 1, 15 lotes**.
+
+**E um número meu estava errado dentro do próprio relatório, pela quarta vez em cinco prompts**
+(D185, dentro da D197): *"68,3 m em 11 das 14"* escrito de cabeça — a ferramenta, mandada contar
+a lista, devolveu **10 das 14**. Remediado antes de sair.
+
+**E a chave da junção me pegou dentro do prompt** (D199): juntar por `(gleba, lote)` em vez de
+`(gleba, tipo, lote)` deu **18 onde eram 22**. A trava reprovou a minha primeira conclusão e
+pediu uma mais estreita: nas **81** cada lote tem **uma** violação; nas **92** os sete de duas
+existem, e são **exatamente** os sete da fronteira contrato × motor.
+
+## A fila de 07/10 (primeira), cinco de cinco
+
 
 | # | em uma linha | estado |
 |---|---|---|
@@ -75,6 +93,12 @@ NÃO ATRIBUÍDAS ............ 0   ← era 27 no LAB-48
 ¹ as 4 da régua **não saem da conta**: consertá-la troca `frente` por `testada` no mesmo lote
 e derruba **zero** violações (D184).
 
+**O LAB-58 reagrupou essa mesma conta por MECANISMO** (acima), sem mudar nenhum número — e
+acrescentou uma precisão que faltava: **as 11 do contrato NÃO são as 11 "régua-no-meio-da-aresta"
+do LAB-54.** São conjuntos diferentes do mesmo tamanho. As do contrato são 11 de Antonina a
+≤ 0,5 m da face entregue (**7 régua + 4 sem-via**); as da régua são **7 em Antonina + 4 em
+`completo`**, e essas 4 de `completo` estão **dentro das 81**.
+
 **E nenhuma das cinco glebas aprova.** O ranking da tela unificada só deixa de nascer vazio
 quando as **81 do motor** tiverem conserto, e o conserto é **lá**. A conta do LAB-48, que o
 chat adotou como calendário, está agora **medida na prática** e não prevista.
@@ -82,9 +106,9 @@ chat adotou como calendário, está agora **medida na prática** e não prevista
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 505 travas (488 esteira + 17 testfit)   ← eram 450 ao abrir a fila
-CI sem clones ...... 114 (inalterado; trava que lê clone privado não entra lá — D143)
-decisões ........... D196 é a última. A próxima é a D197
+suíte .............. 529 travas (512 esteira + 17 testfit)   ← eram 505 ao fechar a fila anterior
+CI sem clones ...... 138 (114 → 138: as 24 travas do LAB-58 leem só arquivo deste repositório)
+decisões ........... D199 é a última. A próxima é a D200
 verde .............. 7 passos, exit 0, três clones vizinhos limpos
 ```
 
@@ -789,7 +813,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 114 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 138 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

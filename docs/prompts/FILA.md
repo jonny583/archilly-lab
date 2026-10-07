@@ -44,6 +44,77 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
+## 🟢 A FILA DE 07/10/2026 (segunda) — LAB-58 a LAB-61
+
+Mandada pelo chat em 07/10/2026, **depois de ele aceitar a recusa da T-36…T-39** e redirecionar
+os três itens que são do Lab. Despertador **reabilitado pela nona vez**
+(`trig_01XwSkTLT9zmyprNZcUiWy7f`, `enabled: true`).
+
+### A recusa foi aceita, e virou REGRA DA FAMÍLIA
+
+> *"Erro meu, a fila T-36 a T-39 era do motor e você acertou em não executar. A sua regra está
+> aceita e vira regra da família: **quem mede é quem vai consertar, e fila com numeração de um
+> app não se executa noutro**."*
+
+E a frase velha também foi retirada por ele: *"desligar ao esgotar continua valendo, você está
+certa e eu repeti a frase velha por descuido."*
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-58** | **As 81 do motor agrupadas por MECANISMO** — quantos mecanismos distintos existem e quantas violações cada um responde. Lista numerada, é o insumo da fila do motor | ✅ **concluído em 07/10/2026** · **SEIS**, zero não nomeadas | nenhuma |
+| **LAB-59** | O **T-38 como CONTRAFACTUAL**: com as 81 resolvidas, outra candidata passa a ser aprovável em Antonina? Responde sozinho a pendência do Jonny (33 ou 1.228 lotes) **sem tocar no motor** | ⬜ pronto | LAB-58 mesclado |
+| **LAB-60** | A **configuração do motor, SÓ DE LEITURA**: as três formas de desligar conferência que o LAB-57 achou aqui, conferidas lá. Lista numerada — **vai pelo chat ao motor** | ⬜ pronto | LAB-59 mesclado |
+| **LAB-61** | **A dívida própria com o que sobrou** | ⬜ pronto | LAB-60 mesclado |
+
+**O que o chat disse de cada um, nas palavras dele:**
+
+- **LAB-58** — *"agrupe as 81 violações do motor por MECANISMO, com o que você já mediu — a
+  faixa como semiplano do LAB-50, as 23 de miolo do LAB-54, a via não aparada do LAB-55 — e
+  diga quantos mecanismos distintos existem e quantas violações cada um responde. Isso vai
+  para o motor consertar, em lista numerada, e é o insumo da fila dele."*
+- **LAB-59** — *"o T-38 como CONTRAFACTUAL, que você propôs e eu aprovo — só candidata aprovada
+  entra no ranking, então meça se, com as 81 resolvidas, outra candidata passa a ser aprovável
+  em Antonina. Isso responde sozinho a pendência do Jonny sobre preferir 33 ou 1.228 lotes, e
+  responde sem tocar no motor."*
+- **LAB-60** — *"a configuração do motor, SÓ DE LEITURA, devolvendo lista numerada das três
+  formas de desligar conferência que você achou aqui — a lista vai por mim ao motor."*
+- **LAB-61** — *"continue a dívida própria com o que sobrou."*
+
+**Ao fim de cada prompt, o recado com o status** (palavras dele).
+
+### LAB-58 · As 81 são SEIS mecanismos — ✅ concluído em 07/10/2026
+
+```
+ 1 · o teto de face de quadra limita UM EIXO e deixa o outro correr ....... 14   2 glebas
+ 2 · a quadra recebe fileira de lote em face que NÃO É RUA ................ 23   3 glebas
+ 3 · o corte do último lote encurta a TESTADA e preserva o fundo .......... 11   3 glebas
+ 4 · a fileira encosta na via só de ESGUELHA ...............................  4   1 gleba
+ 5 · a faixa do lote externo é um SEMIPLANO: não acaba onde a face acaba .. 18   1 gleba
+ 6 · a rede viária é aparada pela DIVISA e não por `util` ................. 11   1 gleba
+    ──────────────────────────────────────────────────────────────────────── 81
+    MECANISMO-NAO-NOMEADO .................................................  0
+```
+
+**A ordem da lista não é a do volume** (D197): **`ensaio-47ha` é bloqueada por UM mecanismo
+só** — o teto de face, 6 violações —, e consertá-lo **zera uma gleba inteira, sozinho**. Três
+mecanismos bloqueiam **quatro das cinco glebas**; **Antonina não zera só com o motor** (as 11
+restantes são o campo que falta no contrato do Generate).
+
+**A sabotagem PASSOU e reescreveu a trava** (D198): a calibração media só os lotes de `frente`,
+e a diferença entre a distância ao **contorno** e a `distanciaAoPoligono` só aparece em lote
+**debaixo** do leito. *Trava cujo escopo exclui o lugar do defeito não é trava.*
+
+**E a chave da junção me pegou dentro do prompt** (D199): `(gleba, lote)` em vez de
+`(gleba, tipo, lote)` deu **18 onde eram 22** — e a trava pediu conclusão mais estreita: a
+chave curta erra **exatamente na fronteira contrato × motor**.
+
+- relatório: [`../relatorios/LAB-58.md`](../relatorios/LAB-58.md)
+- provas: `docs/provas/LAB-58/mecanismos-das-81.json` e `sabotagem.json`
+- ferramenta: `external-engines/esteira/ferramentas/lab58.ts` · mecanismos como dado em
+  `src/mecanismos-das-violacoes.ts` · **24 travas** em `tests/mecanismos.test.ts`
+
+---
+
 ## ⚠️ A FILA DE 07/10/2026 À NOITE — T-36 a T-39 · **RECEBIDA E NÃO EXECUTADA**
 
 **Chegou do chat em 07/10/2026, depois de a fila LAB-53…57 esgotar**, e **não foi executada**.
@@ -93,6 +164,11 @@ passou uma mensagem inteira resolvendo**: 69, 103, 181 e 92 não eram o mesmo ob
 | **T-38** · a eleição da superquadra | **pode, como CONTRAFACTUAL**: só candidata aprovada entra no ranking, então dá para medir se outra passa a ser aprovável — sem tocar no motor |
 | **T-39** · as três formas na configuração do motor | **pode LER** e devolver lista numerada (é o que a §4 prescreve). **Não pode consertar** |
 | **T-37** · o conserto | **não pode**, ponto. É código do vizinho |
+
+**O chat respondeu em 07/10/2026, e redirecionou exatamente estes três**: o T-36 virou
+**LAB-58**, o T-38 virou **LAB-59** e o T-39 virou **LAB-60** — *"erro meu, a fila T-36 a T-39
+era do motor e você acertou em não executar"*. O **T-37 ficou no motor**, que é onde ele mora.
+A fila nova está no alto desta página.
 
 ### O despertador: NÃO foi religado, e o motivo é o D62
 
@@ -866,7 +942,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 114 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 138 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

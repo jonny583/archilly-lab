@@ -5483,3 +5483,86 @@ novo.
 *É a terceira vez em quatro prompts que um número meu estava errado onde eu podia medi-lo
 (D185 — "oito" eram cinco; D191 — "três lugares" eram cinco; D196 — "20 erros" eram 1 604).
 As três foram achadas no prompt seguinte, por alguém que foi conferir.*
+
+---
+
+## D197 · As 81 do motor são SEIS mecanismos, e a ordem da fila sai de "quantas glebas destrava" · 07/10/2026
+
+O chat pediu as 81 agrupadas por mecanismo, *"em lista numerada, e é o insumo da fila dele"*.
+Agrupadas: **seis mecanismos, zero não nomeadas** — 14 + 23 + 11 + 4 + 18 + 11 = **81**.
+
+**A decisão não é o agrupamento, é a ORDEM.** Agrupar por volume poria o semiplano de Antonina
+(18) e a fileira sem rua (23) na frente. Mas nenhuma gleba aprova com violação nenhuma, e por
+isso o que decide é **quantas glebas cada mecanismo destrava**:
+
+> **`ensaio-47ha` é bloqueada por UM mecanismo só** — o teto de face de quadra, 6 violações.
+> Consertá-lo **zera uma gleba inteira, sozinho**, e é a única das cinco em que isso acontece.
+
+Três mecanismos — teto de face, fileira sem rua e o corte do último lote — bloqueiam **quatro
+das cinco glebas**. Os dois de Antonina são dela sozinha, e **Antonina não zera só com o
+motor**: as 11 restantes são o campo de rua pública existente que o contrato v1 não tem.
+
+> **Contagem diz o tamanho do conserto; "quantas glebas destrava" diz a ordem dele.**
+
+**E um número meu estava errado DENTRO deste relatório, pela quarta vez em cinco prompts:** eu
+escrevi *"as faces curtas medem 68,3 m em **11** das 14"* de cabeça, e a ferramenta — mandada
+contar a lista — devolveu **10 das 14**. Riscado e remedido antes de sair (D185: *número que o
+próprio relatório lista ao lado não se escreve de memória*). A conta agora **sai da prova**: as
+longas de 312,14 a 596,92 m contra o teto de 200 m, as curtas de 8,79 a 111,55 m, e 10 das 14
+com a curta a menos de 1 m de **duas profundidades de fileira**.
+
+E cada mecanismo é **predicado sobre campo medido**, não impressão: eles vivem em
+`src/mecanismos-das-violacoes.ts`, a atribuição é conferida como **partição** (soma fecha,
+ninguém casa duas vezes, órfã sai `MECANISMO-NAO-NOMEADO` com a contagem), e cada um declara
+onde foi **lido** no motor do vizinho.
+
+---
+
+## D198 · A sabotagem PASSOU porque a trava media um escopo onde o defeito não podia aparecer · 07/10/2026
+
+A régua nova deste prompt é a distância da borda do lote ao **contorno** da via. Ela vinha
+calibrada contra a **classe** que o LAB-54 mediu com a função do Generate — e **só nos lotes de
+`frente`**.
+
+Troquei o `distAoContorno` pelo `distanciaAoPoligono` do motor, que devolve **zero para ponto
+DENTRO** do polígono — isto é, que diz *"encosta na rua"* para o lote que está **debaixo do
+leito**. **`exit 0`.**
+
+**Por que passou:** a diferença entre as duas réguas só aparece em lote dentro da superfície
+viária, e esses são os **`via-sobre-lote`** — que não têm classe no LAB-54, porque o LAB-54
+classificou só `frente`.
+
+> **Trava cujo escopo exclui o lugar do defeito não é trava.** É o D164 pelo avesso: publicar
+> o escopo como número não basta se o escopo **não contém** o que pode estar errado.
+
+**O conserto:** a calibração passou a exigir, em **todo** lote acusado, que a minha distância
+**reconstrua o número que a função dele devolve** (teto 1e-6 m). Refeita a sabotagem: **`exit
+1`, 15 lotes.** O bloco que reconstrói **não julga nada** — nenhuma violação sai dele; ele
+existe para ser refutado, e não é Validator leve (§4).
+
+*É a oitava sabotagem que pega defeito meu que eu não tinha visto, e a SEGUNDA que passa antes
+de pegar (D179 foi a primeira).*
+
+---
+
+## D199 · A chave curta não erra em qualquer lugar: erra na FRONTEIRA · 07/10/2026
+
+Numa exploração deste prompt juntei a classe do LAB-54 pelo par `(gleba, lote)` em vez de
+`(gleba, tipo, lote)`. **Sete dos 85 lotes acusados têm mais de uma violação**, e o par curto
+deu à `via-sobre-lote` a classe da `frente` do mesmo lote: **a contagem saiu 18 onde eram 22**.
+
+**A trava que escrevi para isso me reprovou**, e por isso a conclusão ficou mais estreita
+(D189): medida **dentro das 81**, a resposta é **zero** — nas 81 cada lote tem **uma**
+violação. Medidos nas **92**, os sete existem, e são **exatamente** os sete cuja `frente` é do
+**contrato** e cuja `via-sobre-lote` é do **motor**.
+
+> **A chave curta erra exatamente na fronteira entre o que é do contrato e o que é do motor**
+> — a única fronteira que este prompt precisa acertar.
+
+A trava mudou de **escopo** por causa disso, e a prova publica os três números: 7 nas 92, 7
+deles na fronteira, **0** entre as 81.
+
+*E uma precisão, porque o recado do LAB-55 pode ser lido errado: **as 11 do contrato não são
+as 11 "régua-no-meio-da-aresta" do LAB-54**. São conjuntos diferentes do mesmo tamanho — as do
+contrato são 11 de Antonina a ≤ 0,5 m da face (7 régua + 4 sem-via); as da régua são 7 em
+Antonina mais 4 em `completo`, e essas 4 estão DENTRO das 81.*
