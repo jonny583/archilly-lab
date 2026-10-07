@@ -4,45 +4,27 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-55 ·
-**Fila de 07/10 (LAB-53 a LAB-57): 3 de 5. Próximo: LAB-56. Próxima decisão: D191.**
+**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-56 ·
+**Fila de 07/10 (LAB-53 a LAB-57): 4 de 5. Próximo: LAB-57, o ÚLTIMO. Próxima decisão: D194.**
 
-# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 07/10, dois prompts a fazer
+# 🟢 O DESPERTADOR ESTÁ LIGADO — falta UM prompt na fila
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true`, a cada 60 min no minuto :05.** Reabilitado
 pelo chat em 07/10 (a **oitava** vez que ele reabilita em vez de recriar — D112), e o prompt
 guardado dele é **meu**, reescrito a cada prompt desde 06/10.
 
-**E a regra virou permanente:** *"pode DESLIGAR ao esgotar em vez de apagar; você está certa,
-e passa a ser assim daqui em diante"*. Corrigida na `CLAUDE.md` §1-A ao abrir a fila e na
-`FILA.md` no LAB-53 — *regra que vive em duas terras envelhece numa delas*.
-
-## 🔴 O caminho crítico do MVP — e ele está CUMPRIDO
-
-> *"Trate as 54 e as 27 como o CAMINHO CRÍTICO DO MVP, à frente de qualquer outra coisa."*
+**Ao fechar o LAB-57 a fila esgota**, e então: o **BALANÇO é obrigatório** no
+[`relatorios/BALANCOS.md`](relatorios/BALANCOS.md) (§1-B), gravado **junto** do último prompt
+e não depois; e o despertador **se DESLIGA, não se apaga** — regra que o chat tornou
+permanente em 07/10 e que foi corrigida na `CLAUDE.md` §1-A e na `FILA.md`.
 
 | # | em uma linha | estado |
 |---|---|---|
-| **LAB-53** | **as 36 violações que eram a MINHA ponte** — consertadas, com guarda ao lado | ✅ **07/10** · 128 → **92** · PR #64 |
-| **LAB-54** | **as 27 `frente` não atribuídas** — com a régua DELE, não a minha | ✅ **07/10** · **23 motor + 4 régua** · PR #67 |
-| **LAB-55** | por que o motor desenha via **SOBRE** a face que ele reservou | ✅ **07/10** · **a faixa é buraco só para o LOTE** |
-| **LAB-56** | a correção da moldura do **D159** nos três lugares onde ela saiu | 🟢 pronto · **o próximo** |
-| **LAB-57** | o resto da varredura do **D178** + a lição das duas perguntas em 5 linhas | 🟢 pronto |
-
-**As 92 violações estão TODAS atribuídas agora**, e é a primeira vez desde o LAB-48:
-
-```
-MOTOR ................... 81   (23 frente de miolo + 18 frente distantes + 14 face-quadra + 11 via-sobre-lote + 11 testada + 4 régua-no-rótulo¹)
-CONTRATO (Generate) ..... 11   (as `frente` que o campo `faixaViaPublica` salvaria)
-NÃO ATRIBUÍDAS ............ 0   ← era 27 no LAB-48
-```
-
-¹ as 4 da régua **não saem da conta**: consertá-la troca `frente` por `testada` no mesmo lote
-e derruba **zero** violações (D184).
-
-**Fora da fila, por ordem do chat:** o `recommendedTypeChecked` completo (646 achados) fica
-**para depois do MVP**, registrado como proposto; e o achado da *"regra desligada em
-silêncio"* vai à família **pelo chat**, não por mim.
+| **LAB-53** | as 36 violações que eram a **minha ponte** | ✅ **07/10** · 128 → **92** · PR #64 |
+| **LAB-54** | as 27 `frente` não atribuídas — com a régua **dele** | ✅ **07/10** · **23 motor + 4 régua** · PR #67 |
+| **LAB-55** | por que o motor desenha via **sobre** a face que reservou | ✅ **07/10** · a faixa é buraco só para o LOTE · PR #68 |
+| **LAB-56** | a correção da **moldura do D159** | ✅ **07/10** · eram **cinco** e um **gerador** |
+| **LAB-57** | o resto da varredura do **D178** + a lição das duas perguntas | 🟢 pronto · **o último** |
 
 ## ⚠️ E há uma pergunta aberta do chat, registrada e NÃO respondida
 
@@ -55,6 +37,40 @@ completada por dedução**. O balanço com a minha ficha completa e **as cinco p
 decidem** está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §7 (PR #66). A resposta
 curta: **os quatro números não são o mesmo objeto** — o meu 92 soma **cinco planos** de
 **oitenta e seis** candidatos, um por gleba, o vencedor da nota do próprio motor.
+
+## O que o LAB-56 fez — e o achado é que a frase saía de uma MÁQUINA
+
+**Eram CINCO documentos vivos e UM GERADOR, não os três que eu havia contado** (D191). A
+frase saía de `naoSoubeFazer`, em `src/motores/testfit.ts`, e dali ia para a
+`COMPARACAO_DOS_MOTORES.md` **três vezes** e para `docs/provas/LAB-19/tabela.json`.
+
+> **Corrigir os cinco documentos e deixar o gerador faria a frase voltar sozinha na próxima
+> `bun run lab19`** — a forma do D104 com uma máquina atrás, e nenhuma varredura de documento
+> avisaria, porque no instante seguinte à regeração o documento estaria "correto" por um
+> ciclo.
+
+*E eu contei três porque lembrei três:* o D185 — **conte a lista, não a memória** — vale para
+*quantos lugares*, não só para *quantos lotes*.
+
+**A causa certa, escrita nos cinco:** há **uma** régua e **um** campo que falta. O
+`invariantes.ts` do Generate aceita a rua pública existente, tem o campo (`faixaViaPublica`) e
+o usa; falta campo no **contrato de motor v1** para declará-la. **Com o limite medido**
+(LAB-54): das 29 de Antonina, **11 somem** com o campo e **18 não** — essas 18 estão a 15,7 a
+1 805,7 m da face e são do motor. *Dizer que é só o campo que falta seria o erro simétrico.*
+
+**Dois lugares NÃO foram tocados, e é decisão:** o `RECADOS.md` é o arquivo do que **saiu**
+para o chat — reescrever recado entregue seria falsificar o registro —, e o `LAB-48.md` é o
+relatório que **achou** o erro. Lista fechada, com motivo, e guarda contra exceção fantasma.
+
+**QUATRO defeitos da minha própria trava, neste prompt, e nenhum pelo olho** (D192, D193):
+ela reprovou a **minha frase de conserto** (régua não distingue *X* de *não X*); eu usei a
+**limpeza errada** das duas que o D179 criou — `soOCodigo()` esvazia string, e a nota do
+gerador **é** uma string; varri o **arquivo todo**, e o `INDEX.md` tem dezenas de linhas com
+`11` e `18` noutros assuntos; e usei janela de **25 linhas** num arquivo de **uma linha por
+relatório**. **Os três últimos eram de ESCOPO** — *o volume era da minha régua, não da coisa*.
+
+**E a guarda da exceção fantasma mordeu dentro do prompt que a usou:** estreitado o padrão, o
+`LAB-54.md` deixou de ser acusado e a trava o **expulsou da lista de exceções**.
 
 ## O que o LAB-55 respondeu — e é uma ASSIMETRIA
 
@@ -466,9 +482,13 @@ eu afrouxar a comparação para caber a mudança (o contrário do D143).
 gleba com furo são a **perda declarada** do inventário — *"o furo vira área que o motor acha
 livre"* —, e os **47 `frente`** da gleba com testada vêm de o contrato não ter como dizer
 *"este lote faz frente para rua que já existe, fora da gleba"*: **51 lotes externos, os 51
-com `faceDeRua: null`**, 47 acusados pelo invariante do Generate. *O mesmo lote é "de frente
-para a rua existente" por uma régua e "sem frente para rua" pela outra, e as duas estão
-certas.*
+com `faceDeRua: null`**, 47 acusados pelo invariante do Generate. ~~*O mesmo lote é "de
+frente para a rua existente" por uma régua e "sem frente para rua" pela outra, e as duas
+estão certas.*~~ ⚠️ **MOLDURA CORRIGIDA no LAB-56 (D168, D191): não são duas réguas, é UMA
+régua e UM campo que falta** — o `invariantes.ts` do Generate aceita *"a RUA PÚBLICA, quando
+existe"*, tem o campo (`faixaViaPublica`) e o usa; falta campo no **contrato de motor v1**
+para declará-la. **E com limite medido:** em Antonina, das 29, **11 somem** com o campo e
+**18 não** (essas são do motor, a 15,7–1 805,7 m da face).
 
 **E ISTO FECHA O D140:** em Antonina o partido que o ranking escolheu tem **33 lotes, e os
 33 são externos** — **nenhum no miolo**, 29 acusados por `frente`. A leitura *"produto de

@@ -172,10 +172,29 @@ export function rodarTestfit(entrada: EntradaMinima, semente: number): Rodada {
   // rua deles **já existe e está fora da gleba**. O Validator do Generate, cuja regra
   // `frente` é *"nenhuma aresta encosta em via"*, acusa **47** deles.
   //
-  // Então o mesmo lote é **"de frente para a rua existente"** por uma régua e **"sem
-  // frente para rua"** pela outra, e as duas estão certas sobre o que medem. Publicar
-  // as violações sem esta linha faria o número ler como defeito do motor — é o
-  // princípio do LAB-34, a razão colada ao número.
+  // ── A MOLDURA DESTA NOTA ESTAVA ERRADA, E ELA SAÍA DAQUI (LAB-56, D168) ───
+  //
+  // Até o LAB-56 esta nota dizia que *"o mesmo lote é de frente para a rua existente
+  // por uma régua e sem frente para rua pela outra, e as duas estão certas sobre o que
+  // medem"* — como se houvesse **duas réguas discordando**. **Não há.**
+  //
+  // Medido no LAB-48 (D168): a régua do Generate **CONCORDA** com o motor. O
+  // `invariantes.ts` dele aceita, por escrito, *"a RUA PÚBLICA, quando existe"* como
+  // superfície de frente; o campo existe (`resultado.faixaViaPublica`), o invariante o
+  // usa, e há até bandeira por lote (`deLoteamentoFachada`) que troca o mínimo de
+  // testada. **Há UMA régua e UM campo que falta** — o contrato de motor v1 não tem
+  // onde um motor declare a rua pública existente, então não há o que traduzir.
+  //
+  // E a correção tem um limite que também é medido (LAB-54): em `geo-antonina`, das 29
+  // acusadas, **11 somem** com o campo preenchido e **18 NÃO** — essas 18 estão a 15,7
+  // a 1 805,7 m da face entregue, e são do motor. Então *"é só o campo que falta"*
+  // seria o erro simétrico. O contrafactual por gleba está em
+  // `docs/provas/LAB-53/violacoes-depois-do-conserto-da-ponte.json`, e **esta nota não
+  // cita número de contrafactual**, porque ele não foi medido em toda gleba.
+  //
+  // Publicar as violações sem esta linha faria o número ler como defeito do motor — é o
+  // princípio do LAB-34, a razão colada ao número. Publicá-la com a moldura errada fazia
+  // ler como empate entre duas réguas, que é pior: sugere que não há nada a consertar.
   if (escolhida && faces.length) {
     const lotes = (escolhida.saida as { lotes?: { id: string; faceDeRua?: string | null }[] }).lotes ?? [];
     const externos = lotes.filter((l) => /-e\d+$/.test(l.id));
@@ -185,8 +204,11 @@ export function rodarTestfit(entrada: EntradaMinima, semente: number): Rodada {
         `${externos.length} lote(s) externo(s) nasceram da testada, e ${semVia} deles publicam ` +
           "`faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do " +
           "plano para apontar. O invariante `frente` do Generate (\"nenhuma aresta encosta em " +
-          'via") conta esses lotes como violação: o mesmo lote é "de frente para a rua ' +
-          'existente" por uma régua e "sem frente para rua" pela outra',
+          'via") conta esses lotes como violação — e NÃO por discordar do motor: a régua dele ' +
+          "ACEITA frente para rua pública, tem campo para ela (`faixaViaPublica`) e o invariante " +
+          "a usa. O que falta é CAMPO NO CONTRATO de motor v1 para declarar que ela existe. " +
+          "Parte dessas violações some com o campo preenchido e parte não — o contrafactual por " +
+          "gleba está em `docs/provas/LAB-53/`",
       );
     }
   }

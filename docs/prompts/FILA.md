@@ -74,7 +74,7 @@ texto velho* (D104).
 | **LAB-53** | **O conserto das 36 violações que são a MINHA PONTE**, com guarda ao lado (D166) | ✅ **concluído em 07/10/2026** · 128 → **92** | nenhuma |
 | **LAB-54** | As **27 violações `frente` não atribuídas** — medir com a régua DELE, não com a minha | ✅ **concluído em 07/10/2026** · **23 motor + 4 régua-no-rótulo** | LAB-53 mesclado ✅ |
 | **LAB-55** | **Por que o motor desenha via SOBRE a face que ele mesmo reservou** — matei duas explicações e não tenho a terceira (D174) | ✅ **concluído em 07/10/2026** · **a faixa é buraco só para o LOTE** | LAB-54 mesclado ✅ |
-| **LAB-56** | A **correção da moldura do D159** nos três lugares onde ela saiu (D168) | 🟢 **pronto** | LAB-55 mesclado |
+| **LAB-56** | A **correção da moldura do D159** nos três lugares onde ela saiu (D168) | ✅ **concluído em 07/10/2026** · eram **cinco** e um **gerador** | LAB-55 mesclado ✅ |
 | **LAB-57** | **O resto da varredura do D178**: há outra configuração que desliga conferência sem avisar? E a lição das duas perguntas **em cinco linhas**, para o chat distribuir | 🟢 **pronto** | LAB-56 mesclado |
 
 ### LAB-53 · As 36 violações eram a minha ponte — ✅ concluído em 07/10/2026
@@ -163,6 +163,32 @@ baixar o limiar** (D172).
 e saiu `null` em 4 de 4 — ela mora na **SAÍDA**. Caminho errado que devolve `null` em campo
 que classifica vira frase publicável. **16ª** vez do ponto cego da §6, décima pega dentro do
 prompt.
+
+### LAB-56 · A moldura do D159 corrigida — e ela saía de um GERADOR — ✅ concluído em 07/10/2026
+
+**Entregue:** [`../relatorios/LAB-56.md`](../relatorios/LAB-56.md), o gerador corrigido em
+`src/motores/testfit.ts`, `tests/moldura.test.ts` (**18 travas**; a suíte vai a **494**), os
+cinco documentos riscados, os dois gerados regerados, e as decisões **D191, D192, D193**.
+
+**Eram CINCO lugares e um GERADOR, não três.** A frase saía de `naoSoubeFazer` em
+`src/motores/testfit.ts` e dali ia para a página comparativa **três vezes** e para a prova do
+LAB-19 — **corrigir os documentos e deixar o gerador faria a frase voltar sozinha na próxima
+`bun run lab19`** (D191). *E eu contei três porque lembrei três: o D185 vale para "quantos
+lugares", não só para "quantos lotes".*
+
+**A causa certa, nos cinco:** há **uma** régua e **um** campo que falta — o `invariantes.ts`
+do Generate aceita a rua pública, tem o campo (`faixaViaPublica`) e o usa. **Com o limite
+medido:** das 29 de Antonina, **11 somem** com o campo e **18 não**.
+
+**Dois lugares NÃO foram tocados, e é decisão:** o `RECADOS.md`, que é o arquivo do que
+**saiu** e não se reescreve, e o `LAB-48.md`, que é o relatório que achou o erro. Lista
+fechada, com motivo, e guarda contra exceção fantasma.
+
+**QUATRO defeitos da minha própria trava neste prompt, nenhum pelo olho** (D192, D193): ela
+reprovou a minha frase de conserto (régua não distingue *X* de *não X*); usei a **limpeza
+errada** das duas do D179 (`soOCodigo()` esvazia string, e a nota do gerador É uma string);
+varri o **arquivo todo**; e usei janela de **25 linhas** num arquivo de **uma linha por
+relatório**. **Os três últimos eram de ESCOPO.**
 
 ### O que o chat tirou da fila, e para quando
 
@@ -1769,10 +1795,9 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   executado porque o chat pediu *"o diagnóstico antes de consertar qualquer coisa"*. **E junto
   vai a guarda**, senão a regra nasce slogan (D136): uma trava exigindo que todo campo
   `…Min…`/`…Max…` de `parametrosUsados` venha do contrato, e nunca do sorteio.
-- **A correção da moldura do D159 nos três lugares onde ela saiu** (LAB-48, D168): relatório do
-  LAB-45, item 7 do Jonny e a nota da tabela comparativa dizem *"duas réguas discordando"*, e
-  medido são **uma régua e um campo que falta**. Corrigir a página do Jonny e a tabela é
-  **entrega**, não diagnóstico, e por isso não entrou no LAB-48.
+- ~~**A correção da moldura do D159 nos três lugares onde ela saiu** (LAB-48, D168)~~ —
+  ✅ **executado no LAB-56**: eram **cinco** documentos e **um gerador** (D191), e a frase
+  voltaria sozinha na próxima regeração se o gerador ficasse.
 - ~~**As 27 violações `frente` não atribuídas** (LAB-48, §3.2)~~ — ✅ **executado no LAB-54**:
   **23 do motor, 4 da régua** (e só do rótulo dela — consertá-la derruba **zero** violações,
   D184).

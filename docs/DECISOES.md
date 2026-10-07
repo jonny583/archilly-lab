@@ -4274,7 +4274,17 @@ sete. Agora é **contado**, não multiplicado.
 
 ---
 
-## D159 · O lote da testada é "de frente" por uma régua e "sem frente" pela outra — e as duas estão certas · 04/10/2026
+## D159 · ~~O lote da testada é "de frente" por uma régua e "sem frente" pela outra — e as duas estão certas~~ · 04/10/2026 · **MOLDURA CORRIGIDA (D168, D191)**
+
+> ⚠️ **O TÍTULO DESTA DECISÃO ESTÁ RISCADO, e a decisão fica.** A medição dela é boa e
+> continua valendo; **a moldura é que estava errada**. Não são duas réguas discordando: é
+> **UMA** régua e **UM** campo que falta — o `invariantes.ts` do Generate aceita *"a RUA
+> PÚBLICA, quando existe"*, tem o campo (`faixaViaPublica`) e o usa; falta campo no
+> **contrato de motor v1** para um motor declará-la. Lido no LAB-48 (D168) e corrigido nos
+> cinco documentos e no gerador no LAB-56 (D191). **E com limite medido** (LAB-54): em
+> `geo-antonina`, das 29 acusadas, **11 somem** com o campo e **18 não**.
+>
+> *Riscar e não apagar é o D90 e o D161: a decisão guarda a história de ter estado errada.*
 
 O achado que a regeração da tabela trouxe, e ele fecha o D140.
 
@@ -5292,3 +5302,93 @@ vira uma frase no relatório.
 
 Consertado lendo `r.saida.vias[].hierarquia` por id, com o motivo escrito no código para a
 próxima pessoa não repetir. Pego **dentro do prompt**.
+
+---
+
+## D191 · Moldura que sai de GERADOR não se corrige no documento · 07/10/2026
+
+O chat pediu *"a correção da moldura do D159 nos TRÊS lugares onde ela saiu"*. **Contados,
+são CINCO documentos vivos — e a raiz é uma máquina.**
+
+A frase saía de `naoSoubeFazer`, em `external-engines/esteira/src/motores/testfit.ts`, e dali
+ia para a `COMPARACAO_DOS_MOTORES.md` **três vezes** e para
+`docs/provas/LAB-19/tabela.json`.
+
+> **Corrigir os cinco documentos e deixar o gerador faria a frase voltar sozinha na próxima
+> `bun run lab19`.**
+
+É a forma do D104 **com uma máquina atrás**, e é pior que o comentário envelhecendo: nenhuma
+varredura de documento avisaria, porque no instante seguinte à regeração o documento estaria
+"correto" outra vez, por um ciclo. O conserto é no gerador; os documentos se regeram.
+
+**A correção é riscada, não apagada, nos cinco** (D161), e cada uma leva **a causa certa** —
+*há UMA régua e UM campo que falta* — **e o limite medido**: das 29 de Antonina, **11 somem**
+com o campo e **18 não**, porque *"é só o campo que falta"* é o erro simétrico (LAB-54).
+
+**Duas exceções declaradas, em lista fechada:** o `RECADOS.md`, que é o arquivo do que
+**saiu** para o chat e **não se reescreve** — reescrever recado entregue seria falsificar o
+registro —, e o `LAB-48.md`, que é o relatório que **achou** o erro e o cita para corrigi-lo.
+
+**E eu contei três porque lembrei três.** A regra que eu mesma escrevi um prompt antes
+(D185): *número que o próprio arquivo lista ao lado não se escreve de memória* — vale para
+*quantos lugares*, não só para *quantos lotes*.
+
+---
+
+## D192 · Régua que casa uma frase não distingue "X" de "não X" · 07/10/2026
+
+A trava desta correção casava dois padrões: `por uma régua` **e** `duas réguas discord`. Ela
+ficou **vermelha no `DECISOES.md`**, e o que ela acusou foi a frase que eu acabara de escrever
+**para consertar**:
+
+> *"**Não são** duas réguas discordando: é UMA régua e UM campo que falta."*
+
+**Sexta vez da família do D137/D142/D155/D177/D179**, e a terceira em que a régua reprova o
+conserto que a motivou.
+
+**A correção não foi afrouxar:** foi casar **só a forma que de fato saiu** — `por uma régua`,
+que não aparece em negação nenhuma — e cobrar a causa certa por uma trava **positiva**, que
+exige o texto do conserto em cada um dos cinco lugares.
+
+> **Varredura de texto que precisa entender negação não é varredura: é interpretação, e essa
+> não cabe num regex.**
+
+**E a guarda da exceção fantasma mordeu no mesmo instante:** estreitado o padrão, o
+`LAB-54.md` deixou de ser acusado — ele fala de **outras** duas réguas, a minha e o
+`_testadaDoLote`, que ali de fato discordam num lote — e a trava o **expulsou da lista de
+exceções** por ter deixado de precisar ser exceção (D136, LAB-36). *A guarda do LAB-36
+mordendo dentro do prompt que a escreveu.*
+
+---
+
+## D193 · Três defeitos da MINHA trava num prompt só, e os três eram de ESCOPO · 07/10/2026
+
+A trava do LAB-56 passou por **três** sabotagens antes de morder, e nenhuma das três falhas
+era do texto medido: **eram da minha régua.**
+
+| a falha | o que a revelou | a lição |
+|---|---|---|
+| usei `soOCodigo()`, que **esvazia o conteúdo das strings** | sabotei o gerador para voltar a escrever a frase **dentro da string** e a trava PASSOU | a nota do gerador **é** uma string: a pergunta é *"o texto DECLARA isto?"* ⇒ `semComentarios()` |
+| procurei os números **no arquivo todo** | o `INDEX.md` tem dezenas de linhas com `11` e `18` em outros assuntos | *o volume era da minha régua, não da coisa* (D179) |
+| troquei por uma janela de **25 linhas** | o `INDEX.md` é tabela de **uma linha por relatório**: 25 linhas são 25 outros relatórios | a janela tem de ser a **unidade semântica** — o parágrafo, ou a linha quando é tabela |
+
+**A primeira é a mais instrutiva, porque a lição era minha e tinha um prompt de idade.** O
+D179 separou as duas limpezas e escreveu para que servem: **`soOCodigo()` responde "o código
+FAZ isto?"; `semComentarios()` responde "o texto DECLARA isto?"**. Aqui a pergunta era a
+segunda — o que viaja para a página é a **declaração** —, e eu peguei a primeira.
+
+> **Ter as duas ferramentas não basta: a pergunta decide qual delas, e errar a pergunta é a
+> mesma família de ler o nome no lugar errado da gramática.**
+
+**E a terceira ensina a medir a janela:** régua de vizinhança sem unidade declarada é régua
+sem escopo (D164). A janela agora **para na linha vazia e não atravessa outra linha de
+tabela**, e a mensagem de erro **publica quantas linhas ela mediu** — no `INDEX.md`, uma.
+
+**E houve uma quarta, do mesmo D177:** escrito o texto do D192 — que **lista entre crases os
+padrões que a régua casava** —, a trava reprovou este próprio arquivo, lendo **o nome do
+padrão dela** como afirmação. Em Markdown há **três** formas de mostrar sem afirmar: o
+riscado, a citação e o **literal entre crases**. As três saem na limpeza, cada uma com o
+motivo escrito, e cada forma tem unidade sintética.
+
+*Quatro defeitos de trava achados por sabotagem ou pela própria trava num prompt só (com o
+D192), e nenhum pelo olho.*

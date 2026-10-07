@@ -150,10 +150,10 @@ ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 
 | motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
 |---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
-| Archilly Generate — traçado ortogonal | 1.606 | 58,33 ha | 41,1 % | **nenhum** | 70,00 ha · 49,4 % | 2 a conferir (0,1 %) | 6,1 % | **34,7 %** · 1.183 m acima de 15 % | 998 a 1.654 lotes · **+66 %** | 1,7 s |
-| Archilly Generate — traçado espinha de peixe | 1.805 | 64,94 ha | 45,8 % | 1 | 52,92 ha · 37,3 % | 1 a conferir (0,1 %) · **35 ruins (1,9 %)** | 7,0 % | **46,7 %** · 2.397 m acima de 15 % | 860 a 1.791 lotes · **+108 %** | 1,6 s |
-| Laboratório de Parcelamento | 1.060 | 42,44 ha | 29,9 % | 25 | 19,44 ha · 13,7 % | 1 a conferir (0,1 %) | 7,7 % | **51,5 %** · 3.468 m acima de 15 % | 962 a 1.114 lotes · **+16 %** | 5,5 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 932 | 28,73 ha | 20,3 % | 1 | 82,18 ha · 58,0 % | 308 a conferir (33,1 %) · **74 ruins (7,9 %)** | 7,2 % | **41,8 %** · 5.492 m acima de 15 % | **não muda nada** | 5,5 s |
+| Archilly Generate — traçado ortogonal | 1.606 | 58,33 ha | 41,1 % | **nenhum** | 70,00 ha · 49,4 % | 2 a conferir (0,1 %) | 6,1 % | **34,7 %** · 1.183 m acima de 15 % | 998 a 1.654 lotes · **+66 %** | 2,8 s |
+| Archilly Generate — traçado espinha de peixe | 1.805 | 64,94 ha | 45,8 % | 1 | 52,92 ha · 37,3 % | 1 a conferir (0,1 %) · **35 ruins (1,9 %)** | 7,0 % | **46,7 %** · 2.397 m acima de 15 % | 860 a 1.791 lotes · **+108 %** | 2,5 s |
+| Laboratório de Parcelamento | 1.060 | 42,44 ha | 29,9 % | 25 | 19,44 ha · 13,7 % | 1 a conferir (0,1 %) | 7,7 % | **51,5 %** · 3.468 m acima de 15 % | 962 a 1.114 lotes · **+16 %** | 7,7 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 932 | 28,73 ha | 20,3 % | 1 | 82,18 ha · 58,0 % | 308 a conferir (33,1 %) · **74 ruins (7,9 %)** | 7,2 % | **41,8 %** · 5.492 m acima de 15 % | **não muda nada** | 7,5 s |
 
 > ⚠️ **Esta tabela é de UM ponto de entrada da rua, e a ordem dela NÃO aguenta outro.** Movendo só o ponto por onde a rua entra, nos 4 pontos comparáveis apareceram **3 ordens diferentes**, e **o primeiro lugar muda de programa**: Archilly Generate — traçado espinha de peixe e Archilly Generate — traçado ortogonal ganham cada um em pelo menos um ponto. Nos pontos restantes, **Archilly Generate — traçado espinha de peixe** não entregou desenho válido em 2 pontos — o que também é resposta: naquela entrada, aquele programa não desenha nada aceitável. **Ordenar os programas por esta tabela é ordenar por onde a rua entra.**
 
@@ -163,10 +163,10 @@ ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 
 | motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
 |---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
-| Archilly Generate — traçado ortogonal | 1.003 | 36,37 ha | 72,7 % | **nenhum** | 5,34 ha · 10,7 % | **todos ok** | 4,2 % | **14,0 %** | **não muda nada** | 0,5 s |
-| Archilly Generate — traçado espinha de peixe | 788 | 28,51 ha | 57,0 % | **nenhum** | 10,61 ha · 21,2 % | **14 ruins (1,8 %)** | 4,2 % | **20,6 %** · 10 m acima de 15 % | 736 a 805 lotes · **+9 %** | 0,4 s |
-| Laboratório de Parcelamento | 501 | 19,99 ha | 40,0 % | 18 | 0,23 ha · 0,5 % | 4 a conferir (0,8 %) | 4,5 % | **18,8 %** · 33 m acima de 15 % | 510 a 596 lotes · **+17 %** | 2,2 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 318 | 9,59 ha | 19,2 % | **nenhum** | 26,26 ha · 52,5 % | 125 a conferir (39,3 %) · **21 ruins (6,6 %)** | 4,7 % | **25,6 %** · 118 m acima de 15 % | **não muda nada** | 1,2 s |
+| Archilly Generate — traçado ortogonal | 1.003 | 36,37 ha | 72,7 % | **nenhum** | 5,34 ha · 10,7 % | **todos ok** | 4,2 % | **14,0 %** | **não muda nada** | 0,8 s |
+| Archilly Generate — traçado espinha de peixe | 788 | 28,51 ha | 57,0 % | **nenhum** | 10,61 ha · 21,2 % | **14 ruins (1,8 %)** | 4,2 % | **20,6 %** · 10 m acima de 15 % | 736 a 805 lotes · **+9 %** | 0,6 s |
+| Laboratório de Parcelamento | 501 | 19,99 ha | 40,0 % | 17 | 0,23 ha · 0,5 % | 4 a conferir (0,8 %) | 4,5 % | **18,8 %** · 33 m acima de 15 % | 510 a 596 lotes · **+17 %** | 3,0 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 318 | 9,59 ha | 19,2 % | **nenhum** | 26,26 ha · 52,5 % | 125 a conferir (39,3 %) · **21 ruins (6,6 %)** | 4,7 % | **25,6 %** · 118 m acima de 15 % | **não muda nada** | 1,6 s |
 
 > ⚠️ **Esta tabela é de UM ponto de entrada da rua, e aqui não dá para dizer se a ordem aguenta outro.** Dos 6 pontos testados, só 1 teve os quatro programas entregando desenho válido ao mesmo tempo. Nos pontos restantes, **Archilly Generate — traçado ortogonal** não entregou desenho válido em 5 pontos; **Archilly Generate — traçado espinha de peixe** não entregou desenho válido em 1 ponto — o que também é resposta: naquela entrada, aquele programa não desenha nada aceitável. **A razão foi medida** (LAB-41): nesses pontos o programa **desenha**, mas o desenho põe **rua fora do terreno** — de 3 a 83 m além da divisa — e o contrato do próprio Archilly Generate recusa. Não é limite do terreno: nos mesmos pontos o outro traçado dele entrega normalmente. **Não ordene os programas por esta tabela sem ver a seção _A entrada da rua_.**
 
@@ -178,8 +178,8 @@ ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 |---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
 | Archilly Generate — traçado ortogonal | 171 | 6,28 ha | 62,8 % | **nenhum** | 2,12 ha · 21,1 % | **todos ok** | 0,9 % | **1,4 %** | 169 a 185 lotes · **+9 %** | 0,1 s |
 | Archilly Generate — traçado espinha de peixe | 137 | 5,00 ha | 50,0 % | **nenhum** | 2,65 ha · 26,4 % | **8 ruins (5,8 %)** | 0,9 % | **1,8 %** | 123 a 141 lotes · **+15 %** | 0,1 s |
-| Laboratório de Parcelamento | 124 | 4,90 ha | 49,0 % | 29 | 0,06 ha · 0,6 % | 4 a conferir (3,2 %) | 0,7 % | **1,2 %** | 112 a 143 lotes · **+28 %** | 0,3 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 66 | 2,35 ha | 23,5 % | **nenhum** | 6,09 ha · 60,9 % | 15 a conferir (22,7 %) · **2 ruins (3,0 %)** | 0,8 % | **2,0 %** | **não muda nada** | 0,4 s |
+| Laboratório de Parcelamento | 124 | 4,90 ha | 49,0 % | 4 | 0,06 ha · 0,6 % | 4 a conferir (3,2 %) | 0,7 % | **1,2 %** | 112 a 143 lotes · **+28 %** | 0,4 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 66 | 2,35 ha | 23,5 % | **nenhum** | 6,09 ha · 60,9 % | 15 a conferir (22,7 %) · **2 ruins (3,0 %)** | 0,8 % | **2,0 %** | **não muda nada** | 0,5 s |
 
 > ⚠️ **Esta tabela é de UM ponto de entrada da rua, e a ordem dela NÃO aguenta outro.** Movendo só o ponto por onde a rua entra, nos 3 pontos comparáveis apareceram **2 ordens diferentes**, embora o primeiro lugar seja sempre o mesmo (Archilly Generate — traçado ortogonal). Nos pontos restantes, **Archilly Generate — traçado ortogonal** não entregou desenho válido em 3 pontos — o que também é resposta: naquela entrada, aquele programa não desenha nada aceitável. **A razão foi medida** (LAB-41): nesses pontos o programa **desenha**, mas o desenho põe **rua fora do terreno** — de 3 a 83 m além da divisa — e o contrato do próprio Archilly Generate recusa. Não é limite do terreno: nos mesmos pontos o outro traçado dele entrega normalmente. **Ordenar os programas por esta tabela é ordenar por onde a rua entra.**
 
@@ -189,10 +189,10 @@ ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 
 | motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
 |---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
-| Archilly Generate — traçado ortogonal | 974 | 35,33 ha | 75,2 % | **nenhum** | 3,48 ha · 7,4 % | **todos ok** | 5,8 % | **17,6 %** · 150 m acima de 15 % | 960 a 1.024 lotes · **+7 %** | 0,4 s |
-| Archilly Generate — traçado espinha de peixe | 778 | 28,21 ha | 60,0 % | **nenhum** | 6,01 ha · 12,9 % | 2 a conferir (0,3 %) · **14 ruins (1,8 %)** | 5,5 % | **22,9 %** · 287 m acima de 15 % | 721 a 745 lotes · **+3 %** | 0,4 s |
-| Laboratório de Parcelamento | 599 | 23,82 ha | 50,7 % | 16 | 0,04 ha · 0,1 % | 9 a conferir (1,5 %) | 5,1 % | **17,9 %** · 66 m acima de 15 % | 459 a 703 lotes · **+53 %** | 1,5 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 214 | 6,61 ha | 14,1 % | **nenhum** | 27,13 ha · 58,0 % | 73 a conferir (34,1 %) · **8 ruins (3,7 %)** | 5,4 % | **22,8 %** · 556 m acima de 15 % | **não muda nada** | 0,6 s |
+| Archilly Generate — traçado ortogonal | 974 | 35,33 ha | 75,2 % | **nenhum** | 3,48 ha · 7,4 % | **todos ok** | 5,8 % | **17,6 %** · 150 m acima de 15 % | 960 a 1.024 lotes · **+7 %** | 0,5 s |
+| Archilly Generate — traçado espinha de peixe | 778 | 28,21 ha | 60,0 % | **nenhum** | 6,01 ha · 12,9 % | 2 a conferir (0,3 %) · **14 ruins (1,8 %)** | 5,5 % | **22,9 %** · 287 m acima de 15 % | 721 a 745 lotes · **+3 %** | 0,6 s |
+| Laboratório de Parcelamento | 599 | 23,82 ha | 50,7 % | 6 | 0,04 ha · 0,1 % | 9 a conferir (1,5 %) | 5,1 % | **17,9 %** · 66 m acima de 15 % | 459 a 703 lotes · **+53 %** | 2,5 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 214 | 6,61 ha | 14,1 % | **nenhum** | 27,13 ha · 58,0 % | 73 a conferir (34,1 %) · **8 ruins (3,7 %)** | 5,4 % | **22,8 %** · 556 m acima de 15 % | **não muda nada** | 0,9 s |
 
 > ✅ **A ordem desta tabela aguenta a mudança de entrada.** Movendo o ponto por onde a rua entra pelos 6 pontos comparáveis, a ordem dos programas **não mudou nenhuma vez** — os números mudam, a ordem não.
 
@@ -202,10 +202,10 @@ ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 
 | motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
 |---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
-| Archilly Generate — traçado ortogonal | 1.390 | 50,17 ha | 35,4 % | 1 | 79,45 ha · 56,1 % | **todos ok** | 3,0 % | **24,5 %** · 4 m acima de 15 % | 1.346 a 1.941 lotes · **+44 %** | 0,6 s |
-| Archilly Generate — traçado espinha de peixe | 1.657 | 59,62 ha | 42,1 % | **nenhum** | 67,49 ha · 47,6 % | **9 ruins (0,5 %)** | 3,6 % | **23,0 %** · 20 m acima de 15 % | 1.478 a 1.917 lotes · **+30 %** | 0,5 s |
-| Laboratório de Parcelamento | 33 | 1,03 ha | 0,7 % | 40 | 8,32 ha · 5,9 % | 1 a conferir (3,0 %) | 3,5 % | **16,2 %** · 10 m acima de 15 % | 33 a 1.279 lotes · **+3.776 %** | 5,7 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 1.014 | 29,85 ha | 21,1 % | 4 | 65,15 ha · 46,0 % | 365 a conferir (36,0 %) · **87 ruins (8,6 %)** | 3,3 % | **27,7 %** · 46 m acima de 15 % | **não muda nada** | 8,4 s |
+| Archilly Generate — traçado ortogonal | 1.390 | 50,17 ha | 35,4 % | 1 | 79,45 ha · 56,1 % | **todos ok** | 3,0 % | **24,5 %** · 4 m acima de 15 % | 1.346 a 1.941 lotes · **+44 %** | 1,0 s |
+| Archilly Generate — traçado espinha de peixe | 1.657 | 59,62 ha | 42,1 % | **nenhum** | 67,49 ha · 47,6 % | **9 ruins (0,5 %)** | 3,6 % | **23,0 %** · 20 m acima de 15 % | 1.478 a 1.917 lotes · **+30 %** | 0,7 s |
+| Laboratório de Parcelamento | 33 | 1,03 ha | 0,7 % | 40 | 8,32 ha · 5,9 % | 1 a conferir (3,0 %) | 3,5 % | **16,2 %** · 10 m acima de 15 % | 33 a 1.279 lotes · **+3.776 %** | 8,2 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 1.014 | 29,85 ha | 21,1 % | 4 | 65,15 ha · 46,0 % | 365 a conferir (36,0 %) · **87 ruins (8,6 %)** | 3,3 % | **27,7 %** · 46 m acima de 15 % | **não muda nada** | 12,3 s |
 
 > ⚠️ **Esta tabela é de UM ponto de entrada da rua, e a ordem dela NÃO aguenta outro.** Movendo só o ponto por onde a rua entra, nos 6 pontos comparáveis apareceram **2 ordens diferentes**, e **o primeiro lugar muda de programa**: Archilly Generate — traçado espinha de peixe e Archilly Generate — traçado ortogonal ganham cada um em pelo menos um ponto. **Ordenar os programas por esta tabela é ordenar por onde a rua entra.**
 
@@ -213,7 +213,7 @@ ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 
 > **Laboratório de Parcelamento:** o RANKING DELE escolheu "superquadra" com 33 lotes (nota 0.6226); entre as aceitas, "ortogonal" dá 1228 lotes (nota 0.5881). A escolha da variante é do motor, não do Lab — e aqui ela custa lote.
 
-> **Laboratório de Parcelamento:** 33 lote(s) externo(s) nasceram da testada, e 33 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate ("nenhuma aresta encosta em via") conta esses lotes como violação: o mesmo lote é "de frente para a rua existente" por uma régua e "sem frente para rua" pela outra.
+> **Laboratório de Parcelamento:** 33 lote(s) externo(s) nasceram da testada, e 33 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate ("nenhuma aresta encosta em via") conta esses lotes como violação — e NÃO por discordar do motor: a régua dele ACEITA frente para rua pública, tem campo para ela (`faixaViaPublica`) e o invariante a usa. O que falta é CAMPO NO CONTRATO de motor v1 para declarar que ela existe. Parte dessas violações some com o campo preenchido e parte não — o contrafactual por gleba está em `docs/provas/LAB-53/`.
 
 ## Gleba de ensaio — montada com furo, calçada, praça e acesso em faixa
 
@@ -221,10 +221,10 @@ ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 
 | motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
 |---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
-| Archilly Generate — traçado ortogonal | 990 | 35,93 ha | 78,1 % | 40 | 2,98 ha · 6,5 % | **todos ok** | 5,2 % | **22,5 %** · 76 m acima de 15 % | 960 a 1.024 lotes · **+7 %** | 0,5 s |
-| Archilly Generate — traçado espinha de peixe | 781 | 28,33 ha | 61,6 % | 21 | 5,53 ha · 12,1 % | 3 a conferir (0,4 %) · **13 ruins (1,7 %)** | 5,6 % | **22,6 %** · 310 m acima de 15 % | 721 a 745 lotes · **+3 %** | 0,3 s |
-| Laboratório de Parcelamento | 589 | 23,52 ha | 51,1 % | 25 | 0,07 ha · 0,2 % | 8 a conferir (1,4 %) | 5,0 % | **21,2 %** · 85 m acima de 15 % | 451 a 703 lotes · **+56 %** | 1,4 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 206 | 6,39 ha | 13,9 % | 9 | 26,78 ha · 58,5 % | 70 a conferir (34,0 %) · **6 ruins (2,9 %)** | 5,3 % | **22,8 %** · 560 m acima de 15 % | **não muda nada** | 0,7 s |
+| Archilly Generate — traçado ortogonal | 990 | 35,93 ha | 78,1 % | 40 | 2,98 ha · 6,5 % | **todos ok** | 5,2 % | **22,5 %** · 76 m acima de 15 % | 960 a 1.024 lotes · **+7 %** | 0,6 s |
+| Archilly Generate — traçado espinha de peixe | 781 | 28,33 ha | 61,6 % | 21 | 5,53 ha · 12,1 % | 3 a conferir (0,4 %) · **13 ruins (1,7 %)** | 5,6 % | **22,6 %** · 310 m acima de 15 % | 721 a 745 lotes · **+3 %** | 0,5 s |
+| Laboratório de Parcelamento | 589 | 23,52 ha | 51,1 % | 25 | 0,07 ha · 0,2 % | 8 a conferir (1,4 %) | 5,0 % | **21,2 %** · 85 m acima de 15 % | 451 a 703 lotes · **+56 %** | 2,0 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 206 | 6,39 ha | 13,9 % | 9 | 26,78 ha · 58,5 % | 70 a conferir (34,0 %) · **6 ruins (2,9 %)** | 5,3 % | **22,8 %** · 560 m acima de 15 % | **não muda nada** | 0,9 s |
 
 > ✅ **A ordem desta tabela aguenta a mudança de entrada.** Movendo o ponto por onde a rua entra pelos 6 pontos comparáveis, a ordem dos programas **não mudou nenhuma vez** — os números mudam, a ordem não.
 
@@ -234,16 +234,16 @@ ruim. Somar as duas colunas numa nota só esconderia justamente isso.
 
 | motor | lotes | área vendável | virou lote | apontado pelo conferente | terra sem lote | forma dos lotes | rampa média | rampa no pior trecho | se a entrada da rua mudar | tempo |
 |---|---:|---:|---:|---:|---:|---|---:|---|---|---:|
-| Archilly Generate — traçado ortogonal | 974 | 35,33 ha | 75,2 % | **nenhum** | 3,48 ha · 7,4 % | **todos ok** | 5,8 % | **17,6 %** · 150 m acima de 15 % | 960 a 1.024 lotes · **+7 %** | 0,4 s |
-| Archilly Generate — traçado espinha de peixe | 778 | 28,21 ha | 60,0 % | **nenhum** | 6,01 ha · 12,9 % | 2 a conferir (0,3 %) · **14 ruins (1,8 %)** | 5,5 % | **22,9 %** · 287 m acima de 15 % | 721 a 745 lotes · **+3 %** | 0,4 s |
-| Laboratório de Parcelamento | 640 | 25,48 ha | 54,2 % | 68 | 0,06 ha · 0,1 % | 8 a conferir (1,3 %) | 5,0 % | **20,2 %** · 83 m acima de 15 % | 519 a 657 lotes · **+27 %** | 1,2 s |
-| Symbios (motor de fora) + divisão de lotes do laboratório | 214 | 6,61 ha | 14,1 % | **nenhum** | 27,13 ha · 58,0 % | 73 a conferir (34,1 %) · **8 ruins (3,7 %)** | 5,4 % | **22,8 %** · 556 m acima de 15 % | **não muda nada** | 0,6 s |
+| Archilly Generate — traçado ortogonal | 974 | 35,33 ha | 75,2 % | **nenhum** | 3,48 ha · 7,4 % | **todos ok** | 5,8 % | **17,6 %** · 150 m acima de 15 % | 960 a 1.024 lotes · **+7 %** | 0,6 s |
+| Archilly Generate — traçado espinha de peixe | 778 | 28,21 ha | 60,0 % | **nenhum** | 6,01 ha · 12,9 % | 2 a conferir (0,3 %) · **14 ruins (1,8 %)** | 5,5 % | **22,9 %** · 287 m acima de 15 % | 721 a 745 lotes · **+3 %** | 0,6 s |
+| Laboratório de Parcelamento | 640 | 25,48 ha | 54,2 % | 68 | 0,06 ha · 0,1 % | 8 a conferir (1,3 %) | 5,0 % | **20,2 %** · 83 m acima de 15 % | 519 a 657 lotes · **+27 %** | 1,9 s |
+| Symbios (motor de fora) + divisão de lotes do laboratório | 214 | 6,61 ha | 14,1 % | **nenhum** | 27,13 ha · 58,0 % | 73 a conferir (34,1 %) · **8 ruins (3,7 %)** | 5,4 % | **22,8 %** · 556 m acima de 15 % | **não muda nada** | 0,9 s |
 
 > ✅ **A ordem desta tabela aguenta a mudança de entrada.** Movendo o ponto por onde a rua entra pelos 6 pontos comparáveis, a ordem dos programas **não mudou nenhuma vez** — os números mudam, a ordem não.
 
 > **Laboratório de Parcelamento:** a testada de frente entrou como 1 face(s) do perímetro (`facesLoteamento: [1]`) — lote virado para a rua existente.
 
-> **Laboratório de Parcelamento:** 51 lote(s) externo(s) nasceram da testada, e 51 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate ("nenhuma aresta encosta em via") conta esses lotes como violação: o mesmo lote é "de frente para a rua existente" por uma régua e "sem frente para rua" pela outra.
+> **Laboratório de Parcelamento:** 51 lote(s) externo(s) nasceram da testada, e 51 deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate ("nenhuma aresta encosta em via") conta esses lotes como violação — e NÃO por discordar do motor: a régua dele ACEITA frente para rua pública, tem campo para ela (`faixaViaPublica`) e o invariante a usa. O que falta é CAMPO NO CONTRATO de motor v1 para declarar que ela existe. Parte dessas violações some com o campo preenchido e parte não — o contrafactual por gleba está em `docs/provas/LAB-53/`.
 
 ---
 
@@ -367,7 +367,7 @@ relatórios técnicos. O total de terrenos é 7.
 - o Lab aparou … m de eixo que saía da gleba (… % do comprimento) — sem isso o contrato recusa o arquivo — *em todos os terrenos*
 - o relevo da gleba não muda o traçado deste motor — medido no LAB-08, lote a lote — *em todos os terrenos*
 - … de … variantes foram recusadas pelo esquema e ficaram fora do ranking — *em 2 de 7 terrenos*
-- … lote(s) externo(s) nasceram da testada, e … deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate ("nenhuma aresta encosta em via") conta esses lotes como violação: o mesmo lote é "de frente para a rua existente" por uma régua e "sem frente para rua" pela outra — *em 2 de 7 terrenos*
+- … lote(s) externo(s) nasceram da testada, e … deles publicam `faceDeRua: null` — a rua deles JÁ EXISTE e está fora da gleba, então não há via do plano para apontar. O invariante `frente` do Generate ("nenhuma aresta encosta em via") conta esses lotes como violação — e NÃO por discordar do motor: a régua dele ACEITA frente para rua pública, tem campo para ela (`faixaViaPublica`) e o invariante a usa. O que falta é CAMPO NO CONTRATO de motor v1 para declarar que ela existe. Parte dessas violações some com o campo preenchido e parte não — o contrafactual por gleba está em `docs/provas/LAB-53/` — *em 2 de 7 terrenos*
 - a testada de frente entrou como … face(s) do perímetro (`facesLoteamento: […]`) — lote virado para a rua existente — *em 2 de 7 terrenos*
 - … atração(ões) na entrada não entram no traçado deste motor — *em 1 de 7 terrenos*
 - o RANKING DELE escolheu "superquadra" com … lotes (nota …); entre as aceitas, "ortogonal" dá … lotes (nota …). A escolha da variante é do motor, não do Lab — e aqui ela custa lote — *em 1 de 7 terrenos*
