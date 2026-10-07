@@ -1,0 +1,22 @@
+{
+  "prompt": "LAB-60",
+  "oQueIstoMede": "que as travas da leitura da configuração do motor REPROVAM — duas sabotagens de propósito, com as travas que caíram. O objeto medido são a régua, a ferramenta e a suíte, não terreno",
+  "quando": "2026-10-07",
+  "oQueMudouPORCAUSADISSO": "a PRIMEIRA versão da trava do glob PASSOU sob a sabotagem, e por um motivo de ORDEM: eu havia posto o bloco `rules` DEPOIS do segundo glob, fora da região que a regex antiga comia. No arquivo do motor a ordem é glob-com-abre, `rules`, glob-com-fecha. Trava que passa quando o defeito volta é enfeite (D172) — reescrita, ela reprova três travas",
+  "sabotagens": [
+    {
+      "n": 1,
+      "oQue": "a `semComentarios` volta a ser as duas regex, que confundem glob dentro de string com comentário de bloco",
+      "onde": "src/varredura-de-chamadas.ts · semComentarios",
+      "aPrimeiraVersaoDaTrava": { "exit": 0, "oQuePegou": "1 trava de 16 — e NÃO a do glob, porque a ordem do texto sintético não reproduzia a do motor" },
+      "depoisDeCorrigirAOrdem": { "exit": 0, "oQuePegou": "3 travas de 16: 'o glob NÃO é confundido com comentário', 'a varredura ACHA as duas nesse texto' e 'a string PRESERVA o conteúdo'" }
+    },
+    {
+      "n": 2,
+      "oQue": "a `regra-em-off` é removida da lista de regras",
+      "onde": "src/varredura-de-configuracao.ts · REGRAS_DE_CONFIGURACAO",
+      "resultado": { "exit": 0, "oQuePegou": "2 travas: 'a varredura ACHA as duas nesse texto — era zero antes do LAB-60' e, no LAB-57, 'a prova existe, traz o ESCOPO como número e nada fica fora sem motivo'" }
+    }
+  ],
+  "oQueAFERRAMENTAnaoPega": "nos dois casos a ferramenta saiu com exit 0: ela não tem como saber que um zero é cegueira. É o D164 na forma mais pura — zero de régua parada é indistinguível de zero de árvore limpa —, e é por isso que o guardião do zero são as TRAVAS SINTÉTICAS, não a execução"
+}

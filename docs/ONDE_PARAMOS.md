@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-59 ·
+**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-60 ·
 **FILA NOVA EM EXECUÇÃO (LAB-58 a LAB-61). O despertador está LIGADO.**
 
 # 🟢 O DESPERTADOR ESTÁ LIGADO — fila nova, LAB-58 a LAB-61
@@ -29,8 +29,45 @@ certa e eu repeti a frase velha por descuido."* O T-36 virou **LAB-58**, o T-38 
 |---|---|---|
 | **LAB-58** | as 81 do motor por **MECANISMO** — lista numerada, insumo da fila do motor | ✅ **07/10** · **SEIS mecanismos, zero não nomeadas** · PR #72 |
 | **LAB-59** | o **contrafactual** de Antonina: com as 81 resolvidas, outra candidata passa a ser aprovável? | ✅ **07/10** · **16 de 20**, e a nota dele ainda prefere 33 · PR #74 |
-| **LAB-60** | a configuração do motor, **só de leitura** — lista numerada pelo chat | ⬜ **próximo** |
-| **LAB-61** | a **dívida própria** com o que sobrou | ⬜ pronto |
+| **LAB-60** | a configuração do motor, **só de leitura** — lista numerada pelo chat | ✅ **07/10** · as **três vivas**, e ele **não tem CI** |
+| **LAB-61** | a **dívida própria** com o que sobrou | ⬜ **próximo — e fecha a fila** |
+
+# 🔧 O LAB-60 · as três formas estão VIVAS no motor — e ele não tem CI
+
+```
+1 · a regra LIGADA QUE NÃO PODE REPROVAR .. `lint: "eslint ."` sem --max-warnings 0, + 1 em "warn"
+2 · a regra DESLIGADA .................... 1 regra em "off" + 1 skipLibCheck
+3 · o desligador SEM MOTIVO ESCRITO ...... skipLibCheck sem comentário na linha nem acima
+4 · o CONTEXTO ........................... NÃO TEM CI  ← vale mais que as três
+5 · o que a régua de texto não alcança ... 3 chaves de compilerOptions afrouxadas (2 aqui)
+6 · o desligador POR ARQUIVO ............. 4 achados, ZERO viram item (medido, D184)
+```
+
+**Escopo medido:** 369 arquivos que o git dele carrega, 12 configurações, **10 varridas** e
+**2 nomeadas** fora, 313 linhas de configuração, 112 arquivos de código (18 458 linhas), 41
+chaves de `compilerOptions`. **Nada escrito no clone**, e a ferramenta **para** se achar
+alteração nos vizinhos.
+
+**A VIAGEM CONSERTOU A RÉGUA — três defeitos meus, todos falso NEGATIVO** (D202, D203):
+
+1. o cabeçalho da varredura prometia `"off"` **desde o LAB-57** e **nenhuma das seis regras o
+   procurava** — nasceu a `regra-em-off`, que achou **dois desligadores aqui**;
+2. o `regra-em-warn` só via a string solta, nunca `["warn", { … }]`, que é a forma normal
+   quando a regra tem opção (D137);
+3. **a limpeza COMIA ARQUIVO INTEIRO:** um **glob dentro de string** (`"**/*.{ts,tsx}"` …
+   `"scripts/**/*.ts"`) parece abre e fecha-comentário, e a regex apagava tudo no meio —
+   inclusive o bloco `rules`. *O mesmo valia aqui*, e a sorte foi a região cortada não cobrir
+   o `"no-undef": "off"`. A `semComentarios` virou um **varredor com estado**.
+
+> **Régua que nunca saiu de casa não sabe o que não vê.**
+
+**E a trava do glob PASSOU na primeira versão**, por ordem: eu pusera o `rules` **depois** do
+segundo glob, fora da região comida. *Trava que passa quando o defeito volta é enfeite.*
+
+**A PROVA DO LAB-57 ESTAVA VELHA QUANDO FOI COMMITADA** (D204): dizia **1** onde a ferramenta,
+na mesma árvore, dizia **10** — nove deles a régua acusando o próprio fonte. Consertado com a
+exclusão estreita que a varredura de segredos já declara; **5 achados aqui, todos declarados**.
+*Nada no verde reprovava a prova velha* — e a trava que a regeraria está **proposta ao chat**.
 
 # 🟩 O LAB-59 · A PENDÊNCIA DO JONNY ESTÁ FECHADA — e a resposta é a boa
 
@@ -143,9 +180,9 @@ chat adotou como calendário, está agora **medida na prática** e não prevista
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 549 travas (532 esteira + 17 testfit)   ← eram 505 ao abrir a fila
-CI sem clones ...... 158 (114 → 138 → 158: as travas do LAB-58 e do LAB-59 leem só arquivo daqui)
-decisões ........... D201 é a última. A próxima é a D202
+suíte .............. 565 travas (548 esteira + 17 testfit)   ← eram 505 ao abrir a fila
+CI sem clones ...... 174 (114 → 138 → 158 → 174: as travas do LAB-58, LAB-59 e LAB-60)
+decisões ........... D204 é a última. A próxima é a D205
 verde .............. 7 passos, exit 0, três clones vizinhos limpos
 ```
 
@@ -850,7 +887,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 158 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 174 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

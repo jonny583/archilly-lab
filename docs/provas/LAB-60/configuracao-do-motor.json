@@ -1,0 +1,454 @@
+{
+  "prompt": "LAB-60",
+  "oQueIstoMede": "as três formas de desligar conferência — a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR e o desligador SEM MOTIVO ESCRITO — medidas no clone do motor do Laboratório de Parcelamento, SÓ DE LEITURA, com a MESMA régua que mediu este repositório no LAB-57",
+  "aPergunta": "do chat: conferir no motor as três formas que o LAB-57 achou aqui, em lista numerada",
+  "quando": "2026-10-07T12:25:10.255Z",
+  "oClone": {
+    "caminho": "../motor-testfit",
+    "head": "4181e95af4256b4c477a5ddcb19ee2aea7aaeaae",
+    "ehSomenteLeitura": "sim — nada foi escrito, e o `git status` dele é conferido ao fim (§4)"
+  },
+  "escopo": {
+    "arquivosQueOGitDeleCarrega": 369,
+    "configuracoesEncontradas": 12,
+    "configuracoesVarridas": 10,
+    "configuracoesForaDoEscopoNomeadas": 2,
+    "linhasDeConfiguracaoLidas": 313,
+    "arquivosDeCodigoVarridos": 112,
+    "linhasDeCodigoLidas": 18458,
+    "chavesDeCompilerOptionsExaminadas": 41,
+    "regras": 7,
+    "porque": "o escopo começa no `git ls-files` DELE, não numa lista minha — e o que ficou fora sai NOMEADO (D164)"
+  },
+  "aReguaEhAMESMA": {
+    "qual": "src/varredura-de-configuracao.ts, as mesmas sete regras do LAB-57",
+    "porque": "medir o vizinho com outra régua não compararia nada",
+    "oQueAVIAGEMCONSERTOU": [
+      "a `regra-em-off` NASCEU aqui: o cabeçalho da varredura prometia `\"off\"` desde o LAB-57 e NENHUMA das seis regras o procurava — a promessa só foi desmentida quando a régua saiu de casa",
+      "o `regra-em-warn` passou a ver a forma de ARRAY (`[\"warn\", { … }]`), que é a normal quando a regra tem opção; antes só via a string solta",
+      "e o conserto achou DOIS desligadores NESTE repositório que seis regras não tinham visto (`\"no-undef\": \"off\"` nos dois `eslint.config.js`), agora com o motivo escrito no próprio arquivo"
+    ]
+  },
+  "oLintDele": {
+    "script": "eslint .",
+    "reprovaAviso": false
+  },
+  "temCI": false,
+  "regras": [
+    {
+      "nome": "lint-sem-max-warnings",
+      "forma": "nao-pode-reprovar",
+      "oQue": "script de `lint` que chama o eslint SEM `--max-warnings 0` — com ele ausente, toda regra em \"warn\" é incapaz de reprovar o passo",
+      "oQueNaoPega": "lint chamado por outro nome de script, e eslint invocado de dentro de um .ts",
+      "limpeza": "cru",
+      "achados": 1
+    },
+    {
+      "nome": "regra-em-warn",
+      "forma": "nao-pode-reprovar",
+      "oQue": "regra de lint declarada com `\"warn\"`: ela aparece na saída e NÃO reprova, a menos que o script traga `--max-warnings 0`",
+      "oQueNaoPega": "regra que vem em \"warn\" de dentro de um conjunto `recommended` — essa não está escrita aqui e esta régua não a vê",
+      "limpeza": "semComentarios",
+      "achados": 1
+    },
+    {
+      "nome": "desligador-de-conferencia",
+      "forma": "desligada",
+      "oQue": "chave que DESLIGA conferência: `skipLibCheck`/`allowJs`/`projectService: false`/`strict: false`/`noImplicitAny: false`",
+      "oQueNaoPega": "desligador escrito com outro nome, e opção de compilador que afrouxa sem ser booleana",
+      "limpeza": "semComentarios",
+      "achados": 1
+    },
+    {
+      "nome": "regra-em-off",
+      "forma": "desligada",
+      "oQue": "regra de lint declarada com `\"off\"` — ela não roda, não avisa e não reprova; é a forma 1 do cabeçalho, e até o LAB-60 NENHUMA regra desta lista a procurava",
+      "oQueNaoPega": "regra que nasce desligada dentro de um conjunto `recommended`, e regra desligada por comentário `eslint-disable` — essa é da `conferencia-desligada-por-arquivo`",
+      "limpeza": "semComentarios",
+      "achados": 1
+    },
+    {
+      "nome": "passo-que-engole-falha",
+      "forma": "nao-pode-reprovar",
+      "oQue": "passo de verde que não propaga erro: `|| true`, `continue-on-error`, `--passWithNoTests`, `exit 0` depois de falha",
+      "oQueNaoPega": "`set -e` ausente de propósito, que é o caso do `conferir.sh` e está declarado — ele acumula e sai 1 no fim",
+      "limpeza": "cru",
+      "achados": 0
+    },
+    {
+      "nome": "teste-desligado",
+      "forma": "desligada",
+      "oQue": "`.only(`, `.skip(`, `.todo(`, `xdescribe`, `xit(` — e o `.only` é o pior: ele reduz a suíte a um teste e o resto sai VERDE por não ter rodado",
+      "oQueNaoPega": "teste desligado por `if (...) return` no corpo, que nenhum padrão de nome alcança",
+      "limpeza": "cru",
+      "achados": 0
+    },
+    {
+      "nome": "conferencia-desligada-por-arquivo",
+      "forma": "sem-motivo-escrito",
+      "oQue": "`@ts-ignore`, `@ts-nocheck` ou `eslint-disable` — o desligador de UMA linha, que não aparece em configuração nenhuma",
+      "oQueNaoPega": "`@ts-expect-error`, que REPROVA quando o erro deixa de existir e por isso não envelhece em silêncio",
+      "limpeza": "cru",
+      "achados": 4
+    }
+  ],
+  "totalPorRegra": {
+    "regra-em-warn": 1,
+    "regra-em-off": 1,
+    "lint-sem-max-warnings": 1,
+    "desligador-de-conferencia": 1,
+    "conferencia-desligada-por-arquivo": 4
+  },
+  "totalPorForma": {
+    "nao-pode-reprovar": 2,
+    "desligada": 2,
+    "sem-motivo-escrito": 4
+  },
+  "configuracaoDaPilhaDele": {
+    "vite.config.ts": "é a configuração do empacotador: ela decide o que entra no build e pode calar conferência de tipo em build",
+    "components.json": "é a configuração do gerador de componentes (shadcn) — governa geração de código, não conferência",
+    ".lovable/project.json": "é a configuração da plataforma que publica o aplicativo dele"
+  },
+  "porArquivo": [
+    {
+      "arquivo": ".gitignore",
+      "varrido": true,
+      "linhas": 37,
+      "regrasQueOlharam": []
+    },
+    {
+      "arquivo": ".lovable/project.json",
+      "varrido": true,
+      "daPilhaDele": "é a configuração da plataforma que publica o aplicativo dele",
+      "linhas": 6,
+      "regrasQueOlharam": []
+    },
+    {
+      "arquivo": ".prettierignore",
+      "varrido": true,
+      "linhas": 26,
+      "regrasQueOlharam": []
+    },
+    {
+      "arquivo": ".prettierrc",
+      "varrido": true,
+      "linhas": 7,
+      "regrasQueOlharam": []
+    },
+    {
+      "arquivo": "bun.lock",
+      "varrido": false,
+      "porqueFora": "lockfile não liga nem desliga conferência: ele PRENDE versão. É a mesma exclusão declarada no LAB-57"
+    },
+    {
+      "arquivo": "bunfig.toml",
+      "varrido": true,
+      "linhas": 8,
+      "regrasQueOlharam": []
+    },
+    {
+      "arquivo": "components.json",
+      "varrido": true,
+      "daPilhaDele": "é a configuração do gerador de componentes (shadcn) — governa geração de código, não conferência",
+      "linhas": 23,
+      "regrasQueOlharam": []
+    },
+    {
+      "arquivo": "eslint.config.js",
+      "varrido": true,
+      "linhas": 51,
+      "regrasQueOlharam": [
+        "regra-em-warn",
+        "desligador-de-conferencia",
+        "regra-em-off",
+        "conferencia-desligada-por-arquivo"
+      ]
+    },
+    {
+      "arquivo": "package.json",
+      "varrido": true,
+      "linhas": 101,
+      "regrasQueOlharam": [
+        "lint-sem-max-warnings",
+        "passo-que-engole-falha"
+      ]
+    },
+    {
+      "arquivo": "tsconfig.json",
+      "varrido": true,
+      "linhas": 38,
+      "regrasQueOlharam": [
+        "desligador-de-conferencia"
+      ]
+    },
+    {
+      "arquivo": "vendor/archilly-central/package.json",
+      "varrido": false,
+      "porqueFora": "é o kit da Central, COPIADO de lá pelo comando dela, e o próprio `eslint.config.js` dele declara que nunca se edita — conserto é no repositório de origem. A configuração ali governa o projeto de lá"
+    },
+    {
+      "arquivo": "vite.config.ts",
+      "varrido": true,
+      "daPilhaDele": "é a configuração do empacotador: ela decide o que entra no build e pode calar conferência de tipo em build",
+      "linhas": 16,
+      "regrasQueOlharam": [
+        "conferencia-desligada-por-arquivo"
+      ]
+    }
+  ],
+  "achados": [
+    {
+      "regra": "regra-em-warn",
+      "arquivo": "eslint.config.js",
+      "linha": 40,
+      "trecho": "\"react-refresh/only-export-components\": [\"warn\""
+    },
+    {
+      "regra": "regra-em-off",
+      "arquivo": "eslint.config.js",
+      "linha": 41,
+      "trecho": "\"@typescript-eslint/no-unused-vars\": \"off\""
+    },
+    {
+      "regra": "lint-sem-max-warnings",
+      "arquivo": "package.json",
+      "linha": 11,
+      "trecho": "\"lint\": \"eslint .\""
+    },
+    {
+      "regra": "desligador-de-conferencia",
+      "arquivo": "tsconfig.json",
+      "linha": 22,
+      "trecho": "\"skipLibCheck\": true"
+    },
+    {
+      "regra": "conferencia-desligada-por-arquivo",
+      "arquivo": "src/routeTree.gen.ts",
+      "linha": 1,
+      "trecho": "eslint-disable"
+    },
+    {
+      "regra": "conferencia-desligada-por-arquivo",
+      "arquivo": "src/routeTree.gen.ts",
+      "linha": 3,
+      "trecho": "@ts-nocheck"
+    },
+    {
+      "regra": "conferencia-desligada-por-arquivo",
+      "arquivo": "tests/fixtures/render/estudo-importado.ts",
+      "linha": 1,
+      "trecho": "eslint-disable"
+    },
+    {
+      "regra": "conferencia-desligada-por-arquivo",
+      "arquivo": "tests/fixtures/render/zip.ts",
+      "linha": 1,
+      "trecho": "eslint-disable"
+    }
+  ],
+  "oTsconfigEnumerado": {
+    "doMotor": [
+      {
+        "arquivo": "tsconfig.json",
+        "chaves": 21,
+        "afrouxam": [
+          {
+            "chave": "skipLibCheck",
+            "valor": true,
+            "porque": "liga um atalho que SALTA conferência"
+          },
+          {
+            "chave": "noUnusedLocals",
+            "valor": false,
+            "porque": "é uma conferência do compilador, e está DESLIGADA"
+          },
+          {
+            "chave": "noUnusedParameters",
+            "valor": false,
+            "porque": "é uma conferência do compilador, e está DESLIGADA"
+          }
+        ],
+        "naoClassificadas": [
+          {
+            "chave": "allowImportingTsExtensions",
+            "valor": true
+          },
+          {
+            "chave": "verbatimModuleSyntax",
+            "valor": false
+          },
+          {
+            "chave": "noEmit",
+            "valor": true
+          }
+        ]
+      }
+    ],
+    "desteRepositorio": [
+      {
+        "arquivo": "external-engines/esteira/tsconfig.json",
+        "chaves": 10,
+        "afrouxam": [
+          {
+            "chave": "skipLibCheck",
+            "valor": true,
+            "porque": "liga um atalho que SALTA conferência"
+          }
+        ],
+        "naoClassificadas": [
+          {
+            "chave": "allowImportingTsExtensions",
+            "valor": true
+          },
+          {
+            "chave": "noEmit",
+            "valor": true
+          }
+        ]
+      },
+      {
+        "arquivo": "external-engines/testfit/tsconfig.json",
+        "chaves": 10,
+        "afrouxam": [
+          {
+            "chave": "skipLibCheck",
+            "valor": true,
+            "porque": "liga um atalho que SALTA conferência"
+          }
+        ],
+        "naoClassificadas": [
+          {
+            "chave": "allowImportingTsExtensions",
+            "valor": true
+          },
+          {
+            "chave": "noEmit",
+            "valor": true
+          }
+        ]
+      }
+    ]
+  },
+  "osDesligadoresPorArquivo": {
+    "quantos": 4,
+    "viramItem": 0,
+    "osIgnoresDoEslintDele": [
+      "dist",
+      ".output",
+      ".vinxi",
+      "vendor",
+      "tests/fixtures/render"
+    ],
+    "lista": [
+      {
+        "arquivo": "src/routeTree.gen.ts",
+        "linha": 1,
+        "trecho": "eslint-disable",
+        "nosIgnoresDoEslintDele": null,
+        "geradoPeloNome": true,
+        "ehItemDeConserto": false
+      },
+      {
+        "arquivo": "src/routeTree.gen.ts",
+        "linha": 3,
+        "trecho": "@ts-nocheck",
+        "nosIgnoresDoEslintDele": null,
+        "geradoPeloNome": true,
+        "ehItemDeConserto": false
+      },
+      {
+        "arquivo": "tests/fixtures/render/estudo-importado.ts",
+        "linha": 1,
+        "trecho": "eslint-disable",
+        "nosIgnoresDoEslintDele": "tests/fixtures/render",
+        "geradoPeloNome": false,
+        "ehItemDeConserto": false
+      },
+      {
+        "arquivo": "tests/fixtures/render/zip.ts",
+        "linha": 1,
+        "trecho": "eslint-disable",
+        "nosIgnoresDoEslintDele": "tests/fixtures/render",
+        "geradoPeloNome": false,
+        "ehItemDeConserto": false
+      }
+    ]
+  },
+  "aListaNumeradaParaOMotor": [
+    {
+      "numero": 1,
+      "forma": "2 · a regra LIGADA QUE NÃO PODE REPROVAR",
+      "oQue": "o `lint` do motor é `\"eslint .\"`, SEM `--max-warnings 0`",
+      "arquivo": "package.json",
+      "medido": "o `eslint.config.js` dele declara 1 regra(s) em `\"warn\"`",
+      "oQueIssoSignificaNaPratica": "essas regras APARECEM na saída do lint e NÃO derrubam o passo. É a mais silenciosa das três formas, porque o passo sai VERDE com o aviso impresso — foi exatamente isso que este repositório tinha até o LAB-57",
+      "oConserto": "acrescentar `--max-warnings 0` ao script de `lint`, e tratar o que ele passar a reprovar"
+    },
+    {
+      "numero": 2,
+      "forma": "1 · a regra DESLIGADA",
+      "oQue": "1 regra(s) de lint declarada(s) com `\"off\"` e 1 desligador(es) de conferência em `tsconfig`/`eslint`",
+      "arquivo": "eslint.config.js, tsconfig.json",
+      "medido": "ver `achados` nesta prova, com arquivo e linha",
+      "oQueIssoSignificaNaPratica": "regra em `\"off\"` não roda, não avisa e não reprova. Nem toda é defeito — `no-undef` desligado em TypeScript é o que o próprio `typescript-eslint` recomenda —, mas **desligada sem motivo escrito** envelhece em silêncio, que é o D104",
+      "oConserto": "escrever o MOTIVO ao lado de cada uma, no próprio arquivo, com a condição de revisitar"
+    },
+    {
+      "numero": 3,
+      "forma": "3 · o desligador SEM MOTIVO ESCRITO",
+      "oQue": "`skipLibCheck: true` no `tsconfig.json`, sem motivo escrito ao lado",
+      "arquivo": "tsconfig.json",
+      "medido": "a chave está declarada e não há comentário na linha nem acima dela",
+      "oQueIssoSignificaNaPratica": "ele salta a conferência de tipo DENTRO das dependências. Pode ser a escolha certa — é a desta casa, medida e declarada no LAB-57 —, mas sem a medição escrita ninguém sabe se ainda é necessária",
+      "oConserto": "medir com `false` (aqui deu ZERO erros nos dois pacotes) e escrever o número ao lado da chave; se der erro, o número é o argumento"
+    },
+    {
+      "numero": 4,
+      "forma": "o CONTEXTO, e ele vale mais que as três",
+      "oQue": "o motor NÃO TEM CI: não existe `.github/workflows/`",
+      "arquivo": ".github/workflows/",
+      "medido": "pasta ausente; o `package.json` dele declara `lint`, `test` e `typecheck`",
+      "oQueIssoSignificaNaPratica": "os três passos existem e **ninguém os roda sozinho**. Então as três formas acima são menos urgentes que esta: regra que não pode reprovar e regra que ninguém roda falham do mesmo jeito, e a segunda é a que este repositório pagou duas semanas para aprender (D110)",
+      "oConserto": "um trabalho de CI que rode `lint`, `typecheck` e `test` em todo push — e que FALHE com a receita se faltar alguma coisa, nunca pule (D124)"
+    },
+    {
+      "numero": 5,
+      "forma": "o que a régua de texto NÃO alcança, enumerado",
+      "oQue": "as chaves booleanas de `compilerOptions` que afrouxam conferência: 3 no motor contra 2 aqui",
+      "arquivo": "tsconfig.json",
+      "medido": "lista completa em `oTsconfigEnumerado`, chave por chave, com o valor",
+      "oQueIssoSignificaNaPratica": "padrão de texto só acha o nome que alguém escreveu nele. A enumeração lê o JSON e classifica TODA chave booleana, então o que sobra sai em `naoClassificadas` com o valor — e não como silêncio",
+      "oConserto": "para cada chave afrouxada, a mesma receita do item 2: motivo escrito ao lado, ou religar"
+    },
+    {
+      "numero": 6,
+      "forma": "3 · o desligador POR ARQUIVO, e aqui a maioria NÃO é item",
+      "oQue": "4 `@ts-nocheck`/`eslint-disable` no código dele, dos quais 0 viram item",
+      "arquivo": "src/routeTree.gen.ts, src/routeTree.gen.ts, tests/fixtures/render/estudo-importado.ts, tests/fixtures/render/zip.ts",
+      "medido": "2 estão nos `ignores` do `eslint.config.js` DELE, onde o motivo está escrito, e 2 são arquivo GERADO pelo nome (`.gen.`)",
+      "oQueIssoSignificaNaPratica": "desligar conferência em arquivo que uma ferramenta reescreve, ou em código copiado de outro repositório com o motivo declarado, é o normal — o conserto não sobreviveria à próxima geração, e o estilo desta casa não se cobra de código que não é desta casa",
+      "oConserto": "nenhum: os quatro têm motivo medido. Esta linha existe para dizer que eu MEDI antes de não acusar (D184)"
+    }
+  ],
+  "oQueNAOFoiFeito": "nada foi consertado e nada foi escrito no clone do vizinho (§4). A lista numerada vai pelo chat, e o conserto é lá — quem mede é quem vai consertar, e esta medição é só a leitura",
+  "osClonesVizinhos": [
+    {
+      "clone": "motor-testfit",
+      "presente": true,
+      "alteracoes": 0,
+      "head": "4181e95"
+    },
+    {
+      "clone": "urban-create-hub-41d93a4d",
+      "presente": true,
+      "alteracoes": 0,
+      "head": "5b7e9b4"
+    },
+    {
+      "clone": "urban-scout-tool",
+      "presente": true,
+      "alteracoes": 0,
+      "head": "f38dc0c"
+    }
+  ]
+}

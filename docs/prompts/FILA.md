@@ -63,8 +63,8 @@ certa e eu repeti a frase velha por descuido."*
 |---|---|---|---|
 | **LAB-58** | **As 81 do motor agrupadas por MECANISMO** — quantos mecanismos distintos existem e quantas violações cada um responde. Lista numerada, é o insumo da fila do motor | ✅ **concluído em 07/10/2026** · **SEIS**, zero não nomeadas · PR #72 | nenhuma |
 | **LAB-59** | O **T-38 como CONTRAFACTUAL**: com as 81 resolvidas, outra candidata passa a ser aprovável em Antonina? Responde sozinho a pendência do Jonny (33 ou 1.228 lotes) **sem tocar no motor** | ✅ **concluído em 07/10/2026** · **16 de 20**, e a nota dele ainda prefere 33 · PR #74 | LAB-58 mesclado ✅ |
-| **LAB-60** | A **configuração do motor, SÓ DE LEITURA**: as três formas de desligar conferência que o LAB-57 achou aqui, conferidas lá. Lista numerada — **vai pelo chat ao motor** | ⬜ **próximo** | LAB-59 mesclado ✅ |
-| **LAB-61** | **A dívida própria com o que sobrou** | ⬜ pronto | LAB-60 mesclado |
+| **LAB-60** | A **configuração do motor, SÓ DE LEITURA**: as três formas de desligar conferência que o LAB-57 achou aqui, conferidas lá. Lista numerada — **vai pelo chat ao motor** | ✅ **concluído em 07/10/2026** · as **três vivas**, e ele **não tem CI** | LAB-59 mesclado ✅ |
+| **LAB-61** | **A dívida própria com o que sobrou** | ⬜ **próximo — e fecha a fila** | LAB-60 mesclado ✅ |
 
 **O que o chat disse de cada um, nas palavras dele:**
 
@@ -82,6 +82,15 @@ certa e eu repeti a frase velha por descuido."*
 
 **Ao fim de cada prompt, o recado com o status** (palavras dele).
 
+### Proposto ao chat, saído do LAB-60 — **não executado**
+
+**A TRAVA QUE REGERA A VARREDURA.** O LAB-60 mediu que a prova do LAB-57 estava **velha no
+momento em que foi commitada** (1 contra 10), e que **nada no verde reprovava isso**: a trava
+de hoje confere a prova **contra si mesma**, não a **reexecuta**. A proposta é uma trava que
+rode a varredura e exija que a prova bata — e a pergunta de projeto que vem com ela é **quais
+provas podem ser regeradas dentro da trava** sem ferir o D182, que proíbe sobregravar prova
+*"antes"* com prova *"depois"*.
+
 ### Proposto ao chat, saído do LAB-59 — **não executado**
 
 **O SÉTIMO MECANISMO, se houver.** Resolvidos os seis do LAB-58 e o campo do contrato, **4 das
@@ -92,6 +101,36 @@ e a divisa** da faixa do Generate. Está caracterizado em
 [`../provas/LAB-59/contrafactual-de-antonina.json`](../provas/LAB-59/contrafactual-de-antonina.json)
 (`oQueAsNaoNomeadasTemEmComum`). **Nomear mecanismo é o LAB-58, e ampliar escopo é o que esta
 página proíbe.**
+
+### LAB-60 · A configuração do motor, só de leitura — ✅ concluído em 07/10/2026
+
+**AS TRÊS FORMAS ESTÃO VIVAS NO MOTOR**, e a quarta medição vale mais que as três: **ele não
+tem CI nenhum** — `lint`, `typecheck` e `test` existem no `package.json` dele e **ninguém os
+roda sozinho**. Lista numerada de **seis itens** no relatório, para o chat levar; **nada
+escrito no clone** e os três vizinhos **limpos**, conferido pela própria ferramenta.
+
+```
+1 · a regra LIGADA QUE NÃO PODE REPROVAR .. `lint: "eslint ."` sem --max-warnings 0, + 1 em "warn"
+2 · a regra DESLIGADA .................... 1 regra em "off" + 1 skipLibCheck
+3 · o desligador SEM MOTIVO ESCRITO ...... skipLibCheck sem comentário na linha nem acima
+4 · o CONTEXTO ........................... NÃO TEM CI
+5 · o que a régua de texto não alcança ... 3 chaves de compilerOptions afrouxadas (2 aqui)
+6 · o desligador POR ARQUIVO ............. 4 achados, ZERO viram item (medido, D184)
+```
+
+**E A VIAGEM CONSERTOU A RÉGUA — três defeitos meus, todos falso NEGATIVO** (D202, D203): o
+cabeçalho prometia `"off"` e **nenhuma das seis regras o procurava**; o `regra-em-warn` só
+via a string solta, não `["warn", {…}]`; e **a limpeza comia arquivo inteiro**, porque um
+**glob dentro de string** (`"**/*.{ts,tsx}"` … `"scripts/**/*.ts"`) parece abre e
+fecha-comentário. *Régua que nunca saiu de casa não sabe o que não vê.*
+
+**E a prova do LAB-57 estava VELHA quando foi commitada** (D204): ela dizia **1** onde a
+ferramenta, na mesma árvore, dizia **10** — nove dos quais a régua acusando o próprio fonte.
+
+- relatório: [`../relatorios/LAB-60.md`](../relatorios/LAB-60.md)
+- provas: `docs/provas/LAB-60/configuracao-do-motor.json` e `sabotagem.json`
+- ferramenta: `external-engines/esteira/ferramentas/lab60.ts` · **16 travas** em
+  `tests/configuracao-do-motor.test.ts`
 
 ### LAB-59 · O contrafactual de Antonina — ✅ concluído em 07/10/2026
 
@@ -983,7 +1022,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 158 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 174 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

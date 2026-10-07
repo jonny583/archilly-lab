@@ -5625,3 +5625,93 @@ cenários eram monótonos, as contagens batiam — **com a resposta errada**.
 *E há o lado §4 disso: a trava que exige que a primeira entre as que aprovam seja a de melhor
 `notaDoMotor`. Sem ela, o dia em que alguém puser outra ali é o dia em que o Lab passou a
 escolher variante pelo motor, e nada avisaria.*
+
+---
+
+## D202 · Régua que nunca saiu de casa não sabe o que não vê · 07/10/2026
+
+O LAB-60 apontou a varredura de configuração do LAB-57 — a MESMA régua, de propósito — ao
+clone do motor. Ela devolveu **zero regras desligadas** e **zero em `"warn"`** num
+`eslint.config.js` que traz **as duas escritas em uma linha cada**.
+
+**Três defeitos meus, em cadeia, e todos falso NEGATIVO:**
+
+1. **o cabeçalho prometia `"off"` e nenhuma das seis regras o procurava.** A promessa estava
+   escrita desde o LAB-57 e nunca foi exercida, porque nenhum `"off"` existia nos arquivos
+   que a régua conhecia. Nasceu a `regra-em-off`, e ela achou **dois desligadores NESTE
+   repositório** que seis regras não tinham visto;
+2. **o `regra-em-warn` só via a string solta**, não a forma de array `["warn", { … }]` — que
+   é a normal quando a regra tem opção. É o D137 outra vez: *régua que casa por nome exato
+   mede ortografia, não conteúdo*;
+3. **a limpeza comia arquivo inteiro** — ver D203.
+
+> **Zero de régua cega é indistinguível de zero de árvore limpa** (D164). E o jeito de
+> descobrir qual dos dois você tem é **apontar a régua para fora**: o repositório que ela
+> conhece é feito à imagem dela.
+
+*Daí uma regra de método: régua nova ganha a primeira viagem a um repositório que não ajudou
+a escrevê-la, e o que ela não achar lá é suspeita contra ela, não elogio ao medido.*
+
+---
+
+## D203 · Limpeza que não sabe onde a string começa não limpa: ela corta · 07/10/2026
+
+A `semComentarios` eram duas regex, e a de bloco era `/\/\*[\s\S]*?\*\//`.
+
+**O `eslint.config.js` do motor traz `files: ["**/*.{ts,tsx}"]`** — que contém a sequência de
+**abre-comentário** dentro de uma string — **e, mais abaixo, `files: ["scripts/**/*.ts"]`** —
+que contém a de **fecha**. A regex casava **de dentro de uma string até dentro de outra** e
+apagava **tudo no meio**, inclusive o bloco `rules` inteiro.
+
+**E o mesmo valia aqui, em menor grau:** `"node_modules/**"` tem abre e `"**/*.d.ts"` tem
+fecha. Os dois `eslint.config.js` desta casa vinham sendo parcialmente apagados **antes de
+qualquer casamento**, e a sorte foi a região cortada não cobrir o `"no-undef": "off"`.
+
+**O conserto:** a `semComentarios` passou a ser um **varredor de um passe** com estado —
+fora, comentário de linha, comentário de bloco, ou dentro de `'`, `"` ou crase. O conteúdo
+de string é **preservado**, que é o que a separa da `soOCodigo`. O que ele não alcança vai
+dito: literal de regex contendo abre-comentário, cuja distinção de uma divisão exige a
+gramática inteira.
+
+**A trava do caso tem história própria, e ela é a lição dentro da lição:** a primeira versão
+dela **PASSOU** sob a sabotagem, por um motivo de **ordem** — eu havia posto o bloco `rules`
+**depois** do segundo glob, fora da região que a regex comia. No arquivo do motor a ordem é
+glob-com-abre, `rules`, glob-com-fecha.
+
+> **Trava que passa quando o defeito volta é enfeite** (D172). Reescrita na ordem do caso
+> real, ela reprova **três** travas.
+
+*E uma ironia que ficou registrada: a primeira versão do comentário que explica isto trazia
+o exemplo do literal de regex escrito por extenso, e a sequência de fecha-comentário dentro
+dele FECHOU o próprio comentário. O `tsc` pegou na hora — é o D175 do lado bom.*
+
+---
+
+## D204 · Prova gerada antes da última edição do que ela mede é prova velha · 07/10/2026
+
+Medido ao abrir o LAB-60, no commit `4249027`, **sem mudar uma linha**:
+
+| | a prova commitada do LAB-57 dizia | a ferramenta dizia, na MESMA árvore |
+|---|---|---|
+| `conferencia-desligada-por-arquivo` | **1** | **10** |
+
+**A causa não é defeito de régua:** o último `bun run lab57` daquele prompt rodou **antes**
+das edições finais dele mesmo — as que escreveram `@ts-ignore`, `@ts-nocheck` e
+`eslint-disable` no texto dos declarados e na documentação da régua. A prova ficou com o
+número de antes, e `naoDeclarados: []` **era verdade naquele instante**.
+
+**E os 10 eram, nove deles, a régua acusando o próprio fonte** (D155). A única limpeza que
+resolveria — tirar comentários — **cegaria essa regra por completo**, porque é dentro de
+comentário que o desligador vive. Então a exclusão é a que a varredura de segredos do LAB-47
+**já declara** (*"nem o fonte dela própria"*), e é **estreita**: só o arquivo que define os
+padrões e as ferramentas e travas que publicam as chaves de achado. Depois dela: **5 achados
+aqui, todos declarados**.
+
+> **Nada no verde reprovava a prova velha.** A trava de hoje confere a prova **contra si
+> mesma**; ela não **regera** a varredura. É a forma do D110 aplicada a prova em vez de
+> suíte: *o que ninguém reexecuta não protege nada.*
+
+Fica **proposto ao chat** (não executado, §1-A): uma trava que reexecuta a varredura e exige
+que a prova bata — e a pergunta de projeto que vem com ela é **quais provas podem ser
+regeradas dentro da trava** sem ferir o D182, que proíbe sobregravar prova "antes" com prova
+"depois".
