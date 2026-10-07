@@ -4890,3 +4890,92 @@ que a régua é **geral**, e não um `if` escrito para este caso.
 
 **E este prompt não tem prova em `docs/provas/`, de propósito:** ele mede um arquivo de texto
 contra o disco, e não gleba. Inventar um JSON para ter um JSON seria o contrário do §7.
+
+---
+
+## D178 · Regra de lint que precisa de tipo fica MUDA com `projectService: false` — e não avisa · 07/10/2026
+
+A Central achou que *erro de chamada não conferido degrada para número que PARECE certo*, e
+mandou varrer os meus. **A metade mais perigosa dessa classe — promessa sem `await` — não se
+mede com regex: precisa de tipo.** E há regra pronta,
+`@typescript-eslint/no-floating-promises`.
+
+**Medido: ela estava desligada nos DOIS pacotes.** Os dois `eslint.config.js` traziam
+`languageOptions: { parserOptions: { projectService: false } }`, e **sem serviço de projeto
+toda regra type-aware fica desligada** — `no-floating-promises`, `no-misused-promises`,
+`require-await`.
+
+**E ela não avisa.** Não há erro, não há aviso, não há contagem: o lint passa verde porque
+**não rodou** a regra. *É a forma do D123 — a prova no navegador que ninguém rodava — num
+lugar onde ninguém pensa em olhar: dentro da configuração do lint.*
+
+> **Regra desligada em silêncio é pior que regra ausente, porque o verde continua verde e
+> ninguém procura.**
+
+**O zero é MEDIDO, e isso exigiu sabotagem.** Ligadas as três, a árvore inteira dá **zero
+achados** — mas zero de detector que não se provou é zero que não vale. Plantada uma promessa
+sem `await` num arquivo temporário, a regra **acusou**. Só então o zero virou resultado.
+
+**Ligar as três custa zero conserto, e elas ficaram.** O conjunto `recommendedTypeChecked`
+COMPLETO ficou de fora, e o motivo é número: **646 achados** — 487 de
+`no-unnecessary-type-assertion` e ~149 de `no-unsafe-*`, que vêm das pontes `as unknown as`
+entre três repositórios. **É outro prompt**, e está proposto ao chat.
+
+**O preço, dito em vez de escondido:** o lint do `esteira` foi de **0,85 s para 7,9 s** —
+nove vezes —, e o do `testfit` roda em 3,1 s. *Sete segundos por execução contra uma classe
+de erro que não aparece de outro jeito.*
+
+**E a guarda é sobre a CONFIGURAÇÃO, não sobre o código:** há trava exigindo
+`projectService: true` e as três regras **ligadas** nos dois pacotes, porque a maneira de
+perdê-las de novo é uma linha trocada para o lint ficar rápido.
+
+---
+
+## D179 · 28 de 28 falso positivo — e a sabotagem pegou o que eu não vi · 07/10/2026
+
+**Duas metades, e as duas são de método.**
+
+### A régua acusou em volume, e o volume era dela
+
+A regra `degrada-chamada-para-numero` — `?? 0` ou `|| 0` sobre o resultado de uma chamada —
+deu **28 achados**. Agrupados pela função chamada: **`.at(` 16**, **`.get(` 10**, e dois de
+serialização.
+
+**`Array.at(-1)` num vetor vazio e `Map.get(k)` numa chave que falta não FALHARAM** — eles
+disseram *"não tem"*, e `?? 0` é a resposta declarada para isso.
+
+A classe que a Central nomeou é *"erro de chamada não conferido"* — **erro**. Estreitar a
+regra para o alvo que ela mesma declara **não é afrouxá-la** (o contrário do D143 e do D172,
+e a diferença é esta): é a pergunta do **D127** feita **antes** de acusar — *a chamada que eu
+casei sinaliza falha?* Nasceu a lista `AUSENCIA_NAO_E_ERRO`, e **28 viraram 2**. Os 2, mais o
+único `numero-sem-conferir`, são **benignos declarados**, com motivo escrito e trava que
+reprova um quarto — e também um deles que desaparecer.
+
+> **Antes de acusar em volume, pergunte se o volume é da coisa ou da sua régua.**
+
+### A sabotagem pegou a QUINTA vez da família da régua que lê texto
+
+Seis sabotagens; **a segunda não pegou**. Tirar `no-floating-promises` da configuração
+passava, porque a trava fazia `toContain(nome)` sobre o texto **cru** — e o **comentário** que
+eu acabara de escrever ali **cita o nome da regra** ao explicá-la.
+
+**É a quinta vez da família do D137, D142, D155 e D177 — e a primeira em que não fui eu que
+peguei: foi a sabotagem.** No LAB-51, uma hora antes, eu havia registrado ter visto o defeito
+*antes* de escrever a régua; no prompt seguinte, no mesmo assunto, caí.
+
+**O conserto é o D142 inteiro:** o nome tem de estar **no lugar da gramática onde significa
+"regra ligada"** — `"<regra>": "error"` —, não em qualquer lugar do arquivo. E exigiu **duas**
+limpezas distintas, que agora são duas funções com nomes diferentes:
+
+| função | tira | responde |
+|---|---|---|
+| `soOCodigo()` | comentário **e** conteúdo de string | *"o código FAZ isto?"* |
+| `semComentarios()` | só comentário | *"a configuração DECLARA isto?"* |
+
+> **Há DUAS perguntas, não uma — e usar a limpeza errada é a mesma família do nome lido no
+> lugar errado.** A primeira esvazia strings porque string é onde o código *fala sobre*; a
+> segunda as preserva porque é na string que a configuração *declara*.
+
+**E o zero de (b) vale porque as réguas olharam volume:** **0** identificadores de conta em
+**4 891 parâmetros** e **4 316 campos**, com trava exigindo que esses números não caiam —
+*é a diferença entre "não achei" e "não procurei"* (D164).
