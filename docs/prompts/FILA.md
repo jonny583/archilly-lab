@@ -61,8 +61,8 @@ certa e eu repeti a frase velha por descuido."*
 
 | # | prompt | estado | condição |
 |---|---|---|---|
-| **LAB-58** | **As 81 do motor agrupadas por MECANISMO** — quantos mecanismos distintos existem e quantas violações cada um responde. Lista numerada, é o insumo da fila do motor | ✅ **concluído em 07/10/2026** · **SEIS**, zero não nomeadas | nenhuma |
-| **LAB-59** | O **T-38 como CONTRAFACTUAL**: com as 81 resolvidas, outra candidata passa a ser aprovável em Antonina? Responde sozinho a pendência do Jonny (33 ou 1.228 lotes) **sem tocar no motor** | ⬜ pronto | LAB-58 mesclado |
+| **LAB-58** | **As 81 do motor agrupadas por MECANISMO** — quantos mecanismos distintos existem e quantas violações cada um responde. Lista numerada, é o insumo da fila do motor | ✅ **concluído em 07/10/2026** · **SEIS**, zero não nomeadas · PR #72 | nenhuma |
+| **LAB-59** | O **T-38 como CONTRAFACTUAL**: com as 81 resolvidas, outra candidata passa a ser aprovável em Antonina? Responde sozinho a pendência do Jonny (33 ou 1.228 lotes) **sem tocar no motor** | ⬜ **próximo** | LAB-58 mesclado ✅ |
 | **LAB-60** | A **configuração do motor, SÓ DE LEITURA**: as três formas de desligar conferência que o LAB-57 achou aqui, conferidas lá. Lista numerada — **vai pelo chat ao motor** | ⬜ pronto | LAB-59 mesclado |
 | **LAB-61** | **A dívida própria com o que sobrou** | ⬜ pronto | LAB-60 mesclado |
 
