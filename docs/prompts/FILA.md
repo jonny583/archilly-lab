@@ -38,7 +38,7 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## 🟢 A FILA DE 06/10/2026 — LAB-48 a LAB-52
+## ✅ A FILA DE 06/10/2026 — CUMPRIDA, cinco de cinco, LAB-48 a LAB-52
 
 Mandada pelo chat em 06/10/2026, com o **despertador reabilitado pela sétima vez**
 (`enabled: true`, próximo disparo 21:05 UTC) e com uma autorização nova:
@@ -59,7 +59,7 @@ seguida assim. E o LAB-48 é **achado novo do Generate**, trazido pelo chat.
 | **LAB-49** | O **detector de prova velha** para as provas do LAB-25 e do LAB-30 (D156) | ✅ **concluído em 06/10/2026** | LAB-48 mesclado ✅ |
 | **LAB-50** | **Por que a passagem externa põe lote a 1,8 km** da face entregue (D161) — pergunta, não acusação | ✅ **concluído em 06/10/2026** | LAB-49 mesclado ✅ |
 | **LAB-51** | O cabeçalho do `conferir.sh` ainda afirma que **não há CI neste repositório**, falso desde o LAB-38 | ✅ **concluído em 06/10/2026** | LAB-50 mesclado ✅ |
-| **LAB-52** | **Achado da Central, duas varreduras:** erro de chamada não conferido que degrada para número que **parece** certo; e função que recebe **identificador de conta** como argumento | 🟢 **pronto** · **o último** | LAB-51 mesclado ✅ |
+| **LAB-52** | **Achado da Central, duas varreduras:** erro de chamada não conferido que degrada para número que **parece** certo; e função que recebe **identificador de conta** como argumento | ✅ **concluído em 07/10/2026** · **a fila ESGOTOU** | LAB-51 mesclado ✅ |
 
 ### O que o chat mandou junto, e vale para os cinco
 
@@ -71,6 +71,39 @@ seguida assim. E o LAB-48 é **achado novo do Generate**, trazido pelo chat.
 - **com o Jonny, e nada disto para a fila:** a régua de forma, a nota preferir 33 ou 1 228,
   o `VIZINHOS_TOKEN`, o *"desproporcional"* e o lote que faz frente para rua externa. A
   auditoria dos cinco está no [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §5.
+
+### LAB-52 · As duas varreduras da Central — ✅ concluído em 07/10/2026 · **a fila ESGOTOU**
+
+**Entregue:** [`../relatorios/LAB-52.md`](../relatorios/LAB-52.md),
+`docs/provas/LAB-52/varredura-de-chamadas.json`, `src/varredura-de-chamadas.ts` (6 regras),
+`ferramentas/lab52.ts`, `tests/chamadas.test.ts` (14 travas), as **três regras type-aware
+ligadas nos dois pacotes**, D178 e D179. **O saldo da fila está no
+[`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §6.**
+
+**O achado não é nenhuma das cinco contagens: é que o DETECTOR estava MUDO** (D178). Os dois
+`eslint.config.js` traziam `projectService: false`, e **sem serviço de projeto toda regra
+type-aware fica desligada — sem avisar**. Entre elas a `no-floating-promises`, que é a
+metade mais perigosa da classe (a). Ligadas as três: **zero achados**, e o zero foi
+**provado por sabotagem**. Preço dito: lint de **0,85 s para 7,9 s**.
+
+**O escopo, como número:** 113 arquivos, 31 894 linhas, **4 891 parâmetros** e **4 316
+campos** examinados, 25 nomes de identificador procurados.
+
+| | |
+|---|---|
+| `catch` que engole | **0** |
+| `?? 0` sobre chamada que falha | **28 → 2**, e os 2 benignos |
+| `Number(...)` sem conferir | **1**, e **não é a classe** — ele estoura, não degrada |
+| **(b) identificador de conta** | **0** em parâmetro **e** em campo |
+
+**E duas lições de método** (D179): os 26 que saíram eram `at(-1) ?? 0` e `get(k) ?? 0` —
+*ausência declarada não é falha*, e estreitar a régua para o alvo que ela declara não é
+afrouxá-la. E **a sabotagem pegou a QUINTA vez da família da régua que lê texto**, dentro do
+teste que eu escrevi para honrar a quarta: a trava lia o nome da regra no **comentário** que
+a explica. Daí **duas** limpezas, porque há **duas** perguntas — `soOCodigo()` para *"o
+código faz?"* e `semComentarios()` para *"a configuração declara?"*.
+
+---
 
 ### LAB-51 · O cabeçalho que dizia não haver CI — ✅ concluído em 06/10/2026
 
@@ -575,7 +608,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 100 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 114 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -1599,6 +1632,11 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   monta. Minha régua de *distância ao eixo menos meia-caixa* não serve para atribuir, e usá-la
   seria a forma do D93.
 - ~~**O cabeçalho do `conferir.sh` afirma que não há CI neste repositório**~~ — ✅ **executado no LAB-51**, com guarda geral (D177).
+- **Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes** (LAB-52, D178). Medido: são
+  **646 achados** — 487 de `no-unnecessary-type-assertion` e ~149 de `no-unsafe-*`, que vêm
+  das pontes `as unknown as` entre três repositórios. As **três** regras da classe que a
+  Central nomeou já estão ligadas e custam zero; o resto é conserto de verdade, e é outro
+  prompt.
 - **O delta contra o Padrão 1.2**, quando ele existir. A conferência do LF-FINAL
   foi feita contra a Versão 1, que é a única legível (D43). O `TF-FINAL` do
   repositório irmão espera o mesmo documento.

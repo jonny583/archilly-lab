@@ -1,0 +1,128 @@
+{
+  "prompt": "LAB-52",
+  "oQueIstoMede": "o código TypeScript deste repositório atrás das duas classes que a Central nomeou — não mede terreno",
+  "quando": "2026-10-07T00:16:14.800Z",
+  "aOrigem": "achado da Central: (a) erro de chamada não conferido que degrada para número que PARECE certo; (b) função que recebe identificador de conta como argumento",
+  "doisMotores": {
+    "porque": "a metade mais perigosa de (a) — promessa sem `await` — NÃO se mede com regex: precisa de tipo",
+    "oLintComTipo": {
+      "regraQueImporta": "@typescript-eslint/no-floating-promises",
+      "estavaLigada": false,
+      "porque": "os dois `eslint.config.js` traziam `projectService: false`, e sem serviço de projeto TODA regra que precisa de tipo fica muda",
+      "medidoLigando": {
+        "achadosDaRegra": 0,
+        "totalDeProblemasTipados": 646
+      },
+      "provadoPorSabotagem": "promessa sem await plantada num arquivo temporário → a regra ACUSOU; então o zero sobre a árvore é zero MEDIDO, não silêncio"
+    },
+    "estaVarredura": {
+      "regras": 6,
+      "oQueAlcanca": "o que regex vê honestamente: `catch` que engole, `?? 0` sobre chamada, `Number(...)` sem conferência, e o nome do parâmetro"
+    }
+  },
+  "escopo": {
+    "arquivos": 114,
+    "linhas": 32114,
+    "bytes": 1357772,
+    "regras": 6,
+    "parametrosExaminados": 4932,
+    "camposExaminados": 4318
+  },
+  "regras": [
+    {
+      "nome": "catch-que-engole",
+      "familia": "erro-nao-conferido",
+      "oQue": "`catch` de corpo vazio: o erro desaparece e a execução segue como se nada houvesse",
+      "oQueNaoPega": "`catch` que registra o erro e segue — esse é escolha declarada, não engolir; e `catch` cujo corpo é longo"
+    },
+    {
+      "nome": "catch-que-devolve-numero",
+      "familia": "erro-nao-conferido",
+      "oQue": "`catch` cujo corpo só devolve um número ou zero — o erro vira um valor que PARECE medido",
+      "oQueNaoPega": "`catch` que devolve `null`, que é a resposta honesta deste repositório (D23)"
+    },
+    {
+      "nome": "degrada-chamada-para-numero",
+      "familia": "erro-nao-conferido",
+      "oQue": "`?? 0` ou `|| 0` sobre o resultado de uma CHAMADA: a falha vira um número que parece certo",
+      "oQueNaoPega": "`?? 0` sobre PROPRIEDADE ou variável; a crase vazia, que quebra o literal onde este padrão mora (dito em vez de escondido); e as chamadas de AUSÊNCIA DECLARADA da lista `AUSENCIA_NAO_E_ERRO` — ver o porquê lá, medido em 28 falsos positivos"
+    },
+    {
+      "nome": "numero-sem-conferir",
+      "familia": "erro-nao-conferido",
+      "oQue": "`Number(...)`/`parseFloat`/`parseInt` guardado num nome que o arquivo NUNCA confere com `Number.isFinite`, `isNaN` ou `Number.isNaN`",
+      "oQueNaoPega": "conversão usada na hora, sem nome; e conferência feita em OUTRO arquivo — sem tipo não há como seguir o valor"
+    },
+    {
+      "nome": "identificador-de-conta-em-argumento",
+      "familia": "identificador-de-conta",
+      "oQue": "parâmetro de função cujo nome é identificador de pessoa ou de conta — o furo de privacidade que a Central nomeou",
+      "oQueNaoPega": "identificador que viaja dentro de um OBJETO (`opcoes.userId`), e nome que não está na lista declarada"
+    },
+    {
+      "nome": "identificador-de-conta-em-campo",
+      "familia": "identificador-de-conta",
+      "oQue": "CAMPO de interface ou de objeto cujo nome é identificador de pessoa ou de conta — fecha o buraco que a regra do argumento deixa aberto",
+      "oQueNaoPega": "identificador guardado sob um nome que não está na lista declarada, e identificador que só existe em tempo de execução"
+    }
+  ],
+  "nomesDeIdentificadorProcurados": [
+    "userid",
+    "user_id",
+    "usuarioid",
+    "usuario_id",
+    "accountid",
+    "account_id",
+    "contaid",
+    "conta_id",
+    "clienteid",
+    "cliente_id",
+    "customerid",
+    "tenantid",
+    "tenant_id",
+    "email",
+    "e_mail",
+    "cpf",
+    "cnpj",
+    "ssn",
+    "telefone",
+    "phone",
+    "assinante",
+    "subscriberid",
+    "ownerid",
+    "owner_id",
+    "accountuuid",
+    "sub"
+  ],
+  "porRegra": {
+    "catch-que-engole": 0,
+    "catch-que-devolve-numero": 0,
+    "degrada-chamada-para-numero": 2,
+    "numero-sem-conferir": 1,
+    "identificador-de-conta-em-argumento": 0,
+    "identificador-de-conta-em-campo": 0
+  },
+  "achados": [
+    {
+      "regra": "degrada-chamada-para-numero",
+      "familia": "erro-nao-conferido",
+      "arquivo": "external-engines/esteira/src/varredura-de-chamadas.ts",
+      "linha": 147,
+      "trecho": "replace(/[?]/g, \"\") ?? \"\""
+    },
+    {
+      "regra": "degrada-chamada-para-numero",
+      "familia": "erro-nao-conferido",
+      "arquivo": "entrega/registro-de-motores/registro.ts",
+      "linha": 267,
+      "trecho": "this.padrao() ?? \"\""
+    },
+    {
+      "regra": "numero-sem-conferir",
+      "familia": "erro-nao-conferido",
+      "arquivo": "external-engines/symbios/adapter/ferramentas/medir.ts",
+      "linha": 377,
+      "trecho": "ha"
+    }
+  ]
+}

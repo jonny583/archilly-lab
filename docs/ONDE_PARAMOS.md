@@ -4,10 +4,71 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 06/10/2026 · **Último prompt executado:** LAB-51 ·
-**Fila de 06/10 (LAB-48 a LAB-52): 4 de 5 feitos. O despertador está LIGADO.**
+**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-52 ·
+**Fila de 06/10 (LAB-48 a LAB-52): CUMPRIDA, 5 de 5. O despertador está DESLIGADO.**
 
-# 🟢 O DESPERTADOR ESTÁ LIGADO — fila nova, e o prompt guardado dele é MEU agora
+# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 06/10 esgotou, cinco de cinco
+
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 07/10/2026.**
+
+**Os cinco prompts estão feitos e mesclados** (PRs #59 a #63), e o que resta na `FILA.md`
+está todo em *"proposto ao chat"*, que por definição **não se executa**. É o caso da **D62**,
+e o desligamento é **desligamento, não apagamento** (D112, ratificado seis vezes).
+
+**O chat pediu em 06/10 um despertador *"que se apaga ao esgotar"* E deu o id deste para
+reusar.** As duas coisas só convivem com **desligar**: apagar perde o id que ele reabilita
+desde 03/10. Fica desligado, com o motivo escrito; se ele quiser apagado de verdade, é uma
+linha dele.
+
+**O saldo da fila está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §6** — pela
+§1-B, e desta vez gravado **junto do último prompt**, não depois.
+
+## O prompt guardado do despertador é MEU desde 06/10
+
+> *"REESCREVA você mesma o prompt guardado do despertador… É seu, e você tem a minha
+> autorização para mantê-lo atualizado daqui em diante, sem me perguntar."*
+
+Reescrito **ao fim de cada um dos cinco prompts** desta fila, com o estado, o número da
+próxima decisão e as contagens de travas. Ele envelheceu **uma** vez (descrevia o LAB-47 como
+*"aguardando"* e dizia *"a próxima é a D154"* quando já era a D166) e não se repetiu.
+
+## A fila de 06/10, cinco de cinco
+
+| # | em uma linha | estado |
+|---|---|---|
+| **LAB-48** | o motor **PADRÃO** reprova no Validator nas cinco glebas — **quatro culpados** | ✅ **06/10** |
+| **LAB-49** | o **detector de prova velha** para LAB-25 e LAB-30 | ✅ **06/10** |
+| **LAB-50** | a passagem externa lê a face como **RETA** — a gleba convexa provou | ✅ **06/10** |
+| **LAB-51** | o `conferir.sh` que afirmava **não haver CI** | ✅ **06/10** |
+| **LAB-52** | as duas varreduras da Central — **o detector estava MUDO** | ✅ **07/10** |
+
+## O que o LAB-52 achou — e não é nenhuma das contagens
+
+Os dois `eslint.config.js` traziam `projectService: false`, e **sem serviço de projeto toda
+regra type-aware fica desligada — sem avisar**. Entre elas a `no-floating-promises`, que é a
+metade mais perigosa da classe que a Central nomeou. *É a forma do D123 num lugar onde
+ninguém pensa em olhar.*
+
+**Ligadas as três: zero achados — e o zero foi provado por sabotagem.** Preço dito: lint de
+**0,85 s para 7,9 s** no `esteira`. O `recommendedTypeChecked` completo ficou fora porque são
+**646** achados, e isso é outro prompt (proposto).
+
+```
+escopo: 113 arquivos .ts · 31.894 linhas · 4.891 parâmetros e 4.316 campos examinados
+catch que engole ............... 0
+?? 0 sobre chamada que falha ... 28 → 2, e os 2 benignos
+Number(...) sem conferir ....... 1, e NÃO é a classe (ele estoura, não degrada)
+identificador de conta ......... 0 em parâmetro E em campo
+```
+
+**E a sabotagem pegou a QUINTA vez da família da régua que lê texto** (D179), dentro do teste
+escrito para honrar a quarta: a trava lia o nome da regra no **comentário** que a explica.
+Daí **duas** limpezas, porque há **duas** perguntas — `soOCodigo()` para *"o código faz?"* e
+`semComentarios()` para *"a configuração declara?"*.
+
+## 📋 O registro de 06/10 — quando a fila foi aberta
+
+### Como ela chegou
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 06/10/2026** — a **sétima** vez que o
 chat reabilita em vez de recriar (D112).
@@ -524,7 +585,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 100 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 114 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

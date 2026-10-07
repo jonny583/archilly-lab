@@ -256,3 +256,69 @@ dele e não foi listado; e de cada item vivo, se **bloqueia** alguma fila ou só
 
 **Nada bloqueia fila nenhuma.** O único bloqueio vivo em todo o conjunto é o `VIZINHOS_TOKEN`
 sobre **um trabalho do CI**, e ele tem contorno medido: o verde completo rodado à mão.
+
+---
+
+## 6 · O saldo da fila LAB-48 a LAB-52 — 07/10/2026
+
+**Quarto balanço nascido dentro deste arquivo**, e o primeiro de uma fila que **fechou
+cinco de cinco sem travar**.
+
+| | |
+|---|---|
+| **origem** | o chat, em 06/10/2026, com o despertador reabilitado pela **sétima** vez e uma autorização nova: *"reescreva você mesma o prompt guardado do despertador… você tem a minha autorização para mantê-lo atualizado daqui em diante, sem me perguntar"* |
+| **onde está o original** | **num arquivo**: [`../prompts/FILA.md`](../prompts/FILA.md), seção *A FILA DE 06/10/2026* |
+| **o que continha** | **cinco** prompts: LAB-48 (achado novo do Generate) e LAB-49 a LAB-52 — **três deles tirados da minha própria lista de "proposto ao chat"**, e o LAB-52 trazido da Central |
+| **o que produziu** | cinco PRs mesclados na `main` (#59 a #62 e o deste prompt), **catorze decisões** (D166 a D179) e os números abaixo |
+| **estado** | ✅ os cinco executados e mesclados entre 06 e 07/10/2026 |
+
+| prompt | o que ficou | o ponto cego / o achado de método |
+|---|---|---|
+| **LAB-48** | o diagnóstico das **128 violações** do motor padrão: quatro invariantes, **quatro culpados** — motor 54, **ponte deste Lab 36**, contrato do Generate 11, em aberto 27 (D166 a D169) | **D166, a 14ª vez do ponto cego**: a minha volta escrevia o **alvo** no campo cujo nome é **mínimo** |
+| **LAB-49** | o **detector de prova velha** para LAB-25 e LAB-30, medindo da **fonte**, escopo publicado (**11 de 19** chaves), 4 sabotagens — **2 delas as mentiras históricas** (D170 a D172) | **D172**: a minha trava me reprovou por meio ponto e eu **medi mais em vez de baixar a régua** |
+| **LAB-50** | a passagem externa lê a face como **RETA**, não como segmento — e **a gleba convexa de controle provou**: 0 m onde a côncava dá 1 805,6 m (D173 a D175) | **D174**: a **quarta previsão falhou** e matou **duas** explicações minhas, que ficaram escritas |
+| **LAB-51** | o cabeçalho do `conferir.sh` que afirmava **não haver CI**, consertado com a história citada e com **guarda geral** (D177) | **D177**, a 4ª da família da régua que lê texto — **e a primeira pega ANTES de escrever a régua** |
+| **LAB-52** | as duas varreduras da Central, e o achado de que **o detector estava MUDO** nos dois pacotes (D178, D179) | **D179**, a 5ª da mesma família — **e a primeira pega pela SABOTAGEM, não por mim** |
+
+### Os números da fila
+
+- **cinco prompts executados**, cinco PRs mesclados, entre 06 e 07/10/2026;
+- a suíte foi de **416 para 447 travas**; o CI sem clones, de **98 para 114**;
+- **catorze decisões**, D166 a D179;
+- **uma vez o ponto cego da §6** (D166, a décima quarta), pega dentro do prompt — e **duas
+  vezes a sub-família da régua que lê texto** (D177 e D179), levando-a a **cinco** casos;
+- **quatro listas numeradas** para vizinhos — 5 itens para o Generate (LAB-48), 4 para o
+  Parcelamento (LAB-48) e 3 para o Parcelamento (LAB-50) —, e **nenhum commit** em
+  repositório vizinho;
+- **três detectores que estavam calados passaram a morder**: o de prova velha (LAB-49), o de
+  afirmação falsa sobre caminho (LAB-51) e as três regras type-aware do lint (LAB-52).
+
+### O que esta fila mudou de natureza, e não só de número
+
+**O LAB-48 é o que mais rendeu, e não pelo conserto — ele não consertou nada.** Ele separou
+**culpado** de **conserto** e mostrou que arrumar 37 % das violações **não aprova uma única
+gleba**. Essa conta é o que decide a ordem da próxima fila, e sem ela o chat teria gastado
+conserto no lugar errado.
+
+**E o LAB-50 deu mecanismo ao que o LAB-48 tinha atribuído em bloco:** 29 das 40 violações de
+`geo-antonina` saem de **uma** função do motor do vizinho, e a prova é uma gleba de controle.
+
+### O que esta fila ensinou sobre as minhas próprias réguas
+
+**Três das catorze decisões são sobre a régua, não sobre o medido** — e as três têm a mesma
+forma: *a régua acusou o que ela mesma não devia*. D172 (o escopo raspou por baixo da minha
+trava), D177 (a régua ia reprovar o próprio conserto) e D179 (28 de 28 falso positivo, e a
+trava lia o nome no comentário).
+
+> **A régua que eu acabei de escrever é o primeiro lugar a desconfiar — e a sabotagem é o
+> único jeito de saber.** Das cinco sabotagens desta fila, duas pegaram defeito meu que eu
+> não tinha visto.
+
+### O que espera decisão
+
+A lista viva está na [`FILA.md`](../prompts/FILA.md), seção *Proposto ao chat*. As novas desta
+fila: o **conserto das 36 violações que são a minha ponte** (com a guarda ao lado, D136); a
+**correção da moldura do D159** nos três lugares onde ela saiu; as **27 violações `frente`
+não atribuídas**; **por que o motor desenha via sobre a face que ele mesmo reservou** (D174 —
+matei duas explicações e não tenho a terceira); e **ligar o `recommendedTypeChecked`
+completo**, que são **646 achados** e é outro prompt.
