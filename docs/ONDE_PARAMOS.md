@@ -29,7 +29,7 @@ certa e eu repeti a frase velha por descuido."* O T-36 virou **LAB-58**, o T-38 
 |---|---|---|
 | **LAB-58** | as 81 do motor por **MECANISMO** — lista numerada, insumo da fila do motor | ✅ **07/10** · **SEIS mecanismos, zero não nomeadas** · PR #72 |
 | **LAB-59** | o **contrafactual** de Antonina: com as 81 resolvidas, outra candidata passa a ser aprovável? | ✅ **07/10** · **16 de 20**, e a nota dele ainda prefere 33 · PR #74 |
-| **LAB-60** | a configuração do motor, **só de leitura** — lista numerada pelo chat | ✅ **07/10** · as **três vivas**, e ele **não tem CI** |
+| **LAB-60** | a configuração do motor, **só de leitura** — lista numerada pelo chat | ✅ **07/10** · as **três vivas**, e ele **não tem CI** · PR #76 |
 | **LAB-61** | a **dívida própria** com o que sobrou | ⬜ **próximo — e fecha a fila** |
 
 # 🔧 O LAB-60 · as três formas estão VIVAS no motor — e ele não tem CI
