@@ -484,7 +484,7 @@ existem, e upstream é intocável.
 | **origem** | o chat, em 07/10/2026 à noite, **depois de aceitar a recusa da fila T-36…T-39** e redirecionar os três itens que eram do Lab |
 | **onde está o original** | [`../prompts/FILA.md`](../prompts/FILA.md), seção *A FILA DE 07/10/2026 (segunda)*, com as palavras dele item por item |
 | **o que continha** | quatro prompts: agrupar as 81 por mecanismo, o contrafactual de Antonina, a configuração do motor só de leitura, e a dívida própria |
-| **estado** | ✅ **quatro de quatro**, executados e mesclados em 07/10/2026 (PRs #72, #74, #76 e o do LAB-61) |
+| **estado** | ✅ **quatro de quatro**, executados e mesclados em 07/10/2026 (PRs #72, #74, #76 e #78) |
 | **onde está a prova** | `docs/provas/LAB-58/` a `docs/provas/LAB-61/`, oito arquivos |
 
 ### A regra de família que nasceu antes da fila
