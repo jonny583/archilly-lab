@@ -6116,3 +6116,46 @@ varre texto. Pega dentro do prompt, pela própria trava.
 `<prompt>`, que aceita tanto `LAB-13 e LAB-14` quanto o `ACUMULADO — inclui os recados …` da
 regra nova. **E a forma antiga não foi reescrita:** `RECADOS.md` é registro do que foi enviado, e
 registro não se maquia para caber em régua nova.
+
+---
+
+## D218 · Regra de forma sem o sujeito escrito manda na coisa errada · 08/10/2026
+
+**Achado da Central, e ele explica o meu erro melhor do que eu tinha explicado:**
+
+> *"'Máximo de 12 linhas', sem dizer DE QUE, obriga a abrir um segundo bloco — os quatro blocos
+> foram **OBEDIÊNCIA a uma regra errada, não desobediência**."*
+
+A D214 e a D215 trataram o caso como leitura errada minha. É isso **e mais que isso**: a §1 pedia
+um teto **sem sujeito**, e das duas leituras possíveis — teto do recado, teto do bloco — eu
+escolhi a que partia o bloco. *Regra de forma sem sujeito não é ambígua para quem a escreveu; é
+ambígua para quem a cumpre, e quem a cumpre é quem erra.*
+
+**Varrido o `CLAUDE.md` inteiro, pela régua, nas seis seções que carregam regra** (§1, §1-A, §1-B,
+§4, §5, §7): **UMA** regra de forma não dizia de quê —
+
+> *"Doze linhas é teto, não meta."* — §1, e **é exatamente a frase que me fez abrir os quatro
+> blocos**. As outras com limite (`doze caracteres **de um segredo**`, `um despertador **de 60
+> minutos**`, `um prompt **por despertador**`) já nomeavam o sujeito.
+
+Consertada: *"Doze linhas é teto **DO RECADO**, não meta — e não teto do bloco."*
+
+**A régua, e o escopo é estreito de propósito** (`src/limites-com-sujeito.ts`): ela varre **só as
+seções de regra** — a §6 é narrativa cheia de número (*"441 de 441"*, *"9 + 2 + 3 = 14"*) e varrê-la
+acusaria prosa, que é o D137. Ignora a **citação literal da Central**, que é fonte e não regra
+minha, e ignora frase que **relata a redação antiga** (`dizia`, `estava`, `era`), que é o D155.
+
+**E a régua errou duas vezes antes de servir, as duas pegas pelas minhas travas:**
+
+1. `dizDeQue` exigia a ligação seguida de **maiúscula**, e `oito passos do verde` passava batido;
+2. pior, **o `de` que introduz a QUANTIDADE não é o que nomeia o sujeito**: em `teto **de** doze
+   linhas` o `de` liga ao número. Agora vale qualquer ligação cujo alvo **não** seja numeral.
+
+**E a sabotagem passou na primeira tentativa:** eu troquei só o pedaço `teto DO RECADO` por `teto`,
+e o **resto da frase nova** trazia `do bloco` — a régua achou o sujeito ali e aprovou. *Sabotagem
+que replanta meio defeito mede meia coisa.* Refeita replantando a frase **inteira** como era,
+`exit 1`.
+
+**Há trava** (`tests/limites-com-sujeito.test.ts`, 10): zero limites sem sujeito hoje; a frase
+antiga replantada é pega; um limite novo sem sujeito em qualquer seção de regra é pego; o mesmo
+limite **com** sujeito passa; a §6 e a citação da Central ficam de fora.

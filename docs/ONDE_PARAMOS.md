@@ -23,6 +23,21 @@ apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
 **junto** do LAB-63 e não depois. **Esta fila encolheu duas vezes por ordem do chat**, e o §10
 registra as duas, com o que ele disse em cada uma.
 
+# 📌 DA CENTRAL, 08/10 — o texto da regra está gravado no `CLAUDE.md` §1-C, linha 71
+
+**Literal, sem edição.** A §1 é a minha aplicação dele; a §1-C é a **fonte**, e quando as duas
+divergirem manda a §1-C. Medido junto, e é verdade: este repositório está **sem cópia do Padrão
+Archilly e sem `VERSAO.txt`** — nenhum dos dois existe na árvore. A regra **não espera o kit**.
+
+**E o princípio por trás dela é maior que a regra** (D218):
+
+> **REGRA DE FORMA SEM O SUJEITO ESCRITO MANDA NA COISA ERRADA.**
+
+Varridas as **seis** seções de regra do `CLAUDE.md` (§1, §1-A, §1-B, §4, §5, §7), **UMA** não
+dizia de quê: *"Doze linhas é teto, não meta"* — **a frase que me fez abrir os quatro blocos**.
+Consertada, com trava (`tests/limites-com-sujeito.test.ts`, 10). As outras com limite já nomeavam
+o sujeito.
+
 # ⚠️ A REGRA DA §1 — UM BLOCO SÓ, o RECADO PRIMEIRO, e o resto abaixo dele
 
 **Escrita pelo chat em 08/10/2026, e ela vale agora** (D215):
@@ -216,9 +231,9 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 641 travas (624 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 235 (114 → 138 → 158 → 174 → 193 → 213 → 230 → 235)
-decisões ........... D217 é a última. A próxima é a D218
+suíte .............. 651 travas (634 esteira + 17 testfit)   ← eram 584 ao abrir a fila
+CI sem clones ...... 245 (114 → 138 → 158 → 174 → 193 → 213 → 230 → 235 → 245)
+decisões ........... D218 é a última. A próxima é a D219
 verde .............. 7 passos, exit 0, três clones vizinhos limpos
 ```
 
@@ -1089,7 +1104,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 235 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 245 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
