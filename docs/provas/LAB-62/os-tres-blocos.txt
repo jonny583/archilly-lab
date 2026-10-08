@@ -1,0 +1,80 @@
+=== LISTA 1 de 3 — OS ONZE ITENS ABERTOS, com o motivo declarado ===
+ 1. [prompt-novo] A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO
+ 2. [prompt-novo] O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER
+ 3. [prompt-novo] A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO
+ 4. [depois-do-mvp] Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes
+ 5. [aguardando-outro-repositorio] O delta contra o Padrão 1.2
+ 6. [nao-medido] As 4 violações que sobraram em `geo-antonina`
+ 7. [nao-medido] As 96 quadras de esqueleto não confiável
+ 8. [aguardando-o-jonny] A travessia sobre a APP de `geo-antonina`
+ 9. [escopo-novo] A quadra dentro de APP.
+10. [aguardando-outro-repositorio] O eixo do curso d'água, para o Geo.
+11. [nao-medido] O `faceDeRua` nulo nos 33 lotes de `geo-antonina`
+=== FIM DA LISTA 1 ===
+
+=== LISTA 2 de 3 — OS SEIS MECANISMOS DO MOTOR ===
+Ordem: por quantas glebas o conserto DESTRAVA (leva a zero). O outro número, 'aparece em',
+dá outra ordem — está ao lado de cada um, porque não são a mesma pergunta.
+
+▲ face-de-quadra-limitada-num-eixo-so — destrava 1 (ensaio-47ha), aparece em 2, 14 violações
+   o que é: o teto de face de quadra limita um eixo e deixa o outro correr
+   PRECISA FICAR VERDADEIRO: nenhuma quadra sai com uma face acima do teto de comprimento declarado e outra abaixo dele: o teto limita os DOIS eixos da quadra, não um só
+   com que frequência: a cada execução da esteira de conferência, nas cinco glebas de ensaio — é o invariante `face-quadra` do Validator do Generate, que já roda e já conta
+   NÃO serve: baixar o teto declarado para caber na tira que sai hoje: isso muda a entrada, não o motor, e a tira volta na primeira gleba maior
+
+· fileira-sem-via-propria — destrava 0, aparece em 3, 23 violações
+   o que é: a quadra recebe fileira de lote em face que não é rua — a fileira inteira nasce sem frente
+   PRECISA FICAR VERDADEIRO: todo lote de quadra tem borda a 0,75 m ou menos do contorno de alguma via: a fileira voltada para o miolo da quadra não nasce
+   com que frequência: a cada execução da esteira, nas cinco glebas — é o invariante `frente`, por lote, e ele nomeia o lote que falha
+   NÃO serve: contar só a quadra: a violação é por LOTE, e quadra com rua de um lado passa na conta da quadra e reprova em 19 lotes
+
+· lote-do-fim-da-fileira-perde-testada-e-nao-profundidade — destrava 0, aparece em 3, 11 violações
+   o que é: ao fechar a fileira contra a borda da quadra, o corte encurta a TESTADA e preserva o fundo
+   PRECISA FICAR VERDADEIRO: o último lote de cada fileira fica com testada igual ou acima do mínimo declarado — se o resto do corte não couber, ele é absorvido pelo vizinho e não vira lote
+   com que frequência: a cada execução da esteira — é o invariante `testada`, e o mínimo tem de vir do contrato de entrada e nunca do alvo sorteado (foi isso que custou o D166 aqui)
+   NÃO serve: preservar a profundidade e pagar na testada, que é o que ele faz hoje: o lote fica com cinco vértices, fundo inteiro e frente curta, e a frente é o que a regra cobra
+
+· faixa-externa-sem-limite-longitudinal — destrava 0, aparece em 1, 18 violações
+   o que é: a faixa do lote externo é um SEMIPLANO: ela não acaba onde a face entregue acaba
+   PRECISA FICAR VERDADEIRO: todo lote nascido de face entregue fica dentro da EXTENSÃO dessa face, e não dentro da reta infinita que a contém: a faixa acaba onde a face acaba
+   com que frequência: a cada execução da esteira, mas a medição que a prova é a DISTÂNCIA do lote ao segmento da face entregue — hoje ela vai de 10,25 m a 62,37 m em 18 lotes de uma gleba
+   NÃO serve: medir a distância do lote à RETA da face: ela dá zero para todos os 18, que é exatamente por que o defeito durou
+
+· rede-viaria-aparada-so-pela-divisa — destrava 0, aparece em 1, 11 violações
+   o que é: a rede viária é aparada pela DIVISA e não por `util`: ela entra na faixa do lote externo
+   PRECISA FICAR VERDADEIRO: nenhum leito de via atravessa lote: o aparo da rede viária é contra a mesma área de onde os lotes saem, e não contra a divisa da gleba
+   com que frequência: a cada execução da esteira — é o invariante `via-sobre-lote`, e ele é de sobreposição, então aparece com qualquer tolerância
+   NÃO serve: o recorte por cul-de-sac: ele só roda com percentual maior que zero e só sobre a via secundária, e os 11 lotes de hoje não são todos de secundária
+
+· fileira-encosta-na-via-so-de-esguelha — destrava 0, aparece em 1, 4 violações
+   o que é: a fileira encosta na via de esguelha: o lote toca a rua num trecho curto, e não pela frente
+   PRECISA FICAR VERDADEIRO: o contato de cada lote com o leito que o serve tem comprimento igual ou acima do mínimo de testada: encostar num trecho curto não conta como frente
+   com que frequência: a cada execução da esteira, com amostragem fina da aresta — com amostragem no MEIO da aresta esses 4 lotes passam, e foi assim que eles chegaram rotulados como `frente`
+   NÃO serve: consertar o rótulo da régua: medido aqui, trocar `frente` por `testada` nesses lotes derruba ZERO violações (D184). O saldo é o que conta, não o nome
+
+Por que só um destrava: as outras quatro glebas têm DOIS ou TRÊS mecanismos cada, e uma
+delas tem mais 11 violações do campo que falta no contrato do Generate.
+=== FIM DA LISTA 2 ===
+
+=== LISTA 3 de 3 — DESLIGAR CONFERÊNCIA NO MOTOR (o 'não tem CI' em primeiro) ===
+
+1. o motor NÃO TEM CI — e isto vale mais que as três formas [contexto, e vale mais que as três]
+   PRECISA FICAR VERDADEIRO: todo push ao motor roda `lint`, `typecheck` e `test`, e o resultado é visível sem ninguém pedir. Se alguma coisa faltar para rodar, o trabalho FALHA com a receita de obtê-la, e nunca pula
+   com que frequência: todo push, sem exceção e sem segredo para os passos que não precisam de clone vizinho
+   NÃO serve: três passos declarados que alguém roda quando lembra: aqui a suíte de um pacote ficou VERMELHA, 14 de 14, por duas semanas, porque eu rodava só o outro (D110)
+
+2. a regra LIGADA QUE NÃO PODE REPROVAR — o passo de lint sai verde com o aviso impresso [forma: nao-pode-reprovar]
+   PRECISA FICAR VERDADEIRO: o passo de lint do motor REPROVA com qualquer aviso: zero avisos tolerados. Hoje ele declara 1 regra em `warn`, e ela aparece na saída e não derruba o passo
+   com que frequência: todo push, no mesmo trabalho de CI do item 1 — e a prova é o código de saída, não a leitura da saída com o olho
+   NÃO serve: ler a saída e dizer que está limpa: é a mais silenciosa das três formas justamente porque o passo sai VERDE com o aviso impresso, e foi o que este repositório tinha até o LAB-57
+
+3. a regra DESLIGADA — e o desligador de conferência no próprio compilador [forma: desligada]
+   PRECISA FICAR VERDADEIRO: toda regra de lint em `off` e toda chave de configuração que afrouxa conferência tem, no próprio lugar onde está desligada, o MOTIVO escrito e a condição de revisitar
+   com que frequência: a cada mudança de configuração, por varredura que reprova — não por revisão humana: desligada sem motivo escrito envelhece em silêncio, que é o D104
+   NÃO serve: o motivo em outro documento, em mensagem de commit ou em memória de quem desligou. Nem toda regra desligada é defeito — `no-undef` em TypeScript é recomendação do próprio ferramental — e é exatamente por isso que o motivo precisa estar ao lado: para distinguir as duas
+
+4. o desligador SEM MOTIVO ESCRITO — a conferência de tipo nas dependências, sem o número ao lado [forma: sem-motivo-escrito]
+   PRECISA FICAR VERDADEIRO: ou a conferência de tipo dentro das dependências está LIGADA, ou está desligada com o número medido escrito ao lado: quantos erros ela acusa quando ligada, e em que data isso foi medido
+   com que frequência: a cada atualização de dependência, porque é a atualização que muda o número — a medição de ontem não responde pela dependência de hoje
+   NÃO serve: a afirmação de que é a escolha certa sem o número: aqui ela É a escolha certa, e só se sabe disso porque foi medida — deu ZERO erros nos dois pacotes (LAB-57). Sem o número, é fé
+=== FIM DA LISTA 3 ===

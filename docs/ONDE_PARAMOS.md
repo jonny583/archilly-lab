@@ -4,21 +4,50 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 07/10/2026 · **Último prompt executado:** LAB-61 ·
-**A FILA DE 07/10 (segunda) ESGOTOU, 4 de 4. O despertador está DESLIGADO.**
+**Última atualização:** 08/10/2026 · **Último prompt executado:** LAB-62 ·
+**FILA NOVA DE 08/10, LAB-62 a LAB-66. O despertador está LIGADO, pela décima vez.**
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila esgotou, quatro de quatro
+# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 08/10/2026, LAB-62 a LAB-66
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 07/10/2026.**
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 08/10/2026**, décima reabilitação. O
+prompt guardado dele foi reescrito para a fila nova.
 
-**Os quatro prompts estão feitos e mesclados** (PRs #72, #74, #76 e #78), e o que
-resta na [`prompts/FILA.md`](prompts/FILA.md) está todo em *"proposto ao chat"* — **onze
-itens, cada um agora com o MOTIVO DECLARADO** —, que por definição não se executa. É o caso
-da **D62**, e o desligamento é **desligamento, não apagamento** (D112): regra que o chat
-ratificou **duas vezes** em 07/10.
+| # | em uma linha | estado |
+|---|---|---|
+| **LAB-62** | as **três listas** que esperam pelo chat, dentro do recado | ✅ **08/10** · geradas, não digitadas · e a lista do motor **corrigida da posição 4** |
+| **LAB-63** | *pedido que nomeia o artefato volta pela metade* — a afirmação, a frequência, e o que não serve | pronto |
+| **LAB-64** | *dívida aceita é acusação não revisada* — quantos itens aceitos nunca foram conferidos contra o código | pronto |
+| **LAB-65** | *contraexemplo tratado como exceção é regra que continua errando* | pronto |
+| **LAB-66** | a **dívida própria** com o que sobrar | pronto |
 
-**O saldo está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §9** — pela §1-B,
-gravado **junto** do LAB-61 e não depois.
+**O chat aceitou o achado do LAB-61 como dívida DELE**, e ratificou a regra nas minhas palavras:
+*"lista que o chat usa para escrever fila é dívida de quem a escreve."*
+
+## 🧾 O LAB-62 · e o §6 me pegou de uma forma nova
+
+**Eu ia publicar como achado deste prompt uma coisa que a D197 decidiu ONTEM** — que *"destrava"*
+e *"aparece em"* são perguntas diferentes. Não é achado: é a decisão sem a citação. O que sobrou,
+medido, é outro e é três coisas (D207):
+
+1. o campo da prova se chama `glebasQueEleBloqueia` e mede **"aparece em"** — nome de um, valor de
+   outro, a forma do **D166**;
+2. a lista publicada nesta página tinha, nos três de alcance 1, a ordem 4 → 18 → 11 violações —
+   **nem volume, nem ordem do módulo: três posições que ninguém reproduzia.** Corrigida acima;
+3. **1 de 6** destrava gleba; cinco destravam **zero** — e o que destrava não é o de maior alcance
+   nem o de mais violações, então nenhum dos dois números serve de proxy.
+
+**E a D197 não tinha guarda: era prosa.** Agora tem, semântica, e a sabotagem a exercita.
+
+**Quatro sabotagens, NENHUMA passou** — a primeira vez em cinco prompts. Mas as duas travas que
+caíram aqui caíram **antes** das sabotagens, e o defeito era meu: a guarda das afirmações
+devolvia `` `.ts` `` para `pacote.tsx` e `` `.js` `` para `TSCONFIG.JSON` — **veredicto certo,
+rótulo errado**, e o rótulo é o que iria na mensagem ao motor (D208, a forma do D184).
+
+## A fila anterior, de 07/10 (segunda): cumprida, quatro de quatro
+
+**Os quatro prompts estão feitos e mesclados** (PRs #72, #74, #76 e #78). **O saldo está em
+[`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §9** — pela §1-B, gravado **junto** do LAB-61
+e não depois.
 
 ## A fila de 07/10 (segunda), quatro de quatro
 
@@ -47,20 +76,31 @@ E a nota **dele** continua preferindo a `superquadra` de **33** — 0,6226 contr
 **As duas pontas são necessárias e nenhuma basta:** só o motor aprova zero, só o contrato
 aprova zero.
 
-# 📋 A LISTA QUE VAI AO MOTOR, por mecanismo e em ordem de quantas glebas destrava
+# 📋 A LISTA QUE VAI AO MOTOR — ordem declarada: destrave, alcance, violações
 
 ```
-1 · o teto de face de quadra limita UM EIXO e deixa o outro correr ....... 14   2 glebas
-2 · a quadra recebe fileira de lote em face que NÃO É RUA ................ 23   3 glebas
-3 · o corte do último lote encurta a TESTADA e preserva o fundo .......... 11   3 glebas
-4 · a fileira encosta na via só de ESGUELHA ...............................  4   1 gleba
-5 · a faixa do lote externo é um SEMIPLANO ............................... 18   1 gleba
-6 · a rede viária é aparada pela DIVISA e não por `util` ................. 11   1 gleba
+                                                              destrava  aparece em  violações
+1 · o teto de face de quadra limita UM EIXO e deixa o outro       1 ▲        2           14
+2 · a quadra recebe fileira de lote em face que NÃO É RUA         0          3           23
+3 · o corte do último lote encurta a TESTADA e preserva o fundo   0          3           11
+4 · a faixa do lote externo é um SEMIPLANO                        0          1           18
+5 · a rede viária é aparada pela DIVISA e não por `util`          0          1           11
+6 · a fileira encosta na via só de ESGUELHA                       0          1            4
 ```
 
 **A ordem não é a do volume** (D197): `ensaio-47ha` é bloqueada por **um mecanismo só**, e
-consertá-lo **zera uma gleba inteira, sozinho**. E há a **segunda** lista, do LAB-60: as três
-formas de desligar conferência, vivas lá, com o **não ter CI** como item mais importante.
+consertá-lo **zera uma gleba inteira, sozinho** — e é o **único** dos seis que destrava alguma
+coisa. Os outros cinco destravam **zero**, porque as outras quatro glebas têm dois ou três
+mecanismos cada e `geo-antonina` ainda tem 11 violações do contrato.
+
+**Esta lista foi CORRIGIDA no LAB-62, a partir da posição 4** (D207): a versão anterior punha os
+três de alcance 1 em 4 → 18 → 11 violações, que não é volume crescente, não é decrescente e não é
+a ordem do módulo — **três posições que ninguém reproduzia**. E o campo da prova que dá a coluna
+do meio se chama `glebasQueEleBloqueia`, mas mede *"aparece em"*: nome de um, valor de outro, que
+é a forma do D166. Os dois números vão agora **nomeados e lado a lado**.
+
+E há a **segunda** lista, do LAB-60: as três formas de desligar conferência, vivas lá, com o
+**não ter CI** como item mais importante.
 
 # 🧾 O LAB-61 · a dívida própria era ESTA PÁGINA DE PROPOSTAS
 
@@ -81,9 +121,9 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 584 travas (567 esteira + 17 testfit)   ← eram 505 ao abrir a fila
-CI sem clones ...... 193 (114 → 138 → 158 → 174 → 193, ao longo da fila)
-decisões ........... D206 é a última. A próxima é a D207
+suíte .............. 604 travas (587 esteira + 17 testfit)   ← eram 584 ao fechar a fila anterior
+CI sem clones ...... 213 (114 → 138 → 158 → 174 → 193 → 213)
+decisões ........... D209 é a última. A próxima é a D210
 verde .............. 7 passos, exit 0, três clones vizinhos limpos
 ```
 
@@ -954,7 +994,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 193 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 213 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

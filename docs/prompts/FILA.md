@@ -44,7 +44,69 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## 🟢 A FILA DE 07/10/2026 (segunda) — LAB-58 a LAB-61
+## 🟢 A FILA DE 08/10/2026 — LAB-62 a LAB-66
+
+Mandada pelo chat em 08/10/2026, **depois de ele aceitar o achado do LAB-61 como dívida dele**.
+Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `enabled: true`).
+
+### O achado do LAB-61 foi aceito, e virou regra — nas minhas palavras
+
+> *"O seu achado é sobre mim e eu aceito: a lista 'Proposto ao chat' é o que eu leio para
+> escrever fila, e eu a li estando podre. A regra fica, nas suas palavras: **lista que o chat
+> usa para escrever fila é dívida de quem a escreve.**"*
+
+| # | prompt | estado | condição |
+|---|---|---|---|
+| **LAB-62** | **As três coisas que esperam pelo chat, DENTRO do recado** — os onze itens abertos com o motivo de cada um, os seis mecanismos do motor **em ordem de quantas glebas cada conserto destrava**, e as três formas de desligar conferência dele **com o "não tem CI" em primeiro** | ✅ **concluído em 08/10/2026** · geradas por ferramenta, não digitadas · e a lista do motor **corrigida da posição 4** (D207) | nenhuma |
+| **LAB-63** | **Pedido que nomeia o artefato volta pela metade** (achado da Pesquisa): dizer a AFIRMAÇÃO que precisa ficar provada, a FREQUÊNCIA, e o que NÃO serve | 🟢 **pronto, é o próximo** | LAB-62 mesclado ✅ |
+| **LAB-64** | **Dívida aceita é acusação não revisada** (achado do Render): varrer as outras listas deste repositório e dizer quantos itens aceitos nunca foram conferidos contra o código | pronto | LAB-63 mesclado |
+| **LAB-65** | **Contraexemplo tratado como exceção é regra que continua errando** (achado da Central): varrer atrás de regra minha que já tem contraexemplo registrado e continua valendo | pronto | LAB-64 mesclado |
+| **LAB-66** | **A dívida própria com o que sobrar** | pronto | LAB-65 mesclado |
+
+**O que o chat disse de cada um, nas palavras dele:**
+
+- **LAB-62** — *"mande AQUI, dentro do próprio recado, as três coisas que esperam por mim,
+  porque é só o recado que chega até o chat. Primeira, os ONZE itens abertos da seção 'Proposto
+  ao chat', um por linha, com o motivo declarado de cada um — eu respondo item a item e isso
+  vira fila. Segunda, a lista numerada dos seis mecanismos do motor, em ordem de quantas glebas
+  cada conserto destrava, que eu levo ao motor. Terceira, as três formas de desligar conferência
+  dele, com o 'não tem CI' em primeiro, que eu levo junto."*
+- **LAB-63** — *"a Pesquisa achou hoje que PEDIDO QUE NOMEIA O ARTEFATO VOLTA PELA METADE —
+  pedir 'as somas' devolve uma soma do pacote inteiro, que não diz qual arquivo mudou; diga a
+  AFIRMAÇÃO que precisa ficar provada, diga COM QUE FREQUÊNCIA, porque isso é metade do pedido,
+  e escreva o que NÃO serve. Aplique isso às duas listas numeradas do LAB-62 antes de mandá-las:
+  cada item diz o que precisa ficar verdadeiro, não qual arquivo mexer."*
+- **LAB-64** — *"o Render achou que DÍVIDA ACEITA É ACUSAÇÃO NÃO REVISADA — sete de vinte e oito
+  dele nunca foram dívida, porque a régua que as acusou estava cega. Você acabou de confirmar
+  isso por outro caminho, com cinco de catorze já executados. Varra as outras listas deste
+  repositório pelo mesmo critério e diga quantos itens aceitos nunca foram conferidos contra o
+  código."*
+- **LAB-65** — *"a Central achou que CONTRAEXEMPLO TRATADO COMO EXCEÇÃO É REGRA QUE CONTINUA
+  ERRANDO — ela deduziu quatro endereços por uma fórmula, errou os quatro, e o contraexemplo
+  estava escrito no catálogo dela seis dias antes, lido como caso isolado. Varra atrás de regra
+  sua que já tem contraexemplo registrado e continua valendo."*
+- **LAB-66** — *"continue a dívida própria com o que sobrar. A decisão da nota segue comigo e com
+  o Jonny, e eu trago uma proposta nova: em vez de preferência entre poucos lotes grandes e
+  muitos lotes, somar VGV com curva de preço por tamanho, que responde sozinha terreno a
+  terreno."*
+
+**A proposta nova do chat para a nota** (VGV com curva de preço por tamanho em vez de
+preferência declarada) é **decisão de urbanismo e de negócio**: entra em
+[`../PENDENCIAS_JONNY.md`](../PENDENCIAS_JONNY.md), não é escolha minha (§4). O LAB-66 a
+registra lá; medir não é o LAB-66, é prompt novo.
+
+### A tensão do LAB-62, declarada antes de executar
+
+O chat pediu os onze itens *"um por linha"* **dentro do recado**, e a `CLAUDE.md` §1 põe teto de
+**12 linhas** no recado, com trava (`tests/recado.test.ts`). Os dois não cabem juntos. Resolvido
+assim, e dito no recado: **as três listas vão em blocos de código PRÓPRIOS, logo acima do
+recado** — copiáveis um por um, que é o que o chat de fato faz com elas —, e o recado, dentro do
+teto, diz quantos blocos são e o que cada um carrega. Nada depois do bloco do recado continua
+valendo.
+
+---
+
+## ✅ A FILA DE 07/10/2026 (segunda) — CUMPRIDA, quatro de quatro, LAB-58 a LAB-61
 
 Mandada pelo chat em 07/10/2026, **depois de ele aceitar a recusa da T-36…T-39** e redirecionar
 os três itens que são do Lab. Despertador **reabilitado pela nona vez**
@@ -1064,7 +1126,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 193 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 213 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
