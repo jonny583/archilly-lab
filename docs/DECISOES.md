@@ -5884,3 +5884,120 @@ gerado: onze linhas numeradas na lista 1, e dez vezes cada um dos três campos n
 *Das quatro sabotagens deste prompt, **nenhuma passou** — a primeira vez em cinco prompts. Mas o
 achado do rótulo da extensão (D208) saiu **antes** das sabotagens, pelas travas que eu acabara de
 escrever: é a oitava vez que a régua nova se acusa a si mesma dentro do próprio prompt.*
+
+---
+
+## D210 · Afirmação que entrou sem régua não sai mais — e ela tem duas formas aqui · 08/10/2026
+
+O chat somou quatro prompts num só e trouxe três achados de três lugares. **Eles são o mesmo
+achado visto de três lados:**
+
+| de quem | a frase |
+|---|---|
+| Pesquisa | **pedido que nomeia o artefato volta pela metade** |
+| Render | **dívida aceita é acusação não revisada** — sete de vinte e oito nunca foram dívida |
+| Central | **contraexemplo tratado como exceção é regra que continua errando** |
+
+Procurei as duas formas que isso tem nesta casa, e **as duas estavam lá**:
+
+1. **a acusação que nomeia um ENDEREÇO no repositório do vizinho** (D211);
+2. **a regra da casa cuja aritmética não fecha** (D212).
+
+E procurei uma terceira onde ela *deveria* estar e **não estava** — o contraexemplo registrado
+nas `DECISOES.md`. A régua crua acha **22 pares**; a estreita, que exige a marca **na mesma
+frase** da citação, acha **zero**. Os 22 são todos falso positivo da família D142/D155: a marca
+está na decisão, mas falando de outra coisa.
+
+> **Zero não é "nada a consertar": é onde o contraexemplo NÃO está.** O das minhas regras mora
+> na `CLAUDE.md`, onde ele é **absorvido no texto da própria regra** — e ali o que ninguém media
+> era a **aritmética do fechamento**.
+
+A diferença entre 22 e zero sai na prova, com três exemplos do falso positivo, porque régua que
+só publica o próprio número não deixa ninguém conferir o salto.
+
+---
+
+## D211 · Endereço que leva à CHAMADA e não à DEFINIÇÃO manda procurar no arquivo errado · 08/10/2026
+
+Cada um dos seis mecanismos do LAB-58 declara `ondeNoMotor`: arquivo e nome no clone do
+`motor-testfit`. **São acusações contra o motor de um vizinho, e elas já saíram** — no
+relatório, no recado e na lista que o chat leva. **Nada no verde conferia o endereço.**
+
+Medido contra o clone: o mecanismo `rede-viaria-aparada-so-pela-divisa` dizia
+`motor.ts · apararRedeViaria e aplicarCulDeSac`, e os **dois** moram em outros arquivos —
+`apararRedeViaria` em `aparo.ts:97` e `aplicarCulDeSac` em `formatos.ts:816`. Em `motor.ts`
+eles só são **chamados** (linhas 247 e 209). **Dois de seis símbolos apontavam para o arquivo
+errado**, e os outros quatro estavam certos.
+
+> **O endereço é exatamente o "artefato" que o LAB-62 mandou não nomear** (D208) — e quando ele
+> é nomeado de todo jeito, tem de **resolver**. Endereço que leva à chamada manda quem recebe a
+> acusação procurar no arquivo errado: é o *pedido pela metade* da Pesquisa, do lado de quem
+> acusa.
+
+**O campo também não cabia a verdade:** ele tinha um arquivo só, e o mecanismo mora em dois.
+*Campo que não cabe a verdade força a mentira curta.* Agora ele aceita vários endereços
+separados por `;`.
+
+**A régua cobra DEFINIDO e não MENCIONADO** — o nome depois de `function`, `const`, `class`,
+`type` —, que é o D142 no coração dela: o arquivo errado era justamente um onde o nome
+**aparece**. E descrição em português (*"a montagem das quadras"*) sai como descrição e **não**
+se cobra como definição, senão a régua mediria ortografia (D137). Um mecanismo dos seis é só
+prosa, e **esse número sai na prova**, porque endereço sem símbolo é endereço não medido.
+
+**Sabotagem:** o texto antigo replantado leva a ferramenta a **`exit 1`** nomeando os dois
+símbolos e onde cada um está de verdade
+([`provas/LAB-63/sabotagem.json`](provas/LAB-63/sabotagem.json), nº 1).
+
+---
+
+## D212 · A §6 declarava dezesseis e classificava catorze — a regra que ninguém somava · 08/10/2026
+
+A `CLAUDE.md` §6 é a página que eu leio **antes de toda tarefa**, e a §1-B diz dela, por
+escrito: *"regra que ninguém pode desmentir é slogan (D136), e esta pode."* **Até aqui ela não
+podia.** Medido:
+
+| o que a §6 dizia | o que era |
+|---|---|
+| *"se repetiu DEZESSEIS vezes"* + 16 linhas na tabela | ✅ fechava |
+| *"NOVE foram réguas minhas, **duas** foram a ponte e **três** foram caminho errado"* | 9 + 2 + 3 = **14**: duas das dezesseis **sem classe**, numa frase que se lê como partição |
+| as classes citavam **D104** e **D175** como membros | nenhuma das duas é **linha da tabela** |
+| *"três das **quinze** vezes eu classifiquei pelo nome"* | o ordinal ficou atrás de quando a lista tinha quinze |
+
+**Nenhuma das três é erro de fato — são erros de FECHAMENTO**, e é por isso que duraram: cada
+frase, lida sozinha, está certa.
+
+A partição agora é **tabela declarada**, com a classe de cada linha nomeada, e fecha:
+**7 régua + 4 ponte/ida + 2 caminho + 2 cabeça + 1 dado = 16**.
+
+**E a sabotagem nº 2 achou um buraco de verdade na guarda:** trocando `SETE` por `NOVE` e
+apagando a classe de duas linhas, **a soma volta a fechar em 16** e duas linhas ficam sem classe
+— a ferramenta ficou **calada**, e só uma trava pegou. *Soma é invariante fraca.* A partição
+passou a se cobrar **linha por linha**: cada linha em exatamente uma classe. Refeita a
+sabotagem, `exit 1` nomeando D161 e D185.
+
+---
+
+## D213 · QUATRO falso negativo na régua nova, e os quatro eram SILÊNCIO · 08/10/2026
+
+A régua deste prompt não viu o que estava lá **quatro vezes**, e nenhuma delas estourou: todas
+devolveram *"nada encontrado"*.
+
+| # | o defeito | o que ele escondia |
+|---|---|---|
+| 1 | o parser do endereço dividia **antes** de tirar o parêntese, e `reservarFacesExternas (lido, não tocado)` virava dois pedaços | **quatro dos seis símbolos** iam para `descricoes` e nunca eram conferidos |
+| 2 | o casador de classe exigia a palavra de número no **começo** do negrito, e a frase real é `**Das DEZESSEIS, NOVE foram…**` | **zero classes**: a trava da soma nunca disparava |
+| 3 | o prefixo do casador terminava em `\b`, e **`\b` não conhece português** — há fronteira entre `r` e `ê` | `três` virou `ês`, que não está no mapa: **o D137 dentro da régua escrita para achar o D137** |
+| 4 | a tabela nova enchia a lista de palavras desconhecidas **depois** de os problemas serem montados | a palavra chegava tarde e **não entrava na lista** |
+
+E houve um quinto, pior que os quatro porque era da **guarda**: ao reescrever a §6 como tabela,
+a régua passou a achar zero classes e a imprimir ***"tudo conferido"***.
+
+> **Guarda que não acha a partição não está aprovando a partição: está sem medir nada.**
+
+**O que mudou no desenho, e é a lição que fica:** palavra de número não reconhecida e partição
+não encontrada passaram a ser **problema**, e não `continue`. *Foi o silêncio do `continue` que
+escondeu os quatro.* Régua que não acha nada tem duas leituras — *está limpo* e *estou cega* —, e
+**só a segunda é segura de assumir por conta própria**.
+
+*Os quatro foram pegos **dentro do prompt**, e três deles pela sonda que eu rodei antes de
+escrever a ferramenta; o quinto, pela sabotagem. Nenhum saiu.*

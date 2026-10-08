@@ -524,6 +524,39 @@ eu estava reaproveitando medições feitas sobre **outro** desenho, e elas não 
 estes. Refeito, o número é 16. O registro técnico está no
 [`docs/relatorios/LAB-59.md`](https://github.com/jonny583/archilly-lab/blob/main/docs/relatorios/LAB-59.md).
 
+### Novidade de 08/10 — **o chat trouxe uma ideia nova, e ela pode dispensar a sua escolha**
+
+A pergunta que ficou para você era *"a régua de nota deve preferir poucos lotes grandes ou
+muitos lotes?"*. O chat propôs **não escolher**:
+
+> **Em vez de o programa ter uma preferência declarada, ele somaria o VALOR GERAL DE VENDAS de
+> cada plano, usando uma curva de preço por tamanho de lote.**
+
+**O que isso quer dizer em palavra de gente.** Hoje alguém tem de dizer ao programa *"prefira
+lotes grandes"* ou *"prefira muitos lotes"*, e essa preferência vale igual em qualquer terreno.
+Na proposta do chat, o programa não prefere nada: ele pergunta **quanto vale cada plano**. Se num
+terreno os lotes de 300 m² se vendem melhor por metro quadrado do que os de 800 m², o plano de
+muitos lotes ganha ali **por conta própria**. No terreno vizinho, onde o grande vale mais, ganha
+o grande. **A resposta passa a sair terreno a terreno, em vez de uma regra só para todos.**
+
+**Por que isto é seu e não meu.** Eu não decido urbanismo nem preço (é regra desta casa). E a
+proposta precisa de **uma coisa que só você tem**: a **curva de preço por tamanho** — quanto
+vale o metro quadrado de um lote de 250 m², de 400 m², de 800 m², naquela região. Sem essa
+curva, somar VGV é somar um número inventado, e número inventado é o que eu mais evito.
+
+**O que eu preciso de você, se a ideia lhe agradar:**
+
+| o que | em uma frase |
+|---|---|
+| **a curva** | preço do metro quadrado por faixa de tamanho de lote — três ou quatro faixas já bastam para começar |
+| **até onde ela vale** | ela é de Antonina, da região, ou um padrão que eu posso usar em terreno de ensaio? |
+| **o que entra na conta** | só a venda dos lotes, ou desconto a área de rua e de praça? |
+
+**O que eu NÃO vou fazer sem você dizer:** inventar a curva, nem ligar a soma de VGV na régua de
+nota. **Ela fica anotada aqui como proposta**, e a escolha de 33 ou 1 228 lotes segue sendo sua —
+agora com duas saídas em vez de uma: **escolher a preferência**, ou **dar a curva e deixar a
+conta escolher**.
+
 ### O que eu faço enquanto você não olhar
 
 **Nada muda, e nada fica escondido.** Sigo rodando o programa como ele é, publicando o

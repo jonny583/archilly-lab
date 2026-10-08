@@ -1,0 +1,225 @@
+{
+  "prompt": "LAB-63",
+  "oQueIstoMede": "as afirmações que entraram nesta casa sem régua: os endereços que os seis mecanismos declaram no clone do motor, e a aritmética da CLAUDE.md §6, que é a página lida antes de toda tarefa",
+  "aPergunta": "do chat, somando quatro prompts num só: quantos itens aceitos nunca foram conferidos contra o código, e quais regras minhas já têm contraexemplo registrado e continuam valendo",
+  "quando": "2026-10-08T01:05:04.414Z",
+  "osTresAchadosQueOChatTROUXE": [
+    "Pesquisa: pedido que nomeia o artefato volta pela metade",
+    "Render: dívida aceita é acusação não revisada — sete de vinte e oito nunca foram dívida",
+    "Central: contraexemplo tratado como exceção é regra que continua errando"
+  ],
+  "forma1_osEnderecosNoVizinho": {
+    "oQueSeCobra": "o arquivo existe no clone E cada nome em forma de identificador é DEFINIDO nele — definido, não mencionado (D142). Descrição em português não se cobra como definição, senão a régua mediria ortografia (D137)",
+    "mecanismos": 6,
+    "simbolosConferidos": 6,
+    "mecanismosComFalha": 0,
+    "mecanismosSemSimboloNenhum": [
+      "face-de-quadra-limitada-num-eixo-so"
+    ],
+    "oQueFoiAchadoEConsertado": "o mecanismo `rede-viaria-aparada-so-pela-divisa` declarava `motor.ts · apararRedeViaria e aplicarCulDeSac`, e os DOIS moram em outros arquivos: `aparo.ts` e `formatos.ts`. `motor.ts` é só onde eles são CHAMADOS. DOIS de seis símbolos apontavam para o arquivo errado, numa acusação contra o motor de um vizinho que JÁ SAIU em relatório e recado",
+    "detalhe": [
+      {
+        "mecanismo": "faixa-externa-sem-limite-longitudinal",
+        "ondeNoMotor": "motor-testfit · src/lib/lab/motor.ts · reservarFacesExternas (lido, não tocado)",
+        "enderecos": [
+          {
+            "arquivo": "src/lib/lab/motor.ts",
+            "simbolos": [
+              "reservarFacesExternas"
+            ],
+            "descricoes": []
+          }
+        ],
+        "simbolosConferidos": 1,
+        "falhas": []
+      },
+      {
+        "mecanismo": "rede-viaria-aparada-so-pela-divisa",
+        "ondeNoMotor": "motor-testfit · src/lib/lab/aparo.ts · apararRedeViaria (lido, não tocado) ; motor-testfit · src/lib/lab/formatos.ts · aplicarCulDeSac (lido, não tocado)",
+        "enderecos": [
+          {
+            "arquivo": "src/lib/lab/aparo.ts",
+            "simbolos": [
+              "apararRedeViaria"
+            ],
+            "descricoes": []
+          },
+          {
+            "arquivo": "src/lib/lab/formatos.ts",
+            "simbolos": [
+              "aplicarCulDeSac"
+            ],
+            "descricoes": []
+          }
+        ],
+        "simbolosConferidos": 2,
+        "falhas": []
+      },
+      {
+        "mecanismo": "fileira-sem-via-propria",
+        "ondeNoMotor": "motor-testfit · src/lib/lab/formatos.ts · quadraRet (lido, não tocado)",
+        "enderecos": [
+          {
+            "arquivo": "src/lib/lab/formatos.ts",
+            "simbolos": [
+              "quadraRet"
+            ],
+            "descricoes": []
+          }
+        ],
+        "simbolosConferidos": 1,
+        "falhas": []
+      },
+      {
+        "mecanismo": "face-de-quadra-limitada-num-eixo-so",
+        "ondeNoMotor": "motor-testfit · src/lib/lab/motor.ts · a montagem das quadras (lida, não tocada)",
+        "enderecos": [
+          {
+            "arquivo": "src/lib/lab/motor.ts",
+            "simbolos": [],
+            "descricoes": [
+              "a montagem das quadras"
+            ]
+          }
+        ],
+        "simbolosConferidos": 0,
+        "falhas": []
+      },
+      {
+        "mecanismo": "lote-do-fim-da-fileira-perde-testada-e-nao-profundidade",
+        "ondeNoMotor": "motor-testfit · src/lib/lab/formatos.ts · quadraRet, o recorte do último lote (lido, não tocado)",
+        "enderecos": [
+          {
+            "arquivo": "src/lib/lab/formatos.ts",
+            "simbolos": [
+              "quadraRet"
+            ],
+            "descricoes": [
+              "o recorte do último lote"
+            ]
+          }
+        ],
+        "simbolosConferidos": 1,
+        "falhas": []
+      },
+      {
+        "mecanismo": "fileira-encosta-na-via-so-de-esguelha",
+        "ondeNoMotor": "motor-testfit · src/lib/lab/formatos.ts · quadraRet, a orientação da fileira (lido, não tocado)",
+        "enderecos": [
+          {
+            "arquivo": "src/lib/lab/formatos.ts",
+            "simbolos": [
+              "quadraRet"
+            ],
+            "descricoes": [
+              "a orientação da fileira"
+            ]
+          }
+        ],
+        "simbolosConferidos": 1,
+        "falhas": []
+      }
+    ]
+  },
+  "forma2_aAritmeticaDaRegraDaCasa": {
+    "oQueSeCobra": "o total declarado bate com as linhas da tabela; as classes da partição somam o total; toda decisão citada numa classe é linha da tabela; nenhuma outra frase conta a mesma lista com outro número; e palavra de número não reconhecida é PROBLEMA, não silêncio",
+    "linhasDaTabela": 16,
+    "totalDeclarado": 16,
+    "somaDasClasses": 16,
+    "classes": [
+      {
+        "quanto": 7,
+        "oQue": "régua minha acusando a si mesma",
+        "decisoesCitadas": [
+          "D75",
+          "D93",
+          "D94",
+          "D127",
+          "D128",
+          "D137",
+          "D142",
+          "D148",
+          "D155"
+        ]
+      },
+      {
+        "quanto": 4,
+        "oQue": "a ponte ou a ida do Lab corrompendo a medição",
+        "decisoesCitadas": [
+          "D18",
+          "D98",
+          "D119",
+          "D166"
+        ]
+      },
+      {
+        "quanto": 2,
+        "oQue": "caminho errado de leitura",
+        "decisoesCitadas": [
+          "D135",
+          "D190"
+        ]
+      },
+      {
+        "quanto": 2,
+        "oQue": "a minha cabeça, contando de memória o que estava impresso ao lado",
+        "decisoesCitadas": [
+          "D161",
+          "D185"
+        ]
+      },
+      {
+        "quanto": 1,
+        "oQue": "dado que faltava, e não número que mudou",
+        "decisoesCitadas": [
+          "D133"
+        ]
+      }
+    ],
+    "oQueFoiAchadoEConsertado": [
+      "a frase da partição dizia NOVE + duas + três = 14, e o total é 16: DUAS das dezesseis não tinham classe, e a frase se lia como partição",
+      "ela citava D104 e D175 como membros das classes, e NENHUMA das duas é linha da tabela",
+      "uma frase ainda contava a mesma lista como `quinze`, de quando a lista tinha quinze"
+    ],
+    "aClassificacaoNova": "7 régua + 4 ponte/ida + 2 caminho + 2 cabeça + 1 dado = 16, cada linha em uma classe só, com a decisão nomeada"
+  },
+  "osTresDefeitosDESTARegua": {
+    "porQueIssoSaiNaPROVA": "três vezes nesta mesma ferramenta a régua nova não viu o que estava lá — e os três eram FALSO NEGATIVO, a família do D202. Publicar a régua sem publicar os três seria dizer que ela nasceu pronta",
+    "um": "o parser do endereço dividia ANTES de tirar o parêntese, então `reservarFacesExternas (lido, não tocado)` virava dois pedaços e QUATRO dos seis símbolos iam para `descricoes` sem serem conferidos",
+    "dois": "o casador de classe exigia a palavra de número no COMEÇO do negrito, e a frase real é `**Das DEZESSEIS, NOVE foram…**` — achou ZERO classes, e a trava da soma nunca disparou",
+    "tres": "o prefixo do casador terminava em `\\b`, e `\\b` não conhece português: ele achou fronteira entre `r` e `ê`, e a palavra `três` virou `ês`, que não está no mapa. É o D137 dentro da régua que eu escrevi para achar o D137",
+    "oQueMudouPorCausaDisso": "palavra de número não reconhecida passou a ser PROBLEMA e não `continue`: foi o silêncio do `continue` que escondeu os três"
+  },
+  "forma3_oContraexemploNasDECISOES": {
+    "oQueSeCobra": "regra minha desmentida por decisão posterior, sem a decisão antiga apontar para a nova — quem lê a regra onde ela mora não fica sabendo",
+    "comARegua_CRUA_marcaEmQualquerLugarDaDecisao": 22,
+    "comARegua_ESTREITA_marcaNaMESMAfraseDaCitacao": 0,
+    "semPonteiroDeVolta": 0,
+    "oQueIssoSIGNIFICA": "os 22 da régua crua são TODOS falso positivo da família D142/D155: a marca está na decisão, mas falando de outra coisa, e a citação é de apoio e não de desmentido. ZERO não é 'nada a consertar': é onde o contraexemplo NÃO está. O das minhas regras mora na CLAUDE.md, onde ele é absorvido no texto da própria regra — e ali o que não era medido era a ARITMÉTICA do fechamento",
+    "exemplosDoFalsoPositivo": [
+      {
+        "aRegra": "D67",
+        "oContraexemplo": "D94",
+        "marca": "estava errada",
+        "frase": "Os 161,38 % do LAB-18 são artefato, e a correção vai com nome · 03/10/2026 **O que foi medido:** com a régua consertada, o declarado e o medido divergem nas **c",
+        "aRegraApontaParaAFrente": false
+      },
+      {
+        "aRegra": "D100",
+        "oContraexemplo": "D101",
+        "marca": "estava errada",
+        "frase": "Declaração de capacidade se prova por DIFERENÇA, não por palavra · 03/10/2026 > **⚠ CORRIGIDA EM 03/10/2026 PELO LAB-30 (ver D119).** O princípio desta decisão ",
+        "aRegraApontaParaAFrente": false
+      },
+      {
+        "aRegra": "D64",
+        "oContraexemplo": "D101",
+        "marca": "estava errada",
+        "frase": "Declaração de capacidade se prova por DIFERENÇA, não por palavra · 03/10/2026 > **⚠ CORRIGIDA EM 03/10/2026 PELO LAB-30 (ver D119).** O princípio desta decisão ",
+        "aRegraApontaParaAFrente": false
+      }
+    ]
+  },
+  "osClonesVizinhos": "lidos só para ler (§4); conferidos limpos ao fim da rodada",
+  "problemas": []
+}

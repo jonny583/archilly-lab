@@ -113,7 +113,13 @@ export const MECANISMOS: readonly Mecanismo[] = [
       "buraco só no domínio do LOTE (`quadraRet(util, …)`), não no da VIA — então o leito " +
       "atravessa os lotes externos. O recorte por cul-de-sac não salva: ele só roda com " +
       "`pctCulDeSac > 0` e só sobre a secundária",
-    ondeNoMotor: "motor-testfit · src/lib/lab/motor.ts · apararRedeViaria e aplicarCulDeSac (lidos, não tocados)",
+    // CORRIGIDO no LAB-63 (D211). Este campo dizia `motor.ts · apararRedeViaria e
+    // aplicarCulDeSac`, e os dois moram em OUTROS arquivos: `motor.ts` é só onde eles são
+    // CHAMADOS (linhas 247 e 209). Endereço que leva à chamada e não à definição manda quem
+    // recebe a acusação procurar no arquivo errado. Agora há guarda conferindo contra o clone.
+    ondeNoMotor:
+      "motor-testfit · src/lib/lab/aparo.ts · apararRedeViaria (lido, não tocado) ; " +
+      "motor-testfit · src/lib/lab/formatos.ts · aplicarCulDeSac (lido, não tocado)",
     aProvaQueSustenta: "LAB-55 · docs/provas/LAB-55/via-sobre-a-faixa.json (D188)",
     oPredicadoMedido: "tipo `via-sobre-lote`",
     casa: (v) => v.tipo === "via-sobre-lote",

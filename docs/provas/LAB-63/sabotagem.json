@@ -1,0 +1,54 @@
+{
+  "prompt": "LAB-63",
+  "oQueIstoMede": "que as travas do que eu aceitei REPROVAM — por sabotagem, não por confiança (D126)",
+  "quando": "2026-10-08",
+  "oComando": "bun run lab63 (exit) + bun test tests/aritmetica-da-regra.test.ts tests/enderecos-do-vizinho.test.ts",
+  "oVerdeAntes": { "exit": 0, "travas": 32, "fail": 0 },
+  "sabotagens": [
+    {
+      "numero": 1,
+      "oQue": "o endereço do mecanismo `rede-viaria-aparada-so-pela-divisa` volta a dizer `motor.ts · apararRedeViaria e aplicarCulDeSac` — que é o texto que estava publicado até este prompt",
+      "porQueImporta": "é o defeito ACHADO aqui, replantado: uma acusação contra o motor de um vizinho apontando para o arquivo onde os nomes são CHAMADOS e não definidos",
+      "ferramenta": { "exit": 1, "problemas": 2, "oQueEleDisse": "`apararRedeViaria` NÃO é definido em `src/lib/lab/motor.ts` — está em `src/lib/lab/aparo.ts` · idem `aplicarCulDeSac`, que está em `src/lib/lab/formatos.ts`" },
+      "travas": { "fail": 1, "de": 15 }
+    },
+    {
+      "numero": 2,
+      "oQue": "a partição da §6 volta a não fechar: `SETE` trocado por `NOVE` e a classe de D161 e D185 apagada",
+      "porQueImporta": "é o defeito da regra da casa, replantado — e esta sabotagem ACHOU UM BURACO NA GUARDA",
+      "ferramenta": {
+        "primeiraTentativa": { "exit": 0, "problemas": 0, "porque": "9 + 4 + 2 + 1 = 16: a SOMA volta a fechar, e duas linhas ficam sem classe. A ferramenta ficou CALADA; só uma trava pegou" },
+        "oConserto": "a partição passou a se cobrar LINHA POR LINHA: cada linha da tabela em exatamente uma classe. Soma é invariante fraca",
+        "depoisDoConserto": { "exit": 1, "problemas": 2, "oQueEleDisse": "a linha D161 da tabela não está em nenhuma classe da partição · idem D185" }
+      },
+      "travas": { "fail": 2, "de": 17 }
+    },
+    {
+      "numero": 3,
+      "oQue": "a tabela da partição é apagada por inteiro da §6",
+      "porQueImporta": "é o quarto falso negativo deste prompt, replantado: ao reescrever a §6 como tabela, a régua passou a achar ZERO classes e a dizer *tudo conferido*. Guarda que não acha a partição não está aprovando a partição — está sem medir nada",
+      "ferramenta": { "exit": 1, "problemas": 1, "oQueEleDisse": "particao-nao-encontrada: a §6 não traz a tabela da partição na forma que a régua lê — e isso NÃO é aprovação" },
+      "travas": { "fail": 4, "de": 17 }
+    },
+    {
+      "numero": 4,
+      "oQue": "a frase volta a dizer *três das quinze vezes* num texto que declara dezesseis",
+      "porQueImporta": "é o ordinal que ficou atrás quando a lista passou de quinze para dezesseis — a forma mais barata de a regra da casa envelhecer",
+      "ferramenta": { "exit": 1, "problemas": 1, "oQueEleDisse": "total-velho-em-outra-frase: uma frase conta a mesma lista como \"quinze\" (15) e o total declarado é 16" },
+      "travas": { "fail": 1, "de": 17 }
+    }
+  ],
+  "oSaldo": {
+    "quantasPassaram": 1,
+    "deQuantas": 4,
+    "qual": "a de número 2, e ela achou um buraco de VERDADE na guarda: a soma da partição pode voltar a fechar com linhas sem classe. Consertada cobrando linha por linha, a sabotagem refeita sai exit 1",
+    "osQUATROfalsoNEGATIVOdaMinhaReguaNOVA": [
+      "o parser do endereço dividia ANTES de tirar o parêntese: QUATRO dos seis símbolos iam para `descricoes` e nunca eram conferidos",
+      "o casador de classe exigia a palavra de número no COMEÇO do negrito, e a frase real é `**Das DEZESSEIS, NOVE foram…**`: achou ZERO classes",
+      "o prefixo do casador terminava em `\\b`, e `\\b` não conhece português: achou fronteira entre `r` e `ê`, e `três` virou `ês` — o D137 dentro da régua escrita para achar o D137",
+      "a tabela nova enchia a lista de palavras desconhecidas DEPOIS de os problemas serem montados: guarda que confere na ordem errada confere o vazio"
+    ],
+    "oQueMudouNODESENHOporCausaDisso": "palavra de número não reconhecida e partição não encontrada passaram a ser PROBLEMA, e não `continue`. Foi o silêncio do `continue` que escondeu os quatro"
+  },
+  "oVerdeDepois": { "exit": 0, "travas": 32, "fail": 0 }
+}

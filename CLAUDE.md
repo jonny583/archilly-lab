@@ -255,10 +255,25 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**Das DEZESSEIS, NOVE foram réguas minhas acusando a si mesmas**, **duas foram a ponte
-corrompendo a medição** (D98/D104 e D166) e **três foram caminho errado de leitura** (D135,
-D175, D190); **DEZ** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133,
-D135, D137, D142, D148, D155, D166, D185, D190).
+**As dezesseis, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
+classe, com a decisão nomeada para qualquer um refazer a conta:
+
+| quantas | a classe | quais |
+|---|---|---|
+| **SETE** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155 |
+| **QUATRO** | a ponte ou a ida do Lab corrompendo a medição | D18, D98, D119, D166 |
+| **DUAS** | caminho errado de leitura | D135, D190 |
+| **DUAS** | a minha cabeça, contando de memória o que estava impresso ao lado | D161, D185 |
+| **UMA** | dado que faltava, e não número que mudou | D133 |
+
+7 + 4 + 2 + 2 + 1 = **16**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
+três foram caminho errado" até 08/10/2026, e 9 + 2 + 3 = 14:** duas das dezesseis não tinham
+classe, e a frase se lia como partição. Medido e refeito no LAB-63, com guarda que soma
+(D212). Ela também citava **D104** e **D175** como membros, e nenhuma das duas é linha da
+tabela — elas são decisões *irmãs*, citadas no texto abaixo, e não ocorrências do ponto cego.
+
+**DEZ** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142,
+D148, D155, D166, D185, D190).
 
 **A décima sexta é a terceira da família do CAMINHO, e a segunda do lado ruim dela:** o
 caminho errado **não estourou, devolveu `null`** — e `null` num campo que *classifica* não
@@ -306,7 +321,7 @@ o objeto.
 > e não de quem declarou a regra (D98, D104, D166); e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
 > onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
-> rótulo, e três das quinze vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> rótulo, e três das dezesseis vezes eu classifiquei pelo nome em vez de medir (D148, D155,
 > D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
 > **Dezesseis de dezesseis vezes o defeito estava do MEU lado — na régua, na ponte, no
 > caminho ou na minha cabeça — antes de estar no medido**, e em sete delas a régua era o teste
@@ -377,7 +392,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 213 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 230 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

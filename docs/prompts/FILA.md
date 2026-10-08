@@ -44,7 +44,7 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## 🟢 A FILA DE 08/10/2026 — LAB-62 a LAB-66, e o LAB-65 foi SOMADO ao LAB-64
+## ✅ A FILA DE 08/10/2026 — CUMPRIDA, dois de dois: LAB-62 e LAB-63 (os quatro restantes somados)
 
 Mandada pelo chat em 08/10/2026, **depois de ele aceitar o achado do LAB-61 como dívida dele**.
 Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `enabled: true`).
@@ -58,9 +58,10 @@ Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-62** | **As três coisas que esperam pelo chat, DENTRO do recado** — os onze itens abertos com o motivo de cada um, os seis mecanismos do motor **em ordem de quantas glebas cada conserto destrava**, e as três formas de desligar conferência dele **com o "não tem CI" em primeiro** | ✅ **concluído em 08/10/2026** · geradas por ferramenta, não digitadas · a lista do motor **corrigida da posição 4** (D207) · PR #80 | nenhuma |
-| **LAB-63** | **Pedido que nomeia o artefato volta pela metade** (achado da Pesquisa): dizer a AFIRMAÇÃO que precisa ficar provada, a FREQUÊNCIA, e o que NÃO serve | 🟢 **pronto, é o próximo** | LAB-62 mesclado ✅ |
-| **LAB-64** | **O que eu aceitei e nunca reconferi** — os dois achados SOMADOS NUM PROMPT SÓ por ordem do chat em 08/10: *dívida aceita é acusação não revisada* (Render) **e** *contraexemplo tratado como exceção é regra que continua errando* (Central). Uma varredura, uma régua, uma prova: quantos itens aceitos nunca foram conferidos contra o código, e quais regras minhas já têm contraexemplo registrado e continuam valendo | pronto | LAB-63 mesclado |
-| **LAB-66** | **A dívida própria com o que sobrar** | pronto | LAB-64 mesclado |
+| **LAB-63** | **O QUE EU ACEITEI E NUNCA RECONFERI** — os quatro itens restantes somados **num prompt só**, por ordem do chat em 08/10. Ele carrega: (a) a regra do pedido — *a AFIRMAÇÃO que precisa ficar provada, a FREQUÊNCIA e o que NÃO serve*, virando regra da casa com guarda, e não só uma lista bem escrita; (b) *dívida aceita é acusação não revisada* — quantos itens aceitos nunca foram conferidos contra o código; (c) *contraexemplo tratado como exceção* — quais regras minhas já têm contraexemplo registrado e continuam valendo; (d) a **dívida própria** com o que sobrar. **E ele FECHA A FILA:** balanço obrigatório no `BALANCOS.md` junto do prompt, a proposta nova do chat para a nota na página do Jonny, e o despertador **DESLIGADO** ao fim | ✅ **concluído em 08/10/2026** · **a fila ESGOTOU, 2 de 2** · 2 de 6 símbolos apontavam para o arquivo errado no clone, e a §6 declarava 16 e classificava 14 | LAB-62 mesclado ✅ |
+| ~~LAB-64~~ | ~~o que eu aceitei e nunca reconferi~~ | **somado ao LAB-63** em 08/10 | — |
+| ~~LAB-65~~ | ~~contraexemplo tratado como exceção~~ | **somado ao LAB-63** em 08/10 (já havia sido somado ao LAB-64) | — |
+| ~~LAB-66~~ | ~~a dívida própria com o que sobrar~~ | **somado ao LAB-63** em 08/10 | — |
 
 **O que o chat disse de cada um, nas palavras dele:**
 
@@ -75,8 +76,22 @@ Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `
   AFIRMAÇÃO que precisa ficar provada, diga COM QUE FREQUÊNCIA, porque isso é metade do pedido,
   e escreva o que NÃO serve. Aplique isso às duas listas numeradas do LAB-62 antes de mandá-las:
   cada item diz o que precisa ficar verdadeiro, não qual arquivo mexer."*
-- **LAB-64 e LAB-65, SOMADOS** — em 08/10/2026, depois do LAB-62, o chat mandou: *"some dos
-  dois prompts em 1 somente."* **Qual par não foi dito, e a escolha é minha, declarada aqui:** o
+- **OS QUATRO RESTANTES, SOMADOS NUM SÓ** — em 08/10/2026 o chat mandou duas vezes, e a segunda
+  substituiu a primeira: *"some dos dois prompts em 1 somente"* e, logo depois, ***"melhor os
+  vários prompts em 1 somente"***. Então o que era LAB-63, LAB-64, LAB-65 e LAB-66 é **um prompt:
+  o LAB-63**. Os três outros ficam **riscados e não apagados**, porque a numeração não se
+  renumera — 209 decisões citam número de prompt, e fila renumerada quebra toda citação que já
+  saiu. **O que cada um pedia continua escrito abaixo**, nas palavras dele, e é o roteiro das
+  quatro partes do LAB-63. **E uma consequência tem de ser dita:** com um item só, **fechar o
+  LAB-63 esgota a fila** — então ele traz o balanço da §1-B e o desligamento do despertador
+  dentro de si, e não num prompt seguinte que não existe.
+
+- *A primeira soma, de LAB-64 com LAB-65, ficou registrada no PR #82 e foi **absorvida** por esta
+  — não desfeita: o motivo que a justificou (os dois são a mesma varredura, e a D207 é um caso
+  dos dois ao mesmo tempo) continua sendo o motivo de eles serem UMA parte do LAB-63, e não duas.*
+
+- **LAB-64 e LAB-65, a primeira soma** — em 08/10/2026, depois do LAB-62, o chat mandou:
+  *"some dos dois prompts em 1 somente."* **Qual par não foi dito, e a escolha é minha, declarada aqui:** o
   LAB-64 e o LAB-65. Os dois são **a mesma varredura** — as minhas próprias listas e regras
   conferidas contra o código —, e o LAB-62 já mostrou que eles se encontram no **mesmo achado**: a
   **D207** é, ao mesmo tempo, uma decisão nunca reconferida *e* um contraexemplo lido como caso
@@ -1134,7 +1149,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 213 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 230 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

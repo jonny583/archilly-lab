@@ -599,3 +599,80 @@ alívio.*
 **O despertador foi DESLIGADO** (`enabled: false`), não apagado — é a regra que o chat
 ratificou duas vezes em 07/10. O motivo está em
 [`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md).
+
+---
+
+## 10 · O saldo da fila LAB-62 e LAB-63 — 08/10/2026
+
+| | |
+|---|---|
+| **origem** | o chat, em 08/10/2026, **depois de aceitar o achado do LAB-61 como dívida dele** |
+| **onde está o original** | [`../prompts/FILA.md`](../prompts/FILA.md), seção *A FILA DE 08/10/2026*, com as palavras dele item por item |
+| **o que continha ao nascer** | **cinco** prompts: LAB-62 a LAB-66 |
+| **o que continha ao fim** | **dois** — o chat somou os restantes, duas vezes, e a segunda substituiu a primeira |
+| **estado** | ✅ **dois de dois**, executados e mesclados em 08/10/2026 (PRs #80, #82 e o deste prompt) |
+| **onde está a prova** | `docs/provas/LAB-62/` e `docs/provas/LAB-63/`, quatro arquivos |
+
+### Esta fila encolheu DUAS vezes, por ordem dele, e o registro de como
+
+| quando | o que ele disse | o que virou |
+|---|---|---|
+| ao abrir | a fila de cinco, LAB-62 a LAB-66 | cinco itens |
+| depois do LAB-62 | *"some dos dois prompts em 1 somente"* — **sem dizer qual par** | perguntei, a pergunta foi negada, e **eu escolhi**: LAB-64 + LAB-65, com o motivo declarado na fila (PR #82) |
+| logo depois | *"melhor os vários prompts em 1 somente"* | os **quatro** restantes num só: o LAB-63 |
+
+**A numeração não foi renumerada em nenhuma das duas vezes.** LAB-64, LAB-65 e LAB-66 ficaram
+**riscados e não apagados**, com as palavras do chat sobre cada um no lugar onde estavam — porque
+**212 decisões citam número de prompt**, e fila renumerada quebra toda citação que já saiu. É a
+mesma regra da página do Jonny (§5) e da lista de propostas (D205).
+
+**E a primeira soma não foi desfeita pela segunda: foi absorvida.** O motivo que a justificou — os
+dois achados são a mesma varredura, e a D207 é um caso dos dois ao mesmo tempo — continua sendo o
+motivo de eles serem **uma** parte do LAB-63, e não duas.
+
+### O que a fila de dois prompts produziu
+
+| | LAB-62 | LAB-63 |
+|---|---|---|
+| **o pedido** | as três listas que esperam pelo chat, dentro do recado | o que eu aceitei e nunca reconferi |
+| **o que foi achado** | a lista do motor tinha **três posições que ninguém reproduzia**; e o que eu ia chamar de achado **já era a D197** | **2 de 6** símbolos apontavam para o arquivo errado no clone; a §6 declarava **16** e classificava **14** |
+| **decisões** | D207, D208, D209 | D210, D211, D212, D213 |
+| **travas novas** | 20 | 32 |
+| **sabotagens** | 4, **nenhuma** passou | 4, **uma** passou — e achou buraco de verdade na guarda |
+
+```
+suíte .............. 604 → 636 travas (619 esteira + 17 testfit)
+CI sem clones ...... 193 → 230
+decisões ........... D206 → D213
+provas novas ....... 4
+```
+
+### As duas lições desta fila, e as duas são sobre SILÊNCIO
+
+**A primeira é do LAB-62, e é nova na casa:** *achado que repete decisão registrada não é achado,
+é a decisão sem a citação.* Eu ia publicar como achado do dia o que a D197 decidira na véspera —
+e isso teria dito ao chat que a lista mudou quando ela não mudou. A regra que sai dela: **antes de
+escrever "o achado é", procurar o achado nas decisões.**
+
+**A segunda é do LAB-63, e custou quatro vezes no mesmo prompt:** a régua nova não viu o que
+estava lá **quatro vezes**, e nenhuma delas estourou — todas devolveram *"nada encontrado"*. E a
+pior foi a da **guarda**: ao reescrever a §6 numa forma mais conferível, a régua passou a achar
+zero classes e a imprimir *"tudo conferido"*.
+
+> **Régua que não acha nada tem duas leituras — *está limpo* e *estou cega* — e só a segunda é
+> segura de assumir por conta própria.**
+
+Por isso palavra de número não reconhecida e partição não encontrada passaram a ser **problema**,
+e não `continue`. *Foi o silêncio do `continue` que escondeu os quatro.*
+
+### O que sobra para o chat, e é curto
+
+- **os onze itens abertos** da seção *"Proposto ao chat"*, cada um com o motivo declarado —
+  mandados dentro do recado do LAB-62, um por linha, para ele responder item a item;
+- **as duas listas numeradas** que vão pelos vizinhos: os seis mecanismos do motor e as formas de
+  desligar conferência dele, cada item dizendo **o que precisa ficar verdadeiro**, **com que
+  frequência** e **o que não serve**;
+- **a proposta de VGV com curva de preço por tamanho**, que entrou na página do Jonny com as três
+  coisas que eu preciso dele para a conta não ser número inventado.
+
+**O despertador foi DESLIGADO** (`enabled: false`), não apagado — o chat reusa o id.

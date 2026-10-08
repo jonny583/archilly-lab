@@ -4,21 +4,56 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 08/10/2026 · **Último prompt executado:** LAB-62 ·
-**FILA DE 08/10, LAB-62 a LAB-66 — o LAB-65 foi SOMADO ao LAB-64. Despertador LIGADO.**
+**Última atualização:** 08/10/2026 · **Último prompt executado:** LAB-63 ·
+**A FILA DE 08/10 ESGOTOU, 2 de 2. O despertador está DESLIGADO.**
 
-# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 08/10/2026, LAB-62 a LAB-66 (o 65 somado ao 64)
+# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila esgotou, dois de dois
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 08/10/2026**, décima reabilitação. O
-prompt guardado dele foi reescrito para a fila nova.
+**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 08/10/2026.** Desligado e **não
+apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
 
 | # | em uma linha | estado |
 |---|---|---|
 | **LAB-62** | as **três listas** que esperam pelo chat, dentro do recado | ✅ **08/10** · geradas, não digitadas · lista do motor **corrigida da posição 4** · PR #80 |
-| **LAB-63** | *pedido que nomeia o artefato volta pela metade* — a afirmação, a frequência, e o que não serve | pronto |
-| **LAB-64** | **os dois achados somados num prompt só** (ordem do chat, 08/10): *dívida aceita é acusação não revisada* **e** *contraexemplo tratado como exceção é regra que continua errando* | pronto |
-| ~~LAB-65~~ | somado ao LAB-64 — o par não foi dito, e a escolha está declarada na `FILA.md` | — |
-| **LAB-66** | a **dívida própria** com o que sobrar | pronto |
+| **LAB-63** | **OS QUATRO RESTANTES SOMADOS NUM SÓ** — o que eu aceitei e nunca reconferi | ✅ **08/10** · **2 de 6** símbolos no arquivo errado · a §6 declarava 16 e classificava 14 · **a fila esgotou** |
+| ~~LAB-64~~ ~~LAB-65~~ ~~LAB-66~~ | somados ao LAB-63, riscados e não apagados — a numeração não se renumera | — |
+
+**O saldo está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §10** — pela §1-B, gravado
+**junto** do LAB-63 e não depois. **Esta fila encolheu duas vezes por ordem do chat**, e o §10
+registra as duas, com o que ele disse em cada uma.
+
+# 🧾 O LAB-63 · afirmação que entrou sem régua não sai mais
+
+Os três achados que o chat trouxe (Pesquisa, Render, Central) são **o mesmo visto de três
+lados**, e ele tem **duas** formas nesta casa — as duas estavam lá (D210):
+
+```
+FORMA 1 · o endereço que eu declaro no repositório do vizinho
+  2 de 6 símbolos apontavam para o ARQUIVO ERRADO, numa acusação que JÁ SAIU:
+  apararRedeViaria mora em aparo.ts, aplicarCulDeSac em formatos.ts — e o endereço
+  dizia motor.ts, que é onde eles são CHAMADOS. Nada no verde conferia.       (D211)
+
+FORMA 2 · a CLAUDE.md §6, a página que eu leio antes de toda tarefa
+  declarava DEZESSEIS e classificava CATORZE (9+2+3); citava D104 e D175 como
+  membros, e nenhuma é linha da tabela; e contava a mesma lista como "quinze".  (D212)
+
+FORMA 3 · nas DECISOES.md — medida, e NEGATIVA
+  régua crua 22 pares · régua estreita ZERO. Os 22 são falso positivo da família
+  D142. Zero não é "nada a consertar": é onde o contraexemplo NÃO está.         (D210)
+```
+
+**O custo foi QUATRO falso negativo na régua nova, e os quatro eram SILÊNCIO** (D213) — o parser
+dividindo antes de limpar, o casador exigindo a palavra no começo do negrito, o `\b` que não
+conhece português (`três` → `ês`, o D137 dentro da régua escrita para achar o D137) e a ordem
+errada no corpo da função. **E o quinto era a própria guarda:** reescrita a §6 numa forma mais
+conferível, ela passou a achar zero classes e a imprimir *"tudo conferido"*.
+
+> **Régua que não acha nada tem duas leituras — *está limpo* e *estou cega* — e só a segunda é
+> segura de assumir por conta própria.**
+
+**Sabotagens: quatro, e UMA passou** — a da partição: 9 + 4 + 2 + 1 = 16, a **soma volta a
+fechar** com duas linhas sem classe. *Soma é invariante fraca.* A partição passou a se cobrar
+**linha por linha**.
 
 **O chat aceitou o achado do LAB-61 como dívida DELE**, e ratificou a regra nas minhas palavras:
 *"lista que o chat usa para escrever fila é dívida de quem a escreve."*
@@ -121,9 +156,9 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 604 travas (587 esteira + 17 testfit)   ← eram 584 ao fechar a fila anterior
-CI sem clones ...... 213 (114 → 138 → 158 → 174 → 193 → 213)
-decisões ........... D209 é a última. A próxima é a D210
+suíte .............. 636 travas (619 esteira + 17 testfit)   ← eram 584 ao abrir a fila
+CI sem clones ...... 230 (114 → 138 → 158 → 174 → 193 → 213 → 230)
+decisões ........... D213 é a última. A próxima é a D214
 verde .............. 7 passos, exit 0, três clones vizinhos limpos
 ```
 
@@ -994,7 +1029,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 213 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 230 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
