@@ -38,7 +38,7 @@ do texto.*
 Vale para toda resposta, curta ou longa, boa notícia ou má — inclusive quando a resposta é só "não
 deu". `<app>` é `Lab`; `<prompt>` é o prompt em execução (`LAB-07`, `LAB-02`…) ou `—` quando não
 houver nenhum. Linha sem conteúdo leva `—`, nunca some: o leitor precisa ver que a pergunta foi
-feita e a resposta foi "nada". Doze linhas é teto, não meta.
+feita e a resposta foi "nada". Doze linhas é teto DO RECADO, não meta — e não teto do bloco: era esta frase, sem o sujeito escrito, que me fez abrir quatro blocos (D218).
 
 **Por quê, e foi medido em 08/10/2026:** o LAB-62 devolveu **quatro** blocos — três listas e o
 recado — e o Jonny **atravessou cinco telas copiando um por um**, no celular. Ele chama de *prompt*
@@ -65,6 +65,47 @@ a forma de **entregar**, nunca a de **registrar**.
 Assim "me dá tudo desde o dia tal" vira uma leitura de arquivo, e não uma reconstrução a partir
 dos relatórios. **Recado que foi ao chat e não foi ao arquivo não existe amanhã** — aconteceu em
 08/10/2026, com o recado da própria regra do bloco, e agora **há guarda** (D216).
+
+---
+
+## 1-C · Da Central — o texto da regra, gravado como veio
+
+**Mandado pela Central em 08/10/2026, para gravar neste `CLAUDE.md` em seção própria.** Está
+**literal**, sem edição: a §1 acima é a minha aplicação dele, e esta seção é a **fonte**. Quando
+as duas divergirem, manda esta.
+
+> Da Central, regra nova do Jonny, para o CLAUDE.md deste repositório.
+> UM BLOCO SÓ POR RODADA: tudo o que o Jonny precisa copiar sai dentro
+> de UM único bloco de código — o recado primeiro, e abaixo dele, NO
+> MESMO BLOCO, qualquer lista, texto para colar em outro lugar ou
+> pedido a outro repositório, separado por linha de marca. Nunca dois
+> blocos, nunca um bloco e outro depois, e nunca texto a copiar na
+> conversa acima do bloco: o que fica na conversa não chega ao chat, e
+> três sessões já perderam texto assim. O LIMITE DE DOZE LINHAS É DO
+> RECADO, NÃO DO BLOCO: o bloco pode ser longo quando precisa, e isso é
+> melhor do que dividir, porque o custo dele é o número de cópias, não
+> o tamanho — partir o bloco para caber nas doze linhas é o defeito,
+> não o conserto. ACUMULADO: rodou mais de um prompt sem o Jonny
+> voltar, o bloco mais novo abre com "ACUMULADO — inclui os recados X,
+> Y e Z" e traz só o que ainda importa; ele copia só o último, e cada
+> prompt continua gravando o recado COMPLETO no arquivo de recados do
+> repositório. A razão: ele é o transporte entre as sessões e o chat,
+> no celular, com o dedo, e cada bloco é uma travessia de tela. Medido:
+> quatro blocos numa rodada custaram cinco telas. Padrão Archilly 2.6,
+> regras 48, 49 e 50, DEC-159.
+
+**Esta regra é comportamento de sessão e NÃO espera o kit.** Medido pela Central em 08/10: este
+repositório está **sem cópia do Padrão Archilly e sem `VERSAO.txt`** — conferido aqui e é verdade,
+nenhum dos dois existe na árvore. A regra vale assim mesmo; o kit, quando chegar, é outro item.
+
+### O princípio por trás dela, e ele é maior que a regra (D218)
+
+> **REGRA DE FORMA SEM O SUJEITO ESCRITO MANDA NA COISA ERRADA.**
+
+A §1 dizia *"no máximo 12 linhas"* **sem dizer de quê**, e eu li como teto do **bloco**. Os quatro
+blocos do LAB-62 foram **obediência a uma regra mal escrita, não desobediência** — e foi preciso o
+Jonny pedir **duas vezes** para o defeito aparecer. Toda regra de forma desta página passa a dizer
+**de que** é o limite, e **há guarda** (`tests/limites-com-sujeito.test.ts`).
 
 ---
 
@@ -419,7 +460,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 235 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 245 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê
