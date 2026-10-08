@@ -17,7 +17,7 @@ apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
 | **LAB-62** | as **três listas** que esperam pelo chat, dentro do recado | ✅ **08/10** · geradas, não digitadas · lista do motor **corrigida da posição 4** · PR #80 |
 | **LAB-63** | o que eu aceitei e nunca reconferi | ✅ **08/10** · **2 de 6** símbolos no arquivo errado · a §6 declarava 16 e classificava 14 · PR #83 |
 | **LAB-64** | com o **LAB-65 dentro**, soma **ratificada pelo chat** | ✅ **08/10**, dentro do LAB-63: é a mesma varredura e a mesma prova · PR #83 |
-| **LAB-66** | a **dívida própria** — e o que sobrou era o **§1** | ✅ **08/10** · D215, D216, D217 · **a fila esgotou** |
+| **LAB-66** | a **dívida própria** — e o que sobrou era o **§1** | ✅ **08/10** · D215, D216, D217 · PR #86 · **a fila esgotou** |
 
 **O saldo está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §10** — pela §1-B, gravado
 **junto** do LAB-63 e não depois. **Esta fila encolheu duas vezes por ordem do chat**, e o §10

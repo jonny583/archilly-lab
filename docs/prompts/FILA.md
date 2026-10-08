@@ -61,7 +61,7 @@ Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `
 | **LAB-63** | **O que eu aceitei e nunca reconferi** — a regra do pedido, *dívida aceita é acusação não revisada* e *contraexemplo tratado como exceção*. Uma varredura, uma régua, uma prova | ✅ **concluído em 08/10/2026** · 2 de 6 símbolos apontavam para o arquivo errado no clone, e a §6 declarava 16 e classificava 14 · PR #83 | LAB-62 mesclado ✅ |
 | **LAB-64** | **o LAB-65 somado dentro dele** — a soma foi **ratificada pelo chat**: *"a razão é boa, são a mesma varredura, e você acertou em riscar em vez de renumerar"* | ✅ **concluído em 08/10/2026**, dentro do LAB-63: é a mesma varredura, e a prova é a mesma · PR #83 | LAB-63 ✅ |
 | ~~LAB-65~~ | ~~contraexemplo tratado como exceção~~ | **somado ao LAB-64** em 08/10, riscado e não apagado | — |
-| **LAB-66** | **A dívida própria com o que sobrou** — e o que sobrou era o **§1**: a regra do bloco único implementada ao contrário, a origem errada da D214, o recado perdido e a trava que acusou o precedente | ✅ **concluído em 08/10/2026** · **a fila ESGOTOU** · D215, D216, D217 | LAB-64 ✅ |
+| **LAB-66** | **A dívida própria com o que sobrou** — e o que sobrou era o **§1**: a regra do bloco único implementada ao contrário, a origem errada da D214, o recado perdido e a trava que acusou o precedente | ✅ **concluído em 08/10/2026** · **a fila ESGOTOU** · D215, D216, D217 · PR #86 | LAB-64 ✅ |
 
 **O que o chat disse de cada um, nas palavras dele:**
 
