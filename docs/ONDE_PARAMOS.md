@@ -15,7 +15,7 @@ apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
 | # | em uma linha | estado |
 |---|---|---|
 | **LAB-62** | as **três listas** que esperam pelo chat, dentro do recado | ✅ **08/10** · geradas, não digitadas · lista do motor **corrigida da posição 4** · PR #80 |
-| **LAB-63** | **OS QUATRO RESTANTES SOMADOS NUM SÓ** — o que eu aceitei e nunca reconferi | ✅ **08/10** · **2 de 6** símbolos no arquivo errado · a §6 declarava 16 e classificava 14 · **a fila esgotou** |
+| **LAB-63** | **OS QUATRO RESTANTES SOMADOS NUM SÓ** — o que eu aceitei e nunca reconferi | ✅ **08/10** · **2 de 6** símbolos no arquivo errado · a §6 declarava 16 e classificava 14 · PR #83 · **a fila esgotou** |
 | ~~LAB-64~~ ~~LAB-65~~ ~~LAB-66~~ | somados ao LAB-63, riscados e não apagados — a numeração não se renumera | — |
 
 **O saldo está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §10** — pela §1-B, gravado
