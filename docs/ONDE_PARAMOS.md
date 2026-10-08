@@ -22,6 +22,25 @@ apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
 **junto** do LAB-63 e não depois. **Esta fila encolheu duas vezes por ordem do chat**, e o §10
 registra as duas, com o que ele disse em cada uma.
 
+# ⚠️ A REGRA NOVA DA §1 — UM BLOCO SÓ, e ela nasceu de um erro meu de leitura
+
+**Tudo o que vai ao chat cabe no MESMO bloco de código**, acima da linha
+`=== RECADO PARA O CHAT`. O teto de 12 linhas é do **recado**, da marca ao `=== FIM ===`; o que
+vem acima dela não tem teto. **Há guarda:** nenhum bloco do `RECADOS.md` fica fora de um recado.
+
+**Por que ela existe** (D214): o LAB-62 saiu com **quatro** blocos de código — três listas e o
+recado. O Jonny estava no celular, e **quatro botões de copiar são quatro viagens**. Ele mandou
+consertar **duas vezes** (*"some dos dois prompts em 1 somente"*, *"melhor os vários prompts em 1
+somente"*) e **eu li "prompt" como item da fila nas duas**, e fui mexer na fila em vez da
+resposta. Só na terceira mensagem — *"parece meio óbvio não???"* — eu entendi.
+
+> **Para ele, *prompt* é o que ele COLA no outro app.** O vocabulário de quem pede manda no
+> vocabulário de quem executa — e **pedido repetido que eu "cumpro" e o pedinte repete de novo
+> não foi cumprido: foi lido errado.**
+
+**O que não se perdeu:** as duas somas de fila entregaram o conteúdo todo — o LAB-63 executou o
+que o LAB-64, o LAB-65 e o LAB-66 pediam. Errou a **forma da fila**, não o trabalho.
+
 # 🧾 O LAB-63 · afirmação que entrou sem régua não sai mais
 
 Os três achados que o chat trouxe (Pesquisa, Render, Central) são **o mesmo visto de três
@@ -156,9 +175,9 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 636 travas (619 esteira + 17 testfit)   ← eram 584 ao abrir a fila
+suíte .............. 637 travas (620 esteira + 17 testfit)   ← eram 584 ao abrir a fila
 CI sem clones ...... 230 (114 → 138 → 158 → 174 → 193 → 213 → 230)
-decisões ........... D213 é a última. A próxima é a D214
+decisões ........... D214 é a última. A próxima é a D215
 verde .............. 7 passos, exit 0, três clones vizinhos limpos
 ```
 
