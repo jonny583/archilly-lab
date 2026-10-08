@@ -602,24 +602,25 @@ ratificou duas vezes em 07/10. O motivo está em
 
 ---
 
-## 10 · O saldo da fila LAB-62 e LAB-63 — 08/10/2026
+## 10 · O saldo da fila de 08/10/2026 — LAB-62, LAB-63, LAB-64 (com o 65) e LAB-66
 
 | | |
 |---|---|
 | **origem** | o chat, em 08/10/2026, **depois de aceitar o achado do LAB-61 como dívida dele** |
 | **onde está o original** | [`../prompts/FILA.md`](../prompts/FILA.md), seção *A FILA DE 08/10/2026*, com as palavras dele item por item |
 | **o que continha ao nascer** | **cinco** prompts: LAB-62 a LAB-66 |
-| **o que continha ao fim** | **dois** — o chat somou os restantes, duas vezes, e a segunda substituiu a primeira |
-| **estado** | ✅ **dois de dois**, executados e mesclados em 08/10/2026 (PRs #80, #82 e o deste prompt) |
-| **onde está a prova** | `docs/provas/LAB-62/` e `docs/provas/LAB-63/`, quatro arquivos |
+| **o que continha ao fim** | **quatro** — o chat somou o LAB-65 no LAB-64 e **ratificou essa soma**; a segunda soma, que juntava tudo num só, foi um mal-entendido meu e foi desfeita |
+| **estado** | ✅ **quatro de quatro**, executados e mesclados em 08/10/2026 (PRs #80, #82, #83, #85 e o deste prompt) |
+| **onde está a prova** | `docs/provas/LAB-62/`, `LAB-63/` e `LAB-66/`, seis arquivos |
 
 ### Esta fila encolheu DUAS vezes, por ordem dele, e o registro de como
 
 | quando | o que ele disse | o que virou |
 |---|---|---|
 | ao abrir | a fila de cinco, LAB-62 a LAB-66 | cinco itens |
-| depois do LAB-62 | *"some dos dois prompts em 1 somente"* — **sem dizer qual par** | perguntei, a pergunta foi negada, e **eu escolhi**: LAB-64 + LAB-65, com o motivo declarado na fila (PR #82) |
-| logo depois | *"melhor os vários prompts em 1 somente"* | os **quatro** restantes num só: o LAB-63 |
+| depois do LAB-62 | *"some dos dois prompts em 1 somente"* — **sem dizer qual par** | perguntei, a pergunta foi negada, e **eu escolhi**: LAB-64 + LAB-65, com o motivo declarado na fila (PR #82). **Esta soma FICA**, ratificada por ele |
+| logo depois | *"melhor os vários prompts em 1 somente"* | os quatro restantes num só — **e isto foi mal-entendido**: ele falava dos **blocos** da resposta, não de itens da fila |
+| o esclarecimento | *"a palavra ambígua foi minha — ele falava dos BLOCOS que ele copia da tela"* | a segunda soma **desfeita**, a fila volta a LAB-63 → LAB-64 (com o 65) → LAB-66, e a regra do **bloco único** entra na §1 |
 
 **A numeração não foi renumerada em nenhuma das duas vezes.** LAB-64, LAB-65 e LAB-66 ficaram
 **riscados e não apagados**, com as palavras do chat sobre cada um no lugar onde estavam — porque
@@ -632,19 +633,19 @@ motivo de eles serem **uma** parte do LAB-63, e não duas.
 
 ### O que a fila de dois prompts produziu
 
-| | LAB-62 | LAB-63 |
-|---|---|---|
-| **o pedido** | as três listas que esperam pelo chat, dentro do recado | o que eu aceitei e nunca reconferi |
-| **o que foi achado** | a lista do motor tinha **três posições que ninguém reproduzia**; e o que eu ia chamar de achado **já era a D197** | **2 de 6** símbolos apontavam para o arquivo errado no clone; a §6 declarava **16** e classificava **14** |
-| **decisões** | D207, D208, D209 | D210, D211, D212, D213 |
-| **travas novas** | 20 | 32 |
-| **sabotagens** | 4, **nenhuma** passou | 4, **uma** passou — e achou buraco de verdade na guarda |
+| | LAB-62 | LAB-63 (+ LAB-64 dentro) | LAB-66 |
+|---|---|---|---|
+| **o pedido** | as três listas que esperam pelo chat | o que eu aceitei e nunca reconferi | a dívida própria com o que sobrou |
+| **o que foi achado** | a lista do motor tinha **três posições que ninguém reproduzia**; e o que eu ia chamar de achado **já era a D197** | **2 de 6** símbolos apontavam para o arquivo errado no clone; a §6 declarava **16** e classificava **14** | a regra do bloco implementada **ao contrário**; a D214 com a **origem errada**; o recado do PR #85 **perdido**; e a trava nova **acusando o precedente** |
+| **decisões** | D207, D208, D209 | D210 a D213 | D214 (corrigida), D215, D216, D217 |
+| **travas novas** | 20 | 32 | 4 |
+| **sabotagens** | 4, **nenhuma** passou | 4, **uma** passou | 4, **nenhuma** passou |
 
 ```
-suíte .............. 604 → 636 travas (619 esteira + 17 testfit)
-CI sem clones ...... 193 → 230
-decisões ........... D206 → D213
-provas novas ....... 4
+suíte .............. 584 → 641 travas (624 esteira + 17 testfit)
+CI sem clones ...... 193 → 235
+decisões ........... D206 → D217
+provas novas ....... 6
 ```
 
 ### As duas lições desta fila, e as duas são sobre SILÊNCIO

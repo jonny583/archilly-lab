@@ -1,0 +1,34 @@
+{
+  "prompt": "LAB-66",
+  "oQueIstoMede": "o estado do acumulado de recados depois da regra do bloco único: todo bloco abrindo com o recado, todo relatório de prompt com recado no arquivo, e o buraco da trava medido",
+  "aPergunta": "do chat: a regra do bloco único, e seguir a fila com a dívida própria do que sobrou",
+  "quando": "2026-10-08T01:28:28.363Z",
+  "aRegraDoChat": {
+    "oBloco": "um só por rodada; o recado PRIMEIRO, nas suas doze linhas; o resto abaixo, no mesmo bloco, depois da linha de marca",
+    "oTeto": "doze linhas é do RECADO e não do bloco — partir o bloco para caber nas doze é o defeito, não o conserto",
+    "oAcumulado": "rodando mais de um prompt sem ele voltar, o bloco abre com `ACUMULADO — inclui os recados X, Y e Z`; o recado completo de cada prompt continua indo inteiro para o arquivo"
+  },
+  "oAcumulado": {
+    "blocos": 69,
+    "abremComRecado": 69,
+    "cabecalhos": 69,
+    "cabecalhosCompostos": [
+      "LAB-13 e LAB-14"
+    ],
+    "relatoriosDePrompt": 57,
+    "relatoriosSemRecado": []
+  },
+  "oBuracoDaTravaDECLARADO": {
+    "oQue": "rodada SEM relatório não tem âncora para a trava morder — foi assim que o recado da própria regra do bloco se perdeu",
+    "quantosRecadosSemPromptNomeado": 9,
+    "oQueResta": "disciplina: o recado vai ao arquivo no MESMO commit em que vai ao chat"
+  },
+  "oPrecedenteQueEuACUSEI": {
+    "oQue": "a primeira versão da trava casava `— Lab · LAB-13 ===` exato e acusou LAB-13 e LAB-14 de não terem recado",
+    "oQueEra": "têm UM recado para os dois, de 19/09/2026, com o cabeçalho `— Lab · LAB-13 e LAB-14 ===`",
+    "porQueDOI": "o acusado era o PRECEDENTE da forma ACUMULADA que o chat acabou de escrever na §1 — a prática inventou a forma três semanas antes da regra",
+    "aFamilia": "décima sétima ocorrência do ponto cego do §6, e oitava da sub-família da régua que varre texto (D137, D217)"
+  },
+  "oQueNAOFoiFeito": "o `RECADOS.md` NÃO foi reescrito para a forma nova: ele é registro do que foi enviado, e registro não se maquia para caber em régua nova. O recado perdido entrou MARCADO como recuperado",
+  "problemas": []
+}

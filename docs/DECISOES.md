@@ -6006,6 +6006,17 @@ escrever a ferramenta; o quinto, pela sabotagem. Nenhum saiu.*
 
 ## D214 · "Prompt", para o Jonny, é o que ele COLA — e eu li como item da fila, duas vezes · 08/10/2026
 
+> **CORREÇÃO DO MOTIVO, gravada em 08/10/2026 a pedido do chat, e ela muda a origem da decisão,
+> não o conserto.** Esta decisão nasceu dizendo que a leitura errada foi só minha. **Não foi:**
+> *"houve mal-entendido e a palavra ambígua foi minha — quando o Jonny pediu para 'unificar', ele
+> falava dos BLOCOS que ele copia da tela, não de itens da fila."* A palavra ambígua veio do
+> chat; eu escolhi a leitura errada dela **duas vezes**, e o sinal que eu ignorei continua sendo
+> meu. *Decisão com origem errada ensina a lição errada a quem a reler* — por isso a correção
+> vem **aqui dentro**, e não num item novo.
+>
+> **E a soma do LAB-65 dentro do LAB-64 FICA**, ratificada pelo chat: *"a razão é boa, são a mesma
+> varredura, e você acertou em riscar em vez de renumerar."*
+
 Depois do LAB-62 o chat mandou **duas vezes**: *"some dos dois prompts em 1 somente"* e, logo
 depois, *"melhor os vários prompts em 1 somente"*. **Eu li "prompt" como item da fila nas duas**
 — somei LAB-64 com LAB-65, e depois os quatro restantes num só — e fui mexer **na fila**.
@@ -6037,3 +6048,71 @@ certa.*
 **O que NÃO se perdeu, e vale dizer:** as duas somas de fila que eu fiz por leitura errada
 **entregaram o conteúdo todo** — o LAB-63 executou o que o LAB-64, o LAB-65 e o LAB-66 pediam, e
 está medido e mesclado. O que ficou errado foi a **forma da fila**, não o trabalho.
+
+---
+
+## D215 · UM BLOCO SÓ por rodada — o recado primeiro, e o resto abaixo dele · 08/10/2026
+
+A regra escrita pelo chat, e ela passa a valer na família:
+
+> **Tudo que ele precisa copiar sai dentro de um único bloco de código — o recado primeiro, nas
+> suas doze linhas, e logo abaixo, no MESMO bloco, qualquer lista, texto para colar em outro
+> lugar ou pedido a outro repositório, separado por uma linha de marca. Nunca dois blocos, nunca
+> um texto na conversa acima do bloco.**
+
+E a parte que desfaz o conserto errado que eu tinha acabado de fazer:
+
+> **O limite de doze linhas é do RECADO e não do bloco: o bloco pode ser longo, e partir o bloco
+> para caber nas doze linhas é o defeito, não o conserto — o custo dele é o número de cópias, não
+> o tamanho do texto.**
+
+**Eu tinha posto o recado por ÚLTIMO**, com as listas acima. Está invertido: o recado abre, a
+linha `--- O QUE VAI JUNTO ---` separa, e o resto vem abaixo. Quem lê de cima para baixo no
+celular encontra o estado antes da lista, que é o ponto do §1 desde o começo.
+
+**E o ACUMULADO:** rodando mais de um prompt sem ele voltar, o bloco mais novo abre com
+`ACUMULADO — inclui os recados X, Y e Z`. **O recado completo de cada prompt continua indo
+inteiro para o arquivo** — *o acumulado é a forma de entregar, nunca a de registrar.*
+
+**Esta régua já esteve nas duas formas erradas no mesmo dia:** primeiro exigindo que o bloco **só**
+contivesse o recado, depois aceitando o recado em **qualquer** posição dele. A regra do chat é a do
+meio. *Guarda escrita contra a forma antiga proíbe a forma nova; guarda frouxa demais não proíbe
+nada.*
+
+---
+
+## D216 · Recado que foi ao chat e não foi ao arquivo — aconteceu com o recado da própria regra · 08/10/2026
+
+No dia em que a regra do bloco único foi escrita (PR #85), **o recado dela foi ao chat e não foi
+ao `RECADOS.md`**. É literalmente a §1-B — *"o que vai ao chat e não vai a um arquivo não existe
+amanhã"* — acontecendo com o prompt que estava consertando a §1.
+
+Recuperado no mesmo dia, **sem reescrever o texto**, e marcado como recuperado.
+
+**A trava nova:** todo relatório `docs/relatorios/LAB-xx.md` tem recado no arquivo citando aquele
+prompt. **E o buraco dela fica declarado**, porque esconder buraco de guarda é pior que não ter
+guarda: **rodada sem relatório — como esta regra do bloco, que não é prompt de fila — não tem
+âncora para a trava morder.** Para essas, o que resta é a disciplina: *o recado vai ao arquivo no
+mesmo commit em que vai ao chat.*
+
+---
+
+## D217 · A forma ACUMULADA já existia aqui, e a minha trava nova chamou o precedente de falta · 08/10/2026
+
+A primeira versão da trava do D216 casava `— Lab · LAB-13 ===` **exato**, e acusou **LAB-13 e
+LAB-14** de não terem recado.
+
+**Têm.** Têm **um recado só para os dois**, de 19/09/2026, com o cabeçalho
+`=== RECADO PARA O CHAT — Lab · LAB-13 e LAB-14 ===`.
+
+> **Régua que casa por nome exato mede ortografia, não conteúdo** (D137) — e desta vez o acusado
+> era o **precedente** da forma que o chat acabou de escrever na §1. A prática já tinha inventado
+> o ACUMULADO três semanas antes da regra, em outra forma.
+
+É a **décima sétima** ocorrência do ponto cego do §6, e a **oitava** da sub-família da régua que
+varre texto. Pega dentro do prompt, pela própria trava.
+
+**A trava corrigida** lê os cabeçalhos e procura o prompt como **palavra** dentro do
+`<prompt>`, que aceita tanto `LAB-13 e LAB-14` quanto o `ACUMULADO — inclui os recados …` da
+regra nova. **E a forma antiga não foi reescrita:** `RECADOS.md` é registro do que foi enviado, e
+registro não se maquia para caber em régua nova.

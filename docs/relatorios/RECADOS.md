@@ -1082,3 +1082,35 @@ Depende do Jonny: A SUA PROPOSTA DE VGV ENTROU NA PÁGINA DELE, em palavra de pe
 Próximo na fila: NADA — a fila esgotou e o despertador está desligado. Mande fila nova e religue o id trig_01XwSkTLT9zmyprNZcUiWy7f. O que espera você continua sendo o que o LAB-62 mandou: os ONZE itens abertos com motivo, e as duas listas numeradas que vão pelos vizinhos. Suíte em 636 travas (619 esteira + 17 testfit), eram 584 ao abrir a fila; CI sem clones de 193 para 230. Decisões até D213. Verde: 7 passos, exit 0. Três clones vizinhos limpos.
 === FIM ===
 ```
+
+---
+
+## 08/10/2026 · § 1 · UM BLOCO SÓ — **recado RECUPERADO em 08/10, ele não tinha chegado aqui**
+
+> **Este recado foi ao chat e NÃO foi ao arquivo**, no dia em que a própria regra do bloco foi
+> escrita. Recuperado da conversa no mesmo dia, sem reescrever o texto. É a §1-B acontecendo
+> comigo, e a trava que faltava nasceu disto (D216).
+
+```
+=== RECADO PARA O CHAT — Lab · — ===
+Estado: VOCÊ ESTAVA CERTO E EU LI ERRADO, DUAS VEZES. "Prompt", para você, é o que você COLA no outro app — e eu li como item da FILA.md nas duas mensagens, e fui mexer na fila em vez da resposta. Quatro botões de copiar eram quatro viagens. Gravado como D214, com a regra na §1 e guarda: nenhum bloco do RECADOS.md fica fora de um recado. PR #85 mesclado.
+Feito: a §1 agora diz UM BLOCO SÓ — tudo o que vai ao chat cabe no mesmo bloco. E a trava velha teve de ser consertada junto: ela exigia que o bloco COMEÇASSE com a marca — guarda escrita contra a forma antiga proíbe a forma nova, e isso não é a guarda estando certa.
+Achados para outros apps ou Central: A REGRA QUE SAI DISTO É DE VOCABULÁRIO: O VOCABULÁRIO DE QUEM PEDE MANDA NO VOCABULÁRIO DE QUEM EXECUTA. E o sinal que eu ignorei duas vezes: PEDIDO REPETIDO QUE EU "CUMPRO" E O PEDINTE REPETE DE NOVO NÃO FOI CUMPRIDO — FOI LIDO ERRADO.
+Depende do Jonny: nada novo. A proposta de VGV com curva de preço por tamanho está na página dele, com as três coisas que eu preciso.
+Próximo na fila: NADA — a fila de 08/10 esgotou e o despertador está desligado. Suíte em 637 travas; decisões até D214.
+=== FIM ===
+```
+
+---
+
+## 08/10/2026 · LAB-66 — a dívida própria era o §1, e a fila ESGOTOU
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-66 ===
+Estado: FEITO, e A FILA DE 08/10 ESGOTOU — LAB-62, LAB-63, LAB-64 (com o 65 dentro) e LAB-66. A segunda soma foi DESFEITA, como você esclareceu, e a fila voltou à forma que você mandou seguir; a PRIMEIRA soma (65 dentro do 64) FICA, ratificada por você. Balanço no BALANCOS.md §10. Despertador DESLIGADO (enabled: false), não apagado.
+Feito: a regra do BLOCO ÚNICO está na §1 e vale agora — e eu a tinha implementado AO CONTRÁRIO, com o recado por último. Invertida: o recado ABRE, a linha --- O QUE VAI JUNTO --- separa, e o resto vem abaixo, no mesmo bloco. O teto de doze linhas é do RECADO e não do bloco, e partir o bloco para caber nas doze é o defeito, não o conserto. O ACUMULADO entrou junto, com a forma que você escreveu. Mais três dívidas da mesma entrega: a D214 nasceu com a ORIGEM ERRADA e foi corrigida DENTRO dela mesma (a palavra ambígua era sua, a escolha errada foi minha, duas vezes); o recado do PR #85 FOI AO CHAT E NÃO FOI AO ARQUIVO — a §1-B acontecendo com o prompt que consertava a §1 —, recuperado e marcado como recuperado; e a trava nova disso ACUSOU O PRECEDENTE.
+Achados para outros apps ou Central: A TRAVA QUE EU ESCREVI PARA PEGAR O RECADO PERDIDO ACUSOU LAB-13 E LAB-14 DE NÃO TEREM RECADO. Têm: UM recado para os DOIS, de 19/09/2026, com o cabeçalho "Lab · LAB-13 e LAB-14". A régua casava o nome EXATO — régua que casa por nome exato mede ortografia, não conteúdo (D137) — e o acusado era O PRECEDENTE DA FORMA ACUMULADA QUE VOCÊ ACABOU DE ESCREVER. A PRÁTICA INVENTOU O ACUMULADO TRÊS SEMANAS ANTES DA REGRA, em outra forma. É a DÉCIMA SÉTIMA ocorrência do ponto cego do §6, e a OITAVA da sub-família da régua que varre texto; a §6 passou a 17 linhas, 17 declarado, 8+4+2+2+1 = 17, com a guarda do LAB-63 somando. E DUAS coisas que eu declaro em vez de esconder: (a) o buraco da trava nova — rodada SEM relatório não tem âncora para ela morder, e são 9 recados assim no acumulado; para essas o que resta é disciplina; (b) em DUAS das quatro sabotagens, ferramenta e trava NÃO pegaram a mesma coisa — a nº 2 só a ferramenta, a nº 4 só a trava. Os escopos são diferentes de propósito, e dizer isso vale mais que fingir que as duas cobrem tudo. O RECADOS.md NÃO foi reescrito para a forma nova: registro não se maquia para caber em régua nova.
+Depende do Jonny: nada novo. A proposta de VGV com curva de preço por tamanho está na página dele, com as três coisas que eu preciso: a curva, até onde ela vale e o que entra na conta.
+Próximo na fila: NADA — mande fila nova e religue trig_01XwSkTLT9zmyprNZcUiWy7f. O que espera você são os ONZE itens abertos com motivo e as duas listas numeradas dos vizinhos, que vão no bloco abaixo. Suíte em 641 travas (624 esteira + 17 testfit); CI sem clones 193 → 235. Decisões até D217. Verde: 7 passos, exit 0. Três clones vizinhos limpos.
+=== FIM ===
+```
