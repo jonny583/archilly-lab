@@ -57,7 +57,7 @@ Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `
 
 | # | prompt | estado | condição |
 |---|---|---|---|
-| **LAB-62** | **As três coisas que esperam pelo chat, DENTRO do recado** — os onze itens abertos com o motivo de cada um, os seis mecanismos do motor **em ordem de quantas glebas cada conserto destrava**, e as três formas de desligar conferência dele **com o "não tem CI" em primeiro** | ✅ **concluído em 08/10/2026** · geradas por ferramenta, não digitadas · e a lista do motor **corrigida da posição 4** (D207) | nenhuma |
+| **LAB-62** | **As três coisas que esperam pelo chat, DENTRO do recado** — os onze itens abertos com o motivo de cada um, os seis mecanismos do motor **em ordem de quantas glebas cada conserto destrava**, e as três formas de desligar conferência dele **com o "não tem CI" em primeiro** | ✅ **concluído em 08/10/2026** · geradas por ferramenta, não digitadas · a lista do motor **corrigida da posição 4** (D207) · PR #80 | nenhuma |
 | **LAB-63** | **Pedido que nomeia o artefato volta pela metade** (achado da Pesquisa): dizer a AFIRMAÇÃO que precisa ficar provada, a FREQUÊNCIA, e o que NÃO serve | 🟢 **pronto, é o próximo** | LAB-62 mesclado ✅ |
 | **LAB-64** | **Dívida aceita é acusação não revisada** (achado do Render): varrer as outras listas deste repositório e dizer quantos itens aceitos nunca foram conferidos contra o código | pronto | LAB-63 mesclado |
 | **LAB-65** | **Contraexemplo tratado como exceção é regra que continua errando** (achado da Central): varrer atrás de regra minha que já tem contraexemplo registrado e continua valendo | pronto | LAB-64 mesclado |
