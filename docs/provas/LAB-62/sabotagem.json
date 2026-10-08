@@ -1,0 +1,44 @@
+{
+  "prompt": "LAB-62",
+  "oQueIstoMede": "que as travas das três listas REPROVAM — por sabotagem, não por confiança (D126)",
+  "quando": "2026-10-08",
+  "oComando": "bun run lab62 (exit) + bun test tests/tres-listas.test.ts",
+  "oVerdeAntes": { "exit": 0, "travas": 20, "fail": 0 },
+  "sabotagens": [
+    {
+      "numero": 1,
+      "oQue": "uma afirmação passa a nomear artefato: o texto do mecanismo `face-de-quadra-limitada-num-eixo-so` trocado por um caminho de arquivo",
+      "porQueImporta": "é a regra que o chat mandou junto, pelo achado da Pesquisa: 'cada item diz o que precisa ficar verdadeiro, não qual arquivo mexer'",
+      "ferramenta": { "exit": 1, "oQueEleDisse": "afirmação que nomeia artefato: mecanismo face-de-quadra-limitada-num-eixo-so (traz separador de caminho `/`)" },
+      "travas": { "fail": 2, "de": 20 }
+    },
+    {
+      "numero": 2,
+      "oQue": "um mecanismo fica sem afirmação escrita: o id de `fileira-encosta-na-via-so-de-esguelha` renomeado na lista de afirmações",
+      "porQueImporta": "mecanismo sem afirmação sairia na lista ao motor como linha vazia, e linha vazia numa lista numerada é pedido pela metade",
+      "ferramenta": { "exit": 1, "oQueEleDisse": "mecanismo sem afirmação escrita: fileira-encosta-na-via-so-de-esguelha" },
+      "travas": { "fail": 3, "de": 20 }
+    },
+    {
+      "numero": 3,
+      "oQue": "o 'destrava' passa a ser medido como 'aparece em': removida a exigência de que a gleba tenha UM mecanismo só",
+      "porQueImporta": "é o achado deste prompt. Se a régua confundir as duas perguntas, a lista sai ordenada por alcance com o nome de destrave — a forma do D148, rótulo no lugar de identidade",
+      "ferramenta": { "exit": 1, "oQueEleDisse": "as duas ordens deram o MESMO primeiro: então o achado desta ferramenta não existe e a distinção entre 'aparece em' e 'destrava' não precisava ser dita" },
+      "travas": { "fail": 4, "de": 20 }
+    },
+    {
+      "numero": 4,
+      "oQue": "o 'não tem CI' deixa de ser o primeiro da lista 3: a linha 1 passa a declarar a forma `nao-pode-reprovar`",
+      "porQueImporta": "a ordem foi pedida por escrito pelo chat ('com o não tem CI em primeiro'), e ela carrega o argumento: regra que não pode reprovar e regra que ninguém roda falham do mesmo jeito (D110)",
+      "ferramenta": { "exit": 1, "oQueEleDisse": "o chat pediu o 'não tem CI' em PRIMEIRO, e ele não está · a forma `nao-pode-reprovar` do LAB-60 aparece 2 vezes na lista 3" },
+      "travas": { "fail": 3, "de": 20 }
+    }
+  ],
+  "oSaldo": {
+    "quantasPassaram": 0,
+    "deQuantas": 4,
+    "porQueIssoEhDignoDeNota": "nas quatro filas anteriores, QUATRO sabotagens passaram no primeiro corte (D179, D198, D203, D206) e cada uma virou conserto da régua. Aqui nenhuma passou — e as duas travas de rótulo que falharam antes das sabotagens eram defeito MEU, achado pelas minhas próprias travas",
+    "oQueAsTravasAcharamANTES": "a régua devolvia `.ts` para `pacote.tsx` e `.js` para `TSCONFIG.JSON`: veredicto certo, RÓTULO errado — a forma do D184, e o rótulo é o que vai na mensagem ao motor. Consertado varrendo da extensão mais longa para a mais curta, com a extensão casando só quando não continua em letra ou dígito"
+  },
+  "oVerdeDepois": { "exit": 0, "travas": 20, "fail": 0 }
+}

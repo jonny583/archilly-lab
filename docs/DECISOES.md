@@ -5781,3 +5781,106 @@ D192, D203, D206). E as sabotagens que **passaram antes de pegar** são **QUATRO
 e não lembradas: D179 (área preservada não prova borda preservada), D198 (a calibração media
 só os lotes de `frente`), D203 (a trava do glob com o `rules` fora da região comida) e esta,
 a D206. Nas quatro o `exit 0` foi o achado.*
+
+---
+
+## D207 · A D197 já tinha decidido isto — o que é novo é o NOME do campo e o desempate · 08/10/2026
+
+O chat pediu os seis mecanismos *"em ordem de quantas glebas cada conserto destrava"*, e eu
+comecei a escrever isso como achado novo: *"'destrava' e 'aparece em' são perguntas diferentes"*.
+
+**Não é novo. A D197 já diz, por escrito, há um dia:** *"`ensaio-47ha` é bloqueada por UM
+mecanismo só… consertá-lo zera uma gleba inteira, sozinho, e é a única das cinco em que isso
+acontece"*, e fecha com *"contagem diz o tamanho do conserto; 'quantas glebas destrava' diz a
+ordem dele"*. Eu ia publicar uma decisão de ontem com a data de hoje.
+
+> **Achado que repete decisão registrada não é achado: é a decisão sem a citação.** E ela custa
+> mais do que parece, porque dá ao chat a impressão de que a lista mudou quando ela não mudou.
+
+**O que é de fato novo, medido aqui, e é três coisas:**
+
+**1 · O campo que a prova publica tem o nome errado.** Ele se chama `glebasQueEleBloqueia`, e o
+que mede é **em quantas glebas o mecanismo aparece**. *Bloquear* é o que a D197 chamou de
+destravar — e por aquele nome o valor de `face-de-quadra-limitada-num-eixo-so` seria **1**, não
+**2**. É a família do **D166**, *"campo cujo nome diz MÍNIMO e cujo valor é um ALVO"*: aqui o
+nome diz **bloqueia** e o valor diz **aparece em**. Quem lesse a prova sem ler a D197 ordenaria
+pelo campo, achando que estava ordenando por destrave.
+
+**2 · A lista publicada tem desempate que ninguém reproduz.** A ordem que está hoje no
+`ONDE_PARAMOS` divide corretamente o primeiro e os dois de alcance 3, e então, nos **três de
+alcance 1**, sai `esguelha` (4 violações) → `faixa` (18) → `rede` (11). Isso não é volume
+crescente, não é volume decrescente e não é a ordem do módulo (6, 1, 2). **Lista que vai ao motor
+com três posições que ninguém sabe explicar é lista que volta com pergunta.** A ordem passa a ser
+**declarada e reproduzível**: destrave, depois alcance, depois violações — e ela diverge da
+publicada **a partir da posição 4**.
+
+**3 · A quantificação, que a D197 não tinha: 1 de 6 destrava e CINCO destravam zero.** E o que
+destrava não é o de maior alcance (tem 2 contra 3) **nem** o de mais violações (14 contra 23) —
+então nenhum dos dois números que a prova publica serve de proxy.
+
+**E a D197 não tinha guarda nenhuma: era prosa.** Agora tem, e é semântica
+(`tests/tres-listas.test.ts`): as duas ordens **não** dão o mesmo primeiro; **um** destrava e
+**cinco** destravam zero; o que destrava tem alcance e violações **menores** que os máximos.
+**Sabotagem:** removida a exigência de que a gleba tenha um mecanismo só, as duas ordens
+coincidem e a ferramenta sai com **`exit 1`** dizendo que o achado deixou de existir
+([`provas/LAB-62/sabotagem.json`](provas/LAB-62/sabotagem.json), nº 3).
+
+*Esta é a primeira vez que o §6 me pega não por acusar o medido, mas por **reapresentar como meu
+um achado que já estava decidido**. A regra que sai dela: antes de escrever "o achado é", procurar
+o achado nas decisões — e se ele estiver lá, o item é a **citação** mais o que de fato sobrou.*
+
+---
+
+## D208 · Afirmação que nomeia artefato não é afirmação — e a guarda barra endereço, não nome · 08/10/2026
+
+O chat mandou, pelo achado da Pesquisa que virou o LAB-63: *"cada item diz o que precisa ficar
+verdadeiro, não qual arquivo mexer."* O motivo medido do outro lado é que **pedido que nomeia o
+artefato volta pela metade** — quem recebe mexe no arquivo nomeado e a afirmação continua falsa.
+
+Então cada item das duas listas numeradas que vão ao motor carrega **três** campos, e nenhum
+deles é endereço: **o que precisa ficar verdadeiro**, **com que frequência isso se confere** — a
+frequência é metade do pedido, e sem ela a afirmação não tem como ser reconferida — e **o que
+NÃO serve** como prova de que ficou verdadeiro.
+
+A guarda é `afirmacaoNomeiaArtefato`, e o que ela barra é **endereço**: separador de caminho e
+extensão de arquivo. O que ela **não** barra é nome de chave de configuração (`skipLibCheck`) nem
+nome de passo (`lint`) — esses são **a coisa de que a afirmação fala**, e barrá-los deixaria a
+afirmação sem sujeito. A diferença está na trava, com os dois lados.
+
+**E o conserto saiu de dentro da própria régua, pelas minhas travas** (D184): a primeira versão
+varria a lista de extensões na ordem declarada e devolvia `` `.ts` `` para `pacote.tsx` e
+`` `.js` `` para `TSCONFIG.JSON`. O **veredicto** estava certo nos dois casos — a afirmação
+nomeia artefato —, e o **rótulo** estava errado; e é o rótulo que iria escrito na mensagem ao
+motor. *Régua que erra o rótulo e acerta o veredicto não é régua errada — mas mensagem com o
+rótulo errado é mensagem errada.* Varre-se da extensão **mais longa** para a mais curta, e a
+extensão só casa quando não continua em letra ou dígito.
+
+**Sabotagem:** uma afirmação trocada por um caminho de arquivo leva a ferramenta a **`exit 1`**
+nomeando o mecanismo e o motivo ([`provas/LAB-62/sabotagem.json`](provas/LAB-62/sabotagem.json),
+nº 1).
+
+---
+
+## D209 · O teto do recado e "um por linha" não cabem juntos — e a saída é bloco próprio · 08/10/2026
+
+O chat pediu as três listas **dentro do recado**, os onze itens *"um por linha"*, *"porque é só
+o recado que chega até o chat"*. A `CLAUDE.md` §1 põe teto de **12 linhas** no recado, com trava
+(`tests/recado.test.ts`). Os dois pedidos são incompatíveis: só a primeira lista são 13 linhas.
+
+**Resolvido sem afrouxar nenhum dos dois:** as três listas vão em **blocos de código próprios**,
+logo acima do recado — copiáveis um por um, que é o que o chat de fato faz com eles —, e o recado,
+dentro do teto, diz **quantos blocos são** e **o que cada um carrega**. A regra de que *nada vem
+depois do bloco do recado* continua inteira: o que mudou é o que vem **antes** dele.
+
+> **O teto do recado é teto do RECADO, não teto da resposta.** Ele existe para o chat não ter de
+> caçar informação numa resposta longa; três blocos nomeados e fechados são o contrário de caçar.
+
+E os blocos são **saída de ferramenta**, não texto que eu digito: `bun run lab62` os gera das
+três provas que já mediram as coisas, e grava em
+[`provas/LAB-62/os-tres-blocos.txt`](provas/LAB-62/os-tres-blocos.txt). O motivo é o D185 — *número
+que o próprio relatório lista ao lado não se escreve de memória* —, e as travas conferem o bloco
+gerado: onze linhas numeradas na lista 1, e dez vezes cada um dos três campos nas listas 2 e 3.
+
+*Das quatro sabotagens deste prompt, **nenhuma passou** — a primeira vez em cinco prompts. Mas o
+achado do rótulo da extensão (D208) saiu **antes** das sabotagens, pelas travas que eu acabara de
+escrever: é a oitava vez que a régua nova se acusa a si mesma dentro do próprio prompt.*
