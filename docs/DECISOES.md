@@ -6159,3 +6159,24 @@ que replanta meio defeito mede meia coisa.* Refeita replantando a frase **inteir
 **Há trava** (`tests/limites-com-sujeito.test.ts`, 10): zero limites sem sujeito hoje; a frase
 antiga replantada é pega; um limite novo sem sujeito em qualquer seção de regra é pego; o mesmo
 limite **com** sujeito passa; a §6 e a citação da Central ficam de fora.
+
+---
+
+## D219 · A trava do ACUMULADO proibia nomear rodada fora de fila · 08/10/2026
+
+A marca do bloco acumulado nasceu ontem casando só `LAB-xx`. Hoje, ao escrever o primeiro
+acumulado de verdade, ele precisava nomear **duas rodadas sem número de prompt** — as da regra do
+bloco (§1 e §1-C) — e a trava reprovou a forma **correta**.
+
+> *Régua escrita contra uma forma só proíbe a outra que existe de verdade.* É a mesma falta do
+> **D217**, onde a trava do recado ausente acusou o cabeçalho composto `LAB-13 e LAB-14`: duas
+> vezes em dois dias, régua nova negando o caso legítimo que ela não tinha visto.
+
+Consertada a **régua**, não o texto: o item do acumulado é `LAB-\d\d` **ou** `§<seção>`, e os
+separadores são `, ` e ` e `. **E ela continua recusando mush** — *"inclui uns recados aí"* e
+*"inclui os recados vários"* reprovam, e isso está na trava, porque alargar régua sem dizer onde
+ela para é tirá-la do caminho.
+
+*Esta é a segunda vez em dois dias que eu alargo uma régua minha logo depois de escrevê-la. O
+padrão vale mais que os dois casos: **régua nova nasce estreita demais, e o primeiro uso real é
+que mostra onde** — por isso o primeiro uso real vem no mesmo prompt, e não no seguinte.*

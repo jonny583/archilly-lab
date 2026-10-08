@@ -62,8 +62,20 @@ function recados(): string[][] {
 /** A linha que separa o recado do que vai junto, dentro do mesmo bloco. */
 const MARCA_DO_QUE_VAI_JUNTO = "--- O QUE VAI JUNTO ---";
 
-/** A marca do bloco acumulado, quando mais de um prompt rodou sem o chat voltar. */
-const MARCA_DO_ACUMULADO = /^ACUMULADO — inclui os recados ((?:LAB-\d\d|—)(?:, (?:LAB-\d\d|—))*)$/;
+/**
+ * A marca do bloco acumulado, quando mais de um prompt rodou sem o chat voltar.
+ *
+ * **Ela aceita rodada FORA DE FILA, e a primeira versão não aceitava** (D219): só casava
+ * `LAB-xx`, e uma rodada sem número — como as duas da regra do bloco, §1 e §1-C — não tinha
+ * como ser nomeada. *Régua escrita contra uma forma só proíbe a outra que existe de verdade*,
+ * e foi a mesma falta que fez a trava do D217 acusar o `LAB-13 e LAB-14`.
+ *
+ * Os separadores são `, ` e ` e `, porque é assim que a lista se escreve em português.
+ */
+const ITEM_DO_ACUMULADO = String.raw`(?:LAB-\d\d|§[\w-]+)`;
+const MARCA_DO_ACUMULADO = new RegExp(
+  `^ACUMULADO — inclui os recados ${ITEM_DO_ACUMULADO}(?:(?:, | e )${ITEM_DO_ACUMULADO})*$`,
+);
 
 describe("a regra do RECADO — CLAUDE.md §1", () => {
   test("UM BLOCO SÓ: todo bloco do acumulado ABRE com o recado", () => {
@@ -91,6 +103,14 @@ describe("a regra do RECADO — CLAUDE.md §1", () => {
       if (!segunda.startsWith("ACUMULADO")) continue;
       expect(segunda, `acumulado mal formado: ${segunda}`).toMatch(MARCA_DO_ACUMULADO);
     }
+  });
+
+  test("o ACUMULADO aceita rodada FORA DE FILA, que não tem número de prompt", () => {
+    expect("ACUMULADO — inclui os recados LAB-62, LAB-63, §1 e §1-C").toMatch(MARCA_DO_ACUMULADO);
+    expect("ACUMULADO — inclui os recados LAB-07").toMatch(MARCA_DO_ACUMULADO);
+    // E não aceita mush: lista sem item nomeado continua reprovando.
+    expect("ACUMULADO — inclui uns recados aí").not.toMatch(MARCA_DO_ACUMULADO);
+    expect("ACUMULADO — inclui os recados vários").not.toMatch(MARCA_DO_ACUMULADO);
   });
 
   /**

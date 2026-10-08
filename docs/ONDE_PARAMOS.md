@@ -231,9 +231,9 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 651 travas (634 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 245 (114 → 138 → 158 → 174 → 193 → 213 → 230 → 235 → 245)
-decisões ........... D218 é a última. A próxima é a D219
+suíte .............. 652 travas (635 esteira + 17 testfit)   ← eram 584 ao abrir a fila
+CI sem clones ...... 246 (114 → 138 → 158 → 174 → 193 → 213 → 230 → 235 → 246)
+decisões ........... D219 é a última. A próxima é a D220
 verde .............. 7 passos, exit 0, três clones vizinhos limpos
 ```
 
@@ -1104,7 +1104,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 245 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 246 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
