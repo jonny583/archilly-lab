@@ -26,6 +26,22 @@ Próximo na fila: ...
 
 **Nada depois do bloco.** Nem despedida, nem pergunta, nem link solto.
 
+**E NADA EM BLOCO SEPARADO: tudo o que vai ao chat cabe NESTE bloco, acima da linha
+`=== RECADO PARA O CHAT`.** Lista numerada, tabela, trecho para ele levar a outro app — vai
+tudo aqui dentro, e o bloco tem **um** botão de copiar. O teto de 12 linhas é do **recado**,
+da marca de abertura ao `=== FIM ===`; o que vem acima dela não tem teto.
+
+**Por quê, e foi medido em 08/10/2026:** o LAB-62 saiu com **quatro** blocos de código — três
+listas e o recado. O Jonny estava no celular e respondeu *"parece meio óbvio não??? você gerou
+5 prompts diferentes, quer que eu fique indo lá com 5 prompts?"*. Ele chama de *prompt* o que
+cola no chat do outro app, e **quatro botões de copiar são quatro viagens**. Ele mandou
+consertar **duas vezes** — *"some dos dois prompts em 1 somente"* e *"melhor os vários prompts
+em 1 somente"* — e **eu li "prompt" como item da fila nas duas**, e fui mexer na fila em vez da
+resposta (D214).
+
+> **Bloco separado é viagem a mais para quem copia.** A regra do §1 existe para o Jonny não
+> caçar informação; bloco a mais faz exatamente o que ela queria impedir.
+
 Vale para toda resposta, curta ou longa, boa notícia ou má — inclusive quando a
 resposta é só "não deu". `<app>` é `Lab`; `<prompt>` é o prompt em execução
 (`LAB-07`, `LAB-02`…) ou `—` quando não houver nenhum. Linha sem conteúdo leva

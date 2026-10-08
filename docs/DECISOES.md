@@ -6001,3 +6001,39 @@ escondeu os quatro.* Régua que não acha nada tem duas leituras — *está limp
 
 *Os quatro foram pegos **dentro do prompt**, e três deles pela sonda que eu rodei antes de
 escrever a ferramenta; o quinto, pela sabotagem. Nenhum saiu.*
+
+---
+
+## D214 · "Prompt", para o Jonny, é o que ele COLA — e eu li como item da fila, duas vezes · 08/10/2026
+
+Depois do LAB-62 o chat mandou **duas vezes**: *"some dos dois prompts em 1 somente"* e, logo
+depois, *"melhor os vários prompts em 1 somente"*. **Eu li "prompt" como item da fila nas duas**
+— somei LAB-64 com LAB-65, e depois os quatro restantes num só — e fui mexer **na fila**.
+
+Ele falava da **resposta**. O LAB-62 saiu com **quatro blocos de código** (três listas e o
+recado), ele estava no celular, e a terceira mensagem foi explícita:
+
+> *"Parece meio óbvio não??? Você gerou 5 prompts diferentes... quer que eu fique indo lá com 5
+> prompts?"*
+
+**Para ele, *prompt* é o que ele cola no chat do outro app** — e **quatro botões de copiar são
+quatro viagens**. A leitura óbvia era a dele, e eu precisei de três mensagens para chegar nela.
+
+> **O vocabulário de quem pede manda no vocabulário de quem executa.** Palavra que tem nome
+> técnico aqui dentro (`prompt` = item da `FILA.md`) pode ter outro nome lá fora, e quando os
+> dois colidem **quem decide é quem pediu**. Pedido repetido que eu "cumpro" e o pedinte repete
+> **de novo** não foi cumprido: foi lido errado.
+
+**A §1 ganhou a regra, e ela é curta:** tudo o que vai ao chat cabe **no mesmo bloco**, acima da
+linha `=== RECADO PARA O CHAT`; o teto de 12 linhas é do **recado**, da marca ao `=== FIM ===`,
+e o que vem acima dela não tem teto.
+
+**Tem guarda** (`tests/recado.test.ts`): nenhum bloco de código do `RECADOS.md` fica **fora** de
+um recado. E a régua que extrai o recado foi **estreitada ao contrário** — ela exigia que o bloco
+**começasse** com a marca, e com isso a regra nova seria impossível de cumprir sem quebrar a
+trava. *Guarda escrita contra a forma antiga proíbe a forma nova, e isso não é a guarda estando
+certa.*
+
+**O que NÃO se perdeu, e vale dizer:** as duas somas de fila que eu fiz por leitura errada
+**entregaram o conteúdo todo** — o LAB-63 executou o que o LAB-64, o LAB-65 e o LAB-66 pediam, e
+está medido e mesclado. O que ficou errado foi a **forma da fila**, não o trabalho.

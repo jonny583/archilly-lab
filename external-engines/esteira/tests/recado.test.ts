@@ -38,17 +38,38 @@ import { join } from "node:path";
 
 const RECADOS = join(import.meta.dirname, "..", "..", "..", "docs", "relatorios", "RECADOS.md");
 
-/** Todos os recados do acumulado, em ordem, já sem as crases. */
+/**
+ * Todos os recados do acumulado, em ordem, já sem as crases.
+ *
+ * **O recado é a parte do bloco que vai da marca de abertura ao `=== FIM ===`, e não o bloco
+ * inteiro** (§1, 08/10/2026): desde que o Jonny pediu **um botão de copiar só**, as listas que
+ * ele leva a outro app vão **no mesmo bloco**, acima da marca. O teto de 12 linhas é do
+ * recado; o que vem acima dele não tem teto.
+ *
+ * A primeira versão exigia que o bloco **começasse** com a marca, e com ela a regra nova seria
+ * impossível de cumprir sem quebrar a trava (D214).
+ */
 function recados(): string[][] {
   const texto = readFileSync(RECADOS, "utf8");
   const achados: string[][] = [];
-  const re = /```\n(=== RECADO PARA O CHAT[\s\S]*?=== FIM ===)\n```/g;
+  const re = /```\n[\s\S]*?(=== RECADO PARA O CHAT[\s\S]*?=== FIM ===)\n```/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(texto)) !== null) achados.push(m[1]!.trim().split("\n"));
   return achados;
 }
 
 describe("a regra do RECADO — CLAUDE.md §1", () => {
+  test("UM BLOCO SÓ: nenhum bloco de código do acumulado fica fora de um recado", () => {
+    const texto = readFileSync(RECADOS, "utf8");
+    const blocos = texto.match(/```\n[\s\S]*?\n```/g) ?? [];
+    const semRecado = blocos.filter((b) => !b.includes("=== RECADO PARA O CHAT"));
+    expect(
+      semRecado.length,
+      `${semRecado.length} bloco(s) sem recado dentro — bloco separado é viagem a mais para quem copia`,
+    ).toBe(0);
+  });
+
+
   test("o acumulado tem recado, e cada um abre e fecha com a marca certa", () => {
     const todos = recados();
     expect(todos.length).toBeGreaterThan(0);
