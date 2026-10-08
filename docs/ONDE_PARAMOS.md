@@ -4,10 +4,10 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 08/10/2026 · **Último prompt executado:** LAB-63 ·
-**A FILA DE 08/10 ESGOTOU, 2 de 2. O despertador está DESLIGADO.**
+**Última atualização:** 08/10/2026 · **Último prompt executado:** LAB-66 ·
+**A FILA DE 08/10 ESGOTOU: LAB-62, 63, 64 (com o 65) e 66. Despertador DESLIGADO.**
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila esgotou, dois de dois
+# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 08/10 esgotou
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 08/10/2026.** Desligado e **não
 apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
@@ -15,14 +15,55 @@ apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
 | # | em uma linha | estado |
 |---|---|---|
 | **LAB-62** | as **três listas** que esperam pelo chat, dentro do recado | ✅ **08/10** · geradas, não digitadas · lista do motor **corrigida da posição 4** · PR #80 |
-| **LAB-63** | **OS QUATRO RESTANTES SOMADOS NUM SÓ** — o que eu aceitei e nunca reconferi | ✅ **08/10** · **2 de 6** símbolos no arquivo errado · a §6 declarava 16 e classificava 14 · PR #83 · **a fila esgotou** |
-| ~~LAB-64~~ ~~LAB-65~~ ~~LAB-66~~ | somados ao LAB-63, riscados e não apagados — a numeração não se renumera | — |
+| **LAB-63** | o que eu aceitei e nunca reconferi | ✅ **08/10** · **2 de 6** símbolos no arquivo errado · a §6 declarava 16 e classificava 14 · PR #83 |
+| **LAB-64** | com o **LAB-65 dentro**, soma **ratificada pelo chat** | ✅ **08/10**, dentro do LAB-63: é a mesma varredura e a mesma prova · PR #83 |
+| **LAB-66** | a **dívida própria** — e o que sobrou era o **§1** | ✅ **08/10** · D215, D216, D217 · **a fila esgotou** |
 
 **O saldo está em [`relatorios/BALANCOS.md`](relatorios/BALANCOS.md), §10** — pela §1-B, gravado
 **junto** do LAB-63 e não depois. **Esta fila encolheu duas vezes por ordem do chat**, e o §10
 registra as duas, com o que ele disse em cada uma.
 
-# ⚠️ A REGRA NOVA DA §1 — UM BLOCO SÓ, e ela nasceu de um erro meu de leitura
+# ⚠️ A REGRA DA §1 — UM BLOCO SÓ, o RECADO PRIMEIRO, e o resto abaixo dele
+
+**Escrita pelo chat em 08/10/2026, e ela vale agora** (D215):
+
+```
+=== RECADO PARA O CHAT — Lab · <prompt> ===   ← o recado ABRE o bloco, nas suas 12 linhas
+...
+=== FIM ===
+
+--- O QUE VAI JUNTO ---                        ← a linha de marca, no MESMO bloco
+<lista, texto para colar noutro app, pedido a outro repositório…>
+```
+
+**O teto de doze linhas é do RECADO, não do bloco.** O bloco pode ser longo, e **partir o bloco
+para caber nas doze linhas é o defeito, não o conserto** — o custo é o **número de cópias**, não
+o tamanho do texto. **Nunca dois blocos, nunca texto na conversa acima do bloco.**
+
+**ACUMULADO:** rodando mais de um prompt sem ele voltar, o bloco abre com
+`ACUMULADO — inclui os recados X, Y e Z`. O recado completo de cada prompt continua indo inteiro
+para o arquivo — *o acumulado é a forma de entregar, nunca a de registrar.*
+
+**E eu tinha implementado ao contrário**, com o recado por último. O LAB-66 inverteu.
+
+## O que o LAB-66 pagou, e são quatro coisas
+
+```
+1 · a regra do chat implementada AO CONTRÁRIO (recado por último)      → invertida  (D215)
+2 · a D214 nasceu com a ORIGEM ERRADA: a palavra ambígua era do chat   → corrigida  (D214)
+3 · o recado do PR #85 FOI AO CHAT E NÃO AO ARQUIVO — a §1-B comigo    → recuperado (D216)
+4 · a trava nova do nº 3 ACUSOU O PRECEDENTE: LAB-13 e LAB-14 têm UM
+    recado para os dois, e a régua casava o nome EXATO                  → estreitada (D217)
+```
+
+**O nº 4 é a décima sétima ocorrência do ponto cego do §6** — e o acusado era o **precedente** da
+forma ACUMULADA que o chat acabou de escrever: *a prática inventou o ACUMULADO três semanas antes
+da regra.* A §6 passou a 17 linhas, 17 declarado, 8+4+2+2+1 = 17, com a guarda do LAB-63 somando.
+
+**O buraco da trava fica DECLARADO:** rodada **sem relatório** não tem âncora para ela morder, e
+são **9** recados assim no acumulado. Para essas, o que resta é disciplina.
+
+# ⚠️ Como esta regra nasceu — um erro meu de leitura, e a palavra ambígua era do chat
 
 **Tudo o que vai ao chat cabe no MESMO bloco de código**, acima da linha
 `=== RECADO PARA O CHAT`. O teto de 12 linhas é do **recado**, da marca ao `=== FIM ===`; o que
@@ -175,9 +216,9 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 637 travas (620 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 230 (114 → 138 → 158 → 174 → 193 → 213 → 230)
-decisões ........... D214 é a última. A próxima é a D215
+suíte .............. 641 travas (624 esteira + 17 testfit)   ← eram 584 ao abrir a fila
+CI sem clones ...... 235 (114 → 138 → 158 → 174 → 193 → 213 → 230 → 235)
+decisões ........... D217 é a última. A próxima é a D218
 verde .............. 7 passos, exit 0, três clones vizinhos limpos
 ```
 
@@ -1048,7 +1089,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 230 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 235 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

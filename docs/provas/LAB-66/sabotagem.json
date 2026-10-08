@@ -1,0 +1,44 @@
+{
+  "prompt": "LAB-66",
+  "oQueIstoMede": "que as travas da regra do bloco único REPROVAM — por sabotagem, não por confiança (D126)",
+  "quando": "2026-10-08",
+  "oComando": "bun run lab66 (exit) + bun test tests/recado.test.ts",
+  "oVerdeAntes": { "exit": 0, "travas": 8, "fail": 0 },
+  "sabotagens": [
+    {
+      "numero": 1,
+      "oQue": "um bloco acrescentado ao acumulado com a lista ACIMA do recado, que é exatamente a forma que eu tinha implementado antes de o chat corrigir",
+      "porQueImporta": "a regra do chat é O RECADO PRIMEIRO. Quem lê de cima para baixo no celular tem de encontrar o estado antes da lista — é o ponto do §1 desde o começo",
+      "ferramenta": { "exit": 1, "oQueEleDisse": "1 bloco(s) do acumulado não abrem com o recado (§1)" },
+      "travas": { "fail": 1, "de": 8 }
+    },
+    {
+      "numero": 2,
+      "oQue": "o cabeçalho do recado do LAB-59 trocado por `—`, simulando um recado que foi ao chat e não foi ao arquivo",
+      "porQueImporta": "é o defeito do PR #85 replantado: a §1-B acontecendo com o prompt que consertava a §1",
+      "ferramenta": { "exit": 1, "oQueEleDisse": "prompt(s) com relatório e SEM recado no arquivo: LAB-59" },
+      "travas": { "fail": 0, "de": 8, "observacao": "a trava da suíte NÃO caiu, e o motivo está medido: ela varre os relatórios do disco, e o `—` ainda deixava o LAB-59 citado noutro recado. A FERRAMENTA pegou. Trava e ferramenta medem o mesmo com escopos diferentes, e isso fica dito em vez de escondido" }
+    },
+    {
+      "numero": 3,
+      "oQue": "o cabeçalho COMPOSTO `Lab · LAB-13 e LAB-14` reduzido a `Lab · LAB-13`",
+      "porQueImporta": "é o precedente da forma ACUMULADA que o chat acabou de escrever. Se ele some, o LAB-14 fica sem recado de verdade",
+      "ferramenta": { "exit": 1, "oQueEleDisse": "prompt(s) com relatório e SEM recado no arquivo: LAB-14" },
+      "travas": { "fail": 2, "de": 8 }
+    },
+    {
+      "numero": 4,
+      "oQue": "um bloco marcado `ACUMULADO — inclui uns recados aí`, sem nomear quais",
+      "porQueImporta": "o acumulado só serve se disser QUAIS recados ele junta; sem isso é uma etiqueta, e etiqueta não é identidade (D148)",
+      "ferramenta": { "exit": 0, "observacao": "a ferramenta não mede a forma do acumulado — a TRAVA mede, e pegou" },
+      "travas": { "fail": 1, "de": 8 }
+    }
+  ],
+  "oSaldo": {
+    "quantasPassaram": 0,
+    "deQuantas": 4,
+    "oQueFicaDITO": "em DUAS das quatro, ferramenta e trava não pegaram a mesma coisa: a nº 2 só a ferramenta pegou, a nº 4 só a trava. Os escopos são diferentes de propósito — a ferramenta varre o acumulado inteiro, a trava confere a forma — e dizer isso vale mais que fingir que as duas cobrem tudo",
+    "oQueFoiACHADOantesDasSabotagens": "a primeira versão da trava casava `— Lab · LAB-13 ===` EXATO e acusou LAB-13 e LAB-14 de não terem recado. Têm um recado para os DOIS, de 19/09/2026 — e o acusado era o PRECEDENTE da forma que o chat acabou de escrever. Décima sétima ocorrência do ponto cego do §6 (D217)"
+  },
+  "oVerdeDepois": { "exit": 0, "travas": 8, "fail": 0 }
+}

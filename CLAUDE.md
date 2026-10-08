@@ -8,11 +8,11 @@ Ao acordar: `docs/ONDE_PARAMOS.md` → `git log` → `docs/prompts/FILA.md` →
 
 ---
 
-## 1 · A regra do RECADO — vale para TODA resposta
+## 1 · A regra do RECADO — UM BLOCO SÓ por rodada
 
-**O final de toda resposta sua para o chat é um resumo de no máximo 12 linhas,
-escrito DENTRO de um bloco de código** (entre três crases), para aparecer como
-caixa "Código" com botão de copiar. O formato é fixo:
+**Toda resposta sua para o chat é UM único bloco de código** (entre três crases), e **nada fora
+dele**: nem texto na conversa acima, nem despedida, nem pergunta, nem link solto, nem um segundo
+bloco. O bloco abre com o recado e segue com tudo o mais que o Jonny precise copiar.
 
 ```
 === RECADO PARA O CHAT — <app> · <prompt> ===
@@ -22,39 +22,49 @@ Achados para outros apps ou Central: ...
 Depende do Jonny: ...
 Próximo na fila: ...
 === FIM ===
+
+--- O QUE VAI JUNTO ---
+<lista numerada, texto para colar noutro app, pedido a outro repositório…>
 ```
 
-**Nada depois do bloco.** Nem despedida, nem pergunta, nem link solto.
+**O recado vem PRIMEIRO**, nas suas **doze linhas**, e logo abaixo, **no mesmo bloco**, separado
+pela linha de marca `--- O QUE VAI JUNTO ---`, vai qualquer lista, texto para colar em outro lugar
+ou pedido a outro repositório.
 
-**E NADA EM BLOCO SEPARADO: tudo o que vai ao chat cabe NESTE bloco, acima da linha
-`=== RECADO PARA O CHAT`.** Lista numerada, tabela, trecho para ele levar a outro app — vai
-tudo aqui dentro, e o bloco tem **um** botão de copiar. O teto de 12 linhas é do **recado**,
-da marca de abertura ao `=== FIM ===`; o que vem acima dela não tem teto.
+**O teto de doze linhas é do RECADO, não do bloco.** O bloco pode ser longo. **Partir o bloco para
+caber nas doze linhas é o defeito, não o conserto** — *o custo é o número de cópias, não o tamanho
+do texto.*
 
-**Por quê, e foi medido em 08/10/2026:** o LAB-62 saiu com **quatro** blocos de código — três
-listas e o recado. O Jonny estava no celular e respondeu *"parece meio óbvio não??? você gerou
-5 prompts diferentes, quer que eu fique indo lá com 5 prompts?"*. Ele chama de *prompt* o que
-cola no chat do outro app, e **quatro botões de copiar são quatro viagens**. Ele mandou
-consertar **duas vezes** — *"some dos dois prompts em 1 somente"* e *"melhor os vários prompts
-em 1 somente"* — e **eu li "prompt" como item da fila nas duas**, e fui mexer na fila em vez da
-resposta (D214).
+Vale para toda resposta, curta ou longa, boa notícia ou má — inclusive quando a resposta é só "não
+deu". `<app>` é `Lab`; `<prompt>` é o prompt em execução (`LAB-07`, `LAB-02`…) ou `—` quando não
+houver nenhum. Linha sem conteúdo leva `—`, nunca some: o leitor precisa ver que a pergunta foi
+feita e a resposta foi "nada". Doze linhas é teto, não meta.
 
-> **Bloco separado é viagem a mais para quem copia.** A regra do §1 existe para o Jonny não
-> caçar informação; bloco a mais faz exatamente o que ela queria impedir.
+**Por quê, e foi medido em 08/10/2026:** o LAB-62 devolveu **quatro** blocos — três listas e o
+recado — e o Jonny **atravessou cinco telas copiando um por um**, no celular. Ele chama de *prompt*
+o que cola no chat do outro app, e pediu para unificar **duas vezes** antes de eu entender (D214,
+D215). O recado existe para ele não caçar informação; **bloco a mais faz exatamente o que a regra
+queria impedir.**
 
-Vale para toda resposta, curta ou longa, boa notícia ou má — inclusive quando a
-resposta é só "não deu". `<app>` é `Lab`; `<prompt>` é o prompt em execução
-(`LAB-07`, `LAB-02`…) ou `—` quando não houver nenhum. Linha sem conteúdo leva
-`—`, nunca some: o leitor precisa ver que a pergunta foi feita e a resposta foi
-"nada". Doze linhas é teto, não meta.
+### Quando ele não voltou entre dois prompts: o bloco vem ACUMULADO
 
-**Por quê:** o recado é o que o Jonny cola no chat do outro app. Se ele precisar
-caçar a informação na resposta longa, o recado não serve para nada.
+Se você rodar **mais de um prompt** sem ele responder, o bloco mais novo **acumula**, e abre
+dizendo quais:
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-64 ===
+ACUMULADO — inclui os recados LAB-63, LAB-64
+Estado: ...
+```
+
+**O recado completo de cada prompt continua indo INTEIRO para o arquivo**, um por um: o acumulado é
+a forma de **entregar**, nunca a de **registrar**.
 
 **O mesmo recado é acrescentado a
-[`docs/relatorios/RECADOS.md`](docs/relatorios/RECADOS.md)**, com a data, em
-ordem cronológica. Assim "me dá tudo desde o dia tal" vira uma leitura de
-arquivo, e não uma reconstrução a partir dos relatórios.
+[`docs/relatorios/RECADOS.md`](docs/relatorios/RECADOS.md)**, com a data, em ordem cronológica.
+Assim "me dá tudo desde o dia tal" vira uma leitura de arquivo, e não uma reconstrução a partir
+dos relatórios. **Recado que foi ao chat e não foi ao arquivo não existe amanhã** — aconteceu em
+08/10/2026, com o recado da própria regra do bloco, e agora **há guarda** (D216).
 
 ---
 
@@ -239,7 +249,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu DEZESSEIS vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu DEZESSETE vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -260,6 +270,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D166 (LAB-48) | "o motor padrão desenha 47 lotes com testada abaixo da mínima" | **36 dos 47**: a minha ponte escreveu o **ALVO** sorteado no campo cujo nome é **MÍNIMO** |
 | D185 (LAB-54) | "oito das 27 estão a 0,2 m ou menos da borda do leito" | **cinco** — e a lista com os números estava **impressa na linha de cima do próprio relatório** |
 | D190 (LAB-55) | "a hierarquia da via culpada não é observável de fora" | ela mora na **SAÍDA**; eu a li no `resultado` **interno** do Generate e saiu `null` em 4 de 4 |
+| D217 (08/10) | "o LAB-13 e o LAB-14 não têm recado no arquivo" | têm **um recado para os dois**, e a régua casava o nome **exato** — o acusado era o **precedente** da regra nova |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -276,20 +287,20 @@ classe, com a decisão nomeada para qualquer um refazer a conta:
 
 | quantas | a classe | quais |
 |---|---|---|
-| **SETE** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155 |
+| **OITO** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155, D217 |
 | **QUATRO** | a ponte ou a ida do Lab corrompendo a medição | D18, D98, D119, D166 |
 | **DUAS** | caminho errado de leitura | D135, D190 |
 | **DUAS** | a minha cabeça, contando de memória o que estava impresso ao lado | D161, D185 |
 | **UMA** | dado que faltava, e não número que mudou | D133 |
 
-7 + 4 + 2 + 2 + 1 = **16**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
+8 + 4 + 2 + 2 + 1 = **17**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
 três foram caminho errado" até 08/10/2026, e 9 + 2 + 3 = 14:** duas das dezesseis não tinham
 classe, e a frase se lia como partição. Medido e refeito no LAB-63, com guarda que soma
 (D212). Ela também citava **D104** e **D175** como membros, e nenhuma das duas é linha da
 tabela — elas são decisões *irmãs*, citadas no texto abaixo, e não ocorrências do ponto cego.
 
-**DEZ** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142,
-D148, D155, D166, D185, D190).
+**ONZE** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142,
+D148, D155, D166, D185, D190, D217).
 
 **A décima sexta é a terceira da família do CAMINHO, e a segunda do lado ruim dela:** o
 caminho errado **não estourou, devolveu `null`** — e `null` num campo que *classifica* não
@@ -322,7 +333,7 @@ consertar**, porque o comentário do conserto **citava** o defeito: varredura es
 texto de código mede **o que o código faz** e **o que ele diz sobre si**, e só uma delas é
 o objeto.
 
-**A regra que as dezesseis ensinam, e ela é curta:**
+**A regra que as dezessete ensinam, e ela é curta:**
 
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
 > você está lendo**; antes de dizer que um número mudou, confira se ele
@@ -337,9 +348,9 @@ o objeto.
 > e não de quem declarou a regra (D98, D104, D166); e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
 > onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
-> rótulo, e três das dezesseis vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> rótulo, e três das dezessete vezes eu classifiquei pelo nome em vez de medir (D148, D155,
 > D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
-> **Dezesseis de dezesseis vezes o defeito estava do MEU lado — na régua, na ponte, no
+> **Dezessete de dezessete vezes o defeito estava do MEU lado — na régua, na ponte, no
 > caminho ou na minha cabeça — antes de estar no medido**, e em sete delas a régua era o teste
 > que eu acabara de escrever.
 
@@ -408,7 +419,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 230 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 235 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

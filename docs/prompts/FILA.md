@@ -44,7 +44,7 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## ✅ A FILA DE 08/10/2026 — CUMPRIDA, dois de dois: LAB-62 e LAB-63 (os quatro restantes somados)
+## ✅ A FILA DE 08/10/2026 — CUMPRIDA: LAB-62, LAB-63, LAB-64 (com o 65 dentro) e LAB-66
 
 Mandada pelo chat em 08/10/2026, **depois de ele aceitar o achado do LAB-61 como dívida dele**.
 Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `enabled: true`).
@@ -58,10 +58,10 @@ Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `
 | # | prompt | estado | condição |
 |---|---|---|---|
 | **LAB-62** | **As três coisas que esperam pelo chat, DENTRO do recado** — os onze itens abertos com o motivo de cada um, os seis mecanismos do motor **em ordem de quantas glebas cada conserto destrava**, e as três formas de desligar conferência dele **com o "não tem CI" em primeiro** | ✅ **concluído em 08/10/2026** · geradas por ferramenta, não digitadas · a lista do motor **corrigida da posição 4** (D207) · PR #80 | nenhuma |
-| **LAB-63** | **O QUE EU ACEITEI E NUNCA RECONFERI** — os quatro itens restantes somados **num prompt só**, por ordem do chat em 08/10. Ele carrega: (a) a regra do pedido — *a AFIRMAÇÃO que precisa ficar provada, a FREQUÊNCIA e o que NÃO serve*, virando regra da casa com guarda, e não só uma lista bem escrita; (b) *dívida aceita é acusação não revisada* — quantos itens aceitos nunca foram conferidos contra o código; (c) *contraexemplo tratado como exceção* — quais regras minhas já têm contraexemplo registrado e continuam valendo; (d) a **dívida própria** com o que sobrar. **E ele FECHA A FILA:** balanço obrigatório no `BALANCOS.md` junto do prompt, a proposta nova do chat para a nota na página do Jonny, e o despertador **DESLIGADO** ao fim | ✅ **concluído em 08/10/2026** · **a fila ESGOTOU, 2 de 2** · 2 de 6 símbolos apontavam para o arquivo errado no clone, e a §6 declarava 16 e classificava 14 · PR #83 | LAB-62 mesclado ✅ |
-| ~~LAB-64~~ | ~~o que eu aceitei e nunca reconferi~~ | **somado ao LAB-63** em 08/10 | — |
-| ~~LAB-65~~ | ~~contraexemplo tratado como exceção~~ | **somado ao LAB-63** em 08/10 (já havia sido somado ao LAB-64) | — |
-| ~~LAB-66~~ | ~~a dívida própria com o que sobrar~~ | **somado ao LAB-63** em 08/10 | — |
+| **LAB-63** | **O que eu aceitei e nunca reconferi** — a regra do pedido, *dívida aceita é acusação não revisada* e *contraexemplo tratado como exceção*. Uma varredura, uma régua, uma prova | ✅ **concluído em 08/10/2026** · 2 de 6 símbolos apontavam para o arquivo errado no clone, e a §6 declarava 16 e classificava 14 · PR #83 | LAB-62 mesclado ✅ |
+| **LAB-64** | **o LAB-65 somado dentro dele** — a soma foi **ratificada pelo chat**: *"a razão é boa, são a mesma varredura, e você acertou em riscar em vez de renumerar"* | ✅ **concluído em 08/10/2026**, dentro do LAB-63: é a mesma varredura, e a prova é a mesma · PR #83 | LAB-63 ✅ |
+| ~~LAB-65~~ | ~~contraexemplo tratado como exceção~~ | **somado ao LAB-64** em 08/10, riscado e não apagado | — |
+| **LAB-66** | **A dívida própria com o que sobrou** — e o que sobrou era o **§1**: a regra do bloco único implementada ao contrário, a origem errada da D214, o recado perdido e a trava que acusou o precedente | ✅ **concluído em 08/10/2026** · **a fila ESGOTOU** · D215, D216, D217 | LAB-64 ✅ |
 
 **O que o chat disse de cada um, nas palavras dele:**
 
@@ -1149,7 +1149,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 230 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 235 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
