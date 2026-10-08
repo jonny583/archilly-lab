@@ -5,9 +5,9 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 08/10/2026 · **Último prompt executado:** LAB-62 ·
-**FILA NOVA DE 08/10, LAB-62 a LAB-66. O despertador está LIGADO, pela décima vez.**
+**FILA DE 08/10, LAB-62 a LAB-66 — o LAB-65 foi SOMADO ao LAB-64. Despertador LIGADO.**
 
-# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 08/10/2026, LAB-62 a LAB-66
+# 🟢 O DESPERTADOR ESTÁ LIGADO — fila de 08/10/2026, LAB-62 a LAB-66 (o 65 somado ao 64)
 
 **`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: true` em 08/10/2026**, décima reabilitação. O
 prompt guardado dele foi reescrito para a fila nova.
@@ -16,8 +16,8 @@ prompt guardado dele foi reescrito para a fila nova.
 |---|---|---|
 | **LAB-62** | as **três listas** que esperam pelo chat, dentro do recado | ✅ **08/10** · geradas, não digitadas · lista do motor **corrigida da posição 4** · PR #80 |
 | **LAB-63** | *pedido que nomeia o artefato volta pela metade* — a afirmação, a frequência, e o que não serve | pronto |
-| **LAB-64** | *dívida aceita é acusação não revisada* — quantos itens aceitos nunca foram conferidos contra o código | pronto |
-| **LAB-65** | *contraexemplo tratado como exceção é regra que continua errando* | pronto |
+| **LAB-64** | **os dois achados somados num prompt só** (ordem do chat, 08/10): *dívida aceita é acusação não revisada* **e** *contraexemplo tratado como exceção é regra que continua errando* | pronto |
+| ~~LAB-65~~ | somado ao LAB-64 — o par não foi dito, e a escolha está declarada na `FILA.md` | — |
 | **LAB-66** | a **dívida própria** com o que sobrar | pronto |
 
 **O chat aceitou o achado do LAB-61 como dívida DELE**, e ratificou a regra nas minhas palavras:
