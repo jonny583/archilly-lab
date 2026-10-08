@@ -44,7 +44,7 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
-## 🟢 A FILA DE 08/10/2026 — LAB-62 a LAB-66
+## 🟢 A FILA DE 08/10/2026 — LAB-62 a LAB-66, e o LAB-65 foi SOMADO ao LAB-64
 
 Mandada pelo chat em 08/10/2026, **depois de ele aceitar o achado do LAB-61 como dívida dele**.
 Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `enabled: true`).
@@ -59,9 +59,8 @@ Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `
 |---|---|---|---|
 | **LAB-62** | **As três coisas que esperam pelo chat, DENTRO do recado** — os onze itens abertos com o motivo de cada um, os seis mecanismos do motor **em ordem de quantas glebas cada conserto destrava**, e as três formas de desligar conferência dele **com o "não tem CI" em primeiro** | ✅ **concluído em 08/10/2026** · geradas por ferramenta, não digitadas · a lista do motor **corrigida da posição 4** (D207) · PR #80 | nenhuma |
 | **LAB-63** | **Pedido que nomeia o artefato volta pela metade** (achado da Pesquisa): dizer a AFIRMAÇÃO que precisa ficar provada, a FREQUÊNCIA, e o que NÃO serve | 🟢 **pronto, é o próximo** | LAB-62 mesclado ✅ |
-| **LAB-64** | **Dívida aceita é acusação não revisada** (achado do Render): varrer as outras listas deste repositório e dizer quantos itens aceitos nunca foram conferidos contra o código | pronto | LAB-63 mesclado |
-| **LAB-65** | **Contraexemplo tratado como exceção é regra que continua errando** (achado da Central): varrer atrás de regra minha que já tem contraexemplo registrado e continua valendo | pronto | LAB-64 mesclado |
-| **LAB-66** | **A dívida própria com o que sobrar** | pronto | LAB-65 mesclado |
+| **LAB-64** | **O que eu aceitei e nunca reconferi** — os dois achados SOMADOS NUM PROMPT SÓ por ordem do chat em 08/10: *dívida aceita é acusação não revisada* (Render) **e** *contraexemplo tratado como exceção é regra que continua errando* (Central). Uma varredura, uma régua, uma prova: quantos itens aceitos nunca foram conferidos contra o código, e quais regras minhas já têm contraexemplo registrado e continuam valendo | pronto | LAB-63 mesclado |
+| **LAB-66** | **A dívida própria com o que sobrar** | pronto | LAB-64 mesclado |
 
 **O que o chat disse de cada um, nas palavras dele:**
 
@@ -76,12 +75,21 @@ Despertador **reabilitado pela décima vez** (`trig_01XwSkTLT9zmyprNZcUiWy7f`, `
   AFIRMAÇÃO que precisa ficar provada, diga COM QUE FREQUÊNCIA, porque isso é metade do pedido,
   e escreva o que NÃO serve. Aplique isso às duas listas numeradas do LAB-62 antes de mandá-las:
   cada item diz o que precisa ficar verdadeiro, não qual arquivo mexer."*
+- **LAB-64 e LAB-65, SOMADOS** — em 08/10/2026, depois do LAB-62, o chat mandou: *"some dos
+  dois prompts em 1 somente."* **Qual par não foi dito, e a escolha é minha, declarada aqui:** o
+  LAB-64 e o LAB-65. Os dois são **a mesma varredura** — as minhas próprias listas e regras
+  conferidas contra o código —, e o LAB-62 já mostrou que eles se encontram no **mesmo achado**: a
+  **D207** é, ao mesmo tempo, uma decisão nunca reconferida *e* um contraexemplo lido como caso
+  isolado. O LAB-63 ficou de fora porque é outro objeto (a **forma** do pedido, não o conteúdo das
+  listas) e o LAB-66 é o fecho. A numeração não se renumera: **o LAB-65 deixa de existir como
+  item** e o que ele pedia vive dentro do LAB-64.
+
 - **LAB-64** — *"o Render achou que DÍVIDA ACEITA É ACUSAÇÃO NÃO REVISADA — sete de vinte e oito
   dele nunca foram dívida, porque a régua que as acusou estava cega. Você acabou de confirmar
   isso por outro caminho, com cinco de catorze já executados. Varra as outras listas deste
   repositório pelo mesmo critério e diga quantos itens aceitos nunca foram conferidos contra o
   código."*
-- **LAB-65** — *"a Central achou que CONTRAEXEMPLO TRATADO COMO EXCEÇÃO É REGRA QUE CONTINUA
+- **LAB-65, agora dentro do LAB-64** — *"a Central achou que CONTRAEXEMPLO TRATADO COMO EXCEÇÃO É REGRA QUE CONTINUA
   ERRANDO — ela deduziu quatro endereços por uma fórmula, errou os quatro, e o contraexemplo
   estava escrito no catálogo dela seis dias antes, lido como caso isolado. Varra atrás de regra
   sua que já tem contraexemplo registrado e continua valendo."*
