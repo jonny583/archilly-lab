@@ -14,7 +14,7 @@ prompt guardado dele foi reescrito para a fila nova.
 
 | # | em uma linha | estado |
 |---|---|---|
-| **LAB-62** | as **três listas** que esperam pelo chat, dentro do recado | ✅ **08/10** · geradas, não digitadas · e a lista do motor **corrigida da posição 4** |
+| **LAB-62** | as **três listas** que esperam pelo chat, dentro do recado | ✅ **08/10** · geradas, não digitadas · lista do motor **corrigida da posição 4** · PR #80 |
 | **LAB-63** | *pedido que nomeia o artefato volta pela metade* — a afirmação, a frequência, e o que não serve | pronto |
 | **LAB-64** | *dívida aceita é acusação não revisada* — quantos itens aceitos nunca foram conferidos contra o código | pronto |
 | **LAB-65** | *contraexemplo tratado como exceção é regra que continua errando* | pronto |
