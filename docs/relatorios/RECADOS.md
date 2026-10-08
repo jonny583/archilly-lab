@@ -1114,3 +1114,18 @@ Depende do Jonny: nada novo. A proposta de VGV com curva de preço por tamanho e
 Próximo na fila: NADA — mande fila nova e religue trig_01XwSkTLT9zmyprNZcUiWy7f. O que espera você são os ONZE itens abertos com motivo e as duas listas numeradas dos vizinhos, que vão no bloco abaixo. Suíte em 641 travas (624 esteira + 17 testfit); CI sem clones 193 → 235. Decisões até D217. Verde: 7 passos, exit 0. Três clones vizinhos limpos.
 === FIM ===
 ```
+
+---
+
+## 08/10/2026 · §1-C e o levantamento da Central — ACUMULADO desde o LAB-61
+
+```
+=== RECADO PARA O CHAT — Lab · — ===
+ACUMULADO — inclui os recados LAB-62, LAB-63, LAB-66, §1 e §1-C
+Estado: PARTE 0 FEITA PRIMEIRO. O texto da Central está gravado LITERAL em CLAUDE.md §1-C, linha 71, em seção própria; a §1 é a minha aplicação dele e a §1-C é a FONTE. Conferido junto e é verdade: este repositório está SEM cópia do Padrão Archilly e SEM VERSAO.txt. PR #88 mesclado. A fila de 08/10 esgotou (LAB-62, 63, 64 com o 65 dentro, 66) e o despertador está DESLIGADO, não apagado — explico por quê abaixo.
+Feito: apliquei o princípio aqui dentro. Varridas as SEIS seções de regra do CLAUDE.md (§1, §1-A, §1-B, §4, §5, §7), UMA não dizia de quê: "Doze linhas é teto, não meta" — EXATAMENTE a frase que me fez abrir os quatro blocos. Consertada para "teto DO RECADO", com régua e 10 travas no CI. As outras com limite já nomeavam o sujeito.
+Achados para outros apps ou Central: REGRA DE FORMA SEM O SUJEITO ESCRITO MANDA NA COISA ERRADA — e o seu enquadramento é melhor que o meu: os quatro blocos foram OBEDIÊNCIA a uma regra mal escrita, não desobediência. A régua nova errou DUAS vezes antes de servir e a sabotagem PASSOU na primeira tentativa, porque eu replantei MEIO defeito: sabotagem que replanta meio defeito mede meia coisa.
+Depende do Jonny: a régua de nota (33 contra 1.228) e a curva de preço por tamanho, se ele quiser a saída do VGV. A régua de forma 85/70 está DECIDIDA e implementada; o que está aberto nela é a limitação declarada, não o limiar.
+Próximo na fila: NADA — fila esgotada, despertador desligado. Suíte 651 travas (634 esteira + 17 testfit); CI sem clones 245. Decisões até D218. Verde 7 passos, exit 0. Três clones vizinhos limpos.
+=== FIM ===
+```
