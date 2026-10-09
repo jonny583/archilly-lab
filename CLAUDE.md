@@ -281,6 +281,79 @@ em silêncio.
   prefixo do formato.
 - **Não decide urbanismo.** Regra urbanística é do Jonny: vira item em
   `docs/PENDENCIAS_JONNY.md`, não escolha minha.
+- **Não contrata nada, e entre USO e MENSALIDADE escolhe USO** — regra de família
+  do Jonny, 09/10/2026, *"todas as APIs Archilly, absolutamente todas, em todas as
+  sessões"* (D239). Nenhuma sessão abre conta, cadastra chave ou inicia teste; o
+  que a sessão entrega é a **comparação pronta**, e quem gasta é uma pessoa. O
+  texto dele e o que a regra decide estão na **§4-A**, e **há guarda**
+  (`tests/custo-por-uso.test.ts`).
+
+---
+
+## 4-A · Da família — cobrança por USO, nunca mensalidade
+
+**Ordem direta do Jonny, 09/10/2026, trazida pelo chat no item 005 da caixa de entrada; gravada
+como D239.** Vale para **todos** os aplicativos da família, todas as APIs e todas as sessões — a
+palavra dele foi *"absolutamente todas"*. Está aqui porque o item mandou gravá-la **onde ela não
+se perca**, e porque *o que vai ao chat e não vai a um arquivo não existe amanhã* (§1-B).
+
+> **Entre uma API que cobra por USO e uma que cobra MENSALIDADE, escolhe-se a de uso — mesmo que
+> o uso saia mais caro.**
+
+As palavras dele, **literais**:
+
+> *"Eu prefiro uma API que cobra por uso, mesmo que seja mais caro o uso, do que uma API que seja
+> mensalidade. Isso vale para todas as APIs Archilly, todas, absolutamente todas, em todas as
+> sessões. Melhor um custo mais alto, que quem vai pagar é o usuário e que a gente vai cobrar
+> vezes 3, do que ter um custo mensal alto — porque daí fica me pressionando para arranjar
+> cliente."*
+
+> *"O Archilly está nascendo para resolver os meus problemas. Quando ele for para o mercado,
+> ótimo e saudável, mas sem pressa de que eu saia de um cliente para cem."*
+
+### O motivo não é financeiro, é de RITMO
+
+**Custo fixo transforma a agenda do dono em cobrança por clientes.** Mensalidade paga-se igual
+com um cliente e com trezentos: o custo nasce **antes** da receita, e cada mês sem venda vira
+pressão para vender. Custo por uso nasce **junto** com a receita — sem cliente, não há conta.
+
+> **Uma mensalidade contratada hoje é uma meta de vendas contratada junto.** É por isso que a
+> regra vale **mesmo quando a mensalidade é a opção mais barata no papel.**
+
+### O que ela decide, e as oito consequências estão declaradas em código
+
+`external-engines/esteira/src/cobranca-por-uso.ts`, conferidas contra esta seção por trava:
+
+1. **A ordenação é pelo custo na MENOR faixa de uso** — nunca por preço de tabela. Toda
+   comparação de fonte paga traz **três linhas**: o custo por estudo com **3**, com **20** e com
+   **200** clientes. A primeira decide se entra; as outras dizem quando passa a fazer sentido;
+2. **Conta feita com o volume que se gostaria de ter é a forma mais educada de aprovar uma
+   despesa que não se sustenta** — e isto foi medido **contra mim**, no mesmo dia: eu escrevi
+   *"R$ 400 por mês ÷ 200 estudos = R$ 2 por estudo"* e ele corrigiu — com **três** clientes
+   aquilo é **R$ 133 por estudo**. *O mesmo número aprovava e reprovava a despesa; só mudou a
+   premissa de volume, que eu tinha inventado*;
+3. **Custo por uso se repassa ao usuário com o multiplicador da família**, pela porta de créditos
+   da Central, **declarando operação e nunca preço** — e **custo, fator e margem nunca chegam ao
+   usuário comum** (a §4 já guarda isso, e a varredura é `tests/vazamento-de-custo.test.ts`);
+4. **Franquia mínima é mensalidade com outro nome.** *"Pague só o que usar, com mínimo de
+   R$ 100/mês"* é R$ 100/mês;
+5. **Teste grátis que vira cobrança é mensalidade que começa depois.** Não se inicia — nem para
+   testar;
+6. **Cota gratuita de verdade não é mensalidade** e pode entrar, desde que o aplicativo **nunca**
+   ultrapasse a faixa livre sozinho;
+7. **Fonte paga tem de poder ser ligada e desligada por recorte** — por estado, por conta, por
+   operação —, **sem tocar em código**: é o que permite acender só onde há cliente. Isto é
+   **estrutura, não despesa**;
+8. **Nenhuma sessão contrata nada.** Não abre conta, não cadastra chave, não inicia teste. A
+   decisão de gastar é de **uma pessoa**, fonte a fonte.
+
+### O que a guarda NÃO pega, e isto fica dito
+
+**Não há nada pago neste repositório hoje** — a trava do custo já mede isso no `import` e na
+chamada. Então a varredura nova só alcança **texto**: um compromisso mensal **escrito** num
+arquivo que o git carrega. **Contratar de verdade acontece fora da árvore**, num navegador, com
+um cartão, e nenhuma régua daqui alcança. *Guarda que não declara o próprio buraco mente pelo
+silêncio* — a consequência nº 8 existe exatamente porque este buraco não fecha com código.
 
 ---
 
@@ -492,7 +565,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 304 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 315 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

@@ -74,6 +74,12 @@ const FALAM_SOBRE_O_ASSUNTO = [
   "docs/relatorios/RECADOS.md",
   "docs/relatorios/LAB-67.md",
   "docs/INDEX.md",
+  // Item 005: a §4-A e o item que a trouxe **enunciam** a proibição — *"custo, fator e margem
+  // nunca chegam ao usuário comum"* —, e a régua acusou a própria linha que a define. É a
+  // terceira vez da forma do D155 nesta lista, e a razão de ela ser NOMINAL: cada entrada é um
+  // arquivo que tropeçou de verdade, não um padrão que adivinha quais tropeçariam.
+  "CLAUDE.md",
+  "docs/caixa-de-entrada/005-FEITO.md",
 ];
 
 /**
@@ -103,8 +109,16 @@ describe("o nosso custo não vaza — Central, 08/10/2026", () => {
     expect(arquivos.length).toBeGreaterThan(100);
   });
 
+  /**
+   * **O teto subiu de 6 para 7 no item 005, e subir é um ato declarado.** Entrou a `CLAUDE.md`,
+   * porque a §4-A **enuncia** a proibição — *"custo, fator e margem nunca chegam ao usuário
+   * comum"* — e a régua acusou a linha que a define (a forma do D155, terceira vez nesta lista),
+   * e entrou o item que a trouxe. *O teto existe para a lista não virar padrão disfarçado*: cada
+   * entrada é um arquivo que tropeçou de verdade, e levantá-lo custa escrever por quê.
+   */
   test("a lista de exceções é NOMINAL e curta — nada de pasta inteira nem padrão", () => {
-    expect(FALAM_SOBRE_O_ASSUNTO.length).toBeLessThanOrEqual(6);
+    expect(FALAM_SOBRE_O_ASSUNTO.length).toBeLessThanOrEqual(7);
+    expect(new Set(FALAM_SOBRE_O_ASSUNTO).size).toBe(FALAM_SOBRE_O_ASSUNTO.length);
     for (const f of FALAM_SOBRE_O_ASSUNTO) {
       expect(f, f).not.toContain("*");
       expect(f.endsWith(".md") || f.endsWith(".ts"), f).toBe(true);
