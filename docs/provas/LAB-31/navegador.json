@@ -9,7 +9,7 @@
     "arestas": 6514,
     "quadras": 275,
     "bytesDoWasm": 193174,
-    "ms": 145
+    "ms": 247
   },
   "medidoEm_10_09_2026": {
     "versao_motor": "0.4.1",

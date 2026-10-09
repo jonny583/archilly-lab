@@ -63,6 +63,8 @@ despertador, o menor número ainda não feito.**
 | `005` | **regra de família:** cobrança por **USO**, nunca mensalidade | ✅ **LAB-72**, 09/10 · gravada na §4-A e **não executada** · D239 |
 | `006` | a trava é **estrutura** ou **palavra**? | ✅ **LAB-73**, 09/10 · é **palavra**, e **8 de 12** escapam · aqui **não há onde** tirar campo · **zero de 15** condições de volta · D240 |
 | `007` | o **disco** não é a **origem**; e varra por **LUGAR** | ✅ **LAB-74**, 09/10 · os clones estão **18 a 25 atrás**, e eu publiquei o disco em **6 recados** · **21** condições em **7** lugares, não 15 · D241, D242 |
+| `008` | **o DESEMPATE do D236**: anote e durma, não desligue | ✅ **LAB-75**, 09/10 · a §1-A corrigida com a ordem antiga **riscada** e o motivo preservado · D244 |
+| `009` · `010` + adendo | o **LAB-06** (o mais velho) · a **sensibilidade ao acesso**, com regra urbanística do Jonny | prontos, um por despertador |
 
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
@@ -1216,7 +1218,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 336 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 337 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

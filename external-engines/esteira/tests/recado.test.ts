@@ -33,6 +33,8 @@
  * documento, o teste é de código, e o lugar do teste é onde ele roda.
  */
 import { describe, expect, test } from "bun:test";
+
+import { CLASSES_DE_RODADA } from "../src/classes-de-rodada.ts";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
@@ -86,7 +88,15 @@ const MARCA_DO_QUE_VAI_JUNTO = "--- O QUE VAI JUNTO ---";
  *
  * Os separadores são `, ` e ` e `, porque é assim que a lista se escreve em português.
  */
-const ITEM_DO_ACUMULADO = String.raw`(?:LAB-\d\d|§[\w-]+)`;
+/**
+ * **E ela passou a aceitar CLASSE DE RODADA, no item 008** — `despertador-sem-item` e as outras
+ * cinco. A régua nasceu antes das classes (item 002) e só conhecia `LAB-xx` e `§x`: no primeiro
+ * bloco acumulado que juntou um disparo em vazio com um prompt, **ela reprovou o acumulado
+ * certo**. É a quarta vez da mesma forma — *régua escrita contra uma forma só proíbe a outra que
+ * existe de verdade* (D217, D219, D228, D237) —, e a lista das classes vem de
+ * `CLASSES_DE_RODADA`, não de um literal repetido aqui.
+ */
+const ITEM_DO_ACUMULADO = String.raw`(?:LAB-\d\d|§[\w-]+|${CLASSES_DE_RODADA.map((c) => c.id).join("|")})`;
 const MARCA_DO_ACUMULADO = new RegExp(
   `^ACUMULADO — inclui os recados ${ITEM_DO_ACUMULADO}(?:(?:, | e )${ITEM_DO_ACUMULADO})*$`,
 );
@@ -122,6 +132,13 @@ describe("a regra do RECADO — CLAUDE.md §1", () => {
   test("o ACUMULADO aceita rodada FORA DE FILA, que não tem número de prompt", () => {
     expect("ACUMULADO — inclui os recados LAB-62, LAB-63, §1 e §1-C").toMatch(MARCA_DO_ACUMULADO);
     expect("ACUMULADO — inclui os recados LAB-07").toMatch(MARCA_DO_ACUMULADO);
+    // E CLASSE DE RODADA, que é o caso que ela reprovava no item 008.
+    expect("ACUMULADO — inclui os recados despertador-sem-item e LAB-75").toMatch(
+      MARCA_DO_ACUMULADO,
+    );
+    expect("ACUMULADO — inclui os recados fila-esgotada, LAB-07 e fora-de-fila").toMatch(
+      MARCA_DO_ACUMULADO,
+    );
     // E não aceita mush: lista sem item nomeado continua reprovando.
     expect("ACUMULADO — inclui uns recados aí").not.toMatch(MARCA_DO_ACUMULADO);
     expect("ACUMULADO — inclui os recados vários").not.toMatch(MARCA_DO_ACUMULADO);
