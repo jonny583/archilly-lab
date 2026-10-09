@@ -78,3 +78,34 @@ A conta de Actions da família estourou em 08/10 e a cota gratuita volta em
 teste. Mesmo assim, prove na sua máquina e declare em cada entrega
 **"conferido aqui, não no GitHub"**, porque é assim que a família inteira está
 trabalhando e o hábito tem de ser o mesmo.
+
+## A RESPOSTA INTEIRA VAI PARA O ARQUIVO, e não só o recado
+
+**Regra do Jonny, 09/10/2026.** Tudo o que você escreveria para ele ler — a
+resposta inteira da rodada, com as seções, as medições, as dúvidas, as ideias,
+o que você quase fez e não fez — **vai gravada**, em
+`docs/relatorios/<prompt>.md`. O recado continua sendo o resumo de doze linhas
+no `RECADOS.md`; a resposta inteira é o detalhe ao lado dele.
+
+**Por quê:** ele deixou de ser o transporte. Até ontem, o que você escrevia na
+tela chegava ao chat porque ele copiava com o dedo. Agora o chat lê o
+repositório, e **o que não está no repositório não existe para ninguém** — nem
+para ele, nem para mim, nem para a sessão que vier depois de você.
+
+**O que isso muda na prática, e é pouco:** nada do que você já faz sai. O que
+entra é a obrigação de **não deixar nada só na tela**. Se você pensou, mediu,
+duvidou ou propôs, está no arquivo.
+
+**Três coisas que valem mais que o relato do trabalho**, e que costumam ficar só
+na tela:
+
+1. **A dúvida que você resolveu sozinho escolhendo.** Escreva a escolha e as
+   alternativas que você descartou. É o que impede alguém de refazer a conta.
+2. **A ideia que não cabia no item.** Vai para a `FILA.md` como *"proposto ao
+   chat"*, e o recado a cita numa linha.
+3. **A pergunta que é dele.** Vai para `docs/PENDENCIAS_JONNY.md`, em português
+   de leigo, com o que fazer / onde / como saber que deu certo.
+
+**O recado continua sendo o que se lê primeiro.** Ele é o resumo; o relatório é
+o detalhe. Quem lê o recado e fica com dúvida abre o relatório — e é por isso
+que o recado precisa dizer **onde** está o detalhe.
