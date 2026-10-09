@@ -4,13 +4,94 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-70 (item 003) ·
-**A FILA DE 08/10 ESGOTOU: LAB-62, 63, 64 (com o 65) e 66. Despertador DESLIGADO.**
+**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-71 (item 004) ·
+**A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
-# 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 08/10 esgotou
+# 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
 
-**`trig_01XwSkTLT9zmyprNZcUiWy7f` · `enabled: false` em 08/10/2026.** Desligado e **não
-apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
+**Este é o ÚNICO lugar do repositório que diz o estado do despertador agora.** Até o item 004 ele
+estava escrito em **dois**: esta abertura dizia `enabled: false` *desde 08/10* enquanto a seção da
+caixa de entrada dizia **RELIGADO** — e a conta dizia `enabled: true`, com disparo às 18:06Z.
+*Id em duas terras envelhece numa delas*, e envelheceu **dentro do mesmo arquivo**, que é o
+arquivo onde a §1-A manda ele morar (D234).
+
+### O id, conferido contra a CONTA antes de escrever esta seção
+
+*Identificador não se supõe* — e o item 004 cobra isso com todas as letras. O que a conta
+respondeu em **09/10/2026, 18:06Z**:
+
+| campo | o que a conta disse |
+|---|---|
+| id | **`trig_01XwSkTLT9zmyprNZcUiWy7f`** — o gravado estava **certo** |
+| nome | *Archilly Lab — fila autônoma (60 min)* |
+| `cron` | `5 * * * *` · minuto :05, de hora em hora |
+| `enabled` | **`true`** |
+| criado em | 02/10/2026, 23:35Z |
+| alterado em | 09/10/2026, 14:56Z — o religamento do item 001 |
+| último disparo | 09/10/2026, 18:06:10Z |
+| próximo | 09/10/2026, 19:05Z |
+| preso à sessão | `session_01AzwEQRGjWNGii8EaMzRRHs` |
+| prompt guardado | *"leia docs/caixa-de-entrada/COMO_FUNCIONA.md e execute o menor número ainda não feito"* |
+
+**Nada foi tocado nele.** Ligar e desligar é do chat; o meu trabalho é a conta — o item 004 diz
+isso, e eu não religo nem mexo por iniciativa própria.
+
+### O QUE ESTE NÚMERO VAI DECIDIR, e sem esta frase alguém apaga a lista por achar que é ruído
+
+> **Disparo em vazio não é fracasso: é a medida de quanto a caixa de entrada fica sem
+> abastecimento, e é ela que diz se o intervalo de 60 minutos está certo.** Muitos disparos em
+> vazio = o chat abastece mais devagar do que eu consumo, e o intervalo pode esticar. Nenhum
+> disparo em vazio e disparos ACUMULANDO = o contrário: a rodada é mais longa que o intervalo.
+
+### A conta da CAIXA DE ENTRADA — aberta em 09/10/2026
+
+**Uma linha por disparo**, com a origem de cada hora, porque *número sem origem não vale*:
+`observado` é disparo cuja notificação esta sessão leu; `derivado` sai do `cron` `:05` com o
+religamento às 14:56Z e está registrado no recado do LAB-69 (*"dois disparos tinham acumulado
+enquanto eu trabalhava no 001"*).
+
+| data | hora UTC | origem | o que achou | a rodada |
+|---|---|---|---|---|
+| 09/10/2026 | 15:05 | derivado | item na caixa, o 001 em curso | acumulou |
+| 09/10/2026 | 16:05 | derivado | item na caixa, o 001 em curso | acumulou → item 002 (LAB-69) |
+| 09/10/2026 | 17:05 | observado | item 003 pronto | item 003 (LAB-70) |
+| 09/10/2026 | 18:06 | observado | item 004 pronto | item 004 (LAB-71) |
+
+```
+disparos observados: 4 · em vazio: 0
+```
+
+**ZERO em vazio, e isso é medição.** O que esta conta já mostrou no primeiro dia é o **oposto** do
+que a regra temia: a caixa não ficou sem abastecimento — **dois disparos acumularam porque a
+rodada é mais longa que o intervalo**. A rodada do item 003 levou **58 minutos** (17:08 → 18:06),
+contra 60 de intervalo. *A conta não nasceu para confirmar a suspeita; ela nasceu para medi-la, e
+mediu o contrário.*
+
+### O PRECEDENTE — reconstrução etiquetada como reconstrução, com a fonte de cada linha
+
+Não é a mesma série, e **somá-las seria o erro da §6**: estas são do regime da **FILA**, não da
+caixa. Lidas do `RECADOS.md` **pela régua das classes de rodada** (item 002), não digitadas:
+
+| data | o título que está no registro | classe |
+|---|---|---|
+| 03/10/2026 | Disparo sem item pronto — o despertador parou | `despertador-sem-item` |
+| 05/10/2026 | Disparo sem item pronto — a fila travou no LAB-47 e o despertador parou | `despertador-sem-item` |
+| 05/10/2026 | Disparo sem item pronto — a fila esgotou com o LAB-47 e o despertador parou | `despertador-sem-item` |
+
+**E há um quarto número que NÃO entra em nenhuma das duas contas:** a `CLAUDE.md` §1-A diz *"dos 7
+disparos do despertador de 15/09, 4 não tiveram o que fazer"*. Era **outro despertador** e outro
+regime, e aqueles 4 disparos **nunca tiveram recado um por um** — existe a contagem, não a série.
+*Número que não pode ser refeito a partir do registro fica nomeado e fora da soma.*
+
+### Esta lista não se apaga
+
+Ela é curta de propósito — uma linha por disparo, nunca um parágrafo —, e o valor dela está na
+**série**, não no texto. **Há guarda** (`tests/disparos-em-vazio.test.ts`): ela confere os totais
+declarados contra as linhas contadas, a ordem das datas, a origem de cada linha em vocabulário
+fechado, e **os dois sentidos do cruzamento com o `RECADOS.md`** — disparo em vazio sem recado da
+classe, e recado da classe sem linha aqui.
+
+# ✅ A FILA DE 08/10 ESGOTOU: LAB-62, 63, 64 (com o 65 dentro) e 66
 
 | # | em uma linha | estado |
 |---|---|---|
@@ -25,7 +106,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 678 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 692 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -78,12 +159,15 @@ recado, ENVIA**. Um item por despertador, o menor número ainda não feito.
 | `001-FEITO.md` | ✅ 09/10 — as duas pilhas e o carimbo do vizinho (LAB-68) |
 | `002-FEITO.md` | ✅ 09/10 — a âncora da rodada sem relatório; eram **dez**, não nove (LAB-69) |
 | `003-FEITO.md` | ✅ 09/10 — o escopo da ferramenta contra o da trava, e o que escapa dos dois (LAB-70) |
-| `004.md` | pronto, o próximo despertador o pega |
+| `004-FEITO.md` | ✅ 09/10 — a conta dos disparos em vazio, e o id conferido contra a conta (LAB-71) |
 
-**Despertador RELIGADO** — `trig_01XwSkTLT9zmyprNZcUiWy7f`, confirmado contra a conta antes de
-mexer: existe, chama-se *"Archilly Lab — fila autônoma (60 min)"* e é desta sessão. O id gravado
-estava **certo**. Prompt novo: *"leia docs/caixa-de-entrada/COMO_FUNCIONA.md e execute o menor
-número ainda não feito"*.
+**A CAIXA ESGOTOU, quatro de quatro.** O próximo disparo é o primeiro candidato a **disparo em
+vazio**: pela regra da caixa ele **não inventa trabalho** — recado de uma linha, a data na *conta
+dos disparos* no alto deste arquivo, e dormir. E **o despertador não se desliga por isso**: a
+regra da caixa manda anotar e dormir, e ligar ou desligar é do chat.
+
+**O estado do despertador NÃO se repete aqui** — ele mora na *conta dos disparos*, no alto deste
+arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D234).
 
 # 📖 FERRAMENTA E TRAVA NÃO PEGAM A MESMA COISA — e agora há um lugar só (item 003)
 
@@ -343,7 +427,7 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 
 ```
 suíte .............. 684 travas (667 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 289 (114 → … → 259 → 269 → 278 → 289) · DESLIGADO no GitHub até 1º/11
+CI sem clones ...... 303 (114 → … → 278 → 289 → 302 → 303) · DESLIGADO no GitHub até 1º/11
 decisões ........... D230 é a última. A próxima é a D231
 verde .............. exit 0, CONFERIDO AQUI e não no GitHub · 667 esteira + 17 testfit · três vizinhos limpos
 ```
@@ -1215,7 +1299,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 289 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 303 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

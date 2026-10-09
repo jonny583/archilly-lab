@@ -171,6 +171,20 @@ despertador por aplicativo; nunca se toca no de outro repositório.**
   vez de apagar; você está certa, e passa a ser assim daqui em diante."*
   **Apagar perde o id**, que é o que ele reusa; e o id vive em `ONDE_PARAMOS`.
   *Regra que a prática desmente seis vezes não é regra, é texto velho* (D104).
+
+  **🟠 ESTA LINHA CONFLITA COM A REGRA DA CAIXA DE ENTRADA, e o conflito está
+  DECLARADO em vez de resolvido por mim** (D236). Aqui diz **desligar**; a
+  [`docs/caixa-de-entrada/COMO_FUNCIONA.md`](docs/caixa-de-entrada/COMO_FUNCIONA.md),
+  escrita pelo chat em 09/10, diz *"grave um recado de uma linha dizendo 'caixa
+  vazia', envie, e durma… anote a data numa linha do `ONDE_PARAMOS.md`"* — e **não
+  manda desligar**. O item 004 fecha o cerco: *"ligar e desligar é do chat; o seu
+  trabalho é a conta."*
+  **Enquanto o chat não desempatar eu sigo a da CAIXA — anotar e dormir —, e o
+  motivo é medido:** desligar servia quando o chat tinha de ser avisado para
+  mandar fila nova; agora ele escreve na caixa **sem passar por mim**, e
+  despertador desligado **nunca pega o item 005**. Desligar deixaria de proteger
+  e passaria a travar. *Isto é leitura minha, não ratificação: o desempate é do
+  chat, e está no recado.*
 - **O despertador nasceu sem conectores do GitHub.** Se ao acordar não houver
   `mcp__github__*`, mesclar por git direto (`git merge --no-ff` na `main`) e
   **declarar isso no relatório e no recado** (D29).
@@ -478,7 +492,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 289 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 303 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

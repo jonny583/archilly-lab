@@ -1,0 +1,111 @@
+{
+  "prompt": "item 004 da caixa de entrada",
+  "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
+  "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
+  "quando": "2026-10-09T18:16:25.734Z",
+  "oIdNaoSeSupoe": {
+    "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
+    "quantosIdsNaSecao": 1,
+    "oGravadoEstavaCerto": true,
+    "comoConferi": "mcp get_trigger em 09/10/2026 18:06Z — existe, é desta sessão, enabled: true, cron 5 * * * *"
+  },
+  "aConta": {
+    "aberta": "09/10/2026",
+    "disparos": [
+      {
+        "data": "09/10/2026",
+        "hora": "15:05",
+        "origem": "derivado",
+        "achou": "item na caixa, o 001 em curso",
+        "rodada": "acumulou",
+        "emVazio": false
+      },
+      {
+        "data": "09/10/2026",
+        "hora": "16:05",
+        "origem": "derivado",
+        "achou": "item na caixa, o 001 em curso",
+        "rodada": "acumulou → item 002 (LAB-69)",
+        "emVazio": false
+      },
+      {
+        "data": "09/10/2026",
+        "hora": "17:05",
+        "origem": "observado",
+        "achou": "item 003 pronto",
+        "rodada": "item 003 (LAB-70)",
+        "emVazio": false
+      },
+      {
+        "data": "09/10/2026",
+        "hora": "18:06",
+        "origem": "observado",
+        "achou": "item 004 pronto",
+        "rodada": "item 004 (LAB-71)",
+        "emVazio": false
+      }
+    ],
+    "declarados": {
+      "observados": 4,
+      "emVazio": 0
+    },
+    "emVazio": 0,
+    "temAFraseDoQueDecide": true
+  },
+  "oQueOPrimeiroDiaJaMOSTROU": "ZERO em vazio, e DOIS disparos acumulados — a caixa não ficou sem abastecimento; a RODADA é mais longa que o intervalo. A conta não nasceu para confirmar a suspeita",
+  "oPrecedenteDaFILA": {
+    "oQue": "recados da classe `despertador-sem-item`, lidos do registro pela régua do item 002",
+    "quantos": 3,
+    "dias": [
+      "03/10/2026",
+      "05/10/2026",
+      "05/10/2026"
+    ],
+    "porQueNaoSoma": "é outro regime — a FILA, não a caixa. Somar duas séries diferentes é o erro da §6"
+  },
+  "oQuartoNumeroQueFicaDEFORA": {
+    "oQue": "a CLAUDE.md §1-A diz `dos 7 disparos do despertador de 15/09, 4 não tiveram o que fazer`",
+    "porQueFicaFora": "era OUTRO despertador e outro regime, e aqueles 4 nunca tiveram recado um por um: existe a contagem, não a série. Número que não se refaz do registro fica nomeado e fora da soma"
+  },
+  "aGuardaREPROVA": {
+    "osCasosRuins": [
+      {
+        "oQue": "o total declarado deixa de bater com as linhas",
+        "exit": 1,
+        "reprovou": true,
+        "quais": [
+          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema"
+        ]
+      },
+      {
+        "oQue": "a frase do que o número decide sai da seção",
+        "exit": 1,
+        "reprovou": true,
+        "quais": [
+          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
+          "item 004 · a conta dos disparos do despertador > a seção diz o que o número vai DECIDIR — o item 004 cobra essa frase"
+        ]
+      },
+      {
+        "oQue": "uma linha ganha origem fora do vocabulário",
+        "exit": 1,
+        "reprovou": true,
+        "quais": [
+          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
+          "item 004 · a conta dos disparos do despertador > toda linha tem a origem declarada, e o vocabulário é FECHADO"
+        ]
+      },
+      {
+        "oQue": "um disparo em vazio aparece sem recado da classe",
+        "exit": 1,
+        "reprovou": true,
+        "quais": [
+          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
+          "item 004 · O LADO RUIM: a guarda reprova > SENTIDO 2: recado da classe sem linha em vazio na conta REPROVA"
+        ]
+      }
+    ],
+    "oOndeParamosVoltou": true
+  },
+  "problemas": []
+}
