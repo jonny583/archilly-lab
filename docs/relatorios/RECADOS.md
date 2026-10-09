@@ -1157,3 +1157,17 @@ Depende do Jonny: nada novo. Seguem a régua de nota (33 contra 1.228) e a curva
 Próximo na fila: item 002 da caixa, no próximo despertador. A lista "Proposto ao chat" foi a 15 abertos, com os dois de hoje. Decisões até D227. Clones: motor-testfit@6cf6396, urban-create-hub@72cfab0, urban-scout-tool@550a438, os três com 0 alterações. Chão: Bun 1.4.2.
 === FIM ===
 ```
+
+---
+
+## 09/10/2026 · LAB-69 — item 002: as rodadas sem âncora, e o número era meu
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-69 (item 002) ===
+Estado: FEITO. Dois disparos do despertador tinham acumulado enquanto eu trabalhava no 001 — executei o 002 neste, e o 003 fica para o próximo, um item por disparo como a caixa manda. 002.md virou 002-FEITO.md com arquivo e linha. CONFERIDO AQUI, NÃO NO GITHUB. CI segue desligado.
+Feito: a âncora da rodada sem relatório é o <prompt> DO PRÓPRIO CABEÇALHO, que sempre existe — e eu a escolhi DEPOIS de medir as outras, como o item mandou: o número do PR reprovaria 38 de 42 rodadas legítimas (42 mesclados, só 4 citados em recado); o commit tem o mesmo buraco, porque rodada sem commit não tem nenhum; e a data não distingue duas rodadas no mesmo dia, logo NÃO teria pego o PR #85, que é o caso que originou tudo. Agora o <prompt> é um prompt OU uma das SEIS classes de rodada, de vocabulário fechado: despertador-sem-item, fila-esgotada, fila-recusada, decisao-registrada, recado-recuperado, fora-de-fila. O "—" não ancorava nada: servia igualmente para "não era prompt" e para "esqueci de dizer". SEM REESCREVER O RECADOS.md — as dez já na casa são classificadas pelo que o TÍTULO delas já diz, texto que eu escrevi no dia; a régua lê o registro, não o corrige. E SEM LISTA DE EXCEÇÃO: não há nome de recado nenhum na régua, só classes. Os dois lados demonstrados: os 73 recados do histórico sem NENHUM órfão, e um órfão plantado NO ARQUIVO DE VERDADE é pego pela mesma trava. A §1 do CLAUDE.md passou a declarar as classes, e a frase "o que resta é disciplina" SAIU.
+Achados para outros apps ou Central: O NÚMERO ERA MEU E ESTAVA ERRADO NOS DOIS SENTIDOS, e isso é o achado. Você me citou de volta o meu "nove"; são DEZ — a classe cresceu em 08/10 e eu não voltei para corrigir o que já tinha saído. NÚMERO QUE SAIU NUM RECADO CONTINUA SENDO MEU DEPOIS DE SAIR, e eu só descobri porque fui RECONTAR em vez de confiar no que o item me devolveu. E a primeira contagem de hoje deu TREZE, porque a minha régua chamou de órfãos o LF-01, o LF-FINAL e o LF-FINAL-2 — prompts de verdade, de outra numeração. É o TERCEIRO precedente da mesma família em três dias (D217, D219, D230) e O ITEM 002 MANDOU LEMBRAR DO PRIMEIRO, POR ESCRITO, E EU REPETI MESMO ASSIM. O que caracteriza um prompt é a FORMA — letras, hífen, sufixo que pode ser número ou palavra —, não a sigla. Para a família: régua que casa sigla casa a numeração de um aplicativo só, e a família tem quatro.
+Depende do Jonny: nada novo.
+Próximo na fila: item 003 da caixa — o escopo de `npm run quebrar` contra o das travas, com as quatro sabotagens nomeadas e a linha do que escapa dos dois. Decisões até D230. Clones: motor-testfit@6cf6396, urban-create-hub@72cfab0, urban-scout-tool@550a438, os três com 0 alterações. Chão: Bun 1.4.2.
+=== FIM ===
+```
