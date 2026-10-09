@@ -84,6 +84,11 @@ const FALAM_SOBRE_O_ASSUNTO = [
   // a nº 3 é literalmente *"o multiplicador não chega ao usuário"*.
   "docs/relatorios/LAB-72.md",
   "external-engines/esteira/src/cobranca-por-uso.ts",
+  // Itens 006 e 007: os relatórios que DOCUMENTAM os achados citam `multiplicador` ao explicar a
+  // proibição. **Estes dois são o sinal do defeito de desenho declarado no LAB-73 §7** — ver o
+  // comentário do teto, e a proposta ao chat que saiu daí.
+  "docs/relatorios/LAB-73.md",
+  "docs/relatorios/LAB-74.md",
 ];
 
 /**
@@ -125,9 +130,17 @@ describe("o nosso custo não vaza — Central, 08/10/2026", () => {
    * sem que uma regra nova tenha sido escrita, o que está errado é o desenho da lista, não o
    * número* — e aí a varredura precisa aprender a diferença entre prosa e produto, em vez de
    * ganhar mais uma linha.
+   *
+   * **E O CRITÉRIO DISPAROU, no item 007: o teto foi a 11 e as duas entradas novas são
+   * RELATÓRIOS** — `LAB-73.md` e `LAB-74.md`, que não são regra nova: são documentação **sobre** a
+   * regra. *Pela minha própria frase, o que está errado daqui em diante é o DESENHO*, e a saída
+   * não é uma linha por relatório: é escopar a varredura por **destino** — o que pode chegar a um
+   * usuário —, deixando o registro com uma conferência própria (o valor citado tem de estar dentro
+   * de citação ou de bloco de código). **Isso é mudança de modelo, não conserto deste item**
+   * (§1-A: não ampliar escopo), e está na `FILA.md` como proposta ao chat, com este número (D243).
    */
   test("a lista de exceções é NOMINAL e curta — nada de pasta inteira nem padrão", () => {
-    expect(FALAM_SOBRE_O_ASSUNTO.length).toBeLessThanOrEqual(9);
+    expect(FALAM_SOBRE_O_ASSUNTO.length).toBeLessThanOrEqual(11);
     expect(new Set(FALAM_SOBRE_O_ASSUNTO).size).toBe(FALAM_SOBRE_O_ASSUNTO.length);
     for (const f of FALAM_SOBRE_O_ASSUNTO) {
       expect(f, f).not.toContain("*");

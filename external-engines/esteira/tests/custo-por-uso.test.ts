@@ -52,6 +52,10 @@ const FALAM_SOBRE_O_ASSUNTO = [
   // medição, e está aqui porque medir exige escrever o que se mede.
   "external-engines/esteira/src/trava-de-estrutura.ts",
   "external-engines/esteira/tests/trava-de-estrutura.test.ts",
+  // Os relatórios dos itens 006 e 007 IMPRIMEM o corpus dos doze compromissos para mostrar
+  // quais escapam — é o objeto da medição, não um compromisso assumido.
+  "docs/relatorios/LAB-73.md",
+  "docs/relatorios/LAB-74.md",
 ];
 
 function arquivosDoGit(): string[] {

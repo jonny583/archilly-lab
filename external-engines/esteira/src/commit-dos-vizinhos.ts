@@ -38,6 +38,88 @@ export interface CarimboDeVizinho {
   commit: string;
   /** `false` quando o clone tinha alteração não commitada — o commit sozinho mentiria. */
   limpo: boolean;
+  /**
+   * O `origin/main` do clone, lido **depois de um `git fetch`** — e este campo nasceu no item
+   * 007, porque sem ele o carimbo mede o **disco** e eu publiquei isso como o estado do vizinho.
+   */
+  origemMain?: string | null;
+  /** Quantos commits o `HEAD` do disco está **atrás** da `origin/main`. */
+  atrasPor?: number | null;
+}
+
+/**
+ * O SEGUNDO EIXO do carimbo: o disco contra a ORIGEM. (item 007)
+ *
+ * O primeiro eixo compara **a prova** com **o disco** (`igual`, `mudou`, …). Este compara **o
+ * disco** com **a origem**, e é outra pergunta — foi a que faltou:
+ *
+ * > **O que está no disco não é o que está na origem.** O Propostas leu resíduo de BUILD, o Geo
+ * > leu resíduo de CHECKOUT, e eu publiquei o `HEAD` do disco como *"o estado do vizinho"* em
+ * > **seis recados**, com os três clones **18 a 23 commits atrás** (D241).
+ *
+ * **Ele DIZ, não reprova, e não puxa nada:** atualizar o clone mudaria toda medição desta casa,
+ * e isso é prompt, não conserto silencioso — a mesma lição do D226.
+ */
+export type VereditoDaOrigem = "em-dia" | "atras" | "a-frente" | "origem-desconhecida";
+
+export interface ConferenciaDaOrigem {
+  repo: Vizinho;
+  veredito: VereditoDaOrigem;
+  head: string | null;
+  origemMain: string | null;
+  atrasPor: number | null;
+  /** A frase que vai ao recado — ela DIZ quantos commits, porque o número é o aviso. */
+  oQueIssoQuerDizer: string;
+}
+
+/**
+ * Compara o `HEAD` do clone com a `origin/main` dele.
+ *
+ * `origemMain` e `atrasPor` entram por parâmetro: quem chama de verdade lê com
+ * `git -C <caminho> fetch -q origin main` e depois `rev-parse --short origin/main` e
+ * `rev-list --count HEAD..origin/main`. **O `fetch` só mexe nas referências locais do clone:
+ * nenhum arquivo rastreado muda, e o `git status` dele continua limpo** (§4).
+ */
+export function conferirContraAOrigem(
+  repo: Vizinho,
+  head: string | null,
+  origemMain: string | null,
+  atrasPor: number | null,
+): ConferenciaDaOrigem {
+  const base = { repo, head, origemMain, atrasPor };
+  if (head === null || origemMain === null || atrasPor === null) {
+    return {
+      ...base,
+      veredito: "origem-desconhecida",
+      oQueIssoQuerDizer:
+        `não se sabe o que a origem de \`${repo}\` diz — sem \`git fetch\`, o que está aqui é o ` +
+        "disco, e disco não é origem. NÃO MEDIDO, e isso não é o mesmo que em dia",
+    };
+  }
+  if (atrasPor === 0) {
+    return {
+      ...base,
+      veredito: "em-dia",
+      oQueIssoQuerDizer: `\`${repo}\` está em dia com a origem (\`${origemMain}\`)`,
+    };
+  }
+  if (atrasPor < 0) {
+    return {
+      ...base,
+      veredito: "a-frente",
+      oQueIssoQuerDizer:
+        `o clone de \`${repo}\` está À FRENTE da \`origin/main\` — há commit aqui que não está ` +
+        "lá, e isso é estranho num clone que esta casa só lê",
+    };
+  }
+  return {
+    ...base,
+    veredito: "atras",
+    oQueIssoQuerDizer:
+      `\`${repo}\` está **${atrasPor} commit(s) ATRÁS** da origem: o disco diz \`${head}\` e a ` +
+      `\`origin/main\` diz \`${origemMain}\`. Toda medição desta casa é contra \`${head}\`, e ` +
+      "dizer só esse número seria publicar disco como se fosse origem (D241)",
+  };
 }
 
 export type VereditoDoCarimbo = "igual" | "mudou" | "nao-gravado" | "clone-ausente";

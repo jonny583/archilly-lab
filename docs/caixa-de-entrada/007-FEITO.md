@@ -1,3 +1,27 @@
+> # ✅ FEITO — 09/10/2026, LAB-74
+>
+> Relatório: [`docs/relatorios/LAB-74.md`](../relatorios/LAB-74.md).
+>
+> | o que o item pediu | a resposta |
+> |---|---|
+> | nenhuma afirmação sobre vizinho sem ler a **origem** | **o defeito era meu também:** publiquei o `HEAD` do disco como *"o estado do vizinho"* em **seis recados**, com os clones **18 a 25 commits atrás**. O carimbo ganhou um **segundo eixo** — disco contra origem — que **diz** o número e **não puxa nada** (D241) |
+> | a varredura das condições de volta **por LUGAR** | **21** condições em **7** lugares; a varredura de frase alcançava **15**; **zero** são conta. A lista dos sete lugares está escrita em `src/lugares-das-condicoes.ts`, com guarda (D242) |
+> | o item da **RLS** | **não existe nesta caixa** — conferido com `git ls-tree origin/main`, na origem e não no disco. Sete itens, seis feitos, nenhum de RLS. **Não inventei** |
+>
+> **A mais incômoda das seis condições que só o lugar mostrou é minha, de uma hora atrás:** *"só
+> vale a pena quando houver a primeira fonte paga"*, escrita na página do Jonny **no item 006** —
+> no mesmo prompt em que declarei zero condições. *A varredura de frase não vê o que ela mesma
+> acabou de escrever.*
+>
+> **E o motor andou durante a rodada:** o primeiro `fetch` deu 23 commits atrás, o segundo deu
+> **25**. *Hash de disco publicado como estado do vizinho envelhece enquanto o recado está sendo
+> escrito.*
+>
+> **Nenhum clone foi atualizado**, nada escrito em vizinho, CI não religado. Guardas novas: 10
+> travas em `tests/por-lugar.test.ts`. **Verde conferido aqui, não no GitHub.**
+
+---
+
 # O que está no DISCO não é o que está na ORIGEM — duas casas quase acusaram o chat hoje
 
 **Vem do chat, 09/10/2026 às 22:00 UTC, com duas ocorrências da MESMA família na

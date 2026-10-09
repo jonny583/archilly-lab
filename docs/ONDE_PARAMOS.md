@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-73 (item 006) — a minha
-trava é de **palavra**, e **8 de 12** compromissos mensais escapam dela ·
+**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-74 (item 007) — **os três
+clones vizinhos estão 18 a 25 commits ATRÁS da origem**, e eu publiquei o disco em 6 recados ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -60,9 +60,10 @@ enquanto eu trabalhava no 001"*).
 | 09/10/2026 | 19:05 | observado | **nada na caixa** — os quatro feitos | recado de uma linha, e dormir |
 | 09/10/2026 | 20:05 | observado | item 005 pronto (entrou às 19:19:54Z) | item 005 (LAB-72) |
 | 09/10/2026 | 21:05 | observado | item 006 pronto | item 006 (LAB-73) |
+| 09/10/2026 | 22:05 | observado | item 007 pronto | item 007 (LAB-74) |
 
 ```
-disparos observados: 7 · em vazio: 1
+disparos observados: 8 · em vazio: 1
 ```
 
 **UM em vazio, de cinco, e ele veio no mesmo dia em que a conta abriu** — às 19:05, logo depois de
@@ -133,7 +134,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 714 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 725 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -189,6 +190,7 @@ recado, ENVIA**. Um item por despertador, o menor número ainda não feito.
 | `004-FEITO.md` | ✅ 09/10 — a conta dos disparos em vazio, e o id conferido contra a conta (LAB-71) |
 | `005-FEITO.md` | ✅ 09/10 — a regra de família: cobrança por USO, nunca mensalidade (LAB-72) |
 | `006-FEITO.md` | ✅ 09/10 — a trava é de **palavra**, e aqui **não há onde** tirar campo (LAB-73) |
+| `007-FEITO.md` | ✅ 09/10 — o **disco** não é a **origem**: clones 18 a 25 atrás (LAB-74) |
 
 **A CAIXA ESGOTOU duas vezes hoje, e nas duas o despertador ficou intacto** (D236): às 19:05 em
 vazio, e o `005` entrou às 19:19 — **pego sozinho** no disparo das 20:05. *A aposta do D236 foi
@@ -196,6 +198,31 @@ medida em uma hora: desligar teria deixado o item parado.*
 
 **O estado do despertador NÃO se repete aqui** — ele mora na *conta dos disparos*, no alto deste
 arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D234).
+
+# 🔶 O DISCO NÃO É A ORIGEM — os três clones estão ATRÁS (item 007)
+
+**Medido em 09/10 às 22:1xZ, com `git fetch` nos três:**
+
+| clone | o disco diz | a `origin/main` diz | atrás por |
+|---|---|---|---|
+| `motor-testfit` | `6cf6396` | `e4db59d` | **25** |
+| `urban-create-hub-41d93a4d` | `72cfab0` | `70ae70d` | **18** |
+| `urban-scout-tool` | `550a438` | `b664a01` | **23** |
+
+**Toda medição desta casa é contra os commits do DISCO** — e eu publiquei esses hashes como *"o
+estado do vizinho"* em **seis recados** (D241). O hash sempre esteve escrito; o que faltava era a
+distância. *Árvore limpa quer dizer "eu não mexi", não "está atual".*
+
+**O carimbo ganhou um segundo eixo** (`conferirContraAOrigem`): `em-dia`, `atras` com o número,
+`a-frente` e `origem-desconhecida` — porque **sem `git fetch` não há origem**, e não medido não é
+em dia. Ele **diz e não puxa**: atualizar os clones mudaria toda medição daqui, e isso é prompt.
+
+**E por LUGAR, não por frase** (D242): **21** condições de retorno em **7** lugares, contra as
+**15** que a varredura de frase do item 006 alcançava — e **zero** são conta. A lista dos sete
+lugares mora em `src/lugares-das-condicoes.ts`, com guarda. *A régua de palavra não sabe as
+palavras que ainda não foram escritas.*
+
+**O item da RLS que o 007 menciona NÃO existe nesta caixa** — conferido na `origin/main`.
 
 # 💰 A COBRANÇA POR USO, E A TRAVA DELA É DE PALAVRA (itens 005 e 006)
 
@@ -479,7 +506,7 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 
 ```
 suíte .............. 684 travas (667 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 325 (114 → … → 303 → 304 → 315 → 325) · DESLIGADO no GitHub até 1º/11
+CI sem clones ...... 336 (114 → … → 304 → 315 → 325 → 336) · DESLIGADO no GitHub até 1º/11
 decisões ........... D230 é a última. A próxima é a D231
 verde .............. exit 0, CONFERIDO AQUI e não no GitHub · 667 esteira + 17 testfit · três vizinhos limpos
 ```
@@ -1351,7 +1378,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 325 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 336 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

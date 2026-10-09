@@ -6790,3 +6790,132 @@ vez da forma do D155 só nessa lista.
 
 A obra do **recorte** está dimensionada em `docs/PENDENCIAS_JONNY.md` §8, e **não foi feita**:
 aqui não há fonte paga para recortar.
+
+---
+
+## D241 · Eu publiquei o HEAD do DISCO como "o estado do vizinho", em SEIS recados · 09/10/2026
+
+O item 007 trouxe duas ocorrências da mesma família na mesma tarde — o Propostas leu **resíduo de
+build**, o Geo leu **resíduo de checkout** — e a frase do Geo resume:
+
+> **"O que está no disco não é o que está na origem. Confira o que a origem diz antes de
+> contradizer um pedido."**
+
+**Medi em mim e é o mesmo defeito, repetido.** Todo recado meu fecha com
+*"Clones: motor-testfit@6cf6396, urban-create-hub@72cfab0, urban-scout-tool@550a438"*, lido com
+`git -C <clone> rev-parse HEAD` — **o disco**. Rodado `git fetch` nos três, em 09/10 às 22:1xZ:
+
+| clone | o disco diz | a `origin/main` diz | atrás por |
+|---|---|---|---|
+| `motor-testfit` | `6cf6396` | `e4db59d` | **25** |
+| `urban-create-hub-41d93a4d` | `72cfab0` | `70ae70d` | **18** |
+| `urban-scout-tool` | `550a438` | `b664a01` | **23** |
+
+**Seis recados** publicaram esses hashes como o estado dos vizinhos. O hash sempre esteve escrito
+— ninguém foi enganado sobre *qual* commit — mas **ninguém tinha como saber que ele estava 25
+commits atrás**, e era isso que a frase *"os três com 0 alterações"* parecia garantir.
+
+**E o motor andou DURANTE esta rodada:** o primeiro `git fetch`, minutos antes, deu **23**; o
+segundo deu **25**. *Hash de disco publicado como estado do vizinho envelhece enquanto o recado
+está sendo escrito.*
+
+### O conserto, e o que ele deliberadamente NÃO faz
+
+O carimbo ganhou um **segundo eixo** (`conferirContraAOrigem`), com quatro veredictos fechados que
+**dizem**: `em-dia`, `atras` (com o número de commits), `a-frente` e `origem-desconhecida`. O
+primeiro eixo compara **a prova com o disco**; o segundo, **o disco com a origem** — são duas
+perguntas, e só a primeira existia.
+
+- **`origem-desconhecida` não é `em-dia`:** sem `git fetch` não há origem, e *não medido não é o
+  mesmo que em dia* (D23);
+- **nada é PUXADO.** Atualizar os clones mudaria **toda** medição desta casa, e isso é prompt, não
+  conserto silencioso (D226). O número fica **dito**, e quem decide é o chat;
+- **o `fetch` é leitura:** ele mexe só nas referências locais do clone. Nenhum arquivo rastreado
+  muda, o `git status` dos três continua limpo, e a §4 segue respeitada.
+
+**Daqui em diante o recado publica os dois:** `repo@disco` **e** `origin/main@X, atrás N`. *Dizer
+só o disco é publicar disco como se fosse origem.*
+
+---
+
+## D242 · POR LUGAR, NÃO POR FRASE — e o meu "zero de quinze" tinha o denominador errado · 09/10/2026
+
+A Central mediu e corrigiu uma instrução que o chat tinha espalhado — e que **eu executei no item
+006**:
+
+> O `grep` por *"quando compensar"*, *"ponto de equilíbrio"* e *"volume mensal"* deu **ZERO** — **e
+> havia QUATRO.** As quatro apareceram **listando os LUGARES** onde a coisa mora e lendo cada um.
+
+**No item 006 eu varri por frase e publiquei *"zero de quinze"*.** Refeito **por lugar**:
+
+| | |
+|---|---|
+| lugares lidos, um a um | **SETE** |
+| condições de retorno que existem | **VINTE E UMA** |
+| o que a varredura de frase alcançava | **QUINZE** — as etiquetas declaradas de **um** lugar |
+| quantas são uma **CONTA** | **ZERO**, as vinte e uma |
+
+As **seis** que só o lugar mostrou: a execução do CI (parada por **data**, 1º/11); os consertos do
+LAB-05 no `recorte.ts` (**desligados por padrão**, §4); a obra do recorte na página do Jonny
+(*"quando houver a primeira fonte paga"* — e **fui eu que escrevi, no item 006**); a corda reta
+das vias curvas (**adiada para a V3**); o kit do Padrão Archilly (*"quando chegar, é outro
+item"*); e o ramo que espera uma pergunta, na regra da caixa.
+
+> **O veredicto sobreviveu e a cobertura não.** *O meu "zero" estava certo por não haver nenhuma
+> conta, não por a varredura alcançar* — e nenhuma das palavras que eu procurei aparece em
+> nenhuma das seis.
+
+> **A régua de palavra não sabe as palavras que ainda não foram escritas.** Para achar o que
+> existe, enumere os **LUGARES**; a varredura serve para impedir o que vai **nascer**, não para
+> inventariar o que já nasceu.
+
+**A lista dos sete lugares está escrita** em `src/lugares-das-condicoes.ts` — *"para quem vier
+depois saber onde você olhou"*, como o item pediu — e **há guarda**: cada lugar tem de existir e
+continuar trazendo a sua marca, e uma condição de **conta** reprova. *Lista que não se revalida
+envelhece igual a comentário* (D104).
+
+**E a conta fecha por construção:** 15 (a frase alcançava) + 6 (só o lugar mostrou) = **21**, com
+a trava somando.
+
+---
+
+## D243 · O critério do teto DISPAROU, e o que está errado agora é o DESENHO da lista · 09/10/2026
+
+No item 006 eu dei um **critério** ao teto da lista nominal de exceções da varredura de custo, em
+vez de só um número:
+
+> **O teto sobe quando a regra passa a ser ESCRITA em mais um lugar, e cada entrada nomeia qual
+> regra enuncia. Se ele subir sem que uma regra nova tenha sido escrita, o que está errado é o
+> DESENHO da lista, não o número.**
+
+**Ele disparou um prompt depois.** O teto foi de **9 para 11**, e as duas entradas novas são
+`docs/relatorios/LAB-73.md` e `docs/relatorios/LAB-74.md` — **relatórios de prompt**, que não são
+regra nova: são documentação **sobre** a regra. Pela minha própria frase, continuar assim é uma
+linha por relatório, para sempre.
+
+### O que eu consegui consertar agora, e é medição
+
+A régua das **condições de conta** passou a pular **linha de citação** (`^>`), e isso tirou da
+lista, **sem nome de arquivo nenhum**, as duas únicas acusações que ela fazia no repositório
+inteiro — as duas eram a **mesma frase da Central**, citada no `DECISOES.md` e no item 007.
+
+> *Sinal estrutural no lugar de nome na lista.* **Reportar a frase de outro não é assumir a
+> condição** — e o limite disto fica dito: condição adotada a partir de uma citação tem de ser
+> reescrita **fora** dela, que é como se adota qualquer coisa.
+
+**O que sobrou são relatórios**, que citam a frase em tabela e em prosa própria, não em citação. E
+é a **mesma classe** que faz a lista do vazamento de custo crescer.
+
+### A proposta, e ela NÃO foi executada
+
+**Escopar a varredura por DESTINO, não por nome de arquivo:** declarar o conjunto do que pode
+chegar a um **usuário** — hoje, neste repositório, **nada** além da bancada do navegador (§4) — e
+varrer **esse** conjunto com rigor; o **registro** (relatório, decisão, recado) ganha conferência
+própria: o valor citado tem de estar **dentro de citação ou de bloco de código**.
+
+**Por que não fiz:** é **mudança de modelo**, não conserto deste item, e a §1-A é explícita —
+*prompt fora da fila não existe; o que faltar entra como "proposto ao chat", sem executar.* Está
+na `FILA.md`, com o número, a medição e o desenho proposto.
+
+*Critério que dispara e é ignorado vira teto sem critério — e aí ele era só um número desde o
+começo.*

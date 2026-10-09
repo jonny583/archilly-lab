@@ -62,6 +62,7 @@ despertador, o menor número ainda não feito.**
 | `004` | a conta dos **disparos em vazio** do despertador | ✅ **LAB-71**, 09/10 · zero em vazio e dois acumulados · D234, D235 |
 | `005` | **regra de família:** cobrança por **USO**, nunca mensalidade | ✅ **LAB-72**, 09/10 · gravada na §4-A e **não executada** · D239 |
 | `006` | a trava é **estrutura** ou **palavra**? | ✅ **LAB-73**, 09/10 · é **palavra**, e **8 de 12** escapam · aqui **não há onde** tirar campo · **zero de 15** condições de volta · D240 |
+| `007` | o **disco** não é a **origem**; e varra por **LUGAR** | ✅ **LAB-74**, 09/10 · os clones estão **18 a 25 atrás**, e eu publiquei o disco em **6 recados** · **21** condições em **7** lugares, não 15 · D241, D242 |
 
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
@@ -205,6 +206,26 @@ certa e eu repeti a frase velha por descuido."*
 > [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §9, gravado **junto** do LAB-61
 > como a §1-B manda, e o despertador foi **DESLIGADO** (`enabled: false`), não apagado. O
 > chat o religa com fila nova.
+
+### Proposto ao chat, saído do item 007 — **não executado: é MUDANÇA DE MODELO**
+
+**ESCOPAR A VARREDURA DE CUSTO POR DESTINO, E NÃO POR NOME DE ARQUIVO** (D243). A lista nominal de
+exceções da `vazamento-de-custo.test.ts` foi de **6 para 11** em três prompts, e as duas últimas
+entradas são **relatórios de prompt** — documentação *sobre* a regra, não regra nova. Pelo critério
+que eu mesma escrevi no item 006, **isso significa que o errado passou a ser o desenho**: continuar
+assim é uma linha por relatório, para sempre.
+
+**A proposta:** declarar o conjunto do que pode chegar a um **usuário** — hoje, aqui, **nada** além
+da bancada do navegador (§4) — e varrer **esse** conjunto com rigor; o **registro** (relatório,
+decisão, recado) ganha conferência própria, em que o valor citado tem de estar **dentro de citação
+ou de bloco de código**.
+
+**Já há prova de que o caminho funciona:** no item 007 a régua das *condições de conta* passou a
+pular **linha de citação** e dispensou **duas** entradas de lista sem nome de arquivo nenhum.
+*Sinal estrutural no lugar de nome na lista.*
+
+**Não executado porque é escopo novo** (§1-A), e porque mexer no modelo de uma varredura de
+segurança no fim de uma rodada é exatamente o tipo de conserto que esta casa não faz em silêncio.
 
 ### Proposto ao chat, saído do item 004 — **não executado, e é um DESEMPATE**
 
@@ -1195,7 +1216,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 325 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 336 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
