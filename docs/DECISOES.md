@@ -6411,3 +6411,55 @@ nenhum deles fixado.
 
 E a §1 do `CLAUDE.md` passa a dizer o que `<app>` é de fato: **o nome deste aplicativo**, e não a
 palavra `Lab`.
+
+---
+
+## D229 · A âncora da rodada sem relatório é o PRÓPRIO RECADO — e eu medi as outras antes · 09/10/2026
+
+O buraco que eu declarei no LAB-66 e que virou o item 002: a trava do D216 cobra que todo
+relatório tenha recado, e **rodada sem relatório não tinha âncora nenhuma**. Foi assim que o
+recado do PR #85 foi ao chat e não foi ao arquivo.
+
+> **Disciplina não é guarda.**
+
+**As candidatas, medidas antes de escolher** — porque *régua que depende de arquivo que pode não
+existir tem o mesmo buraco noutro lugar*:
+
+| candidata | medida | veredicto |
+|---|---|---|
+| o número do **PR** | **42** mesclados na `main`, **4** citados em recado | reprovaria **38** rodadas legítimas |
+| o **commit** da entrega | rodada que não produz commit não tem nenhum | o mesmo buraco |
+| a **data** no `RECADOS.md` | zero dias com commit e sem recado, **mas dois recados no mesmo dia são comuns** | não distingue rodada de rodada — não teria pego o PR #85 |
+
+**A âncora é o `<prompt>` do cabeçalho, que sempre existe.** Ele passa a ser **um prompt ou uma
+das seis classes de rodada**, de vocabulário fechado. `—` não diz nada: serve igualmente para
+*"não era prompt"* e para *"esqueci de dizer"*, e era essa ambiguidade que escondia a rodada.
+
+**O histórico NÃO foi reescrito** — o item proíbe e tem razão: *registro não se maquia.* As dez
+que já estavam lá são classificadas **pelo que o título delas já diz**, texto que eu escrevi no
+dia. *A régua lê o registro; ela não o corrige.* E **não é lista de exceção**: não há nome de
+recado nenhum na régua, só classes — lista de exceção cresce e ninguém a lê.
+
+**Os dois lados demonstrados:** nenhum dos 73 recados do histórico fica órfão, e um órfão
+plantado **no arquivo de verdade** é pego pela mesma trava do lado bom.
+
+---
+
+## D230 · "São nove" eram DEZ, e antes disso eu tinha contado TRÊS a mais · 09/10/2026
+
+O item 002 veio com o meu número: *"são 9 recados assim no acumulado"*. **São dez** — a classe
+cresceu em 08/10, com a rodada da §1-C, e eu não voltei para corrigir o número que tinha saído.
+
+E a primeira contagem de hoje deu **treze**, porque a régua chamou de órfãos o **`LF-01`**, o
+**`LF-FINAL`** e o **`LF-FINAL-2`** — que são prompts de verdade, de **outra numeração**. Ela
+casava `LAB-\d\d`.
+
+> **É o terceiro precedente da mesma família em três dias** — D217 (o cabeçalho composto
+> `LAB-13 e LAB-14`), D219 (o acumulado que proibia rodada fora de fila) e esta. E o item 002
+> **me mandou lembrar do primeiro, por escrito**, e eu repeti mesmo assim.
+
+O que caracteriza um prompt é a **forma** — letras, hífen, sufixo que pode ser número ou palavra
+—, **não a sigla**. Consertado, com os cinco formatos na trava.
+
+*Número que saiu num recado continua sendo meu depois de sair: o item 002 citou o meu "nove" de
+volta, e eu só descobri que eram dez porque fui recontar em vez de confiar.*

@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-68 (item 001) ·
+**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-69 (item 002) ·
 **A FILA DE 08/10 ESGOTOU: LAB-62, 63, 64 (com o 65) e 66. Despertador DESLIGADO.**
 
 # 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 08/10 esgotou
@@ -75,8 +75,9 @@ recado, ENVIA**. Um item por despertador, o menor número ainda não feito.
 
 | item | estado |
 |---|---|
-| `001-FEITO.md` | ✅ 09/10 — as duas pilhas e o carimbo do vizinho (este prompt) |
-| `002.md` · `003.md` · `004.md` | prontos, um por despertador |
+| `001-FEITO.md` | ✅ 09/10 — as duas pilhas e o carimbo do vizinho (LAB-68) |
+| `002-FEITO.md` | ✅ 09/10 — a âncora da rodada sem relatório; eram **dez**, não nove (LAB-69) |
+| `003.md` · `004.md` | prontos, um por despertador |
 
 **Despertador RELIGADO** — `trig_01XwSkTLT9zmyprNZcUiWy7f`, confirmado contra a conta antes de
 mexer: existe, chama-se *"Archilly Lab — fila autônoma (60 min)"* e é desta sessão. O id gravado
@@ -314,10 +315,10 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 675 travas (658 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 269 (114 → … → 235 → 246 → 259 → 269) · DESLIGADO no GitHub até 1º/11
-decisões ........... D228 é a última. A próxima é a D229
-verde .............. exit 0, CONFERIDO AQUI e não no GitHub · 658 esteira + 17 testfit · três vizinhos limpos
+suíte .............. 684 travas (667 esteira + 17 testfit)   ← eram 584 ao abrir a fila
+CI sem clones ...... 278 (114 → … → 246 → 259 → 269 → 278) · DESLIGADO no GitHub até 1º/11
+decisões ........... D230 é a última. A próxima é a D231
+verde .............. exit 0, CONFERIDO AQUI e não no GitHub · 667 esteira + 17 testfit · três vizinhos limpos
 ```
 
 ## E CINCO vezes um número meu estava errado onde eu podia medi-lo
@@ -1187,7 +1188,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 269 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 278 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

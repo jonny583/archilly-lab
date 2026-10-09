@@ -66,6 +66,14 @@ Assim "me dá tudo desde o dia tal" vira uma leitura de arquivo, e não uma reco
 dos relatórios. **Recado que foi ao chat e não foi ao arquivo não existe amanhã** — aconteceu em
 08/10/2026, com o recado da própria regra do bloco, e agora **há guarda** (D216).
 
+**E o `<prompt>` do cabeçalho é a ÂNCORA da rodada, inclusive da que não tem relatório** (D229):
+ele é um prompt (`LAB-07`, `LF-FINAL`, `T-35` — a **forma**, não a sigla) **ou uma das seis
+classes de rodada** de vocabulário fechado: `despertador-sem-item`, `fila-esgotada`,
+`fila-recusada`, `decisao-registrada`, `recado-recuperado`, `fora-de-fila`. *Rodada que aconteceu
+e não disse o que era é órfã, e a trava reprova* (`tests/classes-de-rodada.test.ts`). O buraco
+que isto fecha era meu e estava **declarado**: até aqui, para essas rodadas *"o que restava era
+disciplina"* — e **disciplina não é guarda**.
+
 ---
 
 ## 1-C · Da Central — o texto da regra, gravado como veio
@@ -460,7 +468,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 269 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 278 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê
