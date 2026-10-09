@@ -6638,3 +6638,32 @@ Nesse regime, desligar deixa de proteger e passa a travar.
 As duas páginas passam a **apontar uma para a outra**, e **há guarda**: a trava reprova se uma
 delas perder a referência enquanto o conflito estiver aberto (`tests/disparos-em-vazio.test.ts`).
 *Conflito que não fica declarado é resolvido pela próxima sessão sem que ninguém saiba.*
+
+---
+
+## D237 · O primeiro disparo em vazio chegou no mesmo dia, e DUAS réguas minhas o proibiam · 09/10/2026
+
+A caixa esgotou com o item 004 às 18:06 e o disparo das **19:05** não achou nada. **A conta
+mediu o que foi feita para medir no primeiro dia: 1 em vazio, de 5.**
+
+Fiz o que a regra da caixa manda — recado de uma linha, a data na conta, **nada inventado** — e
+**não toquei no despertador**, que é o **D236 em exercício**: desligar agora garantiria que o
+item 005 **não fosse pego**.
+
+**E QUATRO coisas minhas reprovaram o caso legítimo quando ele chegou** — três escritas há uma
+hora, no item 004, e uma no item 002:
+
+| o que quebrou | por que |
+|---|---|
+| a trava *"o precedente da FILA são TRÊS, nenhum no regime da caixa"* | o recado de hoje é da **mesma classe** e é do regime da caixa. Ele não é precedente: **é o parceiro do cruzamento**, e eu havia escrito a régua contra um caso que ainda não existia |
+| a sabotagem do segundo sentido, `["09/10/2026"]` | naquela hora não havia linha em vazio em 09/10; passou a haver, e **o estrago virou caso legítimo** |
+| os literais da ferramenta, `"disparos observados: 4 · em vazio: 0"` | *literal de ferramenta envelhece igual a comentário* (D104) — e esta mede uma conta que cresce de hora em hora. As sabotagens passam a ser **derivadas do arquivo** |
+| a trava do item 002, *"as rodadas sem prompt nomeado são DEZ"* | **o dez era do HISTÓRICO e a frase não dizia de quê** — é o D218 outra vez. As dez levam `—` no cabeçalho e se classificam pelo título; as novas **declaram a classe no cabeçalho** e são quantas vierem |
+
+> **Régua escrita contra o caso que ainda não veio proíbe o caso legítimo quando ele vem** — é a
+> quarta vez em três dias (D217, D219, D228 e esta), e as quatro foram pegas pelo primeiro uso
+> real, não por releitura.
+
+**E a sabotagem do segundo sentido tem lição própria:** um estrago que depende do estado do
+arquivo **deixa de ser estrago** quando o estado muda, e aí a trava fica verde **sem medir o que
+dizia medir**. Agora ela escolhe um dia que a conta **não tem** e **confere isso antes**.

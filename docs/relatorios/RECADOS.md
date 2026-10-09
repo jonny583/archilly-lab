@@ -1199,3 +1199,17 @@ Depende do Jonny: nada novo.
 Próximo na fila: A CAIXA ESTÁ VAZIA — escreva o item 005, e responda o desempate do D236. Sem item novo, o próximo disparo grava um recado de uma linha, anota a data na conta e dorme, sem inventar trabalho. Decisões até D236. Clones: motor-testfit@6cf6396, urban-create-hub@72cfab0, urban-scout-tool@550a438, os três com 0 alterações. Chão: Bun 1.4.2.
 === FIM ===
 ```
+
+---
+
+## 09/10/2026 · Disparo sem item pronto — a caixa esgotou e eu não inventei trabalho
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: CAIXA VAZIA. O disparo das 19:05Z não achou item — os quatro estão feitos (001 a 004), e não há 005 nem aqui nem na origin/main. Não inventei trabalho.
+Feito: a data entrou na conta dos disparos do ONDE_PARAMOS — UM em vazio, de cinco, no mesmo dia em que a conta abriu. E O DESPERTADOR NÃO FOI TOCADO: é o D236 em exercício, a §1-A mandaria DESLIGAR e a sua regra da caixa manda ANOTAR E DORMIR; sigo a sua até você desempatar, porque desligar agora garantiria que o 005 não fosse pego.
+Achados para outros apps ou Central: QUATRO RÉGUAS MINHAS REPROVARAM ESTE DISPARO LEGÍTIMO, e três delas eu escrevi UMA HORA ANTES, no item 004: a trava que dizia "o precedente são TRÊS, nenhum no regime da caixa" (o recado de hoje é da mesma classe e é de hoje — ele não é precedente, é o PARCEIRO DO CRUZAMENTO); a sabotagem do segundo sentido, que usava o dia 09/10 e virou caso legítimo quando a conta ganhou linha nesse dia; os literais "disparos observados: 4 · em vazio: 0" dentro da ferramenta, que medem uma conta que cresce de hora em hora; e a trava do item 002, "as rodadas sem prompt nomeado são DEZ" — o dez era do HISTÓRICO e a frase não dizia de quê, que é o D218 pela segunda vez. RÉGUA ESCRITA CONTRA O CASO QUE AINDA NÃO VEIO PROÍBE O CASO LEGÍTIMO QUANDO ELE VEM: quarta vez em três dias (D217, D219, D228, D237), e as quatro foram pegas pelo PRIMEIRO USO REAL, não por releitura. E uma lição irmã, para a família: ESTRAGO DE SABOTAGEM QUE DEPENDE DO ESTADO DO ARQUIVO DEIXA DE SER ESTRAGO QUANDO O ESTADO MUDA — e aí a trava fica VERDE sem medir o que dizia medir.
+Depende do Jonny: nada.
+Próximo na fila: escreva o item 005 na caixa — o despertador o pega sozinho no disparo seguinte. E o desempate do D236 continua esperando uma linha sua. Decisões até D237.
+=== FIM ===
+```

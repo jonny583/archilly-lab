@@ -64,11 +64,11 @@ despertador, o menor número ainda não feito.**
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
 
-**A CAIXA ESGOTOU em 09/10/2026, quatro de quatro.** O próximo disparo é o primeiro candidato a
-**disparo em vazio** — e, pela regra da caixa, ele não inventa trabalho: grava um recado de uma
-linha, anota a data na *conta dos disparos* do
-[`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md) e dorme. *Despertador que acorda e não acha nada é
-informação, não fracasso.*
+**A CAIXA ESGOTOU em 09/10/2026, quatro de quatro — e o disparo das 19:05Z já caiu em vazio**, o
+primeiro desde que a conta abriu. Pela regra da caixa ele **não inventou trabalho**: recado de uma
+linha, a data na *conta dos disparos* do [`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md), e dormir, com
+o despertador **intacto** (D236). *Despertador que acorda e não acha nada é informação, não
+fracasso* — e agora é informação **gravada**.
 
 ---
 
@@ -1189,7 +1189,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 303 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 304 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
