@@ -2,22 +2,28 @@
   "prompt": "LAB-68",
   "oQueIstoMede": "de onde vêm as 11 falhas do verde, separadas RODANDO e não deduzidas pelo nome do arquivo — e o carimbo do commit de cada clone vizinho, que é o que faltava para a pergunta 'o motor andou ou a minha ponte mudou?' ter resposta",
   "aPergunta": "item 001 da caixa de entrada, que veio do meu próprio recado do LAB-67",
-  "quando": "2026-10-09T16:13:18.121Z",
+  "quando": "2026-10-09T22:11:31.084Z",
   "osClonesVizinhos": [
     {
       "repo": "motor-testfit",
       "commit": "6cf6396",
-      "limpo": true
+      "limpo": true,
+      "origemMain": "e4db59d",
+      "atrasPor": 25
     },
     {
       "repo": "urban-create-hub-41d93a4d",
       "commit": "72cfab0",
-      "limpo": true
+      "limpo": true,
+      "origemMain": "70ae70d",
+      "atrasPor": 18
     },
     {
       "repo": "urban-scout-tool",
       "commit": "550a438",
-      "limpo": true
+      "limpo": true,
+      "origemMain": "b664a01",
+      "atrasPor": 23
     }
   ],
   "oChao": {

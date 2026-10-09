@@ -132,7 +132,18 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
    * cada entrada é um arquivo que tropeçou de verdade, não um padrão que adivinha quais
    * tropeçariam.
    */
-  const FALAM_SOBRE_A_CONDICAO = ["CLAUDE.md", "docs/relatorios/LAB-73.md"];
+  /**
+   * **A régua encurtou esta lista por SINAL ESTRUTURAL, e o resto mede o tamanho do defeito que
+   * sobra.** Ela passou a pular **linha de citação** (`>`), e isso tirou daqui, sem nome de
+   * arquivo nenhum, as duas acusações que vinham da MESMA frase da Central citada — no
+   * `DECISOES.md` e no item. *Sinal estrutural no lugar de nome na lista.*
+   *
+   * **O que sobra são RELATÓRIOS DE PROMPT**, que citam a frase em tabela e em prosa própria, não
+   * em citação: `LAB-73.md` e `LAB-74.md`. É a mesma classe que trava a lista do vazamento de
+   * custo, e é o objeto da proposta ao chat (D243) — *escopar por destino em vez de por nome*. A
+   * `CLAUDE.md` fica porque a §4-A enuncia a proibição em texto próprio.
+   */
+  const FALAM_SOBRE_A_CONDICAO = ["CLAUDE.md", "docs/relatorios/LAB-73.md", "docs/relatorios/LAB-74.md"];
   const docs = doGit(
     (f) =>
       f.endsWith(".md") &&
@@ -171,6 +182,13 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
     for (const p of plantadas) expect(condicoesDeConta([p]).length, p.texto).toBe(1);
     // E uma linha com DUAS marcas continua sendo UMA condição — senão o número infla.
     expect(condicoesDeConta([{ arquivo: "x.md", texto: "volta quando o volume pagar, no ponto de equilíbrio" }])).toHaveLength(1);
+  });
+
+  test("linha de CITAÇÃO não é condição desta casa (item 007)", () => {
+    const citada = "> O `grep` por *\"quando compensar\"*, *\"ponto de equilíbrio\"* deu ZERO";
+    expect(condicoesDeConta([{ arquivo: "x.md", texto: citada }])).toEqual([]);
+    // E a MESMA frase, fora da citação, continua sendo acusada.
+    expect(condicoesDeConta([{ arquivo: "x.md", texto: citada.replace(/^> /, "") }])).toHaveLength(1);
   });
 
   test("e NÃO acusa `volume` noutro sentido — a §6 fala de acusar em volume", () => {

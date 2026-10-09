@@ -128,6 +128,16 @@ export function condicoesDeConta(
   const achados: { arquivo: string; linha: number; trecho: string }[] = [];
   for (const d of docs) {
     d.texto.split("\n").forEach((linha, i) => {
+      // **Linha de CITAÇÃO não é condição desta casa** (item 007). As duas únicas que esta régua
+      // acusou no repositório inteiro eram a MESMA frase da Central, citada em dois lugares:
+      // `> O grep por "quando compensar", "ponto de equilíbrio" e "volume mensal" deu ZERO`.
+      // Reportar a frase de outro não é assumir a condição — e o sinal aqui é ESTRUTURAL (a linha
+      // abre com `>`), não o nome de um arquivo numa lista. *Foi assim que esta régua deixou de
+      // precisar de lista nominal, que é o conserto que a de custo ainda espera (D243).*
+      //
+      // **O limite disto fica dito:** se um dia uma condição de conta for ADOTADA a partir de uma
+      // citação, ela tem de ser reescrita fora da citação — e é assim que se adota qualquer coisa.
+      if (/^\s*>/.test(linha)) return;
       // **Uma linha conta UMA vez**, e não uma por padrão que casar: duas réguas mordendo a
       // mesma frase dariam duas condições onde há uma, e o número é o que o item 006 pede.
       if (CONDICAO_DE_CONTA.some((re) => re.test(linha))) {

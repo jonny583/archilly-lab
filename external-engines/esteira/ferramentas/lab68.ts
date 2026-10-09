@@ -16,12 +16,28 @@ import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { VIZINHOS, type CarimboDeVizinho, type CarimboDoChao } from "../src/commit-dos-vizinhos.ts";
+import {
+  VIZINHOS,
+  conferirContraAOrigem,
+  type CarimboDeVizinho,
+  type CarimboDoChao,
+} from "../src/commit-dos-vizinhos.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const PROVA = join(RAIZ, "docs", "provas", "LAB-68");
 
-/** O carimbo de hoje: o `HEAD` de cada clone e se ele estava limpo. */
+/**
+ * O carimbo de hoje: o `HEAD` de cada clone, se ele estava limpo — **e o que a ORIGEM diz**.
+ *
+ * **O segundo eixo entrou no item 007, e entrou porque eu errei:** por seis recados eu publiquei
+ * o `HEAD` do disco como *"o estado do vizinho"*, com os três clones **18 a 23 commits atrás**
+ * da `origin/main` (D241). *O que está no disco não é o que está na origem.*
+ *
+ * **O `fetch` é de leitura**: ele mexe só nas referências locais do clone — nenhum arquivo
+ * rastreado muda, e o `git status` dele continua limpo, o que a §4 exige e esta função confere.
+ * **E nada é PUXADO:** atualizar o clone mudaria toda medição desta casa, e isso é prompt, não
+ * conserto silencioso (D226).
+ */
 export function carimbarVizinhos(): CarimboDeVizinho[] {
   const carimbos: CarimboDeVizinho[] = [];
   for (const repo of VIZINHOS) {
@@ -29,10 +45,22 @@ export function carimbarVizinhos(): CarimboDeVizinho[] {
     if (!existsSync(join(caminho, ".git"))) continue;
     const git = (...a: string[]): string =>
       execFileSync("git", ["-C", caminho, ...a], { encoding: "utf8" }).trim();
+    const tentar = (...a: string[]): string | null => {
+      try {
+        return git(...a);
+      } catch {
+        return null; // sem rede ou sem `origin`: NÃO MEDIDO, e não "em dia"
+      }
+    };
+    tentar("fetch", "-q", "origin", "main");
+    const origemMain = tentar("rev-parse", "--short", "origin/main");
+    const atras = tentar("rev-list", "--count", "HEAD..origin/main");
     carimbos.push({
       repo,
       commit: git("rev-parse", "--short", "HEAD"),
       limpo: git("status", "--porcelain") === "",
+      origemMain,
+      atrasPor: atras === null ? null : Number(atras),
     });
   }
   return carimbos;
@@ -154,5 +182,11 @@ writeFileSync(
   )}\n`,
 );
 console.log("  clones carimbados:");
-for (const c of osClonesVizinhos) console.log(`   · ${c.repo}@${c.commit} ${c.limpo ? "(limpo)" : "(SUJO)"}`);
+for (const c of osClonesVizinhos) {
+  const origem = conferirContraAOrigem(c.repo, c.commit, c.origemMain ?? null, c.atrasPor ?? null);
+  console.log(
+    `   · ${c.repo}@${c.commit} ${c.limpo ? "(limpo)" : "(SUJO)"} · origem: ${origem.veredito}` +
+      (origem.veredito === "atras" ? ` por ${c.atrasPor} (origin/main@${c.origemMain})` : ""),
+  );
+}
 console.log("\n  docs/provas/LAB-68/as-duas-pilhas.json");
