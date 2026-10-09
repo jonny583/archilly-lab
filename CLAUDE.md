@@ -347,13 +347,50 @@ pressão para vender. Custo por uso nasce **junto** com a receita — sem client
 8. **Nenhuma sessão contrata nada.** Não abre conta, não cadastra chave, não inicia teste. A
    decisão de gastar é de **uma pessoa**, fonte a fonte.
 
+### A MINHA TRAVA É DE PALAVRA, NÃO DE ESTRUTURA — e isto está medido (item 006)
+
+A Pesquisa de Mercado mediu e o chat trouxe a lição que vale mais que a regra:
+
+> **Não escreva "recusar mensalidade" numa conferência. Tire o campo onde a mensalidade caberia.
+> Campo que não existe não se esquece.**
+
+**A minha é de palavra**, e o preço disso está contado: dos **doze** compromissos mensais de
+formato real declarados em `src/trava-de-estrutura.ts`, a régua de palavra pega **quatro** —
+**8 dos 12 escapam**, entre eles *"compromisso mínimo de 50 chamadas por mês"*, *"contrato anual
+com faturamento recorrente"* e *"teste de 14 dias, cartão obrigatório"*.
+
+**O exemplo do item estava errado a meu respeito, e a conclusão dele certa:** ele disse que
+*"franquia mínima e teste grátis passam por qualquer varredura de texto"* — na minha **não
+passam**, há padrão para os dois. Medido, o problema é **pior** do que o exemplo: são outros oito.
+
+### E a resposta de ESTRUTURA aqui é "não há onde"
+
+**Varrido todo o `.ts` que o git carrega: nenhum campo de recorrência declarado em tipo nenhum.**
+Não existe neste aplicativo um tipo que represente preço de fonte paga — não há mensalidade,
+franquia nem mínimo a tirar, porque não há onde eles caberiam. *Resposta válida, e o item diz
+que é.*
+
+**A régua de estrutura casa DECLARAÇÃO DE CAMPO, não menção** — e foi preciso: `assinatura`
+aparece **sete vezes** aqui e é a **assinatura de determinismo** de uma rodada do motor. E ela
+perdeu dois nomes por medição: `plano` e `planoId` saíram depois de acusarem `plano: Plano` —
+**o plano de loteamento**, o objeto central deste repositório (D240).
+
+> **A régua de estrutura não é imune ao defeito da régua de palavra:** *campo cujo NOME eu
+> adivinhei* tem a mesma doença, só mudada de lugar — do texto para o identificador.
+
 ### O que a guarda NÃO pega, e isto fica dito
 
 **Não há nada pago neste repositório hoje** — a trava do custo já mede isso no `import` e na
-chamada. Então a varredura nova só alcança **texto**: um compromisso mensal **escrito** num
+chamada. Então a varredura de palavra só alcança **texto**: um compromisso mensal **escrito** num
 arquivo que o git carrega. **Contratar de verdade acontece fora da árvore**, num navegador, com
 um cartão, e nenhuma régua daqui alcança. *Guarda que não declara o próprio buraco mente pelo
 silêncio* — a consequência nº 8 existe exatamente porque este buraco não fecha com código.
+
+**E as CONDIÇÕES DE VOLTA foram varridas:** são **quinze** condições de abertura declaradas na
+`FILA.md`, e **nenhuma é uma conta** — todas esperam pessoa, repositório, prompt novo ou medição
+(`prompt-novo`, `nao-medido`, `aguardando-outro-repositorio`, `escopo-novo`, `depois-do-mvp`,
+`aguardando-o-jonny`). **Zero** falam de volume, de ponto de equilíbrio ou de *"quando
+compensar"* — e zero é resposta, medida, não suposta.
 
 ---
 
@@ -385,7 +422,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu DEZOITO vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu DEZENOVE vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -408,6 +445,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D190 (LAB-55) | "a hierarquia da via culpada não é observável de fora" | ela mora na **SAÍDA**; eu a li no `resultado` **interno** do Generate e saiu `null` em 4 de 4 |
 | D217 (08/10) | "o LAB-13 e o LAB-14 não têm recado no arquivo" | têm **um recado para os dois**, e a régua casava o nome **exato** — o acusado era o **precedente** da regra nova |
 | D231 (item 003) | "o LAB-68 e o LAB-69 não têm recado no arquivo" | têm: a **ferramenta** ainda casava `— Lab · ` literal, e o conserto do D228 só entrou na **trava** |
+| D240 (item 006) | "há campo de mensalidade em `volta.ts`" | é `plano: Plano` — **o plano de loteamento**, o objeto central desta casa: a régua de ESTRUTURA adivinhou o nome |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -419,25 +457,25 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**As dezoito, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
+**As dezenove, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
 classe, com a decisão nomeada para qualquer um refazer a conta:
 
 | quantas | a classe | quais |
 |---|---|---|
-| **NOVE** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155, D217, D231 |
+| **DEZ** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155, D217, D231, D240 |
 | **QUATRO** | a ponte ou a ida do Lab corrompendo a medição | D18, D98, D119, D166 |
 | **DUAS** | caminho errado de leitura | D135, D190 |
 | **DUAS** | a minha cabeça, contando de memória o que estava impresso ao lado | D161, D185 |
 | **UMA** | dado que faltava, e não número que mudou | D133 |
 
-9 + 4 + 2 + 2 + 1 = **18**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
+10 + 4 + 2 + 2 + 1 = **19**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
 três foram caminho errado" até 08/10/2026, e 9 + 2 + 3 = 14:** duas das dezesseis não tinham
 classe, e a frase se lia como partição. Medido e refeito no LAB-63, com guarda que soma
 (D212). Ela também citava **D104** e **D175** como membros, e nenhuma das duas é linha da
 tabela — elas são decisões *irmãs*, citadas no texto abaixo, e não ocorrências do ponto cego.
 
-**DOZE** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142,
-D148, D155, D166, D185, D190, D217, D231).
+**TREZE** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142,
+D148, D155, D166, D185, D190, D217, D231, D240).
 
 **A décima oitava é a nona da sub-família da régua que varre texto, e ela tem lição nova: o
 conserto entrou em UM instrumento só.** A Central mandou o `<app>` do cabeçalho virar o nome do
@@ -447,6 +485,15 @@ de não terem recado — e os dois **têm**. *Conserto de régua que não é apl
 instrumentos que leem a mesma coisa é meio conserto, e o instrumento que ficou de fora passa a
 mentir com a autoridade de quem conferia* (D231). O que isto fecha está escrito num lugar só:
 [`docs/referencia/FERRAMENTA_E_TRAVA.md`](docs/referencia/FERRAMENTA_E_TRAVA.md).
+
+**A décima nona fecha um ciclo que começou no mesmo dia, e é a lição mais útil do item 006:** a
+Pesquisa mandou *"não escreva 'recusar mensalidade' numa conferência — tire o campo onde ela
+caberia; campo que não existe não se esquece"*. Certo. Mas a régua de **estrutura** que eu
+escrevi para isso incluiu `plano` entre os nomes de recorrência e **acusou `plano: Plano`**, duas
+vezes, em `testfit/adapter/src/volta.ts` — **o plano de loteamento, o objeto central deste
+repositório inteiro.** *A régua de estrutura não é imune ao defeito da régua de palavra: campo
+cujo NOME eu adivinhei tem a mesma doença, só mudada de lugar — do texto para o identificador*
+(D240). Os dois nomes ambíguos saíram, e ficaram só os que não têm outro significado nesta casa.
 
 **A décima sexta é a terceira da família do CAMINHO, e a segunda do lado ruim dela:** o
 caminho errado **não estourou, devolveu `null`** — e `null` num campo que *classifica* não
@@ -479,7 +526,7 @@ consertar**, porque o comentário do conserto **citava** o defeito: varredura es
 texto de código mede **o que o código faz** e **o que ele diz sobre si**, e só uma delas é
 o objeto.
 
-**A regra que as dezoito ensinam, e ela é curta:**
+**A regra que as dezenove ensinam, e ela é curta:**
 
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
 > você está lendo**; antes de dizer que um número mudou, confira se ele
@@ -494,9 +541,9 @@ o objeto.
 > e não de quem declarou a regra (D98, D104, D166); e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
 > onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
-> rótulo, e três das dezoito vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> rótulo, e três das dezenove vezes eu classifiquei pelo nome em vez de medir (D148, D155,
 > D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
-> **Dezoito de dezoito vezes o defeito estava do MEU lado — na régua, na ponte, no
+> **Dezenove de dezenove vezes o defeito estava do MEU lado — na régua, na ponte, no
 > caminho ou na minha cabeça — antes de estar no medido**, e em sete delas a régua era o teste
 > que eu acabara de escrever.
 
@@ -565,7 +612,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 315 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 325 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

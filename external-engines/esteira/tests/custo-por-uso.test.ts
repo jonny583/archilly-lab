@@ -45,8 +45,13 @@ const FALAM_SOBRE_O_ASSUNTO = [
   "docs/DECISOES.md",
   "docs/relatorios/RECADOS.md",
   "docs/caixa-de-entrada/005-FEITO.md",
+  "docs/relatorios/LAB-72.md",
   "external-engines/esteira/src/cobranca-por-uso.ts",
   "external-engines/esteira/tests/custo-por-uso.test.ts",
+  // O item 006 trouxe o corpus dos doze compromissos de formato real: ele é o OBJETO da
+  // medição, e está aqui porque medir exige escrever o que se mede.
+  "external-engines/esteira/src/trava-de-estrutura.ts",
+  "external-engines/esteira/tests/trava-de-estrutura.test.ts",
 ];
 
 function arquivosDoGit(): string[] {

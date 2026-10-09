@@ -1,3 +1,30 @@
+> # ✅ FEITO — 09/10/2026, LAB-73
+>
+> Relatório: [`docs/relatorios/LAB-73.md`](../relatorios/LAB-73.md). As três respostas estão
+> **medidas**, não opinadas.
+>
+> | a pergunta do item | a resposta, e onde |
+> |---|---|
+> | 1 · a trava é **estrutura** ou **palavra**? | **PALAVRA**, dito com a palavra na `CLAUDE.md` §4-A — e **quanto** ela deixa passar está contado: dos **12** compromissos de formato real ela pega **4**, **8 escapam** (`src/trava-de-estrutura.ts`) |
+> | …e existe **tipo** onde a mensalidade caberia? | **AQUI NÃO HÁ ONDE** — varrido todo `.ts`/`.tsx` que o git carrega: **zero** campos de recorrência, e nenhum tipo de preço de fonte paga. Não há campo a tirar |
+> | 2 · **condições de volta** sob a regra antiga | **ZERO de quinze.** As 15 são `prompt-novo` (6), `nao-medido` (3), `aguardando-outro-repositorio` (3), `escopo-novo`, `depois-do-mvp`, `aguardando-o-jonny` — todas esperam pessoa, repositório, prompt ou medição. **Nenhuma é uma conta** |
+> | 3 · o **recorte**, dimensionado | `docs/PENDENCIAS_JONNY.md` **§8**, para leigo: **aqui não há fonte paga para recortar**; o tamanho é **pequeno neste app**, **médio a grande na família**, e só vale **quando houver a primeira fonte paga**. **Não foi construído** |
+>
+> **O exemplo do item estava errado a meu respeito, e a conclusão dele certa:** *franquia mínima*
+> e *teste grátis* **não** passam pela minha régua — há padrão para os dois. Medido, o problema é
+> **pior**: são outros oito que escapam. *Conferir o exemplo é o que mede o tamanho real do
+> problema.*
+>
+> **E a régua de ESTRUTURA caiu no defeito da de palavra (D240):** ela incluía `plano` e acusou
+> `plano: Plano` — **o plano de loteamento**, o objeto central desta casa. *"Campo que não existe
+> não se esquece" é verdade, mas campo cujo NOME eu adivinhei tem a mesma doença, só mudada de
+> lugar.* 19ª ocorrência do ponto cego da §6, pega dentro do prompt.
+>
+> **Nada contratado, nenhum preço inventado, o CI não religado. Verde conferido aqui, não no
+> GitHub.** Guarda nova: `tests/trava-de-estrutura.test.ts`, 10 travas.
+
+---
+
 # A TRAVA DA COBRANÇA POR USO: a frase não protege, a AUSÊNCIA DO CAMPO protege
 
 **Vem do chat, 09/10/2026, levando o que a Pesquisa de Mercado mediu hoje.**

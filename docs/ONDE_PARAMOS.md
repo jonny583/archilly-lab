@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-72 (item 005) — a regra de
-família da cobrança por USO, gravada e **não executada** ·
+**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-73 (item 006) — a minha
+trava é de **palavra**, e **8 de 12** compromissos mensais escapam dela ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -59,9 +59,10 @@ enquanto eu trabalhava no 001"*).
 | 09/10/2026 | 18:06 | observado | item 004 pronto | item 004 (LAB-71) |
 | 09/10/2026 | 19:05 | observado | **nada na caixa** — os quatro feitos | recado de uma linha, e dormir |
 | 09/10/2026 | 20:05 | observado | item 005 pronto (entrou às 19:19:54Z) | item 005 (LAB-72) |
+| 09/10/2026 | 21:05 | observado | item 006 pronto | item 006 (LAB-73) |
 
 ```
-disparos observados: 6 · em vazio: 1
+disparos observados: 7 · em vazio: 1
 ```
 
 **UM em vazio, de cinco, e ele veio no mesmo dia em que a conta abriu** — às 19:05, logo depois de
@@ -132,7 +133,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 704 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 714 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -187,6 +188,7 @@ recado, ENVIA**. Um item por despertador, o menor número ainda não feito.
 | `003-FEITO.md` | ✅ 09/10 — o escopo da ferramenta contra o da trava, e o que escapa dos dois (LAB-70) |
 | `004-FEITO.md` | ✅ 09/10 — a conta dos disparos em vazio, e o id conferido contra a conta (LAB-71) |
 | `005-FEITO.md` | ✅ 09/10 — a regra de família: cobrança por USO, nunca mensalidade (LAB-72) |
+| `006-FEITO.md` | ✅ 09/10 — a trava é de **palavra**, e aqui **não há onde** tirar campo (LAB-73) |
 
 **A CAIXA ESGOTOU duas vezes hoje, e nas duas o despertador ficou intacto** (D236): às 19:05 em
 vazio, e o `005` entrou às 19:19 — **pego sozinho** no disparo das 20:05. *A aposta do D236 foi
@@ -194,6 +196,30 @@ medida em uma hora: desligar teria deixado o item parado.*
 
 **O estado do despertador NÃO se repete aqui** — ele mora na *conta dos disparos*, no alto deste
 arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D234).
+
+# 💰 A COBRANÇA POR USO, E A TRAVA DELA É DE PALAVRA (itens 005 e 006)
+
+A regra de família do Jonny — *"entre uma API que cobra por USO e uma que cobra MENSALIDADE,
+escolhe-se a de uso, mesmo que o uso saia mais caro"* — está na **`CLAUDE.md` §4-A**, com as
+palavras literais dele, o motivo de **ritmo** e as oito consequências (D239). **Gravada e não
+executada:** não há fonte paga aqui, e nenhuma sessão contrata nada.
+
+**E a trava dela é de PALAVRA, o que está escrito e medido** (item 006, D240):
+
+```
+dos 12 compromissos de formato real, a régua de palavra pega .......  4
+escapam ...........................................................  8
+campos de recorrência em tipo, em todo .ts que o git carrega ....... ZERO → "aqui não há onde"
+condições de volta que sejam uma CONTA, de 15 declaradas ........... ZERO
+```
+
+> **"Campo que não existe não se esquece" é verdade — mas campo cujo NOME eu adivinhei tem a
+> mesma doença, só mudada de lugar: do texto para o identificador.** A régua de estrutura
+> acusou `plano: Plano` — **o plano de loteamento** —, 19ª ocorrência do ponto cego da §6.
+
+**A obra do recorte** (ligar fonte paga só num estado, numa conta, numa operação, sem mexer em
+código) está **dimensionada e não feita**, em [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) §8:
+aqui não há fonte paga para recortar.
 
 # 📖 FERRAMENTA E TRAVA NÃO PEGAM A MESMA COISA — e agora há um lugar só (item 003)
 
@@ -453,7 +479,7 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 
 ```
 suíte .............. 684 travas (667 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 315 (114 → … → 302 → 303 → 304 → 315) · DESLIGADO no GitHub até 1º/11
+CI sem clones ...... 325 (114 → … → 303 → 304 → 315 → 325) · DESLIGADO no GitHub até 1º/11
 decisões ........... D230 é a última. A próxima é a D231
 verde .............. exit 0, CONFERIDO AQUI e não no GitHub · 667 esteira + 17 testfit · três vizinhos limpos
 ```
@@ -1325,7 +1351,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 315 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 325 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
