@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-74 (item 007) — **os três
-clones vizinhos estão 18 a 25 commits ATRÁS da origem**, e eu publiquei o disco em 6 recados ·
+**Última atualização:** 09/10/2026 · **Última rodada:** `despertador-sem-item` às 23:05Z — caixa
+vazia, nada inventado · **último prompt executado:** LAB-74 (item 007) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -61,10 +61,16 @@ enquanto eu trabalhava no 001"*).
 | 09/10/2026 | 20:05 | observado | item 005 pronto (entrou às 19:19:54Z) | item 005 (LAB-72) |
 | 09/10/2026 | 21:05 | observado | item 006 pronto | item 006 (LAB-73) |
 | 09/10/2026 | 22:05 | observado | item 007 pronto | item 007 (LAB-74) |
+| 09/10/2026 | 23:05 | observado | **nada na caixa** — os sete feitos | recado de uma linha, e dormir |
 
 ```
-disparos observados: 8 · em vazio: 1
+disparos observados: 9 · em vazio: 2
 ```
+
+**DOIS em vazio de nove, e a série já diz algo:** o chat abasteceu **sete itens em oito horas** e
+os dois vazios caíram **logo depois de a caixa esgotar** — às 19:05 (e o `005` entrou catorze
+minutos depois) e às 23:05. *Não é falta de abastecimento: é o intervalo caindo no intervalo entre
+um item e o seguinte.* O que isso decide continua escrito acima, e continua sendo do chat.
 
 **UM em vazio, de cinco, e ele veio no mesmo dia em que a conta abriu** — às 19:05, logo depois de
 o item 004 fechar a caixa. *A conta mediu o que foi feita para medir, no primeiro dia.* Conferido
@@ -205,9 +211,12 @@ arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D2
 
 | clone | o disco diz | a `origin/main` diz | atrás por |
 |---|---|---|---|
-| `motor-testfit` | `6cf6396` | `e4db59d` | **25** |
-| `urban-create-hub-41d93a4d` | `72cfab0` | `70ae70d` | **18** |
-| `urban-scout-tool` | `550a438` | `b664a01` | **23** |
+| `motor-testfit` | `6cf6396` | `e76cad0` | **27** |
+| `urban-create-hub-41d93a4d` | `72cfab0` | `292757c` | **20** |
+| `urban-scout-tool` | `550a438` | `f7e51a6` | **24** |
+
+**E os três andaram DE NOVO em uma hora** — 25 → **27**, 18 → **20**, 23 → **24**, medido às
+23:0xZ. *A distância não é um número que se guarda: é um número que se mede na hora de falar.*
 
 **Toda medição desta casa é contra os commits do DISCO** — e eu publiquei esses hashes como *"o
 estado do vizinho"* em **seis recados** (D241). O hash sempre esteve escrito; o que faltava era a

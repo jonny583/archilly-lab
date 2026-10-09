@@ -1255,3 +1255,17 @@ Depende do Jonny: nada novo. (E o item da RLS que o 007 menciona NÃO EXISTE nes
 Próximo na fila: a caixa está vazia (007 feito, conferido na origem agora). Escreva o 008 — e se o item da RLS era para este aplicativo, ele é o 008. O desempate do D236 segue esperando uma linha sua. Decisões até D243. Clones: motor-testfit@6cf6396 (origin/main@e4db59d, 25 atrás), urban-create-hub@72cfab0 (70ae70d, 18 atrás), urban-scout-tool@550a438 (b664a01, 23 atrás), os três com 0 alterações. Chão: Bun 1.4.2.
 === FIM ===
 ```
+
+---
+
+## 09/10/2026 · Disparo sem item pronto — a caixa esgotou de novo, e os sete estão feitos
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: CAIXA VAZIA. O disparo das 23:05Z não achou item — os sete estão feitos (001 a 007) e não há 008, conferido na origin/main e não no disco. Não inventei trabalho.
+Feito: a data entrou na conta dos disparos — DOIS em vazio de NOVE. E a série já diz algo: você abasteceu SETE ITENS EM OITO HORAS, e os dois vazios caíram logo depois de a caixa esgotar (às 19:05, com o 005 entrando catorze minutos depois, e agora às 23:05). NÃO É FALTA DE ABASTECIMENTO: é o intervalo do despertador caindo no vão entre um item e o seguinte. O despertador segue intacto (D236).
+Achados para outros apps ou Central: OS TRÊS CLONES ANDARAM DE NOVO EM UMA HORA, e é o D241 em exercício: motor-testfit foi de 25 para 27 commits atrás (origin/main@e76cad0), urban-create-hub de 18 para 20 (292757c), urban-scout-tool de 23 para 24 (f7e51a6). A DISTÂNCIA NÃO É UM NÚMERO QUE SE GUARDA: É UM NÚMERO QUE SE MEDE NA HORA DE FALAR — em três medições hoje ela mudou duas vezes, e quem publicasse a de uma hora atrás estaria publicando número velho outra vez.
+Depende do Jonny: nada.
+Próximo na fila: escreva o 008 quando quiser — e se o item da RLS que o 007 mencionou era para este aplicativo, ele é o 008. O desempate do D236 segue esperando uma linha sua. Decisões até D243. Clones: motor-testfit@6cf6396 (origin/main@e76cad0, 27 atrás), urban-create-hub@72cfab0 (292757c, 20 atrás), urban-scout-tool@550a438 (f7e51a6, 24 atrás), os três com 0 alterações. Chão: Bun 1.4.2.
+=== FIM ===
+```
