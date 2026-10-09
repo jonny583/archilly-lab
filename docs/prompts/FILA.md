@@ -61,6 +61,7 @@ despertador, o menor número ainda não feito.**
 | `003` | o escopo da **ferramenta** contra o das **travas**, e o que escapa dos dois | ✅ **LAB-70**, 09/10 · D231, D232, D233 |
 | `004` | a conta dos **disparos em vazio** do despertador | ✅ **LAB-71**, 09/10 · zero em vazio e dois acumulados · D234, D235 |
 | `005` | **regra de família:** cobrança por **USO**, nunca mensalidade | ✅ **LAB-72**, 09/10 · gravada na §4-A e **não executada** · D239 |
+| `006` | a trava é **estrutura** ou **palavra**? | ✅ **LAB-73**, 09/10 · é **palavra**, e **8 de 12** escapam · aqui **não há onde** tirar campo · **zero de 15** condições de volta · D240 |
 
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
@@ -1194,7 +1195,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 315 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 325 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

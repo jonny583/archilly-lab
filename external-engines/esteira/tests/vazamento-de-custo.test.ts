@@ -80,6 +80,10 @@ const FALAM_SOBRE_O_ASSUNTO = [
   // arquivo que tropeçou de verdade, não um padrão que adivinha quais tropeçariam.
   "CLAUDE.md",
   "docs/caixa-de-entrada/005-FEITO.md",
+  // Item 006: o relatório do 005 e a declaração das consequências **enunciam** a proibição —
+  // a nº 3 é literalmente *"o multiplicador não chega ao usuário"*.
+  "docs/relatorios/LAB-72.md",
+  "external-engines/esteira/src/cobranca-por-uso.ts",
 ];
 
 /**
@@ -110,14 +114,20 @@ describe("o nosso custo não vaza — Central, 08/10/2026", () => {
   });
 
   /**
-   * **O teto subiu de 6 para 7 no item 005, e subir é um ato declarado.** Entrou a `CLAUDE.md`,
-   * porque a §4-A **enuncia** a proibição — *"custo, fator e margem nunca chegam ao usuário
-   * comum"* — e a régua acusou a linha que a define (a forma do D155, terceira vez nesta lista),
-   * e entrou o item que a trouxe. *O teto existe para a lista não virar padrão disfarçado*: cada
-   * entrada é um arquivo que tropeçou de verdade, e levantá-lo custa escrever por quê.
+   * **O teto subiu de 6 para 9 em dois prompts, e subir é um ato declarado.** Entraram a
+   * `CLAUDE.md` (a §4-A **enuncia** a proibição: *"custo, fator e margem nunca chegam ao usuário
+   * comum"*), o item que a trouxe, o relatório dele e a declaração das consequências — quatro
+   * arquivos que **dizem a regra**, acusados pela régua que a cumpre. É a forma do D155, e nesta
+   * lista já é a quinta vez.
+   *
+   * **E o teto tem um CRITÉRIO, não só um número** (D240): ele sobe quando a regra passa a ser
+   * **escrita** em mais um lugar, e cada entrada nova nomeia qual regra enuncia. *Se ele subir
+   * sem que uma regra nova tenha sido escrita, o que está errado é o desenho da lista, não o
+   * número* — e aí a varredura precisa aprender a diferença entre prosa e produto, em vez de
+   * ganhar mais uma linha.
    */
   test("a lista de exceções é NOMINAL e curta — nada de pasta inteira nem padrão", () => {
-    expect(FALAM_SOBRE_O_ASSUNTO.length).toBeLessThanOrEqual(7);
+    expect(FALAM_SOBRE_O_ASSUNTO.length).toBeLessThanOrEqual(9);
     expect(new Set(FALAM_SOBRE_O_ASSUNTO).size).toBe(FALAM_SOBRE_O_ASSUNTO.length);
     for (const f of FALAM_SOBRE_O_ASSUNTO) {
       expect(f, f).not.toContain("*");

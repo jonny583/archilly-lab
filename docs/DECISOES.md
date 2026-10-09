@@ -6734,3 +6734,59 @@ que houver."* Nada foi contratado, nenhuma conta aberta, nenhuma chave cadastrad
 um cartão, e nenhuma régua daqui alcança — razão pela qual a oitava consequência é de **processo**
 e não de código. A varredura só pega **compromisso mensal escrito** num arquivo que o git
 carrega, e a lista do que ela **não** pega está declarada em `O_QUE_ISTO_NAO_GUARDA`.
+
+---
+
+## D240 · A régua de ESTRUTURA acusou `plano: Plano` — o plano de LOTEAMENTO · 09/10/2026
+
+**Décima nona ocorrência do ponto cego da §6, pega dentro do prompt.** O item 006 trouxe a lição
+da Pesquisa de Mercado, e ela está certa:
+
+> *"Não escreva 'recusar mensalidade' numa conferência. Tire o campo onde a mensalidade caberia.
+> Campo que não existe não se esquece."*
+
+Escrevi a régua de estrutura — uma lista de **nomes de campo** que guardariam recorrência — e
+`plano` estava nela, porque *plano* é palavra de cobrança em todo lugar. Ela acusou
+`plano: Plano`, **duas vezes**, em `testfit/adapter/src/volta.ts`: **o plano de loteamento, o
+objeto central deste repositório inteiro.**
+
+> **A régua de ESTRUTURA não é imune ao defeito da régua de PALAVRA.** *"Campo que não existe não
+> se esquece"* é verdade — mas **campo cujo NOME eu adivinhei** tem a mesma doença, só mudada de
+> lugar: do texto para o identificador.
+
+`plano` e `planoId` saíram; ficaram só os nomes que **não têm outro significado nesta casa**. E a
+régua casa **declaração de campo**, não menção — foi preciso, porque `assinatura` aparece **sete
+vezes** aqui e é a **assinatura de determinismo** de uma rodada do motor.
+
+### E o exemplo do item estava errado a meu respeito — medido
+
+Ele disse que *"franquia mínima e teste grátis passam por qualquer varredura de texto"*. **Na
+minha não passam:** há padrão para os dois. Mas a **conclusão** dele está certa, e medida fica
+**pior** do que o exemplo: dos **doze** compromissos mensais de formato real,
+a régua de palavra pega **quatro** — **8 de 12 escapam**, entre eles *"compromisso mínimo de 50
+chamadas por mês"* e *"contrato anual com faturamento recorrente"*.
+
+*Exemplo errado com conclusão certa continua valendo — e conferir o exemplo é o que mede o
+tamanho real do problema.*
+
+### E o teto da lista de exceções ganhou um CRITÉRIO, não só um número
+
+A lista nominal do `vazamento-de-custo.test.ts` foi de **6 para 9** em dois prompts, porque
+**quatro arquivos que ENUNCIAM a proibição** foram acusados pela régua que a cumpre — a quinta
+vez da forma do D155 só nessa lista.
+
+> **O teto sobe quando a regra passa a ser ESCRITA em mais um lugar, e cada entrada nova nomeia
+> qual regra enuncia. Se ele subir sem que uma regra nova tenha sido escrita, o que está errado é
+> o DESENHO da lista, não o número** — e aí a varredura precisa aprender a diferença entre prosa
+> e produto, em vez de ganhar mais uma linha.
+
+### As três respostas do item, medidas
+
+| a pergunta | a resposta |
+|---|---|
+| a trava é palavra ou estrutura? | **palavra**, e está escrito na §4-A, com os **8 de 12** que escapam |
+| existe tipo onde a mensalidade caberia? | **não há onde** — nenhum campo de recorrência em nenhum `.ts` que o git carrega, e não existe tipo de preço de fonte paga |
+| há condição de volta que seja uma CONTA? | **zero**, de **quinze** condições declaradas — todas esperam pessoa, repositório, prompt novo ou medição |
+
+A obra do **recorte** está dimensionada em `docs/PENDENCIAS_JONNY.md` §8, e **não foi feita**:
+aqui não há fonte paga para recortar.

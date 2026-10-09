@@ -40,12 +40,13 @@ nenhuma**, porque não tinha como saber quando ela se justifica. Agora tem.
 nos quatro motores, e a sua razão para a rua só avisar foi para dentro do código
 com as suas palavras.
 
-**Ficam faltando duas coisas, e as duas são de olhar e dizer:**
+**Ficam faltando três coisas, e as duas primeiras são de olhar e dizer:**
 
 | # | o que | quanto custa | o que muda se você responder |
 |---|---|---|---|
 | **1** | **Confirmar a régua de forma de lote que veio pelo chat:** lote que aproveita **menos de 85 %** do retângulo em volta dele fica marcado *"a conferir"*; **menos de 70 %**, *"ruim"*. | 2 min | é a linha que decide quais lotes aparecem marcados na comparação entre motores |
 | **2** | **Olhar um resultado estranho do Laboratório de Parcelamento em Antonina:** ele passou a escolher, para si mesmo, um plano de **33 lotes** quando tinha um de **1 228** à disposição. Ver o item **7** abaixo. | 10 min, olhando a tabela | se for de propósito, nada muda e eu paro de achar estranho; se não for, é conserto no Laboratório de Parcelamento |
+| **8** | **Uma obra para o dia em que algum aplicativo usar dado pago:** poder **ligar e desligar a fonte paga por pedaço** — só num estado, só numa conta, só numa operação — **sem mexer em código**. Ver o item **8** abaixo. | **nada agora**, só saber que existe | é o que permite acender a fonte paga **só onde há cliente**, em vez de ligar o país inteiro no dia do lançamento |
 
 
 **Ela já está valendo e aplicada** — está na
@@ -319,6 +320,37 @@ normal**, e a palavra "irregular" estava dando um veredito que não é meu. Agor
 a tabela só diz a forma; quem diz se a forma presta é você.
 
 **Nada trava enquanto isso.** Todas as medições continuam saindo.
+
+---
+
+## 8 · Ligar dado pago só onde há cliente — a obra que ninguém tem ainda
+
+**Isto não é pergunta e não trava nada.** Está aqui porque é **gasto futuro seu**, e você pediu
+para saber dessas coisas antes de elas chegarem.
+
+**O que é.** A sua regra nova diz que, entre pagar por uso e pagar por mês, escolhe-se por uso.
+Para isso funcionar de verdade, falta uma peça: **poder acender a fonte paga só num pedaço** —
+só no Paraná, só numa conta, só numa operação — **mexendo numa configuração, não no código**.
+Sem essa peça, ligar uma fonte paga é ligá-la para **todo mundo de uma vez**.
+
+**Como está hoje, medido em 09/10.** Três aplicativos da família foram olhados: todos têm o
+**liga/desliga** inteiro, e **nenhum** tem o **por pedaço**. O estado mora no código, e mudá-lo é
+um envio e uma recompilação.
+
+**E aqui, neste laboratório, não há nada a fazer agora** — este aplicativo **não usa nenhuma fonte
+paga**, nem tem onde guardar o preço de uma. Varri todos os arquivos de código: não existe lugar
+onde uma mensalidade caberia. A obra é dos aplicativos que **têm** dado pago.
+
+| | |
+|---|---|
+| **o tamanho, aqui** | **pequeno** — um arquivo de configuração lido na hora de rodar, mais o catálogo sabendo dizer *"esta fonte é paga, está ligada aqui, desligada ali"*. Da ordem de **uma rodada de trabalho**, e só vale a pena **quando houver a primeira fonte paga** |
+| **o tamanho, na família** | **médio a grande**, e não é meu de medir: depende de como cada aplicativo guarda o estado hoje |
+| **o que destrava** | acender a fonte paga **só onde há cliente pagante**; sem isso, a primeira fonte paga que entrar já custa em todo lugar |
+| **o que eu NÃO fiz** | não construí nada, não contratei nada, não abri conta. É **obra**, e obra espera você |
+
+**Por que isto está na sua página e não na minha lista de dívida técnica:** porque não é conserto
+de algo quebrado — é **decisão de construir**, e essa é sua. O que é meu está escrito: a regra
+está gravada, com guarda, e nada neste laboratório gasta um centavo.
 
 ---
 
