@@ -1,3 +1,28 @@
+> # ✅ FEITO — 09/10/2026, LAB-72
+>
+> **Gravada, e NÃO executada**, como o item mandou. Relatório:
+> [`docs/relatorios/LAB-72.md`](../relatorios/LAB-72.md).
+>
+> | o que o item pediu | onde está |
+> |---|---|
+> | gravar a regra onde ela não se perca | **`CLAUDE.md` §4-A** — o texto literal dele, o motivo de ritmo e as oito consequências; mais um bullet na **§4** do que este repositório nunca faz |
+> | com número e motivo | **D239** em `docs/DECISOES.md` — e o motivo é *"uma mensalidade contratada hoje é uma meta de vendas contratada junto"* |
+> | *"não a execute"* | **nada contratado, nenhuma conta aberta, nenhuma chave cadastrada.** Não há fonte paga neste repositório, e a trava do custo já media isso no `import` e na chamada |
+>
+> **As oito consequências também em código**, conferidas contra a página por trava:
+> `external-engines/esteira/src/cobranca-por-uso.ts` e `tests/custo-por-uso.test.ts` (**11
+> travas**, com os dois lados demonstrados: seis compromissos mensais plantados reprovam, quatro
+> frases que só *falam* de mensalidade passam).
+>
+> **E a guarda declara o próprio buraco:** contratar acontece **fora da árvore** — navegador,
+> cartão —, nenhuma régua daqui alcança, e é por isso que a consequência nº 8 é de **processo**.
+> Também não há comparação de fonte paga aqui hoje, então a régua das três faixas cobra a
+> **regra escrita** e não um caso: *melhor dizer isso que ter uma trava que aprova o vazio.*
+>
+> **Verde conferido aqui, não no GitHub.**
+
+---
+
 # 005 — REGRA DE FAMÍLIA: cobrança por USO, nunca mensalidade
 
 > **Vem do chat, 09/10/2026, por ordem direta do Jonny. Vale para TODOS os

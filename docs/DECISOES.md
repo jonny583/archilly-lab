@@ -6667,3 +6667,70 @@ hora, no item 004, e uma no item 002:
 **E a sabotagem do segundo sentido tem lição própria:** um estrago que depende do estado do
 arquivo **deixa de ser estrago** quando o estado muda, e aí a trava fica verde **sem medir o que
 dizia medir**. Agora ela escolhe um dia que a conta **não tem** e **confere isso antes**.
+
+---
+
+## D238 · O item 005 chegou 14 MINUTOS depois de eu dizer que a caixa estava vazia · 09/10/2026
+
+O disparo das **19:05Z** não achou item, e isso estava certo. **O `005.md` entrou na `main` às
+19:19:54Z**, no commit `de5e769` — catorze minutos depois.
+
+**O problema não é a conta: é o que eu ENVIEI.** O recado daquela rodada saiu por volta das
+**19:55**, e dizia *"escreva o item 005 na caixa"* — quando o 005 **já existia há 35 minutos**. E
+pior: o meu próprio `git merge --ff-only origin/main`, feito para sincronizar o ramo depois do PR
+#95, **trouxe o arquivo para dentro da minha árvore** e eu não olhei.
+
+| hora UTC | o que aconteceu |
+|---|---|
+| 19:05:48 | o despertador dispara; a caixa está vazia **de verdade** |
+| ~19:07 | eu confiro: nada em `caixa-de-entrada/`, nem local nem na `origin/main` |
+| 19:19:54 | **o chat escreve o `005.md` na `main`** |
+| ~19:5x | eu mesclo a `origin/main` no ramo — **o 005 entra na minha árvore em silêncio** |
+| ~19:55 | eu envio *"escreva o item 005"*, com o 005 já escrito |
+
+> **A conferência da caixa foi feita ao ACORDAR e valeu por 48 minutos.** O estado da caixa se
+> confere **na hora de ENVIAR**, não só na hora de acordar — e o lugar exato onde um item novo
+> aparece é o `merge` que eu faço para sincronizar o ramo.
+
+**A linha da conta NÃO foi corrigida, porque ela está certa:** às 19:05 a caixa estava vazia. O
+que foi corrigido é o procedimento, escrito na seção da conta, e **o recado enviado não se
+reescreve** — *registro não se maquia* (D229). A correção vai no recado seguinte, que é onde ele
+lê.
+
+**E não há trava mecânica para isto, de propósito:** uma régua não distingue *"o item chegou
+depois de eu enviar"* de *"eu ignorei o item"* — as duas deixam exatamente o mesmo rastro no
+arquivo. *Guarda que não consegue separar os dois casos aprovaria o ruim junto com o bom.*
+
+---
+
+## D239 · REGRA DE FAMÍLIA: cobrança por USO, nunca mensalidade · 09/10/2026
+
+**Ordem direta do Jonny, trazida pelo chat no item 005.** Vale para **todos** os aplicativos da
+família, todas as APIs, todas as sessões — *"absolutamente todas"*.
+
+> **Entre uma API que cobra por USO e uma que cobra MENSALIDADE, escolhe-se a de uso — mesmo que
+> o uso saia mais caro.**
+
+**O motivo não é financeiro, é de ritmo:** mensalidade paga-se igual com um cliente e com
+trezentos; o custo nasce **antes** da receita, e cada mês sem venda vira pressão para vender.
+
+> **Uma mensalidade contratada hoje é uma meta de vendas contratada junto** — e é por isso que a
+> regra vale **mesmo quando a mensalidade é a opção mais barata no papel.**
+
+**O texto literal dele e as oito consequências estão na `CLAUDE.md` §4-A**, e as consequências
+também em `external-engines/esteira/src/cobranca-por-uso.ts`, conferidas contra a página por
+trava (`tests/custo-por-uso.test.ts`, 11 travas).
+
+**A consequência que mais me acusa é a segunda, e foi medida contra mim no mesmo dia:** eu
+escrevi *"R$ 400 por mês ÷ 200 estudos = R$ 2 por estudo"* e ele corrigiu — com **três** clientes
+aquilo é **R$ 133 por estudo**. *O mesmo número aprovava e reprovava a despesa; só mudou a
+premissa de volume, que eu tinha inventado.* Daí a regra das **três faixas** — 3, 20 e 200
+clientes — em toda comparação de fonte paga.
+
+**O item mandou GRAVAR e NÃO EXECUTAR:** *"não há nada a comprar hoje; ela existe para o dia em
+que houver."* Nada foi contratado, nenhuma conta aberta, nenhuma chave cadastrada.
+
+**E a guarda declara o próprio buraco:** **contratar acontece fora da árvore**, num navegador, com
+um cartão, e nenhuma régua daqui alcança — razão pela qual a oitava consequência é de **processo**
+e não de código. A varredura só pega **compromisso mensal escrito** num arquivo que o git
+carrega, e a lista do que ela **não** pega está declarada em `O_QUE_ISTO_NAO_GUARDA`.

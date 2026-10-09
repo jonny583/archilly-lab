@@ -60,15 +60,20 @@ despertador, o menor número ainda não feito.**
 | `002` | a âncora da rodada **sem relatório** | ✅ **LAB-69**, 09/10 · as seis classes de rodada · eram **dez**, não nove (D230) · PR #92 |
 | `003` | o escopo da **ferramenta** contra o das **travas**, e o que escapa dos dois | ✅ **LAB-70**, 09/10 · D231, D232, D233 |
 | `004` | a conta dos **disparos em vazio** do despertador | ✅ **LAB-71**, 09/10 · zero em vazio e dois acumulados · D234, D235 |
+| `005` | **regra de família:** cobrança por **USO**, nunca mensalidade | ✅ **LAB-72**, 09/10 · gravada na §4-A e **não executada** · D239 |
 
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
 
-**A CAIXA ESGOTOU em 09/10/2026, quatro de quatro — e o disparo das 19:05Z já caiu em vazio**, o
-primeiro desde que a conta abriu. Pela regra da caixa ele **não inventou trabalho**: recado de uma
-linha, a data na *conta dos disparos* do [`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md), e dormir, com
-o despertador **intacto** (D236). *Despertador que acorda e não acha nada é informação, não
-fracasso* — e agora é informação **gravada**.
+**A caixa esgotou DUAS vezes em 09/10/2026** — quatro de quatro, e depois o `005`. O disparo das
+19:05Z caiu **em vazio**, o primeiro desde que a conta abriu, e **não inventou trabalho**: recado
+de uma linha, a data na *conta dos disparos* do [`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md), e
+dormir, com o despertador **intacto** (D236). *Despertador que acorda e não acha nada é
+informação, não fracasso* — e agora é informação **gravada**.
+
+**A aposta do D236 foi medida em uma hora:** o `005` entrou às 19:19Z e o disparo das 20:05 o
+**pegou sozinho**. Desligar às 19:05 teria deixado o item parado. O desempate continua sendo do
+chat.
 
 ---
 
@@ -1189,7 +1194,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 304 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 315 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

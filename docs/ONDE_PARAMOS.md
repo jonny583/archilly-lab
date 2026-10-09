@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 09/10/2026 · **Última rodada:** `despertador-sem-item` às 19:05Z —
-caixa vazia, nada inventado · **último prompt executado:** LAB-71 (item 004) ·
+**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-72 (item 005) — a regra de
+família da cobrança por USO, gravada e **não executada** ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -58,9 +58,10 @@ enquanto eu trabalhava no 001"*).
 | 09/10/2026 | 17:05 | observado | item 003 pronto | item 003 (LAB-70) |
 | 09/10/2026 | 18:06 | observado | item 004 pronto | item 004 (LAB-71) |
 | 09/10/2026 | 19:05 | observado | **nada na caixa** — os quatro feitos | recado de uma linha, e dormir |
+| 09/10/2026 | 20:05 | observado | item 005 pronto (entrou às 19:19:54Z) | item 005 (LAB-72) |
 
 ```
-disparos observados: 5 · em vazio: 1
+disparos observados: 6 · em vazio: 1
 ```
 
 **UM em vazio, de cinco, e ele veio no mesmo dia em que a conta abriu** — às 19:05, logo depois de
@@ -74,7 +75,23 @@ para confirmar a suspeita; ela nasceu para medi-la, e mediu as duas coisas.*
 
 **Nada foi tocado no despertador neste disparo em vazio**, e isso é o D236 em exercício: a §1-A
 mandaria **desligar**, a regra da caixa manda **anotar e dormir**, e eu sigo a da caixa até o chat
-desempatar. Desligar agora seria garantir que o **item 005 não fosse pego**.
+desempatar. **E a aposta foi medida uma hora depois:** o `005` entrou às **19:19:54Z** e o disparo
+das **20:05** o pegou **sozinho** — desligar às 19:05 teria deixado o item parado na caixa.
+
+### 🟠 A CONFERÊNCIA DA CAIXA SE FAZ NA HORA DE ENVIAR, não só ao acordar (D238)
+
+O `005` entrou **catorze minutos depois** do disparo em vazio, e o recado daquela rodada — enviado
+às ~19:55 — ainda dizia *"escreva o item 005"*. **A conferência tinha 48 minutos.** Pior: o meu
+próprio `git merge --ff-only origin/main`, para sincronizar o ramo depois do PR, **trouxe o
+arquivo para a árvore em silêncio**.
+
+> **O lugar exato onde um item novo aparece é o `merge` que eu faço para sincronizar o ramo.**
+> Antes de enviar: `git fetch` e olhar a caixa de novo.
+
+*A linha da conta não foi corrigida — às 19:05 a caixa estava vazia de verdade. E o recado
+enviado não se reescreve: a correção vai no recado seguinte, que é onde ele lê.* **Não há trava
+mecânica para isto, de propósito:** uma régua não distingue *"o item chegou depois de eu enviar"*
+de *"eu ignorei o item"*.
 
 ### O PRECEDENTE — reconstrução etiquetada como reconstrução, com a fonte de cada linha
 
@@ -115,7 +132,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 693 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 704 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -169,11 +186,11 @@ recado, ENVIA**. Um item por despertador, o menor número ainda não feito.
 | `002-FEITO.md` | ✅ 09/10 — a âncora da rodada sem relatório; eram **dez**, não nove (LAB-69) |
 | `003-FEITO.md` | ✅ 09/10 — o escopo da ferramenta contra o da trava, e o que escapa dos dois (LAB-70) |
 | `004-FEITO.md` | ✅ 09/10 — a conta dos disparos em vazio, e o id conferido contra a conta (LAB-71) |
+| `005-FEITO.md` | ✅ 09/10 — a regra de família: cobrança por USO, nunca mensalidade (LAB-72) |
 
-**A CAIXA ESGOTOU, quatro de quatro — e o disparo seguinte já caiu em vazio**, às 19:05Z: recado
-de uma linha, a data na *conta dos disparos* no alto deste arquivo, **nada inventado**, e o
-despertador **intacto** (D236). O chat escreve o `005` quando quiser; o despertador o pega
-sozinho.
+**A CAIXA ESGOTOU duas vezes hoje, e nas duas o despertador ficou intacto** (D236): às 19:05 em
+vazio, e o `005` entrou às 19:19 — **pego sozinho** no disparo das 20:05. *A aposta do D236 foi
+medida em uma hora: desligar teria deixado o item parado.*
 
 **O estado do despertador NÃO se repete aqui** — ele mora na *conta dos disparos*, no alto deste
 arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D234).
@@ -436,7 +453,7 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 
 ```
 suíte .............. 684 travas (667 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 304 (114 → … → 289 → 302 → 303 → 304) · DESLIGADO no GitHub até 1º/11
+CI sem clones ...... 315 (114 → … → 302 → 303 → 304 → 315) · DESLIGADO no GitHub até 1º/11
 decisões ........... D230 é a última. A próxima é a D231
 verde .............. exit 0, CONFERIDO AQUI e não no GitHub · 667 esteira + 17 testfit · três vizinhos limpos
 ```
@@ -1308,7 +1325,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 304 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 315 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
