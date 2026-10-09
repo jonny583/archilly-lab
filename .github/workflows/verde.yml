@@ -24,7 +24,7 @@
 #
 # Em vez de fingir, o workflow diz a verdade em duas partes:
 #
-#   1. **`guardas-sem-clones`** roda hoje, sem segredo nenhum: as 246 travas que não
+#   1. **`guardas-sem-clones`** roda hoje, sem segredo nenhum: as 260 travas que não
 #      dependem de clone vizinho — a página do Jonny estar atualizada, o formato do
 #      RECADO, a cobertura do próprio `conferir.sh` e as regras do `CLAUDE.md`.
 #      **Ele NÃO é o verde**, e o nome diz isso;
@@ -35,10 +35,26 @@
 # verde é a mentira que o D110 custou duas semanas.**
 name: verde
 
+# ─────────────────────────────────────────────────────────────────────────────
+#  EXECUÇÃO AUTOMÁTICA DESLIGADA EM 08/10/2026 — o orçamento de Actions da
+#  família estourou, e o Jonny decidiu NÃO comprar mais. A cota zera em 1º/11.
+#
+#  COMO RELIGAR: docs/COMO_RELIGAR_O_CI.md — é o ÚNICO lugar com a receita.
+#  SÃO DOIS PASSOS, e quem fizer só o primeiro vai achar que o GitHub quebrou:
+#    1. tirar o `#` das quatro linhas de `push`/`pull_request` abaixo;
+#    2. REABILITAR a rotina no GitHub — ela está `disabled_manually`:
+#       gh api -X PUT /repos/jonny583/archilly-lab/actions/workflows/374646435/enable
+#
+#  Nada foi apagado: os comentários que explicam por que cada trabalho existe
+#  continuam aqui, e o `workflow_dispatch` segue ligado para rodar à mão.
+#  Enquanto isso, o verde roda na máquina: ./external-engines/conferir.sh —
+#  e toda entrega declara "conferido aqui, não no GitHub".
+#  Há trava: tests/gatilho-do-verde.test.ts REPROVA a partir de 1º/11/2026.
+# ─────────────────────────────────────────────────────────────────────────────
 on:
-  push:
-    branches: ["**"]
-  pull_request:
+#  push:
+#    branches: ["**"]
+#  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -77,7 +93,9 @@ jobs:
             tests/propostas.test.ts \
             tests/tres-listas.test.ts \
             tests/aritmetica-da-regra.test.ts \
-            tests/limites-com-sujeito.test.ts
+            tests/limites-com-sujeito.test.ts \
+            tests/gatilho-do-verde.test.ts \
+            tests/vazamento-de-custo.test.ts
 
   # ── O VERDE de verdade — e por que ele falha até alguém configurar ────────
   verde-completo:
@@ -119,7 +137,7 @@ jobs:
             echo "  tornar os dois vizinhos públicos — e essa é decisão do Jonny."
             echo ""
             echo "  ENQUANTO ISSO: o trabalho 'guardas-sem-clones' roda e protege"
-            echo "  246 travas; e o verde completo continua sendo rodado à mão, antes"
+            echo "  260 travas; e o verde completo continua sendo rodado à mão, antes"
             echo "  de cada commit, como está no CLAUDE.md §7."
             exit 1
           fi

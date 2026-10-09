@@ -61,9 +61,20 @@ const lista1 = abertos.map((p, i) => ({
   motivo: p.motivo,
 }));
 
+/**
+ * **Quantos itens abertos a lista tem hoje.** O chat recebeu ONZE no LAB-62; em 08/10 entraram
+ * mais DOIS, da rodada do orçamento de Actions — o trabalho de CI que não pode passar (D221) e o
+ * commit do clone vizinho em toda prova (D223).
+ *
+ * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
+ * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
+ */
+const ABERTOS_ESPERADOS = 13;
+
 cobrar(
-  lista1.length === 11,
-  `o chat pediu ONZE itens abertos e a régua leu ${lista1.length} — a lista mudou desde o LAB-61`,
+  lista1.length === ABERTOS_ESPERADOS,
+  `a lista tem ${lista1.length} itens abertos e o esperado declarado é ${ABERTOS_ESPERADOS} — ` +
+    "se a mudança é de propósito, mude ABERTOS_ESPERADOS com o motivo escrito",
 );
 cobrar(
   lista1.every((i) => i.motivo !== null),
@@ -224,7 +235,7 @@ cobrar(
 
 // ── Os três blocos, do jeito que vão para o chat ───────────────────────────
 const b1 = [
-  "=== LISTA 1 de 3 — OS ONZE ITENS ABERTOS, com o motivo declarado ===",
+  `=== LISTA 1 de 3 — OS ${ABERTOS_ESPERADOS} ITENS ABERTOS, com o motivo declarado ===`,
   ...lista1.map((i) => `${String(i.numero).padStart(2)}. [${i.motivo}] ${i.titulo}`),
   "=== FIM DA LISTA 1 ===",
 ].join("\n");
@@ -306,7 +317,7 @@ writeFileSync(
         quantasNomeiamArtefato: nomeiam.length,
       },
       aTensaoDoRECADO: {
-        oQueOChatPediu: "os onze itens 'um por linha', dentro do recado",
+        oQueOChatPediu: "os itens abertos 'um por linha', dentro do recado (eram ONZE no LAB-62; 13 em 08/10)",
         oTetoQueExiste: "12 linhas, CLAUDE.md §1, com trava em tests/recado.test.ts",
         comoFoiResolvido:
           "as três listas vão em blocos de código PRÓPRIOS, logo acima do recado, copiáveis um " +

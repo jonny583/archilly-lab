@@ -6180,3 +6180,134 @@ ela para é tirá-la do caminho.
 *Esta é a segunda vez em dois dias que eu alargo uma régua minha logo depois de escrevê-la. O
 padrão vale mais que os dois casos: **régua nova nasce estreita demais, e o primeiro uso real é
 que mostra onde** — por isso o primeiro uso real vem no mesmo prompt, e não no seguinte.*
+
+---
+
+## D220 · O orçamento de Actions da família, e a parte deste repositório é ZERO · 08/10/2026
+
+A conferência automática da família parou: todo trabalho falhava antes de executar um passo, com
+*"recent account payments have failed or your spending limit needs to be increased"*. Outubro, no
+painel: uso bruto **US$ 23,75**, cota gratuita **US$ 13,75**, **US$ 10,00** a pagar. **O Jonny
+decidiu não comprar mais orçamento.** A cota zera em **1º/11/2026**.
+
+**Antes de desligar, medi o que mais passa pela máquina paga — e a resposta é NADA:** o
+repositório tem **um** workflow, `.github/workflows/verde.yml`, com **dois** trabalhos, e os dois
+são **conferência**. Nenhum sobe aplicativo para provedor de hospedagem, nenhum aplica migração em
+banco, nenhum tem prazo (cobrança, aviso, backup). Varrido por padrão — `deploy|publish|vercel|
+netlify|render|fly.io|heroku|migrat|prisma|drizzle|supabase|cron|schedule|backup|cobran` — e deu
+**zero linhas**. Desligar aqui é seguro, e isso foi **medido antes**, não suposto.
+
+**E a conta deste repositório é ZERO, por um motivo estrutural:** `archilly-lab` é **público**
+(`"visibility": "public"` pela API), e Actions em runner padrão é **gratuito e não medido** em
+repositório público. Medido: **136 execuções, 272 trabalhos, 272 de 272 em `ubuntu-latest`**.
+Se fosse privado, seriam **US$ 2,18**.
+
+> **A família assumiu que todo aplicativo paga. Este não paga.** Vale conferir a visibilidade dos
+> outros oito antes de redesenhar rotina — pode ser que o estouro tenha menos culpados do que
+> parece.
+
+**Desliguei assim mesmo**, porque a ordem foi da família e porque metade dos minutos era
+desperdício puro (D221). **Nada foi apagado:** o gatilho virou comentário, o `workflow_dispatch`
+ficou, os comentários que explicam cada trabalho ficaram, e a rotina foi **desabilitada no
+GitHub** — que é a trava que de fato segura, porque editar a `main` não protege ramo antigo.
+**Aqui só há dois ramos** (`main` e o de trabalho), então o problema dos 28 ramos do Render não
+existe — mas a desabilitação foi feita mesmo assim, e **feita ANTES da edição**, senão o próprio
+envio do conserto gastaria mais uma rodada.
+
+---
+
+## D221 · Metade dos meus minutos era um fracasso conhecido de antemão · 08/10/2026
+
+Medido por trabalho, `started_at` a `completed_at`, **arredondado para cima ao minuto por
+trabalho** — medição minha, não a fatura. O endpoint oficial `/timing` devolveu zero no Render, e
+eu não o usei.
+
+| | |
+|---|---|
+| execuções em outubro | **136**, todas de 04/10 a 08/10 |
+| trabalhos | **272** · minutos **272** · média **2,00 min** por execução |
+| `guardas que não precisam dos clones vizinhos` | 136 min · **134 sucesso, 2 falha** |
+| `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | 136 min · **136 FALHA, 136 de 136** |
+| runner | **272 de 272 em `ubuntu-latest`** — sem matriz, sem Windows, sem macOS |
+| custo | **US$ 0,00** (repositório público) · US$ 2,18 se fosse privado |
+
+**O DESPERDÍCIO PURO, e ele é meu:** o trabalho `o verde completo` **não podia** ter sucesso —
+ele depende do segredo `VIZINHOS_TOKEN`, que nunca existiu, e **falha com a receita por desenho**
+(D124). São **136 minutos, 50 % de tudo, gastos num fracasso conhecido de antemão.** O D124 está
+certo em não pular; **o que está errado é agendá-lo para rodar sozinho enquanto o segredo não
+existe.** *Falhar com a receita é honesto na mão; agendado, é pagar para repetir um recado.*
+
+**A duplicação estrutural:** **92 SHAs distintos para 136 execuções** — **44 commits rodaram duas
+vezes**, porque `push` **e** `pull_request` disparam no mesmo SHA. Zero re-execuções do mesmo
+evento. São **44 minutos** a mais no trabalho 1, somados aos 136 do trabalho 2.
+
+**O envio que não mexeu em código:** **43 de 136 execuções (32 %)** vieram de commit que tocou só
+`docs/` ou `.md` — **86 minutos**. *Mas isto NÃO é desperdício puro aqui*, e a diferença importa:
+**as minhas travas conferem DOCUMENTO** — a página do Jonny, o formato do recado, a aritmética da
+§6, a lista de propostas. Num envio de prosa elas têm o que fazer. O que elas não têm o que fazer
+é no trabalho 2, que precisa de clone e de segredo.
+
+**Rodada que não precisava ter acontecido: 180 dos 272 minutos — 66 %**, sendo 136 do trabalho que
+não podia passar e 44 da duplicação de gatilho. Em repositório privado isso seria **US$ 1,44 de
+US$ 2,18**.
+
+**A maior alavanca não é o desenho, é o número de envios** — e a família mediu isso melhor que eu:
+o Render enviou **131 vezes em 5 dias para ~7 entregas**. Aqui foram **136 execuções para 92
+commits em 5 dias**. A regra entrou na `CLAUDE.md` §7: **os commits de uma entrega saem num `push`
+só.** Commitar é de graça; `push` é que custa.
+
+---
+
+## D222 · A minha régua de desligadores ficaria VERDE com o CI inteiro parado · 08/10/2026
+
+**O achado é do Render e eu confirmei aqui:** a `varredura-de-configuracao.ts`, com as suas sete
+regras, procura **regra de lint em `"off"`**, **passo que ignora erro**, **lint sem
+`--max-warnings 0`** e **chave de `tsconfig` que afrouxa**. Ela **não tem forma nenhuma** para:
+
+- o **gatilho virou comentário** (`#  push:`);
+- a rotina está **`disabled_manually`** no painel do GitHub;
+- o arquivo do workflow foi **renomeado**.
+
+> **Régua desligada publica verde** — e o desligamento mais completo que existe é justamente o que
+> ela não vê.
+
+**Consertado com trava própria** (`tests/gatilho-do-verde.test.ts`), e ela cobra os **dois** lados,
+porque régua de um lado só mente na direção contrária: **desligado** exige a receita no lugar único
+com os dois passos e o aviso no `ONDE_PARAMOS`; **ligado** exige que o aviso **saia** dos dois.
+
+**E ela tem PRAZO:** a partir de **1º/11/2026** — quando a cota zera e o motivo de estar desligado
+acaba — a trava **reprova** enquanto o gatilho estiver comentado, com a receita na mensagem de
+erro. *Desligamento sem prazo vira desligamento permanente*, e em 1º de novembro alguém vai
+esquecer de religar.
+
+---
+
+## D223 · O verde depende de clone irmão por caminho, e ele pode mudar sozinho · 08/10/2026
+
+Ao reabrir hoje, os **três clones vizinhos não existiam** — o contêiner foi reciclado e só o
+`archilly-lab` voltou. O comando único **falhou com a receita**, 7 de 7 passos, sem pular nenhum:
+o D124 funcionou exatamente como foi escrito.
+
+Reclonados (`--depth 1`), o verde voltou a rodar — e **ficou VERMELHO: 10 falhas em 552 testes**,
+em `porta`, `testada-de-frente`, `guarda-da-ponte`, `coluna-vertebral`, `identidade`, `recorte` e
+`poligono`.
+
+**Medido antes de atribuir (§6), e a conta é de uma linha:** guardei as minhas mudanças
+(`git stash`), rodei três dos arquivos que falham na `main` **limpa**, e **3 de 17 falharam
+igual**. *As falhas não são minhas: são dos vizinhos.* O `motor-testfit` voltou em `6cf6396` e o
+hub em `72cfab0`, e esses não são os commits com que o verde fechou ontem.
+
+> **Verde que depende de clone irmão POR CAMINHO (D16) é verde que fica vermelho sem ninguém
+> tocar neste repositório.** O caminho está fixado; a **versão**, não.
+
+**O D16 continua certo** — copiar o motor da própria família criaria uma segunda cópia
+envelhecendo em silêncio. O que falta é o outro lado dele: **o caminho sabe ONDE, e ninguém sabe
+QUANDO**. Nenhuma prova deste repositório registra o commit dos vizinhos com que foi medida, e por
+isso não há como dizer se um número mudou porque o motor mudou ou porque a minha ponte mudou.
+
+**Proposto ao chat, não executado** (§1-A): gravar o commit de cada clone vizinho em toda prova
+que o use, e o comando único reprovar quando a prova citar um commit e o clone estiver noutro —
+com a opção de **reconhecer** a mudança, que é o que transforma "quebrou" em "o motor andou".
+
+*Isto é a família do D104 noutra escala: o que não se revalida envelhece, e aqui o que envelhece
+não é um comentário, é a versão inteira do vizinho.*

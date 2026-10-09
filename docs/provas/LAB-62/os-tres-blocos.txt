@@ -1,15 +1,17 @@
-=== LISTA 1 de 3 — OS ONZE ITENS ABERTOS, com o motivo declarado ===
- 1. [prompt-novo] A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO
- 2. [prompt-novo] O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER
- 3. [prompt-novo] A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO
- 4. [depois-do-mvp] Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes
- 5. [aguardando-outro-repositorio] O delta contra o Padrão 1.2
- 6. [nao-medido] As 4 violações que sobraram em `geo-antonina`
- 7. [nao-medido] As 96 quadras de esqueleto não confiável
- 8. [aguardando-o-jonny] A travessia sobre a APP de `geo-antonina`
- 9. [escopo-novo] A quadra dentro de APP.
-10. [aguardando-outro-repositorio] O eixo do curso d'água, para o Geo.
-11. [nao-medido] O `faceDeRua` nulo nos 33 lotes de `geo-antonina`
+=== LISTA 1 de 3 — OS 13 ITENS ABERTOS, com o motivo declarado ===
+ 1. [prompt-novo] O COMMIT DO CLONE VIZINHO EM TODA PROVA QUE O USE
+ 2. [prompt-novo] O TRABALHO DE CI QUE NÃO PODE PASSAR
+ 3. [prompt-novo] A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO
+ 4. [prompt-novo] O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER
+ 5. [prompt-novo] A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO
+ 6. [depois-do-mvp] Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes
+ 7. [aguardando-outro-repositorio] O delta contra o Padrão 1.2
+ 8. [nao-medido] As 4 violações que sobraram em `geo-antonina`
+ 9. [nao-medido] As 96 quadras de esqueleto não confiável
+10. [aguardando-o-jonny] A travessia sobre a APP de `geo-antonina`
+11. [escopo-novo] A quadra dentro de APP.
+12. [aguardando-outro-repositorio] O eixo do curso d'água, para o Geo.
+13. [nao-medido] O `faceDeRua` nulo nos 33 lotes de `geo-antonina`
 === FIM DA LISTA 1 ===
 
 === LISTA 2 de 3 — OS SEIS MECANISMOS DO MOTOR ===
