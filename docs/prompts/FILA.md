@@ -44,6 +44,28 @@ determinismo provado; **nada de regra urbanística inventada** — regra nova é
 
 ---
 
+## 📥 A IDA MUDOU DE LUGAR EM 09/10/2026 — ela vem da CAIXA DE ENTRADA
+
+**Esta fila não é mais a porta de entrada do trabalho.** O chat passou a escrever os pedidos em
+[`../caixa-de-entrada/`](../caixa-de-entrada/), numerados, e a ler
+[`../relatorios/RECADOS.md`](../relatorios/RECADOS.md) **direto do GitHub** — o Jonny deixou de
+ser o transporte nas duas direções. As regras acima continuam valendo **todas**; o que mudou é de
+onde vem o item. A receita está em
+[`../caixa-de-entrada/COMO_FUNCIONA.md`](../caixa-de-entrada/COMO_FUNCIONA.md): **um item por
+despertador, o menor número ainda não feito.**
+
+| item | o prompt | estado |
+|---|---|---|
+| `001` | as duas pilhas separadas rodando, e o carimbo do vizinho **e do chão** | ✅ **LAB-68**, 09/10 · D223 acertou o veredicto e errou a causa (D224) · PR #91 |
+| `002` | a âncora da rodada **sem relatório** | ✅ **LAB-69**, 09/10 · as seis classes de rodada · eram **dez**, não nove (D230) · PR #92 |
+| `003` | o escopo da **ferramenta** contra o das **travas**, e o que escapa dos dois | ✅ **LAB-70**, 09/10 · D231, D232, D233 |
+| `004` | a conta dos **disparos em vazio** do despertador | pronto — o próximo despertador o pega |
+
+**Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
+faltar entra como *"proposto ao chat"*, sem executar.
+
+---
+
 ## ✅ A FILA DE 08/10/2026 — CUMPRIDA: LAB-62, LAB-63, LAB-64 (com o 65 dentro) e LAB-66
 
 Mandada pelo chat em 08/10/2026, **depois de ele aceitar o achado do LAB-61 como dívida dele**.
@@ -1149,7 +1171,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 278 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 289 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

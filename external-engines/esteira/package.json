@@ -45,6 +45,7 @@
     "lab63": "bun ferramentas/lab63.ts",
     "lab66": "bun ferramentas/lab66.ts",
     "lab68": "bun ferramentas/lab68.ts",
+    "lab70": "bun ferramentas/lab70.ts",
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0"

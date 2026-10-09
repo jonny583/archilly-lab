@@ -143,8 +143,17 @@ describe("a regra do RECADO — CLAUDE.md §1", () => {
       .filter((p): p is string => p !== undefined);
     expect(relatorios.length).toBeGreaterThan(20);
     expect(cabecalhos.length).toBeGreaterThan(20);
+    // **Os dois escapes de texto saíram no item 003, e eles NÃO eram de propósito.** O conserto
+    // do D217 deu a esta régua `!texto.includes(\`recados ${p}\`)` e `!texto.includes(\`${p},\`)`,
+    // que casam o nome do prompt em QUALQUER lugar do arquivo — inclusive no corpo de outro
+    // recado. Medido: apagando o bloco do recado de cada relatório, um a um, eles deixavam
+    // passar **48 dos 61**, e a ferramenta acusava os 48. O caso que o D217 queria salvar — o
+    // cabeçalho composto `LAB-13 e LAB-14` — já é salvo pela borda de palavra DENTRO do campo
+    // `<prompt>`, e o teste seguinte prova os dois lados. *Régua nova nasce estreita demais, e
+    // às vezes larga demais: as duas coisas são o mesmo defeito, ninguém a conferiu dos dois
+    // lados* (D232).
     const semRecado = relatorios.filter(
-      (p) => !cabecalhos.some((c) => new RegExp(`\\b${p}\\b`).test(c)) && !texto.includes(`recados ${p}`) && !texto.includes(`${p},`),
+      (p) => !cabecalhos.some((c) => new RegExp(`\\b${p}\\b`).test(c)),
     );
     expect(
       semRecado,

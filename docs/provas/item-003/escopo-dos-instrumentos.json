@@ -1,0 +1,269 @@
+{
+  "prompt": "item 003 da caixa de entrada",
+  "oQueIstoMede": "o escopo da ferramenta contra o escopo da trava, com as quatro sabotagens refeitas de verdade e nomeando qual instrumento acusou cada uma",
+  "aPergunta": "do chat: a frase do recado do LAB-66 está certa, mas mora num recado — ninguém lê recado antes de rodar um instrumento só",
+  "quando": "2026-10-09T17:34:46.344Z",
+  "oNomeQueNaoSeSupoe": {
+    "oItemChamou": "npm run quebrar",
+    "existeNesteRepositorio": false,
+    "oNomeDeVerdade": "npm run lab66 (external-engines/esteira/ferramentas/lab66.ts)",
+    "comoConferi": "os dois package.json do repositório; nenhum declara o script `quebrar`"
+  },
+  "oEscopo": {
+    "verificacoes": 13,
+    "naIntersecao": [
+      "bloco-abre-com-recado",
+      "relatorio-sem-recado"
+    ],
+    "soDaFerramenta": [
+      "conta-do-acumulado",
+      "buraco-medido",
+      "prova-em-json"
+    ],
+    "soDaTrava": [
+      "marca-dentro-do-bloco",
+      "acumulado-nomeia-quais",
+      "acumulado-aceita-fora-de-fila",
+      "a-trava-reprova-de-verdade",
+      "cabecalho-e-fim",
+      "teto-de-doze-linhas",
+      "cinco-perguntas",
+      "ancora-da-rodada"
+    ],
+    "oAchadoDaConta": "a ferramenta REPROVA exatamente a interseção: tudo que é só dela é medição, não reprovação. Quem roda só a ferramenta não ganha nenhuma verificação que a trava não tenha — ganha dois números"
+  },
+  "asQuatroSabotagens": [
+    {
+      "n": 1,
+      "variante": null,
+      "oQue": "um bloco com a lista ACIMA do recado",
+      "deveriaPegar": "bloco-abre-com-recado",
+      "aFerramenta": {
+        "exit": 1,
+        "pegou": true,
+        "acusacao": "1 bloco(s) do acumulado não abrem com o recado (§1)"
+      },
+      "asTravas": {
+        "exit": 1,
+        "pegou": true,
+        "quantasCaem": 1,
+        "total": 18,
+        "quais": [
+          "a regra do RECADO — CLAUDE.md §1 > UM BLOCO SÓ: todo bloco do acumulado ABRE com o recado"
+        ]
+      },
+      "divergiu": false,
+      "oMotivoDaDiferenca": "está na interseção — os dois têm a mesma régua, e os dois pegam"
+    },
+    {
+      "n": 2,
+      "variante": "LAB-69",
+      "oQue": "o recado de um prompt some do arquivo — apagando o de LAB-69",
+      "deveriaPegar": "relatorio-sem-recado",
+      "aFerramenta": {
+        "exit": 1,
+        "pegou": true,
+        "acusacao": "prompt(s) com relatório e SEM recado no arquivo: LAB-69"
+      },
+      "asTravas": {
+        "exit": 1,
+        "pegou": true,
+        "quantasCaem": 1,
+        "total": 18,
+        "quais": [
+          "a regra do RECADO — CLAUDE.md §1 > TODO relatório de prompt tem recado no arquivo, inclusive dentro de um acumulado"
+        ]
+      },
+      "divergiu": false,
+      "oMotivoDaDiferenca": "os dois TINHAM a régua, mas a da trava era mais LARGA: o conserto do D217 lhe deu dois escapes de texto (`recados LAB-xx` e `LAB-xx,`) que casavam o nome em qualquer lugar do arquivo. Medido em 48 dos 61 relatórios, e CONSERTADO no item 003 — esta diferença não era de propósito (D232). Por isso a nº 2 roda nos dois lados: apagando o recado de um prompt fora dos escapes e de um dentro deles, que é a origem que faltava no LAB-66"
+    },
+    {
+      "n": 2.5,
+      "variante": "LAB-66",
+      "oQue": "o recado de um prompt some do arquivo — apagando o de LAB-66",
+      "deveriaPegar": "relatorio-sem-recado",
+      "aFerramenta": {
+        "exit": 1,
+        "pegou": true,
+        "acusacao": "prompt(s) com relatório e SEM recado no arquivo: LAB-66"
+      },
+      "asTravas": {
+        "exit": 1,
+        "pegou": true,
+        "quantasCaem": 1,
+        "total": 18,
+        "quais": [
+          "a regra do RECADO — CLAUDE.md §1 > TODO relatório de prompt tem recado no arquivo, inclusive dentro de um acumulado"
+        ]
+      },
+      "divergiu": false,
+      "oMotivoDaDiferenca": "os dois TINHAM a régua, mas a da trava era mais LARGA: o conserto do D217 lhe deu dois escapes de texto (`recados LAB-xx` e `LAB-xx,`) que casavam o nome em qualquer lugar do arquivo. Medido em 48 dos 61 relatórios, e CONSERTADO no item 003 — esta diferença não era de propósito (D232). Por isso a nº 2 roda nos dois lados: apagando o recado de um prompt fora dos escapes e de um dentro deles, que é a origem que faltava no LAB-66"
+    },
+    {
+      "n": 3,
+      "variante": null,
+      "oQue": "o cabeçalho composto perde um dos dois prompts",
+      "deveriaPegar": "relatorio-sem-recado",
+      "aFerramenta": {
+        "exit": 1,
+        "pegou": true,
+        "acusacao": "prompt(s) com relatório e SEM recado no arquivo: LAB-14"
+      },
+      "asTravas": {
+        "exit": 1,
+        "pegou": true,
+        "quantasCaem": 2,
+        "total": 18,
+        "quais": [
+          "a regra do RECADO — CLAUDE.md §1 > TODO relatório de prompt tem recado no arquivo, inclusive dentro de um acumulado",
+          "a regra do RECADO — CLAUDE.md §1 > a trava do recado ausente REPROVA de verdade — prompt inventado não tem recado"
+        ]
+      },
+      "divergiu": false,
+      "oMotivoDaDiferenca": "está na interseção, e o prompt perdido não tem escape de texto para cair"
+    },
+    {
+      "n": 4,
+      "variante": null,
+      "oQue": "bloco `ACUMULADO` sem nomear quais recados ele junta",
+      "deveriaPegar": "acumulado-nomeia-quais",
+      "aFerramenta": {
+        "exit": 0,
+        "pegou": false,
+        "acusacao": ""
+      },
+      "asTravas": {
+        "exit": 1,
+        "pegou": true,
+        "quantasCaem": 1,
+        "total": 18,
+        "quais": [
+          "a regra do RECADO — CLAUDE.md §1 > bloco ACUMULADO, quando houver, nomeia os recados que ele junta"
+        ]
+      },
+      "divergiu": true,
+      "oMotivoDaDiferenca": "é só da trava: a ferramenta nunca leu a segunda linha do recado"
+    }
+  ],
+  "quantasDivergiram": 1,
+  "quaisDivergiram": [
+    4
+  ],
+  "aLarguraDaDivergencia": {
+    "oQue": "apagando o bloco do recado de cada relatório, em quantos a régua da TRAVA deixava passar o que a régua da FERRAMENTA acusa",
+    "relatoriosVarridos": 62,
+    "escapavamAntesDoConserto": 48,
+    "escapamAgora": 0,
+    "quaisEscapavam": [
+      "LAB-02",
+      "LAB-03",
+      "LAB-06",
+      "LAB-07",
+      "LAB-08",
+      "LAB-16",
+      "LAB-17",
+      "LAB-18",
+      "LAB-19",
+      "LAB-20",
+      "LAB-21",
+      "LAB-22",
+      "LAB-23",
+      "LAB-25",
+      "LAB-26",
+      "LAB-27",
+      "LAB-28",
+      "LAB-29",
+      "LAB-30",
+      "LAB-32",
+      "LAB-33",
+      "LAB-34",
+      "LAB-35",
+      "LAB-36",
+      "LAB-37",
+      "LAB-38",
+      "LAB-39",
+      "LAB-40",
+      "LAB-41",
+      "LAB-42",
+      "LAB-43",
+      "LAB-44",
+      "LAB-45",
+      "LAB-46",
+      "LAB-47",
+      "LAB-48",
+      "LAB-49",
+      "LAB-50",
+      "LAB-51",
+      "LAB-52",
+      "LAB-54",
+      "LAB-55",
+      "LAB-57",
+      "LAB-59",
+      "LAB-62",
+      "LAB-63",
+      "LAB-66",
+      "LAB-67"
+    ],
+    "aCausa": "os dois escapes de texto que o conserto do D217 deu à trava — `recados LAB-xx` e `LAB-xx,` — e que a ferramenta não tem",
+    "oConserto": "saíram no item 003 (D232). O caso que o D217 queria salvar — o cabeçalho composto `LAB-13 e LAB-14` — já é salvo pela borda de palavra DENTRO do campo `<prompt>`, e o teste «a trava do recado ausente REPROVA de verdade» prova os dois lados"
+  },
+  "aGuardaREPROVA": {
+    "oQue": "régua precisa aprovar o caso bom E reprovar o caso ruim, os dois demonstrados. O caso bom é a suíte verde; estes são os três casos ruins",
+    "osCasosRuins": [
+      {
+        "oQue": "o documento deixa de citar uma das treze verificações",
+        "exit": 1,
+        "reprovou": true,
+        "quais": [
+          "item 003 · a declaração contra os instrumentos > o documento cita TODA verificação, TODA sabotagem e TODO buraco"
+        ]
+      },
+      {
+        "oQue": "a declaração passa a contar um teste de menos na âncora da rodada",
+        "exit": 1,
+        "reprovou": true,
+        "quais": [
+          "item 003 · a declaração contra os instrumentos > a soma dos testes declarados é a que os arquivos de trava têm"
+        ]
+      },
+      {
+        "oQue": "o documento fica com o total VELHO de verificações",
+        "exit": 1,
+        "reprovou": true,
+        "quais": [
+          "item 003 · a declaração contra os instrumentos > o documento declara o total certo de verificações, por extenso"
+        ]
+      }
+    ],
+    "oDocumentoEADeclaracaoVoltaram": true
+  },
+  "oQueNinguemPega": [
+    {
+      "oQue": "recado que nunca foi escrito em rodada que não gera relatório nem commit",
+      "marcaNoDocumento": "recado que nunca foi escrito",
+      "porQue": "as duas réguas leem o que ESTÁ no arquivo. Rodada que não deixou rastro em lugar nenhum não tem como ser cobrada por falta — foi assim que o recado do PR #85 se perdeu (D216)",
+      "oQueFariaPegar": "um contador de disparos do despertador fora do repositório, confrontado com o número de recados do dia. É o item 004 da caixa de entrada, e ele abre essa conta"
+    },
+    {
+      "oQue": "recado gravado no arquivo e NÃO enviado ao GitHub",
+      "marcaNoDocumento": "recado gravado e não enviado",
+      "porQue": "os dois instrumentos rodam na minha máquina e leem o arquivo do disco. Commit sem `push` fica verde nos dois, e o chat — que lê o `RECADOS.md` direto do GitHub — não vê nada",
+      "oQueFariaPegar": "comparar o `RECADOS.md` do disco com o do `origin/main` antes de fechar a entrega. Nenhum dos dois faz isso hoje, e é o buraco de maior consequência da lista"
+    },
+    {
+      "oQue": "recado completo, bem formado, e FALSO",
+      "marcaNoDocumento": "recado completo, bem formado, e falso",
+      "porQue": "nenhuma das treze verificações lê o conteúdo contra a realidade: um `Estado:` que diz verde com a suíte vermelha passa pelos dois. O D110 é isso por duas semanas",
+      "oQueFariaPegar": "nada mecânico que eu saiba escrever hoje. Está aqui por honestidade: o par confere FORMA e PRESENÇA, nunca VERDADE — e quem ler o verde dos dois precisa saber disso"
+    },
+    {
+      "oQue": "os nove recados antigos que passaram do teto de doze linhas",
+      "marcaNoDocumento": "os nove recados antigos",
+      "porQue": "a trava do teto olha **só o último** recado, de propósito: `RECADOS.md` é registro do que foi enviado, e reescrever o histórico para caber em régua nova falsificaria o registro",
+      "oQueFariaPegar": "nada — e não deve. Este é buraco **escolhido**, não esquecido, e a escolha está no cabeçalho do `recado.test.ts`"
+    }
+  ],
+  "oRecadosVoltouAoQueEra": true,
+  "ondeLer": "docs/referencia/FERRAMENTA_E_TRAVA.md",
+  "problemas": []
+}

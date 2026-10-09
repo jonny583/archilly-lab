@@ -141,3 +141,6 @@ if [ "$falhou" -ne 0 ]; then
 fi
 echo "  VERDE — ${#passos_ok[@]} passos, e a cobertura conferida."
 echo "════════════════════════════════════════════════════════════════"
+# O verde roda as TRAVAS. As ferramentas de diagnóstico ficam fora dele, de propósito,
+# e o que elas pegam e as travas não está escrito num lugar só (item 003).
+echo "  o que este comando NÃO cobre: docs/referencia/FERRAMENTA_E_TRAVA.md"

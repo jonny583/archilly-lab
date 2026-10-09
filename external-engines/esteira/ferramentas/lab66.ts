@@ -35,8 +35,17 @@ if (abremComRecado.length !== blocos.length) {
   );
 }
 
-/** O campo `<prompt>` de cada cabeçalho. Pode ser composto: `LAB-13 e LAB-14`. */
-const cabecalhos = [...texto.matchAll(/=== RECADO PARA O CHAT — Lab · (.+?) ===/g)].map(
+/**
+ * O campo `<prompt>` de cada cabeçalho. Pode ser composto: `LAB-13 e LAB-14`.
+ *
+ * **Esta linha casava `— Lab · ` LITERAL até o item 003, e isso era a D228 viva na ferramenta.**
+ * A trava foi consertada no dia em que a Central mandou o `<app>` virar o nome do aplicativo; a
+ * ferramenta **não**, porque ela não roda no verde. Resultado medido: a trava verde e a
+ * ferramenta acusando `LAB-68, LAB-69` de não terem recado — e os dois **têm** (D231).
+ *
+ * *Escopo que ninguém declara não fica parado: ele se afasta.*
+ */
+const cabecalhos = [...texto.matchAll(/=== RECADO PARA O CHAT — [^·]+ · (.+?) ===/g)].map(
   (m) => m[1]!,
 );
 const compostos = cabecalhos.filter((c) => /LAB-\d\d[\s\S]*LAB-\d\d/.test(c));
@@ -114,3 +123,6 @@ if (problemas.length > 0) {
   process.exit(1);
 }
 console.log("  tudo conferido · zero problemas");
+// Esta ferramenta NÃO é o verde, e o verde não a roda. O que cada um cobre — e o que escapa
+// dos dois — mora num lugar só (item 003).
+console.log("  isto NÃO é o verde · escopo em docs/referencia/FERRAMENTA_E_TRAVA.md");

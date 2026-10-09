@@ -153,6 +153,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
+    "item-003/escopo-dos-instrumentos.json":
+      "mede o ESCOPO DE DOIS INSTRUMENTOS deste repositório — as treze verificações da ferramenta e das travas sobre o `RECADOS.md`, as quatro sabotagens refeitas, a largura da divergência e os quatro buracos —, não terreno: não há gleba, motor nem semente no que ela mede",
     "LAB-47/varredura-de-segredos.json":
       "a varredura de segredos mede a ÁRVORE DE ARQUIVOS deste repositório — escopo, regras e achados —, não terreno: não há gleba, motor nem semente no que ela mede",
   };

@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-69 (item 002) ·
+**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-70 (item 003) ·
 **A FILA DE 08/10 ESGOTOU: LAB-62, 63, 64 (com o 65) e 66. Despertador DESLIGADO.**
 
 # 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 08/10 esgotou
@@ -25,7 +25,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 658 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 678 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -77,12 +77,39 @@ recado, ENVIA**. Um item por despertador, o menor número ainda não feito.
 |---|---|
 | `001-FEITO.md` | ✅ 09/10 — as duas pilhas e o carimbo do vizinho (LAB-68) |
 | `002-FEITO.md` | ✅ 09/10 — a âncora da rodada sem relatório; eram **dez**, não nove (LAB-69) |
-| `003.md` · `004.md` | prontos, um por despertador |
+| `003-FEITO.md` | ✅ 09/10 — o escopo da ferramenta contra o da trava, e o que escapa dos dois (LAB-70) |
+| `004.md` | pronto, o próximo despertador o pega |
 
 **Despertador RELIGADO** — `trig_01XwSkTLT9zmyprNZcUiWy7f`, confirmado contra a conta antes de
 mexer: existe, chama-se *"Archilly Lab — fila autônoma (60 min)"* e é desta sessão. O id gravado
 estava **certo**. Prompt novo: *"leia docs/caixa-de-entrada/COMO_FUNCIONA.md e execute o menor
 número ainda não feito"*.
+
+# 📖 FERRAMENTA E TRAVA NÃO PEGAM A MESMA COISA — e agora há um lugar só (item 003)
+
+[`referencia/FERRAMENTA_E_TRAVA.md`](referencia/FERRAMENTA_E_TRAVA.md): **treze** verificações
+sobre o `RECADOS.md` — **duas** na interseção, **três** só da ferramenta (`npm run lab66`),
+**oito** só da trava (`bun test`). Os dois instrumentos **apontam para o arquivo na saída**, que
+é o critério de "deu certo" do item: quem rodou um só encontra escrito o que não mediu.
+
+**O achado da conta é o oposto do que o nome sugere:** a ferramenta **reprova exatamente a
+interseção**. Tudo o que é só dela **mede** e não reprova.
+
+```
+antes de medir qualquer coisa .... a ferramenta acusava LAB-68 e LAB-69 de não terem
+                                   recado, e os dois TÊM — o conserto do D228 entrou só
+                                   na trava, porque a ferramenta não roda no verde (D231)
+as quatro sabotagens ............. refeitas de verdade; divergiram 2 de 5 corridas
+os dois escapes do D217 .......... salvavam 48 de 62 relatórios → consertados, 0 (D232)
+a nº 4 ........................... NÃO alinhada, de propósito: é escopo, não podridão
+o que ninguém pega ............... quatro buracos, três já aconteceram (D233)
+```
+
+> **O par confere FORMA e PRESENÇA. Não confere VERDADE, e não confere ENVIO** — verde nos dois
+> instrumentos e nada no GitHub é o estado mais perigoso que este repositório sabe produzir.
+
+E **a minha própria conta saiu errada aqui**: eu escrevi *"doze verificações"* e são **treze**
+(2 + 3 + 8). Pega dentro do prompt, e a trava passou a cobrar o total por extenso.
 
 # 🔴 O CI ESTÁ DESLIGADO — orçamento de Actions da família, 08/10/2026
 
@@ -316,7 +343,7 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 
 ```
 suíte .............. 684 travas (667 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 278 (114 → … → 246 → 259 → 269 → 278) · DESLIGADO no GitHub até 1º/11
+CI sem clones ...... 289 (114 → … → 259 → 269 → 278 → 289) · DESLIGADO no GitHub até 1º/11
 decisões ........... D230 é a última. A próxima é a D231
 verde .............. exit 0, CONFERIDO AQUI e não no GitHub · 667 esteira + 17 testfit · três vizinhos limpos
 ```
@@ -1188,7 +1215,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 278 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 289 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
