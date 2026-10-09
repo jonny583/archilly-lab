@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-09T18:16:25.734Z",
+  "quando": "2026-10-09T19:09:22.210Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -43,18 +43,26 @@
         "achou": "item 004 pronto",
         "rodada": "item 004 (LAB-71)",
         "emVazio": false
+      },
+      {
+        "data": "09/10/2026",
+        "hora": "19:05",
+        "origem": "observado",
+        "achou": "**nada na caixa** — os quatro feitos",
+        "rodada": "recado de uma linha, e dormir",
+        "emVazio": true
       }
     ],
     "declarados": {
-      "observados": 4,
-      "emVazio": 0
+      "observados": 5,
+      "emVazio": 1
     },
-    "emVazio": 0,
+    "emVazio": 1,
     "temAFraseDoQueDecide": true
   },
   "oQueOPrimeiroDiaJaMOSTROU": "ZERO em vazio, e DOIS disparos acumulados — a caixa não ficou sem abastecimento; a RODADA é mais longa que o intervalo. A conta não nasceu para confirmar a suspeita",
   "oPrecedenteDaFILA": {
-    "oQue": "recados da classe `despertador-sem-item`, lidos do registro pela régua do item 002",
+    "oQue": "recados da classe `despertador-sem-item` ANTES da abertura, lidos do registro pela régua do item 002",
     "quantos": 3,
     "dias": [
       "03/10/2026",
@@ -62,6 +70,13 @@
       "05/10/2026"
     ],
     "porQueNaoSoma": "é outro regime — a FILA, não a caixa. Somar duas séries diferentes é o erro da §6"
+  },
+  "osDaCAIXA": {
+    "oQue": "recados da mesma classe da abertura em diante. NÃO são precedente: são o parceiro do cruzamento, e cada um tem de ter a sua linha em vazio na conta",
+    "quantos": 1,
+    "dias": [
+      "09/10/2026"
+    ]
   },
   "oQuartoNumeroQueFicaDEFORA": {
     "oQue": "a CLAUDE.md §1-A diz `dos 7 disparos do despertador de 15/09, 4 não tiveram o que fazer`",
@@ -96,12 +111,12 @@
         ]
       },
       {
-        "oQue": "um disparo em vazio aparece sem recado da classe",
+        "oQue": "o disparo em vazio deixa de ser em vazio, e sobra o recado da classe sem linha",
         "exit": 1,
         "reprovou": true,
         "quais": [
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
-          "item 004 · O LADO RUIM: a guarda reprova > SENTIDO 2: recado da classe sem linha em vazio na conta REPROVA"
+          "item 004 · a conta dos disparos do despertador > do regime da CAIXA em diante, cada recado da classe é o parceiro do cruzamento"
         ]
       }
     ],

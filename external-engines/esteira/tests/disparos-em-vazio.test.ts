@@ -83,14 +83,28 @@ describe("item 004 · a conta dos disparos do despertador", () => {
     expect(comoFunciona, "a regra da caixa não nomeia a decisão do conflito").toContain("D236");
   });
 
-  test("o precedente da FILA sai do registro, e são TRÊS — nenhum deles no regime da caixa", () => {
+  test("o precedente da FILA sai do registro, e são TRÊS — todos ANTES da abertura", () => {
     const dias = diasDosRecadosEmVazio(recados());
-    expect(dias.length).toBe(3);
     // A comparação é pelo dia NORMALIZADO. `"03/10/2026" < "09/10/2026"` em texto dá o resultado
     // certo por acidente — dia primeiro ordena errado no mês seguinte, e régua que acerta por
     // acidente é régua errada esperando a data virar.
-    expect(dias.every((d) => diaDe(d) < diaDe(ABERTURA))).toBe(true);
-    expect(new Set(dias)).toEqual(new Set(["03/10/2026", "05/10/2026"]));
+    const antes = dias.filter((d) => diaDe(d) < diaDe(ABERTURA));
+    expect(antes.length).toBe(3);
+    expect(new Set(antes)).toEqual(new Set(["03/10/2026", "05/10/2026"]));
+  });
+
+  /**
+   * **Esta trava exigia que NENHUM recado da classe fosse do regime da caixa, e ela estava certa
+   * só enquanto o caso não acontecia** — caiu no primeiro disparo em vazio, no mesmo dia em que
+   * a conta abriu. O recado da classe no regime da caixa não é exceção: ele é **o parceiro do
+   * cruzamento**, e quem confere que ele tem linha é o `conferirAConta`. *Régua escrita contra o
+   * caso que ainda não veio proíbe o caso legítimo quando ele vem* (D217, D219, D228).
+   */
+  test("do regime da CAIXA em diante, cada recado da classe é o parceiro do cruzamento", () => {
+    const dias = diasDosRecadosEmVazio(recados());
+    const naCaixa = dias.filter((d) => diaDe(d) >= diaDe(ABERTURA));
+    const vazios = lerAConta(ondeParamos()).linhas.filter((l) => l.emVazio);
+    expect(new Set(naCaixa.map(diaDe))).toEqual(new Set(vazios.map((l) => diaDe(l.data))));
   });
 });
 
@@ -129,7 +143,12 @@ describe("item 004 · O LADO RUIM: a guarda reprova", () => {
   });
 
   test("SENTIDO 2: recado da classe sem linha em vazio na conta REPROVA", () => {
-    const p = conferirAConta(conta(), ["09/10/2026"], ABERTURA);
+    // O dia do estrago é um que a conta NÃO tem — `09/10` passou a ter linha em vazio no
+    // primeiro disparo vazio, e o estrago virou um caso legítimo.
+    const c = conta();
+    const diaQueNaoExiste = "31/12/2026";
+    expect(c.linhas.some((l) => l.data === diaQueNaoExiste)).toBe(false);
+    const p = conferirAConta(c, [diaQueNaoExiste], ABERTURA);
     expect(p.map((x) => x.tipo)).toContain("recado-sem-linha");
   });
 

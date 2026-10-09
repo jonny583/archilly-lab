@@ -35,9 +35,24 @@ describe("item 002 · toda rodada tem âncora, inclusive a que não tem relatór
     expect(orfaos.map((o) => o.titulo), orfaos.map((o) => o.titulo).join("\n")).toEqual([]);
   });
 
-  test("as rodadas SEM prompt nomeado são dez, e cada uma tem a sua classe", () => {
+  /**
+   * **O "dez" é do HISTÓRICO, e esta trava dizia só "dez" — caiu no primeiro recado novo da
+   * classe**, que foi o disparo em vazio de 09/10. As dez são as que estão lá com `—` no campo
+   * `<prompt>`, classificadas **pelo título**; as novas **declaram a classe no cabeçalho** e são
+   * quantas vierem. *Contagem de histórico sem o sujeito escrito cresce junto com o presente e
+   * reprova o certo* (D218, D237).
+   */
+  test("as DEZ do histórico levam `—` no cabeçalho, e cada uma tem a sua classe", () => {
     const semPrompt = ancoras.filter((a) => a.ancora !== "prompt");
-    expect(semPrompt).toHaveLength(10);
+    const comTravessao = semPrompt.filter((a) => a.prompt.trim() === "—");
+    expect(comTravessao).toHaveLength(10);
+    const declaradas = semPrompt.filter((a) => a.prompt.trim() !== "—");
+    for (const a of declaradas) {
+      // O tipo de `ancora` inclui `prompt` e `ORFAO`, que não são classes: a comparação é de
+      // texto contra o vocabulário, e `ORFAO` já reprova na primeira trava deste bloco.
+      expect(CLASSES_DE_RODADA.map((c) => c.id as string), a.titulo).toContain(a.ancora as string);
+      expect(a.porque).toBe("a classe está declarada no próprio cabeçalho");
+    }
     const porClasse = new Set(semPrompt.map((a) => a.ancora));
     // As seis classes existem porque as seis aconteceram; nenhuma nasceu vazia.
     expect([...porClasse].sort()).toEqual([
