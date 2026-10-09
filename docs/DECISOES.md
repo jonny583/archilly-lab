@@ -6612,7 +6612,7 @@ publicada como medida é hora inventada com a autoridade de hora medida*.
 
 ---
 
-## D236 · "Desligar ao disparar em vazio" conflita com a regra da CAIXA, e eu NÃO desempatei · 09/10/2026
+## ~~D236~~ · "Desligar ao disparar em vazio" conflita com a regra da CAIXA — **DESEMPATADO pelo chat na D244** · 09/10/2026
 
 A caixa esgotou com o item 004, então **o próximo disparo é o primeiro candidato real a disparo em
 vazio** — e nessa hora duas regras do repositório mandam coisas diferentes:
@@ -6638,6 +6638,11 @@ Nesse regime, desligar deixa de proteger e passa a travar.
 As duas páginas passam a **apontar uma para a outra**, e **há guarda**: a trava reprova se uma
 delas perder a referência enquanto o conflito estiver aberto (`tests/disparos-em-vazio.test.ts`).
 *Conflito que não fica declarado é resolvido pela próxima sessão sem que ninguém saiba.*
+
+> **✅ DESEMPATADO em 09/10/2026, no item 008: vale a regra da CAIXA — anote a data, responda em
+> uma linha e durma, e NÃO desligue. Ver a D244**, que traz o motivo da regra velha preservado e a
+> lição que é maior que o caso. O chat ratificou o meu papel aqui: *"você fez a pergunta certa e
+> fez o que era certo fazer: não desempatou sozinha."*
 
 ---
 
@@ -6919,3 +6924,53 @@ na `FILA.md`, com o número, a medição e o desenho proposto.
 
 *Critério que dispara e é ignorado vira teto sem critério — e aí ele era só um número desde o
 começo.*
+
+---
+
+## D244 · DESEMPATE do chat: no disparo em vazio, ANOTE E DURMA — não desligue · 09/10/2026
+
+**Resposta do chat ao D236, no item 008.** A pergunta era qual das duas regras da casa vale no
+disparo sem item pronto, e o chat decidiu:
+
+> **No disparo sem item pronto: ANOTE A DATA NA CONTA DE DISPAROS EM VAZIO, responda com um recado
+> de UMA linha, e durma. NÃO DESLIGUE o despertador.**
+
+Vale para os dois casos: **caixa vazia** e **caixa só com itens "aguardando"**.
+
+### O motivo da regra velha fica escrito, porque regra revogada sem motivo volta por engano
+
+A §1-A mandava **desligar** (D62 + D112), e **estava certa quando nasceu**: até 09/10 o chat só
+sabia que a fila havia esgotado **se alguém o avisasse**, e o despertador desligado **era o aviso**.
+Era esse o serviço que o desligamento prestava — e ele prestava bem: medido, dos 7 disparos do
+despertador de 15/09, **4 não tiveram o que fazer**.
+
+**O que mudou foi o MECANISMO, não o texto:** o chat passou a **escrever direto na caixa**, sem
+passar por mim e sem passar pelo Jonny. O desligamento perdeu a função e **ganhou um dano novo** —
+*despertador desligado nunca pega o item que o chat escrever depois* —, e ia travar **em silêncio**,
+porque **uma caixa com item e um despertador desligado têm exatamente a mesma aparência de uma
+caixa vazia**.
+
+### A lição, e ela é maior que o caso
+
+> **REGRA QUE DEIXOU DE PROTEGER E PASSOU A TRAVAR NÃO MUDOU DE TEXTO — MUDOU O MUNDO EMBAIXO
+> DELA.** Toda regra que existe para **avisar alguém** morre no dia em que esse alguém passa a
+> enxergar sozinho. Ao ler uma regra antiga, pergunte **que serviço ela presta hoje**, não só o que
+> ela manda fazer.
+
+### O que foi feito
+
+- a **§1-A** passou a mandar *anotar e dormir*, com a ordem antiga **riscada e não apagada**, o
+  motivo dela preservado e o mecanismo que mudou escrito;
+- a **`COMO_FUNCIONA.md`** marca o desempate no lugar do conflito declarado, e as duas páginas
+  **continuam apontando uma para a outra**;
+- o **D236** está riscado como desempatado e aponta para cá;
+- a **trava foi alinhada** (`tests/disparos-em-vazio.test.ts`): ela cobra a regra nova nos dois
+  lugares, cobra o motivo da velha preservado, e **reprova se a §1-A voltar a MANDAR desligar** —
+  a frase imperativa não pode reaparecer fora do risco.
+
+**E o despertador NÃO está desligado:** ele está `enabled: true`, disparou às 23:05Z e o próximo é
+às 00:05Z. O item pediu para dizer isso com essas palavras caso estivesse desligado; não está, e
+**eu não o toquei** — nem para ligar, nem para desligar.
+
+*Eu já seguia esta regra desde o item 004, declarada como leitura minha e não como ratificação. A
+diferença entre as duas coisas é todo o valor deste item.*

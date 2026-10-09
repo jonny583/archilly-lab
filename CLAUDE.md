@@ -159,32 +159,44 @@ despertador por aplicativo; nunca se toca no de outro repositório.**
   *"proposto ao chat"*, sem executar. Não ampliar escopo.
 - O que depende do Jonny ou de outro repositório fica **"aguardando"**: pular
   para o seguinte e reavaliar a cada despertador.
-- **Disparo sem item pronto: DESLIGAR o despertador** (D62 + D112). Vale tanto
-  para a fila esgotada quanto para a fila que existe mas está toda
-  *"aguardando"* — em qualquer dos dois casos, gravar o recado acumulado,
-  escrever em `ONDE_PARAMOS` **o motivo** e **desligar** (`enabled: false`), nunca
-  apagar. O chat o religa com fila nova.
-  Medido: dos 7 disparos do despertador de 15/09, **4 não tiveram o que fazer**.
-  **Esta linha dizia "apagar" até 07/10/2026, e estava falsa na prática:** eu
-  desliguei em vez de apagar **seis vezes**, e o chat mandou **reabilitar em vez
-  de recriar** sete — até ratificá-lo por escrito: *"pode desligar ao esgotar em
-  vez de apagar; você está certa, e passa a ser assim daqui em diante."*
-  **Apagar perde o id**, que é o que ele reusa; e o id vive em `ONDE_PARAMOS`.
-  *Regra que a prática desmente seis vezes não é regra, é texto velho* (D104).
+- **Disparo sem item pronto: ANOTE A DATA, responda em UMA linha e DURMA — NÃO
+  DESLIGUE** (D244, desempate do chat em 09/10/2026). Vale para os dois casos:
+  caixa vazia, e caixa só com itens *"aguardando"*. A data vai na **conta dos
+  disparos em vazio** do [`docs/ONDE_PARAMOS.md`](docs/ONDE_PARAMOS.md), o recado
+  de uma linha vai ao `RECADOS.md` e ao chat, e **o despertador fica como está** —
+  *ligar e desligar é do chat; o meu trabalho é a conta* (item 004).
 
-  **🟠 ESTA LINHA CONFLITA COM A REGRA DA CAIXA DE ENTRADA, e o conflito está
-  DECLARADO em vez de resolvido por mim** (D236). Aqui diz **desligar**; a
-  [`docs/caixa-de-entrada/COMO_FUNCIONA.md`](docs/caixa-de-entrada/COMO_FUNCIONA.md),
-  escrita pelo chat em 09/10, diz *"grave um recado de uma linha dizendo 'caixa
-  vazia', envie, e durma… anote a data numa linha do `ONDE_PARAMOS.md`"* — e **não
-  manda desligar**. O item 004 fecha o cerco: *"ligar e desligar é do chat; o seu
-  trabalho é a conta."*
-  **Enquanto o chat não desempatar eu sigo a da CAIXA — anotar e dormir —, e o
-  motivo é medido:** desligar servia quando o chat tinha de ser avisado para
-  mandar fila nova; agora ele escreve na caixa **sem passar por mim**, e
-  despertador desligado **nunca pega o item 005**. Desligar deixaria de proteger
-  e passaria a travar. *Isto é leitura minha, não ratificação: o desempate é do
-  chat, e está no recado.*
+  **~~DESLIGAR o despertador~~ (D62 + D112) era a regra até 09/10/2026, e ela
+  estava CERTA quando nasceu** — o motivo fica escrito, porque *regra revogada sem
+  o motivo escrito volta por engano*. Até 09/10 o chat só sabia que a fila havia
+  esgotado **se alguém o avisasse**, e o despertador desligado **era o aviso**:
+  era esse o serviço que o desligamento prestava. Medido na época: dos 7 disparos
+  do despertador de 15/09, **4 não tiveram o que fazer**. *(E antes disso esta
+  linha dizia "apagar", o que a prática desmentiu seis vezes — apagar perde o id,
+  que é o que o chat reusa; D104.)*
+
+  **O que mudou foi o MECANISMO, não o texto:** em 09/10 o chat passou a
+  **escrever direto na caixa de entrada**, sem passar por mim e sem passar pelo
+  Jonny. O desligamento perdeu a função que tinha e **ganhou um dano novo** —
+  *despertador desligado nunca pega o item que o chat escrever depois* —, e ia
+  travar **em silêncio**, porque uma caixa com item e um despertador desligado têm
+  exatamente a mesma aparência de uma caixa vazia.
+
+  > **REGRA QUE DEIXOU DE PROTEGER E PASSOU A TRAVAR NÃO MUDOU DE TEXTO — MUDOU O
+  > MUNDO EMBAIXO DELA.** Toda regra que existe para *avisar alguém* morre no dia
+  > em que esse alguém passa a enxergar sozinho. Ao ler uma regra antiga, pergunte
+  > **que serviço ela presta hoje**, não só o que ela manda fazer.
+
+  **A regra nova mora em DOIS lugares, e os dois apontam um para o outro:** aqui e
+  na [`docs/caixa-de-entrada/COMO_FUNCIONA.md`](docs/caixa-de-entrada/COMO_FUNCIONA.md),
+  que é onde o chat a escreveu primeiro.
+
+  **O D236 está riscado como desempatado** e aponta para a D244. O meu papel ali
+  foi **não desempatar sozinha**, e isso o chat ratificou: *"você fez a pergunta
+  certa e fez o que era certo fazer."* **Há guarda**
+  (`tests/disparos-em-vazio.test.ts`): ela cobra a regra nova escrita nos dois
+  lugares, cobra o motivo da velha **preservado e riscado**, e **reprova se a §1-A
+  voltar a MANDAR desligar.**
 - **O despertador nasceu sem conectores do GitHub.** Se ao acordar não houver
   `mcp__github__*`, mesclar por git direto (`git merge --no-ff` na `main`) e
   **declarar isso no relatório e no recado** (D29).
@@ -612,7 +624,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 336 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 337 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

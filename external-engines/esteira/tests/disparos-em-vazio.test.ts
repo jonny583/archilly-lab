@@ -65,22 +65,64 @@ describe("item 004 · a conta dos disparos do despertador", () => {
    * lado bom continua valendo porque o precedente é de OUTRO regime, anterior à abertura.
    */
   /**
-   * **O conflito do D236 fica DECLARADO enquanto o chat não desempatar.** A §1-A manda
-   * *desligar* no disparo sem item; a regra da caixa manda *anotar e dormir*. Eu não escolhi em
-   * silêncio — as duas páginas apontam uma para a outra, e esta trava reprova se uma delas
-   * perder a referência. *Conflito que não fica declarado é resolvido pela próxima sessão sem
-   * que ninguém saiba.*
+   * **O conflito do D236 foi DESEMPATADO pelo chat no item 008 (D244): anote e durma, não
+   * desligue.** A §1-A mandava desligar e estava certa quando nasceu — o desligamento **era o
+   * aviso** de que a fila havia esgotado. Deixou de valer quando o chat passou a escrever na
+   * caixa direto: *despertador desligado nunca pega o item que o chat escrever depois.*
+   *
+   * > **REGRA QUE DEIXOU DE PROTEGER E PASSOU A TRAVAR NÃO MUDOU DE TEXTO — MUDOU O MUNDO
+   * > EMBAIXO DELA.**
+   *
+   * Esta trava guarda as duas metades: a regra nova **escrita nos dois lugares**, e o motivo da
+   * velha **preservado** — *regra revogada sem o motivo escrito volta por engano.*
    */
-  test("as duas páginas que conflitam apontam uma para a outra (D236)", () => {
+  test("a regra do disparo em vazio é ANOTE E DURMA, nos dois lugares (D244)", () => {
     const claudeMd = readFileSync(join(RAIZ, "CLAUDE.md"), "utf8");
     const comoFunciona = readFileSync(
       join(RAIZ, "docs", "caixa-de-entrada", "COMO_FUNCIONA.md"),
       "utf8",
     );
-    expect(claudeMd, "a §1-A não cita a regra da caixa").toContain("caixa-de-entrada/COMO_FUNCIONA.md");
-    expect(claudeMd, "a §1-A não nomeia a decisão do conflito").toContain("D236");
-    expect(comoFunciona, "a regra da caixa não cita a §1-A").toContain("§1-A");
-    expect(comoFunciona, "a regra da caixa não nomeia a decisão do conflito").toContain("D236");
+    // **Texto de documento vem QUEBRADO em linhas, e a marca literal mede a quebra junto com o
+    // conteúdo** — foi o defeito do LAB-74 §5, e ele voltou nesta mesma trava uma hora depois:
+    // a lição está escrita como `MUDOU O\n  > MUNDO EMBAIXO DELA`. Normalizar o espaço antes de
+    // comparar é o conserto, e é o que a guarda do item 003 já fazia. *Duas vezes em dois
+    // prompts é padrão, não azar.*
+    // E a marca do bloco de citação (`>`) também sobrevive à normalização do espaço: a frase
+    // está dentro de um `>`, quebrada em duas linhas, e o `>` cai no meio dela. Tira-se os dois.
+    const semQuebra = (t: string): string =>
+      t
+        .split("\n")
+        .map((l) => l.replace(/^\s*>\s?/, ""))
+        .join(" ")
+        .replace(/\s+/g, " ");
+    for (const [onde, texto] of [["§1-A", claudeMd], ["a regra da caixa", comoFunciona]] as const) {
+      expect(texto, `${onde} não nomeia o desempate`).toContain("D244");
+      expect(semQuebra(texto), `${onde} não traz a lição da regra que passou a travar`).toContain(
+        "MUDOU O MUNDO EMBAIXO DELA",
+      );
+    }
+    // A §1-A aponta para a regra da caixa, e a da caixa para a §1-A: nenhuma das duas sozinha.
+    expect(claudeMd).toContain("caixa-de-entrada/COMO_FUNCIONA.md");
+    expect(comoFunciona).toContain("§1-A");
+    // O motivo da regra VELHA fica preservado, riscado e não apagado.
+    expect(claudeMd).toContain("~~DESLIGAR o despertador~~");
+    expect(claudeMd).toContain("era o aviso");
+  });
+
+  /**
+   * **E ela REPROVA se a §1-A voltar a mandar desligar.** O item 008 pediu alinhar a trava, e
+   * alinhar aqui é isto: a frase imperativa antiga não pode reaparecer fora do risco.
+   */
+  test("a §1-A não manda mais DESLIGAR — e voltar a mandar REPROVA", () => {
+    const claudeMd = readFileSync(join(RAIZ, "CLAUDE.md"), "utf8");
+    const secao = /\n## 1-A · [^\n]*\n([\s\S]*?)(?=\n## )/.exec(claudeMd)?.[1] ?? "";
+    expect(secao.length, "a §1-A não foi achada pelo título").toBeGreaterThan(500);
+    // A ordem antiga, como ordem: `**DESLIGAR o despertador**` sem o risco em volta.
+    const ordemAntiga = /(?<!~~)\*\*DESLIGAR o despertador\*\*/.test(secao);
+    expect(ordemAntiga, "a §1-A voltou a MANDAR desligar — o desempate do D244 diz o contrário").toBe(
+      false,
+    );
+    expect(secao.replace(/\s+/g, " ")).toContain("NÃO DESLIGUE");
   });
 
   test("o precedente da FILA sai do registro, e são TRÊS — todos ANTES da abertura", () => {

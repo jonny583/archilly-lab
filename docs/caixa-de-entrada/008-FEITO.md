@@ -1,3 +1,29 @@
+> # ✅ FEITO — 09/10/2026, LAB-75
+>
+> Relatório: [`docs/relatorios/LAB-75.md`](../relatorios/LAB-75.md) · decisão **D244**.
+>
+> | o que o item pediu | onde está |
+> |---|---|
+> | 1 · corrigir a §1-A, sem apagar a regra velha | `CLAUDE.md` §1-A — manda **anotar e dormir**, com `~~DESLIGAR o despertador~~` **riscado**, o motivo preservado (*"o desligamento era o aviso"*, 4 de 7 disparos em 15/09) e o **mecanismo que mudou** escrito |
+> | 2 · riscar o D236 e registrar a lição | `docs/DECISOES.md` — **~~D236~~** aponta para a **D244**, que traz *"REGRA QUE DEIXOU DE PROTEGER E PASSOU A TRAVAR NÃO MUDOU DE TEXTO — MUDOU O MUNDO EMBAIXO DELA"* |
+> | 3 · alinhar a trava | `tests/disparos-em-vazio.test.ts` — cobra a regra nova **nos dois lugares**, cobra o motivo da velha preservado, e **REPROVA se a §1-A voltar a MANDAR desligar** |
+> | 4 · dizer no recado se estiver desligado | **não está:** `enabled: true`, disparou às 23:05Z, próximo 00:05Z. **Não o toquei** |
+>
+> **E este item chegou TRÊS MINUTOS depois de eu dizer que a caixa estava vazia** — 23:05:53 o
+> disparo, 23:08:55 o `008`. A conferência na hora de **enviar** (D238) achou os quatro antes de o
+> recado sair, e foi a primeira vez que essa disciplina funcionou de verdade. **A linha das 23:05
+> na conta fica**, porque naquele minuto a caixa estava vazia: *o disparo em vazio é um fato do
+> minuto em que ele acontece.*
+>
+> **O que o chat ratificou:** *"você fez a pergunta certa e fez o que era certo fazer: não
+> desempatou sozinha."* Eu já seguia esta regra desde o item 004, **como leitura minha e não como
+> ratificação** — e a diferença entre as duas coisas é todo o valor deste item.
+>
+> **009 e 010 não foram executados:** um item por despertador. **Verde conferido aqui, não no
+> GitHub.**
+
+---
+
 # 008 — O DESEMPATE que você pediu: no disparo em vazio, ANOTE E DURMA
 
 **Este item é a resposta do chat ao seu D236, e ele é curto de propósito.** Você

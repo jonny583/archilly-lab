@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 09/10/2026 · **Última rodada:** `despertador-sem-item` às 23:05Z — caixa
-vazia, nada inventado · **último prompt executado:** LAB-74 (item 007) ·
+**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-75 (item 008) — **o
+desempate do D236 chegou: anote e durma, NÃO desligue** (D244) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -61,7 +61,7 @@ enquanto eu trabalhava no 001"*).
 | 09/10/2026 | 20:05 | observado | item 005 pronto (entrou às 19:19:54Z) | item 005 (LAB-72) |
 | 09/10/2026 | 21:05 | observado | item 006 pronto | item 006 (LAB-73) |
 | 09/10/2026 | 22:05 | observado | item 007 pronto | item 007 (LAB-74) |
-| 09/10/2026 | 23:05 | observado | **nada na caixa** — os sete feitos | recado de uma linha, e dormir |
+| 09/10/2026 | 23:05 | observado | **nada na caixa** — os sete feitos | recado de uma linha; e o `008` entrou às 23:08:55Z, pego na mesma rodada → item 008 (LAB-75) |
 
 ```
 disparos observados: 9 · em vazio: 2
@@ -140,7 +140,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 725 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 726 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -197,6 +197,8 @@ recado, ENVIA**. Um item por despertador, o menor número ainda não feito.
 | `005-FEITO.md` | ✅ 09/10 — a regra de família: cobrança por USO, nunca mensalidade (LAB-72) |
 | `006-FEITO.md` | ✅ 09/10 — a trava é de **palavra**, e aqui **não há onde** tirar campo (LAB-73) |
 | `007-FEITO.md` | ✅ 09/10 — o **disco** não é a **origem**: clones 18 a 25 atrás (LAB-74) |
+| `008-FEITO.md` | ✅ 09/10 — **o desempate: anote e durma, NÃO desligue** (LAB-75, D244) |
+| `009.md` · `010.md` · `010-adendo.md` | prontos, um por despertador — e o `010-adendo` traz **regra urbanística ditada pelo Jonny** |
 
 **A CAIXA ESGOTOU duas vezes hoje, e nas duas o despertador ficou intacto** (D236): às 19:05 em
 vazio, e o `005` entrou às 19:19 — **pego sozinho** no disparo das 20:05. *A aposta do D236 foi
@@ -204,6 +206,29 @@ medida em uma hora: desligar teria deixado o item parado.*
 
 **O estado do despertador NÃO se repete aqui** — ele mora na *conta dos disparos*, no alto deste
 arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D234).
+
+# ✅ DESEMPATADO: no disparo em vazio, ANOTE E DURMA — não desligue (item 008, D244)
+
+**O chat respondeu ao D236.** A `CLAUDE.md` §1-A mandava **desligar** o despertador no disparo sem
+item pronto; agora manda **anotar a data na conta, responder em uma linha e dormir**, com a ordem
+antiga **riscada e não apagada**.
+
+**A regra velha estava CERTA quando nasceu:** até 09/10 o chat só sabia que a fila havia esgotado
+se alguém o avisasse, e o **desligamento era o aviso** — 4 dos 7 disparos de 15/09 não tiveram o
+que fazer. **O que mudou foi o mecanismo:** o chat passou a escrever na caixa direto, e
+*despertador desligado nunca pega o item que o chat escrever depois*. Ia travar **em silêncio**,
+porque uma caixa com item e um despertador desligado têm a mesma aparência de uma caixa vazia.
+
+> **REGRA QUE DEIXOU DE PROTEGER E PASSOU A TRAVAR NÃO MUDOU DE TEXTO — MUDOU O MUNDO EMBAIXO
+> DELA.** Ao ler uma regra antiga, pergunte **que serviço ela presta hoje**.
+
+**O despertador NÃO está desligado** — `enabled: true`, disparou às 23:05Z — **e eu não o toquei.**
+A trava do `tests/disparos-em-vazio.test.ts` passou a **reprovar se a §1-A voltar a mandar
+desligar**.
+
+**E o item 008 chegou TRÊS MINUTOS depois de eu reportar a caixa vazia** (23:05:53 → 23:08:55). A
+conferência na hora de **enviar** (D238) o achou antes de o recado sair: **a primeira vez que essa
+disciplina funcionou de verdade.**
 
 # 🔶 O DISCO NÃO É A ORIGEM — os três clones estão ATRÁS (item 007)
 
@@ -515,7 +540,7 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 
 ```
 suíte .............. 684 travas (667 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 336 (114 → … → 304 → 315 → 325 → 336) · DESLIGADO no GitHub até 1º/11
+CI sem clones ...... 337 (114 → … → 315 → 325 → 336 → 337) · DESLIGADO no GitHub até 1º/11
 decisões ........... D230 é a última. A próxima é a D231
 verde .............. exit 0, CONFERIDO AQUI e não no GitHub · 667 esteira + 17 testfit · três vizinhos limpos
 ```
@@ -1387,7 +1412,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 336 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 337 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
