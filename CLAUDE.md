@@ -460,7 +460,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 246 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 260 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê
@@ -472,3 +472,34 @@ nomes que não enganam** (D141):
 > é a mentira que o D110 custou duas semanas.**
 
 Enquanto o segredo não existir, **quem roda o verde completo sou eu, antes do commit**.
+
+### 🔴 A EXECUÇÃO AUTOMÁTICA DO CI ESTÁ DESLIGADA desde 08/10/2026
+
+O orçamento de Actions da **família** estourou e o Jonny decidiu não comprar mais; a cota zera
+em **1º/11/2026**. O gatilho de `push`/`pull_request` está **comentado** e a rotina está
+**`disabled_manually`** no GitHub. **A receita de religar mora num lugar só:**
+[`docs/COMO_RELIGAR_O_CI.md`](docs/COMO_RELIGAR_O_CI.md) — e **são DOIS passos**, descomentar
+**e** reabilitar; quem fizer só o primeiro vai concluir que o GitHub está quebrado.
+
+**A parte deste repositório no estouro é ZERO, e isso é medição, não desculpa:** `archilly-lab`
+é **público**, e Actions em `ubuntu-latest` é gratuito e não medido em repositório público —
+**136 execuções, 272 trabalhos, 272 minutos, 272 de 272 em `ubuntu-latest`**. Desligado assim
+mesmo, por ordem da família e porque **metade desses minutos era desperdício puro** (D220).
+
+**Toda entrega passa a declarar "conferido aqui, não no GitHub".** *Verde na mão e verde na
+nuvem são afirmações diferentes.* **Há trava** (`tests/gatilho-do-verde.test.ts`): ela cobra a
+receita enquanto o gatilho estiver comentado, cobra que o aviso SAIA quando ele voltar, e
+**REPROVA a partir de 1º/11/2026** — *desligamento sem prazo vira desligamento permanente.*
+
+### UM ENVIO POR ENTREGA — os commits de uma entrega vão num `push` só
+
+**Medido na família:** o Render enviou **131 vezes em 5 dias** para cerca de **7 entregas** —
+relatório, memória e recado em envios separados, cada um pagando uma bateria inteira. Medido
+aqui: **136 execuções para 92 commits**, e **44 commits rodaram duas vezes** porque `push` e
+`pull_request` disparam no mesmo SHA.
+
+> **Nenhum desenho de rotina compensa enviar de commit em commit.** A maior alavanca não é o
+> desenho da rotina, é o **número de envios**.
+
+Commitar quantas vezes quiser é de graça; **`git push` é que custa**. Os commits de uma entrega
+— código, prova, relatório, decisão, recado — saem em **um envio só**, no fim.

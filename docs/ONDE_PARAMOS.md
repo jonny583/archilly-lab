@@ -23,6 +23,46 @@ apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
 **junto** do LAB-63 e não depois. **Esta fila encolheu duas vezes por ordem do chat**, e o §10
 registra as duas, com o que ele disse em cada uma.
 
+# 🟡 O VERDE ESTÁ VERMELHO, E NÃO É POR MUDANÇA DAQUI (D223)
+
+**Os três clones vizinhos sumiram** no reinício do contêiner; reclonados `--depth 1`, voltaram em
+commits **mais novos** (`motor-testfit 6cf6396`, hub `72cfab0`). Com eles, o verde dá **10 falhas
+em 552 testes** — `porta`, `testada-de-frente`, `guarda-da-ponte`, `coluna-vertebral`,
+`identidade`, `recorte`, `poligono`.
+
+**Medido antes de atribuir:** com as minhas mudanças guardadas (`git stash`), três desses arquivos
+falham **igual na `main` limpa** — 3 de 17. **As falhas não são da entrega de hoje.**
+
+**As travas independentes de clone vizinho estão VERDES**, e são elas que guardam tudo o
+que esta rodada mexeu.
+
+> **Verde que depende de clone irmão POR CAMINHO é verde que fica vermelho sem ninguém tocar
+> aqui.** O caminho está fixado; a versão, não. Proposto ao chat: gravar o commit de cada clone
+> em toda prova que o use.
+
+# 🔴 O CI ESTÁ DESLIGADO — orçamento de Actions da família, 08/10/2026
+
+**Gatilho `push`/`pull_request` COMENTADO em `.github/workflows/verde.yml`, e a rotina está
+`disabled_manually` no GitHub** (id 374646435). `workflow_dispatch` continua ligado.
+
+**A receita de religar mora num lugar só:
+[`COMO_RELIGAR_O_CI.md`](COMO_RELIGAR_O_CI.md)** — e **são DOIS passos**: descomentar o gatilho
+**E** reabilitar a rotina. Quem fizer só o primeiro vai concluir que o GitHub está quebrado.
+
+**A parte deste repositório no estouro é ZERO:** `archilly-lab` é **público**, e Actions em
+`ubuntu-latest` é gratuito e não medido em repositório público. Medido: 136 execuções, 272
+trabalhos, **272 minutos, 272 de 272 em `ubuntu-latest`**, US$ 0,00. Se fosse privado: US$ 2,18.
+
+**Mas metade era desperdício puro** (D220): o trabalho `o verde completo` falhou **136 de 136
+vezes**, por falta do segredo `VIZINHOS_TOKEN` — 136 minutos gastos num fracasso **conhecido de
+antemão**. E 44 commits rodaram **duas vezes**, porque `push` e `pull_request` disparam no
+mesmo SHA.
+
+**Trava:** `tests/gatilho-do-verde.test.ts` **REPROVA a partir de 1º/11/2026** enquanto o
+gatilho estiver comentado. *Desligamento sem prazo vira desligamento permanente.*
+
+**Daqui em diante toda entrega declara "conferido aqui, não no GitHub".**
+
 # 📌 DA CENTRAL, 08/10 — o texto da regra está gravado no `CLAUDE.md` §1-C, linha 71
 
 **Literal, sem edição.** A §1 é a minha aplicação dele; a §1-C é a **fonte**, e quando as duas
@@ -232,9 +272,9 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 
 ```
 suíte .............. 652 travas (635 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 246 (114 → 138 → 158 → 174 → 193 → 213 → 230 → 235 → 246)
-decisões ........... D219 é a última. A próxima é a D220
-verde .............. 7 passos, exit 0, três clones vizinhos limpos
+CI sem clones ...... 260 (114 → … → 235 → 246 → 259) · DESLIGADO no GitHub desde 08/10
+decisões ........... D223 é a última. A próxima é a D224
+verde .............. CONFERIDO AQUI, NÃO NO GITHUB · 260 travas sem clone VERDES · 10 falhas que vêm dos clones vizinhos terem mudado de commit (D223)
 ```
 
 ## E CINCO vezes um número meu estava errado onde eu podia medi-lo
@@ -1104,7 +1144,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 246 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 260 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

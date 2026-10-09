@@ -1129,3 +1129,17 @@ Depende do Jonny: a régua de nota (33 contra 1.228) e a curva de preço por tam
 Próximo na fila: NADA — fila esgotada, despertador desligado. Suíte 651 travas (634 esteira + 17 testfit); CI sem clones 245. Decisões até D218. Verde 7 passos, exit 0. Três clones vizinhos limpos.
 === FIM ===
 ```
+
+---
+
+## 08/10/2026 · LAB-67 — o orçamento de Actions, e o custo que não vaza
+
+```
+=== RECADO PARA O CHAT — Lab · LAB-67 ===
+Estado: MOTOR LAB (archilly-lab). CI DESLIGADO: gatilho push/pull_request COMENTADO em .github/workflows/verde.yml (linhas 55-57), workflow_dispatch mantido, e a rotina 374646435 DESABILITADA no GitHub por gh api — desabilitei ANTES de editar, senão o envio do próprio conserto gastaria outra rodada. Receita de religar num lugar só: docs/COMO_RELIGAR_O_CI.md, DOIS passos. Só 2 ramos no repo, nenhum com gatilho órfão. CONFERIDO AQUI, NÃO NO GITHUB.
+Feito: ALÉM DA CONFERÊNCIA, O QUE MAIS PASSA PELA MÁQUINA PAGA É NADA — um workflow, dois trabalhos, os dois de conferência; zero deploy, zero migração, zero prazo, varrido por padrão. E A CONTA DESTE REPOSITÓRIO É ZERO: archilly-lab é PÚBLICO, e Actions em ubuntu-latest é gratuito e não medido em repositório público. Medido: 136 execuções, 272 trabalhos, 272 minutos, 272 de 272 em ubuntu-latest, US$ 0,00 (US$ 2,18 se fosse privado).
+Achados para outros apps ou Central: (1) A FAMÍLIA ASSUMIU QUE TODO APLICATIVO PAGA — ESTE NÃO PAGA. Vale conferir a visibilidade dos outros oito antes de redesenhar rotina. (2) 66% DOS MEUS MINUTOS NÃO PRECISAVAM TER ACONTECIDO: o trabalho "o verde completo" falhou 136 DE 136 por falta do segredo VIZINHOS_TOKEN — 136 min num fracasso conhecido de antemão. O D124 está certo em falhar com a receita; errado é AGENDAR isso. Falhar com a receita é honesto na mão; agendado, é pagar para repetir um recado. Mais 44 min de duplicação: push E pull_request no mesmo SHA, 44 de 92 commits. (3) A MINHA RÉGUA DE DESLIGADORES FICARIA VERDE COM O CI INTEIRO PARADO — não via gatilho comentado, nem rotina desabilitada, nem arquivo renomeado. Consertada, com PRAZO: reprova a partir de 1º/11. (4) VAZAMENTO DE CUSTO: ZERO. Sem custoMedido, multiplicador, custo × N, markup; e as 9 ocorrências de "margem" são GEOMÉTRICAS, em metros — acusá-las seria medir ortografia (D137). Não tenho tela de produto nem chamada paga de IA. (5) NÃO USO relatorio.completo nem kit.lancamento. Correção de unidade do meu domínio: "ia.layout = ambientes ou zonas" não serve para loteamento — o que o usuário recebe são LOTES (66 a 1.803 no LAB-13), com área vendável em m² como segunda.
+Depende do Jonny: nada novo. Segue a régua de nota (33 contra 1.228) e a curva de preço por tamanho. A escolha do desenho que volta em 1º/11 é dele, comparando os nove — eu propus, não fiz.
+Próximo na fila: fila esgotada, despertador desligado. ATENÇÃO: o verde está VERMELHO, 10 falhas em 552, e NÃO é desta entrega — os clones vizinhos foram recriados em commits mais novos, e 3 dos arquivos falham igual na main limpa (D223). As 259 travas sem clone estão VERDES. Decisões até D223.
+=== FIM ===
+```
