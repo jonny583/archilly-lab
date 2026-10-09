@@ -6463,3 +6463,87 @@ O que caracteriza um prompt é a **forma** — letras, hífen, sufixo que pode s
 
 *Número que saiu num recado continua sendo meu depois de sair: o item 002 citou o meu "nove" de
 volta, e eu só descobri que eram dez porque fui recontar em vez de confiar.*
+
+---
+
+## D231 · O conserto do D228 entrou na TRAVA e não na FERRAMENTA — e a ferramenta passou a mentir · 09/10/2026
+
+**Décima oitava ocorrência do ponto cego da §6, e nona da sub-família da régua que varre texto.**
+Pega no primeiro comando do item 003.
+
+A Central mandou que o `<app>` do cabeçalho do recado virasse o nome do aplicativo. A **trava**
+aprendeu no mesmo dia (D228). A **ferramenta** não — ela continuou casando `— Lab · ` **literal**,
+porque ela **não roda no verde** e ninguém a executou depois da mudança.
+
+O que eu vi ao abrir o item 003: a trava **verde** e a ferramenta dizendo
+
+```
+prompt(s) com relatório e SEM recado no arquivo: LAB-68, LAB-69
+```
+
+**Os dois têm recado.** Os cabeçalhos são `— MOTOR LAB (archilly-lab) · LAB-68 (item 001) ===` e
+`— MOTOR LAB (archilly-lab) · LAB-69 (item 002) ===`, nas linhas 1152 e 1166 do `RECADOS.md`.
+
+> **Conserto de régua que não é aplicado em TODOS os instrumentos que leem a mesma coisa é meio
+> conserto — e o que ficou de fora passa a mentir com a autoridade de quem conferia.**
+
+Consertado em `ferramentas/lab66.ts`: a mesma régua da trava, `[^·]+ · (.+?)`. Depois do conserto,
+**74 cabeçalhos para 74 blocos e zero relatórios sem recado**, contra 72 e 2 antes.
+
+*Instrumento fora do verde envelhece sem avisar, e o aviso dele quando envelhece é uma acusação.*
+Daí a outra metade do item 003: o escopo dos dois passa a morar em
+[`docs/referencia/FERRAMENTA_E_TRAVA.md`](referencia/FERRAMENTA_E_TRAVA.md), com guarda.
+
+---
+
+## D232 · Os dois escapes de texto do D217 eram LARGOS DEMAIS, e eles salvavam 48 de 62 · 09/10/2026
+
+O conserto do D217 — a trava que acusava `LAB-13 e LAB-14` de não terem recado — deu à régua de
+`relatorio-sem-recado` dois escapes:
+
+```ts
+&& !texto.includes(`recados ${p}`) && !texto.includes(`${p},`)
+```
+
+Eles casam o nome do prompt em **qualquer lugar do arquivo**, inclusive dentro do corpo de outro
+recado. **Medido, apagando o bloco do recado de cada relatório de prompt, um a um — 62 no dia da
+medição: eles deixavam passar 48, e a ferramenta acusava os 48.** Com o conserto, **zero**.
+
+**O caso que o D217 queria salvar já era salvo sem eles:** a borda de palavra **dentro do campo
+`<prompt>`** do cabeçalho — `/\bLAB-13\b/` casa `LAB-13 e LAB-14`. Não precisava varrer o arquivo.
+
+> **Régua nova nasce estreita demais, e às vezes larga demais: as duas coisas são o mesmo defeito
+> — ninguém a conferiu dos dois lados.**
+
+**E é isto que explica o número que eu publiquei no LAB-66.** Aquele recado disse *"em duas das
+quatro sabotagens ferramenta e trava não pegaram a mesma coisa — a nº 2 só a ferramenta"*,
+**sem dizer qual prompt foi apagado** — e o veredicto depende disso: apagando o recado de
+`LAB-69`, os dois acusam; apagando o de `LAB-66`, só a ferramenta acusava. *Número sem origem não
+vale, e a origem era o prompt escolhido.* A sabotagem nº 2 passou a rodar **nos dois lados**.
+
+**O que NÃO foi alinhado, e de propósito:** a sabotagem nº 4 — bloco `ACUMULADO` sem nomear quais
+— continua sendo só da trava. A ferramenta nunca leu a segunda linha do recado, e fazer um
+instrumento chamar o outro para os números baterem *esconde a diferença em vez de declará-la*.
+Das duas divergências, **uma era escopo e a outra era podridão**, e só a podridão saiu.
+
+---
+
+## D233 · O par de instrumentos confere FORMA e PRESENÇA, nunca VERDADE nem ENVIO · 09/10/2026
+
+A pergunta mais valiosa do item 003 era a terceira: *"diga o que ninguém pega."* **Quatro
+buracos**, e os três primeiros já aconteceram:
+
+| o que escapa dos dois | por que | quem fecharia |
+|---|---|---|
+| recado que **nunca foi escrito**, em rodada sem relatório nem commit | as duas réguas leem o que **está** no arquivo | o **item 004**, que abre a conta dos disparos em vazio |
+| recado **gravado e não enviado** | os dois leem o disco; `commit` sem `push` fica verde nos dois, e o chat lê o `RECADOS.md` **direto do GitHub** | comparar o disco com `origin/main` — **ninguém faz** |
+| recado completo, bem formado, e **FALSO** | nenhuma das treze verificações lê o conteúdo contra a realidade — o D110 é isso por duas semanas | **nada mecânico que eu saiba escrever hoje** |
+| os nove recados antigos **acima do teto** | a trava do teto olha **só o último**, de propósito: registro não se reescreve | **nada, e não deve** — buraco escolhido |
+
+> **Verde nos dois instrumentos e nada no GitHub é o estado mais perigoso que este repositório
+> sabe produzir** — e, desde 09/10, é o estado em que o chat simplesmente não vê a entrega.
+
+O terceiro buraco fica declarado **sem conserto proposto**, porque eu não sei escrever a régua: o
+par confere **forma** e **presença**, e quem ler o verde dos dois precisa saber que *verdade* não
+está entre eles. *Buraco escondido é pior que buraco declarado, e buraco sem "o que faria pegar"
+é lamento — três dos quatro têm essa linha, e o que não tem diz por quê.*

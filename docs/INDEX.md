@@ -14,6 +14,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 | [`ONDE_PARAMOS.md`](ONDE_PARAMOS.md) | **Onde estamos hoje**, o que a última rodada entregou e o que ficou esperando |
 | [`../CLAUDE.md`](../CLAUDE.md) | As regras permanentes de quem trabalha aqui — e a regra do RECADO |
 | [`referencia/LABORATORIO.md`](referencia/LABORATORIO.md) | **O que é este laboratório**: a especificação, Etapas A a G, como ela chegou |
+| [`referencia/FERRAMENTA_E_TRAVA.md`](referencia/FERRAMENTA_E_TRAVA.md) | **O que cada instrumento cobre** — e o que escapa dos dois. Leia antes de rodar um só |
 | [`../README.md`](../README.md) | A regra de ouro (`upstream` → `archilly` → `adapter`) e a estrutura da casa |
 
 ## Decisão e fila

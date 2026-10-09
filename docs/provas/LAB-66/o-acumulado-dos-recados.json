@@ -2,25 +2,25 @@
   "prompt": "LAB-66",
   "oQueIstoMede": "o estado do acumulado de recados depois da regra do bloco único: todo bloco abrindo com o recado, todo relatório de prompt com recado no arquivo, e o buraco da trava medido",
   "aPergunta": "do chat: a regra do bloco único, e seguir a fila com a dívida própria do que sobrou",
-  "quando": "2026-10-08T08:32:39.060Z",
+  "quando": "2026-10-09T17:10:32.455Z",
   "aRegraDoChat": {
     "oBloco": "um só por rodada; o recado PRIMEIRO, nas suas doze linhas; o resto abaixo, no mesmo bloco, depois da linha de marca",
     "oTeto": "doze linhas é do RECADO e não do bloco — partir o bloco para caber nas doze é o defeito, não o conserto",
     "oAcumulado": "rodando mais de um prompt sem ele voltar, o bloco abre com `ACUMULADO — inclui os recados X, Y e Z`; o recado completo de cada prompt continua indo inteiro para o arquivo"
   },
   "oAcumulado": {
-    "blocos": 70,
-    "abremComRecado": 70,
-    "cabecalhos": 70,
+    "blocos": 74,
+    "abremComRecado": 74,
+    "cabecalhos": 74,
     "cabecalhosCompostos": [
       "LAB-13 e LAB-14"
     ],
-    "relatoriosDePrompt": 58,
+    "relatoriosDePrompt": 61,
     "relatoriosSemRecado": []
   },
   "oBuracoDaTravaDECLARADO": {
     "oQue": "rodada SEM relatório não tem âncora para a trava morder — foi assim que o recado da própria regra do bloco se perdeu",
-    "quantosRecadosSemPromptNomeado": 9,
+    "quantosRecadosSemPromptNomeado": 10,
     "oQueResta": "disciplina: o recado vai ao arquivo no MESMO commit em que vai ao chat"
   },
   "oPrecedenteQueEuACUSEI": {
