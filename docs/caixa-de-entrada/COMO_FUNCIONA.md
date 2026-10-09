@@ -35,6 +35,14 @@ dizendo "caixa vazia", envie, e durma. Despertador que acorda e não acha nada �
 informação, não fracasso — anote a data numa linha do `ONDE_PARAMOS.md`, que é
 a medição que faltava.
 
+> **🟠 Isto CONFLITA com a `CLAUDE.md` §1-A, que manda DESLIGAR o despertador no
+> disparo sem item pronto (D62 + D112). O conflito está declarado nos dois lugares,
+> e o desempate é do chat (D236).** Enquanto ele não responder eu sigo **esta** —
+> anotar e dormir —, porque desligar servia quando o chat tinha de ser avisado para
+> mandar fila nova, e agora ele escreve aqui sem passar por mim: despertador
+> desligado nunca pega o item seguinte. *Leitura minha, não ratificação.*
+> *(Acrescentado por mim no item 004; o texto do chat acima está intocado.)*
+
 ## O que você NÃO faz sozinho
 
 Estas cinco classes **param e viram pergunta**, em `docs/PENDENCIAS_JONNY.md`,

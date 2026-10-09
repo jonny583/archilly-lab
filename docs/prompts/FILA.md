@@ -59,10 +59,16 @@ despertador, o menor número ainda não feito.**
 | `001` | as duas pilhas separadas rodando, e o carimbo do vizinho **e do chão** | ✅ **LAB-68**, 09/10 · D223 acertou o veredicto e errou a causa (D224) · PR #91 |
 | `002` | a âncora da rodada **sem relatório** | ✅ **LAB-69**, 09/10 · as seis classes de rodada · eram **dez**, não nove (D230) · PR #92 |
 | `003` | o escopo da **ferramenta** contra o das **travas**, e o que escapa dos dois | ✅ **LAB-70**, 09/10 · D231, D232, D233 |
-| `004` | a conta dos **disparos em vazio** do despertador | pronto — o próximo despertador o pega |
+| `004` | a conta dos **disparos em vazio** do despertador | ✅ **LAB-71**, 09/10 · zero em vazio e dois acumulados · D234, D235 |
 
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
+
+**A CAIXA ESGOTOU em 09/10/2026, quatro de quatro.** O próximo disparo é o primeiro candidato a
+**disparo em vazio** — e, pela regra da caixa, ele não inventa trabalho: grava um recado de uma
+linha, anota a data na *conta dos disparos* do
+[`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md) e dorme. *Despertador que acorda e não acha nada é
+informação, não fracasso.*
 
 ---
 
@@ -193,6 +199,18 @@ certa e eu repeti a frase velha por descuido."*
 > [`../relatorios/BALANCOS.md`](../relatorios/BALANCOS.md), §9, gravado **junto** do LAB-61
 > como a §1-B manda, e o despertador foi **DESLIGADO** (`enabled: false`), não apagado. O
 > chat o religa com fila nova.
+
+### Proposto ao chat, saído do item 004 — **não executado, e é um DESEMPATE**
+
+**DUAS REGRAS DA CASA MANDAM COISAS DIFERENTES NO DISPARO EM VAZIO, e a caixa acabou de esgotar,
+então o próximo disparo cai exatamente nisso** (D236). A `CLAUDE.md` §1-A manda **DESLIGAR** o
+despertador (D62 + D112); a `caixa-de-entrada/COMO_FUNCIONA.md`, que você escreveu em 09/10, manda
+**anotar a data e dormir**, e não fala em desligar; e o item 004 diz *"ligar e desligar é do chat;
+o seu trabalho é a conta"*. **Eu não desempatei** — mexer no `enabled` é o que o item proíbe.
+**Sigo a da caixa enquanto você não responder**, com o motivo medido: desligar servia quando você
+tinha de ser avisado para mandar fila nova, e agora você escreve na caixa sem passar por mim —
+despertador desligado **nunca pega o item 005**. Uma linha sua resolve, e as duas páginas já
+apontam uma para a outra com guarda.
 
 ### Proposto ao chat, saído do LAB-60 — **não executado**
 
@@ -1171,7 +1189,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 289 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 303 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

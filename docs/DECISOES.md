@@ -6547,3 +6547,94 @@ O terceiro buraco fica declarado **sem conserto proposto**, porque eu não sei e
 par confere **forma** e **presença**, e quem ler o verde dos dois precisa saber que *verdade* não
 está entre eles. *Buraco escondido é pior que buraco declarado, e buraco sem "o que faria pegar"
 é lamento — três dos quatro têm essa linha, e o que não tem diz por quê.*
+
+---
+
+## D234 · O estado do despertador estava escrito em DOIS lugares do MESMO arquivo · 09/10/2026
+
+O item 004 manda **conferir o id contra a conta antes de escrever qualquer coisa sobre
+despertador**. Conferi, e o que apareceu não foi o id — foi o **estado**.
+
+| onde | o que dizia |
+|---|---|
+| a abertura do `ONDE_PARAMOS.md` | *"🔴 O DESPERTADOR ESTÁ DESLIGADO · `enabled: false` em 08/10"* |
+| a seção da caixa de entrada, 70 linhas abaixo | *"Despertador **RELIGADO**"* |
+| **a conta** | **`enabled: true`**, último disparo **18:06:10Z**, próximo **19:05Z** |
+
+**A conta manda** — é a regra da família, e aqui ela desempatou duas frases do mesmo arquivo. A
+abertura era a **velha**: ela foi escrita quando a fila de 08/10 esgotou e **ninguém a apagou ao
+religar**, no item 001.
+
+> **A `CLAUDE.md` §1-A manda o id morar no `ONDE_PARAMOS` *"não aqui — id em duas terras
+> envelhece numa delas"*. Ele envelheceu DENTRO da terra certa.** Uma terra não é um arquivo: é
+> um lugar.
+
+Consertado: o estado do despertador passa a morar **só** na *conta dos disparos*, e a seção da
+caixa de entrada aponta para lá em vez de repetir. **Há guarda**: a trava reprova se a seção citar
+mais de um id (`tests/disparos-em-vazio.test.ts`).
+
+*O registro histórico NÃO foi mexido* — os 30 e tantos `enabled:` dos recados e da `FILA.md` são
+o que foi enviado no dia, e registro não se maquia para caber em régua nova.
+
+---
+
+## D235 · O primeiro dia da conta mediu o CONTRÁRIO do que a regra temia · 09/10/2026
+
+A `CLAUDE.md` §1-A existe porque **4 dos 7 disparos de 15/09 não tiveram o que fazer**, e a regra
+que saiu daí é *"disparo sem item pronto: DESLIGAR o despertador"*. O item 004 abriu a conta para
+medir isso na caixa de entrada.
+
+**Quatro disparos no primeiro dia, ZERO em vazio** — e **dois acumularam**:
+
+```
+15:05 derivado   item na caixa, o 001 em curso ....... acumulou
+16:05 derivado   item na caixa, o 001 em curso ....... acumulou → item 002
+17:05 observado  item 003 pronto ..................... item 003
+18:06 observado  item 004 pronto ..................... item 004
+```
+
+A caixa **não** ficou sem abastecimento. O que ficou curto foi o **intervalo**: a rodada do item
+003 levou **58 minutos** (17:08 → 18:06) contra 60 de intervalo, e as do item 001 passaram de duas
+horas. *A conta não nasceu para confirmar a suspeita; ela nasceu para medi-la, e mediu o
+contrário.*
+
+**E a conclusão NÃO é minha de executar.** Intervalo de despertador é do chat — *"ligar e desligar
+é do chat; o seu trabalho é a conta"*, diz o próprio item. Então isto vira **o que a conta
+decide**, escrito na seção, e não um `cron` que eu mudo:
+
+> Muitos disparos em vazio → o chat abastece mais devagar do que eu consumo, e o intervalo pode
+> **esticar**. Nenhum em vazio com disparos **acumulando** → a rodada é mais longa que o
+> intervalo, e o que sobra é o chat decidir se quer um item por hora ou um por rodada.
+
+**Uma linha por disparo, com a ORIGEM de cada hora** (`observado` ou `derivado`), porque duas das
+quatro horas saem do `cron` e do religamento, não de notificação lida — e *hora derivada
+publicada como medida é hora inventada com a autoridade de hora medida*.
+
+---
+
+## D236 · "Desligar ao disparar em vazio" conflita com a regra da CAIXA, e eu NÃO desempatei · 09/10/2026
+
+A caixa esgotou com o item 004, então **o próximo disparo é o primeiro candidato real a disparo em
+vazio** — e nessa hora duas regras do repositório mandam coisas diferentes:
+
+| onde | o que manda |
+|---|---|
+| `CLAUDE.md` §1-A (D62 + D112) | *"Disparo sem item pronto: **DESLIGAR** o despertador… o chat o religa com fila nova"* |
+| `caixa-de-entrada/COMO_FUNCIONA.md`, escrita pelo chat em **09/10** | *"grave um recado de uma linha dizendo 'caixa vazia', envie, e durma… anote a data numa linha do `ONDE_PARAMOS.md`"* — **não manda desligar** |
+| o **item 004**, do mesmo dia | *"Religar ou mexer no despertador por iniciativa própria \[não serve]. Ligar e desligar é do chat; o seu trabalho é a conta"* |
+
+**Não desempatei, e isso é a escolha.** Mexer no `enabled` é justamente o que o item 004 proíbe, e
+reescrever a §1-A por conta própria seria eu decidindo no lugar do chat uma regra que ele acabou de
+escrever de outro jeito.
+
+**O que eu sigo enquanto ele não responder, com o motivo medido:** a da **caixa** — anotar e
+dormir. *Desligar servia quando o chat tinha de ser avisado para mandar fila nova*; agora ele
+escreve na caixa **sem passar por mim**, e um despertador desligado **nunca pega o item 005**.
+Nesse regime, desligar deixa de proteger e passa a travar.
+
+> **Regra escrita para um regime não se aplica sozinha ao regime seguinte — e quando duas regras
+> da casa mandam coisas diferentes, o que não serve é escolher em silêncio.**
+
+As duas páginas passam a **apontar uma para a outra**, e **há guarda**: a trava reprova se uma
+delas perder a referência enquanto o conflito estiver aberto (`tests/disparos-em-vazio.test.ts`).
+*Conflito que não fica declarado é resolvido pela próxima sessão sem que ninguém saiba.*
