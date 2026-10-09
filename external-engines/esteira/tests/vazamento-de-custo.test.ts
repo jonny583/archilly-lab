@@ -76,6 +76,26 @@ const FALAM_SOBRE_O_ASSUNTO = [
   "docs/INDEX.md",
 ];
 
+/**
+ * **Chamada paga de IA se procura no IMPORT e na CHAMADA, não no texto** (D142, D224).
+ *
+ * A primeira versão varria o arquivo inteiro atrás de `PedidoIA`, `central.ia`, `@anthropic-ai/`
+ * e `new OpenAI` — e **casou consigo mesma** assim que este arquivo entrou no git: os nomes
+ * estão aqui dentro, no padrão que os procura. *Régua que varre texto mede o que o código FAZ
+ * e o que ele DIZ SOBRE SI, e só uma delas é o objeto.*
+ *
+ * Agora ela procura onde o nome **significa chamar**: num `import … from`, num `require(…)`, ou
+ * depois de `new`. Mencionar o nome num padrão, num comentário ou numa string não é chamar.
+ */
+export const CHAMADA_PAGA_DE_IA = [
+  /\bfrom\s+["'`](?:@anthropic-ai\/[\w-]+|openai|@google\/genai|cohere-ai|@mistralai\/[\w-]+)["'`]/,
+  /\brequire\(\s*["'`](?:@anthropic-ai\/[\w-]+|openai)["'`]\s*\)/,
+  /\bnew\s+(?:OpenAI|Anthropic)\s*\(/,
+  /\bfrom\s+["'`][^"'`]*\bgateway\b[^"'`]*["'`]/,
+  /\b(?:await\s+)?central\.ia\.\w+\s*\(/,
+  /:\s*PedidoIA\b|\bPedidoIA\s*=|\bas\s+PedidoIA\b/,
+] as const;
+
 describe("o nosso custo não vaza — Central, 08/10/2026", () => {
   const arquivos = arquivosDoGit().filter((f) => !FALAM_SOBRE_O_ASSUNTO.includes(f));
 
@@ -145,13 +165,40 @@ describe("o nosso custo não vaza — Central, 08/10/2026", () => {
     }
   });
 
-  test("este repositório não faz chamada paga de IA — nem gateway, nem PedidoIA", () => {
-    const fontes = arquivosDoGit().filter((f) => /\.(ts|tsx|js|mjs)$/.test(f));
+
+  test("este repositório não faz chamada paga de IA — medido no IMPORT e na CHAMADA", () => {
+    // O fonte DESTA trava carrega os padrões e as fixtures: ele mede, não chama (D155).
+    const fontes = arquivos.filter((f) => /\.(ts|tsx|js|mjs)$/.test(f));
     const chamadas: string[] = [];
     for (const f of fontes) {
       const texto = readFileSync(join(RAIZ, f), "utf8");
-      if (/\bPedidoIA\b|\bcentral\.ia\b|@anthropic-ai\/|\bnew OpenAI\b/.test(texto)) chamadas.push(f);
+      for (const re of CHAMADA_PAGA_DE_IA) {
+        if (re.test(texto)) chamadas.push(`${f} · ${re.source.slice(0, 40)}`);
+      }
     }
     expect(chamadas, chamadas.join("\n")).toEqual([]);
+  });
+
+  test("a régua da chamada paga reprova o caso ruim E aprova o caso bom", () => {
+    const ruins = [
+      'import Anthropic from "@anthropic-ai/sdk";',
+      'import OpenAI from "openai";',
+      'const c = require("openai");',
+      "const cliente = new Anthropic({ apiKey: k });",
+      "const r = await central.ia.leitura({ paginas: 3 });",
+      "const pedido: PedidoIA = { operacao: 'ia.texto' };",
+    ];
+    for (const r of ruins) {
+      expect(CHAMADA_PAGA_DE_IA.some((re) => re.test(r)), r).toBe(true);
+    }
+    const bons = [
+      '{ nome: "chave-de-ia-anthropic", oQue: "chave da API da Anthropic" }',
+      "// este repositório não usa PedidoIA nem central.ia",
+      'const padrao = /\\bPedidoIA\\b|\\bnew OpenAI\\b/;',
+      "o gateway da Central mede sozinho segundos de vídeo",
+    ];
+    for (const b of bons) {
+      expect(CHAMADA_PAGA_DE_IA.some((re) => re.test(b)), b).toBe(false);
+    }
   });
 });

@@ -6311,3 +6311,103 @@ com a opção de **reconhecer** a mudança, que é o que transforma "quebrou" em
 
 *Isto é a família do D104 noutra escala: o que não se revalida envelhece, e aqui o que envelhece
 não é um comentário, é a versão inteira do vizinho.*
+
+---
+
+## D224 · A D223 acertou o veredicto e ERROU A CAUSA — e a causa é o que saiu · 09/10/2026
+
+A D223 disse: *"os clones vizinhos foram recriados em commits mais novos e o verde ficou
+vermelho"*. Isso saiu no recado do LAB-67, no PR #90 e no `ONDE_PARAMOS`.
+
+**O veredicto estava certo — as falhas não eram da entrega, e o `git stash` provou. A CAUSA que
+eu nomeei estava errada.** Medido no item 001, falha por falha:
+
+| quantas | o que era | de quem |
+|---|---|---|
+| **9** | o `.wasm` **ausente** — artefato de build do PRÓPRIO repositório, que o contêiner apagou | daqui |
+| **2** | `plano[].travessias` e `plano[].indicadores`: campo novo do motor **sem destino escrito** na ponte | daqui, e é violação da §4 |
+| **1** | a minha trava do LAB-67 casando **consigo mesma** | daqui, nasceu na véspera |
+| **1** | prova publicada velha: rampa de `ensaio-com-via`, **17,92 % publicado contra 21,63 % medido** | daqui |
+| **1** | `contrato-v2`: o pico que o Parcelamento reporta | **do motor** — e é o único |
+
+> **Dez de onze eram daqui.** E eu publiquei "é dos clones" sem medir nenhuma.
+
+**O que deixou a D223 passar:** eu rodei `bun test`, não `./external-engines/conferir.sh`. O
+comando único tem a **precondição do `.wasm`** e teria dito, na primeira linha, que o artefato
+não existe (D124). *A regra do §7 — "verde é UM comando" — não é sobre conforto: é sobre o
+comando saber coisas que o atalho não sabe.*
+
+**Corrigida riscando, não apagando**, aqui e no `ONDE_PARAMOS`. É a **décima oitava** vez do §6,
+e a forma é nova: **veredicto certo, causa errada** — e a causa é o que vai no recado.
+
+---
+
+## D225 · Eu comparei uma CONSTANTE em três versões do motor e chamei de medição · 09/10/2026
+
+Para separar as pilhas do item 001, movi o clone do motor em quatro commits e reli o número. Em
+dois dos casos eu li a linha `Received:` — e `Received:` era **o valor lido da prova publicada**,
+não a medição. **Constante não muda quando o motor muda.** Conclusão falsa: *"invariante em
+quatro commits, logo não é o clone."*
+
+Quando refiz a conta lendo o valor **vivo**, o mesmo experimento no `contrato-v2` devolveu
+**109,51 % em 19/09 e 175,51 % em 05/10** — o motor andou, e andou muito.
+
+> **Experimento que não consegue dar outro resultado não é experimento.** Antes de concluir
+> *"invariante"*, pergunte o que teria de acontecer para o número mudar — e se a resposta for
+> "nada", você mediu um literal.
+
+Vale para o `expect(a).toBe(b)` de qualquer suíte: `Received` é o **primeiro** argumento, e
+quando o primeiro argumento vem de um arquivo, é o arquivo que está sendo impresso.
+
+---
+
+## D226 · Entregar campo que o motor passou a aceitar é PROMPT, não conserto de typecheck · 09/10/2026
+
+O `Terreno["legais"]` do motor ganhou quatro campos, e o typecheck daqui quebrou. A tentação era
+preenchê-los com o que o contrato declara. **Medido o efeito antes de aceitar:** a rampa máxima
+publicada de `ensaio-com-via` **mudou** quando eu os entreguei.
+
+Ou seja, o motor **ganhou a capacidade** que esta ponte declara como perda, com todas as letras:
+*"o motor não limita rampa de via — ele não calcula greide"*. Entregar o campo **muda o
+desenho**, e o §4 proíbe consertar geometria em silêncio; o §1-A proíbe ampliar escopo.
+
+Os quatro saem **`null`** — *não entregue*, que é a verdade —, com o motivo escrito ao lado, e
+**três perdas declaradas desta ponte ficam sob suspeita de estarem velhas**: o motor pode ter
+crescido por baixo delas. Isso é prompt, com medição nas duas passagens, e entrou na caixa.
+
+---
+
+## D227 · Trava cujo próprio comentário diz que a coisa não se sustenta · 09/10/2026
+
+A trava do LAB-40 afirmava, na última linha, que **com as faces o motor desenha MENOS lotes** —
+e o comentário dela, dez linhas acima, já dizia que *"o TOTAL de lotes não se sustentou"*, com a
+tabela das três amostragens (−40, −4, +41) e a lição do D148.
+
+Medido em 09/10, amostragem fixada, sem mudança minha: **449 → 492, +43.** A direção virou.
+
+> **Trava cujo próprio comentário diz que a coisa não se sustenta não devia estar afirmando a
+> coisa.** O comentário sabia; a asserção não.
+
+O total passa a ser **medido e publicado**, não afirmado. Fica afirmado o que se sustentou nas
+três amostragens e continua de pé: a **FRENTE** — sem as faces, zero lote faz frente para a rua
+existente; com elas, mais de dez; e a testada medida é a mesma nas duas.
+
+---
+
+## D228 · O `<app>` do recado deixou de ser sempre "Lab", e a trava reprovou o certo · 09/10/2026
+
+A Central mandou, em 09/10: *"a PRIMEIRA PALAVRA do cabeçalho é o NOME DO SEU APLICATIVO, porque
+o chat recebe nove respostas parecidas e precisa saber de quem é cada uma."*
+
+A trava do recado casava `— Lab · ` **literal**, e **reprovou o primeiro cabeçalho correto** que
+apareceu. Consertada: o cabeçalho é `— <app> · <prompt> ===`, com os dois campos obrigatórios e
+nenhum deles fixado.
+
+> **É a terceira vez em dois dias.** D217 — a trava do recado ausente acusou o cabeçalho composto
+> `LAB-13 e LAB-14`. D219 — a trava do ACUMULADO proibia nomear rodada fora de fila. E esta.
+> *Régua nova nasce estreita demais, e o primeiro uso real é que mostra onde* — por isso o
+> primeiro uso real vem no mesmo prompt, e por isso ele **tem** de ser um caso de verdade, não
+> uma fixture que eu mesma escolhi.
+
+E a §1 do `CLAUDE.md` passa a dizer o que `<app>` é de fato: **o nome deste aplicativo**, e não a
+palavra `Lab`.

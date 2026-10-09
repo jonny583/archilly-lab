@@ -59,6 +59,20 @@ function recados(): string[][] {
   return achados;
 }
 
+/**
+ * O cabeçalho do recado: `=== RECADO PARA O CHAT — <app> · <prompt> ===`.
+ *
+ * **O `<app>` deixou de ser sempre `Lab` em 09/10** — a Central mandou que a primeira palavra
+ * do cabeçalho seja o NOME DO APLICATIVO, porque o chat recebe nove respostas parecidas e
+ * precisa saber de quem é cada uma. A régua antiga casava `— Lab · ` literal e **reprovou o
+ * cabeçalho correto** na primeira vez que ele apareceu.
+ *
+ * É a **terceira** vez em dois dias que uma régua minha nega o caso legítimo que ela não tinha
+ * visto (D217, D219, e esta). *Régua nova nasce estreita demais, e o primeiro uso real é que
+ * mostra onde.*
+ */
+const CABECALHO = /^=== RECADO PARA O CHAT — .+ · .+ ===$/;
+
 /** A linha que separa o recado do que vai junto, dentro do mesmo bloco. */
 const MARCA_DO_QUE_VAI_JUNTO = "--- O QUE VAI JUNTO ---";
 
@@ -123,7 +137,7 @@ describe("a regra do RECADO — CLAUDE.md §1", () => {
    */
   test("TODO relatório de prompt tem recado no arquivo, inclusive dentro de um acumulado", () => {
     const texto = readFileSync(RECADOS, "utf8");
-    const cabecalhos = texto.match(/=== RECADO PARA O CHAT — Lab · (.+?) ===/g) ?? [];
+    const cabecalhos = texto.match(/=== RECADO PARA O CHAT — [^·]+ · (.+?) ===/g) ?? [];
     const relatorios = readdirSync(join(RAIZ, "docs", "relatorios"))
       .map((f) => /^(LAB-\d\d)\.md$/.exec(f)?.[1])
       .filter((p): p is string => p !== undefined);
@@ -140,7 +154,7 @@ describe("a regra do RECADO — CLAUDE.md §1", () => {
 
   test("a trava do recado ausente REPROVA de verdade — prompt inventado não tem recado", () => {
     const texto = readFileSync(RECADOS, "utf8");
-    const cabecalhos = texto.match(/=== RECADO PARA O CHAT — Lab · (.+?) ===/g) ?? [];
+    const cabecalhos = texto.match(/=== RECADO PARA O CHAT — [^·]+ · (.+?) ===/g) ?? [];
     expect(cabecalhos.some((c) => /\bLAB-99\b/.test(c))).toBe(false);
     expect(cabecalhos.some((c) => /\bLAB-13\b/.test(c))).toBe(true);
     expect(cabecalhos.some((c) => /\bLAB-14\b/.test(c))).toBe(true);
@@ -151,7 +165,7 @@ describe("a regra do RECADO — CLAUDE.md §1", () => {
     const todos = recados();
     expect(todos.length).toBeGreaterThan(0);
     for (const r of todos) {
-      expect(r[0]).toMatch(/^=== RECADO PARA O CHAT — Lab · /);
+      expect(r[0]).toMatch(CABECALHO);
       expect(r[r.length - 1]).toBe("=== FIM ===");
     }
   });

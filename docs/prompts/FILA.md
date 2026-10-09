@@ -1149,7 +1149,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 260 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 269 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2153,6 +2153,22 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 ---
 
 ## Proposto ao chat — não executar
+
+- **ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR** (09/10, D226). Medido: o
+  `Terreno["legais"]` do motor ganhou `caixaViariaMinima_m`, `faceQuadraMaxima_m`,
+  `rampaMaximaDeVia_pct` e `declividadeMaximaDeLote_pct`, e **entregá-los MUDA O DESENHO** — a
+  rampa publicada de `ensaio-com-via` se mexeu na hora. O motor **ganhou a capacidade** que esta
+  ponte declara como perda (*"ele não limita rampa de via, não calcula greide"*), e por tabela
+  **três perdas declaradas ficam sob suspeita de estarem velhas**. Hoje os quatro saem `null`,
+  que é a verdade: não entregue. O prompt é medir nas duas passagens, com e sem, e regerar as
+  provas. **Segue aberto:** `prompt-novo`
+
+- **O PICO DE RAMPA QUE O PARCELAMENTO REPORTA, 109,51 % → 175,51 %** (09/10, D224). Medido vivo
+  em três commits do motor: 109,51 % em 19/09, 175,51 % em 05/10 e em 07/10. A trava daqui exigia
+  `< 30 %`, afirmando que *"ele subestima"* (D99) — e reprova nos três, o que quer dizer que o
+  limiar é anterior a todos. **É do motor, e quem mede é quem conserta:** vai como pedido ao
+  Parcelamento. A trava já passou a **dizer** em vez de reprovar. **Segue aberto:**
+  `aguardando-outro-repositorio`
 
 - **O COMMIT DO CLONE VIZINHO EM TODA PROVA QUE O USE** (08/10, D223). Medido: reciclado o
   contêiner, os três clones voltaram em commits mais novos e o verde foi a **10 falhas em 552**,

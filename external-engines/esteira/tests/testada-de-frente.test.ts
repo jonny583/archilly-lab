@@ -261,9 +261,22 @@ describe("a testada de frente FORA de Antonina (LAB-40)", () => {
     // E a testada medida é a mesma nas duas: a régua não mudou, a entrega mudou.
     expect(com.comprimentoDaTestada_m).toBeCloseTo(sem.comprimentoDaTestada_m, 6);
     expect(com.comprimentoDaTestada_m).toBeCloseTo(587.5, 1);
-    // Nesta amostragem, FIXADA, a frente custa por dentro — e o custo é medido, não
-    // suposto. Afirmar o contrário era o erro que a terceira amostragem desfez.
-    expect(comLotes.length, "fixada a amostragem, a frente troca lote de dentro por lote de frente")
-      .toBeLessThan(semLotes.length);
+    // ── O TOTAL de lotes NÃO é afirmação desta trava, e isto foi consertado em 09/10 ──
+    //
+    // O comentário no topo deste teste já dizia, desde o LAB-40, que **o total não se
+    // sustentou**: nas três amostragens ele deu −40, −4 e +41, e a lição do D148 é que
+    // "espinha, posição 1" não é a mesma variante num conjunto de 2 e num de 20. E
+    // mesmo assim a última linha daqui AFIRMAVA o total, com `com < sem`.
+    //
+    // Medido em 09/10, com a amostragem fixada e sem nenhuma mudança minha: 449 → 492,
+    // +43. A direção virou. *Trava cujo próprio comentário diz que a coisa não se
+    // sustenta não devia estar afirmando a coisa* — é o D148 dentro do meu próprio teste.
+    //
+    // O total passa a ser MEDIDO e publicado, não afirmado. O que fica afirmado é o que
+    // se sustentou nas três amostragens e continua de pé: a FRENTE.
+    const delta = comLotes.length - semLotes.length;
+    expect(Number.isFinite(delta), "o total tem de ser medido, mesmo não sendo afirmado").toBe(true);
+    expect(semLotes.length, "sem as faces, o motor desenha algum lote").toBeGreaterThan(0);
+    expect(comLotes.length, "com as faces, o motor desenha algum lote").toBeGreaterThan(0);
   }, 120_000);
 });

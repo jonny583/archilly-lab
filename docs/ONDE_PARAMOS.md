@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 08/10/2026 · **Último prompt executado:** LAB-66 ·
+**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-68 (item 001) ·
 **A FILA DE 08/10 ESGOTOU: LAB-62, 63, 64 (com o 65) e 66. Despertador DESLIGADO.**
 
 # 🔴 O DESPERTADOR ESTÁ DESLIGADO — a fila de 08/10 esgotou
@@ -23,22 +23,65 @@ apagado** (D62 + D112): o chat reusa o id. Ele o religa com fila nova.
 **junto** do LAB-63 e não depois. **Esta fila encolheu duas vezes por ordem do chat**, e o §10
 registra as duas, com o que ele disse em cada uma.
 
-# 🟡 O VERDE ESTÁ VERMELHO, E NÃO É POR MUDANÇA DAQUI (D223)
+# 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Os três clones vizinhos sumiram** no reinício do contêiner; reclonados `--depth 1`, voltaram em
-commits **mais novos** (`motor-testfit 6cf6396`, hub `72cfab0`). Com eles, o verde dá **10 falhas
-em 552 testes** — `porta`, `testada-de-frente`, `guarda-da-ponte`, `coluna-vertebral`,
-`identidade`, `recorte`, `poligono`.
+**Conferido AQUI, não no GitHub:** 658 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
-**Medido antes de atribuir:** com as minhas mudanças guardadas (`git stash`), três desses arquivos
-falham **igual na `main` limpa** — 3 de 17. **As falhas não são da entrega de hoje.**
+~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
+commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
+item 001:
 
-**As travas independentes de clone vizinho estão VERDES**, e são elas que guardam tudo o
-que esta rodada mexeu.
+```
+ 9 de 11 · o .wasm AUSENTE — artefato de build DAQUI, apagado pelo reinício ....... daqui
+ 2 de 11 · plano[].travessias e plano[].indicadores sem destino na ponte (§4) ..... daqui
+ 1 de 11 · a minha trava do LAB-67 casando CONSIGO MESMA .......................... daqui
+ 1 de 11 · prova publicada velha: rampa 17,92 % publicado × 21,63 % medido ........ daqui
+ 1 de 11 · o pico que o Parcelamento reporta: 109,51 % (19/09) → 175,51 % (05/10) . DO MOTOR
+```
 
-> **Verde que depende de clone irmão POR CAMINHO é verde que fica vermelho sem ninguém tocar
-> aqui.** O caminho está fixado; a versão, não. Proposto ao chat: gravar o commit de cada clone
-> em toda prova que o use.
+**Dez de onze eram daqui, e eu publiquei "é dos clones" sem medir nenhuma.** O que deixou passar:
+rodei `bun test`, não `./external-engines/conferir.sh` — o comando único tem a **precondição do
+`.wasm`** e teria dito na primeira linha (D124). *"Verde é UM comando" não é conforto: é o
+comando saber o que o atalho não sabe.*
+
+**E o pior achado é de método** (D225): para separar as pilhas eu movi o motor em quatro commits
+e reli o número — mas li a linha `Received:`, que era **o valor da prova publicada**, não a
+medição. **Constante não muda quando o motor muda.** *Experimento que não consegue dar outro
+resultado não é experimento.*
+
+## O carimbo do vizinho — e do CHÃO (item 001)
+
+`external-engines/esteira/src/commit-dos-vizinhos.ts`. Quatro veredictos que **DIZEM** em vez de
+reprovar — `igual`, `mudou`, `nao-gravado`, `clone-ausente` — porque reprovar trataria *"o motor
+andou"* como defeito meu. **`nao-gravado` não é `igual`** (D23).
+
+**E ele carimba o CHÃO**, que era a variável que faltava: o contêiner trocou o **Bun de 1.3.11
+para 1.4.2** ao reiniciar. Carimbar só os clones responderia *"o motor andou?"* e continuaria sem
+responder *"e o chão?"*.
+
+Os **dois lados demonstrados contra o clone de verdade**, não contra fixture: carimbo = `HEAD` →
+`igual`; carimbo = `HEAD~1` → `mudou`. 8 travas.
+
+```
+clones hoje: motor-testfit@6cf6396 · urban-create-hub@72cfab0 · urban-scout-tool@550a438
+chão:        Bun 1.4.2 · linux
+```
+
+# 📥 A CAIXA DE ENTRADA — o chat escreve, eu leio (09/10/2026)
+
+O Jonny deixou de ser o transporte nas duas direções. O chat escreve em
+[`caixa-de-entrada/`](caixa-de-entrada/) e lê o `RECADOS.md` direto do GitHub — **gravou o
+recado, ENVIA**. Um item por despertador, o menor número ainda não feito.
+
+| item | estado |
+|---|---|
+| `001-FEITO.md` | ✅ 09/10 — as duas pilhas e o carimbo do vizinho (este prompt) |
+| `002.md` · `003.md` · `004.md` | prontos, um por despertador |
+
+**Despertador RELIGADO** — `trig_01XwSkTLT9zmyprNZcUiWy7f`, confirmado contra a conta antes de
+mexer: existe, chama-se *"Archilly Lab — fila autônoma (60 min)"* e é desta sessão. O id gravado
+estava **certo**. Prompt novo: *"leia docs/caixa-de-entrada/COMO_FUNCIONA.md e execute o menor
+número ainda não feito"*.
 
 # 🔴 O CI ESTÁ DESLIGADO — orçamento de Actions da família, 08/10/2026
 
@@ -271,10 +314,10 @@ caminho da prova a satisfazia — *o D142 outra vez*.
 ## Os números do repositório, ao fechar a fila
 
 ```
-suíte .............. 652 travas (635 esteira + 17 testfit)   ← eram 584 ao abrir a fila
-CI sem clones ...... 260 (114 → … → 235 → 246 → 259) · DESLIGADO no GitHub desde 08/10
-decisões ........... D223 é a última. A próxima é a D224
-verde .............. CONFERIDO AQUI, NÃO NO GITHUB · 260 travas sem clone VERDES · 10 falhas que vêm dos clones vizinhos terem mudado de commit (D223)
+suíte .............. 675 travas (658 esteira + 17 testfit)   ← eram 584 ao abrir a fila
+CI sem clones ...... 269 (114 → … → 235 → 246 → 259 → 269) · DESLIGADO no GitHub até 1º/11
+decisões ........... D228 é a última. A próxima é a D229
+verde .............. exit 0, CONFERIDO AQUI e não no GitHub · 658 esteira + 17 testfit · três vizinhos limpos
 ```
 
 ## E CINCO vezes um número meu estava errado onde eu podia medi-lo
@@ -1144,7 +1187,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 260 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 269 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
