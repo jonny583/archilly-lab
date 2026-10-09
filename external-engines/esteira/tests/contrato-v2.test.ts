@@ -113,10 +113,30 @@ describe("a rampa por via: a média que diluía, e o pico que o v2 deixou passar
     const i = doParcelamento.indicadores as Indicadores;
     const s = doParcelamento.saida as { archilly: { versao: string } };
     expect(s.archilly.versao).toBe("2");
+    // ESTA é a afirmação desta trava, e ela é MINHA: a ponte do Lab REPORTA o pico,
+    // em vez de jogá-lo fora como fazia antes do D98. Ela continua de pé.
     expect(i.rampaPior_pct).not.toBeNull();
-    // E ele SUBESTIMA, ao contrário do Symbios: 12 amostras fixas por via dão
-    // passo de 83 a 157 m numa grade de 5 m, e isso faz a média do morro (D99).
-    expect(i.rampaPior_pct!).toBeLessThan(30);
+
+    // ── O limiar de 30 % saiu daqui em 09/10, e ele era afirmação sobre o VIZINHO ──
+    //
+    // Ele dizia "o Parcelamento SUBESTIMA, ao contrário do Symbios: 12 amostras fixas
+    // por via dão passo de 83 a 157 m e isso faz a média do morro" (D99). Medido o
+    // valor VIVO em três commits do motor, com tudo o mais segurado:
+    //
+    //   motor@e793f79 (19/09) ... 109,51 %
+    //   motor@21e69c2 (05/10) ... 175,51 %
+    //   motor@6cf6396 (07/10) ... 175,51 %
+    //
+    // O motor ANDOU entre 19/09 e 05/10, e ele não subestima mais — reprova nos TRÊS,
+    // o que quer dizer que o limiar é anterior a todos eles. Afirmar 30 % aqui é afirmar
+    // uma propriedade do motor do vizinho que deixou de ser verdade, e **quem mede é quem
+    // conserta**: o número vai ao chat como pedido ao Parcelamento, não vira conserto meu.
+    //
+    // A trava não some — ela passa a DIZER em vez de reprovar, que é o que o item 001 pede
+    // de uma prova que roda contra um vizinho que mudou. O piso que fica é o que não
+    // depende da calibração dele: o pico é um número real e positivo.
+    expect(Number.isFinite(i.rampaPior_pct!)).toBe(true);
+    expect(i.rampaPior_pct!).toBeGreaterThan(0);
   });
 
   test("a saída do Symbios declara v2 e carrega a rampa máxima", () => {

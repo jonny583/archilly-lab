@@ -69,7 +69,7 @@ const lista1 = abertos.map((p, i) => ({
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */
-const ABERTOS_ESPERADOS = 13;
+const ABERTOS_ESPERADOS = 15;
 
 cobrar(
   lista1.length === ABERTOS_ESPERADOS,
@@ -317,7 +317,7 @@ writeFileSync(
         quantasNomeiamArtefato: nomeiam.length,
       },
       aTensaoDoRECADO: {
-        oQueOChatPediu: "os itens abertos 'um por linha', dentro do recado (eram ONZE no LAB-62; 13 em 08/10)",
+        oQueOChatPediu: "os itens abertos 'um por linha', dentro do recado (eram ONZE no LAB-62; 13 em 08/10; 15 em 09/10, com os dois do item 001)",
         oTetoQueExiste: "12 linhas, CLAUDE.md §1, com trava em tests/recado.test.ts",
         comoFoiResolvido:
           "as três listas vão em blocos de código PRÓPRIOS, logo acima do recado, copiáveis um " +

@@ -36,7 +36,7 @@ caber nas doze linhas é o defeito, não o conserto** — *o custo é o número 
 do texto.*
 
 Vale para toda resposta, curta ou longa, boa notícia ou má — inclusive quando a resposta é só "não
-deu". `<app>` é `Lab`; `<prompt>` é o prompt em execução (`LAB-07`, `LAB-02`…) ou `—` quando não
+deu". **`<app>` é o NOME DESTE APLICATIVO — `MOTOR LAB (archilly-lab)` —, e não a palavra `Lab`**: a Central mandou isso em 09/10, porque o chat recebe nove respostas parecidas e precisa saber de quem é cada uma, e a trava que casava `Lab` literal reprovou o primeiro cabeçalho certo (D228). `<prompt>` é o prompt em execução (`LAB-07`, `LAB-02`…) ou `—` quando não
 houver nenhum. Linha sem conteúdo leva `—`, nunca some: o leitor precisa ver que a pergunta foi
 feita e a resposta foi "nada". Doze linhas é teto DO RECADO, não meta — e não teto do bloco: era esta frase, sem o sujeito escrito, que me fez abrir quatro blocos (D218).
 
@@ -460,7 +460,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 260 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 269 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

@@ -65,13 +65,13 @@ describe("LAB-62 · a conta das três listas fecha", () => {
   });
 
   /**
-   * **Eram ONZE no LAB-62; são TREZE desde 08/10**, com os dois itens da rodada do orçamento de
+   * **Eram ONZE no LAB-62, TREZE em 08/10, QUINZE em 09/10**, com os dois itens da rodada do orçamento de
    * Actions (D221, D223). O número vive declarado na ferramenta (`ABERTOS_ESPERADOS`) e aqui, e
    * mudá-lo é deliberado: lista que cresce sem ninguém notar é a dívida que o LAB-61 achou.
    */
   test("os itens abertos batem com o número declarado hoje", () => {
-    expect(prova.lista1.quantos).toBe(13);
-    expect(prova.lista1.itens).toHaveLength(13);
+    expect(prova.lista1.quantos).toBe(15);
+    expect(prova.lista1.itens).toHaveLength(15);
   });
 
   test("todo item aberto da lista 1 leva motivo declarado", () => {
@@ -199,7 +199,7 @@ describe("LAB-62 · os blocos que vão ao chat são a SAÍDA da ferramenta", () 
       blocos.indexOf("=== FIM DA LISTA 1 ==="),
     );
     const linhas = corpo.split("\n").filter((l) => /^\s*\d+\. \[/.test(l));
-    expect(linhas).toHaveLength(13);
+    expect(linhas).toHaveLength(15);
   });
 
   test("cada item das listas 2 e 3 carrega a afirmação, a frequência e o que não serve", () => {

@@ -432,9 +432,37 @@ export function idaParaOMotor(
     acesso,
     restricoes,
     atracoes,
+    // ── O motor ANDOU: `legais` ganhou quatro campos, e o tipo dele os exige ──
+    //
+    // Medido em 09/10 (item 001): o `Terreno["legais"]` do motor passou a pedir
+    // `caixaViariaMinima_m`, `faceQuadraMaxima_m`, `rampaMaximaDeVia_pct` e
+    // `declividadeMaximaDeLote_pct`, todos aceitando `null`. Esta é a ÚNICA das
+    // 11 falhas que é clone andando de verdade — as outras dez eram daqui.
+    //
+    // Os dois que o contrato v1 declara ATRAVESSAM; os dois que ele não declara
+    // saem `null`, que quer dizer NÃO MEDIDO e nunca zero (D23). Pôr zero aqui
+    // diria ao motor que a rampa máxima da via é 0 %, que é o contrário de
+    // "o contrato não falou".
     legais: {
       loteMinimo_m2: p.areaMinLote_m2,
       testadaMinima_m: p.testadaMinLote_m,
+      // Os quatro saem `null`, e isso é DELIBERADO — não é preguiça de preencher.
+      //
+      // Eu cheguei a entregar os três que o contrato declara, e MEDI o efeito: a rampa
+      // máxima publicada de `ensaio-com-via` caiu de 21,63 % para 17,92 %. Ou seja, o
+      // motor GANHOU a capacidade que esta ponte declara como perda logo abaixo
+      // ("o motor não limita rampa de via — ele não calcula greide"), e entregar o campo
+      // muda o desenho.
+      //
+      // Mudar o desenho não é conserto de typecheck. O §4 proíbe consertar geometria em
+      // silêncio, e o §1-A proíbe ampliar escopo: entregar estes campos é um prompt com
+      // medição nas duas passagens e provas regeradas. Enquanto ele não vem, `null` diz
+      // a verdade — NÃO ENTREGUE —, e as perdas declaradas abaixo continuam valendo.
+      // Proposto na caixa de entrada; o que é do motor sai como pedido no recado.
+      caixaViariaMinima_m: null,
+      faceQuadraMaxima_m: null,
+      rampaMaximaDeVia_pct: null,
+      declividadeMaximaDeLote_pct: null,
     },
     padroes: padroes as Terreno["padroes"],
     origemPadroes: Object.fromEntries(

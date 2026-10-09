@@ -181,6 +181,25 @@ export const PLANO_DO_PARCELAMENTO: Record<string, Destino> = {
       "v1 e sai como perda declarada quando difere do limite",
   ),
   avisos: perda("o contrato não tem canal para aviso do motor; os avisos ficam no relatório do Lab"),
+  // ── Os dois campos que a guarda pegou em 09/10, e a ponte os largava calada ──
+  //
+  // Medido: `volta.ts` não menciona nenhum dos dois, e a SAÍDA v2 não tem onde
+  // pô-los — procurado `travessia` e `indicador` no contrato do Generate, as
+  // únicas citações são da ENTRADA (a restrição e o `eixoDoCurso`), nunca da
+  // saída. Então é perda, e perda se DECLARA: era este o silêncio do D98/D104.
+  travessias: perda(
+    "a SAÍDA v2 não tem campo para travessia sobre área protegida — no contrato do Generate a " +
+      "palavra só aparece na ENTRADA, na restrição e no `eixoDoCurso`. O motor diz que a lista " +
+      "vazia é a resposta normal e que o que estiver nela é exceção justificada, com vão, ângulo " +
+      "e obra; nada disso atravessa. E a travessia é DECISÃO DO JONNY (D58, D61), não minha: ela " +
+      "está na página dele, e o Geo ainda não manda o eixo do curso d'água",
+  ),
+  indicadores: perda(
+    "a SAÍDA v2 não tem campo para indicador de terreno por PLANO. O que atravessa é a rampa por " +
+      "VIA (`rampaMedia_pct`, `rampaMaxima_pct`); quanto de rua e de lote cai em terreno íngreme, " +
+      "e onde está o pior de cada um, não tem onde morar. O motor usa `null` para NÃO MEDIDO — a " +
+      "mesma convenção do D23 daqui —, e por isso a perda não vira zero",
+  ),
   invalido: perda(
     "*por que esta variante não é uma opção*, em português. O contrato não tem campo de " +
       "recusa do próprio motor; a esteira do Lab já não julga variante inválida",

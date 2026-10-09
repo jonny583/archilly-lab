@@ -34,7 +34,7 @@
             "media_pct": 5.84,
             "pior_pct": 17.56
           },
-          "ms": 610.82
+          "ms": 692.62
         },
         "generate-espinha": {
           "motor": "Generate · espinha",
@@ -44,17 +44,17 @@
             "media_pct": 5.46,
             "pior_pct": 22.9
           },
-          "ms": 426.31
+          "ms": 630.68
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "declarouRespeitar": false,
           "saidaIdenticaSemAVia": false,
           "rampaDoMotor": {
-            "media_pct": 5.08,
-            "pior_pct": 17.92
+            "media_pct": 5.16,
+            "pior_pct": 21.63
           },
-          "ms": 1832.28
+          "ms": 4705.86
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
@@ -64,7 +64,7 @@
             "media_pct": 5.36,
             "pior_pct": 22.76
           },
-          "ms": 841.58
+          "ms": 844.21
         }
       }
     },
@@ -93,7 +93,7 @@
             "media_pct": 3,
             "pior_pct": 24.48
           },
-          "ms": 574.7
+          "ms": 563.1
         },
         "generate-espinha": {
           "motor": "Generate · espinha",
@@ -103,17 +103,17 @@
             "media_pct": 3.57,
             "pior_pct": 23.03
           },
-          "ms": 616.85
+          "ms": 491.5
         },
         "parcelamento": {
           "motor": "Laboratório de Parcelamento",
           "declarouRespeitar": false,
           "saidaIdenticaSemAVia": false,
           "rampaDoMotor": {
-            "media_pct": 3.45,
+            "media_pct": 3.43,
             "pior_pct": 31.02
           },
-          "ms": 6043.61
+          "ms": 22153.46
         },
         "symbios": {
           "motor": "Symbios + subdivisão do Lab",
@@ -123,7 +123,7 @@
             "media_pct": 3.27,
             "pior_pct": 27.73
           },
-          "ms": 8814.46
+          "ms": 10161.65
         }
       }
     }
