@@ -20,6 +20,7 @@ Reescrito no **LF-FINAL, 14/09/2026**.
 
 | documento | o que responde |
 |---|---|
+| [`caixa-de-entrada/COMO_FUNCIONA.md`](caixa-de-entrada/COMO_FUNCIONA.md) | **A caixa de entrada: o chat escreve ali, você lê daqui.** Um item por despertador, o menor número ainda não feito. O protocolo, as cinco classes que param e viram pergunta, e o que vai para ramo em vez da `main` |
 | [`prompts/FILA.md`](prompts/FILA.md) | **O que vem a seguir** — a fila de 19/09, a da tela unificada, esgotou |
 | [`DECISOES.md`](DECISOES.md) | Por que a casa é assim. 72 decisões numeradas, com o que se perde em cada uma. A D61 é do Jonny: travessia sobre APP é exceção |
 | [`PENDENCIAS_JONNY.md`](PENDENCIAS_JONNY.md) | O que depende de uma pessoa. Quem escreve sou eu; quem risca é ele. Hoje: **quanto é "desvio desproporcional"?** — o número que destrava a D61 |
