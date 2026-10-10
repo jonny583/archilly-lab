@@ -145,8 +145,8 @@ cria item novo.
 A prova traz **gleba, motor, semente e versão do contrato** — ela mede gleba, e por isso **não**
 entra na lista de exceções do §7.
 
-**VERDE: 7 passos, `exit 0`. Conferido aqui, não no GitHub.** O `guardas-sem-clones` do CI vai de
-**412 para 427**.
+**VERDE: 821 travas na esteira + 17 no testfit, 7 passos, `exit 0`. Conferido aqui, não no
+GitHub.** O `guardas-sem-clones` do CI vai de **412 para 427**.
 
 **Decisões: D253** (o sétimo mecanismo é do motor — transbordo do canto), **D254** (eu ia acusar o
 Generate, e a cobertura me desmentiu).
