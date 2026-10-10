@@ -4,9 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-78 (item 011) — **o sétimo
-mecanismo existe e é do MOTOR: a fileira externa transborda o canto** (D253) · **a caixa esgotou
-às 04:05Z** ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-79 (item 012) — **o alcance
+das provas: 2 de 67 eram remedidas da fonte** (D255) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -68,9 +67,10 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 02:05 | observado | **nada na caixa** — os dez feitos | recado de uma linha, e dormir |
 | 10/10/2026 | 03:06 | observado | item 011 pronto (o chat o escreveu depois das 02:05Z) | item 011 (LAB-78) |
 | 10/10/2026 | 04:05 | observado | **nada na caixa** — os onze feitos | recado de uma linha, e dormir |
+| 10/10/2026 | 05:06 | observado | item 012 pronto (o chat o escreveu às 04h55) | item 012 (LAB-79) |
 
 ```
-disparos observados: 14 · em vazio: 4
+disparos observados: 15 · em vazio: 4
 ```
 
 **DOIS em vazio de nove, e a série já diz algo:** o chat abasteceu **sete itens em oito horas** e
@@ -212,6 +212,68 @@ medida em uma hora: desligar teria deixado o item parado.*
 
 **O estado do despertador NÃO se repete aqui** — ele mora na *conta dos disparos*, no alto deste
 arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D234).
+
+# 📏 O ALCANCE DAS PROVAS: 2 de 67 eram remedidas da fonte (item 012)
+
+**LAB-79, 10/10/2026.** O item mandou **medir antes de construir**, e a medição é **mecânica** —
+quem cita quem sai da leitura dos arquivos de teste, não da minha memória.
+
+```
+ANTES:  2 remedidas da fonte · 18 em parte, sem escopo declarado · 23 só a forma · 24 SEM TRAVA
+AGORA:  7 remedidas da fonte · 17 em parte, sem escopo declarado · 21 só a forma · 23 sem trava
+```
+
+2 + 18 + 23 + 24 = **67**, e a conta fecha por trava. **Sessenta e cinco de sessenta e sete não
+tinham escopo publicado.** Hoje o universo é **68** — ele inclui a prova deste prompt, e isso fica
+dito.
+
+> **Lista que cresce é dívida visível. Trava que confere consigo mesma é dívida invisível — e ela
+> sai VERDE.**
+
+## O achado que o item pediu: a divisão de DUAS classes não cobre todas
+
+> **PROVA MEDIDA CONTRA O CLONE DE UM VIZINHO NÃO É ESTADO DE AGORA NEM EVENTO: ela afirma o
+> presente DE OUTRO REPOSITÓRIO, num commit dele.**
+
+Regerá-la em silêncio não atualiza a medição — **troca a pergunta**. O contra-exemplo é de um
+prompt atrás: o LAB-59 mediu com `motor-testfit` em `4181e95`, o LAB-78 rodou em `6cf6396`, e
+**dois dos quatro lotes deixaram de existir**. São **três** classes, e a terceira só se regera
+**declarando o commit** (D255).
+
+## E a trava pegou uma prova VELHA na primeira execução — no repositório
+
+```
+a prova dizia      5 disparos · 1 em vazio
+a conta viva dizia 14 disparos · 4 em vazio
+```
+
+Velha **desde 09/10**, e **nada no verde reprovava** — a forma exata do D195. E a ironia mede o
+problema: **é a prova mais viva da casa**, porque a conta cresce a cada hora.
+
+> **Prova de ESTADO cujo número cresce sozinho precisa de remedição, não de revisão.**
+
+Regerada por `bun run lab71` (é `estado-de-agora`, e a divisão permite). **Nenhuma prova de evento
+foi reescrita** (D256).
+
+## A guarda da guarda, nos dois sentidos
+
+Prova em dia **passa**; número velho **reprova pelo NOME da prova**, com a chave, o valor gravado
+e o da fonte; chave nova sem classificação reprova; chave do escopo que saiu da prova reprova. E o
+caso do D195 refeito — `1` contra `10` — reprova em vez de sair verde.
+
+## E a trava que proibia escrever em disco ACUSOU A SI MESMA (D257)
+
+O fonte contém `writeFileSync` **porque é ela que o proíbe** — o literal está no `expect`.
+Terceira vez da família do D142. Consertada como a §6 já mandava: a régua passou a ler a linha do
+**`import`** de `node:fs`.
+
+> **Régua que lê o arquivo inteiro mede o que o código DIZ; régua que lê o `import` mede o que ele
+> PODE FAZER.**
+
+É a **24ª** do §6, e a partição fecha: **14 + 4 + 2 + 3 + 1 = 24**.
+
+Relatório: [`relatorios/LAB-79.md`](relatorios/LAB-79.md) · prova:
+[`provas/LAB-79/alcance-das-provas.json`](provas/LAB-79/alcance-das-provas.json) · `bun run lab79`
 
 # 🔧 O SÉTIMO MECANISMO EXISTE, e é do MOTOR: a fileira transborda o canto (item 011)
 
@@ -1613,7 +1675,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 427 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 452 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

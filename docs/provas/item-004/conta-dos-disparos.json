@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-09T19:09:22.210Z",
+  "quando": "2026-10-10T05:14:33.177Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -51,13 +51,85 @@
         "achou": "**nada na caixa** — os quatro feitos",
         "rodada": "recado de uma linha, e dormir",
         "emVazio": true
+      },
+      {
+        "data": "09/10/2026",
+        "hora": "20:05",
+        "origem": "observado",
+        "achou": "item 005 pronto (entrou às 19:19:54Z)",
+        "rodada": "item 005 (LAB-72)",
+        "emVazio": false
+      },
+      {
+        "data": "09/10/2026",
+        "hora": "21:05",
+        "origem": "observado",
+        "achou": "item 006 pronto",
+        "rodada": "item 006 (LAB-73)",
+        "emVazio": false
+      },
+      {
+        "data": "09/10/2026",
+        "hora": "22:05",
+        "origem": "observado",
+        "achou": "item 007 pronto",
+        "rodada": "item 007 (LAB-74)",
+        "emVazio": false
+      },
+      {
+        "data": "09/10/2026",
+        "hora": "23:05",
+        "origem": "observado",
+        "achou": "**nada na caixa** — os sete feitos",
+        "rodada": "recado de uma linha; e o `008` entrou às 23:08:55Z, pego na mesma rodada → item 008 (LAB-75)",
+        "emVazio": true
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "00:05",
+        "origem": "observado",
+        "achou": "item 009 pronto (e o `010` + o `010-adendo` já na caixa)",
+        "rodada": "item 009 (LAB-76)",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "01:05",
+        "origem": "observado",
+        "achou": "item 010 pronto, com o adendo",
+        "rodada": "item 010 (LAB-77)",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "02:05",
+        "origem": "observado",
+        "achou": "**nada na caixa** — os dez feitos",
+        "rodada": "recado de uma linha, e dormir",
+        "emVazio": true
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "03:06",
+        "origem": "observado",
+        "achou": "item 011 pronto (o chat o escreveu depois das 02:05Z)",
+        "rodada": "item 011 (LAB-78)",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "04:05",
+        "origem": "observado",
+        "achou": "**nada na caixa** — os onze feitos",
+        "rodada": "recado de uma linha, e dormir",
+        "emVazio": true
       }
     ],
     "declarados": {
-      "observados": 5,
-      "emVazio": 1
+      "observados": 14,
+      "emVazio": 4
     },
-    "emVazio": 1,
+    "emVazio": 4,
     "temAFraseDoQueDecide": true
   },
   "oQueOPrimeiroDiaJaMOSTROU": "ZERO em vazio, e DOIS disparos acumulados — a caixa não ficou sem abastecimento; a RODADA é mais longa que o intervalo. A conta não nasceu para confirmar a suspeita",
@@ -73,9 +145,12 @@
   },
   "osDaCAIXA": {
     "oQue": "recados da mesma classe da abertura em diante. NÃO são precedente: são o parceiro do cruzamento, e cada um tem de ter a sua linha em vazio na conta",
-    "quantos": 1,
+    "quantos": 4,
     "dias": [
-      "09/10/2026"
+      "09/10/2026",
+      "09/10/2026",
+      "10/10/2026",
+      "10/10/2026"
     ]
   },
   "oQuartoNumeroQueFicaDEFORA": {
@@ -115,8 +190,7 @@
         "exit": 1,
         "reprovou": true,
         "quais": [
-          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
-          "item 004 · a conta dos disparos do despertador > do regime da CAIXA em diante, cada recado da classe é o parceiro do cruzamento"
+          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema"
         ]
       }
     ],

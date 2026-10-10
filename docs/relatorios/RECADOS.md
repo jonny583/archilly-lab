@@ -1469,3 +1469,50 @@ Depende do Jonny: o conserto do sétimo mecanismo (FILA, `aguardando-o-jonny`) e
 Próximo na fila: nada; aguardando item novo na caixa.
 === FIM ===
 ```
+
+---
+
+## 10/10/2026 · LAB-79 — item 012: o alcance das provas, 2 de 67 remedidas da fonte
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-79 (item 012) ===
+Estado: FEITO. MEDIDO ANTES DE CONSTRUIR, como o item mandou, e a medição é MECÂNICA — quem cita quem sai da leitura dos arquivos de teste, não da minha memória. Das 67 provas: 2 remedidas da fonte com escopo publicado, 18 remedidas em parte SEM escopo declarado, 23 só com a §7 conferindo as CHAVES (forma, não número) e 24 NÃO LIDAS POR TRAVA NENHUMA. 2+18+23+24=67, e a conta fecha por trava. SESSENTA E CINCO DE SESSENTA E SETE SEM ESCOPO PUBLICADO. Depois deste prompt: 7 / 17 / 21 / 23 de 68 — o universo inclui a prova deste prompt, e isso fica dito. 012.md virou 012-FEITO.md. VERDE: 7 passos, exit 0 — CONFERIDO AQUI, NÃO NO GITHUB; o CI sem clones vai de 427 a 452. Decisões D255, D256, D257.
+Feito: O ACHADO QUE VOCÊ PEDIU, e ele é o contra-exemplo da sua própria divisão: as DUAS classes (estado de agora / evento) NÃO cobrem todas. PROVA MEDIDA CONTRA O CLONE DE UM VIZINHO NÃO É ESTADO DE AGORA NEM EVENTO — ela afirma o presente DE OUTRO REPOSITÓRIO, num commit dele. Regerá-la em silêncio não atualiza a medição: TROCA A PERGUNTA. E o contra-exemplo é de um prompt atrás: o LAB-59 mediu com motor-testfit em 4181e95, o LAB-78 rodou em 6cf6396, e DOIS DOS QUATRO LOTES DEIXARAM DE EXISTIR. São TRÊS classes, e a terceira só se regera DECLARANDO O COMMIT do vizinho — a mesma lição do carimbo do LAB-68 e do segundo eixo do LAB-74, agora aplicada a QUANDO uma prova pode ser reescrita. A função diz NÃO por padrão: é a fronteira do D182 em código, e o D182 não se afrouxa de madrugada.
+Achados para outros apps ou Central: (1) A TRAVA NOVA PEGOU UMA PROVA VELHA NA PRIMEIRA EXECUÇÃO — e não num teste sintético: no repositório. A prova da conta dos disparos dizia 5 disparos e 1 em vazio; a conta VIVA dizia 14 e 4. Estava velha desde 09/10 e NADA NO VERDE REPROVAVA — o defeito que você nomeou, na forma exata do D195 (a prova do LAB-57 dizia 1, a ferramenta dizia 10, e saiu verde). E a ironia mede o problema: é A PROVA MAIS VIVA DA CASA, porque a conta cresce a cada hora por desenho. PROVA DE ESTADO CUJO NÚMERO CRESCE SOZINHO PRECISA DE REMEDIÇÃO, NÃO DE REVISÃO — revisão é alguém lembrar; remedição é o verde não deixar passar. Regerada com `bun run lab71`, que é permitido porque ela é estado-de-agora; NENHUMA prova de evento foi reescrita. (2) E A TRAVA QUE PROIBIA ESCREVER EM DISCO ACUSOU A SI MESMA: eu a escrevi lendo o próprio fonte e conferindo que `writeFileSync` não aparece, e ela reprovou — o fonte contém a palavra PORQUE É ELA QUE A PROÍBE, o literal está no expect. TERCEIRA vez desta família (D142, D155, e esta), e o conserto já estava escrito na §6: procure o nome no lugar da gramática onde ele significa aquilo. Escrever em disco exige IMPORTAR o escritor, então a régua passou a ler a linha do import de node:fs e a exigir exatamente readFileSync, readdirSync e statSync. RÉGUA QUE LÊ O ARQUIVO INTEIRO MEDE O QUE O CÓDIGO DIZ; RÉGUA QUE LÊ O IMPORT MEDE O QUE ELE PODE FAZER. É a 24ª do §6, e a partição fecha: 14+4+2+3+1=24. (3) O CRITÉRIO DE QUAIS CINCO PROVAS GANHARAM ESCOPO É DECLARADO, não é gosto: são as cujos números saem de MÓDULOS DESTE REPOSITÓRIO, sem clone vizinho e sem motor — portanto remedíveis dentro da trava, de graça, a cada verde. O que exige rede, clone ou motor sai naoMedida COM O MOTIVO, e o motivo é sempre custo ou dependência, nunca comodidade. E há trava de que cada chave marcada `medida` seja DE FATO implementada: declaração que diz medida e não remede nada seria a dívida invisível com mais código — o defeito, de novo.
+Depende do Jonny: nada deste prompt, e nenhuma pergunta foi feita a ele (a sua regra até sábado às 15h). Continuam abertos, sem travar nada: o conserto do sétimo mecanismo na FILA (`aguardando-o-jonny`) e as duas perguntas do acesso na §9 da página dele.
+Próximo na fila: a D243, anotada no topo da seção de propostas da FILA com as suas palavras sobre por que ela veio depois — e NÃO comecei, porque é mudança de modelo de uma varredura de segurança. A caixa está vazia, reconferida contra a origem na hora de enviar (D238). Decisões até D257. Clones: os três com 0 alterações. Chão: Bun 1.4.2.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+O ALCANCE, ANTES E DEPOIS — para colar onde precisar:
+
+| quantas | como se confere | o que isso quer dizer |
+|---|---|---|
+| 2 → 7 | remedida da fonte, COM escopo publicado | as duas do LAB-49, mais as cinco do LAB-79 |
+| 18 → 17 | remedida em parte, SEM escopo declarado | alguma trava confere algo, e qual parte NÃO está publicada |
+| 23 → 21 | só a forma (§7) | confere que as CHAVES existem. Forma não é número |
+| 24 → 23 | SEM TRAVA NENHUMA | não é "aprovada": é NÃO LIDA |
+| 67 → 68 | o universo | e ele inclui a prova deste prompt, que se conta |
+
+AS TRÊS CLASSES DO QUE UMA PROVA AFIRMA, e a fronteira do D182:
+
+  estado-de-agora .............. PODE ser regerada (presente velho é presente errado)
+  evento ....................... NUNCA (regerá-la apaga o momento — é o D182 inteiro)
+  estado-de-outro-repositorio .. SÓ com o commit do vizinho declarado na prova
+
+AS DUAS LINHAS DE ENCERRAMENTO QUE VOCÊ PEDIU:
+
+1. O D236 JÁ ESTAVA RISCADO e já apontava para a D244 — feito no LAB-75 (item 008). Não refiz:
+   CONFERI. Mas a FILA.md ainda o citava COMO VIVO em duas frases, e isso foi corrigido — as
+   duas passaram a "~~D236~~ → D244". Regra revogada citada como viva volta por engano, que é a
+   razão da própria §1-A.
+2. A D243 É O PRÓXIMO ITEM, anotada no topo da seção de propostas da FILA.md com as suas
+   palavras sobre por que ela veio depois. NÃO COMECEI.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· a trava NÃO escreve em docs/provas/ — e há trava disso no IMPORT dela, não no texto;
+· nenhuma prova de EVENTO foi regerada; a única regerada é estado-de-agora;
+· nada precisou de rede, serviço pago ou navegador;
+· nenhuma pergunta ao Jonny, e nada novo entrou na página dele.
+```

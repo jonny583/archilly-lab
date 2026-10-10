@@ -1,0 +1,526 @@
+{
+  "prompt": "LAB-79",
+  "oQueIstoMede": "quantas provas deste repositório são remedidas CONTRA A FONTE e quantas só se conferem contra si mesmas — a §7 lendo as chaves — ou não são lidas por trava nenhuma. A lista de quem cita quem é MECÂNICA: sai da leitura dos arquivos de teste, não da minha memória",
+  "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto é o conjunto de PROVAS e as travas que as leem. Por isso está na lista declarada de exceções do §7",
+  "quando": "2026-10-10T05:17:12.139Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "alcance": {
+    "universo": 68,
+    "pastas": 50,
+    "porComoSeConfere": {
+      "remedida-da-fonte": 7,
+      "remedida-sem-escopo-declarado": 17,
+      "so-a-forma": 21,
+      "sem-trava": 23
+    },
+    "comEscopoPublicado": 7,
+    "semEscopoPublicado": 61,
+    "comoSeDiz": "68 provas em 50 pastas · 7 remedidas da fonte com escopo publicado · 17 remedidas em parte SEM escopo declarado · 21 só a forma (§7) · 23 sem trava nenhuma · 61 sem escopo publicado"
+  },
+  "comEscopoPublicado": [
+    "LAB-25/guarda-da-ponte.json",
+    "LAB-30/guarda-da-ida.json",
+    "LAB-76/registro-de-motores.json",
+    "LAB-77/acesso-sugerido.json",
+    "LAB-78/setimo-mecanismo.json",
+    "item-003/escopo-dos-instrumentos.json",
+    "item-004/conta-dos-disparos.json"
+  ],
+  "declaradosQueNaoExistem": [],
+  "aFronteiraDoD182": [
+    {
+      "afirma": "estado-de-agora",
+      "commitDoVizinhoDeclarado": true,
+      "pode": true,
+      "porque": "é prova de ESTADO DE AGORA: ela afirma o presente, e presente velho é presente errado"
+    },
+    {
+      "afirma": "estado-de-agora",
+      "commitDoVizinhoDeclarado": false,
+      "pode": true,
+      "porque": "é prova de ESTADO DE AGORA: ela afirma o presente, e presente velho é presente errado"
+    },
+    {
+      "afirma": "evento",
+      "commitDoVizinhoDeclarado": true,
+      "pode": false,
+      "porque": "é prova de EVENTO: ela afirma um momento — o antes de um conserto, a sabotagem que reprovou, a medição que motivou uma decisão. Regerá-la APAGA o momento, e é o D182 inteiro"
+    },
+    {
+      "afirma": "evento",
+      "commitDoVizinhoDeclarado": false,
+      "pode": false,
+      "porque": "é prova de EVENTO: ela afirma um momento — o antes de um conserto, a sabotagem que reprovou, a medição que motivou uma decisão. Regerá-la APAGA o momento, e é o D182 inteiro"
+    },
+    {
+      "afirma": "estado-de-outro-repositorio",
+      "commitDoVizinhoDeclarado": true,
+      "pode": true,
+      "porque": "ela afirma o presente de um clone vizinho E o commit dele está declarado na prova: a regeração diz contra o quê foi medida, e quem comparar duas versões vê o sujeito mudar"
+    },
+    {
+      "afirma": "estado-de-outro-repositorio",
+      "commitDoVizinhoDeclarado": false,
+      "pode": false,
+      "porque": "ela afirma o presente de um CLONE VIZINHO e o commit dele NÃO está declarado. Regerar assim não atualiza a medição: TROCA A PERGUNTA em silêncio — o LAB-78 perdeu dois de quatro lotes exatamente assim, porque o motor andou de `4181e95` para `6cf6396`"
+    }
+  ],
+  "oAchado": "a divisão de DUAS classes que o item sugeriu (estado de agora / evento) não cobre todas: prova medida contra o CLONE DE UM VIZINHO afirma o presente de OUTRO repositório, num commit dele. Regerá-la em silêncio não atualiza a medição — TROCA A PERGUNTA. O LAB-78 perdeu dois de quatro lotes exatamente assim, porque o motor andou de 4181e95 para 6cf6396. Ela se regera DECLARANDO o commit, e nunca sem ele",
+  "provas": [
+    {
+      "caminho": "LAB-02/completo.saida-cortada.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-02/medicoes.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-02/sintetico-10ha-plano.saida-cortada.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-02/sintetico-50ha-ondulado.saida-cortada.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-03/medicoes.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-04/medicoes.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-04/oraculo.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-05/medicoes.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-06/ranking.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-07/diagnostico-relevo.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-07/ensaio-47ha.saida.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-07/geo-antonina.saida.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-07/lab01-50ha-ondulado.entrada.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-07/lab01-50ha-ondulado.saida.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-07/medicoes.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-08/medicoes.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-13/medicoes.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-16/forma.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-17/medicoes.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-18/contrato-v2.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-19/tabela.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "acesso.test.ts",
+        "moldura.test.ts",
+        "pagina.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-21/rampa.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-23/coluna-vertebral.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "coluna-vertebral.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-24/formato-proposto.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-24/terreno.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-25/guarda-da-ponte.json",
+      "comoSeConfere": "remedida-da-fonte",
+      "travas": [
+        "contrato.test.ts",
+        "prova-velha.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-26/varredura.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "contrato.test.ts",
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-28/acesso.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "acesso.test.ts",
+        "contrato.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-30/guarda-da-ida.json",
+      "comoSeConfere": "remedida-da-fonte",
+      "travas": [
+        "contrato.test.ts",
+        "guarda-da-ida.test.ts",
+        "prova-velha.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-31/navegador.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-31/sabotagem.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "regras.test.ts",
+        "verde.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-32/aderencia.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-37/testada-de-frente.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-38/ci.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-39/confronto-refeito.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-40/fixtures.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-41/ortogonal-fora-da-gleba.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-46/antonina-tres-amostragens.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-47/varredura-de-segredos.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "regras.test.ts",
+        "segredos.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-48/violacoes-do-motor-padrao.json",
+      "comoSeConfere": "sem-trava",
+      "travas": []
+    },
+    {
+      "caminho": "LAB-49/detector-de-prova-velha.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-50/passagem-externa.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "via-sobre-faixa.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-52/varredura-de-chamadas.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "chamadas.test.ts",
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-53/violacoes-depois-do-conserto-da-ponte.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "frente.test.ts",
+        "mecanismos.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-54/frente-nao-atribuida.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "frente.test.ts",
+        "mecanismos.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-55/via-sobre-a-faixa.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "via-sobre-faixa.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-57/varredura-de-configuracao.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "alcance-das-provas.test.ts",
+        "configuracao.test.ts",
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-58/mecanismos-das-81.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "mecanismos.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-58/sabotagem.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-59/contrafactual-de-antonina.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "contrafactual.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-59/sabotagem.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-60/configuracao-do-motor.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "configuracao-do-motor.test.ts",
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-60/sabotagem.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-61/a-minha-lista-de-propostas.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "propostas.test.ts",
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-61/sabotagem.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-62/as-tres-listas.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "regras.test.ts",
+        "tres-listas.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-62/sabotagem.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-63/o-que-eu-aceitei.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-63/sabotagem.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-66/o-acumulado-dos-recados.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-66/sabotagem.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-68/as-duas-pilhas.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-76/registro-de-motores.json",
+      "comoSeConfere": "remedida-da-fonte",
+      "travas": [
+        "alcance-das-provas.test.ts",
+        "registro-do-lab.test.ts",
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-77/acesso-sugerido.json",
+      "comoSeConfere": "remedida-da-fonte",
+      "travas": [
+        "alcance-das-provas.test.ts",
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-78/setimo-mecanismo.json",
+      "comoSeConfere": "remedida-da-fonte",
+      "travas": [
+        "alcance-das-provas.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-79/alcance-das-provas.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "item-003/escopo-dos-instrumentos.json",
+      "comoSeConfere": "remedida-da-fonte",
+      "travas": [
+        "alcance-das-provas.test.ts",
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "item-004/conta-dos-disparos.json",
+      "comoSeConfere": "remedida-da-fonte",
+      "travas": [
+        "alcance-das-provas.test.ts",
+        "regras.test.ts"
+      ]
+    }
+  ]
+}

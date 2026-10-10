@@ -67,6 +67,7 @@ despertador, o menor número ainda não feito.**
 | `009` | o **LAB-06** (o mais velho): o registro de motores da D68 | ✅ **LAB-76**, 10/10 · **duas das três já existiam** · **6** motores conhecidos, **4** ligados, **2** só-referência · nada mudou de estado · D245, D246, D247 |
 | `010` + adendo | a **sensibilidade ao acesso**, com regra urbanística do Jonny | ✅ **LAB-77**, 10/10 · **ZERO das 7 glebas** dizem quais faces dão para via, e o campo **não existe no contrato** · a esquina é das **RUAS**, não do anel · a sugestão **se recusa a sair** · D248 a D251 |
 | `011` | o **sétimo mecanismo**, se ele existir | ✅ **LAB-78**, 10/10 · **EXISTE e é do MOTOR**: a fileira externa **transborda o canto** 10 a 13 m para a face vizinha · largura **indiferente** (0,19 = 0,19) e cobertura **100 %** · conserto **PROPOSTO, não executado** · D253, D254 |
+| `012` | a trava que confere a prova contra **SI MESMA** | ✅ **LAB-79**, 10/10 · medido: **2 de 67** eram remedidas da fonte · **três** classes, não duas · a trava pegou uma prova **VELHA** na 1ª execução · D255, D256, D257 |
 
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
@@ -74,10 +75,11 @@ faltar entra como *"proposto ao chat"*, sem executar.
 **A caixa esgotou DUAS vezes em 09/10/2026** — quatro de quatro, e depois o `005`. O disparo das
 19:05Z caiu **em vazio**, o primeiro desde que a conta abriu, e **não inventou trabalho**: recado
 de uma linha, a data na *conta dos disparos* do [`../ONDE_PARAMOS.md`](../ONDE_PARAMOS.md), e
-dormir, com o despertador **intacto** (D236). *Despertador que acorda e não acha nada é
-informação, não fracasso* — e agora é informação **gravada**.
+dormir, com o despertador **intacto** (~~D236~~ → **D244**, desempatado pelo chat no item 008).
+*Despertador que acorda e não acha nada é informação, não fracasso* — e agora é informação
+**gravada**.
 
-**A aposta do D236 foi medida em uma hora:** o `005` entrou às 19:19Z e o disparo das 20:05 o
+**A aposta do ~~D236~~ (hoje D244) foi medida em uma hora:** o `005` entrou às 19:19Z e o disparo das 20:05 o
 **pegou sozinho**. Desligar às 19:05 teria deixado o item parado. O desempate continua sendo do
 chat.
 
@@ -1246,7 +1248,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 427 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 452 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2250,6 +2252,14 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 ---
 
 ## Proposto ao chat — não executar
+
+> **O PRÓXIMO ITEM, dito pelo chat no item 012:** a **D243** — escopar a varredura de custo por
+> **destino** e não por nome de arquivo, porque a lista nominal foi de **6 para 11 em três
+> prompts** e as duas últimas entradas são **relatórios**. O chat escolheu o item 012 primeiro
+> por uma diferença de natureza: *"a D243 descreve uma varredura que vai apodrecer devagar, uma
+> linha por relatório, à vista de todos; o item 012 descrevia uma trava que não pode falhar"*.
+> **Não começar na mesma rodada de outra coisa** — é mudança de modelo de uma varredura de
+> segurança (item 012, encerramento 2).
 
 - **PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA** (LAB-78, 10/10, D253). Medido: o plantio
   da fileira externa **passa da ponta** da face que a ida declara em `facesLoteamento` e continua
