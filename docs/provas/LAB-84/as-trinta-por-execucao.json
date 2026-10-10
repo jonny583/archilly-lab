@@ -2,7 +2,7 @@
   "prompt": "LAB-84",
   "oQue": "os 31 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-10T20:25:14.210Z",
+  "quando": "2026-10-10T20:36:04.065Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"

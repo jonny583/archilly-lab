@@ -2,7 +2,7 @@
   "prompt": "LAB-79",
   "oQueIstoMede": "quantas provas deste repositório são remedidas CONTRA A FONTE e quantas só se conferem contra si mesmas — a §7 lendo as chaves — ou não são lidas por trava nenhuma. A lista de quem cita quem é MECÂNICA: sai da leitura dos arquivos de teste, não da minha memória",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto é o conjunto de PROVAS e as travas que as leem. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-10T20:23:39.830Z",
+  "quando": "2026-10-10T20:35:53.918Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"

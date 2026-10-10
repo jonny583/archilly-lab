@@ -153,4 +153,8 @@ desta casa.*
   continua comentado por decisão de família;
 - **os três clones vizinhos:** `git status` limpo nos três e nos commits em que estavam — nada
   escrito em repositório vizinho (§4);
-- **verde:** o comando único, **conferido aqui, não no GitHub**.
+- **verde:** o comando único, **conferido aqui, não no GitHub** — **918** travas na esteira e
+  **17** no `testfit`, 7 passos, `exit 0`. A lista do CI sem os clones vizinhos foi de 513 a
+  **520**, em **31** arquivos;
+- **conta dos itens abertos:** **17 → 16**, por entrega, nos **cinco** lugares que a contam
+  mais a §4-A do `CLAUDE.md`.
