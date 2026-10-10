@@ -1455,3 +1455,17 @@ nos dois eixos que eu testei (largura e cobertura). O que REFORÇA é o item 1 q
 no LAB-77: o campo no contrato que diz onde há via pública. Com ele, o motor poderia parar no
 fim da rua em vez de virar o canto — e a sugestão de acesso do LAB-77 poderia sair.
 ```
+
+---
+
+## 10/10/2026 · despertador-sem-item — a caixa esgotou às 04:05Z
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo às 04:05Z com a CAIXA VAZIA — os onze itens estão feitos, conferido no disco e na origin/main. Data anotada na conta (14 disparos, 4 em vazio), despertador NÃO TOCADO, e eu durmo (§1-A, D244).
+Feito: —
+Achados para outros apps ou Central: —
+Depende do Jonny: o conserto do sétimo mecanismo (FILA, `aguardando-o-jonny`) e as duas perguntas do acesso (§9 da página dele) — três coisas abertas, nenhuma travando nada.
+Próximo na fila: nada; aguardando item novo na caixa.
+=== FIM ===
+```

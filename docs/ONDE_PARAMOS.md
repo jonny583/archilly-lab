@@ -5,7 +5,8 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-78 (item 011) — **o sétimo
-mecanismo existe e é do MOTOR: a fileira externa transborda o canto** (D253) ·
+mecanismo existe e é do MOTOR: a fileira externa transborda o canto** (D253) · **a caixa esgotou
+às 04:05Z** ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -66,9 +67,10 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 01:05 | observado | item 010 pronto, com o adendo | item 010 (LAB-77) |
 | 10/10/2026 | 02:05 | observado | **nada na caixa** — os dez feitos | recado de uma linha, e dormir |
 | 10/10/2026 | 03:06 | observado | item 011 pronto (o chat o escreveu depois das 02:05Z) | item 011 (LAB-78) |
+| 10/10/2026 | 04:05 | observado | **nada na caixa** — os onze feitos | recado de uma linha, e dormir |
 
 ```
-disparos observados: 13 · em vazio: 3
+disparos observados: 14 · em vazio: 4
 ```
 
 **DOIS em vazio de nove, e a série já diz algo:** o chat abasteceu **sete itens em oito horas** e
