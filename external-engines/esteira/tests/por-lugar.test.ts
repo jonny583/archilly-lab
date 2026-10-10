@@ -10,13 +10,14 @@
  * lista dos lugares escrita, para quem vier depois saber onde você olhou."*
  */
 import { describe, expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { VIZINHOS, conferirContraAOrigem } from "../src/commit-dos-vizinhos.ts";
 import {
   LUGARES,
   QUANTAS_CONDICOES,
+  conferirAsAfirmacoesSobreADisco,
   conferirOsLugares,
 } from "../src/lugares-das-condicoes.ts";
 
@@ -38,15 +39,15 @@ describe("item 007 · a varredura por LUGAR, e a lista está escrita", () => {
 
   /**
    * **A conta que corrige o item 006.** Lá eu publiquei *"zero de quinze"* — as quinze eram as
-   * etiquetas de **um** lugar. Por lugar são **vinte e duas** condições em **oito** lugares, e o
+   * etiquetas de **um** lugar. Por lugar são **vinte e uma** condições em **oito** lugares, e o
    * veredicto (nenhuma é CONTA) sobreviveu; a cobertura não. *O meu "zero" estava certo por não
    * haver nenhuma, não por a varredura alcançar.*
    */
-  test("são VINTE E DUAS condições em OITO lugares, e a varredura de frase alcançava QUINZE", () => {
-    expect(QUANTAS_CONDICOES.naFila).toBe(15);
+  test("são VINTE E UMA condições em OITO lugares, e a varredura de frase alcançava QUINZE", () => {
+    expect(QUANTAS_CONDICOES.naFila).toBe(14);
     // 6 → 7 no LAB-85: o oitavo lugar é o `verde.yml`, e ele não é a FILA.
     expect(QUANTAS_CONDICOES.foraDaFila).toBe(7);
-    expect(QUANTAS_CONDICOES.total).toBe(22);
+    expect(QUANTAS_CONDICOES.total).toBe(21);
     // O número da varredura de FRASE é HISTÓRICO — o que ela alcançou no item 006 — e por isso
     // NÃO anda quando a `FILA.md` anda.
     expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBe(15);
@@ -127,5 +128,81 @@ describe("item 007 · o DISCO não é a ORIGEM", () => {
       expect(r.oQueIssoQuerDizer.length).toBeGreaterThan(40);
       expect(r.repo).toBe(v);
     }
+  });
+});
+
+/**
+ * **LAB-87 · a declaração sobre a ÁRVORE se confere contra a ÁRVORE** (D291).
+ *
+ * O LUGAR `CLAUDE.md` desta lista dizia, até 10/10/2026, que *"a cópia do Padrão Archilly e o
+ * `VERSAO.txt` não existem na árvore"* — e a §1-C escrevia a mesma coisa com as palavras
+ * **"conferido aqui e é verdade"**. Medido: o `VERSAO.txt` de fato não existe, **e a cópia
+ * existe** desde 03/10 (PR #40), listada pelo `docs/INDEX.md` como *"cópia trazida"*.
+ *
+ * > **Declaração minha sobre o que a árvore TEM ou NÃO TEM é a mais fácil de todas de conferir, e
+ * > por isso é a mais vergonhosa de deixar sem guarda** — não precisa de clone, de rede, de motor
+ * > nem de semente: precisa de um `existsSync`. O que faltava não era instrumento, era a pergunta.
+ *
+ * **E a primeira régua que eu escrevi aqui lia a FRASE** — procurava *"não existe na árvore"*
+ * perto do nome do arquivo — e **não pegou o defeito**, porque a mesma frase fala de dois
+ * arquivos com veredictos opostos. O veredicto virou **campo declarado**, e a régua pergunta ao
+ * disco: *não escreva uma régua que adivinhe o veredicto dentro da prosa — declare o veredicto.*
+ */
+describe("LAB-87 · o que a lista diz sobre a árvore, conferido no disco", () => {
+  const existeNoDisco = (caminho: string): boolean => existsSync(join(RAIZ, caminho));
+
+  test("O LADO BOM: as afirmações de hoje concordam com o disco", () => {
+    expect(conferirAsAfirmacoesSobreADisco(LUGARES, existeNoDisco)).toEqual([]);
+  });
+
+  test("e há afirmação para conferir — lista sem campo nenhum passa por vácuo", () => {
+    const comCampo = LUGARES.filter((l) => (l.oQueODiscoDeveDizer ?? []).length > 0);
+    expect(comCampo.length).toBeGreaterThanOrEqual(1);
+    expect(comCampo.flatMap((l) => l.oQueODiscoDeveDizer!).length).toBe(2);
+  });
+
+  test("O LADO RUIM: a afirmação ANTIGA reprova, e a linha NOMEIA o arquivo e os dois lados", () => {
+    const comoEra = LUGARES.map((l) =>
+      l.lugar === "CLAUDE.md"
+        ? {
+            ...l,
+            oQueODiscoDeveDizer: [
+              { arquivo: "docs/referencia/PADRAO_ARCHILLY.md", existe: false },
+              { arquivo: "VERSAO.txt", existe: false },
+            ],
+          }
+        : l,
+    );
+    const problemas = conferirAsAfirmacoesSobreADisco(comoEra, existeNoDisco);
+    expect(problemas).toHaveLength(1);
+    expect(problemas[0]).toContain("PADRAO_ARCHILLY.md");
+    expect(problemas[0]).toContain("NÃO existe");
+    expect(problemas[0]).toContain("o disco diz que ele EXISTE");
+  });
+
+  test("e o outro sentido do erro também é pego: afirmar que EXISTE o que não existe", () => {
+    const inventado = [
+      { ...LUGARES[0]!, oQueODiscoDeveDizer: [{ arquivo: "VERSAO.txt", existe: true }] },
+    ];
+    expect(conferirAsAfirmacoesSobreADisco(inventado, existeNoDisco)[0]).toContain(
+      "o disco diz que ele NÃO existe",
+    );
+  });
+
+  /**
+   * E o aviso do número congelado **não mora dentro da cópia**: a única coisa que ela promete é
+   * ser byte a byte igual à do `motor-testfit`, e escrever o aviso lá dentro quebraria a promessa.
+   * Então ele mora no `docs/INDEX.md`, e é lá que a trava o cobra.
+   */
+  test("o número congelado da cópia está declarado no `INDEX.md`, e NÃO dentro da cópia", () => {
+    const indice = ler("docs/INDEX.md");
+    expect(indice).not.toBeNull();
+    expect(indice!).toContain("congelada na Versão 1");
+    expect(indice!).toContain("3.0");
+
+    const copia = ler("docs/referencia/PADRAO_ARCHILLY.md");
+    expect(copia).not.toBeNull();
+    expect(copia!).not.toContain("congelada na Versão 1");
+    expect(copia!).not.toContain("D291");
   });
 });

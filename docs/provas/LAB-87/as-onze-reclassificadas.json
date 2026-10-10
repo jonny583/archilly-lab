@@ -1,0 +1,118 @@
+{
+  "prompt": "LAB-87",
+  "oQue": "as ONZE provas que o LAB-86 classificou como de universo interno, abertas uma a uma e RECLASSIFICADAS — e o denominador estava errado, pelo motivo que a classificação do LAB-86 não perguntava",
+  "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de PROVAS desta casa e o que a recontagem significa em cada uma. Por isso está na lista declarada de exceções do §7",
+  "quando": "2026-10-10T23:38:43.400Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "oQueODenominadorEscondia": "\"O universo está dentro desta casa?\" decide se recontar é BARATO. Ela não diz se recontar é POSSÍVEL, nem se é SIGNIFICATIVO. Eu classifiquei pela conta e publiquei como se fosse pelo sentido — \"dentro\" era necessário e não suficiente. Aberta uma a uma, nenhuma das dez dependia de fora (a hipótese que o item previu); o que havia eram TRÊS espécies diferentes de prova dentro da mesma classe",
+  "asClasses": [
+    {
+      "classe": "estado-com-ferramenta",
+      "quantas": 3,
+      "recontadas": 3
+    },
+    {
+      "classe": "registro-de-evento",
+      "quantas": 7,
+      "recontadas": 0
+    },
+    {
+      "classe": "regerada-pelo-verde",
+      "quantas": 1,
+      "recontadas": 0
+    }
+  ],
+  "aListaFecha": {
+    "asOnze": 11,
+    "classificadas": 11,
+    "faltando": [],
+    "sobrando": [],
+    "todasExistemNoDisco": true,
+    "soma": "3 + 7 + 1 = 11"
+  },
+  "umaPorUma": [
+    {
+      "prova": "LAB-57/varredura-de-configuracao.json",
+      "classe": "estado-com-ferramenta",
+      "recontada": true,
+      "quando": "LAB-86 (item 019)",
+      "porque": "publica o escopo da varredura de configuração sobre o `git ls-files`. Estava VELHA por semanas (364 → 498 arquivos), e a trava conferia com limiar"
+    },
+    {
+      "prova": "LAB-52/varredura-de-chamadas.json",
+      "classe": "estado-com-ferramenta",
+      "recontada": true,
+      "quando": "LAB-87 (item 020)",
+      "porque": "publica o escopo da varredura de chamadas sobre todo `.ts` que existe e não é ignorado. Estava VELHA em 40 %: 114 → 191 arquivos, 32 114 → 52 245 linhas, com QUATRO limiares na trava. **E o universo dela é outro**: usa `--others`, então ela envelhece assim que um arquivo EXISTE — antes de qualquer `git add`"
+    },
+    {
+      "prova": "LAB-04/oraculo.json",
+      "classe": "estado-com-ferramenta",
+      "recontada": true,
+      "quando": "LAB-87 (item 020)",
+      "porque": "**não tem gerador**: varrido todo `.ts` e `.sh` que o git carrega, nada a escreve — foi escrita à mão uma vez, no PR #40, e nunca mais relida. Prova sem gerador não envelhece por o prompt continuar trabalhando: envelhece porque NADA no mundo a obriga a concordar com o código. A reimplementação é função pura sobre duas fixtures fixas, então a trava recomputa e compara o `medido`; o `esperado` NÃO se reconta, porque vem de duas implementações independentes de fora desta casa"
+    },
+    {
+      "prova": "LAB-31/sabotagem.json",
+      "classe": "registro-de-evento",
+      "recontada": false,
+      "quando": null,
+      "porque": "registra um ATO: `quebrei esta trava de propósito e o exit foi 0 → 1`. Medido, nenhuma delas carrega número de topo sobre a árvore — não há o que recontar. Recontar seria REFAZER a sabotagem, que é outro ato, custa o verde inteiro e mexe em arquivo. *Prova de evento se confere pela existência e pela forma, não pela recontagem*"
+    },
+    {
+      "prova": "LAB-58/sabotagem.json",
+      "classe": "registro-de-evento",
+      "recontada": false,
+      "quando": null,
+      "porque": "registra um ATO: `quebrei esta trava de propósito e o exit foi 0 → 1`. Medido, nenhuma delas carrega número de topo sobre a árvore — não há o que recontar. Recontar seria REFAZER a sabotagem, que é outro ato, custa o verde inteiro e mexe em arquivo. *Prova de evento se confere pela existência e pela forma, não pela recontagem*"
+    },
+    {
+      "prova": "LAB-59/sabotagem.json",
+      "classe": "registro-de-evento",
+      "recontada": false,
+      "quando": null,
+      "porque": "registra um ATO: `quebrei esta trava de propósito e o exit foi 0 → 1`. Medido, nenhuma delas carrega número de topo sobre a árvore — não há o que recontar. Recontar seria REFAZER a sabotagem, que é outro ato, custa o verde inteiro e mexe em arquivo. *Prova de evento se confere pela existência e pela forma, não pela recontagem*"
+    },
+    {
+      "prova": "LAB-60/sabotagem.json",
+      "classe": "registro-de-evento",
+      "recontada": false,
+      "quando": null,
+      "porque": "registra um ATO: `quebrei esta trava de propósito e o exit foi 0 → 1`. Medido, nenhuma delas carrega número de topo sobre a árvore — não há o que recontar. Recontar seria REFAZER a sabotagem, que é outro ato, custa o verde inteiro e mexe em arquivo. *Prova de evento se confere pela existência e pela forma, não pela recontagem*"
+    },
+    {
+      "prova": "LAB-61/sabotagem.json",
+      "classe": "registro-de-evento",
+      "recontada": false,
+      "quando": null,
+      "porque": "registra um ATO: `quebrei esta trava de propósito e o exit foi 0 → 1`. Medido, nenhuma delas carrega número de topo sobre a árvore — não há o que recontar. Recontar seria REFAZER a sabotagem, que é outro ato, custa o verde inteiro e mexe em arquivo. *Prova de evento se confere pela existência e pela forma, não pela recontagem*"
+    },
+    {
+      "prova": "LAB-63/sabotagem.json",
+      "classe": "registro-de-evento",
+      "recontada": false,
+      "quando": null,
+      "porque": "registra um ATO: `quebrei esta trava de propósito e o exit foi 0 → 1`. Medido, nenhuma delas carrega número de topo sobre a árvore — não há o que recontar. Recontar seria REFAZER a sabotagem, que é outro ato, custa o verde inteiro e mexe em arquivo. *Prova de evento se confere pela existência e pela forma, não pela recontagem*"
+    },
+    {
+      "prova": "LAB-66/sabotagem.json",
+      "classe": "registro-de-evento",
+      "recontada": false,
+      "quando": null,
+      "porque": "registra um ATO: `quebrei esta trava de propósito e o exit foi 0 → 1`. Medido, nenhuma delas carrega número de topo sobre a árvore — não há o que recontar. Recontar seria REFAZER a sabotagem, que é outro ato, custa o verde inteiro e mexe em arquivo. *Prova de evento se confere pela existência e pela forma, não pela recontagem*"
+    },
+    {
+      "prova": "LAB-31/navegador.json",
+      "classe": "regerada-pelo-verde",
+      "recontada": false,
+      "quando": null,
+      "porque": "o `conferir.sh` a reescreve em TODA execução (é o sétimo passo, o `.wasm` em Chromium de verdade). Ela não pode ficar velha: o verde a regera antes de qualquer commit. *O `ms` dela muda a cada rodada, e é ruído de relógio — não medição que ande*"
+    }
+  ],
+  "oUniversoTotal": 76,
+  "oQueIssoDecide": "a forma do D287 (recontar e comparar) cabe em TRÊS provas, e as três estão recontadas: a do LAB-57 no item 019, e a do LAB-52 e a do LAB-04 agora. As outras OITO não ficam para depois — elas NÃO SÃO DESTA FORMA, e isso é diferente de pendência: sete registram evento e uma é regerada pelo verde a cada rodada. *Lista que encolhe porque o item era menor do que parecia é entrega; lista que encolhe porque alguém desistiu é dívida — e a diferença tem de estar escrita*",
+  "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
+}
