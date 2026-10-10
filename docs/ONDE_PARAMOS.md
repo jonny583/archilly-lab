@@ -4,9 +4,9 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-80 (item 013 / D243) — **a
-varredura de custo escopada por DESTINO: a lista nominal de isenções foi de 11 a ZERO** (D258 a
-D268) · **caixa VAZIA no disparo das 08:05Z, despertador não tocado** ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-81 (item 014) — **as cinco
+leituras de "esta linha afirma ou só mostra?" terminadas num lugar só, com UMA declarada como
+diferente e a medição que prova que ela precisa ser** (D269 a D271) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -72,10 +72,22 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 06:06 | observado | a caixa com os doze feitos (conferido na `origin/main`), e a **FILA** com a D243 eleita pelo item 012 — **o `013` entrou durante a rodada, pedindo a MESMA D243**, e foi pego na conferência de envio (D238) | item 013 (LAB-80) |
 | 10/10/2026 | 07:06 | observado | o item 013 em curso — a rodada do LAB-80 levou mais de uma hora | acumulou |
 | 10/10/2026 | 08:05 | observado | **nada na caixa** — os treze feitos, conferido na `origin/main` | recado de uma linha, e dormir |
+| 10/10/2026 | 09:06 | observado | item 014 pronto (o chat o escreveu às 08h40, 35 min depois do disparo anterior) | item 014 (LAB-81) |
 
 ```
-disparos observados: 18 · em vazio: 5
+disparos observados: 19 · em vazio: 5
 ```
+
+**O 09:06 confirma o que o 19:05 de ontem já tinha mostrado:** o disparo sem item das 08:05 foi
+seguido de um item **35 minutos depois**. *A caixa não fica sem abastecimento: o intervalo cai no
+intervalo entre um item e o seguinte* — é a terceira vez que a conta mede exatamente isso.
+
+**E a convenção da coluna me pegou DE NOVO, uma rodada depois de eu a declarar** (D265): a primeira
+versão desta linha dizia *"logo depois do disparo em vazio"*, a régua leu o `vazio` e contou a
+rodada como vazia — 5 declarados contra 6 medidos. **Duas vezes em duas rodadas, as duas minhas, as
+duas pegas pela trava.** *Convenção que o autor dela quebra na rodada seguinte não está escrita no
+lugar certo: está escrita no lugar errado* — e o que dá para fazer sem mudar o modelo é a régua
+**dizer qual linha** ela contou, o que ela passou a fazer.
 
 **O 07:06 é o terceiro "acumulou" da conta, e o primeiro desde que a caixa existe:** a rodada do
 item 013 passou de uma hora, então o disparo caiu em cima dela. *Isto é o que a conta foi feita
@@ -195,7 +207,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 880 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 893 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -1724,7 +1736,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 486 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 499 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

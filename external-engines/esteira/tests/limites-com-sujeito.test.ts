@@ -23,7 +23,7 @@ import {
   dizDeQue,
   limitesSemSujeito,
   secoesDeRegra,
-  semCitacoes,
+  soAProsa,
 } from "../src/limites-com-sujeito.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
@@ -85,7 +85,35 @@ describe("D218 · a régua REPROVA o limite sem sujeito, e não acusa prosa", ()
   test("a citação literal da Central é FONTE, não regra minha — sai da varredura", () => {
     expect(claudeMd).toContain("O LIMITE DE DOZE LINHAS É DO");
     const corpo = secoesDeRegra(claudeMd).map((s) => s.corpo).join("\n");
-    expect(semCitacoes(corpo)).not.toContain("O LIMITE DE DOZE LINHAS É DO");
+    expect(soAProsa(corpo)).not.toContain("O LIMITE DE DOZE LINHAS É DO");
+  });
+
+  /**
+   * ── A ORDEM DA CENTRAL, e ela não é decoração (item 014) ──────────────────
+   *
+   * > *"Prove pelos DOIS lados, nesta ordem: primeiro que cada régua **continua achando o que
+   * > achava**; depois que **deixou de achar o que não devia**. Na ordem inversa, um desligamento
+   * > passa por conserto."*
+   *
+   * O veredito de hoje é **vazio**, então a troca de `semCitacoes` por `soAProsa` não mudou
+   * veredito nenhum — e vazio não prova nada. Estas duas travas plantam o caso.
+   */
+  test("PRIMEIRO: a régua CONTINUA achando a regra sem sujeito, em prosa nua", () => {
+    const plantada = "## 1 · x\n\nO recado sai com no máximo 12 linhas.\n";
+    const achados = limitesSemSujeito(plantada);
+    expect(achados, "a régua parou de achar o que ela existe para achar").toHaveLength(1);
+    expect(achados[0]!.palavra).toBe("no máximo");
+  });
+
+  test("DEPOIS: a mesma frase em CITAÇÃO e em BLOCO DE CÓDIGO não é mais acusada", () => {
+    const citada = "## 1 · x\n\n> O recado sai com no máximo 12 linhas.\n";
+    expect(limitesSemSujeito(citada), "citação é fonte de fora, não regra minha").toEqual([]);
+    // **O bloco de código é o que entrou no LAB-81** — era o buraco comum às cinco leituras.
+    const emBloco = "## 1 · x\n\n```\nO recado sai com no máximo 12 linhas.\n```\n";
+    expect(limitesSemSujeito(emBloco), "bloco de código é MOLDE, não regra").toEqual([]);
+    // E a prova de que a cerca não vira uma porta aberta: depois de fechar, a prosa volta a contar.
+    const depoisDoBloco = "## 1 · x\n\n```\nexemplo\n```\n\nO recado sai com no máximo 12 linhas.\n";
+    expect(limitesSemSujeito(depoisDoBloco), "a cerca fechou e a régua não voltou a ver").toHaveLength(1);
   });
 
   test("frase que RELATA redação antiga não é acusada — é o D155", () => {

@@ -1,0 +1,110 @@
+{
+  "prompt": "LAB-81",
+  "oQue": "as CINCO leituras de \"esta linha afirma ou só mostra?\" terminadas num lugar só, cada uma com a pergunta dela declarada e conferida contra o `import` de quem a chama — e UMA declarada como diferente, com a medição que prova que ela precisa ser",
+  "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto são as LEITURAS de texto desta casa e os arquivos que as chamam. Por isso está na lista declarada de exceções do §7",
+  "quando": "2026-10-10T09:41:52.391Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "asLeituras": [
+    {
+      "instrumento": "external-engines/esteira/src/limites-com-sujeito.ts",
+      "leitura": "soAProsa",
+      "aPergunta": "quais frases das seções de regra da CLAUDE.md são REGRA MINHA — e não a citação literal da Central, nem o exemplo dentro de um bloco de código",
+      "porQueNaoAOutra": "ela precisa da LINHA inteira, não de um termo: o objeto é a frase, e a frase se parte em sentenças depois. E o bloco de código entrou aqui no LAB-81 — são 20 linhas nas seções de regra, 17 na §1, que são o MOLDE do recado e não regra sobre o recado"
+    },
+    {
+      "instrumento": "external-engines/esteira/src/trava-de-estrutura.ts",
+      "leitura": "lugaresDaPagina + afirmadoNaLinha",
+      "aPergunta": "há condição de CONTA escrita num `.md` que o git carrega — e escrita por mim, não reportada de outro",
+      "porQueNaoAOutra": "precisa das DUAS: o lugar da linha (citação não é condição desta casa) e o que a linha afirma dentro dela (o termo entre aspas curtas está sendo reportado). Esquecer a primeira foi o D266"
+    },
+    {
+      "instrumento": "external-engines/esteira/src/destino-do-que-sai.ts",
+      "leitura": "lugaresDaPagina + afirmadoNaLinha",
+      "aPergunta": "há VALOR do nosso custo afirmado em prosa nua de um arquivo do registro",
+      "porQueNaoAOutra": "mesma razão do irmão acima, e com um limite declarado: em JSON as aspas são SINTAXE, então a prova é lida crua (D261)"
+    },
+    {
+      "instrumento": "external-engines/esteira/tests/verde.test.ts",
+      "leitura": "semCitacoes",
+      "aPergunta": "o `conferir.sh` AFIRMA que algum caminho não existe, enquanto ele existe no disco (LAB-51)",
+      "porQueNaoAOutra": "A CRASE É O DADO: a régua extrai o caminho de dentro dela. A limpeza mais forte acha ZERO caminhos na mentira plantada, e `lugaresDaPagina` sobre um `.sh` devolve 0 de 147 — ali ela é um nada, não um ganho. É a UMA declarada do item 014"
+    },
+    {
+      "instrumento": "external-engines/esteira/tests/moldura.test.ts",
+      "leitura": "semRiscadoNemCitado",
+      "aPergunta": "algum documento vivo ainda AFIRMA a moldura errada do D159",
+      "porQueNaoAOutra": "aqui a crase é RUÍDO: o texto do D192 lista entre crases os padrões que a régua casa, e sem tirá-los a régua lia os próprios padrões dela como afirmação"
+    },
+    {
+      "instrumento": "external-engines/esteira/tests/disparos-em-vazio.test.ts",
+      "leitura": "comoARegraSeLe",
+      "aPergunta": "a regra do disparo em vazio está ESCRITA nos dois lugares que a §1-A manda",
+      "porQueNaoAOutra": "a pergunta não é o que o texto afirma, é se a frase está lá: então o `>`, o negrito e a quebra de linha saem de DENTRO da frase, em vez de a linha sair (D248)"
+    }
+  ],
+  "aTabelaBateComOsImports": true,
+  "problemasDaTabela": [],
+  "oBuracoComumDasCinco": {
+    "oQue": "nenhuma das cinco conhecia o BLOCO DE CÓDIGO",
+    "oCusto": "a varredura de custo acusou o RECADOS.md por duas linhas que são recado gravado (D259)",
+    "nasSecoesDeRegraDaClaudeMd": {
+      "linhas": 312,
+      "emCitacao": 9,
+      "emBlocoDeCodigo": 20
+    },
+    "porSecao": [
+      {
+        "secao": "## 1 · A regra do RECADO — UM BLOCO SÓ por rodada",
+        "linhas": 67,
+        "emCitacao": 0,
+        "emBlocoDeCodigo": 17
+      },
+      {
+        "secao": "## 1-B · O BALANÇO vai para um arquivo",
+        "linhas": 27,
+        "emCitacao": 1,
+        "emBlocoDeCodigo": 0
+      },
+      {
+        "secao": "## 1-A · A fila é autônoma",
+        "linhas": 57,
+        "emCitacao": 4,
+        "emBlocoDeCodigo": 0
+      },
+      {
+        "secao": "## 4 · O que este repositório NUNCA faz",
+        "linhas": 50,
+        "emCitacao": 0,
+        "emBlocoDeCodigo": 0
+      },
+      {
+        "secao": "## 5 · Nomes",
+        "linhas": 11,
+        "emCitacao": 0,
+        "emBlocoDeCodigo": 0
+      },
+      {
+        "secao": "## 7 · Entrega",
+        "linhas": 100,
+        "emCitacao": 4,
+        "emBlocoDeCodigo": 3
+      }
+    ]
+  },
+  "aUmaDiferente": {
+    "oCaso": "a trava do LAB-51: o `conferir.sh` AFIRMA que um caminho não existe, e ele existe",
+    "comASemCitacoes": [
+      ".github/workflows/verde.yml"
+    ],
+    "comASemRiscadoNemCitado": [],
+    "oVeredicto": "a limpeza mais forte NEGA igual e acha ZERO caminhos: ela tira a crase, que é o DADO desta trava. Forçá-la aqui seria um desligamento passando por conserto",
+    "aLeituraDeMarkdownAqui": "0 de 147 linhas são citação ou cerca — ou seja, nenhuma"
+  },
+  "veredictoDaReguaDosLimites": [],
+  "aOrdemDaCentral": "provar primeiro que cada régua CONTINUA achando o que achava, e só depois que deixou de achar o que não devia. Na ordem inversa, um desligamento passa por conserto — e foi exatamente essa a armadilha desta rodada",
+  "oAchado": "a QUARTA forma de \"só mostra\" não é uma forma nova: é a descoberta de que uma das marcas não é sempre \"só mostra\". A cerca, o `>` e o riscado nunca carregam o objeto da régua; A CRASE CARREGA. É a única marca que às vezes é o DADO, e é por isso que a família tem seis membros em vez de uma função",
+  "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
+}

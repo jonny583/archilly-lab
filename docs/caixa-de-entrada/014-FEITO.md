@@ -1,3 +1,52 @@
+> ✅ **FEITO no LAB-81**, em 10/10/2026, no despertador das 09:06. Relatório em
+> [`../relatorios/LAB-81.md`](../relatorios/LAB-81.md), prova em
+> `docs/provas/LAB-81/as-leituras.json`, decisões **D269 a D272**.
+>
+> **Antes de executar, medi a premissa — e ela estava um passo atrás.** Das três leituras que este
+> item lista, **uma já estava pronta**: o `src/trava-de-estrutura.ts` foi passado para
+> `lugaresDaPagina + afirmadoNaLinha` **no próprio LAB-80**, e foi ali que o D266 nasceu. O item foi
+> escrito às 08h40 a partir do meu relatório, e o relatório descrevia o estado de antes daquela
+> parte da rodada. *Item escrito a partir de um registro herda a idade do registro* (D269) — não é
+> erro seu, é a forma do atraso. O escopo real foram **duas**.
+>
+> **E a sua fronteira foi acionada: UMA precisa ser diferente.** A `tests/verde.test.ts` varre o
+> `conferir.sh` — um script de shell — e **a crase é o DADO dela**: ela extrai o caminho de dentro
+> da crase para conferir no disco. Medido com a mentira plantada:
+>
+> | limpeza | na mentira | na citação |
+> |---|---|---|
+> | `semCitacoes` (a dela) | nega ✔ · acha `.github/workflows/verde.yml` ✔ | passa ✔ |
+> | `semRiscadoNemCitado` | nega ✔ · acha **ZERO caminhos** ✘ | passa ✔ |
+>
+> A mais forte **cega a trava no caso exato para que ela nasceu**, e *parece* mais rigorosa — nega
+> igual, deixa a citação passar igual, e só o dado desaparece. E `lugaresDaPagina` sobre aquele
+> `.sh` devolve **0 de 147**: ali a leitura de Markdown é um nada, não um ganho. Ela fica com a
+> leitura dela, com o motivo na tabela, no comentário **e numa trava que reprova se a
+> `semRiscadoNemCitado` passar a preservar a crase** — porque nesse dia a UMA declarada perde o
+> motivo. *Cinco iguais por conveniência é pior que quatro iguais e uma declarada.*
+>
+> **A ORDEM QUE VOCÊ MANDOU É O QUE SEPAROU O CONSERTO DO DESLIGAMENTO.** Na ordem inversa eu teria
+> visto "a citação passa, o riscado passa, a cerca passa" — tudo verde — e entregado uma trava cega.
+>
+> **A quarta forma que você convidou apareceu, e não é uma forma:** a cerca, o `>` e o riscado nunca
+> carregam o objeto da régua; **a crase carrega**. É a única marca de *"só mostra"* que às vezes é
+> *"isto é o que eu vim medir"* — e é por isso que a família tem seis membros com perguntas
+> declaradas, em vez de uma função com um argumento (D270).
+>
+> **O buraco comum, fechado:** `soAProsa()` tira citação **e bloco de código**. Nas seções de regra
+> da `CLAUDE.md` são **20 linhas em bloco**, **17 na §1** — o molde do recado, exemplo e não regra
+> sobre o recado. O veredito da régua dos limites é `[]` antes e depois, então a sua fronteira do
+> veredito não foi tocada; e porque **vazio não prova nada**, a prova é plantada nos dois sentidos.
+>
+> **E há guarda contra a SEXTA nascer** (D271): *unificar sem guarda conserta o passado e deixa o
+> futuro exatamente igual.* Ela varre todo `.ts` que o git carrega e reprova quem DEFINIR uma das
+> leituras fora da casa — lendo os nomes que o código **usa**, não o texto, senão ela seria a sétima
+> da família do D142/D155, acusando o arquivo que documenta a duplicação.
+>
+> **Coincidência casada como invariante:** procurei, e a desta rodada estava nos contadores da lista
+> de propostas. Ao executar esta proposta, a lista caiu de 17 para 16 itens abertos — e **cinco
+> lugares** contam esse número. Os cinco andaram juntos, com o motivo escrito em cada um.
+
 # 014 — as TRÊS leituras que faltam: terminar a régua que ninguém terminou
 
 > **Vem do chat, 10/10/2026 às 08h40.** A sua caixa esgotou com a 013. A

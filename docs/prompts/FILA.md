@@ -1257,7 +1257,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 486 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 499 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2272,15 +2272,11 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 > si mesma**, e a de chamada paga de IA também perdeu a isenção que tinha. Relatório em
 > [`../relatorios/LAB-80.md`](../relatorios/LAB-80.md), decisões **D258 a D263**.
 
-- **UNIFICAR AS CINCO LEITURAS DE "ESTA LINHA AFIRMA OU SÓ MOSTRA?"** (LAB-80, 10/10, D259).
-  Contadas antes de eu escrever a sexta: **cinco** respostas para a mesma pergunta nesta casa,
-  **três delas dentro de travas**, e **nenhuma conhecia o bloco de código** — que é onde moram os
-  recados, e foi o que fez a varredura de custo acusar o `RECADOS.md` por duas linhas que são
-  recado gravado. *Cinco respostas para a mesma pergunta não são cinco réguas: são uma régua que
-  ninguém terminou.* O LAB-80 fez a sua parte — a leitura nova mora em `src/texto-das-regras.ts` e
-  o `semRiscadoNemCitado()` saiu de dentro do `moldura.test.ts` para lá — e **parou**: as outras
-  três tocam cinco arquivos e as travas de três deles. A tabela das cinco está na seção em prosa
-  abaixo. **Segue aberto:** `prompt-novo`
+- ~~**UNIFICAR AS CINCO LEITURAS DE "ESTA LINHA AFIRMA OU SÓ MOSTRA?"**~~ (LAB-80, 10/10, D259)
+  — ✅ **executada no LAB-81** (item 014). Seis membros declarados num lugar só, cada um com a pergunta
+  dele, a tabela conferida contra os `import` e guarda contra a sexta. **Uma ficou declarada como
+  diferente**, com a medição ao lado: a `verde.test.ts` varre um `.sh` e a crase é o dado dela
+  (D270)
 
 - **PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA** (LAB-78, 10/10, D253). Medido: o plantio
   da fileira externa **passa da ponta** da face que a ida declara em `facesLoteamento` e continua
@@ -2445,7 +2441,7 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 
 ---
 
-### Proposto ao chat, saído do LAB-80 — **não executado: são CINCO instrumentos**
+### ~~Proposto ao chat, saído do LAB-80 — são CINCO instrumentos~~ — ✅ **feito no LAB-81** (item 014)
 
 **UNIFICAR AS CINCO LEITURAS DE "ESTA LINHA AFIRMA OU SÓ MOSTRA?"** (D259). Contadas antes de eu
 escrever a sexta, e a contagem é o insumo que faltava:
@@ -2464,12 +2460,18 @@ que fez a varredura de custo acusar o `RECADOS.md` por duas linhas que são **re
 > **Cinco respostas para a mesma pergunta não são cinco réguas: são uma régua que ninguém
 > terminou.**
 
-**O LAB-80 fez a sua parte e parou onde devia:** a leitura nova mora em `src/texto-das-regras.ts`,
-e o `semRiscadoNemCitado()` **saiu de dentro do `moldura.test.ts`** para lá, com a trava daquele
-arquivo passando a importá-lo. **O que falta** são as outras três, e isso toca `verde.test.ts`,
-`limites-com-sujeito.ts` e `trava-de-estrutura.ts` — **mudança em cinco arquivos e nas travas de
-três deles**, com o mesmo risco do D231: *conserto que não entra em todos os instrumentos que leem
-a mesma coisa é meio conserto.*
+~~**O LAB-80 fez a sua parte e parou onde devia:** a leitura nova mora em
+`src/texto-das-regras.ts`, e o `semRiscadoNemCitado()` **saiu de dentro do `moldura.test.ts`** para
+lá. **O que falta** são as outras três.~~
+
+✅ **FEITO no LAB-81** (item 014), e o resultado não foi o que a proposta previa. Das três que
+faltavam, **uma já estava pronta** — o `trava-de-estrutura.ts`, consertado no próprio LAB-80, e o
+item o listava como pendente porque foi escrito a partir do relatório (D269). Das duas restantes,
+**uma precisa ser DIFERENTE**: a `verde.test.ts` varre um script de shell e **a crase é o DADO
+dela**, então a limpeza mais forte a cegaria no caso exato para que ela nasceu — medido, zero
+caminhos contra um (D270). *Terminar as cinco não era fazê-las iguais: era dar um lugar a todas e
+uma pergunta a cada.* A família tem **seis membros declarados**, a tabela é conferida contra os
+`import`, e **há guarda que impede a sexta de nascer** (D271).
 
 ## Histórico — a fila autônoma de 14/09/2026, esgotada
 
