@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-10T08:06:30.062Z",
+  "quando": "2026-10-10T08:20:28.668Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -139,13 +139,29 @@
         "achou": "a caixa com os doze feitos (conferido na `origin/main`), e a **FILA** com a D243 eleita pelo item 012 — **o `013` entrou durante a rodada, pedindo a MESMA D243**, e foi pego na conferência de envio (D238)",
         "rodada": "item 013 (LAB-80)",
         "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "07:06",
+        "origem": "observado",
+        "achou": "o item 013 em curso — a rodada do LAB-80 levou mais de uma hora",
+        "rodada": "acumulou",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "08:05",
+        "origem": "observado",
+        "achou": "**nada na caixa** — os treze feitos, conferido na `origin/main`",
+        "rodada": "recado de uma linha, e dormir",
+        "emVazio": true
       }
     ],
     "declarados": {
-      "observados": 16,
-      "emVazio": 4
+      "observados": 18,
+      "emVazio": 5
     },
-    "emVazio": 4,
+    "emVazio": 5,
     "temAFraseDoQueDecide": true
   },
   "oQueOPrimeiroDiaJaMOSTROU": "ZERO em vazio, e DOIS disparos acumulados — a caixa não ficou sem abastecimento; a RODADA é mais longa que o intervalo. A conta não nasceu para confirmar a suspeita",
@@ -161,10 +177,11 @@
   },
   "osDaCAIXA": {
     "oQue": "recados da mesma classe da abertura em diante. NÃO são precedente: são o parceiro do cruzamento, e cada um tem de ter a sua linha em vazio na conta",
-    "quantos": 4,
+    "quantos": 5,
     "dias": [
       "09/10/2026",
       "09/10/2026",
+      "10/10/2026",
       "10/10/2026",
       "10/10/2026"
     ]

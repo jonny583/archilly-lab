@@ -1643,3 +1643,18 @@ DUAS QUE A CONTA COBROU, e as duas são de método:
    a convenção ao lado da régua que a lê.
 
 ```
+
+---
+
+## 10/10/2026 · despertador-sem-item — a caixa esgotou às 08:05Z
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+ACUMULADO — inclui os recados LAB-80 e despertador-sem-item
+Estado: disparo às 08:05Z com a CAIXA VAZIA — os treze itens estão feitos, conferido no disco e na origin/main. Antes dele, o das 07:06 ACUMULOU: a rodada do item 013 passou de uma hora. Datas anotadas na conta (18 disparos, 5 em vazio), despertador NÃO TOCADO, e eu durmo (§1-A, D244).
+Feito: — (o item 013 / LAB-80 fechou na rodada anterior, PR #106 mesclado na main; o recado dele está acima neste arquivo)
+Achados para outros apps ou Central: — (os do LAB-80 estão no recado acima: a cegueira da soOCodigo(), a metade da trava que cobra "nenhum benigno sumiu", e o buraco declarado que não estava fechado)
+Depende do Jonny: o conserto do sétimo mecanismo (FILA, `aguardando-o-jonny`) e as duas perguntas do acesso (§9 da página dele) — três coisas abertas, nenhuma travando nada.
+Próximo na fila: nada encomendado; aguardando item novo na caixa. NÃO executei a D226 ("os quatro campos novos de `legais`"), que o item 013 chama de "o seguinte": eleição é plano, item é encomenda — e você mostrou a convenção nesta rodada, elegendo a D243 no item 012 E escrevendo o 013 para encomendá-la.
+=== FIM ===
+```
