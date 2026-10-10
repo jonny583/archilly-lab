@@ -2,23 +2,23 @@
   "prompt": "LAB-79",
   "oQueIstoMede": "quantas provas deste repositório são remedidas CONTRA A FONTE e quantas só se conferem contra si mesmas — a §7 lendo as chaves — ou não são lidas por trava nenhuma. A lista de quem cita quem é MECÂNICA: sai da leitura dos arquivos de teste, não da minha memória",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto é o conjunto de PROVAS e as travas que as leem. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-10T19:37:07.811Z",
+  "quando": "2026-10-10T20:23:39.830Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
   },
   "alcance": {
-    "universo": 72,
-    "pastas": 54,
+    "universo": 73,
+    "pastas": 55,
     "porComoSeConfere": {
       "remedida-da-fonte": 7,
-      "remedida-sem-escopo-declarado": 18,
+      "remedida-sem-escopo-declarado": 19,
       "so-a-forma": 24,
       "sem-trava": 23
     },
     "comEscopoPublicado": 7,
-    "semEscopoPublicado": 65,
-    "comoSeDiz": "72 provas em 54 pastas · 7 remedidas da fonte com escopo publicado · 18 remedidas em parte SEM escopo declarado · 24 só a forma (§7) · 23 sem trava nenhuma · 65 sem escopo publicado"
+    "semEscopoPublicado": 66,
+    "comoSeDiz": "73 provas em 55 pastas · 7 remedidas da fonte com escopo publicado · 19 remedidas em parte SEM escopo declarado · 24 só a forma (§7) · 23 sem trava nenhuma · 66 sem escopo publicado"
   },
   "comEscopoPublicado": [
     "LAB-25/guarda-da-ponte.json",
@@ -532,6 +532,15 @@
       "caminho": "LAB-83/carimbo-do-modulo-resolvido.json",
       "comoSeConfere": "so-a-forma",
       "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-84/as-trinta-por-execucao.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "commit-dos-vizinhos-com-clone.test.ts",
+        "nome-do-trabalho.test.ts",
         "regras.test.ts"
       ]
     },

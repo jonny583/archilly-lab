@@ -37,14 +37,14 @@ describe("item 007 · a varredura por LUGAR, e a lista está escrita", () => {
 
   /**
    * **A conta que corrige o item 006.** Lá eu publiquei *"zero de quinze"* — as quinze eram as
-   * etiquetas de **um** lugar. Por lugar são **vinte e três** condições em **sete** lugares, e o
+   * etiquetas de **um** lugar. Por lugar são **vinte e duas** condições em **sete** lugares, e o
    * veredicto (nenhuma é CONTA) sobreviveu; a cobertura não. *O meu "zero" estava certo por não
    * haver nenhuma, não por a varredura alcançar.*
    */
-  test("são VINTE E TRÊS condições em sete lugares, e a varredura de frase alcançava QUINZE", () => {
-    expect(QUANTAS_CONDICOES.naFila).toBe(17);
+  test("são VINTE E DUAS condições em sete lugares, e a varredura de frase alcançava QUINZE", () => {
+    expect(QUANTAS_CONDICOES.naFila).toBe(16);
     expect(QUANTAS_CONDICOES.foraDaFila).toBe(6);
-    expect(QUANTAS_CONDICOES.total).toBe(23);
+    expect(QUANTAS_CONDICOES.total).toBe(22);
     // O número da varredura de FRASE é HISTÓRICO — o que ela alcançou no item 006 — e por isso
     // NÃO anda quando a `FILA.md` anda.
     expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBe(15);
@@ -58,7 +58,8 @@ describe("item 007 · a varredura por LUGAR, e a lista está escrita", () => {
     // `naFila - 15 === 1` (quebrou no LAB-80, D264) e depois `naFila > 15`, que eu escrevi no
     // lugar dela justificando-a com *"a FILA só cresce"*. **Medido no LAB-83: ela não só
     // cresce** — `naFila` fez 15 → 16 → 17 → 16 → 17 → 16 → 17, e as duas descidas foram por
-    // ENTREGA (LAB-81 e LAB-83). O `> 15` sobrevivia por DOIS, e duas entregas o reprovam sem
+    // ENTREGA (LAB-81 e LAB-83), e uma TERCEIRA no LAB-84. O `> 15` sobrevivia por UM, e uma
+    // entrega mais o reprovava sem
     // nada ter piorado: a terceira coincidência da mesma função, e a primeira cuja JUSTIFICATIVA
     // ESCRITA é que estava falsa (D278). Ela saiu, e nada tomou o lugar dela — a relação entre a
     // fila de hoje e um número de ontem não é invariante nenhuma, é a medição de hoje, e ela já

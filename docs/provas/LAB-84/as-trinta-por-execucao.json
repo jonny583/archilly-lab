@@ -1,0 +1,236 @@
+{
+  "prompt": "LAB-84",
+  "oQue": "os 31 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
+  "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
+  "quando": "2026-10-10T20:25:14.210Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "comoFoiMedido": "cópia do repositório num diretório onde os três clones irmãos NÃO existem — conferido antes de medir, e a ferramenta estoura se algum aparecer —, e `bun test <arquivo>` um a um, guardando o código de saída. Nada foi movido nem renomeado no vizinho (§4)",
+  "porQueNaoPorLeitura": "o item 017 proibiu: rodar a lista sem os clones é a RESPOSTA, ler o `import` é a HIPÓTESE. E a diferença apareceu no número: o D279 disse DUAS travas, lidas do fonte; executadas são QUATRO, e três delas são anteriores à minha rodada",
+  "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
+  "quantosArquivos": 31,
+  "quantosPassamSemClone": 31,
+  "asTrintaEUma": [
+    {
+      "arquivo": "tests/pagina.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/recado.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/balancos.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/contrato.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/verde.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/regras.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/segredos.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/chamadas.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/esqueleto.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/mecanismos.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/contrafactual.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/configuracao-do-motor.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/propostas.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/tres-listas.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/aritmetica-da-regra.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/limites-com-sujeito.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/gatilho-do-verde.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/vazamento-de-custo.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/commit-dos-vizinhos.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/classes-de-rodada.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/escopo-dos-instrumentos.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/disparos-em-vazio.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/custo-por-uso.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/trava-de-estrutura.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/por-lugar.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/registro-do-lab.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/acesso-sugerido.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/setimo-mecanismo.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/alcance-das-provas.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/leituras.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/nome-do-trabalho.test.ts",
+      "saida": 0,
+      "passam": null,
+      "reprovam": null,
+      "asQueReprovam": []
+    }
+  ],
+  "oQueIssoDecide": "a afirmação do nome do trabalho é VERDADEIRA: todos os arquivos da lista passam sem os clones",
+  "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
+}

@@ -8237,10 +8237,17 @@ nome promete o contrário:**
 
 > `guardas que não precisam dos clones vizinhos (NÃO é o verde)`
 
-**Medido:** esse trabalho lista `tests/commit-dos-vizinhos.test.ts`, e **duas travas desse arquivo
-exigem o clone do `motor-testfit` no disco** — uma **desde o LAB-68** (*"o clone do motor tem de
-estar nesta máquina para esta demonstração"*, conferida em `git show HEAD:`, anterior a esta
-rodada) e **uma minha, desta rodada**. Sem o clone as duas reprovam, e o trabalho que existe
+**Medido:** esse trabalho lista `tests/commit-dos-vizinhos.test.ts`, e ~~**duas travas desse
+arquivo exigem**~~ **QUATRO travas desse arquivo exigem** o clone do `motor-testfit` no disco —
+~~uma~~ **três** **desde o LAB-68** (*"o clone do motor tem de estar nesta máquina para esta
+demonstração"*, conferida em `git show HEAD:`, anterior a esta rodada) e **uma minha, desta
+rodada**.
+
+> **O "duas" está riscado e não apagado: ele era uma contagem por LEITURA, e a execução do LAB-84
+> disse QUATRO** — eu contei os `expect` cuja mensagem eu reconhecia e não vi as outras duas do
+> mesmo `describe`, que dependem da variável `cabeca` e não repetem a frase. *Régua de leitura
+> acha o que ela reconhece; execução acha o que acontece*, e aqui a diferença foi de 100 % (D282).
+> Foi exatamente por isso que esta decisão mandou o número para a `FILA.md` em vez de o prometer. Sem o clone as duas reprovam, e o trabalho que existe
 **justamente** para rodar sem segredo falharia por falta do que o nome dele promete não precisar.
 
 O D141 pôs os dois nomes **para não enganarem**, e esse era o serviço que eles prestavam:
@@ -8370,3 +8377,103 @@ poder de errar.
 **O que isto ensina sobre a rodada toda:** os sete números em lote ficaram **sete horas** no
 documento sem régua nenhuma, e quem os pegou não foi uma trava — foi **a linha seguinte dar
 errado**. *Número de classe sem régua da classe é o lugar onde uma classe nova vai envelhecer.*
+
+---
+
+## D282 · A AFIRMAÇÃO DO NOME, MEDIDA POR EXECUÇÃO — e eram QUATRO travas, não duas · 10/10/2026
+
+O item 017 é a medição que o **D279** declarou não ter feito, e proibiu a resposta barata com
+todas as letras: *"rodar a lista **sem os clones** e ver quem reprova é a resposta; ler o `import`
+é a hipótese."*
+
+### Como foi medido, e por que não por leitura
+
+Cópia do repositório num diretório onde os três clones irmãos **não existem** — que é exatamente
+o que o CI vê, porque lá eles são clonados ao lado e na cópia não há nada ao lado —, e `bun test`
+em cada arquivo da lista, um a um, guardando o código de saída. **Nada foi movido nem renomeado no
+vizinho:** mover o clone seria escrever nele, e a §4 não deixa.
+
+### O número que a execução desmentiu
+
+| o que eu disse, lendo o fonte (D279) | o que a execução diz |
+|---|---|
+| **duas** travas precisam do clone | **quatro** |
+| uma desde o LAB-68, uma minha | **três** desde o LAB-68, **uma** minha |
+| — | **29 de 30** arquivos passam limpos |
+
+> **Contei pelo `expect` que eu reconhecia, não pelos que reprovam.** O D279 saiu de uma leitura
+> do fonte, e a leitura viu a trava com a mensagem *"o clone do motor tem de estar nesta máquina"*
+> e a minha nova; não viu as outras duas do mesmo `describe`, que dependem da **variável**
+> `cabeca` e não repetem a frase. *Régua de leitura acha o que ela reconhece; execução acha o que
+> acontece* — e a diferença foi de **100 %** no número.
+
+### A decisão, com o que se perde escrito
+
+**Movi as QUATRO travas para `tests/commit-dos-vizinhos-com-clone.test.ts`, e NÃO renomeei o
+trabalho.** O item deu o critério — *"o nome é uma afirmação, então a pergunta é qual das duas
+afirmações você quer poder desmentir"* —, e as duas opções custam coisas diferentes:
+
+| conserto | o que se ganha | o que se perde |
+|---|---|---|
+| **mover as 4 travas** *(escolhido)* | o nome volta a ser verdade, e a lista roda em qualquer lugar sem preparo | nada: o verde completo roda todo arquivo de qualquer jeito |
+| renomear o trabalho | nada a mexer no código | **o que o portão precisa deixa de ser sabível sem rodar** — e ele existe justamente porque o verde completo **não** roda sem segredo |
+| tirar o arquivo inteiro | simples | as **10** travas limpas de clone daquele arquivo saem do portão que roda em todo push |
+
+A terceira linha é o que a medição por arquivo comprou: o total *"um arquivo depende"* não separa
+*"o arquivo inteiro"* de *"4 travas de 14"*, e os consertos são diferentes. **Mover por ARQUIVO
+quando a dependência é de TRAVA paga a conta de quem não mediu.**
+
+### E a régua ESTÁTICA que eu escrevi primeiro acusou a si mesma — sétima da família
+
+A primeira versão da trava nova procurava no fonte a frase `join(RAIZ, "..", "motor-testfit")`, e
+**acusou a própria trava que a demonstra**, porque a fixture dela contém essa frase. Família do
+D142/D155/D257. E a cura da casa, tentada nas duas formas, **não serve aqui**:
+
+| limpeza | o que faz | por que não serve |
+|---|---|---|
+| `soOCodigo()` | esvazia o conteúdo das strings | o alvo **é** uma string: a régua fica **cega** |
+| `semComentarios()` | tira comentário e regex, guarda strings | a fixture também é string: acusa de novo |
+
+> **Quando o que você procura e o que você quer ignorar são a MESMA FORMA, não há régua estática
+> que os separe.** A saída não é uma régua mais esperta: é a **outra pergunta** — e o item já
+> tinha dito qual. A trava passou a **ler a medição por execução** em vez de reler o fonte: *ela
+> confere o que aconteceu, não o que parece.*
+
+**O buraco fica declarado:** a prova envelhece se ninguém rodar o `lab84`. Por isso a régua cobra
+que a prova cubra **exatamente** a lista de hoje — arquivo novo no portão sem linha na prova
+reprova, com a receita (`bun run lab84`) na mensagem.
+
+### E a varredura da casa pegou o MEU instrumento de medir
+
+A ferramenta nova escrevia `reprovam: n(/(\d+) fail/) ?? 0`, e a `varredura-de-chamadas` acusou:
+*"`?? 0` sobre o resultado de uma CHAMADA: a falha vira um número que parece certo"*. **Com razão,
+e é o D23:** num arquivo que estoura antes de rodar trava nenhuma, `0 reprovam` com `exit 1` é uma
+contradição publicada. Virou `null`. *A régua da casa achou no instrumento com que eu media — e
+instrumento de medir também é código desta casa.*
+
+---
+
+## D283 · GUARDA QUE LÊ UMA MEDIÇÃO DE SI MESMA NÃO TEM LADO BOM ALCANÇÁVEL · 10/10/2026
+
+A trava do D282 está **na lista do trabalho** que ela guarda, e a régua cobra que todo arquivo da
+lista tenha saído verde na medição — inclusive, portanto, a própria trava. Mas **a medição roda a
+trava, e a trava lê a medição anterior**: o primeiro vermelho dela se grava na prova e se
+realimenta.
+
+Medido, e as duas voltas estão no registro: na primeira execução a trava reprovou (a prova ainda
+não existia e faltava a exceção do §7), a prova gravou esse vermelho, e a execução seguinte leu o
+vermelho e **reprovou de novo pelo mesmo motivo** — não pelo defeito, pelo registro do defeito.
+
+> **Guarda que lê uma medição de si mesma não tem lado bom alcançável.** O ponto fixo em que ela
+> passa existe, mas não se chega a ele por iteração: cada volta confirma a volta anterior.
+
+**O conserto não é afrouxar a régua: é dizer QUE o arquivo dela está fora do próprio gate, e por
+quê** — uma constante com nome (`A_TRAVA_DESTA_REGUA`) e o motivo escrito ao lado, em vez de um
+`filter` sem explicação que o próximo leitor tomaria por descuido.
+
+**E o que fica garantido sem o gate, dito em vez de suposto:** a **ferramenta mede esse arquivo
+igual aos outros** e a prova **publica a linha dele** — quem lê a prova vê o veredito —, e o verde
+completo o roda. O que a régua deixa de cobrar é só o `exit` da própria casa.
+
+*É a irmã estrutural do D266 (instrumento de medição discordando do instrumento medido), com uma
+volta a mais: aqui o instrumento e o medido são o mesmo arquivo.*

@@ -153,6 +153,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
+    "LAB-84/as-trinta-por-execucao.json":
+      "mede os ARQUIVOS DE TRAVA do trabalho de CI que afirma não precisar dos clones vizinhos — cada um rodado POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, com o código de saída e o nome de cada trava que reprova —, não terreno: o objeto é o conjunto de arquivos e o que cada um precisa para rodar, e ela não roda motor, não lê gleba e não tem semente",
     "LAB-83/carimbo-do-modulo-resolvido.json":
       "mede a PROCEDÊNCIA de uma medição — de onde sai o carimbo de versão do clone vizinho (o módulo que o `import` resolveu, com o `HEAD` do caminho por convenção como segunda linha), quais vizinhos têm ponto de entrada a resolver, a adoção nas provas e o veredicto da divergência demonstrada —, não terreno: ela não roda motor sobre entrada nova e não há gleba nem semente no que ela mede",
     "LAB-82/remedicao-antes-do-pedido.json":

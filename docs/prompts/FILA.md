@@ -1257,7 +1257,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 513 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 520 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2304,20 +2304,19 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   chamam o carimbo — as duas já publicam a procedência; as outras 67 não carimbam clone nenhum,
   então não há nada a adotar nelas
 
-- **O TRABALHO DE CI QUE DIZ NÃO PRECISAR DOS CLONES, E PRECISA** (LAB-83, 10/10, D279). Medido:
-  o trabalho `guardas que não precisam dos clones vizinhos (NÃO é o verde)` lista
-  `tests/commit-dos-vizinhos.test.ts`, e **duas travas desse arquivo exigem o clone do
-  `motor-testfit` no disco** — uma desde o LAB-68 (*"o clone do motor tem de estar nesta máquina
-  para esta demonstração"*) e **uma minha, desta rodada**, que carimba a máquina de verdade. Sem o
-  clone as duas reprovam, e o trabalho que existe **justamente** para rodar sem segredo falharia
-  por falta do que o nome dele promete não precisar. **Não está medido no GitHub** porque a
-  execução automática está desligada desde 08/10 — *o nome do trabalho é a afirmação, e ela não é
-  conferida por ninguém hoje.* O D141 pôs os nomes para não enganarem; este passou a enganar sem
-  ninguém mexer nele. O prompt: ou as travas que precisam de clone saem desse trabalho (e entram no
-  verde completo), ou o nome do trabalho passa a dizer a verdade — **e a escolha precisa de uma
-  medição que eu não fiz: quantas travas de cada um dos **30** arquivos da lista dependem do
-  clone.** Prometer o
-  número sem medir é a classe do D133. **Segue aberto:** `prompt-novo`
+- ~~**O TRABALHO DE CI QUE DIZ NÃO PRECISAR DOS CLONES, E PRECISA**~~ (LAB-83, 10/10, D279) —
+  ✅ **executada no LAB-84** (item 017). **A medição saiu POR EXECUÇÃO**, como o item exigiu: cópia
+  do repositório sem os três clones irmãos e `bun test` arquivo por arquivo. **Dos 30, vinte e
+  nove passam e UM reprova** — `commit-dos-vizinhos.test.ts`, com **4 travas de 14**. *E eu havia
+  dito DUAS, lendo o fonte: contei os `expect` cuja mensagem eu reconhecia e não vi as outras duas
+  do mesmo `describe`, que dependem da variável `cabeca`* (D282) — o `duas` do D279 está **riscado
+  com a medição ao lado**. **A decisão:** mover as **quatro** travas para
+  `commit-dos-vizinhos-com-clone.test.ts` e **não** renomear o trabalho — tirar o arquivo inteiro
+  custaria as **10** travas dele que são limpas de clone, e *mover por ARQUIVO quando a dependência
+  é de TRAVA paga a conta de quem não mediu*. **Remedido: 31 de 31 passam sem os clones.** E a
+  trava que faltava existe, **lendo a medição e não o fonte** — porque a régua estática que eu
+  escrevi primeiro **acusou a própria trava que a demonstra**, e nenhuma limpeza da casa separa o
+  alvo da fixture quando os dois são a mesma forma (D282, D283)
 
 - **ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR** (09/10, D226). Medido: o
   `Terreno["legais"]` do motor ganhou `caixaViariaMinima_m`, `faceQuadraMaxima_m`,
