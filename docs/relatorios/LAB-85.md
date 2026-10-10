@@ -170,4 +170,9 @@ do D278, agora num `slice`.
   (o pedido no lugar errado por 46 prompts) e **D286** (a pergunta decide o instrumento);
 - **o gatilho NÃO foi religado**, e nada em repositório vizinho;
 - **a página do Jonny ganhou a §11**, que é o único desbloqueio de verdade desta rodada;
-- **verde:** o comando único, **conferido aqui, não no GitHub**.
+- **verde:** o comando único, **conferido aqui, não no GitHub** — **933** travas na esteira e
+  **17** no `testfit`, 7 passos, `exit 0`. A lista do CI sem os clones foi de 520 a **535**, em
+  **32** arquivos: a trava desta decisão é limpa de clone, e **remedida por execução**, 32 de 32
+  passam sem os clones;
+- **conta dos itens abertos:** **16 → 15**, por entrega, nos cinco lugares que a contam mais a
+  §4-A do `CLAUDE.md`; e o `verde.yml` entrou como o **oitavo lugar** da varredura por lugar.
