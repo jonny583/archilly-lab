@@ -7400,3 +7400,125 @@ que eu ia publicar* (a lição do LAB-59, aplicada a mim mesma uma rodada depois
 
 **E a classe é a de sempre:** régua minha acusando o vizinho, **quatro vezes** agora com o número
 acusador saído da minha ponte ou do meu veredicto (D98, D104, D166, D254).
+
+---
+
+## D255 · O ALCANCE medido: 2 de 67 provas eram remedidas da fonte, e a TERCEIRA classe é o achado · 10/10/2026
+
+**Item 012, LAB-79.** O item mandou **medir antes de construir**, e o motivo é a frase dele:
+
+> **Lista que cresce é dívida visível. Trava que confere consigo mesma é dívida invisível — e ela
+> sai VERDE.**
+
+Medido o universo, **mecanicamente** — a lista de quem cita quem sai da leitura dos arquivos de
+teste, não da minha memória:
+
+| quantas | como se confere | o que isso quer dizer |
+|---|---|---|
+| **2** | remedida da fonte, com escopo publicado | só as duas do LAB-49 (`escopo-do-detector.ts`) |
+| **18** | remedida em parte, **sem escopo declarado** | alguma trava confere algo, e **qual parte não está publicada** |
+| **23** | **só a forma** | a §7 confere que as **chaves** existem. *Forma não é número* |
+| **24** | **sem trava nenhuma** | não é "aprovada": é **não lida** |
+
+2 + 18 + 23 + 24 = **67**. **Sessenta e cinco de sessenta e sete não tinham escopo publicado.**
+
+**Depois do LAB-79: 7 / 17 / 21 / 23 de 68** (o universo ganhou a prova deste prompt, que se
+inclui — e isso fica dito, porque prova que mede provas conta a si mesma).
+
+### A divisão que o item sugeriu não cobriu todas, e isso era o achado que ele pediu
+
+O item propôs **duas** classes — *estado de agora* (regerável) e *evento* (nunca) — e disse: *"se
+essa divisão não couber em alguma prova, **ela é o achado** — escreva qual e por quê, em vez de
+forçá-la."*
+
+Não couberam, e o contra-exemplo é de **um prompt atrás**. A prova do LAB-78 mede lotes de um
+plano gerado pelo motor de um **vizinho**, num commit dele. Ela *parece* estado de agora. Mas
+regerá-la **muda o sujeito**: o LAB-59 mediu com `motor-testfit` em `4181e95`, o LAB-78 rodou em
+`6cf6396`, e **dois dos quatro lotes deixaram de existir**.
+
+> **PROVA MEDIDA CONTRA O CLONE DE UM VIZINHO NÃO É ESTADO DE AGORA NEM EVENTO: ela afirma o
+> presente DE OUTRO REPOSITÓRIO, num commit dele.** Regerá-la em silêncio não atualiza a
+> medição — **troca a pergunta** e some com a resposta antiga.
+
+São **três** classes, e a terceira só se regera **declarando o commit do vizinho**. É a mesma
+lição do carimbo do LAB-68 e do segundo eixo do LAB-74, agora aplicada a *quando* uma prova pode
+ser reescrita. `podeSerRegerada` diz **não por padrão** e exige o commit declarado — a fronteira
+do D182 em código, e **o D182 não se afrouxa de madrugada**.
+
+### O que entrou, e o critério da escolha é declarado
+
+Cinco provas ganharam escopo publicado (`escopo-remedido.ts`), escolhidas **por critério e não
+por gosto**: são as cujos números saem de **módulos deste repositório**, sem clone vizinho e sem
+motor — portanto remedíveis dentro da trava, de graça, a cada verde. As que exigem rede, clone ou
+motor saem `naoMedida` **com o motivo**, que é sempre custo ou dependência, nunca comodidade.
+
+**E cada `medida` é implementada na trava**, com trava própria para isso: declaração que diz
+`medida` e não remede nada seria a dívida invisível **com mais código**.
+
+**A trava não escreve em `docs/provas/`** — e há trava que confere isso **no `import`** dela, não
+no texto.
+
+---
+
+## D256 · A trava nova pegou uma prova VELHA na primeira execução — e era a mais viva da casa · 10/10/2026
+
+**Não foi num teste sintético: foi no repositório.** Ao implementar a remedição do
+`item-004/conta-dos-disparos.json`, a trava reprovou na hora:
+
+```
+a prova dizia  5 disparos · 1 em vazio
+a conta viva dizia  14 disparos · 4 em vazio
+```
+
+**A prova estava velha desde 09/10** e **nada no verde reprovava isso** — exatamente o defeito que
+o item 012 nomeou, e exatamente a forma do D195 (a prova do LAB-57 dizia 1 e a ferramenta dizia
+10, e saiu verde).
+
+E a ironia mede o problema: **é a prova mais viva do repositório**. A conta dos disparos cresce a
+cada hora, por desenho. Uma prova que afirma um número que muda sozinho e que ninguém reconfere
+**envelhece entre o commit e o café**.
+
+Ela é `estado-de-agora`, então a divisão permite regerá-la: `bun run lab71`, e a prova passou a
+dizer 14 e 4. **O D182 não foi tocado** — nenhuma prova de evento foi reescrita.
+
+> **Prova de ESTADO cujo número cresce sozinho precisa de remedição, não de revisão.** Revisão é
+> alguém lembrar; remedição é o verde não deixar passar.
+
+### E ela envelheceu DUAS VEZES na mesma rodada — o que prova o ponto melhor que o argumento
+
+Depois de regerá-la (14 e 4), eu acrescentei a linha das 05:06 na conta — o disparo que trouxe
+este próprio item. A conta foi a **15**, a prova ficou em **14**, e **a trava reprovou de novo**,
+no mesmo prompt.
+
+**Isto não é um tropeço: é a medida do problema.** Uma prova cujo número muda a cada hora
+envelhece **entre duas edições do mesmo commit**. Nenhuma disciplina humana cobre isso; só uma
+régua que roda no verde cobre.
+
+E sai uma regra de ORDEM, que é prática e não filosófica:
+
+> **Prova de estado se regera DEPOIS da última edição da fonte, nunca antes.** No fluxo desta
+> casa: primeiro a linha na conta dos disparos, depois `bun run lab71`. Regerar antes produz uma
+> prova que nasce velha — exatamente o que o D195 mediu no LAB-57.
+
+---
+
+## D257 · A trava que proíbe escrever em disco ACUSOU A SI MESMA — terceira vez da família · 10/10/2026
+
+A fronteira do item 012 diz: *"pare se a trava nova quiser **escrever** dentro de
+`docs/provas/`"*. Escrevi a trava disso assim: ela lê o próprio fonte, tira os comentários, e
+confere que a palavra `writeFileSync` não aparece.
+
+**Ela reprovou.** O fonte contém a palavra **porque é ela que a proíbe** — o literal está no
+`expect`.
+
+É a **terceira** vez desta família nesta casa: o D142 (a régua leu a **menção** da palavra, não o
+`import`), o D155 (a régua leu o **comentário** que explicava o conserto) e agora esta. E o
+conserto já estava escrito na §6, com estas palavras:
+
+> *quando a régua procura um nome em código, procure-o **no lugar da gramática onde ele significa
+> aquilo** (num `import`, não no arquivo inteiro).*
+
+Escrever em disco exige **importar** o escritor. Então a régua passou a casar a **linha do
+`import` de `node:fs`** e a exigir que ela traga exatamente `readFileSync`, `readdirSync` e
+`statSync` — nada mais. *Régua que lê o arquivo inteiro mede o que o código DIZ; régua que lê o
+`import` mede o que ele PODE FAZER.*

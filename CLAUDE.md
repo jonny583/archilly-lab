@@ -434,7 +434,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu VINTE E TRÊS vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu VINTE E QUATRO vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -462,6 +462,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D248 (item 010) | "o adendo não traz a regra dos 15 m escrita" | traz: está `**15\n> metros**` — quebra de linha, `>` e negrito dentro do número, e **o conserto já existia inline noutro teste** |
 | D250 (item 010) | "cinco das sete glebas não declaram acesso, e nenhuma diz o segmento" | são **três** sem acesso e **uma DIZ** o segmento: eu li duas das quatro fixtures e completei de cabeça |
 | D254 (item 011) | "a faixa do Generate não está na frente deste lote — é alcance" | a faixa cobre **100 %** da face declarada; quem estava **13,18 m fora** era o LOTE, e o booleano da projeção não diz de quem é a culpa |
+| D257 (item 012) | "esta trava escreve em `docs/provas/` — tem `writeFileSync` no fonte" | tem a PALAVRA porque é ela que a **proíbe**: o literal está no `expect`. Terceira vez da família do D142 — a régua tem de ler o **`import`**, não o arquivo |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -473,25 +474,25 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**As vinte e três, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
+**As vinte e quatro, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
 classe, com a decisão nomeada para qualquer um refazer a conta:
 
 | quantas | a classe | quais |
 |---|---|---|
-| **TREZE** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155, D217, D231, D240, D245, D248, D254 |
+| **QUATORZE** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155, D217, D231, D240, D245, D248, D254, D257 |
 | **QUATRO** | a ponte ou a ida do Lab corrompendo a medição | D18, D98, D119, D166 |
 | **DUAS** | caminho errado de leitura | D135, D190 |
 | **TRÊS** | a minha cabeça, contando de memória o que estava impresso ao lado | D161, D185, D250 |
 | **UMA** | dado que faltava, e não número que mudou | D133 |
 
-13 + 4 + 2 + 3 + 1 = **23**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
+14 + 4 + 2 + 3 + 1 = **24**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
 três foram caminho errado" até 08/10/2026, e 9 + 2 + 3 = 14:** duas das dezesseis não tinham
 classe, e a frase se lia como partição. Medido e refeito no LAB-63, com guarda que soma
 (D212). Ela também citava **D104** e **D175** como membros, e nenhuma das duas é linha da
 tabela — elas são decisões *irmãs*, citadas no texto abaixo, e não ocorrências do ponto cego.
 
-**DEZESSETE** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137,
-D142, D148, D155, D166, D185, D190, D217, D231, D240, D245, D248, D250, D254).
+**DEZOITO** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137,
+D142, D148, D155, D166, D185, D190, D217, D231, D240, D245, D248, D250, D254, D257).
 
 **A décima oitava é a nona da sub-família da régua que varre texto, e ela tem lição nova: o
 conserto entrou em UM instrumento só.** A Central mandou o `<app>` do cabeçalho virar o nome do
@@ -542,7 +543,7 @@ consertar**, porque o comentário do conserto **citava** o defeito: varredura es
 texto de código mede **o que o código faz** e **o que ele diz sobre si**, e só uma delas é
 o objeto.
 
-**A regra que as vinte e três ensinam, e ela é curta:**
+**A regra que as vinte e quatro ensinam, e ela é curta:**
 
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
 > você está lendo**; antes de dizer que um número mudou, confira se ele
@@ -557,7 +558,7 @@ o objeto.
 > e não de quem declarou a regra (D98, D104, D166); e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
 > onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
-> rótulo, e três das vinte e três vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> rótulo, e três das vinte e quatro vezes eu classifiquei pelo nome em vez de medir (D148, D155,
 > D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
 > e quando a régua procura um **valor** (um commit, um id, um código), olhe o **valor inteiro**
 > do campo e não o texto em volta — **fronteira de palavra num nome composto não é fronteira de
@@ -570,8 +571,10 @@ o objeto.
 > extensão"* responde **onde**, e só o **quanto** responde **de quem** — a projeção dizia que o
 > lote estava fora da divisa e eu ia acusar a faixa do vizinho; medidos os **13,18 m** além da
 > ponta, quem estava fora era o lote (D254).
-> **Vinte e três de vinte e três vezes o defeito estava do MEU lado — na régua, na ponte, no
-> caminho ou na minha cabeça — antes de estar no medido**, e em NOVE delas a régua era o teste
+> e a régua que proíbe uma CAPACIDADE olha o `import`, não o texto: *régua que lê o arquivo
+> inteiro mede o que o código DIZ; régua que lê o `import` mede o que ele PODE FAZER* (D257).
+> **Vinte e quatro de vinte e quatro vezes o defeito estava do MEU lado — na régua, na ponte, no
+> caminho ou na minha cabeça — antes de estar no medido**, e em DEZ delas a régua era o teste
 > que eu acabara de escrever.
 
 **E há um irmão do ponto cego que não é defeito meu nem do medido, e custa igual** (D184):
@@ -639,7 +642,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 427 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 452 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê
