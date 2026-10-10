@@ -285,8 +285,8 @@ e agora se sabe que ela é um piso **de um universo maior do que o válido**.
 | a prova | `docs/provas/LAB-77/acesso-sugerido.json` |
 | as duas perguntas dele | `docs/PENDENCIAS_JONNY.md` §9 |
 
-**VERDE: 7 passos, `exit 0`. Conferido aqui, não no GitHub.** O `guardas-sem-clones` do CI vai de
-**366 para 404**.
+**VERDE: 806 travas na esteira + 17 no testfit, 7 passos, `exit 0`. Conferido aqui, não no
+GitHub.** O `guardas-sem-clones` do CI vai de **366 para 412**.
 
 **Decisões: D248** (o normalizador num lugar só), **D249** (a esquina é das ruas, e a recusa é a
 entrega), **D250** (eu contei as glebas de memória, e a ferramenta me corrigiu), **D251** (a régua
