@@ -146,7 +146,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 821 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 846 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no

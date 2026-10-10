@@ -188,8 +188,8 @@ Escrever em disco exige **importar** o escritor. A régua passou a casar a linha
 | a ferramenta | `external-engines/esteira/ferramentas/lab79.ts` · `bun run lab79` |
 | a prova | `docs/provas/LAB-79/alcance-das-provas.json` |
 
-**VERDE: 7 passos, `exit 0`. Conferido aqui, não no GitHub.** O `guardas-sem-clones` do CI vai de
-**427 para 452**.
+**VERDE: 846 travas na esteira + 17 no testfit, 7 passos, `exit 0`. Conferido aqui, não no
+GitHub.** O `guardas-sem-clones` do CI vai de **427 para 452**.
 
 **Decisões: D255** (o alcance medido e a terceira classe), **D256** (a trava pegou uma prova velha
 na primeira execução), **D257** (a trava acusou a si mesma, e a régua passou a ler o `import`).
