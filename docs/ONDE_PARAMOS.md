@@ -5,7 +5,7 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-83 (item 016) — **o carimbo
-do clone passa a sair do MÓDULO RESOLVIDO, e a divergência é a notícia** (D276 a D279) ·
+do clone passa a sair do MÓDULO RESOLVIDO, e a divergência é a notícia** (D276 a D281) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -81,9 +81,10 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 16:06 | entregue-em-lote | idem | não houve rodada |
 | 10/10/2026 | 17:05 | entregue-em-lote | idem | não houve rodada |
 | 10/10/2026 | 18:05 | entregue-em-lote | idem — e foi nesta rodada que os sete chegaram juntos | item 016 (LAB-83) |
+| 10/10/2026 | 19:06 | observado | chegou na hora, **com o item 016 ainda em voo** — a caixa só esvaziou às 19:17, quando a renomeação para `016-FEITO` entrou no commit | item 016 (LAB-83), fechado nesta hora |
 
 ```
-disparos observados: 21 · em vazio: 5 · entregues em lote: 7
+disparos no registro: 29 · observados: 20 · derivados: 2 · entregues em lote: 7 · em vazio: 5
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05
@@ -96,10 +97,35 @@ de vazio nessas sete horas — **houve uma sessão que não recebeu**.
 > *"eu não estava ouvindo"* — e a conta existe para decidir o intervalo, então uma leitura trocada
 > aqui faz o chat esticar o intervalo pelo motivo errado.
 
+**E ESSA CLASSE NOVA FICOU SETE HORAS INVISÍVEL PARA A PRÓPRIA GUARDA** (D281). A régua que lê
+esta tabela casava a coluna de origem com `[a-z]+`, e **`[a-z]+` para no hífen**: das 29 linhas,
+**22 eram parseadas e 7 se perdiam** — exatamente as da classe nova. *Vocabulário que cresce e
+régua de linha que não cresce com ele fica cega exatamente na classe NOVA, a única que ninguém
+ainda sabe ler.* E o verde passava, porque o total declarado era comparado com o total de linhas e
+as sete eram invisíveis **para os dois lados** da comparação. Consertado, e **os números por classe
+deixaram de ser prosa**: a linha dos totais traz um número para cada origem, e cada um é conferido
+contra as linhas dela.
+
 **A coluna de origem ganhou um terceiro valor, `entregue-em-lote`**, e ele não se confunde com os
 dois antigos: `observado` é disparo que esta sessão recebeu **na hora**, `derivado` sai do `cron`,
 e `entregue em lote` é disparo que **chegou atrasado, junto de outros**. *Classe nova que se
 mistura com a velha apaga a medição das duas.*
+
+**E O DISPARO DAS 19:06 NÃO É EM VAZIO, por um fio de doze minutos** (D280). Ele chegou **na
+hora**, e no instante em que chegou a caixa **ainda tinha o `016.md`**: a renomeação para
+`016-FEITO` só entrou no commit `5489c23`, às **19:17**. Lido às 19:18, a caixa já estava vazia —
+e é essa leitura, **onze minutos depois do fato**, que diria *"caixa vazia"* se eu olhasse só o
+disco de agora.
+
+> **A caixa que decide a classe de um disparo é a de QUANDO ELE DISPAROU, não a de quando eu o
+> leio.** Entre as duas há o tempo da rodada anterior, e é justamente nele que a caixa esvazia —
+> *por obra minha*. Classificar pela caixa de agora faz a minha própria entrega virar prova de que
+> o chat não abastece.
+
+A §1-A já manda o que fazer com ele: *"um prompt por despertador — se o anterior não fechou,
+termine-o antes de começar qualquer coisa nova."* Foi o que aconteceu, e por isso a linha dele
+aponta para o **item 016**, e não para `despertador-sem-item`: **ele é o disparo sob o qual o
+LAB-83 fechou.** A conta em vazio fica em **5**.
 
 **E o disparo das 10:06 achou a `main` VERMELHA, pela primeira vez desde que esta conta existe** —
 não por código meu, mas pela **colisão de número**: o item novo chegou como `013.md` e o
@@ -1765,7 +1791,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 507 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 513 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
