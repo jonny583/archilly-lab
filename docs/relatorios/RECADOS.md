@@ -1394,3 +1394,17 @@ varre por comprimento de arco, trata recusa como null, e instabilidadeDaOrdem j�
 oscilação muda a ORDEM dos motores?", que é a pergunta 2 do item). Refazer aquilo seria a segunda
 montagem do D116. O que faltava não era a curva: era o universo de posições válidas.
 ```
+
+---
+
+## 10/10/2026 · despertador-sem-item — a caixa esgotou às 02:05Z
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo às 02:05Z com a CAIXA VAZIA — os dez itens estão feitos, conferido no disco e na origin/main. Data anotada na conta (12 disparos, 3 em vazio), despertador NÃO TOCADO, e eu durmo (§1-A, D244).
+Feito: —
+Achados para outros apps ou Central: —
+Depende do Jonny: as duas perguntas do acesso, na §9 da página dele (9-A os 15 m vs. 25 m, 9-B linha reta vs. divisa) — continuam abertas e não decidi nenhuma.
+Próximo na fila: nada; aguardando item novo na caixa.
+=== FIM ===
+```

@@ -5,7 +5,7 @@
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
 **Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-77 (item 010 + adendo) —
-**a esquina é das RUAS, e a sugestão se recusa a sair** (D249) ·
+**a esquina é das RUAS, e a sugestão se recusa a sair** (D249) · **a caixa esgotou às 02:05Z** ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -64,9 +64,10 @@ enquanto eu trabalhava no 001"*).
 | 09/10/2026 | 23:05 | observado | **nada na caixa** — os sete feitos | recado de uma linha; e o `008` entrou às 23:08:55Z, pego na mesma rodada → item 008 (LAB-75) |
 | 10/10/2026 | 00:05 | observado | item 009 pronto (e o `010` + o `010-adendo` já na caixa) | item 009 (LAB-76) |
 | 10/10/2026 | 01:05 | observado | item 010 pronto, com o adendo | item 010 (LAB-77) |
+| 10/10/2026 | 02:05 | observado | **nada na caixa** — os dez feitos | recado de uma linha, e dormir |
 
 ```
-disparos observados: 11 · em vazio: 2
+disparos observados: 12 · em vazio: 3
 ```
 
 **DOIS em vazio de nove, e a série já diz algo:** o chat abasteceu **sete itens em oito horas** e
