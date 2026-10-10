@@ -22,6 +22,7 @@ import { join } from "node:path";
 import {
   MARCAS_DE_CONTRAEXEMPLO,
   NUMEROS_EM_PALAVRA,
+  lerNumeroEmPalavra,
   conferirAritmeticaDoPontoCego,
   varrerContraexemplosNasDecisoes,
 } from "../src/varredura-do-que-eu-aceitei.ts";
@@ -149,5 +150,48 @@ describe("LAB-63 · onde o contraexemplo NÃO está", () => {
 
   test("o vocabulário das marcas é fechado, e não vazio", () => {
     expect(MARCAS_DE_CONTRAEXEMPLO.length).toBeGreaterThanOrEqual(6);
+  });
+});
+
+/**
+ * O LEITOR COMPOSITIVO DE NÚMERO EM PALAVRA. (LAB-77, D251)
+ *
+ * A §6 chegou a `VINTE E DUAS` e **a régua do total devolveu `null`** — ela procurava a palavra
+ * inteira num mapa que ia até `vinte`, e o regex capturava UMA palavra só. A trava do total
+ * **deixou de medir em silêncio**, que é a forma de falha mais cara desta casa (D110, D123, e o
+ * `exit 0, 0 testes` do item 003).
+ *
+ * > **Régua que conta até vinte numa lista que cresce é régua com data de validade.**
+ */
+describe("o número em palavra, inclusive COMPOSTO (D251)", () => {
+  test("o que não compõe continua vindo do mapa", () => {
+    expect(lerNumeroEmPalavra("dezenove")).toBe(19);
+    expect(lerNumeroEmPalavra("vinte")).toBe(20);
+    expect(lerNumeroEmPalavra("duas")).toBe(2);
+  });
+
+  test("compõe dezena e unidade — o caso que derrubou a guarda", () => {
+    expect(lerNumeroEmPalavra("vinte e duas")).toBe(22);
+    expect(lerNumeroEmPalavra("VINTE E DUAS")).toBe(22);
+    expect(lerNumeroEmPalavra("vinte e três")).toBe(23);
+    expect(lerNumeroEmPalavra("trinta e uma")).toBe(31);
+  });
+
+  test("atravessa a quebra de linha e o espaço repetido", () => {
+    expect(lerNumeroEmPalavra("vinte   e\n duas")).toBe(22);
+  });
+
+  test("RECUSA o que não é número em português — não soma por soar parecido", () => {
+    expect(lerNumeroEmPalavra("dez e seis")).toBe(null);
+    expect(lerNumeroEmPalavra("vinte e trinta")).toBe(null);
+    expect(lerNumeroEmPalavra("vinte e vinte")).toBe(null);
+    expect(lerNumeroEmPalavra("e duas")).toBe(null);
+    expect(lerNumeroEmPalavra("banana")).toBe(null);
+  });
+
+  test("a §6 de hoje é lida pela régua, e o total NÃO é nulo", () => {
+    const a = conferirAritmeticaDoPontoCego(secao6);
+    expect(a.totalDeclarado).not.toBe(null);
+    expect(a.totalDeclarado).toBe(a.linhasDaTabela.length);
   });
 });

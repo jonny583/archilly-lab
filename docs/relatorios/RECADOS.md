@@ -1327,3 +1327,70 @@ entrar um quinto motor que entrega quadra, uma inclui e a outra não". Não foi 
 no código que decide o que entra nas medições. Por enquanto há TRAVA cobrando que as duas
 respostas coincidam. Se você quiser, é um prompt de uma linha.
 ```
+
+---
+
+## 10/10/2026 · LAB-77 — item 010 + adendo: a esquina é das ruas, e a sugestão se recusa a sair
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-77 (item 010 + adendo) ===
+Estado: FEITO. As cinco regras do acesso que o Jonny ditou estão em código, conferidas por trava: sugestão nunca ordem, posição sem rua não é posição, faixa de esquina POR PARÂMETRO (15 m padrão, 25 m documentado ao lado), a escolha dele atravessa sempre, e a regra 5 vai ao Generate porque é tela. MAS A SUGESTÃO SE RECUSA A SAIR, e essa recusa é a entrega — explico no achado. As duas perguntas que o adendo manda NÃO decidir estão na §9 da página dele, em português de gente, com a minha recomendação ao lado. 010.md e 010-adendo.md viraram FEITO. VERDE: 7 passos, exit 0 — CONFERIDO AQUI, NÃO NO GITHUB; o CI sem clones vai de 366 a 404. Decisões D248, D249, D250, D251.
+Feito: O ACHADO NÃO ERA ÓBVIO E MUDA O ITEM: a faixa de esquina NÃO É GEOMETRIA DO ANEL, É GEOMETRIA DAS RUAS. Esquina é onde duas RUAS se encontram, não onde o anel da gleba muda de direção — um vértice entre uma face de rua e o muro do vizinho não é esquina, é canto de terreno. Logo AS DUAS METADES do universo de posições que o adendo define (as faces com via, E a faixa de esquina) dependem do MESMO dado. E esse dado não existe: medido nas glebas, ZERO delas dizem quais faces dão para via pública, e O CAMPO NÃO EXISTE NO CONTRATO v1 — não está vazio, não há onde. Lido depressa, o adendo me faria tratar todo vértice como esquina, e a faixa morderia cantos que não são esquina de nada. Está demonstrado por trava num quadrado com uma só face de rua: com a face 0 sozinha, NENHUMA esquina; com as faces 0 e 1, UMA; com 0 e 2 (opostas), nenhuma; com as quatro, quatro. E são SETE GLEBAS, não cinco: o item diz "as cinco glebas-padrão" duas vezes, e a lista tem sete desde o LAB-45.
+Achados para outros apps ou Central: (1) POR ISSO A SUGESTÃO SE RECUSA A SAIR, E ISSO É A ENTREGA, NÃO A FALTA DELA. O adendo chama acesso proposto sobre a divisa do vizinho de "o pior tipo de sugestão: plausível e impossível". Eu podia ter varrido o perímetro e publicado uma curva bonita — era o que o 010 pedia ANTES do adendo —, e com o adendo aquela curva é um gerador de sugestões impossíveis. ENTRE UMA MEDIÇÃO QUE SAI COM PREMISSA INVENTADA E UMA RECUSA QUE NOMEIA O DADO QUE FALTA, A RECUSA É A QUE SE PODE AUDITAR. A máquina está pronta e provada NOS DOIS LADOS: dado o campo, a frase sai no formato dele ("se o acesso mudar para cá, você ganha 12 lotes", singular para um lote) e NÃO sai quando o ganho é zero ou negativo, porque mudança sem ganho é ruído. Falta o dado, não a máquina. (2) O QUE SE PÔDE MEDIR SEM O DADO É UM INTERVALO, e intervalo é medição: a regra da esquina tira entre 0 % e 4,40 % do perímetro no ensaio-47ha (4 vértices) e entre 0 % e 22,48 % no sintetico-10ha-plano (10 vértices), com faixa de 15 m. Piso zero, teto no caso de todo vértice ser esquina. Número único inventado não seria medição. (3) TRÊS DEFEITOS MEUS, OS TRÊS PEGOS DENTRO DO PROMPT, e o §6 foi a VINTE E DUAS: (a) a minha trava REPROVOU O ADENDO CERTO procurando "15 metros", porque no arquivo está "**15\n> metros**" — quebra de linha, marca de citação E negrito dentro do número; quarta vez da forma, E O CONSERTO JÁ EXISTIA inline dentro de outro teste, escrito no LAB-75, e eu reescrevi o erro por não saber que estava lá. CONSERTO QUE MORA DENTRO DE UM TESTE CONSERTA UM TESTE: subiu para src/texto-das-regras.ts e as duas travas o chamam (D248); (b) EU CONTEI AS GLEBAS DE MEMÓRIA — escrevi "cinco das sete não declaram acesso, nenhuma diz o segmento" e são TRÊS sem acesso e UMA que DIZ; li duas das quatro fixtures e completei de cabeça, a forma do D185. A ferramenta me corrigiu, e o erro rendeu um dado que eu não teria achado: o "segmento" do contrato é um TRECHO da divisa {a,b}, não um índice de face — então o contrato já tem idioma para localizar coisa na divisa, e é esse idioma que o campo novo deve seguir (D250); (c) A RÉGUA QUE CONTA AS OCORRÊNCIAS DO PONTO CEGO PAROU DE MEDIR EM SILÊNCIO ao a §6 chegar a VINTE E DUAS: o regex pegava UMA palavra e o mapa ia até "vinte", então o total saiu null — e COM TOTAL NULO A TRAVA DA SOMA NÃO DISPARA. Terceira vez da pior forma desta casa (D110, D123, e o "exit 0, 0 testes" do item 003): nas três, nada falhou — NADA MEDIU. Consertada por COMPOSIÇÃO e não por mais um literal, porque acrescentar "vinte e duas" ao mapa consertaria este prompt e quebraria no próximo — e o próximo é certo (D251).
+Depende do Jonny: DUAS perguntas, na §9 da página dele, e NÃO decidi nenhuma. 9-A: como se reconhece que a gleba "pega a quadra toda" (o que separa os 15 m dos 25 m) — minha recomendação é quando o terreno tiver RUA EM VOLTA DE TODOS OS LADOS, e até ele responder o laboratório usa 15 m E DIZ QUE USOU. 9-B: se a faixa se mede EM LINHA RETA ou ANDANDO PELA DIVISA — hoje o código mede em linha reta e isso está DECLARADO para ninguém confundir com decisão dele; minha recomendação é a divisa, porque é o que o fiscal mede com a trena e a linha reta pode cortar por fora da calçada em divisa de viés.
+Próximo na fila: a caixa está VAZIA — o 010 era o último, e foi reconferida CONTRA A ORIGEM na hora de enviar (D238). O despertador FICA COMO ESTÁ (§1-A, D244): eu não o toquei. Decisões até D251. Clones: os três com 0 alterações. Chão: Bun 1.4.2.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+PARA O ARCHILLY GENERATE — lista numerada, porque este repositório nunca escreve no vizinho (§4):
+
+1. CRIAR NO CONTRATO DE ENTRADA O CAMPO QUE DIZ ONDE HÁ VIA PÚBLICA. É o que falta para
+   qualquer sugestão de acesso existir — nas sete glebas medidas, ZERO declaram isso, e não é
+   que esteja vazio: não há campo. Recomendo seguir o idioma que o contrato JÁ TEM para
+   localizar coisa na divisa — o `segmento: {a, b}` que o ensaio-com-promessas usa —, e NÃO
+   índice de face: índice quebra quando o anel é reamostrado, trecho não.
+2. A TELA EM QUE O USUÁRIO ESCOLHE DE QUAIS RUAS ACEITA ACESSO. É a regra 5 do Jonny, nas
+   palavras dele: "seria interessante o usuário de alguma forma poder escolher as ruas que ele
+   permite o acesso." A ideia nasceu aqui e o lugar dela é lá — este laboratório não tem tela.
+3. ONDE A SUGESTÃO APARECE, quando o campo existir: ela é uma frase com número — "se o acesso
+   mudar para cá, você ganha N lotes" — e NUNCA uma correção do que o usuário escolheu. A
+   posição dele fica no topo da lista, como "a sua".
+
+PARA O GEO (urban-scout-tool) — uma linha:
+
+4. NENHUM DOS SETE TERRENOS DIZ QUAIS LADOS TÊM RUA. É a mesma forma da nascente que não viaja:
+   quando o campo existir no contrato, alguém tem de preenchê-lo na captação.
+
+AS CINCO REGRAS DELE, E O QUE CADA UMA VIROU EM CÓDIGO:
+
+| regra | o que virou |
+|---|---|
+| 1 · é sugestão, nunca ordem | devolve uma FRASE DE GANHO, nunca veredicto; o acesso dele nunca é alterado |
+| 2 · posição sem rua não é posição | as faces com via são ENTRADA DECLARADA OBRIGATÓRIA; sem ela, recusa tudo com motivo nomeado |
+| 3 · não se faz acesso perto de esquina | faixa POR PARÂMETRO, 15 m padrão, 25 m documentado — e trava que REPROVA 15 ou 25 escrito no corpo de qualquer função |
+| 4 · se ele escolher a esquina, deixa | a posição dele ATRAVESSA SEMPRE, até sem o dado declarado |
+| 5 · ele escolhe de quais ruas aceita | não é do laboratório: é tela, e virou o item 2 da lista acima |
+
+O LIMITE DA REGRA DA ESQUINA, por gleba (piso 0, teto se todo vértice fosse esquina):
+
+| gleba | vértices | faixa 15 m | faixa 25 m |
+|---|---|---|---|
+| ensaio-47ha · com-promessas · com-testada | 4 | 0 a 4,40 % | 0 a 7,28 % |
+| geo-antonina | 20 | 0 a 10,96 % | 0 a 18,14 % |
+| completo | 20 | 0 a 11,47 % | 0 a 19,14 % |
+| sintetico-50ha-ondulado | 14 | 0 a 14,38 % | 0 a 23,97 % |
+| sintetico-10ha-plano | 10 | 0 a 22,48 % | 0 a 37,42 % |
+
+E UMA RESSALVA QUE A MEDIÇÃO ANTIGA NÃO TINHA: a amplitude do acesso que o LAB-19 e o LAB-28
+publicam foi medida varrendo o PERÍMETRO INTEIRO — que o adendo agora diz ser o universo ERRADO.
+Ela continua sendo um piso, e agora se sabe que é um piso DE UM UNIVERSO MAIOR QUE O VÁLIDO:
+parte das posições que entraram naquela conta está sobre a divisa do vizinho. "Entrada que
+ninguém variou é premissa disfarçada de dado", diz o item; variar uma entrada por valores
+IMPOSSÍVEIS é a mesma doença com o sinal trocado.
+
+O QUE EU NÃO REFIZ, e por quê: a curva da sensibilidade ao acesso JÁ EXISTE (sensibilidadeAoAcesso
+varre por comprimento de arco, trata recusa como null, e instabilidadeDaOrdem já responde "a
+oscilação muda a ORDEM dos motores?", que é a pergunta 2 do item). Refazer aquilo seria a segunda
+montagem do D116. O que faltava não era a curva: era o universo de posições válidas.
+```

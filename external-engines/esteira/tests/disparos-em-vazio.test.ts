@@ -14,6 +14,8 @@
  * reprovar o caso ruim, os dois demonstrados.* Os dois estão aqui.
  */
 import { describe, expect, test } from "bun:test";
+
+import { comoARegraSeLe } from "../src/texto-das-regras.ts";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -89,12 +91,10 @@ describe("item 004 · a conta dos disparos do despertador", () => {
     // prompts é padrão, não azar.*
     // E a marca do bloco de citação (`>`) também sobrevive à normalização do espaço: a frase
     // está dentro de um `>`, quebrada em duas linhas, e o `>` cai no meio dela. Tira-se os dois.
-    const semQuebra = (t: string): string =>
-      t
-        .split("\n")
-        .map((l) => l.replace(/^\s*>\s?/, ""))
-        .join(" ")
-        .replace(/\s+/g, " ");
+    // O normalizador SUBIU para `src/texto-das-regras.ts` no LAB-77 (D248): ele estava aqui,
+    // inline, e a trava do item 010 reescreveu o mesmo erro por não saber que o conserto
+    // existia. Conserto que mora dentro de um teste conserta um teste.
+    const semQuebra = comoARegraSeLe;
     for (const [onde, texto] of [["§1-A", claudeMd], ["a regra da caixa", comoFunciona]] as const) {
       expect(texto, `${onde} não nomeia o desempate`).toContain("D244");
       expect(semQuebra(texto), `${onde} não traz a lição da regra que passou a travar`).toContain(

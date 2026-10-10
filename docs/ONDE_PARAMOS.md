@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-76 (item 009) — **o
-registro de motores: DUAS das três coisas da D68 já existiam** (D246) ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-77 (item 010 + adendo) —
+**a esquina é das RUAS, e a sugestão se recusa a sair** (D249) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -63,9 +63,10 @@ enquanto eu trabalhava no 001"*).
 | 09/10/2026 | 22:05 | observado | item 007 pronto | item 007 (LAB-74) |
 | 09/10/2026 | 23:05 | observado | **nada na caixa** — os sete feitos | recado de uma linha; e o `008` entrou às 23:08:55Z, pego na mesma rodada → item 008 (LAB-75) |
 | 10/10/2026 | 00:05 | observado | item 009 pronto (e o `010` + o `010-adendo` já na caixa) | item 009 (LAB-76) |
+| 10/10/2026 | 01:05 | observado | item 010 pronto, com o adendo | item 010 (LAB-77) |
 
 ```
-disparos observados: 10 · em vazio: 2
+disparos observados: 11 · em vazio: 2
 ```
 
 **DOIS em vazio de nove, e a série já diz algo:** o chat abasteceu **sete itens em oito horas** e
@@ -207,6 +208,88 @@ medida em uma hora: desligar teria deixado o item parado.*
 
 **O estado do despertador NÃO se repete aqui** — ele mora na *conta dos disparos*, no alto deste
 arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D234).
+
+# 🚪 O ACESSO SUGERIDO: a esquina é das RUAS, e a sugestão se RECUSA a sair (item 010 + adendo)
+
+**LAB-77, 10/10/2026.** O Jonny ditou **cinco regras do acesso** em 09/10 às 20h12, e elas
+**mudaram a natureza do item 010**: o que era medição de sensibilidade passou a ter **regra
+urbanística por trás**. As cinco estão em código, conferidas por trava.
+
+## O achado, e ele não era óbvio
+
+> **A faixa de esquina não é geometria do ANEL: é geometria das RUAS.**
+
+**Esquina é onde duas ruas se encontram**, não onde o anel muda de direção. Vértice entre uma face
+de rua e o muro do vizinho **não é esquina** — é canto de terreno. Logo **as DUAS metades** do
+universo de posições (as faces com via, e a faixa de esquina) dependem do **mesmo** dado.
+
+**E esse dado não existe:**
+
+```
+7 glebas · 4 declaram algum acesso · 3 declaram NENHUM · 1 diz o segmento ·
+0 dizem quais faces dão para via pública
+```
+
+**ZERO das sete**, e o campo **não existe no contrato v1** — não está vazio, não há onde. É achado
+sobre as **glebas** e sobre o **contrato**, como o relevo que nenhuma delas trazia.
+
+*(E são **sete**, não cinco: o item diz "as cinco glebas-padrão" duas vezes, e a lista tem sete
+desde o LAB-45.)*
+
+## Por isso a sugestão se recusa a sair — e isso é a ENTREGA
+
+O adendo chama acesso proposto sobre a divisa do vizinho de *"o pior tipo de sugestão: plausível e
+impossível"*. Varrer o perímetro e publicar a curva seria um gerador daquilo.
+
+> **Entre uma medição que sai com premissa inventada e uma recusa que nomeia o dado que falta, a
+> recusa é a que se pode auditar.**
+
+A máquina está pronta e provada nos **dois** lados: dado o campo, sai *"se o acesso mudar para cá,
+você ganha N lotes"* — na frase dele, singular para um lote — e **não** sai quando o ganho é zero
+ou negativo. **Falta o dado, não a máquina.**
+
+## O que se pôde medir sem o dado: um intervalo
+
+| gleba | vértices | faixa 15 m | faixa 25 m |
+|---|---|---|---|
+| `ensaio-47ha` · `com-promessas` · `com-testada` | 4 | 0 a **4,40 %** | 0 a **7,28 %** |
+| `geo-antonina` | 20 | 0 a **10,96 %** | 0 a **18,14 %** |
+| `completo` | 20 | 0 a **11,47 %** | 0 a **19,14 %** |
+| `sintetico-50ha-ondulado` | 14 | 0 a **14,38 %** | 0 a **23,97 %** |
+| `sintetico-10ha-plano` | 10 | 0 a **22,48 %** | 0 a **37,42 %** |
+
+Piso **zero** (nenhum vértice é encontro de duas ruas), teto no caso de **todos** serem.
+*Intervalo é medição; número único inventado não é.*
+
+**Os 15 e os 25 não moram na lógica:** há trava que varre o corpo de cada `export function`, sem
+comentários, e **reprova os dois números**. Só as constantes do topo podem dizê-los — elas *são* o
+padrão de fábrica. A faixa em uso é **15 m, declarada**, porque o adendo manda usar 15 e **dizer
+que usou**.
+
+## Dele, e NÃO decidido: a §9 da página do Jonny
+
+**9-A** como se reconhece que a gleba ocupa a quadra inteira (15 m vs. 25 m) — minha
+recomendação: **rua em volta de todos os lados**. **9-B** se a faixa se mede em linha reta ou
+**ao longo da divisa** — hoje é linha reta e está **declarado**; minha recomendação é a divisa,
+*é o que o fiscal mede com a trena*. **9-C** a regra 5 (o usuário escolhendo de quais ruas aceita
+acesso) **é tela** e já está na lista do Generate.
+
+## E TRÊS defeitos meus, os três pegos dentro do prompt
+
+- **a trava reprovou o adendo CERTO** (D248): procurava `"15 metros"` e o arquivo tem
+  `**15\n> metros**` — quebra, `>` e negrito dentro do número. Quarta vez da forma, **e o conserto
+  já existia inline noutro teste**. Subiu para `src/texto-das-regras.ts`: *conserto que mora
+  dentro de um teste conserta um teste*;
+- **eu contei as glebas de memória** (D250): escrevi "cinco sem acesso, nenhuma com segmento", e
+  são **três** sem acesso e **uma com**. Li duas das quatro fixtures e completei de cabeça — a
+  forma do D185. O achado (zero com faces-com-via) não mudou;
+- **a régua do ponto cego PAROU DE MEDIR em silêncio** (D251) ao a §6 chegar a `VINTE E DUAS`: o
+  regex pegava uma palavra só e o mapa ia até `vinte`, então o total saiu `null` — e com total
+  nulo **a trava da soma não dispara**. Terceira vez da pior forma desta casa (D110, D123, item
+  003). Consertada por **composição**, não por mais um literal.
+
+Relatório: [`relatorios/LAB-77.md`](relatorios/LAB-77.md) · prova:
+[`provas/LAB-77/acesso-sugerido.json`](provas/LAB-77/acesso-sugerido.json) · `bun run lab77`
 
 # ⚙️ O REGISTRO DE MOTORES: seis motores, quatro ligados, e o padrão tem UM nome (item 009, D68)
 
@@ -1466,7 +1549,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 366 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 404 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
