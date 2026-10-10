@@ -39,6 +39,10 @@ const base: LoteAcusado = {
   projecaoDentroDaDivisa: false,
   alemDaFaceDeclarada_m: 13.18,
   coberturaDaFacePct: 100,
+  // As duas larguras da faixa, com os números MEDIDOS em Antonina: idênticas, porque a faixa
+  // cresce para fora da divisa. É o controle, e ele viaja no molde.
+  aFaixaDe8_m: 0.19,
+  aFaixaDe10_m: 0.19,
 };
 
 const com = (p: Partial<LoteAcusado>): LoteAcusado => ({ ...base, ...p });
@@ -125,7 +129,7 @@ describe("`faixa-alcance` SÓ sai com cobertura menor que 100 % — o conserto d
   test("a LARGURA é controle e tem de sair indiferente — medido 0,19 = 0,19", () => {
     // Em Antonina a faixa de 8 m e a de 10 m deixam o lote à MESMA distância, porque a faixa
     // cresce para FORA da divisa. Se este veredicto saísse, a geometria errada seria a minha.
-    const v = deQuemEhAViolacao(com({ aFaixaDe8_m: 0.19, aFaixaDe10_m: 0.19 } as Partial<LoteAcusado>));
+    const v = deQuemEhAViolacao(com({ aFaixaDe8_m: 0.19, aFaixaDe10_m: 0.19 }));
     expect(v.veredicto).not.toBe("faixa-largura");
   });
 });
