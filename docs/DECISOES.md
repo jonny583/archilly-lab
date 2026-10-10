@@ -7484,6 +7484,22 @@ dizer 14 e 4. **O D182 não foi tocado** — nenhuma prova de evento foi reescri
 > **Prova de ESTADO cujo número cresce sozinho precisa de remedição, não de revisão.** Revisão é
 > alguém lembrar; remedição é o verde não deixar passar.
 
+### E ela envelheceu DUAS VEZES na mesma rodada — o que prova o ponto melhor que o argumento
+
+Depois de regerá-la (14 e 4), eu acrescentei a linha das 05:06 na conta — o disparo que trouxe
+este próprio item. A conta foi a **15**, a prova ficou em **14**, e **a trava reprovou de novo**,
+no mesmo prompt.
+
+**Isto não é um tropeço: é a medida do problema.** Uma prova cujo número muda a cada hora
+envelhece **entre duas edições do mesmo commit**. Nenhuma disciplina humana cobre isso; só uma
+régua que roda no verde cobre.
+
+E sai uma regra de ORDEM, que é prática e não filosófica:
+
+> **Prova de estado se regera DEPOIS da última edição da fonte, nunca antes.** No fluxo desta
+> casa: primeiro a linha na conta dos disparos, depois `bun run lab71`. Regerar antes produz uma
+> prova que nasce velha — exatamente o que o D195 mediu no LAB-57.
+
 ---
 
 ## D257 · A trava que proíbe escrever em disco ACUSOU A SI MESMA — terceira vez da família · 10/10/2026

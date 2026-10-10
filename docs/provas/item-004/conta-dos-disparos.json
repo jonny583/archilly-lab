@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-10T05:14:33.177Z",
+  "quando": "2026-10-10T05:30:30.783Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -123,10 +123,18 @@
         "achou": "**nada na caixa** — os onze feitos",
         "rodada": "recado de uma linha, e dormir",
         "emVazio": true
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "05:06",
+        "origem": "observado",
+        "achou": "item 012 pronto (o chat o escreveu às 04h55)",
+        "rodada": "item 012 (LAB-79)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "observados": 14,
+      "observados": 15,
       "emVazio": 4
     },
     "emVazio": 4,

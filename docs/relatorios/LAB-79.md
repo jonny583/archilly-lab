@@ -72,8 +72,22 @@ hora**, por desenho.
 > **Prova de ESTADO cujo número cresce sozinho precisa de remedição, não de revisão.** Revisão é
 > alguém lembrar; remedição é o verde não deixar passar.
 
-Ela é `estado-de-agora`, então a divisão permite regerá-la: `bun run lab71`, e passou a dizer 14 e
-4. **Nenhuma prova de evento foi reescrita** (D256).
+Ela é `estado-de-agora`, então a divisão permite regerá-la: `bun run lab71`. **Nenhuma prova de
+evento foi reescrita** (D256).
+
+### E ela envelheceu DUAS VEZES na mesma rodada
+
+Regerada (14 e 4), eu acrescentei a linha das **05:06** na conta — o disparo que trouxe este
+próprio item. A conta foi a **15**, a prova ficou em **14**, e **a trava reprovou de novo, no
+mesmo prompt**. O verde completo voltou `844 pass · 2 fail`, e as duas eram esta.
+
+**Não é um tropeço: é a medida do problema.** Uma prova cujo número muda a cada hora envelhece
+**entre duas edições do mesmo commit** — nenhuma disciplina humana cobre isso. E sai uma regra de
+ordem, prática:
+
+> **Prova de estado se regera DEPOIS da última edição da fonte, nunca antes.** Aqui: primeiro a
+> linha na conta dos disparos, depois `bun run lab71`. Regerar antes produz uma prova que **nasce
+> velha** — exatamente o que o D195 mediu no LAB-57.
 
 ---
 
