@@ -111,9 +111,50 @@ jobs:
             tests/nome-do-trabalho.test.ts
 
   # ── O VERDE de verdade — e por que ele falha até alguém configurar ────────
+  #
+  # ══════════════════════════════════════════════════════════════════════════
+  #  ELE NÃO ENTRA NO GATILHO AUTOMÁTICO ENQUANTO FALTAR O SEGREDO. (LAB-85,
+  #  item 018, D284) — e o `if:` abaixo é essa decisão, escrita no arquivo.
+  # ══════════════════════════════════════════════════════════════════════════
+  #
+  # O D221 achou a pergunta: o D124 está certo em FALHAR COM A RECEITA em vez de
+  # pular; o que estava errado era AGENDAR um trabalho que só pode falhar.
+  #
+  # MEDIDO na API do Actions, e duas premissas se moveram:
+  #   · os "136 minutos, 50 % de tudo" são minutos-trabalho CONSUMIDOS, não
+  #     dinheiro: `billable.UBUNTU.total_ms` = ZERO em 3 execuções de 3 dias
+  #     diferentes (37751994616, 37751249491, 37713910680). Repositório público,
+  #     `ubuntu-latest` gratuito e não medido. Novembro custa R$ 0 em qualquer
+  #     caminho, então a escolha NÃO é de dinheiro;
+  #   · este trabalho dura 5 a 7 s e a precondição falha 3 a 4 s depois do
+  #     início; todo o resto sai `skipped`. Ele nunca clona, nunca instala,
+  #     nunca roda a suíte.
+  #
+  # ENTÃO O CUSTO NÃO É MINUTO, É SINAL: 136 de 136 execuções terminaram em
+  # `failure`, sempre no mesmo passo. Um sinal que ficou vermelho 136 de 136
+  # vezes não é alarme, é ruído de fundo — e isso concilia o D221 com a frase da
+  # §7 ("um CI vermelho por falta de configuração é honesto"): o vermelho por
+  # falta de configuração é honesto UMA VEZ; repetido 136 vezes sem nada mudar,
+  # deixou de informar.
+  #
+  # POR QUE PELO EVENTO E NÃO PELO SEGREDO: o contexto `secrets` NÃO existe num
+  # `if:` de trabalho, e condicioná-lo ao segredo exigiria um TERCEIRO trabalho
+  # só para lê-lo — que eu não posso demonstrar com o CI desligado. Entre dois
+  # consertos, o que se pode demonstrar vale mais do que o que só se afirma.
+  #
+  # A MARCA E O PRAZO, porque condição sem marca é desligamento calado:
+  #   · a marca é esta caixa, e a pendência do VIZINHOS_TOKEN na página do
+  #     Jonny (docs/PENDENCIAS_JONNY.md §11) — ela diz POR QUE ele está fora;
+  #   · o prazo é um EVENTO e não uma data: no dia em que o segredo existir, a
+  #     pendência é marcada como resolvida e ESTE `if:` TEM DE SAIR.
+  #   · HÁ TRAVA nos dois sentidos: tests/o-que-o-gatilho-carrega.test.ts.
+  #
+  # À MÃO ELE CONTINUA INTEIRO: `workflow_dispatch` está ligado, e é por ele que
+  # este trabalho roda — nada foi apagado e nada "pula" (D124 intacto).
   verde-completo:
     name: o verde completo (precisa do segredo VIZINHOS_TOKEN)
     runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
     steps:
       - uses: actions/checkout@v4
         with:

@@ -4,9 +4,10 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-84 (item 017) — **as trinta
-e uma por EXECUÇÃO, e o nome do trabalho de CI volta a ser verdade** (D282, D283) · antes dele o
-LAB-83 (item 016), o carimbo saindo do MÓDULO RESOLVIDO (D276 a D281) ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-85 (item 018) — **o que o
+gatilho carrega, e a conta que decidia estava na UNIDADE ERRADA** (D284 a D286) · antes dele o
+LAB-84 (item 017), as trinta e uma por execução (D282, D283), e o LAB-83 (item 016), o carimbo
+saindo do módulo resolvido (D276 a D281) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -84,9 +85,10 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 18:05 | entregue-em-lote | idem — e foi nesta rodada que os sete chegaram juntos | item 016 (LAB-83) |
 | 10/10/2026 | 19:06 | observado | chegou na hora, **com o item 016 ainda em voo** — a caixa só esvaziou às 19:17, quando a renomeação para `016-FEITO` entrou no commit | item 016 (LAB-83), fechado nesta hora |
 | 10/10/2026 | 20:05 | observado | item 017 pronto (o chat o escreveu às 19h58, 7 min depois do disparo anterior) | item 017 (LAB-84) |
+| 10/10/2026 | 21:05 | observado | item 018 pronto (o chat o escreveu às 20h55) | item 018 (LAB-85) |
 
 ```
-disparos no registro: 30 · observados: 21 · derivados: 2 · entregues em lote: 7 · em vazio: 5
+disparos no registro: 31 · observados: 22 · derivados: 2 · entregues em lote: 7 · em vazio: 5
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05

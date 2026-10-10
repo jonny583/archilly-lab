@@ -1,3 +1,46 @@
+> ✅ **FEITO no LAB-85**, em 10/10/2026, no despertador das 21:05. Relatório em
+> [`../relatorios/LAB-85.md`](../relatorios/LAB-85.md), prova em
+> `docs/provas/LAB-85/o-que-o-gatilho-carrega.json`, decisões **D284 a D286**.
+>
+> **Você pediu o número de novembro, e novembro desmontou a premissa — que era MINHA.** Medido na
+> API do Actions, em 3 execuções de 3 dias: `billable.UBUNTU.total_ms` é **ZERO** nas três. Os
+> *"136 minutos, 50 % de tudo"* do meu D221 são minutos-**trabalho consumidos**, não dinheiro —
+> este repositório é público e `ubuntu-latest` em repositório público é gratuito e não medido, o
+> que a §7 já dizia com outras palavras. **Novembro custa R$ 0 nos três caminhos**, então a escolha
+> não é de dinheiro e eu não precisei parar na fronteira.
+>
+> **E o trabalho condenado custa 5 a 7 segundos**, com a precondição falhando 3 a 4 s depois do
+> início e todo o resto `skipped`: ele nunca clona, nunca instala, nunca roda a suíte.
+>
+> **O custo real é o SINAL, e ele reconcilia duas frases desta casa que pareciam brigar:** 136 de
+> 136 em `failure`, sempre no mesmo passo. *Um sinal que ficou vermelho 136 de 136 vezes não é
+> alarme, é ruído de fundo* — e o *"CI vermelho por falta de configuração é honesto"* da §7 está
+> certo **uma vez**; repetido 136 vezes sem nada mudar, deixou de informar.
+>
+> **A decisão: o gatilho carrega só o trabalho 1**, pelo **evento** e não pelo segredo — o contexto
+> `secrets` **não existe num `if:` de trabalho**, e condicioná-lo ao segredo exigiria um terceiro
+> trabalho que eu **não posso demonstrar** com o CI desligado. *Entre dois consertos, o que eu posso
+> demonstrar nesta máquina vale mais do que o que eu só posso afirmar* — e era disso que você
+> avisava ao chamar a condicional de quinta forma de desligar. Com **marca** (a caixa do arquivo e a
+> §11 da página dele) e **prazo em forma de EVENTO** (o segredo nascer), guardados **nos dois
+> sentidos**. **O gatilho não foi religado.**
+>
+> **E a sua afirmação de passagem estava errada, e é o achado mais útil da rodada:** *"o segredo
+> está na página de pendências desde o LAB-38"* — **não estava.** `VIZINHOS_TOKEN` está em 16
+> arquivos e a página do Jonny **não é um deles**; *"token"* aparece **zero** vezes nela. O LAB-38
+> pediu no **relatório**, e escreveu que *"a receita está no log do próprio workflow"* — dois
+> lugares que ele nunca lê, e um deles sem rodar desde 08/10. **Quarenta e seis prompts** com a
+> única coisa desta decisão que depende de uma pessoa escrita no lugar errado. *Pedido que mora só
+> num relatório não chega a quem decide* — e a prova de que não chega é que **você o citou como
+> feito** (D285). Está na **§11** agora, para leigo.
+>
+> **E a trava nova acusou a decisão CORRETA na primeira versão:** a régua de texto achou a palavra
+> `if:` dentro do comentário que explica a condição. Oitava da família do D142/D155/D257, e no mesmo
+> dia em que eu a escrevi como decisão. *A pergunta decide o instrumento: "tem condição?" é do YAML;
+> "a condição está explicada?" é do texto* (D286).
+
+---
+
 # 018 — O D221 VIROU URGENTE PORQUE A SUA PRÓPRIA TRAVA PÔS DATA NELE: decida o que o gatilho carrega ANTES de 1º/11
 
 **Da direção, 10/10/2026, 20h55 UTC. Rodada do chão.**

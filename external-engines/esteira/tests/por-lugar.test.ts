@@ -30,20 +30,22 @@ const ler = (p: string): string | null => {
 };
 
 describe("item 007 · a varredura por LUGAR, e a lista está escrita", () => {
-  test("O LADO BOM: os SETE lugares existem e cada um ainda traz a sua marca", () => {
-    expect(LUGARES).toHaveLength(7);
+  test("O LADO BOM: os OITO lugares existem e cada um ainda traz a sua marca", () => {
+    // 7 → 8 no LAB-85: o `verde.yml` passou a ter uma coisa parada com condição de volta (D284).
+    expect(LUGARES).toHaveLength(8);
     expect(conferirOsLugares(ler).map((p) => `${p.tipo}: ${p.oQue}`)).toEqual([]);
   });
 
   /**
    * **A conta que corrige o item 006.** Lá eu publiquei *"zero de quinze"* — as quinze eram as
-   * etiquetas de **um** lugar. Por lugar são **vinte e duas** condições em **sete** lugares, e o
+   * etiquetas de **um** lugar. Por lugar são **vinte e duas** condições em **oito** lugares, e o
    * veredicto (nenhuma é CONTA) sobreviveu; a cobertura não. *O meu "zero" estava certo por não
    * haver nenhuma, não por a varredura alcançar.*
    */
-  test("são VINTE E DUAS condições em sete lugares, e a varredura de frase alcançava QUINZE", () => {
-    expect(QUANTAS_CONDICOES.naFila).toBe(16);
-    expect(QUANTAS_CONDICOES.foraDaFila).toBe(6);
+  test("são VINTE E DUAS condições em OITO lugares, e a varredura de frase alcançava QUINZE", () => {
+    expect(QUANTAS_CONDICOES.naFila).toBe(15);
+    // 6 → 7 no LAB-85: o oitavo lugar é o `verde.yml`, e ele não é a FILA.
+    expect(QUANTAS_CONDICOES.foraDaFila).toBe(7);
     expect(QUANTAS_CONDICOES.total).toBe(22);
     // O número da varredura de FRASE é HISTÓRICO — o que ela alcançou no item 006 — e por isso
     // NÃO anda quando a `FILA.md` anda.
