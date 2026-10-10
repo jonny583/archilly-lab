@@ -10,9 +10,11 @@
  */
 
 import { describe, expect, test } from "bun:test";
+import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { medirOEscopo, remedirAProva } from "../src/escopo-da-varredura.ts";
 import {
   REGRAS_DE_CONFIGURACAO,
   varrerConfiguracao,
@@ -22,6 +24,26 @@ const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const PROVA = join(RAIZ, "docs", "provas", "LAB-57", "varredura-de-configuracao.json");
 const PACOTES = ["external-engines/esteira", "external-engines/testfit"] as const;
 const ler = (rel: string) => readFileSync(join(RAIZ, rel), "utf8");
+
+/**
+ * O escopo RECONTADO na árvore de agora — o universo começa no `git ls-files`, que é o
+ * LUGAR, e não numa lista escrita aqui: *lista à mão não vê o arquivo que nasceu depois
+ * dela*, e aí a trava fica verde por não ter olhado.
+ *
+ * **Sem rede e sem clone vizinho:** o `ls-files` é deste repositório, e a varredura lê
+ * arquivos dele. Custa ~0,3 s, e é por isso que a forma escolhida foi recontar e não
+ * comparar carimbos — *o carimbo do disco não é o do git, e numa sessão nova todo arquivo
+ * tem a data do checkout* (D287).
+ */
+const escopoDeAgora = () => {
+  const carregados = execFileSync("git", ["-C", RAIZ, "ls-files", "-z"], {
+    encoding: "utf8",
+    maxBuffer: 64 * 1024 * 1024,
+  })
+    .split("\0")
+    .filter((f) => f.length > 0);
+  return medirOEscopo(carregados, ler);
+};
 
 describe("LAB-57 · o lint REPROVA aviso, nos dois pacotes", () => {
   for (const pacote of PACOTES) {
@@ -107,9 +129,21 @@ describe("LAB-57 · as regras e o escopo", () => {
       declarados: Record<string, string>;
       regras: { nome: string; achados: number }[];
     };
-    expect(p.escopo["configuracoesEncontradas"]).toBeGreaterThan(20);
-    expect(p.escopo["configuracoesVarridas"]).toBeGreaterThan(5);
-    expect(p.escopo["linhasDeCodigoLidas"]).toBeGreaterThan(10000);
+    // ── O LIMIAR SAIU, E A RECONTAGEM ENTROU (LAB-86, D287) ───────────────
+    //
+    // Aqui estava `configuracoesEncontradas > 20`, `configuracoesVarridas > 5` e
+    // `linhasDeCodigoLidas > 10000`. **Medido ao abrir o item 019: a prova commitada dizia
+    // 128 arquivos de código e 36 157 linhas, e a mesma árvore dizia 187 e 50 714** — velha
+    // por semanas, e os três limiares passavam folgados.
+    //
+    // > **Régua que confere uma prova com `maior que` aceita qualquer prova velha que já
+    // > fosse grande o bastante quando nasceu.** O limiar mede se o número é PLAUSÍVEL; só a
+    // > recontagem mede se ele é VERDADE — e num repositório que cresce, o limiar fica mais
+    // > frouxo a cada commit, sem ninguém mexer nele.
+    //
+    // A recontagem vive no `src/escopo-da-varredura.ts`, a MESMA função que a ferramenta
+    // chama: duas implementações da mesma pergunta divergiriam (D231).
+    expect(remedirAProva(p.escopo, escopoDeAgora().numeros)).toEqual([]);
     expect(p.regras.length).toBe(REGRAS_DE_CONFIGURACAO.length);
     // Tudo que ficou fora tem motivo escrito — é o que separa "não achei" de "não procurei".
     for (const l of p.porArquivo) {
@@ -121,6 +155,68 @@ describe("LAB-57 · as regras e o escopo", () => {
     for (const [k, porque] of Object.entries(p.declarados)) {
       expect(porque.length, `${k}: declarado sem motivo é omissão com nome bonito`).toBeGreaterThan(40);
     }
+  });
+
+  /**
+   * ── OS DOIS SENTIDOS DA RECONTAGEM (item 019, D287) ──────────────────────
+   *
+   * O item pediu os dois, com a sabotagem: a trava tem de **reprovar** uma prova gerada
+   * antes de uma edição, e **passar calada** na prova gerada depois.
+   *
+   * **E o caso válido que quase parece inválido está aqui**, porque ele é o que mata este
+   * tipo de vigia: a prova que **não mudou porque nada que ela mede mudou** PASSA. Uma régua
+   * que exigisse carimbo mais novo a cada commit reprovaria a árvore correta, e *vigia que
+   * nasce vermelho vira ruído e morre.*
+   */
+  test("O LADO RUIM: prova com UM número velho REPROVA, e diz qual", () => {
+    const agora = escopoDeAgora().numeros;
+    // O estrago é exatamente o do D204: o número que a prova carrega é o de UMA EDIÇÃO
+    // ATRÁS. Aqui, uma linha de código a menos.
+    const velha = { ...agora, linhasDeCodigoLidas: agora.linhasDeCodigoLidas - 1 };
+    const achou = remedirAProva(velha, agora);
+    expect(achou).toHaveLength(1);
+    expect(achou[0]?.chave).toBe("linhasDeCodigoLidas");
+    expect(achou[0]?.naProva).toBe(agora.linhasDeCodigoLidas - 1);
+    expect(achou[0]?.naArvore).toBe(agora.linhasDeCodigoLidas);
+  });
+
+  test("O LADO RUIM: o número que o LIMIAR deixava passar REPROVA agora", () => {
+    // Este é o caso MEDIDO: a prova commitada dizia 128 arquivos e 36 157 linhas, e a árvore
+    // dizia 187 e 50 714. Os limiares (`> 20`, `> 5`, `> 10000`) passavam folgados nos três.
+    const agora = escopoDeAgora().numeros;
+    const comoEstavaNoDisco = {
+      ...agora,
+      arquivosDeCodigoVarridos: 128,
+      arquivosQueOGitCarrega: 364,
+      linhasDeCodigoLidas: 36157,
+    };
+    const achou = remedirAProva(comoEstavaNoDisco, agora);
+    expect(achou.map((x) => x.chave).sort()).toEqual([
+      "arquivosDeCodigoVarridos",
+      "arquivosQueOGitCarrega",
+      "linhasDeCodigoLidas",
+    ]);
+    // E a régua VELHA, aqui inline, aprovava os três — é o que prova que havia defeito.
+    expect(comoEstavaNoDisco.linhasDeCodigoLidas).toBeGreaterThan(10000);
+    expect(comoEstavaNoDisco.arquivosDeCodigoVarridos).toBeGreaterThan(20);
+  });
+
+  test("O LADO RUIM: chave que a prova NÃO TRAZ é velha, e não 'igual'", () => {
+    // Prova de um formato antigo, sem a chave. Faltar não é bater — *zero é medição, null é
+    // "não medi"* (D23), e aqui a ausência tem de reprovar.
+    const agora = escopoDeAgora().numeros;
+    const semAChave: Record<string, unknown> = { ...agora };
+    delete semAChave["regras"];
+    expect(remedirAProva(semAChave, agora).map((x) => x.chave)).toEqual(["regras"]);
+  });
+
+  test("O LADO BOM que quase parece ruim: prova que não mudou porque NADA mudou PASSA", () => {
+    // Duas recontagens seguidas na mesma árvore batem — então a trava não reprova a árvore
+    // correta só porque houve um commit. É isto que separa a recontagem do carimbo.
+    const a = escopoDeAgora().numeros;
+    const b = escopoDeAgora().numeros;
+    expect(remedirAProva(a, b)).toEqual([]);
+    expect(a).toEqual(b);
   });
 
   test("as duas formas que NÃO existem aqui saem como ZERO MEDIDO", () => {

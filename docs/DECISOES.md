@@ -8633,3 +8633,121 @@ A conferência da marca lia `workflow.slice(i - 1800, i + 200)`. **Dependia do t
 comentário** — e cresceria para mentira no dia em que alguém escrevesse mais uma linha ali. Passou a
 sair de uma âncora declarada no arquivo. *Janela medida em caracteres é coincidência com prazo de
 validade* — a mesma doença do D264 e do D278, agora num `slice`.
+
+---
+
+## D287 · RÉGUA QUE CONFERE UMA PROVA COM `MAIOR QUE` ACEITA QUALQUER PROVA VELHA QUE JÁ FOSSE GRANDE O BASTANTE QUANDO NASCEU · 10/10/2026
+
+O item 019 trouxe a **D204** — *"prova gerada antes da última edição do que ela mede é prova
+velha"* — e a primeira coisa foi remedir, antes de uma linha de conserto. **O defeito estava
+VIVO**, e pior do que o D204 descreveu: não era uma edição de atraso, eram semanas.
+
+| o que a prova commitada do LAB-57 dizia | o que a MESMA árvore dizia | atraso |
+|---|---|---|
+| 364 arquivos que o git carrega | **498** | 26,9 % do número de hoje |
+| 128 arquivos de código varridos | **187** | 31,6 % |
+| 36 157 linhas de código lidas | **50 714** | 28,7 % |
+| 662 linhas de configuração lidas | **761** | 13,0 % |
+
+**E ela também carregava dois caminhos mortos** — `symbios/archilly/probe/target/` e
+`wasm-probe/target/` —, diretórios de compilação que não existem mais.
+
+### Por que a trava não pegou, e é isto que a decisão nomeia
+
+A trava **lia** a prova e conferia com **limiar**: `configuracoesEncontradas > 20`,
+`configuracoesVarridas > 5`, `linhasDeCodigoLidas > 10000`. Uma prova congelada em 36 157 linhas
+passa `> 10000` **para sempre**.
+
+> **Régua que confere uma prova com `maior que` aceita qualquer prova velha que já fosse grande o
+> bastante quando nasceu.** O limiar mede se o número é **plausível**; só a recontagem mede se ele
+> é **verdade** — e num repositório que cresce, *o limiar fica mais frouxo a cada commit, sem
+> ninguém mexer nele.*
+
+É a família do **D164** vista de outro lado: ali o perigo era o zero de régua parada ser
+indistinguível do zero de árvore limpa; aqui é o **número grande de ontem** ser indistinguível do
+número certo de hoje.
+
+### A forma escolhida: RECONTAR e comparar — e o motivo de não ser o carimbo
+
+O item ofereceu duas e pediu o motivo escrito:
+
+| forma | o veredicto, medido |
+|---|---|
+| **recontar e comparar** *(escolhida)* | o universo desta varredura é o `git ls-files` **deste** repositório: sem clone, sem rede, sem motor. Recontar custa **~0,3 s** e a comparação é **exata**, número por número |
+| comparar carimbos | **o carimbo do disco não é o do git.** Numa sessão nova todo arquivo tem a data do checkout, e a comparação vira **vácuo** — *guarda que não acha o objeto não está aprovando: está sem medir nada* (D213). O item avisou, e o vácuo cai exatamente onde a trava mais precisaria valer: no CI, depois de um checkout limpo |
+
+**E a recontagem responde de graça o caso válido que quase parece inválido**, que o item nomeou: a
+prova que **não mudou porque nada que ela mede mudou** passa — os números batem. *Uma régua que
+exigisse carimbo mais novo a cada commit reprovaria a árvore correta, e vigia que nasce vermelho
+vira ruído e morre.*
+
+### A medição mora num lugar só, e isso foi exigência do item
+
+A conta estava **dentro da ferramenta**, e escrever a recontagem dentro da trava criaria duas
+implementações da mesma pergunta. *Duas listas para a mesma pergunta divergem* — o item chamou pelo
+nome, e o **D231** já cobrou esta casa por meio conserto aplicado num instrumento só. Então a
+medição saiu para `src/escopo-da-varredura.ts`, e **a ferramenta e a trava chamam a mesma função.**
+
+### Demonstrado de ponta a ponta, nos dois sentidos
+
+- **o lado ruim:** plantada uma linha num arquivo que a prova mede, **sem regerar a prova** — a
+  trava reprovou **nomeando a chave**: `linhasDeCodigoLidas`, na prova **50 714**, na árvore
+  **50 716**. O arquivo foi devolvido byte a byte, `sha256` conferido;
+- **o lado bom:** duas recontagens seguidas na mesma árvore batem, e a trava passa calada.
+
+**E o mecanismo se provou DENTRO da própria rodada, sem eu plantar nada:** ao registrar o script
+`lab86` no `package.json` — que é um arquivo de configuração que a varredura lê — a recontagem
+acusou na hora, `760 → 761`. *A prova mais honesta de que um vigia funciona é ele acusar o trabalho
+de quem o estava escrevendo.*
+
+### O que o conserto NÃO resolve — e a trava me ensinou a versão EXATA, no mesmo verde
+
+Eu havia escrito aqui *"a prova tem de ser a última coisa gerada na rodada"*. **Medido: é mais
+estreito do que isso, e o verde me corrigiu.** Rodei o `lab57` como última ferramenta, commitei, e o
+verde reprovou:
+
+| número | na prova | na árvore, depois do commit |
+|---|---|---|
+| `arquivosQueOGitCarrega` | 498 | **502** |
+| `arquivosDeCodigoVarridos` | 187 | **188** |
+| `linhasDeCodigoLidas` | 50 716 | **50 914** |
+
+**O universo é o `git ls-files`, e o `git ls-files` muda no `git add`** — não quando o arquivo é
+escrito. Os quatro arquivos novos desta rodada estavam no disco mas **não rastreados** quando a
+prova foi gerada, e entraram no universo ao serem **adicionados**.
+
+> **A prova tem de ser gerada depois do `git add`, não depois da última edição.** *Quando o
+> universo de uma medição é "o que o git carrega", o instante que importa não é o da escrita: é o
+> do `add`* — e os dois estão a um comando de distância, o que torna o engano barato de cometer e
+> invisível sem recontagem.
+
+**E o que mudou de verdade é isto:** a ordem continua exigida, mas **deixou de ser disciplina e
+passou a ser guarda**. Era o silêncio o defeito do D204, não a ordem — e o silêncio acabou. *Guarda
+que não declara o próprio buraco mente pelo silêncio; esta declarou, errou a declaração, e a
+recontagem corrigiu a declaração dentro da mesma rodada.*
+
+---
+
+## D288 · RECONTAR O QUE DEPENDE DE FORA NÃO É MAIS RIGOR: É OUTRA MEDIÇÃO COM O NOME DA ANTIGA · 10/10/2026
+
+O item mandou a **medição decidir o tamanho** — a regra do item 016: *"item que reescreve setenta
+provas numa rodada é item que ninguém revisa."* Medido sobre as **74** provas desta casa:
+
+| quantas | a classe | o que decide |
+|---|---|---|
+| **11** | universo **dentro** desta casa | não citam clone vizinho, commit, semente nem gleba: a recontagem é barata, exata e sem rede. **É onde a forma cabe** |
+| **63** | dependem de **fora** | medem contra clone vizinho, commit de outro repositório, semente ou gleba |
+
+> **Recontar o que depende de fora não é mais rigor: é outra medição com o nome da antiga.**
+
+E isto não é opinião — é o **LAB-79** medido: *"prova medida contra o clone de um vizinho afirma o
+presente de OUTRO repositório, num commit dele. Regerá-la em silêncio não atualiza a medição —
+TROCA A PERGUNTA. O LAB-78 perdeu dois de quatro lotes exatamente assim, porque o motor andou de
+`4181e95` para `6cf6396`."*
+
+**Nesta rodada foi recontada UMA**: a do LAB-57, que é a que o D204 nomeou e a que o item pediu.
+As outras **dez** do universo de dentro são medição por prova — cada uma precisa que alguém decida
+*quais números dela são recontáveis* —, e isso foi para a `FILA.md` em vez de sair agora.
+
+*A fronteira do §7 foi reusada e nenhuma segunda lista nasceu, como o item exigiu: a classe de uma
+prova sai do que ela CITA, e a lista de exceções de medição continua sendo a do §7.*

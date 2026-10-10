@@ -153,6 +153,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
+    "LAB-86/a-prova-velha.json":
+      "mede as PROVAS desta casa e a forma de conferi-las — o defeito do D204 remedido na árvore de hoje, número por número, a forma escolhida com o motivo de recusar o carimbo, a demonstração nos dois sentidos e o alcance da recontagem —, não terreno: ela não roda motor, não lê gleba e não tem semente",
     "LAB-85/o-que-o-gatilho-carrega.json":
       "mede a CONFIGURAÇÃO do CI e o custo de cada caminho — o que o gatilho automático carrega quando ele voltar, com o cobrado e a duração de cada execução medidos na API do Actions e o id de cada uma para reconferir —, não terreno: ela não roda motor, não lê gleba e não tem semente",
     "LAB-84/as-trinta-por-execucao.json":

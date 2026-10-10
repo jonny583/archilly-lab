@@ -3,7 +3,7 @@
  2. [prompt-novo] ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR
  3. [aguardando-outro-repositorio] O PICO DE RAMPA QUE O PARCELAMENTO REPORTA, 109,51 % → 175,51 %
  4. [prompt-novo] O COMMIT DO CLONE VIZINHO EM TODA PROVA QUE O USE
- 5. [prompt-novo] A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO
+ 5. [prompt-novo] RECONTAR AS OUTRAS DEZ PROVAS DE UNIVERSO INTERNO
  6. [prompt-novo] O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER
  7. [prompt-novo] A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO
  8. [depois-do-mvp] Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes

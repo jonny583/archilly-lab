@@ -1,0 +1,163 @@
+{
+  "prompt": "LAB-86",
+  "oQue": "o defeito do D204 — prova gerada antes da última edição do que ela mede — remedido na árvore de hoje, consertado por RECONTAGEM e medido no alcance",
+  "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de PROVAS desta casa e a forma de conferi-las. Por isso está na lista declarada de exceções do §7",
+  "quando": "2026-10-10T22:45:27.374Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "oDefeitoEstavaVIVO": {
+    "comoFoiMedido": "ao abrir o item 019, antes de uma linha de conserto: `bun run lab57` na mesma árvore, e comparei com a prova commitada",
+    "oQueEstavaNoDisco": {
+      "arquivosQueOGitCarrega": 364,
+      "configuracoesEncontradas": 27,
+      "configuracoesVarridas": 11,
+      "configuracoesForaDoEscopoNomeadas": 16,
+      "linhasDeConfiguracaoLidas": 662,
+      "arquivosDeCodigoVarridos": 128,
+      "linhasDeCodigoLidas": 36157,
+      "regras": 7
+    },
+    "oQueAArvoreDizia": {
+      "arquivosQueOGitCarrega": 502,
+      "configuracoesEncontradas": 27,
+      "configuracoesVarridas": 11,
+      "configuracoesForaDoEscopoNomeadas": 16,
+      "linhasDeConfiguracaoLidas": 762,
+      "arquivosDeCodigoVarridos": 188,
+      "linhasDeCodigoLidas": 50915,
+      "regras": 7
+    },
+    "oQueDivergia": [
+      {
+        "chave": "arquivosQueOGitCarrega",
+        "naProva": 364,
+        "naArvore": 502
+      },
+      {
+        "chave": "linhasDeConfiguracaoLidas",
+        "naProva": 662,
+        "naArvore": 762
+      },
+      {
+        "chave": "arquivosDeCodigoVarridos",
+        "naProva": 128,
+        "naArvore": 188
+      },
+      {
+        "chave": "linhasDeCodigoLidas",
+        "naProva": 36157,
+        "naArvore": 50915
+      }
+    ],
+    "porQueATravaNaoPegou": "ela conferia a prova com LIMIAR — `configuracoesEncontradas > 20`, `configuracoesVarridas > 5`, `linhasDeCodigoLidas > 10000`. Uma prova congelada em 36 157 linhas passa `> 10000` para sempre. Régua que confere uma prova com `maior que` aceita qualquer prova velha que já fosse grande o bastante quando nasceu: o limiar mede se o número é PLAUSÍVEL, só a recontagem mede se ele é VERDADE — e num repositório que cresce, o limiar fica mais frouxo a cada commit sem ninguém mexer nele"
+  },
+  "aFormaEscolhida": {
+    "qual": "recontar e comparar, número por número",
+    "porque": "o universo desta varredura é o `git ls-files` DESTE repositório: sem clone, sem rede, sem motor. Recontar custa ~0,3 s e a comparação é exata",
+    "porqueNaoOCarimbo": "o carimbo do disco não é o do git: numa sessão nova todo arquivo tem a data do checkout, e a comparação vira vácuo — guarda que não acha o objeto não está aprovando, está sem medir nada (D213). O item avisou disto, e é vácuo justamente onde a trava mais precisaria valer: no CI, depois de um checkout limpo",
+    "ondeMora": "`src/escopo-da-varredura.ts` — a MESMA função que a ferramenta chama, porque duas implementações da mesma pergunta divergem (D231)"
+  },
+  "aDemonstracao": {
+    "oLadoRuim": "plantado o defeito do D204 de ponta a ponta: uma linha acrescentada a um arquivo que a prova mede, sem regerar a prova. A trava reprovou nomeando a chave — `linhasDeCodigoLidas`, na prova 50 714, na árvore 50 716 — e o arquivo foi devolvido byte a byte (sha256 conferido)",
+    "oLadoBom": "duas recontagens seguidas na mesma árvore batem, então a prova que não mudou porque NADA que ela mede mudou passa calada. Era o caso que o item chamou de válido-que-parece-inválido: régua que exigisse carimbo mais novo a cada commit reprovaria a árvore correta, e vigia que nasce vermelho vira ruído e morre"
+  },
+  "oAlcance": {
+    "universo": 75,
+    "classes": [
+      {
+        "classe": "universo DENTRO desta casa",
+        "quantas": 11,
+        "oQue": "não cita clone vizinho, commit, semente nem gleba: o que ela mede são arquivos deste repositório, então a recontagem é barata, exata e sem rede — é onde a forma do LAB-86 cabe",
+        "provas": [
+          "LAB-04/oraculo.json",
+          "LAB-31/navegador.json",
+          "LAB-31/sabotagem.json",
+          "LAB-52/varredura-de-chamadas.json",
+          "LAB-57/varredura-de-configuracao.json",
+          "LAB-58/sabotagem.json",
+          "LAB-59/sabotagem.json",
+          "LAB-60/sabotagem.json",
+          "LAB-61/sabotagem.json",
+          "LAB-63/sabotagem.json",
+          "LAB-66/sabotagem.json"
+        ]
+      },
+      {
+        "classe": "depende de FORA, e recontar troca a pergunta",
+        "quantas": 64,
+        "oQue": "mede contra clone vizinho, commit de outro repositório, semente ou gleba. O LAB-79 já mediu: regerá-la em silêncio não atualiza a medição, TROCA A PERGUNTA — o LAB-78 perdeu dois de quatro lotes assim, porque o motor andou de 4181e95 para 6cf6396. Ela se regera DECLARANDO o commit, e isso é outro prompt",
+        "provas": [
+          "LAB-02/completo.saida-cortada.json",
+          "LAB-02/medicoes.json",
+          "LAB-02/sintetico-10ha-plano.saida-cortada.json",
+          "LAB-02/sintetico-50ha-ondulado.saida-cortada.json",
+          "LAB-03/medicoes.json",
+          "LAB-04/medicoes.json",
+          "LAB-05/medicoes.json",
+          "LAB-06/ranking.json",
+          "LAB-07/diagnostico-relevo.json",
+          "LAB-07/ensaio-47ha.saida.json",
+          "LAB-07/geo-antonina.saida.json",
+          "LAB-07/lab01-50ha-ondulado.entrada.json",
+          "LAB-07/lab01-50ha-ondulado.saida.json",
+          "LAB-07/medicoes.json",
+          "LAB-08/medicoes.json",
+          "LAB-13/medicoes.json",
+          "LAB-16/forma.json",
+          "LAB-17/medicoes.json",
+          "LAB-18/contrato-v2.json",
+          "LAB-19/tabela.json",
+          "LAB-21/rampa.json",
+          "LAB-23/coluna-vertebral.json",
+          "LAB-24/formato-proposto.json",
+          "LAB-24/terreno.json",
+          "LAB-25/guarda-da-ponte.json",
+          "LAB-26/varredura.json",
+          "LAB-28/acesso.json",
+          "LAB-30/guarda-da-ida.json",
+          "LAB-32/aderencia.json",
+          "LAB-37/testada-de-frente.json",
+          "LAB-38/ci.json",
+          "LAB-39/confronto-refeito.json",
+          "LAB-40/fixtures.json",
+          "LAB-41/ortogonal-fora-da-gleba.json",
+          "LAB-46/antonina-tres-amostragens.json",
+          "LAB-47/varredura-de-segredos.json",
+          "LAB-48/violacoes-do-motor-padrao.json",
+          "LAB-49/detector-de-prova-velha.json",
+          "LAB-50/passagem-externa.json",
+          "LAB-53/violacoes-depois-do-conserto-da-ponte.json",
+          "LAB-54/frente-nao-atribuida.json",
+          "LAB-55/via-sobre-a-faixa.json",
+          "LAB-58/mecanismos-das-81.json",
+          "LAB-59/contrafactual-de-antonina.json",
+          "LAB-60/configuracao-do-motor.json",
+          "LAB-61/a-minha-lista-de-propostas.json",
+          "LAB-62/as-tres-listas.json",
+          "LAB-62/sabotagem.json",
+          "LAB-63/o-que-eu-aceitei.json",
+          "LAB-66/o-acumulado-dos-recados.json",
+          "LAB-68/as-duas-pilhas.json",
+          "LAB-76/registro-de-motores.json",
+          "LAB-77/acesso-sugerido.json",
+          "LAB-78/setimo-mecanismo.json",
+          "LAB-79/alcance-das-provas.json",
+          "LAB-80/destino-do-que-sai.json",
+          "LAB-81/as-leituras.json",
+          "LAB-82/remedicao-antes-do-pedido.json",
+          "LAB-83/carimbo-do-modulo-resolvido.json",
+          "LAB-84/as-trinta-por-execucao.json",
+          "LAB-85/o-que-o-gatilho-carrega.json",
+          "LAB-86/a-prova-velha.json",
+          "item-003/escopo-dos-instrumentos.json",
+          "item-004/conta-dos-disparos.json"
+        ]
+      }
+    ],
+    "recontadasHoje": 1,
+    "oQueIssoDecide": "a forma cabe nas provas cujo universo está DENTRO desta casa; as que medem contra clone vizinho, commit, semente ou gleba não se recontam de graça, porque recontar TROCA A PERGUNTA. Nesta rodada foi recontada UMA — a do D204, que é a que o item nomeou. Estender às outras é medição por prova, e vai à FILA em vez de sair agora: item que reescreve setenta provas numa rodada é item que ninguém revisa"
+  },
+  "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
+}

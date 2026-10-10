@@ -1257,7 +1257,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 535 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 550 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2360,13 +2360,30 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   Jonny) e **prazo em forma de EVENTO** (o segredo nascer), guardados nos dois sentidos. **O
   gatilho não foi religado** (D284)
 
-- **A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO** (LAB-60, D204). Medido: a prova do
-  LAB-57 estava **velha no momento em que foi commitada** — dizia **1** onde a ferramenta, na
-  mesma árvore, dizia **10** —, porque o último run dela aconteceu antes das edições finais
-  daquele prompt. **Nada no verde reprovava isso:** a trava confere a prova **contra si
-  mesma**, não a reexecuta. E a pergunta de projeto vem junto: **quais provas podem ser
-  regeradas dentro da trava** sem ferir o D182, que proíbe sobregravar prova *"antes"* com
-  prova *"depois"*. **Segue aberto:** `prompt-novo`
+- ~~**A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO**~~ (LAB-60, D204) — ✅ **executada no
+  LAB-86** (item 019). **E o defeito estava VIVO, pior do que o D204 descreveu:** não era uma
+  edição de atraso, eram semanas — a prova commitada dizia **364** arquivos que o git carrega,
+  **128** de código e **36 157** linhas, e a mesma árvore dizia **498**, **187** e **50 714** (26
+  a 32 % do número de hoje), além de dois caminhos mortos. **Por que nada reprovava:** a trava
+  conferia a prova com **LIMIAR** — `> 20`, `> 5`, `> 10000` —, e *régua que confere uma prova com
+  `maior que` aceita qualquer prova velha que já fosse grande o bastante quando nasceu*: o limiar
+  mede se o número é PLAUSÍVEL, só a recontagem mede se ele é VERDADE, e num repositório que cresce
+  ele fica mais frouxo a cada commit. **A forma escolhida é RECONTAR e comparar**, com o carimbo
+  **recusado por medição** — *o carimbo do disco não é o do git*, e numa sessão nova todo arquivo
+  tem a data do checkout, então a comparação vira vácuo no CI, que é onde ela mais precisaria valer
+  (D213). A medição saiu para `src/escopo-da-varredura.ts`, **a mesma função que a ferramenta
+  chama** (D231), com o universo começando no `git ls-files`. Demonstrado nos **dois sentidos**, e
+  o vigia **acusou o trabalho de quem o escrevia** (D287)
+
+- **RECONTAR AS OUTRAS DEZ PROVAS DE UNIVERSO INTERNO** (LAB-86, 10/10, D288). Medido: das **74**
+  provas desta casa, **11** têm o universo **dentro** deste repositório — não citam clone vizinho,
+  commit, semente nem gleba — e **63 dependem de fora**. A forma do LAB-86 cabe nas onze, e **uma**
+  foi recontada nesta rodada (a do D204, que o item nomeou). As outras dez são medição **por
+  prova**: cada uma precisa que alguém decida **quais números dela são recontáveis**, e *item que
+  reescreve setenta provas numa rodada é item que ninguém revisa*. **As 63 ficam de fora por
+  medição, não por preguiça:** *recontar o que depende de fora não é mais rigor, é outra medição
+  com o nome da antiga* — o LAB-78 perdeu dois de quatro lotes assim, porque o motor andou de
+  `4181e95` para `6cf6396`. **Segue aberto:** `prompt-novo`
 
 - **O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER** (LAB-59). Resolvidos os seis mecanismos do
   LAB-58 e o campo do contrato, **4 das 20** candidatas ficam de fora, **uma violação cada**,
