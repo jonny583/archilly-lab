@@ -63,8 +63,20 @@ export interface DisparoDaConta {
 
 export interface ContaDosDisparos {
   linhas: DisparoDaConta[];
-  /** Os totais que o documento DECLARA, para conferir contra as linhas. */
-  declarados: { observados: number | null; emVazio: number | null };
+  /**
+   * Os totais que o documento DECLARA, para conferir contra as linhas.
+   *
+   * `noRegistro` é o total de linhas; `observados`, `derivados` e `emLote` são **por origem**, e
+   * é por isso que são quatro e não um: até o LAB-83 o único número conferido se chamava
+   * *"observados"* e era comparado ao total — *rótulo de uma coisa com a conta de outra* (D281).
+   */
+  declarados: {
+    noRegistro: number | null;
+    observados: number | null;
+    derivados: number | null;
+    emLote: number | null;
+    emVazio: number | null;
+  };
   /** A frase do que o número decide — sem ela a lista vira ruído e alguém a apaga. */
   temAFraseDoQueDecide: boolean;
   /** Os `trig_...` citados na seção. Mais de um id distinto é o defeito do D234. */
@@ -90,7 +102,12 @@ export function lerAConta(ondeParamos: string): ContaDosDisparos {
   const secao = RE_SECAO.exec(ondeParamos)?.[1] ?? "";
   const linhas: DisparoDaConta[] = [];
   for (const l of secao.split("\n")) {
-    const m = /^\|\s*(\d{2}\/\d{2}\/\d{4})\s*\|\s*(\d{2}:\d{2})\s*\|\s*([a-z]+)\s*\|([^|]*)\|([^|]*)\|/.exec(l);
+    // **A CLASSE DE ORIGEM ACEITA HÍFEN, e isto é o conserto do D281.** No LAB-83 eu pus
+    // `entregue-em-lote` no vocabulário e **não** aqui: `[a-z]+` para no `-`, a linha inteira
+    // deixava de casar, e as SETE linhas novas ficaram **invisíveis para esta régua** — o verde
+    // passou porque ela não as viu. *Vocabulário que cresce e régua de linha que não cresce com
+    // ele é guarda que fica cega exatamente na classe nova.*
+    const m = /^\|\s*(\d{2}\/\d{2}\/\d{4})\s*\|\s*(\d{2}:\d{2})\s*\|\s*([a-z-]+)\s*\|([^|]*)\|([^|]*)\|/.exec(l);
     if (!m) continue;
     const achou = m[4]!.trim();
     linhas.push({
@@ -99,16 +116,33 @@ export function lerAConta(ondeParamos: string): ContaDosDisparos {
       origem: m[3]! as Origem,
       achou,
       rodada: m[5]!.trim(),
-      emVazio: /vazio|nada|sem item/i.test(achou),
+      // **COM FRONTEIRA DE PALAVRA, e isto é a outra metade do D281.** Sem o `\b` o `vazio`
+      // casava dentro de `esVAZIOu`, e a célula *"a caixa só esvaziou às 19:17"* — que diz
+      // justamente que a caixa TINHA item — era contada como disparo em vazio. Medido: das cinco
+      // linhas em vazio de verdade, **todas as cinco** dizem *"nada na caixa"*, e **nenhuma** usa a
+      // palavra `vazio`; a alternativa que criou o falso positivo não pegava nem uma linha legítima.
+      emVazio: /\b(?:vazia?|nada|sem item)\b/i.test(achou),
     });
   }
-  const observados = /disparos observados:\s*(\d+)/.exec(secao)?.[1];
+  // **CADA CLASSE TEM O SEU NÚMERO DECLARADO, e antes do LAB-83 só um era conferido.** O
+  // primeiro deles se chamava *"disparos observados"* e esta régua o comparava com o **total de
+  // linhas** — nome de uma coisa, conta de outra, e fechava porque as sete linhas em lote eram
+  // invisíveis. Agora o rótulo diz `disparos no registro`, e `observados`, `derivados` e
+  // `entregues em lote` são conferidos **por origem** (D281).
+  const noRegistro = /disparos no registro:\s*(\d+)/.exec(secao)?.[1];
+  const observados = /\bobservados:\s*(\d+)/.exec(secao)?.[1];
+  const derivados = /\bderivados:\s*(\d+)/.exec(secao)?.[1];
+  const emLote = /entregues em lote:\s*(\d+)/.exec(secao)?.[1];
   const emVazio = /em vazio:\s*(\d+)/.exec(secao)?.[1];
+  const n = (s: string | undefined) => (s === undefined ? null : Number(s));
   return {
     linhas,
     declarados: {
-      observados: observados === undefined ? null : Number(observados),
-      emVazio: emVazio === undefined ? null : Number(emVazio),
+      noRegistro: n(noRegistro),
+      observados: n(observados),
+      derivados: n(derivados),
+      emLote: n(emLote),
+      emVazio: n(emVazio),
     },
     temAFraseDoQueDecide: /não é fracasso/.test(secao) && /intervalo/.test(secao),
     idsCitados: [...new Set(secao.match(/trig_[A-Za-z0-9]+/g) ?? [])],
@@ -152,11 +186,31 @@ export function conferirAConta(
     return problemas;
   }
 
-  if (conta.declarados.observados !== conta.linhas.length) {
+  if (conta.declarados.noRegistro !== conta.linhas.length) {
     problemas.push({
       tipo: "total-declarado-diferente-das-linhas",
-      oQue: `a seção declara ${conta.declarados.observados} disparos e a tabela tem ${conta.linhas.length} linhas`,
+      oQue: `a seção declara ${conta.declarados.noRegistro} disparos no registro e a tabela tem ${conta.linhas.length} linhas`,
     });
+  }
+
+  // **E agora cada CLASSE é conferida contra as linhas dela.** Sem isto, um número por classe é
+  // prosa: os `7` entregues em lote do LAB-83 passaram horas no documento sem régua nenhuma, e as
+  // linhas que eles contavam eram justamente as que a régua não sabia ler. *Número de classe sem
+  // régua da classe é o lugar onde uma classe nova vai envelhecer.*
+  const porOrigem: Record<string, number> = { observado: 0, derivado: 0, "entregue-em-lote": 0 };
+  for (const l of conta.linhas) porOrigem[l.origem] = (porOrigem[l.origem] ?? 0) + 1;
+  const porClasse: [string, number | null, number][] = [
+    ["observados", conta.declarados.observados, porOrigem["observado"]!],
+    ["derivados", conta.declarados.derivados, porOrigem["derivado"]!],
+    ["entregues em lote", conta.declarados.emLote, porOrigem["entregue-em-lote"]!],
+  ];
+  for (const [nome, declarado, contado] of porClasse) {
+    if (declarado !== contado) {
+      problemas.push({
+        tipo: "total-declarado-diferente-das-linhas",
+        oQue: `a seção declara ${declarado} ${nome} e a tabela tem ${contado} linha(s) com essa origem`,
+      });
+    }
   }
   const vazios = conta.linhas.filter((l) => l.emVazio);
   if (conta.declarados.emVazio !== vazios.length) {

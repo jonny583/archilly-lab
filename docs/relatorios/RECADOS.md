@@ -1895,3 +1895,38 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · NENHUMA das cinco classes que param se aplica, item por item, como o seu item já tinha conferido;
 · nada foi tocado no despertador: ligar, desligar e reagendar é seu; o meu trabalho é a conta.
 ```
+
+## 10/10/2026 · LAB-83 (continuação) · decisao-registrada — o disparo das 19:06 não é em vazio, e a conta estava CEGA em sete linhas
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · decisao-registrada ===
+ACUMULADO — inclui os recados LAB-83, decisao-registrada
+Estado: o despertador das 19:06 chegou NA HORA e eu o li às 19:18, ao fechar o LAB-83 — e a caixa já estava vazia. NÃO é disparo em vazio. A conta passa a dizer um número por classe: 29 no registro · 20 observados · 2 derivados · 7 entregues em lote · 5 em vazio. Despertador intocado. Verde conferido aqui, não no GitHub: 907 travas na esteira + 17 no testfit (513 na lista do CI sem clones), 7 passos, exit 0.
+Feito: anotei a data e classifiquei pelo fato, não pelo disco de agora (D280) — e ao gravar a linha a conta REPROVOU, acusando não a linha nova mas DUAS CEGUEIRAS MINHAS nascidas horas antes, nesta mesma rodada (D281). Consertadas, com seis travas novas na ordem da Central. O LAB-83 está mesclado na main, PR #110 — o recado inteiro dele está logo acima neste arquivo.
+Achados para outros apps ou Central: A CAIXA QUE DECIDE A CLASSE DE UM DISPARO É A DE QUANDO ELE DISPAROU, NÃO A DE QUANDO EU O LEIO. No instante das 19:06 a caixa AINDA TINHA o `016.md`: a renomeação para `016-FEITO` entrou no commit às 19:17. Os onze minutos entre o disparo e a leitura são o fim da rodada anterior — e é exatamente neles que a caixa esvazia, POR OBRA MINHA. Classificar pela caixa de agora faz a minha própria entrega virar prova de que você não abastece. E É A TERCEIRA LEITURA TROCADA DA MESMA CONTA EM UM DIA, as três com a mesma forma — um disparo que não produziu rodada nova contado como um disparo que não tinha o que fazer: o D265/D272 (a linha que não dizia QUAIS parcelas), o D277 (sete disparos que a sessão não recebeu) e este. As três custam a mesma coisa, porque A CONTA DECIDE O INTERVALO: cada vazio falso é um argumento para ESTICAR o despertador, o conserto oposto ao que cada um dos três pede. TRÊS ENGANOS DIFERENTES EMPURRANDO O MESMO BOTÃO ERRADO NÃO SÃO TRÊS ACIDENTES: são o sinal de que a conta mede uma coisa (o disparo) e é lida como outra (o abastecimento). A §1-A já resolvia o caso e eu só precisei obedecer — "um prompt por despertador; se o anterior não fechou, termine-o antes de começar qualquer coisa nova" —, então a linha das 19:06 aponta para o item 016: ELE É O DISPARO SOB O QUAL O LAB-83 FECHOU. E NÃO escrevi trava para ISSO: a régua certa precisaria do estado da caixa num INSTANTE PASSADO, e o que eu tenho no disco é o de agora — fica declarado como NÃO MEDIDO em vez de prometido. (2) E A CONTA ESTAVA CEGA EM SETE LINHAS, pelas minhas duas mãos, nas duas horas anteriores. Primeira: eu pus `entregue-em-lote` no vocabulário fechado (D277) e NÃO na régua que lê a tabela, que casa a coluna de origem com `[a-z]+` — E `[a-z]+` PARA NO HÍFEN. Medido: 29 linhas na tabela, 22 parseadas, 7 PERDIDAS, exatamente as da classe nova. VOCABULÁRIO QUE CRESCE E RÉGUA DE LINHA QUE NÃO CRESCE COM ELE FICA CEGA EXATAMENTE NA CLASSE NOVA — a única que ninguém ainda sabe ler. E o verde passou: o total declarado era comparado com o total de linhas, eu declarei 22 e a régua contou 22, porque as sete eram invisíveis PARA OS DOIS LADOS da comparação. Guarda que não acha o objeto não está aprovando, está sem medir nada (D213) — e isso está escrito, em palavras quase iguais, no comentário da própria função que ficou cega. Segunda vez da família do D231, e a mais barata dela: o vocabulário e a régua que o lê moram no MESMO arquivo, a dez linhas de distância. Segunda cegueira: a palavra do vazio não tinha fronteira, e `vazio` casou dentro de `esVAZIOu` — numa célula que diz justamente que a caixa TINHA item. E a medição tem uma segunda parte, mais útil: das CINCO linhas em vazio de verdade, TODAS as cinco dizem "nada na caixa" e NENHUMA usa a palavra `vazio` — a alternativa que criou o falso positivo não pegava uma única linha legítima, só tinha o poder de errar. QUANDO A RÉGUA PROCURA UMA PALAVRA, MEÇA QUANTAS LINHAS LEGÍTIMAS CADA ALTERNATIVA PEGA: A QUE PEGA ZERO NÃO PROTEGE NADA, SÓ ESPERA A VEZ DE ERRAR. Consertado: origem com hífen, vazio com `\b`, e o primeiro número parou de se chamar "observados" porque ele sempre foi o TOTAL DE LINHAS — rótulo de uma coisa com a conta de outra. A linha agora é `disparos no registro: 29 · observados: 20 · derivados: 2 · entregues em lote: 7 · em vazio: 5`, e CADA CLASSE é conferida contra as linhas dela: os sete números em lote ficaram SETE HORAS no documento sem régua nenhuma, e quem os pegou não foi uma trava, foi a linha seguinte dar errado.
+Depende do Jonny: nada novo. Continuam a §10 (parar a fileira na esquina — três caminhos), o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a CAIXA ESTÁ VAZIA — os dezesseis itens estão `-FEITO`. A D226 (os quatro campos de `legais`) é a primeira da próxima caixa, por escolha sua e do seu item 016, porque MUDA O DESENHO e espera o olho dele. Durmo e reavalio no próximo disparo; o despertador fica como está.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+A CONTA, COMO ELA ESTÁ AGORA — e com um número por CLASSE, cada um com régua:
+
+  disparos no registro: 29 · observados: 20 · derivados: 2 · entregues em lote: 7 · em vazio: 5
+
+  19:06  observado  chegou na hora, com o item 016 AINDA EM VOO — a caixa só esvaziou às 19:17,
+                    quando a renomeação entrou no commit 5489c23. Rodada: item 016 (LAB-83).
+
+O QUE A RÉGUA LIA E O QUE ELA LÊ AGORA:
+
+  régua da coluna de origem     linhas lidas   o que ficava de fora
+  [a-z]+        (até agora)     22 de 29       as 7 `entregue-em-lote` — a classe NOVA
+  [a-z-]+       (agora)         29 de 29       nenhuma
+
+  palavra do vazio              em vazio       o falso positivo
+  /vazio|nada|sem item/         6              `esVAZIOu`, numa célula que diz o contrário
+  /\b(?:vazia?|nada|sem item)\b/  5              nenhum — e nenhuma linha legítima se perdeu
+
+E A CAIXA, CONFERIDA NO REMOTO NESTE MINUTO: dezesseis itens, todos `-FEITO`, mais o
+COMO_FUNCIONA.md. Nada novo desde o `016`.
+```

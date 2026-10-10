@@ -155,7 +155,9 @@ describe("item 004 · O LADO RUIM: a guarda reprova", () => {
 
   test("total declarado diferente das linhas contadas REPROVA", () => {
     const c = conta();
-    c.declarados.observados = c.linhas.length + 1;
+    // Desde o D281 o número do TOTAL se chama `noRegistro`: o que se chamava `observados` era
+    // comparado com o total de linhas, e agora é a conta da ORIGEM `observado`.
+    c.declarados.noRegistro = c.linhas.length + 1;
     const p = conferirAConta(c, diasDosRecadosEmVazio(recados()), ABERTURA);
     expect(p.map((x) => x.tipo)).toContain("total-declarado-diferente-das-linhas");
   });
@@ -211,5 +213,83 @@ describe("item 004 · O LADO RUIM: a guarda reprova", () => {
     c.idsCitados = ["trig_01XwSkTLT9zmyprNZcUiWy7f", "trig_outroQualquer"];
     const p = conferirAConta(c, diasDosRecadosEmVazio(recados()), ABERTURA);
     expect(p.map((x) => x.tipo)).toContain("mais-de-um-id");
+  });
+});
+
+/**
+ * **A RÉGUA DE LINHA LÊ AS TRÊS CLASSES, E A PALAVRA DO VAZIO TEM FRONTEIRA.** (LAB-83, D281)
+ *
+ * Duas cegueiras medidas na mesma rodada, as duas minhas, as duas nascidas horas antes:
+ *
+ * 1. eu pus `entregue-em-lote` no vocabulário (D277) e **não** na régua de linha, que casava
+ *    `[a-z]+` e **parava no hífen** — as SETE linhas novas ficaram invisíveis, e o verde passou
+ *    porque a régua não as viu;
+ * 2. a palavra do vazio não tinha `\b`, e `vazio` casou dentro de **`esVAZIOu`** numa célula que
+ *    dizia justamente que a caixa **tinha** item.
+ *
+ * **Na ordem da Central:** primeiro que a régua CONTINUA achando o que achava, depois que deixou
+ * de achar o que não devia. Na ordem inversa, um desligamento passa por conserto.
+ */
+describe("D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra", () => {
+  const conta = () => lerAConta(ondeParamos());
+
+  test("O LADO BOM, PRIMEIRO: as três origens são lidas, a de hífen inclusive", () => {
+    const c = conta();
+    const porOrigem = new Map<string, number>();
+    for (const l of c.linhas) porOrigem.set(l.origem, (porOrigem.get(l.origem) ?? 0) + 1);
+    // Todas as origens lidas estão no vocabulário, e a de hífen aparece de fato — sem ela esta
+    // trava aprovaria uma régua que simplesmente não lê a classe nova.
+    for (const o of porOrigem.keys()) expect(ORIGENS as readonly string[]).toContain(o);
+    expect(porOrigem.get("entregue-em-lote")).toBeGreaterThan(0);
+    expect(porOrigem.get("observado")).toBeGreaterThan(0);
+  });
+
+  test("O LADO BOM: a conta de hoje continua sem problema nenhum", () => {
+    expect(conferirAConta(conta(), diasDosRecadosEmVazio(recados()), ABERTURA)).toEqual([]);
+  });
+
+  test("uma linha com origem de HÍFEN é parseada — e a antiga `[a-z]+` a perdia", () => {
+    const comHifen = lerAConta(
+      "\n# A CONTA DOS DISPAROS\n\n" +
+        "| 10/10/2026 | 12:05 | entregue-em-lote | idem | não houve rodada |\n" +
+        "\n# FIM\n",
+    );
+    expect(comHifen.linhas).toHaveLength(1);
+    expect(comHifen.linhas[0]!.origem).toBe("entregue-em-lote");
+    // E a prova de que isto não é de graça: a régua VELHA, aqui inline, não acha nada nela.
+    const velha = /^\|\s*(\d{2}\/\d{2}\/\d{4})\s*\|\s*(\d{2}:\d{2})\s*\|\s*([a-z]+)\s*\|/;
+    expect(velha.test("| 10/10/2026 | 12:05 | entregue-em-lote | idem |")).toBe(false);
+  });
+
+  test("`esvaziou` NÃO é disparo em vazio, e `nada na caixa` É", () => {
+    const secao = (achou: string) =>
+      lerAConta(
+        "\n# A CONTA DOS DISPAROS\n\n" +
+          `| 10/10/2026 | 19:06 | observado | ${achou} | item 016 |\n` +
+          "\n# FIM\n",
+      ).linhas[0]!.emVazio;
+    // O caso que me pegou: a célula diz que a caixa TINHA item até esvaziar.
+    expect(secao("chegou na hora — a caixa só esvaziou às 19:17")).toBe(false);
+    // E os três sentidos que a convenção declara continuam valendo:
+    expect(secao("**nada na caixa** — os dezesseis feitos")).toBe(true);
+    expect(secao("a caixa estava vazia")).toBe(true);
+    expect(secao("disparo sem item pronto")).toBe(true);
+  });
+
+  test("cada CLASSE tem o número dela conferido, e não só o total", () => {
+    const c = conta();
+    // O total fica certo e UMA classe mente: antes do D281 isto passava, porque só o total era
+    // conferido — e o número por classe era prosa que ninguém media.
+    c.declarados.emLote = c.declarados.emLote! + 3;
+    const p = conferirAConta(c, diasDosRecadosEmVazio(recados()), ABERTURA);
+    expect(p.map((x) => x.tipo)).toContain("total-declarado-diferente-das-linhas");
+    expect(p.map((x) => x.oQue).join(" ")).toContain("entregues em lote");
+  });
+
+  test("o total do registro deixa de bater e REPROVA, pelo nome novo", () => {
+    const c = conta();
+    c.declarados.noRegistro = c.linhas.length + 5;
+    const p = conferirAConta(c, diasDosRecadosEmVazio(recados()), ABERTURA);
+    expect(p.map((x) => x.oQue).join(" ")).toContain("disparos no registro");
   });
 });

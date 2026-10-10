@@ -8263,3 +8263,110 @@ a §1-A proíbe. Foi para a `FILA.md` como proposta, com `prompt-novo`.
 **A conta dos itens abertos andou DUAS vezes nesta rodada e voltou a 17:** a proposta do carimbo
 saiu **por entrega** (D276) e esta entrou. *Saldo parado não é rodada parada* — e é por isso que
 as duas mudanças ficam escritas nos cinco lugares que contam, e não só o saldo.
+
+---
+
+## D280 · A CAIXA QUE DECIDE A CLASSE DE UM DISPARO É A DE QUANDO ELE DISPAROU, NÃO A DE QUANDO EU O LEIO · 10/10/2026
+
+O despertador das **19:06** chegou **na hora**. Eu o li às **19:18**, ao fechar o LAB-83, e a caixa
+estava **vazia** — todos os dezesseis itens com o nome `-FEITO`.
+
+**A classificação óbvia é `despertador-sem-item`, e ela estaria errada.** No instante em que o
+disparo aconteceu a caixa **ainda tinha o `016.md`**: a renomeação para `016-FEITO` entrou no commit
+`5489c23`, às **19:17**. Os onze minutos entre o disparo e a leitura são o fim da rodada anterior —
+e é exatamente neles que a caixa esvazia, **por obra minha**.
+
+> **A caixa que decide a classe de um disparo é a de QUANDO ELE DISPAROU, não a de quando eu o
+> leio.** Classificar pela caixa de agora faz a minha própria entrega virar prova de que o chat não
+> abastece.
+
+**É a terceira leitura trocada da mesma conta em um dia**, e as três têm a mesma forma: *um disparo
+que não produziu rodada nova sendo contado como um disparo que não tinha o que fazer.*
+
+| a leitura trocada | o que era |
+|---|---|
+| D265/D272 | *"nada NOVO na caixa"* numa linha que não dizia **quais** parcelas |
+| D277 | sete disparos que a sessão **não recebeu** contados como vazios |
+| **D280** | um disparo cuja caixa **tinha item**, lido depois de a caixa esvaziar |
+
+E as três custam a mesma coisa, porque **a conta decide o intervalo**: cada vazio falso é um
+argumento para **esticar** o despertador — o conserto oposto ao que cada um dos três casos pede.
+*Três enganos diferentes empurrando o mesmo botão errado não são três acidentes: são o sinal de
+que a conta mede uma coisa (o disparo) e é lida como outra (o abastecimento).*
+
+**O que a §1-A já resolvia, e eu só precisei obedecer:** *"um prompt por despertador — se o anterior
+não fechou, termine-o antes de começar qualquer coisa nova."* O disparo das 19:06 é **o disparo sob
+o qual o LAB-83 fechou**, e a linha dele aponta para o item 016. A conta em vazio fica em **5**, e
+os observados vão a **22**.
+
+**O que NÃO foi feito:** nada no despertador, e **nenhuma trava nova**. A régua certa aqui exigiria
+saber o estado da caixa **num instante passado**, e o que eu tenho no disco é o estado de agora; o
+`git log` responde, mas a trava teria de reconstruir a caixa de cada hora da conta para conferir
+cada linha. **Está declarado como não medido** em vez de prometido — *guarda que não declara o
+próprio buraco mente pelo silêncio*, e esta eu nem escrevi.
+
+---
+
+## D281 · VOCABULÁRIO QUE CRESCE E RÉGUA DE LINHA QUE NÃO CRESCE COM ELE FICA CEGA EXATAMENTE NA CLASSE NOVA · 10/10/2026
+
+Ao gravar o disparo das 19:06 (D280) a conta reprovou, e o que ela acusou **não era a linha nova**:
+eram **duas cegueiras minhas**, as duas nascidas **horas antes, nesta mesma rodada**.
+
+### Primeira: a classe nova ficou INVISÍVEL para a régua que a guarda
+
+O D277 pôs `entregue-em-lote` no vocabulário fechado das origens. A régua **de linha**, que lê a
+tabela, casa a coluna de origem com `([a-z]+)` — e **`[a-z]+` para no hífen**. A linha inteira
+deixava de casar, e as **sete** linhas que eu acabara de escrever **não existiam** para a guarda.
+
+**Medido:** 29 linhas com data e hora na tabela, **22 parseadas, 7 perdidas** — exatamente as sete
+da classe nova.
+
+> **Vocabulário que cresce e régua de linha que não cresce com ele fica cega exatamente na classe
+> NOVA** — a única que ninguém ainda sabe ler. *Classe nova é onde a guarda mais precisa enxergar,
+> e é onde ela enxerga menos.*
+
+**E o verde passou.** Não por coincidência boa: `conta.declarados.observados` era comparado com
+`conta.linhas.length`, eu declarei **22** e a régua contou **22** — porque as sete eram invisíveis
+para os **dois** lados da comparação. *Guarda que não acha o objeto não está aprovando: está sem
+medir nada* (D213) — e isto está escrito, em palavras quase iguais, **no comentário da própria
+função** que ficou cega.
+
+É a segunda vez da família do **D231**, *"conserto que não é aplicado em todos os instrumentos que
+leem a mesma coisa é meio conserto"* — e esta é a forma mais barata dela: **o vocabulário e a régua
+que o lê moram no MESMO arquivo**, a dez linhas de distância.
+
+### Segunda: `vazio` casou dentro de `esVAZIOu`
+
+A classe em vazio sai da palavra na coluna *"o que achou"*, com `/vazio|nada|sem item/i` — **sem
+fronteira de palavra.** A minha célula nova diz *"a caixa só esvaziou às 19:17"*, que afirma
+justamente que a caixa **TINHA** item, e foi contada como disparo em vazio: **6 em vazio onde são
+5.**
+
+**E a medição tem uma segunda parte, mais útil que a primeira:** das **cinco** linhas em vazio de
+verdade, **todas as cinco** dizem *"nada na caixa"* e **nenhuma** usa a palavra `vazio`. A
+alternativa que criou o falso positivo **não pegava uma única linha legítima** — ela só tinha o
+poder de errar.
+
+> É a família do **D245** outra vez (*"fronteira de palavra num nome composto não é fronteira de
+> valor"*), e agora pelo lado mais simples: **procurar uma palavra sem `\b` é procurar um pedaço de
+> palavra**, e `esvaziar` é o verbo que esta casa usa para dizer que a caixa **tinha** algo.
+> *Quando a régua procura uma PALAVRA, meça quantas linhas legítimas cada alternativa pega: a que
+> pega zero não está protegendo nada, só esperando a vez de errar.*
+
+### O conserto, e os números por classe deixaram de ser prosa
+
+1. a coluna de origem passa a casar `([a-z-]+)` — as 29 linhas são lidas, e **20 `observado`,
+   2 `derivado`, 7 `entregue-em-lote`** aparecem;
+2. a palavra do vazio ganhou `\b`;
+3. **o primeiro número declarado parou de se chamar `observados`**, porque ele sempre foi
+   comparado ao **total de linhas** — *rótulo de uma coisa com a conta de outra*. A linha passa a
+   ser `disparos no registro: 29 · observados: 20 · derivados: 2 · entregues em lote: 7 · em
+   vazio: 5`, e **cada classe é conferida contra as linhas dela**;
+4. **há guarda**, na ordem da Central — primeiro que a régua **continua** lendo as três classes e
+   que a conta de hoje fecha, depois que `esvaziou` **deixou** de contar e que mentir numa classe
+   sozinha reprova. Seis travas novas, com a régua velha **inline** na prova de que o hífen a
+   perdia.
+
+**O que isto ensina sobre a rodada toda:** os sete números em lote ficaram **sete horas** no
+documento sem régua nenhuma, e quem os pegou não foi uma trava — foi **a linha seguinte dar
+errado**. *Número de classe sem régua da classe é o lugar onde uma classe nova vai envelhecer.*

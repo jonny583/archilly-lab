@@ -206,4 +206,6 @@ só o saldo.
   nada escrito em repositório vizinho (§4);
 - **verde:** o comando único, **conferido aqui, não no GitHub** — **901** travas na esteira e
   **17** no `testfit`, 7 passos, `exit 0`. A lista do CI sem os clones vizinhos foi de 501 a
-  **507**, em **30** arquivos.
+  **507**, em **30** arquivos. *(A rodada que veio em seguida, no disparo das 19:06, levou os
+  números a **907** e **513** — e eles ficam onde foram medidos: este relatório guarda o verde
+  DESTE prompt, não o do dia.)*

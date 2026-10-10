@@ -62,7 +62,7 @@ console.log(`  a frase do que o número decide: ${conta.temAFraseDoQueDecide ? "
  * primeiro disparo em vazio** — o quinto, no mesmo dia. *Literal de ferramenta envelhece igual a
  * comentário* (D104), e esta ferramenta mede uma conta que cresce de hora em hora.
  */
-const linhaDoTotal = /disparos observados: \d+ · em vazio: \d+/.exec(original)?.[0];
+const linhaDoTotal = /disparos no registro: \d+(?: · [a-z ]+: \d+)+/.exec(original)?.[0];
 if (linhaDoTotal === undefined) throw new Error("não achei a linha dos totais no ONDE_PARAMOS");
 
 /** A linha da tabela de um disparo, como está no documento. */
@@ -81,7 +81,7 @@ const ESTRAGOS = [
   {
     oQue: "o total declarado deixa de bater com as linhas",
     de: linhaDoTotal,
-    para: linhaDoTotal.replace(/observados: \d+/, `observados: ${conta.linhas.length + 5}`),
+    para: linhaDoTotal.replace(/no registro: \d+/, `no registro: ${conta.linhas.length + 5}`),
   },
   {
     oQue: "a frase do que o número decide sai da seção",

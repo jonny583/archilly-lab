@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-10T18:55:46.504Z",
+  "quando": "2026-10-10T19:37:07.760Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -179,10 +179,77 @@
         "achou": "item 016 pronto (o chat o escreveu às 10h55); este disparo **chegou na hora** e foi o único das oito horas que chegou",
         "rodada": "item 016 (LAB-83)",
         "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "12:05",
+        "origem": "entregue-em-lote",
+        "achou": "idem — nenhuma rodada aconteceu nesta hora",
+        "rodada": "não houve rodada",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "13:06",
+        "origem": "entregue-em-lote",
+        "achou": "idem",
+        "rodada": "não houve rodada",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "14:06",
+        "origem": "entregue-em-lote",
+        "achou": "idem",
+        "rodada": "não houve rodada",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "15:06",
+        "origem": "entregue-em-lote",
+        "achou": "idem",
+        "rodada": "não houve rodada",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "16:06",
+        "origem": "entregue-em-lote",
+        "achou": "idem",
+        "rodada": "não houve rodada",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "17:05",
+        "origem": "entregue-em-lote",
+        "achou": "idem",
+        "rodada": "não houve rodada",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "18:05",
+        "origem": "entregue-em-lote",
+        "achou": "idem — e foi nesta rodada que os sete chegaram juntos",
+        "rodada": "item 016 (LAB-83)",
+        "emVazio": false
+      },
+      {
+        "data": "10/10/2026",
+        "hora": "19:06",
+        "origem": "observado",
+        "achou": "chegou na hora, **com o item 016 ainda em voo** — a caixa só esvaziou às 19:17, quando a renomeação para `016-FEITO` entrou no commit",
+        "rodada": "item 016 (LAB-83), fechado nesta hora",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "observados": 21,
+      "noRegistro": 29,
+      "observados": 20,
+      "derivados": 2,
+      "emLote": 7,
       "emVazio": 5
     },
     "emVazio": 5,
@@ -221,7 +288,8 @@
         "exit": 1,
         "reprovou": true,
         "quais": [
-          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema"
+          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum"
         ]
       },
       {
@@ -230,7 +298,8 @@
         "reprovou": true,
         "quais": [
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
-          "item 004 · a conta dos disparos do despertador > a seção diz o que o número vai DECIDIR — o item 004 cobra essa frase"
+          "item 004 · a conta dos disparos do despertador > a seção diz o que o número vai DECIDIR — o item 004 cobra essa frase",
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum"
         ]
       },
       {
@@ -239,7 +308,9 @@
         "reprovou": true,
         "quais": [
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
-          "item 004 · a conta dos disparos do despertador > toda linha tem a origem declarada, e o vocabulário é FECHADO"
+          "item 004 · a conta dos disparos do despertador > toda linha tem a origem declarada, e o vocabulário é FECHADO",
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM, PRIMEIRO: as três origens são lidas, a de hífen inclusive",
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum"
         ]
       },
       {
@@ -247,7 +318,8 @@
         "exit": 1,
         "reprovou": true,
         "quais": [
-          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema"
+          "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum"
         ]
       }
     ],
