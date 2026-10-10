@@ -22,7 +22,7 @@
 
 import { describe, expect, test } from "bun:test";
 import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
@@ -165,5 +165,60 @@ describe("nenhuma leitura nova nasce fora do lugar único", () => {
     ]) {
       expect(/\b(?:const|let|var)\s+semCitacoes\s*=|\bfunction\s+semCitacoes\s*\(/.test(soOsNomesUsados(bom)), bom).toBe(false);
     }
+  });
+});
+
+/**
+ * ── DOIS ITENS NÃO PODEM DIVIDIR UM NÚMERO (D273) ───────────────────────────
+ *
+ * O número é a IDENTIDADE de um item da caixa — é por ele que as travas o acham, justamente porque
+ * o NOME muda quando o item é concluído (D252). No LAB-82 o chat escreveu um item novo como
+ * `013.md` com o `013-FEITO.md` já no disco, e a `main` ficou **vermelha**.
+ *
+ * **Mas ela só ficou vermelha porque uma trava PERGUNTAVA pelo `013`.** A guarda do D268 estoura
+ * quando alguém busca o número colidido; uma colisão num número que ninguém busca **passaria em
+ * silêncio** — e passaria até o dia em que o item fosse concluído e não houvesse nome livre para
+ * ele.
+ *
+ * > **Guarda que depende de alguém perguntar pelo caso não cobre o caso: cobre a pergunta.** Esta
+ * > varre a pasta inteira e não espera pergunta nenhuma.
+ */
+describe("a caixa de entrada não tem número repetido (D273)", () => {
+  const CAIXA = join(RAIZ, "docs", "caixa-de-entrada");
+
+  /** O número de um item, do nome do arquivo: `013.md`, `013-FEITO.md` e `010-adendo.md` → `013`, `013`, `010-adendo`. */
+  const numeroDe = (nome: string): string | null => {
+    const m = /^(\d{3}(?:-adendo)?)(?:-FEITO)?\.md$/.exec(nome);
+    return m ? m[1]! : null;
+  };
+
+  test("cada número aparece UMA vez, feito ou aberto", () => {
+    const porNumero = new Map<string, string[]>();
+    for (const nome of readdirSync(CAIXA)) {
+      const n = numeroDe(nome);
+      if (n === null) continue;
+      porNumero.set(n, [...(porNumero.get(n) ?? []), nome]);
+    }
+    const repetidos = [...porNumero.entries()]
+      .filter(([, arquivos]) => arquivos.length > 1)
+      .map(([n, arquivos]) => `${n}: ${arquivos.join(" e ")}`);
+    expect(
+      repetidos,
+      "dois itens dividem um número — eles não são um item com dois nomes, são dois itens com uma " +
+        "identidade. Mova o mais novo para o próximo número livre, com o conteúdo intocado (D273):\n" +
+        repetidos.join("\n"),
+    ).toEqual([]);
+    // E a varredura achou os itens de verdade: zero de zero não é aprovação.
+    expect(porNumero.size).toBeGreaterThan(10);
+  });
+
+  test("a régua do número repetido REPROVA de verdade, e sabe ler o adendo", () => {
+    expect(numeroDe("013.md")).toBe("013");
+    expect(numeroDe("013-FEITO.md")).toBe("013");
+    expect(numeroDe("010-adendo-FEITO.md")).toBe("010-adendo");
+    // O adendo NÃO colide com o item: são dois objetos, e o nome diz isso.
+    expect(numeroDe("010-FEITO.md")).not.toBe(numeroDe("010-adendo-FEITO.md"));
+    // E o que não é item não entra na conta.
+    expect(numeroDe("COMO_FUNCIONA.md")).toBeNull();
   });
 });

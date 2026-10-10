@@ -398,7 +398,7 @@ arquivo que o git carrega. **Contratar de verdade acontece fora da árvore**, nu
 um cartão, e nenhuma régua daqui alcança. *Guarda que não declara o próprio buraco mente pelo
 silêncio* — a consequência nº 8 existe exatamente porque este buraco não fecha com código.
 
-**E as CONDIÇÕES DE VOLTA foram varridas:** são **dezesseis** condições de abertura declaradas na
+**E as CONDIÇÕES DE VOLTA foram varridas:** são **dezessete** condições de abertura declaradas na
 `FILA.md`, e **nenhuma é uma conta** — todas esperam pessoa, repositório, prompt novo ou medição
 (`prompt-novo`, `nao-medido`, `aguardando-outro-repositorio`, `escopo-novo`, `depois-do-mvp`,
 `aguardando-o-jonny`). **Zero** falam de volume, de ponto de equilíbrio ou de *"quando
@@ -662,7 +662,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 499 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 501 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

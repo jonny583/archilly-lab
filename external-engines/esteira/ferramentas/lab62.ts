@@ -78,10 +78,13 @@ const lista1 = abertos.map((p, i) => ({
  * aberto para riscado-com-executor. *A lista encolher por entrega é a única forma saudável de ela
  * encolher* — e é por isso que o número é cobrado nos dois sentidos.
  *
+ * **16 → 17 no LAB-82:** o carimbo do clone que lê o `HEAD` em vez do módulo resolvido (D274),
+ * achado ao remedir o sétimo mecanismo contra o motor novo. Entrou com `prompt-novo`.
+ *
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */
-const ABERTOS_ESPERADOS = 16;
+const ABERTOS_ESPERADOS = 17;
 
 cobrar(
   lista1.length === ABERTOS_ESPERADOS,

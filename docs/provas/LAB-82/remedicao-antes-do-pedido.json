@@ -1,0 +1,56 @@
+{
+  "prompt": "LAB-82",
+  "oQue": "a remedição que o item 015 exige ANTES de escrever o pedido do sétimo mecanismo: o estado dos três clones vizinhos contra a origem deles, e a remedição do transbordo contra o motor de HOJE — não contra o clone atrasado",
+  "oQueIstoNaoMede": "não mede gleba nova e não refaz o LAB-78: ela RECONFERE o achado dele contra o commit novo do dono. Por isso está na lista declarada de exceções do §7",
+  "quando": "2026-10-10T10:32:06.809Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "clones": {
+    "motor": {
+      "caminho": "motor-testfit",
+      "ramoDaArvore": "main",
+      "arvoreEm": "6cf6396",
+      "origemMain": "3680b9f",
+      "commitsAtras": 56,
+      "arvoreLimpa": "sim"
+    },
+    "generate": {
+      "caminho": "urban-create-hub-41d93a4d",
+      "ramoDaArvore": "main",
+      "arvoreEm": "72cfab0",
+      "origemMain": "565d00c",
+      "commitsAtras": 47,
+      "arvoreLimpa": "sim"
+    },
+    "geo": {
+      "caminho": "urban-scout-tool",
+      "ramoDaArvore": "main",
+      "arvoreEm": "550a438",
+      "origemMain": "f0cb290",
+      "commitsAtras": 29,
+      "arvoreLimpa": "sim"
+    }
+  },
+  "aPerguntaDoItem": "os 10 a 13 m continuam?",
+  "aResposta": "CONTINUAM — e idênticos",
+  "oTransbordo_m": [
+    13.18,
+    10.43
+  ],
+  "aConta": {
+    "lotes": 2,
+    "porVeredicto": {
+      "motor-transbordo-do-canto": 2
+    },
+    "porDono": {
+      "motor-testfit": 2
+    },
+    "comoSeDiz": "2 lotes acusados · 2 motor-transbordo-do-canto"
+  },
+  "comoFoiRemedido": "duas passagens. (1) Com os clones como estão: 2 lotes, 13.18 m e 10.43 m, dono motor-testfit. (2) Contra o motor em `3680b9f` — 56 commits à frente da árvore do clone —, num CLONE DO CLONE no diretório de rascunho, com o `paths` do tsconfig repontado temporariamente e devolvido byte a byte: resultado IDÊNTICO, 13.18 m e 10.43 m, 2 lotes, mesmo dono. A árvore do vizinho não foi tocada em nenhuma das duas",
+  "oClomeQueImportavaEraOOutro": "o item manda remedir contra o `origin/motor-v2` do GENERATE, e cita `12208da`. Medido: o `motor-v2` e o `main` do Generate apontam para o MESMO commit (`565d00c`), e o `12208da` é ancestral dele. Mas o dono do defeito é o `motor-testfit`, e é a árvore DELE que estava atrasada em 56 commits. O clone do Generate está 47 atrás, e isso também ficou medido",
+  "oBuracoDoCarimbo": "o carimbo que vai na prova lê o `HEAD` do CLONE, não o código que o `import` carregou. Na passagem contra `3680b9f` o relatório saiu dizendo `6cf6396` — o HEAD do clone —, enquanto o `import.meta.resolve` apontava para o clone do rascunho. Carimbo e código são DUAS fontes de verdade para a mesma pergunta, e só uma delas sabe o que rodou",
+  "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
+}

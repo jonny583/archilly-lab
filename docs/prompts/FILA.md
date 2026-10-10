@@ -1257,7 +1257,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 499 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 501 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2286,7 +2286,23 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   **largura é indiferente** (0,19 m da faixa de 8 m **e** da de 10 m, porque ela cresce para fora
   da divisa) e a **cobertura é de 100 %** da face declarada. O conserto encurta a fileira, e
   **encurtar perde lotes que hoje entram** — quantos é medição que o LAB-78 não fez, e prometer o
-  número sem medir é a classe do D133. **Segue aberto:** `aguardando-o-jonny`
+  número sem medir é a classe do D133. **O PEDIDO foi escrito no LAB-82** (item 015), com as seis
+  linhas da família, **remedido antes** contra o motor em `3680b9f` — os 10 a 13 m **continuam e são
+  idênticos** —, e **endereçado ao `motor-testfit`**, que é o dono medido, e não ao Generate (D275).
+  A escolha de desenho que ele embute está na **§10 da página do Jonny**, com três caminhos e o
+  custo de cada um. **Segue aberto:** `aguardando-o-jonny`
+
+- **O CARIMBO DO CLONE SAI DO MÓDULO RESOLVIDO, E NÃO DO `HEAD` DO CLONE** (LAB-82, 10/10, D274).
+  Medido: ao remedir o sétimo mecanismo contra o motor em `3680b9f` — num clone do clone, com o
+  `paths` repontado —, a ferramenta **mediu o motor novo e carimbou o velho** (`6cf6396`, o `HEAD`
+  da árvore do vizinho, que não foi tocada). O código vem do resolvedor de módulos; o carimbo vem
+  do `git rev-parse` do clone: **duas fontes de verdade para "qual motor rodou", e só uma sabe.**
+  *Carimbo que lê o repositório mede a INTENÇÃO de quem configurou, não o que rodou — e acerta
+  sempre que ninguém reponta nada, que é por que ninguém descobre que ele pode errar.* O conserto
+  tem nome: o carimbo sai do **módulo resolvido** (`import.meta.resolve` do ponto de entrada do
+  vizinho), o `HEAD` do clone vira uma **segunda** linha, e **divergindo, a prova diz as duas**. É
+  a proposta do D223 um degrau adiante, e toca toda prova que usa clone. **Segue aberto:**
+  `prompt-novo`
 
 - **ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR** (09/10, D226). Medido: o
   `Terreno["legais"]` do motor ganhou `caixaViariaMinima_m`, `faceQuadraMaxima_m`,
