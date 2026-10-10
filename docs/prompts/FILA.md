@@ -213,7 +213,7 @@ certa e eu repeti a frase velha por descuido."*
 > como a §1-B manda, e o despertador foi **DESLIGADO** (`enabled: false`), não apagado. O
 > chat o religa com fila nova.
 
-### Proposto ao chat, saído do item 007 — **não executado: é MUDANÇA DE MODELO**
+### ~~Proposto ao chat, saído do item 007 — é MUDANÇA DE MODELO~~ — ✅ **feito no LAB-80** (D243)
 
 **ESCOPAR A VARREDURA DE CUSTO POR DESTINO, E NÃO POR NOME DE ARQUIVO** (D243). A lista nominal de
 exceções da `vazamento-de-custo.test.ts` foi de **6 para 11** em três prompts, e as duas últimas
@@ -230,8 +230,17 @@ ou de bloco de código**.
 pular **linha de citação** e dispensou **duas** entradas de lista sem nome de arquivo nenhum.
 *Sinal estrutural no lugar de nome na lista.*
 
-**Não executado porque é escopo novo** (§1-A), e porque mexer no modelo de uma varredura de
-segurança no fim de uma rodada é exatamente o tipo de conserto que esta casa não faz em silêncio.
+~~**Não executado porque é escopo novo** (§1-A), e porque mexer no modelo de uma varredura de
+segurança no fim de uma rodada é exatamente o tipo de conserto que esta casa não faz em
+silêncio.~~
+
+✅ **FEITO no LAB-80**, numa rodada só dele. O desenho entregue tem **cinco destinos** pela
+estrutura do caminho — `tela`, `codigo`, `registro`, `dado`, `upstream-intocavel` —, somando os
+**469** arquivos que o git carrega, com a régua do `registro` pedindo **o VALOR** (o nome **com
+número**) e não o nome. **Das 11 isenções, zero sobreviveram.** E a medição achou duas coisas que
+a proposta não previa: **duas entradas da lista estavam mortas**, uma delas sem nunca ter
+tropeçado (D260), e o `soOCodigo()` que o modelo precisava **já existia na casa**, com o buraco
+dele declarado em comentário (D258).
 
 ### Proposto ao chat, saído do item 004 — **não executado, e é um DESEMPATE**
 
@@ -1248,7 +1257,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 452 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 477 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2253,13 +2262,23 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 
 ## Proposto ao chat — não executar
 
-> **O PRÓXIMO ITEM, dito pelo chat no item 012:** a **D243** — escopar a varredura de custo por
-> **destino** e não por nome de arquivo, porque a lista nominal foi de **6 para 11 em três
-> prompts** e as duas últimas entradas são **relatórios**. O chat escolheu o item 012 primeiro
-> por uma diferença de natureza: *"a D243 descreve uma varredura que vai apodrecer devagar, uma
-> linha por relatório, à vista de todos; o item 012 descrevia uma trava que não pode falhar"*.
-> **Não começar na mesma rodada de outra coisa** — é mudança de modelo de uma varredura de
-> segurança (item 012, encerramento 2).
+> ✅ **O PRÓXIMO ITEM que o chat elegeu no item 012 — a D243 — FOI EXECUTADO no LAB-80**, no
+> despertador das 06:05 de 10/10, **sozinho na rodada**, que era a condição que o chat pôs
+> (*"não na mesma rodada de outra coisa"*). A caixa estava sem item novo, e um item eleito por
+> escrito não é item inventado: a §1-A manda executar a `FILA.md` em laço.
+> **Resultado:** a lista nominal de isenções foi de **11 a ZERO**, a varredura passa a varrer **a
+> si mesma**, e a de chamada paga de IA também perdeu a isenção que tinha. Relatório em
+> [`../relatorios/LAB-80.md`](../relatorios/LAB-80.md), decisões **D258 a D263**.
+
+- **UNIFICAR AS CINCO LEITURAS DE "ESTA LINHA AFIRMA OU SÓ MOSTRA?"** (LAB-80, 10/10, D259).
+  Contadas antes de eu escrever a sexta: **cinco** respostas para a mesma pergunta nesta casa,
+  **três delas dentro de travas**, e **nenhuma conhecia o bloco de código** — que é onde moram os
+  recados, e foi o que fez a varredura de custo acusar o `RECADOS.md` por duas linhas que são
+  recado gravado. *Cinco respostas para a mesma pergunta não são cinco réguas: são uma régua que
+  ninguém terminou.* O LAB-80 fez a sua parte — a leitura nova mora em `src/texto-das-regras.ts` e
+  o `semRiscadoNemCitado()` saiu de dentro do `moldura.test.ts` para lá — e **parou**: as outras
+  três tocam cinco arquivos e as travas de três deles. A tabela das cinco está na seção em prosa
+  abaixo. **Segue aberto:** `prompt-novo`
 
 - **PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA** (LAB-78, 10/10, D253). Medido: o plantio
   da fileira externa **passa da ponta** da face que a ida declara em `facesLoteamento` e continua
@@ -2423,6 +2442,32 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   `VIZINHOS_TOKEN`, que é do Jonny (item 6 da página dele).
 
 ---
+
+### Proposto ao chat, saído do LAB-80 — **não executado: são CINCO instrumentos**
+
+**UNIFICAR AS CINCO LEITURAS DE "ESTA LINHA AFIRMA OU SÓ MOSTRA?"** (D259). Contadas antes de eu
+escrever a sexta, e a contagem é o insumo que faltava:
+
+| onde | o que lê | para quem |
+|---|---|---|
+| `src/limites-com-sujeito.ts` | `semCitacoes()` — tira a **linha** de citação | a aritmética da regra |
+| `tests/moldura.test.ts` | `semRiscadoNemCitado()` — riscado, crase e citação curta | a moldura |
+| `tests/verde.test.ts` | um `semCitacoes` local, só citação curta | o aviso do CI |
+| `src/trava-de-estrutura.ts` | `/^\s*>/` inline | as condições de conta |
+| `src/texto-das-regras.ts` | `comoARegraSeLe()` — tira o `>` do **meio** da frase | toda trava que cita regra |
+
+**Três das cinco moram dentro de travas**, e **nenhuma das cinco conhecia o bloco de código** — o
+que fez a varredura de custo acusar o `RECADOS.md` por duas linhas que são **recado gravado**.
+
+> **Cinco respostas para a mesma pergunta não são cinco réguas: são uma régua que ninguém
+> terminou.**
+
+**O LAB-80 fez a sua parte e parou onde devia:** a leitura nova mora em `src/texto-das-regras.ts`,
+e o `semRiscadoNemCitado()` **saiu de dentro do `moldura.test.ts`** para lá, com a trava daquele
+arquivo passando a importá-lo. **O que falta** são as outras três, e isso toca `verde.test.ts`,
+`limites-com-sujeito.ts` e `trava-de-estrutura.ts` — **mudança em cinco arquivos e nas travas de
+três deles**, com o mesmo risco do D231: *conserto que não entra em todos os instrumentos que leem
+a mesma coisa é meio conserto.*
 
 ## Histórico — a fila autônoma de 14/09/2026, esgotada
 

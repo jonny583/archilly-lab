@@ -2,7 +2,7 @@
   "prompt": "LAB-62",
   "oQueIstoMede": "as três listas que o chat pediu dentro do recado, geradas das provas que as medem e não digitadas: os onze itens abertos da FILA, os seis mecanismos do motor nas DUAS ordens, e o contexto + as três formas de desligar conferência dele",
   "aPergunta": "do chat: 'mande AQUI, dentro do próprio recado, as três coisas que esperam por mim, porque é só o recado que chega até o chat'",
-  "quando": "2026-10-10T03:48:15.898Z",
+  "quando": "2026-10-10T06:45:32.447Z",
   "asFontes": {
     "lista1": "docs/prompts/FILA.md, lido pela régua do LAB-61 (lerPropostas)",
     "lista2": "docs/provas/LAB-58/mecanismos-das-81.json",
@@ -43,101 +43,107 @@
     "comoFoiResolvido": "as três listas vão em blocos de código PRÓPRIOS, logo acima do recado, copiáveis um por um; o recado, dentro do teto, diz quantos blocos são e o que cada um carrega"
   },
   "lista1": {
-    "quantos": 16,
+    "quantos": 17,
     "itens": [
       {
         "numero": 1,
-        "linhaNaFila": 2254,
+        "linhaNaFila": 2273,
+        "titulo": "UNIFICAR AS CINCO LEITURAS DE \"ESTA LINHA AFIRMA OU SÓ MOSTRA?\"",
+        "motivo": "prompt-novo"
+      },
+      {
+        "numero": 2,
+        "linhaNaFila": 2283,
         "titulo": "PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA",
         "motivo": "aguardando-o-jonny"
       },
       {
-        "numero": 2,
-        "linhaNaFila": 2264,
+        "numero": 3,
+        "linhaNaFila": 2293,
         "titulo": "ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR",
         "motivo": "prompt-novo"
       },
       {
-        "numero": 3,
-        "linhaNaFila": 2273,
+        "numero": 4,
+        "linhaNaFila": 2302,
         "titulo": "O PICO DE RAMPA QUE O PARCELAMENTO REPORTA, 109,51 % → 175,51 %",
         "motivo": "aguardando-outro-repositorio"
       },
       {
-        "numero": 4,
-        "linhaNaFila": 2280,
+        "numero": 5,
+        "linhaNaFila": 2309,
         "titulo": "O COMMIT DO CLONE VIZINHO EM TODA PROVA QUE O USE",
         "motivo": "prompt-novo"
       },
       {
-        "numero": 5,
-        "linhaNaFila": 2288,
+        "numero": 6,
+        "linhaNaFila": 2317,
         "titulo": "O TRABALHO DE CI QUE NÃO PODE PASSAR",
         "motivo": "prompt-novo"
       },
       {
-        "numero": 6,
-        "linhaNaFila": 2295,
+        "numero": 7,
+        "linhaNaFila": 2324,
         "titulo": "A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO",
         "motivo": "prompt-novo"
       },
       {
-        "numero": 7,
-        "linhaNaFila": 2303,
+        "numero": 8,
+        "linhaNaFila": 2332,
         "titulo": "O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER",
         "motivo": "prompt-novo"
       },
       {
-        "numero": 8,
-        "linhaNaFila": 2310,
+        "numero": 9,
+        "linhaNaFila": 2339,
         "titulo": "A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO",
         "motivo": "prompt-novo"
       },
       {
-        "numero": 9,
-        "linhaNaFila": 2338,
+        "numero": 10,
+        "linhaNaFila": 2367,
         "titulo": "Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes",
         "motivo": "depois-do-mvp"
       },
       {
-        "numero": 10,
-        "linhaNaFila": 2343,
+        "numero": 11,
+        "linhaNaFila": 2372,
         "titulo": "O delta contra o Padrão 1.2",
         "motivo": "aguardando-outro-repositorio"
       },
       {
-        "numero": 11,
-        "linhaNaFila": 2346,
+        "numero": 12,
+        "linhaNaFila": 2375,
         "titulo": "As 4 violações que sobraram em `geo-antonina`",
         "motivo": "nao-medido"
       },
       {
-        "numero": 12,
-        "linhaNaFila": 2350,
+        "numero": 13,
+        "linhaNaFila": 2379,
         "titulo": "As 96 quadras de esqueleto não confiável",
         "motivo": "nao-medido"
       },
       {
-        "numero": 13,
-        "linhaNaFila": 2353,
+        "numero": 14,
+        "linhaNaFila": 2382,
         "titulo": "A travessia sobre a APP de `geo-antonina`",
         "motivo": "aguardando-o-jonny"
       },
       {
-        "numero": 14,
-        "linhaNaFila": 2356,
+        "numero": 15,
+        "linhaNaFila": 2385,
         "titulo": "A quadra dentro de APP.",
         "motivo": "escopo-novo"
       },
       {
-        "numero": 15,
-        "linhaNaFila": 2359,
+        "numero": 16,
+        "linhaNaFila": 2388,
         "titulo": "O eixo do curso d'água, para o Geo.",
         "motivo": "aguardando-outro-repositorio"
       },
       {
-        "numero": 16,
-        "linhaNaFila": 2396,
+        "numero": 17,
+        "linhaNaFila": 2425,
         "titulo": "O `faceDeRua` nulo nos 33 lotes de `geo-antonina`",
         "motivo": "nao-medido"
       }
@@ -278,7 +284,7 @@
   },
   "osBlocos": {
     "arquivo": "docs/provas/LAB-62/os-tres-blocos.txt",
-    "linhas": 85
+    "linhas": 86
   },
   "problemas": []
 }

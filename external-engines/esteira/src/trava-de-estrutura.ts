@@ -26,6 +26,8 @@
  */
 
 /** O que é um compromisso mensal de verdade, escrito como o mundo escreve. */
+import { afirmadoNaLinha, lugaresDaPagina } from "./texto-das-regras.ts";
+
 export const COMPROMISSOS_DE_FORMATO_REAL = [
   "assinatura mensal de R$ 400",
   "plano Starter: R$ 99/mês",
@@ -127,20 +129,33 @@ export function condicoesDeConta(
 ): { arquivo: string; linha: number; trecho: string }[] {
   const achados: { arquivo: string; linha: number; trecho: string }[] = [];
   for (const d of docs) {
+    // **As DUAS leituras, e esquecer uma delas foi o meu erro de meia hora** (D266): `lugaresDaPagina`
+    // responde ONDE a linha está (citação, bloco de código, prosa) e `afirmadoNaLinha` responde o
+    // que ela afirma DENTRO da linha. A primeira versão deste conserto trocou o `/^\s*>/` pela
+    // segunda e **perdeu a proteção da citação** — que era justamente o conserto do item 007. A
+    // minha própria fixture nova pegou: `> volta no ponto de equilíbrio` voltou a ser acusado.
+    const lugares = lugaresDaPagina(d.texto);
     d.texto.split("\n").forEach((linha, i) => {
+      if (lugares[i] !== "prosa") return;
       // **Linha de CITAÇÃO não é condição desta casa** (item 007). As duas únicas que esta régua
       // acusou no repositório inteiro eram a MESMA frase da Central, citada em dois lugares:
       // `> O grep por "quando compensar", "ponto de equilíbrio" e "volume mensal" deu ZERO`.
-      // Reportar a frase de outro não é assumir a condição — e o sinal aqui é ESTRUTURAL (a linha
-      // abre com `>`), não o nome de um arquivo numa lista. *Foi assim que esta régua deixou de
-      // precisar de lista nominal, que é o conserto que a de custo ainda espera (D243).*
+      // Reportar a frase de outro não é assumir a condição — e o sinal aqui é ESTRUTURAL, não o
+      // nome de um arquivo numa lista.
+      //
+      // **E no LAB-80 a régua passou do `>` para a leitura inteira** — bloco de código, crase e
+      // citação curta —, que é a mesma que a varredura de custo ganhou no mesmo prompt. *Conserto
+      // de régua que não é aplicado em todos os instrumentos que leem a mesma coisa é meio
+      // conserto* (D231), e estas duas leem a mesma coisa. Medido: a lista nominal daqui foi de
+      // **três a UM** — o `LAB-73.md` dissolveu porque cita a frase dentro de `*"…"*`, e o
+      // `LAB-74.md` **não acusava nada**, exatamente como na lista de custo (D260).
       //
       // **O limite disto fica dito:** se um dia uma condição de conta for ADOTADA a partir de uma
       // citação, ela tem de ser reescrita fora da citação — e é assim que se adota qualquer coisa.
-      if (/^\s*>/.test(linha)) return;
+      //
       // **Uma linha conta UMA vez**, e não uma por padrão que casar: duas réguas mordendo a
       // mesma frase dariam duas condições onde há uma, e o número é o que o item 006 pede.
-      if (CONDICAO_DE_CONTA.some((re) => re.test(linha))) {
+      if (CONDICAO_DE_CONTA.some((re) => afirmadoNaLinha(linha, re))) {
         achados.push({ arquivo: d.arquivo, linha: i + 1, trecho: linha.trim().slice(0, 100) });
       }
     });

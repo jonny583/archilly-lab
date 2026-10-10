@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-79 (item 012) — **o alcance
-das provas: 2 de 67 eram remedidas da fonte** (D255) ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-80 (D243) — **a varredura de
+custo escopada por DESTINO: a lista nominal de isenções foi de 11 a ZERO** (D258 a D263) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -68,10 +68,31 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 03:06 | observado | item 011 pronto (o chat o escreveu depois das 02:05Z) | item 011 (LAB-78) |
 | 10/10/2026 | 04:05 | observado | **nada na caixa** — os onze feitos | recado de uma linha, e dormir |
 | 10/10/2026 | 05:06 | observado | item 012 pronto (o chat o escreveu às 04h55) | item 012 (LAB-79) |
+| 10/10/2026 | 06:06 | observado | a caixa com os doze feitos (conferido na `origin/main`), e a **FILA** com a D243 **eleita pelo item 012** | item da FILA → LAB-80 |
 
 ```
-disparos observados: 15 · em vazio: 4
+disparos observados: 16 · em vazio: 4
 ```
+
+**O disparo das 06:06 NÃO entrou na conta dos vazios, e o motivo fica escrito porque é a primeira
+vez que isto acontece:** a caixa não tinha item novo, mas **havia trabalho eleito por escrito** —
+o item 012 fechou dizendo *"a D243 é o próximo item; não comece agora… não na mesma rodada de
+outra coisa"*, e essa rodada não tinha outra coisa. A D243 estava na `FILA.md`, que a §1-A chama
+de **fila oficial** e manda executar em laço.
+
+> **Disparo em vazio é disparo que não tinha O QUE FAZER, não disparo em que a CAIXA estava
+> vazia.** Contar esta rodada como vazia inflaria a medida que decide o intervalo de 60 minutos —
+> e a medida existe para dizer se o chat abastece mais devagar do que eu consumo, não para contar
+> quantas vezes a caixa coincidiu de estar em dia.
+
+**E a CONVENÇÃO da coluna "o que achou" fica escrita, porque a régua a lê** (D265): a linha de um
+disparo em vazio traz a palavra **nada**, **vazio** ou **sem item**, e é por isso que a
+`disparos-do-despertador.ts` acerta a conta sem que ninguém marque uma caixa. **A primeira versão
+desta linha dizia *"nada NOVO na caixa"*** — verdade sobre a caixa, mas a régua leu o `nada`,
+classificou a rodada como vazia e a conta passou a declarar 4 contra 5 medidos.
+
+> **Convenção que uma régua lê e ninguém escreveu é uma régua adivinhando.** Ou a coluna é prosa
+> livre e a classe vira campo próprio, ou a convenção está escrita — e escrever custou esta linha.
 
 **DOIS em vazio de nove, e a série já diz algo:** o chat abasteceu **sete itens em oito horas** e
 os dois vazios caíram **logo depois de a caixa esgotar** — às 19:05 (e o `005` entrou catorze
@@ -146,7 +167,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 846 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 871 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -1675,7 +1696,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 452 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 477 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

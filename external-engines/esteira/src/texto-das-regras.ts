@@ -94,3 +94,97 @@ export function caminhoDoItemDaCaixa(raiz: string, numero: string): string {
 export function lerItemDaCaixa(raiz: string, numero: string): string {
   return readFileSync(caminhoDoItemDaCaixa(raiz, numero), "utf8");
 }
+
+/**
+ * ════════════════════════════════════════════════════════════════════════════
+ *  ONDE UMA LINHA ESTÁ NA PÁGINA — e por que isso decide o que ela AFIRMA. (LAB-80)
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * Em Markdown a **posição** de uma frase muda o que ela diz. A mesma linha, dentro de um
+ * bloco de citação, é fonte de fora; dentro de um bloco de código, é um exemplo; em prosa
+ * nua, é uma afirmação de quem escreve.
+ *
+ * # Isto já tinha CINCO respostas nesta casa, e o LAB-80 as contou (D259)
+ *
+ * | onde | o que lê | para quem |
+ * |---|---|---|
+ * | `src/limites-com-sujeito.ts` | `semCitacoes()` — tira a LINHA de citação | a aritmética da regra |
+ * | `tests/moldura.test.ts` | `semRiscadoNemCitado()` — riscado, crase e citação curta | a moldura |
+ * | `tests/verde.test.ts` | um `semCitacoes` local, só citação curta | o aviso do CI |
+ * | `src/trava-de-estrutura.ts` | `/^\s*>/` inline | as condições de conta |
+ * | `src/texto-das-regras.ts` | `comoARegraSeLe()` — tira o `>` do MEIO da frase | toda trava que cita regra |
+ *
+ * **Nenhuma delas conhecia o BLOCO DE CÓDIGO**, e é ele que guarda os recados — o que fez a
+ * varredura de custo acusar o `RECADOS.md` por duas linhas que são recado gravado.
+ *
+ * > **Cinco respostas para "esta linha afirma ou só mostra?" não são cinco réguas: são uma
+ * > régua que ninguém terminou.** O D116 proíbe a segunda montagem da mesma pergunta; aqui
+ * > havia a quinta.
+ *
+ * A unificação das cinco **não** foi feita neste prompt — está na `FILA.md` como proposta, com
+ * esta contagem. O que foi feito é o que o item exigia: a leitura que a varredura de custo
+ * precisa mora **aqui**, com as outras que já moravam, em vez de nascer a sexta dentro de uma
+ * trava (D248).
+ */
+
+/** Onde uma linha de Markdown está. `prosa` é o único lugar onde a linha AFIRMA. */
+export type LugarNaPagina = "citacao" | "bloco-de-codigo" | "prosa";
+
+/**
+ * O lugar de **cada linha** do texto, na ordem.
+ *
+ * A linha da cerca (` ``` `) conta como bloco: ela é marcação, nunca afirmação. Cerca sem
+ * par deixa o resto do arquivo em `bloco-de-codigo`, e isso é de propósito — bloco aberto é
+ * bloco até o fim da página, que é como o Markdown o desenha.
+ */
+export function lugaresDaPagina(texto: string): LugarNaPagina[] {
+  let dentroDeBloco = false;
+  return texto.split("\n").map((linha) => {
+    if (/^\s*(?:```|~~~)/.test(linha)) {
+      dentroDeBloco = !dentroDeBloco;
+      return "bloco-de-codigo";
+    }
+    if (dentroDeBloco) return "bloco-de-codigo";
+    if (/^\s*>/.test(linha)) return "citacao";
+    return "prosa";
+  });
+}
+
+/**
+ * Tira o que o texto MOSTRA — como erro, como citação ou como literal — e deixa o que ele
+ * AFIRMA.
+ *
+ * Em Markdown há **três** formas de mostrar sem afirmar, e as três saem:
+ *
+ * - `~~…~~` — o **riscado**: a forma de exibir o próprio erro (D161);
+ * - `*"…"*`, `**"…"**`, `"…"` — a **citação**, como no `semCitacoes()` do D177;
+ * - crases — o **literal**: ali a frase é o nome de um padrão, não a opinião de quem
+ *   escreve. **Esta terceira entrou porque a trava me reprovou:** o texto do D192 lista os
+ *   padrões que a régua casava, entre crases, e a régua leu os nomes dos próprios padrões
+ *   dela como afirmação. É a quarta vez do D177 naquele prompt.
+ *
+ * **O buraco fica declarado:** afirmação disfarçada de citação, de riscado ou de literal
+ * escapa. O preço é menor que o de reprovar o próprio conserto — e a trava **positiva**, que
+ * exige a causa certa escrita, é o que cobre o caso que importa.
+ *
+ * *Morava em `tests/moldura.test.ts` até o LAB-80, e veio para cá quando uma segunda trava
+ * precisou da mesma leitura — a regra deste arquivo (D248).*
+ */
+export function semRiscadoNemCitado(texto: string): string {
+  return texto
+    .replace(/~~[\s\S]*?~~/g, " ")
+    .replace(/`+[^`\n]*`+/g, " ")
+    .replace(/\*+"[^"]*"\*+/g, " ")
+    .replace(/"[^"\n]*"/g, " ");
+}
+
+/**
+ * O termo é **afirmado** nesta linha, ou só mostrado?
+ *
+ * Afirmado é o que sobra depois de sair o riscado, a crase e a citação curta. É a pergunta
+ * que separar *"a régua só conta `margem` quando…"* — onde o nome está entre crases porque
+ * está sendo **nomeado** — de *"a margem de lucro é 40 %"*, que é o objeto.
+ */
+export function afirmadoNaLinha(linha: string, termo: RegExp): boolean {
+  return termo.test(semRiscadoNemCitado(linha));
+}

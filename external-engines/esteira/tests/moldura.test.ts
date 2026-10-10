@@ -33,6 +33,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { semComentarios, soOCodigo } from "../src/varredura-de-chamadas.ts";
+import { semRiscadoNemCitado } from "../src/texto-das-regras.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const ler = (rel: string) => readFileSync(join(RAIZ, rel), "utf8");
@@ -59,30 +60,6 @@ const ler = (rel: string) => readFileSync(join(RAIZ, rel), "utf8");
  */
 const MOLDURA = [/por uma régua/i];
 
-/**
- * Tira o que o texto MOSTRA — como erro, como citação ou como literal — e deixa o que ele
- * AFIRMA.
- *
- * Em Markdown há **três** formas de mostrar sem afirmar, e as três saem:
- *
- * - `~~…~~` — o **riscado**: a forma de exibir o próprio erro (D161);
- * - `*"…"*`, `**"…"**`, `"…"` — a **citação**, como no `semCitacoes()` do D177;
- * - crases — o **literal**: ali a frase é o nome de um padrão, não a opinião de quem
- *   escreve. **Esta terceira entrou porque a trava me reprovou:** o texto do D192 lista os
- *   padrões que a régua casava, entre crases, e a régua leu os nomes dos próprios padrões
- *   dela como afirmação. É a quarta vez do D177 neste prompt.
- *
- * **O buraco fica declarado:** afirmação disfarçada de citação, de riscado ou de literal
- * escapa. O preço é menor que o de reprovar o próprio conserto — e a trava **positiva**, que
- * exige a causa certa escrita, é o que cobre o caso que importa.
- */
-export function semRiscadoNemCitado(texto: string): string {
-  return texto
-    .replace(/~~[\s\S]*?~~/g, " ")
-    .replace(/`+[^`\n]*`+/g, " ")
-    .replace(/\*+"[^"]*"\*+/g, " ")
-    .replace(/"[^"\n]*"/g, " ");
-}
 
 /**
  * Os documentos VIVOS que carregavam a moldura, com o que cada um tem de continuar dizendo.

@@ -120,13 +120,137 @@ export function semComentarios(texto: string): string {
   return fora.join("");
 }
 
-/** O texto só com CÓDIGO: sem comentário, e com o conteúdo das strings esvaziado. */
+/**
+ * O texto só com CÓDIGO: sem comentário, sem literal de regex, e com o conteúdo das strings
+ * esvaziado.
+ *
+ * # O LITERAL DE REGEX SAI PRIMEIRO, e a razão foi medida no LAB-80 (D267)
+ *
+ * O esvaziador de strings casa de uma aspa à próxima **através de quebras de linha**, e não sabe
+ * que uma aspa pode morar **dentro de um literal de regex**. Aplicado a este próprio arquivo, que
+ * declara uma classe de caracteres com as três aspas, ele casava **daquela aspa até muito depois**:
+ * medido, **422 linhas viravam 164**, e tudo no meio desaparecia.
+ *
+ * O efeito não era um erro: era **cegueira silenciosa**. A varredura de chamadas deixou de achar o
+ * único achado benigno deste arquivo — **de 1 para 0** — e um `?? 0` de verdade escrito ali
+ * passaria igual. *Limpeza que não sabe onde a string começa não limpa: ela corta* — e o corte é
+ * falso **negativo**, a espécie que o D164 descreve.
+ *
+ * A {@link semLiteraisDeRegex} entra **antes** do esvaziador e tira o literal inteiro, com as
+ * aspas de dentro. Era este o buraco que o comentário desta família declarava e declinava de
+ * fechar; fechá-lo deixou de ser preço e passou a ser correção.
+ *
+ * *Quem pegou foi a trava dos FANTASMAS da `chamadas.test.ts` — a que cobra que um benigno
+ * declarado não DESAPAREÇA. Lista de benignos sem a metade "nenhum deles sumiu" teria aprovado o
+ * silêncio.*
+ */
 export function soOCodigo(texto: string): string {
-  let fora = semComentarios(texto);
+  let fora = semLiteraisDeRegex(semComentarios(texto));
   // O conteúdo das strings sai; as aspas ficam. Uma string que contenha `catch {}`
   // é um nome de regra ou um exemplo, nunca um `catch` que engole.
   fora = fora.replace(/(["'`])(?:\\.|(?!\1)[\s\S])*\1/g, (m) => m[0] + " ".repeat(Math.max(0, m.length - 2)) + m[0]);
   return fora;
+}
+
+/**
+ * As palavras depois das quais uma barra começa um LITERAL DE REGEX, e não uma divisão.
+ *
+ * Sem elas, `return /x/.test(s)` seria lido como divisão, porque o caractere anterior é
+ * letra. *Régua que decide por um caractere só erra na palavra-chave.*
+ */
+/** As três aspas, num Set — porque dentro de um literal de regex elas cegam o varredor (D267). */
+const ASPAS = new Set(["'", '"', "`"]);
+
+const ANTES_DE_REGEX = new Set([
+  "return", "typeof", "case", "in", "of", "new", "delete", "void", "do", "else", "yield", "await",
+]);
+
+/**
+ * O texto **sem literal de expressão regular** — o conteúdo do literal vira espaço.
+ *
+ * # Por que esta terceira limpeza existe, e o preço que ela cobra está medido
+ *
+ * O comentário desta família declarava este buraco e declinava de fechá-lo: *"literal de
+ * expressão regular… aqui não vale o preço — os padrões deste repositório moram em
+ * `String.raw`"*. **Para a configuração isso era verdade. Para a varredura de custo não é**
+ * (D258): os nomes do nosso custo moram em literais de regex nus, e por isso a trava do
+ * vazamento **acusava a si mesma em 13 linhas** e comprava a isenção com o próprio nome numa
+ * lista. *A pergunta mudou, e quando a pergunta muda o preço de uma limpeza muda com ela.*
+ *
+ * > **Esta responde a uma TERCEIRA pergunta: "o código USA este nome?"** — e um padrão que
+ * > PROCURA um nome não o usa. `semComentarios()` responde *"o texto declara isto?"*;
+ * > `soOCodigo()`, *"o código faz isto?"*; esta, *"o código usa este nome?"*.
+ *
+ * Compõe-se **depois** da {@link soOCodigo}: com o conteúdo das strings já esvaziado, nenhuma
+ * barra de dentro de string chega aqui.
+ *
+ * **O que ela não alcança, e vai dito:** literal que não fecha na mesma linha fica intacto, e
+ * a decisão entre regex e divisão é feita pelo caractere anterior mais a lista
+ * {@link ANTES_DE_REGEX} — não pela gramática. O erro possível é apagar uma divisão, e apagar
+ * só produz falso NEGATIVO; acusação falsa, não. É a espécie que o D164 descreve, e é por isso
+ * que as travas desta casa plantam o vazamento em **posição de identificador**, onde limpeza
+ * nenhuma o alcança.
+ */
+export function semLiteraisDeRegex(texto: string): string {
+  const fora: string[] = [];
+  let i = 0;
+  while (i < texto.length) {
+    const c = texto[i]!;
+    if (c !== "/") {
+      fora.push(c);
+      i++;
+      continue;
+    }
+    let k = fora.length - 1;
+    while (k >= 0 && /\s/.test(fora[k]!)) k--;
+    const anterior = k >= 0 ? fora[k]! : "(";
+    let palavra = "";
+    for (let m = k; m >= 0 && /\w/.test(fora[m]!); m--) palavra = fora[m]! + palavra;
+    // **As aspas NÃO entram num literal de regex aqui, e o motivo é grave** (D267): a
+    // {@link semComentarios} não conhece literal de regex, então uma aspa dentro de uma classe de
+    // caracteres a joga em estado de string e **dessincroniza o varredor até o fim do arquivo**.
+    // A primeira versão desta linha era `/[\w)\]` mais as três aspas `/`, e a varredura de
+    // chamadas **parou de achar o único achado benigno deste arquivo** — de 1 para 0, em silêncio.
+    // Quem pegou foi a trava dos FANTASMAS da `chamadas.test.ts`, que cobra que um benigno
+    // declarado não desapareça. *Régua cega dá zero igual a árvore limpa* (D164).
+    const fechaValor = /[\w)\]]/.test(anterior) || ASPAS.has(anterior);
+    const ehRegex = !fechaValor || ANTES_DE_REGEX.has(palavra);
+    if (!ehRegex) {
+      fora.push(c);
+      i++;
+      continue;
+    }
+    let j = i + 1;
+    let emClasse = false;
+    let fechou = false;
+    while (j < texto.length && texto[j] !== "\n") {
+      const d = texto[j]!;
+      if (d === "\\") {
+        j += 2;
+        continue;
+      }
+      if (d === "[") emClasse = true;
+      else if (d === "]") emClasse = false;
+      else if (d === "/" && !emClasse) {
+        fechou = true;
+        break;
+      }
+      j++;
+    }
+    if (!fechou) {
+      fora.push(c);
+      i++;
+      continue;
+    }
+    for (let m = i; m <= j; m++) fora.push(" ");
+    i = j + 1;
+  }
+  return fora.join("");
+}
+
+/** O texto só com os nomes que o código USA: sem comentário, sem string e sem padrão. */
+export function soOsNomesUsados(texto: string): string {
+  return semLiteraisDeRegex(soOCodigo(texto));
 }
 
 export type RegraDeChamada = {

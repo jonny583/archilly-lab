@@ -143,7 +143,17 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
    * custo, e é o objeto da proposta ao chat (D243) — *escopar por destino em vez de por nome*. A
    * `CLAUDE.md` fica porque a §4-A enuncia a proibição em texto próprio.
    */
-  const FALAM_SOBRE_A_CONDICAO = ["CLAUDE.md", "docs/relatorios/LAB-73.md", "docs/relatorios/LAB-74.md"];
+  // **TRÊS → DOIS no LAB-80**, e por medição: a régua passou a ler bloco de código, crase e
+  // citação curta (a mesma leitura que a varredura de custo ganhou no mesmo prompt, D231), e o
+  // `LAB-74.md` revelou-se **isenção morta** — não acusava nada, exatamente como na lista de
+  // custo (D260).
+  //
+  // **E o `LAB-73.md` FICA, contra a minha primeira conclusão.** Eu medi com um script que testava
+  // só o PRIMEIRO padrão que casava a linha, e a régua testa TODOS (`.some`): na linha 88 o
+  // *"quando compensar"* está entre aspas e dissolve, mas **`ponto de equilíbrio` está nu**, numa
+  // célula de tabela. Eu ia publicar "três a um" e são "três a dois" — *régua de medição mais
+  // estreita que a régua medida dá o número errado para o lado otimista* (D266).
+  const FALAM_SOBRE_A_CONDICAO = ["CLAUDE.md", "docs/relatorios/LAB-73.md"];
   const docs = doGit(
     (f) =>
       f.endsWith(".md") &&
@@ -151,11 +161,12 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
       !FALAM_SOBRE_A_CONDICAO.includes(f),
   );
 
-  test("as condições declaradas são DEZESSEIS, e nenhuma é uma CONTA", () => {
-    // 15 → 16 no LAB-78: a proposta do sétimo mecanismo entrou com `aguardando-o-jonny`.
+  test("as condições declaradas são DEZESSETE, e nenhuma é uma CONTA", () => {
+    // 15 → 16 no LAB-78 (o sétimo mecanismo, `aguardando-o-jonny`) e 16 → 17 no LAB-80 (a
+    // unificação das cinco leituras, `prompt-novo`).
     // **O vocabulário não mudou** — e é ele que esta trava guarda: nenhuma condição é uma CONTA.
     const declaradas = condicoesDeclaradas(ler("docs/prompts/FILA.md"));
-    expect(declaradas.length, declaradas.join(", ")).toBe(16);
+    expect(declaradas.length, declaradas.join(", ")).toBe(17);
     // Nenhuma delas é volume: todas esperam pessoa, repositório, prompt ou medição.
     expect(new Set(declaradas)).toEqual(
       new Set([
@@ -186,11 +197,16 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
     expect(condicoesDeConta([{ arquivo: "x.md", texto: "volta quando o volume pagar, no ponto de equilíbrio" }])).toHaveLength(1);
   });
 
-  test("linha de CITAÇÃO não é condição desta casa (item 007)", () => {
+  test("linha de CITAÇÃO não é condição desta casa (item 007), e nem frase entre ASPAS (LAB-80)", () => {
     const citada = "> O `grep` por *\"quando compensar\"*, *\"ponto de equilíbrio\"* deu ZERO";
     expect(condicoesDeConta([{ arquivo: "x.md", texto: citada }])).toEqual([]);
-    // E a MESMA frase, fora da citação, continua sendo acusada.
-    expect(condicoesDeConta([{ arquivo: "x.md", texto: citada.replace(/^> /, "") }])).toHaveLength(1);
+    // **E a mesma frase SEM o `>` também não é mais acusada**, porque desde o LAB-80 a régua lê a
+    // aspas curta como quem MOSTRA, não como quem afirma. É mudança de sentido declarada: *reportar
+    // a frase de outro não é assumir a condição*, e o `>` nunca foi a única forma de reportar.
+    expect(condicoesDeConta([{ arquivo: "x.md", texto: citada.replace(/^> /, "") }])).toEqual([]);
+    // O que CONTINUA sendo acusado é a frase escrita NUA — que é como se adota qualquer coisa.
+    expect(condicoesDeConta([{ arquivo: "x.md", texto: "volta no ponto de equilíbrio" }])).toHaveLength(1);
+    expect(condicoesDeConta([{ arquivo: "x.md", texto: "> volta no ponto de equilíbrio" }])).toEqual([]);
   });
 
   test("e NÃO acusa `volume` noutro sentido — a §6 fala de acusar em volume", () => {

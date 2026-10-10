@@ -1,0 +1,113 @@
+{
+  "prompt": "LAB-80",
+  "oQue": "a varredura de custo escopada por DESTINO e não por nome de arquivo (D243): cada arquivo que o git carrega recebe um destino pela ESTRUTURA do caminho, e o destino decide o rigor. O `registro` — onde a casa escreve a própria regra — é varrido só pelo VALOR, e só em prosa nua; os outros quatro, pelo nome e pelo valor",
+  "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto é o conjunto de ARQUIVOS que o git carrega. Por isso está na lista declarada de exceções do §7",
+  "quando": "2026-10-10T07:05:32.461Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "universo": 469,
+  "porDestino": {
+    "tela": 2,
+    "registro": 217,
+    "codigo": 197,
+    "dado": 28,
+    "upstream-intocavel": 25
+  },
+  "linhasLidas": {
+    "tela": 165,
+    "registro": 1264669,
+    "codigo": 49820,
+    "dado": 260278,
+    "upstream-intocavel": 7810
+  },
+  "aContaFecha": true,
+  "rigorDeCadaDestino": {
+    "tela": {
+      "oQue": "o que um navegador desenha — hoje, só a bancada da prova (§4)",
+      "regras": "nome-e-valor",
+      "limpeza": "cru"
+    },
+    "codigo": {
+      "oQue": "o que roda aqui e nunca é desenhado",
+      "regras": "nome-e-valor",
+      "limpeza": "identificador"
+    },
+    "dado": {
+      "oQue": "entrada de terreno, saída crua, configuração e trava de dependência — nada disto é registro",
+      "regras": "nome-e-valor",
+      "limpeza": "cru"
+    },
+    "upstream-intocavel": {
+      "oQue": "cópia exata do motor original — §3 proíbe editar, então um achado aqui é CONFLITO de regras, não conserto meu",
+      "regras": "nome-e-valor",
+      "limpeza": "cru"
+    },
+    "registro": {
+      "oQue": "tudo sob `docs/` mais o `CLAUDE.md` — relatório, decisão, recado, item, fila E PROVA: é onde a casa escreve a própria regra e os próprios números",
+      "regras": "so-valor",
+      "limpeza": "prosa-nua-ou-cru-por-formato"
+    }
+  },
+  "achados": [],
+  "chamadaPagaDeIA": [],
+  "isencoesNominais": 0,
+  "oDesenhoVelho": {
+    "quantasIsencoes": 11,
+    "quaisEram": [
+      "external-engines/esteira/tests/vazamento-de-custo.test.ts",
+      "docs/DECISOES.md",
+      "docs/relatorios/RECADOS.md",
+      "docs/relatorios/LAB-67.md",
+      "docs/INDEX.md",
+      "CLAUDE.md",
+      "docs/caixa-de-entrada/005-FEITO.md",
+      "docs/relatorios/LAB-72.md",
+      "external-engines/esteira/src/cobranca-por-uso.ts",
+      "docs/relatorios/LAB-73.md",
+      "docs/relatorios/LAB-74.md"
+    ],
+    "aindaPrecisariamDeIsencao": [],
+    "acusavamAlgoDeFato": 9,
+    "mortasNaLista": [
+      "docs/DECISOES.md",
+      "docs/relatorios/LAB-74.md"
+    ],
+    "oQueAsMortasEnsinam": "`LAB-74.md`, varrido commit a commit com as sete regras, NUNCA casou com nenhuma delas em toda a sua história — e é uma das duas entradas que DISPARARAM o critério do teto. Entrada adivinhada numa lista que jurava não adivinhar (D260)"
+  },
+  "sabotagem": [
+    {
+      "destino": "tela",
+      "aReguaPega": true,
+      "aReguaPoupa": true,
+      "oTextoPlantado": "não vai à prova de propósito — mora em `SABOTAGEM`, em src/destino-do-que-sai.ts"
+    },
+    {
+      "destino": "registro",
+      "aReguaPega": true,
+      "aReguaPoupa": true,
+      "oTextoPlantado": "não vai à prova de propósito — mora em `SABOTAGEM`, em src/destino-do-que-sai.ts"
+    },
+    {
+      "destino": "codigo",
+      "aReguaPega": true,
+      "aReguaPoupa": true,
+      "oTextoPlantado": "não vai à prova de propósito — mora em `SABOTAGEM`, em src/destino-do-que-sai.ts"
+    },
+    {
+      "destino": "dado",
+      "aReguaPega": true,
+      "aReguaPoupa": true,
+      "oTextoPlantado": "não vai à prova de propósito — mora em `SABOTAGEM`, em src/destino-do-que-sai.ts"
+    },
+    {
+      "destino": "upstream-intocavel",
+      "aReguaPega": true,
+      "aReguaPoupa": true,
+      "oTextoPlantado": "não vai à prova de propósito — mora em `SABOTAGEM`, em src/destino-do-que-sai.ts"
+    }
+  ],
+  "oAchado": "a frase que PROÍBE o vazamento enumera numa linha os três nomes que ela proíbe, então toda régua de proximidade a morde — e ela tem de estar escrita em todo lugar onde a regra vale. A lista de isenções não media vazamento: media quantas vezes a casa repetiu a própria regra. A palavra do D243 é VALOR, e é o NÚMERO na linha que separa enunciar de vazar",
+  "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
+}
