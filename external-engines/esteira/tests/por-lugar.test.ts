@@ -41,15 +41,22 @@ describe("item 007 · a varredura por LUGAR, e a lista está escrita", () => {
    * veredicto (nenhuma é CONTA) sobreviveu; a cobertura não. *O meu "zero" estava certo por não
    * haver nenhuma, não por a varredura alcançar.*
    */
-  test("são VINTE E UMA condições em sete lugares, e a varredura de frase alcançava QUINZE", () => {
-    expect(QUANTAS_CONDICOES.naFila).toBe(15);
+  test("são VINTE E DUAS condições em sete lugares, e a varredura de frase alcançava QUINZE", () => {
+    expect(QUANTAS_CONDICOES.naFila).toBe(16);
     expect(QUANTAS_CONDICOES.foraDaFila).toBe(6);
-    expect(QUANTAS_CONDICOES.total).toBe(21);
+    expect(QUANTAS_CONDICOES.total).toBe(22);
+    // O número da varredura de FRASE é HISTÓRICO — o que ela alcançou no item 006 — e por isso
+    // NÃO anda quando a `FILA.md` cresce.
     expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBe(15);
-    // A conta fecha: o que a frase alcançava mais o que só o lugar mostrou.
-    expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou + QUANTAS_CONDICOES.foraDaFila).toBe(
-      QUANTAS_CONDICOES.total,
+    // A conta que fecha é esta, e é a única que é invariante:
+    expect(QUANTAS_CONDICOES.naFila + QUANTAS_CONDICOES.foraDaFila).toBe(QUANTAS_CONDICOES.total);
+    // E a identidade `frase + foraDaFila === total` valia só porque `naFila` era 15 NAQUELE DIA.
+    // Ela quebrou no LAB-78, quando a FILA foi a 16 — era COINCIDÊNCIA, não invariante, e uma
+    // trava que casa coincidência reprova no dia em que o mundo anda sem nada ter piorado.
+    expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBeLessThanOrEqual(
+      QUANTAS_CONDICOES.naFila,
     );
+    expect(QUANTAS_CONDICOES.naFila - QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBe(1);
   });
 
   test("NENHUMA das condições é uma CONTA, e nenhuma contradiz a regra de família", () => {

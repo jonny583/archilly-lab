@@ -398,7 +398,7 @@ arquivo que o git carrega. **Contratar de verdade acontece fora da árvore**, nu
 um cartão, e nenhuma régua daqui alcança. *Guarda que não declara o próprio buraco mente pelo
 silêncio* — a consequência nº 8 existe exatamente porque este buraco não fecha com código.
 
-**E as CONDIÇÕES DE VOLTA foram varridas:** são **quinze** condições de abertura declaradas na
+**E as CONDIÇÕES DE VOLTA foram varridas:** são **dezesseis** condições de abertura declaradas na
 `FILA.md`, e **nenhuma é uma conta** — todas esperam pessoa, repositório, prompt novo ou medição
 (`prompt-novo`, `nao-medido`, `aguardando-outro-repositorio`, `escopo-novo`, `depois-do-mvp`,
 `aguardando-o-jonny`). **Zero** falam de volume, de ponto de equilíbrio ou de *"quando

@@ -64,12 +64,16 @@ const lista1 = abertos.map((p, i) => ({
 /**
  * **Quantos itens abertos a lista tem hoje.** O chat recebeu ONZE no LAB-62; em 08/10 entraram
  * mais DOIS, da rodada do orçamento de Actions — o trabalho de CI que não pode passar (D221) e o
- * commit do clone vizinho em toda prova (D223).
+ * commit do clone vizinho em toda prova (D223); em 09/10 foram a QUINZE.
+ *
+ * **15 → 16 no LAB-78**, e o motivo é este: o conserto do **sétimo mecanismo** entrou como
+ * proposta com condição `aguardando-o-jonny` (D253). *Mexer no plantio muda o desenho, e desenho
+ * espera o olho do Jonny* — então a proposta nasce aberta, de propósito.
  *
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */
-const ABERTOS_ESPERADOS = 15;
+const ABERTOS_ESPERADOS = 16;
 
 cobrar(
   lista1.length === ABERTOS_ESPERADOS,

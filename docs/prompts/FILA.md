@@ -267,7 +267,7 @@ então não pode haver frente. As duas hipóteses da faixa caíram com número: 
 fora da divisa) e a **cobertura** é de **100 %** da face declarada. Relatório:
 [`../relatorios/LAB-78.md`](../relatorios/LAB-78.md).
 
-### Proposto ao chat, saído do LAB-78 — **não executado** · condição de abertura: `aguardando-o-jonny`
+### Proposto ao chat, saído do LAB-78 — **não executado**
 
 **PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA.** O LAB-78 mediu o sétimo mecanismo e o
 nomeou: o plantio da fileira externa **passa da ponta** da face que a ida declara em
@@ -276,9 +276,9 @@ violação de `frente` por candidata** em pelo menos duas das 20, e os lotes tra
 **0,19 m e 0,29 m** da face declarada com **0 m e 1,5 m** de testada.
 
 **O conserto não foi executado de propósito**, e a razão é do item 011: *mexer no plantio muda o
-desenho, e desenho espera o olho do Jonny*. A condição de abertura é
-**`aguardando-o-jonny`** — não é medição que falta, é uma pessoa que decide se a fileira externa
-encurta.
+desenho, e desenho espera o olho do Jonny*. **Não é medição que falta: é uma pessoa que decide**
+se a fileira externa encurta — e a etiqueta da condição está no item da lista, que é onde ela
+conta (repeti-la aqui inflava a conta das condições, e a trava do item 006 pegou).
 
 **O que ele vai olhar, em uma frase:** a fileira externa hoje aproveita o canto e ganha alguns
 lotes que o Validator reprova; encurtá-la ao fim da rua perde esses lotes e zera a violação.
