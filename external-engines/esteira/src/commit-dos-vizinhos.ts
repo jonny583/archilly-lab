@@ -29,7 +29,7 @@
 
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 
 /** Os repositórios irmãos que este Lab lê, e só lê (§4). */
 export const VIZINHOS = ["motor-testfit", "urban-create-hub-41d93a4d", "urban-scout-tool"] as const;
@@ -49,6 +49,82 @@ export interface CarimboDeVizinho {
   origemMain?: string | null;
   /** Quantos commits o `HEAD` do disco está **atrás** da `origin/main`. */
   atrasPor?: number | null;
+  /**
+   * De ONDE este carimbo saiu: do **módulo que o `import` carregou** ou do **caminho por
+   * convenção**. (item 016, D274)
+   *
+   * `modulo-resolvido` é a resposta à pergunta *"qual código rodou?"*. `convencao` é a resposta a
+   * *"que árvore está no lugar de sempre?"* — e ela vale quando o Lab **não importa** aquele
+   * vizinho, caso em que não existe módulo a resolver.
+   */
+  de: "modulo-resolvido" | "convencao";
+  /**
+   * A SEGUNDA linha: o `HEAD` do caminho por convenção, quando o carimbo saiu do módulo
+   * resolvido. Ela não desaparece — responde outra pergunta e continua valendo.
+   */
+  pelaConvencao?: { caminho: string; commit: string } | null;
+  /**
+   * As duas linhas DIVERGEM? **A divergência é a notícia, não o erro** — ela quer dizer que o
+   * código que rodou não veio da árvore que está no lugar de sempre, e foi exatamente isso que o
+   * LAB-82 fez de propósito e o carimbo velho não contou.
+   */
+  divergem?: boolean;
+}
+
+/**
+ * O PONTO DE ENTRADA de cada vizinho — o especificador que o `import` desta casa usa.
+ *
+ * **Medido no item 016, e o número muda o tamanho do conserto:** de três vizinhos, **dois** têm
+ * módulo a resolver e **um não tem** — o `urban-scout-tool` não aparece em `paths` nenhum, porque
+ * **o Lab não importa o Geo**. Para ele não existe *"o código que rodou"*, e o carimbo honesto é o
+ * do caminho por convenção, **dito como tal**.
+ *
+ * > **Carimbo que não tem módulo a resolver não é um carimbo pior: é um carimbo de outra
+ * > pergunta.** O que não se pode é chamar os dois pelo mesmo nome.
+ */
+export const PONTO_DE_ENTRADA: Record<Vizinho, string | null> = {
+  "motor-testfit": "@testfit/api.ts",
+  "urban-create-hub-41d93a4d": "@generate/contratos/motor-v1/index.ts",
+  // O Lab não importa o Geo: ele lê GeoJSON de `docs/terrenos/`, não código. Sem `import`, não há
+  // módulo resolvido — e inventar um alias só para carimbar seria carimbar uma ficção.
+  "urban-scout-tool": null,
+};
+
+/** Sobe do arquivo até a raiz de git que o contém. `null` quando não há nenhuma acima. */
+export function raizDeGitAcima(arquivo: string, existe: (p: string) => boolean): string | null {
+  let d = dirname(arquivo);
+  for (let i = 0; i < 12; i++) {
+    if (existe(join(d, ".git"))) return d;
+    const acima = dirname(d);
+    if (acima === d) return null;
+    d = acima;
+  }
+  return null;
+}
+
+/**
+ * Onde o módulo de um vizinho FOI CARREGADO DE — a raiz de git do arquivo que o resolvedor
+ * devolveu.
+ *
+ * O `resolver` entra por parâmetro para a régua ser testável sem clone nenhum: quem a chama de
+ * verdade passa `import.meta.resolve`. **É a mesma régua com que eu conferi o repoint no LAB-82**,
+ * e é por isso que ela serve de carimbo: ela responde à pergunta que o `git rev-parse` do caminho
+ * fixo não responde.
+ */
+export function raizDoModuloResolvido(
+  repo: Vizinho,
+  resolver: (especificador: string) => string,
+  existe: (p: string) => boolean,
+): string | null {
+  const spec = PONTO_DE_ENTRADA[repo];
+  if (spec === null) return null;
+  let url: string;
+  try {
+    url = resolver(spec);
+  } catch {
+    return null; // o alias saiu do tsconfig: NÃO MEDIDO, e não "igual ao de sempre"
+  }
+  return raizDeGitAcima(url.replace(/^file:\/\//, ""), existe);
 }
 
 /**
@@ -239,10 +315,23 @@ const RAIZ_DO_LAB = join(import.meta.dirname, "..", "..", "..");
  * **E nada é PUXADO:** atualizar o clone mudaria toda medição desta casa, e isso é prompt, não
  * conserto silencioso (D226).
  */
-export function carimbarVizinhos(): CarimboDeVizinho[] {
+export function carimbarVizinhos(
+  resolver: (especificador: string) => string = (e) => import.meta.resolve(e),
+  /**
+   * Buscar na origem? Ligado por padrão, porque o SEGUNDO eixo do carimbo (o atraso) depende
+   * dele. **A trava passa `false`**: ela confere de ONDE o carimbo saiu, e isso não precisa de
+   * rede — *trava que depende de rede não reprova o código, reprova a conexão.*
+   */
+  buscarNaOrigem = true,
+): CarimboDeVizinho[] {
   const carimbos: CarimboDeVizinho[] = [];
   for (const repo of VIZINHOS) {
-    const caminho = join(RAIZ_DO_LAB, "..", repo);
+    const porConvencao = join(RAIZ_DO_LAB, "..", repo);
+    // **O carimbo sai do MÓDULO RESOLVIDO quando existe um** (item 016, D274): é ele que responde
+    // "qual código rodou?". O caminho por convenção responde "que árvore está no lugar de sempre?",
+    // e vira a SEGUNDA linha — ela não desaparece.
+    const resolvida = raizDoModuloResolvido(repo, resolver, existsSync);
+    const caminho = resolvida ?? porConvencao;
     if (!existsSync(join(caminho, ".git"))) continue;
     const git = (...a: string[]): string =>
       execFileSync("git", ["-C", caminho, ...a], { encoding: "utf8" }).trim();
@@ -253,15 +342,24 @@ export function carimbarVizinhos(): CarimboDeVizinho[] {
         return null; // sem rede ou sem `origin`: NÃO MEDIDO, e não "em dia"
       }
     };
-    tentar("fetch", "-q", "origin", "main");
+    if (buscarNaOrigem) tentar("fetch", "-q", "origin", "main");
     const origemMain = tentar("rev-parse", "--short", "origin/main");
     const atras = tentar("rev-list", "--count", "HEAD..origin/main");
+    const commit = git("rev-parse", "--short", "HEAD");
+    // A segunda linha só se lê quando ela é OUTRO lugar — e quando há `.git` lá.
+    const temConvencao = resolvida !== null && resolvida !== porConvencao && existsSync(join(porConvencao, ".git"));
+    const daConvencao = temConvencao
+      ? execFileSync("git", ["-C", porConvencao, "rev-parse", "--short", "HEAD"], { encoding: "utf8" }).trim()
+      : null;
     carimbos.push({
       repo,
-      commit: git("rev-parse", "--short", "HEAD"),
+      commit,
       limpo: git("status", "--porcelain") === "",
       origemMain,
       atrasPor: atras === null ? null : Number(atras),
+      de: resolvida === null ? "convencao" : "modulo-resolvido",
+      pelaConvencao: daConvencao === null ? null : { caminho: porConvencao, commit: daConvencao },
+      divergem: daConvencao === null ? false : daConvencao !== commit,
     });
   }
   return carimbos;

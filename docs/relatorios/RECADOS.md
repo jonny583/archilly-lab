@@ -1843,3 +1843,55 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · a escolha de desenho NÃO foi tomada por mim: está na página dele, com os três caminhos;
 · o custo do caminho recomendado sai NÃO MEDIDO, e não como zero.
 ```
+
+## 10/10/2026 · LAB-83 — item 016: o carimbo sai do módulo resolvido, e o Geo não tem módulo a resolver
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-83 (item 016) ===
+Estado: FEITO. O carimbo do clone vizinho sai do MÓDULO RESOLVIDO, o `HEAD` da convenção virou SEGUNDA linha, e divergindo a prova diz as DUAS. Verde conferido aqui, não no GitHub: 901 travas na esteira + 17 no testfit (507 delas na lista do CI sem clones), 7 passos, exit 0.
+Feito: remedi PRIMEIRO, como você mandou — e a remedição MUDOU O TAMANHO DO CONSERTO. A divergência não ficou prevista: foi DEMONSTRADA com o resolvedor apontado ao clone do rascunho em 3680b9f, e saiu `de=modulo-resolvido commit=3680b9f convenção=6cf6396 DIVERGEM=true` — o caso exato do D274, agora relatado em vez de escondido. Decisões D276 a D279.
+Achados para outros apps ou Central: (1) DE TRÊS VIZINHOS, DOIS TÊM MÓDULO A RESOLVER E UM NÃO TEM. O `urban-scout-tool` não aparece em `paths` nenhum, porque este laboratório lê GeoJSON do Geo e não CÓDIGO dele — não há `import` a resolver porque não há `import`. Para ele o carimbo honesto continua sendo o da convenção, agora DITO COMO TAL no campo `de`, em vez de parecer igual aos outros dois. CARIMBO QUE NÃO TEM MÓDULO A RESOLVER NÃO É UM CARIMBO PIOR: É UM CARIMBO DE OUTRA PERGUNTA. Se eu tivesse começado pelo código, teria escrito um resolvedor para três e descoberto no terceiro que não havia o que resolver — e a saída provável seria um `catch` silencioso, que é o oposto do que você pediu. (2) A ADOÇÃO CABIA, E CABE PORQUE É PEQUENA, não porque eu quis: das 72 provas, 5 carimbam clone e 2 ferramentas chamam o carimbo — as duas publicam a procedência agora; as outras 67 não carimbam clone nenhum, então ZERO ficam para depois e NENHUMA prova foi reescrita. As três já carimbadas e não regeradas são provas de ESTADO de rodadas passadas: regerá-las mudaria o que elas mediram. E uma das duas precisou de mais que regerar — PROVA QUE DERIVA A PROCEDÊNCIA DE OUTRA COISA NÃO HERDA O CONSERTO DA FONTE, ELA TEM DE PEDIR. (3) DISPARO QUE A SESSÃO NÃO RECEBE NÃO É DISPARO EM VAZIO: É DISPARO PERDIDO. Entre 11:06 e 18:06 o despertador disparou oito vezes; UMA notificação chegou na hora e as outras SETE chegaram todas no mesmo instante, às 18:06, com até seis horas de espera — e a sua caixa tinha o `016` desde as 10h55. Contá-las como vazio diria "você não abastece" quando o que houve foi "eu não estava ouvindo", E A CONTA DECIDE O INTERVALO: sete vazios falsos te empurrariam a ESTICAR o despertador, o conserto exatamente oposto. A coluna de origem ganhou `entregue-em-lote` no vocabulário fechado, e a conta passa a dizer as três coisas: 21 observados · 5 em vazio · 7 entregues em lote. Nada foi tocado no despertador. (4) A TERCEIRA COINCIDÊNCIA CASADA COMO INVARIANTE, NA MESMA FUNÇÃO, E A MAIS ÚTIL DAS TRÊS. Mexer na conta dos itens abertos (17 → 16, por ENTREGA) me fez reler a trava `naFila > 15`, que eu mesma escrevi no LAB-80 para consertar a segunda (o D264) e justifiquei por escrito com "a FILA só cresce". Medido commit a commit: 15 → 16 → 17 → 16 → 17 → 16 → 17, duas descidas, as duas por entrega. COINCIDÊNCIA CONSERTADA COM OUTRA COINCIDÊNCIA É A MESMA TRAVA COM UMA VIDA MAIS LONGA — e esta é a primeira das três cuja JUSTIFICATIVA ESCRITA é a parte que estava falsa: eu não casei o número por descuido, casei-o por uma premissa sobre o mundo que a minha própria entrega já tinha desmentido. O conserto foi guardar MENOS: a linha saiu e nada tomou o lugar dela. (5) E ESCREVER A TRAVA NOVA ACHOU UM NOME DE CI QUE DEIXOU DE SER VERDADE. O trabalho `guardas que não precisam dos clones vizinhos (NÃO é o verde)` lista um arquivo com DUAS travas que exigem o clone do motor-testfit no disco — uma desde o LAB-68 e uma minha, desta rodada. Sem o clone as duas reprovam, e o trabalho que existe JUSTAMENTE para rodar sem segredo falharia por falta do que o nome dele promete não precisar. O NOME DE UM TRABALHO DE CI É UMA AFIRMAÇÃO SOBRE O QUE ELE PRECISA, E NENHUMA TRAVA A CONFERE — e ela mora num arquivo que ninguém executa hoje, porque a execução automática está desligada desde 08/10: afirmação desligada não é afirmação falsa, é afirmação que ninguém vai desmentir. NÃO CONSERTEI, de propósito: escolher entre tirar as travas do trabalho ou fazer o nome dizer a verdade precisa de uma medição que eu não fiz (quantas travas de cada um dos 30 arquivos da lista dependem do clone), e prometer o número sem medir é a classe do D133. Foi para a FILA como proposta. Então a conta dos abertos andou DUAS vezes nesta rodada e ficou em 17 — uma saiu por entrega, uma entrou: SALDO PARADO NÃO É RODADA PARADA.
+Depende do Jonny: nada novo meu nesta rodada. Continuam a §10 (parar a fileira na esquina — três caminhos), o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a D226 (os quatro campos de `legais`), que você chamou de "o seguinte" e que o seu próprio item 016 pôs como "primeira da próxima caixa", porque ela MUDA O DESENHO e espera o olho dele. Não começada.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  O QUE O CARIMBO DIZ AGORA, e o que ele continua NÃO SABENDO
+═══════════════════════════════════════════════════════════════════════════════
+
+Cada carimbo passa a trazer DE ONDE saiu, e não só o commit:
+
+  campo           o que responde
+  commit          o commit da árvore de onde o código VEIO
+  de              `modulo-resolvido` ou `convencao` — a fonte, dita e não suposta
+  pelaConvencao   o caminho e o `HEAD` da convenção, quando ele é OUTRO
+  divergem        verdadeiro quando as duas fontes discordam — a NOTÍCIA
+
+  vizinho                      ponto de entrada resolvido              de
+  motor-testfit                @testfit/api.ts                         modulo-resolvido
+  urban-create-hub-41d93a4d    @generate/contratos/motor-v1/index.ts   modulo-resolvido
+  urban-scout-tool             nenhum — não entra em `paths`           convencao
+
+O QUE ELE NÃO SABE, E ISSO FICA DITO:
+· o módulo resolvido diz QUAL ARQUIVO foi carregado; ele NÃO diz se aquela árvore tinha mudança
+  NÃO COMMITADA. Um clone sujo entrega código que não corresponde a commit nenhum, e NENHUMA das
+  duas fontes conta isso;
+· o campo `limpo` passa a medir a árvore DE ONDE O CARIMBO SAIU, o que ajuda — mas um `git stash`
+  no meio de uma rodada continua invisível para as duas;
+· guarda que não declara o próprio buraco mente pelo silêncio, e este não fecha com código.
+
+E A TRAVA DO CARIMBO DEIXOU DE DEPENDER DE REDE: ela chamava a função que faz `git fetch` nos três
+clones e estourou o limite de 5 s do Bun. O `fetch` virou parâmetro, ligado por padrão, e a trava
+passa `false`, porque a pergunta dela é DE ONDE O CARIMBO SAIU e isso não precisa de rede. De 5,9 s
+a 154 ms. TRAVA QUE DEPENDE DE REDE NÃO REPROVA O CÓDIGO: REPROVA A CONEXÃO.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· NADA foi escrito em repositório vizinho;
+· as três árvores vizinhas ficaram LIMPAS e nos MESMOS commits em que estavam — a demonstração da
+  divergência foi feita com o RESOLVEDOR trocado, que é parâmetro da função, sem repontar o
+  `tsconfig` de ninguém;
+· NENHUMA das cinco classes que param se aplica, item por item, como o seu item já tinha conferido;
+· nada foi tocado no despertador: ligar, desligar e reagendar é seu; o meu trabalho é a conta.
+```

@@ -4,9 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-82 (item 015) — **a remedição
-antes do pedido: os 10 a 13 m do sétimo mecanismo CONTINUAM, e o dono é o `motor-testfit` e não o
-Generate** (D273 a D275) ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-83 (item 016) — **o carimbo
+do clone passa a sair do MÓDULO RESOLVIDO, e a divergência é a notícia** (D276 a D279) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -74,10 +73,33 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 08:05 | observado | **nada na caixa** — os treze feitos, conferido na `origin/main` | recado de uma linha, e dormir |
 | 10/10/2026 | 09:06 | observado | item 014 pronto (o chat o escreveu às 08h40, 35 min depois do disparo anterior) | item 014 (LAB-81) |
 | 10/10/2026 | 10:06 | observado | item pronto, escrito como `013` com o número **já usado** — renumerado para `015` (D273) | item 015 (LAB-82) |
+| 10/10/2026 | 11:06 | observado | item 016 pronto (o chat o escreveu às 10h55); este disparo **chegou na hora** e foi o único das oito horas que chegou | item 016 (LAB-83) |
+| 10/10/2026 | 12:05 | entregue-em-lote | idem — nenhuma rodada aconteceu nesta hora | não houve rodada |
+| 10/10/2026 | 13:06 | entregue-em-lote | idem | não houve rodada |
+| 10/10/2026 | 14:06 | entregue-em-lote | idem | não houve rodada |
+| 10/10/2026 | 15:06 | entregue-em-lote | idem | não houve rodada |
+| 10/10/2026 | 16:06 | entregue-em-lote | idem | não houve rodada |
+| 10/10/2026 | 17:05 | entregue-em-lote | idem | não houve rodada |
+| 10/10/2026 | 18:05 | entregue-em-lote | idem — e foi nesta rodada que os sete chegaram juntos | item 016 (LAB-83) |
 
 ```
-disparos observados: 20 · em vazio: 5
+disparos observados: 21 · em vazio: 5 · entregues em lote: 7
 ```
+
+**SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05
+a 18:05 foram entregues **todos no mesmo instante**, com o relógio do servidor marcando até **seis
+horas** de espera para o mais antigo. A caixa **tinha o item 016 desde as 10h55**: não houve nada
+de vazio nessas sete horas — **houve uma sessão que não recebeu**.
+
+> **Disparo que o despertador manda e a sessão não recebe não é disparo em vazio: é disparo
+> PERDIDO.** Contá-lo como vazio diria ao chat *"você não abastece"*, quando o que aconteceu foi
+> *"eu não estava ouvindo"* — e a conta existe para decidir o intervalo, então uma leitura trocada
+> aqui faz o chat esticar o intervalo pelo motivo errado.
+
+**A coluna de origem ganhou um terceiro valor, `entregue-em-lote`**, e ele não se confunde com os
+dois antigos: `observado` é disparo que esta sessão recebeu **na hora**, `derivado` sai do `cron`,
+e `entregue em lote` é disparo que **chegou atrasado, junto de outros**. *Classe nova que se
+mistura com a velha apaga a medição das duas.*
 
 **E o disparo das 10:06 achou a `main` VERMELHA, pela primeira vez desde que esta conta existe** —
 não por código meu, mas pela **colisão de número**: o item novo chegou como `013.md` e o
@@ -1743,7 +1765,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 501 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 507 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

@@ -81,6 +81,12 @@ const lista1 = abertos.map((p, i) => ({
  * **16 → 17 no LAB-82:** o carimbo do clone que lê o `HEAD` em vez do módulo resolvido (D274),
  * achado ao remedir o sétimo mecanismo contra o motor novo. Entrou com `prompt-novo`.
  *
+ * **O LAB-83 moveu a conta DUAS vezes e ela voltou a 17:** a proposta do carimbo foi EXECUTADA
+ * (item 016, D276) e saiu **por entrega**, e entrou a do trabalho de CI que diz não precisar dos
+ * clones e precisa (D279), achada ao escrever a trava nova. *Número que sai e número que entra na
+ * mesma rodada dão um total parado, e total parado parece rodada sem mexida na fila — é por isso
+ * que as duas mudanças ficam escritas, e não só o saldo.*
+ *
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */

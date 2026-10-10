@@ -2,7 +2,7 @@
   "prompt": "LAB-76",
   "oQueIstoMede": "o registro de motores do Lab (D68): quais motores esta casa conhece, a procedência de cada um MEDIDA contra a origem (não contra o disco), de onde se lê a versão de cada um, e o TAMANHO DO UNIVERSO — quantos motores havia e quantos estavam ligados",
   "oQueIstoNaoMede": "nenhuma gleba. Esta prova não roda motor nenhum: ela confere o registro, e por isso está na lista declarada de exceções do §7 (regras.test.ts)",
-  "quando": "2026-10-10T00:44:56.474Z",
+  "quando": "2026-10-10T18:42:13.545Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -65,27 +65,27 @@
       "repo": "urban-create-hub-41d93a4d",
       "veredito": "medida-contra-a-origem",
       "head": "72cfab0",
-      "origemMain": "748e300",
-      "atrasPor": 22,
-      "comoSeDiz": "`generate-ortogonal` vem de `urban-create-hub-41d93a4d` está **22 commit(s) ATRÁS** da origem: o disco diz `72cfab0` e a `origin/main` diz `748e300`. Toda medição desta casa é contra `72cfab0`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+      "origemMain": "8b6e9d5",
+      "atrasPor": 49,
+      "comoSeDiz": "`generate-ortogonal` vem de `urban-create-hub-41d93a4d` está **49 commit(s) ATRÁS** da origem: o disco diz `72cfab0` e a `origin/main` diz `8b6e9d5`. Toda medição desta casa é contra `72cfab0`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
     },
     {
       "motor": "generate-espinha",
       "repo": "urban-create-hub-41d93a4d",
       "veredito": "medida-contra-a-origem",
       "head": "72cfab0",
-      "origemMain": "748e300",
-      "atrasPor": 22,
-      "comoSeDiz": "`generate-espinha` vem de `urban-create-hub-41d93a4d` está **22 commit(s) ATRÁS** da origem: o disco diz `72cfab0` e a `origin/main` diz `748e300`. Toda medição desta casa é contra `72cfab0`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+      "origemMain": "8b6e9d5",
+      "atrasPor": 49,
+      "comoSeDiz": "`generate-espinha` vem de `urban-create-hub-41d93a4d` está **49 commit(s) ATRÁS** da origem: o disco diz `72cfab0` e a `origin/main` diz `8b6e9d5`. Toda medição desta casa é contra `72cfab0`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
     },
     {
       "motor": "parcelamento",
       "repo": "motor-testfit",
       "veredito": "medida-contra-a-origem",
       "head": "6cf6396",
-      "origemMain": "d6981d9",
-      "atrasPor": 30,
-      "comoSeDiz": "`parcelamento` vem de `motor-testfit` está **30 commit(s) ATRÁS** da origem: o disco diz `6cf6396` e a `origin/main` diz `d6981d9`. Toda medição desta casa é contra `6cf6396`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+      "origemMain": "b3982ea",
+      "atrasPor": 59,
+      "comoSeDiz": "`parcelamento` vem de `motor-testfit` está **59 commit(s) ATRÁS** da origem: o disco diz `6cf6396` e a `origin/main` diz `b3982ea`. Toda medição desta casa é contra `6cf6396`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
     },
     {
       "motor": "symbios",
@@ -127,26 +127,49 @@
     {
       "repo": "motor-testfit",
       "head": "6cf6396",
-      "origemMain": "d6981d9",
-      "atrasPor": 30,
+      "origemMain": "b3982ea",
+      "atrasPor": 59,
       "veredito": "atras",
-      "oQueIssoQuerDizer": "`motor-testfit` está **30 commit(s) ATRÁS** da origem: o disco diz `6cf6396` e a `origin/main` diz `d6981d9`. Toda medição desta casa é contra `6cf6396`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+      "oQueIssoQuerDizer": "`motor-testfit` está **59 commit(s) ATRÁS** da origem: o disco diz `6cf6396` e a `origin/main` diz `b3982ea`. Toda medição desta casa é contra `6cf6396`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
     },
     {
       "repo": "urban-create-hub-41d93a4d",
       "head": "72cfab0",
-      "origemMain": "748e300",
-      "atrasPor": 22,
+      "origemMain": "8b6e9d5",
+      "atrasPor": 49,
       "veredito": "atras",
-      "oQueIssoQuerDizer": "`urban-create-hub-41d93a4d` está **22 commit(s) ATRÁS** da origem: o disco diz `72cfab0` e a `origin/main` diz `748e300`. Toda medição desta casa é contra `72cfab0`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+      "oQueIssoQuerDizer": "`urban-create-hub-41d93a4d` está **49 commit(s) ATRÁS** da origem: o disco diz `72cfab0` e a `origin/main` diz `8b6e9d5`. Toda medição desta casa é contra `72cfab0`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
     },
     {
       "repo": "urban-scout-tool",
       "head": "550a438",
-      "origemMain": "f0cb290",
-      "atrasPor": 29,
+      "origemMain": "8579345",
+      "atrasPor": 51,
       "veredito": "atras",
-      "oQueIssoQuerDizer": "`urban-scout-tool` está **29 commit(s) ATRÁS** da origem: o disco diz `550a438` e a `origin/main` diz `f0cb290`. Toda medição desta casa é contra `550a438`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+      "oQueIssoQuerDizer": "`urban-scout-tool` está **51 commit(s) ATRÁS** da origem: o disco diz `550a438` e a `origin/main` diz `8579345`. Toda medição desta casa é contra `550a438`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+    }
+  ],
+  "deOndeOCarimboSaiu": [
+    {
+      "repo": "motor-testfit",
+      "de": "modulo-resolvido",
+      "commit": "6cf6396",
+      "pelaConvencao": null,
+      "divergem": false
+    },
+    {
+      "repo": "urban-create-hub-41d93a4d",
+      "de": "modulo-resolvido",
+      "commit": "72cfab0",
+      "pelaConvencao": null,
+      "divergem": false
+    },
+    {
+      "repo": "urban-scout-tool",
+      "de": "convencao",
+      "commit": "550a438",
+      "pelaConvencao": null,
+      "divergem": false
     }
   ]
 }

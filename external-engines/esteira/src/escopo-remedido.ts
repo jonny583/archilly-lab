@@ -82,6 +82,13 @@ export const ESCOPO_REMEDIDO: Record<string, Record<string, "medida" | "declarad
     versoes: "naoMedida: a versão do `parcelamento` é lida do clone vizinho por `@testfit` — precisa do clone, e o verde completo já o exige; aqui ficaria caro de graça",
     procedencia: "naoMedida: exige `git fetch` nos clones vizinhos — rede, e a trava não faz rede",
     osClonesVizinhos: "naoMedida: mesma razão da procedência",
+    deOndeOCarimboSaiu:
+      "naoMedida: é a PROCEDÊNCIA do carimbo (LAB-83, D276) — de que fonte saiu, o commit, o da " +
+      "convenção e se divergem. **E o motivo é OUTRO que o da `procedencia` acima, de propósito:** " +
+      "este não precisa de REDE — o `fetch` é parâmetro e sai desligado —, precisa dos CLONES NO " +
+      "DISCO, porque o resolvedor de módulos e o `git rev-parse` leem a árvore do vizinho. *Dois " +
+      "campos `naoMedida` pelo mesmo rótulo e por razões diferentes é como uma das duas deixa de " +
+      "ser revalidada*",
   },
   "LAB-77/acesso-sugerido.json": {
     prompt: "declarada",

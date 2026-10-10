@@ -96,7 +96,9 @@ const versoes: VersaoDeMotor[] = registro.motores.map((m): VersaoDeMotor => {
 
 // ── A procedência, medida contra a ORIGEM e não contra o disco (LAB-74) ─────────
 const origens = new Map<string, ConferenciaDaOrigem>();
-for (const c of carimbarVizinhos()) {
+/** Os carimbos CRUS, guardados para a prova dizer de onde cada um saiu (item 016, D274). */
+const carimbosCrus = carimbarVizinhos();
+for (const c of carimbosCrus) {
   origens.set(
     c.repo,
     conferirContraAOrigem(c.repo, c.commit, c.origemMain ?? null, c.atrasPor ?? null),
@@ -164,6 +166,18 @@ writeFileSync(
       procedencia,
       conferencia,
       osClonesVizinhos: [...origens.values()],
+      // **A PROCEDÊNCIA DO PRÓPRIO CARIMBO** (item 016, D274): o `osClonesVizinhos` acima é uma
+      // conferência DERIVADA — motor contra a origem dele —, e o seu objeto é outro. Então o
+      // carimbo cru vai ao lado, dizendo de ONDE cada linha saiu: do módulo que o `import`
+      // carregou, ou do caminho por convenção. *Prova que diz o commit sem dizer de onde leu o
+      // commit responde "qual versão" sem responder "qual código".*
+      deOndeOCarimboSaiu: carimbosCrus.map((c) => ({
+        repo: c.repo,
+        de: c.de,
+        commit: c.commit,
+        pelaConvencao: c.pelaConvencao?.commit ?? null,
+        divergem: c.divergem ?? false,
+      })),
     },
     null,
     2,

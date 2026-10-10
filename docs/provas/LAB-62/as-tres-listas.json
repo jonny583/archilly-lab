@@ -2,7 +2,7 @@
   "prompt": "LAB-62",
   "oQueIstoMede": "as três listas que o chat pediu dentro do recado, geradas das provas que as medem e não digitadas: os onze itens abertos da FILA, os seis mecanismos do motor nas DUAS ordens, e o contexto + as três formas de desligar conferência dele",
   "aPergunta": "do chat: 'mande AQUI, dentro do próprio recado, as três coisas que esperam por mim, porque é só o recado que chega até o chat'",
-  "quando": "2026-10-10T10:17:44.791Z",
+  "quando": "2026-10-10T18:55:45.535Z",
   "asFontes": {
     "lista1": "docs/prompts/FILA.md, lido pela régua do LAB-61 (lerPropostas)",
     "lista2": "docs/provas/LAB-58/mecanismos-das-81.json",
@@ -53,97 +53,97 @@
       },
       {
         "numero": 2,
-        "linhaNaFila": 2295,
-        "titulo": "O CARIMBO DO CLONE SAI DO MÓDULO RESOLVIDO, E NÃO DO `HEAD` DO CLONE",
+        "linhaNaFila": 2307,
+        "titulo": "O TRABALHO DE CI QUE DIZ NÃO PRECISAR DOS CLONES, E PRECISA",
         "motivo": "prompt-novo"
       },
       {
         "numero": 3,
-        "linhaNaFila": 2307,
+        "linhaNaFila": 2321,
         "titulo": "ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR",
         "motivo": "prompt-novo"
       },
       {
         "numero": 4,
-        "linhaNaFila": 2316,
+        "linhaNaFila": 2330,
         "titulo": "O PICO DE RAMPA QUE O PARCELAMENTO REPORTA, 109,51 % → 175,51 %",
         "motivo": "aguardando-outro-repositorio"
       },
       {
         "numero": 5,
-        "linhaNaFila": 2323,
+        "linhaNaFila": 2337,
         "titulo": "O COMMIT DO CLONE VIZINHO EM TODA PROVA QUE O USE",
         "motivo": "prompt-novo"
       },
       {
         "numero": 6,
-        "linhaNaFila": 2331,
+        "linhaNaFila": 2345,
         "titulo": "O TRABALHO DE CI QUE NÃO PODE PASSAR",
         "motivo": "prompt-novo"
       },
       {
         "numero": 7,
-        "linhaNaFila": 2338,
+        "linhaNaFila": 2352,
         "titulo": "A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO",
         "motivo": "prompt-novo"
       },
       {
         "numero": 8,
-        "linhaNaFila": 2346,
+        "linhaNaFila": 2360,
         "titulo": "O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER",
         "motivo": "prompt-novo"
       },
       {
         "numero": 9,
-        "linhaNaFila": 2353,
+        "linhaNaFila": 2367,
         "titulo": "A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO",
         "motivo": "prompt-novo"
       },
       {
         "numero": 10,
-        "linhaNaFila": 2381,
+        "linhaNaFila": 2395,
         "titulo": "Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes",
         "motivo": "depois-do-mvp"
       },
       {
         "numero": 11,
-        "linhaNaFila": 2386,
+        "linhaNaFila": 2400,
         "titulo": "O delta contra o Padrão 1.2",
         "motivo": "aguardando-outro-repositorio"
       },
       {
         "numero": 12,
-        "linhaNaFila": 2389,
+        "linhaNaFila": 2403,
         "titulo": "As 4 violações que sobraram em `geo-antonina`",
         "motivo": "nao-medido"
       },
       {
         "numero": 13,
-        "linhaNaFila": 2393,
+        "linhaNaFila": 2407,
         "titulo": "As 96 quadras de esqueleto não confiável",
         "motivo": "nao-medido"
       },
       {
         "numero": 14,
-        "linhaNaFila": 2396,
+        "linhaNaFila": 2410,
         "titulo": "A travessia sobre a APP de `geo-antonina`",
         "motivo": "aguardando-o-jonny"
       },
       {
         "numero": 15,
-        "linhaNaFila": 2399,
+        "linhaNaFila": 2413,
         "titulo": "A quadra dentro de APP.",
         "motivo": "escopo-novo"
       },
       {
         "numero": 16,
-        "linhaNaFila": 2402,
+        "linhaNaFila": 2416,
         "titulo": "O eixo do curso d'água, para o Geo.",
         "motivo": "aguardando-outro-repositorio"
       },
       {
         "numero": 17,
-        "linhaNaFila": 2439,
+        "linhaNaFila": 2453,
         "titulo": "O `faceDeRua` nulo nos 33 lotes de `geo-antonina`",
         "motivo": "nao-medido"
       }

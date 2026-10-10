@@ -122,7 +122,11 @@ export const QUANTAS_CONDICOES = {
   // `aguardando-o-jonny`, que passou de 1 para 2. **A etiqueta é a mesma; só a conta andou.**
   // 16 → 17 no LAB-80: a proposta de unificar as cinco leituras de "afirma ou mostra" entrou
   // com `prompt-novo`, que passou de 6 para 7. E 17 → 16 no LAB-81, quando ela foi EXECUTADA.
-  // E nenhuma das dezesseis é uma CONTA, que é o que a régua existe para cobrar.
+  // 16 → 17 no LAB-82: o carimbo do módulo resolvido (D274), também com `prompt-novo`. No
+  // LAB-83 a conta andou DUAS vezes e voltou a 17: essa foi EXECUTADA e saiu por ENTREGA (D276),
+  // e entrou a do trabalho de CI que diz não precisar dos clones e precisa (D279). **Saldo
+  // parado não é rodada parada**, e é por isso que as duas ficam escritas.
+  // E nenhuma das dezessete é uma CONTA, que é o que a régua existe para cobrar.
   naFila: 17,
   foraDaFila: LUGARES.filter((l) => l.lugar !== "docs/prompts/FILA.md").length,
   get total(): number {

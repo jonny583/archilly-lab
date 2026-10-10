@@ -28,8 +28,23 @@
  * publicar hora inventada com a autoridade de hora medida.
  */
 
-/** A origem de uma hora da conta. Vocabulário FECHADO — a trava reprova um terceiro. */
-export const ORIGENS = ["observado", "derivado"] as const;
+/**
+ * A origem de uma hora da conta. Vocabulário FECHADO — a trava reprova um quarto.
+ *
+ * - `observado` — a notificação deste disparo chegou a esta sessão **na hora**;
+ * - `derivado` — não chegou notificação; a hora sai do `cron` e está justificada num recado;
+ * - `entregue-em-lote` — a notificação chegou **atrasada, junto de outras** (LAB-83, D277). Em
+ *   10/10 **sete** disparos foram entregues no mesmo instante, o mais antigo com **seis horas** de
+ *   espera, e a caixa tinha item o tempo todo.
+ *
+ * > **Disparo que o despertador manda e a sessão não recebe não é disparo em vazio: é disparo
+ * > PERDIDO.** Contá-lo como vazio diria ao chat *"você não abastece"* quando o que houve foi *"eu
+ * > não estava ouvindo"* — e é a conta dos vazios que decide o intervalo.
+ *
+ * *Classe nova que se mistura com a velha apaga a medição das duas*, e é por isso que esta entra
+ * no vocabulário em vez de virar prosa na célula.
+ */
+export const ORIGENS = ["observado", "derivado", "entregue-em-lote"] as const;
 export type Origem = (typeof ORIGENS)[number];
 
 export interface DisparoDaConta {
