@@ -74,7 +74,7 @@ export const LUGARES: LugarDeCondicao[] = [
   {
     lugar: "docs/prompts/FILA.md",
     oQueEstaParado:
-      "as DEZESSETE propostas e itens abertos, com as etiquetas declaradas — `prompt-novo` (7), " +
+      "as DEZESSEIS propostas e itens abertos, com as etiquetas declaradas — `prompt-novo` (6), " +
       "`nao-medido` (3), `aguardando-outro-repositorio` (3), `aguardando-o-jonny` (2), " +
       "`escopo-novo`, `depois-do-mvp`",
     aCondicao: "cada uma espera pessoa, repositório, prompt novo, medição ou o marco do MVP",
@@ -126,8 +126,9 @@ export const QUANTAS_CONDICOES = {
   // LAB-83 a conta andou DUAS vezes e voltou a 17: essa foi EXECUTADA e saiu por ENTREGA (D276),
   // e entrou a do trabalho de CI que diz não precisar dos clones e precisa (D279). **Saldo
   // parado não é rodada parada**, e é por isso que as duas ficam escritas.
-  // E nenhuma das dezessete é uma CONTA, que é o que a régua existe para cobrar.
-  naFila: 17,
+  // 17 → 16 no LAB-84: a do trabalho de CI foi EXECUTADA (D282), e saiu por ENTREGA.
+  // E nenhuma das dezesseis é uma CONTA, que é o que a régua existe para cobrar.
+  naFila: 16,
   foraDaFila: LUGARES.filter((l) => l.lugar !== "docs/prompts/FILA.md").length,
   get total(): number {
     return this.naFila + this.foraDaFila;

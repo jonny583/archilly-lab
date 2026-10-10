@@ -2,7 +2,7 @@
   "prompt": "item 003 da caixa de entrada",
   "oQueIstoMede": "o escopo da ferramenta contra o escopo da trava, com as quatro sabotagens refeitas de verdade e nomeando qual instrumento acusou cada uma",
   "aPergunta": "do chat: a frase do recado do LAB-66 está certa, mas mora num recado — ninguém lê recado antes de rodar um instrumento só",
-  "quando": "2026-10-10T19:37:07.353Z",
+  "quando": "2026-10-10T20:35:53.856Z",
   "oNomeQueNaoSeSupoe": {
     "oItemChamou": "npm run quebrar",
     "existeNesteRepositorio": false,
@@ -151,8 +151,8 @@
   ],
   "aLarguraDaDivergencia": {
     "oQue": "apagando o bloco do recado de cada relatório, em quantos a régua da TRAVA deixava passar o que a régua da FERRAMENTA acusa",
-    "relatoriosVarridos": 75,
-    "escapavamAntesDoConserto": 53,
+    "relatoriosVarridos": 76,
+    "escapavamAntesDoConserto": 54,
     "escapamAgora": 0,
     "quaisEscapavam": [
       "LAB-02",
@@ -203,6 +203,7 @@
       "LAB-63",
       "LAB-66",
       "LAB-67",
+      "LAB-68",
       "LAB-69",
       "LAB-74",
       "LAB-75",

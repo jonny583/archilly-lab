@@ -1930,3 +1930,60 @@ O QUE A RÉGUA LIA E O QUE ELA LÊ AGORA:
 E A CAIXA, CONFERIDA NO REMOTO NESTE MINUTO: dezesseis itens, todos `-FEITO`, mais o
 COMO_FUNCIONA.md. Nada novo desde o `016`.
 ```
+
+## 10/10/2026 · LAB-84 — item 017: as trinta e uma por EXECUÇÃO, e eram QUATRO travas, não duas
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-84 (item 017) ===
+Estado: FEITO. A medição saiu POR EXECUÇÃO, como você exigiu — e ela desmentiu o MEU número. A afirmação do nome do trabalho de CI volta a ser verdadeira, agora medida: 31 de 31 passam sem os clones. Verde conferido aqui, não no GitHub: 918 travas na esteira + 17 no testfit, 520 na lista do CI sem clones, 7 passos, exit 0. Decisões D282 e D283, mais o D279 corrigido RISCANDO.
+Feito: rodei os 30 arquivos num repositório copiado para um lugar onde os três clones irmãos NÃO existem — que é o que o CI vê —, um a um, com o código de saída guardado. A ferramenta ESTOURA se um clone aparecer ao lado da cópia: medição cuja precondição não é conferida mede outra coisa. Nada foi movido no vizinho, e foi por isso que usei cópia em vez de tirar os clones do lugar.
+Achados para outros apps ou Central: (1) ERAM QUATRO TRAVAS, NÃO DUAS — e o número errado era meu, do recado que gerou este item. Dos 30 arquivos, VINTE E NOVE passam e UM reprova: `commit-dos-vizinhos.test.ts`, com 4 de 14. Eu disse DUAS lendo o fonte, porque contei os `expect` cuja MENSAGEM eu reconhecia e não vi as outras duas do mesmo `describe`, que dependem da VARIÁVEL `cabeca` e não repetem a frase. RÉGUA DE LEITURA ACHA O QUE ELA RECONHECE; EXECUÇÃO ACHA O QUE ACONTECE — a diferença foi de 100 %. Você estava certo em não aceitar o número lido, e o `duas` do D279 está riscado com a medição ao lado. (2) A DECISÃO, E O QUE SE PERDE ESTÁ ESCRITO: movi as quatro travas e NÃO renomeei o trabalho. O nome é a única coisa que torna aquela lista rodável em qualquer lugar sem preparo, e ele existe justamente porque o verde completo NÃO roda sem segredo; renomear tornaria o requisito do portão insabível sem rodar. E tirar o arquivo inteiro — a saída simples — custaria as 10 travas dele que são limpas de clone: MOVER POR ARQUIVO QUANDO A DEPENDÊNCIA É DE TRAVA PAGA A CONTA DE QUEM NÃO MEDIU. Foi a medição POR ARQUIVO que comprou essa distinção; o total não a tem. (3) E A TRAVA QUE FALTAVA ACUSOU A SI MESMA NA PRIMEIRA VERSÃO. Eu escrevi a régua estática óbvia — procurar `join(RAIZ, "..", "motor-testfit")` no fonte — e ela reprovou A PRÓPRIA TRAVA QUE A DEMONSTRA, porque a fixture dela contém essa frase. Sétima da família do D142/D155/D257. E a cura desta casa não serve, medida nas duas formas: `soOCodigo()` esvazia o conteúdo das strings e o alvo É uma string, então a régua fica CEGA; `semComentarios()` guarda as strings e a fixture também é string, então acusa de novo. QUANDO O QUE VOCÊ PROCURA E O QUE VOCÊ QUER IGNORAR SÃO A MESMA FORMA, NÃO HÁ RÉGUA ESTÁTICA QUE OS SEPARE — e a saída não é uma régua mais esperta, é a OUTRA PERGUNTA, que o seu item já tinha dito: a trava passou a LER A MEDIÇÃO em vez de reler o fonte. Ela reprova em seis formas, cada uma demonstrada. (4) E ELA ESTÁ NA LISTA QUE GUARDA, O QUE CRIOU UM PONTO FIXO: a medição roda a trava, e a trava lê a medição ANTERIOR — o primeiro vermelho dela se gravou na prova e se realimentou, medido nas duas voltas. GUARDA QUE LÊ UMA MEDIÇÃO DE SI MESMA NÃO TEM LADO BOM ALCANÇÁVEL: o ponto fixo existe, mas não se chega a ele por iteração. O conserto não foi afrouxar a régua, foi DIZER que o arquivo dela está fora do próprio gate e por quê — e o que fica garantido sem o gate está dito: a ferramenta mede esse arquivo igual aos outros, a prova publica a linha dele, e o verde completo o roda. (5) E A VARREDURA DA CASA PEGOU O MEU INSTRUMENTO DE MEDIR: a ferramenta escrevia `?? 0` sobre uma chamada, o que faria `0 reprovam` com `exit 1` — contradição publicada, e é o D23. Virou `null`. Instrumento de medir também é código desta casa.
+Depende do Jonny: nada novo meu. Continuam a §10 (parar a fileira na esquina — três caminhos, com o custo do recomendado NÃO MEDIDO), o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a D226 (os quatro campos de `legais`) — e agora ela é a primeira sem concorrente, porque o seu item 017 era o último que não precisava do olho dele. Ela MUDA O DESENHO, então é dele a vez. O CI não foi religado, como você mandou; o despertador fica como está.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  A TABELA QUE O ITEM PEDIU — por arquivo, por EXECUÇÃO, sem os clones
+═══════════════════════════════════════════════════════════════════════════════
+
+  ANTES do conserto, os 30 da lista:
+
+    29 arquivos ................................ exit 0
+     1 arquivo .................................. exit 1
+       └ commit-dos-vizinhos.test.ts ............ 4 travas de 14
+
+  AS QUATRO, NOMEADAS (e eu havia dito DUAS):
+
+    1. item 001 > O CASO BOM, contra o clone de verdade: carimbo igual ao HEAD → igual
+    2. item 001 > O CASO RUIM: carimbo de OUTRO commit do histórico → mudou
+    3. item 001 > prova SEM carimbo sai nao-gravado, e nunca igual
+    4. o carimbo de VERDADE desta máquina diz de onde saiu, e as duas linhas batem hoje
+
+    Três delas são do LAB-68, anteriores à minha rodada; uma é minha, do LAB-83.
+
+  DEPOIS do conserto, remedido:
+
+    31 de 31 ................................... exit 0  ← a afirmação é VERDADEIRA
+
+  OS TRÊS CONSERTOS POSSÍVEIS, E O QUE CADA UM CUSTA:
+
+    mover as 4 travas  (escolhido)  ganha: o nome volta a ser verdade e a lista roda em
+                                   qualquer lugar sem preparo
+                                   perde: NADA — o verde completo roda todo arquivo
+    renomear o trabalho            ganha: nada a mexer no código
+                                   perde: o requisito do portão deixa de ser sabível sem rodar
+    tirar o arquivo inteiro        ganha: simplicidade
+                                   perde: as 10 travas limpas de clone saem do portão
+
+A prova, arquivo por arquivo: docs/provas/LAB-84/as-trinta-por-execucao.json
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· NADA foi escrito em repositório vizinho, e NADA foi movido nem renomeado neles — a medição usou
+  uma CÓPIA do repositório, exatamente para não precisar tirar os clones do lugar;
+· as três árvores vizinhas ficaram LIMPAS e nos MESMOS commits;
+· o CI NÃO foi religado para medir, como você mandou: o gatilho continua comentado por decisão de
+  família, e a medição rodou nesta máquina;
+· nada foi tocado no despertador.
+```

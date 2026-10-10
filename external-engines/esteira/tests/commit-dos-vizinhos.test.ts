@@ -16,14 +16,10 @@
  */
 
 import { describe, expect, test } from "bun:test";
-import { execFileSync } from "node:child_process";
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 
 import {
   PONTO_DE_ENTRADA,
   VIZINHOS,
-  carimbarVizinhos,
   raizDeGitAcima,
   raizDoModuloResolvido,
   conferirCarimbo,
@@ -31,49 +27,12 @@ import {
   precisaDeCarimbo,
 } from "../src/commit-dos-vizinhos.ts";
 
-const RAIZ = join(import.meta.dirname, "..", "..", "..");
-const CLONE_DO_MOTOR = join(RAIZ, "..", "motor-testfit");
+// **NÃO HÁ `join`, `existsSync` NEM `execFileSync` AQUI, e isso é o conserto do LAB-84.**
+// Este arquivo está na lista do trabalho de CI que promete não precisar dos clones vizinhos, e
+// as quatro travas que precisavam deles mudaram para `commit-dos-vizinhos-com-clone.test.ts`.
+// *Arquivo que lê o disco do vizinho não cabe num portão cujo nome diz que ele não lê.*
 
-/** O `HEAD` curto de um clone, ou `null` quando ele não está aqui. */
-function cabecaDe(caminho: string): string | null {
-  if (!existsSync(join(caminho, ".git"))) return null;
-  return execFileSync("git", ["-C", caminho, "rev-parse", "--short", "HEAD"], {
-    encoding: "utf8",
-  }).trim();
-}
-
-describe("item 001 · a régua do commit do vizinho, nos DOIS lados", () => {
-  const cabeca = cabecaDe(CLONE_DO_MOTOR);
-
-  test("O CASO BOM, contra o clone de verdade: carimbo igual ao HEAD → `igual`", () => {
-    expect(cabeca, "o clone do motor tem de estar nesta máquina para esta demonstração").not.toBeNull();
-    const r = conferirCarimbo("motor-testfit", cabeca, cabeca);
-    expect(r.veredito).toBe("igual");
-    expect(r.oQueIssoQuerDizer).toContain(cabeca!);
-  });
-
-  test("O CASO RUIM, contra o clone de verdade: carimbo de OUTRO commit do histórico → `mudou`", () => {
-    // Um commit que existe mesmo no histórico do motor, e que não é o HEAD. Inventar um
-    // sha seria demonstrar contra um caso que não acontece.
-    const anterior = execFileSync(
-      "git",
-      ["-C", CLONE_DO_MOTOR, "rev-parse", "--short", "HEAD~1"],
-      { encoding: "utf8" },
-    ).trim();
-    expect(anterior).not.toBe(cabeca);
-    const r = conferirCarimbo("motor-testfit", anterior, cabeca);
-    expect(r.veredito).toBe("mudou");
-    expect(r.oQueIssoQuerDizer).toContain("ANDOU");
-    expect(r.oQueIssoQuerDizer).toContain(anterior);
-    expect(r.oQueIssoQuerDizer).toContain(cabeca!);
-  });
-
-  test("prova SEM carimbo sai `nao-gravado`, e nunca `igual`", () => {
-    const r = conferirCarimbo("motor-testfit", null, cabeca);
-    expect(r.veredito).toBe("nao-gravado");
-    expect(r.oQueIssoQuerDizer).toContain("NÃO MEDIDO");
-  });
-
+describe("item 001 · a régua do commit do vizinho, SEM precisar do clone", () => {
   test("clone ausente sai `clone-ausente`, e nunca `igual` nem `mudou`", () => {
     const r = conferirCarimbo("urban-scout-tool", "abc1234", null);
     expect(r.veredito).toBe("clone-ausente");
@@ -176,22 +135,4 @@ describe("o carimbo diz DE ONDE saiu, e a divergência é a notícia", () => {
     expect(raiz).toBeNull();
   });
 
-  test("o carimbo de VERDADE desta máquina diz de onde saiu, e as duas linhas batem hoje", () => {
-    // Sem rede: esta trava pergunta de ONDE o carimbo saiu, não o quanto o clone está atrás.
-    const carimbos = carimbarVizinhos((e) => import.meta.resolve(e), false);
-    expect(carimbos.length).toBeGreaterThan(0);
-    for (const c of carimbos) {
-      expect(["modulo-resolvido", "convencao"], c.repo).toContain(c.de);
-      // Hoje ninguém reponta nada, então nenhum carimbo pode estar divergindo: se divergir, a
-      // notícia é essa — e é o que esta trava existe para contar.
-      expect(c.divergem, `${c.repo} divergiu: módulo em ${c.commit}, convenção em ${c.pelaConvencao?.commit}`).toBe(false);
-    }
-    // E os dois que têm alias carimbam do MÓDULO: se um deles cair para `convencao`, o alias saiu
-    // do tsconfig e o carimbo voltou a medir a intenção.
-    const porRepo = new Map(carimbos.map((c) => [c.repo, c]));
-    for (const repo of ["motor-testfit", "urban-create-hub-41d93a4d"] as const) {
-      expect(porRepo.get(repo)?.de, `${repo} deixou de carimbar do módulo resolvido`).toBe("modulo-resolvido");
-    }
-    expect(porRepo.get("urban-scout-tool")?.de).toBe("convencao");
-  });
 });

@@ -66,7 +66,7 @@ describe("LAB-62 · a conta das três listas fecha", () => {
 
   /**
    * **Eram ONZE no LAB-62, TREZE em 08/10, QUINZE em 09/10, e em 10/10 DEZESSEIS, DEZESSETE,
-   * DEZESSEIS e DEZESSETE** — com as duas descidas por ENTREGA (o LAB-81 executou a proposta das
+   * DEZESSEIS, DEZESSETE e DEZESSEIS de novo** — com TRÊS descidas por ENTREGA (o LAB-81 executou a proposta das
    * cinco leituras; o LAB-83, a do carimbo), e no LAB-83 uma entrada no mesmo dia da entrega, o
    * que deixou o total PARADO em 17 com duas mudanças dentro, com os dois itens
    * da rodada do orçamento de Actions (D221, D223), a proposta do
@@ -75,8 +75,8 @@ describe("LAB-62 · a conta das três listas fecha", () => {
    * lista que cresce sem ninguém notar é a dívida que o LAB-61 achou.
    */
   test("os itens abertos batem com o número declarado hoje", () => {
-    expect(prova.lista1.quantos).toBe(17);
-    expect(prova.lista1.itens).toHaveLength(17);
+    expect(prova.lista1.quantos).toBe(16);
+    expect(prova.lista1.itens).toHaveLength(16);
   });
 
   test("todo item aberto da lista 1 leva motivo declarado", () => {
@@ -207,9 +207,10 @@ describe("LAB-62 · os blocos que vão ao chat são a SAÍDA da ferramenta", () 
     // 15 → 16 no LAB-78 (o sétimo mecanismo, D253), 16 → 17 no LAB-80 (a unificação das cinco
     // leituras, D259) e 17 → 16 no LAB-81, quando essa mesma proposta foi EXECUTADA. 16 → 17 no
     // LAB-82 (o carimbo, D274), e no LAB-83 duas vezes com saldo PARADO em 17: a do carimbo saiu
-    // por entrega (D276) e a do trabalho de CI entrou (D279). O número está
+    // por entrega (D276) e a do trabalho de CI entrou (D279); 17 → 16 no LAB-84, por entrega
+    // dessa última (D282). O número está
     // declarado em `ABERTOS_ESPERADOS` com o motivo, e os três lugares que o contam andam JUNTOS.
-    expect(linhas).toHaveLength(17);
+    expect(linhas).toHaveLength(16);
   });
 
   test("cada item das listas 2 e 3 carrega a afirmação, a frequência e o que não serve", () => {
