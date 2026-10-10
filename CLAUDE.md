@@ -102,9 +102,23 @@ as duas divergirem, manda esta.
 > quatro blocos numa rodada custaram cinco telas. Padrão Archilly 2.6,
 > regras 48, 49 e 50, DEC-159.
 
-**Esta regra é comportamento de sessão e NÃO espera o kit.** Medido pela Central em 08/10: este
-repositório está **sem cópia do Padrão Archilly e sem `VERSAO.txt`** — conferido aqui e é verdade,
-nenhum dos dois existe na árvore. A regra vale assim mesmo; o kit, quando chegar, é outro item.
+**Esta regra é comportamento de sessão e NÃO espera o kit.** A regra vale assim mesmo; o kit,
+quando chegar, é outro item.
+
+~~"Medido pela Central em 08/10: este repositório está **sem cópia do Padrão Archilly e sem
+`VERSAO.txt`** — conferido aqui e é verdade, nenhum dos dois existe na árvore."~~ **Metade disso
+era falso, e a metade falsa era a minha: o `VERSAO.txt` de fato não existe, mas a CÓPIA DO PADRÃO
+EXISTE** — `docs/referencia/PADRAO_ARCHILLY.md`, trazida em 03/10 no PR #40, **Versão 1 de
+13/09**, e o LF-FINAL-2 já a tinha conferido **byte a byte** contra a do `motor-testfit`. Eu
+escrevi *"conferido aqui"* sobre uma árvore que dizia o contrário **em duas páginas** — o próprio
+`docs/INDEX.md` a lista como *"cópia trazida"*. Medido no LAB-87 (D291), e o número dela está
+**congelado**: a Central publica a **3.0**, esta cópia está na **1**, e ela **não foi reescrita
+para igualar** — *declarar um número velho é medição; trocá-lo sem a fonte seria inventar
+conteúdo*. A declaração passou a ser **conferida contra a árvore** (`tests/por-lugar.test.ts`),
+porque *"conferido aqui" sem a conferência escrita é a forma mais caseira de número congelado* — e
+**o aviso do número congelado mora no `docs/INDEX.md`, não dentro da cópia**: a única coisa que
+aquela cópia promete é ser **byte a byte igual** à do `motor-testfit` (`cmp`, reconferido em
+10/10), e escrever o aviso dentro dela quebraria exatamente essa promessa.
 
 ### O princípio por trás dela, e ele é maior que a regra (D218)
 
@@ -398,7 +412,7 @@ arquivo que o git carrega. **Contratar de verdade acontece fora da árvore**, nu
 um cartão, e nenhuma régua daqui alcança. *Guarda que não declara o próprio buraco mente pelo
 silêncio* — a consequência nº 8 existe exatamente porque este buraco não fecha com código.
 
-**E as CONDIÇÕES DE VOLTA foram varridas:** são **quinze** condições de abertura declaradas na
+**E as CONDIÇÕES DE VOLTA foram varridas:** são **catorze** condições de abertura declaradas na
 `FILA.md`, e **nenhuma é uma conta** — todas esperam pessoa, repositório, prompt novo ou medição
 (`prompt-novo`, `nao-medido`, `aguardando-outro-repositorio`, `escopo-novo`, `depois-do-mvp`,
 `aguardando-o-jonny`). **Zero** falam de volume, de ponto de equilíbrio ou de *"quando
@@ -662,7 +676,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 550 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 568 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

@@ -21,6 +21,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 
+import { EH_FONTE_TS, medirAsChamadas, remedirAsChamadas } from "../src/escopo-das-chamadas.ts";
 import {
   AUSENCIA_NAO_E_ERRO,
   NOMES_DE_IDENTIFICADOR_DE_CONTA,
@@ -42,26 +43,24 @@ const REGRAS_COM_TIPO = [
 ] as const;
 const PACOTES = ["external-engines/esteira", "external-engines/testfit"] as const;
 
+/**
+ * O universo desta varredura: todo `.ts` que EXISTE e não é ignorado — rastreado ou não.
+ *
+ * **O filtro mora no `src/escopo-das-chamadas.ts`, e não aqui** (LAB-87). Esta trava tinha a
+ * própria cópia dele e o próprio laço de varredura: *duas implementações da mesma pergunta*,
+ * que é o que o D231 cobra e o que o item 019 chamou pelo nome. Agora a ferramenta e a trava
+ * contam com a mesma régua.
+ */
 const arquivosTs = () =>
   execFileSync("git", ["-C", RAIZ, "ls-files", "--cached", "--others", "--exclude-standard", "-z", "*.ts"], {
     encoding: "utf8",
     maxBuffer: 64 * 1024 * 1024,
   })
     .split("\0")
-    .filter((f) => f.length > 0 && !f.includes("node_modules/") && !f.endsWith(".d.ts"));
+    .filter(EH_FONTE_TS);
 
-const varrerTudo = () => {
-  const achados = [];
-  let parametros = 0;
-  let campos = 0;
-  for (const rel of arquivosTs()) {
-    const r = varrerUmArquivo(readFileSync(join(RAIZ, rel), "utf8"), rel);
-    achados.push(...r.achados);
-    parametros += r.parametros;
-    campos += r.campos;
-  }
-  return { achados, parametros, campos };
-};
+const varrerTudo = () =>
+  medirAsChamadas(arquivosTs(), (rel) => readFileSync(join(RAIZ, rel), "utf8"));
 
 /**
  * Os achados CONHECIDOS e BENIGNOS, cada um com o motivo. **Conjunto fechado**: a trava
@@ -153,7 +152,8 @@ describe("LAB-52 · a varredura de texto, e o que ela acha hoje", () => {
 });
 
 describe("LAB-52 · o ZERO de identificador de conta é MEDIDO, não silêncio", () => {
-  const { achados, parametros, campos } = varrerTudo();
+  const { achados, numeros } = varrerTudo();
+  const { parametrosExaminados: parametros, camposExaminados: campos } = numeros;
 
   test("nenhum parâmetro nem campo é identificador de pessoa ou de conta", () => {
     expect(achados.filter((a) => a.familia === "identificador-de-conta")).toEqual([]);
@@ -162,6 +162,18 @@ describe("LAB-52 · o ZERO de identificador de conta é MEDIDO, não silêncio",
   test("e as DUAS réguas de fato examinaram volume — zero de régua parada não vale", () => {
     // É a diferença entre "não achei" e "não procurei" (D164). Se um dia estes números
     // caírem, caem numa trava e não num silêncio.
+    //
+    // ── E ESTES `>` FICAM, de propósito — a distinção é do LAB-87 ─────────
+    //
+    // O item 020 mandou todo limiar sair, e está certo **sobre prova guardada**. Estes aqui
+    // são de outra espécie: o número do outro lado é **recontado agora**, não lembrado de
+    // ontem.
+    //
+    // > **Limiar sobre medição VIVA guarda contra régua PARADA; limiar sobre prova GUARDADA
+    // > não guarda nada.** O mesmo `>` é certo num lugar e inútil no outro, e o que muda não é
+    // > o operador: é se o número do outro lado é recontado agora ou lembrado de ontem.
+    //
+    // *Apagar estes seria trocar um defeito por outro — perderia o D164 para curar o D287.*
     expect(parametros, `só ${parametros} parâmetros examinados — a régua parou de olhar`).toBeGreaterThan(3000);
     expect(campos, `só ${campos} campos examinados — a régua parou de olhar`).toBeGreaterThan(2500);
     expect(NOMES_DE_IDENTIFICADOR_DE_CONTA.length).toBeGreaterThan(20);
@@ -186,12 +198,49 @@ describe("LAB-52 · a lista de ausência-não-é-erro, que estreitou a régua", 
     expect(nomes, "estreitar a régua não pode cegá-la").toContain("degrada-chamada-para-numero");
   });
 
-  test("a prova do LAB-52 existe e traz o escopo como número", () => {
+  test("a prova do LAB-52 BATE COM A ÁRVORE, número por número", () => {
+    // ── O LIMIAR SAIU, E A RECONTAGEM ENTROU (LAB-87, item 020) ───────────
+    //
+    // Aqui estava `prova.escopo.arquivos > 100`. **Medido ao abrir o item 020: a prova dizia
+    // 114 arquivos e 32 114 linhas, e a mesma árvore dizia 191 e 52 245** — 40 % de atraso, e
+    // o limiar passava folgado. Segunda prova velha pelo motivo do D287, e pela mesma régua.
     const p = join(RAIZ, "docs/provas/LAB-52/varredura-de-chamadas.json");
     expect(existsSync(p), "rode `bun run lab52`").toBe(true);
-    const prova = JSON.parse(readFileSync(p, "utf8"));
-    expect(prova.escopo.regras, "regra nova sem regerar a prova — rode `bun run lab52`").toBe(REGRAS_DE_CHAMADA.length);
-    expect(prova.escopo.arquivos).toBeGreaterThan(100);
+    const prova = JSON.parse(readFileSync(p, "utf8")) as {
+      escopo: Record<string, unknown>;
+      doisMotores: { oLintComTipo: { estavaLigada: boolean } };
+    };
+    expect(remedirAsChamadas(prova.escopo, varrerTudo().numeros)).toEqual([]);
     expect(prova.doisMotores.oLintComTipo.estavaLigada).toBe(false);
+  });
+
+  test("O LADO RUIM: prova com UM número velho REPROVA, e diz qual", () => {
+    const agora = varrerTudo().numeros;
+    const velha = { ...agora, linhas: agora.linhas - 1 };
+    const achou = remedirAsChamadas(velha, agora);
+    expect(achou).toHaveLength(1);
+    expect(achou[0]?.chave).toBe("linhas");
+    expect(achou[0]?.naProva).toBe(agora.linhas - 1);
+  });
+
+  test("O LADO RUIM: o número que o LIMIAR deixava passar REPROVA agora", () => {
+    // Os números que a prova carregava de verdade, e que `> 100` aprovava.
+    const agora = varrerTudo().numeros;
+    const comoEstava = { ...agora, arquivos: 114, linhas: 32114, bytes: 1357772 };
+    expect(remedirAsChamadas(comoEstava, agora).map((x) => x.chave).sort()).toEqual([
+      "arquivos",
+      "bytes",
+      "linhas",
+    ]);
+    // E a régua velha, inline, aprovava: é o que prova que havia defeito.
+    expect(comoEstava.arquivos).toBeGreaterThan(100);
+  });
+
+  test("O LADO BOM que quase parece ruim: árvore intocada PASSA", () => {
+    // Duas recontagens seguidas na mesma árvore batem — então a prova que não mudou porque
+    // nada que ela mede mudou não reprova. Sem isto, o vigia nasceria vermelho.
+    const a = varrerTudo().numeros;
+    const b = varrerTudo().numeros;
+    expect(remedirAsChamadas(a, b)).toEqual([]);
   });
 });

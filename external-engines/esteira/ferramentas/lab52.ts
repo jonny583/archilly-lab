@@ -8,7 +8,8 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { NOMES_DE_IDENTIFICADOR_DE_CONTA, REGRAS_DE_CHAMADA, varrerUmArquivo, type AchadoDeChamada } from "../src/varredura-de-chamadas.ts";
+import { EH_FONTE_TS, medirAsChamadas } from "../src/escopo-das-chamadas.ts";
+import { NOMES_DE_IDENTIFICADOR_DE_CONTA, REGRAS_DE_CHAMADA } from "../src/varredura-de-chamadas.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-52");
@@ -18,26 +19,20 @@ const arquivos = execFileSync("git", ["-C", RAIZ, "ls-files", "--cached", "--oth
   maxBuffer: 64 * 1024 * 1024,
 })
   .split("\0")
-  .filter((f) => f.length > 0 && !f.includes("node_modules/") && !f.endsWith(".d.ts"));
+  .filter(EH_FONTE_TS);
 
-const achados: AchadoDeChamada[] = [];
-let linhas = 0;
-let bytes = 0;
-let parametros = 0;
-let campos = 0;
-
-for (const rel of arquivos) {
-  const bruto = readFileSync(join(RAIZ, rel), "utf8");
-  linhas += bruto.split("\n").length;
-  bytes += Buffer.byteLength(bruto);
-  const r = varrerUmArquivo(bruto, rel);
-  achados.push(...r.achados);
-  parametros += r.parametros;
-  campos += r.campos;
-}
-
-const porRegra: Record<string, number> = {};
-for (const r of REGRAS_DE_CHAMADA) porRegra[r.nome] = achados.filter((a) => a.regra === r.nome).length;
+// ── A MEDIÇÃO MORA NO `src/escopo-das-chamadas.ts` (LAB-87) ───────────────
+//
+// Ela estava escrita AQUI, e a trava conferia a prova com QUATRO limiares — `arquivos > 100`,
+// `parametrosExaminados > 3000`, `camposExaminados > 2500`. Resultado medido ao abrir o item
+// 020: a prova dizia 114 arquivos e 32 114 linhas, e a mesma árvore dizia **191** e
+// **52 245** — 40 % de atraso, e os limiares passavam folgados. É a segunda prova velha pelo
+// mesmo motivo do D287.
+//
+// Agora a ferramenta e a trava chamam **a mesma função**, e a trava RECONTA.
+const medicao = medirAsChamadas(arquivos, (rel) => readFileSync(join(RAIZ, rel), "utf8"));
+const { achados, porRegra } = medicao;
+const { linhas, bytes, parametrosExaminados: parametros, camposExaminados: campos } = medicao.numeros;
 
 console.log("══════════ LAB-52 · as duas varreduras da Central ══════════");
 console.log(`  escopo: ${arquivos.length} arquivos .ts · ${linhas.toLocaleString("pt-BR")} linhas · ${bytes.toLocaleString("pt-BR")} bytes`);
@@ -72,7 +67,8 @@ writeFileSync(
         },
         estaVarredura: { regras: REGRAS_DE_CHAMADA.length, oQueAlcanca: "o que regex vê honestamente: `catch` que engole, `?? 0` sobre chamada, `Number(...)` sem conferência, e o nome do parâmetro" },
       },
-      escopo: { arquivos: arquivos.length, linhas, bytes, regras: REGRAS_DE_CHAMADA.length, parametrosExaminados: parametros, camposExaminados: campos },
+      // **Os números saem da MEDIÇÃO** — é esta chave que a trava reconta, uma a uma (LAB-87).
+      escopo: medicao.numeros,
       regras: REGRAS_DE_CHAMADA.map((r) => ({ nome: r.nome, familia: r.familia, oQue: r.oQue, oQueNaoPega: r.oQueNaoPega })),
       nomesDeIdentificadorProcurados: [...NOMES_DE_IDENTIFICADOR_DE_CONTA],
       porRegra,

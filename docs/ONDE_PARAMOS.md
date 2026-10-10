@@ -4,10 +4,12 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-86 (item 019) — **a prova
-velha, e o LIMIAR que a deixava passar** (D287, D288) · antes dele o LAB-85 (item 018), o que o
-gatilho carrega (D284 a D286), o LAB-84 (item 017), as trinta e uma por execução (D282, D283), e o
-LAB-83 (item 016), o carimbo saindo do módulo resolvido (D276 a D281) ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-87 (item 020) — **as onze,
+reclassificadas: "dentro desta casa" decide se recontar é BARATO, não se é POSSÍVEL nem
+SIGNIFICATIVO** (D289 a D291) · antes dele o LAB-86 (item 019), a prova velha e o limiar que a
+deixava passar (D287, D288), o LAB-85 (item 018), o que o gatilho carrega (D284 a D286), o LAB-84
+(item 017), as trinta e uma por execução (D282, D283), e o LAB-83 (item 016), o carimbo saindo do
+módulo resolvido (D276 a D281) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -87,9 +89,10 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 20:05 | observado | item 017 pronto (o chat o escreveu às 19h58, 7 min depois do disparo anterior) | item 017 (LAB-84) |
 | 10/10/2026 | 21:05 | observado | item 018 pronto (o chat o escreveu às 20h55) | item 018 (LAB-85) |
 | 10/10/2026 | 22:05 | observado | item 019 pronto (o chat o escreveu às 22h25 pelo relógio dele, antes do disparo) | item 019 (LAB-86) |
+| 10/10/2026 | 23:05 | observado | item 020 pronto (o chat o escreveu às 23h25 pelo relógio dele, antes do disparo) | item 020 (LAB-87) |
 
 ```
-disparos no registro: 32 · observados: 23 · derivados: 2 · entregues em lote: 7 · em vazio: 5
+disparos no registro: 33 · observados: 24 · derivados: 2 · entregues em lote: 7 · em vazio: 5
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05
@@ -1796,7 +1799,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 550 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 568 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

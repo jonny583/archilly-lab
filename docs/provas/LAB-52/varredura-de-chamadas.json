@@ -1,7 +1,7 @@
 {
   "prompt": "LAB-52",
   "oQueIstoMede": "o código TypeScript deste repositório atrás das duas classes que a Central nomeou — não mede terreno",
-  "quando": "2026-10-07T00:16:14.800Z",
+  "quando": "2026-10-10T23:46:11.095Z",
   "aOrigem": "achado da Central: (a) erro de chamada não conferido que degrada para número que PARECE certo; (b) função que recebe identificador de conta como argumento",
   "doisMotores": {
     "porque": "a metade mais perigosa de (a) — promessa sem `await` — NÃO se mede com regex: precisa de tipo",
@@ -21,12 +21,12 @@
     }
   },
   "escopo": {
-    "arquivos": 114,
-    "linhas": 32114,
-    "bytes": 1357772,
+    "arquivos": 194,
+    "linhas": 53038,
+    "bytes": 2363094,
     "regras": 6,
-    "parametrosExaminados": 4932,
-    "camposExaminados": 4318
+    "parametrosExaminados": 7977,
+    "camposExaminados": 6675
   },
   "regras": [
     {
@@ -106,16 +106,16 @@
     {
       "regra": "degrada-chamada-para-numero",
       "familia": "erro-nao-conferido",
-      "arquivo": "external-engines/esteira/src/varredura-de-chamadas.ts",
-      "linha": 147,
-      "trecho": "replace(/[?]/g, \"\") ?? \"\""
+      "arquivo": "entrega/registro-de-motores/registro.ts",
+      "linha": 267,
+      "trecho": "this.padrao() ?? \"\""
     },
     {
       "regra": "degrada-chamada-para-numero",
       "familia": "erro-nao-conferido",
-      "arquivo": "entrega/registro-de-motores/registro.ts",
-      "linha": 267,
-      "trecho": "this.padrao() ?? \"\""
+      "arquivo": "external-engines/esteira/src/varredura-de-chamadas.ts",
+      "linha": 393,
+      "trecho": "replace( g, \"\") ?? \"\""
     },
     {
       "regra": "numero-sem-conferir",

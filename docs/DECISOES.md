@@ -8751,3 +8751,184 @@ As outras **dez** do universo de dentro são medição por prova — cada uma pr
 
 *A fronteira do §7 foi reusada e nenhuma segunda lista nasceu, como o item exigiu: a classe de uma
 prova sai do que ela CITA, e a lista de exceções de medição continua sendo a do §7.*
+
+---
+
+## D289 · "O UNIVERSO ESTÁ DENTRO DESTA CASA?" DECIDE SE RECONTAR É BARATO — NÃO SE É POSSÍVEL, NEM SE É SIGNIFICATIVO · 10/10/2026
+
+O LAB-86 classificou **11 de 74** provas como *"universo DENTRO desta casa"*, recontou **uma** e
+mandou as outras dez à fila. O item 020 as pediu, e **convidou a corrigir o denominador**: *"se
+alguma das dez, ao ser aberta, mostrar que depende de fora, ela SAI — medição que descobre que o
+próprio denominador estava errado é entrega, não desvio."*
+
+**Aberta uma a uma, o denominador estava errado — e não pelo motivo previsto.** Nenhuma das dez
+dependia de fora. O que havia era uma pergunta que a minha classificação **nunca fez**.
+
+> **A pergunta que eu fiz decide se recontar é BARATO. Ela não diz se recontar é POSSÍVEL, nem se
+> é SIGNIFICATIVO.** Eu classifiquei pela **conta** e publiquei como se fosse pelo **sentido** —
+> e *"dentro desta casa"* era necessário e não suficiente.
+
+### As três espécies que havia dentro de uma classe
+
+| classe | quantas | o que a recontagem significa nela |
+|---|---|---|
+| **medição de ESTADO, com ferramenta** | **3** | a prova afirma um número sobre a árvore de agora: recontar **é** a conferência. É a forma do D287 |
+| **registro de EVENTO** | **7** | a prova afirma *"quebrei esta trava e o exit foi 0 → 1"*. **Medido: nenhuma carrega número de topo** — não há o que recontar. Recontar seria **refazer a sabotagem**, que é outro ato, custa o verde inteiro e mexe em arquivo |
+| **regerada pelo VERDE a cada rodada** | **1** | a prova no navegador é reescrita por `conferir.sh` em toda execução: ela **não pode** ficar velha |
+
+3 + 7 + 1 = **11**, e a soma fecha — conferida das linhas, não do texto, porque *frase que se lê
+como partição e não soma é slogan* (D212).
+
+### As três de estado estão recontadas, e duas eram achado novo
+
+- **LAB-57** — no item 019 (D287);
+- **LAB-52** — **a segunda prova velha, achada agora**, e pelo mesmo motivo: 114 → **191**
+  arquivos, 32 114 → **52 245** linhas, **40 % de atraso**, com **quatro** limiares na trava
+  (`arquivos > 100`, `parametrosExaminados > 3000`, `camposExaminados > 2500`). *A régua que
+  achou a primeira achou a segunda no dia seguinte, no primeiro lugar em que olhou;*
+- **LAB-04** — e esta é de outra espécie ainda: **não tem gerador**. Varrido todo `.ts` e `.sh`
+  que o git carrega, **nada a escreve** — foi escrita **à mão uma vez**, no PR #40, e nunca mais
+  relida; o único lugar que a menciona é a lista de exceções do §7.
+
+  > **Prova sem gerador é a forma mais estável de prova velha.** Ela não envelhece porque o
+  > prompt continuou trabalhando (D204): envelhece porque **nada no mundo a obriga a concordar
+  > com o código**. O limiar nem entra — aqui não havia conferência nenhuma.
+
+  A reimplementação é **função pura** sobre duas fixtures fixas, então a trava recomputa e compara
+  o `medido`. O `esperado` **não se reconta**: vem de **duas implementações independentes** de fora
+  desta casa, e o que se cobra é que o `medido` concorde com ele.
+
+### O que isto muda na resposta ao item
+
+O item pediu dez e autorizou menos *"com o número e o porquê"*. A resposta honesta não é *"fiz 2
+das 10 e 8 ficaram"*: é **a forma cabe em 3, e as 3 estão feitas.** As outras oito **não ficam para
+depois — elas não são desta forma.**
+
+> **Lista que encolhe porque o item era menor do que parecia é ENTREGA; lista que encolhe porque
+> alguém desistiu é DÍVIDA — e a diferença tem de estar escrita.** É a mesma exigência que o item
+> fez de mim, virada para dentro.
+
+**Há guarda** (`tests/as-onze.test.ts`): a soma fechando contada das linhas, o vocabulário das três
+classes **fechado**, cada arquivo citado conferido **contra o disco** e não contra o booleano que a
+ferramenta publicou (*trava que acredita no campo da prova não confere a prova: repete*), as três de
+estado obrigadas a dizer **em que rodada** foram recontadas, e as sete de evento obrigadas a **não
+ter número de topo** — que é o que torna a recontagem sem objeto, e não apenas cara.
+
+---
+
+## D290 · LIMIAR SOBRE MEDIÇÃO VIVA GUARDA CONTRA RÉGUA PARADA; LIMIAR SOBRE PROVA GUARDADA NÃO GUARDA NADA · 10/10/2026
+
+O item 020 foi categórico, e repetiu a minha própria lição: *"**Todo `>` sai.** (…) a conferência
+de cada uma das dez é comparação exata, e onde houver limiar ele é **apagado**, não apertado."*
+
+**Obedeci onde a regra vale, e não onde ela mudaria de alvo.** Ao abrir a trava do LAB-52 havia
+limiares de **duas espécies**, e só uma é o defeito do D287:
+
+| onde | o que havia | o que foi feito |
+|---|---|---|
+| sobre a **prova guardada** | `prova.escopo.arquivos > 100` | **apagado**, e trocado por recontagem exata. Uma prova congelada em 114 arquivos passava `> 100` para sempre |
+| sobre a **medição viva** | `parametrosExaminados > 3000`, `camposExaminados > 2500` | **ficaram**, e o motivo está escrito ao lado deles |
+
+> **Limiar sobre medição VIVA guarda contra régua PARADA; limiar sobre prova GUARDADA não guarda
+> nada.** O mesmo `>` é certo num lugar e inútil no outro — e o que muda não é o operador: é **se o
+> número do outro lado é recontado agora ou lembrado de ontem.**
+
+Os que ficaram são o **D164** desta casa (*zero de régua parada é indistinguível de zero de árvore
+limpa*): eles existem para que, se a varredura parar de olhar, o número caia **numa trava e não num
+silêncio**. Apagá-los seria **trocar um defeito por outro** — perder o D164 para curar o D287.
+
+*Regra de forma dita sem o sujeito manda na coisa errada* (D218): *"todo `>` sai"* precisa dizer
+**`>` sobre o quê**, e é esta decisão que o diz.
+
+### E a trava do LAB-52 duplicava a varredura, que é o defeito que o item nomeou
+
+Ela tinha a **própria cópia** do filtro do universo e o **próprio laço** de varredura, ao lado da
+ferramenta que faz o mesmo. Passou a chamar a mesma função (`src/escopo-das-chamadas.ts`), como
+a do LAB-57 no item 019.
+
+**E o universo das duas é DIFERENTE, de propósito** — o que importa é que não esteja escrito em
+dois lugares: a do LAB-57 parte de `git ls-files` (**o que o git carrega**) e a do LAB-52 de
+`ls-files --cached --others` (**todo `.ts` que existe e não é ignorado**).
+
+> **Duas varreduras da mesma casa podem ter universos diferentes sem que uma esteja errada — o que
+> não podem é ter o universo escrito em dois lugares.** E o instante em que cada uma fica velha é
+> outro: a do LAB-57 muda no `git add`; **esta muda assim que o arquivo EXISTE**, porque `--others`
+> já o vê. *É a mais fácil de deixar velha das duas, porque envelhece antes de qualquer comando* —
+> e foi exatamente assim que ela reprovou duas vezes durante esta rodada.
+
+---
+
+## D291 · "CONFERIDO AQUI E É VERDADE" SOBRE UMA ÁRVORE QUE DIZIA O CONTRÁRIO EM DUAS PÁGINAS · 10/10/2026
+
+**Prompt:** LAB-87 (item 020). **Achado de passagem**, ao escrever a linha que o item me deixou
+decidir sobre o número congelado do Padrão Archilly.
+
+O item 020 trouxe uma nota que dizia *"não é item"*: a cópia do Padrão desta casa está na
+**Versão 1, de 13/09**, e a Central publica a **3.0** — *"a mesma espécie da D204: número
+congelado que ninguém relê"*, e **eu decidia se valia uma linha**. Valia duas, porque ao abrir a
+nota o que estava errado não era o número.
+
+### O que estava escrito, e o que a árvore dizia
+
+A **§1-C do `CLAUDE.md`** dizia, desde 08/10:
+
+> ~~"Medido pela Central em 08/10: este repositório está **sem cópia do Padrão Archilly e sem
+> `VERSAO.txt`** — conferido aqui e é verdade, nenhum dos dois existe na árvore."~~
+
+**Metade era falsa, e a metade falsa era a minha** — as três palavras *"conferido aqui"* são
+minhas, não da Central. Medido:
+
+| o que a frase afirmava | o disco |
+|---|---|
+| `VERSAO.txt` não existe | **certo**, não existe |
+| a cópia do Padrão não existe | **FALSO** — `docs/referencia/PADRAO_ARCHILLY.md`, trazida em **03/10** no PR #40 |
+
+E não era preciso procurar: o **`docs/INDEX.md` a lista** como *"cópia trazida"*, e o relatório
+`LF-FINAL-2` já a tinha conferido **byte a byte** contra a do `motor-testfit` com `cmp`.
+
+> **A árvore se contradizia em duas páginas, e nenhuma das duas estava medindo.** O
+> `src/lugares-das-condicoes.ts` repetia a frase falsa num terceiro lugar.
+
+### A lição, e ela é sobre o CUSTO da guarda que faltava
+
+> **Declaração minha sobre o que a árvore TEM ou NÃO TEM é a mais fácil de todas de conferir — e
+> por isso é a mais vergonhosa de deixar sem guarda.** Não precisa de clone, de rede, de motor,
+> de semente nem de gleba: precisa de um `existsSync`. **O que faltava não era instrumento, era a
+> pergunta** — e ela ficou **um mês** sem ser feita, numa casa que mede o escopo da própria
+> varredura linha por linha.
+
+É da família do D204 e do D104 — número e comentário que ninguém relê —, mas com um agravante
+próprio: *o `"conferido aqui"` é a parte que mais convence e a única que não deixa rastro.*
+**Afirmação de conferência sem a conferência escrita é a forma mais caseira de número congelado.**
+
+### O que foi feito, e o que NÃO foi
+
+1. a §1-C foi **riscada com a medição ao lado**, não reescrita por cima (D161);
+2. a declaração do `src/lugares-das-condicoes.ts` foi corrigida, e o fato passou a ser **campo
+   declarado** (`oQueODiscoDeveDizer`) em vez de frase: *não escreva uma régua que adivinhe o
+   veredicto dentro da prosa — declare o veredicto.* **A primeira régua que eu escrevi aqui lia a
+   frase** (procurava *"não existe na árvore"* perto do nome do arquivo) e **não pegou o
+   defeito**, porque a mesma frase fala de dois arquivos com veredictos **opostos**;
+3. **o aviso do número congelado mora no `docs/INDEX.md`, e NÃO dentro da cópia.** Foi a escolha
+   mais interessante da nota: eu **escrevi o aviso dentro da cópia primeiro**, e isso quebrava a
+   única coisa que aquela cópia promete — ser **byte a byte igual** à do `motor-testfit` (`cmp`,
+   reconferido em 10/10: **iguais**, e as duas casas estão na mesma Versão 1). *Aviso que estraga
+   a prova da coisa avisada é um aviso no lugar errado;*
+4. **a cópia NÃO foi atualizada para a 3.0.** *Declarar um número velho é medição; trocá-lo sem a
+   fonte seria inventar conteúdo que ninguém aqui leu* (§4, "não inventa dado"). Quem precisar da
+   3.0 pede o texto à Central — e a nota de que ela existe está no índice, que é onde se lê;
+5. **há guarda** (`tests/por-lugar.test.ts`, 4 travas): o lado bom contra o disco, o lado ruim com
+   a afirmação antiga **nomeando o arquivo e os dois lados**, o erro **simétrico** (afirmar que
+   existe o que não existe) e o aviso cobrado no índice **e proibido dentro da cópia**.
+
+### E a trava do item 007 me reprovou pela quebra de linha — a NONA da família do D248
+
+Ao reescrever a §1-C, a frase-marca *"o kit, quando chegar, é outro item"* caiu numa **quebra de
+linha** (`"o kit,\nquando chegar"`), e o `conferirOsLugares` — que lia com `texto.includes` cru —
+acusou a marca de ter **saído do arquivo**. Ela não tinha saído: eu havia reflowado um parágrafo.
+
+> **O conserto já morava em `src/texto-das-regras.ts` desde o LAB-77**, e esta trava não o
+> chamava. *A largura da coluna de um `.md` é escolha de quem escreve e não pode mudar o que uma
+> trava enxerga* — e **conserto que não é aplicado em todos os instrumentos que leem a mesma coisa
+> é meio conserto** (D231), inclusive quando os instrumentos são dois testes.
+

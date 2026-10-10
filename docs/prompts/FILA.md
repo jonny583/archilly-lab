@@ -1257,7 +1257,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 550 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 568 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2375,15 +2375,21 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   chama** (D231), com o universo começando no `git ls-files`. Demonstrado nos **dois sentidos**, e
   o vigia **acusou o trabalho de quem o escrevia** (D287)
 
-- **RECONTAR AS OUTRAS DEZ PROVAS DE UNIVERSO INTERNO** (LAB-86, 10/10, D288). Medido: das **74**
-  provas desta casa, **11** têm o universo **dentro** deste repositório — não citam clone vizinho,
-  commit, semente nem gleba — e **63 dependem de fora**. A forma do LAB-86 cabe nas onze, e **uma**
-  foi recontada nesta rodada (a do D204, que o item nomeou). As outras dez são medição **por
-  prova**: cada uma precisa que alguém decida **quais números dela são recontáveis**, e *item que
-  reescreve setenta provas numa rodada é item que ninguém revisa*. **As 63 ficam de fora por
-  medição, não por preguiça:** *recontar o que depende de fora não é mais rigor, é outra medição
-  com o nome da antiga* — o LAB-78 perdeu dois de quatro lotes assim, porque o motor andou de
-  `4181e95` para `6cf6396`. **Segue aberto:** `prompt-novo`
+- ~~**RECONTAR AS OUTRAS DEZ PROVAS DE UNIVERSO INTERNO**~~ (LAB-86, 10/10, D288) — ✅
+  **executada no LAB-87** (item 020), **e o denominador estava errado**. O item convidou a
+  corrigi-lo, e corrigiu-se: **nenhuma das dez dependia de fora** — o que havia era uma pergunta
+  que a minha classificação não fazia. *"O universo está dentro desta casa?" decide se recontar é
+  BARATO; não diz se é POSSÍVEL nem se é SIGNIFICATIVO* (D289). Abertas uma a uma, havia **três
+  espécies** numa classe: **3** de medição de ESTADO (recontáveis — a forma do D287), **7** de
+  registro de EVENTO (*"quebrei a trava e o exit foi 0 → 1"*; medido, **nenhuma carrega número de
+  topo**: não há o que recontar) e **1** regerada pelo verde a cada rodada (não pode ficar velha).
+  3 + 7 + 1 = 11, e a soma fecha. **AS TRÊS DE ESTADO ESTÃO FEITAS:** a do LAB-57 no item 019, e
+  agora a do **LAB-52** — segunda prova velha pelo mesmo motivo, **40 % de atraso** e quatro
+  limiares na trava — e a do **LAB-04**, que é de outra espécie ainda: **não tem gerador**, foi
+  escrita à mão no PR #40 e nunca relida. *Prova sem gerador é a forma mais estável de prova
+  velha: ela não envelhece porque o prompt continuou trabalhando, envelhece porque nada no mundo a
+  obriga a concordar com o código.* **As outras oito não ficam para depois — não são desta forma**,
+  e há guarda da classificação (D290 para o limiar vivo que FICOU, com o motivo)
 
 - **O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER** (LAB-59). Resolvidos os seis mecanismos do
   LAB-58 e o campo do contrato, **4 das 20** candidatas ficam de fora, **uma violação cada**,

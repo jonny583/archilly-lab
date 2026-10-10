@@ -2096,3 +2096,84 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · o arquivo da sabotagem voltou BYTE A BYTE, com sha256 conferido;
 · nenhuma segunda lista de provas nasceu: a fronteira do §7 é a única.
 ```
+
+## 10/10/2026 · LAB-87 — item 020: as onze, reclassificadas
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-87 (item 020) ===
+Estado: FEITO. Você convidou a corrigir o denominador, e ele estava errado — por um motivo que o convite não previu: NENHUMA das dez dependia de fora. Verde conferido aqui, não no GitHub: 955 travas na esteira + 17 no testfit, 568 na lista do CI (34 arquivos, 34 de 34 passando sem os clones), 7 passos, exit 0. Decisões D289, D290 e D291.
+Feito: as três que são desta forma estão recontadas — a do LAB-57 no item 019, e agora a do LAB-52 (estava 40 % velha) e a do LAB-04 (não tinha gerador nenhum). A medição do LAB-52 saiu para `src/escopo-das-chamadas.ts`, e a ferramenta e a trava chamam A MESMA FUNÇÃO. Prova nova: `docs/provas/LAB-87/as-onze-reclassificadas.json`, as onze uma a uma, com 7 travas guardando a soma.
+Achados para outros apps ou Central: (1) O DENOMINADOR ESTAVA ERRADO, E NÃO PORQUE ALGUMA DEPENDIA DE FORA — porque a minha pergunta do LAB-86 era a pergunta errada. "O UNIVERSO ESTÁ DENTRO DESTA CASA?" DECIDE SE RECONTAR É BARATO. ELA NÃO DIZ SE RECONTAR É POSSÍVEL, NEM SE É SIGNIFICATIVO. Eu classifiquei pela CONTA e publiquei como se fosse pelo SENTIDO. Abertas uma a uma, havia TRÊS ESPÉCIES dentro de uma classe: 3 medem ESTADO com ferramenta (recontar É a conferência), 7 registram EVENTO — "quebrei esta trava e o exit foi 0 → 1" —, e 1 é regerada pelo verde a cada rodada, que não PODE ficar velha. Medido nas sete: NENHUMA carrega número de topo sobre a árvore. Não há o que recontar nelas. (2) O NÚMERO QUE VOCÊ EXIGIU, E ELE NÃO É "2 DE 10": a forma cabe em 3, e as 3 estão feitas. As outras oito NÃO FICAM PARA DEPOIS — ELAS NÃO SÃO DESTA FORMA. LISTA QUE ENCOLHE PORQUE O ITEM ERA MENOR DO QUE PARECIA É ENTREGA; LISTA QUE ENCOLHE PORQUE ALGUÉM DESISTIU É DÍVIDA — E A DIFERENÇA TEM DE ESTAR ESCRITA. (3) O LAB-52 ERA A SEGUNDA PROVA VELHA PELO MESMO MOTIVO, E PIOR QUE A PRIMEIRA: 114 arquivos contra 191, 32 114 linhas contra 52 245, 1 357 772 bytes contra 2 325 267 — 40 % de atraso —, e a trava o conferia com QUATRO limiares, entre eles `arquivos > 100`, que uma prova nascida com 114 passa para sempre. A régua que achou a primeira achou a segunda no dia seguinte, NO PRIMEIRO LUGAR EM QUE OLHOU. (4) E O LAB-04 É DE OUTRA ESPÉCIE AINDA: varrido todo `.ts` e `.sh` que o git carrega, NADA ESCREVE `docs/provas/LAB-04/oraculo.json`. Foi escrita à mão uma vez, no PR #40, e nunca mais relida. PROVA SEM GERADOR É A FORMA MAIS ESTÁVEL DE PROVA VELHA: ela não envelhece porque o prompt continuou trabalhando (D204) — envelhece porque NADA NO MUNDO A OBRIGA A CONCORDAR COM O CÓDIGO. O limiar nem entra: aqui não havia conferência nenhuma. A trava agora recomputa o `medido` chave por chave; o `esperado` NÃO se reconta, porque vem de duas implementações independentes de fora desta casa, e é para isso que um oráculo serve. (5) "TODO `>` SAI" PRECISOU DIZER `>` SOBRE O QUÊ — é o D218 aplicado ao seu próprio item, e foi a decisão mais difícil da rodada. O limiar sobre a PROVA GUARDADA foi apagado e trocado por recontagem exata. Os dois sobre a MEDIÇÃO VIVA ficaram, com o motivo escrito ao lado, porque são o D164: zero de régua PARADA é indistinguível de zero de árvore limpa, e se a varredura parar de olhar o número tem de cair numa TRAVA e não num silêncio. LIMIAR SOBRE MEDIÇÃO VIVA GUARDA CONTRA RÉGUA PARADA; LIMIAR SOBRE PROVA GUARDADA NÃO GUARDA NADA — e o que muda não é o operador: é SE O NÚMERO DO OUTRO LADO É RECONTADO AGORA OU LEMBRADO DE ONTEM. Apagá-los seria trocar um defeito por outro: perder o D164 para curar o D287. (6) A DUPLICAÇÃO QUE VOCÊ NOMEOU EXISTIA: a trava do LAB-52 tinha a própria cópia do filtro do universo e o próprio laço, ao lado da ferramenta que faz o mesmo. Saiu para um módulo só. E OS UNIVERSOS DAS DUAS VARREDURAS SÃO DIFERENTES DE PROPÓSITO — a do LAB-57 parte do `git ls-files`, a do LAB-52 de `ls-files --cached --others`: DUAS VARREDURAS DA MESMA CASA PODEM TER UNIVERSOS DIFERENTES SEM QUE UMA ESTEJA ERRADA; O QUE NÃO PODEM É TER O UNIVERSO ESCRITO EM DOIS LUGARES. E o instante em que cada uma fica velha é outro: a do LAB-57 muda no `git add`, esta muda ASSIM QUE O ARQUIVO EXISTE, porque `--others` já o vê — é a mais fácil de deixar velha das duas, e me reprovou DUAS VEZES durante esta rodada, por isso mesmo. (7) E O LADO RUIM DA TRAVA NOVA DO LAB-04 NASCEU TAUTOLOGIA: eu escrevi `expect(faces).not.toBe(faces + 1)` — uma sabotagem que não sabota nada. Virou uma FUNÇÃO DE RECONTAGEM que os dois sentidos chamam. TRAVA CUJO LADO RUIM COMPARA UMA COISA DIFERENTE DO LADO BOM NÃO PROVA QUE O LADO BOM MEDE: PROVA QUE OS DOIS LADOS EXISTEM. (8) A SUA NOTA QUE "NÃO ERA ITEM" ACHOU UMA AFIRMAÇÃO FALSA MINHA, E ESTA É A MAIS BARATA DE TODAS AS QUE JÁ ACHEI: a §1-C do CLAUDE.md dizia, desde 08/10 e com as palavras "CONFERIDO AQUI E É VERDADE", que este repositório está sem cópia do Padrão Archilly e sem VERSAO.txt. Metade era falsa, e a metade falsa era a minha — as três palavras "conferido aqui" são minhas, não suas. O VERSAO.txt de fato não existe; A CÓPIA EXISTE DESDE 03/10, no PR #40, o próprio docs/INDEX.md a lista como "cópia trazida", e o LF-FINAL-2 já a tinha conferido BYTE A BYTE contra a do Parcelamento. A árvore se contradizia EM DUAS PÁGINAS, e nenhuma das duas estava medindo. DECLARAÇÃO MINHA SOBRE O QUE A ÁRVORE TEM OU NÃO TEM É A MAIS FÁCIL DE TODAS DE CONFERIR — E POR ISSO É A MAIS VERGONHOSA DE DEIXAR SEM GUARDA: não precisa de clone, de rede, de motor nem de semente, precisa de um `existsSync`. O QUE FALTAVA NÃO ERA INSTRUMENTO, ERA A PERGUNTA, e ela ficou UM MÊS sem ser feita. E "conferido aqui" é a parte que mais convence e a única que não deixa rastro. Riscada com a medição ao lado; o fato virou CAMPO DECLARADO em vez de frase, porque a primeira régua que eu escrevi para isso lia a PROSA e NÃO PEGOU o defeito — a mesma frase fala de dois arquivos com veredictos opostos. (9) E O AVISO DO NÚMERO CONGELADO MORA NO docs/INDEX.md, NÃO DENTRO DA CÓPIA: eu o escrevi dentro dela primeiro, e isso quebrava a única coisa que ela promete, ser byte a byte igual à do Parcelamento — reconferido com `cmp` em 10/10: IGUAIS, e as duas casas estão na mesma Versão 1, ou seja a 3.0 não chegou a nenhuma das duas. AVISO QUE ESTRAGA A PROVA DA COISA AVISADA É UM AVISO NO LUGAR ERRADO. (10) E DE PASSAGEM, A NONA DA FAMÍLIA DO D248: ao reescrever a §1-C a frase-marca "o kit, quando chegar, é outro item" caiu numa QUEBRA DE LINHA, e a trava do item 007 — que lia com `includes` cru — acusou a marca de ter SAÍDO DO ARQUIVO. O conserto já morava em `src/texto-das-regras.ts` desde o LAB-77 e esta trava não o chamava: conserto que não é aplicado em todos os instrumentos que leem a mesma coisa é MEIO CONSERTO, inclusive quando os instrumentos são dois testes. (11) A SUA OUTRA NOTA: o D231 virou régua de família, medido em três casas — registrado, sem ação. E a cópia do Padrão Archilly desta casa está na Versão 1, de 13/09, enquanto você publica a 3.0: vale a linha que você me deixou decidir, e é esta — o número fica CONGELADO E AGORA DECLARADO, e eu NÃO o atualizei, porque esta casa não vendoriza o kit e reescrever uma cópia que não é minha para igualar um número seria inventar conteúdo que eu não li. DECLARAR UM NÚMERO VELHO É MEDIÇÃO; TROCÁ-LO SEM A FONTE SERIA O CONTRÁRIO. Se você quiser a cópia em 3.0, mande o texto e eu gravo.
+Depende do Jonny: nada novo meu. Continuam a §11 (a senha de leitura, ou tornar os dois vizinhos públicos), a §10, o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a D226 (os quatro campos de `legais`) — MUDA O DESENHO e espera o olho dele, e é a única da minha lista que não é medição minha. A fila ficou em CATORZE: a proposta das dez provas saiu por entrega, e nenhuma nasceu.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  AS ONZE, RECLASSIFICADAS — três espécies dentro de uma classe
+═══════════════════════════════════════════════════════════════════════════════
+
+  3  medição de ESTADO, com ferramenta ....... recontar É a conferência (a forma do D287)
+     LAB-57  configuração varrida ............ recontada no item 019
+     LAB-52  as duas varreduras da Central ... recontada AGORA — estava 40 % velha
+     LAB-04  o oráculo do esqueleto .......... recomputada AGORA — NÃO TINHA GERADOR
+
+  7  registro de EVENTO ....................... "quebrei esta trava e o exit foi 0 → 1".
+     as sete sabotagens: LAB-31 · LAB-58 · LAB-59 · LAB-60 · LAB-61 · LAB-63 · LAB-66
+     MEDIDO: nenhuma das sete carrega número de topo. Não há o que recontar.
+
+  1  regerada pelo VERDE a cada rodada ........ LAB-31/navegador.json: o `conferir.sh`
+     a reescreve em toda execução. Não PODE ficar velha.
+
+  3 + 7 + 1 = 11, somado das linhas e não do texto (D212).
+
+═══════════════════════════════════════════════════════════════════════════════
+  O LAB-52, MEDIDO — a prova commitada contra a mesma árvore
+═══════════════════════════════════════════════════════════════════════════════
+
+  número                      na prova     na árvore    atraso
+  arquivos                         114          191     40,3 %
+  linhas                        32 114       52 245     38,5 %
+  bytes                      1 357 772    2 325 267     41,6 %
+  parametrosExaminados           4 932        7 892      37,5 %
+  camposExaminados               4 318        6 577      34,3 %
+
+  O QUE A TRAVA CONFERIA: `arquivos > 100` — uma prova nascida com 114 passa para sempre.
+
+O `>` QUE SAIU E O `>` QUE FICOU — e o que muda não é o operador:
+
+  sobre a PROVA GUARDADA   `prova.escopo.arquivos > 100`      APAGADO, virou recontagem exata
+  sobre a MEDIÇÃO VIVA     `parametrosExaminados > 3000`      FICOU, com o motivo ao lado:
+                           `camposExaminados > 2500`          é o D164 — zero de régua PARADA é
+                                                              indistinguível de zero de árvore limpa
+
+  Limiar sobre medição VIVA guarda contra régua PARADA; limiar sobre prova GUARDADA não
+  guarda nada. Apagar os dois seria trocar um defeito por outro: perder o D164 para curar
+  o D287. E "todo `>` sai" precisou dizer `>` SOBRE O QUÊ — é o D218 aplicado ao item.
+
+═══════════════════════════════════════════════════════════════════════════════
+  E A NOTA QUE "NÃO ERA ITEM" — a §1-C dizia "conferido aqui e é verdade"
+═══════════════════════════════════════════════════════════════════════════════
+
+  o que a frase afirmava                         o disco
+  `VERSAO.txt` não existe na árvore ............. CERTO, não existe
+  a cópia do Padrão não existe na árvore ........ FALSO — existe desde 03/10 (PR #40)
+
+  e não era preciso procurar:
+    docs/INDEX.md ....... a lista como "cópia trazida"
+    LF-FINAL-2 .......... já a conferiu BYTE A BYTE contra a do Parcelamento
+    lugares-das-condicoes.ts ... repetia a frase falsa num TERCEIRO lugar
+
+  O NÚMERO, declarado e NÃO trocado: esta cópia e a do Parcelamento estão as duas na
+  Versão 1 de 13/09 (cmp reconferido em 10/10: iguais). A 3.0 não chegou a nenhuma das
+  duas. O aviso foi para o docs/INDEX.md, e NÃO para dentro da cópia.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· a D226 NÃO foi tocada — muda o desenho e espera o olho dele, como você ordenou;
+· nenhuma das 63 que dependem de fora foi recontada;
+· o GATILHO NÃO foi religado — a régua cobra, não liga;
+· nada escrito em repositório vizinho, e as três árvores limpas e nos mesmos commits;
+· a cópia do Padrão Archilly NÃO foi reescrita para igualar a 3.0 — o número ficou
+  declarado como congelado, porque esta casa não vendoriza o kit.
+```

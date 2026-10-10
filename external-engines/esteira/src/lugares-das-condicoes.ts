@@ -23,6 +23,8 @@
  * *O meu "zero" estava certo por não haver nenhuma, não por a varredura alcançar.*
  */
 
+import { aRegraEstaEscrita } from "./texto-das-regras.ts";
+
 /** Uma condição de retorno é uma CONTA quando o gatilho dela é volume, receita ou equilíbrio. */
 export type TipoDaCondicao =
   | "conta"
@@ -46,6 +48,20 @@ export interface LugarDeCondicao {
   marcaNoLugar: string;
   /** Contradiz a regra de família da cobrança por uso (D239)? */
   contradizARegra: boolean;
+  /**
+   * **O que a declaração deste lugar afirma sobre a ÁRVORE** — arquivo por arquivo, e com o
+   * booleano DECLARADO em vez de adivinhado na frase (LAB-87, D291).
+   *
+   * A declaração do `CLAUDE.md` dizia *"a cópia do Padrão Archilly e o `VERSAO.txt`, que não
+   * existem na árvore"*, e **metade era falsa**: a cópia existe desde 03/10. A primeira régua que
+   * eu escrevi para pegar isso lia a FRASE — procurava *"não existe na árvore"* perto do nome do
+   * arquivo — e **não pegou**, porque a mesma frase fala de dois arquivos com veredictos opostos.
+   *
+   * > **Não escreva uma régua que adivinhe o veredicto dentro da prosa: declare o veredicto.** É
+   * > a lição do item 006 (*"tire o campo onde a mensalidade caberia"*) pelo lado de fora — aqui o
+   * > que faltava era um campo onde o FATO caiba, para ninguém ter de ler a frase para saber dele.
+   */
+  oQueODiscoDeveDizer?: ReadonlyArray<{ arquivo: string; existe: boolean }>;
 }
 
 /**
@@ -78,7 +94,7 @@ export const LUGARES: LugarDeCondicao[] = [
   {
     lugar: "docs/prompts/FILA.md",
     oQueEstaParado:
-      "as QUINZE propostas e itens abertos, com as etiquetas declaradas — `prompt-novo` (5), " +
+      "as CATORZE propostas e itens abertos, com as etiquetas declaradas — `prompt-novo` (4), " +
       "`nao-medido` (3), `aguardando-outro-repositorio` (3), `aguardando-o-jonny` (2), " +
       "`escopo-novo`, `depois-do-mvp`",
     aCondicao: "cada uma espera pessoa, repositório, prompt novo, medição ou o marco do MVP",
@@ -104,11 +120,25 @@ export const LUGARES: LugarDeCondicao[] = [
   },
   {
     lugar: "CLAUDE.md",
-    oQueEstaParado: "a cópia do Padrão Archilly e o `VERSAO.txt`, que não existem na árvore",
+    // ── A METADE FALSA DESTA LINHA, MEDIDA NO LAB-87 (D291) ──────────────────
+    //
+    // Ela dizia "a cópia do Padrão Archilly e o `VERSAO.txt`, que não existem na árvore".
+    // Medido: o `VERSAO.txt` de fato não existe; a CÓPIA EXISTE desde 03/10, em
+    // `docs/referencia/PADRAO_ARCHILLY.md`, e o `docs/INDEX.md` a lista como "cópia trazida"
+    // — a árvore se contradizia em duas páginas. A trava `por-lugar.test.ts` passou a conferir
+    // ESTA declaração CONTRA O DISCO, nos dois sentidos.
+    oQueEstaParado:
+      "o `VERSAO.txt`, que não existe na árvore — e o número da cópia do Padrão, " +
+      "congelada na Versão 1 de 13/09 enquanto a Central publica a 3.0 (o aviso está no " +
+      "`docs/INDEX.md`, não dentro da cópia, que promete ser byte a byte igual à do vizinho)",
     aCondicao: '"o kit, quando chegar, é outro item" — e a regra do bloco NÃO espera por ele',
     tipo: "evento",
     marcaNoLugar: "o kit, quando chegar, é outro item",
     contradizARegra: false,
+    oQueODiscoDeveDizer: [
+      { arquivo: "docs/referencia/PADRAO_ARCHILLY.md", existe: true },
+      { arquivo: "VERSAO.txt", existe: false },
+    ],
   },
   {
     lugar: ".github/workflows/verde.yml",
@@ -147,8 +177,10 @@ export const QUANTAS_CONDICOES = {
   // 16 → 15 no LAB-85, a do trabalho de CI que não pode passar (D284). **QUATRO descidas por
   // entrega em cinco rodadas** — a fila está sendo consumida mais rápido do que abastecida, e
   // isso é notícia para quem decide o intervalo.
-  // E nenhuma das quinze é uma CONTA, que é o que a régua existe para cobrar.
-  naFila: 15,
+  // 15 → 14 no LAB-87: a das outras dez provas recontáveis (D289), por ENTREGA — e ela saiu
+  // MENOR do que entrou, porque a forma cabia em três provas e não em dez.
+  // E nenhuma das catorze é uma CONTA, que é o que a régua existe para cobrar.
+  naFila: 14,
   foraDaFila: LUGARES.filter((l) => l.lugar !== "docs/prompts/FILA.md").length,
   get total(): number {
     return this.naFila + this.foraDaFila;
@@ -178,7 +210,14 @@ export function conferirOsLugares(
       problemas.push({ tipo: "lugar-ausente", oQue: `o lugar \`${l.lugar}\` não existe mais` });
       continue;
     }
-    if (!texto.includes(l.marcaNoLugar)) {
+    // ── A MARCA SE LÊ COMO ELA SE LÊ, NÃO COMO ESTÁ GRAVADA (D248, aplicado no LAB-87) ──
+    //
+    // Era `texto.includes(l.marcaNoLugar)` cru, e **me reprovou dentro do LAB-87**: ao corrigir
+    // a §1-C do `CLAUDE.md` a frase *"o kit, quando chegar, é outro item"* caiu numa quebra de
+    // linha — `"o kit,\nquando chegar"` —, e a trava acusou a marca de ter saído do arquivo.
+    // É a NONA da família do D248, e o conserto já morava em `src/texto-das-regras.ts`: a
+    // largura da coluna de um `.md` é escolha de quem escreve e não pode mudar o que a trava vê.
+    if (!aRegraEstaEscrita(texto, l.marcaNoLugar)) {
       problemas.push({
         tipo: "marca-ausente",
         oQue: `\`${l.lugar}\` não traz mais "${l.marcaNoLugar}" — ou a coisa saiu de lá, ou a lista envelheceu`,
@@ -195,6 +234,38 @@ export function conferirOsLugares(
         tipo: "conta-declarada",
         oQue: `\`${l.lugar}\` CONTRADIZ a regra de família (D239): ${l.aCondicao}`,
       });
+    }
+  }
+  return problemas;
+}
+
+/**
+ * **O que a lista AFIRMA sobre a árvore, conferido NO DISCO** (LAB-87, D291).
+ *
+ * Não lê frase nenhuma: lê o campo {@link LugarDeCondicao.oQueODiscoDeveDizer}, que é onde o fato
+ * está declarado, e pergunta ao disco. Devolve uma linha por desacordo, **nomeando o arquivo e os
+ * dois lados** — o que a lista diz e o que o disco diz.
+ *
+ * > **Declaração minha sobre o que a árvore TEM ou NÃO TEM é a mais fácil de todas de conferir, e
+ * > por isso é a mais vergonhosa de deixar sem guarda:** não precisa de clone, de rede, de motor
+ * > nem de semente — precisa de um `existsSync`. O que faltava não era instrumento, era a
+ * > pergunta. E ela ficou **um mês** sem ser feita, enquanto o `docs/INDEX.md` dizia o contrário
+ * > na mesma árvore.
+ */
+export function conferirAsAfirmacoesSobreADisco(
+  lugares: readonly LugarDeCondicao[],
+  existeNoDisco: (caminho: string) => boolean,
+): string[] {
+  const problemas: string[] = [];
+  for (const l of lugares) {
+    for (const { arquivo, existe } of l.oQueODiscoDeveDizer ?? []) {
+      const noDisco = existeNoDisco(arquivo);
+      if (noDisco !== existe) {
+        problemas.push(
+          `\`${l.lugar}\` afirma que \`${arquivo}\` ${existe ? "EXISTE" : "NÃO existe"} na árvore, ` +
+            `e o disco diz que ele ${noDisco ? "EXISTE" : "NÃO existe"}`,
+        );
+      }
     }
   }
   return problemas;

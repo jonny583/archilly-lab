@@ -81,6 +81,12 @@ const lista1 = abertos.map((p, i) => ({
  * **16 → 17 no LAB-82:** o carimbo do clone que lê o `HEAD` em vez do módulo resolvido (D274),
  * achado ao remedir o sétimo mecanismo contra o motor novo. Entrou com `prompt-novo`.
  *
+ * **15 → 14 no LAB-87:** a das outras dez provas recontáveis foi EXECUTADA (item 020, D289), e
+ * saiu por ENTREGA — a quinta descida por entrega em sete rodadas. *E esta saiu MENOR do que
+ * entrou: a forma cabia em três provas, não em dez, e o item previu isso ao convidar a corrigir o
+ * denominador. Lista que encolhe porque o item era menor do que parecia é entrega; lista que
+ * encolhe porque alguém desistiu é dívida.*
+ *
  * **16 → 15 no LAB-85:** a do trabalho de CI que não pode passar foi EXECUTADA (item 018,
  * D284), e saiu por ENTREGA. *Quarta descida por entrega em cinco rodadas — a fila está sendo
  * consumida mais rápido do que abastecida, e isso é notícia para quem decide o intervalo.*
@@ -98,7 +104,7 @@ const lista1 = abertos.map((p, i) => ({
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */
-const ABERTOS_ESPERADOS = 15;
+const ABERTOS_ESPERADOS = 14;
 
 cobrar(
   lista1.length === ABERTOS_ESPERADOS,
