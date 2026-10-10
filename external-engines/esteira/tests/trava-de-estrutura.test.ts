@@ -151,9 +151,11 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
       !FALAM_SOBRE_A_CONDICAO.includes(f),
   );
 
-  test("as condições declaradas são QUINZE, e nenhuma é uma CONTA", () => {
+  test("as condições declaradas são DEZESSEIS, e nenhuma é uma CONTA", () => {
+    // 15 → 16 no LAB-78: a proposta do sétimo mecanismo entrou com `aguardando-o-jonny`.
+    // **O vocabulário não mudou** — e é ele que esta trava guarda: nenhuma condição é uma CONTA.
     const declaradas = condicoesDeclaradas(ler("docs/prompts/FILA.md"));
-    expect(declaradas.length, declaradas.join(", ")).toBe(15);
+    expect(declaradas.length, declaradas.join(", ")).toBe(16);
     // Nenhuma delas é volume: todas esperam pessoa, repositório, prompt ou medição.
     expect(new Set(declaradas)).toEqual(
       new Set([

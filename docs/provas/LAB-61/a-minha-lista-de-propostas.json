@@ -2,7 +2,7 @@
   "prompt": "LAB-61",
   "oQueIstoMede": "a saúde da seção 'Proposto ao chat — não executar' da FILA.md, que é a MINHA lista de dívida e é o que o chat lê para escrever fila — quatro filas saíram dela",
   "aPergunta": "do chat: continue a dívida própria com o que sobrou",
-  "quando": "2026-10-09T16:12:58.407Z",
+  "quando": "2026-10-10T03:47:50.446Z",
   "ondeEuPROCUREIDIVIDA": {
     "inventario-das-idas.ts · categoria `divida`": "VAZIA desde o LAB-37 (D138) — era a testada de frente, e foi paga",
     "inventario-das-pontes.ts · `perda`": "são perdas DECLARADAS, com motivo medido: não são dívida",
@@ -170,26 +170,26 @@
     ]
   },
   "agora": {
-    "itens": 33,
+    "itens": 34,
     "riscados": 18,
-    "abertos": 15,
+    "abertos": 16,
     "problemas": 0,
     "abertosPorMotivo": {
+      "aguardando-o-jonny": 2,
       "prompt-novo": 6,
       "aguardando-outro-repositorio": 3,
       "depois-do-mvp": 1,
       "nao-medido": 3,
-      "aguardando-o-jonny": 1,
       "escopo-novo": 1
     },
     "secoesDePropostaEmProsa": [
       {
-        "linha": 175,
+        "linha": 246,
         "prompt": "LAB-60"
       },
       {
-        "linha": 184,
-        "prompt": "LAB-59"
+        "linha": 270,
+        "prompt": "LAB-78"
       }
     ]
   },
@@ -201,7 +201,18 @@
   ],
   "itens": [
     {
-      "linha": 2157,
+      "linha": 2254,
+      "titulo": "PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA",
+      "riscado": false,
+      "executadoPor": null,
+      "motivo": "aguardando-o-jonny",
+      "decisoes": [
+        "D133",
+        "D253"
+      ]
+    },
+    {
+      "linha": 2264,
       "titulo": "ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR",
       "riscado": false,
       "executadoPor": null,
@@ -211,7 +222,7 @@
       ]
     },
     {
-      "linha": 2166,
+      "linha": 2273,
       "titulo": "O PICO DE RAMPA QUE O PARCELAMENTO REPORTA, 109,51 % → 175,51 %",
       "riscado": false,
       "executadoPor": null,
@@ -222,7 +233,7 @@
       ]
     },
     {
-      "linha": 2173,
+      "linha": 2280,
       "titulo": "O COMMIT DO CLONE VIZINHO EM TODA PROVA QUE O USE",
       "riscado": false,
       "executadoPor": null,
@@ -233,7 +244,7 @@
       ]
     },
     {
-      "linha": 2181,
+      "linha": 2288,
       "titulo": "O TRABALHO DE CI QUE NÃO PODE PASSAR",
       "riscado": false,
       "executadoPor": null,
@@ -244,7 +255,7 @@
       ]
     },
     {
-      "linha": 2188,
+      "linha": 2295,
       "titulo": "A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO",
       "riscado": false,
       "executadoPor": null,
@@ -255,7 +266,7 @@
       ]
     },
     {
-      "linha": 2196,
+      "linha": 2303,
       "titulo": "O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER",
       "riscado": false,
       "executadoPor": null,
@@ -263,7 +274,7 @@
       "decisoes": []
     },
     {
-      "linha": 2203,
+      "linha": 2310,
       "titulo": "A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO",
       "riscado": false,
       "executadoPor": null,
@@ -271,7 +282,7 @@
       "decisoes": []
     },
     {
-      "linha": 2214,
+      "linha": 2321,
       "titulo": "O detector de prova velha para o LAB-25 e o LAB-30",
       "riscado": true,
       "executadoPor": "LAB-49",
@@ -281,7 +292,7 @@
       ]
     },
     {
-      "linha": 2215,
+      "linha": 2322,
       "titulo": "Por que a passagem externa põe lote a 1,8 km da face entregue",
       "riscado": true,
       "executadoPor": "LAB-50",
@@ -292,7 +303,7 @@
       ]
     },
     {
-      "linha": 2216,
+      "linha": 2323,
       "titulo": "Por que o motor desenha via SOBRE a face que ele mesmo reservou",
       "riscado": true,
       "executadoPor": "LAB-55",
@@ -303,7 +314,7 @@
       ]
     },
     {
-      "linha": 2219,
+      "linha": 2326,
       "titulo": "O conserto das 36 violações que são a minha ponte",
       "riscado": true,
       "executadoPor": "LAB-53",
@@ -316,7 +327,7 @@
       ]
     },
     {
-      "linha": 2224,
+      "linha": 2331,
       "titulo": "A correção da moldura do D159 nos três lugares onde ela saiu",
       "riscado": true,
       "executadoPor": "LAB-56",
@@ -328,7 +339,7 @@
       ]
     },
     {
-      "linha": 2227,
+      "linha": 2334,
       "titulo": "As 27 violações `frente` não atribuídas",
       "riscado": true,
       "executadoPor": "LAB-54",
@@ -338,7 +349,7 @@
       ]
     },
     {
-      "linha": 2230,
+      "linha": 2337,
       "titulo": "O cabeçalho do `conferir.sh` afirma que não há CI neste repositório",
       "riscado": true,
       "executadoPor": "LAB-51",
@@ -348,7 +359,7 @@
       ]
     },
     {
-      "linha": 2231,
+      "linha": 2338,
       "titulo": "Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes",
       "riscado": false,
       "executadoPor": null,
@@ -358,7 +369,7 @@
       ]
     },
     {
-      "linha": 2236,
+      "linha": 2343,
       "titulo": "O delta contra o Padrão 1.2",
       "riscado": false,
       "executadoPor": null,
@@ -368,7 +379,7 @@
       ]
     },
     {
-      "linha": 2239,
+      "linha": 2346,
       "titulo": "As 4 violações que sobraram em `geo-antonina`",
       "riscado": false,
       "executadoPor": null,
@@ -376,7 +387,7 @@
       "decisoes": []
     },
     {
-      "linha": 2243,
+      "linha": 2350,
       "titulo": "As 96 quadras de esqueleto não confiável",
       "riscado": false,
       "executadoPor": null,
@@ -386,7 +397,7 @@
       ]
     },
     {
-      "linha": 2246,
+      "linha": 2353,
       "titulo": "A travessia sobre a APP de `geo-antonina`",
       "riscado": false,
       "executadoPor": null,
@@ -396,7 +407,7 @@
       ]
     },
     {
-      "linha": 2249,
+      "linha": 2356,
       "titulo": "A quadra dentro de APP.",
       "riscado": false,
       "executadoPor": null,
@@ -404,7 +415,7 @@
       "decisoes": []
     },
     {
-      "linha": 2252,
+      "linha": 2359,
       "titulo": "O eixo do curso d'água, para o Geo.",
       "riscado": false,
       "executadoPor": null,
@@ -414,7 +425,7 @@
       ]
     },
     {
-      "linha": 2256,
+      "linha": 2363,
       "titulo": "O balanço fora da fila não tem onde morar",
       "riscado": true,
       "executadoPor": "LAB-42",
@@ -424,7 +435,7 @@
       ]
     },
     {
-      "linha": 2260,
+      "linha": 2367,
       "titulo": "Fixtures que exerçam as quatro promessas",
       "riscado": true,
       "executadoPor": "LAB-40",
@@ -434,7 +445,7 @@
       ]
     },
     {
-      "linha": 2263,
+      "linha": 2370,
       "titulo": "As posições em que a candidata ortogonal do Generate não entrega nada aceitável",
       "riscado": true,
       "executadoPor": "LAB-41",
@@ -444,7 +455,7 @@
       ]
     },
     {
-      "linha": 2268,
+      "linha": 2375,
       "titulo": "A última trava que repete",
       "riscado": true,
       "executadoPor": "LAB-39",
@@ -455,7 +466,7 @@
       ]
     },
     {
-      "linha": 2271,
+      "linha": 2378,
       "titulo": "As duas fixtures novas na TABELA comparativa",
       "riscado": true,
       "executadoPor": "LAB-45",
@@ -467,7 +478,7 @@
       ]
     },
     {
-      "linha": 2274,
+      "linha": 2381,
       "titulo": "Medir em Antonina as três amostragens",
       "riscado": true,
       "executadoPor": "LAB-46",
@@ -478,7 +489,7 @@
       ]
     },
     {
-      "linha": 2277,
+      "linha": 2384,
       "titulo": "a etiqueta do contrato, que quatro provas declaravam errada",
       "riscado": true,
       "executadoPor": "LAB-43",
@@ -489,7 +500,7 @@
       ]
     },
     {
-      "linha": 2280,
+      "linha": 2387,
       "titulo": "Por que a passagem externa do motor põe lote a 1,8 km da face entregue",
       "riscado": true,
       "executadoPor": "LAB-50",
@@ -499,7 +510,7 @@
       ]
     },
     {
-      "linha": 2285,
+      "linha": 2392,
       "titulo": "DETECTOR DE PROVA VELHA para o LAB-25 e o LAB-30",
       "riscado": true,
       "executadoPor": "LAB-49",
@@ -509,7 +520,7 @@
       ]
     },
     {
-      "linha": 2289,
+      "linha": 2396,
       "titulo": "O `faceDeRua` nulo nos 33 lotes de `geo-antonina`",
       "riscado": false,
       "executadoPor": null,
@@ -520,7 +531,7 @@
       ]
     },
     {
-      "linha": 2294,
+      "linha": 2401,
       "titulo": "Um nome só para cada número do confronto do acesso",
       "riscado": true,
       "executadoPor": "LAB-44",
@@ -531,7 +542,7 @@
       ]
     },
     {
-      "linha": 2300,
+      "linha": 2407,
       "titulo": "CI para o comando único",
       "riscado": true,
       "executadoPor": "LAB-38",

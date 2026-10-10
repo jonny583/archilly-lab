@@ -1408,3 +1408,50 @@ Depende do Jonny: as duas perguntas do acesso, na §9 da página dele (9-A os 15
 Próximo na fila: nada; aguardando item novo na caixa.
 === FIM ===
 ```
+
+---
+
+## 10/10/2026 · LAB-78 — item 011: o sétimo mecanismo existe, e é do motor
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-78 (item 011) ===
+Estado: FEITO. A pergunta era binária — sétimo mecanismo do motor, ou a largura e a divisa da faixa do Generate? MEDIDO: É O MOTOR, e as duas hipóteses da faixa caem com número. O mecanismo tem nome: A FILEIRA EXTERNA TRANSBORDA O CANTO da face declarada e continua alguns metros na face vizinha, onde não há rua declarada — então não pode haver frente. O conserto está PROPOSTO na FILA.md e NÃO foi executado, como o item manda: mexer no plantio muda o desenho, e desenho espera o olho do Jonny. 011.md virou 011-FEITO.md. VERDE: 821 travas na esteira + 17 no testfit, 7 passos, exit 0 — CONFERIDO AQUI, NÃO NO GITHUB; o CI sem clones vai de 412 a 427. Decisões D253, D254.
+Feito: AS QUATRO, uma a uma, com a distância em metros e não a contagem. DUAS foram medíveis hoje: cluster/v16-e15 avança 0,19 a 13,18 m ALÉM DA PONTA da face declarada, fica a 0,19 m dela e a 5,54 m de via interna, testada 0 m; pente/v3-e19 avança 0,29 a 10,43 m além, fica a 0,29 m da face e a 0,04 m de via interna, testada fina 1,5 m. Os dois estão INTEIRAMENTE fora do segmento da face declarada, virando o canto para a face vizinha, que tem 1 845,71 m e não recebe lotes de frente. A LARGURA CAI COMO CONTROLE: o Lab construiu a faixa com 8 m e o Generate constrói com 10 m (Math.max(8, larguraEntrada/2), padrão 20) — e o lote fica a 0,19 m DAS DUAS, porque faixaViaPublica cola o quadrilátero do lado de FORA da divisa e a borda de dentro dela É a divisa. ALARGAR UMA FAIXA QUE CRESCE PARA FORA NÃO FECHA UMA FOLGA QUE ESTÁ DO LADO DE DENTRO. A DIVISA CAI COM A COBERTURA: face declarada 180,22 m, divisa escolhida 180,22 m — 100 %, e a ida entrega facesLoteamento: [0], exatamente a face certa. A IDA ESTÁ CERTA E A FAIXA ESTÁ CERTA.
+Achados para outros apps ou Central: (1) EU IA PUBLICAR UM ACHADO CONTRA O GENERATE, E A MINHA PRÓPRIA MEDIÇÃO ME DESMENTIU — é a 23ª do §6 e a mais perto de sair desde o D119, porque o veredicto já estava escrito com dono "generate" nos dois lotes, pronto para este recado. A primeira versão da régua dizia: se a projeção do lote cai FORA da extensão da divisa, então é a faixa. O que me desmentiu foi um número da minha medição na LINHA DE CIMA DA TELA: "A FAIXA COBRE 100 % DA FACE ENTREGUE". Se ela cobre a face inteira, um lote a 0,19 m dela não pode estar fora do alcance dela — as duas afirmações não cabiam juntas. Medido o que faltava (QUANTOS METROS além da ponta), apareceram os 13,18 m e os 10,43 m: quem estava fora não era a faixa, era O LOTE. "ESTÁ FORA DA EXTENSÃO" NÃO DIZ DE QUEM É A CULPA: a projeção responde ONDE, só o QUANTO responde DE QUEM. Régua que conclui dono a partir de um booleano está adivinhando com cara de medição. Consertada por CONDIÇÃO e não por exceção: faixa-alcance passa a exigir cobertura MENOR que 100 %, com trava nos dois lados — 100 % nunca vira achado contra vocês, 60 % com projeção fora vira. (2) DUAS DAS QUATRO NÃO FORAM MEDÍVEIS, e isso sai declarado e não como zero: espinha/v12-l1093 e mioloVerde/v20-e18 NÃO EXISTEM no plano desta rodada. O LAB-59 mediu com motor-testfit em 4181e95 e esta rodada roda em 6cf6396 — O MOTOR ANDOU entre as duas, e id de lote não sobrevive a mudança de plantio. Remedi-las exige rodar no commit daquela rodada, e isso é prompt. Pela prova antiga, e ETIQUETADO como leitura dela e não medição de hoje: a do espinha é amostragem-da-testada (o motor reporta 8,72 m e a mesma função dele com passo fino devolve 10,22 m, acima do mínimo de 10 — O LOTE PASSA, e não há o que consertar em motor nenhum), e a do mioloVerde tem a forma do pente. É a quarta candidata na linha separada que o item pediu. (3) E ISTO COSTURA O LAB-78 AO LAB-77: não há rua na frente desses lotes PORQUE NINGUÉM DECLAROU RUA ALI. O motor não tem como saber onde a rua termina — ele sabe qual face recebe lotes de frente, e transborda a ponta dela. O campo que diria quais faces dão para via pública, que o LAB-77 mediu como INEXISTENTE no contrato, é o mesmo que falta aqui. DOIS PROMPTS SEGUIDOS, DOIS ACHADOS DIFERENTES, O MESMO DADO QUE FALTA — e isso REFORÇA o item 1 da lista que já foi ao Generate, sem criar item novo.
+Depende do Jonny: o conserto do mecanismo, e por isso a condição de abertura dele na FILA é `aguardando-o-jonny`: encurtar a fileira ao fim da rua PERDE lotes que hoje entram, e quantos é medição que este prompt não fez — prometer o número sem medir seria a classe do D133. Continuam abertas as duas do acesso (§9 da página dele), e nenhuma delas trava nada.
+Próximo na fila: nada na caixa além do COMO_FUNCIONA — reconferida contra a origem na hora de enviar (D238). Decisões até D254. Clones: os três com 0 alterações. Chão: Bun 1.4.2.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+O SÉTIMO MECANISMO, CARACTERIZADO — para o chat colar onde precisar:
+
+  A FILEIRA EXTERNA TRANSBORDA O CANTO. O plantio da fileira externa passa da ponta da face
+  que a entrada declara como face de loteamento e continua virando o canto para a face
+  seguinte. Nessa face não há rua declarada, então o lote não tem — e não pode ter — frente.
+  Medido em Antonina: 13,18 m além da ponta no `cluster` e 10,43 m no `pente`.
+
+AS DUAS HIPÓTESES DA FAIXA, E COMO CADA UMA CAIU:
+
+| hipótese | como caiu | o número |
+|---|---|---|
+| largura da faixa | CONTROLE, e saiu indiferente | lote a 0,19 m da faixa de 8 m **e** da de 10 m |
+| divisa / alcance | a faixa cobre a face inteira | face 180,22 m · divisa 180,22 m · **100 %** |
+
+E a geometria dizia isso antes da medição: `faixaViaPublica` cola o quadrilátero do lado de FORA
+da divisa e o estende para fora — a borda de DENTRO dela é a própria divisa. Alargar afasta a
+borda externa e não aproxima nada do lado de dentro.
+
+O QUE ESTÁ PROPOSTO NA FILA E NÃO FOI EXECUTADO:
+
+  PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA (LAB-78, D253).
+  Condição de abertura: `aguardando-o-jonny`.
+  O que ele vai olhar, em uma frase: a fileira externa hoje aproveita o canto e ganha alguns
+  lotes que o Validator reprova; encurtá-la ao fim da rua perde esses lotes e zera a violação.
+  QUANTOS LOTES SE PERDEM É MEDIÇÃO QUE ESTE PROMPT NÃO FEZ.
+
+PARA O ARCHILLY GENERATE — nada novo, e isto é importante: a faixa de via pública está CERTA
+nos dois eixos que eu testei (largura e cobertura). O que REFORÇA é o item 1 que já foi a vocês
+no LAB-77: o campo no contrato que diz onde há via pública. Com ele, o motor poderia parar no
+fim da rua em vez de virar o canto — e a sugestão de acesso do LAB-77 poderia sair.
+```

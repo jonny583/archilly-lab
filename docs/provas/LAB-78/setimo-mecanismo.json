@@ -1,0 +1,102 @@
+{
+  "prompt": "LAB-78",
+  "gleba": "geo-antonina",
+  "motor": "parcelamento",
+  "semente": 20260913,
+  "contrato": "1",
+  "oQueIstoMede": "de quem é cada uma das QUATRO violações que o LAB-59 deixou sem mecanismo em Antonina: do plantio do motor (sétimo mecanismo) ou da faixa de via pública do Generate (largura ou alcance). Mede a distância em METROS de cada lote à face entregue, à via interna e à faixa nas DUAS larguras, mais a projeção do lote na extensão da divisa",
+  "quando": "2026-10-10T03:20:55.626Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "aFaixa": {
+    "larguraQueOLabConstruiu_m": 8,
+    "larguraQueOGenerateConstroi_m": 10,
+    "deOndeSaiONumeroDele": "gerar-v1-motor.ts: faixaViaPublica(divisa, Math.max(8, larguraEntradaOrt / 2)), com larguraEntradaOrt = params.larguraEntrada ?? PARAMS_PADRAO_V1.larguraEntrada ?? 20",
+    "porQueALarguraNaoPodeSerAExplicacao": "faixaViaPublica cola o quadrilátero do lado de FORA da divisa e o estende para fora. A borda de dentro dela É a divisa. Alargar afasta a borda externa e não aproxima nada do lado de dentro — por isso a largura entra como CONTROLE e tem de sair indiferente",
+    "aCobertura": {
+      "comprimentoDaFaceEntregue_m": 180.22,
+      "comprimentoDaDivisa_m": 180.22,
+      "coberturaPct": 100,
+      "oQueIssoQuerDizer": "a faixa de via pública cobre esta fração da face que a entrada entrega. O resto da face não tem faixa nenhuma na frente — e lote plantado ali não tem como ter frente"
+    },
+    "aDivisaEscolhida": {
+      "comprimento_m": 180.22,
+      "a": {
+        "x": -16.359,
+        "y": -689.672
+      },
+      "b": {
+        "x": -128.257,
+        "y": -830.943
+      },
+      "escolhidaPor": "divisaDoAcesso do Generate — nenhuma régua do Lab escolhe divisa aqui"
+    }
+  },
+  "contato_m": 0.05,
+  "acusados": [
+    {
+      "chave": "geo-antonina|frente|v16-e15",
+      "candidata": "cluster",
+      "tipo": "frente",
+      "externo": true,
+      "dAoContornoDaVia_m": 5.54,
+      "aoSegmentoDaFaceEntregue_m": 0.19,
+      "testadaDele_m": 0,
+      "testadaComPassoFino_m": 0,
+      "testadaMin_m": 10,
+      "projecaoDentroDaDivisa": false,
+      "alemDaFaceDeclarada_m": 13.18,
+      "coberturaDaFacePct": 100,
+      "aFaixaDe8_m": 0.19,
+      "aFaixaDe10_m": 0.19
+    },
+    {
+      "chave": "geo-antonina|frente|v3-e19",
+      "candidata": "pente",
+      "tipo": "frente",
+      "externo": true,
+      "dAoContornoDaVia_m": 0.04,
+      "aoSegmentoDaFaceEntregue_m": 0.29,
+      "testadaDele_m": 0,
+      "testadaComPassoFino_m": 1.5,
+      "testadaMin_m": 10,
+      "projecaoDentroDaDivisa": false,
+      "alemDaFaceDeclarada_m": 10.43,
+      "coberturaDaFacePct": 100,
+      "aFaixaDe8_m": 0.29,
+      "aFaixaDe10_m": 0.29
+    }
+  ],
+  "vereditos": [
+    {
+      "chave": "geo-antonina|frente|v16-e15",
+      "candidata": "cluster",
+      "veredicto": "motor-transbordo-do-canto",
+      "dono": "motor-testfit",
+      "aEvidencia": "a faixa cobre 100 % da face declarada — ela NÃO é curta — e o lote avança 13.18 m ALÉM da ponta dessa face, virando o canto para a face vizinha, que a ida NÃO declarou como face de loteamento. Ele fica a 0.19 m da face declarada e a 5.54 m de via interna: não há rua na frente dele porque ninguém declarou rua ali. A fileira externa transborda o canto"
+    },
+    {
+      "chave": "geo-antonina|frente|v3-e19",
+      "candidata": "pente",
+      "veredicto": "motor-transbordo-do-canto",
+      "dono": "motor-testfit",
+      "aEvidencia": "a faixa cobre 100 % da face declarada — ela NÃO é curta — e o lote avança 10.43 m ALÉM da ponta dessa face, virando o canto para a face vizinha, que a ida NÃO declarou como face de loteamento. Ele fica a 0.29 m da face declarada e a 0.04 m de via interna: não há rua na frente dele porque ninguém declarou rua ali. A fileira externa transborda o canto"
+    }
+  ],
+  "conta": {
+    "lotes": 2,
+    "porVeredicto": {
+      "motor-transbordo-do-canto": 2
+    },
+    "porDono": {
+      "motor-testfit": 2
+    },
+    "comoSeDiz": "2 lotes acusados · 2 motor-transbordo-do-canto"
+  },
+  "naoAchados": [
+    "espinha/v12-l1093: o lote NÃO está no plano desta rodada — a candidata tem 1076 lotes (50 externos). O LAB-59 mediu com `motor-testfit` em `4181e95` e esta rodada roda em `6cf6396`: o motor ANDOU entre as duas, e id de lote não sobrevive a mudança de plantio. Remedir exige o commit daquela rodada, e isso é prompt",
+    "mioloVerde/v20-e18: o lote NÃO está no plano desta rodada — a candidata tem 1014 lotes (40 externos). O LAB-59 mediu com `motor-testfit` em `4181e95` e esta rodada roda em `6cf6396`: o motor ANDOU entre as duas, e id de lote não sobrevive a mudança de plantio. Remedir exige o commit daquela rodada, e isso é prompt"
+  ]
+}

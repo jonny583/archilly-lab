@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-77 (item 010 + adendo) —
-**a esquina é das RUAS, e a sugestão se recusa a sair** (D249) · **a caixa esgotou às 02:05Z** ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-78 (item 011) — **o sétimo
+mecanismo existe e é do MOTOR: a fileira externa transborda o canto** (D253) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -65,9 +65,10 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 00:05 | observado | item 009 pronto (e o `010` + o `010-adendo` já na caixa) | item 009 (LAB-76) |
 | 10/10/2026 | 01:05 | observado | item 010 pronto, com o adendo | item 010 (LAB-77) |
 | 10/10/2026 | 02:05 | observado | **nada na caixa** — os dez feitos | recado de uma linha, e dormir |
+| 10/10/2026 | 03:06 | observado | item 011 pronto (o chat o escreveu depois das 02:05Z) | item 011 (LAB-78) |
 
 ```
-disparos observados: 12 · em vazio: 3
+disparos observados: 13 · em vazio: 3
 ```
 
 **DOIS em vazio de nove, e a série já diz algo:** o chat abasteceu **sete itens em oito horas** e
@@ -143,7 +144,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 806 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 821 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -209,6 +210,62 @@ medida em uma hora: desligar teria deixado o item parado.*
 
 **O estado do despertador NÃO se repete aqui** — ele mora na *conta dos disparos*, no alto deste
 arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D234).
+
+# 🔧 O SÉTIMO MECANISMO EXISTE, e é do MOTOR: a fileira transborda o canto (item 011)
+
+**LAB-78, 10/10/2026.** A pergunta do item era binária — *sétimo mecanismo do motor, ou a largura
+e a divisa da faixa do Generate?* **Medido: é o motor**, e as duas hipóteses da faixa caem com
+número.
+
+> **A fileira externa TRANSBORDA O CANTO da face declarada e continua alguns metros na face
+> vizinha, onde não há rua declarada — então não pode haver frente.**
+
+| candidata | lote | **além da ponta** | face declarada | via interna | testada fina |
+|---|---|---|---|---|---|
+| `cluster` | `v16-e15` | **0,19 a 13,18 m** | 0,19 m | 5,54 m | 0 m |
+| `pente` | `v3-e19` | **0,29 a 10,43 m** | 0,29 m | 0,04 m | 1,5 m |
+
+**A largura cai como CONTROLE:** o Lab construiu 8 m, o Generate constrói **10 m**
+(`Math.max(8, larguraEntrada / 2)`, padrão 20) — e o lote fica a **0,19 m das duas**. *Alargar uma
+faixa que cresce para fora não fecha uma folga que está do lado de dentro.*
+
+**A divisa cai com a cobertura:** face declarada **180,22 m**, divisa escolhida **180,22 m** —
+**100 %**. E a ida entrega `facesLoteamento: [0]`, exatamente a face certa. **A ida está certa e a
+faixa está certa.**
+
+## E eu ia publicar um achado contra o GENERATE (D254)
+
+O veredicto já estava escrito, `dono: generate`, nos dois lotes. **O que me desmentiu foi um
+número da minha própria medição, na linha de cima da tela:** `A FAIXA COBRE 100 % DA FACE
+ENTREGUE`. Se cobre a face inteira, um lote a 0,19 m dela não pode estar fora do alcance.
+
+> **"ESTÁ FORA DA EXTENSÃO" NÃO DIZ DE QUEM É A CULPA.** A projeção responde **onde**; só o
+> **quanto** responde **de quem**.
+
+Medidos os **13,18 m** além da ponta, quem estava fora era o **lote**. É a **23ª** do §6, e a mais
+perto de sair desde o D119. Conserto de **condição**: `faixa-alcance` passa a exigir cobertura
+**< 100 %**, com trava nos dois lados.
+
+## Duas das quatro não foram medíveis, e isso sai declarado
+
+`espinha/v12-l1093` e `mioloVerde/v20-e18` não existem no plano desta rodada: o LAB-59 mediu com
+`motor-testfit` em `4181e95` e esta roda em `6cf6396` — **o motor andou**, e id de lote não
+sobrevive a mudança de plantio. `naoAchados` com o motivo, **nunca zero** (D23).
+
+## O conserto fica PROPOSTO, não executado
+
+*Mexer no plantio muda o desenho, e desenho espera o olho do Jonny* — a razão é do próprio item.
+Está na `FILA.md` com condição de abertura **`aguardando-o-jonny`**. **Encurtar a fileira perde
+lotes que hoje entram, e quantos é medição que este prompt não fez.**
+
+## E isto costura o LAB-78 ao LAB-77
+
+**Não há rua na frente desses lotes porque ninguém declarou rua ali.** O campo que diria quais
+faces dão para via pública — inexistente no contrato (D249) — é o mesmo que falta aqui. *Dois
+prompts seguidos, dois achados diferentes, o mesmo dado que falta.*
+
+Relatório: [`relatorios/LAB-78.md`](relatorios/LAB-78.md) · prova:
+[`provas/LAB-78/setimo-mecanismo.json`](provas/LAB-78/setimo-mecanismo.json) · `bun run lab78`
 
 # 🚪 O ACESSO SUGERIDO: a esquina é das RUAS, e a sugestão se RECUSA a sair (item 010 + adendo)
 
@@ -1554,7 +1611,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 412 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 427 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
