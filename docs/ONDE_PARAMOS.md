@@ -6,7 +6,7 @@
 
 **Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-80 (item 013 / D243) — **a
 varredura de custo escopada por DESTINO: a lista nominal de isenções foi de 11 a ZERO** (D258 a
-D267) ·
+D268) · **caixa VAZIA no disparo das 08:05Z, despertador não tocado** ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -70,10 +70,28 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 04:05 | observado | **nada na caixa** — os onze feitos | recado de uma linha, e dormir |
 | 10/10/2026 | 05:06 | observado | item 012 pronto (o chat o escreveu às 04h55) | item 012 (LAB-79) |
 | 10/10/2026 | 06:06 | observado | a caixa com os doze feitos (conferido na `origin/main`), e a **FILA** com a D243 eleita pelo item 012 — **o `013` entrou durante a rodada, pedindo a MESMA D243**, e foi pego na conferência de envio (D238) | item 013 (LAB-80) |
+| 10/10/2026 | 07:06 | observado | o item 013 em curso — a rodada do LAB-80 levou mais de uma hora | acumulou |
+| 10/10/2026 | 08:05 | observado | **nada na caixa** — os treze feitos, conferido na `origin/main` | recado de uma linha, e dormir |
 
 ```
-disparos observados: 16 · em vazio: 4
+disparos observados: 18 · em vazio: 5
 ```
+
+**O 07:06 é o terceiro "acumulou" da conta, e o primeiro desde que a caixa existe:** a rodada do
+item 013 passou de uma hora, então o disparo caiu em cima dela. *Isto é o que a conta foi feita
+para medir no outro sentido* — a frase do que o número decide, lá em cima, diz que disparos
+acumulando significam **rodada mais longa que o intervalo**, e não falta de abastecimento. Aqui as
+duas coisas apareceram na mesma hora: **uma rodada longa (07:06) e, logo depois, a caixa em dia
+(08:05)**.
+
+**E o 08:05 NÃO virou um prompt da `FILA.md`, ao contrário do 06:06.** A diferença está escrita e é
+a razão de esta linha existir: o item 012 elegeu a D243 com as palavras *"a D243 É O PRÓXIMO
+ITEM"*, e o item 013 **não elegeu nada** — ele diz que a D226 *"é o seguinte"* num parêntese que
+explica por que ela não foi escolhida. E o chat mostrou a própria convenção nesta rodada: ele
+elegeu a D243 no item 012 **e ainda assim escreveu o item 013** para encomendá-la.
+
+> **Eleição é plano; item é encomenda.** O que a etiqueta `prompt-novo` já dizia em vocabulário
+> fechado — *"só o chat o transforma em item de fila"* — o chat acabou de demonstrar em ato.
 
 **O disparo das 06:06 NÃO entrou na conta dos vazios, e o motivo fica escrito porque é a primeira
 vez que isto acontece:** a caixa não tinha item novo, mas **havia trabalho eleito por escrito** —
