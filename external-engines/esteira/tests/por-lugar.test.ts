@@ -37,14 +37,14 @@ describe("item 007 · a varredura por LUGAR, e a lista está escrita", () => {
 
   /**
    * **A conta que corrige o item 006.** Lá eu publiquei *"zero de quinze"* — as quinze eram as
-   * etiquetas de **um** lugar. Por lugar são **vinte e uma** condições em **sete** lugares, e o
+   * etiquetas de **um** lugar. Por lugar são **vinte e três** condições em **sete** lugares, e o
    * veredicto (nenhuma é CONTA) sobreviveu; a cobertura não. *O meu "zero" estava certo por não
    * haver nenhuma, não por a varredura alcançar.*
    */
-  test("são VINTE E DUAS condições em sete lugares, e a varredura de frase alcançava QUINZE", () => {
-    expect(QUANTAS_CONDICOES.naFila).toBe(16);
+  test("são VINTE E TRÊS condições em sete lugares, e a varredura de frase alcançava QUINZE", () => {
+    expect(QUANTAS_CONDICOES.naFila).toBe(17);
     expect(QUANTAS_CONDICOES.foraDaFila).toBe(6);
-    expect(QUANTAS_CONDICOES.total).toBe(22);
+    expect(QUANTAS_CONDICOES.total).toBe(23);
     // O número da varredura de FRASE é HISTÓRICO — o que ela alcançou no item 006 — e por isso
     // NÃO anda quando a `FILA.md` cresce.
     expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBe(15);
@@ -56,7 +56,15 @@ describe("item 007 · a varredura por LUGAR, e a lista está escrita", () => {
     expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBeLessThanOrEqual(
       QUANTAS_CONDICOES.naFila,
     );
-    expect(QUANTAS_CONDICOES.naFila - QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBe(1);
+    // E A LINHA DE BAIXO ERA A MESMA DOENÇA, escrita um prompt depois do conserto dela: aqui
+    // estava `naFila - queAVarreduraDeFraseAlcancou === 1`, que valia porque `naFila` era 16
+    // NAQUELE DIA. No LAB-80 a FILA foi a 17 e a diferença virou 2, sem nada ter piorado — é a
+    // segunda coincidência casada como invariante nesta mesma função, duas linhas abaixo do
+    // comentário que proíbe isso (D264). O que é invariante é o SENTIDO: o número da varredura de
+    // frase é histórico, então ele não anda, e a FILA só cresce.
+    expect(QUANTAS_CONDICOES.naFila).toBeGreaterThan(
+      QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou,
+    );
   });
 
   test("NENHUMA das condições é uma CONTA, e nenhuma contradiz a regra de família", () => {

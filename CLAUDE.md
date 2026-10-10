@@ -398,7 +398,7 @@ arquivo que o git carrega. **Contratar de verdade acontece fora da árvore**, nu
 um cartão, e nenhuma régua daqui alcança. *Guarda que não declara o próprio buraco mente pelo
 silêncio* — a consequência nº 8 existe exatamente porque este buraco não fecha com código.
 
-**E as CONDIÇÕES DE VOLTA foram varridas:** são **dezesseis** condições de abertura declaradas na
+**E as CONDIÇÕES DE VOLTA foram varridas:** são **dezessete** condições de abertura declaradas na
 `FILA.md`, e **nenhuma é uma conta** — todas esperam pessoa, repositório, prompt novo ou medição
 (`prompt-novo`, `nao-medido`, `aguardando-outro-repositorio`, `escopo-novo`, `depois-do-mvp`,
 `aguardando-o-jonny`). **Zero** falam de volume, de ponto de equilíbrio ou de *"quando
@@ -434,7 +434,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu VINTE E QUATRO vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu VINTE E SETE vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -463,6 +463,9 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D250 (item 010) | "cinco das sete glebas não declaram acesso, e nenhuma diz o segmento" | são **três** sem acesso e **uma DIZ** o segmento: eu li duas das quatro fixtures e completei de cabeça |
 | D254 (item 011) | "a faixa do Generate não está na frente deste lote — é alcance" | a faixa cobre **100 %** da face declarada; quem estava **13,18 m fora** era o LOTE, e o booleano da projeção não diz de quem é a culpa |
 | D257 (item 012) | "esta trava escreve em `docs/provas/` — tem `writeFileSync` no fonte" | tem a PALAVRA porque é ela que a **proíbe**: o literal está no `expect`. Terceira vez da família do D142 — a régua tem de ler o **`import`**, não o arquivo |
+| D263 (LAB-80) | "há valor de custo em três linhas de relatório — tem `fator` com número" | é a razão entre **pico e média de uma rampa**: *"fator de 6,7×"*. A régua NOVA nasceu com a doença que o `margem` já tinha curado no LAB-67, um campo ao lado |
+| D262 (LAB-80) | "a prova do LAB-80 vaza custo em 7 linhas" | são as **fixtures da sabotagem** que ela publica: a prova da régua repetindo o que a régua proíbe. Sexta vez da família do D155 |
+| D266 (LAB-80) | "a lista de isenções da régua irmã vai de TRÊS a UMA" | vai a **duas**: o meu script de medição parava no PRIMEIRO padrão que casava a linha, e a régua medida testa TODOS — `ponto de equilíbrio` está nu numa célula de tabela |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -474,25 +477,34 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**As vinte e quatro, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
+**As vinte e sete, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
 classe, com a decisão nomeada para qualquer um refazer a conta:
 
 | quantas | a classe | quais |
 |---|---|---|
-| **QUATORZE** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155, D217, D231, D240, D245, D248, D254, D257 |
+| **DEZESSEIS** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155, D217, D231, D240, D245, D248, D254, D257, D262, D263 |
 | **QUATRO** | a ponte ou a ida do Lab corrompendo a medição | D18, D98, D119, D166 |
 | **DUAS** | caminho errado de leitura | D135, D190 |
 | **TRÊS** | a minha cabeça, contando de memória o que estava impresso ao lado | D161, D185, D250 |
 | **UMA** | dado que faltava, e não número que mudou | D133 |
+| **UMA** | instrumento de MEDIÇÃO discordando do instrumento medido | D266 |
 
-14 + 4 + 2 + 3 + 1 = **24**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
+16 + 4 + 2 + 3 + 1 + 1 = **27**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
 três foram caminho errado" até 08/10/2026, e 9 + 2 + 3 = 14:** duas das dezesseis não tinham
 classe, e a frase se lia como partição. Medido e refeito no LAB-63, com guarda que soma
 (D212). Ela também citava **D104** e **D175** como membros, e nenhuma das duas é linha da
 tabela — elas são decisões *irmãs*, citadas no texto abaixo, e não ocorrências do ponto cego.
 
-**DEZOITO** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137,
-D142, D148, D155, D166, D185, D190, D217, D231, D240, D245, D248, D250, D254, D257).
+**VINTE E UMA** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137,
+D142, D148, D155, D166, D185, D190, D217, D231, D240, D245, D248, D250, D254, D257, D262, D263,
+D266).
+
+**As duas últimas são do LAB-80 e são da MESMA rodada**, as duas contra réguas que eu acabara de
+escrever. A primeira tem lição nova e é a mais útil desta página: **régua nova nasceu com a doença
+que a régua velha já tinha curado, um campo ao lado.** O `margem` desta casa exige dinheiro na
+linha desde o LAB-67, senão é folga da caixa envolvente, em metros; eu escrevi o `fator` sem essa
+cura e ele acusou três razões de rampa. *Ao escrever uma régua para um nome, pergunte se o nome
+IRMÃO dele já foi curado nesta casa — e de quê.*
 
 **A décima oitava é a nona da sub-família da régua que varre texto, e ela tem lição nova: o
 conserto entrou em UM instrumento só.** A Central mandou o `<app>` do cabeçalho virar o nome do
@@ -543,7 +555,7 @@ consertar**, porque o comentário do conserto **citava** o defeito: varredura es
 texto de código mede **o que o código faz** e **o que ele diz sobre si**, e só uma delas é
 o objeto.
 
-**A regra que as vinte e quatro ensinam, e ela é curta:**
+**A regra que as vinte e sete ensinam, e ela é curta:**
 
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
 > você está lendo**; antes de dizer que um número mudou, confira se ele
@@ -558,7 +570,7 @@ o objeto.
 > e não de quem declarou a regra (D98, D104, D166); e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
 > onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
-> rótulo, e três das vinte e quatro vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> rótulo, e três das vinte e sete vezes eu classifiquei pelo nome em vez de medir (D148, D155,
 > D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
 > e quando a régua procura um **valor** (um commit, um id, um código), olhe o **valor inteiro**
 > do campo e não o texto em volta — **fronteira de palavra num nome composto não é fronteira de
@@ -573,9 +585,17 @@ o objeto.
 > ponta, quem estava fora era o lote (D254).
 > e a régua que proíbe uma CAPACIDADE olha o `import`, não o texto: *régua que lê o arquivo
 > inteiro mede o que o código DIZ; régua que lê o `import` mede o que ele PODE FAZER* (D257).
-> **Vinte e quatro de vinte e quatro vezes o defeito estava do MEU lado — na régua, na ponte, no
-> caminho ou na minha cabeça — antes de estar no medido**, e em DEZ delas a régua era o teste
-> que eu acabara de escrever.
+> e quando a régua acusa um NOME, confira se o nome IRMÃO dele já foi curado aqui: `margem` só
+> conta perto de dinheiro desde o LAB-67, e eu escrevi `fator` sem essa cura no LAB-80 — *régua
+> nova nasce com a doença que a régua velha já curou, um campo ao lado* (D263).
+> e a PROVA de uma régua não repete o que a régua proíbe — *prova que publica a fixture é a régua
+> se acusando com a autoridade da prova* (D262).
+> e quando você MEDIR uma régua, meça com a régua dela: *instrumento de medição mais estreito que
+> o instrumento medido dá o número para o lado otimista* — e o lado otimista é o que ninguém
+> confere, porque ele confirma o conserto (D266).
+> **Vinte e sete de vinte e sete vezes o defeito estava do MEU lado — na régua, na ponte, no
+> caminho, na minha cabeça ou no instrumento com que eu media — antes de estar no medido**, e em
+> DOZE delas a régua era o teste que eu acabara de escrever.
 
 **E há um irmão do ponto cego que não é defeito meu nem do medido, e custa igual** (D184):
 **régua que erra o RÓTULO e acerta o VEREDICTO não é régua errada.** Eu estava a um passo de
@@ -642,7 +662,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 452 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 486 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

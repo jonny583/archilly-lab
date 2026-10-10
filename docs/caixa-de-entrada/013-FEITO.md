@@ -1,3 +1,36 @@
+> ✅ **FEITO no LAB-80**, em 10/10/2026, no despertador das 06:05 — **sozinha na rodada**, como o
+> item pede. Relatório em [`../relatorios/LAB-80.md`](../relatorios/LAB-80.md), prova em
+> `docs/provas/LAB-80/destino-do-que-sai.json`, decisões **D258 a D267**.
+>
+> **E este item chegou DEPOIS de a rodada começar.** Ao acordar, a caixa estava com os doze feitos
+> — conferido na `origin/main` —, e eu abri a rodada executando a **D243 pela `FILA.md`**, porque o
+> item 012 a elegeu por escrito como *"o próximo item"* e a §1-A manda executar a fila em laço. Você
+> escreveu o 013 enquanto eu trabalhava, **elegendo a mesma D243**, e eu o encontrei na conferência
+> da caixa **na hora de enviar**, que é o que o D238 existe para obrigar. *A escolha da casa e a sua
+> coincidiram — e é bom que o mecanismo que as reconcilia seja uma conferência, não a sorte.*
+>
+> **Onde cada coisa pedida ficou:**
+> - o modelo novo, declarado: `external-engines/esteira/src/destino-do-que-sai.ts` — cinco destinos
+>   pela ESTRUTURA do caminho, o rigor de cada um escrito em `RIGOR`;
+> - **a lista nominal foi de 11 a ZERO**, e a varredura passa a varrer a si mesma;
+> - **as duas réguas lado a lado, arquivo por arquivo:** `asDuasReguas()`, publicado na prova e no
+>   §3-A do relatório — e ali está a prova mais forte da premissa: **o desenho velho teria precisado
+>   de três isenções novas só para esta entrega sair verde, de 11 para 14**;
+> - **as três perdas declaradas:** `PERDAS_DECLARADAS`, cada uma com a frase concreta que escaparia,
+>   e a trava roda **as duas réguas** sobre ela — a velha tem de pegar, a nova tem de deixar passar.
+>   *Perda declarada que ninguém demonstra é perda suposta*;
+> - **o universo publicado nos dois conjuntos, e reprova se ler menos do que afirma:**
+>   `leuMenosDoQueAfirma()`, com as linhas lidas por destino na prova;
+> - **sabotagem nos dois sentidos**, por destino, reprovando pelo NOME do destino — e a que o item
+>   pede com todas as letras: o **mesmo** valor é acusado na tela e passa calado dentro de citação
+>   num relatório.
+>
+> **O que não era previsto e a medição achou:** duas isenções **mortas** (uma que nunca tropeçou em
+> toda a sua história, D260); o `soOCodigo()` de que o modelo precisava **já existia**, com o buraco
+> dele declarado em comentário (D258); a leitura *"afirma ou mostra?"* tinha **cinco** respostas
+> nesta casa (D259); e a `soOCodigo()` **colapsava 422 linhas em 164**, cegando a varredura de
+> chamadas em silêncio (D267).
+
 # 013 · A D243 — escopar a varredura de custo por DESTINO, não por nome de arquivo
 
 **Este item é a sua escolha, não a minha.** Você fechou o LAB-79 escrevendo:

@@ -153,6 +153,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
+    "LAB-80/destino-do-que-sai.json":
+      "mede o DESTINO de cada arquivo que o git carrega neste repositório — a partição nos cinco destinos, as linhas que cada um ofereceu à régua, o veredicto da sabotagem por destino e o que sobrou das onze isenções do desenho velho —, não terreno: o objeto é o conjunto de ARQUIVOS, e ela não roda motor, não lê gleba e não tem semente",
     "LAB-79/alcance-das-provas.json":
       "mede o ALCANCE das travas sobre as provas deste repositório — quantas são remedidas contra a fonte, quantas só têm a §7 conferindo as chaves e quantas não são lidas por trava nenhuma —, não terreno: o objeto é o conjunto de provas e os arquivos de teste que as citam, e ela não roda motor nem lê gleba",
     "LAB-77/acesso-sugerido.json":

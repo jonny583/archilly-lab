@@ -70,10 +70,14 @@ const lista1 = abertos.map((p, i) => ({
  * proposta com condição `aguardando-o-jonny` (D253). *Mexer no plantio muda o desenho, e desenho
  * espera o olho do Jonny* — então a proposta nasce aberta, de propósito.
  *
+ * **16 → 17 no LAB-80:** a unificação das **cinco** leituras de *"esta linha afirma ou só
+ * mostra?"* entrou com `prompt-novo` (D259). O LAB-80 fez a parte que cabia numa rodada e parou —
+ * as outras três leituras tocam cinco arquivos e as travas de três deles.
+ *
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */
-const ABERTOS_ESPERADOS = 16;
+const ABERTOS_ESPERADOS = 17;
 
 cobrar(
   lista1.length === ABERTOS_ESPERADOS,

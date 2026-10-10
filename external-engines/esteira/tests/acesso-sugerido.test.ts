@@ -12,7 +12,7 @@
  */
 
 import { describe, expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import type { P } from "../src/motores/comum.ts";
@@ -53,6 +53,41 @@ const QUADRADO: P[] = [
   { x: 100, y: 100 },
   { x: 0, y: 100 },
 ];
+
+
+/**
+ * ── O ESTADO DE UM ITEM É O NOME DO ARQUIVO, e dois nomes são ambiguidade (LAB-80) ──
+ *
+ * Medido no próprio prompt: renomeei `013.md` para `013-FEITO.md` no ramo, e o `git merge` da
+ * `origin/main` — que ainda tinha o original — **ressuscitou o `013.md`**. Os dois no disco, e a
+ * busca por número devolvia o primeiro: **o item concluído voltaria a ser lido como pendente**, em
+ * silêncio. A função passou a RECUSAR, e estas travas cobram as duas pontas.
+ */
+describe("o item da caixa achado pelo NÚMERO — e o nome ambíguo recusado", () => {
+  const caixa = join(RAIZ, "docs", "caixa-de-entrada");
+
+  test("acha o item concluído pelo número, com o sufixo -FEITO", () => {
+    expect(caminhoDoItemDaCaixa(RAIZ, "013")).toContain("013-FEITO.md");
+    expect(caminhoDoItemDaCaixa(RAIZ, "012")).toContain("012-FEITO.md");
+  });
+
+  test("número que não existe estoura dizendo onde procurou", () => {
+    expect(() => caminhoDoItemDaCaixa(RAIZ, "999")).toThrow(/999/);
+  });
+
+  test("os DOIS nomes ao mesmo tempo é ERRO, não preferência pelo primeiro", () => {
+    const intruso = join(caixa, "013.md");
+    expect(existsSync(intruso), "o `013.md` voltou ao disco — veja a mensagem desta trava").toBe(false);
+    writeFileSync(intruso, "# sósia do 013, criado por esta trava\n");
+    try {
+      expect(() => caminhoDoItemDaCaixa(RAIZ, "013")).toThrow(/DUAS vezes/);
+    } finally {
+      rmSync(intruso);
+    }
+    // E depois de tirar o sósia, volta a achar o certo: a recusa não deixa resíduo.
+    expect(caminhoDoItemDaCaixa(RAIZ, "013")).toContain("013-FEITO.md");
+  });
+});
 
 describe("as cinco regras estão no adendo, e a trava confere contra o TEXTO dele", () => {
   test("são cinco, numeradas de 1 a 5", () => {

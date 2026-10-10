@@ -7522,3 +7522,340 @@ Escrever em disco exige **importar** o escritor. Então a régua passou a casar 
 `import` de `node:fs`** e a exigir que ela traga exatamente `readFileSync`, `readdirSync` e
 `statSync` — nada mais. *Régua que lê o arquivo inteiro mede o que o código DIZ; régua que lê o
 `import` mede o que ele PODE FAZER.*
+
+---
+
+## D258 · `soOCodigo()` JÁ EXISTIA, e o buraco dela estava declarado — a terceira limpeza · 10/10/2026
+
+A régua do destino `codigo` precisa ler **posição de identificador**: um padrão que *procura* o
+nome do nosso custo não o *usa*. Eu ia escrever o varredor — e a casa **já tinha** `soOCodigo()`,
+em `src/varredura-de-chamadas.ts`, **com o nome idêntico** e a lição do D179 escrita ao lado.
+
+> *Item 009:* **nome novo para coisa que já tem nome na casa é custo sem benefício. Antes de
+> criar estrutura nova, procure a que já responde a pergunta.**
+
+O que faltava nela estava **declarado como buraco** no próprio comentário: *"literal de expressão
+regular… aqui não vale o preço — os padrões deste repositório moram em `String.raw`"*.
+
+**Para a configuração aquilo era verdade. Para a varredura de custo não é:** os nomes do nosso
+custo moram em literais de regex **nus**, e é por isso que a trava do vazamento **acusava a si
+mesma em 13 linhas** e comprava a isenção escrevendo o próprio nome numa lista.
+
+Então entrou a **terceira** limpeza da mesma família, e não uma função paralela:
+
+> **`semComentarios()` responde *"o texto DECLARA isto?"*. `soOCodigo()`, *"o código FAZ isto?"*.
+> `semLiteraisDeRegex()`, *"o código USA este nome?"*.**
+
+**A lição é sobre buracos declarados, e vale além deste caso:**
+
+> **Buraco declarado não é buraco fechado — e o preço de fechá-lo não é fixo: ele depende da
+> PERGUNTA.** A mesma limpeza que não valia o preço para a configuração era a condição de
+> existência da varredura de custo. Ao ler *"aqui não vale o preço"* num comentário antigo,
+> pergunte **para qual pergunta** aquilo foi medido.
+
+**O que ela não alcança, e vai dito:** a decisão entre literal de regex e divisão é feita pelo
+caractere anterior mais uma lista de palavras-chave, não pela gramática. O erro possível é apagar
+uma divisão, e apagar só produz falso **negativo**. É por isso que a sabotagem do destino `codigo`
+planta o vazamento em **posição de identificador** — a única que limpeza nenhuma alcança.
+
+Medido: **zero** nome ou valor de custo em posição de identificador nos 197 arquivos de código, e
+a varredura de **chamada paga de IA** passou a dar zero **sem isenção nenhuma**, onde antes lia o
+texto cru e comprava a sua na mesma lista.
+
+---
+
+## D259 · "ESTA LINHA AFIRMA OU SÓ MOSTRA?" tinha CINCO respostas nesta casa · 10/10/2026
+
+Antes de escrever a sexta, contei as que existiam:
+
+| onde | o que lê | para quem |
+|---|---|---|
+| `src/limites-com-sujeito.ts` | `semCitacoes()` — tira a **linha** de citação | a aritmética da regra |
+| `tests/moldura.test.ts` | `semRiscadoNemCitado()` — riscado, crase e citação curta | a moldura |
+| `tests/verde.test.ts` | um `semCitacoes` local, só citação curta | o aviso do CI |
+| `src/trava-de-estrutura.ts` | `/^\s*>/` inline | as condições de conta |
+| `src/texto-das-regras.ts` | `comoARegraSeLe()` — tira o `>` do **meio** da frase | toda trava que cita regra |
+
+**Três das cinco moram dentro de travas**, e **nenhuma das cinco conhecia o BLOCO DE CÓDIGO** — e
+é ele que guarda os recados, o que fez a varredura de custo acusar o `RECADOS.md` por duas linhas
+que são **recado gravado**.
+
+> **Cinco respostas para a mesma pergunta não são cinco réguas: são uma régua que ninguém
+> terminou.** O D116 proíbe a segunda montagem da mesma pergunta; aqui havia a quinta.
+
+**O que foi feito:** a leitura que esta varredura precisa mora em `src/texto-das-regras.ts`
+(`lugaresDaPagina`, `afirmadoNaLinha`), com as que já moravam lá — e o `semRiscadoNemCitado()`
+**saiu de dentro de `moldura.test.ts`** para o mesmo lugar, com a trava daquele arquivo passando a
+importá-lo. É a regra daquele módulo: *conserto que mora dentro de um teste conserta um teste*
+(D248).
+
+**O que NÃO foi feito, e por quê:** unificar as cinco. São 5 arquivos e as travas de três deles, e
+o item 012 disse em que condição isso não se faz — *"não na mesma rodada de outra coisa"*. Está na
+`FILA.md` como proposta ao chat, **com esta contagem**, que é o insumo que faltava.
+
+---
+
+## D260 · DUAS das 11 isenções estavam MORTAS, e uma delas NUNCA tropeçou · 10/10/2026
+
+Medido antes de desenhar o modelo novo: das **11** entradas da lista nominal da
+`vazamento-de-custo.test.ts`, só **9** arquivos eram de fato acusados.
+
+| entrada | acusa hoje? | já acusou alguma vez? |
+|---|---|---|
+| `docs/DECISOES.md` | **não** | nenhuma das 5 regras de nome, em commit nenhum |
+| `docs/relatorios/LAB-74.md` | **não** | **nunca**, nas 7 regras, em toda a sua história |
+
+E `LAB-74.md` é **uma das duas entradas que dispararam o critério do teto** (D243). A lista jurava
+no próprio comentário:
+
+> *"cada entrada é um arquivo que tropeçou de verdade, não um padrão que adivinha quais
+> tropeçariam."*
+
+**Essa entrada foi adivinhada.** O critério disparou por uma entrada que nunca precisou existir —
+o que não desmente o critério: ele apontou para o desenho, e o desenho estava errado por dois
+motivos ao mesmo tempo.
+
+> **Lista de isenções sem revalidação envelhece igual a comentário** (D104). A §7 já cobra isso
+> das provas — *"exceção na lista que deixou de precisar ser exceção"* —, e a lista do custo não
+> tinha a mesma guarda. **Agora não tem lista**, e a trava que substitui a guarda é mais forte:
+> ela exige que a varredura **se varra a si mesma** sem ser acusada.
+
+---
+
+## D261 · A LIMPEZA CERTA PARA MARKDOWN É A CEGUEIRA CERTA PARA JSON · 10/10/2026
+
+Ao trazer `docs/` inteiro para o destino `registro`, a prova em JSON passou a ser lida pela
+limpeza de Markdown — que tira o que está **entre aspas**, porque ali aspas são citação.
+
+**Em JSON toda chave está entre aspas.** `"custoMedido": 0.012` seria apagado junto com o resto, e
+um vazamento de verdade passaria **em silêncio**. Peguei antes de entregar, e é falso **negativo**:
+não acusa ninguém, e por isso não entra na tabela do §6 — mas custa igual.
+
+> **O D179 ensinou que a PERGUNTA decide a limpeza. Aqui é o FORMATO.** E a espécie é a do D164:
+> *zero de régua cega é indistinguível de zero de árvore limpa.*
+
+O registro passou a ter **duas leituras declaradas por formato** (`formaDoRegistro`), e a trava
+prova a cegueira em vez de só afirmar que ela existe: **a mesma linha é pega como `dados` e escapa
+como `markdown`**.
+
+---
+
+## D262 · A PROVA PUBLICOU AS FIXTURES, e a varredura acusou a prova — sexta vez da família · 10/10/2026
+
+A primeira versão da prova do LAB-80 publicava o **texto plantado** da sabotagem, destino por
+destino. A varredura leu a prova e **acusou-a em 7 linhas**.
+
+É a **sexta** vez desta família (D137, D142, D155, D217, D257 e esta), e a primeira em que o
+acusado não é um fonte nem um relatório: é **a prova da própria régua**.
+
+O conserto é a disciplina que o §4 já impõe ao segredo — *"registro nenhum repete mais de doze
+caracteres"* —, aplicada a um objeto novo:
+
+> **A prova publica o VEREDICTO, não a fixture.** O texto plantado mora no código, que é lido em
+> posição de identificador; a prova diz se a régua pegou e se ela poupou, e quem quiser o texto
+> abre `SABOTAGEM` em `src/destino-do-que-sai.ts`.
+
+*Prova de régua que repete o que a régua proíbe é a régua se acusando com a autoridade da prova.*
+
+---
+
+## D263 · A RÉGUA NOVA NASCEU COM A DOENÇA QUE A RÉGUA VELHA JÁ TINHA CURADO · 10/10/2026
+
+A régua do **valor** do nosso custo, escrita neste prompt, pedia só `fator` perto de um número.
+Ela acusou **três** linhas de relatório — e as três eram a razão entre **pico e média de uma
+rampa**:
+
+| onde | a linha |
+|---|---|
+| `FILA.md:2090` | *"**24,23 %** e pior **161,38 %**, fator de **6,7×**"* |
+| `FILA.md:2091` | *"15,44 %, fator de **13,2×**"* |
+| `LAB-18.md:81` | *"A rampa: a média diluía o pico por um fator de 6 a 13"* |
+
+**O `margem` desta casa já tinha sido curado exatamente desse jeito**, no LAB-67: ele só conta
+quando a mesma linha traz lucro, preço, custo, `R$` ou `US$` — senão é a folga da caixa
+envolvente, **em metros**, e acusá-la é medir ortografia (D137). Eu escrevi o irmão dele **sem a
+cura**, no mesmo arquivo, a vinte linhas de distância.
+
+> **Régua nova nasce com a doença que a régua velha já curou, um campo ao lado.** Ao escrever uma
+> régua para um nome, pergunte se o nome **irmão** dele já foi curado nesta casa — e **de quê**.
+> A cura mora na régua velha, não na minha memória.
+
+`fator` e `margem` passam a exigir **número E palavra de dinheiro** na mesma linha, e há trava nos
+dois sentidos com as três linhas de verdade como fixture.
+
+**O buraco fica declarado:** *"o fator é 3"*, escrito sem palavra de dinheiro na linha, **escapa**
+da régua do registro. Fecha-se com proximidade de dinheiro ou não se fecha — **afrouxar para
+pegá-lo devolve as três acusações geométricas**, e a trava que as proíbe é a que mede esse preço.
+*Guarda que não declara o próprio buraco mente pelo silêncio.*
+
+---
+
+## D264 · A SEGUNDA COINCIDÊNCIA CASADA COMO INVARIANTE, duas linhas abaixo do comentário que a proíbe · 10/10/2026
+
+A trava `por-lugar.test.ts` conferia a conta das condições de abertura, e o LAB-78 já tinha
+consertado uma coincidência ali: a identidade `frase + foraDaFila === total` valia **só porque
+`naFila` era 15 naquele dia**, e o comentário do conserto diz isso com todas as letras —
+*"era COINCIDÊNCIA, não invariante, e uma trava que casa coincidência reprova no dia em que o
+mundo anda sem nada ter piorado."*
+
+**Duas linhas abaixo desse comentário estava escrito:**
+
+```ts
+expect(QUANTAS_CONDICOES.naFila - QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBe(1);
+```
+
+`16 - 15 = 1` — a **mesma** doença, no mesmo teste, escrita pela mesma mão no mesmo prompt. No
+LAB-80 a `FILA.md` foi a 17, a diferença virou 2, e a trava reprovou **sem nada ter piorado**.
+
+> **Consertar uma coincidência não imuniza a função onde ela estava.** A pergunta não é *"esta
+> igualdade é verdadeira hoje?"* — é *"o que teria de acontecer no mundo para ela deixar de ser,
+> e isso é uma PIORA?"* Se a resposta é "a lista crescer", não é invariante: é a foto de um dia.
+
+No lugar dela ficou o que é de fato invariante: o número da varredura de frase é **histórico**,
+então ele não anda, e a `FILA.md` só cresce — `naFila > queAVarreduraDeFraseAlcancou`.
+
+---
+
+## D265 · A CONVENÇÃO QUE UMA RÉGUA LÊ E NINGUÉM ESCREVEU · 10/10/2026
+
+A conta dos disparos do despertador classifica uma rodada como **em vazio** lendo a coluna *"o que
+achou"* e procurando as palavras `nada`, `vazio` ou `sem item`:
+
+```ts
+emVazio: /vazio|nada|sem item/i.test(achou)
+```
+
+Funcionou em 15 linhas porque **todas as linhas em vazio foram escritas com a palavra "nada"** —
+convenção real, nunca escrita.
+
+**No LAB-80 a convenção quebrou, e por uma linha minha.** A rodada das 06:06 tinha a caixa sem
+item novo **e trabalho eleito por escrito** (a D243, eleita pelo item 012), então não era um
+disparo em vazio. Eu escrevi *"nada NOVO na caixa"* — verdade sobre a caixa —, a régua leu o
+`nada`, classificou a rodada como vazia, e a conta passou a **declarar 4 contra 5 medidos**.
+
+> **Convenção que uma régua lê e ninguém escreveu é uma régua adivinhando.** Ou a coluna é prosa
+> livre e a classe vira **campo próprio**, ou a convenção está **escrita** — e não há terceira
+> opção que sobreviva à primeira exceção.
+
+**O que foi feito:** a linha foi reescrita sem as três palavras (*"a caixa com os doze feitos, e a
+FILA com a D243 eleita pelo item 012"*), e **a convenção foi escrita** na própria seção do
+`ONDE_PARAMOS.md`, ao lado da régua que a lê. Escolhi escrever a convenção em vez de criar o campo
+porque a coluna serve à **leitura humana** primeiro, e um campo a mais numa tabela de 16 linhas
+custa mais do que a frase que acabei de escrever.
+
+**E fica dita a distinção que a conta mede:**
+
+> **Disparo em vazio é disparo que não tinha O QUE FAZER, não disparo em que a CAIXA estava
+> vazia.** A medida decide o intervalo de 60 minutos — ela existe para dizer se o chat abastece
+> mais devagar do que eu consumo, não para contar quantas vezes a caixa coincidiu de estar em dia.
+
+---
+
+## D266 · A MINHA RÉGUA DE MEDIÇÃO ERA MAIS ESTREITA QUE A RÉGUA MEDIDA — e o número saiu para o lado OTIMISTA · 10/10/2026
+
+Ao levar o conserto do D243 à régua irmã — a das **condições de conta**, que tinha a mesma lista
+nominal e o mesmo motivo —, medi quantas das três isenções a leitura nova dissolveria. O meu
+script percorria os padrões e **parava no primeiro que casava a linha**, testando só aquele:
+
+```ts
+for (const re of CONDICAO_DE_CONTA) { if (!re.test(linha)) continue; /* testa ESTE */ break; }
+```
+
+**A régua medida usa `.some(...)`: ela testa TODOS.** Na linha 88 do `LAB-73.md` o
+*"quando compensar"* está entre aspas e dissolve — mas **`ponto de equilíbrio` está nu**, numa
+célula de tabela, e sobrevive. Eu ia publicar *"três isenções a UMA"* e a verdade é **três a
+DUAS**.
+
+> **Régua de medição mais estreita que a régua medida dá o número para o lado OTIMISTA** — e o
+> lado otimista é o que ninguém confere, porque ele confirma o conserto.
+
+Quem pegou foi a trava, no mesmo minuto. **A vigésima sétima do §6**, e a primeira de uma classe
+nova: não foi régua acusando a si mesma, não foi ponte, não foi caminho, não foi memória — foi
+**instrumento de medição discordando do instrumento medido**.
+
+### E no mesmo conserto houve um segundo erro, este de METADE DA CURA
+
+Ao trocar o `/^\s*>/` pela `afirmadoNaLinha()`, eu **perdi a proteção da citação** — que era
+exatamente o conserto do item 007. As duas leituras respondem perguntas diferentes:
+
+> **`lugaresDaPagina()` responde ONDE a linha está. `afirmadoNaLinha()` responde o que ela afirma
+> DENTRO da linha.** A varredura de custo usa as duas; eu levei só uma para a régua irmã.
+
+A fixture que pegou foi uma que eu **acabara de escrever** para reforçar o outro sentido:
+`> volta no ponto de equilíbrio` voltou a ser acusado. *A disciplina de conferir a régua nos dois
+sentidos pagou dentro do mesmo prompt em que foi aplicada.*
+
+---
+
+## D267 · `soOCodigo()` COLAPSAVA 422 LINHAS EM 164, e a cegueira era silenciosa · 10/10/2026
+
+O esvaziador de strings da `soOCodigo()` casa de uma aspa à próxima **através de quebras de
+linha**, e **não sabe que uma aspa pode morar dentro de um literal de expressão regular**.
+
+Aplicado a `varredura-de-chamadas.ts` — o arquivo que declara a própria limpeza, e que escreve uma
+classe de caracteres com as três aspas —, ele casava daquela aspa **até muito depois**: medido,
+**422 linhas viravam 164**.
+
+**O efeito não era um erro. Era cegueira.** A varredura de chamadas deixou de achar o único achado
+benigno daquele arquivo — **de 1 para 0** — e um `?? 0` de verdade escrito ali passaria igual.
+
+> *Limpeza que não sabe onde a string começa não limpa: ela corta* — a frase já estava escrita no
+> comentário da função, sobre **globs em strings** (D179). O que faltava era notar que **literal
+> de regex é o mesmo caso**, e que o comentário logo abaixo **declarava esse buraco e declinava de
+> fechá-lo**: *"aqui não vale o preço"*.
+
+**Fechá-lo deixou de ser preço e passou a ser correção:** a `semLiteraisDeRegex()`, escrita neste
+mesmo prompt para outra finalidade (D258), entra **antes** do esvaziador e tira o literal inteiro
+com as aspas de dentro. Depois: **445 linhas viram 443**, e as duas que faltam são texto de
+comentário já apagado.
+
+### Quem pegou, e é a metade da trava que quase ninguém escreve
+
+A trava dos **FANTASMAS** da `chamadas.test.ts` — a que cobra que um benigno declarado **não
+desapareça**:
+
+```ts
+const fantasmas = Object.keys(BENIGNOS).filter((k) => !chaves.includes(k));
+```
+
+> **Lista de achados benignos sem a metade "nenhum deles sumiu" aprova o silêncio.** A metade que
+> cobra "nenhum achado NOVO" protege contra defeito que entra; a que cobra "nenhum sumiu" protege
+> contra a régua que para de medir — e é essa que ninguém se lembra de escrever.
+
+**Isto NÃO entra na tabela do §6**, pelo mesmo critério do D261: falso negativo não acusa ninguém.
+Custa igual, e por isso está aqui.
+
+---
+
+## D268 · RENOMEAR NUM RAMO E MESCLAR A ORIGEM RECRIA O NOME ANTIGO — e o item voltaria a ser PENDENTE · 10/10/2026
+
+O item 013 chegou **durante** a rodada do LAB-80. Eu o trouxe para o clone, cumpri-o, e renomeei
+`013.md` → `013-FEITO.md`, que é o passo 4 da `COMO_FUNCIONA.md`. Depois, para enviar, mesclei a
+`origin/main` — **que ainda tinha o `013.md`**.
+
+**O merge ressuscitou o nome antigo.** Os dois arquivos no disco, e a
+`caminhoDoItemDaCaixa()` — escrita no LAB-77 justamente para achar o item **pelo número**, porque
+o nome muda (D252) — devolvia o **primeiro** da lista de candidatos:
+
+```ts
+const candidatos = [`${dir}/${numero}.md`, `${dir}/${numero}-FEITO.md`];
+for (const c of candidatos) if (existsSync(c)) return c;
+```
+
+**Ou seja: o item concluído voltaria a ser lido como PENDENTE, em silêncio.** A função que existia
+para atravessar a renomeação foi derrotada pela renomeação acontecendo **nos dois sentidos ao mesmo
+tempo**.
+
+> **O estado de um item é o NOME do arquivo — e dois nomes para o mesmo número não são um estado:
+> são uma ambiguidade.** Ambiguidade se **recusa**, nunca se resolve por ordem de lista. Ordem de
+> lista é uma preferência disfarçada de decisão, e a preferência aqui era pelo estado **errado**.
+
+**O que foi feito:** a função passa a **estourar** quando os dois existem, com a mensagem dizendo o
+que costuma ter acontecido (um `git merge` da origem depois de um renomear no ramo). Três travas
+novas: acha o concluído pelo número, estoura em número que não existe, e **planta o sósia** para
+provar que a recusa acontece — e o tira, provando que a recusa não deixa resíduo.
+
+*É a segunda vez que o nome de um item da caixa quebra uma trava desta casa. A primeira (D252)
+custou um verde com `765 pass · 1 fail` em que o "fail" não era um teste: era o arquivo não
+abrindo. Esta não custou nada porque a primeira já tinha ensinado a procurar pelo número — o que
+faltava era recusar o empate.*
