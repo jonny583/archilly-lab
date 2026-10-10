@@ -4,9 +4,9 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-81 (item 014) — **as cinco
-leituras de "esta linha afirma ou só mostra?" terminadas num lugar só, com UMA declarada como
-diferente e a medição que prova que ela precisa ser** (D269 a D271) ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-82 (item 015) — **a remedição
+antes do pedido: os 10 a 13 m do sétimo mecanismo CONTINUAM, e o dono é o `motor-testfit` e não o
+Generate** (D273 a D275) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -73,10 +73,17 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 07:06 | observado | o item 013 em curso — a rodada do LAB-80 levou mais de uma hora | acumulou |
 | 10/10/2026 | 08:05 | observado | **nada na caixa** — os treze feitos, conferido na `origin/main` | recado de uma linha, e dormir |
 | 10/10/2026 | 09:06 | observado | item 014 pronto (o chat o escreveu às 08h40, 35 min depois do disparo anterior) | item 014 (LAB-81) |
+| 10/10/2026 | 10:06 | observado | item pronto, escrito como `013` com o número **já usado** — renumerado para `015` (D273) | item 015 (LAB-82) |
 
 ```
-disparos observados: 19 · em vazio: 5
+disparos observados: 20 · em vazio: 5
 ```
+
+**E o disparo das 10:06 achou a `main` VERMELHA, pela primeira vez desde que esta conta existe** —
+não por código meu, mas pela **colisão de número**: o item novo chegou como `013.md` e o
+`013-FEITO.md` já existia, e a guarda do D268 **recusa** a ambiguidade em vez de escolher. *Guarda
+que reprova no primeiro caso de verdade, e por um motivo diferente do que a inspirou, é guarda que
+mede a coisa e não o exemplo.*
 
 **O 09:06 confirma o que o 19:05 de ontem já tinha mostrado:** o disparo sem item das 08:05 foi
 seguido de um item **35 minutos depois**. *A caixa não fica sem abastecimento: o intervalo cai no
@@ -207,7 +214,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 893 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 895 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -1179,7 +1186,7 @@ a lista com os números estava **impressa na linha de cima do próprio relatóri
 ## O que o LAB-53 fez — e o número é 128 → 92
 
 **A ponte escrevia o ALVO sorteado da variante no campo cujo nome é MÍNIMO.** A entrada declara
-`testadaMinLote_m = 10` m; o que chegava ao Validator do Generate era **11,70820393249937** m
+`testadaMinLote_m = 10` m; o que chegava ao Validator do Generate era **11,70820393250137** m
 — o meio da faixa que a minha ida monta —, e ele passava a medir o motor **contra o próprio
 alvo dele**, com 2 % de folga: 47 lotes de 316 m² reprovados por **1,94 cm** de déficit
 mediano.
@@ -1346,7 +1353,7 @@ ranking só deixa de nascer vazio com as 54 do motor e as 27 em aberto.
 
 A entrada declara testada mínima de **10 m**. A minha **ida** monta
 `padroes["testada"] = faixa(10 ; 13,4164)` e o motor sorteia o **alvo** da variante —
-**11,70820393249937 m**, o meio da faixa. A minha **volta** escreve esse alvo em
+**11,70820393250137 m**, o meio da faixa. A minha **volta** escreve esse alvo em
 `parametrosUsados.testadaMinLote_m`, **o campo cujo nome é MÍNIMO**.
 
 O Validator então mede o motor contra **o próprio alvo dele**, com 2 % de folga, e o acusa por
@@ -1736,7 +1743,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 499 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 501 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

@@ -7993,3 +7993,90 @@ eu acabei de fazer duas vezes.
 *Não virou campo nesta rodada de propósito: o item 014 é sobre as leituras de texto, e trocar o
 modelo da conta dos disparos no meio dele seria ampliar escopo (§1-A). A régua não erra em
 silêncio — a trava reprova sempre —, então o custo é um ciclo, não uma medição falsa.*
+
+---
+
+## D273 · NÚMERO REUSADO NÃO SÃO DOIS NOMES DE UM ITEM: SÃO DOIS ITENS COM UMA IDENTIDADE · 10/10/2026
+
+O chat escreveu um item novo como `013.md` — *"o conserto do LAB-78 virando PEDIDO completo"* —, e
+o `013` **já estava usado**: o `013-FEITO.md` é a D243, encomendada às 08h40 e entregue no LAB-80.
+A abertura do item novo diz *"os itens `001` a `012` estão todos ✅. Este é o `013`"*, e é aí que
+está o engano: **a conta parou no `012`**, enquanto o `013` e o `014` também estavam feitos.
+
+**E a colisão deixou a `main` VERMELHA.** A guarda que eu escrevi uma rodada antes (D268) **recusa**
+a ambiguidade em vez de escolher o primeiro da lista — e com `013.md` e `013-FEITO.md` no disco ela
+estourou, duas travas reprovadas. *Ela nasceu para o caso em que um `git merge` ressuscita o nome
+antigo; o primeiro caso de verdade foi outro — um número reusado. Acertou nos dois.*
+
+> **O número é a IDENTIDADE de um item nesta casa** — é por ele que as travas acham os itens,
+> justamente porque o NOME muda quando o item é concluído (D252). Então **dois arquivos com o mesmo
+> número não são um item com dois nomes: são dois itens com uma identidade**, e isso não se resolve
+> escolhendo: resolve-se **movendo**.
+
+**O que foi feito, e o que NÃO foi:** o item novo foi renomeado para o **próximo número livre**
+(`015`), com o conteúdo **intocado** e um cabeçalho dizendo o que aconteceu. **Nenhum dos dois foi
+apagado, e eu não decidi qual valia** — renomear o mais novo honra o que o chat quis dizer
+(*"este é o próximo"*) em vez da conta que escapou.
+
+*Apagar o item novo era o atalho, e seria o pior erro possível: eu quase o tratei como a
+ressurreição do D268 — mesmo nome, mesma vizinhança, mesma aparência. O que me parou foi medir:
+`git log --diff-filter=A` mostrou que o arquivo veio de um commit do chat com OUTRO assunto. **A
+aparência de um defeito conhecido é o disfarce mais eficiente de um fato novo.***
+
+---
+
+## D274 · O CARIMBO DO CLONE LÊ O `HEAD` DELE, NÃO O CÓDIGO QUE O `import` CARREGOU · 10/10/2026
+
+Para remedir o sétimo mecanismo contra o motor de **hoje**, repontei o `paths` do `tsconfig` para
+um **clone do clone** em `3680b9f` — 56 commits à frente da árvore do vizinho — e rodei a
+ferramenta. Ela mediu o motor novo: `import.meta.resolve("@testfit/api.ts")` apontava para o clone
+do rascunho, conferido.
+
+**E o relatório saiu dizendo `6cf6396`** — o `HEAD` da árvore do vizinho, que não foi tocada.
+
+O carimbo de versão vem do `commit-dos-vizinhos.ts`, que lê `git -C <caminho> rev-parse HEAD`. O
+código vem do **resolvedor de módulos**. São **duas fontes de verdade para a mesma pergunta** — *qual
+motor rodou?* — e só uma delas sabe a resposta.
+
+> **Carimbo de versão que lê o repositório, e não o módulo carregado, mede a INTENÇÃO de quem
+> configurou — não o que rodou.** Ele acerta sempre que ninguém reponta nada, e é exatamente por
+> isso que ninguém descobre que ele pode errar.
+
+**Não consertei nisto nesta rodada, e o motivo é de escopo:** o item 015 manda remedir e escrever o
+pedido, e trocar a fonte do carimbo é mudar a prova de toda rodada que usa clone (a proposta do
+D223 inteira). Fica **declarado na prova do LAB-82** e proposto na `FILA.md`. O conserto tem nome:
+o carimbo passa a sair do **módulo resolvido** (`import.meta.resolve` do ponto de entrada do
+vizinho), e o `HEAD` do clone vira só uma **segunda** linha — e quando as duas divergirem, a prova
+diz as duas.
+
+*A remedição desta rodada não foi afetada: as duas passagens deram o mesmo número, e a que
+importava — a do motor novo — está declarada com o método, não com o carimbo.*
+
+---
+
+## D275 · O ITEM APONTOU PARA O CLONE ERRADO, E O DONO DO DEFEITO É QUEM DECIDE QUAL CLONE IMPORTA · 10/10/2026
+
+O item 015 manda, com razão, remedir antes de pedir: *"pedido construído sobre medição de clone
+atrasado é a D241 virando trabalho alheio."* E diz **qual** clone: o do **Generate**, com o commit
+`12208da` em `motor-v2`.
+
+**Medido, três coisas:**
+
+| o que o item supõe | o que a medição diz |
+|---|---|
+| há um `origin/motor-v2` a buscar | o clone é de **um ramo só**; e no remoto `motor-v2` e `main` apontam para o **MESMO** commit (`565d00c`), com `12208da` ancestral dele |
+| o conserto é do motor, *"e o motor é do Generate"* | o veredito da medição é **`motor-testfit`** em 2 de 2 — outro repositório (§2) |
+| o clone a remedir é o do Generate | o do Generate está **47** commits atrás; o do **motor** está **56** — e é a árvore do motor que o plantio vem |
+
+> **Quem decide qual clone precisa estar atualizado é o DONO do defeito, não o dono da régua.** A
+> faixa e a divisa são do Generate, e foi por isso que o item olhou para lá; mas a medição do LAB-78
+> já tinha absolvido a faixa pelo número (cobertura 100 %, largura indiferente). O que sobrou é
+> plantio, e plantio é do motor.
+
+**A remedição foi feita contra o dono:** motor em `3680b9f`, num clone do clone, com o `paths`
+repontado e devolvido byte a byte. **Os 10 a 13 m continuam, e idênticos** — 13,18 m e 10,43 m, 2
+lotes, mesmo dono. Então o pedido vale, e sai com o número de hoje.
+
+*E o Generate também foi conferido, porque era o que o item pedia: `12208da` existe no clone e é
+ancestral do `origin/main` de agora. A informação do item estava certa; o endereço do defeito é que
+não.*

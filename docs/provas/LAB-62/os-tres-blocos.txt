@@ -1,20 +1,21 @@
-=== LISTA 1 de 3 — OS 16 ITENS ABERTOS, com o motivo declarado ===
+=== LISTA 1 de 3 — OS 17 ITENS ABERTOS, com o motivo declarado ===
  1. [aguardando-o-jonny] PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA
- 2. [prompt-novo] ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR
- 3. [aguardando-outro-repositorio] O PICO DE RAMPA QUE O PARCELAMENTO REPORTA, 109,51 % → 175,51 %
- 4. [prompt-novo] O COMMIT DO CLONE VIZINHO EM TODA PROVA QUE O USE
- 5. [prompt-novo] O TRABALHO DE CI QUE NÃO PODE PASSAR
- 6. [prompt-novo] A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO
- 7. [prompt-novo] O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER
- 8. [prompt-novo] A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO
- 9. [depois-do-mvp] Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes
-10. [aguardando-outro-repositorio] O delta contra o Padrão 1.2
-11. [nao-medido] As 4 violações que sobraram em `geo-antonina`
-12. [nao-medido] As 96 quadras de esqueleto não confiável
-13. [aguardando-o-jonny] A travessia sobre a APP de `geo-antonina`
-14. [escopo-novo] A quadra dentro de APP.
-15. [aguardando-outro-repositorio] O eixo do curso d'água, para o Geo.
-16. [nao-medido] O `faceDeRua` nulo nos 33 lotes de `geo-antonina`
+ 2. [prompt-novo] O CARIMBO DO CLONE SAI DO MÓDULO RESOLVIDO, E NÃO DO `HEAD` DO CLONE
+ 3. [prompt-novo] ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR
+ 4. [aguardando-outro-repositorio] O PICO DE RAMPA QUE O PARCELAMENTO REPORTA, 109,51 % → 175,51 %
+ 5. [prompt-novo] O COMMIT DO CLONE VIZINHO EM TODA PROVA QUE O USE
+ 6. [prompt-novo] O TRABALHO DE CI QUE NÃO PODE PASSAR
+ 7. [prompt-novo] A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO
+ 8. [prompt-novo] O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER
+ 9. [prompt-novo] A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO
+10. [depois-do-mvp] Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes
+11. [aguardando-outro-repositorio] O delta contra o Padrão 1.2
+12. [nao-medido] As 4 violações que sobraram em `geo-antonina`
+13. [nao-medido] As 96 quadras de esqueleto não confiável
+14. [aguardando-o-jonny] A travessia sobre a APP de `geo-antonina`
+15. [escopo-novo] A quadra dentro de APP.
+16. [aguardando-outro-repositorio] O eixo do curso d'água, para o Geo.
+17. [nao-medido] O `faceDeRua` nulo nos 33 lotes de `geo-antonina`
 === FIM DA LISTA 1 ===
 
 === LISTA 2 de 3 — OS SEIS MECANISMOS DO MOTOR ===

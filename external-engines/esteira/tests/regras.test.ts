@@ -153,6 +153,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
+    "LAB-82/remedicao-antes-do-pedido.json":
+      "mede o estado dos TRÊS clones vizinhos contra a origem deles e a remedição do transbordo do sétimo mecanismo contra o commit novo do DONO — não terreno novo: ela reconfere um achado do LAB-78 e não mede gleba nenhuma, nem roda motor sobre entrada nova",
     "LAB-81/as-leituras.json":
       "mede as LEITURAS de texto desta casa — as seis da família, a pergunta de cada uma conferida contra o `import` de quem a chama, o bloco de código dentro das seções de regra da `CLAUDE.md` e a demonstração de que UMA delas precisa ser diferente —, não terreno: não há gleba, motor nem semente no que ela mede, e ela não roda motor nenhum",
     "LAB-80/destino-do-que-sai.json":

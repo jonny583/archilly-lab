@@ -1730,3 +1730,116 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · nenhuma régua foi afrouxada para passar, e a que eu NÃO unifiquei ficou com o motivo medido;
 · nenhuma pergunta ao Jonny, e nada novo entrou na página dele.
 ```
+
+---
+
+## 10/10/2026 · LAB-82 — item 015: a remedição antes do pedido, e o dono é o motor-testfit
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-82 (item 015) ===
+Estado: FEITO. O seu item chegou como `013` com o número JÁ USADO (o 013-FEITO é a D243), e a colisão deixou a main VERMELHA — a guarda do D268 recusa a ambiguidade em vez de escolher. Renumerei para `015`, conteúdo intocado, nenhum dos dois apagado. Verde conferido aqui, não no GitHub.
+Feito: REMEDI PRIMEIRO, como você mandou, e a resposta à sua pergunta única é CONTINUAM, e idênticos: 13,18 m e 10,43 m, 2 lotes. O pedido com as SEIS linhas está abaixo, pronto para colar — e vai para o `motor-testfit`, não para o Generate. Verde: 895 travas na esteira + 17 no testfit, 7 passos, exit 0.
+Achados para outros apps ou Central: (1) A REMEDIÇÃO MUDOU O ENDEREÇO DO PEDIDO. Você manda remedir contra o `origin/motor-v2` do Generate: medido, o `motor-v2` e o `main` dele apontam para o MESMO commit (565d00c) e o 12208da é ancestral — a sua informação estava certa. Mas o veredito do DONO é `motor-testfit` em 2 de 2, e é a árvore DELE que estava 56 commits atrás (a do Generate, 47). QUEM DECIDE QUAL CLONE PRECISA ESTAR ATUALIZADO É O DONO DO DEFEITO, NÃO O DONO DA RÉGUA — e o LAB-78 já tinha absolvido a faixa pelo número (cobertura 100 %, largura indiferente), então o que sobrou é plantio. (2) A REMEDIÇÃO ACHOU UM BURACO QUE VOCÊ NÃO PEDIU: o carimbo de versão lê o HEAD do CLONE, não o módulo que o `import` carregou — a passagem contra o motor novo MEDIU O NOVO E CARIMBOU O VELHO. Carimbo que lê o repositório mede a INTENÇÃO de quem configurou, não o que rodou; e acerta sempre que ninguém reponta nada, que é por que ninguém descobre que ele pode errar. Proposto na FILA, não consertado — é a proposta do D223 um degrau adiante e toca toda prova que usa clone. (3) E EU QUASE APAGUEI O SEU ITEM NOVO: ele tinha a aparência exata do defeito que eu conhecia (mesmo número, mesma forma do D268). O que me parou foi medir o `git log --diff-filter=A`, que mostrou um commit SEU com outro assunto. A APARÊNCIA DE UM DEFEITO CONHECIDO É O DISFARCE MAIS EFICIENTE DE UM FATO NOVO.
+Depende do Jonny: a §10 NOVA na página dele — parar a fileira na esquina PERDE lotes que hoje entram, e são três caminhos com o custo de cada um. O custo do que eu recomendo sai NÃO MEDIDO, com o que custaria medi-lo. Mais o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a D226 (os quatro campos de `legais`), que você chamou de "o seguinte"; e a nova do carimbo. Nenhuma começada.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  O PEDIDO, PRONTO PARA COLAR — destino: motor-testfit (Laboratório de Parcelamento)
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTEXTO EM UMA LINHA: o Archilly Lab mediu o plantio da fileira externa em geo-antonina e achou
+lotes que nascem sem face de loteamento na frente. Remedido hoje contra o motor-testfit em
+3680b9f (o origin/main de agora): o defeito CONTINUA, com os mesmos números.
+
+1 · A AFIRMAÇÃO QUE QUERO PROVADA
+   "Nenhum lote plantado pela fileira externa fica além da extensão da face que a entrada
+   declarou em `facesLoteamento`."
+   Não é um arquivo e não é uma função, de propósito: nome de artefato envelhece no dia em que
+   vocês renomearem o módulo, e o pedido volta pela metade.
+
+2 · COM QUE FREQUÊNCIA ELA TEM DE VALER
+   Em TODA geração e para TODA candidata — não só no plano entregue, e não só nas duas em que eu
+   achei o defeito. Para cada face declarada em `facesLoteamento`, e em todas as glebas.
+   Esta linha é metade do pedido: sem ela vocês escolhem a mais fácil de cumprir, e a mais fácil
+   aqui seria "vale no plano entregue", onde o defeito não aparece em 2 das 4 candidatas.
+
+3 · O QUE NÃO CONTA COMO RESPOSTA — e isto está MEDIDO, não suposto
+   · "mexi na largura da faixa de via pública" → NÃO resolve: a largura é INDIFERENTE. Medido com
+     8 m e com 10 m, a distância do lote à faixa é a MESMA (0,19 m = 0,19 m), porque a faixa do
+     Generate cresce para FORA da divisa. Alargar uma faixa que cresce para fora não fecha uma
+     folga que está do lado de dentro;
+   · "cobri a face" → NÃO resolve: a cobertura já é 100 % da face declarada. A faixa NÃO é curta;
+   · "filtrei o lote na validação" → NÃO resolve: ele não pode ser PLANTADO. Esconder o lote
+     muda a conta e não o desenho;
+   · "o lote tem frente para a face vizinha" → NÃO resolve: a entrada NÃO declarou aquela face
+     como face de loteamento. Não há rua ali porque ninguém pediu rua ali.
+
+4 · COMO SE SABE QUE FOI ATENDIDO — o número, a unidade e a régua
+   A régua é MINHA, e é por isso que ela vem escrita: projeto o lote na reta do segmento da face
+   declarada e meço quantos METROS ele avança ALÉM da ponta desse segmento.
+   · campo: `alemDaFaceDeclarada_m` · unidade: metros · tolerância de contato: 0,05 m
+   · ALVO: ≤ 0,05 m para todo lote externo (hoje: 13,18 m e 10,43 m)
+   · HOJE, em geo-antonina: 2 lotes acusados — `cluster/v16-e15` (13,18 m) e `pente/v3-e19`
+     (10,43 m), os dois com `projecaoDentroDaDivisa = false`
+   · a régua roda em: external-engines/esteira/src/setimo-mecanismo.ts (`deQuemEhAViolacao`)
+   · a prova: docs/provas/LAB-78/setimo-mecanismo.json e docs/provas/LAB-82/
+   Vocês não precisam ter a minha régua para consertar, mas precisam saber qual é para não
+   remedir de fora com outra e concluir coisa diferente.
+
+5 · O FORMATO EXATO DA VOLTA
+   Respondam com estas três coisas, e eu remeço no mesmo dia:
+   · o COMMIT do `motor-testfit` (origin/main) a partir do qual a afirmação vale;
+   · o CAMINHO do arquivo onde o plantio da fileira externa passou a parar na face declarada;
+   · o CAMINHO da trava que vocês acrescentaram, e o que ela reprova.
+   Sem o commit eu não sei QUANDO remedir, e sem a trava a afirmação vale uma vez só.
+
+6 · O QUE EU NÃO GARANTO — e esta é a linha que mais falta, então vai inteira
+   · MEDI UMA GLEBA: geo-antonina. As outras seis desta casa não foram medidas para este defeito;
+   · MEDI 2 DAS 4 candidatas do LAB-59. As outras duas saíram como NÃO ACHADAS, não como zero: o
+     motor andou de 4181e95 para 6cf6396 e id de lote não sobrevive a mudança de plantio;
+   · a minha régua vê DISTÂNCIA no plano. Ela NÃO vê escala, NÃO vê topologia e NÃO vê a quadra;
+   · eu NÃO verifiquei se parar a fileira é geometricamente possível sem mexer no partido;
+   · eu NÃO MEDI quantos lotes se perdem ao parar a fileira. Não invento esse número;
+   · o lado do Generate (divisa e faixa) foi medido num clone 47 commits atrás do origin/main
+     dele. Isso NÃO afeta o veredito, porque a faixa foi absolvida pelo NÚMERO (cobertura 100 %,
+     largura indiferente) e não pela versão — mas vai dito, porque vocês desenham em cima da
+     minha resposta.
+
+7 · E HÁ UMA ESCOLHA DE DESENHO EMBUTIDA, QUE NÃO É MINHA NEM DE VOCÊS
+   Parar a fileira na esquina PERDE lotes que hoje entram. A escolha é do Jonny, está na página
+   dele (docs/PENDENCIAS_JONNY.md §10) e tem três caminhos:
+     a) a fileira para na esquina — ninguém nasce sem rua; perde os lotes da dobra (quantos: não medido)
+     b) a esquina também recebe rua — os lotes ficam; muda o desenho das ruas, e isso é projeto
+     c) fica como está — continuam nascendo lotes sem rua, e eles reprovam na conferência
+   A minha recomendação, e é só sugestão: (a). Lote sem rua na frente não é um lote a menos — é um
+   lote que não existe de verdade, e reprova na conferência de qualquer jeito.
+   NÃO comecem por (b) sem o Jonny: mexer no desenho das ruas é decisão dele.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+A REMEDIÇÃO, EM NÚMEROS — e os três clones contra a origem deles:
+
+  clone                  árvore     origin/main   atrás   limpa
+  motor-testfit          6cf6396    3680b9f        56     sim   ← o DONO do defeito
+  urban-create-hub       72cfab0    565d00c        47     sim   ← onde o item mandou olhar
+  urban-scout-tool       550a438    f0cb290        29     sim
+
+  passagem 1, clones como estão ......... 2 lotes · 13,18 m e 10,43 m · dono motor-testfit
+  passagem 2, motor em 3680b9f .......... IDÊNTICA — 2 lotes · 13,18 m e 10,43 m · mesmo dono
+
+  Como a passagem 2 foi feita sem tocar na árvore do vizinho: clone DO clone no rascunho, `paths`
+  do tsconfig repontado e devolvido byte a byte (git diff vazio), e conferido pelo
+  `import.meta.resolve` que o repoint pegou de fato.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· NADA foi escrito em repositório vizinho — o pedido sai aqui, no meu bloco, e você transporta;
+· as três árvores vizinhas ficaram LIMPAS e no MESMO commit em que estavam. O `fetch` que você
+  mandou fazer só mexe nas referências locais do clone, e isso já estava escrito nesta casa;
+· o item novo NÃO foi apagado, e eu não decidi qual dos dois `013` valia: movi o mais novo para o
+  próximo número livre, com o conteúdo intocado;
+· a escolha de desenho NÃO foi tomada por mim: está na página dele, com os três caminhos;
+· o custo do caminho recomendado sai NÃO MEDIDO, e não como zero.
+```

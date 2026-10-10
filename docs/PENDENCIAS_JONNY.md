@@ -723,6 +723,47 @@ que chega aos motores, e pedi a criação dele ao Generate.
 
 ---
 
+## 10 · Dois lotes nascem na esquina sem rua na frente — e consertar isso PERDE lotes
+
+**O que está acontecendo, em uma frase:** o laboratório mediu o motor que desenha
+os lotes e achou que, em Antonina, a **última fileira de lotes dobra a esquina** e
+continua por mais **10 a 13 metros** numa face do terreno **onde ninguém pediu
+lotes**. Esses lotes ficam sem rua na frente — e lote sem rua na frente é defeito.
+
+**Está medido e confirmado hoje**, contra a versão mais nova do motor: são
+**13,18 m** num caso e **10,43 m** no outro. Não é suposição e não é coisa velha.
+
+**O conserto é simples de dizer:** a fileira **para** no fim da face que foi
+pedida, em vez de dobrar a esquina.
+
+### E aqui está a parte que é SUA, porque é desenho e não conta
+
+**Parar a fileira na esquina faz o terreno perder lotes que hoje entram.** Quantos,
+eu **não medi** — e não vou inventar o número. São três caminhos, e a escolha é sua:
+
+| caminho | o que acontece | o custo |
+|---|---|---|
+| **a) a fileira para na esquina** | ninguém nasce sem rua na frente | **perde** os lotes da dobra — quantos, não medido |
+| **b) a esquina também recebe rua** | os lotes ficam, com rua na frente | muda o desenho das ruas, e isso é projeto |
+| **c) fica como está** | nada muda | continuam nascendo lotes sem rua, e eles reprovam na conferência |
+
+**A minha recomendação, e é só uma sugestão:** o **(a)**. Lote sem rua na frente
+não é um lote a menos — é um lote que não existe de verdade, e ele reprova na
+conferência de qualquer jeito. Perder dois lotes no papel é melhor do que
+entregar dois que não dão acesso a ninguém.
+
+**Se você quiser o número antes de escolher**, é uma medição de uma rodada: eu
+conto quantos lotes caem em cada terreno nos dois caminhos e te mostro a conta.
+**Me peça e eu meço** — é a ordem certa, porque escolher desenho sem o custo na
+mão é o que esta casa chama de conta feita com o volume que a gente gostaria de ter.
+
+> **Por que isto chega até você:** o pedido de conserto vai para a equipe do motor,
+> e o chat pediu que ele saísse completo. Um pedido que embute uma escolha de
+> desenho **sem dizer que embute** é a pior forma de pedido completo — então a
+> escolha fica aqui, com você, e o pedido vai dizendo que ela existe.
+
+---
+
 ## Já resolvidos — não precisa fazer nada
 
 - ~~**"Desvio desproporcional" é 3 vezes o caminho direto, ou 1,5 km?**~~ —

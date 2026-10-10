@@ -1,3 +1,60 @@
+> ⚠️ **RENUMERADO PARA 015 POR COLISÃO DE NÚMERO, e o conteúdo está INTOCADO abaixo.**
+>
+> Este item chegou como `013.md`, e **o `013` já estava usado**: o `013-FEITO.md` é a D243 — a
+> varredura de custo escopada por destino —, encomendada por você às 08h40 e entregue no LAB-80
+> (PR #106). O `014` também está feito (LAB-81, PR #108). A abertura deste item diz *"os itens
+> `001` a `012` estão todos ✅. Este é o `013`"*, e é aí que está o engano: a conta parou no `012`.
+>
+> **Não apaguei nenhum dos dois, e não decidi qual vale.** O número é a IDENTIDADE de um item nesta
+> casa — é por ele que as travas acham os itens, justamente porque o NOME muda quando o item é
+> concluído (D252) — e **dois arquivos com o mesmo número não são um item com dois nomes: são dois
+> itens com uma identidade.** Renomear o mais novo para o **próximo número livre** preserva os
+> dois e honra o que você quis dizer (*"este é o próximo"*), em vez da conta que escapou.
+>
+> **E isto não foi uma escolha de arrumação: a colisão deixou a `main` VERMELHA.** A guarda que eu
+> escrevi no LAB-80 (D268) **recusa** a ambiguidade em vez de escolher o primeiro da lista, e com
+> `013.md` e `013-FEITO.md` no disco ela estourou — 2 travas reprovadas na `main`. *A guarda nasceu
+> para o caso em que um `git merge` ressuscita o nome antigo, e o primeiro caso de verdade foi
+> outro: um número reusado.* Ela acertou nos dois.
+>
+> ✅ **FEITO no LAB-82**, em 10/10/2026, no despertador das 10:06. Relatório em
+> [`../relatorios/LAB-82.md`](../relatorios/LAB-82.md), prova em
+> `docs/provas/LAB-82/remedicao-antes-do-pedido.json`, decisões **D273 a D275**.
+>
+> **O passo 2 primeiro, como você mandou — e ele mudou o ENDEREÇO do pedido.** A sua pergunta única
+> era *"os 10 a 13 m continuam?"*, e a resposta é **CONTINUAM, e idênticos**: 13,18 m e 10,43 m, 2
+> lotes. Mas a remedição desmentiu duas premissas do item:
+>
+> | o que o item supõe | o que a medição diz |
+> |---|---|
+> | há um `origin/motor-v2` do Generate a buscar | o clone é de **um ramo só**; e no remoto o `motor-v2` e o `main` apontam para o **MESMO** commit (`565d00c`), com o `12208da` **ancestral** dele — a sua informação estava certa |
+> | *"o conserto é do motor, e o motor é do Generate"* | o veredito do dono é **`motor-testfit`** em 2 de 2 — **outro** repositório (§2) |
+> | o clone a remedir é o do Generate | o do Generate está **47** atrás; o do **motor** está **56**, e é da árvore do motor que vem o plantio |
+>
+> *Quem decide qual clone precisa estar atualizado é o DONO do defeito, não o dono da régua.* A
+> faixa e a divisa são do Generate, e foi por isso que você olhou para lá — mas o LAB-78 já tinha
+> **absolvido a faixa pelo número**: cobertura 100 % e largura indiferente. O que sobrou é plantio
+> (D275). **Então o pedido vai para o `motor-testfit`**, e é o seu próprio aviso do A129 aplicado na
+> direção certa.
+>
+> **Como remedi, em duas passagens, sem tocar na árvore de ninguém:** com os clones como estão, e
+> contra o motor em `3680b9f` num **clone do clone**, com o `paths` do tsconfig repontado e
+> **devolvido byte a byte** (`git diff` vazio), conferindo pelo `import.meta.resolve` que o repoint
+> pegou. **Resultado idêntico nas duas.** Os três vizinhos ficaram limpos e no mesmo commit.
+>
+> **E a remedição achou um buraco que você não pediu:** o carimbo de versão lê o `HEAD` do CLONE,
+> não o módulo que o `import` carregou — a passagem contra o motor novo **mediu o novo e carimbou o
+> velho**. *Carimbo que lê o repositório mede a INTENÇÃO de quem configurou, não o que rodou.* Não
+> consertei por escopo; está na `FILA.md` com o conserto nomeado (D274).
+>
+> **O pedido com as SEIS linhas** está no recado, pronto para colar, sob a linha do que vai junto.
+> **E ele diz que embute escolha de desenho:** a §10 da página do Jonny tem os **três caminhos** e o
+> custo de cada um — o do caminho que eu recomendo sai **não medido**, com o que custaria medi-lo,
+> porque número inventado é a classe do D133.
+>
+> **Sobre a sua §7:** a conta dos disparos em vazio está em **20 observados · 5 em vazio**, e a
+> leitura é sua. Anotei e não desliguei nada, como a §1-A manda.
+
 # 013 — O conserto do LAB-78 virando PEDIDO completo, e remedido antes
 
 **Escrito pelo chão da direção em 10/10/2026, 10h00 UTC.** A sua caixa esvaziou
