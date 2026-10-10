@@ -80,8 +80,25 @@ export function aRegraEstaEscrita(texto: string, oQueProcurar: string): boolean 
 export function caminhoDoItemDaCaixa(raiz: string, numero: string): string {
   const dir = `${raiz}/docs/caixa-de-entrada`;
   const candidatos = [`${dir}/${numero}.md`, `${dir}/${numero}-FEITO.md`];
-  for (const c of candidatos) {
-    if (existsSync(c)) return c;
+  const achados = candidatos.filter((c) => existsSync(c));
+  // **OS DOIS AO MESMO TEMPO É ERRO, não preferência** (LAB-80). Medido no próprio prompt: eu
+  // renomeei `013.md` para `013-FEITO.md` no ramo, e o `git merge` da `origin/main` — que ainda
+  // tinha o original — **ressuscitou o `013.md`**. Os dois no disco, e esta função devolvia o
+  // primeiro: o item concluído voltaria a ser lido como PENDENTE, em silêncio.
+  //
+  // > **Renomear num ramo e mesclar a origem que tem o nome antigo recria o nome antigo.** O
+  // > estado de um item é o NOME do arquivo, e dois nomes para o mesmo número não são um estado:
+  // > são uma ambiguidade — que se recusa, nunca se resolve por ordem de lista.
+  if (achados.length > 1) {
+    throw new Error(
+      `o item "${numero}" da caixa de entrada existe DUAS vezes — ${achados.join(" e ")}. O ` +
+        "estado de um item é o nome do arquivo, e dois nomes são ambiguidade: apague o que não " +
+        "vale. Costuma ser um `git merge` da origem que ressuscitou o nome antigo depois de um " +
+        "renomear no ramo",
+    );
+  }
+  for (const c of achados) {
+    return c;
   }
   throw new Error(
     `o item "${numero}" da caixa de entrada não foi encontrado — procurei por ` +

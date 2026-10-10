@@ -326,6 +326,25 @@ escrita ao lado da régua que a lê**.
 
 ---
 
+## 4-D · E o envio quase desfez o item: o merge ressuscitou o nome antigo (D268)
+
+Cumprido o item 013, renomeei `013.md` → `013-FEITO.md`, que é o passo 4 da `COMO_FUNCIONA.md`.
+Para enviar, mesclei a `origin/main` — **que ainda tinha o `013.md`**. O merge **recriou o nome
+antigo**, e a `caminhoDoItemDaCaixa()` — escrita no LAB-77 exatamente para achar o item pelo
+**número**, porque o nome muda (D252) — devolvia o **primeiro** candidato da lista.
+
+**O item concluído voltaria a ser lido como PENDENTE, em silêncio.**
+
+> **O estado de um item é o NOME do arquivo — e dois nomes para o mesmo número não são um estado:
+> são uma ambiguidade.** Ambiguidade se **recusa**, nunca se resolve por ordem de lista: ordem de
+> lista é preferência disfarçada de decisão, e aqui a preferência era pelo estado **errado**.
+
+A função passa a **estourar** com a mensagem do que costuma ter acontecido, e há três travas: acha
+o concluído pelo número, estoura em número inexistente, e **planta o sósia** para provar que a
+recusa acontece — tirando-o depois, para provar que ela não deixa resíduo.
+
+---
+
 ## 5 · A dúvida que eu resolvi escolhendo, e as alternativas descartadas
 
 **A leitura "esta linha afirma ou só mostra?" tinha CINCO respostas nesta casa** (D259), e eu
@@ -361,15 +380,15 @@ coisa"*. Está na `FILA.md` como **proposta ao chat**, com a contagem.
 - **Trava:** `tests/vazamento-de-custo.test.ts`, reescrita — **39 travas**, lista nominal **zero**,
   guarda da guarda **por destino e nos dois sentidos**, reprovando pelo nome do destino.
 - **Ferramenta:** `bun run lab80`. **Prova:** `docs/provas/LAB-80/destino-do-que-sai.json`.
-- **Decisões:** D258 a D267. **§6 da `CLAUDE.md`:** vinte e quatro → **vinte e sete**, com uma
+- **Decisões:** D258 a D268. **§6 da `CLAUDE.md`:** vinte e quatro → **vinte e sete**, com uma
   **classe nova** na partição (instrumento de medição discordando do instrumento medido).
 - **A régua irmã:** `src/trava-de-estrutura.ts` ganhou a mesma leitura, e a lista nominal dela foi
   de **três a duas** (D231).
 - **A limpeza da casa:** `soOCodigo()` deixou de colapsar arquivo (D267).
 - **Vizinhos:** `git status` limpo nos três clones, conferido ao fim da rodada (§4).
-- **O verde, medido:** `./external-engines/conferir.sh` → **877 travas na esteira + 17 no testfit,
+- **O verde, medido:** `./external-engines/conferir.sh` → **880 travas na esteira + 17 no testfit,
   7 passos, `exit 0`**, com a prova no navegador carregando o `.wasm` em Chromium de verdade
   (motor 0.4.1, 6 242 nós, 275 quadras). A lista do CI que roda sem os clones vizinhos foi de
-  **452 para 483** travas. **Conferido aqui, não no GitHub** — a execução automática segue
+  **452 para 486** travas. **Conferido aqui, não no GitHub** — a execução automática segue
   desligada desde 08/10, e a receita de religar é `docs/COMO_RELIGAR_O_CI.md`, dois passos, que
   **não** se executou agora.

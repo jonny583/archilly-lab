@@ -2,7 +2,7 @@
   "prompt": "LAB-80",
   "oQue": "a varredura de custo escopada por DESTINO e não por nome de arquivo (D243): cada arquivo que o git carrega recebe um destino pela ESTRUTURA do caminho, e o destino decide o rigor. O `registro` — onde a casa escreve a própria regra — é varrido só pelo VALOR, e só em prosa nua; os outros quatro, pelo nome e pelo valor",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto é o conjunto de ARQUIVOS que o git carrega. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-10T07:54:08.179Z",
+  "quando": "2026-10-10T08:06:39.630Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -17,8 +17,8 @@
   },
   "linhasLidas": {
     "tela": 165,
-    "registro": 1265198,
-    "codigo": 50089,
+    "registro": 1265242,
+    "codigo": 50141,
     "dado": 260278,
     "upstream-intocavel": 7810
   },

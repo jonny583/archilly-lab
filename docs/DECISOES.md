@@ -7824,3 +7824,38 @@ const fantasmas = Object.keys(BENIGNOS).filter((k) => !chaves.includes(k));
 
 **Isto NÃO entra na tabela do §6**, pelo mesmo critério do D261: falso negativo não acusa ninguém.
 Custa igual, e por isso está aqui.
+
+---
+
+## D268 · RENOMEAR NUM RAMO E MESCLAR A ORIGEM RECRIA O NOME ANTIGO — e o item voltaria a ser PENDENTE · 10/10/2026
+
+O item 013 chegou **durante** a rodada do LAB-80. Eu o trouxe para o clone, cumpri-o, e renomeei
+`013.md` → `013-FEITO.md`, que é o passo 4 da `COMO_FUNCIONA.md`. Depois, para enviar, mesclei a
+`origin/main` — **que ainda tinha o `013.md`**.
+
+**O merge ressuscitou o nome antigo.** Os dois arquivos no disco, e a
+`caminhoDoItemDaCaixa()` — escrita no LAB-77 justamente para achar o item **pelo número**, porque
+o nome muda (D252) — devolvia o **primeiro** da lista de candidatos:
+
+```ts
+const candidatos = [`${dir}/${numero}.md`, `${dir}/${numero}-FEITO.md`];
+for (const c of candidatos) if (existsSync(c)) return c;
+```
+
+**Ou seja: o item concluído voltaria a ser lido como PENDENTE, em silêncio.** A função que existia
+para atravessar a renomeação foi derrotada pela renomeação acontecendo **nos dois sentidos ao mesmo
+tempo**.
+
+> **O estado de um item é o NOME do arquivo — e dois nomes para o mesmo número não são um estado:
+> são uma ambiguidade.** Ambiguidade se **recusa**, nunca se resolve por ordem de lista. Ordem de
+> lista é uma preferência disfarçada de decisão, e a preferência aqui era pelo estado **errado**.
+
+**O que foi feito:** a função passa a **estourar** quando os dois existem, com a mensagem dizendo o
+que costuma ter acontecido (um `git merge` da origem depois de um renomear no ramo). Três travas
+novas: acha o concluído pelo número, estoura em número que não existe, e **planta o sósia** para
+provar que a recusa acontece — e o tira, provando que a recusa não deixa resíduo.
+
+*É a segunda vez que o nome de um item da caixa quebra uma trava desta casa. A primeira (D252)
+custou um verde com `765 pass · 1 fail` em que o "fail" não era um teste: era o arquivo não
+abrindo. Esta não custou nada porque a primeira já tinha ensinado a procurar pelo número — o que
+faltava era recusar o empate.*
