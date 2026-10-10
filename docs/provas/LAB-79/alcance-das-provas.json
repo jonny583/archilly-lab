@@ -2,23 +2,23 @@
   "prompt": "LAB-79",
   "oQueIstoMede": "quantas provas deste repositório são remedidas CONTRA A FONTE e quantas só se conferem contra si mesmas — a §7 lendo as chaves — ou não são lidas por trava nenhuma. A lista de quem cita quem é MECÂNICA: sai da leitura dos arquivos de teste, não da minha memória",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto é o conjunto de PROVAS e as travas que as leem. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-10T21:35:52.080Z",
+  "quando": "2026-10-10T22:45:27.293Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
   },
   "alcance": {
-    "universo": 74,
-    "pastas": 56,
+    "universo": 75,
+    "pastas": 57,
     "porComoSeConfere": {
       "remedida-da-fonte": 7,
       "remedida-sem-escopo-declarado": 19,
-      "so-a-forma": 25,
+      "so-a-forma": 26,
       "sem-trava": 23
     },
     "comEscopoPublicado": 7,
-    "semEscopoPublicado": 67,
-    "comoSeDiz": "74 provas em 56 pastas · 7 remedidas da fonte com escopo publicado · 19 remedidas em parte SEM escopo declarado · 25 só a forma (§7) · 23 sem trava nenhuma · 67 sem escopo publicado"
+    "semEscopoPublicado": 68,
+    "comoSeDiz": "75 provas em 57 pastas · 7 remedidas da fonte com escopo publicado · 19 remedidas em parte SEM escopo declarado · 26 só a forma (§7) · 23 sem trava nenhuma · 68 sem escopo publicado"
   },
   "comEscopoPublicado": [
     "LAB-25/guarda-da-ponte.json",
@@ -546,6 +546,13 @@
     },
     {
       "caminho": "LAB-85/o-que-o-gatilho-carrega.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-86/a-prova-velha.json",
       "comoSeConfere": "so-a-forma",
       "travas": [
         "regras.test.ts"

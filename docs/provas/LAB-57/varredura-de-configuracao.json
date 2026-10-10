@@ -2,15 +2,15 @@
   "prompt": "LAB-57",
   "oQueIstoMede": "quais configurações deste repositório desligam conferência — nas três formas: a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR, e o desligador SEM MOTIVO ESCRITO",
   "aPergunta": "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
-  "quando": "2026-10-07T12:25:10.329Z",
+  "quando": "2026-10-10T22:45:55.556Z",
   "escopo": {
-    "arquivosQueOGitCarrega": 364,
+    "arquivosQueOGitCarrega": 502,
     "configuracoesEncontradas": 27,
     "configuracoesVarridas": 11,
     "configuracoesForaDoEscopoNomeadas": 16,
-    "linhasDeConfiguracaoLidas": 662,
-    "arquivosDeCodigoVarridos": 128,
-    "linhasDeCodigoLidas": 36157,
+    "linhasDeConfiguracaoLidas": 762,
+    "arquivosDeCodigoVarridos": 188,
+    "linhasDeCodigoLidas": 50915,
     "regras": 7,
     "porque": "o escopo começa no `git ls-files`, não numa lista minha — e o que ficou fora sai NOMEADO com o motivo (D164, a lição do LAB-47)"
   },
@@ -108,8 +108,8 @@
     {
       "arquivo": ".github/workflows/verde.yml",
       "varrido": true,
-      "bytes": 7669,
-      "linhas": 167,
+      "bytes": 12205,
+      "linhas": 246,
       "regrasQueOlharam": [
         "passo-que-engole-falha"
       ]
@@ -124,8 +124,8 @@
     {
       "arquivo": "external-engines/conferir.sh",
       "varrido": true,
-      "bytes": 6020,
-      "linhas": 144,
+      "bytes": 6259,
+      "linhas": 147,
       "regrasQueOlharam": [
         "passo-que-engole-falha"
       ]
@@ -157,8 +157,8 @@
     {
       "arquivo": "external-engines/esteira/package.json",
       "varrido": true,
-      "bytes": 2193,
-      "linhas": 57,
+      "bytes": 2931,
+      "linhas": 75,
       "regrasQueOlharam": [
         "lint-sem-max-warnings",
         "passo-que-engole-falha"
@@ -289,6 +289,7 @@
   ],
   "oFonteDaPropriaReguaForaDoEscopo": {
     "external-engines/esteira/src/varredura-de-configuracao.ts": "é o arquivo que DEFINE os padrões: `@ts-ignore`, `@ts-nocheck` e `eslint-disable` estão nele como texto do padrão e do `exemploQuePega`",
+    "external-engines/esteira/src/escopo-da-varredura.ts": "é a MEDIÇÃO da varredura, extraída no LAB-86 para a ferramenta e a trava contarem com a mesma régua — e para isso ela carrega os nomes das regras e o motivo de cada exclusão",
     "external-engines/esteira/ferramentas/lab57.ts": "publica as chaves de achado e o motivo de cada declarado, e para isso tem de escrever os literais",
     "external-engines/esteira/ferramentas/lab60.ts": "o mesmo, apontado ao clone do motor: a lista numerada que vai ao vizinho nomeia os literais",
     "external-engines/esteira/tests/configuracao.test.ts": "exercita cada regra com o `exemploQuePega` dela, e por isso carrega os três literais",
@@ -328,8 +329,6 @@
   ],
   "arquivosIgnoradosPresentesEmDisco": [
     "external-engines/symbios/adapter/ferramentas/navegador/archilly_symbios_wasm.wasm",
-    "external-engines/symbios/archilly/probe/target/",
-    "external-engines/symbios/archilly/wasm-probe/target/",
     "external-engines/symbios/archilly/wasm/target/"
   ],
   "oQueOsIgnORADOSSignificam": "são artefato de build (`target/` do Rust e o `.wasm` do navegador), e o `.gitignore` do UPSTREAM ignora `/.claude` e `.mcp.json` — dois nomes que costumam carregar credencial. Medido: nenhum dos dois existe em disco. A varredura de segredos lê `git ls-files --exclude-standard`, então se um dia existirem ali ela NÃO os verá, e upstream é intocável (§3)",

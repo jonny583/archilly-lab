@@ -1,3 +1,55 @@
+> ✅ **FEITO no LAB-86**, em 10/10/2026, no despertador das 22:05. Relatório em
+> [`../relatorios/LAB-86.md`](../relatorios/LAB-86.md), prova em
+> `docs/provas/LAB-86/a-prova-velha.json`, decisões **D287 e D288**.
+>
+> **Remedi antes de consertar, e o defeito estava VIVO — pior do que a D204 descreveu.** Ela falava
+> de *uma edição* de atraso; medido, são **semanas**: a prova commitada do LAB-57 dizia **364**
+> arquivos que o git carrega, **128** de código e **36 157** linhas, e a mesma árvore dizia
+> **498**, **187** e **50 714** — 26 a 32 % do número de hoje. E ela ainda carregava **dois
+> caminhos mortos**, pastas de compilação que não existem mais.
+>
+> **Por que nada reprovava, e esta é a lição:** a trava conferia a prova com **LIMIAR** —
+> `configuracoesEncontradas > 20`, `configuracoesVarridas > 5`, `linhasDeCodigoLidas > 10000`. Uma
+> prova congelada em 36 157 linhas passa `> 10000` para sempre. *Régua que confere uma prova com
+> `maior que` aceita qualquer prova velha que já fosse grande o bastante quando nasceu:* o limiar
+> mede se o número é PLAUSÍVEL, só a recontagem mede se ele é VERDADE — e num repositório que
+> cresce, **o limiar fica mais frouxo a cada commit sem ninguém mexer nele** (D287).
+>
+> **A forma escolhida é RECONTAR e comparar, e o carimbo foi recusado POR MEDIÇÃO** — exatamente
+> pelo motivo que você avisou: *o carimbo do disco não é o do git*, numa sessão nova todo arquivo
+> tem a data do checkout, e a comparação vira **vácuo** justamente no CI, que é onde ela mais
+> precisaria valer. *Guarda que não acha o objeto não está aprovando: está sem medir nada* (D213).
+>
+> **E a sua exigência de UM LUGAR SÓ foi o que mais rendeu:** a conta estava dentro da ferramenta,
+> e escrevê-la de novo na trava criaria duas implementações da mesma pergunta. Ela saiu para
+> `src/escopo-da-varredura.ts`, e **a ferramenta e a trava chamam a mesma função** — com o universo
+> começando no `git ls-files`, o LUGAR, como você exigiu: *lista à mão não vê o arquivo que nasceu
+> depois dela*.
+>
+> **Os dois sentidos, demonstrados** — e o caso válido que quase parece inválido passa: duas
+> recontagens na mesma árvore batem, então a prova que não mudou **porque nada que ela mede mudou**
+> não reprova. **E o vigia acusou o trabalho de quem o escrevia:** ao registrar o script `lab86` no
+> `package.json` — configuração que a varredura lê — a recontagem acusou na hora, `760 → 761`.
+>
+> **O alcance, porque você mandou a medição decidir o tamanho:** das **74** provas, **11** têm o
+> universo dentro desta casa e **63 dependem de fora**. Uma foi recontada (a que a D204 nomeou); as
+> outras dez foram para a `FILA.md`, porque são medição **por prova**. *Recontar o que depende de
+> fora não é mais rigor: é outra medição com o nome da antiga* (D288). **E nenhuma segunda lista
+> nasceu** — a fronteira do §7 foi reusada, como você pediu.
+>
+> **A armadilha que você previu apareceu, e no lugar que você apontou:** a pergunta *"quando este
+> arquivo foi tocado?"* não é de texto nem de comentário. Aqui ela virou *"quanto este arquivo
+> mede?"*, que é de **recontagem** — e foi por isso que o carimbo caiu.
+>
+> **E as suas duas correções estão recebidas:** a §11 na sua lista consolidada, e o registro do
+> meu achado (5) contra você. *Quando eu disser que algo "já está na página dele", eu abro a
+> página* — vale para mim igual.
+>
+> **O gatilho NÃO foi religado.** As três árvores vizinhas ficaram limpas e nos commits em que
+> estavam.
+
+---
+
 # 019 — A D204: a trava que regera a varredura de configuração. Você a nomeou como "o próximo natural"
 
 **Da direção, 10/10/2026, 22h25 UTC. Rodada do chão.**

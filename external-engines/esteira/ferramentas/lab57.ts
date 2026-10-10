@@ -18,7 +18,8 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { REGRAS_DE_CONFIGURACAO, varrerConfiguracao } from "../src/varredura-de-configuracao.ts";
+import { FONTES_DA_PROPRIA_REGUA, medirOEscopo } from "../src/escopo-da-varredura.ts";
+import { REGRAS_DE_CONFIGURACAO } from "../src/varredura-de-configuracao.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-57");
@@ -31,139 +32,23 @@ const doGit = (...args: string[]) =>
 
 const carregados = doGit("ls-files", "-z");
 
-/** O que CONTA como configuração, por nome de arquivo. */
-const EH_CONFIGURACAO = (f: string) =>
-  /(^|\/)(tsconfig[^/]*\.json|[^/]*eslint[^/]*\.(js|cjs|mjs)|package\.json|bunfig\.toml|\.npmrc|\.nvmrc|\.gitignore|\.gitattributes|[^/]*\.ya?ml|\.editorconfig|[^/]*prettier[^/]*|Cargo\.toml|rust-toolchain\.toml|[^/]*\.lock|conferir\.sh)$/.test(
-    f,
-  );
-
-/**
- * O que fica FORA da varredura, e **por quê**. Conjunto fechado: a trava reprova arquivo
- * de configuração que não esteja nem varrido nem nomeado aqui.
- */
-const FORA: { casa: (f: string) => boolean; porque: string }[] = [
-  {
-    casa: (f) => f.startsWith("external-engines/symbios/upstream/"),
-    porque:
-      "é UPSTREAM e é INTOCÁVEL (§3): cópia exata do motor original, que não se edita. A configuração dele governa o projeto dele, não o verde deste repositório",
-  },
-  {
-    casa: (f) => /(^|\/)[^/]*\.lock$/.test(f),
-    porque:
-      "lockfile não liga nem desliga conferência: ele PRENDE versão. Afrouxar versão é outra classe de risco, e não é a deste prompt",
-  },
-  {
-    casa: (f) => /(^|\/)(Cargo\.toml|rust-toolchain\.toml)$/.test(f),
-    porque:
-      "governa a compilação do .wasm em Rust, que o verde cobre pela PRECONDIÇÃO (o .wasm existe ou o script reprova com a receita, D124) — e não por conferência de tipo",
-  },
-];
-
-interface Linha {
-  arquivo: string;
-  varrido: boolean;
-  porqueFora?: string;
-  bytes?: number;
-  linhas?: number;
-  regrasQueOlharam?: string[];
-}
-
-/**
- * O lint do pacote REPROVA aviso? É o par do `regra-em-warn`, e é medido.
- *
- * Lido no `package.json` do pacote a que o arquivo pertence: com `--max-warnings 0`, uma
- * regra em `"warn"` é capaz de derrubar o passo; sem ele, não é.
- */
-const lintReprovaAviso = (arquivo: string): boolean => {
-  const pacote = arquivo.includes("/esteira/")
-    ? "external-engines/esteira"
-    : arquivo.includes("/testfit/")
-      ? "external-engines/testfit"
-      : null;
-  if (!pacote) return false;
-  const pj = JSON.parse(readFileSync(join(RAIZ, pacote, "package.json"), "utf8")) as {
-    scripts?: Record<string, string>;
-  };
-  return /--max-warnings\s+0/.test(pj.scripts?.["lint"] ?? "");
-};
-
-const porArquivo: Linha[] = [];
-const achados: ReturnType<typeof varrerConfiguracao>["achados"] = [];
-let linhasLidas = 0;
-
-for (const f of carregados.filter(EH_CONFIGURACAO).sort()) {
-  const fora = FORA.find((x) => x.casa(f));
-  if (fora) {
-    porArquivo.push({ arquivo: f, varrido: false, porqueFora: fora.porque });
-    continue;
-  }
-  const texto = readFileSync(join(RAIZ, f), "utf8");
-  const r = varrerConfiguracao(texto, f, { lintReprovaAviso: lintReprovaAviso(f) });
-  achados.push(...r.achados);
-  linhasLidas += texto.split("\n").length;
-  porArquivo.push({
-    arquivo: f,
-    varrido: true,
-    bytes: texto.length,
-    linhas: texto.split("\n").length,
-    regrasQueOlharam: r.regrasQueOlharam,
-  });
-}
-
-// ── E os arquivos de CÓDIGO, para as duas regras que vivem neles ────────────
+// ── A MEDIÇÃO MORA NO `src/escopo-da-varredura.ts` (LAB-86, D287) ─────────
 //
-// `teste-desligado` e `conferencia-desligada-por-arquivo` não moram em configuração: o
-// `.only` e o `@ts-ignore` são desligadores que viajam no código. Ficar só na configuração
-// responderia metade da pergunta.
+// Ela estava escrita AQUI, e a trava conferia a prova com **limiar** (`> 10000` linhas).
+// Resultado medido ao abrir o item 019: a prova commitada dizia 128 arquivos e 36 157
+// linhas, e a mesma árvore dizia **187** e **50 714** — velha por semanas, com a trava
+// verde. *Régua que confere uma prova com `maior que` aceita qualquer prova velha que já
+// fosse grande o bastante quando nasceu.*
 //
-// **E sem contar duas vezes:** os dois `eslint.config.js` são configuração E são `.js`.
-// Na primeira versão desta ferramenta eles entraram nas duas passagens e o
-// `regra-em-warn` saiu **4** onde eram **2**. *O volume era da minha régua, não da coisa*
-// — a terceira vez dessa forma em dois prompts (D179, D193).
-const jaVarridos = new Set(porArquivo.filter((l) => l.varrido).map((l) => l.arquivo));
-
-/**
- * ── O FONTE DA PRÓPRIA RÉGUA SAI DO ESCOPO, e isso é medido, não gosto (LAB-60) ──
- *
- * **O LAB-60 mediu que esta varredura acusava a si mesma dez vezes.** O
- * `conferencia-desligada-por-arquivo` procura `@ts-ignore`, `@ts-nocheck` e
- * `eslint-disable`, e esses três literais moram, por necessidade, no **padrão** da regra e
- * no texto que declara os achados — onde eles significam *"eu estou falando sobre"*, e não
- * *"eu faço"*. É a sub-família do **D155**, e a única limpeza que resolveria (tirar
- * comentários) **cegaria esta regra por completo**, porque é dentro de comentário que o
- * desligador vive.
- *
- * **O precedente é desta casa e está declarado:** a varredura de segredos do LAB-47 varre
- * *"tudo que o git carrega — nem uma pasta de fora, nem o fonte dela própria"*. A exclusão
- * é a mesma, e é **estreita**: só o arquivo que define os padrões e as ferramentas que
- * publicam as chaves de achado. Nenhuma outra pasta sai.
- */
-const FONTES_DA_PROPRIA_REGUA: Record<string, string> = {
-  "external-engines/esteira/src/varredura-de-configuracao.ts":
-    "é o arquivo que DEFINE os padrões: `@ts-ignore`, `@ts-nocheck` e `eslint-disable` estão nele como texto do padrão e do `exemploQuePega`",
-  "external-engines/esteira/ferramentas/lab57.ts":
-    "publica as chaves de achado e o motivo de cada declarado, e para isso tem de escrever os literais",
-  "external-engines/esteira/ferramentas/lab60.ts":
-    "o mesmo, apontado ao clone do motor: a lista numerada que vai ao vizinho nomeia os literais",
-  "external-engines/esteira/tests/configuracao.test.ts":
-    "exercita cada regra com o `exemploQuePega` dela, e por isso carrega os três literais",
-  "external-engines/esteira/tests/configuracao-do-motor.test.ts":
-    "o mesmo, para as travas do LAB-60",
-};
-
-const codigo = carregados.filter(
-  (f) =>
-    /\.(ts|js)$/.test(f) &&
-    !f.includes("node_modules/") &&
-    !jaVarridos.has(f) &&
-    !(f in FONTES_DA_PROPRIA_REGUA),
-);
-let linhasDeCodigo = 0;
-for (const f of codigo) {
-  const texto = readFileSync(join(RAIZ, f), "utf8");
-  linhasDeCodigo += texto.split("\n").length;
-  achados.push(...varrerConfiguracao(texto, f).achados);
-}
+// Agora a ferramenta e a trava chamam **a mesma função**: a trava reconta e compara número
+// por número, então a prova não pode mais ficar velha em silêncio. Escrever a recontagem
+// dentro da trava criaria duas implementações da mesma pergunta — *e duas listas para a
+// mesma pergunta divergem* (D231).
+const medicao = medirOEscopo(carregados, (rel) => readFileSync(join(RAIZ, rel), "utf8"));
+const { porArquivo, achados, porRegra } = medicao;
+const linhasLidas = medicao.numeros.linhasDeConfiguracaoLidas;
+const linhasDeCodigo = medicao.numeros.linhasDeCodigoLidas;
+const codigo = { length: medicao.numeros.arquivosDeCodigoVarridos };
 
 /** Arquivos IGNORADOS que existem em disco — eles não são varridos por ninguém. */
 const ignorados = execFileSync("git", ["-C", RAIZ, "status", "--ignored", "--porcelain"], {
@@ -192,9 +77,6 @@ const DECLARADOS: Record<string, string> = {
   "conferencia-desligada-por-arquivo|external-engines/esteira/src/inventario-das-idas.ts":
     "`eslint-disable-next-line @typescript-eslint/no-unused-vars` sobre o ajudante `divida()`, que fica SEM USO de propósito: a categoria vazia é a prova de que ele era confissão com prazo. O motivo está escrito nas seis linhas acima dele, e é o único desligador por arquivo do repositório",
 };
-
-const porRegra: Record<string, number> = {};
-for (const a of achados) porRegra[a.regra] = (porRegra[a.regra] ?? 0) + 1;
 
 const varridos = porArquivo.filter((l) => l.varrido).length;
 const foraDoEscopo = porArquivo.filter((l) => !l.varrido).length;
@@ -225,14 +107,9 @@ writeFileSync(
       aPergunta: "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
       quando: new Date().toISOString(),
       escopo: {
-        arquivosQueOGitCarrega: carregados.length,
-        configuracoesEncontradas: porArquivo.length,
-        configuracoesVarridas: varridos,
-        configuracoesForaDoEscopoNomeadas: foraDoEscopo,
-        linhasDeConfiguracaoLidas: linhasLidas,
-        arquivosDeCodigoVarridos: codigo.length,
-        linhasDeCodigoLidas: linhasDeCodigo,
-        regras: REGRAS_DE_CONFIGURACAO.length,
+        // **Os números saem da MEDIÇÃO, não de contas repetidas aqui** — é esta chave que a
+        // trava reconta e compara, uma a uma (D287).
+        ...medicao.numeros,
         porque:
           "o escopo começa no `git ls-files`, não numa lista minha — e o que ficou fora sai NOMEADO com o motivo (D164, a lição do LAB-47)",
       },

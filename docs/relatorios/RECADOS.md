@@ -2043,3 +2043,56 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · não gastei dinheiro: escrever o que o gatilho vai carregar não gasta, e eu fiquei do lado de cá;
 · o segredo continua sendo dele, e nada aqui o pede de novo — só o pede no LUGAR CERTO.
 ```
+
+## 10/10/2026 · LAB-86 — item 019: a prova velha, e o limiar que a deixava passar
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-86 (item 019) ===
+Estado: FEITO. A D204 está consertada por RECONTAGEM, com os dois sentidos demonstrados — e remedindo antes de consertar eu achei o defeito VIVO e pior do que ela descrevia. Verde conferido aqui, não no GitHub: 937 travas na esteira + 17 no testfit, 550 na lista do CI (33 arquivos, 33 de 33 passando sem os clones), 7 passos, exit 0. Decisões D287 e D288.
+Feito: a medição saiu da ferramenta para `src/escopo-da-varredura.ts`, e a ferramenta e a trava passam a chamar A MESMA FUNÇÃO, com o universo começando no `git ls-files`. A prova do LAB-57 foi regerada e não pode mais ficar velha em silêncio. E das 74 provas, medi quais cabem nesta forma: 11 de dentro, 63 de fora.
+Achados para outros apps ou Central: (1) O DEFEITO ESTAVA VIVO, E NÃO ERA UMA EDIÇÃO DE ATRASO — ERAM SEMANAS. A prova commitada dizia 364 arquivos que o git carrega, 128 de código e 36 157 linhas; a MESMA árvore dizia 498, 187 e 50 714 — 26 a 32 % do número de hoje. E ela ainda carregava dois caminhos mortos, pastas de compilação que não existem mais. (2) POR QUE NADA REPROVAVA, E ESTA É A LIÇÃO DA RODADA: a trava conferia a prova com LIMIAR — `configuracoesEncontradas > 20`, `configuracoesVarridas > 5`, `linhasDeCodigoLidas > 10000`. Uma prova congelada em 36 157 linhas passa `> 10000` PARA SEMPRE. RÉGUA QUE CONFERE UMA PROVA COM "MAIOR QUE" ACEITA QUALQUER PROVA VELHA QUE JÁ FOSSE GRANDE O BASTANTE QUANDO NASCEU: o limiar mede se o número é PLAUSÍVEL, só a recontagem mede se ele é VERDADE — e num repositório que cresce, O LIMIAR FICA MAIS FROUXO A CADA COMMIT SEM NINGUÉM MEXER NELE. É o D164 pelo outro lado: ali o perigo era o zero de régua parada ser indistinguível do zero de árvore limpa; aqui é o número grande de ONTEM ser indistinguível do número certo de HOJE. (3) ESCOLHI RECONTAR, E RECUSEI O CARIMBO POR MEDIÇÃO — exatamente pelo motivo que você avisou: O CARIMBO DO DISCO NÃO É O DO GIT. Numa sessão nova todo arquivo tem a data do checkout, e a comparação vira VÁCUO justamente no CI, que é onde ela mais precisaria valer. Guarda que não acha o objeto não está aprovando, está sem medir nada (D213). Recontar custa ~0,3 s, é exato e não precisa de rede nem de clone, porque o universo desta varredura é o `git ls-files` DESTE repositório. (4) E A SUA EXIGÊNCIA DE UM LUGAR SÓ FOI O QUE MAIS RENDEU: a conta estava DENTRO da ferramenta, e escrevê-la de novo na trava criaria duas implementações da mesma pergunta — você chamou pelo nome, e o D231 já cobrou esta casa por meio conserto num instrumento só. (5) OS DOIS SENTIDOS, E O CASO VÁLIDO QUE QUASE PARECE INVÁLIDO PASSA: plantei uma linha num arquivo que a prova mede, sem regerar — a trava reprovou NOMEANDO A CHAVE (`linhasDeCodigoLidas`, na prova 50 714, na árvore 50 716), e o arquivo voltou byte a byte com sha256 conferido. E duas recontagens na mesma árvore batem, então a prova que não mudou PORQUE NADA QUE ELA MEDE MUDOU não reprova: régua que exigisse carimbo mais novo a cada commit reprovaria a árvore correta, e vigia que nasce vermelho vira ruído e morre. (6) E O VIGIA ACUSOU O TRABALHO DE QUEM O ESTAVA ESCREVENDO, sem plantio nenhum: ao registrar o script `lab86` no `package.json` — que é configuração que a varredura lê — a recontagem acusou na hora, 760 → 761. A PROVA MAIS HONESTA DE QUE UM VIGIA FUNCIONA É ELE ACUSAR O TRABALHO DE QUEM O ESTAVA ESCREVENDO. (7) O ALCANCE, porque você mandou a medição decidir o tamanho: das 74 provas, 11 têm o universo DENTRO desta casa e 63 DEPENDEM DE FORA. RECONTAR O QUE DEPENDE DE FORA NÃO É MAIS RIGOR: É OUTRA MEDIÇÃO COM O NOME DA ANTIGA — e isso é LAB-79 medido, não opinião: o LAB-78 perdeu dois de quatro lotes assim, porque o motor andou de 4181e95 para 6cf6396. Recontei UMA, a que a D204 nomeou; as outras dez foram à FILA, porque são medição POR PROVA. E NENHUMA SEGUNDA LISTA NASCEU: a fronteira do §7 foi reusada, como você exigiu. (8) E O QUE O CONSERTO NÃO RESOLVE — A TRAVA CORRIGIU A MINHA PRÓPRIA DECLARAÇÃO, NO MESMO VERDE. Eu escrevi que "a prova tem de ser a última coisa gerada na rodada"; medido, é mais estreito: rodei o lab57 como última ferramenta, commitei, e ela reprovou — 498 → 502 arquivos carregados, 187 → 188, 50 716 → 50 914. O UNIVERSO É O `git ls-files`, E ELE MUDA NO `git add`, não quando o arquivo é escrito: os quatro arquivos novos da rodada estavam no disco e NÃO RASTREADOS. A PROVA TEM DE SER GERADA DEPOIS DO `git add`, NÃO DEPOIS DA ÚLTIMA EDIÇÃO — e os dois estão a um comando de distância, o que torna o engano barato de cometer e invisível sem recontagem. A ordem continua exigida; o que mudou é que ela deixou de ser disciplina e passou a ser guarda. (9) E ACHEI UM BURACO NO PORTÃO, de passagem: a `configuracao.test.ts` NUNCA ESTEVE na lista do trabalho que roda em todo envio, e é limpa de clone — ou seja, a trava do D204 não rodava no portão. Entrou, remedida por execução: 33 de 33 passam sem os clones, e a lista foi de 535 a 550 travas.
+Depende do Jonny: nada novo meu. Continuam a §11 (a senha de leitura, ou tornar os dois vizinhos públicos), a §10, o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a D226 (os quatro campos de `legais`), que MUDA O DESENHO e espera o olho dele — e agora ela é a única da sua lista que não é medição minha. A fila ficou em QUINZE: uma saiu por entrega e uma entrou, a das outras dez provas recontáveis.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  O DEFEITO, MEDIDO — a prova commitada contra a mesma árvore
+═══════════════════════════════════════════════════════════════════════════════
+
+  número                            na prova    na árvore   atraso
+  arquivosQueOGitCarrega                 364          498    26,9 %
+  arquivosDeCodigoVarridos               128          187    31,6 %
+  linhasDeCodigoLidas                 36 157       50 714    28,7 %
+  linhasDeConfiguracaoLidas              662          761    13,0 %
+
+  e dois caminhos MORTOS que ela ainda carregava:
+    external-engines/symbios/archilly/probe/target/
+    external-engines/symbios/archilly/wasm-probe/target/
+
+  O QUE A TRAVA CONFERIA, e por que passava:
+    configuracoesEncontradas  > 20       ← 27 passa, e 20 passaria também
+    configuracoesVarridas     > 5        ← 11 passa
+    linhasDeCodigoLidas       > 10000    ← 36 157 passa PARA SEMPRE
+
+AS DUAS FORMAS, E POR QUE O CARIMBO CAIU:
+
+  recontar e comparar  (ESCOLHIDA)  universo = `git ls-files` deste repositório: sem clone,
+                                    sem rede, sem motor. ~0,3 s, comparação EXATA
+  comparar carimbos                 o carimbo do DISCO não é o do GIT: numa sessão nova todo
+                                    arquivo tem a data do checkout → VÁCUO no CI, que é onde
+                                    a trava mais precisaria valer (D213)
+
+O ALCANCE — e foi a medição que decidiu o tamanho:
+
+  11  universo DENTRO desta casa ...... a forma cabe. UMA recontada nesta rodada
+  63  dependem de FORA ................ clone vizinho, commit, semente ou gleba
+  74  no total
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· o GATILHO NÃO foi religado — a régua cobra, não liga;
+· nada escrito em repositório vizinho, e as três árvores limpas e nos mesmos commits;
+· o arquivo da sabotagem voltou BYTE A BYTE, com sha256 conferido;
+· nenhuma segunda lista de provas nasceu: a fronteira do §7 é a única.
+```
