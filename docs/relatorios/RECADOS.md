@@ -1658,3 +1658,75 @@ Depende do Jonny: o conserto do sétimo mecanismo (FILA, `aguardando-o-jonny`) e
 Próximo na fila: nada encomendado; aguardando item novo na caixa. NÃO executei a D226 ("os quatro campos novos de `legais`"), que o item 013 chama de "o seguinte": eleição é plano, item é encomenda — e você mostrou a convenção nesta rodada, elegendo a D243 no item 012 E escrevendo o 013 para encomendá-la.
 === FIM ===
 ```
+
+---
+
+## 10/10/2026 · LAB-81 — item 014: as cinco leituras terminadas, e UMA declarada diferente
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-81 (item 014) ===
+Estado: FEITO. As cinco leituras de "esta linha afirma ou só mostra?" moram num lugar só, com a pergunta de cada uma declarada e conferida contra o `import` de quem a chama. Verde conferido aqui, não no GitHub: 893 travas na esteira + 17 no testfit, 7 passos, exit 0.
+Feito: TERMINAR NÃO ERA FAZÊ-LAS IGUAIS, e foi a medição que decidiu. A família tem SEIS membros com perguntas diferentes, a tabela é conferida contra os imports de verdade, e há guarda que impede a SEXTA de nascer. O buraco comum às cinco — o BLOCO DE CÓDIGO — está fechado pela `soAProsa()`.
+Achados para outros apps ou Central: (1) A PREMISSA DO ITEM ESTAVA UM PASSO ATRÁS: das três leituras que ele lista, UMA JÁ ESTAVA PRONTA — o `trava-de-estrutura.ts`, consertado no próprio LAB-80. O item foi escrito a partir do meu relatório, e o relatório descrevia o estado de antes daquela parte da rodada. ITEM ESCRITO A PARTIR DE UM REGISTRO HERDA A IDADE DO REGISTRO: meça a premissa antes de executar, senão o primeiro trabalho da rodada é consertar o que já estava consertado — e isso sai como entrega. (2) A SUA FRONTEIRA FOI ACIONADA, e a medição é o que a acionou: a `verde.test.ts` varre um script de shell e A CRASE É O DADO DELA. Com a limpeza dela, acha o caminho na mentira plantada; com a mais forte, acha ZERO — e a mais forte PARECE mais rigorosa, porque nega igual e deixa a citação passar igual, e só o dado desaparece. A LIMPEZA QUE REMOVE O DADO DE QUEM A CHAMA NÃO É MAIS RIGOROSA: É UM DESLIGAMENTO PASSANDO POR CONSERTO. (3) A SUA ORDEM É O QUE SEPAROU AS DUAS COISAS: na ordem inversa eu teria visto "a citação passa, o riscado passa, a cerca passa" — tudo verde — e entregado uma trava cega. (4) A QUARTA FORMA QUE VOCÊ CONVIDOU APARECEU, E NÃO É UMA FORMA: a cerca, o `>` e o riscado nunca carregam o objeto da régua; A CRASE CARREGA. É a única marca de "só mostra" que às vezes é o que se vem medir. (5) Para a família: UNIFICAR SEM GUARDA CONSERTA O PASSADO E DEIXA O FUTURO IGUAL — a pergunta não é "quantas existem hoje?", é "o que impede a próxima?".
+Depende do Jonny: o conserto do sétimo mecanismo (FILA, `aguardando-o-jonny`) e as duas perguntas do acesso (§9 da página dele) — três coisas abertas, nenhuma travando nada.
+Próximo na fila: a D226 — entregar os quatro campos novos de `legais` ao motor, que você chamou de "o seguinte" no item 013. Não comecei: eleição é plano, item é encomenda.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+A FAMÍLIA, COMO ELA FICOU — seis membros, uma casa, uma pergunta cada:
+
+  lugaresDaPagina ........ "ONDE esta linha está?"              só Markdown; num .sh é um nada
+  soAProsa ............... "quais linhas AFIRMAM?"              tira citação E BLOCO DE CÓDIGO
+  semCitacoes ............ "...quando a CRASE É O DADO?"        a crase sobrevive de propósito
+  semRiscadoNemCitado .... "...quando a crase é RUÍDO?"         riscado, crase e aspas curta
+  comoARegraSeLe ......... "a regra ESTÁ ESCRITA?"              normaliza >, negrito e quebra
+  afirmadoNaLinha ........ a composta, para quem já sabe que a linha é prosa
+
+A escolha entre elas NÃO É DE RIGOR, É DE QUAL É O OBJETO. Foi isso que a medição ensinou, e é
+por isso que a família tem seis membros em vez de uma função com um argumento.
+
+A MEDIÇÃO QUE DECIDIU, com a mentira plantada no formato do LAB-51:
+
+  limpeza                  na mentira plantada                              na citação
+  semCitacoes (a dela)     nega ✔ · acha .github/workflows/verde.yml ✔      passa ✔
+  semRiscadoNemCitado      nega ✔ · acha ZERO caminhos ✘                    passa ✔
+
+  e lugaresDaPagina sobre aquele .sh: 0 citação e 0 cerca em 147 linhas — ali é um nada.
+
+A DIFERENÇA NÃO FICA SÓ NUM COMENTÁRIO: há trava que REPROVA se a `semRiscadoNemCitado` passar a
+preservar a crase, porque nesse dia a UMA declarada perde o motivo e a tabela tem de ser refeita.
+Diferença declarada que ninguém reconfere é a mesma coisa que diferença esquecida.
+
+O BURACO COMUM ÀS CINCO, FECHADO, e medido:
+
+  seções de REGRA da CLAUDE.md: 312 linhas · 9 em citação · 20 EM BLOCO DE CÓDIGO
+    §1 (a regra do recado): 17 linhas em bloco — é o MOLDE do recado, exemplo e não regra sobre ele
+    §7 (entrega): 3 linhas
+
+  veredito da régua dos limites: [] antes e [] depois — a sua fronteira do veredito não foi tocada.
+  E porque VAZIO NÃO PROVA NADA, a prova é plantada, na sua ordem: a regra sem sujeito em prosa é
+  achada; em citação e em bloco, não; e depois da cerca FECHAR, a prosa volta a contar.
+
+  E a soAProsa ESVAZIA as linhas em vez de removê-las: o número da linha não pode mentir para quem
+  for ler o achado. Limpeza que encurta o texto faz a régua apontar para a linha errada.
+
+A GUARDA DA SEXTA, e ela é a parte que sobrevive a mim:
+
+  Ela varre todo .ts que o git carrega e reprova quem DEFINIR uma das leituras fora da casa. Lê os
+  nomes que o código USA, não o texto — senão seria a sétima da família do D142/D155, acusando o
+  arquivo que documenta a duplicação. Os dois lados estão plantados: a definição planta reprova; o
+  import, a chamada, o re-export e o comentário que cita o nome passam.
+
+A COINCIDÊNCIA CASADA COMO INVARIANTE, que você mandou procurar: estava nos contadores. Executar
+esta proposta derrubou a lista de propostas de 17 para 16 itens abertos, e CINCO LUGARES contam
+esse número. Os cinco andaram juntos, com o motivo escrito em cada um — e o lab61/lab62 cobraram
+dois deles antes de eu lembrar.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· nada escrito em repositório vizinho — git status limpo nos três clones, conferido ao fim;
+· nenhuma trava mudou de VEREDITO sobre o código de hoje: o da régua dos limites é [] nas duas
+  leituras, e o da trava do LAB-51 é [] nas duas limpezas — por isso a prova é plantada;
+· nenhuma régua foi afrouxada para passar, e a que eu NÃO unifiquei ficou com o motivo medido;
+· nenhuma pergunta ao Jonny, e nada novo entrou na página dele.
+```

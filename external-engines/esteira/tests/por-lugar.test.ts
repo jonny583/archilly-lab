@@ -37,14 +37,14 @@ describe("item 007 · a varredura por LUGAR, e a lista está escrita", () => {
 
   /**
    * **A conta que corrige o item 006.** Lá eu publiquei *"zero de quinze"* — as quinze eram as
-   * etiquetas de **um** lugar. Por lugar são **vinte e três** condições em **sete** lugares, e o
+   * etiquetas de **um** lugar. Por lugar são **vinte e duas** condições em **sete** lugares, e o
    * veredicto (nenhuma é CONTA) sobreviveu; a cobertura não. *O meu "zero" estava certo por não
    * haver nenhuma, não por a varredura alcançar.*
    */
-  test("são VINTE E TRÊS condições em sete lugares, e a varredura de frase alcançava QUINZE", () => {
-    expect(QUANTAS_CONDICOES.naFila).toBe(17);
+  test("são VINTE E DUAS condições em sete lugares, e a varredura de frase alcançava QUINZE", () => {
+    expect(QUANTAS_CONDICOES.naFila).toBe(16);
     expect(QUANTAS_CONDICOES.foraDaFila).toBe(6);
-    expect(QUANTAS_CONDICOES.total).toBe(23);
+    expect(QUANTAS_CONDICOES.total).toBe(22);
     // O número da varredura de FRASE é HISTÓRICO — o que ela alcançou no item 006 — e por isso
     // NÃO anda quando a `FILA.md` cresce.
     expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBe(15);

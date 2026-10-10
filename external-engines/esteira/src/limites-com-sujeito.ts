@@ -38,13 +38,23 @@ export interface LimiteSemSujeito {
   frase: string;
 }
 
-/** Tira do texto as linhas de citação (`>`), que são fonte de fora e não regra minha. */
-export function semCitacoes(texto: string): string {
-  return texto
-    .split("\n")
-    .filter((l) => !l.trimStart().startsWith(">"))
-    .join("\n");
-}
+/**
+ * Tira do texto o que não é regra minha: a linha de citação (`>`) **e o bloco de código**.
+ *
+ * **Era só a citação até o LAB-81** (item 014). O bloco de código entrou porque ele era o buraco
+ * comum às cinco leituras desta casa — e nas seções de regra da `CLAUDE.md` são **20 linhas**,
+ * **17 delas na §1**: o MOLDE do recado, que é exemplo e não regra sobre o recado.
+ *
+ * *Medido antes de trocar, como o item manda:* o veredito de hoje é **vazio nas duas leituras**,
+ * então a troca não mudou veredito nenhum — e a prova de que ela faz algo está nas travas, com a
+ * regra sem sujeito **plantada dentro de um bloco de código**.
+ *
+ * Mora em `texto-das-regras.ts`, com as outras cinco e com a pergunta de cada uma escrita: *uma
+ * régua que ninguém terminou* era o nome do problema (D259).
+ */
+export { soAProsa } from "./texto-das-regras.ts";
+
+import { soAProsa } from "./texto-das-regras.ts";
 
 /** As fatias do documento que são seção de regra, pela lista declarada acima. */
 export function secoesDeRegra(claudeMd: string): { titulo: string; corpo: string }[] {
@@ -90,7 +100,7 @@ export function dizDeQue(frase: string, palavra: string): boolean {
 export function limitesSemSujeito(claudeMd: string): LimiteSemSujeito[] {
   const achados: LimiteSemSujeito[] = [];
   for (const { titulo, corpo } of secoesDeRegra(claudeMd)) {
-    for (const frase of semCitacoes(corpo).split(/(?<=[.!?:])\s+|\n\n/)) {
+    for (const frase of soAProsa(corpo).split(/(?<=[.!?:])\s+|\n\n/)) {
       const limpa = frase.replace(/\s+/g, " ").trim();
       if (limpa === "" || RELATO.test(limpa) || !NUMERAL.test(limpa)) continue;
       for (const palavra of PALAVRAS_DE_LIMITE) {

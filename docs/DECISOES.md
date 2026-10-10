@@ -7859,3 +7859,137 @@ provar que a recusa acontece — e o tira, provando que a recusa não deixa res�
 custou um verde com `765 pass · 1 fail` em que o "fail" não era um teste: era o arquivo não
 abrindo. Esta não custou nada porque a primeira já tinha ensinado a procurar pelo número — o que
 faltava era recusar o empate.*
+
+---
+
+## D269 · ITEM ESCRITO A PARTIR DO MEU RELATÓRIO HERDA A IDADE DO RELATÓRIO · 10/10/2026
+
+O item 014 lista **três** leituras a unificar, e uma delas — `src/trava-de-estrutura.ts` — aparece
+como *"`/^\s*>/` **inline**"*.
+
+**Ela não era mais isso.** O LAB-80 já a havia passado para `lugaresDaPagina + afirmadoNaLinha` —
+e foi exatamente ali que o D266 nasceu, quando eu levei metade da cura e a fixture nova me pegou.
+
+O item foi escrito às 08h40 **a partir do meu relatório**, e aquele relatório descrevia o estado de
+antes daquela parte da rodada. **Não é erro do chat: é a forma do atraso.** Quem escreve a partir
+de um registro escreve sobre o instante do registro.
+
+> **Antes de executar um item, meça a premissa dele contra o código.** Senão o primeiro trabalho da
+> rodada é consertar o que já estava consertado — e isso sai como entrega, com relatório e tudo.
+
+Medido: das três, **uma estava pronta**. O escopo real da rodada era **duas**, e dizê-lo é parte da
+entrega — *escopo que encolhe por medição se declara; escopo que encolhe em silêncio é o D164.*
+
+**Isto NÃO entra na tabela do §6:** não houve acusação errada nem número publicado errado. Eu
+mediria duas vezes o mesmo arquivo, e a medição evitou. *Conta do ponto cego que cresce sem
+ocorrência nova dilui a conta.*
+
+---
+
+## D270 · TERMINAR AS CINCO LEITURAS NÃO ERA FAZÊ-LAS IGUAIS — e a CRASE é a única marca que às vezes é o DADO · 10/10/2026
+
+O LAB-80 contou cinco respostas para *"esta linha afirma ou só mostra?"* e deixou a frase:
+*"cinco respostas para a mesma pergunta não são cinco réguas: são uma régua que ninguém terminou."*
+O item 014 mandou terminá-la, **com a fronteira escrita**: *"cinco iguais por conveniência é pior
+que quatro iguais e uma declarada."*
+
+**Uma precisa ser diferente, e a medição é o que diz isso — não a opinião.** A trava do LAB-51
+varre o `conferir.sh`, um **script de shell**, procurando frases que AFIRMAM que algo não existe, e
+**extrai o caminho de dentro da crase** para conferir no disco:
+
+| limpeza | na mentira plantada | na citação plantada |
+|---|---|---|
+| `semCitacoes` (a dela) | nega ✔ · acha `.github/workflows/verde.yml` ✔ | passa ✔ |
+| `semRiscadoNemCitado` | nega ✔ · acha **ZERO caminhos** ✘ | passa ✔ |
+
+A limpeza mais forte **cega a trava no caso exato para que ela nasceu** — e *parece* mais rigorosa:
+nega igual, deixa a citação passar igual, e só o **dado** desaparece. E a leitura de Markdown ali é
+um **nada**: `lugaresDaPagina` sobre aquele `.sh` devolve **0 citação e 0 cerca em 147 linhas**.
+
+> **Unificar é dar UM LUGAR às leituras e UMA PERGUNTA a cada uma — não dar a mesma resposta a
+> perguntas diferentes.** A limpeza que remove o dado de quem a chama não é mais rigorosa: é **um
+> desligamento passando por conserto.**
+
+### A ordem da Central é o que separa o conserto do desligamento
+
+O item trouxe a ordem, e ela não é decoração: *provar primeiro que cada régua **continua achando o
+que achava**, e só depois que **deixou de achar o que não devia**.* Na ordem inversa eu teria visto
+*"a citação passa, o riscado passa, a cerca passa"* — **tudo verde** — e entregado uma trava cega.
+
+### A QUARTA forma que o item convidou não é uma forma: é uma propriedade
+
+O item disse que uma quarta forma de *"só mostra"*, se aparecesse medindo, entraria. Apareceu — e
+não é uma marca nova:
+
+> **A cerca, o `>` e o riscado NUNCA carregam o objeto da régua. A CRASE CARREGA.** É a única marca
+> de *"só mostra"* que às vezes é *"isto é o que eu vim medir"*.
+
+Daí a família ter **seis membros com perguntas declaradas** em vez de uma função com um argumento:
+a escolha entre elas não é de **rigor**, é de **qual é o objeto**. E a diferença não fica só num
+comentário — há trava que **reprova se a `semRiscadoNemCitado` passar a preservar a crase**, porque
+nesse dia a UMA declarada perde o motivo. *Diferença declarada que ninguém reconfere é a mesma
+coisa que diferença esquecida.*
+
+### O buraco comum, fechado
+
+`soAProsa()` tira **citação e bloco de código** — o bloco era o que faltava às cinco, e foi ele que
+fez a varredura de custo acusar o `RECADOS.md` por duas linhas que são **recado gravado**. Medido
+nas seções de regra da `CLAUDE.md`: **20 linhas em bloco de código, 17 na §1**, que são o **molde do
+recado** — exemplo, não regra sobre o recado.
+
+**E ela esvazia as linhas em vez de removê-las:** o número da linha não pode mentir para quem for
+ler o achado. *Limpeza que encurta o texto faz a régua apontar para a linha errada.*
+
+---
+
+## D271 · UNIFICAR SEM GUARDA CONSERTA O PASSADO E DEIXA O FUTURO IGUAL · 10/10/2026
+
+O problema do D259 nunca foi uma leitura **errada**. Foi **uma leitura nova nascendo dentro de cada
+trava que precisava dela** — cinco vezes, por cinco autores que eram a mesma pessoa em cinco dias.
+
+Juntar as cinco num lugar resolve as cinco. **Não resolve a sexta**, que nasce na próxima trava que
+precisar de uma e não souber que a casa já tem.
+
+> **Conserto de duplicação sem guarda contra a próxima é arrumação, não conserto.** A pergunta não
+> é *"quantas existem hoje?"* — é *"o que impede a próxima?"*
+
+A guarda varre todo `.ts` que o git carrega e reprova se qualquer arquivo **que não seja a casa**
+DEFINIR uma das leituras. Ela lê **os nomes que o código USA** (`soOsNomesUsados`), não o texto —
+então `import`, chamada, re-export e **comentário que cita o nome** não contam. Sem isso ela seria a
+sétima ocorrência da família do D142/D155: a guarda contra a duplicação acusando o arquivo que
+*documenta* a duplicação.
+
+E a tabela `AS_LEITURAS` — quem lê, o que responde, **e por que não a vizinha** — é conferida
+**contra os `import` de verdade** (D257), com sabotagem nos dois sentidos: instrumento que não
+importa o que diz importar reprova **pelo nome dele**, e instrumento que sumiu do disco também.
+*Tabela em documento envelhece igual a comentário* (D104); tabela conferida contra o `import` não.
+
+---
+
+## D272 · RÉGUA QUE ACUSA UMA CONTA TEM DE NOMEAR AS PARCELAS · 10/10/2026
+
+A convenção que eu declarei no D265 — *a classe de uma rodada sai da palavra `vazio`, `nada` ou
+`sem item` na coluna "o que achou"* — **me pegou de novo na rodada seguinte**. A linha das 09:06
+dizia *"logo depois do disparo em vazio"*, a régua leu o `vazio`, e a conta passou a declarar **5
+contra 6 medidos**.
+
+**Duas vezes em duas rodadas, as duas minhas, as duas pegas pela trava.**
+
+> **Convenção que o autor dela quebra na rodada seguinte não está mal obedecida: está escrita no
+> lugar errado.** Enquanto ela não virar campo, o que dá para fazer é a régua **explicar o
+> número** em vez de só o desmentir.
+
+E era isso que faltava, porque a mensagem dizia apenas *"a seção declara 5 em vazio e a tabela tem
+6"* — o que manda recontar seis linhas à mão para descobrir qual delas a régua classificou.
+
+> **Régua que acusa uma CONTA tem de nomear as PARCELAS.** O total diz que algo está errado; a
+> parcela diz **o quê**. E quando a classificação vem de uma palavra em prosa, a parcela é a única
+> coisa que explica o número — sem ela, cada divergência custa a reconstrução inteira.
+
+A mensagem agora lista **as linhas que ela contou como em vazio**, com data e hora, e **diz de
+onde vem a classe** (a palavra na coluna). Custo: três linhas. O que economiza: a reconstrução que
+eu acabei de fazer duas vezes.
+
+*Não virou campo nesta rodada de propósito: o item 014 é sobre as leituras de texto, e trocar o
+modelo da conta dos disparos no meio dele seria ampliar escopo (§1-A). A régua não erra em
+silêncio — a trava reprova sempre —, então o custo é um ciclo, não uma medição falsa.*

@@ -74,10 +74,14 @@ const lista1 = abertos.map((p, i) => ({
  * mostra?"* entrou com `prompt-novo` (D259). O LAB-80 fez a parte que cabia numa rodada e parou —
  * as outras três leituras tocam cinco arquivos e as travas de três deles.
  *
+ * **17 → 16 no LAB-81:** essa mesma proposta foi **executada** (item 014), então o item saiu de
+ * aberto para riscado-com-executor. *A lista encolher por entrega é a única forma saudável de ela
+ * encolher* — e é por isso que o número é cobrado nos dois sentidos.
+ *
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */
-const ABERTOS_ESPERADOS = 17;
+const ABERTOS_ESPERADOS = 16;
 
 cobrar(
   lista1.length === ABERTOS_ESPERADOS,

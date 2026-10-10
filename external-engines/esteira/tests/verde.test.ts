@@ -26,6 +26,8 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 
+import { semCitacoes } from "../src/texto-das-regras.ts";
+
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SCRIPT = join(RAIZ, "external-engines", "conferir.sh");
 
@@ -47,7 +49,11 @@ const WORKFLOW = join(RAIZ, ".github", "workflows", "verde.yml");
  * **O buraco, declarado:** afirmação disfarçada de citação escapa. É o preço de a régua
  * respeitar a marca — e é menor que o preço de ela reprovar o próprio conserto.
  */
-const semCitacoes = (t: string) => t.replace(/\*"[^"]*"\*/g, " ").replace(/"[^"\n]*"/g, " ");
+// Mora em `src/texto-das-regras.ts` desde o LAB-81, com as outras e com a pergunta declarada.
+// **A CRASE NÃO SAI, de propósito:** esta trava extrai o caminho de DENTRO da crase, e a limpeza
+// mais forte (`semRiscadoNemCitado`) acha ZERO caminhos na mentira plantada. É a UMA declarada
+// como diferente no item 014 — *cinco iguais por conveniência é pior que quatro iguais e uma
+// declarada* —, e `lugaresDaPagina` sobre um `.sh` devolve 0 de 147 linhas: ali ela é um nada.
 
 /** Os pacotes que existem de verdade, descobertos como o script os descobre. */
 function pacotesDoRepositorio(): string[] {

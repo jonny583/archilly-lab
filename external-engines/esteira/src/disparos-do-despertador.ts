@@ -145,9 +145,21 @@ export function conferirAConta(
   }
   const vazios = conta.linhas.filter((l) => l.emVazio);
   if (conta.declarados.emVazio !== vazios.length) {
+    // **A mensagem NOMEIA as linhas que ela contou, e o motivo é medido** (LAB-81): a classe de
+    // uma rodada sai da PALAVRA na coluna "o que achou" — `vazio`, `nada` ou `sem item` —, que é
+    // uma convenção real, declarada no `ONDE_PARAMOS.md` ao lado desta régua (D265). Ela me pegou
+    // **duas vezes em duas rodadas**, e nas duas o número sozinho não dizia QUAL linha era.
+    //
+    // > **Régua que acusa uma CONTA tem de nomear as parcelas.** Dizer "declara 5 e a tabela tem
+    // > 6" manda recontar seis linhas à mão; dizer quais seis resolve em um olhar — e quando a
+    // > classificação vem de uma palavra em prosa, a parcela é a única coisa que explica o número.
+    const quais = vazios.map((l) => `${l.data} ${l.hora}`).join(", ");
     problemas.push({
       tipo: "total-declarado-diferente-das-linhas",
-      oQue: `a seção declara ${conta.declarados.emVazio} em vazio e a tabela tem ${vazios.length}`,
+      oQue:
+        `a seção declara ${conta.declarados.emVazio} em vazio e a tabela tem ${vazios.length} — ` +
+        `as que a régua contou como em vazio são: ${quais}. A classe sai da palavra "vazio", ` +
+        `"nada" ou "sem item" na coluna do que achou, que é a convenção declarada ao lado da conta`,
     });
   }
 

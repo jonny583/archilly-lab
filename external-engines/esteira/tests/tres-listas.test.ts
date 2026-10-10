@@ -65,15 +65,15 @@ describe("LAB-62 · a conta das três listas fecha", () => {
   });
 
   /**
-   * **Eram ONZE no LAB-62, TREZE em 08/10, QUINZE em 09/10, DEZESSEIS e depois DEZESSETE em
-   * 10/10**, com os dois itens da rodada do orçamento de Actions (D221, D223), a proposta do
+   * **Eram ONZE no LAB-62, TREZE em 08/10, QUINZE em 09/10, DEZESSEIS, DEZESSETE e de volta a
+   * DEZESSEIS em 10/10** — a última por ENTREGA (o LAB-81 executou a proposta das cinco leituras), com os dois itens da rodada do orçamento de Actions (D221, D223), a proposta do
    * sétimo mecanismo (D253) e a unificação das cinco leituras de *"afirma ou mostra"* (D259). O
    * número vive declarado na ferramenta (`ABERTOS_ESPERADOS`) e aqui, e mudá-lo é deliberado:
    * lista que cresce sem ninguém notar é a dívida que o LAB-61 achou.
    */
   test("os itens abertos batem com o número declarado hoje", () => {
-    expect(prova.lista1.quantos).toBe(17);
-    expect(prova.lista1.itens).toHaveLength(17);
+    expect(prova.lista1.quantos).toBe(16);
+    expect(prova.lista1.itens).toHaveLength(16);
   });
 
   test("todo item aberto da lista 1 leva motivo declarado", () => {
@@ -201,10 +201,10 @@ describe("LAB-62 · os blocos que vão ao chat são a SAÍDA da ferramenta", () 
       blocos.indexOf("=== FIM DA LISTA 1 ==="),
     );
     const linhas = corpo.split("\n").filter((l) => /^\s*\d+\. \[/.test(l));
-    // 15 → 16 no LAB-78 (o sétimo mecanismo, D253) e 16 → 17 no LAB-80 (a unificação das cinco
-    // leituras, D259). O número está declarado em `ABERTOS_ESPERADOS` com o motivo, e os três
-    // lugares que o contam andam JUNTOS — foi o que o verde cobrou aqui, nas duas vezes.
-    expect(linhas).toHaveLength(17);
+    // 15 → 16 no LAB-78 (o sétimo mecanismo, D253), 16 → 17 no LAB-80 (a unificação das cinco
+    // leituras, D259) e 17 → 16 no LAB-81, quando essa mesma proposta foi EXECUTADA. O número está
+    // declarado em `ABERTOS_ESPERADOS` com o motivo, e os três lugares que o contam andam JUNTOS.
+    expect(linhas).toHaveLength(16);
   });
 
   test("cada item das listas 2 e 3 carrega a afirmação, a frequência e o que não serve", () => {
