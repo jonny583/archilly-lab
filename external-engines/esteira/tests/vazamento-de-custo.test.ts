@@ -37,8 +37,13 @@ import {
   RIGOR,
   SABOTAGEM,
   VALORES_DO_NOSSO_CUSTO,
+  AS_ONZE_ISENCOES,
+  PERDAS_DECLARADAS,
+  REGUA_VELHA,
   aContaDosDestinosFecha,
   arquivosDoGit,
+  asDuasReguas,
+  leuMenosDoQueAfirma,
   chamadasPagasDeIA,
   destinosDe,
   formaDoRegistro,
@@ -111,6 +116,79 @@ describe("o nosso custo não vaza — escopado por destino (D243)", () => {
 });
 
 /**
+ * ── A FRONTEIRA DO ITEM 013: a perda sai DEMONSTRADA, não declarada ─────────
+ *
+ * > *"Se o conjunto novo vê menos em algum ponto, isso sai escrito como **perda declarada** — não
+ * > como melhoria."*
+ *
+ * E aqui ela sai **demonstrada**: cada perda traz uma frase concreta, e a trava roda **as duas
+ * réguas** sobre ela — a velha tem de pegar, a nova tem de deixar passar. *Perda declarada que
+ * ninguém demonstra é perda suposta*, e uma lista de perdas que não reprova nada é alívio escrito
+ * em forma de rigor.
+ */
+describe("a fronteira do item 013 — o que a régua nova NÃO vê mais", () => {
+  test("são TRÊS perdas, e cada uma é demonstrada pelas duas réguas", () => {
+    expect(PERDAS_DECLARADAS).toHaveLength(3);
+    for (const perda of PERDAS_DECLARADAS) {
+      // A régua VELHA pegava a frase...
+      expect(
+        REGUA_VELHA.some((re) => re.test(perda.frazeQueEscapa)),
+        `a perda "${perda.oQue}" afirma que a régua velha pegava "${perda.frazeQueEscapa}" — e ela NÃO pega: a perda está descrita errado`,
+      ).toBe(true);
+      // ...e a NOVA, no destino onde doía, deixa passar.
+      expect(
+        vazaNoDestino(perda.ondeDoia, perda.frazeQueEscapa),
+        `a perda "${perda.oQue}" afirma que a régua nova deixa passar "${perda.frazeQueEscapa}" — e ela PEGA: a perda não existe mais, tire-a da lista`,
+      ).toBe(false);
+      expect(perda.oMotivo.length, perda.oQue).toBeGreaterThan(40);
+    }
+  });
+
+  test("a perda do CÓDIGO não é perda nos outros destinos — o valor é pego onde CHEGA", () => {
+    // É a lógica do modelo: a string de código não é varrida, mas o valor que ela escreva num
+    // relatório, numa prova ou na tela é varrido ali — e `tela` e `dado` leem no CRU.
+    const naString = "custo × 3";
+    expect(vazaNoDestino("codigo", `const aviso = "${naString}";`)).toBe(false);
+    for (const d of ["tela", "dado", "upstream-intocavel"] as const) {
+      expect(vazaNoDestino(d, naString), d).toBe(true);
+    }
+    expect(vazaNoDestino("registro", naString, "dados")).toBe(true);
+  });
+
+  test("as duas réguas, LADO A LADO e arquivo por arquivo", () => {
+    const lado = asDuasReguas(RAIZ, arquivos);
+    // Nenhum arquivo é acusado pela régua NOVA — é o estado de hoje, e é o que o verde cobra.
+    expect(lado.filter((l) => l.aNovaAcusa > 0).map((l) => l.arquivo)).toEqual([]);
+    // E a velha acusava de verdade: a comparação não é entre dois zeros. *Zero de zero não é
+    // aprovação* — se este número for a zero, a régua velha deixou de ser comparável e esta
+    // trava está medindo nada.
+    const queAVelhaAcusava = lado.filter((l) => l.aVelhaAcusava > 0);
+    expect(queAVelhaAcusava.length).toBeGreaterThan(5);
+    // Todo arquivo que a VELHA acusava e que não estava isento por nome teria REPROVADO o verde.
+    // São os que provam que a lista nominal não era zelo: era a condição de o verde existir.
+    expect(queAVelhaAcusava.every((l) => l.eraIsentoPorNome || l.aVelhaAcusava > 0)).toBe(true);
+    expect(AS_ONZE_ISENCOES).toHaveLength(11);
+  });
+
+  test("a varredura não LEU MENOS do que afirma — zero de zero não é aprovação", () => {
+    const problemas = leuMenosDoQueAfirma(varredura);
+    expect(problemas, problemas.join("\n")).toEqual([]);
+    // E o universo de cada destino sai publicado, não suposto.
+    for (const d of DESTINOS) {
+      expect(varredura.porDestino[d], d).toBeGreaterThan(0);
+      expect(varredura.linhasLidas[d], d).toBeGreaterThan(0);
+    }
+  });
+
+  test("a régua do LEU MENOS reprova de verdade — destino cego e destino vazio", () => {
+    const cego = { ...varredura, linhasLidas: { ...varredura.linhasLidas, tela: 0 } };
+    expect(leuMenosDoQueAfirma(cego).join(" ")).toContain("tela");
+    const vazio = { ...varredura, porDestino: { ...varredura.porDestino, tela: 0 } };
+    expect(leuMenosDoQueAfirma(vazio).join(" ")).toContain("tela");
+  });
+});
+
+/**
  * ── A GUARDA DA GUARDA, NOS DOIS SENTIDOS E POR DESTINO ─────────────────────
  *
  * *Régua nova nasce estreita demais, e às vezes larga demais — as duas coisas são o mesmo
@@ -148,6 +226,25 @@ describe("a guarda da guarda — por destino, nos dois sentidos", () => {
    * dos arquivos: *régua nova nasceu com a doença que a régua velha já tinha curado, um campo
    * ao lado.*
    */
+  /**
+   * **A sabotagem que o item 013 pede com estas palavras:** *"valor de custo plantado no destino
+   * de usuário tem de ser acusado; o mesmo valor dentro de citação num relatório tem de passar
+   * calado."* As duas metades, com o MESMO valor, para a comparação ser honesta.
+   */
+  test("o MESMO valor: acusado na TELA, e calado dentro de citação num relatório", () => {
+    const valor = "a margem de lucro é 40 % sobre o custo";
+    // No destino de usuário, sempre.
+    expect(vazaNoDestino("tela", valor)).toBe(true);
+    // Em prosa nua de um relatório, também — é vazamento escrito.
+    expect(vazaNoDestino("registro", valor)).toBe(true);
+    // Mas citado, não: a linha de citação é fonte de fora, e reportar não é assumir.
+    const pagina = `prosa qualquer\n> ${valor}\n\`\`\`\n${valor}\n\`\`\`\nmais prosa`;
+    const lugares = lugaresDaPagina(pagina);
+    expect(lugares).toEqual(["prosa", "citacao", "bloco-de-codigo", "bloco-de-codigo", "bloco-de-codigo", "prosa"]);
+    // E entre aspas curtas, na mesma linha, também passa — é a leitura do D177.
+    expect(vazaNoDestino("registro", `a Central escreveu *"${valor}"* no achado dela`)).toBe(false);
+  });
+
   test("o FATOR geométrico não é acusado — seria medir ortografia (D137, segunda vez)", () => {
     for (const linha of [
       "**24,23 %** e pior **161,38 %**, fator de **6,7×**; `10ha-plano` dá 1,17 % contra",

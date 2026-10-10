@@ -377,3 +377,138 @@ export function vazaNoDestino(
 export function aContaDosDestinosFecha(v: Varredura): boolean {
   return Object.values(v.porDestino).reduce((a, b) => a + b, 0) === v.universo;
 }
+
+/**
+ * ════════════════════════════════════════════════════════════════════════════
+ *  A FRONTEIRA DO ITEM 013: a régua VELHA e a NOVA lado a lado, e a PERDA declarada.
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * O item 013 põe a fronteira em palavras que não deixam escolha:
+ *
+ * > *"Mudança de modelo de varredura de segurança **pode encolher o que ela vê**. Então a entrega
+ * > traz as duas medições lado a lado… e o que deixou de ser olhado, com o motivo. Se o conjunto
+ * > novo vê menos em algum ponto, isso sai escrito como **perda declarada** — não como
+ * > melhoria."*
+ *
+ * **Ela vê menos em três pontos, e nenhum é acidente.** Está tudo abaixo, com o que cada um
+ * deixaria passar — e o que deixaria passar está escrito como **frase que escaparia**, não como
+ * abstração, porque perda que não diz o que passa não é declaração: é alívio.
+ */
+
+/** A régua VELHA, como era: nome e proximidade, no texto CRU, em todo arquivo. */
+export const REGUA_VELHA = [...NOMES_DO_NOSSO_CUSTO, MARGEM_DE_DINHEIRO] as const;
+
+/** As 11 isenções nominais que o desenho velho precisava para sair verde. */
+export const AS_ONZE_ISENCOES = [
+  "external-engines/esteira/tests/vazamento-de-custo.test.ts",
+  "docs/DECISOES.md",
+  "docs/relatorios/RECADOS.md",
+  "docs/relatorios/LAB-67.md",
+  "docs/INDEX.md",
+  "CLAUDE.md",
+  "docs/caixa-de-entrada/005-FEITO.md",
+  "docs/relatorios/LAB-72.md",
+  "external-engines/esteira/src/cobranca-por-uso.ts",
+  "docs/relatorios/LAB-73.md",
+  "docs/relatorios/LAB-74.md",
+] as const;
+
+export interface Perda {
+  oQue: string;
+  ondeDoia: Destino;
+  oMotivo: string;
+  /** Uma frase que a régua VELHA pegava e a NOVA deixa passar. Concreta, não abstrata. */
+  frazeQueEscapa: string;
+}
+
+/**
+ * O que o desenho novo **deixou de olhar**, ponto por ponto. Conjunto fechado, e a trava confere
+ * cada entrada **rodando as duas réguas** sobre a frase declarada: a velha tem de pegar, a nova
+ * tem de deixar passar. *Perda declarada que ninguém demonstra é perda suposta.*
+ */
+export const PERDAS_DECLARADAS: readonly Perda[] = [
+  {
+    oQue: "no registro, o NOME do nosso custo sem número ao lado deixou de ser acusado",
+    ondeDoia: "registro",
+    oMotivo:
+      "é o que a casa precisa escrever para PROIBIR o vazamento — e era a causa das 11 isenções: a frase que proíbe enumera os nomes que proíbe. A régua passou a pedir o VALOR, que é a palavra do D243",
+    frazeQueEscapa: "o multiplicador da família fica no Admin",
+  },
+  {
+    oQue: "no registro, `margem` ao lado de palavra de dinheiro SEM número deixou de ser acusada",
+    ondeDoia: "registro",
+    oMotivo:
+      "mesma causa: *\"custo, fator e margem nunca chegam ao usuário comum\"* é a §4-A enunciando a regra, e ela não traz número nenhum. Nos outros quatro destinos a régua de proximidade continua valendo igual",
+    frazeQueEscapa: "preço com margem",
+  },
+  {
+    oQue: "no código, o nome dentro de comentário, de string e de literal de regex deixou de ser acusado",
+    ondeDoia: "codigo",
+    oMotivo:
+      "um padrão que PROCURA o nome não o usa, e era por isso que a trava acusava a si mesma em 13 linhas (D257, D258). O que sobra é a posição de identificador, a única que limpeza nenhuma alcança — e o valor que uma string carregue é pego no DESTINO onde ele chega, que é varrido no cru",
+    frazeQueEscapa: 'const aviso = "custo × 3";',
+  },
+];
+
+export interface LadoALado {
+  arquivo: string;
+  destino: Destino;
+  /** Quantas linhas a régua VELHA acusava — contando as que ela só não via por isenção nominal. */
+  aVelhaAcusava: number;
+  /** Quantas a régua NOVA acusa. */
+  aNovaAcusa: number;
+  /** A velha precisava do nome deste arquivo numa lista para sair verde? */
+  eraIsentoPorNome: boolean;
+}
+
+/**
+ * As duas réguas lado a lado, **arquivo por arquivo** — e a velha é rodada SEM a lista de
+ * isenções, porque é isso que ela de fato acusava; a lista só a calava.
+ */
+export function asDuasReguas(raiz: string, arquivos: readonly string[]): LadoALado[] {
+  const destinos = destinosDe(arquivos);
+  const nova = varrerOQueSai(raiz, arquivos);
+  const fora: LadoALado[] = [];
+  for (const arquivo of arquivos) {
+    let texto: string;
+    try {
+      texto = readFileSync(join(raiz, arquivo), "utf8");
+    } catch {
+      continue;
+    }
+    let velha = 0;
+    for (const linha of texto.split("\n")) {
+      if (REGUA_VELHA.some((re) => re.test(linha))) velha++;
+    }
+    const novas = nova.achados.filter((a) => a.arquivo === arquivo).length;
+    if (velha === 0 && novas === 0) continue;
+    fora.push({
+      arquivo,
+      destino: destinos.get(arquivo)!,
+      aVelhaAcusava: velha,
+      aNovaAcusa: novas,
+      eraIsentoPorNome: (AS_ONZE_ISENCOES as readonly string[]).includes(arquivo),
+    });
+  }
+  return fora.sort((a, b) => b.aVelhaAcusava - a.aVelhaAcusava || a.arquivo.localeCompare(b.arquivo));
+}
+
+/**
+ * **A varredura leu MENOS do que afirma?** O item 013 cobra isto com a frase certa — *zero de
+ * zero não é aprovação, e `every` sobre lista vazia é verdade*.
+ *
+ * Devolve o nome de cada destino que tem arquivo e **não ofereceu linha nenhuma** à régua, e o de
+ * cada destino que ficou **sem arquivo**. Os dois são motivo de reprovação: o primeiro é régua
+ * cega, o segundo é um conjunto que sumiu sem ninguém declarar.
+ */
+export function leuMenosDoQueAfirma(v: Varredura): string[] {
+  const problemas: string[] = [];
+  for (const d of DESTINOS) {
+    if (v.porDestino[d] === 0) {
+      problemas.push(`${d}: destino sem arquivo nenhum — ou o conjunto sumiu, ou a régua do caminho mudou`);
+    } else if (v.linhasLidas[d] === 0) {
+      problemas.push(`${d}: ${v.porDestino[d]} arquivos e ZERO linhas lidas — a régua está cega aqui`);
+    }
+  }
+  return problemas;
+}

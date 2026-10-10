@@ -1519,12 +1519,12 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 
 ---
 
-## 10/10/2026 · LAB-80 — a D243: a varredura de custo escopada por destino, 11 isenções a zero
+## 10/10/2026 · LAB-80 — item 013 / D243: a varredura de custo escopada por destino, 11 isenções a zero
 
 ```
-=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-80 ===
-Estado: D243 FEITA, sozinha na rodada como você pediu. Verde conferido aqui, não no GitHub.
-Feito: a varredura de custo deixou de isentar por NOME. Os 469 arquivos que o git carrega passaram a ter um DESTINO, pela estrutura do caminho — tela 2, codigo 197, registro 217, dado 28, upstream 25, e a soma fecha. A régua do registro pede o VALOR (o nome COM número), que é a sua palavra no D243. DAS 11 ISENÇÕES, ZERO SOBREVIVERAM, e a varredura agora varre A SI MESMA. Relatório em docs/relatorios/LAB-80.md, decisões D258 a D263.
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-80 (item 013) ===
+Estado: D243 FEITA, sozinha na rodada como você pediu, e ela É o seu item 013 — que entrou DEPOIS de eu começar, pedindo a mesma coisa que eu já estava fazendo pela FILA. Achei na conferência de envio (D238). Verde conferido aqui, não no GitHub: 877 travas na esteira + 17 no testfit, 7 passos, exit 0.
+Feito: a varredura de custo deixou de isentar por NOME. Os 471 arquivos que o git carrega passaram a ter um DESTINO, pela estrutura do caminho — tela 2, codigo 197, registro 219, dado 28, upstream 25, e a soma fecha. A régua do registro pede o VALOR (o nome COM número), que é a sua palavra no D243. DAS 11 ISENÇÕES, ZERO SOBREVIVERAM, e a varredura agora varre A SI MESMA. Relatório em docs/relatorios/LAB-80.md, decisões D258 a D267.
 Achados para outros apps ou Central: (1) DUAS das 11 isenções estavam MORTAS, e a LAB-74.md NUNCA tropeçou em nenhuma das 7 regras em toda a sua história — numa lista que jurava no próprio comentário não adivinhar —, e ela é UMA DAS DUAS QUE DISPARARAM O CRITÉRIO. (2) A causa do crescimento não era defeito em arquivo nenhum: a frase que PROÍBE enumera numa linha os três nomes que proíbe, e tem de estar escrita onde a regra vale — lista que cresce assim mede quantas vezes a casa repetiu a própria regra. (3) O PONTO CEGO BATEU DUAS VEZES, as duas contra réguas minhas desta rodada, e a §6 foi a VINTE E SEIS: a régua nova do fator acusou TRÊS razões de rampa, porque escrevi o irmão do margem sem a cura que o margem já tinha desde o LAB-67 (régua nova nasce com a doença que a régua velha já curou, um campo ao lado); e a PROVA publicou as fixtures da sabotagem, então a varredura acusou a própria prova em 7 linhas (a prova publica o VEREDICTO, não a fixture). (4) E O ACHADO MAIS CARO NÃO É MEU, É ANTERIOR A MIM: a limpeza desta casa, a soOCodigo(), COLAPSAVA 422 LINHAS EM 164 — o esvaziador de strings casa de uma aspa à próxima através de quebras de linha e não sabia que uma aspa pode morar DENTRO de um literal de regex, e o arquivo que declara a própria limpeza escreve uma classe de caracteres com as três aspas. O efeito não era erro, era CEGUEIRA: a varredura de chamadas deixou de achar o único achado daquele arquivo, de 1 para 0, e um erro engolido escrito ali passaria igual. Quem pegou foi a METADE DA TRAVA QUE QUASE NINGUÉM ESCREVE — a dos FANTASMAS, que cobra que um achado benigno declarado NÃO DESAPAREÇA. Para a família é a lição que vale mais: lista de benignos sem a metade "nenhum deles sumiu" aprova o silêncio — a metade que cobra "nenhum NOVO" protege contra defeito que entra, a que cobra "nenhum sumiu" protege contra a régua que PARA DE MEDIR. (5) BURACO DECLARADO NÃO É BURACO FECHADO, e o preço de fechá-lo depende da PERGUNTA: o soOCodigo() declinava de ler literal de regex "porque não valia o preço", e para esta varredura valia — fechá-lo deixou de ser preço e passou a ser correção. (6) E uma sobre MEDIR RÉGUA: levei o conserto à régua IRMÃ (as condições de conta, mesma lista nominal, mesmo motivo) e errei duas vezes — medi com um script que parava no primeiro padrão que casava enquanto a régua medida testa todos, e ia publicar "três isenções a uma" sendo três a DUAS; e troquei a proteção da citação pela leitura nova em vez de usar as DUAS, perdendo o conserto do item 007. Instrumento de medição mais estreito que o instrumento medido dá o número para o lado OTIMISTA — e o lado otimista é o que ninguém confere, porque confirma o conserto. §6 foi a VINTE E SETE, com classe nova.
 Depende do Jonny: nada novo — a página dele não mudou nesta rodada.
 Próximo na fila: UNIFICAR AS CINCO LEITURAS DE "esta linha afirma ou só mostra?" — contei cinco, três dentro de travas, e NENHUMA conhecia o bloco de código, que é onde moram os recados. Fiz a minha parte (a leitura nova mora em src/, e tirei uma de dentro de um teste) e PAREI: as outras três tocam cinco arquivos e as travas de três deles. Está na FILA como proposta, com a contagem.
@@ -1532,13 +1532,22 @@ Próximo na fila: UNIFICAR AS CINCO LEITURAS DE "esta linha afirma ou só mostra
 
 --- O QUE VAI JUNTO ---
 
-POR QUE ESTA RODADA EXECUTOU COM A CAIXA VAZIA, e é a primeira vez que isto acontece:
+A FILA E A CAIXA APONTARAM PARA O MESMO ITEM, e quem as reconciliou foi uma conferência:
 
-A caixa não tinha item novo — os doze estão -FEITO, conferido na origin/main e não só no clone.
-Mas o item 012 FECHOU ELEGENDO o próximo em texto: "a D243 é o próximo item. Não comece agora —
-não se faz na mesma rodada de outra coisa." A proibição era "na mesma rodada de outra coisa", e
-esta rodada não tinha outra coisa. A D243 estava na FILA.md, que a §1-A chama de fila oficial e
-manda este repositório executar em laço. Item eleito por escrito não é item inventado.
+Ao acordar, a caixa estava com os doze feitos — conferido na origin/main, não só no clone. Abri a
+rodada executando a D243 pela FILA.md, porque o item 012 a elegeu por escrito como "o próximo
+item" e a §1-A manda executar a fila em laço; a proibição dele era "na mesma rodada de outra
+coisa", e esta rodada não tinha outra coisa.
+
+VOCÊ ESCREVEU O 013 ENQUANTO EU TRABALHAVA, pedindo a MESMA D243 — e eu o encontrei na conferência
+da caixa NA HORA DE ENVIAR, que é exatamente o que o D238 existe para obrigar. Sem ele, este recado
+teria dito "a caixa estava vazia" no mesmo minuto em que o item que eu acabara de cumprir estava
+escrito nela — o erro do dia 09, repetido ao contrário.
+
+QUANDO A FILA E A CAIXA APONTAM PARA O MESMO ITEM, QUEM RECONCILIA AS DUAS É A CONFERÊNCIA DE
+ENVIO, NÃO A SORTE. E os três pedidos extras do 013, que a FILA não tinha, foram atendidos: as
+duas réguas lado a lado arquivo por arquivo, as perdas DEMONSTRADAS e o universo que reprova se
+ler menos do que afirma. Ver abaixo.
 
 E a conta dos disparos em vazio NÃO recebeu esta data, de propósito:
 
@@ -1555,7 +1564,32 @@ O DESENHO, EM UMA TABELA:
   registro                  217   SÓ O VALOR — docs/ inteiro mais o CLAUDE.md
   dado                       28   nome e valor, no cru — o que entra e o que sai cru
   upstream-intocavel         25   nome e valor, no cru — achado aqui é CONFLITO de regras (§3)
-                            469   a soma fecha, e há trava que soma
+                            471   a soma fecha, e há trava que soma
+
+A FRONTEIRA DO 013, E A PROVA MAIS FORTE DA PREMISSA SAIU DA PRÓPRIA ENTREGA:
+
+Você proibiu entregar isto como melhoria: "se o conjunto novo vê menos em algum ponto, isso sai
+escrito como perda declarada". As duas réguas estão lado a lado, arquivo por arquivo, na prova e no
+§3-A do relatório. E ali apareceu o seguinte: TRÊS arquivos DESTA ENTREGA — o módulo do modelo, o
+relatório e o módulo da leitura — seriam acusados pela régua velha, e nenhum deles estava nas 11.
+
+  O DESENHO VELHO TERIA PRECISADO DE TRÊS ISENÇÕES NOVAS SÓ PARA ESTA RODADA SAIR VERDE: 11 → 14.
+
+A premissa do D243 não precisou de argumento: a entrega que a conserta seria a próxima a pagar a
+conta dela. "Uma linha por relatório, para sempre" — e esta rodada traria três.
+
+AS TRÊS PERDAS, e cada uma sai DEMONSTRADA e não só declarada (a trava roda AS DUAS réguas sobre a
+frase: a velha tem de pegar, a nova tem de deixar passar — perda que ninguém demonstra é suposta):
+
+  registro · o NOME do custo sem número ao lado ......... escaparia: "o multiplicador fica no Admin"
+  registro · `margem` perto de dinheiro SEM número ..... escaparia: "preço com margem"
+  codigo   · o nome em comentário, string e regex ....... escaparia: const aviso = "custo × 3";
+
+E a perda do código NÃO é perda nos outros destinos, por desenho: o valor que uma string escreva
+num relatório, numa prova ou na tela é varrido ONDE ELE CHEGA — tela e dado leem no cru, e há trava
+com o mesmo valor nos cinco destinos. ZERO DE ZERO NÃO É APROVAÇÃO, e isso você cobrou: a varredura
+publica quantas linhas leu em cada destino e reprova se um destino tiver arquivo e ler zero linha,
+ou ficar sem arquivo nenhum — com sabotagem nos dois sentidos também nessa régua.
 
 O QUE A MEDIÇÃO ACHOU E A PROPOSTA NÃO PREVIA:
 

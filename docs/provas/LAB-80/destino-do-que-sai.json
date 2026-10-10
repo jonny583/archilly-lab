@@ -2,23 +2,23 @@
   "prompt": "LAB-80",
   "oQue": "a varredura de custo escopada por DESTINO e não por nome de arquivo (D243): cada arquivo que o git carrega recebe um destino pela ESTRUTURA do caminho, e o destino decide o rigor. O `registro` — onde a casa escreve a própria regra — é varrido só pelo VALOR, e só em prosa nua; os outros quatro, pelo nome e pelo valor",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto é o conjunto de ARQUIVOS que o git carrega. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-10T07:05:32.461Z",
+  "quando": "2026-10-10T07:54:08.179Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
   },
-  "universo": 469,
+  "universo": 471,
   "porDestino": {
     "tela": 2,
-    "registro": 217,
+    "registro": 219,
     "codigo": 197,
     "dado": 28,
     "upstream-intocavel": 25
   },
   "linhasLidas": {
     "tela": 165,
-    "registro": 1264669,
-    "codigo": 49820,
+    "registro": 1265198,
+    "codigo": 50089,
     "dado": 260278,
     "upstream-intocavel": 7810
   },
@@ -108,6 +108,118 @@
       "oTextoPlantado": "não vai à prova de propósito — mora em `SABOTAGEM`, em src/destino-do-que-sai.ts"
     }
   ],
+  "leuMenosDoQueAfirma": [],
+  "asDuasReguasLadoALado": [
+    {
+      "arquivo": "external-engines/esteira/tests/vazamento-de-custo.test.ts",
+      "destino": "codigo",
+      "aVelhaAcusava": 22,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "external-engines/esteira/src/destino-do-que-sai.ts",
+      "destino": "codigo",
+      "aVelhaAcusava": 14,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": false
+    },
+    {
+      "arquivo": "docs/relatorios/RECADOS.md",
+      "destino": "registro",
+      "aVelhaAcusava": 6,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "docs/relatorios/LAB-67.md",
+      "destino": "registro",
+      "aVelhaAcusava": 4,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "docs/relatorios/LAB-80.md",
+      "destino": "registro",
+      "aVelhaAcusava": 4,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": false
+    },
+    {
+      "arquivo": "CLAUDE.md",
+      "destino": "registro",
+      "aVelhaAcusava": 2,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "docs/caixa-de-entrada/005-FEITO.md",
+      "destino": "registro",
+      "aVelhaAcusava": 2,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "external-engines/esteira/src/cobranca-por-uso.ts",
+      "destino": "codigo",
+      "aVelhaAcusava": 2,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "docs/DECISOES.md",
+      "destino": "registro",
+      "aVelhaAcusava": 1,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "docs/INDEX.md",
+      "destino": "registro",
+      "aVelhaAcusava": 1,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "docs/relatorios/LAB-72.md",
+      "destino": "registro",
+      "aVelhaAcusava": 1,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "docs/relatorios/LAB-73.md",
+      "destino": "registro",
+      "aVelhaAcusava": 1,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": true
+    },
+    {
+      "arquivo": "external-engines/esteira/src/texto-das-regras.ts",
+      "destino": "codigo",
+      "aVelhaAcusava": 1,
+      "aNovaAcusa": 0,
+      "eraIsentoPorNome": false
+    }
+  ],
+  "perdasDeclaradas": [
+    {
+      "oQue": "no registro, o NOME do nosso custo sem número ao lado deixou de ser acusado",
+      "ondeDoia": "registro",
+      "oMotivoEAFraseQueEscapa": "não vão à prova de propósito (D262): o motivo CITA a frase proibida, e JSON não tem marca de citação. Estão em `PERDAS_DECLARADAS`, em src/destino-do-que-sai.ts, e no §3-A do relatório"
+    },
+    {
+      "oQue": "no registro, `margem` ao lado de palavra de dinheiro SEM número deixou de ser acusada",
+      "ondeDoia": "registro",
+      "oMotivoEAFraseQueEscapa": "não vão à prova de propósito (D262): o motivo CITA a frase proibida, e JSON não tem marca de citação. Estão em `PERDAS_DECLARADAS`, em src/destino-do-que-sai.ts, e no §3-A do relatório"
+    },
+    {
+      "oQue": "no código, o nome dentro de comentário, de string e de literal de regex deixou de ser acusado",
+      "ondeDoia": "codigo",
+      "oMotivoEAFraseQueEscapa": "não vão à prova de propósito (D262): o motivo CITA a frase proibida, e JSON não tem marca de citação. Estão em `PERDAS_DECLARADAS`, em src/destino-do-que-sai.ts, e no §3-A do relatório"
+    }
+  ],
+  "aFronteiraDoItem013": "o item 013 proíbe entregar isto como melhoria: mudança de modelo de varredura de segurança pode encolher o que ela vê, e o que encolheu sai como PERDA. São três, e cada uma traz a frase concreta que escaparia — a trava roda AS DUAS réguas sobre essa frase, a velha tem de pegar e a nova tem de deixar passar. Perda declarada que ninguém demonstra é perda suposta",
   "oAchado": "a frase que PROÍBE o vazamento enumera numa linha os três nomes que ela proíbe, então toda régua de proximidade a morde — e ela tem de estar escrita em todo lugar onde a regra vale. A lista de isenções não media vazamento: media quantas vezes a casa repetiu a própria regra. A palavra do D243 é VALOR, e é o NÚMERO na linha que separa enunciar de vazar",
   "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
 }

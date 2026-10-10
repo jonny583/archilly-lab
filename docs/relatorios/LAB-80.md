@@ -1,12 +1,12 @@
 # LAB-80 · O DESTINO DO QUE SAI — a varredura de custo escopada por destino
 
-**Prompt:** D243, a proposta aberta que o chat elegeu no item 012 — *"ela é boa, está certa, e é
-a **próxima**"*. · **Rodada:** despertador das 06:05 de 10/10/2026, caixa **sem item novo**.
-· **Conferido aqui, não no GitHub** (§7).
+**Prompt:** **item 013** / D243 — a proposta que o chat elegeu no item 012 (*"ela é boa, está
+certa, e é a **próxima**"*) e depois escreveu como item, **durante esta rodada**. · **Rodada:**
+despertador das 06:05 de 10/10/2026. · **Conferido aqui, não no GitHub** (§7).
 
 ---
 
-## 0 · Por que esta rodada executou um prompt com a caixa vazia
+## 0 · A fila e a caixa apontaram para o mesmo item, e quem as reconciliou foi uma conferência
 
 A caixa de entrada esgotou: o último item é o **012**, e todos estão `-FEITO`, conferido **contra
 a origem** e não só contra o clone (D238). Pela `COMO_FUNCIONA.md`, caixa vazia é *"não invente
@@ -20,6 +20,18 @@ está na `FILA.md`, que a §1-A chama de **fila oficial** e manda este repositó
 *Dormir com um item eleito por escrito seria o disparo em vazio contando uma rodada que tinha o
 que fazer.* A conta dos disparos em vazio **não** recebeu esta data, de propósito: esta rodada
 teve item.
+
+### E o item 013 chegou DURANTE a rodada, pedindo a mesma D243
+
+Encontrei-o na **conferência da caixa na hora de enviar** — o que o D238 existe para obrigar,
+depois de eu, em 09/10, ter relatado uma caixa vazia que já tinha item há 35 minutos. O item 013 é
+a D243, com as palavras *"escolha que a casa já fundamentou vence a do chat"*, e traz **três
+pedidos que a `FILA.md` não tinha**: as duas réguas lado a lado, a perda declarada e o universo que
+reprova se ler menos do que afirma. Os três estão atendidos, no §3-A.
+
+> **Quando a fila e a caixa apontam para o mesmo item, quem reconcilia as duas é a conferência de
+> envio — não a sorte.** Sem o D238, o recado desta rodada diria *"a caixa estava vazia"* no mesmo
+> minuto em que o item que eu acabara de cumprir estava escrito nela.
 
 ---
 
@@ -101,11 +113,11 @@ lista de nomes. O destino decide o rigor:
 |---|---|---|---|
 | `tela` | **2** | o que um navegador desenha — só a bancada (§4) | nome **e** valor, no cru |
 | `codigo` | **197** | o que roda aqui e nunca é desenhado | nome e valor, em **identificador** |
-| `registro` | **217** | `docs/` inteiro mais o `CLAUDE.md` | **só o VALOR** |
+| `registro` | **219** | `docs/` inteiro mais o `CLAUDE.md` | **só o VALOR** |
 | `dado` | **28** | o que entra e o que sai cru, fora de `docs/` | nome e valor, no cru |
 | `upstream-intocavel` | **25** | cópia do motor original (§3) | nome e valor, no cru |
 
-**2 + 197 + 217 + 28 + 25 = 469**, o universo inteiro. Partição que não soma não é partição, e há
+**2 + 197 + 219 + 28 + 25 = 471**, o universo inteiro. Partição que não soma não é partição, e há
 trava que soma.
 
 **`tela` é "tem um `.html` do lado"**, não um caminho escrito: um `.html` novo em qualquer pasta
@@ -163,6 +175,77 @@ verdade passaria em silêncio.
 
 O registro passou a ter **duas leituras por formato**, com trava que prova a cegueira: a mesma
 linha é pega como `dados` e escapa como `markdown`.
+
+---
+
+## 3-A · A FRONTEIRA DO ITEM 013, e a prova mais forte da premissa saiu da própria entrega
+
+O item 013 — que o chat escreveu **durante esta rodada**, elegendo a mesma D243 — põe uma fronteira
+que não deixa escolha:
+
+> *"Mudança de modelo de varredura de segurança **pode encolher o que ela vê**. Então a entrega
+> traz as duas medições lado a lado… e o que deixou de ser olhado, com o motivo. Se o conjunto novo
+> vê menos em algum ponto, isso sai escrito como **perda declarada** — não como melhoria."*
+
+### As duas réguas, lado a lado, arquivo por arquivo
+
+| a velha acusava | a nova acusa | estava isento por nome? | arquivo |
+|---:|---:|:---:|---|
+| **22** | 0 | SIM | `tests/vazamento-de-custo.test.ts` |
+| **14** | 0 | **não** | `src/destino-do-que-sai.ts` |
+| 4 | 0 | SIM | `docs/relatorios/LAB-67.md` |
+| 3 | 0 | SIM | `docs/relatorios/RECADOS.md` |
+| 2 | 0 | SIM | `CLAUDE.md` |
+| 2 | 0 | SIM | `docs/caixa-de-entrada/005-FEITO.md` |
+| 2 | 0 | SIM | `src/cobranca-por-uso.ts` |
+| 1 | 0 | SIM | `docs/DECISOES.md` |
+| 1 | 0 | SIM | `docs/INDEX.md` |
+| 1 | 0 | SIM | `docs/relatorios/LAB-72.md` |
+| 1 | 0 | SIM | `docs/relatorios/LAB-73.md` |
+| 1 | 0 | **não** | `docs/relatorios/LAB-80.md` |
+| 1 | 0 | **não** | `src/texto-das-regras.ts` |
+
+**Olhe as três linhas marcadas "não".** São arquivos **desta entrega** — o módulo do modelo, o
+relatório que você está lendo e o módulo da leitura. A régua velha os acusaria, e **o desenho velho
+teria precisado de TRÊS isenções novas só para esta rodada sair verde: de 11 para 14.**
+
+> **A premissa do D243 não precisou de argumento: a entrega que a conserta seria a próxima a pagar
+> a conta dela.** *Uma linha por relatório, para sempre* — e esta rodada traria três.
+
+### As TRÊS perdas, e cada uma sai DEMONSTRADA
+
+O item pede perda declarada. Declarar é pouco: cada perda traz uma **frase concreta**, e a trava
+roda **as duas réguas** sobre ela — a velha tem de pegar, a nova tem de deixar passar. *Perda
+declarada que ninguém demonstra é perda suposta.*
+
+| onde doía | o que deixou de ser visto | o que escaparia |
+|---|---|---|
+| `registro` | o **nome** do nosso custo sem número ao lado | *"o multiplicador da família fica no Admin"* |
+| `registro` | `margem` perto de dinheiro **sem número** | *"preço com margem"* |
+| `codigo` | o nome em comentário, string e literal de regex | `const aviso = "custo × 3";` |
+
+**E a perda do código não é perda nos outros destinos, por desenho:** o valor que uma string de
+código escreva num relatório, numa prova ou na tela é varrido **onde ele chega** — `tela` e `dado`
+leem no cru, e há trava com o mesmo valor nos cinco destinos.
+
+**E a ferramenta lê a própria prova**, porque a prova está dentro do que o git carrega — então ela
+**converge em duas passagens**, e isso ficou declarado nela. É a ordem do D256 com a fonte sendo a
+própria prova: *régua que se inclui no universo que mede não erra, ela atrasa uma passagem.* Foi
+assim que a terceira ocorrência do D262 apareceu nesta rodada: a prova passou a publicar o
+**motivo** de cada perda, o motivo **cita a frase proibida** para explicar por que ela deixou de ser
+acusada, e **JSON não tem marca de citação** para protegê-la.
+
+> **As duas formas do registro não podem carregar a mesma coisa:** o Markdown pode citar a frase
+> proibida, porque tem como marcar citação; o JSON não tem, e por isso não pode. O texto inteiro das
+> perdas mora em `PERDAS_DECLARADAS`, em `src/`, e no §3-A desta página — os dois lugares que podem
+> carregá-lo.
+
+**Zero de zero não é aprovação**, e o item cobra isso: a varredura publica **quantas linhas leu em
+cada destino** e reprova se um destino tiver arquivo e ler zero linha, ou ficar sem arquivo nenhum.
+As linhas lidas por destino saem **na prova**, e não aqui: elas andam a cada edição de um `.md`, e
+número que anda a cada edição não se grava em dois lugares (D104). A ordem de grandeza é `tela` em
+centenas, `codigo` e `upstream` em dezenas de milhares, `dado` em centenas de milhares e `registro`
+em mais de um milhão. A régua disso também é sabotada nos dois sentidos.
 
 ---
 
@@ -275,7 +358,7 @@ coisa"*. Está na `FILA.md` como **proposta ao chat**, com a contagem.
 - **Código:** `src/destino-do-que-sai.ts` (novo), `src/varredura-de-chamadas.ts`
   (`semLiteraisDeRegex`, `soOsNomesUsados`), `src/texto-das-regras.ts` (`lugaresDaPagina`,
   `semRiscadoNemCitado`, `afirmadoNaLinha`), `tests/moldura.test.ts` (passou a importar).
-- **Trava:** `tests/vazamento-de-custo.test.ts`, reescrita — **33 travas**, lista nominal **zero**,
+- **Trava:** `tests/vazamento-de-custo.test.ts`, reescrita — **39 travas**, lista nominal **zero**,
   guarda da guarda **por destino e nos dois sentidos**, reprovando pelo nome do destino.
 - **Ferramenta:** `bun run lab80`. **Prova:** `docs/provas/LAB-80/destino-do-que-sai.json`.
 - **Decisões:** D258 a D267. **§6 da `CLAUDE.md`:** vinte e quatro → **vinte e sete**, com uma
@@ -284,9 +367,9 @@ coisa"*. Está na `FILA.md` como **proposta ao chat**, com a contagem.
   de **três a duas** (D231).
 - **A limpeza da casa:** `soOCodigo()` deixou de colapsar arquivo (D267).
 - **Vizinhos:** `git status` limpo nos três clones, conferido ao fim da rodada (§4).
-- **O verde, medido:** `./external-engines/conferir.sh` → **871 travas na esteira + 17 no testfit,
+- **O verde, medido:** `./external-engines/conferir.sh` → **877 travas na esteira + 17 no testfit,
   7 passos, `exit 0`**, com a prova no navegador carregando o `.wasm` em Chromium de verdade
   (motor 0.4.1, 6 242 nós, 275 quadras). A lista do CI que roda sem os clones vizinhos foi de
-  **452 para 477** travas. **Conferido aqui, não no GitHub** — a execução automática segue
+  **452 para 483** travas. **Conferido aqui, não no GitHub** — a execução automática segue
   desligada desde 08/10, e a receita de religar é `docs/COMO_RELIGAR_O_CI.md`, dois passos, que
   **não** se executou agora.

@@ -236,7 +236,7 @@ silêncio.~~
 
 ✅ **FEITO no LAB-80**, numa rodada só dele. O desenho entregue tem **cinco destinos** pela
 estrutura do caminho — `tela`, `codigo`, `registro`, `dado`, `upstream-intocavel` —, somando os
-**469** arquivos que o git carrega, com a régua do `registro` pedindo **o VALOR** (o nome **com
+**471** arquivos que o git carrega, com a régua do `registro` pedindo **o VALOR** (o nome **com
 número**) e não o nome. **Das 11 isenções, zero sobreviveram.** E a medição achou duas coisas que
 a proposta não previa: **duas entradas da lista estavam mortas**, uma delas sem nunca ter
 tropeçado (D260), e o `soOCodigo()` que o modelo precisava **já existia na casa**, com o buraco
@@ -1257,7 +1257,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 477 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 483 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2262,10 +2262,12 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 
 ## Proposto ao chat — não executar
 
-> ✅ **O PRÓXIMO ITEM que o chat elegeu no item 012 — a D243 — FOI EXECUTADO no LAB-80**, no
-> despertador das 06:05 de 10/10, **sozinho na rodada**, que era a condição que o chat pôs
-> (*"não na mesma rodada de outra coisa"*). A caixa estava sem item novo, e um item eleito por
-> escrito não é item inventado: a §1-A manda executar a `FILA.md` em laço.
+> ✅ **A D243 FOI EXECUTADA no LAB-80**, no despertador das 06:05 de 10/10, **sozinha na rodada**,
+> que era a condição que o chat pôs (*"não na mesma rodada de outra coisa"*). Abri a rodada por
+> esta fila, porque o item 012 elegeu a D243 por escrito e a §1-A manda executar a `FILA.md` em
+> laço — e **o chat escreveu o `013` durante a rodada pedindo a mesma D243**, achado na conferência
+> da caixa na hora de enviar (D238). *A escolha da fila e a do chat coincidiram; quem as reconciliou
+> foi a conferência, não a sorte.*
 > **Resultado:** a lista nominal de isenções foi de **11 a ZERO**, a varredura passa a varrer **a
 > si mesma**, e a de chamada paga de IA também perdeu a isenção que tinha. Relatório em
 > [`../relatorios/LAB-80.md`](../relatorios/LAB-80.md), decisões **D258 a D263**.
