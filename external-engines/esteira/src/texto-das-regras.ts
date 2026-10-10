@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from "node:fs";
+
 /**
  * COMO SE LÊ UMA REGRA ESCRITA EM MARKDOWN — num lugar só. (LAB-77)
  *
@@ -55,4 +57,40 @@ export function comoARegraSeLe(texto: string): string {
 /** A regra está escrita neste texto? Lê pelo {@link comoARegraSeLe}. */
 export function aRegraEstaEscrita(texto: string, oQueProcurar: string): boolean {
   return comoARegraSeLe(texto).includes(comoARegraSeLe(oQueProcurar));
+}
+
+/**
+ * LÊ UM ITEM DA CAIXA DE ENTRADA PELO NÚMERO — porque o NOME dele muda. (LAB-77, D252)
+ *
+ * Um item entra como `010.md` e, quando é executado, vira `010-FEITO.md`. **Uma trava que o
+ * cita pelo nome quebra no instante em que o item é concluído** — e foi exatamente o que
+ * aconteceu no LAB-77: a trava lia `010-adendo.md`, eu marquei o item como feito no fim da
+ * rodada, e o arquivo de teste passou a **estourar ao carregar**. O verde caiu com
+ * `765 pass · 1 fail`, e o "fail" não era um teste: era o arquivo inteiro não abrindo.
+ *
+ * > **Trava que cita um item pelo NOME do arquivo tem um prazo: o dia em que o item é
+ * > concluído.** Cita-se pelo NÚMERO, que é o que não muda.
+ *
+ * E havia precedente nos dois sentidos, o que é o sinal do D116: `trava-de-estrutura.test.ts`
+ * já casava por prefixo (`startsWith(".../006")`) e sobreviveu, enquanto `custo-por-uso` e
+ * `vazamento-de-custo` gravaram `005-FEITO.md` **literal** — elas nasceram depois da renomeação
+ * e por isso nunca sentiram o problema. Duas respostas para a mesma pergunta, e só uma aguenta
+ * a próxima renomeação.
+ */
+export function caminhoDoItemDaCaixa(raiz: string, numero: string): string {
+  const dir = `${raiz}/docs/caixa-de-entrada`;
+  const candidatos = [`${dir}/${numero}.md`, `${dir}/${numero}-FEITO.md`];
+  for (const c of candidatos) {
+    if (existsSync(c)) return c;
+  }
+  throw new Error(
+    `o item "${numero}" da caixa de entrada não foi encontrado — procurei por ` +
+      `${candidatos.join(" e ")}. Item some da caixa quando o chat o apaga; item RENOMEADO ` +
+      "continua lá, e é isso que esta função existe para atravessar",
+  );
+}
+
+/** O texto de um item da caixa, achado pelo número e lido como a regra se lê. */
+export function lerItemDaCaixa(raiz: string, numero: string): string {
+  return readFileSync(caminhoDoItemDaCaixa(raiz, numero), "utf8");
 }

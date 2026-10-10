@@ -163,7 +163,7 @@ se a gleba ocupa a quadra inteira, e reconhecer isso é pendência dele.
 
 ---
 
-## 6 · Duas vezes o defeito estava do MEU lado, e as duas foram pegas dentro do prompt
+## 6 · QUATRO vezes o defeito estava do MEU lado, e as quatro foram pegas dentro do prompt
 
 **A primeira: a minha trava reprovou o adendo certo.** Ela procurava o literal `"15 metros"`, e no
 arquivo a regra está escrita como `**15\n> metros**` — quebra de linha, marca de bloco de citação
@@ -188,6 +188,24 @@ ferramenta: são **três** sem acesso e **quatro** com, e **uma declara o `segme
 lido **duas** das quatro fixtures e completado o resto de cabeça — a forma do D185, *contar de
 memória o que estava ao lado*. O que **não** mudou foi o achado: **zero das sete** dizem as faces
 com via (D250).
+
+**A terceira: a régua que conta as ocorrências do §6 PAROU DE MEDIR.** Ao atualizar a §6 para
+`VINTE E DUAS`, o `totalDeclarado` saiu **`null`** — o regex capturava **uma palavra só** e o mapa
+de literais ia até `vinte`. E o problema não é o nulo: **com o total nulo, a trava da soma não
+dispara.** A guarda que existe para a §6 não mentir sobre o próprio tamanho **deixou de medir, em
+silêncio, no prompt em que a §6 cresceu**. Terceira vez da pior forma desta casa — a suíte do
+`testfit` vermelha por duas semanas (D110), a prova no navegador rodando uma vez em um mês (D123),
+o `exit 0, 0 testes` do item 003: *nas três, nada falhou — nada mediu*. Consertada por
+**composição** (`lerNumeroEmPalavra` soma `<dezena> e <unidade>`) e não por mais um literal, porque
+`"vinte e duas": 22` no mapa consertaria este prompt e quebraria o próximo — e o próximo é certo,
+já que a lista do ponto cego só cresce (D251).
+
+**A quarta, e foi o VERDE que a pegou: a minha trava quebrou quando eu marquei o item como
+feito.** Ela lia `010-adendo.md`; o item virou `010-adendo-FEITO.md`, que é o que a caixa manda
+fazer — e o arquivo de teste passou a **estourar ao carregar**. O verde saiu `765 pass · 1 fail`, e
+o `fail` **não era um teste**: era o arquivo inteiro não abrindo. A contagem da lista caiu de 409
+para 372, e **foi a queda que delatou** — *teste que não carrega não aparece como reprovado,
+aparece como ausente*. Agora o item se acha pelo **número**, nos dois estados (D252).
 
 ---
 
@@ -261,8 +279,8 @@ e agora se sabe que ela é um piso **de um universo maior do que o válido**.
 | o quê | onde |
 |---|---|
 | as cinco regras, a faixa, a sugestão | `external-engines/esteira/src/acesso-sugerido.ts` |
-| o normalizador das regras (D248) | `external-engines/esteira/src/texto-das-regras.ts` |
-| as travas | `external-engines/esteira/tests/acesso-sugerido.test.ts` — **38** |
+| o normalizador e o achador de item (D248, D252) | `external-engines/esteira/src/texto-das-regras.ts` |
+| as travas | `external-engines/esteira/tests/acesso-sugerido.test.ts` — **41** |
 | a ferramenta | `external-engines/esteira/ferramentas/lab77.ts` · `bun run lab77` |
 | a prova | `docs/provas/LAB-77/acesso-sugerido.json` |
 | as duas perguntas dele | `docs/PENDENCIAS_JONNY.md` §9 |
@@ -271,4 +289,6 @@ e agora se sabe que ela é um piso **de um universo maior do que o válido**.
 **366 para 404**.
 
 **Decisões: D248** (o normalizador num lugar só), **D249** (a esquina é das ruas, e a recusa é a
-entrega), **D250** (eu contei as glebas de memória, e a ferramenta me corrigiu).
+entrega), **D250** (eu contei as glebas de memória, e a ferramenta me corrigiu), **D251** (a régua
+do ponto cego parou de medir ao chegar a vinte e duas), **D252** (trava que cita um item pelo nome
+quebra quando o item é concluído).

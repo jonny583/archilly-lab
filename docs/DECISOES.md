@@ -7255,3 +7255,42 @@ leem a mesma coisa é meio conserto* (D231).
 **E a trava da trava existe:** há teste de que a §6 de **hoje** é lida com `totalDeclarado`
 **não nulo** e igual ao número de linhas da tabela. Sem ele, a próxima palavra nova volta a calar
 a guarda sem ninguém ver.
+
+---
+
+## D252 · Trava que cita um item da caixa pelo NOME quebra no dia em que o item é concluído · 10/10/2026
+
+**Pega pelo verde, no fim do próprio LAB-77.** A trava do item 010 confere que as cinco regras do
+Jonny **estão escritas** no adendo, e o lia assim:
+
+```ts
+const ADENDO = readFileSync(join(RAIZ, "docs", "caixa-de-entrada", "010-adendo.md"), "utf8");
+```
+
+Depois de entregar, marquei o item como feito — `010-adendo.md` → `010-adendo-FEITO.md`, que é o
+que a caixa de entrada manda fazer. **O arquivo de teste passou a estourar AO CARREGAR.**
+
+O verde saiu `765 pass · 1 fail`, e o detalhe importa: **o `fail` não era um teste** — era o
+arquivo inteiro não abrindo, com `# Unhandled error between tests`. A contagem caiu de 409 para
+372 na mesma lista de travas, e **foi a queda da contagem que delatou**, não o nome do teste:
+teste que não carrega não aparece como reprovado, aparece como ausente.
+
+> **TRAVA QUE CITA UM ITEM PELO NOME DO ARQUIVO TEM UM PRAZO: O DIA EM QUE O ITEM É CONCLUÍDO.**
+> Cita-se pelo **número**, que é o que não muda.
+
+`caminhoDoItemDaCaixa` e `lerItemDaCaixa` acham o item em qualquer dos dois estados e **estouram
+nomeando os dois caminhos tentados** quando ele não existe — porque devolver vazio aqui faria a
+trava aprovar um adendo que ela não leu.
+
+### E havia precedente nos DOIS sentidos, que é o sinal do D116
+
+- `trava-de-estrutura.test.ts` já casava por **prefixo** (`startsWith(".../006")`) e **sobreviveu**;
+- `custo-por-uso.test.ts` e `vazamento-de-custo.test.ts` gravaram `005-FEITO.md` **literal**.
+
+**Essas duas NÃO foram mexidas, e o motivo é medido:** as duas listas são **nominais por
+desenho** — *"cada entrada é um arquivo que tropeçou de verdade, não um padrão que adivinha quais
+tropeçariam"* (a família do D155). Se o `005` fosse renomeado outra vez, a entrada deixaria de
+casar e a trava **acusaria** o arquivo: falha **alta e consertável**, não silenciosa. É uma classe
+de risco diferente da minha, que **derrubava o carregamento**. *Aplicar o conserto onde ele não
+resolve nada é churn, e o D231 cobra o conserto nos instrumentos que leem a MESMA coisa — não em
+todos os que parecem.*

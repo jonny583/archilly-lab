@@ -274,7 +274,7 @@ recomendação: **rua em volta de todos os lados**. **9-B** se a faixa se mede e
 *é o que o fiscal mede com a trena*. **9-C** a regra 5 (o usuário escolhendo de quais ruas aceita
 acesso) **é tela** e já está na lista do Generate.
 
-## E TRÊS defeitos meus, os três pegos dentro do prompt
+## E QUATRO defeitos meus, os quatro pegos dentro do prompt
 
 - **a trava reprovou o adendo CERTO** (D248): procurava `"15 metros"` e o arquivo tem
   `**15\n> metros**` — quebra, `>` e negrito dentro do número. Quarta vez da forma, **e o conserto
@@ -286,7 +286,11 @@ acesso) **é tela** e já está na lista do Generate.
 - **a régua do ponto cego PAROU DE MEDIR em silêncio** (D251) ao a §6 chegar a `VINTE E DUAS`: o
   regex pegava uma palavra só e o mapa ia até `vinte`, então o total saiu `null` — e com total
   nulo **a trava da soma não dispara**. Terceira vez da pior forma desta casa (D110, D123, item
-  003). Consertada por **composição**, não por mais um literal.
+  003). Consertada por **composição**, não por mais um literal;
+- **e a quarta foi o VERDE que pegou** (D252): a trava lia o adendo pelo **nome** do arquivo, eu
+  marquei o item como feito, e o teste passou a **estourar ao carregar**. `765 pass · 1 fail`, e o
+  `fail` **não era um teste** — era o arquivo não abrindo; a contagem caiu de 409 para 372 e **foi
+  a queda que delatou**. *Teste que não carrega não aparece como reprovado, aparece como ausente.*
 
 Relatório: [`relatorios/LAB-77.md`](relatorios/LAB-77.md) · prova:
 [`provas/LAB-77/acesso-sugerido.json`](provas/LAB-77/acesso-sugerido.json) · `bun run lab77`

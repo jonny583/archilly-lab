@@ -16,7 +16,12 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import type { P } from "../src/motores/comum.ts";
-import { aRegraEstaEscrita, comoARegraSeLe } from "../src/texto-das-regras.ts";
+import {
+  aRegraEstaEscrita,
+  caminhoDoItemDaCaixa,
+  comoARegraSeLe,
+  lerItemDaCaixa,
+} from "../src/texto-das-regras.ts";
 import {
   FAIXA_EM_USO_m,
   FAIXA_QUANDO_OCUPA_A_QUADRA_m,
@@ -36,7 +41,9 @@ import {
 } from "../src/acesso-sugerido.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
-const ADENDO = readFileSync(join(RAIZ, "docs", "caixa-de-entrada", "010-adendo.md"), "utf8");
+// Pelo NÚMERO e não pelo nome: `010-adendo.md` vira `010-adendo-FEITO.md` quando o item
+// fecha, e esta trava quebrou exatamente assim no fim da própria rodada (D252).
+const ADENDO = lerItemDaCaixa(RAIZ, "010-adendo");
 const FONTE = readFileSync(join(RAIZ, "external-engines", "esteira", "src", "acesso-sugerido.ts"), "utf8");
 
 /** Um quadrado de 100 m, no sentido anti-horário. Faces: 0=sul, 1=leste, 2=norte, 3=oeste. */
@@ -354,5 +361,37 @@ describe("o normalizador das regras — num lugar só (D248)", () => {
 
   test("normaliza os DOIS lados — quem procura também pode ter quebrado a linha", () => {
     expect(aRegraEstaEscrita("no mínimo uns **15\n> metros**", "no mínimo uns 15\nmetros")).toBe(true);
+  });
+});
+
+/**
+ * O ITEM DA CAIXA SE ACHA PELO NÚMERO, não pelo nome. (D252)
+ *
+ * Esta trava existe porque a de cima quebrou. Ela lia `010-adendo.md`; eu marquei o item como
+ * feito no fim da rodada, o arquivo virou `010-adendo-FEITO.md`, e **o arquivo de teste passou a
+ * estourar ao carregar** — o verde caiu com `765 pass · 1 fail`, e o `fail` não era um teste:
+ * era o arquivo inteiro não abrindo.
+ *
+ * > **Trava que cita um item pelo NOME do arquivo tem um prazo: o dia em que o item é
+ * > concluído.**
+ */
+describe("o item da caixa se acha pelo NÚMERO (D252)", () => {
+  test("acha o item 010, que hoje está renomeado para FEITO", () => {
+    const c = caminhoDoItemDaCaixa(RAIZ, "010-adendo");
+    expect(c.endsWith("010-adendo-FEITO.md") || c.endsWith("010-adendo.md")).toBe(true);
+    expect(lerItemDaCaixa(RAIZ, "010-adendo").length).toBeGreaterThan(100);
+  });
+
+  test("acha tanto o pendente quanto o concluído — a renomeação não derruba a trava", () => {
+    // O `010` e o `010-adendo` já fecharam; o `COMO_FUNCIONA` nunca é renomeado. Os três têm de
+    // ser achados pela mesma função, sem a trava saber em que estado o item está.
+    expect(() => lerItemDaCaixa(RAIZ, "010")).not.toThrow();
+    expect(() => lerItemDaCaixa(RAIZ, "009")).not.toThrow();
+  });
+
+  test("item que não existe ESTOURA com o que foi procurado — não devolve vazio", () => {
+    expect(() => lerItemDaCaixa(RAIZ, "999")).toThrow(/não foi encontrado/);
+    // E a mensagem diz os DOIS caminhos tentados, para quem conserta não ter de adivinhar.
+    expect(() => lerItemDaCaixa(RAIZ, "999")).toThrow(/999\.md e .*999-FEITO\.md/);
   });
 });
