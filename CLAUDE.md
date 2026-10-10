@@ -434,7 +434,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu DEZENOVE vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu VINTE vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -458,6 +458,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D217 (08/10) | "o LAB-13 e o LAB-14 não têm recado no arquivo" | têm **um recado para os dois**, e a régua casava o nome **exato** — o acusado era o **precedente** da regra nova |
 | D231 (item 003) | "o LAB-68 e o LAB-69 não têm recado no arquivo" | têm: a **ferramenta** ainda casava `— Lab · ` literal, e o conserto do D228 só entrou na **trava** |
 | D240 (item 006) | "há campo de mensalidade em `volta.ts`" | é `plano: Plano` — **o plano de loteamento**, o objeto central desta casa: a régua de ESTRUTURA adivinhou o nome |
+| D245 (item 009) | "o registro gravou um commit, e o commit envelhece" | é **`41d93a4d`**, o fim do NOME do vizinho `urban-create-hub-41d93a4d`: o `-` é fronteira de palavra, e o nome composto se partiu num sha falso |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -469,25 +470,25 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**As dezenove, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
+**As vinte, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
 classe, com a decisão nomeada para qualquer um refazer a conta:
 
 | quantas | a classe | quais |
 |---|---|---|
-| **DEZ** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155, D217, D231, D240 |
+| **ONZE** | régua minha acusando a si mesma | D75, D93/D94, D127/D128, D137, D142, D148, D155, D217, D231, D240, D245 |
 | **QUATRO** | a ponte ou a ida do Lab corrompendo a medição | D18, D98, D119, D166 |
 | **DUAS** | caminho errado de leitura | D135, D190 |
 | **DUAS** | a minha cabeça, contando de memória o que estava impresso ao lado | D161, D185 |
 | **UMA** | dado que faltava, e não número que mudou | D133 |
 
-10 + 4 + 2 + 2 + 1 = **19**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
+11 + 4 + 2 + 2 + 1 = **20**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
 três foram caminho errado" até 08/10/2026, e 9 + 2 + 3 = 14:** duas das dezesseis não tinham
 classe, e a frase se lia como partição. Medido e refeito no LAB-63, com guarda que soma
 (D212). Ela também citava **D104** e **D175** como membros, e nenhuma das duas é linha da
 tabela — elas são decisões *irmãs*, citadas no texto abaixo, e não ocorrências do ponto cego.
 
-**TREZE** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137, D142,
-D148, D155, D166, D185, D190, D217, D231, D240).
+**QUATORZE** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137,
+D142, D148, D155, D166, D185, D190, D217, D231, D240, D245).
 
 **A décima oitava é a nona da sub-família da régua que varre texto, e ela tem lição nova: o
 conserto entrou em UM instrumento só.** A Central mandou o `<app>` do cabeçalho virar o nome do
@@ -538,7 +539,7 @@ consertar**, porque o comentário do conserto **citava** o defeito: varredura es
 texto de código mede **o que o código faz** e **o que ele diz sobre si**, e só uma delas é
 o objeto.
 
-**A regra que as dezenove ensinam, e ela é curta:**
+**A regra que as vinte ensinam, e ela é curta:**
 
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
 > você está lendo**; antes de dizer que um número mudou, confira se ele
@@ -553,10 +554,13 @@ o objeto.
 > e não de quem declarou a regra (D98, D104, D166); e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
 > onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
-> rótulo, e três das dezenove vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> rótulo, e três das vinte vezes eu classifiquei pelo nome em vez de medir (D148, D155,
 > D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
-> **Dezenove de dezenove vezes o defeito estava do MEU lado — na régua, na ponte, no
-> caminho ou na minha cabeça — antes de estar no medido**, e em sete delas a régua era o teste
+> e quando a régua procura um **valor** (um commit, um id, um código), olhe o **valor inteiro**
+> do campo e não o texto em volta — **fronteira de palavra num nome composto não é fronteira de
+> valor**: o `-` partiu `urban-create-hub-41d93a4d` e o pedaço `41d93a4d` passou por sha (D245).
+> **Vinte de vinte vezes o defeito estava do MEU lado — na régua, na ponte, no
+> caminho ou na minha cabeça — antes de estar no medido**, e em OITO delas a régua era o teste
 > que eu acabara de escrever.
 
 **E há um irmão do ponto cego que não é defeito meu nem do medido, e custa igual** (D184):
@@ -624,7 +628,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 337 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 366 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

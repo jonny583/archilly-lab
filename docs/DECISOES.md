@@ -6974,3 +6974,129 @@ caixa vazia**.
 
 *Eu já seguia esta regra desde o item 004, declarada como leitura minha e não como ratificação. A
 diferença entre as duas coisas é todo o valor deste item.*
+
+---
+
+## D245 · A régua do commit acusou o NOME do vizinho — fronteira de palavra não é fronteira de valor · 10/10/2026
+
+**A vigésima ocorrência do ponto cego do §6, e a décima primeira da classe "régua minha acusando
+a si mesma".** Pega **dentro do prompt**, na primeira rodada da suíte nova: 28 passaram, 1 falhou,
+e a que falhou era a régua, não o dado.
+
+O LAB-76 decidiu **não gravar o commit** dos clones vizinhos no dado do registro, porque commit
+gravado que ninguém revalida envelhece em silêncio (D104) — e no mesmo dia a prova disso apareceu
+sozinha: `motor-testfit` estava **28 commits atrás** da origem quando eu medi, e **30** meia hora
+depois, sem ninguém tocar no clone.
+
+Para a decisão não virar slogan, escrevi a trava: *"nenhum sha gravado no dado"*, assim —
+
+```ts
+expect(texto).not.toMatch(/\b[0-9a-f]{7,}\b/);
+```
+
+**Ela reprovou o registro legítimo.** O que casou foi **`41d93a4d`** — o fim do **nome** do
+repositório vizinho `urban-create-hub-41d93a4d`. O `-` é fronteira de palavra para o regex, então
+o nome composto se partiu e o pedaço passou por sha.
+
+> **FRONTEIRA DE PALAVRA NUM NOME COMPOSTO NÃO É FRONTEIRA DE VALOR.**
+
+### O conserto é de ESTRUTURA, e é a lição do item 006 outra vez
+
+A saída fácil era uma exceção: *"menos `41d93a4d`"*. Isso é a régua de palavra se remendando com
+mais palavra, e teria envelhecido no dia em que entrasse um vizinho com outro sufixo hexadecimal.
+
+Um commit só **significa** commit quando é o **valor inteiro** de um campo. Então a régua andou
+para a estrutura: ela percorre o JSON e olha **cada valor por inteiro** —
+`/^[0-9a-f]{7,40}$/`. `urban-create-hub-41d93a4d` inteiro não é hexadecimal; `"6cf6396"` é.
+
+É a mesma lição que o item 006 trouxe (*tire o campo onde a coisa caberia*) e a mesma que o §6 já
+dizia (*procure o nome no lugar da gramática onde ele significa aquilo*) — aqui aplicada a um
+**valor** e não a um nome. E a trava agora prova as **duas** direções: que o dado de hoje passa,
+que um commit plantado reprova, e que o nome do vizinho atravessa.
+
+---
+
+## D246 · O registro de motores: DUAS das três coisas da D68 já existiam · 10/10/2026
+
+**Item 009, o LAB-76.** A D68 pede três coisas — um registro de motores, liga/desliga por motor e
+um motor padrão —, e o item veio com a regra que o Jonny deu à direção em 09/10:
+
+> **Nome novo para coisa que já tem nome na casa é custo sem benefício.** Antes de criar
+> estrutura nova, procure a que já responde a pergunta.
+
+Procurei antes de escrever uma linha, e **duas das três já estavam prontas** — na peça do LAB-06,
+em `entrega/registro-de-motores/registro.ts`:
+
+| o que a D68 pede | já existia? | onde |
+|---|---|---|
+| o que um motor é, como tipo | **sim** | `CapacidadesDoMotor`, `MotorNaPorta` |
+| liga/desliga por motor | **sim, para o HOSPEDEIRO** | `RegistroDeMotores.ligar/desligar` |
+| **motor padrão** | **sim** | `PADRAO_DE_FABRICA = "parcelamento"` |
+| a procedência de um REPOSITÓRIO | **sim** | `commit-dos-vizinhos.ts` (LAB-74) |
+| **a procedência de um MOTOR** | **NÃO** | nada ligava motor → repositório → commit |
+| **o estado como DADO** | **NÃO** | `MOTORES_DE_LOTE` é tupla em código |
+| **o tamanho do universo lido** | **NÃO** | nenhuma medição dizia quantos havia |
+
+**Então o LAB-76 não criou um registro.** Ele criou **o que faltava**: a procedência por motor, o
+estado como dado, e a conta do universo. O padrão é **importado** de `PADRAO_DE_FABRICA`, e há
+trava que reprova se ele ganhar uma segunda declaração — inclusive uma trava que confere que a
+palavra `padrao` **não é chave** no dado. Duas respostas para a mesma pergunta é o D116.
+
+### O que o universo mediu, e ele é MAIOR do que eu esperava
+
+**Seis motores conhecidos, não quatro.** Além dos quatro da porta (`generate-ortogonal`,
+`generate-espinha`, `parcelamento`, `symbios`), esta casa conhece o **PackingSolver** e o
+**straight skeleton** — triados, recusados e **nunca clonados**: o primeiro por ser C++ de
+servidor contra a arquitetura de navegador do Generate, o segundo por impedimento de licença
+(copyleft). Eles estavam em `external-engines/`, com README e veredito, e **em nenhuma lista**.
+
+### `so-referencia` NÃO é `desligado` — e o estado tem TRÊS valores por isso
+
+Juntar os dois perderia a diferença que mais importa: `desligado` é *"está na casa e alguém o
+tirou da medição"*; `so-referencia` é *"foi triado e recusado, nunca foi candidato"*. Um volta por
+decisão, o outro por uma triagem nova. É o D23 outra vez — dois estados onde há três inventa a
+informação que falta.
+
+**E uma quarta distinção apareceu, que também não é liga/desliga:** o Symbios está **ligado** e
+fica **fora da `MOTORES_DE_LOTE`**, porque entrega **quadra** (D50). Ficar fora de uma comparação
+não é estar desligado — são duas perguntas, e o relatório publica as duas contas.
+
+### A fronteira do item foi respeitada: NADA mudou de estado
+
+O item disse: *"se fazer isto exigir mudar o motor padrão ou desligar um motor que hoje entra nas
+medições, você descreve o que mudaria e não muda"*. Não exigiu. O padrão continua
+`parcelamento`, os quatro motores da porta continuam ligados, a `MOTORES_DE_LOTE` continua com os
+mesmos três ids, e **nenhuma medição desta casa muda de número por causa deste prompt**. O que
+mudou é que agora **há onde desligar**, e há trava que cobra a conta quando alguém desligar.
+
+### O limite do "é dado, não código", declarado
+
+O estado mora em `dados/registro-de-motores.json`, fora de `src`, e **nenhum `.ts` se edita** para
+medir com um motor fora — que é o que a D68 pede. **Mas neste repositório trocar aquela chave
+continua sendo um commit**, porque tudo aqui está no git. O ganho é de **acoplamento**, não de
+implantação: a esteira não precisa mudar. *Guarda que não declara o próprio buraco mente pelo
+silêncio.*
+
+---
+
+## D247 · Importar uma ferramenta a EXECUTA — e isso sobrescreveu uma prova · 10/10/2026
+
+Descoberto no LAB-76, consertado no LAB-76. A ferramenta nova precisava de `carimbarVizinhos()`,
+que media o `HEAD` e a distância até a origem de cada clone vizinho — e que morava **dentro de
+`ferramentas/lab68.ts`**.
+
+Importei de lá. O `lab68` **rodou inteiro**: imprimiu a saída dele e **reescreveu
+`docs/provas/LAB-68/as-duas-pilhas.json`** com a data de hoje. A prova de um prompt antigo foi
+sobrescrita por um `import` de outro prompt.
+
+> **Prova sobrescrita por um `import` é a forma mais silenciosa de perder uma medição.** Nada
+> falha, nada avisa, e o arquivo continua lá — com os números errados.
+
+A prova foi restaurada (`git checkout`) e a função **subiu para `src/commit-dos-vizinhos.ts`**,
+que é de onde ela nunca devia ter saído: aquele módulo já tinha a metade **pura** da mesma
+pergunta (`conferirCarimbo`, `conferirContraAOrigem`), e as duas metades em dois arquivos são o
+D116. Ela **não é chamada ao importar**, então as travas sem clone vizinho continuam rodando.
+
+A regra que fica: **ferramenta é ponto de entrada, não biblioteca.** O que mais de um prompt
+precisa chamar mora em `src/`. Se um `import` de `ferramentas/` parecer a saída fácil, o que
+está faltando é mover a função.

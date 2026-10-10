@@ -1284,3 +1284,46 @@ Depende do Jonny: nada deste item — mas o 010-adendo que acabou de chegar traz
 Próximo na fila: o 009 (o LAB-06, o item mais velho) no próximo disparo, e depois o 010 com o adendo — um item por despertador. Decisões até D244. Clones: motor-testfit@6cf6396 (origin/main@e76cad0, 27 atrás), urban-create-hub@72cfab0 (292757c, 20 atrás), urban-scout-tool@550a438 (f7e51a6, 24 atrás), os três com 0 alterações. Chão: Bun 1.4.2.
 === FIM ===
 ```
+
+---
+
+## 10/10/2026 · LAB-76 — item 009: o registro de motores, e duas das três coisas já existiam
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-76 (item 009) ===
+Estado: FEITO. O registro de motores da D68 está de pé, e o item me poupou de construir o que já existia: procurei antes de escrever e DUAS DAS TRÊS COISAS JÁ ESTAVAM PRONTAS na peça do LAB-06 — o tipo do motor, o liga/desliga (para o hospedeiro) e o PADRAO_DE_FABRICA. Faltavam três outras: a PROCEDÊNCIA POR MOTOR, o ESTADO COMO DADO e a CONTA DO UNIVERSO. Foi isso que entrou, e o padrão é IMPORTADO, não recopiado — com trava que reprova se a palavra "padrao" virar chave no dado. NADA MUDOU DE ESTADO: padrão continua parcelamento, quatro motores ligados, MOTORES_DE_LOTE com os mesmos três ids, e NENHUMA MEDIÇÃO DESTA CASA MUDA DE NÚMERO por causa deste prompt — a fronteira que você marcou não precisou ser atravessada. 009.md virou 009-FEITO.md. VERDE: 760 travas na esteira + 17 no testfit, 7 passos, exit 0 — CONFERIDO AQUI, NÃO NO GITHUB; o CI sem clones vai de 337 a 366. Decisões D245, D246, D247.
+Feito: O UNIVERSO ERA MAIOR DO QUE EU ESPERAVA — SEIS MOTORES CONHECIDOS, NÃO QUATRO. Além dos quatro da porta, esta casa conhece o PackingSolver e o straight skeleton: triados, RECUSADOS e nunca clonados — o primeiro por ser C++ de servidor contra a arquitetura de navegador do Generate, o segundo por impedimento de LICENÇA (copyleft) —, com README e veredito escritos na árvore, E EM NENHUMA LISTA. É exatamente o que a sua terceira trava queria: 6 conhecidos, 4 ligados, 0 desligados, 2 só-referência. Lendo só a porta eu teria dito "quatro". E o estado tem TRÊS valores de propósito: "so-referencia" NÃO É "desligado" — um volta por decisão, o outro por uma triagem nova; juntar os dois perderia a diferença que mais importa. Procedência medida contra a ORIGEM e não contra o disco: parcelamento 30 commits atrás, os dois do Generate 22, symbios carimbado no upstream/VERSION (que é uma resposta, não uma falta), os dois recusados sem nada a medir. O COMMIT NÃO SE GRAVA no dado, e a prova apareceu sozinha DENTRO DO PROMPT: motor-testfit estava 28 atrás quando medi e 30 meia hora depois, sem ninguém tocar no clone.
+Achados para outros apps ou Central: (1) A SUA REGRA DA DIREÇÃO PAGOU NA PRIMEIRA APLICAÇÃO. "Nome novo para coisa que já tem nome na casa é custo sem benefício; antes de criar estrutura nova, procure a que já responde a pergunta" — procurei, e dois terços do item estavam construídos desde o LAB-06. Se eu tivesse começado escrevendo, teria criado um SEGUNDO registro de motores e um SEGUNDO motor padrão, e a casa passaria a ter duas respostas para "qual é o padrão". (2) O PONTO CEGO DO §6 BATEU VINTE, e esta foi a mais instrutiva até agora: eu decidi NÃO gravar o commit no dado (porque commit gravado envelhece em silêncio) e escrevi a trava disso varrendo TEXTO com /\b[0-9a-f]{7,}\b/. ELA REPROVOU O DADO LEGÍTIMO, casando 41d93a4d — O FIM DO NOME DO SEU PRÓPRIO REPOSITÓRIO urban-create-hub-41d93a4d. O "-" é fronteira de palavra para o regex, então o nome composto se partiu e o pedaço passou por sha. FRONTEIRA DE PALAVRA NUM NOME COMPOSTO NÃO É FRONTEIRA DE VALOR. A saída fácil era uma exceção ("menos 41d93a4d"), que é a régua de palavra se remendando com mais palavra; o conserto foi de ESTRUTURA — um commit só significa commit quando é o VALOR INTEIRO de um campo, então a régua percorre o JSON e olha cada valor por inteiro. É a lição do item 006 outra vez, agora aplicada a um valor e não a um nome. Pega na PRIMEIRA rodada da suíte nova: 28 passaram, 1 falhou, e a que falhou era a régua. (3) E UM DEFEITO QUE NÃO ERA DE RÉGUA, E É O MAIS SILENCIOSO QUE ACHEI ATÉ HOJE: a ferramenta nova precisava de uma função que morava DENTRO de ferramentas/lab68.ts. Importei de lá, e O LAB-68 RODOU INTEIRO — reescrevendo docs/provas/LAB-68/as-duas-pilhas.json com a data de hoje. PROVA SOBRESCRITA POR UM IMPORT É A FORMA MAIS SILENCIOSA DE PERDER UMA MEDIÇÃO: nada falha, nada avisa, e o arquivo continua lá com os números errados. Restaurei a prova e subi a função para src/, onde já morava a metade pura da mesma pergunta. A regra que fica, e ela vale para os nove aplicativos: FERRAMENTA É PONTO DE ENTRADA, NÃO BIBLIOTECA — o que mais de um prompt precisa chamar mora em src/. (4) E a quarta trava não estava na sua lista, e é a mais forte das quatro: o risco que você declarou era o registro virar cópia do inventário das pontes. Uma régua de palavra contra isso teria a doença das outras, então apliquei a lição do item 006 ao pé da letra — o dado tem LISTA FECHADA DE CHAVES, na raiz, em cada motor e na procedência. A cópia campo a campo não é proibida por texto: NÃO TEM ONDE CABER.
+Depende do Jonny: nada deste item. Continua pendente o que o 010-adendo traz — REGRA URBANÍSTICA DITADA POR ELE, que é a classe que para e vira pergunta —, e será tratada quando o 010 for executado, no próximo disparo.
+Próximo na fila: o 010 com o 010-adendo, um item por despertador. A caixa foi reconferida CONTRA A ORIGEM na hora de enviar (D238): nada novo além do 010 e do adendo. Decisões até D247. Clones: motor-testfit@6cf6396 (origin/main@d6981d9, 30 atrás), urban-create-hub-41d93a4d@72cfab0 (748e300, 22 atrás), urban-scout-tool@550a438 (e0915c0, 26 atrás), os três com 0 alterações. Chão: Bun 1.4.2.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+O REGISTRO, COMO ELE FICOU — 6 motores conhecidos, 4 ligados:
+
+| motor | estado | procedência medida |
+|---|---|---|
+| generate-ortogonal · generate-espinha | ligados | urban-create-hub-41d93a4d, 22 commits atrás |
+| parcelamento ← O PADRÃO | ligado | motor-testfit, 30 commits atrás · versão LIDA do motor |
+| symbios | ligado | upstream/VERSION — carimbado aqui, não há origem a consultar |
+| packingsolver · straight-skeleton | SÓ-REFERÊNCIA | não copiados — nada a medir |
+
+TRÊS DISTINÇÕES QUE NÃO SÃO LIGA/DESLIGA, e cada uma tem lugar próprio no dado:
+1. "so-referencia" não é "desligado" — triado e recusado nunca foi candidato;
+2. o symbios está LIGADO e fora da MOTORES_DE_LOTE, porque entrega QUADRA (D50);
+3. "nao-medida" não é "em-dia" — e "carimbado-no-upstream" não é "nao-medida".
+
+O LIMITE DO "É DADO, NÃO CÓDIGO", DECLARADO: o estado mora em
+esteira/dados/registro-de-motores.json, fora de src, e NENHUM .ts se edita para medir com um
+motor fora — que é o que a D68 pede. MAS NESTE REPOSITÓRIO TROCAR AQUELA CHAVE CONTINUA SENDO UM
+COMMIT, porque tudo aqui está no git. O ganho é de ACOPLAMENTO, não de implantação. Guarda que
+não declara o próprio buraco mente pelo silêncio.
+
+O QUE EU DESCREVI E NÃO FIZ, porque a sua fronteira manda parar nisso:
+DERIVAR A MOTORES_DE_LOTE DO REGISTRO (os ligados com entrega "lote"). Hoje daria exatamente os
+mesmos três ids, e fecharia o buraco que o próprio comentário dela antecipa: "no dia em que
+entrar um quinto motor que entrega quadra, uma inclui e a outra não". Não foi feito porque mexe
+no código que decide o que entra nas medições. Por enquanto há TRAVA cobrando que as duas
+respostas coincidam. Se você quiser, é um prompt de uma linha.
+```
