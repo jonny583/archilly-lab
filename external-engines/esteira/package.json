@@ -51,7 +51,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",
     "lab76": "bun ferramentas/lab76.ts",
-    "lab77": "bun ferramentas/lab77.ts"
+    "lab77": "bun ferramentas/lab77.ts",
+    "lab78": "bun ferramentas/lab78.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

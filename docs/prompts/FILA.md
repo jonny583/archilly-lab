@@ -66,6 +66,7 @@ despertador, o menor número ainda não feito.**
 | `008` | **o DESEMPATE do D236**: anote e durma, não desligue | ✅ **LAB-75**, 09/10 · a §1-A corrigida com a ordem antiga **riscada** e o motivo preservado · D244 |
 | `009` | o **LAB-06** (o mais velho): o registro de motores da D68 | ✅ **LAB-76**, 10/10 · **duas das três já existiam** · **6** motores conhecidos, **4** ligados, **2** só-referência · nada mudou de estado · D245, D246, D247 |
 | `010` + adendo | a **sensibilidade ao acesso**, com regra urbanística do Jonny | ✅ **LAB-77**, 10/10 · **ZERO das 7 glebas** dizem quais faces dão para via, e o campo **não existe no contrato** · a esquina é das **RUAS**, não do anel · a sugestão **se recusa a sair** · D248 a D251 |
+| `011` | o **sétimo mecanismo**, se ele existir | ✅ **LAB-78**, 10/10 · **EXISTE e é do MOTOR**: a fileira externa **transborda o canto** 10 a 13 m para a face vizinha · largura **indiferente** (0,19 = 0,19) e cobertura **100 %** · conserto **PROPOSTO, não executado** · D253, D254 |
 
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
@@ -251,16 +252,42 @@ rode a varredura e exija que a prova bata — e a pergunta de projeto que vem co
 provas podem ser regeradas dentro da trava** sem ferir o D182, que proíbe sobregravar prova
 *"antes"* com prova *"depois"*.
 
-### Proposto ao chat, saído do LAB-59 — **não executado**
+### ~~Proposto ao chat, saído do LAB-59 — o SÉTIMO MECANISMO, se houver~~ — ✅ **medido no LAB-78** (item 011)
 
-**O SÉTIMO MECANISMO, se houver.** Resolvidos os seis do LAB-58 e o campo do contrato, **4 das
+~~**O SÉTIMO MECANISMO, se houver.** Resolvidos os seis do LAB-58 e o campo do contrato, **4 das
 20** candidatas de Antonina ficam de fora, **uma violação cada**, e três delas têm a forma
 exata das 11 do contrato — lote externo sobre a rua entregue — **sem** sumir com a faixa que o
 `faixaViaPublica` do Generate constrói. Pode ser um sétimo mecanismo do motor, ou a **largura
-e a divisa** da faixa do Generate. Está caracterizado em
-[`../provas/LAB-59/contrafactual-de-antonina.json`](../provas/LAB-59/contrafactual-de-antonina.json)
-(`oQueAsNaoNomeadasTemEmComum`). **Nomear mecanismo é o LAB-58, e ampliar escopo é o que esta
-página proíbe.**
+e a divisa** da faixa do Generate.~~
+
+**MEDIDO, e a resposta é o MOTOR** (LAB-78, D253): a fileira externa **transborda o canto** da
+face declarada e continua **10,43 a 13,18 m** na face vizinha, que não recebe lotes de frente —
+então não pode haver frente. As duas hipóteses da faixa caíram com número: a **largura** é
+**indiferente** (o lote fica a 0,19 m da faixa de 8 m **e** da de 10 m, porque ela cresce para
+fora da divisa) e a **cobertura** é de **100 %** da face declarada. Relatório:
+[`../relatorios/LAB-78.md`](../relatorios/LAB-78.md).
+
+### Proposto ao chat, saído do LAB-78 — **não executado** · condição de abertura: `aguardando-o-jonny`
+
+**PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA.** O LAB-78 mediu o sétimo mecanismo e o
+nomeou: o plantio da fileira externa **passa da ponta** da face que a ida declara em
+`facesLoteamento` e continua virando o canto para a face seguinte. Em Antonina isso custa **uma
+violação de `frente` por candidata** em pelo menos duas das 20, e os lotes transbordados ficam a
+**0,19 m e 0,29 m** da face declarada com **0 m e 1,5 m** de testada.
+
+**O conserto não foi executado de propósito**, e a razão é do item 011: *mexer no plantio muda o
+desenho, e desenho espera o olho do Jonny*. A condição de abertura é
+**`aguardando-o-jonny`** — não é medição que falta, é uma pessoa que decide se a fileira externa
+encurta.
+
+**O que ele vai olhar, em uma frase:** a fileira externa hoje aproveita o canto e ganha alguns
+lotes que o Validator reprova; encurtá-la ao fim da rua perde esses lotes e zera a violação.
+**Quantos lotes se perdem é medição que este prompt não fez** — e prometer o número sem medir
+seria a classe do D133.
+
+**Origem:** medido e caracterizado no **LAB-78** (item 011), prova em
+[`../provas/LAB-78/setimo-mecanismo.json`](../provas/LAB-78/setimo-mecanismo.json), decisão
+**D253**.
 
 ### LAB-61 · A dívida própria era ESTA LISTA — ✅ concluído em 07/10/2026 · **a fila ESGOTOU**
 
@@ -1219,7 +1246,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 412 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 427 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2223,6 +2250,16 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
 ---
 
 ## Proposto ao chat — não executar
+
+- **PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA** (LAB-78, 10/10, D253). Medido: o plantio
+  da fileira externa **passa da ponta** da face que a ida declara em `facesLoteamento` e continua
+  virando o canto para a face seguinte — **10,43 m e 13,18 m** além, em Antonina, numa face que
+  não recebe lotes de frente. É o **sétimo mecanismo**, e custa uma violação de `frente` por
+  candidata em pelo menos duas das 20. As duas hipóteses da faixa do Generate caíram com número: a
+  **largura é indiferente** (0,19 m da faixa de 8 m **e** da de 10 m, porque ela cresce para fora
+  da divisa) e a **cobertura é de 100 %** da face declarada. O conserto encurta a fileira, e
+  **encurtar perde lotes que hoje entram** — quantos é medição que o LAB-78 não fez, e prometer o
+  número sem medir é a classe do D133. **Segue aberto:** `aguardando-o-jonny`
 
 - **ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR** (09/10, D226). Medido: o
   `Terreno["legais"]` do motor ganhou `caixaViariaMinima_m`, `faceQuadraMaxima_m`,

@@ -7294,3 +7294,109 @@ casar e a trava **acusaria** o arquivo: falha **alta e consertável**, não sile
 de risco diferente da minha, que **derrubava o carregamento**. *Aplicar o conserto onde ele não
 resolve nada é churn, e o D231 cobra o conserto nos instrumentos que leem a MESMA coisa — não em
 todos os que parecem.*
+
+---
+
+## D253 · O SÉTIMO MECANISMO EXISTE, e é do MOTOR: a fileira externa transborda o canto · 10/10/2026
+
+**Item 011, LAB-78.** A pergunta era binária: as violações que o LAB-59 deixou sem mecanismo em
+Antonina vêm de **como o motor planta** (sétimo mecanismo) ou de **como a faixa de via pública é
+construída** (largura e divisa)? **Medido: é o motor**, e as duas hipóteses da faixa caem com
+número.
+
+### A LARGURA cai como controle, e a geometria dizia por quê antes da medição
+
+O Lab construiu a faixa com **8 m** (LAB-48, LAB-59). O Generate constrói com
+`Math.max(8, larguraEntrada / 2)` e `PARAMS_PADRAO_V1.larguraEntrada = 20` — ou seja **10 m**.
+*Mais uma vez o número do Lab não era o de quem declarou a regra* (D98, D104, D166).
+
+**Mas a largura não podia explicar nada, e isso é geometria:** `faixaViaPublica` cola o
+quadrilátero do lado de **FORA** da divisa e o estende para fora. **A borda de dentro dela é a
+divisa.** Alargar afasta a borda externa e não aproxima nada do lado de dentro.
+
+> **Alargar uma faixa que cresce para fora não fecha uma folga que está do lado de dentro.**
+
+Medido: o lote do `cluster` fica a **0,19 m** da faixa de 8 m **e a 0,19 m** da de 10 m. Idêntico.
+A largura entrou como **controle** e saiu **indiferente**, como tinha de sair.
+
+### A DIVISA cai com a cobertura: ela cobre a face declarada INTEIRA
+
+`divisaDoAcesso` devolve **um** segmento do anel, e a hipótese era que a face entregue
+atravessasse vários. Medido em Antonina: a face declarada tem **180,22 m** e a divisa escolhida
+tem **180,22 m** — **100 % de cobertura**. A faixa não é curta.
+
+### O que sobra, medido: o lote está ALÉM DA PONTA da face
+
+Projetando cada vértice do lote no parâmetro da divisa:
+
+| candidata | lote | além da ponta | face declarada | via interna |
+|---|---|---|---|---|
+| `cluster` | `v16-e15` | **0,19 a 13,18 m** | 0,19 m | 5,54 m |
+| `pente` | `v3-e19` | **0,29 a 10,43 m** | 0,29 m | 0,04 m |
+
+Os dois estão **inteiramente fora** do segmento da face declarada, virando o canto em
+`(-16,359; -689,672)` para a **face vizinha, de 1 845,71 m** — e a ida entrega
+`facesLoteamento: [0]`, **só a face 0**. A ida está certa, a faixa está certa, e o motor planta
+fileira externa alguns metros adiante do canto, numa face que ninguém declarou como face de
+loteamento.
+
+> **O SÉTIMO MECANISMO: a fileira externa TRANSBORDA O CANTO da face declarada e continua na
+> face vizinha, onde não há rua declarada — então não pode haver frente.**
+
+**Não há rua na frente desses lotes porque ninguém declarou rua ali** — e isto costura o LAB-78
+ao LAB-77: o campo que diria quais faces dão para via pública **não existe no contrato** (D249).
+O motor não tem como saber onde a rua termina; ele sabe apenas qual face recebe lotes de frente,
+e transborda a ponta dela.
+
+### O conserto fica PROPOSTO, não executado
+
+O item manda: *"se for o motor, caracterize o mecanismo e **proponha** o conserto na `FILA.md` sem
+executar: mexer no plantio muda o desenho, e desenho espera o olho do Jonny."* Está na `FILA.md`
+como proposto ao chat. **Nada no plantio foi tocado.**
+
+### Duas das quatro não foram medíveis, e isso sai declarado
+
+`espinha/v12-l1093` e `mioloVerde/v20-e18` **não existem no plano desta rodada**: o LAB-59 mediu
+com `motor-testfit` em `4181e95` e esta rodada roda em `6cf6396` — **o motor andou entre as
+duas**, e id de lote não sobrevive a mudança de plantio. Sai como `naoAchados` com o motivo, não
+como zero (D23). Remedi-las exige rodar no commit daquela rodada, e isso é prompt.
+
+**Pela prova do LAB-59, as duas eram de classes diferentes das medidas hoje:** a do `espinha` é
+`amostragem-da-testada` (o motor reporta 8,72 m e a mesma função dele com passo fino devolve
+10,22 m, acima do mínimo de 10 — o lote **passa**), e a do `mioloVerde` tem a forma do `pente`.
+*Isto é leitura da prova antiga, não medição de hoje, e vai etiquetado como tal.*
+
+---
+
+## D254 · Eu ia publicar um achado contra o GENERATE, e a cobertura me desmentiu · 10/10/2026
+
+**A vigésima terceira ocorrência do ponto cego do §6, pega dentro do prompt** — e a mais perto de
+sair desde o D119, porque o veredicto já estava escrito, com dono `generate`, pronto para o recado.
+
+A primeira versão do `deQuemEhAViolacao` dizia:
+
+```
+se a projeção do lote cai FORA da extensão da divisa → `faixa-alcance`, dono: generate
+```
+
+e devolveu isso para **os dois** lotes medidos. A frase que ia ao chat era *"a faixa cobre um
+segmento do anel e não está na frente deste lote: é alcance"*.
+
+**O que me desmentiu foi um número da minha própria medição, na linha de cima da tela:**
+`A FAIXA COBRE 100 % DA FACE ENTREGUE`. Se a faixa cobre a face declarada inteira, um lote a
+0,19 m da face **não pode** estar fora do alcance dela. As duas afirmações não cabiam juntas.
+
+Medido o que faltava — **quantos metros** além da ponta —, a resposta apareceu: 13,18 m e
+10,43 m. **Quem estava fora não era a faixa: era o lote.**
+
+> **"ESTÁ FORA DA EXTENSÃO" NÃO DIZ DE QUEM É A CULPA.** A projeção responde *onde*; só o
+> **quanto** responde *de quem*. Régua que conclui dono a partir de um booleano está adivinhando
+> com cara de medição.
+
+O conserto é de condição, não de exceção: `faixa-alcance` agora **exige cobertura menor que
+100 %**, e há trava para os dois lados — cobertura de 100 % **nunca** vira achado contra o
+Generate, e cobertura de 60 % com projeção fora vira. *A trava que vale é a que reprova a frase
+que eu ia publicar* (a lição do LAB-59, aplicada a mim mesma uma rodada depois).
+
+**E a classe é a de sempre:** régua minha acusando o vizinho, **quatro vezes** agora com o número
+acusador saído da minha ponte ou do meu veredicto (D98, D104, D166, D254).
