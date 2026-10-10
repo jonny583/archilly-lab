@@ -1257,7 +1257,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 520 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 535 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2342,12 +2342,23 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   estiver noutro — com a opção de **reconhecer** a mudança, que transforma *"quebrou"* em *"o
   motor andou"*. **Segue aberto:** `prompt-novo`
 
-- **O TRABALHO DE CI QUE NÃO PODE PASSAR** (08/10, D221). Medido: `o verde completo` falhou
-  **136 de 136** vezes em outubro, por falta do segredo `VIZINHOS_TOKEN` — **136 minutos, 50 % de
-  tudo**, num fracasso conhecido de antemão. O D124 está certo em **falhar com a receita** em vez
-  de pular; o que está errado é **agendá-lo** enquanto o segredo não existe. O prompt: o trabalho
-  só entra no gatilho automático quando o segredo existir, e some do agendamento enquanto não —
-  continuando disponível à mão. **Segue aberto:** `prompt-novo`
+- ~~**O TRABALHO DE CI QUE NÃO PODE PASSAR**~~ (08/10, D221) — ✅ **executada no LAB-85**
+  (item 018). **E a medição de novembro desmontou a premissa, que era minha:** os *"136 minutos,
+  50 % de tudo"* são minutos-TRABALHO consumidos e **não dinheiro** — `billable.UBUNTU.total_ms` é
+  **ZERO** em 3 de 3 execuções medidas na API, porque este repositório é público e `ubuntu-latest`
+  em repositório público é gratuito e não medido (a §7 já dizia, com outras palavras). **Novembro
+  custa R$ 0 nos três caminhos, então o dinheiro não decide.** E o trabalho condenado dura **5 a
+  7 s**, com a precondição falhando 3 a 4 s depois do início e todo o resto `skipped`. **O custo
+  real é o SINAL:** 136 de 136 em `failure`, sempre no mesmo passo — *um sinal que ficou vermelho
+  136 de 136 vezes não é alarme, é ruído de fundo*, e isso **concilia este item com a frase da §7**
+  (*"um CI vermelho por falta de configuração é honesto"*): o vermelho é honesto **uma vez**.
+  **A decisão:** o gatilho carrega **só o trabalho 1** (`if: github.event_name ==
+  'workflow_dispatch'` no `verde-completo`), **pelo EVENTO e não pelo segredo**, porque o contexto
+  `secrets` não existe num `if:` de trabalho e a alternativa exigiria um terceiro trabalho que eu
+  **não posso demonstrar** com o CI desligado — *entre dois consertos, o que se pode demonstrar
+  vale mais do que o que só se afirma*. Com **marca** (a caixa do arquivo e a §11 da página do
+  Jonny) e **prazo em forma de EVENTO** (o segredo nascer), guardados nos dois sentidos. **O
+  gatilho não foi religado** (D284)
 
 - **A TRAVA QUE REGERA A VARREDURA DE CONFIGURAÇÃO** (LAB-60, D204). Medido: a prova do
   LAB-57 estava **velha no momento em que foi commitada** — dizia **1** onde a ferramenta, na

@@ -1,0 +1,112 @@
+{
+  "prompt": "LAB-85",
+  "oQue": "a decisão sobre o que o gatilho automático do CI carrega quando ele voltar em 2026-11-01, com a conta dos três caminhos e a medição de NOVEMBRO que o item 018 exigiu — por execução da API do Actions, não por lembrança do número de outubro",
+  "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é a CONFIGURAÇÃO do CI e o custo de cada caminho. Por isso está na lista declarada de exceções do §7",
+  "quando": "2026-10-10T21:36:06.129Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "deOndeVemCadaNumero": "API do Actions nesta rodada: `billable.UBUNTU.total_ms` e `run_duration_ms` de `/actions/runs/{id}/timing`; `started_at`/`completed_at` de `/actions/runs/{id}/jobs`. Os ids estão em `asExecucoesMedidas` para qualquer um reconferir",
+  "asExecucoesMedidas": [
+    {
+      "id": 37751994616,
+      "quando": "2026-10-08T08:45:45Z",
+      "evento": "push",
+      "conclusao": "failure",
+      "duracaoMs": 9000,
+      "billableMs": 0,
+      "trabalhos": [
+        {
+          "nome": "guardas-sem-clones",
+          "conclusao": "success",
+          "segundos": 6
+        },
+        {
+          "nome": "verde-completo",
+          "conclusao": "failure",
+          "segundos": 5,
+          "precondicaoFalhouEmS": 3
+        }
+      ]
+    },
+    {
+      "id": 37751249491,
+      "quando": "2026-10-08T08:39:08Z",
+      "evento": "pull_request",
+      "conclusao": "failure",
+      "duracaoMs": 49000,
+      "billableMs": 0,
+      "trabalhos": [
+        {
+          "nome": "guardas-sem-clones",
+          "conclusao": "success",
+          "segundos": 11
+        },
+        {
+          "nome": "verde-completo",
+          "conclusao": "failure",
+          "segundos": 7,
+          "precondicaoFalhouEmS": 4
+        }
+      ]
+    },
+    {
+      "id": 37713910680,
+      "quando": "2026-10-08T01:38:11Z",
+      "evento": "push",
+      "conclusao": "failure",
+      "duracaoMs": 10000,
+      "billableMs": 0,
+      "trabalhos": [
+        {
+          "nome": "(não detalhado)",
+          "conclusao": "—",
+          "segundos": null
+        }
+      ]
+    }
+  ],
+  "oCobradoEhZero": true,
+  "oQueAMedicaoMoveu": [
+    "os '136 minutos, 50 % de tudo' do D221 são minutos-TRABALHO consumidos, não dinheiro: o cobrado é ZERO em 3 de 3 execuções medidas, porque o repositório é público e `ubuntu-latest` em repositório público é gratuito e não medido. Novembro custa R$ 0 em qualquer caminho, então a escolha NÃO é de dinheiro — e o item autorizava parar na fronteira se fosse",
+    "o trabalho condenado dura 5 a 7 s e a precondição falha 3 a 4 s depois do início, com todo o resto `skipped`: ele nunca clona, nunca instala, nunca roda a suíte. O D124 funciona exatamente como desenhado",
+    "a pendência do `VIZINHOS_TOKEN` NÃO estava na página do Jonny, ao contrário do que o item afirmou: zero ocorrências de 'token' nela. O LAB-38 propôs isto no RELATÓRIO, em 19/09, e nunca na página — 46 prompts com o pedido no lugar errado"
+  ],
+  "oCustoREAL": "136 de 136 execuções terminaram em `failure`, sempre no mesmo passo. Um sinal que ficou vermelho 136 de 136 vezes não é alarme, é ruído de fundo — e o custo dele não se paga em minuto, paga-se em quantas vezes alguém aprendeu a ignorar o vermelho",
+  "osTresCaminhos": [
+    {
+      "nome": "o gatilho carrega só o trabalho 1",
+      "ganha": "o vermelho volta a informar: 136 de 136 deixam de existir, e um vermelho novo passa a querer dizer que uma guarda de verdade quebrou. E são 5 a 7 s menos por envio",
+      "perde": "o verde completo só roda à mão — e no dia em que o segredo nascer, ninguém é avisado se ele quebrar, até alguém pôr o trabalho de volta no gatilho. **É isto que a trava deste prompt cobra**, nos dois sentidos",
+      "custoEmNovembro": "R$ 0",
+      "escolhido": true
+    },
+    {
+      "nome": "carrega os dois, com o trabalho 2 condicionado à EXISTÊNCIA DO SEGREDO",
+      "ganha": "volta sozinho no dia em que o segredo nascer, sem ninguém lembrar",
+      "perde": "o contexto `secrets` não existe num `if:` de trabalho, então precisa de um TERCEIRO trabalho para ler o segredo e publicar a saída — e com o CI desligado eu **não posso demonstrar** que a condição pega. Condição não demonstrada, em arquivo que ninguém executa, é a quinta forma de desligar: a que não deixa nada vermelho",
+      "custoEmNovembro": "R$ 0",
+      "escolhido": false
+    },
+    {
+      "nome": "carrega os dois como hoje",
+      "ganha": "nada a mexer",
+      "perde": "o vermelho continua sendo ruído: 136 de 136, sempre o mesmo passo. Não custa dinheiro e custa 5 a 7 s — o preço é o sinal, e ele já foi pago 136 vezes",
+      "custoEmNovembro": "R$ 0",
+      "escolhido": false
+    }
+  ],
+  "aDecisao": {
+    "condicao": "github.event_name == 'workflow_dispatch'",
+    "porqueNaoPeloSegredo": "o contexto `secrets` não existe num `if:` de trabalho, e a alternativa exigiria um terceiro trabalho que eu não posso demonstrar com o CI desligado",
+    "marca": "a caixa de comentário do trabalho 2 e a §11 da página do Jonny",
+    "prazo": "é um EVENTO e não uma data: no dia em que o segredo existir, a pendência é riscada e a condição TEM DE SAIR — e a trava cobra esse sentido também",
+    "oGatilhoFoiReligado": false
+  },
+  "aConferencia": {
+    "problemas": [],
+    "condicaoNoArquivo": "github.event_name == 'workflow_dispatch'"
+  },
+  "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
+}

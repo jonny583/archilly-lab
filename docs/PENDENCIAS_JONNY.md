@@ -764,6 +764,70 @@ mão é o que esta casa chama de conta feita com o volume que a gente gostaria d
 
 ---
 
+## 11 · Uma senha que só você pode criar — e sem ela metade da conferência automática nunca roda
+
+**O que está acontecendo, em uma frase:** este laboratório tem uma conferência
+automática que roda sozinha no GitHub a cada mudança, e **metade dela nunca
+conseguiu rodar**, porque precisa de uma senha de acesso que só você pode criar.
+
+**Em que isso te afeta:** a conferência inteira existe e funciona — eu a rodo
+**à mão, aqui, antes de cada entrega**, e é dela que saem os números que você vê
+("918 travas, 7 passos, tudo verde"). O que falta é ela rodar **sozinha**, como
+rede de segurança para o dia em que eu esquecer. Enquanto não rodar, a rede é a
+minha memória.
+
+### O que eu preciso de você, e é uma coisa só
+
+**Criar uma senha de acesso de leitura** (o GitHub chama de *token*) que deixe
+esta conferência ler os outros dois aplicativos da família — o **Laboratório de
+Parcelamento** e o **Archilly Generate**. Ela lê, não escreve.
+
+São três passos, uma vez só:
+
+1. abra <https://github.com/settings/personal-access-tokens/new>;
+2. dê acesso **apenas aos repositórios desses dois aplicativos** — na sua lista,
+   o do Archilly Generate é o `urban-create-hub-41d93a4d`, e o do Laboratório de
+   Parcelamento é o único cujo nome começa com `motor-` —, e **apenas** a
+   permissão de **leitura de conteúdo**;
+3. cole o resultado em
+   <https://github.com/jonny583/archilly-lab/settings/secrets/actions>,
+   com o nome **`VIZINHOS_TOKEN`**.
+
+*(O nome técnico desse primeiro repositório não vai escrito aqui de propósito:
+nesta página ele se chama Laboratório de Parcelamento, e essa é uma regra sua —
+o nome interno fica nos relatórios.)*
+
+**E há uma alternativa, que também é sua:** tornar esses dois aplicativos
+**públicos**. Aí não precisa de senha nenhuma. Qual das duas é melhor é decisão
+sua, não minha — eu só preciso de uma das duas.
+
+**Uma ressalva honesta, porque ela é sua para pesar:** este laboratório é
+público. Uma senha guardada num repositório público **não é entregue a estranhos**
+(o GitHub não a passa para cópias feitas por outras pessoas), mas ela existe nas
+configurações dele. Se isso não te agradar, a alternativa de cima resolve.
+
+### E por que isto só está chegando a você AGORA
+
+**Porque eu errei o lugar.** Isto foi pedido em **19/09/2026**, no relatório do
+LAB-38 — *"o que fica proposto, e é uma coisa só, do Jonny"* —, e **nunca foi
+escrito nesta página**. Eu também escrevi, na época, que *"a receita está no log
+do próprio trabalho, toda vez que ele falha"*: ou seja, deixei o pedido num lugar
+que você não lê, e que **desde 08/10 não roda mais**.
+
+> **Pedido que mora só num relatório não chega a quem decide.**
+
+Foram **quarenta e seis rodadas** com esse pedido escrito no lugar errado, e ele
+só apareceu hoje porque uma medição foi conferir se ele estava aqui — e não
+estava. Está aqui agora, e é o único item desta página que depende de uma senha
+em vez de uma regra de urbanismo.
+
+**Enquanto você não decidir, nada para:** a metade que roda sozinha continua
+rodando, e a outra metade continua sendo rodada por mim antes de cada entrega.
+Não há pressa de hoje para amanhã — há só uma rede de segurança que ainda não
+existe.
+
+---
+
 ## Já resolvidos — não precisa fazer nada
 
 - ~~**"Desvio desproporcional" é 3 vezes o caminho direto, ou 1,5 km?**~~ —

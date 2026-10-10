@@ -8477,3 +8477,159 @@ completo o roda. O que a régua deixa de cobrar é só o `exit` da própria casa
 
 *É a irmã estrutural do D266 (instrumento de medição discordando do instrumento medido), com uma
 volta a mais: aqui o instrumento e o medido são o mesmo arquivo.*
+
+---
+
+## D284 · QUANDO A COLUNA DO DINHEIRO EMPATA, ELA PARA DE DECIDIR · 10/10/2026
+
+O item 018 pediu *"o número de NOVEMBRO, não o de outubro"*, e medido na API do Actions o número
+de novembro desmonta a premissa do próprio item — e a do **D221**, que era minha.
+
+| execução | evento | `run_duration_ms` | `billable.UBUNTU.total_ms` |
+|---|---|---|---|
+| 37751994616 | `push` | 9 000 | **0** |
+| 37751249491 | `pull_request` | 49 000 | **0** |
+| 37713910680 | `push` | 10 000 | **0** |
+
+> **Os "136 minutos, 50 % de tudo" são minutos-TRABALHO CONSUMIDOS, não dinheiro: o cobrado é
+> ZERO.** `archilly-lab` é público, e `ubuntu-latest` em repositório público é gratuito e não
+> medido. A §7 já dizia isso em outras palavras — *"a parte deste repositório no estouro é ZERO"* —
+> e a API confirma campo por campo.
+
+**Então a escolha não é de dinheiro**, e o item autorizava parar na fronteira se fosse: em nenhum
+dos três caminhos novembro custa um centavo. *A unidade em que eu contei o desperdício não era a
+unidade em que a conta é paga, e isso passou dois dias sem ninguém notar — inclusive eu, que
+escrevi as duas frases.*
+
+### E o trabalho condenado custa SETE SEGUNDOS
+
+Medido passo a passo: `o verde completo` dura **5 a 7 s**, e a precondição falha **3 a 4 s** depois
+do início; todos os passos seguintes saem `skipped`. **Ele nunca clona, nunca instala, nunca roda a
+suíte.** O D124 funciona exatamente como desenhado.
+
+### O custo REAL, e ele não se mede em minutos
+
+**136 de 136 execuções terminaram em `failure`**, sempre no mesmo passo, sempre pelo mesmo motivo.
+
+> **Um sinal que ficou vermelho 136 de 136 vezes não é um alarme: é ruído de fundo.** O custo dele
+> não se paga em minuto — paga-se em quantas vezes alguém aprendeu a ignorar o vermelho.
+
+E é isto que **concilia o D221 com a frase da §7** (*"um CI vermelho por falta de configuração é
+honesto"*), que até aqui pareciam brigar: **as duas estão certas sobre coisas diferentes.** O
+vermelho por falta de configuração é honesto **uma vez**; repetido 136 vezes sem nada mudar, ele
+deixou de informar. *Honestidade de um sinal não é propriedade da primeira vez que ele acende: é
+propriedade da série.*
+
+### A decisão, e os três caminhos com o que cada um perde
+
+**O gatilho carrega só o trabalho 1.** No arquivo: `if: github.event_name == 'workflow_dispatch'`
+no `verde-completo`.
+
+| caminho | perde |
+|---|---|
+| **só o trabalho 1** *(escolhido)* | no dia em que o segredo nascer, ninguém é avisado se o verde completo quebrar, até alguém pôr o trabalho de volta — **e é isto que a trava cobra** |
+| os dois, com o trabalho 2 condicionado ao SEGREDO | o contexto `secrets` **não existe num `if:` de trabalho**: exigiria um TERCEIRO trabalho só para lê-lo, e com o CI desligado eu **não posso demonstrar** que a condição pega |
+| os dois como hoje | o vermelho continua ruído — 136 de 136, sempre o mesmo passo |
+
+> **Entre dois consertos, o que eu posso demonstrar nesta máquina vale mais do que o que eu só
+> posso afirmar** — e uma condição não testada, num arquivo que ninguém executa, é a forma mais
+> silenciosa de desligar um trabalho. `github.event_name` **está** disponível num `if:` de
+> trabalho, e o efeito dele é conferível por leitura.
+
+### A MARCA e o PRAZO, porque desligamento sem os dois envelhece
+
+O item trouxe a peça do Render (o D197 dele): *"`enquanto` + `marca` conferida no arquivo, porque
+cinco dos seis desligadores não têm evento próprio"*. Então:
+
+- **a marca** é a caixa de comentário do trabalho 2 **e** a **§11 da página do Jonny**;
+- **o prazo é um EVENTO e não uma data** — no dia em que o segredo existir, a pendência é riscada e
+  a condição **tem de sair**. *Prazo que não pode ser uma data ainda pode ser um evento, desde que
+  alguém cobre o evento*, e é a trava que cobra;
+- **o gatilho NÃO foi religado.** O item foi explícito, e a trava de 1º/11 continua sendo quem cobra.
+
+**E o `verde.yml` entrou como o OITAVO lugar** da varredura por lugar (item 007): ele passou a ter
+uma coisa parada com condição de volta, e *lugar novo nasce quando algo novo fica parado.*
+
+---
+
+## D285 · PEDIDO QUE MORA SÓ NUM RELATÓRIO NÃO CHEGA A QUEM DECIDE · 10/10/2026
+
+O item 018 afirmou, de passagem: *"o segredo `VIZINHOS_TOKEN` é dele — **está na sua página de
+pendências desde o LAB-38**, e nada aqui o pede de novo."*
+
+**Medido: não estava.** `VIZINHOS_TOKEN` aparece em **16 arquivos** da árvore, e
+`docs/PENDENCIAS_JONNY.md` **não é um deles** — a palavra *"token"* aparece **zero** vezes na
+página, em qualquer caixa.
+
+**E o LAB-38 pediu, sim — no lugar errado.** A §7 daquele relatório diz *"o que fica proposto — e é
+uma coisa só, do Jonny: criar o segredo `VIZINHOS_TOKEN`, ou tornar os dois vizinhos públicos"*. E
+a linha seguinte é a confissão involuntária:
+
+> *"A receita está no log do próprio workflow, em português, toda vez que ele falha."*
+
+**O pedido foi deixado em dois lugares que ele nunca lê** — um relatório técnico e o log de um
+trabalho de CI — e desde **08/10** esse trabalho **não roda mais**. Foram **quarenta e seis
+prompts** (LAB-38 → LAB-85) com a única coisa desta decisão que depende de uma pessoa escrita onde
+essa pessoa não olha.
+
+> **Pedido que mora só num relatório não chega a quem decide.** É o §1-B (*"o que vai ao chat e não
+> vai a um arquivo não existe amanhã"*) numa forma pior: **foi para um arquivo, e para o arquivo
+> errado** — e arquivo errado é mais perigoso que nenhum arquivo, porque ele dá a sensação de que o
+> pedido existe.
+
+**E a prova de que dá:** o chat escreveu no item 018 que a pendência estava lá. Ele não inventou —
+ele leu o LAB-38 e concluiu o passo que faltava. *Um pedido no lugar errado não fica só não feito:
+ele passa a ser citado como feito.*
+
+**Consertado onde devia estar desde 19/09:** a **§11** da página do Jonny, escrita para leigo como
+a §5 manda — o que é a senha, os três passos, a alternativa (tornar os dois vizinhos públicos), a
+ressalva de segredo em repositório público, e o que **não** para enquanto ele não decidir. **Há
+trava** nos dois sentidos (`tests/o-que-o-gatilho-carrega.test.ts`): se a pendência sair da página,
+reprova; se for marcada como resolvida com o trabalho ainda fora do gatilho, reprova também.
+
+**E a §5 mandou na redação:** a página não pode dizer o nome interno do motor do Parcelamento, e a
+trava reprova — então o repositório dele é **descrito** em vez de nomeado (*"o único cujo nome
+começa com `motor-`"*), com a razão dita ao lado. *Regra de nome que vale mesmo quando atrapalha a
+instrução é regra; a que cede na primeira inconveniência é sugestão.*
+
+---
+
+## D286 · RÉGUA QUE PERGUNTA SE UM TRABALHO TEM CONDIÇÃO PERGUNTA AO YAML, NÃO AO ARQUIVO · 10/10/2026
+
+A trava nova do D284 tem de garantir que o **trabalho 1 nunca** seja condicionado — ele é o portão
+que roda em todo envio. A primeira versão procurava a palavra `if:` entre o nome de um trabalho e o
+do outro, e **reprovou a decisão correta**: a caixa de comentário que explica a condição diz *"o
+`if:` abaixo é essa decisão"*.
+
+**Oitava vez da família do D142 / D155 / D257 nesta casa** — e a primeira **no mesmo dia** em que eu
+a escrevi como decisão (D282, de poucas horas antes).
+
+> **A pergunta decide o instrumento.** *"Este trabalho tem condição?"* é uma pergunta de
+> **estrutura**, e o `Bun.YAML` responde pela chave; *"a condição está explicada?"* é uma pergunta
+> de **texto**, e aí o comentário é o objeto e não o ruído. A mesma régua fazendo as duas erra uma.
+
+As duas convivem agora no mesmo arquivo, cada uma com o instrumento dela — e **há trava para a
+lição**, que de outro modo viraria comentário: uma trava afirma que o trecho entre os dois nomes
+**contém** `if:` (ou seja, que a régua de texto *estava* errada) e que a de estrutura, na mesma
+pergunta, diz a verdade. *Lição sem trava é comentário, e comentário não se revalida* (D104).
+
+### E a mesma rodada deu a irmã dela: CLASSE NEGADA NÃO É FRONTEIRA
+
+A régua que lê se a pendência do Jonny foi **resolvida** nasceu como
+`~~[^~]*VIZINHOS_TOKEN[^~]*~~` sobre a página inteira — e **leu a página de hoje como resolvida**,
+com a pendência aberta. O `[^~]` não para em fim de linha nem de seção: ele emendou um `~~` da §10
+com outro da lista de resolvidos, com a §11 no meio.
+
+> **Classe negada não é fronteira.** `[^~]` diz *"qualquer coisa que não seja til"* — e parágrafos,
+> seções e o arquivo inteiro cabem nisso. Quem quer uma linha pede uma **linha**.
+
+Consertada linha a linha, contra um título declarado (`TITULO_DA_PENDENCIA`), e **com trava para os
+dois lados**: a régua velha é exercida na trava e tem de **achar** o falso positivo, e a nova tem de
+**não** achar. *Conserto de régua sem a régua velha ao lado não prova que havia defeito.*
+
+### E a janela da marca saiu de uma ÂNCORA, não de um número
+
+A conferência da marca lia `workflow.slice(i - 1800, i + 200)`. **Dependia do tamanho da caixa de
+comentário** — e cresceria para mentira no dia em que alguém escrevesse mais uma linha ali. Passou a
+sair de uma âncora declarada no arquivo. *Janela medida em caracteres é coincidência com prazo de
+validade* — a mesma doença do D264 e do D278, agora num `slice`.

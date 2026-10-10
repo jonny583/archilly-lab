@@ -49,7 +49,11 @@ export interface LugarDeCondicao {
 }
 
 /**
- * **Os SETE lugares, lidos um a um.** Nenhum achado por `grep` de frase: achados por leitura.
+ * **Os OITO lugares, lidos um a um.** Nenhum achado por `grep` de frase: achados por leitura.
+ *
+ * **Eram SETE até o LAB-85**, quando a decisão sobre o que o gatilho do CI carrega pôs uma coisa
+ * NOVA em espera, com condição de volta (D284). *Lugar novo nasce quando algo novo fica parado —
+ * e o jeito de esta lista mentir é alguém parar uma coisa e não a inscrever aqui.*
  *
  * As quinze etiquetas declaradas da `FILA.md` entram como **uma** linha, porque são um lugar e
  * um tipo; as outras cinco são as que só apareceram por lugar.
@@ -74,7 +78,7 @@ export const LUGARES: LugarDeCondicao[] = [
   {
     lugar: "docs/prompts/FILA.md",
     oQueEstaParado:
-      "as DEZESSEIS propostas e itens abertos, com as etiquetas declaradas — `prompt-novo` (6), " +
+      "as QUINZE propostas e itens abertos, com as etiquetas declaradas — `prompt-novo` (5), " +
       "`nao-medido` (3), `aguardando-outro-repositorio` (3), `aguardando-o-jonny` (2), " +
       "`escopo-novo`, `depois-do-mvp`",
     aCondicao: "cada uma espera pessoa, repositório, prompt novo, medição ou o marco do MVP",
@@ -107,6 +111,19 @@ export const LUGARES: LugarDeCondicao[] = [
     contradizARegra: false,
   },
   {
+    lugar: ".github/workflows/verde.yml",
+    oQueEstaParado:
+      "o trabalho `o verde completo` fora do gatilho automático — ele roda à mão pelo " +
+      "`workflow_dispatch`, e não entra no `push`/`pull_request` (LAB-85, D284)",
+    aCondicao:
+      "no dia em que o segredo `VIZINHOS_TOKEN` existir, a pendência da §11 da página do Jonny é " +
+      "riscada e a condição TEM DE SAIR — é um EVENTO e não uma data, e a trava cobra os dois " +
+      "sentidos (`tests/o-que-o-gatilho-carrega.test.ts`)",
+    tipo: "evento",
+    marcaNoLugar: "ELE NÃO ENTRA NO GATILHO AUTOMÁTICO ENQUANTO FALTAR O SEGREDO",
+    contradizARegra: false,
+  },
+  {
     lugar: "docs/caixa-de-entrada/COMO_FUNCIONA.md",
     oQueEstaParado: "o que vai para ramo em vez da `main` — o que eu não tenho certeza",
     aCondicao: 'o ramo "se chama pela pergunta que ele espera", e volta quando a pergunta for respondida',
@@ -126,9 +143,12 @@ export const QUANTAS_CONDICOES = {
   // LAB-83 a conta andou DUAS vezes e voltou a 17: essa foi EXECUTADA e saiu por ENTREGA (D276),
   // e entrou a do trabalho de CI que diz não precisar dos clones e precisa (D279). **Saldo
   // parado não é rodada parada**, e é por isso que as duas ficam escritas.
-  // 17 → 16 no LAB-84: a do trabalho de CI foi EXECUTADA (D282), e saiu por ENTREGA.
-  // E nenhuma das dezesseis é uma CONTA, que é o que a régua existe para cobrar.
-  naFila: 16,
+  // 17 → 16 no LAB-84: a do nome do trabalho foi EXECUTADA (D282), e saiu por ENTREGA; e
+  // 16 → 15 no LAB-85, a do trabalho de CI que não pode passar (D284). **QUATRO descidas por
+  // entrega em cinco rodadas** — a fila está sendo consumida mais rápido do que abastecida, e
+  // isso é notícia para quem decide o intervalo.
+  // E nenhuma das quinze é uma CONTA, que é o que a régua existe para cobrar.
+  naFila: 15,
   foraDaFila: LUGARES.filter((l) => l.lugar !== "docs/prompts/FILA.md").length,
   get total(): number {
     return this.naFila + this.foraDaFila;
