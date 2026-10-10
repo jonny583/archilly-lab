@@ -69,6 +69,9 @@ import {
   motorDoSymbios,
   separar,
 } from "../src/porta/motores.ts";
+import { MOTORES_DE_LOTE } from "../src/acesso.ts";
+import * as inventario from "../src/inventario-das-pontes.ts";
+import { conferirORegistro, lerORegistro, ligados, universoLido } from "../src/registro-do-lab.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const FIXTURES = join(RAIZ, "docs", "fixtures", "glebas-padrao-com-relevo");
@@ -526,5 +529,64 @@ describe("o que o motor não soube fazer — o campo que a porta obriga", () => 
         expect(x.consequencia.split(" ").length).toBeGreaterThan(4);
       }
     }
+  });
+});
+
+/**
+ * TRAVA 1 DO REGISTRO, A METADE QUE PRECISA DOS CLONES. (LAB-76, D68)
+ *
+ * A outra metade mora em `registro-do-lab.test.ts`, que roda sem clone vizinho e confere o dado
+ * contra uma lista de ids **escrita**. Esta aqui confere aquela lista contra os ids que as
+ * fábricas **de fato produzem** — e é ela que impede a outra de medir ortografia.
+ *
+ * **Por que aqui e não num arquivo novo:** este arquivo já importa a porta e já monta os quatro
+ * motores no `beforeAll`. Um segundo lugar para a mesma pergunta é o D116, e a regra que o Jonny
+ * deu à direção em 09/10 é *nome novo para coisa que já tem nome na casa é custo sem benefício*.
+ */
+describe("o registro de motores do Lab conhece os motores que a porta produz", () => {
+  test("todo id que as fábricas produzem está no registro", () => {
+    const reg = lerORegistro();
+    const conhecidos = reg.motores.map((m) => m.id);
+    for (const m of motores) {
+      expect(conhecidos).toContain(m.capacidades().id);
+    }
+  });
+
+  test("os ids REAIS da porta são exatamente os que o registro dá como ligados", () => {
+    const reg = lerORegistro();
+    expect(motores.map((m) => m.capacidades().id).sort()).toEqual(
+      ligados(reg)
+        .map((m) => m.id)
+        .sort(),
+    );
+  });
+
+  test("o nome e a `entrega` do registro não contradizem o que o motor declara", () => {
+    const reg = lerORegistro();
+    for (const m of motores) {
+      const c = m.capacidades();
+      const noRegistro = reg.motores.find((x) => x.id === c.id);
+      expect(noRegistro?.nome).toBe(c.nome);
+    }
+  });
+
+  test("a conferência do registro passa com os ids MEDIDOS da porta, não com os escritos", () => {
+    const reg = lerORegistro();
+    const conf = conferirORegistro(
+      reg,
+      motores.map((m) => m.capacidades().id),
+      MOTORES_DE_LOTE,
+      Object.keys(inventario).filter((n) => /^[A-Z_]+$/.test(n)),
+    );
+    expect(conf.fora).toEqual([]);
+    expect(conf.prometidosQueNaoExistem).toEqual([]);
+    expect(conf.ok).toBe(true);
+  });
+
+  test("o universo publicado inclui os motores que a porta NÃO produz — os só-referência", () => {
+    const u = universoLido(lerORegistro());
+    expect(u.ligados).toBe(motores.length);
+    expect(u.conhecidos).toBeGreaterThan(motores.length);
+    expect(u.ligados + u.desligados + u.soReferencia).toBe(u.conhecidos);
   });
 });

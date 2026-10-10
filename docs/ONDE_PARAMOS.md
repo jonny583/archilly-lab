@@ -4,8 +4,8 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 09/10/2026 · **Último prompt executado:** LAB-75 (item 008) — **o
-desempate do D236 chegou: anote e durma, NÃO desligue** (D244) ·
+**Última atualização:** 10/10/2026 · **Último prompt executado:** LAB-76 (item 009) — **o
+registro de motores: DUAS das três coisas da D68 já existiam** (D246) ·
 **A ida vem da CAIXA DE ENTRADA; o estado do despertador mora na CONTA DOS DISPAROS, abaixo.**
 
 # 📊 A CONTA DOS DISPAROS DO DESPERTADOR — e o estado dele mora AQUI (item 004)
@@ -62,9 +62,10 @@ enquanto eu trabalhava no 001"*).
 | 09/10/2026 | 21:05 | observado | item 006 pronto | item 006 (LAB-73) |
 | 09/10/2026 | 22:05 | observado | item 007 pronto | item 007 (LAB-74) |
 | 09/10/2026 | 23:05 | observado | **nada na caixa** — os sete feitos | recado de uma linha; e o `008` entrou às 23:08:55Z, pego na mesma rodada → item 008 (LAB-75) |
+| 10/10/2026 | 00:05 | observado | item 009 pronto (e o `010` + o `010-adendo` já na caixa) | item 009 (LAB-76) |
 
 ```
-disparos observados: 9 · em vazio: 2
+disparos observados: 10 · em vazio: 2
 ```
 
 **DOIS em vazio de nove, e a série já diz algo:** o chat abasteceu **sete itens em oito horas** e
@@ -140,7 +141,7 @@ registra as duas, com o que ele disse em cada uma.
 
 # 🟢 O VERDE VOLTOU A `exit 0` — e a D223 tinha errado a CAUSA (D224)
 
-**Conferido AQUI, não no GitHub:** 726 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
+**Conferido AQUI, não no GitHub:** 760 travas na esteira + 17 no testfit, 7 passos, `exit 0`.
 
 ~~"O verde está vermelho e não é por mudança daqui — os clones vizinhos foram recriados em
 commits mais novos."~~ **O veredicto estava certo; a causa, errada.** Medido falha por falha no
@@ -206,6 +207,59 @@ medida em uma hora: desligar teria deixado o item parado.*
 
 **O estado do despertador NÃO se repete aqui** — ele mora na *conta dos disparos*, no alto deste
 arquivo, e este parágrafo é o que sobrou de tê-lo escrito em dois lugares (D234).
+
+# ⚙️ O REGISTRO DE MOTORES: seis motores, quatro ligados, e o padrão tem UM nome (item 009, D68)
+
+**LAB-76, 10/10/2026.** A D68 pedia três coisas, e **duas já existiam** — na peça do LAB-06, que
+é para o Generate. O que faltava era a **procedência por motor**, o **estado como dado** e a
+**conta do universo** (D246).
+
+```
+6 motores conhecidos · 4 ligados · 0 desligados · 2 só-referência (triados e recusados)
+```
+
+**O universo era maior do que eu esperava.** Além dos quatro da porta, esta casa conhece o
+**PackingSolver** (C++ de servidor, contra a arquitetura de navegador) e o **straight skeleton**
+(impedimento de licença, copyleft) — triados, recusados, **nunca clonados**, com README e veredito
+escritos, **e em nenhuma lista**. *Conferência que não publica o tamanho do universo que leu passa
+lendo zero.*
+
+| motor | estado | procedência medida |
+|---|---|---|
+| `generate-ortogonal` · `generate-espinha` | ligados | `urban-create-hub-41d93a4d`, **22 commits atrás** |
+| `parcelamento` ← **o padrão** | ligado | `motor-testfit`, **30 commits atrás** · versão **lida** do motor |
+| `symbios` | ligado | `upstream/VERSION` — carimbado aqui, **não há origem a consultar** |
+| `packingsolver` · `straight-skeleton` | **só-referência** | não copiados — nada a medir |
+
+**Três distinções que NÃO são liga/desliga, e cada uma tem lugar próprio:** `so-referencia` não é
+`desligado` (um volta por decisão, o outro por triagem nova); o Symbios está **ligado** e fora da
+`MOTORES_DE_LOTE` porque entrega **quadra** (D50); e `nao-medida` não é `em-dia`.
+
+**O padrão mora num lugar só:** `PADRAO_DE_FABRICA`, da peça do LAB-06, **importado** e não
+recopiado — e há trava que reprova se a palavra `padrao` virar chave no dado (D116).
+
+**NADA mudou de estado:** padrão igual, quatro ligados, `MOTORES_DE_LOTE` com os mesmos três ids,
+**nenhuma medição desta casa muda de número**. A fronteira do item era exatamente essa, e não foi
+preciso atravessá-la. O que mudou é que **agora há onde desligar** — e trava que cobra a conta.
+
+**O limite do "é dado, não código", declarado:** o estado está em
+`esteira/dados/registro-de-motores.json`, fora de `src`, e **nenhum `.ts` se edita** para medir com
+um motor fora. **Mas aqui trocar aquela chave continua sendo um commit** — o ganho é de
+acoplamento, não de implantação.
+
+**E duas lições caras saíram deste prompt:**
+
+- **o ponto cego bateu VINTE** (D245): a trava que eu acabara de escrever para *"nenhum commit
+  gravado no dado"* reprovou o dado legítimo, casando **`41d93a4d`** — o fim do **nome** do
+  vizinho `urban-create-hub-41d93a4d`. *Fronteira de palavra num nome composto não é fronteira de
+  valor.* Consertada por **estrutura**: a régua olha o **valor inteiro** do campo, não o texto;
+- **importar uma ferramenta a EXECUTA** (D247): o `lab76` importou o `lab68` para reusar
+  `carimbarVizinhos()`, e o `lab68` rodou inteiro — **sobrescrevendo a prova do LAB-68**. A prova
+  foi restaurada e a função subiu para `src/commit-dos-vizinhos.ts`. *Ferramenta é ponto de
+  entrada, não biblioteca.*
+
+Relatório: [`relatorios/LAB-76.md`](relatorios/LAB-76.md) · prova:
+[`provas/LAB-76/registro-de-motores.json`](provas/LAB-76/registro-de-motores.json) · `bun run lab76`
 
 # ✅ DESEMPATADO: no disparo em vazio, ANOTE E DURMA — não desligue (item 008, D244)
 
@@ -1412,7 +1466,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 337 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 366 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

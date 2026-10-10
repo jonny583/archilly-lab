@@ -1,0 +1,102 @@
+{
+  "contrato": "registro-de-motores/1",
+  "porQueIstoEDado": "Ligar ou desligar um motor muda TODA medicao desta casa (D226). Se o estado morasse em codigo, trocar uma chave seria um envio. Mora aqui, e a esteira le; nenhum .ts se edita para medir com um motor fora.",
+  "oQueNaoMoraAqui": {
+    "motorPadrao": "entrega/registro-de-motores/registro.ts · PADRAO_DE_FABRICA — ha UM nome do padrao nesta casa, e repeti-lo aqui criaria a segunda resposta do D116",
+    "oQueCadaCampoFazNaTravessia": "external-engines/esteira/src/inventario-das-pontes.ts — o inventario das pontes. Este registro APONTA para ele e nao o copia",
+    "oCommitMedido": "nao se grava: commit de clone vizinho muda quando o clone anda, e numero gravado que ninguem revalida envelhece em silencio (D104). Quem mede e a ferramenta, ao rodar"
+  },
+  "motores": [
+    {
+      "id": "generate-ortogonal",
+      "nome": "Archilly Generate · candidata ortogonal",
+      "estado": "ligado",
+      "porque": null,
+      "procedencia": {
+        "tipo": "familia-por-caminho",
+        "repo": "urban-create-hub-41d93a4d",
+        "alias": "@generate/*",
+        "versaoLidaDe": null,
+        "versaoDeclarada": "1"
+      },
+      "oQuePrometeMoraEm": null
+    },
+    {
+      "id": "generate-espinha",
+      "nome": "Archilly Generate · candidata espinha",
+      "estado": "ligado",
+      "porque": null,
+      "procedencia": {
+        "tipo": "familia-por-caminho",
+        "repo": "urban-create-hub-41d93a4d",
+        "alias": "@generate/*",
+        "versaoLidaDe": null,
+        "versaoDeclarada": "1"
+      },
+      "oQuePrometeMoraEm": null
+    },
+    {
+      "id": "parcelamento",
+      "nome": "Laboratório de Parcelamento",
+      "estado": "ligado",
+      "porque": null,
+      "procedencia": {
+        "tipo": "familia-por-caminho",
+        "repo": "motor-testfit",
+        "alias": "@testfit/*",
+        "versaoLidaDe": "@testfit/contrato/tipos.ts · MOTOR_VERSAO",
+        "versaoDeclarada": null
+      },
+      "oQuePrometeMoraEm": [
+        "VIA_DO_PARCELAMENTO",
+        "LOTE_DO_PARCELAMENTO",
+        "AREA_DO_PARCELAMENTO",
+        "BOLSAO_DO_PARCELAMENTO",
+        "METRICAS_DO_PARCELAMENTO",
+        "PLANO_DO_PARCELAMENTO"
+      ]
+    },
+    {
+      "id": "symbios",
+      "nome": "Symbios Tensor + subdivisão do Lab",
+      "estado": "ligado",
+      "porque": null,
+      "procedencia": {
+        "tipo": "upstream",
+        "repo": null,
+        "alias": "@symbios/*",
+        "versaoLidaDe": "external-engines/symbios/upstream/VERSION",
+        "versaoDeclarada": null
+      },
+      "oQuePrometeMoraEm": ["VIA_DO_SYMBIOS", "QUADRA_DO_SYMBIOS"]
+    },
+    {
+      "id": "packingsolver",
+      "nome": "PackingSolver (fontanf) · rectangleguillotine",
+      "estado": "so-referencia",
+      "porque": "Triagem recusou seguir: C++ com CLP/HiGHS e LAPACK, portanto so servidor, contra a arquitetura de navegador do Generate; e o rectangleguillotine nao modela acesso a via, testada, esquina nem lote irregular. Nada foi clonado para upstream/. Ver docs/PACKINGSOLVER_TRIAGEM.md",
+      "procedencia": {
+        "tipo": "nao-copiado",
+        "repo": null,
+        "alias": null,
+        "versaoLidaDe": null,
+        "versaoDeclarada": null
+      },
+      "oQuePrometeMoraEm": null
+    },
+    {
+      "id": "straight-skeleton",
+      "nome": "Straight skeleton (CGAL via WASM / crate Rust)",
+      "estado": "so-referencia",
+      "porque": "Impedimento de licenca, nao falha tecnica: as duas implementacoes avaliadas sao copyleft (GPLv3+ via CGAL e GPL-2.0-or-later), e o Generate e produto proprietario de navegador. Nada foi clonado. A recomendacao e reimplementar em TypeScript a partir da literatura. Ver docs/STRAIGHT_SKELETON_ANALYSIS.md",
+      "procedencia": {
+        "tipo": "nao-copiado",
+        "repo": null,
+        "alias": null,
+        "versaoLidaDe": null,
+        "versaoDeclarada": null
+      },
+      "oQuePrometeMoraEm": null
+    }
+  ]
+}

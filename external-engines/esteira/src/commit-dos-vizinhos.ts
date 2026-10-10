@@ -27,6 +27,10 @@
  * sem carimbo como prova conferida seria inventar a medição que falta.
  */
 
+import { execFileSync } from "node:child_process";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+
 /** Os repositórios irmãos que este Lab lê, e só lê (§4). */
 export const VIZINHOS = ["motor-testfit", "urban-create-hub-41d93a4d", "urban-scout-tool"] as const;
 export type Vizinho = (typeof VIZINHOS)[number];
@@ -204,4 +208,61 @@ export interface CarimboDoChao {
 /** Uma prova precisa de carimbo quando ela RODA algum vizinho. Sem rodar, não precisa. */
 export function precisaDeCarimbo(prova: { osClonesVizinhos?: unknown }): boolean {
   return Array.isArray(prova.osClonesVizinhos);
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+//  A METADE QUE MEDE — e ela subiu para cá no LAB-76.
+// ════════════════════════════════════════════════════════════════════════════
+//
+// `carimbarVizinhos` nasceu dentro de `ferramentas/lab68.ts`, e o LAB-76 descobriu o preço
+// disso ao precisar dela: **importar uma ferramenta a EXECUTA**. O `lab76` importou o `lab68`,
+// e o `lab68` rodou inteiro — reescrevendo a prova do LAB-68 com a data de hoje.
+//
+// Prova sobrescrita por um import é a forma mais silenciosa de perder uma medição, e a função
+// nunca foi da ferramenta: ela é a metade que MEDE deste módulo, cuja outra metade (as funções
+// puras `conferirCarimbo` e `conferirContraAOrigem`) já morava aqui. Duas metades da mesma
+// pergunta em dois arquivos é o D116.
+//
+// **Ela não é chamada ao importar** — por isso as travas sem clone vizinho continuam rodando.
+
+const RAIZ_DO_LAB = join(import.meta.dirname, "..", "..", "..");
+
+/**
+ * O carimbo de hoje: o `HEAD` de cada clone, se ele estava limpo — **e o que a ORIGEM diz**.
+ *
+ * **O segundo eixo entrou no item 007, e entrou porque eu errei:** por seis recados eu publiquei
+ * o `HEAD` do disco como *"o estado do vizinho"*, com os três clones **18 a 23 commits atrás**
+ * da `origin/main` (D241). *O que está no disco não é o que está na origem.*
+ *
+ * **O `fetch` é de leitura**: ele mexe só nas referências locais do clone — nenhum arquivo
+ * rastreado muda, e o `git status` dele continua limpo, o que a §4 exige e esta função confere.
+ * **E nada é PUXADO:** atualizar o clone mudaria toda medição desta casa, e isso é prompt, não
+ * conserto silencioso (D226).
+ */
+export function carimbarVizinhos(): CarimboDeVizinho[] {
+  const carimbos: CarimboDeVizinho[] = [];
+  for (const repo of VIZINHOS) {
+    const caminho = join(RAIZ_DO_LAB, "..", repo);
+    if (!existsSync(join(caminho, ".git"))) continue;
+    const git = (...a: string[]): string =>
+      execFileSync("git", ["-C", caminho, ...a], { encoding: "utf8" }).trim();
+    const tentar = (...a: string[]): string | null => {
+      try {
+        return git(...a);
+      } catch {
+        return null; // sem rede ou sem `origin`: NÃO MEDIDO, e não "em dia"
+      }
+    };
+    tentar("fetch", "-q", "origin", "main");
+    const origemMain = tentar("rev-parse", "--short", "origin/main");
+    const atras = tentar("rev-list", "--count", "HEAD..origin/main");
+    carimbos.push({
+      repo,
+      commit: git("rev-parse", "--short", "HEAD"),
+      limpo: git("status", "--porcelain") === "",
+      origemMain,
+      atrasPor: atras === null ? null : Number(atras),
+    });
+  }
+  return carimbos;
 }

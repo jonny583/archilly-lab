@@ -1,0 +1,152 @@
+{
+  "prompt": "LAB-76",
+  "oQueIstoMede": "o registro de motores do Lab (D68): quais motores esta casa conhece, a procedência de cada um MEDIDA contra a origem (não contra o disco), de onde se lê a versão de cada um, e o TAMANHO DO UNIVERSO — quantos motores havia e quantos estavam ligados",
+  "oQueIstoNaoMede": "nenhuma gleba. Esta prova não roda motor nenhum: ela confere o registro, e por isso está na lista declarada de exceções do §7 (regras.test.ts)",
+  "quando": "2026-10-10T00:44:56.474Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "universo": {
+    "conhecidos": 6,
+    "ligados": 4,
+    "desligados": 0,
+    "soReferencia": 2,
+    "comoSeDiz": "6 motores conhecidos · 4 ligados · 0 desligados · 2 só-referência (triados e recusados)"
+  },
+  "padrao": "parcelamento",
+  "motoresDeLote": [
+    "generate-ortogonal",
+    "generate-espinha",
+    "parcelamento"
+  ],
+  "porQueOSymbiosFicaForaDoLote": "entrega QUADRA, e os lotes dele são da subdivisão do Lab (D50). Ficar fora da comparação de lote NÃO é estar desligado — são duas perguntas diferentes",
+  "versoes": [
+    {
+      "motor": "generate-ortogonal",
+      "versao": "1",
+      "origem": "declarada",
+      "de": null
+    },
+    {
+      "motor": "generate-espinha",
+      "versao": "1",
+      "origem": "declarada",
+      "de": null
+    },
+    {
+      "motor": "parcelamento",
+      "versao": "1.0",
+      "origem": "lida",
+      "de": "@testfit/contrato/tipos.ts · MOTOR_VERSAO"
+    },
+    {
+      "motor": "symbios",
+      "versao": "0.4.1",
+      "origem": "lida",
+      "de": "external-engines/symbios/upstream/VERSION"
+    },
+    {
+      "motor": "packingsolver",
+      "versao": null,
+      "origem": "nao-medida",
+      "de": null
+    },
+    {
+      "motor": "straight-skeleton",
+      "versao": null,
+      "origem": "nao-medida",
+      "de": null
+    }
+  ],
+  "procedencia": [
+    {
+      "motor": "generate-ortogonal",
+      "repo": "urban-create-hub-41d93a4d",
+      "veredito": "medida-contra-a-origem",
+      "head": "72cfab0",
+      "origemMain": "748e300",
+      "atrasPor": 22,
+      "comoSeDiz": "`generate-ortogonal` vem de `urban-create-hub-41d93a4d` está **22 commit(s) ATRÁS** da origem: o disco diz `72cfab0` e a `origin/main` diz `748e300`. Toda medição desta casa é contra `72cfab0`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+    },
+    {
+      "motor": "generate-espinha",
+      "repo": "urban-create-hub-41d93a4d",
+      "veredito": "medida-contra-a-origem",
+      "head": "72cfab0",
+      "origemMain": "748e300",
+      "atrasPor": 22,
+      "comoSeDiz": "`generate-espinha` vem de `urban-create-hub-41d93a4d` está **22 commit(s) ATRÁS** da origem: o disco diz `72cfab0` e a `origin/main` diz `748e300`. Toda medição desta casa é contra `72cfab0`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+    },
+    {
+      "motor": "parcelamento",
+      "repo": "motor-testfit",
+      "veredito": "medida-contra-a-origem",
+      "head": "6cf6396",
+      "origemMain": "d6981d9",
+      "atrasPor": 30,
+      "comoSeDiz": "`parcelamento` vem de `motor-testfit` está **30 commit(s) ATRÁS** da origem: o disco diz `6cf6396` e a `origin/main` diz `d6981d9`. Toda medição desta casa é contra `6cf6396`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+    },
+    {
+      "motor": "symbios",
+      "repo": null,
+      "veredito": "carimbado-no-upstream",
+      "head": null,
+      "origemMain": null,
+      "atrasPor": null,
+      "comoSeDiz": "`symbios` tem a procedência carimbada em `external-engines/symbios/upstream/VERSION`, que é versionado aqui e intocável (§3) — não há origem a consultar, e isso NÃO é o mesmo que não medido"
+    },
+    {
+      "motor": "packingsolver",
+      "repo": null,
+      "veredito": "nao-copiado",
+      "head": null,
+      "origemMain": null,
+      "atrasPor": null,
+      "comoSeDiz": "`packingsolver` não foi copiado para cá — nada a medir, e isso é uma resposta: a triagem recusou seguir, e o motivo está no registro"
+    },
+    {
+      "motor": "straight-skeleton",
+      "repo": null,
+      "veredito": "nao-copiado",
+      "head": null,
+      "origemMain": null,
+      "atrasPor": null,
+      "comoSeDiz": "`straight-skeleton` não foi copiado para cá — nada a medir, e isso é uma resposta: a triagem recusou seguir, e o motivo está no registro"
+    }
+  ],
+  "conferencia": {
+    "fora": [],
+    "prometidosQueNaoExistem": [],
+    "loteForaDoRegistro": [],
+    "loteQueNaoEstaLigado": [],
+    "apontamDesconhecido": [],
+    "ok": true
+  },
+  "osClonesVizinhos": [
+    {
+      "repo": "motor-testfit",
+      "head": "6cf6396",
+      "origemMain": "d6981d9",
+      "atrasPor": 30,
+      "veredito": "atras",
+      "oQueIssoQuerDizer": "`motor-testfit` está **30 commit(s) ATRÁS** da origem: o disco diz `6cf6396` e a `origin/main` diz `d6981d9`. Toda medição desta casa é contra `6cf6396`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+    },
+    {
+      "repo": "urban-create-hub-41d93a4d",
+      "head": "72cfab0",
+      "origemMain": "748e300",
+      "atrasPor": 22,
+      "veredito": "atras",
+      "oQueIssoQuerDizer": "`urban-create-hub-41d93a4d` está **22 commit(s) ATRÁS** da origem: o disco diz `72cfab0` e a `origin/main` diz `748e300`. Toda medição desta casa é contra `72cfab0`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+    },
+    {
+      "repo": "urban-scout-tool",
+      "head": "550a438",
+      "origemMain": "f0cb290",
+      "atrasPor": 29,
+      "veredito": "atras",
+      "oQueIssoQuerDizer": "`urban-scout-tool` está **29 commit(s) ATRÁS** da origem: o disco diz `550a438` e a `origin/main` diz `f0cb290`. Toda medição desta casa é contra `550a438`, e dizer só esse número seria publicar disco como se fosse origem (D241)"
+    }
+  ]
+}

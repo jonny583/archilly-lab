@@ -12,59 +12,17 @@
  * Uso: `bun run lab68`
  */
 
-import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
-  VIZINHOS,
+  carimbarVizinhos,
   conferirContraAOrigem,
-  type CarimboDeVizinho,
   type CarimboDoChao,
 } from "../src/commit-dos-vizinhos.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const PROVA = join(RAIZ, "docs", "provas", "LAB-68");
-
-/**
- * O carimbo de hoje: o `HEAD` de cada clone, se ele estava limpo — **e o que a ORIGEM diz**.
- *
- * **O segundo eixo entrou no item 007, e entrou porque eu errei:** por seis recados eu publiquei
- * o `HEAD` do disco como *"o estado do vizinho"*, com os três clones **18 a 23 commits atrás**
- * da `origin/main` (D241). *O que está no disco não é o que está na origem.*
- *
- * **O `fetch` é de leitura**: ele mexe só nas referências locais do clone — nenhum arquivo
- * rastreado muda, e o `git status` dele continua limpo, o que a §4 exige e esta função confere.
- * **E nada é PUXADO:** atualizar o clone mudaria toda medição desta casa, e isso é prompt, não
- * conserto silencioso (D226).
- */
-export function carimbarVizinhos(): CarimboDeVizinho[] {
-  const carimbos: CarimboDeVizinho[] = [];
-  for (const repo of VIZINHOS) {
-    const caminho = join(RAIZ, "..", repo);
-    if (!existsSync(join(caminho, ".git"))) continue;
-    const git = (...a: string[]): string =>
-      execFileSync("git", ["-C", caminho, ...a], { encoding: "utf8" }).trim();
-    const tentar = (...a: string[]): string | null => {
-      try {
-        return git(...a);
-      } catch {
-        return null; // sem rede ou sem `origin`: NÃO MEDIDO, e não "em dia"
-      }
-    };
-    tentar("fetch", "-q", "origin", "main");
-    const origemMain = tentar("rev-parse", "--short", "origin/main");
-    const atras = tentar("rev-list", "--count", "HEAD..origin/main");
-    carimbos.push({
-      repo,
-      commit: git("rev-parse", "--short", "HEAD"),
-      limpo: git("status", "--porcelain") === "",
-      origemMain,
-      atrasPor: atras === null ? null : Number(atras),
-    });
-  }
-  return carimbos;
-}
 
 /** O chão em que a medição rodou — a variável que faltava (09/10). */
 export const oChao: CarimboDoChao = { bun: Bun.version, plataforma: process.platform };
