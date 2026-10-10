@@ -153,6 +153,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
+    "LAB-77/acesso-sugerido.json":
+      "mede o que as sete glebas desta casa DECLARAM sobre o acesso e sobre quais faces dão para via pública, e o limite (teto e piso) do que a regra da esquina tira do perímetro de cada uma — é medição de declaração e de geometria do anel, e não roda motor nenhum: a curva da sensibilidade ao acesso é do lab28, e refazê-la aqui seria a segunda montagem do D116",
     "LAB-76/registro-de-motores.json":
       "mede o REGISTRO DE MOTORES deste laboratório — quais motores a casa conhece, a procedência de cada um medida contra a origem, de onde se lê a versão de cada um e o tamanho do universo lido —, não terreno: ela não roda motor nenhum, e não há gleba nem semente no que ela mede",
     "item-004/conta-dos-disparos.json":

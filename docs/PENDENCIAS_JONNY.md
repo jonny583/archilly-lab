@@ -651,6 +651,78 @@ saber que existe.
 
 ---
 
+## 9 · As suas regras do acesso: duas perguntas que só você responde
+
+**Você ditou cinco regras do acesso em 09/10, e elas estão gravadas.** O
+laboratório já as cumpre: ele **sugere** em vez de mandar, **nunca mexe** no
+acesso que você escolheu, e **não propõe** acesso em cima do muro do vizinho.
+
+**Duas coisas, porém, eu não posso decidir — são suas**, e estão aqui em
+português de gente, com a minha recomendação ao lado. **Não decidi nenhuma das
+duas.**
+
+### 9-A · Como a gente sabe que o terreno "pega a quadra toda"?
+
+Você disse: **15 metros** de distância da esquina no caso normal, e **25 metros**
+quando *"o terreno pegar aquela quadra toda só pra ele"*.
+
+O problema: **o computador não sabe o que é "a quadra toda"**. Ele vê o desenho
+do terreno e as ruas em volta, mas "a quadra" é uma ideia do bairro, não um
+desenho que venha no arquivo. Hoje nenhum dos sete terrenos que o laboratório
+mede diz se está sozinho na quadra.
+
+**Enquanto você não responder, o laboratório usa 15 metros e diz que usou** —
+nunca adivinha.
+
+**A minha recomendação, e é só uma sugestão:** que valha 25 metros quando o
+terreno tiver **rua em volta de todos os lados**. É a situação em que, na
+prática, ele é a quadra. É simples de medir e difícil de errar.
+
+**Três respostas suas que resolvem:** (a) *"vale a minha recomendação"*; (b)
+*"use sempre 15"*; (c) *"eu digo, terreno por terreno"* — e aí passa a ser um
+botão na tela, não uma conta.
+
+### 9-B · Os 15 metros se medem em linha reta ou andando pela divisa?
+
+Imagine a divisa do terreno chegando na esquina **de viés**, não em ângulo reto.
+Aí *"15 metros da esquina"* quer dizer duas coisas diferentes:
+
+- **em linha reta** — como se você esticasse a trena do ponto da esquina até o
+  lugar do acesso, cortando por dentro do terreno;
+- **andando pela divisa** — como quem caminha pela calçada contando os passos.
+
+Em divisa de viés **as duas dão números diferentes**, e a diferença pode valer
+alguns metros — o suficiente para um acesso ser sugerido ou não.
+
+**Hoje o laboratório mede em linha reta, e isso está escrito** no código, para
+ninguém confundir com uma decisão sua.
+
+**A minha recomendação:** **andando pela divisa**. É o que o fiscal mede na rua
+com a trena, é o que a pessoa vê quando caminha, e nunca "corta por dentro" do
+terreno — em divisa de viés a linha reta pode passar por fora da calçada, o que
+não corresponde a nada no mundo.
+
+### 9-C · E uma terceira coisa, que não é pergunta: já está anotada para o outro aplicativo
+
+Você disse que *"seria interessante o usuário poder escolher as ruas que ele
+permite o acesso"*. **Isso não é do laboratório — é tela**, e a tela do
+loteamento é do Archilly Generate. Ficou registrado aqui como a origem da ideia
+e **já está na lista que vai para lá**. Não precisa fazer nada.
+
+### O que mais apareceu, e é sobre os TERRENOS e não sobre os motores
+
+**Nenhum dos sete terrenos diz quais lados dele têm rua.** É a mesma história da
+nascente, mais abaixo nesta página: a regra é clara, e **o arquivo não carrega o
+dado**. Sem saber quais lados têm rua, o laboratório **não consegue sugerir
+acesso nenhum** — e preferiu **não sugerir** a sugerir um lugar que talvez seja
+o muro do vizinho. *Sugestão plausível e impossível é pior do que nenhuma.*
+
+Isso **não é defeito de motor nem de regra sua**: é um campo que falta no arquivo
+que chega aos motores, e pedi a criação dele ao Generate.
+
+
+---
+
 ## Já resolvidos — não precisa fazer nada
 
 - ~~**"Desvio desproporcional" é 3 vezes o caminho direto, ou 1,5 km?**~~ —

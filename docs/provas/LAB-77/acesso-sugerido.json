@@ -1,0 +1,346 @@
+{
+  "prompt": "LAB-77",
+  "oQueIstoMede": "o que as sete glebas desta casa DECLARAM sobre o acesso e sobre quais faces dão para via pública, e o LIMITE (teto e piso) do que a regra da esquina do Jonny tira do perímetro de cada uma. É medição de DECLARAÇÃO e de GEOMETRIA DO ANEL",
+  "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba no sentido do §7: a curva da sensibilidade ao acesso já é medida pelo lab28 (LAB-28), e refazê-la aqui seria a segunda montagem do D116. Por isso esta prova está na lista declarada de exceções do §7",
+  "quando": "2026-10-10T01:16:03.322Z",
+  "oChao": {
+    "bun": "1.4.2",
+    "plataforma": "linux"
+  },
+  "asRegrasDoJonny": [
+    {
+      "n": 1,
+      "nome": "é SUGESTÃO, nunca ordem",
+      "marcaNoAdendo": "É SUGESTÃO, nunca ordem",
+      "oQueDecide": "o acesso que o usuário escolheu FICA. O produto é uma frase do tipo 'se o acesso mudar para cá, você ganha tantos lotes', e ele decide",
+      "tipo": "produto"
+    },
+    {
+      "n": 2,
+      "nome": "posição sem rua não é posição",
+      "marcaNoAdendo": "Posição sem rua não é posição",
+      "oQueDecide": "o universo de posições é só o das faces que dão para via pública. Varrer o perímetro inteiro a passo fixo está ERRADO",
+      "tipo": "universo"
+    },
+    {
+      "n": 3,
+      "nome": "acesso não se faz perto de esquina",
+      "marcaNoAdendo": "Acesso não se faz perto de esquina",
+      "oQueDecide": "faixa de esquina com padrão de 15 m, e 25 m quando a gleba ocupa a quadra inteira. São PADRÃO sugerido, não lei, e não moram dentro do código",
+      "tipo": "universo"
+    },
+    {
+      "n": 4,
+      "nome": "se ele escolher a esquina, deixa",
+      "marcaNoAdendo": "Se ele escolher a esquina, deixa",
+      "oQueDecide": "a regra vale para o que o aplicativo SUGERE, não para o que ele PERMITE. Nada de recusar nem corrigir por cima",
+      "tipo": "produto"
+    },
+    {
+      "n": 5,
+      "nome": "o usuário escolhe de quais ruas aceita acesso",
+      "marcaNoAdendo": "O usuário escolhe de quais ruas aceita acesso",
+      "oQueDecide": "isto NÃO é do laboratório: é tela, e a tela do loteamento é do Generate. Fica registrado aqui como origem da ideia e vai para lá como item de relatório",
+      "tipo": "do-vizinho"
+    }
+  ],
+  "aReguaDaFaixa": "linha-reta-ate-o-vertice",
+  "qualFaixaFoiUsada": 15,
+  "porQueEssaFaixa": "o adendo manda usar 15 m e DIZER que usou, em vez de adivinhar se a gleba ocupa a quadra inteira — reconhecer isso é pendência do Jonny",
+  "quantasGlebas": {
+    "glebas": 7,
+    "comAlgumAcesso": 4,
+    "semAcessoNenhum": 3,
+    "comSegmentoDeclarado": 1,
+    "comFacesComVia": 0,
+    "comoSeDiz": "7 glebas · 4 declaram algum acesso · 3 declaram NENHUM · 1 dizem o segmento · 0 dizem quais faces dão para via pública"
+  },
+  "declaracoes": [
+    {
+      "gleba": "completo",
+      "quantosAcessos": 0,
+      "algumAcessoDizOSegmento": false,
+      "facesComVia": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "quantosAcessos": 0,
+      "algumAcessoDizOSegmento": false,
+      "facesComVia": null
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "quantosAcessos": 0,
+      "algumAcessoDizOSegmento": false,
+      "facesComVia": null
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "quantosAcessos": 1,
+      "algumAcessoDizOSegmento": false,
+      "facesComVia": null
+    },
+    {
+      "gleba": "geo-antonina",
+      "quantosAcessos": 1,
+      "algumAcessoDizOSegmento": false,
+      "facesComVia": null
+    },
+    {
+      "gleba": "ensaio-com-promessas",
+      "quantosAcessos": 1,
+      "algumAcessoDizOSegmento": true,
+      "facesComVia": null
+    },
+    {
+      "gleba": "ensaio-com-testada",
+      "quantosAcessos": 1,
+      "algumAcessoDizOSegmento": false,
+      "facesComVia": null
+    }
+  ],
+  "limites": [
+    {
+      "gleba": "completo",
+      "vertices": 20,
+      "a15": {
+        "faixa_m": 15,
+        "perimetro_m": 5228.32,
+        "passo_m": 1,
+        "amostras": 5229,
+        "amostrasNoTeto": 600,
+        "tetoPctDoPerimetro": 11.47,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 15 m, a regra da esquina tira entre **0 %** e **11.47 %** do perímetro de 5228 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      },
+      "a25": {
+        "faixa_m": 25,
+        "perimetro_m": 5228.32,
+        "passo_m": 1,
+        "amostras": 5229,
+        "amostrasNoTeto": 1001,
+        "tetoPctDoPerimetro": 19.14,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 25 m, a regra da esquina tira entre **0 %** e **19.14 %** do perímetro de 5228 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      }
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "vertices": 14,
+      "a15": {
+        "faixa_m": 15,
+        "perimetro_m": 2919.79,
+        "passo_m": 1,
+        "amostras": 2920,
+        "amostrasNoTeto": 420,
+        "tetoPctDoPerimetro": 14.38,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 15 m, a regra da esquina tira entre **0 %** e **14.38 %** do perímetro de 2920 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      },
+      "a25": {
+        "faixa_m": 25,
+        "perimetro_m": 2919.79,
+        "passo_m": 1,
+        "amostras": 2920,
+        "amostrasNoTeto": 700,
+        "tetoPctDoPerimetro": 23.97,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 25 m, a regra da esquina tira entre **0 %** e **23.97 %** do perímetro de 2920 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      }
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "vertices": 10,
+      "a15": {
+        "faixa_m": 15,
+        "perimetro_m": 1338.3,
+        "passo_m": 1,
+        "amostras": 1339,
+        "amostrasNoTeto": 301,
+        "tetoPctDoPerimetro": 22.48,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 15 m, a regra da esquina tira entre **0 %** e **22.48 %** do perímetro de 1338 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      },
+      "a25": {
+        "faixa_m": 25,
+        "perimetro_m": 1338.3,
+        "passo_m": 1,
+        "amostras": 1339,
+        "amostrasNoTeto": 501,
+        "tetoPctDoPerimetro": 37.42,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 25 m, a regra da esquina tira entre **0 %** e **37.42 %** do perímetro de 1338 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      }
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "vertices": 4,
+      "a15": {
+        "faixa_m": 15,
+        "perimetro_m": 2775,
+        "passo_m": 1,
+        "amostras": 2775,
+        "amostrasNoTeto": 122,
+        "tetoPctDoPerimetro": 4.4,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 15 m, a regra da esquina tira entre **0 %** e **4.4 %** do perímetro de 2775 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      },
+      "a25": {
+        "faixa_m": 25,
+        "perimetro_m": 2775,
+        "passo_m": 1,
+        "amostras": 2775,
+        "amostrasNoTeto": 202,
+        "tetoPctDoPerimetro": 7.28,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 25 m, a regra da esquina tira entre **0 %** e **7.28 %** do perímetro de 2775 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      }
+    },
+    {
+      "gleba": "geo-antonina",
+      "vertices": 20,
+      "a15": {
+        "faixa_m": 15,
+        "perimetro_m": 5485.64,
+        "passo_m": 1,
+        "amostras": 5486,
+        "amostrasNoTeto": 601,
+        "tetoPctDoPerimetro": 10.96,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 15 m, a regra da esquina tira entre **0 %** e **10.96 %** do perímetro de 5486 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      },
+      "a25": {
+        "faixa_m": 25,
+        "perimetro_m": 5485.64,
+        "passo_m": 1,
+        "amostras": 5486,
+        "amostrasNoTeto": 995,
+        "tetoPctDoPerimetro": 18.14,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 25 m, a regra da esquina tira entre **0 %** e **18.14 %** do perímetro de 5486 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      }
+    },
+    {
+      "gleba": "ensaio-com-promessas",
+      "vertices": 4,
+      "a15": {
+        "faixa_m": 15,
+        "perimetro_m": 2775,
+        "passo_m": 1,
+        "amostras": 2775,
+        "amostrasNoTeto": 122,
+        "tetoPctDoPerimetro": 4.4,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 15 m, a regra da esquina tira entre **0 %** e **4.4 %** do perímetro de 2775 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      },
+      "a25": {
+        "faixa_m": 25,
+        "perimetro_m": 2775,
+        "passo_m": 1,
+        "amostras": 2775,
+        "amostrasNoTeto": 202,
+        "tetoPctDoPerimetro": 7.28,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 25 m, a regra da esquina tira entre **0 %** e **7.28 %** do perímetro de 2775 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      }
+    },
+    {
+      "gleba": "ensaio-com-testada",
+      "vertices": 4,
+      "a15": {
+        "faixa_m": 15,
+        "perimetro_m": 2775,
+        "passo_m": 1,
+        "amostras": 2775,
+        "amostrasNoTeto": 122,
+        "tetoPctDoPerimetro": 4.4,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 15 m, a regra da esquina tira entre **0 %** e **4.4 %** do perímetro de 2775 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      },
+      "a25": {
+        "faixa_m": 25,
+        "perimetro_m": 2775,
+        "passo_m": 1,
+        "amostras": 2775,
+        "amostrasNoTeto": 202,
+        "tetoPctDoPerimetro": 7.28,
+        "pisoPctDoPerimetro": 0,
+        "comoSeDiz": "com faixa de 25 m, a regra da esquina tira entre **0 %** e **7.28 %** do perímetro de 2775 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+      }
+    }
+  ],
+  "varridas": [
+    {
+      "gleba": "completo",
+      "posicoesVarridas": 6,
+      "dentroDaFaixaNoTeto": 2,
+      "dentroDaFaixaNoPiso": 0,
+      "acessoDeclarado": null,
+      "acessoDeclaradoNaFaixaNoTeto": null
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "posicoesVarridas": 6,
+      "dentroDaFaixaNoTeto": 2,
+      "dentroDaFaixaNoPiso": 0,
+      "acessoDeclarado": null,
+      "acessoDeclaradoNaFaixaNoTeto": null
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "posicoesVarridas": 6,
+      "dentroDaFaixaNoTeto": 3,
+      "dentroDaFaixaNoPiso": 0,
+      "acessoDeclarado": null,
+      "acessoDeclaradoNaFaixaNoTeto": null
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "posicoesVarridas": 6,
+      "dentroDaFaixaNoTeto": 2,
+      "dentroDaFaixaNoPiso": 0,
+      "acessoDeclarado": {
+        "x": 400,
+        "y": 0
+      },
+      "acessoDeclaradoNaFaixaNoTeto": false
+    },
+    {
+      "gleba": "geo-antonina",
+      "posicoesVarridas": 6,
+      "dentroDaFaixaNoTeto": 1,
+      "dentroDaFaixaNoPiso": 0,
+      "acessoDeclarado": {
+        "x": -72.308,
+        "y": -760.307
+      },
+      "acessoDeclaradoNaFaixaNoTeto": false
+    },
+    {
+      "gleba": "ensaio-com-promessas",
+      "posicoesVarridas": 6,
+      "dentroDaFaixaNoTeto": 2,
+      "dentroDaFaixaNoPiso": 0,
+      "acessoDeclarado": null,
+      "acessoDeclaradoNaFaixaNoTeto": null
+    },
+    {
+      "gleba": "ensaio-com-testada",
+      "posicoesVarridas": 6,
+      "dentroDaFaixaNoTeto": 2,
+      "dentroDaFaixaNoPiso": 0,
+      "acessoDeclarado": {
+        "x": 400,
+        "y": 0
+      },
+      "acessoDeclaradoNaFaixaNoTeto": false
+    }
+  ],
+  "aSugestao": {
+    "frase": null,
+    "ganhoEmLotes": null,
+    "ponto": null,
+    "porqueNao": "NÃO HÁ O QUE SUGERIR: nenhuma gleba desta casa declara quais faces dão para via pública, e sem isso qualquer ponto proposto pode estar sobre a divisa do vizinho — a sugestão plausível e impossível que o adendo proíbe. A curva continua medível; o PRODUTO não"
+  },
+  "oAchado": "ZERO das sete glebas declaram quais faces dão para via pública, e CINCO das sete não declaram acesso nenhum (acessos: []). As duas que declaram trazem segmento: null, que é justamente o campo onde a face moraria. E o achado maior: a FAIXA DE ESQUINA também não é calculável, porque esquina é o encontro de duas RUAS e não um vértice do anel — as duas metades do universo de posições dependem do mesmo dado que falta"
+}

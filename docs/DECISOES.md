@@ -7100,3 +7100,197 @@ D116. Ela **não é chamada ao importar**, então as travas sem clone vizinho co
 A regra que fica: **ferramenta é ponto de entrada, não biblioteca.** O que mais de um prompt
 precisa chamar mora em `src/`. Se um `import` de `ferramentas/` parecer a saída fácil, o que
 está faltando é mover a função.
+
+---
+
+## D248 · O normalizador das regras mora em `src/` — conserto dentro de teste conserta um teste · 10/10/2026
+
+**Quarta vez da mesma forma, e a lição nova não é a repetição.** A trava do item 010 confere que a
+regra dos 15 m **está escrita** no adendo, e procurava o literal `"15 metros"`. **Ela reprovou o
+adendo certo:** no arquivo a regra está como
+
+```
+> *"...então no mínimo uns **15
+> metros** da esquina de distância..."*
+```
+
+Quebra de linha, **marca de bloco de citação** e **negrito**, os três caindo dentro do número.
+
+Já havia acontecido no LAB-74 §5 (`"se chama pela pergunta que ele espera"`), no LAB-75 §6
+(`"MUDOU O MUNDO EMBAIXO DELA"`, dentro de um `>`) e no item 008, na mesma trava uma hora depois.
+
+### E o conserto JÁ EXISTIA — foi isso que custou
+
+Ele estava **inline**, dentro de `tests/disparos-em-vazio.test.ts`, escrito no LAB-75:
+`split("\n") → tira o ">" → junta → colapsa o espaço`. Eu reescrevi o erro em outro arquivo **por
+não saber que o conserto estava lá**.
+
+> **CONSERTO QUE MORA DENTRO DE UM TESTE CONSERTA UM TESTE.**
+
+É o D116 na forma mais pura — a mesma pergunta respondida em dois lugares —, e é a mesma lição que
+o **D247** tirou das ferramentas um prompt antes, agora das travas: *o que mais de uma trava
+precisa chamar mora em `src/`*.
+
+`comoARegraSeLe` e `aRegraEstaEscrita` vivem em `src/texto-das-regras.ts`, as duas travas as
+chamam, e a cópia inline saiu. **E há trava do próprio normalizador**, inclusive do que ele **não**
+faz: *"15 metro"* e *"faixa de esquinas"* continuam reprovando — *afrouxar a régua até tudo passar
+é o contrário de consertá-la*.
+
+---
+
+## D249 · A faixa de esquina é geometria das RUAS, não do anel — e a recusa é a entrega · 10/10/2026
+
+**Item 010 + adendo, o achado do LAB-77.** O adendo do Jonny diz que o universo de posições de
+acesso é *as faces que dão para via pública, menos a faixa de esquina*. Que a primeira metade
+dependa de saber onde há rua é evidente. **A segunda não é:**
+
+> **Esquina é onde duas RUAS se encontram, não onde o anel da gleba muda de direção.**
+
+Um vértice entre uma face de rua e o muro do vizinho **não é esquina** — é um canto de terreno, e
+a regra dos 15 m não fala dele. Lido depressa, o adendo faria eu tratar todo vértice do anel como
+esquina, e a faixa morderia cantos que não são esquina de nada.
+
+**Logo: as DUAS metades do universo dependem do mesmo dado — e ele não existe.** Medido nas sete
+glebas: **zero** declaram quais faces dão para via pública, e **o campo não existe no contrato
+v1** — não está vazio, não há onde.
+
+### Por isso a sugestão se RECUSA a sair, e isso é a entrega
+
+O adendo chama acesso proposto sobre a divisa do vizinho de *"o pior tipo de sugestão: plausível e
+impossível"*. Varrer o perímetro e publicar a curva — o que o item 010 pedia **antes** do
+adendo — seria exatamente um gerador daquilo.
+
+> **Entre uma medição que sai com premissa inventada e uma recusa que nomeia o dado que falta, a
+> recusa é a que se pode auditar.**
+
+A máquina está pronta e provada nos **dois** lados: dado o campo, a frase sai no formato dele
+(*"se o acesso mudar para cá, você ganha N lotes"*, singular para um lote) e **não** sai quando o
+ganho é zero ou negativo. Falta o dado, não a máquina.
+
+### O que se pôde medir sem o dado: um intervalo, não um número
+
+O quanto a regra da esquina tira do perímetro tem **piso zero** (nenhum vértice é encontro de duas
+ruas) e **teto** no caso de todo vértice ser esquina: de **4,40 %** (`ensaio-47ha`, 4 vértices) a
+**22,48 %** (`sintetico-10ha-plano`, 10 vértices) com faixa de 15 m. *Intervalo é medição; número
+único inventado não é.* O teto sai por **amostragem** e não por fórmula, porque faixas de vértices
+vizinhos se sobrepõem em divisa recortada e somar `2 × faixa` daria teto acima de 100 %.
+
+### E os 15 e os 25 não moram na lógica
+
+Regra da família: *tudo tem padrão de fábrica que o usuário pode mudar; é como o sal na panela, a
+gosto*. **Há trava de estrutura**, não promessa: ela varre o corpo de cada `export function`, sem
+comentários, e **reprova 15 ou 25 escrito ali**. Só as constantes do topo podem dizê-los — elas
+*são* o padrão. A faixa em uso é **15 m, declarada**, porque o adendo manda usar 15 e **dizer que
+usou** em vez de adivinhar se a gleba ocupa a quadra inteira.
+
+**As duas perguntas que o adendo manda não decidir** estão na §9 da página do Jonny, em nível de
+leigo, com a minha recomendação ao lado: como se reconhece a quadra inteira, e se a faixa se mede
+em linha reta ou ao longo da divisa.
+
+---
+
+## D250 · Eu contei as glebas de memória, e a ferramenta me corrigiu · 10/10/2026
+
+No meio do LAB-77 eu afirmei, por escrito, duas coisas sobre as sete glebas:
+
+- *"cinco das sete declaram `acessos: []`"*;
+- *"zero das sete declaram o `segmento`"*.
+
+**Rodada a ferramenta: são TRÊS sem acesso e QUATRO com, e UMA declara o `segmento`**
+(`ensaio-com-promessas`, com `segmento: {a:{380,0}, b:{420,0}}` e `ponto: null`).
+
+A causa é a do **D185**: eu li **duas** das quatro fixtures — as de
+`glebas-padrao-com-relevo` — e completei o resto de cabeça, esquecendo as duas de
+`glebas-que-exercem-as-promessas`. *Número que a ferramenta mede não se escreve antes de rodá-la.*
+
+**O achado não mudou:** **zero das sete** dizem quais faces dão para via pública, e é esse o
+número que sustenta o D249.
+
+**E o erro rendeu um dado que eu não teria achado:** o `segmento` do contrato é **um TRECHO da
+divisa (`{a, b}`), não um índice de face**. Então o contrato **já tem** idioma para localizar
+coisa na divisa, e é esse idioma que um campo de faces-com-via deve seguir — índice de face quebra
+quando o anel é reamostrado, trecho não. Virou o item 1 da lista para o Generate.
+
+**O item também errou um número, e no mesmo lugar:** ele diz *"as cinco glebas-padrão"* duas
+vezes, e são **sete desde o LAB-45**. Nos dois casos — o meu e o dele — o defeito foi afirmar o
+tamanho do universo sem relê-lo.
+
+---
+
+## D251 · A régua que conta as ocorrências do ponto cego parou de medir ao chegar a VINTE E DUAS · 10/10/2026
+
+**Pega ao atualizar a §6 no LAB-77.** A `conferirAritmeticaDoPontoCego` lê o total declarado da §6
+com
+
+```ts
+/se repetiu ([A-Za-zÇÃÉÊçãéê]+) vezes/
+```
+
+— **uma palavra só** — e o resolve num mapa de literais que terminava em `vinte: 20`.
+
+A §6 passou a dizer *"se repetiu **VINTE E DUAS** vezes"*. O regex não casou, o
+`totalDeclarado` saiu **`null`**, e o problema não é esse: é que **com o total nulo a trava da
+soma não dispara**. A guarda que existe para impedir a §6 de mentir sobre o próprio tamanho
+**deixou de medir, em silêncio**, exatamente no prompt em que a §6 cresceu.
+
+> **RÉGUA QUE CONTA ATÉ VINTE NUMA LISTA QUE CRESCE É RÉGUA COM DATA DE VALIDADE.**
+
+É a forma de falha mais cara desta casa, e a terceira vez dela: a suíte do `testfit` vermelha por
+duas semanas (D110), a prova no navegador rodando uma vez em um mês (D123), e o `exit 0, 0 testes`
+que eu li como verde (item 003). **Nas três, nada falhou — nada mediu.** *Zero é o que uma leitura
+vazia devolve sem reclamar.*
+
+### O conserto é compositivo, não mais um literal
+
+`lerNumeroEmPalavra` soma `<dezena> e <unidade>`: mapa de literais para o que não compõe (até
+vinte), composição para o resto. Acrescentar `"vinte e duas": 22` ao mapa teria consertado **este**
+prompt e quebrado no próximo — e o próximo é certo, porque a lista do ponto cego só cresce.
+
+Ela **recusa** o que não é número em português (`"dez e seis"`, `"vinte e trinta"`,
+`"vinte e vinte"`), porque régua que soma por soar parecido é a régua de palavra outra vez. E os
+três lugares que liam número em palavra passaram a chamá-la — o total, as categorias em frase e a
+tabela da partição —, porque *conserto de régua que não é aplicado em todos os instrumentos que
+leem a mesma coisa é meio conserto* (D231).
+
+**E a trava da trava existe:** há teste de que a §6 de **hoje** é lida com `totalDeclarado`
+**não nulo** e igual ao número de linhas da tabela. Sem ele, a próxima palavra nova volta a calar
+a guarda sem ninguém ver.
+
+---
+
+## D252 · Trava que cita um item da caixa pelo NOME quebra no dia em que o item é concluído · 10/10/2026
+
+**Pega pelo verde, no fim do próprio LAB-77.** A trava do item 010 confere que as cinco regras do
+Jonny **estão escritas** no adendo, e o lia assim:
+
+```ts
+const ADENDO = readFileSync(join(RAIZ, "docs", "caixa-de-entrada", "010-adendo.md"), "utf8");
+```
+
+Depois de entregar, marquei o item como feito — `010-adendo.md` → `010-adendo-FEITO.md`, que é o
+que a caixa de entrada manda fazer. **O arquivo de teste passou a estourar AO CARREGAR.**
+
+O verde saiu `765 pass · 1 fail`, e o detalhe importa: **o `fail` não era um teste** — era o
+arquivo inteiro não abrindo, com `# Unhandled error between tests`. A contagem caiu de 409 para
+372 na mesma lista de travas, e **foi a queda da contagem que delatou**, não o nome do teste:
+teste que não carrega não aparece como reprovado, aparece como ausente.
+
+> **TRAVA QUE CITA UM ITEM PELO NOME DO ARQUIVO TEM UM PRAZO: O DIA EM QUE O ITEM É CONCLUÍDO.**
+> Cita-se pelo **número**, que é o que não muda.
+
+`caminhoDoItemDaCaixa` e `lerItemDaCaixa` acham o item em qualquer dos dois estados e **estouram
+nomeando os dois caminhos tentados** quando ele não existe — porque devolver vazio aqui faria a
+trava aprovar um adendo que ela não leu.
+
+### E havia precedente nos DOIS sentidos, que é o sinal do D116
+
+- `trava-de-estrutura.test.ts` já casava por **prefixo** (`startsWith(".../006")`) e **sobreviveu**;
+- `custo-por-uso.test.ts` e `vazamento-de-custo.test.ts` gravaram `005-FEITO.md` **literal**.
+
+**Essas duas NÃO foram mexidas, e o motivo é medido:** as duas listas são **nominais por
+desenho** — *"cada entrada é um arquivo que tropeçou de verdade, não um padrão que adivinha quais
+tropeçariam"* (a família do D155). Se o `005` fosse renomeado outra vez, a entrada deixaria de
+casar e a trava **acusaria** o arquivo: falha **alta e consertável**, não silenciosa. É uma classe
+de risco diferente da minha, que **derrubava o carregamento**. *Aplicar o conserto onde ele não
+resolve nada é churn, e o D231 cobra o conserto nos instrumentos que leem a MESMA coisa — não em
+todos os que parecem.*

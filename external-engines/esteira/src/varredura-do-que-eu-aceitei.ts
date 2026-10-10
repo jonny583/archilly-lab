@@ -172,7 +172,41 @@ export const NUMEROS_EM_PALAVRA: Record<string, number> = {
   dezoito: 18,
   dezenove: 19,
   vinte: 20,
+  trinta: 30,
+  quarenta: 40,
+  cinquenta: 50,
+  "cinquënta": 50,
 };
+
+/**
+ * LÊ UMA PALAVRA DE NÚMERO, inclusive COMPOSTA — `"vinte e duas"`. (LAB-77)
+ *
+ * **O mapa de literais parou de bastar no dia em que o registro passou de vinte.** A §6 chegou a
+ * `VINTE E DUAS` e a régua devolveu `null`: ela procurava a palavra inteira numa tabela que ia
+ * até `vinte`, e o `totalDeclarado` saiu nulo — *a trava do total simplesmente deixou de medir*,
+ * que é o pior jeito de uma guarda falhar (o mesmo defeito que o LAB-63 pegou duas vezes nesta
+ * mesma régua).
+ *
+ * > **Régua que conta até vinte numa lista que cresce é régua com data de validade.**
+ *
+ * Agora a leitura é **compositiva**: `<dezena> e <unidade>` soma as duas partes. Mapa de
+ * literais para o que não compõe (até vinte), composição para o resto — e assim a próxima
+ * ocorrência do ponto cego não derruba a guarda que conta as ocorrências do ponto cego.
+ */
+export function lerNumeroEmPalavra(palavra: string): number | null {
+  const limpo = palavra.trim().toLowerCase().replace(/\s+/g, " ");
+  const direto = NUMEROS_EM_PALAVRA[limpo];
+  if (direto !== undefined) return direto;
+
+  const partes = limpo.split(" e ").map((x) => x.trim());
+  if (partes.length !== 2) return null;
+  const dezena = NUMEROS_EM_PALAVRA[partes[0]!];
+  const unidade = NUMEROS_EM_PALAVRA[partes[1]!];
+  if (dezena === undefined || unidade === undefined) return null;
+  // Só `vinte e duas` e irmãs: `dez e seis` não é português, e `vinte e trinta` não é número.
+  if (dezena < 20 || dezena % 10 !== 0 || unidade < 1 || unidade > 9) return null;
+  return dezena + unidade;
+}
 
 export interface ProblemaDeAritmetica {
   tipo:
@@ -214,8 +248,10 @@ export function conferirAritmeticaDoPontoCego(secao6: string): AritmeticaDoPonto
   const decisoesDasLinhas = linhasDaTabela.flatMap((l) => l.match(/D\d+/g) ?? []);
 
   const totalDeclarado = (() => {
-    const m = /se repetiu ([A-Za-zÇÃÉÊçãéê]+) vezes/.exec(secao6);
-    return m ? (NUMEROS_EM_PALAVRA[m[1]!.toLowerCase()] ?? null) : null;
+    // `[\w\s]+?` e não `[\w]+`: a frase chegou a "se repetiu VINTE E DUAS vezes", e uma régua
+    // de UMA palavra devolvia `null` — a trava do total deixava de medir em silêncio (LAB-77).
+    const m = /se repetiu ([A-Za-zÇÃÉÊçãéê]+(?:\s+[A-Za-zÇÃÉÊçãéê]+)*?) vezes/.exec(secao6);
+    return m ? lerNumeroEmPalavra(m[1]!) : null;
   })();
 
   /** Uma categoria: "NOVE foram réguas minhas…", "duas foram a ponte… (D98/D104 e D166)". */
@@ -227,11 +263,11 @@ export function conferirAritmeticaDoPontoCego(secao6: string): AritmeticaDoPonto
    * trava da soma nunca disparava, e o achado de verdade (catorze de dezesseis) passava batido.
    * Segundo falso negativo da mesma régua, no mesmo prompt.
    */
-  const re = /\*\*(?:[^*]*?[,:;]\s*)?([^\s*]+) foram ([^*]+?)\*\*((?:\s*\([^)]*\))?)/g;
+  const re = /\*\*(?:[^*]*?[,:;]\s*)?([^*]+?) foram ([^*]+?)\*\*((?:\s*\([^)]*\))?)/g;
   const palavrasNaoReconhecidas: string[] = [];
   for (const m of secao6.matchAll(re)) {
-    const quanto = NUMEROS_EM_PALAVRA[m[1]!.toLowerCase()];
-    if (quanto === undefined) {
+    const quanto = lerNumeroEmPalavra(m[1]!);
+    if (quanto === null) {
       palavrasNaoReconhecidas.push(m[1]!);
       continue;
     }
@@ -267,8 +303,8 @@ export function conferirAritmeticaDoPontoCego(secao6: string): AritmeticaDoPonto
   for (const linha of secao6.split("\n")) {
     const m = /^\|\s*\*\*([^*]+)\*\*\s*\|([^|]*)\|([^|]*)\|/.exec(linha);
     if (!m) continue;
-    const quanto = NUMEROS_EM_PALAVRA[m[1]!.trim().toLowerCase()];
-    if (quanto === undefined) {
+    const quanto = lerNumeroEmPalavra(m[1]!);
+    if (quanto === null) {
       palavrasNaoReconhecidas.push(m[1]!.trim());
       continue;
     }

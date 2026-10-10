@@ -65,7 +65,7 @@ despertador, o menor número ainda não feito.**
 | `007` | o **disco** não é a **origem**; e varra por **LUGAR** | ✅ **LAB-74**, 09/10 · os clones estão **18 a 25 atrás**, e eu publiquei o disco em **6 recados** · **21** condições em **7** lugares, não 15 · D241, D242 |
 | `008` | **o DESEMPATE do D236**: anote e durma, não desligue | ✅ **LAB-75**, 09/10 · a §1-A corrigida com a ordem antiga **riscada** e o motivo preservado · D244 |
 | `009` | o **LAB-06** (o mais velho): o registro de motores da D68 | ✅ **LAB-76**, 10/10 · **duas das três já existiam** · **6** motores conhecidos, **4** ligados, **2** só-referência · nada mudou de estado · D245, D246, D247 |
-| `010` + adendo | a **sensibilidade ao acesso**, com regra urbanística do Jonny | pronto, no próximo despertador |
+| `010` + adendo | a **sensibilidade ao acesso**, com regra urbanística do Jonny | ✅ **LAB-77**, 10/10 · **ZERO das 7 glebas** dizem quais faces dão para via, e o campo **não existe no contrato** · a esquina é das **RUAS**, não do anel · a sugestão **se recusa a sair** · D248 a D251 |
 
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
@@ -1219,7 +1219,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 366 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 412 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
