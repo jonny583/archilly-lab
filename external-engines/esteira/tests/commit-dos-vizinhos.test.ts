@@ -21,7 +21,11 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 import {
+  PONTO_DE_ENTRADA,
   VIZINHOS,
+  carimbarVizinhos,
+  raizDeGitAcima,
+  raizDoModuloResolvido,
   conferirCarimbo,
   conferirProva,
   precisaDeCarimbo,
@@ -89,8 +93,8 @@ describe("item 001 · a régua do commit do vizinho, nos DOIS lados", () => {
   test("a prova inteira: um veredito por vizinho que aparece", () => {
     const r = conferirProva(
       [
-        { repo: "motor-testfit", commit: "aaa1111", limpo: true },
-        { repo: "urban-create-hub-41d93a4d", commit: "bbb2222", limpo: true },
+        { repo: "motor-testfit", commit: "aaa1111", limpo: true, de: "modulo-resolvido" },
+        { repo: "urban-create-hub-41d93a4d", commit: "bbb2222", limpo: true, de: "modulo-resolvido" },
       ],
       { "motor-testfit": "aaa1111", "urban-create-hub-41d93a4d": "ccc3333" },
     );
@@ -111,5 +115,83 @@ describe("item 001 · a régua do commit do vizinho, nos DOIS lados", () => {
       "urban-create-hub-41d93a4d",
       "urban-scout-tool",
     ]);
+  });
+});
+
+/**
+ * ── O CARIMBO SAI DO MÓDULO RESOLVIDO (item 016, D274) ──────────────────────
+ *
+ * O carimbo lia o `HEAD` do caminho **por convenção** (`../<repo>`), e o código vem do
+ * **resolvedor de módulos**. No LAB-82 eu repontei o `paths` para um clone do clone e a
+ * ferramenta **mediu o motor novo e carimbou o velho**.
+ *
+ * > **Carimbo que lê o repositório mede a INTENÇÃO de quem configurou, não o que rodou.**
+ *
+ * Medido antes de consertar, e o número mudou o tamanho do conserto: de **três** vizinhos, **dois**
+ * têm módulo a resolver e **um não tem** — o Lab não importa o Geo. Para ele o carimbo honesto é o
+ * da convenção, **dito como tal**.
+ */
+describe("o carimbo diz DE ONDE saiu, e a divergência é a notícia", () => {
+  test("o ponto de entrada é declarado para os três, e UM é null com motivo", () => {
+    expect(Object.keys(PONTO_DE_ENTRADA).sort()).toEqual([...VIZINHOS].sort());
+    expect(PONTO_DE_ENTRADA["motor-testfit"]).toBe("@testfit/api.ts");
+    expect(PONTO_DE_ENTRADA["urban-create-hub-41d93a4d"]).toContain("@generate/");
+    // O Geo não é importado por esta casa: não há módulo a resolver, e inventar um alias só para
+    // carimbar seria carimbar uma ficção.
+    expect(PONTO_DE_ENTRADA["urban-scout-tool"]).toBeNull();
+  });
+
+  test("sobe do arquivo até a raiz de git, e devolve null quando não há nenhuma", () => {
+    const existe = (p: string): boolean => p === "/a/b/.git";
+    expect(raizDeGitAcima("/a/b/c/d/e.ts", existe)).toBe("/a/b");
+    expect(raizDeGitAcima("/x/y/z.ts", existe)).toBeNull();
+  });
+
+  test("resolve o ponto de entrada e devolve a raiz de git DELE — não a de sempre", () => {
+    // O resolvedor finge que o módulo foi carregado de OUTRA árvore, que é o que o repoint do
+    // LAB-82 fez de verdade.
+    const outraArvore = "/tmp/rascunho/motor-3680b9f";
+    const raiz = raizDoModuloResolvido(
+      "motor-testfit",
+      () => `file://${outraArvore}/src/lib/lab/api.ts`,
+      (p) => p === `${outraArvore}/.git`,
+    );
+    expect(raiz).toBe(outraArvore);
+  });
+
+  test("vizinho SEM ponto de entrada não tem módulo a resolver — e isso é null, não erro", () => {
+    expect(
+      raizDoModuloResolvido("urban-scout-tool", () => "file:///nunca/chamado.ts", () => true),
+    ).toBeNull();
+  });
+
+  test("alias que saiu do tsconfig é NÃO MEDIDO, não 'igual ao de sempre'", () => {
+    const raiz = raizDoModuloResolvido(
+      "motor-testfit",
+      () => {
+        throw new Error("Cannot find package");
+      },
+      () => true,
+    );
+    expect(raiz).toBeNull();
+  });
+
+  test("o carimbo de VERDADE desta máquina diz de onde saiu, e as duas linhas batem hoje", () => {
+    // Sem rede: esta trava pergunta de ONDE o carimbo saiu, não o quanto o clone está atrás.
+    const carimbos = carimbarVizinhos((e) => import.meta.resolve(e), false);
+    expect(carimbos.length).toBeGreaterThan(0);
+    for (const c of carimbos) {
+      expect(["modulo-resolvido", "convencao"], c.repo).toContain(c.de);
+      // Hoje ninguém reponta nada, então nenhum carimbo pode estar divergindo: se divergir, a
+      // notícia é essa — e é o que esta trava existe para contar.
+      expect(c.divergem, `${c.repo} divergiu: módulo em ${c.commit}, convenção em ${c.pelaConvencao?.commit}`).toBe(false);
+    }
+    // E os dois que têm alias carimbam do MÓDULO: se um deles cair para `convencao`, o alias saiu
+    // do tsconfig e o carimbo voltou a medir a intenção.
+    const porRepo = new Map(carimbos.map((c) => [c.repo, c]));
+    for (const repo of ["motor-testfit", "urban-create-hub-41d93a4d"] as const) {
+      expect(porRepo.get(repo)?.de, `${repo} deixou de carimbar do módulo resolvido`).toBe("modulo-resolvido");
+    }
+    expect(porRepo.get("urban-scout-tool")?.de).toBe("convencao");
   });
 });

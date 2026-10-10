@@ -8080,3 +8080,186 @@ lotes, mesmo dono. Então o pedido vale, e sai com o número de hoje.
 *E o Generate também foi conferido, porque era o que o item pedia: `12208da` existe no clone e é
 ancestral do `origin/main` de agora. A informação do item estava certa; o endereço do defeito é que
 não.*
+
+---
+
+## D276 · O CARIMBO SAI DO MÓDULO RESOLVIDO, e a divergência é a NOTÍCIA · 10/10/2026
+
+O carimbo de versão do clone vizinho lia o `HEAD` de um caminho **por convenção**
+(`join(RAIZ_DO_LAB, "..", repo)`), e o código vem do **resolvedor de módulos**. O LAB-82 provou a
+consequência: ao remedir contra o motor em `3680b9f`, num clone do clone com o `paths` repontado,
+a ferramenta **mediu o motor novo e carimbou o velho** — e não avisou (D274).
+
+**O conserto, com os três passos que o item 016 nomeou:**
+
+1. o carimbo sai do **módulo resolvido** — `import.meta.resolve` do ponto de entrada do vizinho, a
+   **mesma régua** com que eu conferi o repoint no LAB-82;
+2. o `HEAD` do caminho por convenção **vira uma segunda linha** e não desaparece: ele responde
+   outra pergunta — *"que árvore está no lugar de sempre?"* — e continua valendo;
+3. **divergindo, a prova diz as duas**, e `divergem` é um campo.
+
+> **Carimbo de versão que lê o repositório mede a INTENÇÃO de quem configurou; carimbo que lê o
+> módulo resolvido mede O QUE RODOU.** As duas perguntas são boas — o que não se pode é chamar as
+> duas pelo mesmo nome e publicar uma delas.
+
+### A medição mudou o tamanho do conserto, que é o que o item mandou medir antes
+
+De **três** vizinhos, **dois** têm módulo a resolver e **um não tem**: o `urban-scout-tool` não
+aparece em `paths` nenhum, porque **o Lab não importa o Geo** — ele lê GeoJSON de
+`docs/terrenos/`, não código.
+
+> **Carimbo que não tem módulo a resolver não é um carimbo pior: é um carimbo de outra pergunta.**
+
+Para ele o carimbo honesto é o da convenção, **dito como tal** — e é por isso que `de` é um campo
+**obrigatório** do carimbo: toda linha diz de onde saiu, e o `tsc` cobra isso de quem montar um
+carimbo novo.
+
+### A adoção, medida e não suposta
+
+**71 provas** no repositório; **5** trazem carimbo de clone; **2 ferramentas** chamam o carimbo
+(lido do `import`, não do texto — D257). As duas passam a publicar a procedência: a do LAB-68
+publica o carimbo inteiro, e a do LAB-76 ganhou um campo ao lado, porque o `osClonesVizinhos` dela
+é uma conferência **derivada** (motor contra a origem dele) e o objeto é outro.
+
+*O item perguntou se a adoção cabia nesta rodada e mandou a medição decidir. Cabe — e cabe porque
+é pequena, não porque eu quis que fosse.*
+
+### A demonstração é de ponta a ponta, com o caso real
+
+Trocado o resolvedor para apontar o `@testfit/` ao clone do rascunho em `3680b9f` — **o mesmo
+repoint do LAB-82** —, o carimbo passou a dizer `commit: 3680b9f`, `pelaConvencao: 6cf6396` e
+`divergem: true`. **O caso que o carimbo velho errava em silêncio agora é uma linha da prova.**
+
+### O que o carimbo NÃO sabe, e isso fica dito
+
+O módulo resolvido diz **qual arquivo** foi carregado; ele não diz se aquela árvore tinha mudança
+**não commitada**. O campo `limpo` passa a medir a árvore **de onde o carimbo saiu**, o que ajuda —
+mas um `git stash` no meio de uma rodada continua invisível para as duas fontes. *Guarda que não
+declara o próprio buraco mente pelo silêncio.*
+
+### E a trava do carimbo deixou de depender de REDE
+
+A trava nova chamava `carimbarVizinhos()`, que faz `git fetch` nos três clones, e **estourou o
+limite de 5 s**. O `fetch` passou a ser um parâmetro, ligado por padrão; a trava passa `false`,
+porque a pergunta dela é *de onde o carimbo saiu* e isso não precisa de rede. **De 5,9 s para
+154 ms.** *Trava que depende de rede não reprova o código: reprova a conexão.*
+
+---
+
+## D277 · DISPARO QUE A SESSÃO NÃO RECEBE NÃO É DISPARO EM VAZIO: É DISPARO PERDIDO · 10/10/2026
+
+Entre 11:06 e 18:06 de 10/10 o despertador disparou **oito** vezes. **Uma** notificação chegou na
+hora; as outras **sete** chegaram **todas no mesmo instante**, às 18:06, com o relógio do servidor
+marcando até **seis horas** de espera para a mais antiga.
+
+**E a caixa tinha o item `016` desde as 10h55.** Não houve nada de vazio nessas sete horas: houve
+uma **sessão que não recebeu**.
+
+> **Disparo que o despertador manda e a sessão não recebe não é disparo em vazio: é disparo
+> PERDIDO.** Contá-lo como vazio diria ao chat *"você não abastece"*, quando o que aconteceu foi
+> *"eu não estava ouvindo"*.
+
+E a leitura trocada tem consequência prática, porque a conta **decide o intervalo**: sete vazios
+falsos empurrariam o chat a **esticar** o despertador — o conserto exatamente oposto ao que sete
+disparos perdidos pedem.
+
+**A coluna de origem ganhou um terceiro valor no vocabulário fechado:** `entregue-em-lote`, ao lado
+de `observado` (chegou na hora) e `derivado` (sai do `cron`, justificado num recado). *Classe nova
+que se mistura com a velha apaga a medição das duas* — e foi a trava que cobrou isso, reprovando a
+tabela enquanto a célula trazia a classe como **prosa em negrito** em vez de token do vocabulário.
+
+**O que NÃO foi feito, de propósito:** nada no despertador. *Ligar, desligar e reagendar é do chat;
+o meu trabalho é a conta* (item 004) — e a conta agora diz as três coisas separadas.
+
+---
+
+## D278 · COINCIDÊNCIA CONSERTADA COM OUTRA COINCIDÊNCIA É A MESMA TRAVA COM UMA VIDA MAIS LONGA · 10/10/2026
+
+Mexer na conta dos itens abertos da `FILA.md` — **17 → 16**, por **entrega** da proposta do carimbo
+— obrigou a reler as cinco travas que a contam. Numa delas, a `por-lugar.test.ts`, havia isto:
+
+```ts
+expect(QUANTAS_CONDICOES.naFila).toBeGreaterThan(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou);
+```
+
+Escrita **por mim, no LAB-80**, exatamente para substituir a coincidência que o **D264** pegara
+(`naFila - 15 === 1`, que valia porque `naFila` era 16 naquele dia). E justificada por escrito, no
+comentário ao lado: *"o número da varredura de frase é histórico, então ele não anda, e a `FILA.md`
+só cresce."*
+
+**Medido, commit a commit, no arquivo que a declara:**
+
+| commit | `naFila` | por quê |
+|---|---|---|
+| `b158ca4` (LAB-74) | 15 | a conta nasceu |
+| `022ed67` (LAB-78) | 16 | o sétimo mecanismo entrou |
+| `b3c61f5` (LAB-80) | 17 | a unificação das cinco leituras entrou |
+| `90e480a` (LAB-81) | **16** | **a mesma proposta foi ENTREGUE** |
+| `245ccc4` (LAB-82) | 17 | o carimbo do módulo resolvido entrou |
+| LAB-83 | **16** | **esse mesmo foi ENTREGUE** |
+| LAB-83, ainda | 17 | entrou a do trabalho de CI (D279), achada ao escrever a trava nova |
+
+**A `FILA.md` não só cresce: ela desceu DUAS vezes, e as duas por entrega.** O `> 15` sobrevivia
+por **um** no momento em que eu o li — a conta estava em 16 — e **duas entregas o reprovam sem nada
+ter piorado**, que é a definição do defeito que o D264 nomeou. *Que ela tenha voltado a 17 na mesma
+rodada não salva a trava: salvar uma trava por sorte do dia é exatamente o que torna este defeito
+invisível.*
+
+> **Coincidência consertada com outra coincidência é a mesma trava com uma vida mais longa.**
+
+É a **terceira** da mesma função, e tem uma diferença que a torna a mais útil das três: as duas
+primeiras eram contas sem justificativa escrita. **Esta trazia a justificativa ao lado, e a
+justificativa é a parte que estava falsa.** Eu não casei um número por descuido: casei-o por uma
+premissa sobre o mundo — *"a fila só cresce"* — que **a minha própria entrega desmentiu duas vezes,
+uma delas antes de eu escrever a linha**, porque o LAB-81 já tinha descido de 17 para 16 quando o
+LAB-80 ainda estava fresco.
+
+> **Trava justificada por uma premissa sobre o mundo vale o que a premissa vale** — e premissa sobre
+> o mundo se MEDE, não se afirma no comentário. *A régua estava certa; a frase que a defendia é que
+> era a medição que eu não fiz.*
+
+**O conserto é uma SUBTRAÇÃO:** a linha saiu e **nada tomou o lugar dela**. A relação entre a fila
+de hoje e um número de ontem não é invariante nenhuma — é a medição de hoje, e a medição de hoje
+já está asseverada na linha de cima (`naFila` é 16). O que continua guardado é o que é mesmo
+invariante: o número histórico **pinado** em 15, porque é história e história não anda, e a soma
+que **fecha** (`naFila + foraDaFila === total`).
+
+*Terceira vez que esta função pediu conserto, e a primeira em que a resposta certa foi guardar
+MENOS.*
+
+---
+
+## D279 · O NOME DE UM TRABALHO DE CI É UMA AFIRMAÇÃO, E ESTA DEIXOU DE SER VERDADE SEM NINGUÉM MEXER NELA · 10/10/2026
+
+Ao escrever a trava nova do carimbo (D276) eu precisei de uma que lesse a máquina de verdade — os
+três clones no disco — e fui ver onde ela cairia no CI. **E o lugar onde ela cai é um trabalho cujo
+nome promete o contrário:**
+
+> `guardas que não precisam dos clones vizinhos (NÃO é o verde)`
+
+**Medido:** esse trabalho lista `tests/commit-dos-vizinhos.test.ts`, e **duas travas desse arquivo
+exigem o clone do `motor-testfit` no disco** — uma **desde o LAB-68** (*"o clone do motor tem de
+estar nesta máquina para esta demonstração"*, conferida em `git show HEAD:`, anterior a esta
+rodada) e **uma minha, desta rodada**. Sem o clone as duas reprovam, e o trabalho que existe
+**justamente** para rodar sem segredo falharia por falta do que o nome dele promete não precisar.
+
+O D141 pôs os dois nomes **para não enganarem**, e esse era o serviço que eles prestavam:
+*"um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde é a mentira
+que o D110 custou duas semanas."* **Este nome passou a enganar sem ninguém mexer nele** — bastou um
+arquivo da lista ganhar uma trava que precisa de clone.
+
+> **O nome de um trabalho de CI é uma AFIRMAÇÃO sobre o que ele precisa, e nenhuma trava a
+> confere.** A lista de arquivos é escrita à mão, os arquivos crescem sozinhos, e a afirmação
+> envelhece exatamente como um comentário (D104) — com o agravante de que **ela mora num arquivo
+> que ninguém executa hoje**, porque a execução automática está desligada desde 08/10. *Afirmação
+> desligada não é afirmação falsa: é afirmação que ninguém vai desmentir.*
+
+**E eu NÃO consertei, de propósito.** O conserto tem duas formas — tirar as travas que precisam de
+clone desse trabalho (e pô-las no verde completo), ou fazer o nome dizer a verdade —, e **escolher
+entre as duas precisa de uma medição que eu não fiz: quantas travas de cada um dos **30** arquivos da
+lista dependem do clone.** Prometer o número sem medir é a classe do D133, e ampliar escopo é o que
+a §1-A proíbe. Foi para a `FILA.md` como proposta, com `prompt-novo`.
+
+**A conta dos itens abertos andou DUAS vezes nesta rodada e voltou a 17:** a proposta do carimbo
+saiu **por entrega** (D276) e esta entrou. *Saldo parado não é rodada parada* — e é por isso que
+as duas mudanças ficam escritas nos cinco lugares que contam, e não só o saldo.

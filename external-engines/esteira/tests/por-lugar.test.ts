@@ -46,25 +46,24 @@ describe("item 007 · a varredura por LUGAR, e a lista está escrita", () => {
     expect(QUANTAS_CONDICOES.foraDaFila).toBe(6);
     expect(QUANTAS_CONDICOES.total).toBe(23);
     // O número da varredura de FRASE é HISTÓRICO — o que ela alcançou no item 006 — e por isso
-    // NÃO anda quando a `FILA.md` cresce.
+    // NÃO anda quando a `FILA.md` anda.
     expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBe(15);
     // A conta que fecha é esta, e é a única que é invariante:
     expect(QUANTAS_CONDICOES.naFila + QUANTAS_CONDICOES.foraDaFila).toBe(QUANTAS_CONDICOES.total);
     // E a identidade `frase + foraDaFila === total` valia só porque `naFila` era 15 NAQUELE DIA.
     // Ela quebrou no LAB-78, quando a FILA foi a 16 — era COINCIDÊNCIA, não invariante, e uma
     // trava que casa coincidência reprova no dia em que o mundo anda sem nada ter piorado.
-    expect(QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou).toBeLessThanOrEqual(
-      QUANTAS_CONDICOES.naFila,
-    );
-    // E A LINHA DE BAIXO ERA A MESMA DOENÇA, escrita um prompt depois do conserto dela: aqui
-    // estava `naFila - queAVarreduraDeFraseAlcancou === 1`, que valia porque `naFila` era 16
-    // NAQUELE DIA. No LAB-80 a FILA foi a 17 e a diferença virou 2, sem nada ter piorado — é a
-    // segunda coincidência casada como invariante nesta mesma função, duas linhas abaixo do
-    // comentário que proíbe isso (D264). O que é invariante é o SENTIDO: o número da varredura de
-    // frase é histórico, então ele não anda, e a FILA só cresce.
-    expect(QUANTAS_CONDICOES.naFila).toBeGreaterThan(
-      QUANTAS_CONDICOES.queAVarreduraDeFraseAlcancou,
-    );
+    //
+    // E AQUI MORAVAM AS OUTRAS DUAS, as duas com o MESMO número histórico de um lado:
+    // `naFila - 15 === 1` (quebrou no LAB-80, D264) e depois `naFila > 15`, que eu escrevi no
+    // lugar dela justificando-a com *"a FILA só cresce"*. **Medido no LAB-83: ela não só
+    // cresce** — `naFila` fez 15 → 16 → 17 → 16 → 17 → 16 → 17, e as duas descidas foram por
+    // ENTREGA (LAB-81 e LAB-83). O `> 15` sobrevivia por DOIS, e duas entregas o reprovam sem
+    // nada ter piorado: a terceira coincidência da mesma função, e a primeira cuja JUSTIFICATIVA
+    // ESCRITA é que estava falsa (D278). Ela saiu, e nada tomou o lugar dela — a relação entre a
+    // fila de hoje e um número de ontem não é invariante nenhuma, é a medição de hoje, e ela já
+    // está na linha de cima. *Coincidência consertada com outra coincidência é a mesma trava com
+    // uma vida mais longa.*
   });
 
   test("NENHUMA das condições é uma CONTA, e nenhuma contradiz a regra de família", () => {

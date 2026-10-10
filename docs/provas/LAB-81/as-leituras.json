@@ -2,7 +2,7 @@
   "prompt": "LAB-81",
   "oQue": "as CINCO leituras de \"esta linha afirma ou só mostra?\" terminadas num lugar só, cada uma com a pergunta dela declarada e conferida contra o `import` de quem a chama — e UMA declarada como diferente, com a medição que prova que ela precisa ser",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto são as LEITURAS de texto desta casa e os arquivos que as chamam. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-10T10:32:06.715Z",
+  "quando": "2026-10-10T18:23:04.696Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"

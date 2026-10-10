@@ -1257,7 +1257,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 501 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 507 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2292,17 +2292,32 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   A escolha de desenho que ele embute está na **§10 da página do Jonny**, com três caminhos e o
   custo de cada um. **Segue aberto:** `aguardando-o-jonny`
 
-- **O CARIMBO DO CLONE SAI DO MÓDULO RESOLVIDO, E NÃO DO `HEAD` DO CLONE** (LAB-82, 10/10, D274).
-  Medido: ao remedir o sétimo mecanismo contra o motor em `3680b9f` — num clone do clone, com o
-  `paths` repontado —, a ferramenta **mediu o motor novo e carimbou o velho** (`6cf6396`, o `HEAD`
-  da árvore do vizinho, que não foi tocada). O código vem do resolvedor de módulos; o carimbo vem
-  do `git rev-parse` do clone: **duas fontes de verdade para "qual motor rodou", e só uma sabe.**
-  *Carimbo que lê o repositório mede a INTENÇÃO de quem configurou, não o que rodou — e acerta
-  sempre que ninguém reponta nada, que é por que ninguém descobre que ele pode errar.* O conserto
-  tem nome: o carimbo sai do **módulo resolvido** (`import.meta.resolve` do ponto de entrada do
-  vizinho), o `HEAD` do clone vira uma **segunda** linha, e **divergindo, a prova diz as duas**. É
-  a proposta do D223 um degrau adiante, e toca toda prova que usa clone. **Segue aberto:**
-  `prompt-novo`
+- ~~**O CARIMBO DO CLONE SAI DO MÓDULO RESOLVIDO, E NÃO DO `HEAD` DO CLONE**~~ (LAB-82, 10/10,
+  D274) — ✅ **executada no LAB-83** (item 016). O carimbo passa a sair do **módulo resolvido**
+  (`import.meta.resolve` do ponto de entrada do vizinho), o `HEAD` do caminho por convenção virou
+  uma **segunda** linha e não desapareceu, e **divergindo, a prova diz as duas** — demonstrado de
+  ponta a ponta contra o clone do rascunho em `3680b9f`, com `divergem` verdadeiro. **A medição
+  mudou o tamanho do conserto, que era o que o item mandava:** de três vizinhos, **dois** têm
+  módulo a resolver e **um não tem** — o `urban-scout-tool` não aparece em `paths` nenhum, porque
+  o Lab lê GeoJSON do Geo e não código dele; para ele o carimbo honesto é o da convenção, **dito
+  como tal** (D276). E a adoção **cabia**: das 72 provas, **5** carimbam clone e **2** ferramentas
+  chamam o carimbo — as duas já publicam a procedência; as outras 67 não carimbam clone nenhum,
+  então não há nada a adotar nelas
+
+- **O TRABALHO DE CI QUE DIZ NÃO PRECISAR DOS CLONES, E PRECISA** (LAB-83, 10/10, D279). Medido:
+  o trabalho `guardas que não precisam dos clones vizinhos (NÃO é o verde)` lista
+  `tests/commit-dos-vizinhos.test.ts`, e **duas travas desse arquivo exigem o clone do
+  `motor-testfit` no disco** — uma desde o LAB-68 (*"o clone do motor tem de estar nesta máquina
+  para esta demonstração"*) e **uma minha, desta rodada**, que carimba a máquina de verdade. Sem o
+  clone as duas reprovam, e o trabalho que existe **justamente** para rodar sem segredo falharia
+  por falta do que o nome dele promete não precisar. **Não está medido no GitHub** porque a
+  execução automática está desligada desde 08/10 — *o nome do trabalho é a afirmação, e ela não é
+  conferida por ninguém hoje.* O D141 pôs os nomes para não enganarem; este passou a enganar sem
+  ninguém mexer nele. O prompt: ou as travas que precisam de clone saem desse trabalho (e entram no
+  verde completo), ou o nome do trabalho passa a dizer a verdade — **e a escolha precisa de uma
+  medição que eu não fiz: quantas travas de cada um dos **30** arquivos da lista dependem do
+  clone.** Prometer o
+  número sem medir é a classe do D133. **Segue aberto:** `prompt-novo`
 
 - **ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR** (09/10, D226). Medido: o
   `Terreno["legais"]` do motor ganhou `caixaViariaMinima_m`, `faceQuadraMaxima_m`,
