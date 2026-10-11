@@ -2,7 +2,7 @@
   "prompt": "LAB-87",
   "oQue": "as ONZE provas que o LAB-86 classificou como de universo interno, abertas uma a uma e RECLASSIFICADAS — e o denominador estava errado, pelo motivo que a classificação do LAB-86 não perguntava",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de PROVAS desta casa e o que a recontagem significa em cada uma. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-11T02:23:31.721Z",
+  "quando": "2026-10-11T07:29:27.524Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -112,7 +112,7 @@
       "porque": "o `conferir.sh` a reescreve em TODA execução (é o sétimo passo, o `.wasm` em Chromium de verdade). Ela não pode ficar velha: o verde a regera antes de qualquer commit. *O `ms` dela muda a cada rodada, e é ruído de relógio — não medição que ande*"
     }
   ],
-  "oUniversoTotal": 79,
+  "oUniversoTotal": 80,
   "oQueIssoDecide": "a forma do D287 (recontar e comparar) cabe em TRÊS provas, e as três estão recontadas: a do LAB-57 no item 019, e a do LAB-52 e a do LAB-04 agora. As outras OITO não ficam para depois — elas NÃO SÃO DESTA FORMA, e isso é diferente de pendência: sete registram evento e uma é regerada pelo verde a cada rodada. *Lista que encolhe porque o item era menor do que parecia é entrega; lista que encolhe porque alguém desistiu é dívida — e a diferença tem de estar escrita*",
   "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
 }

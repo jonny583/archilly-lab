@@ -33,6 +33,13 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import {
+  BILINEAR_E_APELIDO_DE_IDW,
+  INTERPOLADORES_ACEITOS,
+  O_QUE_FICA_DE_FORA,
+  O_QUE_O_GENERATE_DECLARA,
+  conferirOInterpolador,
+} from "../src/conjunto-do-interpolador.ts";
 
 import { VERSOES_LIDAS, contratoDasEntradas } from "../src/gleba-v1.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
@@ -196,5 +203,57 @@ describe("as quatro provas regeradas trazem a etiqueta certa", () => {
       };
       expect(d.contrato, `${rel}: a etiqueta do contrato`).toBe(aVersao);
     }
+  });
+});
+
+/**
+ * **024-adendo · o conjunto FECHADO do `interpolador`** (LAB-91, D298).
+ *
+ * O Generate achou desacordo de **valores** entre as duas casas e a direção trouxe a pergunta ao
+ * **dono do formato**, que é esta. A resposta está em `src/conjunto-do-interpolador.ts`, medida na
+ * ORIGEM dos dois vizinhos — e estas travas não leem clone nenhum: só o módulo e o motivo escrito.
+ */
+describe("024-adendo · o conjunto do `interpolador` está FECHADO, com motivo por linha", () => {
+  test("o conjunto é `bilinear | idw`, e só os dois", () => {
+    expect([...INTERPOLADORES_ACEITOS]).toEqual(["bilinear", "idw"]);
+  });
+
+  test("`null` é aceito — é a forma de dizer NÃO MEDIDO (D23), e não um valor novo", () => {
+    expect(conferirOInterpolador(null)).toEqual([]);
+  });
+
+  test("os dois aceitos passam; os quatro de fora reprovam COM o motivo", () => {
+    for (const bom of INTERPOLADORES_ACEITOS) expect(conferirOInterpolador(bom), bom).toEqual([]);
+    for (const f of O_QUE_FICA_DE_FORA) {
+      const p = conferirOInterpolador(f.valor);
+      expect(p, f.valor).toHaveLength(1);
+      expect(p[0]!.oQue).toContain(f.valor);
+      expect(p[0]!.oQue.length).toBeGreaterThan(60);
+    }
+  });
+
+  test("valor inventado reprova E diz que nem na lista de recusados está", () => {
+    const p = conferirOInterpolador("spline");
+    expect(p).toHaveLength(1);
+    expect(p[0]!.oQue).toContain("nem na lista de recusados");
+  });
+
+  /** *Apelidar `bilinear` de `idw` apagaria a única informação que o campo carrega* (D37). */
+  test("`bilinear` NÃO é apelido de `idw`, e a recusa está declarada", () => {
+    expect(BILINEAR_E_APELIDO_DE_IDW).toBe(false);
+  });
+
+  test("o que o Generate declara está gravado como MEDIÇÃO, e os cinco não são o conjunto", () => {
+    expect([...O_QUE_O_GENERATE_DECLARA]).toEqual(["idw", "linear", "natural", "krigagem", "nenhum"]);
+    const emComum = O_QUE_O_GENERATE_DECLARA.filter((v) =>
+      (INTERPOLADORES_ACEITOS as readonly string[]).includes(v),
+    );
+    // **Em comum: só `idw`** — é a medição que o Generate trouxe, conferida aqui.
+    expect(emComum).toEqual(["idw"]);
+  });
+
+  test("cada recusado tem motivo, e `nenhum` cita o `null`", () => {
+    for (const f of O_QUE_FICA_DE_FORA) expect(f.porque.length, f.valor).toBeGreaterThan(50);
+    expect(O_QUE_FICA_DE_FORA.find((f) => f.valor === "nenhum")!.porque).toContain("null");
   });
 });

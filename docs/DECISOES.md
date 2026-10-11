@@ -9303,3 +9303,157 @@ alheio deixa de ser a lista que me corrige e passa a ser um placar.*
 E o que esta rodada **acrescenta à minha tabela é zero linha e uma lição**: a minha declaração
 falsa de 09/10 (`34bc00c`) não entra como ponto cego porque **não houve acusação a vizinho
 nenhum** — foi erro meu contra mim, medido e corrigido pela guarda que esta rodada escreveu.
+
+---
+
+## D298 · O CONJUNTO DO `interpolador` FICA FECHADO EM `"bilinear" | "idw"` — OS DOIS QUE A FAMÍLIA PRODUZ · 11/10/2026
+
+**Prompt:** LAB-91 (024-adendo). O Generate mediu o bloco de terreno dos dois lados e achou
+**desacordo de VALORES**, não de campo; a direção trouxe a pergunta ao **dono do formato**, com a
+frase dele que eu adoto inteira: *"escolher por conta própria seria fabricar o terceiro
+conjunto."*
+
+### O que foi medido na ORIGEM, antes de decidir
+
+| onde | o que a origem diz |
+|---|---|
+| `motor-testfit`, `src/lib/lab/formato-publicado.ts:142` | `interpolador: "bilinear" \| "idw"` |
+| Generate, `src/lib/engine/indicadores-terreno.ts:146` | `type Interpolador = "idw" \| "linear" \| "natural" \| "krigagem" \| "nenhum"` |
+| Generate: quem **atribui** literal a `interpolador` | **ninguém** — zero no `.ts` da origem |
+| Generate: `bilinear` em `.ts` | **zero** ocorrências |
+
+**Em comum: só `"idw"`** — a medição do Generate, conferida aqui.
+
+**E a primeira leitura deu o contrário:** num clone em `72cfab0` (a origem estava em `8b7c157`),
+`krigagem` dava **zero** e eu quase publiquei *"o Generate não enumera nada disso"*. *O clone não
+é a origem* — **terceira vez na mesma noite** (D295).
+
+### A decisão
+
+> **O conjunto fica FECHADO em `"bilinear" | "idw"`: os dois que esta família PRODUZ e que eu
+> MEDI.** Valor que ninguém produz é valor que ninguém pode conferir.
+
+1. **`"bilinear"` FICA e NÃO é apelido de `"idw"`** — medido no LAB-03/LAB-07 e registrado no
+   D37: o de k vizinhos *"faz o bolo de casamento"* e o de produção não. O campo existe por causa
+   dessa diferença (*"ele muda o que a rampa quer dizer"*), e **apelidar apagaria a única
+   informação que ele carrega**;
+2. **`"nenhum"` é RECUSADO como valor:** ausência de interpolação já tem forma — **`null`** (D19,
+   D23). Aceitá-lo criaria **duas formas de dizer a mesma coisa** (D116);
+3. **`"linear"`, `"natural"` e `"krigagem"` entram quando alguém os IMPLEMENTAR e MEDIR**, cada um
+   com o efeito dele sobre a rampa — a condição que o próprio campo declara. Hoje são **tipo sem
+   produtor**;
+4. **O desacordo não morde hoje** — sem produtor de literal do outro lado, nenhum valor
+   atravessa. *É a classe GF-09 do Generate, e o dia da divergência não chegou: é isso que dá
+   tempo de decidir em vez de inventar.*
+
+**Há guarda** (`tests/contrato.test.ts`, 7 travas): o conjunto, o `null` aceito, os quatro
+recusados **com motivo**, o valor inventado dizendo *"nem na lista de recusados está"*, a recusa
+do apelido, e os cinco do Generate gravados **como medição** — com `emComum === ["idw"]` cobrado.
+
+**O pedido ao vizinho vai em LISTA, nunca em commit lá** (§4): ao Generate, **estreitar o
+`Interpolador` para o que ele produz** ou declarar os cinco como aspiracionais **no próprio
+tipo**; ao Parcelamento, **nada** — ele já está no conjunto fechado.
+
+---
+
+## D299 · A TRAVA REGERA A VARREDURA — E A PERGUNTA DE PROJETO TEM DUAS ESPÉCIES DE PROVA · 11/10/2026
+
+**Prompt:** LAB-91 (item 024). **Proposta minha do LAB-60, aberta desde 07/10**, executada agora.
+
+### O que faltava, e não era o escopo
+
+O LAB-86 (D287) pôs a **recontagem do ESCOPO**: quantos arquivos, quantas linhas. **O defeito que
+o LAB-60 mediu não estava lá** — estava em `totalPorRegra`: `conferencia-desligada-por-arquivo`
+dizia **1** na prova commitada e **10** na mesma árvore, com o verde verde.
+
+> **Recontar o tamanho do universo não reconta o que a régua achou nele.**
+
+Agora a trava **reexecuta** as duas varreduras — configuração e chamadas — chamando **a mesma
+função da ferramenta** (D231), e compara **regra por regra e achado por achado**, cada desacordo
+**nomeando a regra e o arquivo**.
+
+### A resposta à pergunta de projeto: duas espécies, em lista fechada
+
+O item pediu *quais provas podem ser regeradas sem ferir o D182* e autorizou a forma: *"a lista
+escrita à mão é a resposta… o que não serve é a trava adivinhar."*
+
+| espécie | regera? | por quê |
+|---|---|---|
+| **fotografia de um estado passado** | **nunca** | é o próprio defeito que o D182 nasceu para impedir: o *"antes"* de uma aferição só vale no instante em que foi tirado |
+| **função pura da árvore de AGORA** | **sempre** | *prova que não bate com a árvore de hoje não é prova, é lembrança* |
+
+**Sete entradas, com motivo por linha:** três `funcao-da-arvore` (LAB-57, LAB-52, LAB-04) e quatro
+`fotografia` (LAB-48, LAB-02, LAB-31/sabotagem, LAB-60 — esta porque mede o **clone vizinho**, e
+*recontar o que depende de fora é outra medição com o nome da antiga*, D288). A trava cobra a
+lista **fechada nos dois sentidos**: entrada que aponta para prova inexistente, prova em duas
+espécies, e `regeradaPelaTrava` fora da espécie certa.
+
+### E a régua pegou o código que eu acabara de escrever
+
+A primeira versão da trava tinha um `try { … } catch { }` para pular o `LEIA-ME.md`, e **a
+varredura de chamadas que esta mesma rodada regera acusou a linha na hora** —
+`catch-que-engole`, neste arquivo.
+
+> **A resposta certa não era regerar a prova: era não engolir erro.** O `withFileTypes` responde a
+> mesma pergunta sem esconder nada. *Régua que acusa o autor enquanto ele escreve é a régua
+> funcionando* — e o item avisou: *"não regere a prova de ninguém para fazer a trava passar."*
+
+---
+
+## D300 · O AVISO DO `detalhe` NÃO MORDE AQUI, E ISSO É MEDIÇÃO · 11/10/2026
+
+**Prompt:** LAB-91 (024-adendo, parte 2). O Generate passou a publicar `valor`, `limite` e
+`unidade` ao lado da frase, declarou `detalhe` como *frase para a pessoa, que pode mudar sem
+aviso*, e pediu: **"parem de ler `detalhe`."**
+
+**Varrido todo `.ts` da esteira e do testfit: nenhum lugar extrai número de `detalhe`.** O único
+que o toca é `ferramentas/lab48.ts:210` — `detalhe: v.detalhe ?? null` —, que **copia a frase para
+dentro de uma prova**, e *copiar não é extrair*. Os outros dois casos (`lab58`, `lab63`) são campos
+`detalhe` **meus**, de outra coisa.
+
+> **Aviso de vizinho se responde com varredura, não com memória** — e a resposta aqui é *"não há o
+> que desfazer"*, com o lugar nomeado para o dia em que alguém quiser ler o número de lá.
+
+**E o achado que vem junto é da forma desta casa:** `valor` **já viajava em 12 dos 18 sítios** do
+Validator e o contrato nunca o publicou — *o que faltava era a chave, não o número* —, e um dos
+sítios punha em `valor` o **limite** onde os outros punham a **medida**. *Isto é a regra desta casa
+voltando pela porta da frente: o limite tem de viajar dentro do payload, senão quem recebe adivinha
+a régua, e dois aplicativos adivinham diferente.*
+
+**Não virou proposta na `FILA.md`**, de propósito: *proposta para consertar o que a medição diz que
+não existe é lista que envelhece sozinha.*
+
+---
+
+## D301 · DOIS NÚMEROS COM O MESMO VALOR NÃO SÃO O MESMO NÚMERO — E O RISCADO PRECOCE · 11/10/2026
+
+**Prompt:** LAB-91 (item 024). **Dois enganos meus nesta rodada, pegos pelas minhas próprias
+travas, e os dois são de contagem.**
+
+### O primeiro: eu baixei o número errado por reflexo
+
+Executada a proposta, baixei **duas** contagens de 14 para 13 — e **a trava acusou na hora**. Elas
+não são a mesma coisa:
+
+| número | o que conta | mudou? |
+|---|---|---|
+| `ABERTOS_ESPERADOS` (lab62) | **itens abertos** da lista *"Proposto ao chat"* | **não** |
+| `QUANTAS_CONDICOES.naFila` | **etiquetas de condição** declaradas na `FILA.md` | **não** |
+
+> **Dois números com o mesmo valor não são o mesmo número.** Eles valiam 14 os dois, e por isso o
+> reflexo pareceu certo — *valor igual é a forma mais convincente de dois nomes diferentes.*
+
+### O segundo, e é o achado: o item DA LISTA estava riscado CEDO DEMAIS
+
+A proposta morava em **dois lugares**: um item da lista *"Proposto ao chat"* e uma **seção de
+prosa**. O item foi **riscado no LAB-86** como *"executada"* — e o que o LAB-86 fez foi recontar o
+**escopo**, não reexecutar a varredura. **A seção de prosa continuou aberta, e era ela que estava
+certa.**
+
+> **A mesma proposta em dois lugares, e os dois discordaram: quem tinha razão era o que ninguém
+> riscou.** *Riscar "executada" sobre metade do pedido fecha a porta com o trabalho dentro* — e é
+> a família do D116 (a mesma coisa em dois lugares) com o D231 (o conserto que entra num
+> instrumento só).
+
+**O riscado foi corrigido com a medição ao lado**, não desfeito: ele continua riscado — a parte do
+escopo **foi** feita no LAB-86 —, e agora diz **o que faltava e onde a outra metade está.**

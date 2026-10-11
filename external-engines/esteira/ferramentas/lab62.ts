@@ -81,6 +81,13 @@ const lista1 = abertos.map((p, i) => ({
  * **16 → 17 no LAB-82:** o carimbo do clone que lê o `HEAD` em vez do módulo resolvido (D274),
  * achado ao remedir o sétimo mecanismo contra o motor novo. Entrou com `prompt-novo`.
  *
+ * **CONTINUA 14 no LAB-91, e isto é medição contra um reflexo meu (D301):** a TRAVA QUE REGERA
+ * A VARREDURA foi executada no item 024, e eu baixei este número para 13 por reflexo. **A trava
+ * acusou:** o item DA LISTA já estava riscado desde o LAB-86 — *riscado cedo demais*, porque o
+ * que o LAB-86 fez foi recontar o ESCOPO, e a proposta pedia **reexecutar a varredura**. O que
+ * continuava aberto era a **seção de prosa**, que esta rodada riscou, e **seção de prosa não
+ * entra nesta contagem**. *Dois números com o mesmo valor não são o mesmo número.*
+ *
  * **15 → 14 no LAB-87:** a das outras dez provas recontáveis foi EXECUTADA (item 020, D289), e
  * saiu por ENTREGA — a quinta descida por entrega em sete rodadas. *E esta saiu MENOR do que
  * entrou: a forma cabia em três provas, não em dez, e o item previu isso ao convidar a corrigir o

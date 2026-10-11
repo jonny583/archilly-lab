@@ -2379,3 +2379,79 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · o GATILHO NÃO foi religado — a régua cobra, não liga;
 · e a linha da Pesquisa fica DECLARADA COMO NÃO CONFERIDA, não repetida como fato.
 ```
+
+## 11/10/2026 · LAB-91 — item 024 + adendo: a trava que regera a varredura
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-91 (item 024 + adendo) ===
+Estado: FEITO e mesclado na main. A minha proposta do LAB-60 está EXECUTADA: a trava REEXECUTA a varredura, e as duas respostas do adendo estão dadas. Verde conferido aqui, não no GitHub: 1 008 travas na esteira + 17 no testfit, 621 na lista do CI (38 arquivos, 38 de 38 passando sem os clones), 7 passos, exit 0. Decisões D298 a D301.
+Feito: `tests/regerar-a-varredura.test.ts` (10 travas) reexecuta as varreduras de configuração e de chamadas pela MESMA função da ferramenta e compara REGRA POR REGRA E ACHADO POR ACHADO; `src/regerar-a-varredura.ts` traz as duas espécies de prova em lista fechada com motivo por linha; `src/conjunto-do-interpolador.ts` fecha o conjunto. Prova: `docs/provas/LAB-91/a-varredura-regerada.json`.
+Achados para outros apps ou Central: (1) A METADE QUE FALTAVA NÃO ERA O ESCOPO: o D287 recontava quantos arquivos e quantas linhas, e o defeito que o LAB-60 mediu estava em `totalPorRegra` — 1 na prova contra 10 na mesma árvore, com o verde verde. RECONTAR O TAMANHO DO UNIVERSO NÃO RECONTA O QUE A RÉGUA ACHOU NELE. Hoje as duas batem, e é esse o conteúdo da prova: o número só vale porque foi REEXECUTADO agora. (2) A PERGUNTA DE PROJETO, RESPONDIDA POR MEDIÇÃO E EM DUAS ESPÉCIES, na forma que você autorizou (lista escrita à mão, fechada nos dois sentidos, motivo por linha): FOTOGRAFIA DE UM ESTADO PASSADO NUNCA SE REGERA — é o defeito que o D182 nasceu para impedir — e FUNÇÃO PURA DA ÁRVORE DE AGORA TEM DE BATER SEMPRE, porque PROVA QUE NÃO BATE COM A ÁRVORE DE HOJE NÃO É PROVA, É LEMBRANÇA. Sete entradas: 3 função-da-árvore (LAB-57, LAB-52, LAB-04) e 4 fotografia (LAB-48, LAB-02, LAB-31/sabotagem e LAB-60 — esta porque mede o CLONE VIZINHO, e recontar o que depende de fora é outra medição com o nome da antiga). Se a família quiser a mesma separação, é esta, e ela cabe em qualquer casa. (3) E A RÉGUA PEGOU O CÓDIGO QUE EU ACABARA DE ESCREVER: a primeira versão da trava tinha um `catch` que engolia erro para pular o LEIA-ME, e a varredura de chamadas que esta mesma rodada regera ACUSOU A LINHA NA HORA. A RESPOSTA CERTA NÃO ERA REGERAR A PROVA: ERA NÃO ENGOLIR ERRO — exatamente o que você avisou. (4) DOIS ENGANOS MEUS DE CONTAGEM, pegos pelas minhas próprias travas: executada a proposta, baixei DUAS contagens de 14 para 13 por reflexo, e elas não são a mesma coisa — uma conta ITENS ABERTOS da lista, a outra conta ETIQUETAS DE CONDIÇÃO da FILA.md —, e NENHUMA DAS DUAS MUDOU. DOIS NÚMEROS COM O MESMO VALOR NÃO SÃO O MESMO NÚMERO: valor igual é a forma mais convincente de dois nomes diferentes. (5) E O SEGUNDO É O ACHADO, E É SOBRE A SUA ESCOLHA DE ITEM: a proposta morava em DOIS lugares — um item da lista e uma seção de prosa —, e O ITEM DA LISTA FOI RISCADO NO LAB-86 COMO "EXECUTADA" tendo sido feito só o escopo. A SEÇÃO DE PROSA CONTINUOU ABERTA, E ERA ELA QUE ESTAVA CERTA — foi nela que você leu a proposta, e você leu a certa. A MESMA PROPOSTA EM DOIS LUGARES, E OS DOIS DISCORDARAM: QUEM TINHA RAZÃO ERA O QUE NINGUÉM RISCOU. Riscar "executada" sobre metade do pedido fecha a porta com o trabalho dentro; o riscado foi corrigido COM A MEDIÇÃO AO LADO, não desfeito. (6) DO ADENDO (1), A RESPOSTA DO DONO DO FORMATO: O CONJUNTO FICA FECHADO EM "bilinear" | "idw" — os dois que a família PRODUZ e que eu MEDI NA ORIGEM. "bilinear" FICA e NÃO É APELIDO DE "idw": o D37 mediu que o de k vizinhos "faz o bolo de casamento" e o de produção não, e apelidar apagaria a única informação que o campo carrega. "nenhum" É RECUSADO, porque ausência de interpolação já tem forma neste formato — `null`, que é "não medido" (D19/D23) —, e aceitá-lo criaria DUAS FORMAS DE DIZER A MESMA COISA (D116). "linear", "natural" e "krigagem" ENTRAM QUANDO ALGUÉM OS IMPLEMENTAR E MEDIR: medido na origem do Generate, NINGUÉM ATRIBUI LITERAL a `interpolador` e `bilinear` tem ZERO ocorrências lá — são tipo sem produtor. E O DESACORDO NÃO MORDE HOJE, que é o que dá tempo de decidir em vez de inventar. AO GENERATE, em lista e nunca em commit lá: estreitar o `Interpolador` para o que ele produz, ou declarar os cinco como ASPIRACIONAIS no próprio tipo. AO PARCELAMENTO: nada, ele já está no conjunto fechado. (7) E A PRIMEIRA LEITURA DISSO DEU O CONTRÁRIO: num clone em `72cfab0` com a origem em `8b7c157`, `krigagem` dava ZERO e eu quase publiquei "o Generate não enumera nada disso". O CLONE NÃO É A ORIGEM — terceira vez na mesma noite (D295), e a terceira em que a disciplina pagou. (8) DO ADENDO (2): O AVISO DO `detalhe` NÃO MORDE AQUI, E ISSO É MEDIÇÃO. Varrido todo `.ts` da esteira e do testfit, NENHUM lugar extrai número de `detalhe`; o único que o toca é `ferramentas/lab48.ts:210`, que COPIA a frase para dentro de uma prova — e copiar não é extrair. NÃO virou proposta, de propósito: proposta para consertar o que a medição diz que não existe é lista que envelhece sozinha. E o achado que vem junto é a regra desta casa voltando pela porta da frente: O LIMITE TEM DE VIAJAR DENTRO DO PAYLOAD — agora ele viaja, e eu paro de ler a frase antes de ter construído algo em cima dela.
+Depende do Jonny: nada novo meu. Continuam a §11 (a senha de leitura, ou tornar os dois vizinhos públicos), a §10, o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a D226 (os quatro campos de `legais`) — e obrigada por dizer, nas suas palavras, que o quinto pedido seguido é dado sobre você e não sobre mim. A fila ficou em CATORZE itens abertos: a proposta do LAB-60 saiu por ENTREGA, mas o item DA LISTA já estava riscado desde o LAB-86, então a contagem não mudou (D301) — e nada nasceu no lugar dela.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  AS DUAS ESPÉCIES DE PROVA — a resposta à pergunta de projeto (D299)
+═══════════════════════════════════════════════════════════════════════════════
+
+  FOTOGRAFIA de um estado passado ....... NUNCA se regera (é o defeito do D182)
+    LAB-48/violacoes-do-motor-padrao ..... o ANTES de uma aferição, e roda motor
+    LAB-02/completo.saida-cortada ........ saída guardada, com semente
+    LAB-31/sabotagem .................... registra um ATO, não um estado
+    LAB-60/configuracao-do-motor ........ mede o CLONE VIZINHO (D288)
+
+  FUNÇÃO PURA DA ÁRVORE DE AGORA ........ tem de bater SEMPRE, e a trava regera
+    LAB-57/varredura-de-configuracao ..... foi ela que o LAB-60 pegou velha (1 × 10)
+    LAB-52/varredura-de-chamadas ......... já esteve 40 % velha (D290)
+    LAB-04/oraculo ....................... o `medido` recomputa; o `esperado` NÃO
+
+  A lista é fechada nos DOIS sentidos: entrada que aponta para prova inexistente,
+  prova em duas espécies, e `regeradaPelaTrava` fora da espécie certa.
+
+═══════════════════════════════════════════════════════════════════════════════
+  O CONJUNTO DO `interpolador`, FECHADO — a resposta do dono do formato (D298)
+═══════════════════════════════════════════════════════════════════════════════
+
+  ACEITOS      "bilinear"  ·  "idw"        ← os dois que a família PRODUZ
+  e `null`     é aceito: é a forma de dizer NÃO MEDIDO (D23)
+
+  FORA, com motivo:
+    "nenhum"    ausência já tem forma: `null`. Dois jeitos de dizer o mesmo = D116
+    "linear"    tipo sem produtor na origem do Generate
+    "natural"   idem
+    "krigagem"  idem — e é o que mais pede medição antes de entrar
+
+  "bilinear" NÃO é apelido de "idw": o D37 mediu a diferença, e é ela a razão de
+  o campo existir ("ele muda o que a rampa quer dizer").
+
+  MEDIDO NA ORIGEM, 11/10:
+    motor-testfit   formato-publicado.ts:142     "bilinear" | "idw"
+    Generate        indicadores-terreno.ts:146   "idw"|"linear"|"natural"|"krigagem"|"nenhum"
+    Generate        quem ATRIBUI literal          ninguém (zero)
+    Generate        `bilinear` em .ts             zero
+
+  EM COMUM: só "idw" — a sua medição, conferida aqui.
+
+═══════════════════════════════════════════════════════════════════════════════
+  PEDIDO AO GENERATE — em lista, nunca em commit lá (§4)
+═══════════════════════════════════════════════════════════════════════════════
+
+  1. estreitar `Interpolador` para o que ele PRODUZ, ou declarar os cinco como
+     ASPIRACIONAIS no próprio tipo — hoje o tipo enumera cinco e nenhum literal
+     é atribuído em nenhum lugar do `.ts`;
+  2. se um dia `"bilinear"` precisar entrar lá, ele NÃO é apelido de `"idw"`: a
+     diferença entre os dois é medida (D37), e é a razão de o campo existir;
+  3. e `"nenhum"` não precisa existir como valor: `null` já diz isso, e é o que
+     esta casa usa.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· nada escrito em repositório vizinho — leitura na ORIGEM de dois deles, e os SEIS
+  clones terminaram limpos;
+· a D226 não foi tocada, nem o sétimo mecanismo, nem o plantio;
+· o GATILHO DO CI não foi religado — a régua cobra, não liga;
+· e o INTERVALO NOVO do despertador (8 h) está anotado na CONTA, não tocado:
+  ligar, desligar e reagendar é do chat.
+```

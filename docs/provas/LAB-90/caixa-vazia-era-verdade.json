@@ -2,7 +2,7 @@
   "prompt": "LAB-90",
   "oQue": "a guarda que diz se uma declaração de \"caixa vazia\" era verdadeira, pela árvore do commit que a declarou",
   "oQueIstoNaoMede": "não mede gleba, motor nem semente — mede declarações e árvores de caixa de entrada, e está na lista de exceções do §7",
-  "quando": "2026-10-11T02:23:32.716Z",
+  "quando": "2026-10-11T07:29:29.951Z",
   "aDefinicaoDeABERTO": "`NNN.md` sem `-FEITO`, sem `-RETIRADO` e sem `COMO_FUNCIONA` — a definição do próprio `COMO_FUNCIONA.md` da direção",
   "oTerceiroEstado": {
     "oQueOItemPediu": "`bloqueado` — item aberto cuja execução espera pessoa ou outro repositório",

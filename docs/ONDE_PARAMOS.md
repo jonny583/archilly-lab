@@ -4,9 +4,10 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 11/10/2026 · **Último prompt executado:** LAB-90 (item 023) — **"caixa
-vazia" é afirmação sobre a ORIGEM: a guarda existe, e a primeira declaração falsa que ela acusa é
-minha** (D296, D297) · antes dele o LAB-89 (item 022), a pergunta do clone raso virada guarda
+**Última atualização:** 11/10/2026 · **Último prompt executado:** LAB-91 (item 024 + adendo) —
+**a trava que REGERA a varredura, as duas espécies de prova e o conjunto fechado do
+`interpolador`** (D298 a D301) · antes dele o LAB-90 (item 023), a guarda da caixa vazia (D296,
+D297), o LAB-89 (item 022), a pergunta do clone raso virada guarda
 (D294, D295), o LAB-88 (item 021), o Padrão que não mora aqui (D292, D293), o LAB-87 (item 020), as onze
 reclassificadas (D289 a D291), o LAB-86 (item
 019), a prova velha e o limiar que a
@@ -22,6 +23,21 @@ estava escrito em **dois**: esta abertura dizia `enabled: false` *desde 08/10* e
 caixa de entrada dizia **RELIGADO** — e a conta dizia `enabled: true`, com disparo às 18:06Z.
 *Id em duas terras envelhece numa delas*, e envelheceu **dentro do mesmo arquivo**, que é o
 arquivo onde a §1-A manda ele morar (D234).
+
+### 🔔 O INTERVALO MUDOU, e quem mudou foi o chat (11/10/2026, LAB-91)
+
+O disparo das **07:06** chegou com o nome novo da rotina: **_Archilly Lab — fila autônoma
+(8 h · prioritária)_** — era *(60 min)*. **Eu não toquei nele**, e a medição é a lacuna no
+registro: o disparo anterior foi às **02:05** e o seguinte às **07:06**, cinco horas depois, com a
+caixa abastecida nas duas pontas.
+
+> *Ligar, desligar e reagendar é do chat; o meu trabalho é a conta* (item 004) — **e a conta é
+> esta linha.** O que muda para mim: com 8 h entre disparos, **item escrito no meio do intervalo
+> espera mais**, e a régua do passo 0 (buscar a origem antes de olhar a pasta) passa a valer ainda
+> mais, porque o clone desta sessão envelhece por horas e não por minutos (D296).
+
+**A tabela abaixo é de 09/10 e está preservada de propósito** — ela é o que a conta respondeu
+naquele dia, e *medição não se reescreve quando o mundo muda: ganha a linha nova ao lado.*
 
 ### O id, conferido contra a CONTA antes de escrever esta seção
 
@@ -96,9 +112,10 @@ enquanto eu trabalhava no 001"*).
 | 11/10/2026 | 00:05 | observado | item 021 pronto (o chat o escreveu às 00h20 pelo relógio dele, antes do disparo) | item 021 (LAB-88) |
 | 11/10/2026 | 01:05 | observado | item 022 pronto (o chat o escreveu às 00h40 pelo relógio dele) | item 022 (LAB-89) |
 | 11/10/2026 | 02:05 | observado | item 023 pronto (o chat o escreveu às 02h20 pelo relógio dele, antes do disparo) | item 023 (LAB-90) |
+| 11/10/2026 | 07:06 | observado | item 024 + adendo prontos (06h45 e 07h05) — **primeiro disparo do intervalo novo, de 8 h** | item 024 (LAB-91) |
 
 ```
-disparos no registro: 36 · observados: 27 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
+disparos no registro: 37 · observados: 28 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05
@@ -1805,7 +1822,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 604 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 621 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

@@ -254,14 +254,23 @@ tinha de ser avisado para mandar fila nova, e agora você escreve na caixa sem p
 despertador desligado **nunca pega o item 005**. Uma linha sua resolve, e as duas páginas já
 apontam uma para a outra com guarda.
 
-### Proposto ao chat, saído do LAB-60 — **não executado**
+### ~~Proposto ao chat, saído do LAB-60 — a TRAVA QUE REGERA A VARREDURA~~ — ✅ **EXECUTADA no LAB-91** (item 024)
 
-**A TRAVA QUE REGERA A VARREDURA.** O LAB-60 mediu que a prova do LAB-57 estava **velha no
+~~**A TRAVA QUE REGERA A VARREDURA.** O LAB-60 mediu que a prova do LAB-57 estava **velha no
 momento em que foi commitada** (1 contra 10), e que **nada no verde reprovava isso**: a trava
 de hoje confere a prova **contra si mesma**, não a **reexecuta**. A proposta é uma trava que
 rode a varredura e exija que a prova bata — e a pergunta de projeto que vem com ela é **quais
 provas podem ser regeradas dentro da trava** sem ferir o D182, que proíbe sobregravar prova
-*"antes"* com prova *"depois"*.
+*"antes"* com prova *"depois"*.~~
+
+✅ **Feita em 11/10/2026, no LAB-91** (`tests/regerar-a-varredura.test.ts`, 10 travas, no portão
+sem clones): as varreduras de **configuração** e de **chamadas** são **reexecutadas** e
+comparadas **regra por regra e achado por achado** — *recontar o tamanho do universo não reconta
+o que a régua achou nele*, e era essa a metade que o D287 não cobria. **A pergunta de projeto foi
+respondida por medição, em duas espécies** (`src/regerar-a-varredura.ts`, D299): **fotografia de
+um estado passado** nunca se regera (é o defeito que o D182 nasceu para impedir) e **função pura
+da árvore de agora** tem de bater sempre — numa **lista escrita à mão, fechada nos dois sentidos,
+com motivo por linha**, porque *a fronteira não se adivinha pelo nome do arquivo*.
 
 ### ~~Proposto ao chat, saído do LAB-59 — o SÉTIMO MECANISMO, se houver~~ — ✅ **medido no LAB-78** (item 011)
 
@@ -1257,7 +1266,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 604 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 621 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2373,7 +2382,14 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   tem a data do checkout, então a comparação vira vácuo no CI, que é onde ela mais precisaria valer
   (D213). A medição saiu para `src/escopo-da-varredura.ts`, **a mesma função que a ferramenta
   chama** (D231), com o universo começando no `git ls-files`. Demonstrado nos **dois sentidos**, e
-  o vigia **acusou o trabalho de quem o escrevia** (D287)
+  o vigia **acusou o trabalho de quem o escrevia** (D287).
+  **E ESTE RISCADO ERA PRECOCE, medido no LAB-91** (item 024, D301): o LAB-86 recontou o
+  **ESCOPO**, e a proposta pedia **reexecutar a varredura** — *recontar o tamanho do universo não
+  reconta o que a régua achou nele*, e o defeito que o LAB-60 mediu era em `totalPorRegra` (1
+  contra 10), não no escopo. A metade que faltava está feita em **11/10, no LAB-91**
+  (`tests/regerar-a-varredura.test.ts`), e a seção de prosa — que continuou aberta e **estava
+  certa** — foi riscada lá. *A mesma proposta morava em DOIS lugares e os dois discordaram; quem
+  tinha razão era o que ninguém riscou*
 
 - ~~**RECONTAR AS OUTRAS DEZ PROVAS DE UNIVERSO INTERNO**~~ (LAB-86, 10/10, D288) — ✅
   **executada no LAB-87** (item 020), **e o denominador estava errado**. O item convidou a
