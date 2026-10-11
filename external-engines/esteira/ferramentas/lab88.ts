@@ -70,7 +70,7 @@ console.log("══════════ LAB-88 · onde está o Padrão da fa
 console.log(`  fonte: ${A_FONTE_DO_PADRAO.repositorio} (${A_FONTE_DO_PADRAO.visibilidade}) · ${A_FONTE_DO_PADRAO.caminho}`);
 console.log(`         Versão ${A_FONTE_DO_PADRAO.versao} · commit ${A_FONTE_DO_PADRAO.commit} · ${A_FONTE_DO_PADRAO.linhas.toLocaleString("pt-BR")} linhas`);
 console.log(`  a cópia que saiu: ${COMMIT_DA_COPIA_QUE_SAIU.linhas} linhas = ${fracaoLinhas.toFixed(1)} % das linhas e ${fracaoBytes.toFixed(1)} % dos bytes`);
-console.log(`  o rótulo "3.0" cobre DOIS textos: ${antes!.commit} (${antes!.linhas}) e ${depois!.commit} (${depois!.linhas})`);
+console.log(`  o rótulo "3.0" cobre DOIS textos, pelo BLOB: ${antes!.blob.slice(0, 8)} (${antes!.linhas} linhas, entregue por ${antes!.entreguePor}) e ${depois!.blob.slice(0, 8)} (${depois!.linhas}, por ${depois!.entreguePor})`);
 console.log("");
 for (const f of AS_TRES_FORMAS) {
   console.log(`  ${f.escolhida ? "✓ ESCOLHIDA" : "✗ recusada  "} forma ${f.forma} · ${f.nome}`);

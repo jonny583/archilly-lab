@@ -29,10 +29,15 @@ velha do mesmo documento: era um oitavo dele, com o título de um documento norm
 
 > **O rótulo `"Versão 3.0 · 10/10/2026"` cobre DOIS TEXTOS DIFERENTES na origem.**
 
-| commit | quando | linhas | bytes |
-|---|---|---|---|
-| `96dbc9b` | 10/10 03:35Z | 1 712 | 106 081 |
-| `e48bff9` | 10/10 20:36Z | **1 731** | **107 395** |
+| blob | entregue por | quando | linhas | bytes |
+|---|---|---|---|---|
+| `f95b2838b16b` | ~~`96dbc9b`~~ **`67d18d5`** | 10/10 00:38Z | 1 712 | 106 081 |
+| `f22f7deb742c` | `e48bff9` | 10/10 20:36Z | **1 731** | **107 395** |
+
+> **Corrigido no LAB-89 (D294):** ~~`96dbc9b`~~ era **de clone raso**, e `96dbc9b` e `170a28f`
+> **não estão na história do arquivo** — quem entregou aquele texto é **`67d18d5`**. E a frase
+> *"só o commit identifica o texto"* ficou mais precisa: **o rótulo identifica a intenção, o
+> commit a ENTREGA, e o BLOB o texto.**
 
 **+19 linhas e +1 314 bytes com o mesmo número.** E a cópia vendorizada do Parcelamento
 (`vendor/archilly-central/padroes/`, a que o item achou) é **byte a byte igual à PRIMEIRA**: ela já

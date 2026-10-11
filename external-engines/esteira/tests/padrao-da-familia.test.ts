@@ -91,13 +91,28 @@ describe("item 021 · as medições que escolheram a forma 1 estão escritas", (
   /**
    * **A medição que mata a forma 3:** o mesmo rótulo em dois textos. Se um dia os dois commitem
    * o mesmo tamanho, esta trava cai — e cair é certo, porque o argumento era o tamanho.
+   *
+   * **E desde o LAB-89 ela compara BLOB, não commit** (D294): o nome do commit depende da
+   * profundidade do clone de quem lê, e o blob não.
    */
-  test("o rótulo `3.0` cobre DOIS textos, e eles diferem de verdade", () => {
+  test("o rótulo `3.0` cobre DOIS textos, e eles diferem pelo BLOB", () => {
     expect(OS_DOIS_TEXTOS_DA_3_0).toHaveLength(2);
     const [antes, depois] = OS_DOIS_TEXTOS_DA_3_0;
-    expect(antes!.commit).not.toBe(depois!.commit);
+    expect(antes!.blob).not.toBe(depois!.blob);
+    expect(antes!.blob).toHaveLength(40);
     expect(depois!.linhas - antes!.linhas).toBe(19);
     expect(depois!.bytes - antes!.bytes).toBe(1314);
+  });
+
+  /**
+   * **O commit que CONFIRMA não é o que ENTREGA** — e é por isso que o `96dbc9b` que eu
+   * publiquei no LAB-88 estava errado: ele devolve o blob sem tê-lo entregado.
+   */
+  test("os commits que só CONFIRMAM o texto estão nomeados, e não viram a entrega", () => {
+    const [antes] = OS_DOIS_TEXTOS_DA_3_0;
+    expect(antes!.entreguePor).toBe("67d18d5");
+    expect([...antes!.confirmadoSemEntregarPor]).toEqual(["96dbc9b", "170a28f"]);
+    expect([...antes!.confirmadoSemEntregarPor]).not.toContain(antes!.entreguePor);
   });
 
   test("a cópia que saiu era uma FRAÇÃO do vigente, e a conta fecha nas duas unidades", () => {

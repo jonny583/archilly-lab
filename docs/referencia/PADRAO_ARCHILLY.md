@@ -18,8 +18,13 @@
 | caminho | `docs/PADRAO_ARCHILLY.md` |
 | versão | **3.0 · 10/10/2026** |
 | **commit lido** | **`e48bff9`** · 2026-10-10T20:36:15Z |
+| **blob do texto** | **`f22f7deb742c`**…`0979034f41` — `git rev-parse e48bff9:docs/PADRAO_ARCHILLY.md` |
 | tamanho | **1.731 linhas · 107.395 bytes** |
 | lido em | **2026-10-11** |
+
+> **O BLOB é o campo que identifica o TEXTO**, e é o único que não muda de nome com a
+> profundidade do clone de quem confere (LAB-89, D294). *O rótulo identifica a intenção, o commit
+> identifica a ENTREGA, e o blob identifica o texto.*
 
 **Leia da ORIGEM, nunca de clone no disco:**
 
@@ -42,14 +47,21 @@ histórico; o que a saída tira é a autoridade de parecer vigente.*
 **A versão não identifica o conteúdo.** O rótulo *"Versão 3.0 · 10/10/2026"* cobre **dois textos
 diferentes** na origem:
 
-| commit | quando | linhas | bytes |
-|---|---|---|---|
-| `96dbc9b` | 10/10 03:35Z | 1.712 | 106.081 |
-| `e48bff9` | 10/10 20:36Z | **1.731** | **107.395** |
+| blob | entregue por | quando | linhas | bytes |
+|---|---|---|---|---|
+| `f95b2838b16b` | **`67d18d5`** | 10/10 00:38Z | 1.712 | 106.081 |
+| `f22f7deb742c` | **`e48bff9`** | 10/10 20:36Z | **1.731** | **107.395** |
 
 **+19 linhas e +1.314 bytes com o mesmo número** — e a cópia vendorizada do Parcelamento é byte a
-byte igual à **primeira**: ela já está atrás **sem que o número mude**. *Carimbar a versão numa
-cópia é carimbar o rótulo, e rótulo não é identidade.*
+byte igual ao **primeiro blob**: ela já está atrás **sem que o número mude**. *Carimbar a versão
+numa cópia é carimbar o rótulo, e rótulo não é identidade.*
+
+> ~~"`96dbc9b` | 10/10 03:35Z"~~ **o nome deste commit estava errado no LAB-88, e era de clone
+> raso** (LAB-89, D294). Medido com a história inteira — 245 commits —, quem **entregou** aquele
+> texto é **`67d18d5`**, de 00:38; `96dbc9b` e `170a28f` **não estão na história do arquivo**:
+> eles devolvem o mesmo blob porque o arquivo ainda não tinha mudado quando aconteceram. *O
+> commit que CONFIRMA um texto não é o que o ENTREGOU — e num clone raso é o confirmador que
+> aparece, porque o corte come a entrega.*
 
 **E a trava contra o commit da origem não é executável aqui, o que é medição e não preguiça:** a
 fonte é **privada** e este repositório é **público**; o verde roda sem rede por desenho, e o

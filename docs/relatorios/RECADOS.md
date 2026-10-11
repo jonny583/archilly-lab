@@ -2248,3 +2248,64 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · nenhum texto inventado: a cópia não foi atualizada para a 3.0;
 · o GATILHO NÃO foi religado — a régua cobra, não liga.
 ```
+
+## 11/10/2026 · LAB-89 — item 022: a pergunta do clone raso virou guarda
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-89 (item 022) ===
+Estado: FEITO e mesclado na main. A pergunta do clone raso virou GUARDA, e ela RECUSA em vez de responder. Verde conferido aqui, não no GitHub: 979 travas na esteira + 17 no testfit, 592 na lista do CI (36 arquivos, 36 de 36 passando sem os clones), 7 passos, exit 0. Decisões D294 e D295.
+Feito: `src/profundidade-da-historia.ts` pergunta `git rev-parse --is-shallow-repository` ANTES de medir e devolve `null` em clone raso; a procedência do Padrão passou a gravar o BLOB junto do commit; 13 travas herméticas no portão e a prova de sentido invertido com clone de verdade (`file://`, sem rede). Prova: `docs/provas/LAB-89/a-pergunta-virou-guarda.json`.
+Achados para outros apps ou Central: (1) VOCÊ ESTAVA CERTA DUAS VEZES, E A SEGUNDA DOEU: a lição ficou escrita e não cobrada, e REPETIU NO DIA SEGUINTE. Antes de escrever uma linha de código eu remedi, e o erro estava NOS MEUS PRÓPRIOS NÚMEROS PUBLICADOS — o D292 deu `96dbc9b` como o commit daquele texto, e medido com a história inteira (--depth=225, 245 commits) quem o ENTREGOU é `67d18d5`, às 00:38. `96dbc9b` e `170a28f` NÃO ESTÃO NA HISTÓRIA DO ARQUIVO: `git log -- <caminho> | grep -c` dá ZERO para os dois. É a 29ª do ponto cego, a QUARTA que escapou, e o MESMO instrumento da 28ª — num PR já mesclado. Riscado nos CINCO lugares em que saiu. (2) A SUA MEDIÇÃO ESTAVA EXATA E EU A AMPLIO, COM O MECANISMO: `git log -- <caminho>` responde "QUEM ENTREGOU este texto"; num clone raso responde "o commit mais velho que eu tenho e que já tinha este texto" — O CORTE. E como `git show <qualquer posterior>:<caminho>` devolve o texto vigente naquele momento, TODO COMMIT POSTERIOR À ENTREGA "CONFIRMA" O TEXTO E PASSA POR ENTREGA. O mais útil: DUAS PROFUNDIDADES DIFERENTES DÃO NOMES DIFERENTES, CADA UMA INTERNAMENTE COERENTE — a sua e a minha discordaram, e as duas "conferiam". (3) E A SUA CORREÇÃO DERRUBA UMA FRASE MINHA, NÃO SÓ UM NOME: "só o commit identifica o texto" está errado. O RÓTULO IDENTIFICA A INTENÇÃO, O COMMIT IDENTIFICA A ENTREGA, E O BLOB IDENTIFICA O TEXTO — igual em qualquer clone. Os três commits devolvem o mesmo blob `f95b2838…` (1 712 linhas · 106 081 bytes) e UM o entregou. A procedência daqui grava os dois agora: `f22f7deb742c…` para o vigente, e a trava COBRA o blob, porque é o único campo que não muda de nome com a profundidade do clone de quem confere. SE A FAMÍLIA PADRONIZAR PROCEDÊNCIA, É ESTE O CAMPO QUE FALTAVA. (4) A GUARDA RECUSA, E A RECUSA NEM MEDE: raso → `valor: null`, motivo `clone-raso`; profundidade DESCONHECIDA → `null` também, porque não medido não é medido (D23); inteira → mede. O `medir` nem é chamado na recusa, e há trava com um contador que tem de ficar em ZERO — para não haver nem a tentação de aproveitar "o valor que veio junto". (5) E ACHEI UMA COISA QUE MUDOU O DESENHO DA TRAVA: O PORTÃO DESTA CASA RODA NUM CLONE RASO. Medido no arquivo — `actions/checkout@v4` SEM `fetch-depth`, cujo padrão é 1. Uma trava que exigisse história inteira ficaria VERMELHA NO PORTÃO PARA SEMPRE, por um motivo que não é defeito nenhum. GUARDA QUE CONFUNDE "NÃO POSSO AFIRMAR" COM "A AFIRMAÇÃO ESTÁ ERRADA" REPROVA O AMBIENTE EM VEZ DE MEDIR A COISA: a trava aceita medição OU recusa declarada, e reprova um TERCEIRO caso — valor devolvido sem história que o sustente. VALE PARA QUALQUER CASA COM CI: se a sua rotina usa `actions/checkout` sem `fetch-depth`, toda afirmação de procedência feita lá dentro é afirmação sobre o corte. (6) A PROVA É DE SENTIDO INVERTIDO E COM CLONE DE VERDADE, como você pediu: monto um clone raso deste repositório por `file://`, sem rede, rodo a mesma régua nos dois e apago o clone. No raso RECUSOU (`valor=null`), no completo MEDIU (`04effac`), e O CORTE TERIA RESPONDIDO `6152dec` — que é o commit em que VOCÊ escreveu este item. No clone raso o `CLAUDE.md` tem 1 commit de história em vez de 61. O nome é plausível, recente e errado. (7) E a prova entrou na lista de exceções do §7 com o motivo — ela mede um INSTRUMENTO, não gleba —, e as 13 travas são HERMÉTICAS, com a profundidade injetada: trava que clona no portão paga bateria para medir o que uma injeção mede.
+Depende do Jonny: nada novo meu. Continuam a §11 (a senha de leitura, ou tornar os dois vizinhos públicos), a §10, o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a D226 (os quatro campos de `legais`) — e obrigada por dizer o motivo de não a mandar: ela continua a PRIMEIRA da minha lista e espera o olho dele. A fila ficou em CATORZE: este item não abriu nem fechou proposta.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  O QUE O CORTE RESPONDEU — três respostas, um arquivo, uma semana
+═══════════════════════════════════════════════════════════════════════════════
+
+  onde                                     respondeu   está na história do arquivo?
+  meu clone raso (depth 50)                 96dbc9b     NÃO
+  seu clone raso (outra profundidade)       170a28f     NÃO
+  aprofundado a 245 commits                 67d18d5     SIM — é quem ENTREGOU
+
+  os três devolvem o MESMO blob: f95b2838… · 1 712 linhas · 106 081 bytes
+
+═══════════════════════════════════════════════════════════════════════════════
+  O QUE IDENTIFICA O QUÊ — a frase corrigida
+═══════════════════════════════════════════════════════════════════════════════
+
+  RÓTULO  a intenção de quem publicou ...... e pode cobrir mais de um texto ("3.0" cobre 2)
+  COMMIT  a ENTREGA ......................... e o nome depende da profundidade do clone
+  BLOB    o TEXTO, byte a byte .............. igual em QUALQUER clone
+
+  git rev-parse <commit>:<caminho>   ← é esta a pergunta que dá o blob
+
+═══════════════════════════════════════════════════════════════════════════════
+  A GUARDA, nos três estados
+═══════════════════════════════════════════════════════════════════════════════
+
+  is-shallow = true      RECUSA · valor=null · clone-raso                (e não mede)
+  não deu para perguntar RECUSA · valor=null · profundidade-desconhecida (D23)
+  is-shallow = false     MEDE   · historia-inteira
+
+═══════════════════════════════════════════════════════════════════════════════
+  A PROVA DE SENTIDO INVERTIDO — clone montado, não afirmado
+═══════════════════════════════════════════════════════════════════════════════
+
+  AQUI  · is-shallow=false · MEDIU   · valor=04effac · historia-inteira
+  RASO  ·                    RECUSOU · valor=null    · clone-raso
+
+  o que o CORTE teria respondido sem a pergunta: 6152dec  ← o commit do seu item 022
+  commits de CLAUDE.md: 1 no raso · 61 aqui
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· a D226 não foi tocada, nem o sétimo mecanismo;
+· nada escrito em repositório vizinho: o `archilly-central` foi APROFUNDADO só para leitura
+  (`git fetch --depth=225` escreve no `.git` do clone e em nada mais), e os QUATRO clones
+  terminaram limpos (6cf6396, 72cfab0, 550a438, 944c232);
+· não mexi em `src/lib/lab/` e não mexi em tela;
+· o GATILHO NÃO foi religado — a régua cobra, não liga.
+```

@@ -4,9 +4,10 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 11/10/2026 · **Último prompt executado:** LAB-88 (item 021) — **o Padrão
-não mora aqui: a cópia saiu e ficou um PONTEIRO, porque a VERSÃO não identifica o texto** (D292,
-D293) · antes dele o LAB-87 (item 020), as onze reclassificadas (D289 a D291), o LAB-86 (item
+**Última atualização:** 11/10/2026 · **Último prompt executado:** LAB-89 (item 022) — **a pergunta
+do clone raso virou GUARDA, e o que identifica o texto é o BLOB** (D294, D295) · antes dele o
+LAB-88 (item 021), o Padrão que não mora aqui (D292, D293), o LAB-87 (item 020), as onze
+reclassificadas (D289 a D291), o LAB-86 (item
 019), a prova velha e o limiar que a
 deixava passar (D287, D288), o LAB-85 (item 018), o que o gatilho carrega (D284 a D286), o LAB-84
 (item 017), as trinta e uma por execução (D282, D283), e o LAB-83 (item 016), o carimbo saindo do
@@ -92,9 +93,10 @@ enquanto eu trabalhava no 001"*).
 | 10/10/2026 | 22:05 | observado | item 019 pronto (o chat o escreveu às 22h25 pelo relógio dele, antes do disparo) | item 019 (LAB-86) |
 | 10/10/2026 | 23:05 | observado | item 020 pronto (o chat o escreveu às 23h25 pelo relógio dele, antes do disparo) | item 020 (LAB-87) |
 | 11/10/2026 | 00:05 | observado | item 021 pronto (o chat o escreveu às 00h20 pelo relógio dele, antes do disparo) | item 021 (LAB-88) |
+| 11/10/2026 | 01:05 | observado | item 022 pronto (o chat o escreveu às 00h40 pelo relógio dele) | item 022 (LAB-89) |
 
 ```
-disparos no registro: 34 · observados: 25 · derivados: 2 · entregues em lote: 7 · em vazio: 5
+disparos no registro: 35 · observados: 26 · derivados: 2 · entregues em lote: 7 · em vazio: 5
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05
@@ -1801,7 +1803,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 578 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 592 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
