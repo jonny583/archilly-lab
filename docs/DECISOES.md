@@ -8881,7 +8881,13 @@ minhas, não da Central. Medido:
 | o que a frase afirmava | o disco |
 |---|---|
 | `VERSAO.txt` não existe | **certo**, não existe |
-| a cópia do Padrão não existe | **FALSO** — `docs/referencia/PADRAO_ARCHILLY.md`, trazida em **03/10** no PR #40 |
+| a cópia do Padrão não existe | **FALSO** — `docs/referencia/PADRAO_ARCHILLY.md`, ~~trazida em **03/10** no PR #40~~ **trazida em 14/09 no PR #12, commit `4081c27`** |
+
+> ~~"trazida em 03/10 no PR #40"~~ **errado, e corrigido no LAB-88 (D293): foi `4081c27`, de
+> 14/09, no PR #12 — o commit da própria conferência do `LF-FINAL`, e o ÚNICO que tocou o arquivo
+> em toda a vida dele.** O `03/10 / PR #40` era o **commit do corte** de um clone raso, devolvido
+> por um `git log --diff-filter=A` que eu li como verdade. *Clone raso não erra por silêncio:
+> devolve um commit que existe, com data e assunto plausíveis.*
 
 E não era preciso procurar: o **`docs/INDEX.md` a lista** como *"cópia trazida"*, e o relatório
 `LF-FINAL-2` já a tinha conferido **byte a byte** contra a do `motor-testfit` com `cmp`.
@@ -8932,3 +8938,123 @@ acusou a marca de ter **saído do arquivo**. Ela não tinha saído: eu havia ref
 > trava enxerga* — e **conserto que não é aplicado em todos os instrumentos que leem a mesma coisa
 > é meio conserto** (D231), inclusive quando os instrumentos são dois testes.
 
+
+---
+
+## D292 · DOCUMENTO NORMATIVO QUE ESTA CASA NÃO PODE MANTER NÃO DEVE MORAR NELA — E A VERSÃO NÃO IDENTIFICA O TEXTO · 11/10/2026
+
+**Prompt:** LAB-88 (item 021). A direção respondeu à oferta do LAB-87 (*"se quiser a cópia em
+3.0, mande o texto e eu gravo"*) com **não mandar**, três formas na mesa e uma ordem: **medir
+antes de escolher.**
+
+### O que foi medido, na ORIGEM e não em clone no disco
+
+| | |
+|---|---|
+| a fonte | `jonny583/archilly-central`, **privado**, `main`, `docs/PADRAO_ARCHILLY.md` |
+| o vigente | **Versão 3.0 · 10/10/2026**, commit **`e48bff9`** (20:36:15Z), **1 731 linhas · 107 395 bytes** |
+| a cópia que havia aqui | **Versão 1 · 13/09**, **145 linhas · 12 716 bytes** |
+| a fração | **8,4 % das linhas · 11,8 % dos bytes** |
+
+A direção disse *"8 % dele"*, e **conferido: 8,4 % em linha e 11,8 % em byte** — não é uma versão
+velha do mesmo documento, é **um oitavo dele**.
+
+### A medição que decidiu, e ela não estava no item (a nº 1)
+
+> **O rótulo `"Versão 3.0 · 10/10/2026"` cobre DOIS TEXTOS DIFERENTES na origem.**
+
+| commit | quando | linhas | bytes |
+|---|---|---|---|
+| `96dbc9b` | 10/10 03:35Z | 1 712 | 106 081 |
+| `e48bff9` | 10/10 20:36Z | **1 731** | **107 395** |
+
+**+19 linhas e +1 314 bytes com o mesmo número** — e a cópia vendorizada do Parcelamento
+(`vendor/archilly-central/padroes/`) é **byte a byte igual à primeira**: ela já está atrás **sem
+que o número mude**. *Isto é o D148 num documento: carimbar a versão é carimbar o **rótulo**, e
+rótulo não é identidade. Só o commit identifica o texto.*
+
+**É isso que mata a forma 3** (*congelar e declarar*): declarar *"Versão 1, 8 % do vigente"*
+declara um rótulo, e quem abrisse o arquivo leria **145 linhas com cara de documento normativo**,
+com o aviso morando no índice de outra página.
+
+### E a forma 2 cai por MEDIÇÃO, não por preguiça
+
+A forma 2 era uma trava que **reprova quando o commit da origem muda**. A fonte é **privada** e
+este repositório é **público**; o verde roda **sem rede** por desenho, e o trabalho de CI que roda
+em todo envio **não tem segredo** — o `GITHUB_TOKEN` do Actions não alcança repositório privado de
+fora. Seria um **terceiro** vizinho privado a pedir no §11, que já espera por dois desde o LAB-38.
+
+> **Uma trava que não alcança a origem fica VERDE por não achar o objeto** — e *guarda que não
+> acha o objeto não está aprovando, está sem medir nada* (D213). O item avisou que o §11 podia
+> morder aqui, e mordeu.
+
+### A escolha: FORMA 1 — ponteiro com procedência, no MESMO caminho
+
+`docs/referencia/PADRAO_ARCHILLY.md` deixou de ser a cópia e passou a dizer **onde está a fonte,
+qual commit foi lido, quando, de que tamanho, e como se lê da origem** — com a procedência
+declarada num lugar só (`src/onde-esta-o-padrao.ts`), que é o que a ferramenta e a trava leem.
+
+**O caminho é o mesmo de propósito:** é onde quem procura o Padrão chega, é onde o aviso serve, e
+**nenhum link de relatório morreu** (o `LF-FINAL`, o `LF-FINAL-2` e o `INDEX` apontam para ele).
+
+**E o texto da Versão 1 não se perdeu:** está em **`4081c27`** (14/09, PR #12), com a receita de
+leitura escrita no ponteiro. *Arquivo que sai da árvore continua no histórico; o que a saída tira
+é a autoridade de parecer vigente.*
+
+**Há guarda** (`tests/padrao-da-familia.test.ts`, 10 travas, no portão sem clones): cada campo da
+procedência cobrado no arquivo — **o commit inclusive** —, cada um apagado um a um acusando, a
+cópia recolada acusando `e-a-copia-de-novo`, o ponteiro ausente **não passando calado**, e as três
+medições que escolheram a forma escritas em código.
+
+### O que este item NÃO fez, e está declarado
+
+- **não tocou em repositório vizinho.** A divergência das duas cópias do Parcelamento é
+  informação, e a própria direção disse que a leva à caixa dele;
+- **não atualizou a cópia para a 3.0.** *Declarar um número velho é medição; trocá-lo sem a fonte
+  seria inventar conteúdo* — e, medido, trocá-lo **com** a fonte envelheceria em horas: o Padrão
+  mudou **duas vezes em 10/10**;
+- **não religou o gatilho**, e **não mexeu na D226**.
+
+---
+
+## D293 · NUM CLONE RASO, O `git log` DE UM CAMINHO RESPONDE O COMMIT DO CORTE — E ELE PASSA POR MEDIÇÃO · 11/10/2026
+
+**Prompt:** LAB-88 (item 021). **Vigésima oitava ocorrência do ponto cego da §6, e ela aconteceu
+DUAS vezes na mesma rodada, com o mesmo instrumento.**
+
+### A primeira vez: eu ia acusar a direção de mandar procedência velha
+
+O item deu o commit `e48bff9`, de 20:36. Clonei a origem com `--depth 1` e perguntei quando o
+arquivo mudou: a resposta foi **`944c232`, de 23:48** — três horas depois. *A conclusão pronta era
+"a procedência que você me mandou já estava velha quando chegou"*, e ela casava bem demais com o
+argumento do próprio item (*"o padrão mudou duas vezes só em 10/10"*).
+
+Medido com `--depth=50`: o último commit que tocou o arquivo **é `e48bff9`**, e `944c232` é apenas
+o **HEAD** — o commit do **corte** do clone raso. **A procedência da direção estava exata**, e o
+conteúdo de `e48bff9` é byte a byte o do `HEAD`.
+
+### A segunda vez: o número errado já estava PUBLICADO, e era meu
+
+O **D291**, de ontem, diz que a cópia foi *"trazida em 03/10 no PR #40"*. **Medido com história
+inteira: `4081c27`, de 14/09, PR #12** — o commit da própria conferência do `LF-FINAL` —, e **um
+único commit em toda a vida do arquivo**. O `03/10 / PR #40` era o **corte** do clone raso desta
+sessão, respondido por um `git log --diff-filter=A` que eu li como verdade.
+
+> **Clone raso não erra por silêncio: ele devolve um commit QUE EXISTE, com data e assunto
+> plausíveis.** É a pior forma de resposta errada — *a que passa por medição*. A régua do
+> *"quando isto entrou"* não é o `git log`: é o `git log` **mais a profundidade**, e
+> `git rev-parse --is-shallow-repository` é a pergunta que faltava.
+
+### A correção, e ela é por RISCADO
+
+O D291 foi corrigido **com a medição ao lado**, não reescrito (D161), e o `CLAUDE.md`, o
+`docs/INDEX.md` e o relatório do LAB-87 carregavam o mesmo número — os três foram corrigidos pelo
+mesmo caminho. *Número publicado em quatro lugares se corrige nos quatro, senão o conserto cria a
+divergência que o D231 descreve.*
+
+**Há guarda** (`tests/padrao-da-familia.test.ts`): o commit do histórico, o PR e a contagem de
+commits são **dados declarados**, conferidos contra a decisão escrita — e a trava cobra a palavra
+`clone raso` no `DECISOES.md`, para o motivo não se perder.
+
+**E a lição de família:** *toda afirmação de "quando isto mudou" feita dentro de um clone raso é
+uma afirmação sobre o clone, não sobre o repositório.*

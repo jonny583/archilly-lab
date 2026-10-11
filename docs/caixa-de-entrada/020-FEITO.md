@@ -49,8 +49,8 @@
 > o número**: a **§1-C do `CLAUDE.md`** dizia, desde 08/10, que este repositório está *"sem cópia
 > do Padrão Archilly e sem `VERSAO.txt` — **conferido aqui e é verdade**, nenhum dos dois existe na
 > árvore"*, e **metade era falsa, com a metade falsa sendo a minha** — as três palavras *"conferido
-> aqui"* são minhas, não da Central. O `VERSAO.txt` de fato não existe; **a cópia existe desde
-> 03/10** (PR #40), o **`docs/INDEX.md` a lista** como *"cópia trazida"*, e o `LF-FINAL-2` já a
+> aqui"* são minhas, não da Central. O `VERSAO.txt` de fato não existe; **a cópia existia desde
+> 14/09** (PR #12, `4081c27` — e não *"03/10, PR #40"*: erro de clone raso, corrigido por D293; e desde 11/10 aquele caminho é um PONTEIRO, D292), o **`docs/INDEX.md` a lista** como *"cópia trazida"*, e o `LF-FINAL-2` já a
 > tinha conferido **byte a byte** contra a do `motor-testfit`. *A árvore se contradizia em duas
 > páginas, e nenhuma das duas estava medindo.* **Declaração minha sobre o que a árvore TEM ou NÃO
 > TEM é a mais fácil de todas de conferir — e por isso é a mais vergonhosa de deixar sem guarda:

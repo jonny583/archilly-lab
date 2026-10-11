@@ -108,17 +108,28 @@ quando chegar, é outro item.
 ~~"Medido pela Central em 08/10: este repositório está **sem cópia do Padrão Archilly e sem
 `VERSAO.txt`** — conferido aqui e é verdade, nenhum dos dois existe na árvore."~~ **Metade disso
 era falso, e a metade falsa era a minha: o `VERSAO.txt` de fato não existe, mas a CÓPIA DO PADRÃO
-EXISTE** — `docs/referencia/PADRAO_ARCHILLY.md`, trazida em 03/10 no PR #40, **Versão 1 de
-13/09**, e o LF-FINAL-2 já a tinha conferido **byte a byte** contra a do `motor-testfit`. Eu
-escrevi *"conferido aqui"* sobre uma árvore que dizia o contrário **em duas páginas** — o próprio
-`docs/INDEX.md` a lista como *"cópia trazida"*. Medido no LAB-87 (D291), e o número dela está
-**congelado**: a Central publica a **3.0**, esta cópia está na **1**, e ela **não foi reescrita
-para igualar** — *declarar um número velho é medição; trocá-lo sem a fonte seria inventar
-conteúdo*. A declaração passou a ser **conferida contra a árvore** (`tests/por-lugar.test.ts`),
-porque *"conferido aqui" sem a conferência escrita é a forma mais caseira de número congelado* — e
-**o aviso do número congelado mora no `docs/INDEX.md`, não dentro da cópia**: a única coisa que
-aquela cópia promete é ser **byte a byte igual** à do `motor-testfit` (`cmp`, reconferido em
-10/10), e escrever o aviso dentro dela quebraria exatamente essa promessa.
+EXISTIA** — `docs/referencia/PADRAO_ARCHILLY.md`, ~~trazida em 03/10 no PR #40~~ **trazida em
+14/09 no PR #12, commit `4081c27`** (o número errado era meu e era de **clone raso**: D293),
+**Versão 1 de 13/09**. Eu escrevi *"conferido aqui"* sobre uma árvore que dizia o contrário **em
+duas páginas** — o próprio `docs/INDEX.md` a listava como *"cópia trazida"*. Medido no LAB-87
+(D291), e a declaração passou a ser **conferida contra a árvore** (`tests/por-lugar.test.ts`),
+porque *"conferido aqui" sem a conferência escrita é a forma mais caseira de número congelado.*
+
+**E desde 11/10 a cópia NÃO EXISTE MAIS: aquele caminho é um PONTEIRO** (LAB-88, item 021, D292).
+A direção recusou mandar o texto da 3.0 e mandou medir; medido, **a cópia era 8,4 % das linhas do
+documento vigente** (145 contra 1 731) e **o rótulo `"Versão 3.0"` cobre DOIS textos diferentes na
+origem** — `96dbc9b` e `e48bff9`, +19 linhas com o mesmo número. *Carimbar a versão numa cópia é
+carimbar o rótulo, e rótulo não é identidade (D148): só o commit identifica o texto.*
+
+> **DOCUMENTO NORMATIVO QUE ESTA CASA NÃO PODE MANTER ATUALIZADO NÃO DEVE MORAR NELA.** O que
+> fica é **onde ele está, qual commit foi lido e quando** — e a procedência mora num lugar só,
+> `external-engines/esteira/src/onde-esta-o-padrao.ts`.
+
+**O texto da Versão 1 não se perdeu:** está em `4081c27` (`git show 4081c27:docs/referencia/PADRAO_ARCHILLY.md`),
+o commit da própria conferência do `LF-FINAL`. *Arquivo que sai da árvore continua no histórico; o
+que a saída tira é a autoridade de parecer vigente.* **Há guarda**
+(`tests/padrao-da-familia.test.ts`): cada campo da procedência cobrado no ponteiro — **o commit
+inclusive** —, e a cópia recolada no lugar dele **acusa**.
 
 ### O princípio por trás dela, e ele é maior que a regra (D218)
 
@@ -448,7 +459,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu VINTE E SETE vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu VINTE E OITO vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -480,6 +491,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D263 (LAB-80) | "há valor de custo em três linhas de relatório — tem `fator` com número" | é a razão entre **pico e média de uma rampa**: *"fator de 6,7×"*. A régua NOVA nasceu com a doença que o `margem` já tinha curado no LAB-67, um campo ao lado |
 | D262 (LAB-80) | "a prova do LAB-80 vaza custo em 7 linhas" | são as **fixtures da sabotagem** que ela publica: a prova da régua repetindo o que a régua proíbe. Sexta vez da família do D155 |
 | D266 (LAB-80) | "a lista de isenções da régua irmã vai de TRÊS a UMA" | vai a **duas**: o meu script de medição parava no PRIMEIRO padrão que casava a linha, e a régua medida testa TODOS — `ponto de equilíbrio` está nu numa célula de tabela |
+| D293 (LAB-88) | "a procedência que a Central me mandou já estava velha quando chegou" | o commit dela estava **exato**: o `git log` do caminho respondeu o commit do **CORTE** de um clone `--depth 1`, que existe, tem data e assunto plausíveis — e o mesmo instrumento já tinha publicado uma data errada minha no D291 |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -491,7 +503,7 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**As vinte e sete, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
+**As vinte e oito, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
 classe, com a decisão nomeada para qualquer um refazer a conta:
 
 | quantas | a classe | quais |
@@ -502,8 +514,9 @@ classe, com a decisão nomeada para qualquer um refazer a conta:
 | **TRÊS** | a minha cabeça, contando de memória o que estava impresso ao lado | D161, D185, D250 |
 | **UMA** | dado que faltava, e não número que mudou | D133 |
 | **UMA** | instrumento de MEDIÇÃO discordando do instrumento medido | D266 |
+| **UMA** | a FONTE truncada respondendo como se fosse inteira | D293 |
 
-16 + 4 + 2 + 3 + 1 + 1 = **27**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
+16 + 4 + 2 + 3 + 1 + 1 + 1 = **28**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
 três foram caminho errado" até 08/10/2026, e 9 + 2 + 3 = 14:** duas das dezesseis não tinham
 classe, e a frase se lia como partição. Medido e refeito no LAB-63, com guarda que soma
 (D212). Ela também citava **D104** e **D175** como membros, e nenhuma das duas é linha da
@@ -513,8 +526,20 @@ tabela — elas são decisões *irmãs*, citadas no texto abaixo, e não ocorrê
 D142, D148, D155, D166, D185, D190, D217, D231, D240, D245, D248, D250, D254, D257, D262, D263,
 D266).
 
-**As duas últimas são do LAB-80 e são da MESMA rodada**, as duas contra réguas que eu acabara de
-escrever. A primeira tem lição nova e é a mais útil desta página: **régua nova nasceu com a doença
+**A VIGÉSIMA OITAVA é a terceira que ESCAPOU** — com o D119 e o D161 —, e é a única em que o
+instrumento errado não era uma régua minha, era o **clone**. Num `--depth 1`, o `git log` de um
+caminho responde o commit do **CORTE**, e foi assim que o D291 publicou *"trazida em 03/10 no
+PR #40"* quando a verdade é **14/09, PR #12, `4081c27`** — o número saiu em quatro lugares e no
+PR mesclado. No dia seguinte o **mesmo instrumento** quase me fez acusar a Central de mandar
+procedência velha; aí eu medi com profundidade, e a procedência dela estava **exata**.
+
+> **Clone raso não erra por silêncio: devolve um commit QUE EXISTE, com data e assunto
+> plausíveis** — a pior forma de resposta errada, *a que passa por medição*. Toda afirmação de
+> *"quando isto mudou"* feita dentro de um clone raso é afirmação **sobre o clone**, não sobre o
+> repositório, e `git rev-parse --is-shallow-repository` é a pergunta que faltava (D293).
+
+**As duas anteriores são do LAB-80 e são da MESMA rodada**, as duas contra réguas que eu acabara
+de escrever. A primeira tem lição nova e é a mais útil desta página: **régua nova nasceu com a doença
 que a régua velha já tinha curado, um campo ao lado.** O `margem` desta casa exige dinheiro na
 linha desde o LAB-67, senão é folga da caixa envolvente, em metros; eu escrevi o `fator` sem essa
 cura e ele acusou três razões de rampa. *Ao escrever uma régua para um nome, pergunte se o nome
@@ -569,7 +594,7 @@ consertar**, porque o comentário do conserto **citava** o defeito: varredura es
 texto de código mede **o que o código faz** e **o que ele diz sobre si**, e só uma delas é
 o objeto.
 
-**A regra que as vinte e sete ensinam, e ela é curta:**
+**A regra que as vinte e oito ensinam, e ela é curta:**
 
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
 > você está lendo**; antes de dizer que um número mudou, confira se ele
@@ -584,7 +609,7 @@ o objeto.
 > e não de quem declarou a regra (D98, D104, D166); e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
 > onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
-> rótulo, e três das vinte e sete vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> rótulo, e três das vinte e oito vezes eu classifiquei pelo nome em vez de medir (D148, D155,
 > D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
 > e quando a régua procura um **valor** (um commit, um id, um código), olhe o **valor inteiro**
 > do campo e não o texto em volta — **fronteira de palavra num nome composto não é fronteira de
@@ -604,10 +629,13 @@ o objeto.
 > nova nasce com a doença que a régua velha já curou, um campo ao lado* (D263).
 > e a PROVA de uma régua não repete o que a régua proíbe — *prova que publica a fixture é a régua
 > se acusando com a autoridade da prova* (D262).
+> e quando a régua responder **QUANDO** uma coisa mudou, pergunte de que PROFUNDIDADE ela está
+> respondendo: *num clone raso o `git log` de um caminho devolve o commit do corte* — um commit
+> que existe, com data plausível, e que passa por medição (D293).
 > e quando você MEDIR uma régua, meça com a régua dela: *instrumento de medição mais estreito que
 > o instrumento medido dá o número para o lado otimista* — e o lado otimista é o que ninguém
 > confere, porque ele confirma o conserto (D266).
-> **Vinte e sete de vinte e sete vezes o defeito estava do MEU lado — na régua, na ponte, no
+> **Vinte e oito de vinte e oito vezes o defeito estava do MEU lado — na régua, na ponte, no
 > caminho, na minha cabeça ou no instrumento com que eu media — antes de estar no medido**, e em
 > DOZE delas a régua era o teste que eu acabara de escrever.
 
@@ -676,7 +704,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 568 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 578 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

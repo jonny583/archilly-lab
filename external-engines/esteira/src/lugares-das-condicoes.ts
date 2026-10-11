@@ -53,7 +53,9 @@ export interface LugarDeCondicao {
    * booleano DECLARADO em vez de adivinhado na frase (LAB-87, D291).
    *
    * A declaração do `CLAUDE.md` dizia *"a cópia do Padrão Archilly e o `VERSAO.txt`, que não
-   * existem na árvore"*, e **metade era falsa**: a cópia existe desde 03/10. A primeira régua que
+   * existem na árvore"*, e **metade era falsa**: a cópia existia desde **14/09** (PR #12 — e não
+   * *"03/10"*: aquele número era o commit do CORTE de um clone raso, corrigido no LAB-88 por
+   * D293), e desde 11/10 aquele caminho é um PONTEIRO (D292). A primeira régua que
    * eu escrevi para pegar isso lia a FRASE — procurava *"não existe na árvore"* perto do nome do
    * arquivo — e **não pegou**, porque a mesma frase fala de dois arquivos com veredictos opostos.
    *
@@ -123,14 +125,19 @@ export const LUGARES: LugarDeCondicao[] = [
     // ── A METADE FALSA DESTA LINHA, MEDIDA NO LAB-87 (D291) ──────────────────
     //
     // Ela dizia "a cópia do Padrão Archilly e o `VERSAO.txt`, que não existem na árvore".
-    // Medido: o `VERSAO.txt` de fato não existe; a CÓPIA EXISTE desde 03/10, em
-    // `docs/referencia/PADRAO_ARCHILLY.md`, e o `docs/INDEX.md` a lista como "cópia trazida"
+    // Medido: o `VERSAO.txt` de fato não existe; a CÓPIA EXISTIA, em
+    // `docs/referencia/PADRAO_ARCHILLY.md`, e o `docs/INDEX.md` a listava como "cópia trazida"
     // — a árvore se contradizia em duas páginas. A trava `por-lugar.test.ts` passou a conferir
     // ESTA declaração CONTRA O DISCO, nos dois sentidos.
+    //
+    // E NO LAB-88 (D292) A CÓPIA SAIU: aquele caminho é um PONTEIRO com procedência, porque a
+    // cópia era 8,4 % das linhas do documento vigente e o rótulo "3.0" cobre DOIS textos na
+    // origem. O arquivo continua EXISTINDO — o que mudou é o que ele é —, e por isso o booleano
+    // do disco segue `true`: quem confere o CONTEÚDO dele é a `padrao-da-familia.test.ts`.
     oQueEstaParado:
-      "o `VERSAO.txt`, que não existe na árvore — e o número da cópia do Padrão, " +
-      "congelada na Versão 1 de 13/09 enquanto a Central publica a 3.0 (o aviso está no " +
-      "`docs/INDEX.md`, não dentro da cópia, que promete ser byte a byte igual à do vizinho)",
+      "o `VERSAO.txt`, que não existe na árvore — e o Padrão da família, que não mora aqui: " +
+      "`docs/referencia/PADRAO_ARCHILLY.md` é um PONTEIRO para " +
+      "`jonny583/archilly-central`, com o commit lido declarado (LAB-88, D292)",
     aCondicao: '"o kit, quando chegar, é outro item" — e a regra do bloco NÃO espera por ele',
     tipo: "evento",
     marcaNoLugar: "o kit, quando chegar, é outro item",

@@ -826,6 +826,22 @@ rodando, e a outra metade continua sendo rodada por mim antes de cada entrega.
 Não há pressa de hoje para amanhã — há só uma rede de segurança que ainda não
 existe.
 
+### Uma nota de 11/10, e ela NÃO muda o que eu preciso de você
+
+Nesta data eu tirei daqui a cópia que este laboratório guardava do **manual da
+família** (as regras que valem para todos os aplicativos). Ela estava parada numa
+versão de setembro e era **um oitavo** do manual de hoje — um texto curto com cara
+de regra oficial, que é a pior combinação possível. No lugar dela ficou **um aviso
+dizendo onde está o manual de verdade**, com a data e a identificação exata da
+versão que eu li.
+
+**Por que isto aparece aqui:** uma das formas de resolver aquilo seria uma
+conferência automática que vigia o manual e avisa quando ele muda — e ela
+precisaria **de mais uma senha de leitura**, porque o lugar onde o manual mora
+também é fechado. **Eu não escolhi essa forma, exatamente para não te pedir uma
+terceira senha**; escolhi a que funciona sem pedir nada a você. Fica registrado
+só para você saber que a opção existe, caso um dia queira esse vigia.
+
 ---
 
 ## Já resolvidos — não precisa fazer nada

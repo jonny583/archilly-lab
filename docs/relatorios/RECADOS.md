@@ -2177,3 +2177,74 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · a cópia do Padrão Archilly NÃO foi reescrita para igualar a 3.0 — o número ficou
   declarado como congelado, porque esta casa não vendoriza o kit.
 ```
+
+## 11/10/2026 · LAB-88 — item 021: o Padrão não mora aqui
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-88 (item 021) ===
+Estado: FEITO e mesclado na main. Escolhida a FORMA 1 — ponteiro com procedência, no MESMO caminho —, e a medição que decidiu NÃO estava no seu item. Verde conferido aqui, não no GitHub: 965 travas na esteira + 17 no testfit, 578 na lista do CI (35 arquivos, 35 de 35 passando sem os clones), 7 passos, exit 0. Decisões D292 e D293.
+Feito: a cópia saiu e `docs/referencia/PADRAO_ARCHILLY.md` passou a dizer onde está a fonte, QUAL COMMIT foi lido, quando, de que tamanho e como se lê da origem. A procedência mora num lugar só (`src/onde-esta-o-padrao.ts`), e há 10 travas no portão sem clones. Prova: `docs/provas/LAB-88/onde-esta-o-padrao.json`.
+Achados para outros apps ou Central: (1) A MEDIÇÃO QUE DECIDIU: O RÓTULO "VERSÃO 3.0 · 10/10/2026" COBRE DOIS TEXTOS DIFERENTES NA ORIGEM — `96dbc9b` (1 712 linhas · 106 081 bytes) e `e48bff9` (1 731 · 107 395): +19 linhas e +1 314 bytes COM O MESMO NÚMERO. E a cópia vendorizada do Parcelamento é BYTE A BYTE IGUAL À PRIMEIRA: ela já está atrás SEM QUE O NÚMERO MUDE. É o D148 num documento — CARIMBAR A VERSÃO NUMA CÓPIA É CARIMBAR O RÓTULO, E RÓTULO NÃO É IDENTIDADE: SÓ O COMMIT IDENTIFICA O TEXTO. É isso que mata a forma 3, porque declarar "Versão 1, 8 % do vigente" é declarar um rótulo. (2) A FORMA 2 CAI POR MEDIÇÃO, E A SUA §11 MORDEU COMO VOCÊ PREVIU: `archilly-central` é PRIVADO e este repositório é PÚBLICO; o verde roda sem rede por desenho e o trabalho de CI que roda em todo envio NÃO TEM SEGREDO — a trava ficaria VERDE POR NÃO ACHAR O OBJETO (D213), e seria um TERCEIRO vizinho privado a pedir na §11, que já espera por dois desde o LAB-38. Está na página dele, para leigo, com o "não escolhi essa forma exatamente para não te pedir uma terceira senha". (3) A SUA MEDIDA, CONFERIDA NA ORIGEM COM `git show`: Versão 3.0, commit `e48bff9` (20:36:15Z), 1 731 linhas · 107 395 bytes; a cópia tinha 145 linhas · 12 716 bytes = 8,4 % DAS LINHAS E 11,8 % DOS BYTES. Você disse "8 % dele" e está certo nas duas unidades, e o conteúdo de `e48bff9` é byte a byte o do HEAD de agora. (4) O PONTEIRO FICOU NO MESMO CAMINHO DE PROPÓSITO: é onde quem procura o Padrão chega, e NENHUM LINK MORREU — LF-FINAL, LF-FINAL-2 e INDEX apontam para ele. E O TEXTO DA VERSÃO 1 NÃO SE PERDEU: está em `4081c27`, com a receita de leitura escrita no ponteiro. ARQUIVO QUE SAI DA ÁRVORE CONTINUA NO HISTÓRICO; O QUE A SAÍDA TIRA É A AUTORIDADE DE PARECER VIGENTE. (5) E O PONTO CEGO DA §6 BATEU DUAS VEZES NESTA RODADA, COM O MESMO INSTRUMENTO — é a 28ª, e a TERCEIRA QUE ESCAPOU. PRIMEIRA: eu ia te acusar de mandar procedência velha. Clonei a origem com `--depth 1`, perguntei quando o arquivo mudou e ouvi `944c232`, de 23:48 — três horas depois do commit que você mandou, e casava bem demais com o seu próprio argumento. Medido com `--depth=50`, o último commit do arquivo É `e48bff9`: `944c232` é só o HEAD, O COMMIT DO CORTE. A SUA PROCEDÊNCIA ESTAVA EXATA. SEGUNDA, E ESSA JÁ ESTAVA PUBLICADA: o D291 de ontem diz "trazida em 03/10 no PR #40", e a verdade é `4081c27`, 14/09, PR #12 — o commit da própria conferência do LF-FINAL —, com UM ÚNICO COMMIT em toda a vida do arquivo. O "03/10, PR #40" era o corte do clone raso desta sessão, e saiu em QUATRO lugares e num PR mesclado. CLONE RASO NÃO ERRA POR SILÊNCIO: DEVOLVE UM COMMIT QUE EXISTE, COM DATA E ASSUNTO PLAUSÍVEIS — A PIOR FORMA DE RESPOSTA ERRADA, A QUE PASSA POR MEDIÇÃO. Toda afirmação de "quando isto mudou" feita dentro de um clone raso é afirmação SOBRE O CLONE, e `git rev-parse --is-shallow-repository` era a pergunta que faltava. Corrigido POR RISCADO nos quatro lugares; o recado do LAB-87 NÃO foi editado, porque recado é registro do que foi enviado — a correção viaja neste. (6) E UMA TRAVA MINHA MUDOU DE OBJETO, COM O MOTIVO ESCRITO: a do LAB-87 exigia a frase "congelada na Versão 1" no índice e a proibia dentro da cópia; com a cópia fora, mantê-la obrigaria a casa a REPETIR PARA SEMPRE UM NÚMERO QUE ELA ACABOU DE TIRAR DO CAMINHO. TRAVA CUJA COISA COBRADA DEIXOU DE EXISTIR NÃO FICA "PASSANDO": PASSA A COBRAR UMA FRASE QUE FICOU FALSA — regra que sobrevive ao seu objeto vira trabalho para manter a mentira. (7) E A LIÇÃO GERAL, PARA AS OUTRAS CASAS: DOCUMENTO NORMATIVO QUE UMA CASA NÃO PODE MANTER ATUALIZADO NÃO DEVE MORAR NELA — o que fica é onde ele está, qual COMMIT foi lido e quando. Se a família quiser padronizar isso, o formato do ponteiro está em `src/onde-esta-o-padrao.ts` e as travas em `tests/padrao-da-familia.test.ts`, e os dois cabem em qualquer casa sem rede.
+Depende do Jonny: nada novo meu. Continuam a §11 (a senha de leitura, ou tornar os dois vizinhos públicos), a §10, o sétimo mecanismo e as duas perguntas do acesso — e a §11 ganhou uma NOTA de 11/10, dizendo que o vigia do manual existiria mas pediria uma TERCEIRA senha, e que eu não escolhi essa forma por isso.
+Próximo na fila: a D226 (os quatro campos de `legais`) — MUDA O DESENHO e espera o olho dele, e segue sendo a única da minha lista que não é medição minha. A fila ficou em CATORZE: este item não abriu nem fechou proposta.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  AS TRÊS FORMAS, MEDIDAS — e a escolhida é a 1
+═══════════════════════════════════════════════════════════════════════════════
+
+  ✓ FORMA 1 · ponteiro com procedência ......... ESCOLHIDA. Roda sem rede, no mesmo
+    caminho (nenhum link morreu), com o COMMIT declarado e guardado por trava
+  ✗ FORMA 2 · cópia com carimbo e guarda ....... a fonte é PRIVADA e este repositório
+    é PÚBLICO: a trava ficaria VERDE por não achar o objeto (D213), e seria a
+    TERCEIRA senha a pedir na §11
+  ✗ FORMA 3 · congelada e declarada ............ declara um RÓTULO, e o rótulo "3.0"
+    cobre dois textos. Quem abrisse o arquivo leria 145 linhas com cara de norma
+
+═══════════════════════════════════════════════════════════════════════════════
+  O RÓTULO "3.0" COBRE DOIS TEXTOS — a medição que decidiu
+═══════════════════════════════════════════════════════════════════════════════
+
+  commit     quando          linhas     bytes
+  96dbc9b    10/10 03:35Z     1 712   106 081   ← o vendor do Parcelamento é IGUAL a este
+  e48bff9    10/10 20:36Z     1 731   107 395   ← o que eu li, e é o conteúdo do HEAD
+
+  diferença: +19 linhas · +1 314 bytes, COM O MESMO NÚMERO DE VERSÃO.
+
+  a cópia que saiu:  145 linhas · 12 716 bytes = 8,4 % das linhas · 11,8 % dos bytes
+
+═══════════════════════════════════════════════════════════════════════════════
+  A PROCEDÊNCIA, como ficou gravada
+═══════════════════════════════════════════════════════════════════════════════
+
+  repositório  jonny583/archilly-central  (PRIVADO)
+  ramo         main
+  caminho      docs/PADRAO_ARCHILLY.md
+  versão       3.0 · 10/10/2026
+  commit       e48bff9 · 2026-10-10T20:36:15Z
+  tamanho      1 731 linhas · 107 395 bytes
+  lido em      2026-10-11
+  como se lê   git show origin/main:docs/PADRAO_ARCHILLY.md
+  a Versão 1   git show 4081c27:docs/referencia/PADRAO_ARCHILLY.md
+
+═══════════════════════════════════════════════════════════════════════════════
+  O CLONE RASO, MEDIDO — a 28ª do ponto cego, e a terceira que ESCAPOU
+═══════════════════════════════════════════════════════════════════════════════
+
+  o que o clone raso respondeu        o que era
+  944c232, 23:48  (a sua fonte)       e48bff9, 20:36 — a SUA procedência estava exata
+  03/10, PR #40   (a minha cópia)     4081c27, 14/09, PR #12 — e UM único commit
+
+  `git rev-parse --is-shallow-repository` → era a pergunta que faltava.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· a D226 NÃO foi tocada — muda o desenho e espera o olho dele;
+· nada escrito em repositório vizinho: a divergência das duas cópias do Parcelamento é
+  sua para levar à caixa dele. Clonei `archilly-central` SÓ PARA LEITURA, para a
+  procedência sair de `git show` e não de memória — os QUATRO clones terminaram limpos
+  (6cf6396, 72cfab0, 550a438, 944c232);
+· nenhum texto inventado: a cópia não foi atualizada para a 3.0;
+· o GATILHO NÃO foi religado — a régua cobra, não liga.
+```
