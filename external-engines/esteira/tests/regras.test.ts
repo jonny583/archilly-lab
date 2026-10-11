@@ -153,6 +153,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
+    "LAB-90/caixa-vazia-era-verdade.json":
+      "mede DECLARAÇÕES de caixa vazia contra a árvore do commit que as declarou — nove declarações em quatro casas, com o veredicto, os itens abertos, o maior já feito e o limite do que a régua NÃO alcança; não terreno: não há gleba, motor nem semente no que ela mede, e ela não roda motor nenhum",
     "LAB-89/a-pergunta-virou-guarda.json":
       "mede um INSTRUMENTO de leitura: a pergunta `git rev-parse --is-shallow-repository` virada guarda, provada nos dois sentidos com clones de verdade — num clone raso montado por `file://` a régua RECUSA e devolve `null`, no repositório completo ela MEDE, e a prova traz o que o CORTE teria respondido se ninguém perguntasse; não terreno: não há gleba, motor nem semente no que ela mede",
     "LAB-88/onde-esta-o-padrao.json":

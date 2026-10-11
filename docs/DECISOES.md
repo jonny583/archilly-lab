@@ -9179,3 +9179,127 @@ escreveu este item. *O nome é plausível, recente e errado.*
 clones): a profundidade entra **injetada**, nos três estados — raso, inteiro e **desconhecido** —,
 e a propriedade cobrada não é um caso, é **nenhuma recusa devolve valor**. O clone de verdade fica
 na ferramenta, porque *trava que clona no portão paga bateria para medir o que uma injeção mede.*
+
+---
+
+## D296 · "CAIXA VAZIA" É AFIRMAÇÃO SOBRE A ORIGEM — A GUARDA EXISTE, E ELA RECUSA ONDE NÃO DECIDE · 11/10/2026
+
+**Prompt:** LAB-90 (item 023). A direção mediu um defeito **do documento dela** — o
+`COMO_FUNCIONA.md` mandava *"leia esta pasta"*, o **disco**, em **11 de 11** casas — consertou a
+receita e pediu a guarda, citando a A409 desta casa: *"consertar o texto não é guarda."*
+
+### A régua, e ela é função pura
+
+`external-engines/esteira/src/caixa-vazia-era-verdade.ts`: dada a **lista de nomes** de
+`docs/caixa-de-entrada/` na árvore do commit que declarou, diz se havia item **aberto** — `NNN.md`
+sem `-FEITO`, sem `-RETIRADO` e sem o `COMO_FUNCIONA`, **que é a definição do próprio documento da
+direção**. Sem rede, sem clone, perguntável por partes.
+
+### O terceiro estado: eu RECUSEI, porque medi que não é decidível
+
+O item pediu `bloqueado` e avisou: *"se a distinção não for decidível por máquina, diga isso e
+recuse em vez de adivinhar."* **Medido, não é:**
+
+| onde | o que existe no NOME do arquivo |
+|---|---|
+| `archilly-propostas`, **toda** a história da caixa | só `NNN.md` e `NNN-FEITO.md` |
+| `archilly-lab` (aqui) | só `NNN.md` e `NNN-FEITO.md` |
+| a receita da direção | `-FEITO` e `-RETIRADO`, e nada mais |
+
+**Nenhuma casa marca bloqueio no nome.** Então `bloqueado` sai **`null`** — *não medido, nunca
+"verdadeira" nem "falsa"* (D23, D295).
+
+### Mas há uma distinção que É decidível, e ela separa as acusadas das legítimas
+
+> **Item aberto com número MENOR que algum `-FEITO` foi PULADO em rodadas anteriores** — a casa já
+> passou por ele e decidiu passar, e *onde mora essa decisão esta régua não alcança*. **Item
+> aberto que é o PRÓXIMO da fila** — maior que todos os `-FEITO` — **é declaração falsa.**
+
+Medido, casa com todas as linhas que eu pude conferir:
+
+| casa | commit | abertos | maior `-FEITO` | veredicto |
+|---|---|---|---|---|
+| Orçamento | `e701a6f` | `021.md` | 020 | **falsa** |
+| este Lab | `34bc00c` | `005.md` | 004 | **falsa — e é minha** |
+| Propostas | `bd84f13` | `007.md` + 3 adendos | 013 | `null` — já pulada, **não acusa** |
+| Propostas | `612c161` | nenhum | 015 | **verdadeira** |
+| este Lab | `2bc543f`, `1e7df13`, `8e8b74b`, `8236799` | nenhum | — | **verdadeiras** |
+
+**As oito do Propostas não podem ser acusadas** — *cobrança que reprova o código correto é
+desligada na semana seguinte* (A254/A255) —, e a régua **não diz que o pulado está certo**: diz que
+**não é o caso do clone velho**, e que quem decide o resto não é ela.
+
+### A primeira declaração falsa que esta régua acusa é MINHA, e a medição é bonita
+
+`34bc00c` ("despertador-sem-item: a caixa esgotou") é um **merge**, e os dois pais contam a
+história inteira: no meu ramo (`de3288e`, 19:22:46Z) a caixa tinha **só o `COMO_FUNCIONA`**; no
+`main` (`de5e769`, **19:19:54Z**) a direção acabara de escrever o `005.md`. **Eu declarei vazia com
+o clone 3 minutos velho** — e o merge trouxe o item para a árvore do mesmo commit em que eu disse
+que não havia nada.
+
+> **A tese da direção está confirmada DENTRO desta casa, por medição, e com o relógio:
+> 2 minutos e 52 segundos entre a escrita dela e o meu commit.** *O disco não é a origem, e esta
+> pasta é escrita por uma mão que não é a minha.*
+
+### O LIMITE vai na SAÍDA, em toda resposta — e isto o item pediu com estas palavras
+
+`O_QUE_ISTO_NAO_ALCANCA` viaja em **todas** as leituras, inclusive nas verdadeiras, com **quatro**
+buracos nomeados: a casa **cega** (sem commit não há árvore, e ausência de declaração falsa é
+ausência de **medição**), o **clone** da casa (ela mede a origem contra a declaração), o
+**bloqueio** (sai `null`), e **achar a declaração** — que depende de história e, em clone raso,
+**recusa** (D295). *Guarda que não declara o próprio buraco mente pelo silêncio.*
+
+**Há guarda** (`tests/caixa-vazia.test.ts`, 12 travas, no portão sem clones), com as listas de
+nomes **medidas** nos clones e entrando como fixture: o portão não tem os clones, e *trava que
+clona no portão paga bateria para medir o que uma lista mede.*
+
+---
+
+## D297 · A TABELA DA DIREÇÃO APONTOU A CORREÇÃO, NÃO A DECLARAÇÃO — E EU NÃO ACRESCENTO ESSA LINHA À MINHA · 11/10/2026
+
+**Prompt:** LAB-90 (item 023). Dois achados contra o instrumento de quem me mandou o item, e uma
+recusa de inflar a minha própria tabela.
+
+### O primeiro: a linha do Geo é o commit em que a casa ACERTOU
+
+A tabela do item lista `f0cb290` (Geo) como declaração falsa. A árvore dele **tem** o `010.md`
+aberto, então a régua da árvore diria **falsa** — mas o **assunto** daquele commit é:
+
+> *"correcao: a caixa NAO esta vazia — o 010 chegou durante a rodada do 009"*
+
+**É a casa se corrigindo**, e o pai dele é *"merge: item 010 chegou do chat durante o 009"*.
+
+> **A régua responde sobre a ÁRVORE, e a árvore não sabe o que o commit DIZ.** *O commit de
+> declaração tem de ser escolhido por quem DECLARA, não por quem casa a palavra* — e é a família
+> do **D155** desta casa (*"a régua leu o comentário que explicava o conserto"*), agora no
+> instrumento da direção.
+
+**O conserto ficou na régua:** `oAssuntoNegaACaixaVazia` devolve o veredicto
+`nao-e-declaracao` com `null`. E ela é régua de palavra **para RECUSAR, nunca para acusar** —
+*falso positivo aqui faz a guarda dizer "isto não é uma declaração", que é o lado seguro do erro*
+—, com os dois sentidos travados: o mesmo conteúdo com assunto de declaração **sai falsa**.
+
+### O segundo: sobre o Geo eu RECUSO a pergunta seguinte
+
+*"Então o Geo nunca declarou falso?"* — **não sei, e não vou responder.** O clone do Geo é **raso**
+(`is-shallow=true`, e um `--depth=200` não o abriu), e ali `git log --grep="caixa vazia"` deu
+**zero**. **Zero em clone raso não é zero** (D295): é o corte. *Fica declarado como não medido.*
+
+**E a linha da Pesquisa (`e13a06d`) não foi conferida** — aquele repositório não está clonado aqui,
+e **não repito como fato o que não medi** (§4). Das quatro linhas da tabela, **duas** confirmadas
+(Orçamento, este Lab), **uma** corrigida (Geo) e **uma** não medida (Pesquisa).
+
+### E a trigésima linha da minha tabela: NÃO
+
+A direção ofereceu: *"a trigésima linha da sua tabela, se você quiser — ela é minha."* **Recuso, e
+o motivo é o que a tabela é.** A §6 conta **o ponto cego DESTA casa** — *o Lab a um passo de acusar
+o vizinho por um defeito do Lab* —, e as 29 linhas existem para eu reler **as minhas**. Pôr ali um
+defeito de outra casa faria a conta somar e a leitura mentir: *tabela que mistura o meu erro com o
+alheio deixa de ser a lista que me corrige e passa a ser um placar.*
+
+> **Lista cuja utilidade é me acusar não cresce com erro de terceiro.**
+
+**O defeito dela está registrado onde ele pertence:** nesta decisão e no relatório, com a medição.
+E o que esta rodada **acrescenta à minha tabela é zero linha e uma lição**: a minha declaração
+falsa de 09/10 (`34bc00c`) não entra como ponto cego porque **não houve acusação a vizinho
+nenhum** — foi erro meu contra mim, medido e corrigido pela guarda que esta rodada escreveu.

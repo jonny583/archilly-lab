@@ -2309,3 +2309,73 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · não mexi em `src/lib/lab/` e não mexi em tela;
 · o GATILHO NÃO foi religado — a régua cobra, não liga.
 ```
+
+## 11/10/2026 · LAB-90 — item 023: "caixa vazia" era verdade?
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-90 (item 023) ===
+Estado: FEITO e mesclado na main. A guarda existe, é função pura, está no portão — e A PRIMEIRA DECLARAÇÃO FALSA QUE ELA ACUSA É MINHA. Verde conferido aqui, não no GitHub: 991 travas na esteira + 17 no testfit, 604 na lista do CI (37 arquivos, 37 de 37 passando sem os clones), 7 passos, exit 0. Decisões D296 e D297.
+Feito: `src/caixa-vazia-era-verdade.ts` responde, pela árvore do commit que declarou, se havia item ABERTO — pela definição do SEU documento. 12 travas herméticas, prova com as nove declarações lidas em quatro casas, e o LIMITE na saída de toda resposta. Prova: `docs/provas/LAB-90/caixa-vazia-era-verdade.json`.
+Achados para outros apps ou Central: (1) O TERCEIRO ESTADO: EU RECUSEI, E RECUSEI PORQUE MEDI. `bloqueado` NÃO é decidível por nome — varrida TODA a história da caixa do `archilly-propostas` e desta casa, só existem `NNN.md` e `NNN-FEITO.md`; a sua receita cita `-FEITO` e `-RETIRADO`, e nada mais. Então `bloqueado` sai `null`, como você mandou. (2) MAS ACHEI UMA DISTINÇÃO QUE É DECIDÍVEL, E ELA SEPARA AS ACUSADAS DAS LEGÍTIMAS SEM ADIVINHAR: ITEM ABERTO COM NÚMERO MENOR QUE ALGUM `-FEITO` FOI PULADO EM RODADAS ANTERIORES; ITEM ABERTO QUE É O PRÓXIMO DA FILA É DECLARAÇÃO FALSA. Assim as OITO do Propostas não são acusadas — e a régua não diz que o pulado está certo: diz que NÃO É O CASO DO CLONE VELHO, e que quem decide o resto não é ela. Se a família quiser a distinção por máquina, é esta, e ela cabe em qualquer casa. (3) NAS NOVE DECLARAÇÕES LIDAS: 2 FALSAS · 5 VERDADEIRAS · 2 NÃO DECIDÍVEIS · 0 NÃO LIDAS. Os dois sentidos que você exigiu estão nos extremos: `e701a6f` (Orçamento) FALSA, com `021.md` aberto e o maior feito em 020; `612c161` (Propostas) VERDADEIRA. (4) E A PRIMEIRA FALSA É MINHA, COM O RELÓGIO: o `34bc00c` é um MERGE, e os dois pais contam tudo — no meu ramo (`de3288e`, 19:22:46Z) a caixa tinha SÓ o `COMO_FUNCIONA`; no `main` (`de5e769`, 19:19:54Z) você acabara de escrever o `005.md`. DOIS MINUTOS E CINQUENTA E DOIS SEGUNDOS DE CLONE VELHO, e o merge trouxe o item para a árvore DO MESMO COMMIT em que eu disse que não havia nada. A SUA TESE ESTÁ CONFIRMADA DENTRO DESTA CASA, POR MEDIÇÃO. (5) E DOIS ACHADOS CONTRA A SUA TABELA: a linha do GEO aponta `f0cb290`, cuja árvore tem o `010.md` aberto — mas o ASSUNTO dele é "correcao: a caixa NAO esta vazia — o 010 chegou durante a rodada do 009", e o pai é "merge: item 010 chegou do chat durante o 009". É A CASA SE CORRIGINDO, NÃO DECLARANDO. A RÉGUA RESPONDE SOBRE A ÁRVORE, E A ÁRVORE NÃO SABE O QUE O COMMIT DIZ — O COMMIT DE DECLARAÇÃO TEM DE SER ESCOLHIDO POR QUEM DECLARA, NÃO POR QUEM CASA A PALAVRA. É a família do D155 desta casa, agora no seu instrumento, e o conserto ficou NA RÉGUA: veredicto `nao-e-declaracao` com `null`, régua de palavra PARA RECUSAR e nunca para acusar — falso positivo aqui faz a guarda dizer "isto não é uma declaração", que é o lado seguro do erro. (6) E SOBRE O GEO EU RECUSO A PERGUNTA SEGUINTE: "então ele nunca declarou falso?" — não sei. O clone dele é RASO (`is-shallow=true`, e um `--depth=200` não o abriu) e ali o `git log --grep` deu ZERO; ZERO EM CLONE RASO NÃO É ZERO (D295), é o corte. E A LINHA DA PESQUISA NÃO FOI CONFERIDA — aquele repositório não está clonado aqui, e eu não repito como fato o que não medi. Das suas quatro linhas: DUAS confirmadas, UMA corrigida, UMA não medida. (7) O LIMITE VAI NA SAÍDA EM TODA RESPOSTA, inclusive nas verdadeiras, com quatro buracos nomeados: a casa CEGA (ausência de declaração falsa é ausência de MEDIÇÃO), o CLONE da casa, o BLOQUEIO, e ACHAR A DECLARAÇÃO — que depende de história e em clone raso recusa. (8) E A TRIGÉSIMA LINHA DA MINHA TABELA: OBRIGADA, MAS NÃO. A §6 conta o ponto cego DESTA casa e existe para eu reler OS MEUS erros. TABELA QUE MISTURA O MEU ERRO COM O ALHEIO DEIXA DE SER A LISTA QUE ME CORRIGE E PASSA A SER UM PLACAR — lista cuja utilidade é me acusar não cresce com erro de terceiro. O defeito está no D297, com a medição, que é onde ele pertence. (9) E UMA CONSEQUÊNCIA PARA A SUA CONTA: a linha "em vazio: 5" do meu ONDE_PARAMOS passou a dizer que UMA DAS CINCO ERA FALSA. Disparo em vazio é medida de abastecimento, e uma declaração falsa POLUI essa medida nos dois lados — a casa não trabalhou e você não reabasteceu.
+Depende do Jonny: nada novo meu. Continuam a §11 (a senha de leitura, ou tornar os dois vizinhos públicos), a §10, o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a D226 (os quatro campos de `legais`) — continua a PRIMEIRA da minha lista e espera o olho dele; é o quinto recado seguido em que ela aparece. A fila ficou em CATORZE: este item não abriu nem fechou proposta.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  AS NOVE DECLARAÇÕES, MEDIDAS — pela árvore do commit que declarou
+═══════════════════════════════════════════════════════════════════════════════
+
+  casa        commit     abertos                       maior -FEITO  veredicto
+  Orçamento   e701a6f    021.md                              020     ✗ FALSA
+  este Lab    34bc00c    005.md                              004     ✗ FALSA (minha)
+  Geo         f0cb290    010.md                               —      · nao-e-declaracao
+  Propostas   bd84f13    007.md + 3 adendos                  013     · já pulada
+  Propostas   612c161    nenhum                              015     ✓ verdadeira
+  este Lab    2bc543f    nenhum                              007     ✓ verdadeira
+  este Lab    1e7df13    nenhum                              010     ✓ verdadeira
+  este Lab    8e8b74b    nenhum                              011     ✓ verdadeira
+  este Lab    8236799    nenhum                              013     ✓ verdadeira
+
+  2 falsas · 5 verdadeiras · 2 não decidíveis · 0 não lidas
+
+═══════════════════════════════════════════════════════════════════════════════
+  A MINHA FALSA, COM O RELÓGIO — 34bc00c é um MERGE, e os pais contam
+═══════════════════════════════════════════════════════════════════════════════
+
+  de5e769   09/10 19:19:54Z   main        a direção escreve o 005.md
+  de3288e   09/10 19:22:46Z   meu ramo    caixa aberta: NENHUM item  ← eu declarei vazia
+  34bc00c   09/10 19:23:09Z   merge       a árvore passa a ter o 005.md
+
+  2 min 52 s de clone velho. O disco não é a origem.
+
+═══════════════════════════════════════════════════════════════════════════════
+  A DISTINÇÃO QUE É DECIDÍVEL — e a que não é
+═══════════════════════════════════════════════════════════════════════════════
+
+  NÃO decidível   `bloqueado`: nenhuma casa marca bloqueio no NOME do arquivo
+                  (medido em toda a história da caixa do Propostas e daqui)
+                  → sai `null`, nunca "falsa"
+
+  DECIDÍVEL       item aberto com número MENOR que algum `-FEITO`  → já PULADO
+                  item aberto MAIOR que todos os `-FEITO`         → é O PRÓXIMO → FALSA
+
+═══════════════════════════════════════════════════════════════════════════════
+  O QUE ESTA GUARDA NÃO ALCANÇA — e vai na saída de toda resposta
+═══════════════════════════════════════════════════════════════════════════════
+
+  1. não vê a casa CEGA: sem commit não há árvore, e ausência de declaração falsa
+     é ausência de MEDIÇÃO
+  2. não vê o CLONE da casa, só a origem — e é o clone velho que causa o defeito
+  3. não decide BLOQUEIO: sai `null`, e não como acusação
+  4. não acha a declaração: isso depende de história, e em clone raso RECUSA (D295)
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· nada escrito em repositório vizinho — dois clones novos SÓ PARA LEITURA
+  (`archilly-budget-blueprint`, `archilly-propostas`), porque nenhuma afirmação sobre
+  outro repositório sai sem `git show` na mão; os SEIS clones terminaram limpos;
+· a D226 não foi tocada, nem o sétimo mecanismo;
+· o GATILHO NÃO foi religado — a régua cobra, não liga;
+· e a linha da Pesquisa fica DECLARADA COMO NÃO CONFERIDA, não repetida como fato.
+```
