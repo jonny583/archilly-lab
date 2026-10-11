@@ -2,7 +2,7 @@
   "prompt": "LAB-89",
   "oQue": "a pergunta do clone raso virada guarda, provada nos dois sentidos com clones de verdade",
   "oQueIstoNaoMede": "não mede gleba, motor nem semente — mede um INSTRUMENTO de leitura de procedência, e está na lista de exceções do §7",
-  "quando": "2026-10-11T02:23:32.529Z",
+  "quando": "2026-10-11T07:29:29.188Z",
   "aPergunta": "git rev-parse --is-shallow-repository",
   "caminhoMedido": "CLAUDE.md",
   "osDoisSentidos": {
@@ -11,16 +11,16 @@
       "recusou": true,
       "valor": null,
       "motivo": "clone-raso",
-      "oQueOCorteTeriaRespondido": "85ae852",
+      "oQueOCorteTeriaRespondido": "7621b04",
       "commitsDoCaminhoNoRaso": 1
     },
     "oLadoBom": {
       "oQue": "este repositório, como ele está",
       "isShallow": false,
       "mediu": true,
-      "valor": "f5a2c23",
+      "valor": "aae0618",
       "motivo": "historia-inteira",
-      "commitsDoCaminho": 62
+      "commitsDoCaminho": 63
     }
   },
   "oQueOCorteRespondeuNaSemana": [

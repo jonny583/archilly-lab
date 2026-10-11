@@ -42,7 +42,7 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     expect(conferirONome(workflow(), existe, medicao()).map((p) => `${p.tipo}: ${p.oQue}`)).toEqual([]);
   });
 
-  test("a lista do trabalho é achada, e tem os 37 arquivos que a medição rodou", () => {
+  test("a lista do trabalho é achada, e tem os 38 arquivos que a medição rodou", () => {
     const lista = arquivosDoTrabalho(workflow(), TRABALHO_SEM_CLONES);
     // 30 quando a medição do LAB-84 começou, 31 com esta própria trava dentro, e 32 no LAB-85,
     // com a trava da decisão do gatilho (D284), e 33 no LAB-86, com a `configuracao.test.ts` —
@@ -57,9 +57,12 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // E 37 no LAB-90, com a `caixa-vazia.test.ts` — a guarda das declarações de caixa vazia,
     // também HERMÉTICA: as listas de nomes foram medidas nos clones pela ferramenta e entram
     // aqui como fixture, porque o portão não tem os clones.
+    // E 38 no LAB-91, com a `regerar-a-varredura.test.ts` — a trava que REEXECUTA as duas
+    // varreduras e compara regra por regra: ela lê só este repositório, e é a proposta do
+    // LAB-60 (aberta desde 07/10) executada.
     // O número anda quando o trabalho ganha ou perde arquivo, e
     // mudá-lo é deliberado: é a lista que a medição cobriu.
-    expect(lista).toHaveLength(37);
+    expect(lista).toHaveLength(38);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

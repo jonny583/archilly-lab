@@ -64,7 +64,8 @@
     "lab87": "bun ferramentas/lab87.ts",
     "lab88": "bun ferramentas/lab88.ts",
     "lab89": "bun ferramentas/lab89.ts",
-    "lab90": "bun ferramentas/lab90.ts"
+    "lab90": "bun ferramentas/lab90.ts",
+    "lab91": "bun ferramentas/lab91.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

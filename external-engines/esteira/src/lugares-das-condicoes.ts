@@ -184,6 +184,11 @@ export const QUANTAS_CONDICOES = {
   // 16 → 15 no LAB-85, a do trabalho de CI que não pode passar (D284). **QUATRO descidas por
   // entrega em cinco rodadas** — a fila está sendo consumida mais rápido do que abastecida, e
   // isso é notícia para quem decide o intervalo.
+  // **ATENÇÃO, e isto me pegou no LAB-91:** este número conta as ETIQUETAS de condição
+  // declaradas na `FILA.md` (`prompt-novo`, `nao-medido`…), e NÃO as propostas abertas. No
+  // LAB-91 eu baixei os dois por reflexo ao executar uma proposta, e a trava da etiqueta
+  // acusou: a proposta executada **não tinha etiqueta**, então este número não mudou.
+  // *Dois números com o mesmo valor não são o mesmo número* (D301).
   // 15 → 14 no LAB-87: a das outras dez provas recontáveis (D289), por ENTREGA — e ela saiu
   // MENOR do que entrou, porque a forma cabia em três provas e não em dez.
   // E nenhuma das catorze é uma CONTA, que é o que a régua existe para cobrar.

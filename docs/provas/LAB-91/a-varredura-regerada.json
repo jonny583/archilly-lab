@@ -1,0 +1,119 @@
+{
+  "prompt": "LAB-91",
+  "oQue": "a varredura reexecutada e comparada com a prova commitada, regra por regra e achado por achado; as duas espécies de prova; e o conjunto fechado do interpolador",
+  "oQueIstoNaoMede": "não mede gleba, motor nem semente — mede provas, regras e um conjunto de valores, e está na lista de exceções do §7",
+  "quando": "2026-10-11T07:29:46.715Z",
+  "aPropostaExecutada": {
+    "origem": "LAB-60, aberta desde 07/10",
+    "oQueFaltava": "o D287 recontava o ESCOPO; o defeito do LAB-60 era em `totalPorRegra` (1 contra 10) — recontar o tamanho do universo não reconta o que a régua achou nele"
+  },
+  "asVarredurasRegeradas": {
+    "LAB-57/varredura-de-configuracao.json": {
+      "porRegraAgora": {
+        "regra-em-off": 2,
+        "desligador-de-conferencia": 2,
+        "conferencia-desligada-por-arquivo": 1
+      },
+      "achadosAgora": 5,
+      "desacordos": []
+    },
+    "LAB-52/varredura-de-chamadas.json": {
+      "porRegraAgora": {
+        "catch-que-engole": 0,
+        "catch-que-devolve-numero": 0,
+        "degrada-chamada-para-numero": 2,
+        "numero-sem-conferir": 1,
+        "identificador-de-conta-em-argumento": 0,
+        "identificador-de-conta-em-campo": 0
+      },
+      "achadosAgora": 3,
+      "desacordos": []
+    }
+  },
+  "asDuasEspecies": [
+    {
+      "prova": "LAB-57/varredura-de-configuracao.json",
+      "especie": "funcao-da-arvore",
+      "porque": "varre as configurações que o git carrega AGORA, com regras que são texto sobre arquivo: o resultado é função da árvore, e foi ela que o LAB-60 pegou velha (1 contra 10)",
+      "regeradaPelaTrava": true
+    },
+    {
+      "prova": "LAB-52/varredura-de-chamadas.json",
+      "especie": "funcao-da-arvore",
+      "porque": "varre todo `.ts` que existe e não é ignorado, com seis regras de texto: função da árvore, e já esteve 40 % velha (D290)",
+      "regeradaPelaTrava": true
+    },
+    {
+      "prova": "LAB-04/oraculo.json",
+      "especie": "funcao-da-arvore",
+      "porque": "o `medido` é função pura de duas fixtures fixas e do código de geometria de agora — o `esperado` NÃO se reconta, porque vem de duas implementações independentes de fora desta casa (D289)",
+      "regeradaPelaTrava": true
+    },
+    {
+      "prova": "LAB-48/violacoes-do-motor-padrao.json",
+      "especie": "fotografia",
+      "porque": "é o ANTES de uma aferição: as violações do motor no commit em que o defeito foi medido. Regerá-la apagaria o lado 'antes' da comparação, que é precisamente o que o D182 proíbe — e ela roda MOTOR, então o universo nem está nesta casa"
+    },
+    {
+      "prova": "LAB-02/completo.saida-cortada.json",
+      "especie": "fotografia",
+      "porque": "a saída guardada de uma rodada do motor sobre uma gleba, com semente: ela existe para que a medição possa ser refeita contra a MESMA saída. Regerar aqui troca o sujeito da comparação"
+    },
+    {
+      "prova": "LAB-31/sabotagem.json",
+      "especie": "fotografia",
+      "porque": "registra um ATO ('quebrei esta trava e o exit foi 0 → 1'): regerar seria REFAZER a sabotagem, que é outro ato (D289)"
+    },
+    {
+      "prova": "LAB-60/configuracao-do-motor.json",
+      "especie": "fotografia",
+      "porque": "mede a árvore de configuração do CLONE VIZINHO: o universo está fora desta casa, e recontar com o motor andado mede outra coisa com o nome da antiga (D288)"
+    }
+  ],
+  "aListaFecha": {
+    "duplicadas": [],
+    "regeradasSemEntrada": [],
+    "entradasSemArquivo": []
+  },
+  "oConjuntoDoInterpolador": {
+    "aceitos": [
+      "bilinear",
+      "idw"
+    ],
+    "foraComMotivo": [
+      {
+        "valor": "nenhum",
+        "porque": "ausência de interpolação já tem forma neste formato: `null`, que é 'não medido' (D23) — aceitá-lo criaria duas formas de dizer a mesma coisa (D116)"
+      },
+      {
+        "valor": "linear",
+        "porque": "ninguém na família o implementa hoje: tipo sem produtor, e valor que ninguém produz ninguém confere"
+      },
+      {
+        "valor": "natural",
+        "porque": "idem: declarado no tipo do Generate e sem nenhum literal que o atribua, medido na origem"
+      },
+      {
+        "valor": "krigagem",
+        "porque": "idem — e é o que mais pede medição antes de entrar, porque muda o que a rampa quer dizer"
+      }
+    ],
+    "oQueOGenerateDeclara": [
+      "idw",
+      "linear",
+      "natural",
+      "krigagem",
+      "nenhum"
+    ],
+    "emComum": [
+      "idw"
+    ],
+    "bilinearEApelido": false
+  },
+  "oDetalhe": {
+    "oAviso": "o Generate pediu: parem de ler `detalhe`, que é frase para a pessoa",
+    "medidoAqui": "nenhum lugar extrai número de `detalhe`; `ferramentas/lab48.ts:210` o COPIA para uma prova, e copiar não é extrair",
+    "viraProposta": false
+  },
+  "conferidoAqui": "verde na mão, não no GitHub (§7)"
+}
