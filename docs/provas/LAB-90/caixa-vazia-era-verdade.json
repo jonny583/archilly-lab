@@ -1,0 +1,290 @@
+{
+  "prompt": "LAB-90",
+  "oQue": "a guarda que diz se uma declaração de \"caixa vazia\" era verdadeira, pela árvore do commit que a declarou",
+  "oQueIstoNaoMede": "não mede gleba, motor nem semente — mede declarações e árvores de caixa de entrada, e está na lista de exceções do §7",
+  "quando": "2026-10-11T02:23:32.716Z",
+  "aDefinicaoDeABERTO": "`NNN.md` sem `-FEITO`, sem `-RETIRADO` e sem `COMO_FUNCIONA` — a definição do próprio `COMO_FUNCIONA.md` da direção",
+  "oTerceiroEstado": {
+    "oQueOItemPediu": "`bloqueado` — item aberto cuja execução espera pessoa ou outro repositório",
+    "medido": "NENHUMA casa marca bloqueio no nome do arquivo: só existem `NNN.md` e `NNN-FEITO.md` (e `-RETIRADO` na receita)",
+    "oQueEuFiz": "recusei em vez de adivinhar (D23/D295): `bloqueado` sai `null`. E achei uma distinção que É decidível — item aberto com número MENOR que algum `-FEITO` foi PULADO em rodadas anteriores, e item aberto que é o PRÓXIMO da fila não foi"
+  },
+  "asMedidas": [
+    {
+      "casa": "Orçamento",
+      "repo": "archilly-budget-blueprint",
+      "commit": "e701a6f",
+      "oQueADirecaoDisse": "falsa",
+      "lido": true,
+      "porqueNaoLido": null,
+      "leitura": {
+        "veredicto": "aberta-com-o-proximo",
+        "declaracaoEraVerdadeira": false,
+        "abertos": [
+          "021.md"
+        ],
+        "oMaiorFeito": 20,
+        "porque": "havia item aberto que era O PRÓXIMO da fila (021.md, e o maior já feito é 020): a declaração de caixa vazia era FALSA",
+        "oQueIstoNaoAlcanca": [
+          "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+          "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+          "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+          "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+        ]
+      },
+      "assunto": "Caixa vazia às 01:13 UTC: a linha da medição e o recado (#80)",
+      "raso": false,
+      "quando": {
+        "podeAfirmar": true,
+        "valor": "2026-10-10T22:14:54-03:00",
+        "motivo": "historia-inteira"
+      }
+    },
+    {
+      "casa": "Propostas",
+      "repo": "archilly-propostas",
+      "commit": "bd84f13",
+      "oQueADirecaoDisse": "legítima (item bloqueado)",
+      "lido": true,
+      "porqueNaoLido": null,
+      "leitura": {
+        "veredicto": "aberta-ja-pulada",
+        "declaracaoEraVerdadeira": null,
+        "abertos": [
+          "007-adendo-2.md",
+          "007-adendo-3.md",
+          "007-adendo.md",
+          "007.md"
+        ],
+        "oMaiorFeito": 13,
+        "porque": "havia item aberto, mas todos com número MENOR que o maior já feito (013): a casa já passou por eles em rodadas anteriores. Isto NÃO é o caso do clone velho, e se é bloqueio legítimo esta régua não decide — nenhuma casa marca bloqueio no nome do arquivo",
+        "oQueIstoNaoAlcanca": [
+          "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+          "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+          "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+          "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+        ]
+      },
+      "assunto": "caixa vazia às 22:47 — pelo protocolo, e sem ponta solta",
+      "raso": true,
+      "quando": {
+        "podeAfirmar": false,
+        "valor": null,
+        "motivo": "clone-raso"
+      }
+    },
+    {
+      "casa": "Propostas",
+      "repo": "archilly-propostas",
+      "commit": "612c161",
+      "oQueADirecaoDisse": "legítima",
+      "lido": true,
+      "porqueNaoLido": null,
+      "leitura": {
+        "veredicto": "vazia",
+        "declaracaoEraVerdadeira": true,
+        "abertos": [],
+        "oMaiorFeito": 15,
+        "porque": "nenhum item aberto na árvore daquele commit: a declaração era verdadeira",
+        "oQueIstoNaoAlcanca": [
+          "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+          "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+          "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+          "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+        ]
+      },
+      "assunto": "despertador 11/10 01:47 · caixa vazia, e a leitura dos dez pontos",
+      "raso": true,
+      "quando": {
+        "podeAfirmar": false,
+        "valor": null,
+        "motivo": "clone-raso"
+      }
+    },
+    {
+      "casa": "Geo",
+      "repo": "urban-scout-tool",
+      "commit": "f0cb290",
+      "oQueADirecaoDisse": "falsa",
+      "lido": true,
+      "porqueNaoLido": null,
+      "leitura": {
+        "veredicto": "nao-e-declaracao",
+        "declaracaoEraVerdadeira": null,
+        "abertos": [
+          "010.md"
+        ],
+        "oMaiorFeito": null,
+        "porque": "o assunto do commit NEGA a caixa vazia (\"correcao: a caixa NAO esta vazia — o 010 chegou durante a rodada do 009\") — é correção ou aviso, não declaração, e julgar isto seria acusar a casa pelo commit em que ela acertou",
+        "oQueIstoNaoAlcanca": [
+          "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+          "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+          "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+          "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+        ]
+      },
+      "assunto": "correcao: a caixa NAO esta vazia — o 010 chegou durante a rodada do 009",
+      "raso": true,
+      "quando": {
+        "podeAfirmar": false,
+        "valor": null,
+        "motivo": "clone-raso"
+      }
+    },
+    {
+      "casa": "este Lab",
+      "repo": ".",
+      "commit": "34bc00c",
+      "oQueADirecaoDisse": "falsa",
+      "lido": true,
+      "porqueNaoLido": null,
+      "leitura": {
+        "veredicto": "aberta-com-o-proximo",
+        "declaracaoEraVerdadeira": false,
+        "abertos": [
+          "005.md"
+        ],
+        "oMaiorFeito": 4,
+        "porque": "havia item aberto que era O PRÓXIMO da fila (005.md, e o maior já feito é 004): a declaração de caixa vazia era FALSA",
+        "oQueIstoNaoAlcanca": [
+          "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+          "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+          "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+          "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+        ]
+      },
+      "assunto": "despertador-sem-item: a caixa esgotou, e a conta registrou o primeiro vazio (#95)",
+      "raso": false,
+      "quando": {
+        "podeAfirmar": true,
+        "valor": "2026-10-09T16:23:09-03:00",
+        "motivo": "historia-inteira"
+      }
+    },
+    {
+      "casa": "este Lab",
+      "repo": ".",
+      "commit": "2bc543f",
+      "oQueADirecaoDisse": "— (não citada)",
+      "lido": true,
+      "porqueNaoLido": null,
+      "leitura": {
+        "veredicto": "vazia",
+        "declaracaoEraVerdadeira": true,
+        "abertos": [],
+        "oMaiorFeito": 7,
+        "porque": "nenhum item aberto na árvore daquele commit: a declaração era verdadeira",
+        "oQueIstoNaoAlcanca": [
+          "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+          "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+          "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+          "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+        ]
+      },
+      "assunto": "despertador-sem-item: a caixa esgotou de novo, e os três clones andaram em uma hora",
+      "raso": false,
+      "quando": {
+        "podeAfirmar": true,
+        "valor": "2026-10-09T23:16:37+00:00",
+        "motivo": "historia-inteira"
+      }
+    },
+    {
+      "casa": "este Lab",
+      "repo": ".",
+      "commit": "1e7df13",
+      "oQueADirecaoDisse": "— (não citada)",
+      "lido": true,
+      "porqueNaoLido": null,
+      "leitura": {
+        "veredicto": "vazia",
+        "declaracaoEraVerdadeira": true,
+        "abertos": [],
+        "oMaiorFeito": 10,
+        "porque": "nenhum item aberto na árvore daquele commit: a declaração era verdadeira",
+        "oQueIstoNaoAlcanca": [
+          "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+          "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+          "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+          "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+        ]
+      },
+      "assunto": "despertador-sem-item: a caixa esgotou às 02:05Z — data anotada, e eu durmo",
+      "raso": false,
+      "quando": {
+        "podeAfirmar": true,
+        "valor": "2026-10-10T02:06:16+00:00",
+        "motivo": "historia-inteira"
+      }
+    },
+    {
+      "casa": "este Lab",
+      "repo": ".",
+      "commit": "8e8b74b",
+      "oQueADirecaoDisse": "— (não citada)",
+      "lido": true,
+      "porqueNaoLido": null,
+      "leitura": {
+        "veredicto": "vazia",
+        "declaracaoEraVerdadeira": true,
+        "abertos": [],
+        "oMaiorFeito": 11,
+        "porque": "nenhum item aberto na árvore daquele commit: a declaração era verdadeira",
+        "oQueIstoNaoAlcanca": [
+          "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+          "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+          "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+          "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+        ]
+      },
+      "assunto": "despertador-sem-item: a caixa esgotou às 04:05Z — data anotada, e eu durmo",
+      "raso": false,
+      "quando": {
+        "podeAfirmar": true,
+        "valor": "2026-10-10T04:06:20+00:00",
+        "motivo": "historia-inteira"
+      }
+    },
+    {
+      "casa": "este Lab",
+      "repo": ".",
+      "commit": "8236799",
+      "oQueADirecaoDisse": "— (não citada)",
+      "lido": true,
+      "porqueNaoLido": null,
+      "leitura": {
+        "veredicto": "vazia",
+        "declaracaoEraVerdadeira": true,
+        "abertos": [],
+        "oMaiorFeito": 13,
+        "porque": "nenhum item aberto na árvore daquele commit: a declaração era verdadeira",
+        "oQueIstoNaoAlcanca": [
+          "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+          "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+          "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+          "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+        ]
+      },
+      "assunto": "despertador-sem-item: a caixa esgotou às 08:05Z, e o 07:06 ACUMULOU",
+      "raso": false,
+      "quando": {
+        "podeAfirmar": true,
+        "valor": "2026-10-10T08:30:28+00:00",
+        "motivo": "historia-inteira"
+      }
+    }
+  ],
+  "aConta": {
+    "falsas": 2,
+    "verdadeiras": 5,
+    "naoDecidiveis": 2,
+    "naoLidas": 0
+  },
+  "oQueIstoNaoAlcanca": [
+    "não vê a casa que nunca commitou (a CEGA): sem commit não há árvore para ler, e ausência de declaração falsa não é ausência de problema — é ausência de medição",
+    "não vê o CLONE da casa, só a origem: ela mede a árvore do commit de declaração contra a declaração, e é justamente o clone velho que causa o defeito",
+    "não decide BLOQUEIO: nenhuma casa marca bloqueio no nome do arquivo, então `item aberto já pulado` sai com veredicto `null` e não como acusação",
+    "não acha a declaração: quem dá o commit de declaração é quem chama — e `git log --grep` numa casa de clone RASO responde sobre o corte, não sobre a casa (D295)"
+  ],
+  "conferidoAqui": "verde na mão, não no GitHub (§7)"
+}

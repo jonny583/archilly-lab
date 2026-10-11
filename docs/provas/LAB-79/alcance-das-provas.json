@@ -2,23 +2,23 @@
   "prompt": "LAB-79",
   "oQueIstoMede": "quantas provas deste repositório são remedidas CONTRA A FONTE e quantas só se conferem contra si mesmas — a §7 lendo as chaves — ou não são lidas por trava nenhuma. A lista de quem cita quem é MECÂNICA: sai da leitura dos arquivos de teste, não da minha memória",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto é o conjunto de PROVAS e as travas que as leem. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-11T01:25:49.006Z",
+  "quando": "2026-10-11T02:23:31.698Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
   },
   "alcance": {
-    "universo": 78,
-    "pastas": 60,
+    "universo": 79,
+    "pastas": 61,
     "porComoSeConfere": {
       "remedida-da-fonte": 7,
       "remedida-sem-escopo-declarado": 21,
-      "so-a-forma": 27,
+      "so-a-forma": 28,
       "sem-trava": 23
     },
     "comEscopoPublicado": 7,
-    "semEscopoPublicado": 71,
-    "comoSeDiz": "78 provas em 60 pastas · 7 remedidas da fonte com escopo publicado · 21 remedidas em parte SEM escopo declarado · 27 só a forma (§7) · 23 sem trava nenhuma · 71 sem escopo publicado"
+    "semEscopoPublicado": 72,
+    "comoSeDiz": "79 provas em 61 pastas · 7 remedidas da fonte com escopo publicado · 21 remedidas em parte SEM escopo declarado · 28 só a forma (§7) · 23 sem trava nenhuma · 72 sem escopo publicado"
   },
   "comEscopoPublicado": [
     "LAB-25/guarda-da-ponte.json",
@@ -576,6 +576,13 @@
     },
     {
       "caminho": "LAB-89/a-pergunta-virou-guarda.json",
+      "comoSeConfere": "so-a-forma",
+      "travas": [
+        "regras.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-90/caixa-vazia-era-verdade.json",
       "comoSeConfere": "so-a-forma",
       "travas": [
         "regras.test.ts"
