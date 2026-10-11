@@ -2,7 +2,7 @@
   "prompt": "LAB-91",
   "oQue": "a varredura reexecutada e comparada com a prova commitada, regra por regra e achado por achado; as duas espécies de prova; e o conjunto fechado do interpolador",
   "oQueIstoNaoMede": "não mede gleba, motor nem semente — mede provas, regras e um conjunto de valores, e está na lista de exceções do §7",
-  "quando": "2026-10-11T07:29:46.715Z",
+  "quando": "2026-10-11T15:36:08.968Z",
   "aPropostaExecutada": {
     "origem": "LAB-60, aberta desde 07/10",
     "oQueFaltava": "o D287 recontava o ESCOPO; o defeito do LAB-60 era em `totalPorRegra` (1 contra 10) — recontar o tamanho do universo não reconta o que a régua achou nele"

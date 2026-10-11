@@ -1,0 +1,236 @@
+{
+  "prompt": "LAB-92",
+  "oQue": "a medição do item 025: a esteira compara motores sob premissas idênticas?",
+  "aResposta": "NÃO — K = 17 premissas caem no padrão de fábrica de quem recebe, e o Symbios não recebe premissa nenhuma",
+  "oQueIstoNaoMede": "não mede gleba, motor nem semente: mede a PASSAGEM de premissas da esteira para cada motor, por lugar. Está na lista de exceções do §7",
+  "quando": "2026-10-11T15:36:09.008Z",
+  "aConta": {
+    "N": 13,
+    "M": 10,
+    "K": 17,
+    "nulas": 3,
+    "porMotor": {
+      "generate-ortogonal | generate-espinha": 4,
+      "parcelamento": 13
+    }
+  },
+  "oQueAEsteiraPassa": [
+    "areaMinLote_m2",
+    "areaAlvoLote_m2",
+    "areaMaxLote_m2",
+    "testadaMinLote_m",
+    "caixaViariaMin_m",
+    "caixaPrincipal_m",
+    "caixaSecundaria_m",
+    "calcada_m",
+    "faceQuadraMax_m",
+    "pctAreaPublica",
+    "pctAPP",
+    "pctLazer",
+    "rampaMaxima_pct"
+  ],
+  "asQueVaoNulas": [
+    "calcada_m",
+    "pctAreaPublica",
+    "rampaMaxima_pct"
+  ],
+  "oK": [
+    {
+      "motor": "generate-ortogonal | generate-espinha",
+      "premissa": "testadaMinimaLegal",
+      "origem": "default-do-motor",
+      "oDefault": "NORMA_BR.testadaMinimaLegal.valor",
+      "porque": "o limite LEGAL da testada vem da norma embutida no motor, e o contrato não o traz: o motor julga a si mesmo contra um número que a esteira não passou"
+    },
+    {
+      "motor": "generate-ortogonal | generate-espinha",
+      "premissa": "raioBulbo",
+      "origem": "default-do-motor",
+      "oDefault": "7.5",
+      "porque": "o raio do bulbo de cul-de-sac muda a área que a via consome, e a esteira não o passa"
+    },
+    {
+      "motor": "generate-ortogonal | generate-espinha",
+      "premissa": "larguraEntrada",
+      "origem": "default-do-motor",
+      "oDefault": "20",
+      "porque": "a largura da entrada do loteamento consome frente de gleba e a esteira não a passa"
+    },
+    {
+      "motor": "generate-ortogonal | generate-espinha",
+      "premissa": "regimeFachada",
+      "origem": "default-do-motor",
+      "oDefault": "\"condominio\"",
+      "porque": "é o default mais pesado dos quatro: ele decide se o lote dá frente para RUA PÚBLICA ou para via de condomínio — e isso muda o que conta como violação de testada. A esteira compara dois motores do Generate em regime de condomínio sem nunca o ter pedido"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "tolerancia",
+      "origem": "default-do-motor",
+      "porque": "a folga que o motor aceita sobre as faixas — ela decide quantos lotes passam raspando. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "appRioPct",
+      "origem": "default-do-motor",
+      "porque": "a faixa de APP de curso d'água, por porcentagem. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "doacaoPct",
+      "origem": "default-do-motor",
+      "porque": "a porcentagem de doação ao município: terra que sai do loteável. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "doacaoTestadaMin",
+      "origem": "default-do-motor",
+      "porque": "a testada mínima da área doada. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "lagosPct",
+      "origem": "default-do-motor",
+      "porque": "a porcentagem de lagos. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "arborizacaoPct",
+      "origem": "default-do-motor",
+      "porque": "a porcentagem de arborização. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "pctCulDeSac",
+      "origem": "default-do-motor",
+      "porque": "quanto do traçado pode ser cul-de-sac — e o mecanismo nº 5 das violações depende dele. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "interferenciaRelevo",
+      "origem": "default-do-motor",
+      "porque": "o quanto o relevo pode torcer o traçado. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "ladoSuperquadra",
+      "origem": "default-do-motor",
+      "porque": "o lado da superquadra, no partido que a usa. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "numRadiais",
+      "origem": "default-do-motor",
+      "porque": "o número de radiais, no partido radial. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "curvatura",
+      "origem": "default-do-motor",
+      "porque": "a curvatura permitida nas vias. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "testadaExterna",
+      "origem": "default-do-motor",
+      "porque": "a testada mínima dos lotes da fileira EXTERNA — e o sétimo mecanismo mora aqui. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "areaLoteExterna",
+      "origem": "default-do-motor",
+      "porque": "a área dos lotes da fileira externa. A ida não preenche esta chave, e o tipo do motor diz que o arquivo \"sobrepõe o default de fábrica\" — sem arquivo, fábrica"
+    }
+  ],
+  "oQueOMotorNaoRecebe": [
+    {
+      "motor": "parcelamento",
+      "premissa": "caixaViariaMin_m",
+      "origem": "motor-nao-recebe",
+      "porque": "o motor usa as caixas explícitas e não tem um piso independente (perda declarada na ida)"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "pctAreaPublica",
+      "origem": "motor-nao-recebe",
+      "porque": "ele não reserva área pública por porcentagem: reserva por ímã de conteúdo"
+    },
+    {
+      "motor": "parcelamento",
+      "premissa": "rampaMaxima_pct",
+      "origem": "motor-nao-recebe",
+      "porque": "o motor não limita rampa — ele mede, desde o T03 dele"
+    },
+    {
+      "motor": "generate-ortogonal | generate-espinha",
+      "premissa": "calcada_m · pctAreaPublica · rampaMaxima_pct",
+      "origem": "motor-nao-recebe",
+      "porque": "os três não entram em `GerarV1Params`: a calçada vive embutida no default da caixa (`CALCADA_PADRAO_V1`), a área pública por porcentagem não existe no motor, e a rampa ele mede sem limitar. A esteira os passa `null`, e `null` aqui é honesto"
+    },
+    {
+      "motor": "symbios",
+      "premissa": "TODAS as 13",
+      "origem": "motor-nao-recebe",
+      "porque": "`parametros` é perda EM BLOCO na ida: o Symbios traça via e extrai quadra, não parcela em lote. Comparar o ranking de lote dele com os outros é comparar um motor que recebeu ZERO premissas — e isto é o limite mais importante desta medição"
+    }
+  ],
+  "oQueEuNaoConsigoIgualar": [
+    "o default de FÁBRICA de quem recebe: a esteira só pode passar o que o contrato publica, e o que ela não passa o motor inventa. Enquanto o K > 0, a paridade depende de cada dono",
+    "o SYMBIOS em métrica de lote: ele não recebe premissa de lote nenhuma e não parcela — a comparação dele é de via e quadra, e qualquer ranking de lote que o inclua está somando coisas diferentes",
+    "o `regimeFachada` do Generate: a esteira não tem como pedir regime de LOTEAMENTO, e os dois motores dele correm em `condominio` por default — o que muda o que conta como violação de testada",
+    "a TOLERÂNCIA do Parcelamento: é a chave que decide quantos lotes passam raspando, e ela não existe no contrato de motor v1 — então nem é possível igualá-la por fora",
+    "o número que o próprio dono recusa: `pctAPP: 15` e `pctLazer: 10` são o default do Generate, e a esteira os passa EXPLICITAMENTE nas glebas-padrão. Igualar assim é igualar no número que ele nunca quis"
+  ],
+  "asDuasFormas": {
+    "poligonoDesenhado": {
+      "aEsteiraPassa": true,
+      "onde": "`restricoes[]` e `atracoes[]` do contrato → `terreno.restricoes`/`terreno.atracoes` no Parcelamento, `restricoes` no Generate",
+      "medidoNasGlebas": "só `completo.geojson` traz área declarada como polígono (`app` e `reserva_legal`); as outras TRÊS glebas-padrão não trazem nenhuma"
+    },
+    "porcentagem": {
+      "aEsteiraPassa": true,
+      "onde": "`parametros.pctAPP`/`pctLazer` → `appPct`/`lazerPct` no Parcelamento, `opcoes.pctAPP`/`pctLazer` no Generate",
+      "medidoNasGlebas": "TODAS as quatro glebas-padrão recebem 15 % e 10 %, porque o bloco `PARAMETROS` é um só"
+    },
+    "oProblema": "na gleba `completo` as DUAS formas chegam juntas — a APP desenhada E 15 % de APP — e NADA declara qual manda. Cada motor resolve o empate sozinho, e isso é a mesma injustiça do K numa camada acima: um polígono tem LUGAR, uma porcentagem não, e somar os dois é contar a mesma terra duas vezes"
+  },
+  "asGlebasPadrao": [
+    {
+      "gleba": "completo",
+      "feicoes": 1066,
+      "areaDeclaradaComoPoligono": [
+        "app",
+        "reserva_legal"
+      ]
+    },
+    {
+      "gleba": "pequeno",
+      "feicoes": 28,
+      "areaDeclaradaComoPoligono": []
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "feicoes": 206,
+      "areaDeclaradaComoPoligono": []
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "feicoes": 577,
+      "areaDeclaradaComoPoligono": []
+    }
+  ],
+  "motorComposto": {
+    "aPortaAceita": true,
+    "oQueFalta": "a regra de JUNÇÃO: de quem é cada parte do plano quando dois motores respondem pela mesma gleba",
+    "porque": "a porta indexa tudo por `id` e cada rodada chama uma implementação; compor é escrever uma quarta que chame duas — o encaixe não impede, e a decisão de junção não é instrumento"
+  },
+  "ondeFoiMedido": {
+    "o que a esteira passa": "external-engines/esteira/src/gleba-do-lab.ts · bloco PARAMETROS",
+    "o K do Generate": "external-engines/esteira/src/motores/generate.ts (`...PARAMS_PADRAO_V1` + 8 campos) contra urban-create-hub-41d93a4d origin/main:src/lib/engine/gerar-v1.ts:456 (12 campos)",
+    "o K do Parcelamento": "external-engines/testfit/adapter/src/ida.ts (9 chaves preenchidas) contra motor-testfit origin/main:src/lib/lab/tipos.ts:124 (22 ChaveFaixa)",
+    "o Symbios": "external-engines/esteira/src/inventario-das-idas.ts · `parametros: perdaEmBloco`",
+    "o motor composto": "external-engines/esteira/src/porta/motores.ts · três implementações, uma por rodada, tudo indexado por `id`"
+  },
+  "naoConsertaNada": "o conserto é do chassi e dos donos dos motores; esta casa mede e pede, e o pedido vai em lista no relatório (§4)",
+  "conferidoAqui": "verde na mão, não no GitHub (§7)"
+}
