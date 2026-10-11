@@ -147,7 +147,13 @@ minhas, não da Central:
 | o que a frase afirmava | o disco |
 |---|---|
 | `VERSAO.txt` não existe | **certo** |
-| a cópia do Padrão não existe | **FALSO** — `docs/referencia/PADRAO_ARCHILLY.md`, trazida em **03/10**, PR #40 |
+| a cópia do Padrão não existe | **FALSO** — `docs/referencia/PADRAO_ARCHILLY.md`, ~~trazida em **03/10**, PR #40~~ **14/09, PR #12, `4081c27`** |
+
+> **A data desta linha estava errada, e o erro era de CLONE RASO** — corrigido no LAB-88 (D293):
+> a cópia entrou em **`4081c27`, 14/09, PR #12**, o commit da própria conferência do `LF-FINAL`, e
+> **um único commit tocou o arquivo**. O *"03/10, PR #40"* era o commit do **corte** do clone
+> desta sessão. *Clone raso não erra por silêncio: devolve um commit que existe, com data e
+> assunto plausíveis — e isso passa por medição.* **E a cópia saiu da árvore em 11/10** (D292).
 
 E não era preciso procurar: o **`docs/INDEX.md` a lista** como *"cópia trazida"*, e o `LF-FINAL-2`
 já a tinha conferido **byte a byte** contra a do `motor-testfit`. *A árvore se contradizia em duas

@@ -153,6 +153,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
+    "LAB-88/onde-esta-o-padrao.json":
+      "mede a PROCEDÊNCIA do Padrão da família e as três formas que o item 021 pôs na mesa — a fonte com o commit lido, a fração que a cópia que saiu representava do documento vigente, o rótulo `3.0` cobrindo dois textos e o que cada forma custa sem rede —, não terreno: o objeto é um documento e um repositório, e ela não roda motor, não lê gleba e não tem semente",
     "LAB-87/as-onze-reclassificadas.json":
       "mede as ONZE provas que o LAB-86 classificou como de universo interno, abertas uma a uma e reclassificadas em três espécies — estado com ferramenta, registro de evento e regerada pelo verde —, com o que a recontagem significa em cada uma e a soma fechando; não terreno: ela não roda motor, não lê gleba e não tem semente",
     "LAB-86/a-prova-velha.json":

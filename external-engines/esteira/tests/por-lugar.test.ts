@@ -190,19 +190,27 @@ describe("LAB-87 · o que a lista diz sobre a árvore, conferido no disco", () =
   });
 
   /**
-   * E o aviso do número congelado **não mora dentro da cópia**: a única coisa que ela promete é
-   * ser byte a byte igual à do `motor-testfit`, e escrever o aviso lá dentro quebraria a promessa.
-   * Então ele mora no `docs/INDEX.md`, e é lá que a trava o cobra.
+   * **ESTA TRAVA MUDOU DE OBJETO NO LAB-88, e o motivo fica escrito** (D292).
+   *
+   * No LAB-87 ela cobrava o aviso do *número congelado* no `docs/INDEX.md` e o **proibia** dentro
+   * da cópia, porque a única coisa que aquela cópia prometia era ser byte a byte igual à do
+   * `motor-testfit`. **A cópia saiu**: medido, ela era **8,4 % das linhas** do documento vigente,
+   * e o rótulo `"3.0"` cobre **dois textos** na origem — *carimbar a versão é carimbar o rótulo.*
+   *
+   * > **Trava cuja coisa cobrada deixou de existir não fica "passando": ela passa a cobrar uma
+   * > frase que ficou falsa.** Mantê-la como estava exigiria do `INDEX.md` a palavra *"congelada
+   * > na Versão 1"* para sempre — a régua obrigando a casa a repetir um número que a casa acabou
+   * > de tirar do caminho. *Regra que sobrevive ao seu objeto vira trabalho para manter a mentira.*
+   *
+   * O que ela cobra agora é a **passagem**: o índice diz que aquele caminho é um PONTEIRO, e
+   * quem confere a procedência campo por campo é a `padrao-da-familia.test.ts`.
    */
-  test("o número congelado da cópia está declarado no `INDEX.md`, e NÃO dentro da cópia", () => {
+  test("o `INDEX.md` declara que aquele caminho é um PONTEIRO, e não mais uma cópia", () => {
     const indice = ler("docs/INDEX.md");
     expect(indice).not.toBeNull();
-    expect(indice!).toContain("congelada na Versão 1");
-    expect(indice!).toContain("3.0");
-
-    const copia = ler("docs/referencia/PADRAO_ARCHILLY.md");
-    expect(copia).not.toBeNull();
-    expect(copia!).not.toContain("congelada na Versão 1");
-    expect(copia!).not.toContain("D291");
+    expect(indice!).toContain("é um PONTEIRO");
+    expect(indice!).toContain("archilly-central");
+    // E a frase que a trava velha exigia NÃO é mais exigida de lugar nenhum:
+    expect(indice!).not.toContain("congelada na Versão 1 enquanto");
   });
 });

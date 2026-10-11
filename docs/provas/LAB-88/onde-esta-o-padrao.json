@@ -1,0 +1,80 @@
+{
+  "prompt": "LAB-88",
+  "oQue": "a procedência do Padrão da família e as três formas que o item 021 pôs na mesa, medidas",
+  "oQueIstoNaoMede": "não mede gleba, motor nem semente — mede documento e repositório, e está na lista de exceções do §7",
+  "quando": "2026-10-11T00:27:39.390Z",
+  "aFonte": {
+    "repositorio": "jonny583/archilly-central",
+    "visibilidade": "privado",
+    "ramo": "main",
+    "caminho": "docs/PADRAO_ARCHILLY.md",
+    "versao": "3.0 · 10/10/2026",
+    "commit": "e48bff9",
+    "quandoOCommitFoiFeito": "2026-10-10T20:36:15Z",
+    "linhas": 1731,
+    "bytes": 107395,
+    "lidoEm": "2026-10-11",
+    "comoSeLe": "git show origin/main:docs/PADRAO_ARCHILLY.md"
+  },
+  "aCopiaQueSaiu": {
+    "commit": "4081c27",
+    "quando": "2026-09-14",
+    "pr": 12,
+    "caminho": "docs/referencia/PADRAO_ARCHILLY.md",
+    "versao": "1 · 13/09/2026",
+    "linhas": 145,
+    "bytes": 12716,
+    "comoSeLe": "git show 4081c27:docs/referencia/PADRAO_ARCHILLY.md",
+    "commitsQueATocaram": 1,
+    "fracaoDasLinhas": 8.4,
+    "fracaoDosBytes": 11.8
+  },
+  "oRotuloCobreDoisTextos": {
+    "osDois": [
+      {
+        "commit": "96dbc9b",
+        "quando": "2026-10-10T03:35Z",
+        "linhas": 1712,
+        "bytes": 106081
+      },
+      {
+        "commit": "e48bff9",
+        "quando": "2026-10-10T20:36Z",
+        "linhas": 1731,
+        "bytes": 107395
+      }
+    ],
+    "diferencaDeLinhas": 19,
+    "diferencaDeBytes": 1314,
+    "oQueIssoDecide": "rótulo não é identidade (D148): só o commit identifica o texto — e a cópia vendorizada do Parcelamento é byte a byte igual à PRIMEIRA das duas, já atrás sem o número mudar"
+  },
+  "asTresFormas": [
+    {
+      "forma": 1,
+      "nome": "ponteiro com procedência",
+      "escolhida": true,
+      "porque": "o que esta casa pode manter é ONDE a coisa está, qual commit foi lido e quando — e o ponteiro ficou no MESMO caminho, para nenhum link morrer e para o aviso estar onde quem procura o Padrão chega",
+      "executavelSemRede": true
+    },
+    {
+      "forma": 2,
+      "nome": "cópia com carimbo e guarda contra o commit da origem",
+      "escolhida": false,
+      "porque": "a fonte é PRIVADA e este repositório é PÚBLICO: o verde roda sem rede por desenho e o trabalho de CI que roda em todo envio não tem segredo. A trava ficaria VERDE por não achar o objeto, que é o D213 — e seria um TERCEIRO vizinho privado a pedir no §11",
+      "executavelSemRede": false
+    },
+    {
+      "forma": 3,
+      "nome": "congelada e declarada, com o tamanho",
+      "escolhida": false,
+      "porque": "declarar a VERSÃO é declarar um rótulo, e o rótulo `3.0` cobre DOIS textos na origem (+19 linhas, +1 314 bytes, mesmo número). Quem abrisse o arquivo leria 145 linhas com cara de documento normativo, com o aviso no índice de outra página",
+      "executavelSemRede": true
+    }
+  ],
+  "oPonteiro": {
+    "caminho": "docs/referencia/PADRAO_ARCHILLY.md",
+    "problemas": []
+  },
+  "aCorrecaoDoD291": "o D291 dizia 03/10, PR #40; medido com história inteira é 4081c27, 14/09, PR #12 — o número errado era o commit do CORTE de um clone raso (D293)",
+  "conferidoAqui": "verde na mão, não no GitHub (§7)"
+}

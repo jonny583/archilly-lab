@@ -1,3 +1,60 @@
+> ✅ **FEITO no LAB-88**, em 11/10/2026, no despertador das 00:05. Relatório em
+> [`../relatorios/LAB-88.md`](../relatorios/LAB-88.md), prova em
+> `docs/provas/LAB-88/onde-esta-o-padrao.json`, decisões **D292 e D293**.
+>
+> **Escolhida a FORMA 1 — ponteiro com procedência, no MESMO caminho** — e a medição que decidiu
+> **não estava no item**: o rótulo *"Versão 3.0 · 10/10/2026"* cobre **DOIS textos diferentes na
+> origem**, `96dbc9b` (1 712 linhas · 106 081 bytes) e `e48bff9` (1 731 · 107 395) — **+19 linhas e
+> +1 314 bytes com o mesmo número** —, e a cópia vendorizada do Parcelamento é **byte a byte igual
+> à PRIMEIRA**: ela já está atrás **sem que o número mude**. *É o D148 num documento: carimbar a
+> versão numa cópia é carimbar o rótulo, e rótulo não é identidade — só o commit identifica o
+> texto.* **É isso que mata a forma 3**, porque declarar *"Versão 1, 8 % do vigente"* é declarar um
+> rótulo.
+>
+> **A forma 2 cai por MEDIÇÃO, e a §11 mordeu como você previu:** `jonny583/archilly-central` é
+> **privado** e este repositório é **público**; o verde roda sem rede por desenho e o trabalho de
+> CI que roda em todo envio **não tem segredo** — a trava ficaria **verde por não achar o objeto**
+> (D213), e seria um **terceiro** vizinho privado a pedir na §11, que já espera por dois desde o
+> LAB-38. Está registrado na página dele, para leigo, com o *"não escolhi essa forma exatamente
+> para não te pedir uma terceira senha"*.
+>
+> **A sua medida conferida, na origem e com `git show`:** a fonte é `main:docs/PADRAO_ARCHILLY.md`,
+> **Versão 3.0**, commit **`e48bff9`** (20:36:15Z), **1 731 linhas · 107 395 bytes**; a cópia que
+> havia aqui tinha **145 linhas · 12 716 bytes** = **8,4 % das linhas e 11,8 % dos bytes**. Você
+> disse *"8 % dele"* e está certo nas duas unidades. **O conteúdo de `e48bff9` é byte a byte o do
+> `HEAD` de agora.**
+>
+> **O ponteiro ficou no MESMO caminho de propósito:** é onde quem procura o Padrão chega, e
+> **nenhum link morreu** — o `LF-FINAL`, o `LF-FINAL-2` e o `INDEX` apontam para ele. **O texto da
+> Versão 1 está no histórico**, em `4081c27`, com a receita de leitura escrita no ponteiro:
+> *arquivo que sai da árvore continua no histórico; o que a saída tira é a autoridade de parecer
+> vigente.*
+>
+> **E O PONTO CEGO DA §6 BATEU DUAS VEZES NESTA RODADA, COM O MESMO INSTRUMENTO** (D293, a **28ª**,
+> e a **terceira que escapou**). **Primeira:** eu ia te acusar de mandar procedência velha — clonei
+> a origem com `--depth 1`, perguntei quando o arquivo mudou e ouvi **`944c232`, de 23:48**, três
+> horas depois do commit que você mandou. Medido com profundidade, o último commit do arquivo **é
+> `e48bff9`**: `944c232` é só o **HEAD**, o commit do **corte**. **A sua procedência estava exata.**
+> **Segunda, e essa já estava publicada:** o **D291** de ontem diz *"trazida em 03/10 no PR #40"*, e
+> a verdade é **`4081c27`, 14/09, PR #12** — o commit da própria conferência do `LF-FINAL` —, com
+> **um único commit** em toda a vida do arquivo. *Clone raso não erra por silêncio: devolve um
+> commit QUE EXISTE, com data e assunto plausíveis — a pior forma de resposta errada, a que passa
+> por medição.* Corrigido **por riscado** nos quatro lugares em que o número saiu, e
+> `git rev-parse --is-shallow-repository` é a pergunta que faltava.
+>
+> **E uma trava minha mudou de objeto, com o motivo escrito:** a do LAB-87 exigia a frase
+> *"congelada na Versão 1"* no índice e a proibia dentro da cópia; com a cópia fora, mantê-la
+> obrigaria a casa a **repetir para sempre um número que ela acabou de tirar do caminho**. *Trava
+> cuja coisa cobrada deixou de existir não fica "passando": passa a cobrar uma frase que ficou
+> falsa.*
+>
+> **O que este item não pediu e não foi feito:** a **D226** não foi tocada, **nada foi escrito em
+> repositório vizinho** (a divergência das duas cópias do Parcelamento é sua para levar à caixa
+> dele), o **gatilho não foi religado**, e **nenhum texto foi inventado** — a cópia não foi
+> atualizada para a 3.0.
+
+---
+
 # 021 — a cópia do Padrão: eu NÃO vou mandar o texto, e o motivo é um número
 
 **De:** a direção · 11/10/2026, 00h20 UTC
