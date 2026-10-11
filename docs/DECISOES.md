@@ -8963,15 +8963,23 @@ velha do mesmo documento, é **um oitavo dele**.
 
 > **O rótulo `"Versão 3.0 · 10/10/2026"` cobre DOIS TEXTOS DIFERENTES na origem.**
 
-| commit | quando | linhas | bytes |
-|---|---|---|---|
-| `96dbc9b` | 10/10 03:35Z | 1 712 | 106 081 |
-| `e48bff9` | 10/10 20:36Z | **1 731** | **107 395** |
+| blob | entregue por | quando | linhas | bytes |
+|---|---|---|---|---|
+| `f95b2838b16b` | ~~`96dbc9b`~~ **`67d18d5`** | 10/10 00:38Z | 1 712 | 106 081 |
+| `f22f7deb742c` | `e48bff9` | 10/10 20:36Z | **1 731** | **107 395** |
 
 **+19 linhas e +1 314 bytes com o mesmo número** — e a cópia vendorizada do Parcelamento
-(`vendor/archilly-central/padroes/`) é **byte a byte igual à primeira**: ela já está atrás **sem
-que o número mude**. *Isto é o D148 num documento: carimbar a versão é carimbar o **rótulo**, e
-rótulo não é identidade. Só o commit identifica o texto.*
+(`vendor/archilly-central/padroes/`) é **byte a byte igual ao primeiro BLOB**: ela já está atrás
+**sem que o número mude**. *Isto é o D148 num documento: carimbar a versão é carimbar o **rótulo**,
+e rótulo não é identidade.* ~~Só o commit identifica o texto.~~
+
+> **DUAS CORREÇÕES DO LAB-89 (D294), e as duas por medição.** Primeira: ~~`96dbc9b`~~ era **de
+> clone raso** — com a história inteira, quem **entregou** aquele texto é **`67d18d5`**, de
+> 00:38, e `96dbc9b` e `170a28f` **não estão na história do arquivo**. Segunda: ~~*"só o commit
+> identifica o texto"*~~ está **errado como estava escrito** — **o rótulo identifica a INTENÇÃO,
+> o commit identifica a ENTREGA, e quem identifica o TEXTO é o BLOB** (`f95b2838…` contra
+> `f22f7deb…`, iguais em qualquer clone). *O veredicto desta decisão continua de pé; o nome do
+> meio e a frase final, não.*
 
 **É isso que mata a forma 3** (*congelar e declarar*): declarar *"Versão 1, 8 % do vigente"*
 declara um rótulo, e quem abrisse o arquivo leria **145 linhas com cara de documento normativo**,
@@ -9058,3 +9066,116 @@ commits são **dados declarados**, conferidos contra a decisão escrita — e a 
 
 **E a lição de família:** *toda afirmação de "quando isto mudou" feita dentro de um clone raso é
 uma afirmação sobre o clone, não sobre o repositório.*
+
+---
+
+## D294 · O RÓTULO IDENTIFICA A INTENÇÃO, O COMMIT IDENTIFICA A ENTREGA, O BLOB IDENTIFICA O TEXTO · 11/10/2026
+
+**Prompt:** LAB-89 (item 022). **Vigésima nona ocorrência do ponto cego da §6, e a QUARTA que
+escapou** — com o D119, o D161 e o D293.
+
+### O que eu publiquei ontem, e o que era
+
+O **D292** escreveu, e eu repeti em quatro lugares e num PR mesclado:
+
+> ~~"o rótulo `3.0` cobre dois textos: `96dbc9b` (1 712 linhas) e `e48bff9` (1 731) … **só o
+> commit identifica o texto**"~~
+
+**O veredicto estava certo e os dois nomes do meio estavam errados.** Medido no `archilly-central`
+com a história **inteira** (245 commits, `is-shallow=false`):
+
+| onde | `git log -- docs/PADRAO_ARCHILLY.md` |
+|---|---|
+| o meu clone **raso** | `e48bff9`, **`96dbc9b`** — 2 commits |
+| o clone **raso da direção**, de outra profundidade | `e48bff9`, **`170a28f`** — 2 commits |
+| **aprofundado** | `e48bff9`, **`67d18d5`**, `8212a54`, … — **21** commits |
+
+**`96dbc9b` e `170a28f` não estão na história do arquivo** — `git log -- <caminho> | grep -c` dá
+**zero** para os dois. Os três commits **devolvem o mesmo blob** (`f95b2838…`, 1 712 linhas ·
+106 081 bytes), e **só `67d18d5` o entregou** (10/10 00:38).
+
+### O mecanismo, e ele é mais largo que o D293
+
+> **`git log -- <caminho>` responde "quem ENTREGOU este texto". Num clone raso ele responde "o
+> commit mais velho que eu tenho e que já tinha este texto" — que é o CORTE.** E como
+> `git show <qualquer commit posterior>:<caminho>` devolve o texto vigente naquele momento, **todo
+> commit posterior à entrega "confirma" o texto e passa por entrega.**
+
+O D293 disse *"toda afirmação de QUANDO isto mudou dentro de um clone raso é afirmação sobre o
+clone"*. Medido, **toda afirmação de QUAL COMMIT também é** — e o mais útil: **duas profundidades
+diferentes dão nomes diferentes, e cada uma é internamente coerente.** A da direção e a minha
+discordaram, e as duas "conferiam".
+
+### A correção da frase, e ela vale para a família
+
+> **O RÓTULO identifica a intenção de quem publicou — e pode cobrir mais de um texto.**
+> **O COMMIT identifica a ENTREGA — e o nome dele depende da profundidade do clone que você lê.**
+> **O BLOB identifica o TEXTO, byte a byte, igual em qualquer clone** (`git rev-parse <commit>:<caminho>`).
+
+Então a procedência desta casa passou a gravar **o blob junto do commit**: quem confere não
+depende mais da profundidade do clone dele. O ponteiro
+[`docs/referencia/PADRAO_ARCHILLY.md`](referencia/PADRAO_ARCHILLY.md) traz
+`f22f7deb742c…`, a trava o **cobra**, e `96dbc9b` foi **riscado com a medição ao lado** nos
+lugares em que saiu (D161) — aqui, no `CLAUDE.md`, no `docs/INDEX.md`, no ponteiro e no relatório
+do LAB-88.
+
+**O que NÃO mudou:** o rótulo `3.0` **continua cobrindo dois textos**, a cópia vendorizada do
+Parcelamento **continua** sendo o texto antigo, e a escolha da **forma 1** continua sendo a certa.
+*Régua que erra o rótulo e acerta o veredicto não é régua errada (D184) — mas rótulo errado numa
+procedência é exatamente o que a procedência existe para não ter.*
+
+---
+
+## D295 · A PERGUNTA DO CLONE RASO VIROU GUARDA, E A GUARDA RECUSA EM VEZ DE RESPONDER · 11/10/2026
+
+**Prompt:** LAB-89 (item 022). A direção cobrou pela **minha própria doutrina**, e com razão: o
+LAB-88 deixou a lição **escrita e não cobrada**.
+
+> **A409:** *"toda lição que descreve um erro repetível merece a pergunta 'dá para cobrar isso por
+> texto?'"* — e a minha própria frase: *"escrever a regra aqui não impediu nada; **guarda
+> impediu**."*
+
+### O que ficou, e por que é RECUSA e não ressalva
+
+`external-engines/esteira/src/profundidade-da-historia.ts` — **a pergunta mora num lugar só**
+(`git rev-parse --is-shallow-repository`), e toda leitura que afirma procedência passa por ela
+antes de medir. Em clone raso a régua **não mede**: devolve `valor: null` com o motivo nomeado.
+
+> **O que não foi medido sai `null`, nunca um valor plausível** (D23) — e aqui o valor plausível é
+> o desfecho ruim **exato** que o D293 mediu: um commit que existe, com data e assunto.
+
+**A recusa nem chama o `medir`**, de propósito: *para não haver nem a tentação de aproveitar "o
+valor que veio junto"*. **Há trava para isso** — um contador que tem de ficar em zero.
+
+### O achado de ambiente, que muda o desenho da trava
+
+**O portão desta casa RODA NUM CLONE RASO**, e isso é medido no arquivo: o `verde.yml` usa
+`actions/checkout@v4` **sem `fetch-depth`**, cujo padrão é **1**.
+
+> **Guarda que confunde "não posso afirmar" com "a afirmação está errada" reprova o ambiente em
+> vez de medir a coisa.** A trava aceita **os dois** desfechos sobre o repositório real — medição
+> ou recusa declarada — e reprova **um terceiro**: valor devolvido sem história para sustentá-lo.
+
+*Uma trava que exigisse história inteira ficaria vermelha no portão para sempre, por um motivo que
+não é defeito nenhum — e vigia que nasce vermelho vira ruído e morre (D287).*
+
+### A prova é de sentido invertido, e com clone de VERDADE
+
+`bun run lab89` **monta um clone raso** deste repositório por `file://` — **sem rede** —, roda a
+mesma régua nos dois e publica o veredicto:
+
+```
+AQUI  · is-shallow=false · MEDIU   · valor=04effac · historia-inteira
+RASO  ·                     RECUSOU · valor=null   · clone-raso
+o que o CORTE teria respondido sem a pergunta: 6152dec
+commits de CLAUDE.md: 1 no raso · 61 aqui
+```
+
+**O mecanismo reproduzido em casa:** no clone raso o `CLAUDE.md` tem **1** commit de história em
+vez de **61**, e o corte responderia **`6152dec`** — que é o commit em que a própria direção
+escreveu este item. *O nome é plausível, recente e errado.*
+
+**As travas são herméticas** (`tests/profundidade-da-historia.test.ts`, 13 travas, no portão sem
+clones): a profundidade entra **injetada**, nos três estados — raso, inteiro e **desconhecido** —,
+e a propriedade cobrada não é um caso, é **nenhuma recusa devolve valor**. O clone de verdade fica
+na ferramenta, porque *trava que clona no portão paga bateria para medir o que uma injeção mede.*

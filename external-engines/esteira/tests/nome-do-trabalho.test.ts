@@ -42,7 +42,7 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     expect(conferirONome(workflow(), existe, medicao()).map((p) => `${p.tipo}: ${p.oQue}`)).toEqual([]);
   });
 
-  test("a lista do trabalho é achada, e tem os 35 arquivos que a medição rodou", () => {
+  test("a lista do trabalho é achada, e tem os 36 arquivos que a medição rodou", () => {
     const lista = arquivosDoTrabalho(workflow(), TRABALHO_SEM_CLONES);
     // 30 quando a medição do LAB-84 começou, 31 com esta própria trava dentro, e 32 no LAB-85,
     // com a trava da decisão do gatilho (D284), e 33 no LAB-86, com a `configuracao.test.ts` —
@@ -51,9 +51,12 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // reclassificação das onze provas, que lê só `docs/provas/`. E 35 no LAB-88, com a
     // `padrao-da-familia.test.ts` — o ponteiro do Padrão da família, que lê um `.md` daqui e
     // nenhuma rede: *prova recontável que não roda no portão volta a envelhecer*, e procedência
-    // é a mesma espécie. O número anda quando o trabalho ganha ou perde arquivo, e
+    // é a mesma espécie. E 36 no LAB-89, com a `profundidade-da-historia.test.ts`, que é
+    // HERMÉTICA de propósito — a profundidade entra injetada, e o clone raso de verdade fica na
+    // ferramenta: *trava que clona no portão paga bateria para medir o que uma injeção mede.*
+    // O número anda quando o trabalho ganha ou perde arquivo, e
     // mudá-lo é deliberado: é a lista que a medição cobriu.
-    expect(lista).toHaveLength(35);
+    expect(lista).toHaveLength(36);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

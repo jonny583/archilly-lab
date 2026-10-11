@@ -1,3 +1,60 @@
+> ✅ **FEITO no LAB-89**, em 11/10/2026, no despertador das 01:05. Relatório em
+> [`../relatorios/LAB-89.md`](../relatorios/LAB-89.md), prova em
+> `docs/provas/LAB-89/a-pergunta-virou-guarda.json`, decisões **D294 e D295**.
+>
+> **Você estava certa duas vezes, e a segunda doeu:** a lição ficou escrita e não cobrada, e
+> **repetiu no dia seguinte**. Antes de escrever uma linha de código eu remedi, e o erro estava
+> **nos meus próprios números publicados** — o D292 deu `96dbc9b` como o commit daquele texto, e
+> medido com a história inteira (`--depth=225`, 245 commits) quem o **entregou** é **`67d18d5`**,
+> às 00:38. **`96dbc9b` e `170a28f` não estão na história do arquivo** — `git log -- <caminho> |
+> grep -c` dá **zero** para os dois; os três devolvem **o mesmo blob** `f95b2838…`, porque o
+> arquivo ainda não tinha mudado quando eles aconteceram. **É a 29ª do ponto cego, a quarta que
+> escapou, e o MESMO instrumento da 28ª** — num PR já mesclado, riscado agora nos **cinco**
+> lugares em que saiu.
+>
+> **A sua medição estava exata, e eu a amplio:** `git log -- <caminho>` responde *"quem ENTREGOU
+> este texto"*; num clone raso responde *"o commit mais velho que eu tenho e que já tinha este
+> texto"* — o **corte**. E como `git show <qualquer posterior>:<caminho>` devolve o texto vigente
+> naquele momento, **todo commit posterior à entrega "confirma" o texto e passa por entrega.** O
+> mais útil: **duas profundidades diferentes dão nomes diferentes, cada uma internamente
+> coerente** — a sua e a minha discordaram, e as duas "conferiam".
+>
+> **E a sua correção derruba uma frase minha, não um nome:** ~~*"só o commit identifica o
+> texto"*~~. **O RÓTULO identifica a intenção, o COMMIT identifica a ENTREGA, e o BLOB identifica
+> o TEXTO** — igual em qualquer clone. Então a procedência desta casa passou a gravar **o blob
+> junto do commit** (`f22f7deb742c…` para o vigente), e a trava o **cobra**: é o único campo que
+> não muda de nome com a profundidade do clone de quem confere.
+>
+> **A guarda existe e RECUSA em vez de responder** (`src/profundidade-da-historia.ts`): raso →
+> `valor: null`, motivo `clone-raso`; profundidade desconhecida → `null` também, porque *não
+> medido não é medido* (D23); inteira → mede. **A recusa nem chama o `medir`**, de propósito, e
+> **há trava com um contador que tem de ficar em zero** — *para não haver nem a tentação de
+> aproveitar "o valor que veio junto"*.
+>
+> **E achei uma coisa que mudou o desenho da trava: O PORTÃO DESTA CASA RODA NUM CLONE RASO.**
+> Medido no arquivo — `actions/checkout@v4` **sem `fetch-depth`**, cujo padrão é 1. Uma trava que
+> exigisse história inteira ficaria **vermelha no portão para sempre**, por um motivo que não é
+> defeito nenhum. *Guarda que confunde "não posso afirmar" com "a afirmação está errada" reprova o
+> ambiente em vez de medir a coisa* — então a trava aceita **medição OU recusa declarada** e
+> reprova **um terceiro caso**: valor devolvido sem história que o sustente.
+>
+> **A prova é de sentido invertido e com clone de VERDADE**, como você pediu: `bun run lab89` monta
+> um clone raso deste repositório por `file://` — **sem rede** —, roda a mesma régua nos dois e
+> apaga o clone. No raso **RECUSOU** (`valor=null`), no completo **MEDIU** (`04effac`), e **o corte
+> teria respondido `6152dec`** — que é o commit em que você escreveu **este item**. No clone raso o
+> `CLAUDE.md` tem **1** commit de história em vez de **61**. *O nome é plausível, recente e errado.*
+> A prova entrou na **lista de exceções do §7** com o motivo: ela mede um **instrumento**, não
+> gleba. E as **13 travas** são herméticas — a profundidade entra **injetada** —, porque *trava que
+> clona no portão paga bateria para medir o que uma injeção mede*.
+>
+> **O que você não pediu e eu não fiz:** a **D226** (e obrigada por dizer o motivo — ela continua
+> a primeira da lista), o sétimo mecanismo, e **generalizar o ponteiro para a família**: isso é
+> seu, e você já está fazendo — o Parcelamento recebeu a `023`. **Nada escrito em repositório
+> vizinho:** o `archilly-central` foi **aprofundado só para leitura**, e os quatro clones
+> terminaram limpos.
+
+---
+
 # Caixa 022 — a sua lição mais nova ainda é uma FRASE, e a sua própria regra manda cobrá-la
 
 **Da direção, 11/10/2026, 00h40 UTC.** Este item sai do seu LAB-88, achado (5), e

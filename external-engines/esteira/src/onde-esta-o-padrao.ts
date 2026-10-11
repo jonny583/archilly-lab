@@ -37,6 +37,8 @@
  * continua no histórico; o que a saída tira é a autoridade de parecer vigente.*
  */
 
+import { type LeituraDaHistoria, lerPelaHistoria } from "./profundidade-da-historia.ts";
+
 /** A fonte do Padrão, conferida **na origem** em 11/10/2026 — nunca de clone no disco. */
 export const A_FONTE_DO_PADRAO = {
   repositorio: "jonny583/archilly-central",
@@ -46,6 +48,11 @@ export const A_FONTE_DO_PADRAO = {
   versao: "3.0 · 10/10/2026",
   commit: "e48bff9",
   quandoOCommitFoiFeito: "2026-10-10T20:36:15Z",
+  /**
+   * **O BLOB — o que identifica o TEXTO, e não depende da profundidade do clone** (LAB-89,
+   * D294). `git rev-parse e48bff9:docs/PADRAO_ARCHILLY.md`.
+   */
+  blob: "f22f7deb742c4b9b758ade255735cd0979034f41",
   linhas: 1731,
   bytes: 107395,
   lidoEm: "2026-10-11",
@@ -74,10 +81,33 @@ export const COMMIT_DA_COPIA_QUE_SAIU = {
   commitsQueATocaram: 1,
 } as const;
 
-/** O rótulo "3.0" cobre dois textos — a medição que mata a forma 3. */
+/**
+ * O rótulo "3.0" cobre dois textos — a medição que mata a forma 3, **agora pelo BLOB** (D294).
+ *
+ * ~~`{ commit: "96dbc9b", … }`~~ **O nome estava errado, e era de clone raso.** Medido com a
+ * história inteira (245 commits), quem **entregou** este texto é **`67d18d5`** (10/10 00:38), e
+ * `96dbc9b` **não está na história do arquivo** — ele só devolve o mesmo blob porque o arquivo
+ * ainda não tinha mudado quando ele aconteceu. *Publiquei `96dbc9b` em quatro lugares e num PR
+ * mesclado; a 29ª do ponto cego, e a quarta que escapou.*
+ */
 export const OS_DOIS_TEXTOS_DA_3_0 = [
-  { commit: "96dbc9b", quando: "2026-10-10T03:35Z", linhas: 1712, bytes: 106081 },
-  { commit: "e48bff9", quando: "2026-10-10T20:36Z", linhas: 1731, bytes: 107395 },
+  {
+    blob: "f95b2838b16b3445be1ef6677dc09a7517c55981",
+    entreguePor: "67d18d5",
+    quando: "2026-10-10T00:38Z",
+    linhas: 1712,
+    bytes: 106081,
+    /** Commits que DEVOLVEM este blob sem o terem entregue — e que um clone raso nomeia. */
+    confirmadoSemEntregarPor: ["96dbc9b", "170a28f"],
+  },
+  {
+    blob: "f22f7deb742c4b9b758ade255735cd0979034f41",
+    entreguePor: "e48bff9",
+    quando: "2026-10-10T20:36Z",
+    linhas: 1731,
+    bytes: 107395,
+    confirmadoSemEntregarPor: [],
+  },
 ] as const;
 
 /** O caminho do ponteiro — **o mesmo da cópia que saiu**, para nenhum link morrer. */
@@ -89,6 +119,33 @@ export const CAMINHO_DO_PONTEIRO = "docs/referencia/PADRAO_ARCHILLY.md";
  */
 export const O_TITULO_DO_PADRAO =
   "# PADRÃO ARCHILLY — COMO NASCE E COMO SE TRABALHA EM QUALQUER APP DA FAMÍLIA";
+
+/**
+ * **RECONFERIR a procedência só é possível com história inteira** (item 022, LAB-89).
+ *
+ * Esta é a porta por onde toda releitura da procedência passa: ela **pergunta a profundidade
+ * antes** e **recusa** em clone raso, em vez de devolver o commit do corte. O `medir` só é
+ * chamado quando a história está inteira — a recusa não mede.
+ *
+ * > **Não é a régua que decide se pode afirmar: é a profundidade do clone em que ela está
+ * > rodando.** E o CI desta casa roda num clone raso (`actions/checkout` sem `fetch-depth`),
+ * > então a recusa é o caminho NORMAL ali, e não um defeito.
+ */
+export function reconferirOCommitDaFonte(
+  ehRaso: boolean | null,
+  commitDoCaminhoNaOrigem: () => string | null,
+): LeituraDaHistoria {
+  return lerPelaHistoria(ehRaso, commitDoCaminhoNaOrigem);
+}
+
+/**
+ * O commit gravado **bate** com o que a origem diz hoje? Devolve `null` quando **não se pode
+ * afirmar** — e `null` aqui é "não medido", nunca "bate" nem "não bate" (D23).
+ */
+export function oCommitGravadoAindaEOMesmo(leitura: LeituraDaHistoria): boolean | null {
+  if (!leitura.podeAfirmar || leitura.valor === null) return null;
+  return leitura.valor.startsWith(A_FONTE_DO_PADRAO.commit);
+}
 
 export interface ProblemaDoPonteiro {
   tipo: "campo-ausente" | "e-a-copia-de-novo" | "ponteiro-ausente";
@@ -119,6 +176,9 @@ export function conferirOPonteiro(texto: string | null): ProblemaDoPonteiro[] {
     ["a data da leitura", A_FONTE_DO_PADRAO.lidoEm],
     ["a receita de ler da ORIGEM", A_FONTE_DO_PADRAO.comoSeLe],
     ["o commit do histórico, onde a Versão 1 ficou", COMMIT_DA_COPIA_QUE_SAIU.commit],
+    // LAB-89 (D294): o BLOB é o que identifica o TEXTO, e é o único campo desta lista que não
+    // muda de nome com a profundidade do clone de quem confere.
+    ["o BLOB do texto lido", A_FONTE_DO_PADRAO.blob.slice(0, 12)],
   ];
   for (const [oQue, valor] of exigidos) {
     if (!texto.includes(valor)) problemas.push({ tipo: "campo-ausente", oQue: `falta ${oQue}: \`${valor}\`` });

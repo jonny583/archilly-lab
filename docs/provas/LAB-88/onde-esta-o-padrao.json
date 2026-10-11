@@ -2,7 +2,7 @@
   "prompt": "LAB-88",
   "oQue": "a procedência do Padrão da família e as três formas que o item 021 pôs na mesa, medidas",
   "oQueIstoNaoMede": "não mede gleba, motor nem semente — mede documento e repositório, e está na lista de exceções do §7",
-  "quando": "2026-10-11T00:27:39.390Z",
+  "quando": "2026-10-11T01:25:49.045Z",
   "aFonte": {
     "repositorio": "jonny583/archilly-central",
     "visibilidade": "privado",
@@ -11,6 +11,7 @@
     "versao": "3.0 · 10/10/2026",
     "commit": "e48bff9",
     "quandoOCommitFoiFeito": "2026-10-10T20:36:15Z",
+    "blob": "f22f7deb742c4b9b758ade255735cd0979034f41",
     "linhas": 1731,
     "bytes": 107395,
     "lidoEm": "2026-10-11",
@@ -32,16 +33,23 @@
   "oRotuloCobreDoisTextos": {
     "osDois": [
       {
-        "commit": "96dbc9b",
-        "quando": "2026-10-10T03:35Z",
+        "blob": "f95b2838b16b3445be1ef6677dc09a7517c55981",
+        "entreguePor": "67d18d5",
+        "quando": "2026-10-10T00:38Z",
         "linhas": 1712,
-        "bytes": 106081
+        "bytes": 106081,
+        "confirmadoSemEntregarPor": [
+          "96dbc9b",
+          "170a28f"
+        ]
       },
       {
-        "commit": "e48bff9",
+        "blob": "f22f7deb742c4b9b758ade255735cd0979034f41",
+        "entreguePor": "e48bff9",
         "quando": "2026-10-10T20:36Z",
         "linhas": 1731,
-        "bytes": 107395
+        "bytes": 107395,
+        "confirmadoSemEntregarPor": []
       }
     ],
     "diferencaDeLinhas": 19,

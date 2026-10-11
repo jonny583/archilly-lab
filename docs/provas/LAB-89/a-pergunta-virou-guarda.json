@@ -1,0 +1,50 @@
+{
+  "prompt": "LAB-89",
+  "oQue": "a pergunta do clone raso virada guarda, provada nos dois sentidos com clones de verdade",
+  "oQueIstoNaoMede": "não mede gleba, motor nem semente — mede um INSTRUMENTO de leitura de procedência, e está na lista de exceções do §7",
+  "quando": "2026-10-11T01:25:49.771Z",
+  "aPergunta": "git rev-parse --is-shallow-repository",
+  "caminhoMedido": "CLAUDE.md",
+  "osDoisSentidos": {
+    "oLadoRuim": {
+      "oQue": "clone raso montado de propósito, por `file://` e sem rede",
+      "recusou": true,
+      "valor": null,
+      "motivo": "clone-raso",
+      "oQueOCorteTeriaRespondido": "6152dec",
+      "commitsDoCaminhoNoRaso": 1
+    },
+    "oLadoBom": {
+      "oQue": "este repositório, como ele está",
+      "isShallow": false,
+      "mediu": true,
+      "valor": "04effac",
+      "motivo": "historia-inteira",
+      "commitsDoCaminho": 61
+    }
+  },
+  "oQueOCorteRespondeuNaSemana": [
+    {
+      "onde": "clone raso desta sessão (depth 50)",
+      "respondeu": "96dbc9b",
+      "estaNaHistoriaDoArquivo": false
+    },
+    {
+      "onde": "clone raso da direção (outra profundidade)",
+      "respondeu": "170a28f",
+      "estaNaHistoriaDoArquivo": false
+    },
+    {
+      "onde": "aprofundado a 245 commits, is-shallow=false",
+      "respondeu": "67d18d5",
+      "estaNaHistoriaDoArquivo": true
+    }
+  ],
+  "oQueIdentificaOQue": {
+    "rotulo": "a intenção de quem publicou — e pode cobrir mais de um texto: `3.0` cobre dois",
+    "commit": "a ENTREGA — e o nome dele depende da profundidade do clone que você está lendo",
+    "blob": "o TEXTO, byte a byte — `git rev-parse <commit>:<caminho>`, igual em qualquer clone"
+  },
+  "oVeredicto": "os dois sentidos demonstrados",
+  "conferidoAqui": "verde na mão, não no GitHub (§7)"
+}
