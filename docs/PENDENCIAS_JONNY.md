@@ -826,6 +826,35 @@ rodando, e a outra metade continua sendo rodada por mim antes de cada entrega.
 Não há pressa de hoje para amanhã — há só uma rede de segurança que ainda não
 existe.
 
+## 12 · Em que REGIME a competição dos motores vai rodar? (11/10/2026)
+
+**O que está acontecendo, em uma frase:** quando eu comparo os motores lado a lado, os dois do
+Generate desenham os lotes **como se fossem de condomínio**, e não de loteamento com ruas
+públicas — e **ninguém escolheu isso**: é o que o programa faz quando não lhe dizem nada.
+
+**Por que isso importa para você:** o regime muda **o que conta como defeito**. Num loteamento, o
+lote tem de dar frente para **rua pública**; num condomínio, dar frente para a via interna já
+serve. Então o mesmo desenho pode aparecer como *"perfeito"* num regime e *"com lotes
+irregulares"* no outro — e a comparação que você vai olhar hoje mistura os dois critérios sem
+avisar.
+
+**O que eu preciso de você, e é uma escolha só:**
+
+> **A competição dos motores roda em LOTEAMENTO (lotes com frente para rua pública) ou em
+> CONDOMÍNIO (frente para via interna)?**
+
+Pode ser *"os dois, lado a lado"* — aí eu meço duas vezes e mostro as duas tabelas. O que não dá é
+seguir sem a escolha, porque hoje ela está sendo feita **por omissão**, e por um programa.
+
+**Enquanto você não decidir, nada para:** eu continuo medindo e **continuo dizendo em cada
+medição** que o regime foi o de condomínio por falta de escolha. *Medição com a premissa declarada
+vale; o que não vale é a premissa escondida.*
+
+**E por que isto é seu e não meu:** regime de parcelamento é regra urbanística, e regra urbanística
+é sua — eu não escolho por você nem por conveniência de teste.
+
+---
+
 ### Uma nota de 11/10, e ela NÃO muda o que eu preciso de você
 
 Nesta data eu tirei daqui a cópia que este laboratório guardava do **manual da

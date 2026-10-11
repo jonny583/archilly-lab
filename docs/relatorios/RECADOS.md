@@ -2455,3 +2455,95 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · e o INTERVALO NOVO do despertador (8 h) está anotado na CONTA, não tocado:
   ligar, desligar e reagendar é do chat.
 ```
+
+---
+
+## 11/10/2026 · LAB-92 — item 025 + dois adendos: premissas idênticas? não, e K = 17
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-92 (item 025 + dois adendos) ===
+Estado: FEITO e mesclado na main. A pergunta do item está respondida com a conta, não com adjetivo: HOJE A ESTEIRA NÃO COMPARA MOTORES SOB PREMISSAS IDÊNTICAS. Verde conferido aqui, não no GitHub: 1 028 travas na esteira + 17 no testfit, 641 na lista do CI (39 arquivos, 39 de 39 passando sem os clones), 7 passos, exit 0. Decisões D302 a D305.
+Feito: `src/premissas-identicas.ts` declara a conta e o K linha por linha; `tests/premissas-identicas.test.ts` (20 travas, no portão) cobra a aritmética fechando, as duas listas DISJUNTAS por (motor, premissa) e as duas formas de área conferidas contra o `.geojson`; `ferramentas/lab92.ts` publica `docs/provas/LAB-92/premissas-identicas.json`. Relatório: `docs/relatorios/LAB-92.md`.
+Achados para outros apps ou Central: (1) A CONTA, E ELA É O ACHADO: N = 13 premissas a esteira passa, M = 10 com valor e 3 NULAS (`calcada_m`, `pctAreaPublica`, `rampaMaxima_pct`), e K = 17 CAEM NO PADRÃO DE FÁBRICA DE QUEM RECEBE — 4 nos dois motores do Generate e 13 no Parcelamento —, e o SYMBIOS NÃO RECEBE PREMISSA NENHUMA: `parametros` é perda EM BLOCO na ida dele. A frase do item é a lição e ela fica: PREMISSA OMITIDA NÃO É PREMISSA AUSENTE, É PREMISSA INVENTADA POR QUEM RECEBE — e cada motor inventa a sua, então DOIS MOTORES COMPARADOS ASSIM COMPETEM EM CAMPOS DIFERENTES, E O RANKING MENTE COM APARÊNCIA DE RIGOR. Medido na ORIGEM dos dois vizinhos, não no clone: `gerar-v1.ts:456` (12 campos) e `tipos.ts:124` (22 chaves). (2) DO ADENDO-2, E ELE MUDOU O ENTREGÁVEL: "K = 3 não diz o que consertar" — está certo, então o K SAIU NOMEADO, premissa por premissa, com o default e o que cada uma DECIDE. E o default de MOTOR é o único que conta aqui: esta casa não tem tela, logo o K de 17 é todo de motor. O MAIS PESADO É O `regimeFachada`, DEFAULT `"condominio"`: ele decide se o lote dá frente para RUA PÚBLICA ou para via de condomínio, e os dois motores do Generate estão correndo em CONDOMÍNIO sem ninguém ter pedido. Depois dele, `testadaMinimaLegal` — O MOTOR SE JULGA CONTRA UM LIMITE QUE A ESTEIRA NÃO PASSOU. (3) O CASO VÁLIDO FICOU SEPARADO, com trava de disjunção: premissa que o motor NÃO TEM COMO RECEBER não é inventada, é campo que o contrato não publica — `caixaViariaMin_m` no Parcelamento, `calcada_m` no Generate, e TODAS AS 13 no Symbios, que traça via e extrai quadra e NÃO PARCELA EM LOTE. Isso é PEDIDO AO DONO DO CONTRATO, nunca achado contra o motor. (4) O QUE EU NÃO CONSIGO IGUALAR, NOMEADO EM CINCO LINHAS em vez de paridade fingida — e a quinta é contra mim: `pctAPP: 15` e `pctLazer: 10` são o default do Generate e A ESTEIRA OS PASSA EXPLICITAMENTE, isto é, eu igualo os motores NO NÚMERO QUE O PRÓPRIO DONO DISSE QUE NUNCA QUIS. (5) DO ADENDO-1, AS DUAS FORMAS DE ÁREA DECLARADA: as duas passam a ida — polígono desenhado em `restricoes[]`/`atracoes[]` e porcentagem em `pctAPP`/`pctLazer` —, e NA `completo.geojson` AS DUAS CHEGAM JUNTAS, a APP desenhada E 15 % de APP, E NADA DECLARA QUAL MANDA. UM POLÍGONO TEM LUGAR; UMA PORCENTAGEM NÃO — somar os dois é contar a mesma terra duas vezes, que é a injustiça do K numa camada acima. (6) DO ADENDO-1, O MOTOR COMPOSTO: ele CABE hoje, sem mudar a porta — quarta implementação, `id` próprio, chamando duas —, e o ranking segue funcionando porque TUDO É INDEXADO POR `id`. O QUE FALTA NÃO É ENCAIXE, É A REGRA DE JUNÇÃO: de quem é cada parte do plano quando dois motores respondem pela mesma gleba. A esteira mede o que o `id` entregar; ELA NÃO SABE DIZER QUAL METADE É DE QUEM. (7) E A TRAVA QUE EU ESCREVI ME CORRIGIU NA MESMA RODADA: ela procurava uma frase no módulo e deu FALSO, e a frase estava lá, num JSDoc quebrado em duas linhas — o normalizador do `.md` tira o `>` da citação e NÃO tira o ` * ` do JSDoc. DUAS GRAMÁTICAS, DOIS NORMALIZADORES: alargar o do `.md` faria linha de lista virar prosa. O leitor novo nasceu em `src/texto-das-regras.ts`, NÃO dentro do teste, porque conserto que mora num teste conserta um teste (D248) — nona vez dessa família.
+Depende do Jonny: UMA pergunta nova na página dele (§12), em linguagem de leigo: EM QUE REGIME A COMPETIÇÃO DOS MOTORES VAI RODAR — loteamento ou condomínio? Hoje essa escolha está sendo feita POR OMISSÃO, POR UM PROGRAMA, e ela muda o que "lote com frente" quer dizer. Continuam a §11 (a senha de leitura, ou tornar os dois vizinhos públicos), a §10, o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a D226 (os quatro campos de `legais`) — e a fila ficou em CATORZE itens abertos, nada nasceu nem saiu.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  A CONTA — e ela é a resposta do item 025
+═══════════════════════════════════════════════════════════════════════════════
+
+  N = 13   premissas que a esteira PASSA        (src/gleba-do-lab.ts · PARAMETROS)
+  M = 10   com valor  ·  3 vão `null`          (calcada_m · pctAreaPublica · rampaMaxima_pct)
+  K = 17   caem no DEFAULT DE FÁBRICA de quem recebe
+             4  nos dois motores do Generate
+            13  no Parcelamento
+  Symbios  ZERO premissas — `parametros` é perda EM BLOCO na ida
+
+═══════════════════════════════════════════════════════════════════════════════
+  O K NOMEADO — porque "K = 3 não diz o que consertar" (adendo-2)
+═══════════════════════════════════════════════════════════════════════════════
+
+  GENERATE — os 4 de PARAMS_PADRAO_V1 que a esteira nunca sobrescreve:
+
+    regimeFachada        "condominio"   ← O MAIS PESADO: decide se o lote dá
+                                          frente para RUA PÚBLICA ou para via
+                                          de condomínio
+    testadaMinimaLegal   NORMA_BR       o motor se julga contra um limite que
+                                          a esteira NÃO passou
+    raioBulbo            7.5            o bulbo de cul-de-sac consome área de via
+    larguraEntrada       20             a entrada consome frente de gleba
+
+  PARCELAMENTO — 13 das 22 ChaveFaixa ficam de fábrica (a ida preenche 9):
+
+    tolerancia · appRioPct · doacaoPct · doacaoTestadaMin · lagosPct ·
+    arborizacaoPct · pctCulDeSac · interferenciaRelevo · ladoSuperquadra ·
+    numRadiais · curvatura · testadaExterna · areaLoteExterna
+
+  A `tolerancia` é a que mais dói: ela decide QUANTOS LOTES PASSAM RASPANDO,
+  e NÃO EXISTE no contrato v1 — não é igualável nem por fora.
+
+═══════════════════════════════════════════════════════════════════════════════
+  O QUE EU NÃO CONSIGO IGUALAR — nomeado, em vez de paridade fingida
+═══════════════════════════════════════════════════════════════════════════════
+
+  1. o default de FÁBRICA de quem recebe — a esteira só passa o que o contrato
+     publica, e o contrato não alcança o de dentro do motor;
+  2. o SYMBIOS em métrica de lote — zero premissas e não parcela: qualquer
+     ranking de lote que o inclua está somando coisas diferentes;
+  3. o `regimeFachada` — não há como PEDIR regime de loteamento;
+  4. a `tolerancia` do Parcelamento — não existe no contrato v1;
+  5. e o número que o PRÓPRIO DONO RECUSA — `pctAPP: 15` e `pctLazer: 10` são
+     o default do Generate e eu os passo EXPLICITAMENTE.
+
+═══════════════════════════════════════════════════════════════════════════════
+  PEDIDO AO CHASSI / AO GENERATE — em lista, nunca em commit lá (§4)
+═══════════════════════════════════════════════════════════════════════════════
+
+  1. as premissas num LUGAR SÓ, e nenhum default de motor — o K de 17 é o
+     pré-requisito do ranking que o cliente vai ver;
+  2. `regimeFachada` no contrato de motor v1 — hoje é o default mais pesado,
+     e é INVISÍVEL;
+  3. tirar o `pctAPP ?? 15` / `pctLazer ?? 10` — o dono já disse que nunca os
+     quis, e eles estão em seis lugares vivos;
+  4. declarar a PRECEDÊNCIA entre área desenhada e porcentagem quando as duas
+     chegam na mesma gleba.
+
+═══════════════════════════════════════════════════════════════════════════════
+  PEDIDO AO PARCELAMENTO
+═══════════════════════════════════════════════════════════════════════════════
+
+  publicar no contrato as chaves que hoje só existem de fábrica — começando
+  por `tolerancia` e `testadaExterna`, que MUDAM CONTAGEM DE VIOLAÇÃO.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· nada escrito em repositório vizinho — leitura na ORIGEM de dois deles, e os SEIS
+  clones terminaram limpos;
+· NENHUM MOTOR FOI MELHORADO: o adendo-1 proíbe antes do lançamento, e esta rodada
+  só MEDIU — não consertou premissa, não igualou nada em silêncio;
+· a D226 não foi tocada, nem o sétimo mecanismo, nem o plantio;
+· o GATILHO DO CI não foi religado — a régua cobra, não liga;
+· e o INTERVALO de 8 h do despertador está anotado na CONTA, não tocado.
+```

@@ -9457,3 +9457,122 @@ certa.**
 
 **O riscado foi corrigido com a medição ao lado**, não desfeito: ele continua riscado — a parte do
 escopo **foi** feita no LAB-86 —, e agora diz **o que faltava e onde a outra metade está.**
+
+---
+
+## D302 · A ESTEIRA NÃO COMPARA MOTORES SOB PREMISSAS IDÊNTICAS: K = 17 · 11/10/2026
+
+**Prompt:** LAB-92 (item 025). O chassi foi decidido — *"o Generate é a cabine do avião… todos têm
+que estar na mesma base"* —, e isso promove esta casa a **régua da competição**. A pergunta do
+item era uma só, e a resposta é **não**.
+
+### A conta, declarada
+
+| | |
+|---|---|
+| **N = 13** | premissas que a esteira passa (`src/gleba-do-lab.ts`, bloco `PARAMETROS`) |
+| **M = 10** | com valor; **3** vão `null` (`calcada_m`, `pctAreaPublica`, `rampaMaxima_pct`) |
+| **K = 17** | caem no **padrão de fábrica de quem recebe** — **4** nos dois motores do Generate e **13** no Parcelamento |
+| **Symbios** | **zero** premissas: `parametros` é perda **em bloco** na ida |
+
+**Como foi medido, por LUGAR e na ORIGEM dos vizinhos:**
+
+- **Generate:** `src/motores/generate.ts` monta `{ ...PARAMS_PADRAO_V1, …8 campos }`, e o
+  `PARAMS_PADRAO_V1` da origem (`gerar-v1.ts:456`) tem **12** → **4 nunca vêm da esteira**:
+  `testadaMinimaLegal`, `raioBulbo`, `larguraEntrada` e **`regimeFachada: "condominio"`**;
+- **Parcelamento:** a ida preenche **9** das **22** `ChaveFaixa` (`tipos.ts:124`), e o tipo diz no
+  próprio comentário que o arquivo *"sobrepõe o default de fábrica"* → **13 ficam de fábrica**,
+  entre elas `tolerancia`, `pctCulDeSac`, `doacaoPct`, `arborizacaoPct` e `testadaExterna`.
+
+> **Premissa omitida não é premissa ausente: é premissa inventada por quem recebe** — e cada motor
+> inventa a sua. *Dois motores comparados assim competem em campos diferentes, e o ranking mente
+> com aparência de rigor.*
+
+### O default mais pesado é o `regimeFachada`, e ele é decisão de PRODUTO
+
+Ele decide se o lote dá frente para **rua pública** ou para **via de condomínio** — e isso muda o
+que conta como violação de testada. **Os dois motores do Generate correm em `"condominio"` por
+default, sem que a esteira nunca o tenha pedido.** Virou linha na página do Jonny, em linguagem de
+leigo: *em que regime a competição roda?* — porque **regra urbanística é dele** (§4).
+
+### As três categorias, e a do meio é a que acusa
+
+1. **`da-esteira`** — a esteira passa;
+2. **`default-do-motor`** — o **K**: quem recebe inventa, e é **invisível**. *O de tela o usuário vê
+   e corrige; o de motor não* (adendo-2);
+3. **`motor-nao-recebe`** — o **caso válido que quase parece inválido**: campo que o contrato não
+   publica ou consumidor que não existe. **Isto é pedido ao dono do contrato, não achado contra o
+   motor** — e as duas listas são **disjuntas por (motor, premissa)**, com trava.
+
+### E o número que o dono recusa está escrito por MIM
+
+`pctAPP: 15` e `pctLazer: 10` são o default do Generate, e a esteira **os passa explicitamente**
+nas quatro glebas-padrão — eu os copiei das glebas-padrão do vizinho. **Igualar assim é igualar no
+número que ele nunca quis** (*"eu nunca fui a favor desse default… o usuário tem que pôr"*).
+*Passar o default explicitamente não é o motor inventá-lo — mas o número é o mesmo, e a escolha
+dele some.*
+
+**Nada foi consertado**, como o item mandou: o conserto é do chassi e dos donos dos motores, e o
+pedido sai em **lista no relatório** (§4). **Há guarda** (`tests/premissas-identicas.test.ts`, 20
+travas): a conta fechando, o K como **lista** (não número solto), cada linha com motor-premissa-
+motivo, as duas listas disjuntas, e o limite **nomeado**.
+
+---
+
+## D303 · ÁREA DECLARADA TEM DUAS FORMAS, E NA GLEBA `completo` AS DUAS CHEGAM JUNTAS · 11/10/2026
+
+**Prompt:** LAB-92 (025-adendo-2). O dono disse que a área *"tanto pode vir do que o usuário
+desenhou, ou de um percentual que ele escreve"*, e o adendo mandou medir se a esteira passa as
+duas. **Passa** — e o achado está no cruzamento:
+
+| forma | a esteira passa? | medido nas glebas-padrão |
+|---|---|---|
+| **polígono desenhado** | sim, por `restricoes[]`/`atracoes[]` | **só `completo.geojson`** traz (`app` e `reserva_legal`) |
+| **porcentagem** | sim, por `pctAPP`/`pctLazer` | **todas as quatro**, porque o bloco `PARAMETROS` é um só |
+
+> **Na gleba `completo` as duas chegam juntas — a APP desenhada E 15 % de APP — e nada declara
+> qual manda.** Cada motor resolve o empate sozinho.
+
+*Um polígono tem **lugar**; uma porcentagem não tem. Somar os dois é contar a mesma terra duas
+vezes, e é a injustiça do K numa camada acima.* **A trava confere isso no `.geojson`**, não na
+minha frase: `completo` tem `app` e `reserva_legal`, as outras três não têm nenhuma.
+
+---
+
+## D304 · DUAS GRAMÁTICAS, DOIS NORMALIZADORES — O DO `.md` NÃO LÊ COMENTÁRIO DE CÓDIGO · 11/10/2026
+
+**Prompt:** LAB-92. **Achado contra a trava que eu acabara de escrever.**
+
+Ela procurava a frase *"esta casa mede e pede"* no módulo e deu **falso**. A frase está lá, num
+JSDoc, quebrada em duas linhas — e o `comoARegraSeLe` (do LAB-77, para `.md`) devolveu
+`… mede e * pede …`: **ele tira o `>` da citação e não o ` * ` do JSDoc.**
+
+> **Duas gramáticas, dois normalizadores.** Alargar o do `.md` para cobrir o comentário faria uma
+> linha de **lista** (`* item`) virar prosa, e duas linhas de lista passariam a casar como uma
+> frase só — *afrouxar a régua até tudo passar é o contrário de consertá-la* (LAB-77).
+
+Nasceu `comoOComentarioSeLe`/`aFraseEstaNoComentario` **em `src/texto-das-regras.ts`**, não dentro
+do teste (D248), com os **dois sentidos** travados: a frase quebrada em JSDoc **é** encontrada, o
+normalizador do `.md` **não** a encontra (a trava cobra esse falso), e frase que não está
+**continua** não estando. *É a décima da família do D248, e a primeira em que o conserto foi um
+leitor NOVO em vez de reusar o que havia.*
+
+---
+
+## D305 · MOTOR COMPOSTO: A PORTA ACEITA; O QUE FALTA É A REGRA DE JUNÇÃO · 11/10/2026
+
+**Prompt:** LAB-92 (025-adendo). A frase do dono: *"daqui a pouco a gente faz um que é a mistura do
+Testfit com outro motor, e assim vai — esse é um processo que não termina."*
+
+**Medido** em `src/porta/motores.ts`: a porta expõe **três** implementações, cada uma com `id`
+próprio (`generate-<candidata>`, `parcelamento`, `symbios`), e cada rodada chama **uma**. Um motor
+composto **caberia**: seria uma quarta implementação com `id` próprio chamando duas, e a medição, o
+ranking e o juiz seguiriam funcionando **porque tudo é indexado por `id`**.
+
+> **O que falta não é encaixe: é a regra de JUNÇÃO.** Quando dois motores devolvem plano para a
+> mesma gleba, alguém tem de decidir **de quem é cada parte** — e isso não é instrumento, é
+> desenho. *A esteira mede o que o `id` entregar; ela não sabe dizer qual metade do plano é de
+> quem.*
+
+**Resposta ao chassi, em uma linha:** o encaixe **não precisa mudar** para aceitar composto; o que
+precisa existir é a decisão de junção, e ela é do dono do chassi.

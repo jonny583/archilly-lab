@@ -391,3 +391,37 @@ export function conferirAsLeituras(
   }
   return problemas;
 }
+
+/**
+ * **O COMENTÁRIO DE CÓDIGO é outra gramática, e o normalizador do `.md` não serve nele.** (LAB-92)
+ *
+ * Medido ao escrever a trava do item 025: a frase *"esta casa mede e pede"* está num comentário
+ * JSDoc, quebrada em duas linhas —
+ *
+ * ```text
+ *  * … Esta casa **mede e
+ *  * pede**, e o pedido sai em lista
+ * ```
+ *
+ * — e o {@link comoARegraSeLe} devolveu `… mede e * pede …`, porque ele tira o `>` da citação e
+ * **não** o ` * ` do JSDoc. A régua achou que a frase não estava escrita, e estava.
+ *
+ * > **Duas gramáticas, dois normalizadores — e o segundo não se escreve dentro de um teste**
+ * > (D248). O `.md` quebra linha com `>` e `**`; o comentário de código quebra com ` * `. Alargar
+ * > o primeiro para cobrir o segundo faria uma linha de **lista** do markdown (`* item`) virar
+ * > prosa, e aí duas linhas de lista passariam a casar como uma frase só.
+ */
+export function comoOComentarioSeLe(texto: string): string {
+  return comoARegraSeLe(
+    texto
+      .split("\n")
+      // o ` * ` do JSDoc, e o `//` da linha simples
+      .map((l) => l.replace(/^\s*(?:\*|\/\/)\s?/, ""))
+      .join("\n"),
+  );
+}
+
+/** A frase está escrita neste COMENTÁRIO? Lê pelo {@link comoOComentarioSeLe}. */
+export function aFraseEstaNoComentario(texto: string, oQueProcurar: string): boolean {
+  return comoOComentarioSeLe(texto).includes(comoARegraSeLe(oQueProcurar));
+}
