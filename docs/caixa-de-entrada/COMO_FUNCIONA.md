@@ -22,7 +22,30 @@ quando acorda.
 
 A cada despertador:
 
-1. Leia esta pasta. Os arquivos são numerados: `001.md`, `002.md`, …
+0. **`git fetch -q origin` ANTES de olhar a pasta, e conte a caixa na ORIGEM, nunca
+   no disco.** O clone desta sessão pode ter nascido antes da última escrita da
+   direção — e aí a caixa **parece vazia com item dentro**:
+
+   ```sh
+   git fetch -q origin
+   git ls-tree --name-only origin/main docs/caixa-de-entrada/ \
+     | sed 's|.*/||' | grep -vE 'FEITO|RETIRADO|COMO_FUNCIONA'
+   ```
+
+   **Medido pela direção em 11/10/2026, e o defeito era DESTE arquivo, em 11 de
+   11 casas:** nenhuma cópia dele mandava buscar a origem — todas diziam só *"leia
+   esta pasta"*. No mesmo dia, às 01h13 UTC, uma casa declarou *"caixa vazia, 001 a
+   020 estão `-FEITO`"* com o `021.md` em `origin/main` havia **23 minutos**; a
+   enumeração até 020 é a prova de que ela leu uma árvore sem o 021. Há outras três
+   declarações falsas medidas, em três casas diferentes.
+
+   **Por que isto é pior do que parece:** declaração falsa de caixa vazia é
+   **indistinguível** da verdadeira — para você e para a direção, que conta as
+   abertas na origem e portanto vê item onde você não viu, e **não reabastece**.
+   A casa dorme sem trabalho e ninguém fica sabendo. *O disco não é a origem, e
+   esta pasta é escrita por uma mão que não é a sua.*
+
+1. Leia a pasta. Os arquivos são numerados: `001.md`, `002.md`, …
 2. Pegue **o menor número ainda não feito**. Um por despertador.
 3. Faça o trabalho, com as provas que o item exigir.
 4. No fim do item, renomeie o arquivo para `001-FEITO.md` e escreva no topo dele
