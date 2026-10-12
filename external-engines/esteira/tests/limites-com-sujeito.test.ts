@@ -17,6 +17,7 @@ import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { ARQUIVO_DA_HISTORIA } from "../src/historia-das-regras.ts";
 import {
   PALAVRAS_DE_LIMITE,
   SECOES_DE_REGRA,
@@ -55,9 +56,18 @@ describe("D218 · a régua REPROVA o limite sem sujeito, e não acusa prosa", ()
     // A redação de antes do conserto, palavra por palavra. Trocar só um pedaço dela NÃO serve:
     // o resto da frase nova traz "do bloco", e a régua acharia o sujeito ali — foi o que a
     // primeira versão desta sabotagem fez, e ela passou.
-    const i = claudeMd.indexOf("Doze linhas é teto DO RECADO");
-    const j = claudeMd.indexOf("(D218).", i) + "(D218).".length;
-    const sabotado = claudeMd.slice(0, i) + "Doze linhas é teto, não meta." + claudeMd.slice(j);
+    // ── A SABOTAGEM FOI REFEITA NO LAB-95, e o item 028 mandou (D319) ──────
+    //
+    // Ela achava o fim da frase por `"(D218)."`, que era a citação da decisão **no texto
+    // antigo** da §1. O enxugar do item 028 tirou a citação da frase, `indexOf` devolveu
+    // `-1`, e a sabotagem passou a montar um texto que a régua não acusava: ela parou de
+    // morder **em silêncio**, que é o desfecho que o item avisou para evitar.
+    //
+    // Agora ela recorta a FRASE, e o `expect` abaixo confere que o recorte achou alvo:
+    // *sabotagem que não acha o que sabotar não é sabotagem.*
+    const A_FRASE = "Doze linhas é teto DO RECADO, não meta.";
+    expect(claudeMd, "a sabotagem não achou a frase que ela sabota").toContain(A_FRASE);
+    const sabotado = claudeMd.replace(A_FRASE, "Doze linhas é teto, não meta.");
     const achados = limitesSemSujeito(sabotado);
     expect(achados).toHaveLength(1);
     expect(achados[0]!.palavra).toBe("teto");
@@ -77,9 +87,23 @@ describe("D218 · a régua REPROVA o limite sem sujeito, e não acusa prosa", ()
     expect(limitesSemSujeito(comSujeito).some((a) => a.palavra === "no máximo")).toBe(false);
   });
 
-  test("a §6 é narrativa e NÃO entra: 441 de 441, 9 + 2 + 3 = 14 não são regra de forma", () => {
-    expect(claudeMd).toContain("441 de 441 lotes sem frente");
+  // ── A NARRATIVA MUDOU DE ARQUIVO NO LAB-95 (D318) ────────────────────────
+  //
+  // Esta trava provava que a régua não acusa PROSA, e usava a §6 narrativa do
+  // `CLAUDE.md` como objeto: *"441 de 441 lotes sem frente"*. O item 028 mandou a
+  // narrativa para `docs/HISTORIA_DAS_REGRAS.md`, e a prova fica **mais forte**: a frase
+  // está lá, a régua aplicada à página de REGRAS não acha nada, e **aplicada à HISTÓRIA
+  // também não** — ela lê só seções de regra, e a história não tem nenhuma.
+  test("a narrativa saiu para a HISTÓRIA, e a régua não acusa nem lá nem aqui", () => {
+    const historia = readFileSync(join(RAIZ, ARQUIVO_DA_HISTORIA), "utf8");
+    expect(historia, "a narrativa do ponto cego não está na história").toContain(
+      "441 de 441 lotes sem frente",
+    );
+    expect(claudeMd, "a narrativa voltou para a página de regras").not.toContain(
+      "441 de 441 lotes sem frente",
+    );
     expect(limitesSemSujeito(claudeMd)).toEqual([]);
+    expect(limitesSemSujeito(historia)).toEqual([]);
   });
 
   test("a citação literal da Central é FONTE, não regra minha — sai da varredura", () => {

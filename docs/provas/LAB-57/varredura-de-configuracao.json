@@ -2,15 +2,15 @@
   "prompt": "LAB-57",
   "oQueIstoMede": "quais configurações deste repositório desligam conferência — nas três formas: a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR, e o desligador SEM MOTIVO ESCRITO",
   "aPergunta": "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
-  "quando": "2026-10-12T07:42:17.076Z",
+  "quando": "2026-10-12T16:36:13.796Z",
   "escopo": {
-    "arquivosQueOGitCarrega": 560,
+    "arquivosQueOGitCarrega": 568,
     "configuracoesEncontradas": 27,
     "configuracoesVarridas": 11,
     "configuracoesForaDoEscopoNomeadas": 16,
-    "linhasDeConfiguracaoLidas": 778,
-    "arquivosDeCodigoVarridos": 217,
-    "linhasDeCodigoLidas": 57203,
+    "linhasDeConfiguracaoLidas": 780,
+    "arquivosDeCodigoVarridos": 221,
+    "linhasDeCodigoLidas": 57877,
     "regras": 7,
     "porque": "o escopo começa no `git ls-files`, não numa lista minha — e o que ficou fora sai NOMEADO com o motivo (D164, a lição do LAB-47)"
   },
@@ -108,8 +108,8 @@
     {
       "arquivo": ".github/workflows/verde.yml",
       "varrido": true,
-      "bytes": 12567,
-      "linhas": 254,
+      "bytes": 12612,
+      "linhas": 255,
       "regrasQueOlharam": [
         "passo-que-engole-falha"
       ]
@@ -157,8 +157,8 @@
     {
       "arquivo": "external-engines/esteira/package.json",
       "varrido": true,
-      "bytes": 3259,
-      "linhas": 83,
+      "bytes": 3300,
+      "linhas": 84,
       "regrasQueOlharam": [
         "lint-sem-max-warnings",
         "passo-que-engole-falha"

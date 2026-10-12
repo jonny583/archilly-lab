@@ -155,6 +155,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "o registro das quatro sabotagens das travas do contrafactual: mede a ferramenta, a suíte e os códigos de saída, não terreno",
     "LAB-58/sabotagem.json":
       "o registro das quatro sabotagens das travas do agrupamento: mede a ferramenta, a suíte e os códigos de saída, não terreno",
+    "LAB-95/nada-se-perdeu.json":
+      "mede TEXTO, não terreno: caracteres antes e depois nos dois arquivos do enxugar, as 79 regras do inventário conferidas no `CLAUDE.md` de hoje E na história, e as linhas do texto antigo que não estão em nenhum dos dois (zero). Não há gleba, motor nem semente no que ela mede — o objeto é a própria página de regras desta casa",
     "LAB-92/premissas-identicas.json":
       "mede a PASSAGEM de premissas da esteira para cada motor, por lugar: as treze que ela passa, as três que vão nulas, o K de 17 que cai no padrão de fábrica de quem recebe (4 no Generate, 13 no Parcelamento), o que cada motor não tem como receber, as duas formas de área declarada e o que não dá para igualar; não terreno: ela não roda motor, não lê gleba para medir e não tem semente — o que ela lê dos `.geojson` é a FORMA da área declarada, não geometria medida",
     "LAB-91/a-varredura-regerada.json":

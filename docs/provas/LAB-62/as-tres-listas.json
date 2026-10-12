@@ -2,7 +2,7 @@
   "prompt": "LAB-62",
   "oQueIstoMede": "as três listas que o chat pediu dentro do recado, geradas das provas que as medem e não digitadas: os onze itens abertos da FILA, os seis mecanismos do motor nas DUAS ordens, e o contexto + as três formas de desligar conferência dele",
   "aPergunta": "do chat: 'mande AQUI, dentro do próprio recado, as três coisas que esperam por mim, porque é só o recado que chega até o chat'",
-  "quando": "2026-10-12T07:41:50.782Z",
+  "quando": "2026-10-12T15:54:37.949Z",
   "asFontes": {
     "lista1": "docs/prompts/FILA.md, lido pela régua do LAB-61 (lerPropostas)",
     "lista2": "docs/provas/LAB-58/mecanismos-das-81.json",

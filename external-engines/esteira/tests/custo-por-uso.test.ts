@@ -42,6 +42,9 @@ function regra(): string {
  */
 const FALAM_SOBRE_O_ASSUNTO = [
   "CLAUDE.md",
+  // A história das regras (LAB-95, item 028) carrega o texto ANTIGO da §4-A, literal — ela fala
+  // sobre o assunto exatamente como a §4-A fala, e por isso entra pela mesma razão que ela.
+  "docs/HISTORIA_DAS_REGRAS.md",
   "docs/DECISOES.md",
   "docs/relatorios/RECADOS.md",
   "docs/caixa-de-entrada/005-FEITO.md",

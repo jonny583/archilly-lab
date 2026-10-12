@@ -2,7 +2,7 @@
   "prompt": "LAB-63",
   "oQueIstoMede": "as afirmações que entraram nesta casa sem régua: os endereços que os seis mecanismos declaram no clone do motor, e a aritmética da CLAUDE.md §6, que é a página lida antes de toda tarefa",
   "aPergunta": "do chat, somando quatro prompts num só: quantos itens aceitos nunca foram conferidos contra o código, e quais regras minhas já têm contraexemplo registrado e continuam valendo",
-  "quando": "2026-10-08T01:27:23.444Z",
+  "quando": "2026-10-12T15:54:39.188Z",
   "osTresAchadosQueOChatTROUXE": [
     "Pesquisa: pedido que nomeia o artefato volta pela metade",
     "Render: dívida aceita é acusação não revisada — sete de vinte e oito nunca foram dívida",
@@ -123,12 +123,12 @@
   },
   "forma2_aAritmeticaDaRegraDaCasa": {
     "oQueSeCobra": "o total declarado bate com as linhas da tabela; as classes da partição somam o total; toda decisão citada numa classe é linha da tabela; nenhuma outra frase conta a mesma lista com outro número; e palavra de número não reconhecida é PROBLEMA, não silêncio",
-    "linhasDaTabela": 17,
-    "totalDeclarado": 17,
-    "somaDasClasses": 17,
+    "linhasDaTabela": 33,
+    "totalDeclarado": 33,
+    "somaDasClasses": 33,
     "classes": [
       {
-        "quanto": 8,
+        "quanto": 17,
         "oQue": "régua minha acusando a si mesma",
         "decisoesCitadas": [
           "D75",
@@ -140,7 +140,16 @@
           "D142",
           "D148",
           "D155",
-          "D217"
+          "D217",
+          "D231",
+          "D240",
+          "D245",
+          "D248",
+          "D254",
+          "D257",
+          "D262",
+          "D263",
+          "D310"
         ]
       },
       {
@@ -162,11 +171,12 @@
         ]
       },
       {
-        "quanto": 2,
+        "quanto": 3,
         "oQue": "a minha cabeça, contando de memória o que estava impresso ao lado",
         "decisoesCitadas": [
           "D161",
-          "D185"
+          "D185",
+          "D250"
         ]
       },
       {
@@ -174,6 +184,30 @@
         "oQue": "dado que faltava, e não número que mudou",
         "decisoesCitadas": [
           "D133"
+        ]
+      },
+      {
+        "quanto": 2,
+        "oQue": "instrumento de MEDIÇÃO que não responde a pergunta feita",
+        "decisoesCitadas": [
+          "D266",
+          "D311"
+        ]
+      },
+      {
+        "quanto": 3,
+        "oQue": "a FONTE truncada respondendo como se fosse inteira",
+        "decisoesCitadas": [
+          "D293",
+          "D294",
+          "D315"
+        ]
+      },
+      {
+        "quanto": 1,
+        "oQue": "a LEITURA do fonte prometendo o que a EXECUÇÃO negou",
+        "decisoesCitadas": [
+          "D308"
         ]
       }
     ],
@@ -193,10 +227,10 @@
   },
   "forma3_oContraexemploNasDECISOES": {
     "oQueSeCobra": "regra minha desmentida por decisão posterior, sem a decisão antiga apontar para a nova — quem lê a regra onde ela mora não fica sabendo",
-    "comARegua_CRUA_marcaEmQualquerLugarDaDecisao": 24,
+    "comARegua_CRUA_marcaEmQualquerLugarDaDecisao": 39,
     "comARegua_ESTREITA_marcaNaMESMAfraseDaCitacao": 0,
     "semPonteiroDeVolta": 0,
-    "oQueIssoSIGNIFICA": "os 24 da régua crua são TODOS falso positivo da família D142/D155: a marca está na decisão, mas falando de outra coisa, e a citação é de apoio e não de desmentido. ZERO não é 'nada a consertar': é onde o contraexemplo NÃO está. O das minhas regras mora na CLAUDE.md, onde ele é absorvido no texto da própria regra — e ali o que não era medido era a ARITMÉTICA do fechamento",
+    "oQueIssoSIGNIFICA": "os 39 da régua crua são TODOS falso positivo da família D142/D155: a marca está na decisão, mas falando de outra coisa, e a citação é de apoio e não de desmentido. ZERO não é 'nada a consertar': é onde o contraexemplo NÃO está. O das minhas regras mora na CLAUDE.md, onde ele é absorvido no texto da própria regra — e ali o que não era medido era a ARITMÉTICA do fechamento",
     "exemplosDoFalsoPositivo": [
       {
         "aRegra": "D67",
