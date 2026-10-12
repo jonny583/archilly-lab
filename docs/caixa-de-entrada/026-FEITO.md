@@ -1,3 +1,36 @@
+> ## ✅ FEITO — **LAB-93**, no disparo das 23:06 de 11/10/2026 (entregue em 12/10)
+>
+> **Relatório:** [`docs/relatorios/LAB-93.md`](../relatorios/LAB-93.md) · **prova:**
+> [`docs/provas/LAB-93/as-cinco-passagens.json`](../provas/LAB-93/as-cinco-passagens.json) ·
+> **decisões:** D306 a D311.
+>
+> **O que foi feito, com arquivo e linha:**
+>
+> 1. **os quatro campos entregues** — o mapa, o que cada um decide, onde o motor o consome e a
+>    procedência com `sha256` por trecho: `external-engines/testfit/adapter/src/legais-do-contrato.ts`.
+>    A ponte passou a entregar os **três** que o contrato publica (`ida.ts:452-471`), e o quarto sai
+>    `null` porque o `ParametrosV1` não declara a origem dele (`contrato-v1.ts:121-135`, treze campos);
+> 2. **as passagens, CINCO e não duas** — `external-engines/esteira/src/passagens-dos-legais.ts`
+>    (as cinco passagens, a impressão digital da GEOMETRIA e a conta com veredicto por campo) e
+>    `external-engines/esteira/ferramentas/lab93.ts` (`bun run lab93`). **Delta de geometria: ZERO em
+>    9 de 9 glebas**; o que nasceu foram avisos do motor sobre pista curta;
+> 3. **as três perdas relidas, nomeadas e datadas** —
+>    `external-engines/esteira/src/perdas-remedidas.ts`. Duas saíram da lista e viraram destino
+>    `traduzido` (`inventario-das-idas.ts`); a terceira fica. As duas que saíram criaram promessa
+>    nova, e a fixture `docs/fixtures/glebas-que-exercem-as-promessas/ensaio-com-rampa.entrada.json`
+>    é quem a exercita (o universo foi de 60 para 62);
+> 4. **a pergunta que o item acrescentou:** respondida **contra mim** — as duas coisas **não** eram
+>    verdade ao mesmo tempo. Duas linhas do caso-válido do LAB-92 saíram **riscadas**
+>    (`premissas-identicas.ts`), e a linha que liga as duas listas está escrita lá;
+> 5. **travas:** `tests/legais-do-contrato.test.ts` (20, no portão) e
+>    `tests/assinatura-da-geometria.test.ts` (5, fora dele porque usa a `impressao` do motor).
+>    Portão: 39 → **40 arquivos**, 641 → **666 travas** — e o 666 é **medido por execução**: eu escrevi 661 somando de cabeça e a trava dos quatro lugares não desmentiu, porque ela os conferia **entre si** (D311).
+>
+> **O que o item pediu e eu NÃO pude dar:** o número da D226 (21,63 % → 17,92 %) **não reproduz**,
+> e o campo que ela acusou é `null` na gleba citada. Ficou riscado **com a medição ao lado e sem
+> culpado novo** — inventar a causa de um número que eu não tenho seria pior do que dizer que não
+> sei.
+
 # 026 — A D226: entregue os quatro campos de `legais` e meça as DUAS passagens
 
 > **Vem da direção, 11/10/2026 às 18h38 UTC (varredura do chão).** **A escolha é

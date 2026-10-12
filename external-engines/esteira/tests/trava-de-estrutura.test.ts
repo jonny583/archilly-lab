@@ -161,7 +161,7 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
       !FALAM_SOBRE_A_CONDICAO.includes(f),
   );
 
-  test("as condições declaradas são CATORZE, e nenhuma é uma CONTA", () => {
+  test("as condições declaradas são TREZE, e nenhuma é uma CONTA", () => {
     // 15 → 16 no LAB-78 (o sétimo mecanismo, `aguardando-o-jonny`), 16 → 17 no LAB-80 (a
     // unificação das cinco leituras, `prompt-novo`) e 17 → 16 no LAB-81, por ENTREGA dela.
     // 16 → 17 no LAB-82 (o carimbo do módulo resolvido, `prompt-novo`) e no LAB-83 duas vezes,
@@ -169,8 +169,14 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
     // 17 → 16 no LAB-84, por ENTREGA da do trabalho de CI (D282).
     // **O vocabulário não mudou** em nenhuma das seis — e é ele que esta trava guarda: todas as
     // mudanças do dia são `prompt-novo`, que já existia, e nenhuma condição é uma CONTA.
+    //
+    // **14 → 13 no LAB-93**, por ENTREGA da D226 (item 026, D306), cuja etiqueta era
+    // `prompt-novo`. E este número foi **MEDIDO antes de ser mudado**, não baixado por reflexo
+    // junto com o dos itens abertos: no LAB-91 eu desci os dois de 14 para 13 por reflexo e
+    // **nenhum dos dois havia mudado** (D301). *Dois números com o mesmo valor não são o mesmo
+    // número* — hoje os dois mudaram, e cada um foi conferido no seu instrumento.
     const declaradas = condicoesDeclaradas(ler("docs/prompts/FILA.md"));
-    expect(declaradas.length, declaradas.join(", ")).toBe(14);
+    expect(declaradas.length, declaradas.join(", ")).toBe(13);
     // Nenhuma delas é volume: todas esperam pessoa, repositório, prompt ou medição.
     expect(new Set(declaradas)).toEqual(
       new Set([

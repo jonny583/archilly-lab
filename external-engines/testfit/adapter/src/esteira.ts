@@ -47,6 +47,7 @@ import {
 import type { EntradaMotorV1 } from "@generate/contratos/motor-v1/index.ts";
 
 import { idaParaOMotor } from "./ida.ts";
+import type { QuaisEntregar } from "./legais-do-contrato.ts";
 import { voltaParaOContrato } from "./volta.ts";
 import { apararVias, type ResultadoAparo } from "./aparo.ts";
 import type { EntradaV1, Perda, SaidaV1 } from "./contrato-v1.ts";
@@ -152,6 +153,12 @@ export interface OpcoesEsteira {
   viaManual?: { x: number; y: number }[] | null;
   /** As faces do perímetro que recebem lote virado para a rua existente (LAB-37). */
   facesLoteamento?: number[] | null;
+  /**
+   * Quais dos quatro campos de `legais` a ida entrega (LAB-93). Repassada à ida;
+   * ver a opção lá. Sem isto vale `OS_LEGAIS_POR_PADRAO`, e a lista explícita é o
+   * que permite rodar a passagem SEM depois de entregar — o §4 pede as duas.
+   */
+  entregarOsLegais?: QuaisEntregar;
 }
 
 const agora = () => performance.now();
@@ -177,6 +184,7 @@ export function rodarEsteira(
   const { entrada: entradaMotor, perdas: perdasNaIda } = idaParaOMotor(entrada, {
     semente,
     variantes,
+    ...(opcoes.entregarOsLegais !== undefined ? { entregarOsLegais: opcoes.entregarOsLegais } : {}),
     ...(opcoes.formatos ? { formatos: [...opcoes.formatos] } : {}),
     ...(opcoes.viaManual ? { viaManual: opcoes.viaManual } : {}),
     ...(opcoes.facesLoteamento?.length ? { facesLoteamento: opcoes.facesLoteamento } : {}),

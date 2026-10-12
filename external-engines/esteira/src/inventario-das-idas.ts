@@ -115,7 +115,8 @@ export const IDA_DO_PARCELAMENTO: Record<string, DestinoNaIda> = {
   "restricoes[].baseLegal": perda("a base legal é texto para o relatório, não geometria"),
   // Cada parâmetro se declara, um por um — e é de propósito: o dia em que o
   // contrato acrescentar um, esta lista fica vermelha e alguém decide onde ele vai.
-  // Os três que não cabem no motor já eram perda declarada antes desta guarda.
+  // Os três que não cabiam no motor eram perda declarada antes desta guarda — e desde o
+  // LAB-93 sobrou **uma**: `pctAreaPublica`. As outras duas viraram destino traduzido.
   "parametros.areaMinLote_m2": traduzido("terreno.padroes", "o mínimo da faixa `areaLote`"),
   "parametros.areaAlvoLote_m2": traduzido(
     "terreno.padroes",
@@ -127,17 +128,43 @@ export const IDA_DO_PARCELAMENTO: Record<string, DestinoNaIda> = {
   "parametros.caixaPrincipal_m": traduzido("terreno.padroes", "faixa degenerada `caixaPrincipal`"),
   "parametros.caixaSecundaria_m": traduzido("terreno.padroes", "faixa degenerada `caixaSecundaria`"),
   "parametros.calcada_m": traduzido("terreno.padroes", "`calcadaPrincipal` e `calcadaSecundaria`"),
-  "parametros.faceQuadraMax_m": traduzido("terreno.padroes", "faixa `comprimentoQuadra`"),
+  // ── Este campo chega ao motor por DOIS caminhos, e isso é achado (LAB-93) ──
+  //
+  // `padroes.comprimentoQuadra` é o ALVO da amostra; `legais.faceQuadraMaxima_m` é o
+  // LIMITE LEGAL, e o motor usa `min(alvo, legal)`. Como os dois saem do MESMO campo
+  // do contrato, o mínimo é entre dois nomes do mesmo número e nunca morde — medido,
+  // zero diferença de geometria em 8 de 8 glebas. O destino declarado continua sendo
+  // o que decide o desenho; o segundo caminho está dito aqui porque *campo que chega
+  // duas vezes pela mesma porta é a forma educada de uma régua se comparar consigo
+  // mesma* (D116).
+  "parametros.faceQuadraMax_m": traduzido(
+    "terreno.padroes",
+    "faixa `comprimentoQuadra` (o ALVO) — e desde o LAB-93 o MESMO valor também vai em " +
+      "`terreno.legais.faceQuadraMaxima_m` (o LIMITE LEGAL), que é por onde o motor o lê " +
+      "da tradução dele próprio. Dois caminhos, um número",
+  ),
   "parametros.pctLazer": traduzido("terreno.padroes", "faixa `lazerPct`"),
   "parametros.pctAPP": traduzido("terreno.padroes", "faixa `appPct`"),
-  "parametros.caixaViariaMin_m": perda(
-    "o motor usa as caixas explícitas e não tem um piso independente. Vira perda declarada " +
-      "só quando o mínimo é MAIOR que a menor caixa — aí o contrato se contradiz",
+  // ── DUAS QUE DEIXARAM DE SER PERDA, e a releitura é datada (LAB-93, D307) ──
+  //
+  // As duas estavam entre as *"três perdas sob suspeita de estarem velhas"* da D226, e
+  // a suspeita se confirmou nas duas. O que cada frase dizia, o que a medição
+  // respondeu e a data moram em `src/perdas-remedidas.ts` — aqui fica o destino.
+  "parametros.caixaViariaMin_m": traduzido(
+    "terreno.legais.caixaViariaMinima_m",
+    "o PISO independente existe: a `viasComPistaCurta` compara a pista (caixa menos as duas " +
+      "calçadas) com o mínimo do arquivo e o motor avisa por classe de via. Ele avisa e NÃO " +
+      "redesenha — está escrito no aviso dele",
   ),
   "parametros.pctAreaPublica": perda(
     "o motor não reserva área pública por porcentagem; ele reserva por ímã de conteúdo",
   ),
-  "parametros.rampaMaxima_pct": perda("o motor não limita rampa — ele mede, desde o T03 dele"),
+  "parametros.rampaMaxima_pct": traduzido(
+    "terreno.legais.rampaMaximaDeVia_pct",
+    "o motor continua NÃO LIMITANDO rampa — e era essa frase correta que escondia a mudança: " +
+      "o campo deixou de ser descartado. Ele entra em `cortesDoArquivo` e decide contra que " +
+      "rampa a conferência dele corre. O INDICADOR dele segue no corte declarado da família",
+  ),
   // ── Três destinos, e o terceiro é uma DÍVIDA (LAB-30) ─────────────────────
   //
   // Atração como **polígono** vira ímã em `terreno.atracoes`. **Via desenhada**

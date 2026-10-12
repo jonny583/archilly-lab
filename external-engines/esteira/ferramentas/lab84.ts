@@ -23,7 +23,7 @@
  * *E o número por arquivo é o que decide:* o total não separa *"um arquivo inteiro depende"* de
  * *"quatro travas de catorze dependem"*, e os dois consertos são diferentes.
  */
-import { execFileSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -78,19 +78,28 @@ interface MedidaDoArquivo {
 }
 
 function medir(arquivo: string): MedidaDoArquivo {
-  let texto: string;
-  let saida = 0;
-  try {
-    texto = execFileSync("bun", ["test", arquivo], {
-      cwd: ESTEIRA,
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "pipe"],
-    });
-  } catch (e) {
-    const err = e as { status?: number; stdout?: string; stderr?: string };
-    saida = err.status ?? 1;
-    texto = `${err.stdout ?? ""}${err.stderr ?? ""}`;
-  }
+  // ── E A MEDIÇÃO SÓ MEDIA QUEM FALHAVA (LAB-93, D311) ──────────────────────
+  //
+  // Até aqui isto usava `execFileSync` com `encoding`, que devolve **só a saída
+  // padrão** quando o comando dá certo. O `bun test` escreve o resumo (`N pass`,
+  // `N fail`) na saída de **erro** — então `passam` e `reprovam` saíam `null` em
+  // **36 dos 40** arquivos, exatamente os que PASSAVAM. A medição por execução
+  // media, por execução, só quem reprovava.
+  //
+  // > **Medição que só preenche o campo quando dá errado não é medição por
+  // > execução: é relatório de falha.** E o preço foi direto: o número de travas
+  // > do portão vivia em quatro lugares que a trava conferia **entre si**, e os
+  // > quatro podiam estar errados juntos — estavam, em 661 contra 666 medidos.
+  //
+  // `spawnSync` junta as duas saídas nos dois caminhos, e aí a soma por arquivo
+  // existe e pode ser cobrada contra o nome do trabalho.
+  const r = spawnSync("bun", ["test", arquivo], {
+    cwd: ESTEIRA,
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  const saida = r.status ?? 1;
+  const texto = `${r.stdout ?? ""}${r.stderr ?? ""}`;
   const n = (re: RegExp) => {
     const m = [...texto.matchAll(re)].at(-1);
     return m === undefined ? null : Number(m[1]);
@@ -151,6 +160,13 @@ const prova = {
   oTrabalho: TRABALHO_SEM_CLONES,
   quantosArquivos: medidas.length,
   quantosPassamSemClone: medidas.length - reprovam.length,
+  // A SOMA das travas da lista, medida por execução — é ela que o nome do trabalho
+  // afirma, e é ela que a trava passa a cobrar contra os quatro lugares onde o número
+  // mora (D311). `null` em qualquer arquivo torna a soma `null`: soma com buraco não é
+  // soma.
+  quantasTravasNaLista: medidas.some((m) => m.passam === null || m.reprovam === null)
+    ? null
+    : medidas.reduce((t, m) => t + (m.passam ?? 0) + (m.reprovam ?? 0), 0),
   asTrintaEUma: medidas,
   oQueIssoDecide:
     reprovam.length === 0

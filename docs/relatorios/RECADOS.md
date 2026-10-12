@@ -2547,3 +2547,101 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · o GATILHO DO CI não foi religado — a régua cobra, não liga;
 · e o INTERVALO de 8 h do despertador está anotado na CONTA, não tocado.
 ```
+
+---
+
+## 12/10/2026 · LAB-93 — item 026: a D226 entregue, e o delta de desenho é zero
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-93 (item 026) ===
+Estado: FEITO e mesclado na main. A D226 está EXECUTADA: os três campos que o contrato publica vão entregues, o quarto sai `null` porque não tem de onde vir, e o efeito está medido em CINCO passagens e NOVE glebas. Verde conferido aqui, não no GitHub: 1 058 travas na esteira + 17 no testfit, 666 na lista do CI (40 arquivos, 40 de 40 passando sem os clones), 7 passos, exit 0. Decisões D306 a D311.
+Feito: `testfit/adapter/src/legais-do-contrato.ts` (o mapa dos quatro, o que cada um decide, onde o motor o consome e a procedência com `sha256` por trecho); `esteira/src/passagens-dos-legais.ts` + `ferramentas/lab93.ts` (as cinco passagens e a conta com veredicto por campo); `esteira/src/perdas-remedidas.ts` (as três perdas NOMEADAS e remedidas); travas `legais-do-contrato` (20, no portão) e `assinatura-da-geometria` (5). Prova: `docs/provas/LAB-93/as-cinco-passagens.json`. Relatório: `docs/relatorios/LAB-93.md`.
+Achados para outros apps ou Central: (1) O DELTA DE DESENHO É ZERO, E ISSO É O RESULTADO: entregues os três campos, A GEOMETRIA PUBLICADA É IDÊNTICA EM 9 DE 9 GLEBAS. O que nasceu foram AVISOS do motor sobre pista curta — de +10 a +40 por gleba —, que é informação que esta ponte jogava fora. ENTREGAR CONTINUA SENDO O CERTO, e o motivo não é o delta: é que A OMISSÃO NÃO É NEUTRA. `null` ali não quer dizer "sem limite", quer dizer "vale o padrão de fábrica do motor" — é o K = 17 do LAB-92 na porta ao lado. (2) E CINCO PASSAGENS, EM VEZ DE DUAS, FOI O QUE FEZ A DIFERENÇA: duas passagens respondem SE algo se moveu; UMA PASSAGEM POR CAMPO responde QUAL CAMPO MOVEU. A D226 entregou três de uma vez, viu a rampa de `ensaio-com-via` cair de 21,63 % para 17,92 % e escreveu que "o motor ganhou a capacidade de limitar rampa". Medido: ele não ganhou a de LIMITAR, ganhou a de CONFERIR contra a rampa que o arquivo pediu — as duas funções dele dizem isso por escrito. E O NÚMERO NÃO REPRODUZ E NÃO PODIA: o campo que ela acusou vem `null` naquela gleba. Ficou RISCADO COM A MEDIÇÃO AO LADO E SEM CULPADO NOVO, porque inventar a causa de um número que eu não tenho é pior do que dizer que não sei. (3) A RODADA NEGOU A MINHA LEITURA DO FONTE, e é a trigésima vez do ponto cego: eu declarei que a `faceQuadraMaxima_m` MUDA o desenho porque li o `min(alvo, legal)` no fonte do motor, e ela não move nada — O MESMO CAMPO DO CONTRATO JÁ CHEGAVA POR OUTRO CAMINHO (`padroes.comprimentoQuadra`), então o mínimo é `min(200, 200)`. LEITURA DE FONTE É HIPÓTESE; RODADA É DADO — e campo que chega por dois caminhos faz a régua comparar o campo consigo mesmo. (4) E O INSTRUMENTO DA PRIMEIRA PASSADA ERA O DA CASA, E ESTAVA ERRADO PARA A MINHA PERGUNTA: eu usei a `assinaturaDaRodada` que o motor publica — "a impressão digital do desenho" — e o `Plano` dele carrega os AVISOS ao lado da geometria. Entregue a caixa viária mínima, a assinatura mudou com lotes, vias, quadras e pior rampa IDÊNTICOS, e eu estava a um passo de publicar "entregar a caixa viária mínima muda o desenho". ASSINATURA DE RODADA NÃO É ASSINATURA DE DESENHO: impressão digital só responde à pergunta de quem sabe o que entrou nela. (5) AS TRÊS PERDAS SOB SUSPEITA ESTÃO NOMEADAS, e a frase da D226 saiu em CINCO LUGARES sem dizer quais — CONTAGEM SEM A LISTA AO LADO É A FORMA MAIS BARATA DE UM NÚMERO ENVELHECER. A contagem estava certa; faltava o nome. Duas SAÍRAM (o motor recebe as duas) e a terceira FICA e NUNCA FOI DESSA FAMÍLIA: três coisas suspeitas porque estão na mesma gaveta não são três coisas suspeitas — vizinhança no arquivo não é vizinhança na causa. (6) A PERGUNTA QUE VOCÊ ACRESCENTOU, RESPONDIDA CONTRA MIM: você apostou que "as duas coisas podem ser verdade ao mesmo tempo, e provavelmente são". NÃO SÃO. O motor recebe as duas, e A TRADUÇÃO DO PRÓPRIO DONO DELE já as mapeava com os mesmos nomes do contrato v1 — duas linhas do caso-válido do LAB-92 saíram riscadas. "O MOTOR NÃO TEM COMO RECEBER" E "A MINHA PONTE NÃO ENTREGA" TÊM A MESMA APARÊNCIA DO LADO DE FORA E CULPAS OPOSTAS: o meu motivo de perda era verdadeiro sobre o que o motor FAZ e falso sobre o que ele ACEITA, e eu publiquei o segundo. Você estava certo na metade que importa — a vaga vazia não é neutra. (7) E A RÉGUA DO PORTÃO ERRAVA NOS DOIS EXTREMOS, achado de brinde: ela lia PREFIXO de `import`, então reprovava um teste cuja cadeia não alcança clone nenhum E DEIXAVA PASSAR o alcance por `../src/` — um teste da lista que importasse o módulo das passagens quebraria o CI e a régua aprovaria. Pior: a lista à mão tinha `@symbios/`, QUE É DESTA CASA, e não tinha `@/`, QUE É CLONE. PREFIXO MEDE ONDE O ARQUIVO MORA; A PERGUNTA ERA O QUE ELE ALCANÇA — agora o fecho é transitivo, `import type` não conta, e os apelidos se LEEM do `tsconfig.json`. (8) E EU IA PUBLICAR O NÚMERO DO PORTÃO ERRADO, EM QUATRO LUGARES: escrevi 661 somando 641 + as 20 travas novas DE CABEÇA, e esqueci as CINCO que entraram no `regras.test.ts`. O medido é 666. A trava que guarda esse número conferia os QUATRO LUGARES ENTRE SI e nunca contra a realidade — CONSISTÊNCIA NÃO É CORREÇÃO, e quatro cópias erradas juntas são mais convincentes do que uma. Pior: a medição por execução que poderia desmenti-la publicava `null` em 36 DOS 40 ARQUIVOS — exatamente os que PASSAVAM —, porque ela lia só a saída padrão e o `bun test` escreve o resumo na saída de erro. MEDIÇÃO QUE SÓ PREENCHE O CAMPO QUANDO DÁ ERRADO NÃO É MEDIÇÃO POR EXECUÇÃO: É RELATÓRIO DE FALHA. Consertados os dois: a prova publica a soma por execução (e `null` ali é RECUSA, não aprovação) e a trava cobra os quatro lugares CONTRA ela. (9) PEDIDO AO PARCELAMENTO, em lista e nunca em commit lá: a `cortesDoArquivo` NÃO TEM CHAMADOR EM `src/` — só nos `scripts/` e nos testes dele —, então `rampaMaximaDeVia_pct` é porta aberta e não usada; e quando a entrada é o contrato v1, o teto legal de face de quadra e o alvo da quadra SAEM DO MESMO CAMPO, e vale dizer isso no comentário dele. AO GENERATE: `declividadeMaximaLote_pct` não existe no `ParametrosV1` e é A ÚNICA DAS CINCO QUE É LEI (6.766, art. 3º, § único, III).
+Depende do Jonny: nada novo meu. Continuam a §12 (em que REGIME a competição roda — loteamento ou condomínio, e é ela que decide QUAL limite a competição usa), a §11 (a senha de leitura, ou tornar os dois vizinhos públicos), a §10, o sétimo mecanismo e as duas perguntas do acesso.
+Próximo na fila: a fila ficou em TREZE itens abertos — era CATORZE, e a D226 saiu por ENTREGA, não por recontagem. Nada nasceu no lugar dela. O próximo da minha lista é o SÉTIMO MECANISMO das violações.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  A CONTA, CAMPO POR CAMPO — e "não medido" é uma das respostas
+═══════════════════════════════════════════════════════════════════════════════
+
+  campo                          contrato traz   mudou o quê            veredicto
+  ───────────────────────────────────────────────────────────────────────────────
+  caixaViariaMinima_m            9/9  (8 m)      nada de geometria;     entregue, só
+                                                 o motor passou a       passou a avisar
+                                                 AVISAR (+10 a +40)
+  faceQuadraMaxima_m             9/9  (200 m)    NADA                   entregue, nada
+                                                                        se moveu
+  rampaMaximaDeVia_pct           1/9  (fixture)  NADA                   entregue, nada
+                                                                        se moveu
+  declividadeMaximaDeLote_pct    0/9             não há passagem        o contrato não
+                                                                        publica
+
+  A GEOMETRIA PUBLICADA É IDÊNTICA NAS CINCO PASSAGENS, EM 9 DE 9 GLEBAS.
+
+═══════════════════════════════════════════════════════════════════════════════
+  POR QUE CADA UM NÃO MORDE — e os dois motivos são DIFERENTES
+═══════════════════════════════════════════════════════════════════════════════
+
+  faceQuadraMaxima_m   o MESMO campo do contrato já chega por
+                       `padroes.comprimentoQuadra` (o ALVO), e o motor faz
+                       `min(alvo, legal)` → `min(200, 200)`. Isto é DA PONTE.
+
+  rampaMaximaDeVia_pct o campo NÃO TEM CONSUMIDOR dentro do motor: quem o lê em
+                       `src/` é só a `cortesDoArquivo`, e a `cortesDoArquivo` não
+                       é chamada por ninguém em `src/`. Isto é DO MOTOR.
+                       PORTA ABERTA NÃO É PORTA USADA.
+
+═══════════════════════════════════════════════════════════════════════════════
+  AS TRÊS PERDAS SOB SUSPEITA — nomeadas, que é o que faltava
+═══════════════════════════════════════════════════════════════════════════════
+
+  parametros.caixaViariaMin_m   SAIU DA LISTA   o piso independente EXISTE:
+                                                `viasComPistaCurta` compara a PISTA
+                                                com o mínimo do arquivo e avisa
+  parametros.rampaMaxima_pct    SAIU DA LISTA   "não limita rampa" continua VERDADE
+                                                — e NÃO LIMITAR NÃO É NÃO RECEBER
+  parametros.pctAreaPublica     FICA, remedida  nenhum dos quatro campos novos
+                                                aponta para ela
+
+  As duas que saíram viraram destino `traduzido`, e isso criou PROMESSA NOVA: a
+  trava do LAB-40 cobrou na hora que a da rampa não tinha gleba que a exercitasse
+  (as nove trazem `null`). Daí a fixture `ensaio-com-rampa` — 8 %, e NÃO 15, que é
+  o corte declarado do próprio motor: entregar o default mede a si mesmo.
+  O universo de promessas foi de 60 para 62.
+
+═══════════════════════════════════════════════════════════════════════════════
+  PEDIDO AO PARCELAMENTO — em lista, nunca em commit lá (§4)
+═══════════════════════════════════════════════════════════════════════════════
+
+  1. a `cortesDoArquivo` não tem chamador em `src/` — só nos `scripts/` e nos
+     testes. Ou o motor passa a conferir com o corte do ARQUIVO dentro do
+     pipeline, ou `legais.rampaMaximaDeVia_pct` é porta decorativa;
+  2. com entrada pelo contrato v1, `faceQuadraMaxima_m` e o alvo da quadra saem do
+     MESMO campo, e aí o `min(alvo, legal)` nunca morde — de dentro parece que há
+     dois tetos, e vale dizer isso no comentário;
+  3. e continua de pé o pedido do LAB-92: publicar no contrato as chaves que hoje
+     só existem de fábrica, começando por `tolerancia` e `testadaExterna`.
+
+═══════════════════════════════════════════════════════════════════════════════
+  PEDIDO AO GENERATE (dono do contrato de motor v1)
+═══════════════════════════════════════════════════════════════════════════════
+
+  `declividadeMaximaLote_pct` NÃO EXISTE no `ParametrosV1` (são treze campos), e é
+  A ÚNICA DAS CINCO QUE É LEI DE VERDADE — 6.766, art. 3º, parágrafo único, III.
+  O motor já a lê de forma tolerante; o contrato é que não a tem. Enquanto não
+  tiver, daqui ela sai `null` — não medido, nunca zero.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· nada escrito em repositório vizinho — leitura na ORIGEM do `motor-testfit`
+  (`11fcbad`) contra o clone que compila (`6cf6396`), com os cinco trechos lidos
+  COMPARADOS BYTE A BYTE nos dois (`sha256` na prova); os SEIS clones limpos;
+· NENHUM MOTOR FOI MELHORADO: entregar campo que o motor já aceita não é melhorar
+  o motor, é parar de omitir premissa — e geometria nenhuma foi corrigida;
+· nada foi decidido de urbanismo: QUAL limite a competição usa continua sendo a
+  pergunta da página dele;
+· o GATILHO DO CI não foi religado — a régua cobra, não liga;
+· e o despertador não foi tocado: a conta ganhou a linha das 23:06.
+```

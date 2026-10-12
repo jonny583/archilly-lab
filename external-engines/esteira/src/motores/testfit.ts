@@ -50,8 +50,13 @@ export const VARIANTES = 20;
  *
  * Então a montagem mora aqui, e quem quer todas as variantes chama a
  * `variantesJulgadasDoTestfit`.
+ *
+ * **E desde o LAB-93 ela tem um TERCEIRO leitor**, pelo mesmo motivo: a medição das
+ * passagens de `legais` precisa rodar a esteira dele **com a montagem desta casa** e
+ * só trocar o campo entregue. Montá-la outra vez na ferramenta compararia duas
+ * montagens e chamaria a diferença de "efeito do campo".
  */
-function opcoesDaEsteiraDele(entrada: EntradaMinima, semente: number) {
+export function opcoesDaEsteiraDele(entrada: EntradaMinima, semente: number) {
   const { viaManual: colunaVertebral, facesLoteamento: faces } = oQueAEsteiraPassaPronto(entrada);
   return {
     semente,

@@ -66,6 +66,7 @@
     "lab89": "bun ferramentas/lab89.ts",
     "lab90": "bun ferramentas/lab90.ts",
     "lab91": "bun ferramentas/lab91.ts",
+    "lab93": "bun ferramentas/lab93.ts",
     "lab92": "bun ferramentas/lab92.ts"
   },
   "devDependencies": {

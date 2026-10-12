@@ -11,8 +11,8 @@
     "parcelamento": {
       "campos": 74,
       "entregue": 11,
-      "traduzido": 31,
-      "perda": 16,
+      "traduzido": 33,
+      "perda": 14,
       "interno": 16
     },
     "symbios": {
@@ -26,8 +26,8 @@
   "porRegra": {
     "campo-nao-entregue": 0,
     "campo-novo-no-contrato": 0,
-    "promessa-nao-exercitada": 137,
-    "mapa-velho": 187,
+    "promessa-nao-exercitada": 144,
+    "mapa-velho": 180,
     "divida-do-lab": 0
   },
   "reprovamNoTotal": 0,
@@ -37,6 +37,12 @@
       "ida": "parcelamento",
       "campo": "parametros.calcada_m",
       "destino": "terreno.padroes",
+      "emTodasAsGlebas": 7
+    },
+    {
+      "ida": "parcelamento",
+      "campo": "parametros.rampaMaxima_pct",
+      "destino": "terreno.legais.rampaMaximaDeVia_pct",
       "emTodasAsGlebas": 7
     },
     {
@@ -151,8 +157,9 @@
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.legais.rampaMaximaDeVia_pct",
+            "diagnostico": "o inventário PROMETE levar `parametros.rampaMaxima_pct` a `terreno.legais.rampaMaximaDeVia_pct` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -297,8 +304,8 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 16,
-        "mapaVelho": 18
+        "promessasNaoExercitadas": 17,
+        "mapaVelho": 17
       },
       {
         "ida": "symbios",
@@ -529,8 +536,9 @@
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.legais.rampaMaximaDeVia_pct",
+            "diagnostico": "o inventário PROMETE levar `parametros.rampaMaxima_pct` a `terreno.legais.rampaMaximaDeVia_pct` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -675,8 +683,8 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 23,
-        "mapaVelho": 19
+        "promessasNaoExercitadas": 24,
+        "mapaVelho": 18
       },
       {
         "ida": "symbios",
@@ -962,8 +970,9 @@
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.legais.rampaMaximaDeVia_pct",
+            "diagnostico": "o inventário PROMETE levar `parametros.rampaMaxima_pct` a `terreno.legais.rampaMaximaDeVia_pct` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -1108,8 +1117,8 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 23,
-        "mapaVelho": 19
+        "promessasNaoExercitadas": 24,
+        "mapaVelho": 18
       },
       {
         "ida": "symbios",
@@ -1401,8 +1410,9 @@
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.legais.rampaMaximaDeVia_pct",
+            "diagnostico": "o inventário PROMETE levar `parametros.rampaMaxima_pct` a `terreno.legais.rampaMaximaDeVia_pct` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -1488,8 +1498,8 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 18,
-        "mapaVelho": 16
+        "promessasNaoExercitadas": 19,
+        "mapaVelho": 15
       },
       {
         "ida": "symbios",
@@ -1702,8 +1712,9 @@
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.legais.rampaMaximaDeVia_pct",
+            "diagnostico": "o inventário PROMETE levar `parametros.rampaMaxima_pct` a `terreno.legais.rampaMaximaDeVia_pct` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -1735,8 +1746,8 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 5,
-        "mapaVelho": 10
+        "promessasNaoExercitadas": 6,
+        "mapaVelho": 9
       },
       {
         "ida": "symbios",
@@ -1937,8 +1948,9 @@
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.legais.rampaMaximaDeVia_pct",
+            "diagnostico": "o inventário PROMETE levar `parametros.rampaMaxima_pct` a `terreno.legais.rampaMaximaDeVia_pct` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -1976,8 +1988,8 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 12,
-        "mapaVelho": 15
+        "promessasNaoExercitadas": 13,
+        "mapaVelho": 14
       },
       {
         "ida": "symbios",
@@ -2184,8 +2196,9 @@
           {
             "ida": "parcelamento",
             "campo": "parametros.rampaMaxima_pct",
-            "regra": "mapa-velho",
-            "diagnostico": "o inventário descreve `parametros.rampaMaxima_pct` como perda e esta gleba não o traz. Nada tinha de chegar ao motor, então a ausência não diz nada — é o aviso que não importa"
+            "regra": "promessa-nao-exercitada",
+            "destino": "terreno.legais.rampaMaximaDeVia_pct",
+            "diagnostico": "o inventário PROMETE levar `parametros.rampaMaxima_pct` a `terreno.legais.rampaMaximaDeVia_pct` e esta gleba não traz o campo — a promessa não foi posta à prova aqui. Se nenhuma gleba a exercer, a guarda nunca a verificou, e caminho errado numa promessa é invisível (D134)"
           },
           {
             "ida": "parcelamento",
@@ -2217,8 +2230,8 @@
           }
         ],
         "reprovam": 0,
-        "promessasNaoExercitadas": 5,
-        "mapaVelho": 10
+        "promessasNaoExercitadas": 6,
+        "mapaVelho": 9
       },
       {
         "ida": "symbios",

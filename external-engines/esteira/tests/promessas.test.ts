@@ -199,6 +199,10 @@ describe("NENHUMA promessa dos inventários fica sem gleba que a exerça (LAB-40
     ler("glebas-com-via-desenhada", "antonina-com-via"),
     ler("glebas-que-exercem-as-promessas", "ensaio-com-promessas"),
     ler("glebas-que-exercem-as-promessas", "ensaio-com-testada"),
+    // A ÚNICA gleba desta casa que declara `rampaMaxima_pct` (LAB-93). Ela nasceu porque
+    // a perda virou destino `traduzido` e a promessa passou a existir **sem ninguém que
+    // a exercitasse** — que é exatamente o que esta trava cobra.
+    ler("glebas-que-exercem-as-promessas", "ensaio-com-rampa"),
   ];
 
   /** O universo: toda entrada `entregue` ou `traduzido` dos dois inventários. */
@@ -207,7 +211,7 @@ describe("NENHUMA promessa dos inventários fica sem gleba que a exerça (LAB-40
     ...Object.entries(IDA_DO_SYMBIOS).map(([campo, d]) => ({ ida: "symbios", campo, tipo: d.tipo })),
   ].filter((x) => x.tipo === "entregue" || x.tipo === "traduzido");
 
-  test("as 60 promessas dos dois inventários têm, cada uma, gleba que a exerce", () => {
+  test("as 62 promessas dos dois inventários têm, cada uma, gleba que a exerce", () => {
     const glebas = GLEBAS();
     const naoExercitadas = new Map<string, number>();
     for (const g of glebas) {
@@ -222,7 +226,9 @@ describe("NENHUMA promessa dos inventários fica sem gleba que a exerça (LAB-40
     const semNinguem = universo
       .filter((p) => (naoExercitadas.get(`${p.ida}·${p.campo}`) ?? 0) >= glebas.length)
       .map((p) => `${p.ida}·${p.campo}`);
-    expect(universo.length, "o universo de promessas mudou — confira a conta do LAB-40").toBe(60);
+    // 60 até o LAB-92; **62** desde o LAB-93, quando `caixaViariaMin_m` e `rampaMaxima_pct`
+    // deixaram de ser perda e viraram destino traduzido (D307).
+    expect(universo.length, "o universo de promessas mudou — confira a conta do LAB-40").toBe(62);
     expect(
       semNinguem,
       "promessa que gleba nenhuma exercita: ou a fixture perdeu o campo, ou a promessa nova precisa de uma",

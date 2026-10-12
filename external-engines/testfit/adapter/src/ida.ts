@@ -35,6 +35,11 @@ import type { Elemento, Faixa, Terreno } from "@testfit/tipos.ts";
 import type { EntradaMotor } from "@testfit/api.ts";
 
 import type { EntradaV1, GeometriaV1, Perda, PontoV1 } from "./contrato-v1.ts";
+import {
+  OS_LEGAIS_POR_PADRAO,
+  legaisDoContrato,
+  type QuaisEntregar,
+} from "./legais-do-contrato.ts";
 
 /**
  * As versões do contrato que esta ida lê. (LAB-26)
@@ -204,6 +209,21 @@ export function idaParaOMotor(
      * mesmo motivo: duas réguas para a mesma grandeza é o que o D116 puniu.
      */
     facesLoteamento?: number[] | null;
+    /**
+     * **Quais dos quatro campos de `legais` esta passagem entrega ao motor.**
+     *
+     * Vem por opção, e não ligado a ferro, por duas razões medidas:
+     *
+     * 1. o §4 manda que conserto do Lab saia **nas duas passagens, com e sem** — e sem
+     *    a opção não há como rodar "sem" depois de entregar;
+     * 2. a lista permite entregar **um por vez**, que é o que separou o campo culpado
+     *    do campo de nome parecido no LAB-93. *Três campos entregues juntos e um número
+     *    que se move não dizem qual deles o moveu* — foi assim que a D226 atribuiu à
+     *    rampa um delta que era da face de quadra.
+     *
+     * Sem a opção vale `OS_LEGAIS_POR_PADRAO`, declarado logo abaixo com o motivo.
+     */
+    entregarOsLegais?: QuaisEntregar;
   } = {
     semente: 20260913,
   },
@@ -398,32 +418,23 @@ export function idaParaOMotor(
       gravidade: "media",
     });
   }
-  if (p.rampaMaxima_pct != null) {
-    perdas.push({
-      campo: "parametros.rampaMaxima_pct",
-      oQueHavia: `${p.rampaMaxima_pct} %`,
-      motivo:
-        "o motor não limita rampa de via — ele não calcula greide. A conferência de rampa fica " +
-        "inteiramente com o Validator",
-      gravidade: "alta",
-    });
-  }
-  if (p.caixaViariaMin_m != null && p.caixaPrincipal_m != null && p.caixaSecundaria_m != null) {
-    // Informativo: as duas caixas explícitas já cobrem o mínimo. Só vira perda
-    // se o mínimo for MAIOR que alguma delas — aí o contrato se contradiz e
-    // quem tem de saber é quem lê o relatório.
-    const menor = Math.min(p.caixaPrincipal_m, p.caixaSecundaria_m);
-    if (p.caixaViariaMin_m > menor) {
-      perdas.push({
-        campo: "parametros.caixaViariaMin_m",
-        oQueHavia: `${p.caixaViariaMin_m} m, maior que a menor caixa declarada (${menor} m)`,
-        motivo:
-          "o motor usa as caixas explícitas e não tem um piso independente; o mínimo do " +
-          "contrato ficou sem quem o cobre",
-        gravidade: "media",
-      });
-    }
-  }
+  // ── DUAS PERDAS SAÍRAM DAQUI NO LAB-93, e o motivo fica escrito ───────────
+  //
+  // Até o LAB-92 este trecho declarava duas perdas que **deixaram de ser verdade**:
+  //
+  // - `parametros.rampaMaxima_pct`, *"o motor não limita rampa — ele não calcula
+  //   greide"*. A frase continua correta e era por isso que ela enganava: o campo
+  //   deixou de ser DESCARTADO. Ele chega em `legais.rampaMaximaDeVia_pct` e decide
+  //   contra que rampa a conferência do motor corre (`cortesDoArquivo`);
+  // - `parametros.caixaViariaMin_m`, *"o motor usa as caixas explícitas e não tem um
+  //   piso independente; o mínimo do contrato ficou sem quem o cobre"*. O piso
+  //   existe: a `viasComPistaCurta` compara a PISTA com o mínimo do arquivo e o motor
+  //   avisa por classe de via. Medido no LAB-93: 8 de 8 glebas ganham aviso.
+  //
+  // **Campo que chega ao motor e muda uma resposta dele não é perda**, qualquer que
+  // seja a resposta. As duas viraram destino `traduzido` no inventário da ida, com a
+  // releitura datada em `src/perdas-remedidas.ts`, e a terceira do bloco
+  // (`pctAreaPublica`) FICA — ela nunca teve campo novo apontando para ela.
 
   // --------------------------------------------------------------- o terreno
   const terreno: Terreno = {
@@ -432,37 +443,31 @@ export function idaParaOMotor(
     acesso,
     restricoes,
     atracoes,
-    // ── O motor ANDOU: `legais` ganhou quatro campos, e o tipo dele os exige ──
+    // ── O motor ANDOU, e agora a ponte acompanha: os quatro de `legais` ─────
     //
     // Medido em 09/10 (item 001): o `Terreno["legais"]` do motor passou a pedir
     // `caixaViariaMinima_m`, `faceQuadraMaxima_m`, `rampaMaximaDeVia_pct` e
     // `declividadeMaximaDeLote_pct`, todos aceitando `null`. Esta é a ÚNICA das
     // 11 falhas que é clone andando de verdade — as outras dez eram daqui.
     //
-    // Os dois que o contrato v1 declara ATRAVESSAM; os dois que ele não declara
-    // saem `null`, que quer dizer NÃO MEDIDO e nunca zero (D23). Pôr zero aqui
-    // diria ao motor que a rampa máxima da via é 0 %, que é o contrário de
-    // "o contrato não falou".
+    // **Do LAB-68 ao LAB-92 os quatro saíam `null`**, com o motivo escrito: entregar
+    // MUDA O DESENHO, e mudar desenho em silêncio é o que o §4 proíbe (D226). A medição
+    // que faltava está feita (LAB-93, item 026), e ela **negou a minha leitura do fonte**:
+    // entregues os três que o contrato publica, a GEOMETRIA ficou idêntica em 8 de 8
+    // glebas. O que nasceu foram **avisos** do motor sobre pista curta (de +10 a +40 por
+    // gleba). A `faceQuadraMaxima_m` não morde porque o MESMO campo do contrato já chega
+    // por `padroes.comprimentoQuadra`, e `min(200, 200)` não é um mínimo; e a
+    // `rampaMaximaDeVia_pct` ficou **NÃO MEDIDA**: o contrato das oito glebas a traz
+    // `null`, e passagem que entregou nada mediu a gleba, não o campo.
+    //
+    // O mapa dos quatro, o que cada um decide e onde o motor o consome moram em
+    // `legais-do-contrato.ts`, num lugar só — o motor tem a SUA tradução do contrato v1
+    // e ela mapeia os quatro com estes mesmos nomes, então `null` aqui era esta ponte
+    // discordando do dono do motor sobre a mesma entrada.
     legais: {
       loteMinimo_m2: p.areaMinLote_m2,
       testadaMinima_m: p.testadaMinLote_m,
-      // Os quatro saem `null`, e isso é DELIBERADO — não é preguiça de preencher.
-      //
-      // Eu cheguei a entregar os três que o contrato declara, e MEDI o efeito: a rampa
-      // máxima publicada de `ensaio-com-via` caiu de 21,63 % para 17,92 %. Ou seja, o
-      // motor GANHOU a capacidade que esta ponte declara como perda logo abaixo
-      // ("o motor não limita rampa de via — ele não calcula greide"), e entregar o campo
-      // muda o desenho.
-      //
-      // Mudar o desenho não é conserto de typecheck. O §4 proíbe consertar geometria em
-      // silêncio, e o §1-A proíbe ampliar escopo: entregar estes campos é um prompt com
-      // medição nas duas passagens e provas regeradas. Enquanto ele não vem, `null` diz
-      // a verdade — NÃO ENTREGUE —, e as perdas declaradas abaixo continuam valendo.
-      // Proposto na caixa de entrada; o que é do motor sai como pedido no recado.
-      caixaViariaMinima_m: null,
-      faceQuadraMaxima_m: null,
-      rampaMaximaDeVia_pct: null,
-      declividadeMaximaDeLote_pct: null,
+      ...legaisDoContrato(p, opcoes.entregarOsLegais ?? OS_LEGAIS_POR_PADRAO),
     },
     padroes: padroes as Terreno["padroes"],
     origemPadroes: Object.fromEntries(

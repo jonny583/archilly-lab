@@ -1266,7 +1266,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 641 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 666 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -2327,14 +2327,14 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   escrevi primeiro **acusou a própria trava que a demonstra**, e nenhuma limpeza da casa separa o
   alvo da fixture quando os dois são a mesma forma (D282, D283)
 
-- **ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR** (09/10, D226). Medido: o
-  `Terreno["legais"]` do motor ganhou `caixaViariaMinima_m`, `faceQuadraMaxima_m`,
-  `rampaMaximaDeVia_pct` e `declividadeMaximaDeLote_pct`, e **entregá-los MUDA O DESENHO** — a
-  rampa publicada de `ensaio-com-via` se mexeu na hora. O motor **ganhou a capacidade** que esta
-  ponte declara como perda (*"ele não limita rampa de via, não calcula greide"*), e por tabela
-  **três perdas declaradas ficam sob suspeita de estarem velhas**. Hoje os quatro saem `null`,
-  que é a verdade: não entregue. O prompt é medir nas duas passagens, com e sem, e regerar as
-  provas. **Segue aberto:** `prompt-novo`
+- ~~**ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR**~~ (09/10, D226) — ✅ **executada no
+  LAB-93** (item 026). Entregues os **três** que o contrato publica; o quarto
+  (`declividadeMaximaDeLote_pct`) **não tem de onde vir** e sai `null`. Medido em **cinco**
+  passagens e **nove** glebas: **o delta de geometria é ZERO em 9 de 9**, e o que nasceu foram
+  **avisos** do motor sobre pista curta. ~~"entregá-los MUDA O DESENHO — a rampa publicada de
+  `ensaio-com-via` se mexeu na hora"~~ **não reproduz, e não podia**: aquele campo é `null`
+  naquela gleba (D306). As **três perdas sob suspeita** foram **nomeadas** e remedidas — duas
+  saíram da lista, a terceira nunca foi dessa família (D307). **Fechada:** `executada`
 
 - **O PICO DE RAMPA QUE O PARCELAMENTO REPORTA, 109,51 % → 175,51 %** (09/10, D224). Medido vivo
   em três commits do motor: 109,51 % em 19/09, 175,51 % em 05/10 e em 07/10. A trava daqui exigia

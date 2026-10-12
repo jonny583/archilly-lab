@@ -2,7 +2,7 @@
   "prompt": "LAB-61",
   "oQueIstoMede": "a saúde da seção 'Proposto ao chat — não executar' da FILA.md, que é a MINHA lista de dívida e é o que o chat lê para escrever fila — quatro filas saíram dela",
   "aPergunta": "do chat: continue a dívida própria com o que sobrou",
-  "quando": "2026-10-11T15:36:04.124Z",
+  "quando": "2026-10-12T00:19:02.056Z",
   "ondeEuPROCUREIDIVIDA": {
     "inventario-das-idas.ts · categoria `divida`": "VAZIA desde o LAB-37 (D138) — era a testada de frente, e foi paga",
     "inventario-das-pontes.ts · `perda`": "são perdas DECLARADAS, com motivo medido: não são dívida",
@@ -171,13 +171,13 @@
   },
   "agora": {
     "itens": 38,
-    "riscados": 24,
-    "abertos": 14,
+    "riscados": 25,
+    "abertos": 13,
     "problemas": 0,
     "abertosPorMotivo": {
       "aguardando-o-jonny": 2,
-      "prompt-novo": 4,
       "aguardando-outro-repositorio": 3,
+      "prompt-novo": 3,
       "depois-do-mvp": 1,
       "nao-medido": 3,
       "escopo-novo": 1
@@ -245,11 +245,13 @@
     {
       "linha": 2330,
       "titulo": "ENTREGAR OS QUATRO CAMPOS NOVOS DE `legais` AO MOTOR",
-      "riscado": false,
-      "executadoPor": null,
-      "motivo": "prompt-novo",
+      "riscado": true,
+      "executadoPor": "LAB-93",
+      "motivo": null,
       "decisoes": [
-        "D226"
+        "D226",
+        "D306",
+        "D307"
       ]
     },
     {
