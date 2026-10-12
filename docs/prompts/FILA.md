@@ -321,6 +321,28 @@ clone que esta casa compila** — então quem roda o passo é ele (D314, D315).
 [`../provas/LAB-78/setimo-mecanismo.json`](../provas/LAB-78/setimo-mecanismo.json), decisão
 **D253**.
 
+### Proposto ao chat, saído do item 029 (LAB-96) — **não executado**
+
+Três coisas que o item 029 deixou à vista e que não cabiam nele. **Nenhuma espera o Jonny** —
+ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração com o Generate.
+
+1. **A regra 2 do acesso não tem guarda que a cumpra no código.** O vocabulário de recusa tem
+   `"sem-via-publica"`, mas **nenhuma função o produz**: `avaliarPosicoes` recusa por falta de
+   declaração e por faixa de esquina, e **deixa passar** uma posição sobre uma face sem rua quando
+   as faces estão declaradas. Hoje é inofensivo — gleba nenhuma declara as faces, então tudo cai
+   na recusa por falta de dado —, mas é **regra sem guarda**, a primeira espécie da dívida própria.
+   O conserto é pequeno (projetar o ponto, ver a face, recusar com o motivo que já existe) e a trava
+   é sintética. É da minha lista, e o item 900 me deixa pegá-lo quando a caixa esvaziar.
+2. **O item de custo da travessia ganhar a classe do custo.** A resposta à pendência 3 foi
+   *"Orçamento, custo de obra"*. O `ItemDeCusto` (`travessia.ts`) não diz a classe; acrescentá-la
+   é mudar o contrato de saída desta casa, e por isso é proposta e não conserto.
+3. **Os 25 m da "quadra" viraram uma CONTA esperando DADO.** Com a resposta do 9-A, reconhecer o
+   caso dos 25 m é perguntar se a frente ocupa o trecho de rua inteiro, de um cruzamento ao outro.
+   **Aguardando** o arquivo de terreno trazer as ruas do entorno e os cruzamentos — o mesmo campo
+   que falta para as faces com via, já pedido ao Generate no LAB-77.
+
+**Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
+
 ### LAB-61 · A dívida própria era ESTA LISTA — ✅ concluído em 07/10/2026 · **a fila ESGOTOU**
 
 **Procurei dívida minha onde ela é declarada e achei no lugar que eu não estava olhando: a

@@ -78,8 +78,10 @@ export const REGRAS_DO_ACESSO = [
     nome: "acesso não se faz perto de esquina",
     marcaNoAdendo: "Acesso não se faz perto de esquina",
     oQueDecide:
-      "faixa de esquina com padrão de 15 m, e 25 m quando a gleba ocupa a quadra inteira. São " +
-      "PADRÃO sugerido, não lei, e não moram dentro do código",
+      "faixa de esquina com padrão de 15 m, e 25 m quando a frente da gleba ocupa a quadra " +
+      "inteira — e 'quadra', na palavra dele (item 029), é o TRECHO DE RUA entre dois " +
+      "cruzamentos, não o quarteirão. Medida a partir do encontro das duas ruas, ao longo de " +
+      "cada uma. São PADRÃO sugerido, não lei, e não moram dentro do código",
     tipo: "universo",
   },
   {
@@ -114,15 +116,26 @@ export const REGRAS_DO_ACESSO = [
  */
 export const PADRAO_DA_FAIXA_DE_ESQUINA_m = 15;
 
-/** O caso em que a gleba ocupa a quadra inteira. **Como se reconhece isso é pendência do Jonny.** */
+/**
+ * O caso em que a frente da gleba ocupa a quadra inteira — e "quadra" é TRECHO DE RUA.
+ *
+ * **Respondido por ele em 12/10/2026 (item 029, a pendência 9-A):** *"não é quadra no sentido de
+ * quarteirão […] e sim quadra no sentido de rua com 100 metros aproximadamente. Rua na frente do
+ * condomínio de 50 a 200 metros é uma quadra"*. Então os 25 m valem quando a frente da gleba
+ * ocupa o trecho da rua **de um cruzamento ao outro**; fora disso, os 15 m. A minha recomendação
+ * de antes — *"rua em todos os lados"* — **caiu**: ela respondia à pergunta errada.
+ */
 export const FAIXA_QUANDO_OCUPA_A_QUADRA_m = 25;
 
 /**
- * Por que o laboratório usa 15 e DIZ que usou.
+ * Por que o laboratório usa 15 e DIZ que usou — e por que a resposta do 9-A não muda isto HOJE.
  *
  * O adendo é explícito: *"se a medição não souber responder, ela usa 15 m e diz que usou, em vez
- * de adivinhar"*. Não há hoje como reconhecer que uma gleba ocupa a quadra inteira — isso é
- * pendência dele —, então o padrão é 15 m, declarado.
+ * de adivinhar"*. Com a resposta dele, reconhecer o caso dos 25 m passou a ser **uma conta, e não
+ * uma pergunta**: a frente ocupa o trecho inteiro da rua? Mas a conta precisa de saber **onde a
+ * rua tem cruzamento**, fora da gleba — e nenhuma gleba desta casa diz sequer quais faces dão para
+ * rua. Sem o dado, 15 m, declarado. *A pergunta saiu da mesa dele; o dado continua faltando no
+ * arquivo.*
  */
 export const FAIXA_EM_USO_m = PADRAO_DA_FAIXA_DE_ESQUINA_m;
 
@@ -187,16 +200,79 @@ export function esquinasDeVia(anel: readonly P[], faces: FacesComVia): number[] 
 }
 
 /**
- * A posição está dentro da faixa de esquina?
+ * A RÉGUA DA FAIXA — ao longo da divisa, a partir do encontro das duas ruas. (item 029, 9-B)
  *
- * A distância é medida **em linha reta** até o vértice de esquina. **Qual das duas réguas vale —
- * reta ou ao longo da divisa — é pendência do Jonny**, e o adendo manda não decidir: em divisa
- * oblíqua as duas diferem, e a diferença pode valer metros. A reta é o que está implementado, e
- * está **declarado** aqui para ninguém a confundir com a decisão.
+ * **Respondido por ele em 12/10/2026:** *"os 15 metros se medem da esquina — encontro de duas ruas
+ * — e 15 metros deste encontro em sentido a cada rua. Nestes primeiros 15 metros não pode colocar
+ * rua, simples assim."* É a recomendação *"andando pela divisa"* desta casa, **confirmada**. E o
+ * motivo, que ele quis escrito: *"prefeitura nenhuma deixa acessar pela esquina"*.
+ *
+ * Até o item 029 a régua era **a linha reta até o vértice**, declarada como provisória. Ela foi
+ * trocada, e a diferença **não é de arredondamento**: a reta **corta por dentro do terreno**. Numa
+ * gleba estreita, um ponto da divisa do outro lado fica a 12,8 m da esquina em linha reta e a
+ * 18 m andando — a reta o recusava, a régua dele o deixa. O caso está demonstrado nas travas.
+ *
+ * **Como se mede, por escrito, porque é escolha minha onde a resposta dele não alcança:**
+ *
+ * - o ponto é **projetado no anel** e vira uma posição de ARCO; as posições que esta casa avalia
+ *   já estão sobre a divisa, e a projeção só existe para não recusar um ponto a milímetros dela;
+ * - a distância é o **menor arco** entre o ponto e o vértice de esquina, nos dois sentidos — que é
+ *   *"15 m deste encontro em sentido a cada rua"*;
+ * - se a face de rua tem menos de 15 m, a caminhada **continua** pela face seguinte. É o lado
+ *   conservador: a regra fala de 15 m de rua, e uma face curta não encurta a regra.
  */
-export const REGUA_DA_FAIXA = "linha-reta-ate-o-vertice" as const;
+export const REGUA_DA_FAIXA = "ao-longo-da-divisa-a-partir-do-encontro-das-ruas" as const;
 
+/** Onde o ponto cai no anel, em ARCO a partir do vértice 0, e o arco de cada vértice. */
+function arcosNoAnel(ponto: P, anel: readonly P[]): { s: number; acum: number[]; perimetro: number } {
+  const n = anel.length;
+  const acum: number[] = [0];
+  for (let i = 0; i < n; i++) acum.push(acum[i]! + comprimento(anel[i]!, anel[(i + 1) % n]!));
+  let melhor = Number.POSITIVE_INFINITY;
+  let s = 0;
+  for (let i = 0; i < n; i++) {
+    const a = anel[i]!;
+    const b = anel[(i + 1) % n]!;
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const l2 = dx * dx + dy * dy;
+    const t = l2 === 0 ? 0 : Math.max(0, Math.min(1, ((ponto.x - a.x) * dx + (ponto.y - a.y) * dy) / l2));
+    const d = Math.hypot(a.x + dx * t - ponto.x, a.y + dy * t - ponto.y);
+    if (d < melhor) {
+      melhor = d;
+      s = acum[i]! + t * Math.sqrt(l2);
+    }
+  }
+  return { s, acum, perimetro: acum[n]! };
+}
+
+/**
+ * A posição está dentro da faixa de esquina? — andando pela divisa, nunca em linha reta.
+ */
 export function dentroDaFaixaDeEsquina(
+  ponto: P,
+  anel: readonly P[],
+  esquinas: readonly number[],
+  faixa_m: number,
+): boolean {
+  if (anel.length < 2 || esquinas.length === 0) return false;
+  const { s, acum, perimetro } = arcosNoAnel(ponto, anel);
+  for (const i of esquinas) {
+    const sv = acum[i];
+    if (sv === undefined || i >= anel.length) continue;
+    const d = Math.abs(s - sv);
+    if (Math.min(d, perimetro - d) <= faixa_m) return true;
+  }
+  return false;
+}
+
+/**
+ * A RÉGUA VELHA, guardada só para a comparação antes/depois do item 029 — não decide nada.
+ *
+ * Fica exportada porque a prova do item 029 põe as duas lado a lado nas sete glebas, e refazer a
+ * reta dentro da ferramenta seria a segunda montagem (D116).
+ */
+export function dentroDaFaixaEmLinhaReta(
   ponto: P,
   anel: readonly P[],
   esquinas: readonly number[],
@@ -296,6 +372,7 @@ export function limiteDaFaixaDeEsquina(
   anel: readonly P[],
   faixa_m: number,
   passo_m = 1,
+  regua: (ponto: P, anel: readonly P[], esquinas: readonly number[], faixa_m: number) => boolean = dentroDaFaixaDeEsquina,
 ): LimiteDaFaixa {
   const perimetro = perimetroDoAnel(anel);
   if (anel.length < 3 || perimetro <= 0 || passo_m <= 0) {
@@ -318,7 +395,7 @@ export function limiteDaFaixaDeEsquina(
       const t = d === 0 ? 0 : andado / d;
       const p = { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
       amostras += 1;
-      if (dentroDaFaixaDeEsquina(p, anel, todosOsVertices, faixa_m)) dentro += 1;
+      if (regua(p, anel, todosOsVertices, faixa_m)) dentro += 1;
       andado += passo_m;
     }
     andado -= d;

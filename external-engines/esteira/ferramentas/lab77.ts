@@ -32,6 +32,7 @@ import {
   avaliarPosicoes,
   contarAsDeclaracoes,
   dentroDaFaixaDeEsquina,
+  dentroDaFaixaEmLinhaReta,
   limiteDaFaixaDeEsquina,
   sugerirAcesso,
   type DeclaracaoDaGleba,
@@ -118,6 +119,25 @@ const varridas = GLEBAS.map(({ id, entrada }) => {
   };
 });
 
+// ── 3-B · A RÉGUA DE ANTES, ao lado — item 029 (LAB-96) ──────────────────────────
+//
+// O Jonny respondeu o 9-B: os 15 m se medem AO LONGO de cada rua, a partir do encontro. A régua
+// trocou, e a desta prova trocou junto. A da reta fica AQUI, lado a lado e na mesma montagem, para
+// a regeração não apagar o "antes" (D182) nem precisar de uma segunda lista de glebas (D116).
+const comARetaDeAntes = GLEBAS.map(({ id, entrada }) => {
+  const anel = entrada.gleba.anel as P[];
+  const pontos = posicoesDeAcesso(anel, POSICOES_DE_ACESSO);
+  const todos = anel.map((_, i) => i);
+  const l15 = limiteDaFaixaDeEsquina(anel, PADRAO_DA_FAIXA_DE_ESQUINA_m, 1, dentroDaFaixaEmLinhaReta);
+  const l25 = limiteDaFaixaDeEsquina(anel, FAIXA_QUANDO_OCUPA_A_QUADRA_m, 1, dentroDaFaixaEmLinhaReta);
+  return {
+    gleba: id,
+    tetoPct15: l15.tetoPctDoPerimetro,
+    tetoPct25: l25.tetoPctDoPerimetro,
+    dentroDaFaixaNoTeto: pontos.filter((p) => dentroDaFaixaEmLinhaReta(p, anel, todos, FAIXA_EM_USO_m)).length,
+  };
+});
+
 // ── 4 · A SUGESTÃO — e ela se RECUSA a sair ─────────────────────────────────────
 const posicoesDeExemplo = (() => {
   const g = GLEBAS[4]!; // geo-antonina, uma das duas que declaram acesso
@@ -163,6 +183,16 @@ for (const v of varridas) {
   console.log(`  · ${v.gleba.padEnd(26)} ${v.dentroDaFaixaNoTeto}/${v.posicoesVarridas} na faixa · ${dec}`);
 }
 
+console.log("\nA RÉGUA DE ANTES (linha reta), ao lado — item 029:");
+for (const r of comARetaDeAntes) {
+  const agora = limites.find((l) => l.gleba === r.gleba)!;
+  const v = varridas.find((x) => x.gleba === r.gleba)!;
+  console.log(
+    `  · ${r.gleba.padEnd(26)} teto 15 m: reta ${r.tetoPct15} % → ao longo ${agora.a15.tetoPctDoPerimetro} % · ` +
+      `25 m: ${r.tetoPct25} % → ${agora.a25.tetoPctDoPerimetro} % · varridas na faixa: ${r.dentroDaFaixaNoTeto} → ${v.dentroDaFaixaNoTeto}`,
+  );
+}
+
 console.log("\nA SUGESTÃO:");
 console.log(`  frase: ${aSugestao.frase ?? "— NENHUMA"}`);
 console.log(`  porque não: ${aSugestao.porqueNao ?? "—"}`);
@@ -187,12 +217,15 @@ writeFileSync(
       aReguaDaFaixa: REGUA_DA_FAIXA,
       qualFaixaFoiUsada: FAIXA_EM_USO_m,
       porQueEssaFaixa:
-        "o adendo manda usar 15 m e DIZER que usou, em vez de adivinhar se a gleba ocupa a " +
-        "quadra inteira — reconhecer isso é pendência do Jonny",
+        "o adendo manda usar 15 m e DIZER que usou, em vez de adivinhar. Desde o item 029 o " +
+        "Jonny respondeu o que é 'quadra' (o TRECHO DE RUA entre dois cruzamentos), e os 25 m " +
+        "valem quando a frente ocupa o trecho inteiro — mas reconhecer isso exige saber onde a " +
+        "rua tem cruzamento, e nenhuma gleba desta casa diz sequer quais faces dão para rua",
       quantasGlebas: conta,
       declaracoes,
       limites,
       varridas,
+      comARetaDeAntes,
       aSugestao,
       oAchado:
         "ZERO das sete glebas declaram quais faces dão para via pública, e CINCO das sete não " +

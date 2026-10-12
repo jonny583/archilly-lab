@@ -1,3 +1,32 @@
+> ## ✅ FEITO EM 12/10/2026 — disparo das 23:07 UTC · LAB-96 · D323
+>
+> **A régua do 9-B trocada:** `external-engines/esteira/src/acesso-sugerido.ts` — `REGUA_DA_FAIXA`
+> passou de `"linha-reta-ate-o-vertice"` para `"ao-longo-da-divisa-a-partir-do-encontro-das-ruas"`,
+> e `dentroDaFaixaDeEsquina` mede o **menor arco sobre a divisa** até o vértice de esquina, nos
+> dois sentidos. A reta ficou como `dentroDaFaixaEmLinhaReta`, **sem decidir nada**, só para a
+> prova pôr as duas lado a lado.
+>
+> **O 9-A no texto:** a regra 3 (`REGRAS_DO_ACESSO`) e o comentário de
+> `FAIXA_QUANDO_OCUPA_A_QUADRA_m` dizem que "quadra" é o **trecho de rua entre dois cruzamentos**.
+> **O código continua com 15 m**: reconhecer os 25 m virou conta, mas a conta precisa de saber onde
+> a rua tem cruzamento, e nenhuma gleba daqui diz nem quais faces dão para rua. **Continua sem
+> sugerir acesso** onde o arquivo não diz quais lados têm rua (`sugerirAcesso(null, …)` recusa).
+> Regra legal continua entrando por **parâmetro** (`faixa_m`), e a trava que proíbe 15 e 25 no corpo
+> das funções continua verde.
+>
+> **O número, nas sete glebas:** **um** valor muda — teto da faixa de 25 m no sintético de 10 ha,
+> 37,42 % → 37,34 %. Prova regerada: `docs/provas/LAB-77/acesso-sugerido.json`, com a régua velha ao
+> lado na chave `comARetaDeAntes`. A diferença real aparece em divisa estreita ou recortada:
+> **oito travas novas** (44 → 52) em `external-engines/esteira/tests/acesso-sugerido.test.ts` (gleba de
+> 100 × 10 m: 12,8 m pela reta, 18 m andando; fenda de 10 m: 14,1 m contra 80 m), e a sabotagem
+> (voltar à reta) **reprova três delas**.
+>
+> **O adendo:** pendências 3 (Orçamento, custo de obra) e 12 (regime vem do empreendimento)
+> marcadas **respondidas**; 5-B, 7, 10 e 11 marcadas **paradas até a integração** em
+> `docs/PENDENCIAS_JONNY.md`, com um aviso no topo. Nada perguntado a ele.
+>
+> **Relatório inteiro:** `docs/relatorios/LAB-96.md`. **Conferido aqui, não no GitHub.**
+
 # 029 — Itens 9-A e 9-B da página do Jonny: respondidos
 
 **Passo 0:** `git fetch -q origin` e conte a caixa na **origem**. Se o 028 (enxugamento)

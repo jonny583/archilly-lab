@@ -2,7 +2,7 @@
   "prompt": "LAB-77",
   "oQueIstoMede": "o que as sete glebas desta casa DECLARAM sobre o acesso e sobre quais faces dão para via pública, e o LIMITE (teto e piso) do que a regra da esquina do Jonny tira do perímetro de cada uma. É medição de DECLARAÇÃO e de GEOMETRIA DO ANEL",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba no sentido do §7: a curva da sensibilidade ao acesso já é medida pelo lab28 (LAB-28), e refazê-la aqui seria a segunda montagem do D116. Por isso esta prova está na lista declarada de exceções do §7",
-  "quando": "2026-10-10T01:16:03.322Z",
+  "quando": "2026-10-12T23:15:14.230Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -26,7 +26,7 @@
       "n": 3,
       "nome": "acesso não se faz perto de esquina",
       "marcaNoAdendo": "Acesso não se faz perto de esquina",
-      "oQueDecide": "faixa de esquina com padrão de 15 m, e 25 m quando a gleba ocupa a quadra inteira. São PADRÃO sugerido, não lei, e não moram dentro do código",
+      "oQueDecide": "faixa de esquina com padrão de 15 m, e 25 m quando a frente da gleba ocupa a quadra inteira — e 'quadra', na palavra dele (item 029), é o TRECHO DE RUA entre dois cruzamentos, não o quarteirão. Medida a partir do encontro das duas ruas, ao longo de cada uma. São PADRÃO sugerido, não lei, e não moram dentro do código",
       "tipo": "universo"
     },
     {
@@ -44,9 +44,9 @@
       "tipo": "do-vizinho"
     }
   ],
-  "aReguaDaFaixa": "linha-reta-ate-o-vertice",
+  "aReguaDaFaixa": "ao-longo-da-divisa-a-partir-do-encontro-das-ruas",
   "qualFaixaFoiUsada": 15,
-  "porQueEssaFaixa": "o adendo manda usar 15 m e DIZER que usou, em vez de adivinhar se a gleba ocupa a quadra inteira — reconhecer isso é pendência do Jonny",
+  "porQueEssaFaixa": "o adendo manda usar 15 m e DIZER que usou, em vez de adivinhar. Desde o item 029 o Jonny respondeu o que é 'quadra' (o TRECHO DE RUA entre dois cruzamentos), e os 25 m valem quando a frente ocupa o trecho inteiro — mas reconhecer isso exige saber onde a rua tem cruzamento, e nenhuma gleba desta casa diz sequer quais faces dão para rua",
   "quantasGlebas": {
     "glebas": 7,
     "comAlgumAcesso": 4,
@@ -166,10 +166,10 @@
         "perimetro_m": 1338.3,
         "passo_m": 1,
         "amostras": 1339,
-        "amostrasNoTeto": 501,
-        "tetoPctDoPerimetro": 37.42,
+        "amostrasNoTeto": 500,
+        "tetoPctDoPerimetro": 37.34,
         "pisoPctDoPerimetro": 0,
-        "comoSeDiz": "com faixa de 25 m, a regra da esquina tira entre **0 %** e **37.42 %** do perímetro de 1338 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
+        "comoSeDiz": "com faixa de 25 m, a regra da esquina tira entre **0 %** e **37.34 %** do perímetro de 1338 m. O intervalo é o resultado: sem saber quais faces dão para via pública, não há como apertá-lo — esquina é encontro de duas RUAS, não vértice do anel"
       }
     },
     {
@@ -334,6 +334,50 @@
         "y": 0
       },
       "acessoDeclaradoNaFaixaNoTeto": false
+    }
+  ],
+  "comARetaDeAntes": [
+    {
+      "gleba": "completo",
+      "tetoPct15": 11.47,
+      "tetoPct25": 19.14,
+      "dentroDaFaixaNoTeto": 2
+    },
+    {
+      "gleba": "sintetico-50ha-ondulado",
+      "tetoPct15": 14.38,
+      "tetoPct25": 23.97,
+      "dentroDaFaixaNoTeto": 2
+    },
+    {
+      "gleba": "sintetico-10ha-plano",
+      "tetoPct15": 22.48,
+      "tetoPct25": 37.42,
+      "dentroDaFaixaNoTeto": 3
+    },
+    {
+      "gleba": "ensaio-47ha",
+      "tetoPct15": 4.4,
+      "tetoPct25": 7.28,
+      "dentroDaFaixaNoTeto": 2
+    },
+    {
+      "gleba": "geo-antonina",
+      "tetoPct15": 10.96,
+      "tetoPct25": 18.14,
+      "dentroDaFaixaNoTeto": 1
+    },
+    {
+      "gleba": "ensaio-com-promessas",
+      "tetoPct15": 4.4,
+      "tetoPct25": 7.28,
+      "dentroDaFaixaNoTeto": 2
+    },
+    {
+      "gleba": "ensaio-com-testada",
+      "tetoPct15": 4.4,
+      "tetoPct25": 7.28,
+      "dentroDaFaixaNoTeto": 2
     }
   ],
   "aSugestao": {
