@@ -1,37 +1,30 @@
-> ## 🟡 EM ANDAMENTO — **LAB-95**, no disparo das 15:08 de 12/10/2026 · **NÃO MARCADO COMO FEITO**
+> ## ✅ FEITO — **LAB-95**, em dois despertadores: 15:08 e 19:07 de 12/10/2026
 >
-> **Por ordem do próprio item:** *"não marque como FEITO até a meta: o próximo despertador continua
-> este mesmo item."* **A meta é 15 000 caracteres e ficou em 18 527** — faltam **3 527**.
+> **A meta foi alcançada no segundo:** o `CLAUDE.md` tem **12 706** caracteres (meta: 15 000),
+> com as **79 regras** e **zero linhas perdidas** — e as duas citações literais intactas.
 >
-> **Relatório:** [`docs/relatorios/LAB-95.md`](../relatorios/LAB-95.md) · **prova:**
-> [`docs/provas/LAB-95/nada-se-perdeu.json`](../provas/LAB-95/nada-se-perdeu.json) · **decisões:**
-> D317 a D321.
+> **E a D321 estava errada, e está escrita a correção (D322):** o primeiro despertador disse que
+> baixar de 15 000 *"exige tirar regra ou editar citação literal"*. **Não exigia.** Os *"203
+> caracteres por regra"* eram a **medida** da redação daquele dia, não um **chão** — eu tratei uma
+> saída como restrição. Medido no segundo: as mesmas 79 regras cabem em **~130 por regra**, sem
+> tirar nenhuma e sem tocar nas citações. *Afirmação sem teste é afirmação provavelmente falsa* —
+> e esta foi uma afirmação minha sobre o que **não** dava, que é a mais fácil de não testar.
 >
-> **O que JÁ está feito, na `main` e verde:**
+> **O que mudou no segundo despertador, com arquivo:**
 >
-> 1. **as guardas listadas antes de mexer** — nove travas e uma ferramenta leem a página; a tabela
->    está no §1 do relatório, com o que cada uma cobra;
-> 2. **`docs/HISTORIA_DAS_REGRAS.md` criado**, com as onze seções movidas **literais** (`H1` a
->    `H11`), como estavam em `490c102`;
-> 3. **o `CLAUDE.md` reescrito curto:** **52 383 → 18 527** caracteres (**−64,6 %**), cada regra em
->    uma ou duas frases com o ponteiro `(história: §HN)`, e as duas citações literais da família
->    intactas;
-> 4. **a conta, conferida e travada:** **79 regras antes × 79 depois** e **ZERO linhas perdidas** —
->    e a conferência é dos **dois lados** (a marca no `CLAUDE.md` de hoje **e** na história);
-> 5. **quatro guardas mudaram de alvo**, e a sabotagem de uma foi **refeita** porque ela havia
->    parado de morder **em silêncio** (D319). Travas novas: `tests/enxugar-o-claude.test.ts` (13, no
->    portão); portão 41 → **42 arquivos**, 685 → **698 travas**.
+> - `CLAUDE.md` — **18 527 → 12 706**; cada regra em uma frase, as listas da §6 e da §4 apertadas;
+>   duas frases da casa voltaram porque as guardas acusaram (abaixo);
+> - `docs/provas/LAB-95/nada-se-perdeu.json` — `chegouNaMeta: true`, inventário 0 problemas,
+>   linhas perdidas 0;
+> - `docs/provas/LAB-81/as-leituras.json` e `docs/provas/LAB-57/varredura-de-configuracao.json` —
+>   regeradas (a do LAB-57 estava **vermelha na `main`** desde o commit `3088d9e`, que acrescentou o
+>   `900.md` à árvore: 569 arquivos contra 568 na prova);
+> - `docs/DECISOES.md` — **D322**; `docs/relatorios/LAB-95.md` — **§8**.
 >
-> **O que falta, com número e não com adjetivo (D321):** o chão medido é **2 473** caracteres que
-> não se cortam nem se editam (1 285 da citação da Central, 387 da do Jonny, 200 do molde do recado,
-> 36 do comando do verde, 565 da lista de onde mora cada coisa). Sobram **16 054** para **79 regras**
-> — **203 por regra**. **Baixar de 15 000 exige tirar regra ou editar citação literal, e este item
-> proíbe as duas.**
->
-> **Então a decisão é sua, e são duas saídas:** (a) a meta muda para o que o conteúdo permite; ou
-> (b) alguma regra sai da página e passa a viver só na história — e aí *regra que sai da página
-> deixa de ser lida.* Enquanto não houver resposta, o item fica aberto e o próximo despertador o
-> pega de novo.
+> **As guardas que acusaram o encurtamento, as três com razão:** `regras.test.ts` (a frase
+> *"698 travas que leem arquivo do próprio repositório"* tem de estar numa linha só — a régua casa
+> sem quebra), `custo-por-uso.test.ts` (*"fora da árvore"*, o buraco declarado da guarda) e o
+> `lab95` (as duas linhas de abertura do texto antigo, que não estavam na história e iam se perder).
 
 # 028 — ENXUGAR O CLAUDE.md: A REGRA FICA, A HISTÓRIA MUDA DE GAVETA
 

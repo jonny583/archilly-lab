@@ -2,7 +2,7 @@
   "prompt": "LAB-81",
   "oQue": "as CINCO leituras de \"esta linha afirma ou só mostra?\" terminadas num lugar só, cada uma com a pergunta dela declarada e conferida contra o `import` de quem a chama — e UMA declarada como diferente, com a medição que prova que ela precisa ser",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto são as LEITURAS de texto desta casa e os arquivos que as chamam. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-10T18:23:04.696Z",
+  "quando": "2026-10-12T19:15:15.285Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -51,45 +51,45 @@
     "oQue": "nenhuma das cinco conhecia o BLOCO DE CÓDIGO",
     "oCusto": "a varredura de custo acusou o RECADOS.md por duas linhas que são recado gravado (D259)",
     "nasSecoesDeRegraDaClaudeMd": {
-      "linhas": 312,
-      "emCitacao": 9,
-      "emBlocoDeCodigo": 20
+      "linhas": 127,
+      "emCitacao": 3,
+      "emBlocoDeCodigo": 15
     },
     "porSecao": [
       {
         "secao": "## 1 · A regra do RECADO — UM BLOCO SÓ por rodada",
-        "linhas": 67,
+        "linhas": 31,
         "emCitacao": 0,
-        "emBlocoDeCodigo": 17
+        "emBlocoDeCodigo": 12
       },
       {
         "secao": "## 1-B · O BALANÇO vai para um arquivo",
-        "linhas": 27,
+        "linhas": 10,
         "emCitacao": 1,
         "emBlocoDeCodigo": 0
       },
       {
         "secao": "## 1-A · A fila é autônoma",
-        "linhas": 57,
-        "emCitacao": 4,
+        "linhas": 22,
+        "emCitacao": 2,
         "emBlocoDeCodigo": 0
       },
       {
         "secao": "## 4 · O que este repositório NUNCA faz",
-        "linhas": 50,
+        "linhas": 21,
         "emCitacao": 0,
         "emBlocoDeCodigo": 0
       },
       {
         "secao": "## 5 · Nomes",
-        "linhas": 11,
+        "linhas": 7,
         "emCitacao": 0,
         "emBlocoDeCodigo": 0
       },
       {
         "secao": "## 7 · Entrega",
-        "linhas": 100,
-        "emCitacao": 4,
+        "linhas": 36,
+        "emCitacao": 0,
         "emBlocoDeCodigo": 3
       }
     ]
