@@ -3,7 +3,7 @@
   "oQue": "a medição do item 025: a esteira compara motores sob premissas idênticas?",
   "aResposta": "NÃO — K = 17 premissas caem no padrão de fábrica de quem recebe, e o Symbios não recebe premissa nenhuma",
   "oQueIstoNaoMede": "não mede gleba, motor nem semente: mede a PASSAGEM de premissas da esteira para cada motor, por lugar. Está na lista de exceções do §7",
-  "quando": "2026-10-11T15:36:09.008Z",
+  "quando": "2026-10-12T00:06:18.370Z",
   "aConta": {
     "N": 13,
     "M": 10,
@@ -145,21 +145,9 @@
   "oQueOMotorNaoRecebe": [
     {
       "motor": "parcelamento",
-      "premissa": "caixaViariaMin_m",
-      "origem": "motor-nao-recebe",
-      "porque": "o motor usa as caixas explícitas e não tem um piso independente (perda declarada na ida)"
-    },
-    {
-      "motor": "parcelamento",
       "premissa": "pctAreaPublica",
       "origem": "motor-nao-recebe",
       "porque": "ele não reserva área pública por porcentagem: reserva por ímã de conteúdo"
-    },
-    {
-      "motor": "parcelamento",
-      "premissa": "rampaMaxima_pct",
-      "origem": "motor-nao-recebe",
-      "porque": "o motor não limita rampa — ele mede, desde o T03 dele"
     },
     {
       "motor": "generate-ortogonal | generate-espinha",

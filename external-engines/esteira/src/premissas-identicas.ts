@@ -147,24 +147,42 @@ export const O_K: readonly PremissaPorMotor[] = [
  * receber** não é premissa inventada — é campo que o contrato não publica, ou consumidor que não
  * existe. **Isto é pedido ao dono do contrato, não achado contra o motor.**
  */
+/**
+ * DUAS LINHAS SAÍRAM DAQUI NO LAB-93, e saem RISCADAS — o item 026 perguntou e a
+ * medição respondeu contra mim (D309).
+ *
+ * O item 026 cruzou duas medições minhas: o LAB-92 classificou `caixaViariaMin_m`
+ * como **caso válido** (*"premissa que o motor NÃO TEM COMO RECEBER"*) e a `ida.ts`
+ * mandava `legais.caixaViariaMinima_m: null` **para um campo que o motor tem**. O
+ * item disse que *"as duas coisas podem ser verdade ao mesmo tempo, e provavelmente
+ * são"*.
+ *
+ * **Não são.** Medido: o motor RECEBE as duas — `caixaViariaMin_m` em
+ * `legais.caixaViariaMinima_m` e `rampaMaxima_pct` em `legais.rampaMaximaDeVia_pct`,
+ * e a tradução do próprio dono do motor já as mapeava. O que havia era **perda
+ * declarada desta ponte** sendo lida como **falta do motor**:
+ *
+ * - ~~`parcelamento · caixaViariaMin_m` — "o motor usa as caixas explícitas e não tem
+ *   um piso independente (perda declarada na ida)"~~ → o piso existe
+ *   (`viasComPistaCurta`), e entregue o campo o motor avisa em 9 de 9 glebas;
+ * - ~~`parcelamento · rampaMaxima_pct` — "o motor não limita rampa — ele mede, desde
+ *   o T03 dele"~~ → continua sem limitar, e **recebe**: o campo entra em
+ *   `cortesDoArquivo`. Não limitar não é não receber.
+ *
+ * > **"O motor não tem como receber" e "a minha ponte não entrega" têm a mesma
+ * > aparência do lado de fora, e culpas opostas.** O meu motivo de perda era
+ * > verdadeiro sobre o que o motor FAZ e falso sobre o que ele ACEITA — e eu
+ * > publiquei o segundo.
+ *
+ * Fica o que se sustentou: `pctAreaPublica` (nenhum campo novo aponta para ela), os
+ * três do Generate e as treze do Symbios.
+ */
 export const O_QUE_O_MOTOR_NAO_RECEBE: readonly PremissaPorMotor[] = [
-  {
-    motor: "parcelamento",
-    premissa: "caixaViariaMin_m",
-    origem: "motor-nao-recebe",
-    porque: "o motor usa as caixas explícitas e não tem um piso independente (perda declarada na ida)",
-  },
   {
     motor: "parcelamento",
     premissa: "pctAreaPublica",
     origem: "motor-nao-recebe",
     porque: "ele não reserva área pública por porcentagem: reserva por ímã de conteúdo",
-  },
-  {
-    motor: "parcelamento",
-    premissa: "rampaMaxima_pct",
-    origem: "motor-nao-recebe",
-    porque: "o motor não limita rampa — ele mede, desde o T03 dele",
   },
   {
     motor: "generate-ortogonal | generate-espinha",

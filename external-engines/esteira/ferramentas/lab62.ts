@@ -108,10 +108,15 @@ const lista1 = abertos.map((p, i) => ({
  * mesma rodada dão um total parado, e total parado parece rodada sem mexida na fila — é por isso
  * que as duas mudanças ficam escritas, e não só o saldo.*
  *
+ * **14 → 13 no LAB-93:** a D226 (os quatro campos de `legais`) foi EXECUTADA (item 026, D306) e
+ * saiu **por ENTREGA**. *E é bom dizer qual, porque este número já desceu por RECONTAGEM uma vez
+ * e o riscado saiu precoce* (D301): aqui o item saiu com relatório, prova, as três perdas relidas
+ * e a pergunta do item respondida — nada foi riscado por escopo.
+ *
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */
-const ABERTOS_ESPERADOS = 14;
+const ABERTOS_ESPERADOS = 13;
 
 cobrar(
   lista1.length === ABERTOS_ESPERADOS,

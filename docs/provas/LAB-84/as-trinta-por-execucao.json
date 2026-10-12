@@ -1,8 +1,8 @@
 {
   "prompt": "LAB-84",
-  "oQue": "os 39 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
+  "oQue": "os 40 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-11T15:37:26.495Z",
+  "quando": "2026-10-12T00:24:47.456Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -10,280 +10,288 @@
   "comoFoiMedido": "cópia do repositório num diretório onde os três clones irmãos NÃO existem — conferido antes de medir, e a ferramenta estoura se algum aparecer —, e `bun test <arquivo>` um a um, guardando o código de saída. Nada foi movido nem renomeado no vizinho (§4)",
   "porQueNaoPorLeitura": "o item 017 proibiu: rodar a lista sem os clones é a RESPOSTA, ler o `import` é a HIPÓTESE. E a diferença apareceu no número: o D279 disse DUAS travas, lidas do fonte; executadas são QUATRO, e três delas são anteriores à minha rodada",
   "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
-  "quantosArquivos": 39,
-  "quantosPassamSemClone": 39,
+  "quantosArquivos": 40,
+  "quantosPassamSemClone": 40,
+  "quantasTravasNaLista": 666,
   "asTrintaEUma": [
     {
       "arquivo": "tests/pagina.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 21,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/recado.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 9,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/balancos.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 6,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/contrato.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 14,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/verde.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 8,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/regras.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 25,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/segredos.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 14,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/chamadas.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 17,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/esqueleto.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 24,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/mecanismos.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 24,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/contrafactual.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 20,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/configuracao.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 15,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/configuracao-do-motor.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 16,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/propostas.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 19,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/tres-listas.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 20,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/aritmetica-da-regra.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 22,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/limites-com-sujeito.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 12,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/gatilho-do-verde.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 7,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/vazamento-de-custo.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 39,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/commit-dos-vizinhos.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 10,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/classes-de-rodada.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 9,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/escopo-dos-instrumentos.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 11,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/disparos-em-vazio.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 22,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/custo-por-uso.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 11,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/trava-de-estrutura.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 11,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/por-lugar.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 15,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/registro-do-lab.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 29,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/acesso-sugerido.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 44,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/setimo-mecanismo.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 15,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/alcance-das-provas.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 25,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/as-onze.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 7,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/padrao-da-familia.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 11,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/profundidade-da-historia.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 13,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/caixa-vazia.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 12,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/regerar-a-varredura.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 10,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/premissas-identicas.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 20,
+      "reprovam": 0,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/legais-do-contrato.test.ts",
+      "saida": 0,
+      "passam": 20,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/leituras.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 13,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/nome-do-trabalho.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 11,
+      "reprovam": 0,
       "asQueReprovam": []
     },
     {
       "arquivo": "tests/o-que-o-gatilho-carrega.test.ts",
       "saida": 0,
-      "passam": null,
-      "reprovam": null,
+      "passam": 15,
+      "reprovam": 0,
       "asQueReprovam": []
     }
   ],

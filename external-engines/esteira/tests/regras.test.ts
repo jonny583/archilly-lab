@@ -35,7 +35,9 @@
 import { describe, expect, test } from "bun:test";
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { basename, dirname, join, resolve } from "node:path";
+
+import { alcanceDeClone, apelidosDeClone } from "../src/alcance-dos-clones.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const PROVAS = join(RAIZ, "docs", "provas");
@@ -467,7 +469,52 @@ describe("§7 · o CI existe, e a lista dele não é mentira (LAB-38)", () => {
       distintos,
       `o número de travas do CI divergiu entre os arquivos: ${JSON.stringify(achados)}`,
     ).toHaveLength(1);
+
+    // ── E OS QUATRO PODIAM ESTAR ERRADOS JUNTOS (LAB-93, D311) ─────────────
+    //
+    // Até aqui esta trava conferia os quatro lugares **entre si** — e foi exatamente
+    // isso que deixou passar `661` quando o medido é `666`: eu somei 641 + 20 de
+    // cabeça e esqueci as cinco travas que entraram no próprio `regras.test.ts`.
+    // *Quatro cópias de um número conferidas uma contra a outra provam que ninguém
+    // esqueceu de copiar, não que o número é verdade.*
+    //
+    // A soma por EXECUÇÃO vem da prova do LAB-84 — e `null` ali é recusa, não
+    // aprovação: soma com buraco não confere nada.
+    const porExecucao = (
+      JSON.parse(
+        readFileSync(join(RAIZ, "docs", "provas", "LAB-84", "as-trinta-por-execucao.json"), "utf8"),
+      ) as { quantasTravasNaLista: number | null }
+    ).quantasTravasNaLista;
+    expect(
+      porExecucao,
+      "a prova do LAB-84 não tem a soma das travas da lista — rode `bun run lab84`",
+    ).not.toBeNull();
+    expect(
+      Number(distintos[0]),
+      `o número de travas do CI está escrito em quatro lugares e NÃO bate com a medição por ` +
+        `execução do LAB-84 (${porExecucao}) — rode \`bun run lab84\` e corrija os quatro`,
+    ).toBe(porExecucao as number);
   });
+
+  /** Lê o arquivo, tentando as extensões que o fonte desta casa usa. */
+  const lerSePuder = (caminho: string): string | null => {
+    for (const c of [caminho, `${caminho}.ts`, join(caminho, "index.ts")]) {
+      if (existsSync(c) && statSync(c).isFile()) return readFileSync(c, "utf8");
+    }
+    return null;
+  };
+  const resolverRelativo = (de: string, especificador: string): string =>
+    resolve(dirname(de), especificador);
+
+  /** Os apelidos de clone, LIDOS do `tsconfig.json` do pacote — nunca escritos aqui. */
+  const APELIDOS = (): string[] => {
+    const dir = join(import.meta.dirname, "..");
+    const bruto = readFileSync(join(dir, "tsconfig.json"), "utf8").replace(/^\s*\/\/.*$/gm, "");
+    const paths = (JSON.parse(bruto) as { compilerOptions?: { paths?: Record<string, string[]> } })
+      .compilerOptions?.paths;
+    expect(paths, "o tsconfig do pacote perdeu os `paths` — é deles que sai o portão").toBeTruthy();
+    return apelidosDeClone(paths!, (alvo) => resolve(dir, alvo), RAIZ);
+  };
 
   test("a lista do trabalho `guardas-sem-clones` só tem testes que NÃO precisam dos clones", () => {
     // Esta é a trava que impede o CI de virar FALSO VERDE: se alguém puser na
@@ -478,6 +525,10 @@ describe("§7 · o CI existe, e a lista dele não é mentira (LAB-38)", () => {
     expect(listados.length, "a lista do trabalho sem clones ficou vazia").toBeGreaterThan(0);
 
     const pasta = import.meta.dirname;
+    const apelidos = APELIDOS();
+    // Medido: `@testfit/`, `@generate/` e `@/` saem da raiz; `@symbios/` NÃO — ele é
+    // desta casa. A lista à mão tinha o terceiro e não tinha `@/` (D310).
+    expect(apelidos).toEqual(["@/", "@generate/", "@testfit/"]);
     for (const nome of new Set(listados)) {
       const caminho = join(pasta, nome);
       expect(existsSync(caminho), `o CI lista ${nome}, que não existe`).toBe(true);
@@ -488,15 +539,26 @@ describe("§7 · o CI existe, e a lista dele não é mentira (LAB-38)", () => {
       // confere que o `comum.ts` importa o Validator de lá. Medir menção em vez de
       // importação é a mesma forma do D137, e é a segunda vez que ela me pega — a
       // régua agora lê o especificador do `import`.
-      const fonte = readFileSync(caminho, "utf8");
-      const importados = [...fonte.matchAll(/^\s*import[^;]*?from\s+["']([^"']+)["']/gm)].map(
-        (m) => m[1]!,
-      );
-      const proibidos = ["@generate/", "@testfit/", "@symbios/", "../../testfit/"];
-      const presos = importados.filter((i) => proibidos.some((pr) => i.startsWith(pr)));
+      //
+      // ── E LER O `import` DO TESTE NÃO BASTA: o alcance é TRANSITIVO (LAB-93) ──
+      //
+      // A versão seguinte comparava o especificador com uma lista de PREFIXOS, e
+      // errava para os dois lados: reprovava um teste que importa módulo do adaptador
+      // **sem clone na cadeia**, e deixava passar um teste que importasse
+      // `../src/passagens-dos-legais.ts`, que importa `@testfit/api.ts`. *Prefixo mede
+      // onde o arquivo mora; a pergunta era o que ele ALCANÇA* (D310). O fecho mora em
+      // `src/alcance-dos-clones.ts`, num lugar só.
+      const r = alcanceDeClone(caminho, lerSePuder, resolverRelativo, apelidos);
       expect(
-        presos,
-        `${nome} está na lista do trabalho que roda SEM os clones, e importa daqui`,
+        r.naoLidos,
+        `${nome}: arquivos que o fecho não conseguiu ler — leitura falha não é silêncio`,
+      ).toEqual([]);
+      const oAlcance: string[] = r.alcanca
+        ? [`${r.oClone} por ${r.porOnde.map((f) => basename(f)).join(" → ")}`]
+        : [];
+      expect(
+        oAlcance,
+        `${nome} está na lista do trabalho que roda SEM os clones, e ALCANÇA um`,
       ).toEqual([]);
     }
   });
@@ -518,5 +580,66 @@ describe("§7 · o CI existe, e a lista dele não é mentira (LAB-38)", () => {
     // repositório está verde", que é a mentira que o D110 custou duas semanas.
     const y = readFileSync(CI, "utf8");
     expect(y).toContain("NÃO é o verde");
+  });
+});
+
+describe("LAB-93 · o ALCANCE de clone, nos dois sentidos (D310)", () => {
+  const arvore: Record<string, string> = {
+    "/r/t/limpo.test.ts": 'import { x } from "../src/puro.ts";\nimport type { T } from "@testfit/api.ts";',
+    "/r/src/puro.ts": 'import { y } from "./mais-puro.ts";\nexport const x = y;',
+    "/r/src/mais-puro.ts": "export const y = 1;",
+    "/r/t/pela-cadeia.test.ts": 'import { z } from "../src/ponte.ts";',
+    "/r/src/ponte.ts": 'import { w } from "../src/fundo.ts";\nexport const z = w;',
+    "/r/src/fundo.ts": 'import { impressao } from "@testfit/api.ts";\nexport const w = impressao;',
+  };
+  const ler = (c: string) => arvore[c] ?? arvore[`${c}.ts`] ?? null;
+  const res = (de: string, esp: string) => resolve(dirname(de), esp);
+  const APELIDOS = ["@/", "@generate/", "@testfit/"];
+
+  test("O LADO BOM: cadeia só de módulos puros NÃO alcança clone", () => {
+    const r = alcanceDeClone("/r/t/limpo.test.ts", ler, res, APELIDOS);
+    expect(r.alcanca).toBe(false);
+    expect(r.naoLidos).toEqual([]);
+    expect(r.visitados).toBe(3);
+  });
+
+  test("O LADO RUIM: alcance por DOIS saltos é pego, e o caminho sai nomeado", () => {
+    const r = alcanceDeClone("/r/t/pela-cadeia.test.ts", ler, res, APELIDOS);
+    expect(r.alcanca).toBe(true);
+    expect(r.oClone).toBe("@testfit/api.ts");
+    expect(r.porOnde.map((f) => basename(f))).toEqual(["pela-cadeia.test.ts", "ponte.ts", "fundo.ts"]);
+  });
+
+  test("`import type` NÃO é alcance — ele não existe em tempo de execução", () => {
+    const soTipo = { "/r/t/so-tipo.test.ts": 'import type { T } from "@generate/x.ts";' };
+    const r = alcanceDeClone(
+      "/r/t/so-tipo.test.ts",
+      (c) => (soTipo as Record<string, string>)[c] ?? null,
+      res,
+      APELIDOS,
+    );
+    expect(r.alcanca).toBe(false);
+  });
+
+  test("arquivo que não se lê sai em `naoLidos`, e NÃO em silêncio", () => {
+    const r = alcanceDeClone(
+      "/r/t/sumiu.test.ts",
+      () => null,
+      res,
+      APELIDOS,
+    );
+    expect(r.naoLidos).toEqual(["/r/t/sumiu.test.ts"]);
+    expect(r.alcanca).toBe(false);
+  });
+
+  test("os apelidos saem dos `paths`: sai da raiz é clone, não sai NÃO é", () => {
+    const paths = {
+      "@testfit/*": ["../../../motor-testfit/src/lib/lab/*"],
+      "@symbios/*": ["../symbios/adapter/src/*"],
+      "@/*": ["../../../urban-create-hub-41d93a4d/src/*"],
+    };
+    const r = apelidosDeClone(paths, (alvo) => resolve("/repo/external-engines/esteira", alvo), "/repo");
+    expect(r).toEqual(["@/", "@testfit/"]);
+    expect(r, "`@symbios/` mora nesta casa e não pode virar clone").not.toContain("@symbios/");
   });
 });

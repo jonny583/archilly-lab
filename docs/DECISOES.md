@@ -9576,3 +9576,185 @@ ranking e o juiz seguiriam funcionando **porque tudo é indexado por `id`**.
 
 **Resposta ao chassi, em uma linha:** o encaixe **não precisa mudar** para aceitar composto; o que
 precisa existir é a decisão de junção, e ela é do dono do chassi.
+
+---
+
+## D306 · ENTREGAR OS QUATRO DE `legais`: O DELTA DE DESENHO É ZERO, E A D226 ATRIBUIU A CAUSA AO CAMPO ERRADO · 12/10/2026
+
+**Item 026 da caixa de entrada**, que autorizou a D226 e mandou medir as duas passagens. Medido
+em **cinco** passagens — `sem`, `só-caixa`, `só-face`, `só-rampa`, `os-três` — e **nove** glebas.
+
+| campo | o contrato traz? | entregue, mudou o quê |
+|---|---|---|
+| `caixaViariaMinima_m` | 9/9 glebas, 8 m | **nada de geometria**; o motor passou a AVISAR (de +10 a +40 avisos por gleba) |
+| `faceQuadraMaxima_m` | 9/9 glebas, 200 m | **nada** |
+| `rampaMaximaDeVia_pct` | **1/9** (só a fixture nova) | **nada** |
+| `declividadeMaximaDeLote_pct` | o `ParametrosV1` não publica | não há passagem |
+
+> **A geometria publicada é IDÊNTICA nas cinco passagens, em 9 de 9 glebas.**
+
+E a frase da D226 — *"o motor GANHOU a capacidade que esta ponte declara como perda: ele não
+limita rampa de via"* — está **errada na causa e certa no veredicto de que algo mudou**. O motor
+não ganhou a capacidade de **limitar**: ganhou a de **CONFERIR** contra a rampa que o arquivo
+pediu, e as duas funções dele dizem isso por escrito (*"isto conta; não reprova e não conserta"*).
+
+**O delta de 21,63 % → 17,92 % da D226 NÃO REPRODUZ** e não pode ter vindo do campo acusado:
+`parametros.rampaMaxima_pct` é **`null`** em `ensaio-com-via`. Fica **riscado com a medição ao
+lado**, e sem culpado novo: *dizer "era isto" sem reproduzir seria inventar a causa de um número
+que eu não tenho.*
+
+**A decisão: entregar os três que o contrato publica**, e o motivo não é o delta de desenho (é
+zero) — é que **a omissão não é neutra**. `null` ali não quer dizer *"sem limite"*: quer dizer
+*"vale o padrão de fábrica do motor"*. É o K = 17 do LAB-92 na porta ao lado. Mapa, motivo e
+procedência em `testfit/adapter/src/legais-do-contrato.ts`; a passagem é opção da ida
+(`entregarOsLegais`), porque o §4 exige que a passagem SEM continue possível.
+
+> **CINCO PASSAGENS, E NÃO DUAS, FOI O QUE FEZ A DIFERENÇA.** Duas respondem *se* algo se moveu;
+> uma passagem por campo responde *qual campo* moveu. A D226 entregou três de uma vez — e três
+> entregues juntos com um número que se move não dizem qual deles o moveu.
+
+---
+
+## D307 · AS TRÊS PERDAS SOB SUSPEITA, NOMEADAS: DUAS SAÍRAM, E A TERCEIRA NUNCA FOI DESSA FAMÍLIA · 12/10/2026
+
+A D226 fechou dizendo que *"três perdas declaradas desta ponte ficam sob suspeita de estarem
+velhas"*. A frase saiu em **cinco lugares** — a decisão, o relatório do LAB-68, a `FILA.md`, o
+`ida.ts` e a própria caixa 026 — e **em nenhum deles ela nomeia as três**.
+
+> **Contagem sem a lista ao lado é a forma mais barata de um número envelhecer.** Quem for
+> conferir "as três" tem de descobrir quais, e duas pessoas descobrem conjuntos diferentes.
+
+Medido: o bloco de parâmetros do inventário da ida tinha **exatamente três** `perda(...)`. A
+contagem estava **certa**; faltava o nome. São, e agora estão em `src/perdas-remedidas.ts`:
+
+1. **`parametros.caixaViariaMin_m` — SAIU.** *"O motor não tem um piso independente"* é falso: a
+   `viasComPistaCurta` compara a PISTA com o mínimo do arquivo e avisa por classe de via;
+2. **`parametros.rampaMaxima_pct` — SAIU.** *"O motor não limita rampa"* continua **verdadeiro**,
+   e era por isso que enganava: o campo deixou de ser **descartado**. *Campo que chega ao motor e
+   muda uma resposta dele não é perda, qualquer que seja a resposta* — e **não limitar não é não
+   receber**;
+3. **`parametros.pctAreaPublica` — FICA, remedida e datada.** E ela **nunca esteve em jogo**:
+   nenhum dos quatro campos novos aponta para ela. *Três coisas suspeitas porque estão na mesma
+   gaveta não são três coisas suspeitas — vizinhança no arquivo não é vizinhança na causa.*
+
+As duas que saíram viraram destino `traduzido` no inventário, o que criou **promessa nova**: e a
+trava do LAB-40 cobrou na hora que `rampaMaxima_pct` **não tinha gleba que a exercitasse** — as
+nove trazem `null`. Daí a fixture `ensaio-com-rampa` (8 %, e **não** 15, que é o corte declarado
+do próprio motor: entregar o default mede a si mesmo). O universo de promessas foi de **60 para
+62**.
+
+---
+
+## D308 · A RODADA NEGOU A MINHA LEITURA DO FONTE: `min(200, 200)` NÃO É UM MÍNIMO · 12/10/2026
+
+Eu declarei, lendo o fonte do motor, que a `faceQuadraMaxima_m` **muda o desenho** — o
+`tetoDeFaceDeQuadra` faz `min(alvo, legal)` e o resultado entra na quebra de quadra, que é
+geometria. A rodada disse **não**, em 9 de 9 glebas, sem mover um lote.
+
+O motivo é medido e é **desta ponte**: o MESMO campo do contrato já chegava ao motor por outro
+caminho. `parametros.faceQuadraMax_m` vira a faixa degenerada `padroes.comprimentoQuadra`, que é
+de onde sai o `alvo`. Então o `min` é `min(200, 200)`.
+
+> **Leitura de fonte é hipótese; rodada é dado.** E quando um campo chega por dois caminhos, a
+> régua que compara os dois caminhos **compara o campo consigo mesmo**.
+
+A consequência de projeto ficou escrita no inventário, no destino do campo: dois caminhos, um
+número. O `legais.faceQuadraMaxima_m` só passaria a morder se o alvo da quadra viesse de outro
+lugar que não o contrato — o botão da tela do motor, por exemplo. **A trava cobra a divergência
+declarada**, não a concordância: a lista pode discordar da rodada, mas o motivo tem de estar
+**escrito** no campo `porQueNaoMordeAqui`.
+
+**É a trigésima vez do ponto cego da §6, e a primeira desta forma** — as outras vinte e nove
+foram régua, ponte, caminho, cabeça, instrumento ou fonte truncada. Esta foi a **leitura do
+fonte prometendo o que a execução negou**.
+
+---
+
+## D309 · "O MOTOR NÃO TEM COMO RECEBER" E "A MINHA PONTE NÃO ENTREGA" TÊM A MESMA APARÊNCIA E CULPAS OPOSTAS · 12/10/2026
+
+O item 026 cruzou duas medições minhas e perguntou se as duas podiam ser verdade ao mesmo tempo:
+o LAB-92 classificou `caixaViariaMin_m` como **caso válido** — *"premissa que o motor NÃO TEM
+COMO RECEBER: campo que o contrato não publica"* — e a `ida.ts` mandava
+`legais.caixaViariaMinima_m: null` **para um campo que o motor tem**. O item apostou que *"as duas
+coisas podem ser verdade ao mesmo tempo, e provavelmente são"*.
+
+**Não são.** Medido na origem do motor: ele recebe as duas, e a **tradução do próprio dono** já
+as mapeava — `caixaViariaMin_m → legais.caixaViariaMinima_m` e `rampaMaxima_pct →
+legais.rampaMaximaDeVia_pct`, nas mesmas palavras do contrato v1. Duas linhas do
+`O_QUE_O_MOTOR_NAO_RECEBE` do LAB-92 saíram **riscadas**.
+
+> **O meu motivo de perda era verdadeiro sobre o que o motor FAZ e falso sobre o que ele ACEITA —
+> e eu publiquei o segundo.** Perda declarada desta ponte lida como falta do motor é o §6 com
+> outra roupa: a diferença entre as duas é invisível de fora e as culpas são opostas.
+
+E o item estava certo na metade que importa: **a vaga vazia não é neutra.** O efeito de omitir é o
+mesmo do K = 17 — a premissa é inventada por quem recebe. A linha que liga as duas listas existe,
+e ela diz: *caso válido se confere no que o motor ACEITA, nunca no que ele faz com o que recebe.*
+
+---
+
+## D310 · RÉGUA DE PREFIXO MEDE ONDE O ARQUIVO MORA; A PERGUNTA ERA O QUE ELE ALCANÇA · 12/10/2026
+
+A trava que impede o CI de virar falso verde confere que nenhum teste da lista do trabalho **sem
+clones** importe de um clone vizinho. Ela lia o especificador do `import` (conserto do D142,
+correto até onde ia) e o comparava com uma lista de prefixos escrita à mão:
+`["@generate/", "@testfit/", "@symbios/"]`.
+
+Ela errava **nos dois extremos**, e as duas metades foram medidas hoje:
+
+- **larga demais:** reprovou `tests/legais-do-contrato.test.ts`, que importa um módulo do
+  adaptador cuja única importação é um **tipo** de um arquivo que não importa nada. Zero clone no
+  caminho;
+- **estreita demais, e este é o lado caro:** `../src/` **não estava** entre os prefixos. Um teste
+  da lista que importasse `../src/passagens-dos-legais.ts` — que importa `@testfit/api.ts` —
+  passaria pela régua e **quebraria o CI**, que é exatamente o que ela existe para impedir;
+- e a lista à mão tinha **`@symbios/`, que não é clone** (ele resolve para `../symbios/adapter/src`,
+  desta casa) e **não tinha `@/`, que é** (`urban-create-hub-41d93a4d/src`).
+
+> **Apelido que decide o portão não se escreve à mão: ele se LÊ de onde ele mora.** A lista tinha
+> um apelido que não era clone e não tinha um que era — e nenhuma das duas metades falhava fazendo
+> barulho.
+
+Agora o fecho é **transitivo** e os apelidos são **derivados dos `paths` do `tsconfig.json`**, por
+um critério só: o alvo resolvido **sai da raiz deste repositório**. E `import type` **não é
+alcance** — ele não existe em tempo de execução, e sem essa distinção o fecho acusou
+`tests/contrato.test.ts`, que passa sem clone nenhum e está medido assim em 40 de 40 por execução.
+
+Mora em `src/alcance-dos-clones.ts`, com os dois sentidos travados: cadeia pura **passa**, alcance
+por dois saltos **reprova com o caminho nomeado**, `import type` **não conta**, e arquivo que não
+se lê sai em `naoLidos` em vez de sair em silêncio.
+
+---
+
+## D311 · A MEDIÇÃO POR EXECUÇÃO SÓ MEDIA QUEM FALHAVA — E QUATRO CÓPIAS DE UM NÚMERO NÃO O CONFEREM · 12/10/2026
+
+Dois defeitos de instrumento, um dentro do outro, e os dois achados por **contar a lista em vez de
+somar de cabeça**.
+
+**1. A medição por execução do LAB-84 publicava `null` em 36 dos 40 arquivos** — exatamente os que
+**passavam**. Ela usava `execFileSync` com `encoding`, que devolve **só a saída padrão** quando o
+comando dá certo; o `bun test` escreve o resumo (`N pass`, `N fail`) na saída de **erro**. Então o
+campo `passam` só existia quando o arquivo reprovava.
+
+> **Medição que só preenche o campo quando dá errado não é medição por execução: é relatório de
+> falha.** E ela passou quinze dias assim, com o nome *"as trinta e uma por execução"* — porque o
+> que ela afirma (*"todos passam sem os clones"*) só precisa do **código de saída**, e o código de
+> saída estava certo.
+
+**2. O número de travas do portão vivia em QUATRO lugares, e a trava os conferia ENTRE SI.** Ela
+exige que `CLAUDE.md`, `ONDE_PARAMOS.md`, `FILA.md` e `verde.yml` digam o mesmo número — e nunca
+comparou esse número com a realidade. Eu escrevi **661** (641 + 20, de cabeça, esquecendo as
+**cinco** travas que entraram no próprio `regras.test.ts`), os quatro lugares concordaram, a trava
+passou, e o medido é **666**.
+
+> **Quatro cópias de um número conferidas uma contra a outra provam que ninguém esqueceu de
+> copiar, não que o número é verdade.** Consistência não é correção — e quatro lugares errados
+> juntos são mais convincentes do que um só.
+
+**O conserto:** `spawnSync` junta as duas saídas nos dois caminhos, a prova passa a publicar
+`quantasTravasNaLista` (a soma por execução, e **`null` quando qualquer arquivo não foi medido** —
+*soma com buraco não é soma*), e a trava dos quatro lugares passa a **cobrar o número contra essa
+soma**. O `null` ali é **recusa**, não aprovação.
+
+**E a lição de método é a mais velha desta página:** *número que o próprio instrumento mede ao lado
+não se escreve de memória* (D185). Eu somei; a resposta era contar.
