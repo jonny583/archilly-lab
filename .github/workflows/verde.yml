@@ -24,7 +24,7 @@
 #
 # Em vez de fingir, o workflow diz a verdade em duas partes:
 #
-#   1. **`guardas-sem-clones`** roda hoje, sem segredo nenhum: as 666 travas que não
+#   1. **`guardas-sem-clones`** roda hoje, sem segredo nenhum: as 685 travas que não
 #      dependem de clone vizinho — a página do Jonny estar atualizada, o formato do
 #      RECADO, a cobertura do próprio `conferir.sh` e as regras do `CLAUDE.md`.
 #      **Ele NÃO é o verde**, e o nome diz isso;
@@ -115,6 +115,7 @@ jobs:
             tests/regerar-a-varredura.test.ts \
             tests/premissas-identicas.test.ts \
             tests/legais-do-contrato.test.ts \
+            tests/preco-do-setimo.test.ts \
             tests/leituras.test.ts \
             tests/nome-do-trabalho.test.ts \
             tests/o-que-o-gatilho-carrega.test.ts
@@ -200,7 +201,7 @@ jobs:
             echo "  tornar os dois vizinhos públicos — e essa é decisão do Jonny."
             echo ""
             echo "  ENQUANTO ISSO: o trabalho 'guardas-sem-clones' roda e protege"
-            echo "  666 travas; e o verde completo continua sendo rodado à mão, antes"
+            echo "  685 travas; e o verde completo continua sendo rodado à mão, antes"
             echo "  de cada commit, como está no CLAUDE.md §7."
             exit 1
           fi

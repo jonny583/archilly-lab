@@ -471,7 +471,7 @@ repositório errado.
 Resultado desconfortável é resultado: "não consegui compilar" está registrado no
 `SYMBIOS_ANALYSIS.md`, §10.
 
-**O ponto cego tem forma, e ela já se repetiu TRINTA E DUAS vezes** — sempre *o Lab a um
+**O ponto cego tem forma, e ela já se repetiu TRINTA E TRÊS vezes** — sempre *o Lab a um
 passo de acusar o motor de um vizinho por um defeito do Lab*:
 
 | quando | o que eu ia dizer | o que era |
@@ -508,6 +508,7 @@ passo de acusar o motor de um vizinho por um defeito do Lab*:
 | D308 (LAB-93) | "a face de quadra MUDA o desenho — li o `min(alvo, legal)` no fonte do motor" | a rodada negou em **9 de 9 glebas**: o mesmo campo do contrato já chega por `padroes.comprimentoQuadra`, então o mínimo é `min(200, 200)` — **leitura de fonte é hipótese; rodada é dado** |
 | D310 (LAB-93) | "este teste do portão importa de um clone — o prefixo `../../testfit/` está lá" | a cadeia dele **não alcança clone nenhum**; e a mesma régua deixava passar o alcance por `../src/`, tinha `@symbios/` (que é desta casa) e **não** tinha `@/` (que é clone) — prefixo mede onde o arquivo mora |
 | D311 (LAB-93) | "o portão tem 661 travas — 641 + as 20 que eu acabei de escrever" | **666**: eu esqueci as cinco que entraram no `regras.test.ts`, e o número vivia em QUATRO lugares que a trava conferia **entre si** — *consistência não é correção*. A medição por execução que poderia desmenti-lo publicava `null` em 36 de 40, só medindo quem falhava |
+| D315 (LAB-94) | "o caminho externo do Generate não chama acabamento NENHUM — foi ele que mediu" | **chama**, atrás de `opcoes.acabamento`, e o Validator roda depois: a porta existe na ORIGEM dele e **não existe no clone que esta casa compila**. *Aqui o clone não atrasa uma data: falta-lhe uma função inteira* |
 
 A quarta foi diferente das três primeiras: não houve erro de conta, houve um
 **comentário envelhecendo em silêncio**. Daí a guarda do §4 — e a quarta vez
@@ -519,7 +520,7 @@ perguntar *"o que este campo faz no motor?"* — `viaManual` dá o **ângulo** d
 partido e bloqueia a **faixa** da linha; nunca prometeu pôr rua em cima dela, e
 medir obediência pela promessa errada faz o obediente parecer desobediente.
 
-**As trinta e duas, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
+**As trinta e três, classificadas, e a soma fecha** — cada linha da tabela em exatamente uma
 classe, com a decisão nomeada para qualquer um refazer a conta:
 
 | quantas | a classe | quais |
@@ -530,18 +531,18 @@ classe, com a decisão nomeada para qualquer um refazer a conta:
 | **TRÊS** | a minha cabeça, contando de memória o que estava impresso ao lado | D161, D185, D250 |
 | **UMA** | dado que faltava, e não número que mudou | D133 |
 | **DUAS** | instrumento de MEDIÇÃO que não responde a pergunta feita | D266, D311 |
-| **DUAS** | a FONTE truncada respondendo como se fosse inteira | D293, D294 |
+| **TRÊS** | a FONTE truncada respondendo como se fosse inteira | D293, D294, D315 |
 | **UMA** | a LEITURA do fonte prometendo o que a EXECUÇÃO negou | D308 |
 
-17 + 4 + 2 + 3 + 1 + 2 + 2 + 1 = **32**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
+17 + 4 + 2 + 3 + 1 + 2 + 3 + 1 = **33**. **Esta linha dizia "NOVE foram réguas minhas, duas foram a ponte e
 três foram caminho errado" até 08/10/2026, e 9 + 2 + 3 = 14:** duas das dezesseis não tinham
 classe, e a frase se lia como partição. Medido e refeito no LAB-63, com guarda que soma
 (D212). Ela também citava **D104** e **D175** como membros, e nenhuma das duas é linha da
 tabela — elas são decisões *irmãs*, citadas no texto abaixo, e não ocorrências do ponto cego.
 
-**VINTE E QUATRO** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137,
+**VINTE E CINCO** foram pegas **dentro do próprio prompt**, antes de sair (D128, D133, D135, D137,
 D142, D148, D155, D166, D185, D190, D217, D231, D240, D245, D248, D250, D254, D257, D262, D263,
-D266, D308, D310, D311).
+D266, D308, D310, D311, D315).
 
 **A VIGÉSIMA OITAVA é a terceira que ESCAPOU** — com o D119 e o D161 —, e é a única em que o
 instrumento errado não era uma régua minha, era o **clone**. Num `--depth 1`, o `git log` de um
@@ -623,7 +624,7 @@ consertar**, porque o comentário do conserto **citava** o defeito: varredura es
 texto de código mede **o que o código faz** e **o que ele diz sobre si**, e só uma delas é
 o objeto.
 
-**A regra que as trinta e duas ensinam, e ela é curta:**
+**A regra que as trinta e três ensinam, e ela é curta:**
 
 > **Antes de acusar a ponte de não entregar, confira o CAMINHO e a FORMA do que
 > você está lendo**; antes de dizer que um número mudou, confira se ele
@@ -638,7 +639,7 @@ o objeto.
 > e não de quem declarou a regra (D98, D104, D166); e quando a régua varre CÓDIGO, tire os comentários antes — comentário é
 > onde um nome significa *"eu estou falando sobre"*, não *"eu faço"*; e quando você for
 > dizer **onde** uma coisa está, meça a **distância** — id, prefixo e nome de passagem são
-> rótulo, e três das trinta e duas vezes eu classifiquei pelo nome em vez de medir (D148, D155,
+> rótulo, e três das trinta e três vezes eu classifiquei pelo nome em vez de medir (D148, D155,
 > D161); e quando o número já está impresso ao lado, **conte a lista, não a memória** (D185).
 > e quando a régua procura um **valor** (um commit, um id, um código), olhe o **valor inteiro**
 > do campo e não o texto em volta — **fronteira de palavra num nome composto não é fronteira de
@@ -674,10 +675,13 @@ o objeto.
 > e quando um número morar em VÁRIOS lugares, não confira os lugares entre si: *consistência não
 > é correção*, e quatro cópias erradas juntas são mais convincentes que uma — o número se cobra
 > contra a MEDIÇÃO, e medição que publica `null` onde deu certo é relatório de falha (D311).
+> e quando uma régua do vizinho se chamar pelo nome de UMA das suas condições, leia o critério
+> inteiro antes de formular a pergunta: *o "piso de área" dele é piso de área **e de frente**, e a
+> hipótese que chegou até mim estava formulada pela metade que não morde* (D314).
 > e quando você MEDIR uma régua, meça com a régua dela: *instrumento de medição mais estreito que
 > o instrumento medido dá o número para o lado otimista* — e o lado otimista é o que ninguém
 > confere, porque ele confirma o conserto (D266).
-> **Trinta e duas de trinta e duas vezes o defeito estava do MEU lado — na régua, na ponte, no
+> **Trinta e três de trinta e três vezes o defeito estava do MEU lado — na régua, na ponte, no
 > caminho, na minha cabeça, no instrumento com que eu media ou na leitura que eu tomei por
 > medição — antes de estar no medido**, e em DOZE delas a régua era o teste que eu acabara de
 > escrever.
@@ -747,7 +751,7 @@ propósito em cada frente, `exit 0 → exit 1` (D126, `docs/provas/LAB-31/sabota
 nomes que não enganam** (D141):
 
 - **`guardas que não precisam dos clones vizinhos (NÃO é o verde)`** roda em todo push,
-  sem segredo: as 666 travas que leem arquivo do próprio repositório — página do Jonny
+  sem segredo: as 685 travas que leem arquivo do próprio repositório — página do Jonny
   atualizada, formato do RECADO, cobertura do `conferir.sh`, as regras desta página — e
   as de geometria pura. É pouco em número e **muito** em tipo de apodrecimento;
 - **`o verde completo`** precisa do segredo `VIZINHOS_TOKEN`, porque o comando único lê

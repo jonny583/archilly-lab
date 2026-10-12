@@ -315,3 +315,85 @@ export function aContaFecha(c: ContaDosVereditos): boolean {
   const somaDonos = Object.values(c.porDono).reduce((s, n) => s + n, 0);
   return soma === c.lotes && somaDonos === c.lotes;
 }
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  A GEOMETRIA DO "ALÉM DA PONTA" — mudou de lugar no LAB-94, e o motivo importa
+// ══════════════════════════════════════════════════════════════════════════════
+//
+// Estas três funções nasceram DENTRO da `ferramentas/lab78.ts`, e lá estavam bem
+// enquanto só ela as usava. O item 027 pede a mesma medição em outra rodada e em
+// outras glebas, e aí a escolha era copiá-las ou mudá-las de lugar.
+//
+// > **Régua que dois instrumentos leem mora num lugar só** — é o que a
+// > `docs/referencia/FERRAMENTA_E_TRAVA.md` fecha, e é o que o D231 custou: o
+// > conserto do `<app>` entrou na trava e não na ferramenta, e a ferramenta passou a
+// > mentir com a autoridade de quem conferia.
+//
+// O item 027 é explícito: *"não escreva régua nova"*. Então a régua é **esta**, a
+// mesma que publicou os 13,18 m do `v16-e15`, e a ferramenta do LAB-78 passa a
+// importá-la daqui — nada no número dela muda.
+
+/** Um ponto, em metros. */
+export interface PontoDaRegua {
+  x: number;
+  y: number;
+}
+
+/**
+ * Quantos METROS o lote avança ALÉM da ponta do segmento `[a, b]` — zero quando está dentro.
+ *
+ * **Este número é o que decidiu o LAB-78.** A projeção dizia *que* o lote estava fora; sem o
+ * *quanto*, eu atribuí a violação à faixa do vizinho. Medido, eram 13,18 m e 10,43 m virando o
+ * canto — o lote está na face SEGUINTE, e não há rua declarada ali (D254).
+ *
+ * Segmento degenerado **estoura**, e não devolve zero: sem reta não há projeção, e zero aqui
+ * diria *"está dentro"* sobre uma pergunta que não foi feita.
+ */
+export function alemDaPonta(
+  lote: readonly PontoDaRegua[],
+  a: PontoDaRegua,
+  b: PontoDaRegua,
+): number {
+  const dx = b.x - a.x;
+  const dy = b.y - a.y;
+  const len2 = dx * dx + dy * dy;
+  if (len2 === 0) throw new Error("divisa degenerada: sem reta não há projeção");
+  const comp = Math.sqrt(len2);
+  let maior = 0;
+  for (const p of lote) {
+    const t = ((p.x - a.x) * dx + (p.y - a.y) * dy) / len2;
+    if (t < 0) maior = Math.max(maior, -t * comp);
+    else if (t > 1) maior = Math.max(maior, (t - 1) * comp);
+  }
+  return maior;
+}
+
+/**
+ * A projeção do lote cai DENTRO da extensão de `[a, b]`?
+ *
+ * Projeta-se cada vértice do lote no parâmetro `t` da reta `a→b`. Se **algum** `t` cai em
+ * `[0, 1]`, há faixa na frente de parte do lote. Se **nenhum** cai, o lote está inteiramente
+ * além da ponta do segmento — e a faixa não está na frente dele de jeito nenhum.
+ *
+ * É o teste do **alcance**, e ele responde **onde**. Quem responde **de quem é a culpa** é a
+ * `alemDaPonta`, com o quanto (D254).
+ */
+export function projecaoDentroDaDivisa(
+  lote: readonly PontoDaRegua[],
+  a: PontoDaRegua,
+  b: PontoDaRegua,
+): boolean {
+  const dx = b.x - a.x;
+  const dy = b.y - a.y;
+  const len2 = dx * dx + dy * dy;
+  if (len2 === 0) {
+    throw new Error(
+      "divisa degenerada: a e b coincidem — sem reta não há projeção, e zero aqui mentiria",
+    );
+  }
+  for (const p of lote) {
+    const t = ((p.x - a.x) * dx + (p.y - a.y) * dy) / len2;
+    if (t >= 0 && t <= 1) return true;
+  }
+  return false;
+}

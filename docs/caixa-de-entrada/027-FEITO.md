@@ -1,3 +1,40 @@
+> ## ✅ FEITO — **LAB-94**, no disparo das 07:17 de 12/10/2026
+>
+> **Relatório:** [`docs/relatorios/LAB-94.md`](../relatorios/LAB-94.md) · **prova:**
+> [`docs/provas/LAB-94/o-preco-do-setimo.json`](../provas/LAB-94/o-preco-do-setimo.json) ·
+> **decisões:** D312 a D316.
+>
+> **O que foi feito, com arquivo e linha:**
+>
+> 1. **o preço, medido** — `external-engines/esteira/src/preco-do-setimo.ts` (a classificação, a
+>    conta, e o rótulo da simulação) e `ferramentas/lab94.ts` (`bun run lab94`). **21 a 48 lotes
+>    por candidata**, de uma fileira de 33 a 64; **1 196 em 40 candidatas**; **zero** em
+>    `ensaio-com-testada`, que é o controle;
+> 2. **a régua NÃO é nova, como você exigiu** — a `alemDaPonta` e a `projecaoDentroDaDivisa`
+>    saíram de `ferramentas/lab78.ts` para `src/setimo-mecanismo.ts` para serem lidas por dois
+>    instrumentos. **A prova do LAB-78 saiu idêntica, só a data mudou**;
+> 3. **a segunda metade da frase era FALSA** — `frente` **não zerou em nenhuma das 40**: cai de
+>    28–55 para 5–16. Retirando a fileira **inteira** ela vai a zero em **38 das 40**, e a
+>    segunda retirada existe porque contar eu mesma quem faz frente seria reimplementar o
+>    invariante dele (§4);
+> 4. **o rótulo saiu como você cobrou** — `O_QUE_A_SIMULACAO_NAO_MEDE`, quatro linhas, na prova e
+>    com trava que reprova se alguma delas **afirmar** teto ou piso;
+> 5. **a pergunta do acabamento, em três camadas** — por ÁREA não alcança (0 de 1 196 abaixo do
+>    mínimo); por FRENTE alcança todos; **mata ou funde eu não sei**, e a casa que pode medir está
+>    nomeada. **E a porta já existe na origem dele** (`acabamento-externo.ts`, `acabarPlano`,
+>    chamado pelo `parcelamento-externo.ts` atrás de `opcoes.acabamento`) **e não existe no clone
+>    que esta casa compila**;
+> 6. **a `FILA.md`** deixou de dizer *"medição que este prompt não fez"* e aponta para a prova; **a
+>    §10 da página do Jonny foi reescrita** com o preço, a correção da frase e a recomendação
+>    **mudada com a medição** — de *"pare a fileira"* para *"espere o acabamento do chassi"*;
+> 7. **travas:** `tests/preco-do-setimo.test.ts` (19, no portão). Portão: 40 → **41 arquivos**,
+>    666 → **685 travas**, medidas por execução.
+>
+> **Duas coisas que o item disse e a medição corrigiu, com respeito e com número:** a premissa de
+> *"testada 0 m"* — os 1 196 têm **10,14 a 13,98 m** (o zero era de **um** lote acusado do LAB-78)
+> — e *"o caminho externo não chama NENHUM passo"*, que **deixou de ser verdade** entre o item ser
+> escrito e esta rodada.
+
 # 027 — o PREÇO do sétimo mecanismo: meça quantos lotes o conserto custa, sem consertar nada
 
 > **Vem da direção, 12/10/2026 às 00h38 UTC (varredura do chão).** **A escolha é

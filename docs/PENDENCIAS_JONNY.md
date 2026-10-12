@@ -738,24 +738,57 @@ pedida, em vez de dobrar a esquina.
 
 ### E aqui está a parte que é SUA, porque é desenho e não conta
 
-**Parar a fileira na esquina faz o terreno perder lotes que hoje entram.** Quantos,
-eu **não medi** — e não vou inventar o número. São três caminhos, e a escolha é sua:
+**Parar a fileira na esquina faz o terreno perder lotes que hoje entram.**
+~~Quantos, eu **não medi** — e não vou inventar o número.~~ **AGORA ESTÁ MEDIDO**
+(12/10/2026), e o chat pediu a medição sem eu precisar perguntar:
+
+| | |
+|---|---|
+| **o preço por opção de desenho** | **de 21 a 48 lotes** — de uma fileira que tem 33 a 64 |
+| **no total medido** | **1 196 lotes**, em 40 opções, nos dois terrenos de Antonina |
+| **no terreno do ensaio de 47 ha** | **zero** — ali a rua pedida cobre a fileira inteira |
+| **e o caso mais duro** | a opção que o próprio motor põe em **primeiro lugar** em Antonina tem **33 lotes**, e **todos os 33** são dessa fileira: parando na esquina ela fica com **12** |
+
+### E uma coisa que eu tinha escrito e estava ERRADA — corrigida com a medição ao lado
+
+Eu escrevi, aqui e no roteiro, que parar a fileira *"zera o defeito"*. **Não zera.**
+Medido nas 40 opções: o número de lotes sem rua na frente **cai muito** — de 28–55
+para 5–16 — e **sobra**. Para ele chegar a zero seria preciso tirar a fileira
+externa **inteira**, e aí ele zera em 38 das 40 (nas outras duas sobra **um** lote).
+
+> **Em uma frase:** parar na esquina **melhora muito e não resolve**. O que resolve
+> é a fileira externa não existir, e isso é outro desenho, não um ajuste.
+
+### E pode ser que você não precise decidir nada — isto é novidade de hoje
+
+O **Generate** (a parte da família que confere e julga os desenhos) tem um passo de
+acabamento que **tira do plano o lote que não tem rua na frente** — ou o junta com o
+vizinho, quando dá. Esse passo **existe e está ligado** na versão mais nova dele, e
+a cópia que o laboratório usa para medir **ainda não tem**.
+
+**Medido:** os 1 196 lotes **têm área legal** (de 218 a 581 m², e o mínimo é 200), e
+**nenhum deles tem rua na frente** pela régua do próprio Generate. Então esse passo
+**alcança todos eles** — não pela área, pela falta de rua.
+
+**O que eu não sei, e não vou chutar:** se ele **apaga** cada um ou se **junta** com
+o lote vizinho. Isso só se sabe rodando o passo, e quem pode rodar é a equipe do
+Generate. O pedido já foi com o número.
+
+### Os três caminhos, agora com o custo na mão
 
 | caminho | o que acontece | o custo |
 |---|---|---|
-| **a) a fileira para na esquina** | ninguém nasce sem rua na frente | **perde** os lotes da dobra — quantos, não medido |
+| **a) a fileira para na esquina** | melhora muito o defeito, **não resolve** | **21 a 48 lotes** por opção; a opção preferida do motor em Antonina cai de 33 para 12 |
 | **b) a esquina também recebe rua** | os lotes ficam, com rua na frente | muda o desenho das ruas, e isso é projeto |
-| **c) fica como está** | nada muda | continuam nascendo lotes sem rua, e eles reprovam na conferência |
+| **c) fica como está e o acabamento do Generate resolve** | o passo dele tira ou junta o lote sem rua | **nada muda no motor**; depende de a equipe dele ligar o passo, e do laboratório atualizar a cópia para medir |
 
-**A minha recomendação, e é só uma sugestão:** o **(a)**. Lote sem rua na frente
-não é um lote a menos — é um lote que não existe de verdade, e ele reprova na
-conferência de qualquer jeito. Perder dois lotes no papel é melhor do que
-entregar dois que não dão acesso a ninguém.
+**A minha recomendação mudou com a medição, e é só uma sugestão:** o **(c)**. Antes
+eu sugeria o (a) porque não sabia o preço; medido, ele custa até 48 lotes por opção
+**e não resolve o defeito**. O passo do Generate alcança os mesmos lotes sem mexer no
+desenho do motor — e o que ele faz com cada um é medição de uma rodada, na casa dele.
 
-**Se você quiser o número antes de escolher**, é uma medição de uma rodada: eu
-conto quantos lotes caem em cada terreno nos dois caminhos e te mostro a conta.
-**Me peça e eu meço** — é a ordem certa, porque escolher desenho sem o custo na
-mão é o que esta casa chama de conta feita com o volume que a gente gostaria de ter.
+**Se você preferir decidir agora de qualquer forma, decida** — o preço está acima, e
+a conta é essa.
 
 > **Por que isto chega até você:** o pedido de conserto vai para a equipe do motor,
 > e o chat pediu que ele saísse completo. Um pedido que embute uma escolha de

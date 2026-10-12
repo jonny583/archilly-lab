@@ -42,7 +42,7 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     expect(conferirONome(workflow(), existe, medicao()).map((p) => `${p.tipo}: ${p.oQue}`)).toEqual([]);
   });
 
-  test("a lista do trabalho é achada, e tem os 40 arquivos que a medição rodou", () => {
+  test("a lista do trabalho é achada, e tem os 41 arquivos que a medição rodou", () => {
     const lista = arquivosDoTrabalho(workflow(), TRABALHO_SEM_CLONES);
     // 30 quando a medição do LAB-84 começou, 31 com esta própria trava dentro, e 32 no LAB-85,
     // com a trava da decisão do gatilho (D284), e 33 no LAB-86, com a `configuracao.test.ts` —
@@ -62,12 +62,14 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // LAB-60 (aberta desde 07/10) executada.
     // E 39 no LAB-92, com a `premissas-identicas.test.ts` — a medição do item 025: ela lê o
     // módulo e os `.geojson` desta casa, e nenhum clone.
+    // E 41 no LAB-94, com a `preco-do-setimo.test.ts` — a medição do item 027: módulo puro e a
+    // prova em JSON, nenhum clone. A ferramenta dela roda o motor e por isso fica de fora.
     // E 40 no LAB-93, com a `legais-do-contrato.test.ts` — a medição do item 026: ela lê módulos
     // puros e a prova em JSON. A irmã dela, `assinatura-da-geometria.test.ts`, NÃO entra: usa a
     // `impressao` do motor, que é leitura do clone vizinho por caminho (D16).
     // O número anda quando o trabalho ganha ou perde arquivo, e
     // mudá-lo é deliberado: é a lista que a medição cobriu.
-    expect(lista).toHaveLength(40);
+    expect(lista).toHaveLength(41);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

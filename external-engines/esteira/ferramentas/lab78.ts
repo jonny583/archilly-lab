@@ -41,6 +41,8 @@ import {
   deQuemEhAViolacao,
   type LoteAcusado,
   type VereditoDoLote,
+  alemDaPonta,
+  projecaoDentroDaDivisa,
 } from "../src/setimo-mecanismo.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
@@ -77,51 +79,6 @@ function entrePoligonos(a: readonly P[], b: readonly P[]): number {
   for (const p of a) for (let i = 0; i < b.length; i++) d = Math.min(d, distSeg(p, b[i]!, b[(i + 1) % b.length]!));
   for (const p of b) for (let i = 0; i < a.length; i++) d = Math.min(d, distSeg(p, a[i]!, a[(i + 1) % a.length]!));
   return d;
-}
-
-/**
- * A projeção do lote cai DENTRO da extensão da divisa `[a, b]`?
- *
- * Projeta-se cada vértice do lote no parâmetro `t` da reta `a→b`. Se **algum** `t` cai em
- * `[0, 1]`, há faixa na frente de parte do lote. Se **nenhum** cai, o lote está inteiramente
- * além da ponta do segmento — e a faixa não está na frente dele de jeito nenhum.
- *
- * É o teste do **alcance**, e é o que separa "a faixa é estreita" de "a faixa não está aqui".
- */
-/**
- * Quantos METROS o lote avança além da ponta de `[a, b]` — zero quando está dentro.
- *
- * **Este número é o que decidiu o prompt.** A projeção dizia *que* o lote estava fora; sem o
- * *quanto*, eu atribuí a violação à faixa do vizinho. Medido, são 13,18 m e 10,43 m virando o
- * canto — o lote está na face SEGUINTE, e não há rua declarada ali.
- */
-function alemDaPonta(lote: readonly P[], a: P, b: P): number {
-  const dx = b.x - a.x;
-  const dy = b.y - a.y;
-  const len2 = dx * dx + dy * dy;
-  if (len2 === 0) throw new Error("divisa degenerada: sem reta não há projeção");
-  const comp = Math.sqrt(len2);
-  let maior = 0;
-  for (const p of lote) {
-    const t = ((p.x - a.x) * dx + (p.y - a.y) * dy) / len2;
-    if (t < 0) maior = Math.max(maior, -t * comp);
-    else if (t > 1) maior = Math.max(maior, (t - 1) * comp);
-  }
-  return maior;
-}
-
-function projecaoDentroDaDivisa(lote: readonly P[], a: P, b: P): boolean {
-  const dx = b.x - a.x;
-  const dy = b.y - a.y;
-  const len2 = dx * dx + dy * dy;
-  if (len2 === 0) {
-    throw new Error("divisa degenerada: a e b coincidem — sem reta não há projeção, e zero aqui mentiria");
-  }
-  for (const p of lote) {
-    const t = ((p.x - a.x) * dx + (p.y - a.y) * dy) / len2;
-    if (t >= 0 && t <= 1) return true;
-  }
-  return false;
 }
 
 // ── A medição ──────────────────────────────────────────────────────────────────

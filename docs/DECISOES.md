@@ -9758,3 +9758,131 @@ soma**. O `null` ali é **recusa**, não aprovação.
 
 **E a lição de método é a mais velha desta página:** *número que o próprio instrumento mede ao lado
 não se escreve de memória* (D185). Eu somei; a resposta era contar.
+
+---
+
+## D312 · O PREÇO DO SÉTIMO MECANISMO: 21 A 48 LOTES POR CANDIDATA, E A FRASE "ZERA A VIOLAÇÃO" É FALSA · 12/10/2026
+
+**Item 027 da caixa de entrada**, que autorizou a escolha que esta casa já havia fundamentado e
+mandou medir o que a `FILA.md` prometia em duas metades, as duas sem medição.
+
+**A primeira metade, o preço.** Parar a fileira externa no fim da face declarada custa, por
+candidata, **21 a 48 lotes** — de uma fileira que tem **33 a 64**. No total medido: **1 196
+lotes** em **40** candidatas, nas duas glebas de Antonina. Em `ensaio-com-testada`, **zero**: ali
+a face declarada cobre a fileira inteira, e é o controle que mostra que a régua não acusa à toa.
+
+**A segunda metade era falsa.** A `FILA.md` dizia *"encurtá-la ao fim da rua perde esses lotes **e
+zera a violação**"*. Medido: a violação de `frente` **não zerou em NENHUMA das 40** — ela cai de
+**28–55 para 5–16** e sobra.
+
+E a pergunta que isso abre não se responde contando eu mesmo quem faz frente — isso seria
+reimplementar o invariante do Generate, que a §4 proíbe. Responde-se com **uma segunda retirada,
+pela régua dele**: tirada a fileira externa **inteira**, a `frente` vai a **zero em 38 das 40**, e
+nas outras duas sobra **uma**.
+
+> **"Parar no fim da face" e "não ter fileira externa" não são a mesma coisa** — e a diferença é
+> de 5 a 16 violações por candidata. A primeira melhora muito; só a segunda resolve, e ela é
+> outro desenho.
+
+**E o caso que mais muda a decisão:** a candidata que o **próprio ranking do motor põe em
+primeiro** em Antonina tem **33 lotes**, e **todos os 33** são da fileira externa — parando na
+face ela fica com **12**. É a mesma superquadra do D140, agora com o preço.
+
+---
+
+## D313 · ISTO É SIMULAÇÃO, E O RÓTULO É PARTE DA ENTREGA: NEM TETO NEM PISO · 12/10/2026
+
+A medição do D312 **retira** os lotes do plano publicado e repassa o resultado pelo Validator e
+pelos indicadores do Generate. **Ela não replanta nada.**
+
+O conserto de verdade mexe no **plantio**, e plantio que para mais cedo pode **replantar
+diferente** daí para a frente — outra fileira, outro lote, outra área.
+
+> **Chamar este número de "teto da perda" seria hipótese sobre o plantio**, que é exatamente a
+> coisa que esta casa não roda. O item 027 avisou antes de eu errar: *"diga o que a simulação mede
+> e pare aí"* — e é a lição do LAB-93, doze horas antes: **leitura de fonte é hipótese; rodada é
+> dado.**
+
+O rótulo mora em `src/preco-do-setimo.ts`, viaja **na prova** e é cobrado por trava — inclusive
+que nenhuma linha dele **afirme** ser teto ou piso. E a régua do *"além da ponta"* **não é nova**:
+é a `alemDaPonta` do LAB-78, que **mudou de arquivo** para ser lida por dois instrumentos, sem
+mudar um número (a prova do LAB-78 saiu idêntica, só a data mudou).
+
+---
+
+## D314 · O PASSO DO CHASSI NÃO É "PISO DE ÁREA": É PISO DE ÁREA **E DE FRENTE** · 12/10/2026
+
+O item 027 cruzou esta medição com a do Generate e levantou a hipótese que nenhuma das duas casas
+via sozinha: *"algum dos passos de acabamento mata ou arruma um lote que nasce além da face
+declarada? Se matar, o preço não é do plantio do Parcelamento — é do chassi."* E foi honesto:
+*"não estou afirmando que mata — estou dizendo que não sei."*
+
+Medido, em três camadas:
+
+1. **por ÁREA, não alcança.** O critério é `area >= areaMin`, e os 1 196 lotes têm **218,76 a
+   581,03 m²** contra um mínimo de **200**: **zero** abaixo dele. A hipótese, como o item a
+   formulou, cai;
+2. **por FRENTE, alcança TODOS.** Lido o fonte dele, o passo mantém o lote só quando
+   `area >= areaMin` **E** `testadaContraVias(pontos, superficiesFrente) > 0` — e o comentário
+   dele é explícito: *"lote sem NENHUMA frente é tão invendável quanto lote abaixo do mínimo"*. Os
+   1 196 publicam `faceDeRua: null`, e **não é leitura minha**: o invariante `frente` do próprio
+   Generate os conta, e vai a zero quando a fileira sai (38 de 40). *Duas funções dele, a mesma
+   pergunta;*
+3. **MATA ou FUNDE, eu não sei.** O passo tenta `melhorVizinhoParaFusao` **antes** de descartar, e
+   qual das duas saídas acontece em cada lote só se sabe **rodando o passo**.
+
+> **O nome do passo declara UMA das duas condições, e a hipótese do item vivia na outra.** Régua
+> cujo nome conta metade do critério faz quem lê de fora formular a pergunta pela metade errada —
+> e o item formulou pela área, que é a metade que não morde.
+
+**E a premissa do item sobre a testada não se sustenta, medida:** ele falou de *"um lote com
+testada 0 m"*, e os 1 196 têm **10,14 a 13,98 m**. O `testadaDele_m: 0` era do `v16-e15` do
+LAB-78 — **um** lote acusado, não a fileira. O motor reporta testada e diz `faceDeRua: null` no
+mesmo lote, e as duas coisas convivem: quem decide *"tem frente?"* é o invariante do Generate, não
+o número da testada.
+
+---
+
+## D315 · A PORTA DO ACABAMENTO JÁ EXISTE NA ORIGEM DELE, E NÃO EXISTE NO CLONE QUE ESTA CASA COMPILA · 12/10/2026
+
+O item 027 citou a medição que o Generate publicou às 22h18 de 11/10: *"o caminho do motor EXTERNO
+não chama NENHUM"* passo de acabamento. **Isso deixou de ser verdade entre o item ser escrito e
+esta rodada.**
+
+Medido na **origem** dele (`c6048f8`): existe `src/lib/engine/acabamento-externo.ts`, com
+`acabarPlano`, e o `parcelamento-externo.ts` **a chama — entre a montagem e o Validator**, atrás
+de `opcoes.acabamento`. Com a opção ligada, **o veredicto passa a ser do plano que o chassi
+entrega**. No clone que esta casa compila (`72cfab0`) **o arquivo não existe**.
+
+> **O clone não é a origem — e aqui a diferença não é de data, é de CAPACIDADE.** A pergunta do
+> item só se responde por rodada em quem tem a porta, e o clone desta casa não tem. *Quarta vez na
+> família do D295, e a primeira em que o que falta no clone é uma função inteira, não um commit.*
+
+**E a conta dos passos muda de número sem contradição:** o `024-O-CHASSI.md` contou **16 de 17**
+passos que **poderiam** rodar sobre um plano de fora; a porta que foi entregue **aplica 13** e
+declara **4 fora**, com o motivo de cada um. *Número de inventário e número de porta respondem
+perguntas diferentes, e 13 + 4 = 17 fecha com os dois.*
+
+**A consequência para a decisão que espera o Jonny:** ela pode não precisar ser tomada. O passo
+alcança os 1 196 pela falta de frente, sem tocar no plantio do motor — e a recomendação na página
+dele **mudou com a medição**, de *"pare a fileira"* para *"espere o acabamento do chassi"*, com o
+preço das duas ao lado.
+
+---
+
+## D316 · SETE DAS DEZ GLEBAS NÃO DECLARAM FACE — E ALI A PERGUNTA NÃO TEM OBJETO · 12/10/2026
+
+O item 027 pediu a conta *"nas nove glebas-padrão"*. Medido, **só três das dez** declaram
+`facesLoteamento`: `geo-antonina`, `antonina-com-via` e `ensaio-com-testada`. Nas outras sete a
+ida não entrega face nenhuma, o motor não cria fileira externa, e **não existe "além da face"**.
+
+Essas sete saem com veredicto próprio — `declaraFace: false`, com o motivo escrito — e **não com
+zero**.
+
+> **Zero é uma medição; "a pergunta não tem objeto aqui" é outra coisa.** Publicar `0 lotes` nas
+> sete diria que o mecanismo foi medido nelas e não custou nada — e quem lesse a soma concluiria
+> que o preço é pequeno porque sete glebas o diluem. É o D23 fora do seu lugar de origem: ali ele
+> separa zero de `null`; aqui separa **medido** de **sem objeto**.
+
+E a terceira que declara face é o **controle que a medição precisava**: em `ensaio-com-testada` a
+face declarada cobre a fileira inteira e o preço é **zero de verdade** — a régua não acusa à toa.
