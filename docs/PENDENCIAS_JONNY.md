@@ -20,6 +20,24 @@ item 7 — um resultado estranho do Laboratório de Parcelamento que é decisão
 
 ---
 
+## 12/10/2026 — você respondeu seis coisas, e pediu para eu não perguntar mais nada por enquanto
+
+**Obrigado.** O que você respondeu já está valendo, e cada item abaixo está marcado no lugar dele:
+
+- **9-A** ("quadra" é o **trecho de rua** entre dois cruzamentos, não o quarteirão) e **9-B** (os
+  15 m se medem **a partir do encontro das duas ruas, andando por cada uma**) — **valendo**;
+- **3** (o custo da ponte e do bueiro vai para o **Orçamento**, como **custo de obra**) — **valendo**;
+- **12** (condomínio ou loteamento **vem do empreendimento** criado no Generate; a comparação nunca
+  escolhe sozinha) — **valendo**.
+
+**E o seu pedido:** *"não quero responder mais nada do Generate, do Laboratório de Parcelamento e
+do Lab enquanto eles não estiverem integrados na mesma tela."* Então as perguntas **5-B, 7, 10 e
+11** ficam **paradas** — não somem, só esperam. Você vai conhecer o Lab como um motor dentro do
+Generate, e elas voltam a você **lá**, e a 5-B volta **reescrita, com um desenho**. Até lá eu sigo
+pelo caminho conservador e digo o que assumi, como já faço. **Nada aqui precisa de você agora.**
+
+---
+
 ## Em cinco minutos
 
 **Você respondeu as duas perguntas da ponte** — obrigado. As duas estão gravadas
@@ -124,9 +142,15 @@ ponte ou bueiro se a volta for desproporcional; quando propuser, faz a
 **mais curta e perpendicular ao rio**, mostra na tela, e lança o custo dela
 (ponte ou bueiro) para o aplicativo de orçamento.
 
-Uma coisa a confirmar quando puder, de um segundo: **o nome do aplicativo de
+~~Uma coisa a confirmar quando puder, de um segundo: **o nome do aplicativo de
 orçamento veio cortado** na mensagem ("para o Or…"). Não adivinhei o destinatário
-— está registrado como pendência de confirmação.
+— está registrado como pendência de confirmação.~~ **Respondido por você em
+12/10/2026:** é o **Orçamento**. E a regra é mais larga que a pergunta — *"qualquer
+custo é orçamento, de um parafuso a uma rua ou portaria"*. Lá há dois tipos: o
+**custo de obra** (tudo o que se gasta para construir: ponte, bueiro, asfalto,
+calçada, redes, grama, paisagismo, portaria) e os **custos separados**
+(administração, marketing, pró-labore, cartório, taxas, comissão e impostos).
+**Ponte e bueiro são custo de obra.** Registrado na D323.
 
 O que segue abaixo é a pergunta como ela foi feita, para o registro não se
 perder.
@@ -264,7 +288,7 @@ se fossem o limite da rua seria inventar uma regra e pôr o seu nome nela.
 
 ---
 
-## 5-B · A régua de forma — **respondida pelo chat em 02/10, à espera do seu OK**
+## 5-B · A régua de forma — **respondida pelo chat em 02/10** · ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026; ela volta reescrita, com um desenho)
 
 A pergunta do item 5-A abaixo **foi respondida pelo chat**, e já está valendo:
 
@@ -354,7 +378,7 @@ está gravada, com guarda, e nada neste laboratório gasta um centavo.
 
 ---
 
-## 7 · O Laboratório de Parcelamento escolheu 33 lotes tendo 1 228 à mão — isso é de propósito?
+## 7 · O Laboratório de Parcelamento escolheu 33 lotes tendo 1 228 à mão — isso é de propósito? · ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026)
 
 > ✅ **MEDIDO E FECHADO em 07/10/2026 — ver "Novidade de 07/10" mais abaixo.** O plano de
 > 1 228 lotes **é aceitável** depois dos consertos já medidos, e a **nota** do programa é que
@@ -651,7 +675,7 @@ saber que existe.
 
 ---
 
-## 9 · As suas regras do acesso: duas perguntas que só você responde
+## 9 · As suas regras do acesso: ~~duas perguntas que só você responde~~ — **você respondeu as duas em 12/10/2026**
 
 **Você ditou cinco regras do acesso em 09/10, e elas estão gravadas.** O
 laboratório já as cumpre: ele **sugere** em vez de mandar, **nunca mexe** no
@@ -661,7 +685,17 @@ acesso que você escolheu, e **não propõe** acesso em cima do muro do vizinho.
 português de gente, com a minha recomendação ao lado. **Não decidi nenhuma das
 duas.**
 
-### 9-A · Como a gente sabe que o terreno "pega a quadra toda"?
+### 9-A · ~~Como a gente sabe que o terreno "pega a quadra toda"?~~ — **respondido em 12/10/2026**
+
+**A sua resposta:** *"não é quadra no sentido de quarteirão […] e sim quadra no sentido de rua com
+100 metros aproximadamente. Rua na frente do condomínio de 50 a 200 metros é uma quadra."* Então os
+**25 m valem quando a frente do terreno ocupa o trecho inteiro da rua, de um cruzamento ao outro**;
+fora disso, **15 m**. A minha recomendação — "rua em todos os lados" — **caiu**: ela respondia a uma
+pergunta que não era a sua. **O que muda hoje:** nada nos números, porque nenhum terreno daqui diz
+onde a rua tem cruzamento; o laboratório continua usando 15 m e dizendo que usou. Mas a pergunta
+saiu da sua mesa: agora é uma conta, e falta só o dado.
+
+*A pergunta como ela foi feita, para o registro:*
 
 Você disse: **15 metros** de distância da esquina no caso normal, e **25 metros**
 quando *"o terreno pegar aquela quadra toda só pra ele"*.
@@ -682,7 +716,16 @@ prática, ele é a quadra. É simples de medir e difícil de errar.
 *"use sempre 15"*; (c) *"eu digo, terreno por terreno"* — e aí passa a ser um
 botão na tela, não uma conta.
 
-### 9-B · Os 15 metros se medem em linha reta ou andando pela divisa?
+### 9-B · ~~Os 15 metros se medem em linha reta ou andando pela divisa?~~ — **respondido em 12/10/2026**
+
+**A sua resposta:** *"os 15 metros se medem da esquina — encontro de duas ruas — e 15 metros deste
+encontro em sentido a cada rua. Nestes primeiros 15 metros não pode colocar rua, simples assim."*
+É **andando pela divisa**, e **já está no código**: a linha reta saiu. Medido nos sete terrenos,
+a troca quase não mexe — eles têm a divisa larga, e a diferença só aparece em terreno estreito ou
+recortado, onde a linha reta "cortava por dentro". E o motivo que você quis escrito ficou escrito:
+*prefeitura nenhuma deixa acessar pela esquina.*
+
+*A pergunta como ela foi feita, para o registro:*
 
 Imagine a divisa do terreno chegando na esquina **de viés**, não em ângulo reto.
 Aí *"15 metros da esquina"* quer dizer duas coisas diferentes:
@@ -723,7 +766,7 @@ que chega aos motores, e pedi a criação dele ao Generate.
 
 ---
 
-## 10 · Dois lotes nascem na esquina sem rua na frente — e consertar isso PERDE lotes
+## 10 · Dois lotes nascem na esquina sem rua na frente — e consertar isso PERDE lotes · ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026)
 
 **O que está acontecendo, em uma frase:** o laboratório mediu o motor que desenha
 os lotes e achou que, em Antonina, a **última fileira de lotes dobra a esquina** e
@@ -797,7 +840,7 @@ a conta é essa.
 
 ---
 
-## 11 · Uma senha que só você pode criar — e sem ela metade da conferência automática nunca roda
+## 11 · Uma senha que só você pode criar — e sem ela metade da conferência automática nunca roda · ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026)
 
 **O que está acontecendo, em uma frase:** este laboratório tem uma conferência
 automática que roda sozinha no GitHub a cada mudança, e **metade dela nunca
@@ -859,7 +902,18 @@ rodando, e a outra metade continua sendo rodada por mim antes de cada entrega.
 Não há pressa de hoje para amanhã — há só uma rede de segurança que ainda não
 existe.
 
-## 12 · Em que REGIME a competição dos motores vai rodar? (11/10/2026)
+## 12 · ~~Em que REGIME a competição dos motores vai rodar? (11/10/2026)~~ — **respondido em 12/10/2026**
+
+**A sua resposta: depende do empreendimento.** Nenhum cálculo acontece fora de um "novo
+empreendimento" do Generate, e é lá que se escolhe **condomínio ou loteamento** e o lote mínimo,
+meta e máximo. Dentro de condomínio ainda se escolhe **com ou sem testada dos lotes para a rua** —
+a mistura fica sob "condomínio", porque o condomínio predomina. **A comparação dos motores lê isso
+do empreendimento e nunca escolhe sozinha.** Enquanto o Lab não estiver dentro do Generate, não há
+empreendimento para ler — então cada medição continua dizendo que rodou em condomínio por omissão,
+em vez de esconder. Registrado na D323.
+
+*A pergunta como ela foi feita, para o registro:*
+
 
 **O que está acontecendo, em uma frase:** quando eu comparo os motores lado a lado, os dois do
 Generate desenham os lotes **como se fossem de condomínio**, e não de loteamento com ruas

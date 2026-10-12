@@ -32,6 +32,7 @@ import {
   avaliarPosicoes,
   contarAsDeclaracoes,
   dentroDaFaixaDeEsquina,
+  dentroDaFaixaEmLinhaReta,
   esquinasDeVia,
   limiteDaFaixaDeEsquina,
   perimetroDoAnel,
@@ -44,6 +45,8 @@ const RAIZ = join(import.meta.dirname, "..", "..", "..");
 // Pelo NÚMERO e não pelo nome: `010-adendo.md` vira `010-adendo-FEITO.md` quando o item
 // fecha, e esta trava quebrou exatamente assim no fim da própria rodada (D252).
 const ADENDO = lerItemDaCaixa(RAIZ, "010-adendo");
+// O item 029 traz as respostas dele ao 9-A e ao 9-B; achado pelo NÚMERO, como o adendo (D252).
+const ITEM_029 = lerItemDaCaixa(RAIZ, "029");
 const FONTE = readFileSync(join(RAIZ, "external-engines", "esteira", "src", "acesso-sugerido.ts"), "utf8");
 
 /** Um quadrado de 100 m, no sentido anti-horário. Faces: 0=sul, 1=leste, 2=norte, 3=oeste. */
@@ -147,9 +150,110 @@ describe("a faixa de esquina é PARÂMETRO, e o número não mora na lógica", (
     }
   });
 
-  test("a régua da faixa está DECLARADA, porque qual delas vale é pendência do Jonny", () => {
-    expect(REGUA_DA_FAIXA).toBe("linha-reta-ate-o-vertice");
+  test("a régua da faixa é a DELE desde o item 029: ao longo de cada rua, a partir do encontro", () => {
+    expect(REGUA_DA_FAIXA).toBe("ao-longo-da-divisa-a-partir-do-encontro-das-ruas");
+    // A pergunta que o adendo deixou aberta…
     expect(aRegraEstaEscrita(ADENDO, "se a faixa de esquina se mede ao longo da divisa ou em linha reta")).toBe(true);
+    // …e a resposta, no texto do item que a trouxe.
+    expect(
+      aRegraEstaEscrita(ITEM_029, "os 15 m se medem a partir do encontro das duas ruas, ao longo de cada uma"),
+    ).toBe(true);
+  });
+
+  test("e 'quadra' é TRECHO DE RUA — a regra 3 diz isso, e o item 029 é de onde veio", () => {
+    expect(aRegraEstaEscrita(ITEM_029, "trecho de rua entre dois cruzamentos")).toBe(true);
+    const r3 = REGRAS_DO_ACESSO.find((r) => r.n === 3);
+    expect(r3?.oQueDecide).toContain("TRECHO DE RUA");
+    expect(r3?.oQueDecide).toContain("ao longo de cada uma");
+  });
+});
+
+/**
+ * A REGUA DO 9-B — andar pela divisa NÃO é a linha reta, e a diferença se demonstra. (item 029)
+ *
+ * Gleba estreita de 100 × 10 m, rua no sul (face 0) e no leste (face 1): a esquina é o vértice 1,
+ * em (100, 0). O ponto (92, 10) está na divisa do NORTE, do outro lado do terreno.
+ *
+ * - em linha reta ele fica a √(8² + 10²) = 12,8 m da esquina — a reta o RECUSAVA;
+ * - andando pela divisa são 10 m subindo o leste e mais 8 m pelo norte = 18 m — a régua dele o
+ *   DEIXA. A reta cortava por dentro do terreno, que é exatamente o que ele não mede.
+ */
+describe("a régua do 9-B: ao longo da divisa, e a reta corta por dentro (item 029)", () => {
+  const ESTREITA: P[] = [
+    { x: 0, y: 0 },
+    { x: 100, y: 0 },
+    { x: 100, y: 10 },
+    { x: 0, y: 10 },
+  ];
+  const esquinas = esquinasDeVia(ESTREITA, [0, 1])!;
+
+  test("o caso que DIFERE: a reta recusa, a régua dele deixa", () => {
+    expect(esquinas).toEqual([1]);
+    const doOutroLado = { x: 92, y: 10 };
+    expect(dentroDaFaixaEmLinhaReta(doOutroLado, ESTREITA, esquinas, 15)).toBe(true);
+    expect(dentroDaFaixaDeEsquina(doOutroLado, ESTREITA, esquinas, 15)).toBe(false);
+  });
+
+  test("e o outro sentido: andando, ainda DENTRO dos 15 m, é recusado pelas duas", () => {
+    // 10 m subindo o leste + 4 m pelo norte = 14 m.
+    const perto = { x: 96, y: 10 };
+    expect(dentroDaFaixaDeEsquina(perto, ESTREITA, esquinas, 15)).toBe(true);
+    expect(dentroDaFaixaEmLinhaReta(perto, ESTREITA, esquinas, 15)).toBe(true);
+  });
+
+  test("a medida é ao longo de CADA uma das duas ruas, nos dois sentidos do encontro", () => {
+    // Pela rua do sul: 14 m dentro, 16 m fora.
+    expect(dentroDaFaixaDeEsquina({ x: 86, y: 0 }, ESTREITA, esquinas, 15)).toBe(true);
+    expect(dentroDaFaixaDeEsquina({ x: 84, y: 0 }, ESTREITA, esquinas, 15)).toBe(false);
+    // Pela rua do leste: ela só tem 10 m; o ponto a 5 m dela está dentro.
+    expect(dentroDaFaixaDeEsquina({ x: 100, y: 5 }, ESTREITA, esquinas, 15)).toBe(true);
+  });
+
+  test("na divisa reta as duas réguas CONCORDAM — a troca não mexe onde não havia o que mexer", () => {
+    for (const x of [50, 80, 84, 85, 86, 95, 99]) {
+      const p = { x, y: 0 };
+      expect(dentroDaFaixaDeEsquina(p, QUADRADO, [1], 15)).toBe(dentroDaFaixaEmLinhaReta(p, QUADRADO, [1], 15));
+    }
+  });
+
+  test("ponto a milímetros da divisa é projetado nela, e não muda de veredito", () => {
+    expect(dentroDaFaixaDeEsquina({ x: 92, y: 10.001 }, ESTREITA, esquinas, 15)).toBe(false);
+    expect(dentroDaFaixaDeEsquina({ x: 96, y: 9.999 }, ESTREITA, esquinas, 15)).toBe(true);
+  });
+
+  test("sem esquina nenhuma, nada está na faixa — e a régua não inventa uma", () => {
+    expect(dentroDaFaixaDeEsquina({ x: 100, y: 0 }, ESTREITA, [], 15)).toBe(false);
+  });
+
+  /**
+   * O teto do LIMITE. A reta nunca dá MENOS que a régua dele (a reta é sempre ≤ o arco), e numa
+   * divisa recortada dá MAIS: uma fenda de 10 m de largura com um vértice no meio de uma parede
+   * põe a parede da frente a 14 m em linha reta e a 80 m andando.
+   */
+  test("o teto do LIMITE mede com a régua dele: nunca acima da reta, e abaixo dela na fenda", () => {
+    const FENDA: P[] = [
+      { x: 0, y: 0 },
+      { x: 200, y: 0 },
+      { x: 200, y: 100 },
+      { x: 105, y: 100 },
+      { x: 105, y: 20 },
+      { x: 95, y: 20 },
+      { x: 95, y: 60 }, // vértice no meio da parede oeste da fenda
+      { x: 95, y: 100 },
+      { x: 0, y: 100 },
+    ];
+    // A parede da frente, em (105, 50): 14,1 m da quina (95, 60) pela reta, 80 m andando.
+    expect(dentroDaFaixaEmLinhaReta({ x: 105, y: 50 }, FENDA, [6], 15)).toBe(true);
+    expect(dentroDaFaixaDeEsquina({ x: 105, y: 50 }, FENDA, [6], 15)).toBe(false);
+
+    for (const anel of [QUADRADO, ESTREITA, FENDA]) {
+      const dele = limiteDaFaixaDeEsquina(anel, 15, 1);
+      const reta = limiteDaFaixaDeEsquina(anel, 15, 1, dentroDaFaixaEmLinhaReta);
+      expect(dele.tetoPctDoPerimetro).toBeLessThanOrEqual(reta.tetoPctDoPerimetro);
+    }
+    const dele = limiteDaFaixaDeEsquina(FENDA, 15, 1);
+    const reta = limiteDaFaixaDeEsquina(FENDA, 15, 1, dentroDaFaixaEmLinhaReta);
+    expect(dele.tetoPctDoPerimetro).toBeLessThan(reta.tetoPctDoPerimetro);
   });
 });
 

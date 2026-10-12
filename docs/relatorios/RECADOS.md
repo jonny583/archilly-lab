@@ -2813,3 +2813,15 @@ Depende do Jonny: nada. A pergunta da D321 (mudar a meta ou tirar regra) deixou 
 Próximo na fila: o item 029 (9-A e 9-B respondidos: medir os 15 m ao longo de cada rua).
 === FIM ===
 ```
+
+## 12/10/2026 · LAB-96 — item 029: os 15 m andando pela divisa, e "quadra" é trecho de rua
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-96 (item 029) ===
+Estado: ITEM 029 FEITO. A faixa de esquina se mede ANDANDO PELA DIVISA, a partir do encontro das duas ruas, ao longo de cada uma — a linha reta saiu. "Quadra" = trecho de rua entre dois cruzamentos. Conferido aqui, não no GitHub: esteira 988 pass · 9 fail (eram 980 · 9), testfit 17 · 0, typecheck e lint limpos; as 9 falhas são todas do .wasm, que não compila nesta máquina (rust 1.96.1 bloqueado), iguais antes e depois.
+Feito: acesso-sugerido.ts (REGUA_DA_FAIXA nova; a reta ficou só como comparação), 44 → 52 travas, prova LAB-77 regerada com a régua velha ao lado, D323, PENDENCIAS (9-A, 9-B, 3 e 12 respondidos; 5-B, 7, 10 e 11 parados até a integração), relatório LAB-96.
+Achados para outros apps ou Central: (1) Nas sete glebas a troca QUASE NÃO MEXE — um valor, 37,42 % → 37,34 % (25 m, sintético de 10 ha). A diferença é de divisa estreita ou recortada, onde a reta corta por dentro: 12,8 m pela reta contra 18 m andando numa gleba de 100 × 10 m. (2) O 9-A tirou a pergunta da mesa dele mas não pôs número aqui: os 25 m viraram conta esperando o cruzamento, que o arquivo de terreno não traz — continuo com 15 m, dito. (3) Para o Generate: lá "esquina" é toda quina ≥ 30° (o motor desenha sem saber onde há rua); aqui é encontro de duas faces de RUA (a casa recusa sugerir sem o dado). As duas erram para o lado seguro, cada uma no seu papel. (4) Máquina nova: a receita "bun add --no-save zod@^3" no clone do Generate FALHA (o bun resolve o lockfile inteiro, que aponta para o registro do Lovable, 403); funcionou "npm pack zod@3" extraído em node_modules/zod. E o .wasm não compila (rust 1.96.1 bloqueado), como no item 028.
+Depende do Jonny: nada — e, a pedido dele, nada desta casa volta a ele antes da integração com o Generate.
+Próximo na fila: a caixa só tem o 900 (a minha lista). Três propostas novas na FILA; a primeira é minha: a regra 2 do acesso não tem guarda ("sem-via-publica" existe e nenhuma função o produz).
+=== FIM ===
+```

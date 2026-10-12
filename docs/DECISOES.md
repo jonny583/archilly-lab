@@ -10027,3 +10027,56 @@ redação gastava**, não quanto uma regra precisa. *Uma saída da medição foi
 **O que se perde:** cada regra ficou em uma frase, às vezes meia; a nuance mora na história, um
 clique adiante (`§HN`). Três frases da casa voltaram porque guardas acusaram o encurtamento
 (`regras`, `custo-por-uso`, `lab95`) — **as três com razão**, e é o serviço delas.
+
+---
+
+## D323 · OS 15 M SE MEDEM ANDANDO PELA DIVISA, E "QUADRA" É TRECHO DE RUA — as respostas dele no código · 12/10/2026
+
+O Jonny respondeu as duas perguntas do item 9 da página dele (item 029 da caixa, texto inteiro
+no item 028 do Generate, que é o dono da regra):
+
+- **9-B:** *"os 15 metros se medem da esquina — encontro de duas ruas — e 15 metros deste encontro
+  em sentido a cada rua."* A régua da faixa de esquina passou de **linha reta até o vértice** para
+  **o menor arco sobre a divisa** entre o ponto e o vértice de esquina
+  (`REGUA_DA_FAIXA = "ao-longo-da-divisa-a-partir-do-encontro-das-ruas"`,
+  `external-engines/esteira/src/acesso-sugerido.ts`). É a recomendação que esta casa tinha feito,
+  confirmada;
+- **9-A:** "quadra" é **o trecho de rua entre dois cruzamentos** (50 a 200 m), não o quarteirão.
+  Os 25 m valem quando a frente ocupa o trecho inteiro. **O código continua usando 15 m**, e diz
+  por quê: reconhecer o caso dos 25 m virou uma conta, mas a conta precisa saber onde a rua tem
+  cruzamento, e nenhuma gleba daqui diz sequer quais faces dão para rua.
+
+**As três escolhas que são minhas, onde a resposta dele não alcança, e as alternativas que
+descartei:**
+
+1. **Ponto fora da divisa é projetado nela.** Descartei recusar: as posições avaliadas já estão
+   na divisa, e recusar um ponto a milímetros dela por arredondamento seria ruído.
+2. **Face de rua mais curta que 15 m não encurta a regra** — a caminhada continua pela face
+   seguinte. Descartei parar no fim da face: a regra fala em 15 m de rua, e uma face curta é
+   desenho do arquivo, não da rua.
+3. **A régua velha não foi apagada:** virou `dentroDaFaixaEmLinhaReta`, que **não decide nada** e
+   existe para a prova pôr as duas lado a lado (D182: a regeração da prova do LAB-77 não apaga o
+   "antes"; D116: a comparação mora na mesma montagem, sem segunda lista de glebas).
+
+**O número, nas sete glebas:** a troca **quase não mexe**. Um único valor muda — o teto da faixa
+de 25 m no sintético de 10 ha, de **37,42 %** para **37,34 %** do perímetro (uma amostra de 1 m em
+1 338). As seis posições varridas e os dois acessos declarados ficam onde estavam. Isso **não** diz
+que a pergunta era irrelevante: diz que **estas** glebas têm a divisa larga. A diferença aparece em
+terreno estreito ou recortado, onde a reta *corta por dentro* — demonstrado nas travas com uma
+gleba de 100 × 10 m (12,8 m pela reta, 18 m andando) e uma fenda de 10 m (14,1 m contra 80 m).
+
+**As outras respostas do mesmo item, registradas aqui para não morarem só na página dele:**
+
+- **Pendência 3 — a "LAB-3" da lista da direção, o "para o Or…" de 15/09:** o destino do item de custo da travessia é o **Orçamento**,
+  como **custo de obra** — e a regra dele é mais larga: *"qualquer custo é orçamento, de um parafuso
+  a uma rua ou portaria"*. A D61 (item 5) fica respondida por esta. **Não mudei o `ItemDeCusto`**:
+  dar a ele um campo de tipo de custo é contrato de saída, e vai à FILA como proposto ao chat;
+- **Pendência 12 — a "LAB-12" (o regime):** vem do **empreendimento** do Generate e a comparação **nunca escolhe**.
+  Sem integração não há empreendimento para ler, então a premissa de condomínio por omissão
+  continua **declarada** em cada medição (`premissas-identicas.ts`), como estava;
+- **Pendências 5-B, 7, 10 e 11 (as "LAB-5B, LAB-7, LAB-10 e LAB-11" da direção): paradas até o Lab entrar no Generate**, a pedido dele. A 5-B
+  volta reescrita, com um desenho.
+
+> **PERGUNTA RESPONDIDA NÃO É DADO QUE CHEGOU.** O 9-A tirou uma decisão da mesa dele e não pôs
+> nenhum número a mais nesta casa: a conta dos 25 m continua sem o cruzamento para medir. Dizer
+> "respondido" e continuar usando 15 m não é contradição — é dizer qual metade andou.

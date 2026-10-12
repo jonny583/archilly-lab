@@ -105,6 +105,10 @@ export const ESCOPO_REMEDIDO: Record<string, Record<string, "medida" | "declarad
     declaracoes: "naoMedida: mesma razão",
     limites: "naoMedida: o teto da faixa sai da geometria das sete glebas — mesma razão",
     varridas: "naoMedida: mesma razão",
+    comARetaDeAntes:
+      "naoMedida: a régua da LINHA RETA, de antes do item 029, nas mesmas sete glebas — mesma razão " +
+      "(clone vizinho). Está na prova para a regeração não apagar o 'antes' (D182); quem confere que " +
+      "a reta e a régua dele DIFEREM, e onde, são as travas sintéticas do `acesso-sugerido.test.ts`",
     aSugestao: "medidaEmParte: que ela se RECUSA a sair é reconferido chamando `sugerirAcesso(null, …)`; os números das candidatas não",
   },
   "LAB-78/setimo-mecanismo.json": {
