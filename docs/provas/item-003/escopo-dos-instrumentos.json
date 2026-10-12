@@ -2,7 +2,7 @@
   "prompt": "item 003 da caixa de entrada",
   "oQueIstoMede": "o escopo da ferramenta contra o escopo da trava, com as quatro sabotagens refeitas de verdade e nomeando qual instrumento acusou cada uma",
   "aPergunta": "do chat: a frase do recado do LAB-66 está certa, mas mora num recado — ninguém lê recado antes de rodar um instrumento só",
-  "quando": "2026-10-12T07:41:51.406Z",
+  "quando": "2026-10-12T15:54:38.679Z",
   "oNomeQueNaoSeSupoe": {
     "oItemChamou": "npm run quebrar",
     "existeNesteRepositorio": false,
@@ -151,8 +151,8 @@
   ],
   "aLarguraDaDivergencia": {
     "oQue": "apagando o bloco do recado de cada relatório, em quantos a régua da TRAVA deixava passar o que a régua da FERRAMENTA acusa",
-    "relatoriosVarridos": 86,
-    "escapavamAntesDoConserto": 56,
+    "relatoriosVarridos": 87,
+    "escapavamAntesDoConserto": 57,
     "escapamAgora": 0,
     "quaisEscapavam": [
       "LAB-02",
@@ -210,7 +210,8 @@
       "LAB-78",
       "LAB-80",
       "LAB-83",
-      "LAB-86"
+      "LAB-86",
+      "LAB-94"
     ],
     "aCausa": "os dois escapes de texto que o conserto do D217 deu à trava — `recados LAB-xx` e `LAB-xx,` — e que a ferramenta não tem",
     "oConserto": "saíram no item 003 (D232). O caso que o D217 queria salvar — o cabeçalho composto `LAB-13 e LAB-14` — já é salvo pela borda de palavra DENTRO do campo `<prompt>`, e o teste «a trava do recado ausente REPROVA de verdade» prova os dois lados"

@@ -4,9 +4,11 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 12/10/2026 · **Último prompt executado:** LAB-94 (item 027) — **o PREÇO
-do sétimo mecanismo: 21 a 48 lotes por candidata, e a frase "zera a violação" é FALSA** (D312 a
-D316) · antes dele o LAB-93 (item 026), a D226 entregue com delta de desenho ZERO (D306 a D311),
+**Última atualização:** 12/10/2026 · **Último prompt executado:** LAB-95 (item 028, **que continua
+ABERTO por ordem dele**) — **o `CLAUDE.md` enxugado: 52 383 → 18 527 caracteres, 79 regras, zero
+linhas perdidas; a meta de 15 000 NÃO foi alcançada e o chão está medido** (D317 a D321) · antes
+dele o LAB-94 (item 027), o preço do sétimo mecanismo (D312 a
+D316), o LAB-93 (item 026), a D226 entregue com delta de desenho ZERO (D306 a D311),
 o LAB-92 (item 025 + dois adendos), as premissas que não são
 idênticas, K = 17 (D302 a D305), o LAB-91 (item 024), a trava que regera a
 varredura (D298 a D301), o LAB-90 (item 023), a guarda da caixa vazia (D296,
@@ -119,9 +121,10 @@ enquanto eu trabalhava no 001"*).
 | 11/10/2026 | 15:05 | observado | item 025 + dois adendos prontos (08h49, 08h59 e 09h05) | item 025 (LAB-92) |
 | 11/10/2026 | 23:06 | observado | item 026 pronto (o chat o escreveu às 18h38, cinco horas antes do disparo) | item 026 (LAB-93) |
 | 12/10/2026 | 07:17 | observado | itens 027 **e 028** prontos (00h38 e depois); agendado para 07:05 e entregue 12 min depois | item 027 (LAB-94) |
+| 12/10/2026 | 15:08 | observado | itens 028 e 029 na caixa; agendado para 15:05 | item 028 (LAB-95), **que fica aberto** |
 
 ```
-disparos no registro: 40 · observados: 31 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
+disparos no registro: 41 · observados: 32 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05
@@ -1828,7 +1831,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 685 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 698 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde

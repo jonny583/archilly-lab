@@ -14,6 +14,7 @@ import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { aRegraEstaEscrita } from "../src/texto-das-regras.ts";
 import { COMPROMISSO_MENSAL } from "../src/cobranca-por-uso.ts";
 import {
   A_PALAVRA_QUE_ENGANA,
@@ -65,11 +66,22 @@ describe("item 006 · pergunta 1: a minha trava é de PALAVRA, e QUANTO ela deix
     }
   });
 
+  // ── E AQUI ELA LIA O TEXTO GRAVADO, NÃO A FRASE (LAB-95, D320) ───────────
+  //
+  // Os três `toContain` eram crus. O enxugar do item 028 refluiu a §4-A, a frase
+  // *"campo que não existe não se esquece"* caiu com uma quebra de linha no meio, e a
+  // trava acusou a página de não trazer uma regra que estava ali. **Décima vez da
+  // família do D248** — e o conserto já existia nesta casa: `aRegraEstaEscrita` lê a
+  // frase **como ela se lê**, não como está gravada.
   test("a §4-A diz, com a palavra, se a trava é ESTRUTURA ou PALAVRA e o que ela não pega", () => {
     const r = regra().toLowerCase();
-    expect(r).toContain("de palavra, não de estrutura");
-    expect(r).toContain("8 dos 12");
-    expect(r).toContain("campo que não existe não se esquece");
+    for (const frase of [
+      "de palavra, não de estrutura",
+      "8 dos 12",
+      "campo que não existe não se esquece",
+    ]) {
+      expect(aRegraEstaEscrita(r, frase), `a §4-A não traz: ${frase}`).toBe(true);
+    }
   });
 });
 
@@ -153,7 +165,13 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
   // *"quando compensar"* está entre aspas e dissolve, mas **`ponto de equilíbrio` está nu**, numa
   // célula de tabela. Eu ia publicar "três a um" e são "três a dois" — *régua de medição mais
   // estreita que a régua medida dá o número errado para o lado otimista* (D266).
-  const FALAM_SOBRE_A_CONDICAO = ["CLAUDE.md", "docs/relatorios/LAB-73.md"];
+  // `docs/HISTORIA_DAS_REGRAS.md` entra no LAB-95: ela carrega o texto ANTIGO da §4-A, literal,
+  // e fala sobre a condição pela mesma razão que o `CLAUDE.md` fala.
+  const FALAM_SOBRE_A_CONDICAO = [
+    "CLAUDE.md",
+    "docs/HISTORIA_DAS_REGRAS.md",
+    "docs/relatorios/LAB-73.md",
+  ];
   const docs = doGit(
     (f) =>
       f.endsWith(".md") &&

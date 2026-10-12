@@ -20,6 +20,11 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
+  ARQUIVO_DA_HISTORIA,
+  SECAO_DO_PONTO_CEGO,
+  aSecaoDaHistoria,
+} from "../src/historia-das-regras.ts";
+import {
   MARCAS_DE_CONTRAEXEMPLO,
   NUMEROS_EM_PALAVRA,
   lerNumeroEmPalavra,
@@ -28,11 +33,22 @@ import {
 } from "../src/varredura-do-que-eu-aceitei.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
-const claudeMd = readFileSync(join(RAIZ, "CLAUDE.md"), "utf8");
-const secao6 = claudeMd.slice(
-  claudeMd.indexOf("## 6 · Medir antes de atribuir"),
-  claudeMd.indexOf("## 7 · Entrega"),
-);
+// ── A GUARDA MUDOU DE ALVO NO LAB-95, e o item 028 mandou dizer (D318) ──────
+//
+// A tabela das trinta e três **é história** e foi para `docs/HISTORIA_DAS_REGRAS.md`
+// quando o item 028 enxugou o `CLAUDE.md`. Esta trava passa a ler lá, pela MESMA
+// função que a ferramenta do LAB-63 usa (`src/historia-das-regras.ts`) — duas leituras
+// do mesmo alvo em dois arquivos é o que o D231 custou.
+//
+// E a seção não achada **recusa**: `null` viria aqui como falha de leitura, não como
+// "zero problemas" sobre um texto que ninguém leu.
+const historia = readFileSync(join(RAIZ, ARQUIVO_DA_HISTORIA), "utf8");
+const secao6 = aSecaoDaHistoria(historia, SECAO_DO_PONTO_CEGO);
+if (secao6 === null) {
+  throw new Error(
+    `não achei ${SECAO_DO_PONTO_CEGO} em ${ARQUIVO_DA_HISTORIA} — a régua lê a seção por título, e o título mudou`,
+  );
+}
 
 describe("LAB-63 · a §6 fecha a conta", () => {
   const a = conferirAritmeticaDoPontoCego(secao6);

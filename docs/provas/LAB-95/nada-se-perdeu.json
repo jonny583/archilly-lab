@@ -1,0 +1,470 @@
+{
+  "prompt": "LAB-95",
+  "aPergunta": "item 028 da caixa de entrada: enxugar o `CLAUDE.md` movendo a história para docs/HISTORIA_DAS_REGRAS.md, sem perder regra nenhuma — e CONFERIR POR CONTAGEM que nada se perdeu",
+  "oQueIstoMede": "as três contas que o item pediu: caracteres antes × depois nos dois arquivos, regras antes × depois pelo inventário declarado (cada marca conferida NO CLAUDE.MD DE HOJE E NA HISTÓRIA, que é o texto antigo movido literal) e as linhas do texto antigo que não estão em nenhum dos dois",
+  "quando": "2026-10-12T15:54:39.383Z",
+  "oChaoDaMedicao": {
+    "oCommitDeAntes": "490c102",
+    "sha256DoAntes": "1c3fc0792d9eb02b1d054b42f28c59ebe15c4ce03dc9bb8fb49eea1774b273be",
+    "sha256DoClaudeDeHoje": "1e9547d761ce76840d5981b8266a1ef9816041d7aa09de667cd2d313871dfb40",
+    "sha256DaHistoria": "8a112ff66b88a42e05e8f7c3cfbeb5459aa9dfcf10271401b6e9e6ec9c1435a9",
+    "cloneRaso": false,
+    "bun": "1.4.2"
+  },
+  "caracteres": {
+    "claudeMd": {
+      "antes": 52383,
+      "depois": 18528
+    },
+    "historia": {
+      "antes": 0,
+      "depois": 56483
+    },
+    "cortePct": 64.6,
+    "meta": 15000,
+    "chegouNaMeta": false,
+    "quantoFalta": 3528
+  },
+  "linhasQueImportam": {
+    "antes": 639,
+    "claudeMdDepois": 253,
+    "historia": 689
+  },
+  "regras": {
+    "total": 79,
+    "porSeccao": {
+      "1": 9,
+      "3": 5,
+      "4": 12,
+      "5": 4,
+      "6": 6,
+      "7": 10,
+      "1-C": 7,
+      "1-B": 5,
+      "1-A": 9,
+      "4-A": 12
+    },
+    "problemas": []
+  },
+  "aListaDeRegras": [
+    {
+      "seccao": "1",
+      "marca": "UM único bloco de código",
+      "historia": "H1"
+    },
+    {
+      "seccao": "1",
+      "marca": "O recado vem PRIMEIRO",
+      "historia": "H1"
+    },
+    {
+      "seccao": "1",
+      "marca": "O teto de doze linhas é do RECADO, não do bloco",
+      "historia": "H1"
+    },
+    {
+      "seccao": "1",
+      "marca": "partir o bloco",
+      "historia": "H1"
+    },
+    {
+      "seccao": "1",
+      "marca": "MOTOR LAB (archilly-lab)",
+      "historia": "H1"
+    },
+    {
+      "seccao": "1",
+      "marca": "despertador-sem-item",
+      "historia": "H1"
+    },
+    {
+      "seccao": "1",
+      "marca": "Linha sem conteúdo leva `—`, nunca some",
+      "historia": "H1"
+    },
+    {
+      "seccao": "1",
+      "marca": "ACUMULADO — inclui os recados",
+      "historia": "H1"
+    },
+    {
+      "seccao": "1",
+      "marca": "docs/relatorios/RECADOS.md",
+      "historia": "H1"
+    },
+    {
+      "seccao": "1-C",
+      "marca": "Quando as duas divergirem, manda esta",
+      "historia": "H2"
+    },
+    {
+      "seccao": "1-C",
+      "marca": "O LIMITE DE DOZE LINHAS É DO",
+      "historia": "H2"
+    },
+    {
+      "seccao": "1-C",
+      "marca": "NÃO espera o kit",
+      "historia": "H2"
+    },
+    {
+      "seccao": "1-C",
+      "marca": "o kit, quando chegar, é outro item",
+      "historia": "H2"
+    },
+    {
+      "seccao": "1-C",
+      "marca": "onde-esta-o-padrao.ts",
+      "historia": "H2"
+    },
+    {
+      "seccao": "1-C",
+      "marca": "não deve morar nela",
+      "historia": "H2"
+    },
+    {
+      "seccao": "1-C",
+      "marca": "REGRA DE FORMA SEM O SUJEITO ESCRITO MANDA NA COISA ERRADA",
+      "historia": "H2"
+    },
+    {
+      "seccao": "1-B",
+      "marca": "Balanço é resposta que faz as contas",
+      "historia": "H3"
+    },
+    {
+      "seccao": "1-B",
+      "marca": "docs/relatorios/BALANCOS.md",
+      "historia": "H3"
+    },
+    {
+      "seccao": "1-B",
+      "marca": "Balanço que já mora num recado não se copia",
+      "historia": "H3"
+    },
+    {
+      "seccao": "1-B",
+      "marca": "Reconstrução sai etiquetada como reconstrução",
+      "historia": "H3"
+    },
+    {
+      "seccao": "1-B",
+      "marca": "O que vai ao chat e não vai a um arquivo não existe amanhã",
+      "historia": "H3"
+    },
+    {
+      "seccao": "1-A",
+      "marca": "um despertador por aplicativo",
+      "historia": "H4"
+    },
+    {
+      "seccao": "1-A",
+      "marca": "Um prompt por despertador",
+      "historia": "H4"
+    },
+    {
+      "seccao": "1-A",
+      "marca": "Prompt fora da fila não existe",
+      "historia": "H4"
+    },
+    {
+      "seccao": "1-A",
+      "marca": "Não ampliar escopo",
+      "historia": "H4"
+    },
+    {
+      "seccao": "1-A",
+      "marca": "ANOTE A DATA, responda em UMA linha e DURMA — NÃO DESLIGUE",
+      "historia": "H4"
+    },
+    {
+      "seccao": "1-A",
+      "marca": "caixa-de-entrada/COMO_FUNCIONA.md",
+      "historia": "H4"
+    },
+    {
+      "seccao": "1-A",
+      "marca": "git merge --no-ff",
+      "historia": "H4"
+    },
+    {
+      "seccao": "1-A",
+      "marca": "~~DESLIGAR o despertador~~",
+      "historia": "H4"
+    },
+    {
+      "seccao": "1-A",
+      "marca": "MUDOU O MUNDO EMBAIXO DELA",
+      "historia": "H4"
+    },
+    {
+      "seccao": "3",
+      "marca": "é intocável",
+      "historia": "H6"
+    },
+    {
+      "seccao": "3",
+      "marca": "O trabalho acontece em `archilly/`",
+      "historia": "H6"
+    },
+    {
+      "seccao": "3",
+      "marca": "é a única fronteira",
+      "historia": "H6"
+    },
+    {
+      "seccao": "3",
+      "marca": "O Generate nunca depende disto",
+      "historia": "H6"
+    },
+    {
+      "seccao": "3",
+      "marca": "não ganha `upstream/`",
+      "historia": "H6"
+    },
+    {
+      "seccao": "4",
+      "marca": "Não escreve em repositório vizinho",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "vira lista numerada em relatório",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "Não tem interface — com UMA exceção, declarada",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "Não reimplementa o Validator nem o Judge",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "Não conserta geometria em silêncio",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "Não inventa dado",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "Não descarta em silêncio campo que o motor publica",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "O motivo de uma perda não mora em comentário",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "Não carrega segredo na árvore",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "Registro nenhum repete mais de doze",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "Não decide urbanismo",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4",
+      "marca": "Não contrata nada",
+      "historia": "H7"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "absolutamente todas",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "escolhe-se a de uso — mesmo que o",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "a ordenação é pelo custo na MENOR faixa de uso",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "a forma mais educada de aprovar uma despesa que",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "declarando operação e nunca preço",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "franquia mínima é mensalidade com outro nome",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "mensalidade que começa depois",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "cota gratuita de verdade não é mensalidade",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "ligada e desligada por recorte",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "nenhuma sessão contrata nada",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "campo que não existe não se esquece",
+      "historia": "H8"
+    },
+    {
+      "seccao": "4-A",
+      "marca": "não há nada pago neste repositório hoje",
+      "historia": "H8"
+    },
+    {
+      "seccao": "5",
+      "marca": "é nome interno",
+      "historia": "H9"
+    },
+    {
+      "seccao": "5",
+      "marca": "Laboratório de Parcelamento",
+      "historia": "H9"
+    },
+    {
+      "seccao": "5",
+      "marca": "escrito **para leigo**",
+      "historia": "H9"
+    },
+    {
+      "seccao": "5",
+      "marca": "marcado, nunca apagado",
+      "historia": "H9"
+    },
+    {
+      "seccao": "6",
+      "marca": "Resultado suspeito se mede antes de ter culpado",
+      "historia": "H10"
+    },
+    {
+      "seccao": "6",
+      "marca": "resultado desconfortável é resultado",
+      "historia": "H10"
+    },
+    {
+      "seccao": "6",
+      "marca": "régua que casa por nome exato mede ortografia",
+      "historia": "H10"
+    },
+    {
+      "seccao": "6",
+      "marca": "rótulo não é identidade",
+      "historia": "H10"
+    },
+    {
+      "seccao": "6",
+      "marca": "leitura de fonte é hipótese",
+      "historia": "H10"
+    },
+    {
+      "seccao": "6",
+      "marca": "consistência não é correção",
+      "historia": "H10"
+    },
+    {
+      "seccao": "7",
+      "marca": "PR mesclado na `main`",
+      "historia": "H11"
+    },
+    {
+      "seccao": "7",
+      "marca": "Medição é em metros e em dados",
+      "historia": "H11"
+    },
+    {
+      "seccao": "7",
+      "marca": "lista declarada de exceções",
+      "historia": "H11"
+    },
+    {
+      "seccao": "7",
+      "marca": "Duas pilhas convivem",
+      "historia": "H11"
+    },
+    {
+      "seccao": "7",
+      "marca": "./external-engines/conferir.sh",
+      "historia": "H11"
+    },
+    {
+      "seccao": "7",
+      "marca": "nada fica fora dele",
+      "historia": "H11"
+    },
+    {
+      "seccao": "7",
+      "marca": "VIZINHOS_TOKEN",
+      "historia": "H11"
+    },
+    {
+      "seccao": "7",
+      "marca": "COMO_RELIGAR_O_CI.md",
+      "historia": "H11"
+    },
+    {
+      "seccao": "7",
+      "marca": "conferido aqui, não no GitHub",
+      "historia": "H11"
+    },
+    {
+      "seccao": "7",
+      "marca": "em **um envio só**, no fim",
+      "historia": "H11"
+    }
+  ],
+  "linhasPerdidas": [],
+  "oChaoPorPedaco": {
+    "citação literal da Central": 1285,
+    "citação literal do Jonny": 387,
+    "molde do recado": 200,
+    "comando do verde": 36,
+    "onde mora cada coisa": 565,
+    "soma": 2473
+  },
+  "aGuardaQueMudouDeAlvo": {
+    "quais": [
+      "tests/aritmetica-da-regra.test.ts — a tabela do ponto cego é história e foi para docs/HISTORIA_DAS_REGRAS.md ## H10 ·",
+      "ferramentas/lab63.ts — a prova dessa aritmética, pela MESMA função (src/historia-das-regras.ts)",
+      "tests/limites-com-sujeito.test.ts — a narrativa que ela usava como objeto saiu, e a sabotagem dela foi REFEITA: ela achava o fim da frase por um texto que o enxugar tirou",
+      "tests/trava-de-estrutura.test.ts — lia a frase CRUA e o refluxo a quebrou: passou a ler pelo normalizador desta casa"
+    ],
+    "aSecaoAindaExiste": true
+  },
+  "oQueIstoNaoAlcanca": [
+    "não mede se a regra ficou CLARA — mede se ela ficou. Clareza é leitura de pessoa, e quem decide é quem lê a página na próxima sessão",
+    "a comparação de linhas é por TEXTO normalizado em espaço e ignora a caixa das letras nas marcas: encurtar move a frase para o meio de outra, e exigir caixa ou quebra de linha faria a conta reprovar por tipografia (D248)",
+    "o inventário é uma LISTA ESCRITA À MÃO: ela cobre as regras que eu nomeei, e regra que eu não inscrevi nela não é conferida por ela — é o mesmo buraco que toda lista declarada desta casa tem, e ele fica dito"
+  ],
+  "naoConsertaNada": "nada de comportamento mudou: nenhum código de produto, nenhuma tarefa agendada, nenhum `vendor/`. O que mudou foi onde o texto mora — e quatro guardas mudaram de alvo, com a sabotagem de uma delas refeita"
+}

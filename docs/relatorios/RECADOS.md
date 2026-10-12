@@ -2729,3 +2729,75 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · o GATILHO DO CI não foi religado — a régua cobra, não liga;
 · e o despertador não foi tocado: a conta ganhou a linha das 07:17.
 ```
+
+---
+
+## 12/10/2026 · LAB-95 — item 028: o CLAUDE.md enxugado (e o item fica ABERTO)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-95 (item 028) ===
+Estado: ENTREGUE e mesclado na main, e o ITEM 028 FICA ABERTO — por ordem dele: "não marque como FEITO até a meta". A meta é 15 000 caracteres e ficou em 18 527. Verde conferido aqui, não no GitHub: 1 090 travas na esteira + 17 no testfit, 698 na lista do CI (42 arquivos, 42 de 42 passando sem os clones), 7 passos, exit 0. Decisões D317 a D321.
+Feito: `docs/HISTORIA_DAS_REGRAS.md` criado com as ONZE seções movidas LITERAIS (H1 a H11, como estavam em `490c102`); o `CLAUDE.md` reescrito curto, cada regra em uma ou duas frases com o ponteiro `(história: §HN)`; `esteira/src/enxugar-o-claude.ts` (o inventário das 79 regras e a régua dos dois lados), `src/historia-das-regras.ts` (a leitura num lugar só), `ferramentas/lab95.ts` e a trava `enxugar-o-claude` (13, no portão). Prova: `docs/provas/LAB-95/nada-se-perdeu.json`. Relatório: `docs/relatorios/LAB-95.md`.
+Achados para outros apps ou Central: (1) A CONTA, QUE É O ENTREGÁVEL: CLAUDE.md 52 383 → 18 527 caracteres (−64,6 %); história 0 → 56 483; REGRAS 79 ANTES × 79 DEPOIS; LINHAS DO TEXTO ANTIGO PERDIDAS: ZERO. A história foi montada MOVENDO AS SEÇÕES INTEIRAS, literais — é por isso que "zero perdidas" é conferível e não é promessa: a conta compara LINHA POR LINHA o texto antigo contra os dois arquivos de hoje, e a prova grava o `sha256` do antes. (2) E A CONTA DAS REGRAS É DOS DOIS LADOS, que é o que a faz conta em vez de declaração: cada uma das 79 marcas é conferida NO CLAUDE.MD DE HOJE (faltar ali é regra apagada) E NA HISTÓRIA (faltar ali é lista inventada). RÉGUA QUE OLHASSE UM LADO SÓ APROVARIA EXATAMENTE O ERRO QUE O ITEM PROÍBE. (3) O ENXUGAR REVELOU TRÊS INSTRUMENTOS QUE CASAVAM TEXTO GRAVADO, e nenhum dos três quebrou pela mudança de gaveta — quebraram porque REFLUIR TEXTO É O TESTE NATURAL DE TODA RÉGUA QUE CASA FRASE, e eles nunca o tinham passado: (a) A SABOTAGEM DO D218 PAROU DE MORDER EM SILÊNCIO — ela achava o fim da frase por "(D218).", que o enxugar tirou de dentro dela; `indexOf` deu −1, o recorte montou um texto que a régua não acusava, e O TESTE PASSOU. SABOTAGEM QUE NÃO ACHA O QUE SABOTAR É UM TESTE QUE PASSA, e ela falha para o lado que diz que está tudo bem; refeita, ela agora AFIRMA QUE ACHOU O ALVO antes de sabotar. (b) UMA TRAVA ACUSOU A PÁGINA DE NÃO TRAZER UMA REGRA QUE ESTAVA ALI — `toContain` cru contra uma frase que o refluxo quebrou em duas linhas: décima vez da família do D248, e o conserto já existia nesta casa. (c) A RÉGUA DO LIMITE LÊ POR FRASE, e a frase sabotada tinha ficado colada à anterior por `**.` — as duas viravam uma, e o sujeito da primeira cobria a segunda: PONTUAÇÃO NÃO É ESTILO QUANDO UMA RÉGUA DIVIDE POR PONTO FINAL. (4) E UMA GUARDA ACHOU UMA PERDA MINHA, que é o serviço dela: ao encurtar a §1-C eu deixei cair "o kit, quando chegar, é outro item", e a `por-lugar` reprovou. ELA NÃO LIA À PROCURA DE REGRA: LIA À PROCURA DE COISA PARADA — e foi por isso que pegou. A frase voltou. ENCURTAR APAGA, e apagar é a única forma de errar este item. (5) DUAS GUARDAS MUDARAM DE ALVO E AGORA LEEM PELA MESMA FUNÇÃO (`src/historia-das-regras.ts`): a trava da aritmética do ponto cego e a ferramenta que publica a prova dela. DUAS LEITURAS DO MESMO ALVO EM DOIS ARQUIVOS É O QUE O D231 CUSTOU. E ela RECUSA em vez de devolver vazio: seção não achada é `null`, porque RÉGUA QUE APROVA O QUE NÃO LEU É PIOR DO QUE RÉGUA QUE FALTA. (6) PARA A FAMÍLIA, se as outras dez casas forem fazer o mesmo: a alavanca não é escrever menos, é SEPARAR O DIÁRIO DA REGRA — e o que torna isso seguro é a conta dos dois lados mais a lista das guardas que leem a página, FEITA ANTES DE MEXER. Três dos nossos instrumentos estavam casando texto gravado, e isso só aparece quando o texto reflui.
+Depende do Jonny: nada novo. (E a §10 da página dele, do LAB-94, segue esperando a escolha com o preço na mão.)
+Próximo na fila: O ITEM 028 DE NOVO — ele fica aberto e o próximo despertador o pega. MAS A DECISÃO QUE FALTA É SUA, e é esta: a META de 15 000 não cabe. O chão medido é 2 473 caracteres que não se cortam nem se editam (1 285 da citação literal da Central, 387 da do Jonny, 200 do molde do recado, 36 do comando do verde, 565 da lista de onde mora cada coisa); sobram 16 054 para 79 REGRAS — 203 POR REGRA. BAIXAR DE 15 000 EXIGE TIRAR REGRA OU EDITAR CITAÇÃO LITERAL, E O ITEM PROÍBE AS DUAS. Duas saídas, e as duas são suas: (a) a meta muda para o que o conteúdo permite — 18 527 já corta 64,6 %, que é a alavanca que o item buscava; ou (b) você diz QUAL regra sai da página e passa a viver só na história, sabendo que REGRA QUE SAI DA PÁGINA DEIXA DE SER LIDA. Depois do 028 vem o 029.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  AS TRÊS CONTAS QUE O ITEM PEDIU
+═══════════════════════════════════════════════════════════════════════════════
+
+                                    antes        depois
+  CLAUDE.md                       52 383       18 527   (−64,6 %)
+  docs/HISTORIA_DAS_REGRAS.md      (não            56 483
+                                   existia)
+  regras no inventário                79           79
+  linhas do antigo perdidas            —         ZERO
+
+  O "antes" é o commit `490c102`, e o `sha256` dele está na prova: o número não
+  é sobre um "antes" que ninguém pode conferir.
+
+═══════════════════════════════════════════════════════════════════════════════
+  O CHÃO, PEDAÇO POR PEDAÇO — por que 15 000 não cabe
+═══════════════════════════════════════════════════════════════════════════════
+
+   1 285  a citação literal da Central (§1-C) — a família mandou gravar literal
+     387  a citação literal do Jonny (§4-A) — idem
+     200  o molde do recado — é o formato que a §1 manda seguir
+      36  o comando do verde
+     565  a lista de onde mora cada coisa — o item a pediu explicitamente
+   ─────
+   2 473  SOMA do que não se corta nem se edita
+
+  sobram 16 054 para 79 regras, títulos e ponteiros → 203 caracteres por regra.
+
+═══════════════════════════════════════════════════════════════════════════════
+  AS GUARDAS QUE LEEM A PÁGINA — a lista que o item mandou fazer ANTES de mexer
+═══════════════════════════════════════════════════════════════════════════════
+
+  regras                  a §1-B existe e nomeia o BALANCOS.md          não mudou
+  limites-com-sujeito     toda regra de forma diz DE QUE é o limite     MUDOU
+  aritmetica-da-regra     a aritmética da tabela do ponto cego          MUDOU
+  lab63 (ferramenta)      publica a prova dessa aritmética              MUDOU
+  disparos-em-vazio       a §1-A não manda desligar; o riscado          não mudou
+  custo-por-uso           a §4-A: a ordem e as oito consequências       não mudou
+  trava-de-estrutura      a §4-A diz se a trava é palavra ou estrutura  MUDOU
+  vazamento-de-custo      o CLAUDE.md é REGISTRO na varredura           não mudou
+  por-lugar               as oito coisas paradas, com a marca de cada   não mudou
+  lab81 (ferramenta)      o bloco de código nas seções de regra         não mudou
+
+  Nove travas e duas ferramentas; QUATRO mudaram de alvo — e as três que
+  quebraram, quebraram por DEFEITO DELAS, revelado pelo refluxo do texto.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· nada de comportamento mudou: nenhum código de produto, nenhum `vendor/`, nenhuma
+  tarefa agendada e nenhuma regra reescrita "para melhorar";
+· NADA FOI APAGADO: o que saiu da página foi MOVIDO, e a conta prova com zero;
+· nada escrito em repositório vizinho; os SEIS clones terminaram limpos;
+· o GATILHO DO CI não foi religado;
+· o despertador não foi tocado: a conta ganhou a linha das 15:08;
+· e o ITEM 028 NÃO FOI MARCADO COMO FEITO — é o que ele manda enquanto a meta não
+  for alcançada.
+```

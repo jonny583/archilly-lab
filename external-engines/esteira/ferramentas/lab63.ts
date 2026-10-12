@@ -22,6 +22,11 @@ import { join, relative } from "node:path";
 
 import { MECANISMOS } from "../src/mecanismos-das-violacoes.ts";
 import {
+  ARQUIVO_DA_HISTORIA,
+  SECAO_DO_PONTO_CEGO,
+  aSecaoDaHistoria,
+} from "../src/historia-das-regras.ts";
+import {
   conferirAritmeticaDoPontoCego,
   conferirEndereco,
   lerEnderecos,
@@ -105,15 +110,22 @@ for (const e of comFalha) {
 const semSimbolo = enderecos.filter((e) => e.simbolosConferidos === 0).map((e) => e.mecanismo);
 
 // ── Forma 2 · a aritmética da regra da casa ────────────────────────────────
-const claudeMd = readFileSync(join(RAIZ, "CLAUDE.md"), "utf8");
-const i6 = claudeMd.indexOf("## 6 · Medir antes de atribuir");
-const i7 = claudeMd.indexOf("## 7 · Entrega");
-if (i6 === -1 || i7 === -1 || i7 < i6) {
-  console.error("  não achei a §6 na CLAUDE.md — a régua lê a seção por título, e o título mudou.");
+//
+// **O ALVO MUDOU NO LAB-95 (D318):** a tabela das trinta e três é HISTÓRIA e foi para
+// `docs/HISTORIA_DAS_REGRAS.md` quando o item 028 enxugou o `CLAUDE.md`. A ferramenta e
+// a trava passam a ler lá, pela MESMA função — e a seção não achada **recusa**.
+const historia = readFileSync(join(RAIZ, ARQUIVO_DA_HISTORIA), "utf8");
+const secaoDoPontoCego = aSecaoDaHistoria(historia, SECAO_DO_PONTO_CEGO);
+if (secaoDoPontoCego === null) {
+  console.error(
+    `  não achei ${SECAO_DO_PONTO_CEGO} em ${ARQUIVO_DA_HISTORIA} — a régua lê a seção por título, e o título mudou.`,
+  );
   process.exit(1);
 }
-const aritmetica = conferirAritmeticaDoPontoCego(claudeMd.slice(i6, i7));
-for (const p of aritmetica.problemas) problemas.push(`CLAUDE.md §6 · ${p.tipo}: ${p.oQue}`);
+const aritmetica = conferirAritmeticaDoPontoCego(secaoDoPontoCego);
+for (const p of aritmetica.problemas) {
+  problemas.push(`${ARQUIVO_DA_HISTORIA} ${SECAO_DO_PONTO_CEGO} · ${p.tipo}: ${p.oQue}`);
+}
 
 // ── Forma 3 · o contraexemplo registrado nas DECISÕES ──────────────────────
 const decisoes = readFileSync(join(RAIZ, "docs", "DECISOES.md"), "utf8");
@@ -220,7 +232,7 @@ console.log(`  mecanismos com endereço que não resolve: ${comFalha.length}`);
 console.log(`  mecanismos sem símbolo nenhum (só prosa): ${semSimbolo.length} [${semSimbolo.join(", ")}]`);
 console.log(`  DECISOES.md: régua crua ${cru.length} pares · régua estreita ${estreito.length} · sem ponteiro ${semPonteiro.length}`);
 console.log(
-  `  CLAUDE.md §6: ${aritmetica.linhasDaTabela.length} linhas · total declarado ${aritmetica.totalDeclarado} · classes somam ${aritmetica.somaDasCategorias}`,
+  `  história §H10: ${aritmetica.linhasDaTabela.length} linhas · total declarado ${aritmetica.totalDeclarado} · classes somam ${aritmetica.somaDasCategorias}`,
 );
 console.log(`\n  docs/provas/LAB-63/o-que-eu-aceitei.json`);
 if (problemas.length > 0) {

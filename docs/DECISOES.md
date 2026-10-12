@@ -9886,3 +9886,120 @@ zero**.
 
 E a terceira que declara face é o **controle que a medição precisava**: em `ensaio-com-testada` a
 face declarada cobre a fileira inteira e o preço é **zero de verdade** — a régua não acusa à toa.
+
+---
+
+## D317 · O `CLAUDE.md` VIROU DIÁRIO, E A HISTÓRIA MUDOU DE GAVETA: 52 383 → 18 527 CARACTERES · 12/10/2026
+
+**Item 028 da caixa de entrada, pedido expresso do Jonny.** Toda sessão desta casa lia o
+`CLAUDE.md` **inteiro** antes de fazer qualquer coisa — inclusive a que acorda, acha a caixa vazia
+e volta a dormir. Medido na direção: os onze `CLAUDE.md` da família somavam ~535 mil caracteres.
+
+**A causa era de FORMA, não de conteúdo:** cada lição tinha entrado com a história inteira de como
+foi descoberta — números da época, hipóteses descartadas, quem acusou quem.
+
+> **A história é valiosa e não se perde: ela só não precisa ser lida para trabalhar.**
+
+**A conta, e ela é o entregável** (`docs/provas/LAB-95/nada-se-perdeu.json`):
+
+| | antes | depois |
+|---|---|---|
+| `CLAUDE.md` | **52 383** caracteres | **18 527** (−64,6 %) |
+| `docs/HISTORIA_DAS_REGRAS.md` | não existia | **56 483** |
+| regras no inventário | **79** | **79** |
+| linhas do texto antigo perdidas | — | **ZERO** |
+
+**A história foi montada movendo as seções INTEIRAS, literais**, como estavam em `490c102` — e é
+por isso que "zero linhas perdidas" é verificável e não é uma promessa: a conta compara **linha por
+linha** o texto antigo contra os dois arquivos de hoje.
+
+**E a conta das regras é dos DOIS lados**, que é o que a torna uma conta: cada uma das 79 marcas é
+conferida **no `CLAUDE.md` de hoje** (faltar ali é regra apagada) **e na história** (faltar ali é
+lista inventada). *Uma régua que olhasse um lado só aprovaria exatamente o erro que o item proíbe.*
+
+---
+
+## D318 · GUARDA QUE LIA A HISTÓRIA MUDA DE ALVO, E A LEITURA PASSA A MORAR NUM LUGAR SÓ · 12/10/2026
+
+O item 028 avisou antes: *"ou a frase guardada continua no `CLAUDE.md`, ou **a guarda passa a ler o
+arquivo novo** — e, se mudou de alvo, a sabotagem dela é refeita e continua mordendo."*
+
+**Duas liam a §6 pelo título** — a trava da aritmética do ponto cego e a ferramenta que publica a
+prova dela. A tabela das trinta e três **é história**, então as duas passam a ler
+`docs/HISTORIA_DAS_REGRAS.md`, **pela mesma função**: `src/historia-das-regras.ts`.
+
+> **Duas leituras do mesmo alvo em dois arquivos é o que o D231 custou:** o conserto entra num
+> instrumento só, e o que fica de fora passa a mentir com a autoridade de quem conferia.
+
+E ela **recusa em vez de devolver vazio**: seção não achada é `null`, nunca `""`. *Régua que aprova
+o que não leu é pior do que régua que falta* — uma seção vazia faria a aritmética dizer *"zero
+problemas"* sobre um texto que ninguém abriu (a mesma escolha do `profundidade-da-historia.ts`,
+D295).
+
+---
+
+## D319 · SABOTAGEM QUE ACHAVA O ALVO POR UM TEXTO QUE O ENXUGAR TIROU PAROU DE MORDER EM SILÊNCIO · 12/10/2026
+
+A trava do D218 prova que a régua do limite-sem-sujeito **reprova de verdade**: ela replanta a
+redação antiga e exige **um** achado. Para recortar a frase, ela procurava o fim dela por
+`"(D218)."` — a citação da decisão **no texto antigo** da §1.
+
+O enxugar tirou a citação de dentro daquela frase. `indexOf` devolveu `-1`, o recorte montou um
+texto que a régua não acusava, e a sabotagem **passou a não morder** — sem erro, sem aviso.
+
+> **Sabotagem que não acha o que sabotar não é sabotagem: é um teste que passa.** E ela falha para
+> o lado pior — o lado que diz que está tudo bem.
+
+Refeita: ela recorta a **frase**, e **confere que achou o alvo** antes de sabotar
+(`expect(claudeMd).toContain(A_FRASE)`). *Toda sabotagem desta casa passa a afirmar que encontrou o
+que ia quebrar.*
+
+E o refluxo do texto cobrou mais uma coisa: a frase sabotada tinha ficado **colada** à anterior por
+`**.`, e a régua lê por frase — então as duas viravam uma, e o sujeito da primeira cobria a
+segunda. A §1 foi repontuada para a frase ficar inteira. *Pontuação não é estilo quando uma régua
+divide por ponto final.*
+
+---
+
+## D320 · GUARDA QUE CASAVA TEXTO CRU ACUSOU A PÁGINA DE NÃO TRAZER UMA REGRA QUE ESTAVA ALI · 12/10/2026
+
+**Décima vez da família do D248**, e esta chegou pelo enxugar: a trava do item 006 exigia
+`"campo que não existe não se esquece"` com `toContain` **cru**. O refluxo da §4-A pôs uma quebra de
+linha no meio da frase, e a trava acusou a §4-A de não trazer a lição — que estava ali, inteira.
+
+> **Refluxo de texto é o teste natural de toda régua que casa frase.** O enxugar não criou o
+> defeito: ele o **revelou**, em três instrumentos de uma vez (este, a sabotagem do D319 e o alvo
+> do D318).
+
+O conserto já existia nesta casa: `aRegraEstaEscrita`, de `src/texto-das-regras.ts`, lê a frase
+**como ela se lê**. *Conserto que mora dentro de um teste conserta um teste* — e por isso o
+inventário novo do LAB-95 nasceu usando o normalizador, não `toContain`.
+
+---
+
+## D321 · A META DE 15 MIL NÃO FOI ALCANÇADA: FICOU EM 18 527, E O CHÃO ESTÁ MEDIDO · 12/10/2026
+
+O item 028 fixou **15 000 caracteres** e disse o que fazer se não chegasse: *"diga no recado quanto
+ficou e o que impediu — número, não adjetivo."*
+
+**Ficou em 18 527** — faltam **3 527**. O que impede, medido pedaço por pedaço:
+
+| caracteres | o que é |
+|---|---|
+| **1 285** | a citação literal da Central (§1-C) — a família mandou gravar literal |
+| **387** | a citação literal do Jonny (§4-A) — idem |
+| **200** | o molde do recado — é o formato que a §1 manda seguir |
+| **36** | o comando do verde |
+| **565** | a lista de onde mora cada coisa — o item pediu explicitamente |
+| **2 473** | **soma do que não se corta nem se edita** |
+
+Sobram **16 054** para **79 regras**, títulos e ponteiros: **203 caracteres por regra**. Baixar de
+15 000 exige **tirar regra** ou **editar citação literal** — e o item proíbe as duas.
+
+> **Então o que falta não é esforço de redação: é uma decisão que não é minha.** Ou a meta muda, ou
+> alguma regra sai da página e passa a viver só na história — e *regra que vira uma frase continua
+> sendo regra, mas regra que sai da página deixa de ser lida.*
+
+**O item 028 NÃO foi marcado como FEITO**, obedecendo ao que ele próprio manda: *"não marque como
+FEITO até a meta: o próximo despertador continua este mesmo item."* O que já está feito está na
+`main`, verde, e o estado está escrito no topo do próprio item.
