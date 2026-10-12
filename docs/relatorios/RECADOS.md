@@ -2645,3 +2645,87 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · o GATILHO DO CI não foi religado — a régua cobra, não liga;
 · e o despertador não foi tocado: a conta ganhou a linha das 23:06.
 ```
+
+---
+
+## 12/10/2026 · LAB-94 — item 027: o preço do sétimo mecanismo, em lotes
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-94 (item 027) ===
+Estado: FEITO e mesclado na main. O preço que a decisão do Jonny esperava está medido, e a outra metade da frase da FILA.md era FALSA. Verde conferido aqui, não no GitHub: 1 077 travas na esteira + 17 no testfit, 685 na lista do CI (41 arquivos, 41 de 41 passando sem os clones), 7 passos, exit 0. Decisões D312 a D316.
+Feito: `esteira/src/preco-do-setimo.ts` (a classificação, a conta e o rótulo da simulação) + `ferramentas/lab94.ts`; a régua `alemDaPonta` MUDOU DE ARQUIVO para `src/setimo-mecanismo.ts` (dois instrumentos, um lugar) e a prova do LAB-78 saiu IDÊNTICA; trava `preco-do-setimo` (19, no portão). Prova: `docs/provas/LAB-94/o-preco-do-setimo.json`. Relatório: `docs/relatorios/LAB-94.md`.
+Achados para outros apps ou Central: (1) O PREÇO: parar a fileira externa no fim da face declarada custa DE 21 A 48 LOTES POR CANDIDATA — de uma fileira que tem 33 a 64 —, 1 196 EM 40 CANDIDATAS nas duas glebas de Antonina. E em `ensaio-com-testada` o preço é ZERO DE VERDADE: ali a face declarada cobre a fileira inteira, e essa gleba é o CONTROLE que mostra que a régua não acusa à toa. O CASO QUE MAIS MUDA A DECISÃO: a candidata que o RANKING DO PRÓPRIO MOTOR PÕE EM PRIMEIRO em Antonina tem 33 lotes, e TODOS OS 33 são dessa fileira — parando na face ela fica com 12. É a mesma superquadra do D140, agora com o preço ao lado. (2) E A SEGUNDA METADE DA FRASE ERA FALSA, e a frase era minha: a `FILA.md` dizia "encurtá-la ao fim da rua perde esses lotes E ZERA A VIOLAÇÃO". NÃO ZERA EM NENHUMA DAS 40 — cai de 28–55 para 5–16 e sobra. E a pergunta "o que sobra é da fileira?" não se responde contando eu mesma quem faz frente, porque isso seria REIMPLEMENTAR O INVARIANTE DELE (§4): responde-se com uma SEGUNDA RETIRADA pela régua dele, e tirada a fileira INTEIRA a `frente` vai a ZERO EM 38 DAS 40 (nas outras duas sobra UMA). "PARAR NO FIM DA FACE" E "NÃO TER FILEIRA EXTERNA" NÃO SÃO A MESMA COISA, e a diferença é de 5 a 16 violações por candidata. (3) O RÓTULO É PARTE DA ENTREGA, e você cobrou antes de eu errar: a simulação RETIRA E NÃO REPLANTA, então ela NÃO É TETO NEM PISO DA PERDA — chamá-la de um dos dois seria hipótese sobre o plantio, que é a coisa que esta casa não roda. O limite viaja na prova em quatro linhas e há trava que reprova se alguma delas AFIRMAR teto ou piso. É a lição do LAB-93 doze horas antes: leitura de fonte é hipótese, rodada é dado. (4) A PERGUNTA DO ACABAMENTO, EM TRÊS CAMADAS — e a sua hipótese estava formulada pela metade que não morde: POR ÁREA NÃO ALCANÇA (zero dos 1 196 está abaixo do mínimo: eles têm 218,76 a 581,03 m² contra 200), POR FRENTE ALCANÇA TODOS (os 1 196 publicam `faceDeRua: null`, e não é leitura minha — o invariante `frente` DELE os conta, e vai a zero quando a fileira sai), e MATA OU FUNDE EU NÃO SEI, porque o passo tenta `melhorVizinhoParaFusao` ANTES de descartar. O PASSO SE CHAMA "PISO DE ÁREA" E O CRITÉRIO É ÁREA *E* FRENTE: o comentário dele diz "lote sem NENHUMA frente é tão invendável quanto lote abaixo do mínimo". RÉGUA CUJO NOME CONTA METADE DO CRITÉRIO FAZ QUEM LÊ DE FORA FORMULAR A PERGUNTA PELA METADE ERRADA. (5) E A PORTA DO ACABAMENTO JÁ EXISTE NA ORIGEM DELE: `src/lib/engine/acabamento-externo.ts` com `acabarPlano`, chamado pelo `parcelamento-externo.ts` ENTRE A MONTAGEM E O VALIDATOR, atrás de `opcoes.acabamento` — com a opção ligada, O VEREDICTO PASSA A SER DO PLANO QUE O CHASSI ENTREGA. NO CLONE QUE ESTA CASA COMPILA O ARQUIVO NÃO EXISTE, então a rodada que falta é na casa dele. O CLONE NÃO É A ORIGEM, E AQUI A DIFERENÇA NÃO É DE DATA, É DE CAPACIDADE: falta-lhe uma função inteira, não um commit. E a conta dos passos muda sem contradição: o `024-O-CHASSI.md` contou 16 de 17 que PODERIAM rodar, e a porta entregue APLICA 13 e declara 4 FORA — 13 + 4 = 17 fecha com os dois. (6) SETE DAS DEZ GLEBAS NÃO DECLARAM FACE, e ali a pergunta NÃO TEM OBJETO: elas saem com veredicto escrito e NÃO COM ZERO. Zero é uma medição; "a pergunta não tem objeto aqui" é outra coisa — publicar `0 lotes` nas sete diria que o mecanismo foi medido nelas e não custou nada, e quem lesse a soma concluiria que o preço é pequeno porque sete glebas o diluem. (7) E DUAS COISAS DO ITEM A MEDIÇÃO CORRIGIU, com respeito e com número: a premissa de "testada 0 m" — os 1 196 têm 10,14 a 13,98 m, e o zero era de UM lote acusado do LAB-78, não da fileira —, e "o caminho externo não chama NENHUM passo", que DEIXOU DE SER VERDADE entre o item ser escrito às 00h38 e esta rodada.
+Depende do Jonny: a §10 da página dele foi REESCRITA com o preço na mão, a correção da frase que eu mesma escrevi ("zera o defeito" — não zera) e A RECOMENDAÇÃO MUDADA COM A MEDIÇÃO: de "pare a fileira" para "espere o acabamento do chassi", porque o passo dele alcança os mesmos 1 196 sem mexer no desenho do motor. Continuam a §12 (o REGIME), a §11 (a senha), a §9, e a §10 segue aberta porque a escolha é dele.
+Próximo na fila: o ITEM 028 (enxugar o CLAUDE.md), que chegou no mesmo envio e fica para o próximo disparo — um prompt por despertador. A fila de propostas ficou em TREZE itens abertos: o sétimo mecanismo NÃO saiu da lista, porque o que saiu foi a MEDIÇÃO que faltava, não o conserto.
+=== FIM ===
+
+--- O QUE VAI JUNTO ---
+
+═══════════════════════════════════════════════════════════════════════════════
+  O PREÇO — e o controle que mostra que a régua não acusa à toa
+═══════════════════════════════════════════════════════════════════════════════
+
+  gleba                    candidatas  com retirada  lotes     fileira
+  ──────────────────────────────────────────────────────────────────────
+  geo-antonina                 20           20        598      33 a 64
+  antonina-com-via             20           20        598      33 a 64
+  ensaio-com-testada           20            0          0      (a face cobre
+                                                               a fileira inteira)
+  as outras SETE glebas     NÃO SE APLICA — a ida não declara face nenhuma
+
+  por candidata: 21 a 48 lotes   ·   total medido: 1 196
+
+  O CASO MAIS DURO: a candidata que o RANKING DO MOTOR põe em PRIMEIRO em
+  Antonina tem 33 lotes e TODOS OS 33 são da fileira externa → fica com 12.
+
+═══════════════════════════════════════════════════════════════════════════════
+  A SEGUNDA METADE DA FRASE — medida, e ela era falsa
+═══════════════════════════════════════════════════════════════════════════════
+
+                              antes   parando na face   sem a fileira INTEIRA
+  violações de `frente`       28–55       5–16          0 em 38 das 40
+  violações totais           40–100      13–26          —
+
+  "PARAR NO FIM DA FACE" ≠ "NÃO TER FILEIRA EXTERNA".
+
+═══════════════════════════════════════════════════════════════════════════════
+  A PERGUNTA DO ACABAMENTO — três camadas, e uma delas é "não sei"
+═══════════════════════════════════════════════════════════════════════════════
+
+  por ÁREA      NÃO alcança     0 de 1 196 abaixo do mínimo (218,76–581,03 m²
+                                contra 200)                  [medido]
+  por FRENTE    ALCANÇA TODOS   os 1 196 com `faceDeRua: null`, e o invariante
+                                `frente` DELE os conta        [medido]
+  mata ou funde?  NÃO SEI       o passo tenta fundir no vizinho antes de
+                                descartar — só rodando o passo se sabe
+
+  O CRITÉRIO, literal: mantém o lote só quando `area >= areaMin` E
+  `testadaContraVias(pontos, superficiesFrente) > 0`.
+
+═══════════════════════════════════════════════════════════════════════════════
+  PEDIDO AO GENERATE — em lista, nunca em commit lá (§4)
+═══════════════════════════════════════════════════════════════════════════════
+
+  1. RODAR o `piso-de-area` sobre estes 1 196 lotes e dizer quantos ele FUNDE e
+     quantos DESCARTA. A porta é de vocês, e esta casa não pode: o
+     `acabamento-externo.ts` não existe no clone que ela compila;
+  2. o NOME do passo conta metade do critério — "piso de área" é piso de área E
+     DE FRENTE, e quem lê de fora formula a pergunta pela metade errada;
+  3. dizer se `opcoes.acabamento` vai ficar opt-in: disso depende se o veredicto
+     que esta esteira publica é do plano DO MOTOR ou do plano ACABADO. São duas
+     afirmações diferentes, e o rótulo da opção na mesa é o que as separa.
+
+AO PARCELAMENTO: nada novo. O sétimo mecanismo continua sendo dele e o preço de
+consertá-lo está medido — mas se o acabamento do chassi alcança os mesmos lotes,
+O CONSERTO PODE NÃO SER NECESSÁRIO.
+
+AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
+· nada escrito em repositório vizinho — leitura na ORIGEM do `urban-create-hub`
+  (`c6048f8`) e do `motor-testfit`; os SEIS clones terminaram limpos;
+· NADA FOI CONSERTADO: o plantio não foi tocado, nem atrás de opção, e o
+  acabamento NÃO foi implementado aqui — seria a segunda implementação do
+  acabamento dele (D20/D116), e o item proibiu;
+· nada foi decidido de urbanismo: se a fileira encurta continua sendo dele;
+· o GATILHO DO CI não foi religado — a régua cobra, não liga;
+· e o despertador não foi tocado: a conta ganhou a linha das 07:17.
+```

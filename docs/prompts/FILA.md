@@ -300,10 +300,22 @@ desenho, e desenho espera o olho do Jonny*. **Não é medição que falta: é um
 se a fileira externa encurta — e a etiqueta da condição está no item da lista, que é onde ela
 conta (repeti-la aqui inflava a conta das condições, e a trava do item 006 pegou).
 
-**O que ele vai olhar, em uma frase:** a fileira externa hoje aproveita o canto e ganha alguns
-lotes que o Validator reprova; encurtá-la ao fim da rua perde esses lotes e zera a violação.
-**Quantos lotes se perdem é medição que este prompt não fez** — e prometer o número sem medir
-seria a classe do D133.
+**O que ele vai olhar, em uma frase, e agora COM O PREÇO** (LAB-94, item 027): a fileira externa
+hoje aproveita o canto e ganha lotes que o Validator reprova; encurtá-la ao fim da face declarada
+custa **de 21 a 48 lotes por candidata** — de uma fileira que tem 33 a 64 —, **1 196 em 40
+candidatas** nas duas glebas de Antonina. ~~*"e zera a violação"*~~ **é FALSO, e isto é medição:
+a violação de `frente` NÃO zerou em nenhuma das 40** — ela cai (de 28–55 para 5–16) e sobra.
+Retirando a fileira externa **INTEIRA** ela vai a **zero em 38 das 40**, e nas outras duas sobra
+**uma** — então o que a face declarada não cobre é quase tudo, mas *"parar no fim da face"* não é
+a mesma coisa que *"não ter fileira externa"*.
+
+~~**Quantos lotes se perdem é medição que este prompt não fez**~~ — **está medida**:
+[`../provas/LAB-94/o-preco-do-setimo.json`](../provas/LAB-94/o-preco-do-setimo.json), relatório em
+[`../relatorios/LAB-94.md`](../relatorios/LAB-94.md). **E a decisão pode não precisar ser
+tomada:** o critério do `piso-de-area` do chassi mantém lote só com `area >= areaMin` **E**
+frente, e os 1 196 **têm área legal** (218,76 a 581,03 m²) e **nenhuma frente** pelo invariante
+dele. A porta do acabamento **existe e está ligada na origem do Generate** e **não existe no
+clone que esta casa compila** — então quem roda o passo é ele (D314, D315).
 
 **Origem:** medido e caracterizado no **LAB-78** (item 011), prova em
 [`../provas/LAB-78/setimo-mecanismo.json`](../provas/LAB-78/setimo-mecanismo.json), decisão
@@ -1266,7 +1278,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 666 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 685 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

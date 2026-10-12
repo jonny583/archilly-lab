@@ -2,23 +2,23 @@
   "prompt": "LAB-79",
   "oQueIstoMede": "quantas provas deste repositório são remedidas CONTRA A FONTE e quantas só se conferem contra si mesmas — a §7 lendo as chaves — ou não são lidas por trava nenhuma. A lista de quem cita quem é MECÂNICA: sai da leitura dos arquivos de teste, não da minha memória",
   "oQueIstoNaoMede": "não roda motor nenhum e não mede gleba: o objeto é o conjunto de PROVAS e as travas que as leem. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-12T00:19:02.836Z",
+  "quando": "2026-10-12T07:41:51.803Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
   },
   "alcance": {
-    "universo": 82,
-    "pastas": 64,
+    "universo": 83,
+    "pastas": 65,
     "porComoSeConfere": {
       "remedida-da-fonte": 7,
-      "remedida-sem-escopo-declarado": 22,
+      "remedida-sem-escopo-declarado": 23,
       "so-a-forma": 30,
       "sem-trava": 23
     },
     "comEscopoPublicado": 7,
-    "semEscopoPublicado": 75,
-    "comoSeDiz": "82 provas em 64 pastas · 7 remedidas da fonte com escopo publicado · 22 remedidas em parte SEM escopo declarado · 30 só a forma (§7) · 23 sem trava nenhuma · 75 sem escopo publicado"
+    "semEscopoPublicado": 76,
+    "comoSeDiz": "83 provas em 65 pastas · 7 remedidas da fonte com escopo publicado · 23 remedidas em parte SEM escopo declarado · 30 só a forma (§7) · 23 sem trava nenhuma · 76 sem escopo publicado"
   },
   "comEscopoPublicado": [
     "LAB-25/guarda-da-ponte.json",
@@ -609,6 +609,13 @@
       "comoSeConfere": "remedida-sem-escopo-declarado",
       "travas": [
         "legais-do-contrato.test.ts"
+      ]
+    },
+    {
+      "caminho": "LAB-94/o-preco-do-setimo.json",
+      "comoSeConfere": "remedida-sem-escopo-declarado",
+      "travas": [
+        "preco-do-setimo.test.ts"
       ]
     },
     {
