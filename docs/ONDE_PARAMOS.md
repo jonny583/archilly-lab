@@ -4,9 +4,10 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 12/10/2026 · **Último prompt executado:** LAB-95 (item 028, **que continua
-ABERTO por ordem dele**) — **o `CLAUDE.md` enxugado: 52 383 → 18 527 caracteres, 79 regras, zero
-linhas perdidas; a meta de 15 000 NÃO foi alcançada e o chão está medido** (D317 a D321) · antes
+**Última atualização:** 12/10/2026, 19h · **Último prompt executado:** LAB-95 (item 028, **FEITO no
+segundo despertador**) — **o `CLAUDE.md` enxugado: 52 383 → 12 706 caracteres, 79 regras, zero
+linhas perdidas, meta de 15 000 alcançada** (D317 a D322; a D321, que dizia não caber, foi
+desmentida pela D322) · **próximo: o item 029** (9-A e 9-B respondidos) · antes
 dele o LAB-94 (item 027), o preço do sétimo mecanismo (D312 a
 D316), o LAB-93 (item 026), a D226 entregue com delta de desenho ZERO (D306 a D311),
 o LAB-92 (item 025 + dois adendos), as premissas que não são
@@ -122,9 +123,10 @@ enquanto eu trabalhava no 001"*).
 | 11/10/2026 | 23:06 | observado | item 026 pronto (o chat o escreveu às 18h38, cinco horas antes do disparo) | item 026 (LAB-93) |
 | 12/10/2026 | 07:17 | observado | itens 027 **e 028** prontos (00h38 e depois); agendado para 07:05 e entregue 12 min depois | item 027 (LAB-94) |
 | 12/10/2026 | 15:08 | observado | itens 028 e 029 na caixa; agendado para 15:05 | item 028 (LAB-95), **que fica aberto** |
+| 12/10/2026 | 19:07 | observado | itens 028 (aberto), 029 e 900 na caixa, contados na `origin/main` | item 028 (LAB-95), **fechado** |
 
 ```
-disparos no registro: 41 · observados: 32 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
+disparos no registro: 42 · observados: 33 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05

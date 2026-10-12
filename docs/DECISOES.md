@@ -9979,6 +9979,10 @@ inventário novo do LAB-95 nasceu usando o normalizador, não `toContain`.
 
 ## D321 · A META DE 15 MIL NÃO FOI ALCANÇADA: FICOU EM 18 527, E O CHÃO ESTÁ MEDIDO · 12/10/2026
 
+> **⚠ DESMENTIDA PELA D322, no despertador seguinte:** a meta cabia — 12 706 caracteres com as 79
+> regras e as citações intactas. Os *"203 por regra"* abaixo eram o gasto daquela redação, não um
+> chão. O texto fica como estava, porque decisão errada se corrige pela seguinte, não se apaga.
+
 O item 028 fixou **15 000 caracteres** e disse o que fazer se não chegasse: *"diga no recado quanto
 ficou e o que impediu — número, não adjetivo."*
 
@@ -10003,3 +10007,23 @@ Sobram **16 054** para **79 regras**, títulos e ponteiros: **203 caracteres por
 **O item 028 NÃO foi marcado como FEITO**, obedecendo ao que ele próprio manda: *"não marque como
 FEITO até a meta: o próximo despertador continua este mesmo item."* O que já está feito está na
 `main`, verde, e o estado está escrito no topo do próprio item.
+
+## D322 · A D321 ESTAVA ERRADA: A META CABIA, E OS "203 POR REGRA" ERAM SAÍDA, NÃO CHÃO · 12/10/2026
+
+A D321 disse que baixar o `CLAUDE.md` de 15 000 caracteres *"exige tirar regra ou editar citação
+literal"*. **Medido no despertador seguinte, não exigia:** a página ficou em **12 706**, com as
+**79 regras** do inventário conferidas nos dois lados, **zero linhas perdidas** e as duas citações
+literais (Central e Jonny) intactas.
+
+**O erro tem forma, e é por isso que vira decisão:** o chão medido (citações, molde, comando, lista)
+estava certo; o passo seguinte — *"sobram 16 054 para 79 regras: 203 por regra"* — dividiu o que
+sobrava pelo número de regras e tratou o **quociente** como limite. Mas 203 era **quanto aquela
+redação gastava**, não quanto uma regra precisa. *Uma saída da medição foi lida como restrição dela.*
+
+> **AFIRMAÇÃO DE IMPOSSIBILIDADE É AFIRMAÇÃO COMO AS OUTRAS, e é a mais fácil de não testar**: o
+> teste dela é tentar. A D321 não tentou — e por isso pediu ao Jonny uma decisão que não existia,
+> no mesmo dia em que ele disse que não quer mais responder perguntas desta casa (item 029).
+
+**O que se perde:** cada regra ficou em uma frase, às vezes meia; a nuance mora na história, um
+clique adiante (`§HN`). Três frases da casa voltaram porque guardas acusaram o encurtamento
+(`regras`, `custo-por-uso`, `lab95`) — **as três com razão**, e é o serviço delas.

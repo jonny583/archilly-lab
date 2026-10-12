@@ -98,6 +98,8 @@ identifica — e o kit é uma delas.
 
 ## 6 · A meta não foi alcançada, e o chão está medido (D321)
 
+> **⚠ Esta seção estava errada — ver §8 e a D322.** A meta cabia: 12 706 caracteres, no despertador seguinte.
+
 **Ficou em 18 527; faltam 3 527.** O que impede, pedaço por pedaço:
 
 | caracteres | o que é |
@@ -142,3 +144,43 @@ própria página deixa de mandar**).
 - **nada escrito em repositório vizinho**; os **seis** clones limpos;
 - **o item 028 continua ABERTO**, por ordem dele;
 - **verde:** o comando único, **conferido aqui, não no GitHub**.
+
+---
+
+## 8 · O segundo despertador (19:07): a meta alcançada, e a D321 desmentida (D322)
+
+**12 706 caracteres** (meta 15 000), **79 regras × 79**, **zero linhas perdidas**, citações
+literais intactas. O item 028 está **FEITO**.
+
+**A §6 deste relatório estava errada.** Ela dizia que baixar exigia tirar regra ou editar citação.
+Os *"203 por regra"* eram o gasto da redação de então, e eu os li como o mínimo. **Medido tentando:**
+as mesmas 79 cabem a ~130 por regra. A conta do chão segue de pé (agora 2 308: 1 285 + 387 + 200 +
+36 + ~400 da lista de onde mora cada coisa, que perdeu palavras e nenhum item).
+
+**O que se cortou, por seção:** a §6 virou uma lista de onze linhas (era uma por regra, cada uma com
+o relato); a §4 e a §7 perderam o relato que ainda carregavam; a §1-B e a §1-A viraram parágrafo;
+as citações da §1-C e da §4-A não foram tocadas.
+
+**As guardas que acusaram, e o que cada uma pegou:**
+
+| guarda | o que acusou | conserto |
+|---|---|---|
+| `tests/regras.test.ts` | a frase *"698 travas que leem arquivo do próprio repositório"* sumiu da página | voltou — **numa linha só**, porque a régua casa a frase sem atravessar quebra |
+| `tests/custo-por-uso.test.ts` | a §4-A deixou de dizer que contratar acontece **fora da árvore** | voltou, com *"guarda que não declara o próprio buraco mente pelo silêncio"* |
+| `bun run lab95` | duas linhas de abertura do texto antigo que **não estavam na história** e iam se perder | voltaram literais |
+
+**E uma que estava vermelha na `main` antes de eu mexer:** `configuracao.test.ts` (LAB-57) contava
+**569** arquivos na árvore contra **568** na prova — o `docs/caixa-de-entrada/900.md`, escrito pela
+direção às 14:25, entrou depois da última regeração. Regerada (`bun run lab57`). A do LAB-81 também
+foi regerada: ela publica as linhas das seções de regra da página, e a página mudou.
+
+**Três nuances que eu cortei e devolvi por conta própria**, lendo o diff antes de enviar: o
+*"nunca `Lab`"* do nome do aplicativo no recado, o *"quem roda o verde completo é a sessão, antes do
+commit"* e o buraco declarado da guarda da §4-A. *Encurtar apaga — e a lista de marcas não cobre
+tudo o que uma frase dizia.*
+
+**Verde, conferido aqui, não no GitHub — com um buraco desta máquina, dito:** o `.wasm` do Symbios
+não pôde ser compilado aqui (o `rust-toolchain.toml` fixa a 1.96.1 e o host `static.rust-lang.org`
+está bloqueado pela política de rede desta sessão). Então a **precondição**, a **prova no navegador**
+e os testes que carregam o `.wasm` falham **antes e depois** desta mudança, iguais; **todo o resto
+passa**. Esta entrega mexe só em texto, e nenhuma das travas que o `.wasm` sustenta lê o `CLAUDE.md`.

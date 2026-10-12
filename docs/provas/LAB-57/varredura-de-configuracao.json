@@ -2,9 +2,9 @@
   "prompt": "LAB-57",
   "oQueIstoMede": "quais configurações deste repositório desligam conferência — nas três formas: a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR, e o desligador SEM MOTIVO ESCRITO",
   "aPergunta": "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
-  "quando": "2026-10-12T16:36:13.796Z",
+  "quando": "2026-10-12T19:16:22.039Z",
   "escopo": {
-    "arquivosQueOGitCarrega": 568,
+    "arquivosQueOGitCarrega": 569,
     "configuracoesEncontradas": 27,
     "configuracoesVarridas": 11,
     "configuracoesForaDoEscopoNomeadas": 16,
@@ -327,10 +327,7 @@
       "trecho": "eslint-disable"
     }
   ],
-  "arquivosIgnoradosPresentesEmDisco": [
-    "external-engines/symbios/adapter/ferramentas/navegador/archilly_symbios_wasm.wasm",
-    "external-engines/symbios/archilly/wasm/target/"
-  ],
+  "arquivosIgnoradosPresentesEmDisco": [],
   "oQueOsIgnORADOSSignificam": "são artefato de build (`target/` do Rust e o `.wasm` do navegador), e o `.gitignore` do UPSTREAM ignora `/.claude` e `.mcp.json` — dois nomes que costumam carregar credencial. Medido: nenhum dos dois existe em disco. A varredura de segredos lê `git ls-files --exclude-standard`, então se um dia existirem ali ela NÃO os verá, e upstream é intocável (§3)",
   "totalPorRegra": {
     "regra-em-off": 2,

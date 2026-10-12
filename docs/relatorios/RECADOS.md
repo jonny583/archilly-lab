@@ -2801,3 +2801,15 @@ AS FRONTEIRAS, E NENHUMA FOI ATRAVESSADA:
 · e o ITEM 028 NÃO FOI MARCADO COMO FEITO — é o que ele manda enquanto a meta não
   for alcançada.
 ```
+
+## 12/10/2026 · LAB-95 — item 028, segundo despertador: a meta alcançada, e a D321 desmentida
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-95 (item 028, 2º despertador) ===
+Estado: ITEM 028 FEITO. CLAUDE.md 18 527 → 12 706 caracteres (meta 15 000), 79 regras × 79, zero linhas perdidas, citações literais intactas. Conferido aqui, não no GitHub — com o buraco desta máquina dito: o .wasm não compila aqui (rust 1.96.1 fixado, static.rust-lang.org bloqueado), então precondição, navegador e os testes que o carregam falham ANTES e DEPOIS, iguais; todo o resto verde.
+Feito: CLAUDE.md reescrito mais curto; provas LAB-95 (chegouNaMeta: true), LAB-81 e LAB-57 regeradas; D322; relatório LAB-95 §8; item renomeado para 028-FEITO.md.
+Achados para outros apps ou Central: (1) A D321 ESTAVA ERRADA — eu disse "não cabe sem tirar regra" e cabia. Os "203 por regra" eram o GASTO daquela redação, lido como CHÃO: uma saída da medição tratada como restrição. Afirmação de impossibilidade é a mais fácil de não testar; o teste dela é tentar. Para as casas que forem enxugar: 15 000 cabe. (2) Três guardas acusaram o encurtamento, todas com razão: frase de régua quebrada em duas linhas (a régua não atravessa quebra), o buraco declarado de uma guarda sumido, e duas linhas do texto antigo que não estavam na história. ENCURTAR APAGA, e a lista de marcas não cobre tudo — li o diff e devolvi mais três nuances. (3) A main estava VERMELHA desde a escrita do 900.md: a prova do LAB-57 conta os arquivos da árvore e ficou um atrás. Item da caixa que entra na árvore muda prova de escopo; regerada.
+Depende do Jonny: nada. A pergunta da D321 (mudar a meta ou tirar regra) deixou de existir.
+Próximo na fila: o item 029 (9-A e 9-B respondidos: medir os 15 m ao longo de cada rua).
+=== FIM ===
+```
