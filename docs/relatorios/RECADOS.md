@@ -2838,3 +2838,16 @@ Próximo na fila: a caixa só tem o 900, e as propostas da FILA que não esperam
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 13/10/2026 · LAB-98 — item 900 (a dívida própria): o número de travas do portão
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-98 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); FILA sem proposta que não espere ninguém, então fui à dívida própria, como o LAB-97 indicou. FEITA. Conferido aqui, não no GitHub: esteira 1 008 pass · 9 fail (eram 1 001 · 9; as 9 são do .wasm, iguais antes e depois), testfit 17 · 0, typecheck e lint limpos.
+Feito: espécie "número digitado à mão" — "698 travas" em seis lugares (CLAUDE.md, ONDE_PARAMOS, FILA, verde.yml 2×, prova do LAB-84) contra 719 RODADAS; as duas travas que o vigiavam estavam VERDES. Nova tests/contar-as-travas.test.ts roda a lista e reconta (7 travas, dois lados demonstrados); lab84 refeito (42 de 42 sem clones); seis lugares em 719; D325; relatório LAB-98.
+Achados para outros apps ou Central: NÚMERO ESCRITO À MÃO CONFERIDO CONTRA PROVA MEDIDA À MÃO É CONCORDÂNCIA, NÃO MEDIÇÃO — seis cópias iguais provam que ninguém esqueceu de copiar, não que alguém mediu. Vale para todo "N travas/N testes" das casas (a Central tem "17 scripts, 19 conferidores" no CLAUDE.md; o Generate "74 guardas / 26 medidores"): a trava tem de RODAR e recontar, e contar "test(" por regex mede texto (aqui deu 688 e 739 contra 719).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a dívida própria tem outras espécies a varrer.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

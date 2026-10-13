@@ -94,6 +94,16 @@ export const AS_ESPECIES: readonly ProvaClassificada[] = [
     regeradaPelaTrava: true,
   },
   {
+    prova: "LAB-84/as-trinta-por-execucao.json",
+    especie: "funcao-da-arvore",
+    porque:
+      "a SOMA `quantasTravasNaLista` é função da lista do workflow e dos testes de agora: ficou " +
+      "698 enquanto a suíte rodada dizia 719, e as cópias escritas concordavam com ela (D325). A " +
+      "trava `contar-as-travas.test.ts` reconta a soma; o 'passam sem clone' depende de AMBIENTE " +
+      "(uma cópia sem os vizinhos) e continua sendo do `bun run lab84`",
+    regeradaPelaTrava: true,
+  },
+  {
     prova: "LAB-48/violacoes-do-motor-padrao.json",
     especie: "fotografia",
     porque:
