@@ -321,18 +321,21 @@ clone que esta casa compila** — então quem roda o passo é ele (D314, D315).
 [`../provas/LAB-78/setimo-mecanismo.json`](../provas/LAB-78/setimo-mecanismo.json), decisão
 **D253**.
 
-### Proposto ao chat, saído do item 029 (LAB-96) — **não executado**
+### Proposto ao chat, saído do item 029 (LAB-96) — **1 de 3 executado** (o 1, no LAB-97)
 
 Três coisas que o item 029 deixou à vista e que não cabiam nele. **Nenhuma espera o Jonny** —
 ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração com o Generate.
 
-1. **A regra 2 do acesso não tem guarda que a cumpra no código.** O vocabulário de recusa tem
+1. ✅ **FEITO no LAB-97** (item 900, D324): `sobreFaceComVia` e a recusa `"sem-via-publica"` antes
+   da faixa; o vocabulário de recusa ganhou trava nos dois sentidos, e ela achou um segundo órfão
+   (`"o-motor-recusou"`), declarado como reservado. Relatório:
+   [`../relatorios/LAB-97.md`](../relatorios/LAB-97.md). — ~~**A regra 2 do acesso não tem guarda que a cumpra no código.** O vocabulário de recusa tem
    `"sem-via-publica"`, mas **nenhuma função o produz**: `avaliarPosicoes` recusa por falta de
    declaração e por faixa de esquina, e **deixa passar** uma posição sobre uma face sem rua quando
    as faces estão declaradas. Hoje é inofensivo — gleba nenhuma declara as faces, então tudo cai
    na recusa por falta de dado —, mas é **regra sem guarda**, a primeira espécie da dívida própria.
    O conserto é pequeno (projetar o ponto, ver a face, recusar com o motivo que já existe) e a trava
-   é sintética. É da minha lista, e o item 900 me deixa pegá-lo quando a caixa esvaziar.
+   é sintética. É da minha lista, e o item 900 me deixa pegá-lo quando a caixa esvaziar.~~
 2. **O item de custo da travessia ganhar a classe do custo.** A resposta à pendência 3 foi
    *"Orçamento, custo de obra"*. O `ItemDeCusto` (`travessia.ts`) não diz a classe; acrescentá-la
    é mudar o contrato de saída desta casa, e por isso é proposta e não conserto.

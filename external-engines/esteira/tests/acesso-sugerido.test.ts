@@ -26,6 +26,7 @@ import {
   FAIXA_EM_USO_m,
   FAIXA_QUANDO_OCUPA_A_QUADRA_m,
   MOTIVOS_DE_RECUSA,
+  MOTIVOS_RESERVADOS,
   PADRAO_DA_FAIXA_DE_ESQUINA_m,
   REGRAS_DO_ACESSO,
   REGUA_DA_FAIXA,
@@ -36,6 +37,7 @@ import {
   esquinasDeVia,
   limiteDaFaixaDeEsquina,
   perimetroDoAnel,
+  sobreFaceComVia,
   sugerirAcesso,
   type DeclaracaoDaGleba,
   type PosicaoAvaliada,
@@ -333,6 +335,115 @@ describe("recusa é `null` COM O MOTIVO, nunca zero", () => {
     const as = avaliarPosicoes(QUADRADO, [dele], null, 15, [dele]);
     expect(as[0]?.valida).toBe(true);
     expect(as[0]?.motivo).toBe(null);
+  });
+});
+
+/**
+ * ── A REGRA 2 GANHOU GUARDA (LAB-97, item 900) ──
+ *
+ * Até aqui o motivo `"sem-via-publica"` existia no vocabulário e nenhuma função o produzia: com as
+ * faces DECLARADAS, uma posição sobre o muro do vizinho passava como válida — a sugestão
+ * *plausível e impossível* que o adendo proíbe, a um dado de distância de sair. Estas travas
+ * demonstram os dois lados (aprova o caso bom, reprova o ruim) e a do vocabulário cobra que
+ * nenhuma palavra volte a ficar sem quem a produza sem estar declarada.
+ */
+describe("REGRA 2 — posição sem rua não é posição, e agora o código recusa (LAB-97)", () => {
+  // Só o sul (0) e o leste (1) dão para rua; norte (2) e oeste (3) são muro de vizinho.
+  const RUAS = [0, 1];
+
+  test("o caso RUIM: posição no muro do vizinho é recusada com o motivo da regra 2", () => {
+    const noMuro = { x: 50, y: 100 };
+    const [a] = avaliarPosicoes(QUADRADO, [noMuro], RUAS, 15);
+    expect(a?.valida).toBe(false);
+    expect(a?.motivo).toBe("sem-via-publica");
+    expect(a?.lotes).toBe(null);
+  });
+
+  test("o caso BOM: posição na rua, longe da esquina, continua válida", () => {
+    const [a] = avaliarPosicoes(QUADRADO, [{ x: 50, y: 0 }], RUAS, 15);
+    expect(a?.valida).toBe(true);
+    expect(a?.motivo).toBe(null);
+  });
+
+  test("a regra 2 vem ANTES da 3: no muro perto da esquina, o motivo é o muro", () => {
+    // (100, 105) não existe no anel; (95, 100) fica no muro norte a 5 m do vértice 2, que NÃO é
+    // esquina (norte é muro). E (0, 5) fica no muro oeste a 5 m do vértice 0, que também não é.
+    for (const p of [{ x: 95, y: 100 }, { x: 0, y: 5 }]) {
+      expect(avaliarPosicoes(QUADRADO, [p], RUAS, 15)[0]?.motivo).toBe("sem-via-publica");
+    }
+  });
+
+  test("ponto a milímetros da divisa é projetado nela: o muro continua muro, a rua continua rua", () => {
+    expect(sobreFaceComVia({ x: 50, y: 99.999 }, QUADRADO, RUAS)).toBe(false);
+    expect(sobreFaceComVia({ x: 50, y: 0.001 }, QUADRADO, RUAS)).toBe(true);
+  });
+
+  test("o VÉRTICE entre rua e muro é o fim da testada de rua — e conta como rua (escolha escrita)", () => {
+    // Vértice 0: entre o oeste (muro) e o sul (rua). Vértice 3: entre o norte e o oeste, dois muros.
+    expect(sobreFaceComVia({ x: 0, y: 0 }, QUADRADO, RUAS)).toBe(true);
+    expect(sobreFaceComVia({ x: 0, y: 100 }, QUADRADO, RUAS)).toBe(false);
+  });
+
+  test("faces declaradas VAZIAS ('nenhuma rua') recusam tudo pela regra 2 — e não pela falta de dado", () => {
+    const as = avaliarPosicoes(QUADRADO, [{ x: 50, y: 0 }, { x: 100, y: 50 }], [], 15);
+    expect(as.every((a) => a.motivo === "sem-via-publica")).toBe(true);
+  });
+
+  test("REGRA 4 — a escolha do usuário atravessa até no muro do vizinho", () => {
+    const dele = { x: 50, y: 100 };
+    const [a] = avaliarPosicoes(QUADRADO, [dele], RUAS, 15, [dele]);
+    expect(a?.valida).toBe(true);
+    expect(a?.doUsuario).toBe(true);
+  });
+
+  test("e a SUGESTÃO nunca aponta para o muro, por mais lotes que ele renda", () => {
+    const avaliadas = avaliarPosicoes(QUADRADO, [{ x: 50, y: 100 }, { x: 50, y: 0 }], RUAS, 15).map(
+      (a, i): PosicaoAvaliada => ({ ...a, lotes: a.valida ? [999, 10][i]! : null }),
+    );
+    const s = sugerirAcesso(RUAS, 5, avaliadas);
+    expect(s.ponto).toEqual({ x: 50, y: 0 });
+    expect(s.ganhoEmLotes).toBe(5);
+  });
+});
+
+describe("o VOCABULÁRIO de recusa não tem palavra órfã — nos dois sentidos (LAB-97)", () => {
+  // O corpo do módulo SEM a declaração do vocabulário e sem a lista dos reservados: é onde um
+  // motivo PRODUZIDO aparece. Procura-se o literal ao lado de `motivo:`, a forma em que a função
+  // o devolve — o nome dentro de comentário não produz nada.
+  const corpo = FONTE.replace(/export const MOTIVOS_DE_RECUSA[\s\S]*?\] as const;/, "")
+    .replace(/export const MOTIVOS_RESERVADOS[\s\S]*?\];\n/, "");
+  const produz = (m: string): boolean => new RegExp(`motivo:\\s*"${m}"`).test(corpo);
+  const reservados = new Set(MOTIVOS_RESERVADOS.map((r) => r.motivo));
+
+  test("o recorte achou os dois blocos — senão a trava leria a própria declaração como produção", () => {
+    expect(corpo.length).toBeLessThan(FONTE.length);
+    expect(corpo).not.toContain("export const MOTIVOS_DE_RECUSA");
+    expect(corpo).not.toContain("export const MOTIVOS_RESERVADOS");
+  });
+
+  test("todo motivo NÃO reservado tem quem o produza", () => {
+    const orfaos = MOTIVOS_DE_RECUSA.filter((m) => !reservados.has(m) && !produz(m));
+    expect(orfaos).toEqual([]);
+  });
+
+  test("todo motivo RESERVADO não tem — senão a lista mente que ele está parado", () => {
+    const vivos = [...reservados].filter(produz);
+    expect(vivos).toEqual([]);
+  });
+
+  test("cada reservado diz POR QUÊ, e está no vocabulário", () => {
+    for (const r of MOTIVOS_RESERVADOS) {
+      expect(MOTIVOS_DE_RECUSA as readonly string[]).toContain(r.motivo);
+      expect(r.porque.length).toBeGreaterThan(40);
+    }
+  });
+
+  test("a trava tem DENTES: tirada a produção da regra 2, ela acusa o órfão", () => {
+    const sabotado = corpo.replace(/motivo:\s*"sem-via-publica"/g, 'motivo: "x"');
+    const orfaos = MOTIVOS_DE_RECUSA.filter(
+      (m) => !reservados.has(m) && !new RegExp(`motivo:\\s*"${m}"`).test(sabotado),
+    );
+    expect(orfaos).toEqual(["sem-via-publica"]);
   });
 });
 

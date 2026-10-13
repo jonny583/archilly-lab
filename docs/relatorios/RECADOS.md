@@ -2825,3 +2825,16 @@ Depende do Jonny: nada — e, a pedido dele, nada desta casa volta a ele antes d
 Próximo na fila: a caixa só tem o 900 (a minha lista). Três propostas novas na FILA; a primeira é minha: a regra 2 do acesso não tem guarda ("sem-via-publica" existe e nenhuma função o produz).
 === FIM ===
 ```
+
+## 13/10/2026 · LAB-97 — item 900 (a minha lista): a regra 2 do acesso ganhou guarda
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-97 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei a proposta 1 do LAB-96 na FILA.md. FEITA. Conferido aqui, não no GitHub: esteira 1 001 pass · 9 fail (eram 988 · 9; as 9 são do .wasm, iguais antes e depois), testfit 17 · 0, typecheck e lint limpos.
+Feito: sobreFaceComVia + recusa "sem-via-publica" ANTES da faixa de esquina (acesso-sugerido.ts); MOTIVOS_RESERVADOS; 52 → 65 travas; duas sabotagens, 4 reprovam em cada; provas LAB-52/57 regeradas só no tamanho do universo; D324; relatório LAB-97.
+Achados para outros apps ou Central: (1) PALAVRA NO VOCABULÁRIO NÃO É REGRA NO CÓDIGO — um motivo num "as const" tem tipo, prosa e nome, passa por guarda, e nada o produz. Vocabulário fechado se confere nos dois sentidos: quem declara e quem devolve; a trava achou um SEGUNDO órfão ("o-motor-recusou") que nenhuma lista citava. (2) Com as faces declaradas, posição no muro do vizinho passava como válida e podia virar sugestão — inofensivo hoje só porque nenhuma gleba declara as faces; o dia em que o Generate mandar o campo pedido no LAB-77, já está guardado.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900, e as propostas da FILA que não esperam ninguém acabaram; o próximo disparo procura na dívida própria antes de anotar vazio.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
