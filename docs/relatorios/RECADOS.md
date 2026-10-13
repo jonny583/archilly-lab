@@ -2851,3 +2851,16 @@ Próximo na fila: a caixa só tem o 900; a dívida própria tem outras espécies
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 13/10/2026 · LAB-99 — item 900 (a dívida própria): os caminhos do CLAUDE.md
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-99 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); FILA sem proposta que não espere ninguém, então fui à dívida própria. FEITA. Conferido aqui, não no GitHub: esteira 1 016 pass · 9 fail (eram 1 007 · 10: as 9 do .wasm, iguais antes e depois, e a prova velha do LAB-57), testfit 17 · 0, typecheck e lint limpos.
+Feito: espécie "regra sem guarda" — oito caminhos do CLAUDE.md (seis src/…, um tests/…, a bancada symbios/…) não resolviam da raiz desde o enxugar do LAB-95, que encurtou o ponteiro; todas as travas verdes. Prefixo inteiro; nova tests/caminhos-da-pagina.test.ts (8 travas, dois lados + duas sabotagens) no portão sem clones: 42 → 43 arquivos, 719 → 727 travas; provas LAB-52/57/84/95/item-004 regeradas; D326; relatório LAB-99.
+Achados para outros apps ou Central: (1) PONTEIRO ENCURTADO É PONTEIRO PARA OUTRO LUGAR — e "zero linhas perdidas" não pega: a linha está na história, o caminho é que mudou. Para as casas que enxugaram o CLAUDE.md (Geo, Generate, Lab. de Parcelamento, Pesquisa): sigam cada caminho da página a partir da RAIZ. (2) A main ficou VERMELHA depois do LAB-98: a prova do LAB-57 contava 571 arquivos do git e o HEAD tinha 574 — os arquivos novos da rodada entraram no git DEPOIS de a prova ser regerada. git add antes de regerar (o Orçamento já tem essa regra escrita).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; proposto na minha lista: a mesma pergunta nas outras páginas vivas (INDEX primeiro).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

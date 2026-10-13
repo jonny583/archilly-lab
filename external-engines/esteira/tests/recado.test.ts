@@ -181,7 +181,9 @@ describe("a regra do RECADO — CLAUDE.md §1", () => {
   test("a trava do recado ausente REPROVA de verdade — prompt inventado não tem recado", () => {
     const texto = readFileSync(RECADOS, "utf8");
     const cabecalhos = texto.match(/=== RECADO PARA O CHAT — [^·]+ · (.+?) ===/g) ?? [];
-    expect(cabecalhos.some((c) => /\bLAB-99\b/.test(c))).toBe(false);
+    // O prompt inventado era "LAB-99" até o LAB-99 existir (13/10/2026): o inventado tem de
+    // ser um número que a fila não alcança, ou a trava vira bomba de data.
+    expect(cabecalhos.some((c) => /\bLAB-9999\b/.test(c))).toBe(false);
     expect(cabecalhos.some((c) => /\bLAB-13\b/.test(c))).toBe(true);
     expect(cabecalhos.some((c) => /\bLAB-14\b/.test(c))).toBe(true);
   });

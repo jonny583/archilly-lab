@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 13/10/2026, 07h · **Último prompt executado:** LAB-98 (item 900, a dívida própria) — **o número de travas do portão sem clones estava em 698 em seis lugares e a suíte rodada dizia 719, com as duas travas que o vigiavam VERDES** (eram de concordância: cópias entre si e contra uma prova medida à mão); agora `tests/contar-as-travas.test.ts` roda a lista e reconta (D325) · **próximo: a caixa só tem o 900** — a dívida própria tem outras espécies a varrer · antes dele o LAB-97 (item 900, a minha própria lista) — **a regra 2 do acesso ganhou guarda: posição sobre o muro do vizinho é recusada com `"sem-via-publica"`, antes da faixa de esquina**, e o vocabulário de recusa passou a ser conferido nos dois sentidos — a trava achou um segundo órfão, `"o-motor-recusou"`, declarado como reservado (D324). Tarefa tirada da `FILA.md`, proposta 1 do LAB-96 · **próximo: a caixa só tem o 900, e as propostas da FILA que não esperam ninguém acabaram** — o próximo disparo procura na dívida própria antes de anotar vazio · antes dele o LAB-96 (item 029) — **as
+**Última atualização:** 13/10/2026, 11h · **Último prompt executado:** LAB-99 (item 900, a dívida própria) — **oito caminhos do `CLAUDE.md` não resolviam da raiz** (`src/…`, `tests/…`, `symbios/…`, encurtados pelo enxugar do LAB-95, com todas as travas verdes); prefixo inteiro e `external-engines/esteira/tests/caminhos-da-pagina.test.ts` no portão sem clones, 719 → 727 travas (D326) · **próximo: a caixa só tem o 900** — a mesma pergunta nas outras páginas ficou proposta na FILA · antes dele o LAB-98 (item 900, a dívida própria) — **o número de travas do portão sem clones estava em 698 em seis lugares e a suíte rodada dizia 719, com as duas travas que o vigiavam VERDES** (eram de concordância: cópias entre si e contra uma prova medida à mão); agora `tests/contar-as-travas.test.ts` roda a lista e reconta (D325) · **próximo: a caixa só tem o 900** — a dívida própria tem outras espécies a varrer · antes dele o LAB-97 (item 900, a minha própria lista) — **a regra 2 do acesso ganhou guarda: posição sobre o muro do vizinho é recusada com `"sem-via-publica"`, antes da faixa de esquina**, e o vocabulário de recusa passou a ser conferido nos dois sentidos — a trava achou um segundo órfão, `"o-motor-recusou"`, declarado como reservado (D324). Tarefa tirada da `FILA.md`, proposta 1 do LAB-96 · **próximo: a caixa só tem o 900, e as propostas da FILA que não esperam ninguém acabaram** — o próximo disparo procura na dívida própria antes de anotar vazio · antes dele o LAB-96 (item 029) — **as
 respostas do Jonny ao 9-A e ao 9-B entraram no código: a faixa de esquina passou a se medir AO LONGO
 de cada rua, a partir do encontro das duas, e não mais em linha reta; "quadra" é o TRECHO DE RUA
 entre dois cruzamentos** (D323) — e medido nas sete glebas, a troca **quase não mexe**: um único
@@ -131,9 +131,10 @@ enquanto eu trabalhava no 001"*).
 | 12/10/2026 | 23:07 | observado | itens 029 e 900 na caixa, contados na `origin/main` (o 900 é contínuo e só vale sem outro) | item 029 (LAB-96) |
 | 13/10/2026 | 03:05 | observado | só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista | item 900 (LAB-97), tarefa da `FILA.md` |
 | 13/10/2026 | 07:07 | observado | só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista | item 900 (LAB-98), dívida própria (número digitado à mão) |
+| 13/10/2026 | 11:07 | observado | só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista | item 900 (LAB-99), dívida própria (regra sem guarda: os caminhos do `CLAUDE.md`) |
 
 ```
-disparos no registro: 45 · observados: 36 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
+disparos no registro: 46 · observados: 37 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05
@@ -1840,7 +1841,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 719 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **hoje, sem segredo**: 727 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
