@@ -161,3 +161,88 @@ describe("o comando único cobre tudo o que existe", () => {
     expect(p.resultadoComASabotagem.passosQueFalharam.length).toBeGreaterThanOrEqual(3);
   });
 });
+
+/**
+ * QUANTOS PASSOS O VERDE TEM, contado no script. (LAB-101, item 900, D328)
+ *
+ * O `CLAUDE.md` §7 e a linha do `conferir.sh` no `INDEX.md` dizem *"sete passos"* por extenso, e
+ * nada os conferia: o teste acima diz que os três passos de cada pacote EXISTEM, não QUANTOS são.
+ * O script manda acrescentar o pacote novo a `COBERTOS`; quem obedecer leva o verde a dez passos
+ * e deixa as duas páginas em sete, verdes. A régua mora em `src/passos-do-verde.ts`.
+ */
+import {
+  conferirOsPassos,
+  contarOsPassosDoScript,
+  passosAfirmados,
+  trechoDoClaude,
+  trechoDoIndex,
+} from "../src/passos-do-verde.ts";
+
+describe("LAB-101 · o número de passos do verde é contado, não lembrado", () => {
+  const paginas = () => ({
+    claude: readFileSync(join(RAIZ, "CLAUDE.md"), "utf8"),
+    index: readFileSync(join(RAIZ, "docs", "INDEX.md"), "utf8"),
+  });
+
+  test("o script de hoje conta 2 pacotes × 3 passos + 1 avulso = 7", () => {
+    expect(contarOsPassosDoScript(script())).toEqual({
+      pacotes: 2,
+      porPacote: 3,
+      avulsos: 1,
+      total: 7,
+    });
+  });
+
+  test("lado BOM: as duas páginas de hoje concordam com o script", () => {
+    expect(conferirOsPassos(contarOsPassosDoScript(script())!, paginas())).toEqual([]);
+  });
+
+  test("lado RUIM: um terceiro pacote em COBERTOS leva a 10, e as duas páginas reprovam", () => {
+    const tres = script().replace(
+      'COBERTOS=("external-engines/esteira" "external-engines/testfit")',
+      'COBERTOS=("external-engines/esteira" "external-engines/testfit" "external-engines/novo")',
+    );
+    const c = contarOsPassosDoScript(tres)!;
+    expect(c.total).toBe(10);
+    const onde = conferirOsPassos(c, paginas()).map((d) => `${d.onde}:${d.grandeza}`);
+    expect(onde).toEqual([
+      "CLAUDE.md §7:passos",
+      "docs/INDEX.md (linha do conferir.sh):passos",
+      "docs/INDEX.md (linha do conferir.sh):pacotes",
+    ]);
+  });
+
+  test("lado RUIM: a página que diz outro número reprova, e só ela", () => {
+    const p = paginas();
+    const errado = { ...p, claude: p.claude.replace("sete passos, todos", "oito passos, todos") };
+    const d = conferirOsPassos(contarOsPassosDoScript(script())!, errado);
+    expect(d).toEqual([{ onde: "CLAUDE.md §7", grandeza: "passos", escrito: 8, contado: 7 }]);
+  });
+
+  test("o sujeito decide: os 'DOIS passos' de religar o CI NÃO são lidos como os do verde", () => {
+    // Três linhas abaixo, no mesmo §7. Régua de forma sem sujeito leria 2 ali (D218).
+    expect(paginas().claude).toContain("Religar são **DOIS**\npassos");
+    expect(passosAfirmados(trechoDoClaude(paginas().claude)!)).toBe(7);
+    // Na página de hoje o "sete" vem ANTES do "DOIS", e a régua sem sujeito acertaria por sorte
+    // — a 1ª mutação desta trava (o trecho virar a página inteira) passou. Com o "DOIS" antes:
+    const invertido = "Religar são **DOIS** passos.\n\nEle roda cobertura, sete passos, todos.\n";
+    expect(passosAfirmados(invertido)).toBe(2);
+    expect(passosAfirmados(trechoDoClaude(invertido)!)).toBe(7);
+  });
+
+  test("trecho que sumiu REPROVA com escrito null, e não sai verde", () => {
+    const p = paginas();
+    const semTrecho = { ...p, index: p.index.replace("| [`../external-engines/conferir.sh`]", "| x") };
+    expect(trechoDoIndex(semTrecho.index)).toBeNull();
+    const d = conferirOsPassos(contarOsPassosDoScript(script())!, semTrecho);
+    expect(d.map((x) => x.escrito)).toEqual([null, null]);
+  });
+
+  test("forma não reconhecida devolve null, nunca zero (D23)", () => {
+    expect(contarOsPassosDoScript("echo oi\n")).toBeNull();
+    // o `done` que fecha o laço dos pacotes, e não o primeiro do arquivo (que é o da cobertura)
+    const semFim = script().replace('bun test\ndone\n', "bun test\n");
+    expect(semFim).not.toBe(script());
+    expect(contarOsPassosDoScript(semFim)).toBeNull();
+  });
+});

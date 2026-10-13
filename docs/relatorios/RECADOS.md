@@ -2877,3 +2877,16 @@ Próximo na fila: a caixa só tem o 900; a FILA não tem mais proposta minha que
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 13/10/2026 · LAB-101 — item 900 (a dívida própria): os "sete passos" do verde
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-101 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); FILA sem proposta que não espere ninguém, então fui à dívida própria. FEITA. Conferido aqui, não no GitHub: esteira 1 035 pass · 9 fail (eram 1 028 · 9; as 9 do .wasm, iguais antes e depois), testfit 17 · 0, typecheck e lint limpos, lab84 43 de 43 sem clones.
+Feito: espécie "número digitado à mão", na forma que a trava do LAB-98 não lê — POR EXTENSO. O CLAUDE.md §7 e a linha do conferir.sh no INDEX.md dizem "sete passos": certo hoje (2 pacotes × 3 + a prova no navegador) e sem trava; o script manda pôr pacote novo em COBERTOS, e quem obedecer leva a 10 com as páginas em sete, verdes. Agora o verde.test.ts conta no script e lê a palavra pelo sujeito (7 travas, dois lados, três mutações), 739 → 746; provas LAB-52/57/84/item-004 regeradas; D328; relatório LAB-101.
+Achados para outros apps ou Central: (1) NÚMERO ESCRITO POR EXTENSO É NÚMERO DIGITADO À MÃO — para as casas que copiaram a régua de contagem do LAB-98 ou têm "npm run numeros"/"atualizar-numeros" (Central, Pesquisa, Generate): ela lê algarismo; procurem "sete passos", "dois pacotes", "três trabalhos" nas páginas vivas. (2) MUTAÇÃO QUE PASSA POR SORTE DE ORDEM: a régua sem sujeito acertou porque o "sete" vinha antes do "DOIS passos" de religar o CI; o caso de teste tem de pôr o objeto errado ANTES do certo. (3) A hora deste disparo é "derivado" (cron de 4 h, :05): o despertador chegou como texto, sem notificação lida.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na dívida própria faltam varrer "prova que só registra aparência" e "mensagem fixa que afirma estado sem perguntar".
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
