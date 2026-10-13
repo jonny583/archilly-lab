@@ -10178,3 +10178,50 @@ texto datado e não se reescreve; ficou proposto na FILA.
 
 > **PONTEIRO ENCURTADO É PONTEIRO PARA OUTRO LUGAR.** Quem encurta sabe de onde lê; quem segue,
 > não. O teste de um ponteiro é segui-lo de onde o leitor está — e o leitor da página é a raiz.
+
+## D327 · NAS PÁGINAS DE `docs/` O PONTEIRO VIVO É A LIGAÇÃO — a régua da raiz não se estende, e as ligações ganharam trava · 13/10/2026
+
+**Origem:** item 900 (a minha própria lista), a proposta que o LAB-99 deixou na `FILA.md`: *"a
+mesma pergunta nas outras páginas vivas"*, com o primeiro passo escrito — separar ponteiro vivo de
+história antes de estender a régua. Relatório: [`relatorios/LAB-100.md`](relatorios/LAB-100.md).
+
+**O que a medição respondeu, antes de qualquer conserto:**
+
+- **Os trechos entre crases das páginas de `docs/` seguem OUTRA convenção, e é coerente:** no
+  `INDEX.md`, dos 143 caminhos, **128 resolvem só a partir da própria pasta** (`relatorios/LAB-07.md`),
+  3 da raiz e 12 de lugar nenhum — e os 12 estão todos na coluna da descrição: o exemplo do
+  defeito do LAB-99 (`src/x.ts`), outro repositório (`jonny583/archilly-central`), ação do GitHub
+  (`actions/checkout`) e caminhos curtos dentro de relato datado. Nas outras três a proporção é
+  parecida (`ONDE_PARAMOS` 36 só da pasta e 23 de lugar nenhum; `FILA` 78 e 65; `DECISOES` 8 e 119),
+  e o que não resolve é relato de rodada.
+- **O ponteiro que se segue nessas páginas é a ligação `[texto](alvo)`:** 309 nas cinco páginas
+  vivas (`CLAUDE.md` 5, `INDEX.md` 144, `ONDE_PARAMOS.md` 49, `FILA.md` 100, `DECISOES.md` 11).
+  **Todas resolvem, e resolveram em cada uma das 127 versões dessas páginas na `main`** — medido
+  commit a commit contra a árvore de cada um. Nenhuma trava as conferia.
+
+**O que se decidiu:**
+
+1. **A régua da raiz (D326) NÃO se estende** aos trechos entre crases das páginas de `docs/`.
+   Estendida, ela reprovaria a convenção da página (o caminho relativo à pasta, que é como o GitHub
+   segue) e o relato datado, que não se reescreve.
+2. **As ligações ganharam régua própria**, em `external-engines/esteira/src/caminhos-da-pagina.ts`:
+   o alvo resolve **da pasta da página**; âncora e título saem; `%20` se decodifica; esquema fica
+   fora; subir acima da raiz reprova pelo nome. A lista das cinco páginas (`PAGINAS_VIVAS`) é
+   conferida contra a frase do `CLAUDE.md` §7 que manda mantê-las *"em dia"*.
+3. As travas entraram no **mesmo arquivo** do LAB-99, que já está no `guardas-sem-clones` (a lista
+   fica em 43 arquivos): 8 → 20 travas, e o portão de 727 → **739**, recontado pela trava do LAB-98.
+
+**Os dois lados, demonstrados:** lado ruim sintético (alvo que só existe da raiz; alvo que sobe
+acima dela), sabotagem no `INDEX.md` de verdade (`LAB-99.md` → `LAB-9.md`, reprova e só ele), e
+duas mutações da régua (não perguntar a existência: 2 travas caem; resolver da raiz em vez da
+pasta: 8 caem).
+
+**Descartado:** estender a régua da raiz com tolerância (*"resolve da raiz OU da pasta"* — é a
+tolerância por proximidade que a D326 recusou, e esconderia que o `CLAUDE.md` e as páginas de
+`docs/` seguem convenções diferentes); reescrever os caminhos curtos do relato (texto datado não se
+reescreve); conferir também a âncora (`#secao`) do destino — o GitHub gera a âncora por um
+algoritmo que eu não testei, e régua com algoritmo adivinhado é afirmação sem teste.
+
+> **A MESMA PERGUNTA EM OUTRA PÁGINA PODE TER OUTRO SUJEITO.** No `CLAUDE.md` o ponteiro é o
+> trecho entre crases, e o leitor parte da raiz; no `INDEX.md` o ponteiro é a ligação, e o leitor
+> parte da pasta. Estender a régua sem medir o sujeito era mandar na coisa errada.

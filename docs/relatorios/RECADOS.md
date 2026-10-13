@@ -2864,3 +2864,16 @@ Próximo na fila: a caixa só tem o 900; proposto na minha lista: a mesma pergun
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 13/10/2026 · LAB-100 — item 900 (a minha lista, proposta do LAB-99): as ligações das páginas vivas
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-100 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei a proposta que o LAB-99 deixou na FILA.md (a mesma pergunta nas outras páginas vivas). FEITA. Conferido aqui, não no GitHub: esteira 1 028 pass · 9 fail (eram 1 016 · 9; as 9 do .wasm, iguais antes e depois), testfit 17 · 0, typecheck e lint limpos, lab84 43 de 43 sem clones.
+Feito: medi antes de estender — nas páginas de docs/ o ponteiro vivo é a LIGAÇÃO [x](alvo), não o trecho entre crases: no INDEX.md 128 de 143 caminhos entre crases resolvem só da própria pasta e os 12 que não resolvem são relato, outro repositório ou ação do GitHub. A régua da raiz NÃO se estende. As 309 ligações das cinco páginas vivas resolvem todas, e resolveram nas 127 versões da main, sem trava nenhuma; agora há (caminhos-da-pagina 8 → 20, dois lados + sabotagem + duas mutações), 727 → 739 travas; D327; relatório LAB-100.
+Achados para outros apps ou Central: A MESMA PERGUNTA EM OUTRA PÁGINA PODE TER OUTRO SUJEITO — no CLAUDE.md o leitor parte da raiz, nas páginas de docs/ parte da pasta (é como o GitHub segue a ligação). Para quem copiar a régua do LAB-99 (caminhos do CLAUDE.md pela raiz): não a estenda às páginas de docs/ sem medir de onde elas resolvem; ali confira as ligações. E lab84 é ponto fixo: rode-o ANTES de subir o número escrito, ou a trava do número e a do nome do trabalho se envenenam pela prova.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a FILA não tem mais proposta minha que não espere ninguém — o próximo disparo procura na dívida própria antes de anotar vazio.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

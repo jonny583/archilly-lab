@@ -110,3 +110,90 @@ export function conferirOsCaminhos(
   }
   return { lidos: lista.length, problemas };
 }
+
+/*
+ * # A segunda pergunta: as LIGAÇÕES das páginas vivas (LAB-100, item 900, D327)
+ *
+ * O LAB-99 deixou proposta *"a mesma pergunta nas outras páginas vivas"*. Medido em 13/10/2026,
+ * antes de estender qualquer coisa, a resposta é que **nas páginas de `docs/` o ponteiro vivo não
+ * é o trecho entre crases: é a LIGAÇÃO** `[texto](alvo)`.
+ *
+ * - No `INDEX.md`, dos 143 caminhos entre crases, **128 só resolvem a partir da própria pasta**
+ *   (`relatorios/LAB-07.md`), 3 da raiz, e os 12 que não resolvem de lugar nenhum estão TODOS na
+ *   coluna da descrição — relato datado (`src/x.ts` é o exemplo do defeito do LAB-99), outro
+ *   repositório (`jonny583/archilly-central`) ou ação do GitHub (`actions/checkout`). A régua da
+ *   raiz, estendida a ele, reprovaria a convenção da página e o relato que não se reescreve.
+ * - As 309 ligações das cinco páginas (`CLAUDE.md` 5, `INDEX.md` 144, `ONDE_PARAMOS.md` 49,
+ *   `FILA.md` 100, `DECISOES.md` 11) resolvem **todas** — e resolveram em cada uma das 127
+ *   versões dessas páginas na `main`. Nada as conferia.
+ *
+ * **A régua das ligações:** o alvo resolve **a partir da pasta da página**, que é como o GitHub o
+ * segue. Âncora (`#…`) e título saem; `%20` se decodifica; endereço com esquema (`https:`,
+ * `mailto:`) fica fora; alvo que sobe acima da raiz é reprovado. O que está em bloco cercado ou
+ * dentro de crases não é ligação.
+ *
+ * **O que ela NÃO alcança, dito:** se a âncora existe no destino; ligação por referência
+ * (`[x][1]`); e os trechos entre crases das páginas de `docs/` — esses ficam como estão, relato.
+ */
+
+/** Os alvos das ligações `[texto](alvo)`, sem âncora, sem repetição e na ordem em que aparecem. */
+export function ligacoes(md: string): string[] {
+  const limpo = semBlocosCercados(md).replace(/`[^`\n]*`/g, "x");
+  const vistos = new Set<string>();
+  for (const m of limpo.matchAll(/\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)/g)) {
+    const alvo = m[1]!.replace(/#.*$/, "");
+    if (alvo === "" || /^[a-z][a-z0-9+.-]*:/i.test(alvo)) continue;
+    vistos.add(alvo);
+  }
+  return [...vistos];
+}
+
+/** Junta a pasta da página com o alvo, à moda POSIX; `null` se o alvo sobe acima da raiz. */
+export function resolverDaPagina(pagina: string, alvo: string): string | null {
+  let decodificado: string;
+  try {
+    decodificado = decodeURIComponent(alvo);
+  } catch {
+    decodificado = alvo;
+  }
+  const partes = pagina.split("/").slice(0, -1);
+  for (const p of decodificado.split("/")) {
+    if (p === "" || p === ".") continue;
+    if (p === "..") {
+      if (partes.length === 0) return null;
+      partes.pop();
+    } else partes.push(p);
+  }
+  return partes.join("/");
+}
+
+/**
+ * Os problemas das ligações de uma página, com o tamanho do universo lido (§2.7 da direção).
+ * `existe` responde a partir da raiz — arquivo ou pasta; a raiz mesma é `""`.
+ */
+export function conferirAsLigacoes(
+  pagina: string,
+  md: string,
+  existe: (caminhoDaRaiz: string) => boolean,
+): { lidas: number; problemas: string[] } {
+  const lista = ligacoes(md);
+  const problemas: string[] = [];
+  for (const alvo of lista) {
+    const c = resolverDaPagina(pagina, alvo);
+    if (c === null) problemas.push(`${pagina}: ligação que sobe acima da raiz: ${alvo}`);
+    else if (!existe(c)) problemas.push(`${pagina}: ligação que não leva a nada: ${alvo}`);
+  }
+  return { lidas: lista.length, problemas };
+}
+
+/**
+ * As páginas vivas cujas ligações são conferidas: as quatro que o `CLAUDE.md` §7 manda manter
+ * *"em dia"* a cada prompt, e o próprio `CLAUDE.md`. A trava confere a lista contra a frase.
+ */
+export const PAGINAS_VIVAS = [
+  "CLAUDE.md",
+  "docs/INDEX.md",
+  "docs/ONDE_PARAMOS.md",
+  "docs/prompts/FILA.md",
+  "docs/DECISOES.md",
+] as const;
