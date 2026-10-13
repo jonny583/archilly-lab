@@ -16,7 +16,16 @@ import { describe, expect, test } from "bun:test";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
-import { ANATOMIA_DO_MOTOR, type Arvore, citados, conferirOsCaminhos } from "../src/caminhos-da-pagina.ts";
+import {
+  ANATOMIA_DO_MOTOR,
+  type Arvore,
+  PAGINAS_VIVAS,
+  citados,
+  conferirAsLigacoes,
+  conferirOsCaminhos,
+  ligacoes,
+  resolverDaPagina,
+} from "../src/caminhos-da-pagina.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const claudeMd = readFileSync(join(RAIZ, "CLAUDE.md"), "utf8");
@@ -128,4 +137,79 @@ describe("LAB-99 · o CLAUDE.md de hoje", () => {
     // largo de propósito, só para pegar o zero.
     expect(lidos).toBeGreaterThanOrEqual(20);
   });
+});
+
+// ─────────────────────────────────────────────────────────────────────────────────────────────
+// LAB-100 (item 900) · as LIGAÇÕES das páginas vivas resolvem da pasta da página (D327)
+// ─────────────────────────────────────────────────────────────────────────────────────────────
+
+const existeDaRaiz = (c: string): boolean => existsSync(join(RAIZ, c));
+
+describe("LAB-100 · a leitura das ligações", () => {
+  test("tira âncora e título, deixa fora esquema, bloco cercado e o que está entre crases", () => {
+    const md =
+      '[a](relatorios/A.md#secao) [b](https://x.y) [c](mailto:z@w) [d](#so-ancora) ' +
+      '[e](<com espaco.md>) [f](g.md "titulo") `[nao](dentro.md)`\n```\n[nem](bloco.md)\n```';
+    expect(ligacoes(md)).toEqual(["relatorios/A.md", "g.md"]);
+  });
+
+  test("resolve da pasta da página, decodifica `%20`, e recusa subir acima da raiz", () => {
+    expect(resolverDaPagina("docs/INDEX.md", "relatorios/LAB-99.md")).toBe("docs/relatorios/LAB-99.md");
+    expect(resolverDaPagina("docs/prompts/FILA.md", "../relatorios/x.md")).toBe("docs/relatorios/x.md");
+    expect(resolverDaPagina("docs/INDEX.md", "../CLAUDE.md")).toBe("CLAUDE.md");
+    expect(resolverDaPagina("docs/INDEX.md", "a%20b.md")).toBe("docs/a b.md");
+    expect(resolverDaPagina("CLAUDE.md", "../fora.md")).toBeNull();
+  });
+});
+
+describe("LAB-100 · a régua das ligações, dos dois lados", () => {
+  const arvore = (cs: string[]) => (c: string) => cs.includes(c);
+
+  test("LADO BOM: alvo que existe a partir da pasta da página passa, e o universo vem junto", () => {
+    const r = conferirAsLigacoes("docs/INDEX.md", "[x](relatorios/A.md) [y](../CLAUDE.md)", arvore([
+      "docs/relatorios/A.md",
+      "CLAUDE.md",
+    ]));
+    expect(r).toEqual({ lidas: 2, problemas: [] });
+  });
+
+  test("LADO RUIM: o mesmo alvo lido DA RAIZ não serve — a ligação é da pasta da página", () => {
+    // `relatorios/A.md` existe na raiz e não em `docs/`: quem segue no GitHub cai em `docs/…`.
+    const r = conferirAsLigacoes("docs/INDEX.md", "[x](relatorios/A.md)", arvore(["relatorios/A.md"]));
+    expect(r.problemas).toEqual(["docs/INDEX.md: ligação que não leva a nada: relatorios/A.md"]);
+  });
+
+  test("LADO RUIM: alvo que sobe acima da raiz é reprovado pelo nome do defeito", () => {
+    const r = conferirAsLigacoes("CLAUDE.md", "[x](../vizinho/README.md)", arvore([]));
+    expect(r.problemas).toEqual(["CLAUDE.md: ligação que sobe acima da raiz: ../vizinho/README.md"]);
+  });
+
+  test("SABOTAGEM no INDEX de verdade: um alvo com um caractere trocado reprova, e só ele", () => {
+    const indice = readFileSync(join(RAIZ, "docs/INDEX.md"), "utf8");
+    expect(indice).toContain("](relatorios/LAB-99.md)");
+    const sabotado = indice.replace("](relatorios/LAB-99.md)", "](relatorios/LAB-9.md)");
+    expect(conferirAsLigacoes("docs/INDEX.md", sabotado, existeDaRaiz).problemas).toEqual([
+      "docs/INDEX.md: ligação que não leva a nada: relatorios/LAB-9.md",
+    ]);
+  });
+});
+
+describe("LAB-100 · as cinco páginas vivas de hoje", () => {
+  test("a lista é a do `CLAUDE.md` §7 — as quatro que ele manda manter em dia, e ele mesmo", () => {
+    const frase = /`docs\/DECISOES\.md`, `FILA\.md`, `ONDE_PARAMOS\.md` e `INDEX\.md` em dia/;
+    expect(claudeMd).toMatch(frase);
+    const nomes = PAGINAS_VIVAS.map((p) => p.split("/").at(-1));
+    expect(nomes.sort()).toEqual(["CLAUDE.md", "DECISOES.md", "FILA.md", "INDEX.md", "ONDE_PARAMOS.md"]);
+    for (const p of PAGINAS_VIVAS) expect(existsSync(join(RAIZ, p))).toBe(true);
+  });
+
+  for (const pagina of PAGINAS_VIVAS) {
+    test(`toda ligação de \`${pagina}\` leva a um arquivo ou pasta que existe`, () => {
+      const { lidas, problemas } = conferirAsLigacoes(pagina, readFileSync(join(RAIZ, pagina), "utf8"), existeDaRaiz);
+      expect(problemas).toEqual([]);
+      // Piso só para pegar o zero (régua que parou de ler). Em 13/10/2026: CLAUDE 5, INDEX 144,
+      // ONDE_PARAMOS 49, FILA 100, DECISOES 11 — o piso é o da menor, largo de propósito.
+      expect(lidas).toBeGreaterThanOrEqual(3);
+    });
+  }
 });

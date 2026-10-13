@@ -2,15 +2,15 @@
   "prompt": "LAB-57",
   "oQueIstoMede": "quais configurações deste repositório desligam conferência — nas três formas: a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR, e o desligador SEM MOTIVO ESCRITO",
   "aPergunta": "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
-  "quando": "2026-10-13T11:19:19.616Z",
+  "quando": "2026-10-13T15:17:39.933Z",
   "escopo": {
-    "arquivosQueOGitCarrega": 577,
+    "arquivosQueOGitCarrega": 578,
     "configuracoesEncontradas": 27,
     "configuracoesVarridas": 11,
     "configuracoesForaDoEscopoNomeadas": 16,
     "linhasDeConfiguracaoLidas": 781,
     "arquivosDeCodigoVarridos": 225,
-    "linhasDeCodigoLidas": 58709,
+    "linhasDeCodigoLidas": 58880,
     "regras": 7,
     "porque": "o escopo começa no `git ls-files`, não numa lista minha — e o que ficou fora sai NOMEADO com o motivo (D164, a lição do LAB-47)"
   },

@@ -346,6 +346,14 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-100 · item 900 — a proposta do LAB-99: as outras páginas vivas — ✅ **feito em 13/10/2026** (D327)
+
+Caixa só com o 900; peguei a proposta que o LAB-99 deixou nesta página. Medido antes de estender: nas páginas de
+`docs/` o ponteiro vivo é a **ligação** `[texto](alvo)`, e não o trecho entre crases — no `INDEX.md`, 128 dos 143
+caminhos entre crases resolvem só da própria pasta, e os 12 que não resolvem são relato. **A régua da raiz não se
+estende.** As 309 ligações das cinco páginas resolviam todas, sem trava; agora há (`caminhos-da-pagina`, 8 → 20),
+727 → 739 travas. Relatório: [`../relatorios/LAB-100.md`](../relatorios/LAB-100.md).
+
 ### LAB-99 · item 900 — a dívida própria: os caminhos do `CLAUDE.md` — ✅ **feito em 13/10/2026** (D326)
 
 Caixa só com o 900; fui à dívida própria. Achado da espécie **regra sem guarda**: oito caminhos do
@@ -353,10 +361,10 @@ Caixa só com o 900; fui à dívida própria. Achado da espécie **regra sem gua
 encurtou o ponteiro. Conserto: prefixo inteiro e `tests/caminhos-da-pagina.test.ts` no portão sem
 clones. Relatório: [`../relatorios/LAB-99.md`](../relatorios/LAB-99.md).
 
-**Proposto (minha lista, não espera ninguém):** a mesma pergunta nas outras páginas vivas —
+✅ **Feito no LAB-100** (D327) — ~~**Proposto (minha lista, não espera ninguém):** a mesma pergunta nas outras páginas vivas —
 `ONDE_PARAMOS.md`, `FILA.md`, `INDEX.md` e `DECISOES.md` têm 122 linhas com caminho curto, muitas em
 relato datado. Primeiro passo: separar ponteiro vivo de história (o `INDEX.md` é o mais vivo e o
-menor, com 5), e só então decidir se a régua se estende a ele.
+menor, com 5), e só então decidir se a régua se estende a ele.~~
 
 ### LAB-98 · item 900 — a dívida própria: o número de travas do portão — ✅ **feito em 13/10/2026** (D325)
 
@@ -1322,7 +1330,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 727 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 739 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
