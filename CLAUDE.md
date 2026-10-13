@@ -68,9 +68,11 @@ Próximo na fila: ...
 É comportamento de sessão e **NÃO espera o kit**; o kit, quando chegar, é outro item.
 
 **O Padrão Archilly não mora aqui:** a procedência (onde, commit, blob, quando) mora só em
-`src/onde-esta-o-padrao.ts`. *Documento normativo que esta casa não mantém não deve morar nela.*
+`external-engines/esteira/src/onde-esta-o-padrao.ts`. *Documento normativo que esta casa não
+mantém não deve morar nela.*
 
-> **REGRA DE FORMA SEM O SUJEITO ESCRITO MANDA NA COISA ERRADA** (`tests/limites-com-sujeito.test.ts`).
+> **REGRA DE FORMA SEM O SUJEITO ESCRITO MANDA NA COISA ERRADA**
+> (`external-engines/esteira/tests/limites-com-sujeito.test.ts`).
 
 *(história: §H2)*
 
@@ -146,16 +148,16 @@ Motor da própria família **não ganha `upstream/`** (D16): lê-se do clone irm
 - **Não escreve em repositório vizinho:** clones só leitura, `git status` limpo ao fim; o que o
   vizinho precisa **vira lista numerada em relatório**.
 - **Não tem interface — com UMA exceção, declarada:** a bancada do navegador
-  (`symbios/adapter/ferramentas/navegador/index.html`), com guarda contando HTML.
+  (`external-engines/symbios/adapter/ferramentas/navegador/index.html`), com guarda contando HTML.
 - **Não reimplementa o Validator nem o Judge** (D20).
 - **Não conserta geometria em silêncio:** conserto declarado, desligado por padrão, medido nas duas
   passagens.
 - **Não inventa dado:** o não medido sai `null`, nunca zero (D23).
 - **Não descarta em silêncio campo que o motor publica:** destino em
-  `src/inventario-das-pontes.ts`, conferido contra o motor rodando. **O motivo de uma perda não
-  mora em comentário** (D98, D104).
-- **Não carrega segredo na árvore** (`src/varredura-de-segredos.ts`). **Registro nenhum repete mais
-  de doze** caracteres de um segredo.
+  `external-engines/esteira/src/inventario-das-pontes.ts`, conferido contra o motor rodando.
+  **O motivo de uma perda não mora em comentário** (D98, D104).
+- **Não carrega segredo na árvore** (`external-engines/esteira/src/varredura-de-segredos.ts`).
+  **Registro nenhum repete mais de doze** caracteres de um segredo.
 - **Não decide urbanismo:** vai a `docs/PENDENCIAS_JONNY.md`.
 - **Não contrata nada, e entre USO e MENSALIDADE escolhe USO** (D239, §4-A).
 
@@ -176,7 +178,7 @@ Motor da própria família **não ganha `upstream/`** (D16): lê-se do clone irm
 > 3, do que ter um custo mensal alto — porque daí fica me pressionando para arranjar cliente."*
 
 O motivo é de **ritmo**: mensalidade contratada é meta de vendas contratada junto. As oito
-consequências (`src/cobranca-por-uso.ts`):
+consequências (`external-engines/esteira/src/cobranca-por-uso.ts`):
 
 1. **a ordenação é pelo custo na MENOR faixa de uso**: três linhas, com **3**, **20** e **200** clientes;
 2. volume desejado é **a forma mais educada de aprovar uma despesa que não se sustenta** (*"R$ 2 por
@@ -189,8 +191,8 @@ consequências (`src/cobranca-por-uso.ts`):
 8. **nenhuma sessão contrata nada.**
 
 A trava é **de palavra, não de estrutura**: a régua pega 4 dos 12 compromissos de
-`src/trava-de-estrutura.ts` — **8 dos 12 escapam**. A resposta é **"não há onde"**: *campo que não
-existe não se esquece*. E **não há nada pago neste repositório hoje**, então a guarda só alcança
+`external-engines/esteira/src/trava-de-estrutura.ts` — **8 dos 12 escapam**. A resposta é
+**"não há onde"**: *campo que não existe não se esquece*. E **não há nada pago neste repositório hoje**, então a guarda só alcança
 texto: contratar acontece fora da árvore. *Guarda que não declara o próprio buraco mente pelo
 silêncio.* *(história: §H8)*
 
@@ -216,7 +218,7 @@ defeito era do Lab — a tabela e a aritmética, travadas, moram na história. *
   comentários (D142, D155, D257);
 - rótulo não é identidade: meça a distância (D148, D161); confira quem escreveu o limite (D98, D166);
 - número impresso ao lado se conta, não se lembra (D185); frase de `.md` pelo normalizador de
-  `src/texto-das-regras.ts` (D248, D304);
+  `external-engines/esteira/src/texto-das-regras.ts` (D248, D304);
 - booleano responde ONDE; só o quanto responde DE QUEM (D254);
 - régua nova nasce com a doença que a velha já curou, um campo ao lado (D263); a prova de uma
   régua não repete o que a régua proíbe (D262);
@@ -254,7 +256,7 @@ reprova com a receita), sete passos, todos mesmo depois de uma falha, e **nada f
 (D126).
 
 **O CI** (`verde.yml`) tem dois trabalhos: o das
-**719 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
+**727 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
 exige `VIZINHOS_TOKEN` e sem ele **falha com a receita**.
 
 ### 🔴 O CI AUTOMÁTICO ESTÁ DESLIGADO desde 08/10/2026

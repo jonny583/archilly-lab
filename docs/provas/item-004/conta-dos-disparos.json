@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-13T07:20:01.613Z",
+  "quando": "2026-10-13T11:15:19.874Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -371,11 +371,19 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista",
         "rodada": "item 900 (LAB-98), dívida própria (número digitado à mão)",
         "emVazio": false
+      },
+      {
+        "data": "13/10/2026",
+        "hora": "11:07",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista",
+        "rodada": "item 900 (LAB-99), dívida própria (regra sem guarda: os caminhos do `CLAUDE.md`)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 45,
-      "observados": 36,
+      "noRegistro": 46,
+      "observados": 37,
       "derivados": 2,
       "emLote": 7,
       "emVazio": 5

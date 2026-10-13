@@ -10141,3 +10141,40 @@ pedem escrito, e com a recontagem ele deixa de envelhecer calado).
 > **NÚMERO ESCRITO À MÃO CONFERIDO CONTRA PROVA MEDIDA À MÃO É CONCORDÂNCIA, NÃO MEDIÇÃO.** Seis
 > cópias concordando provam que ninguém esqueceu de copiar; só a recontagem prova que alguém
 > esqueceu de medir.
+
+## D326 · OITO CAMINHOS DO `CLAUDE.md` NÃO RESOLVIAM DA RAIZ — o enxugar encurtou o ponteiro, e agora há trava · 13/10/2026
+
+**Origem:** item 900 (a minha própria lista), dívida própria da espécie *regra sem guarda* — a
+§6 manda *"confira o CAMINHO e a FORMA do que você lê"*, e nada conferia o caminho que a própria
+página cita. Relatório: [`relatorios/LAB-99.md`](relatorios/LAB-99.md).
+
+**O defeito, medido:** o enxugar do LAB-95 (`099d0b4`) trocou `external-engines/esteira/src/x.ts`
+por `src/x.ts`. Não há `src/` na raiz. Oito caminhos da página não levavam a nada: seis `src/…`
+(`onde-esta-o-padrao`, `inventario-das-pontes`, `varredura-de-segredos`, `cobranca-por-uso`,
+`trava-de-estrutura`, `texto-das-regras`), um `tests/limites-com-sujeito.test.ts` e a bancada
+`symbios/adapter/…/index.html`. Antes do enxugar a página tinha quatro caminhos inteiros e cinco
+curtos; depois, zero e seis. Todas as travas verdes: a do enxugar confere que a REGRA ficou e
+que a HISTÓRIA resolve — não que o ARQUIVO citado existe.
+
+**O que se decidiu:**
+
+1. `external-engines/esteira/src/caminhos-da-pagina.ts` lê os trechos entre crases do
+   `CLAUDE.md` e separa **caminho** (tem barra: resolve DA RAIZ, sem tolerância por proximidade),
+   **nome** (sem barra, com extensão: passa se algum arquivo da árvore tem o nome) e **anatomia do
+   motor** (`upstream/`, `archilly/`, `adapter/` — as pastas de dentro de cada motor, exceção
+   declarada e conferida nos dois sentidos: citada na página E presente em algum motor).
+2. `tests/caminhos-da-pagina.test.ts` (8 travas) entrou no trabalho `guardas-sem-clones`: lê só
+   este repositório. A lista foi de 42 para 43 arquivos e de 719 para **727** travas, contadas
+   pela trava do LAB-98 — que foi o que obrigou as seis cópias a andarem juntas.
+3. Os oito caminhos ganharam o prefixo inteiro. A página foi de 12 706 para 12 900 caracteres
+   (meta 15 000), e a prova do LAB-95 foi regerada por `bun run lab95`.
+
+**Descartado:** aceitar `src/x.ts` quando existe `external-engines/*/src/x.ts` (é a tolerância por
+proximidade que fez o defeito passar: o leitor no GitHub não adivinha o pacote); declarar uma
+convenção "caminhos relativos à esteira" (a página cita pastas da raiz e de três motores, e uma
+convenção só para metade dela é a ambiguidade escrita); varrer também `ONDE_PARAMOS`, `FILA`,
+`DECISOES` e `INDEX` nesta rodada — eles têm 122 menções curtas, muitas em relato histórico, que é
+texto datado e não se reescreve; ficou proposto na FILA.
+
+> **PONTEIRO ENCURTADO É PONTEIRO PARA OUTRO LUGAR.** Quem encurta sabe de onde lê; quem segue,
+> não. O teste de um ponteiro é segui-lo de onde o leitor está — e o leitor da página é a raiz.
