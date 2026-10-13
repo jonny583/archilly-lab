@@ -346,6 +346,13 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-98 · item 900 — a dívida própria: o número de travas do portão — ✅ **feito em 13/10/2026** (D325)
+
+Com a caixa só com o 900 e as propostas que não esperam ninguém esgotadas, procurei na dívida
+própria, como o LAB-97 indicou. Achado da espécie **número digitado à mão**: *"698 travas"* em seis
+lugares, verde, contra **719** rodadas. Conserto: `tests/contar-as-travas.test.ts` reconta por
+execução. Relatório: [`../relatorios/LAB-98.md`](../relatorios/LAB-98.md).
+
 ### LAB-61 · A dívida própria era ESTA LISTA — ✅ concluído em 07/10/2026 · **a fila ESGOTOU**
 
 **Procurei dívida minha onde ela é declarada e achei no lugar que eu não estava olhando: a
@@ -1303,7 +1310,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 698 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 719 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

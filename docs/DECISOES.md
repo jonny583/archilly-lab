@@ -10108,3 +10108,36 @@ faces), a um dado de distância de sair.
 > **PALAVRA NO VOCABULÁRIO NÃO É REGRA NO CÓDIGO.** Um nome fechado num `as const` passa por
 > guarda — o tipo existe, o motivo existe, a prosa da regra existe — e nada o produz. Vocabulário
 > fechado se confere nos dois sentidos: quem o declara e quem o devolve.
+
+## D325 · O NÚMERO DE TRAVAS DO PORTÃO ERA 698 EM SEIS LUGARES E A SUÍTE RODADA DIZIA 719 — agora a trava reconta · 13/10/2026
+
+**Origem:** item 900 (a minha própria lista), dívida própria da espécie *número digitado à mão*,
+como o LAB-97 deixou indicado. Relatório: [`relatorios/LAB-98.md`](relatorios/LAB-98.md).
+
+**O defeito, medido:** `bun test` com os 42 arquivos do trabalho `guardas-sem-clones` contou
+**719 travas**. O `CLAUDE.md`, o `ONDE_PARAMOS.md`, a `FILA.md`, o `verde.yml` (duas vezes) e a prova
+do LAB-84 diziam **698** — e as duas travas que vigiam o número estavam **verdes**, porque as duas
+eram de CONCORDÂNCIA: as cópias entre si (LAB-42) e as cópias contra a prova (LAB-93, D311). A
+prova do LAB-84 é medida à mão (`bun run lab84`), e o LAB-96 e o LAB-97 puseram 21 travas na lista
+sem rodá-la.
+
+**O que se decidiu:**
+
+1. `tests/contar-as-travas.test.ts` **roda a lista** e confere a soma contra as cinco cópias e a
+   prova, publicando o universo lido (arquivos rodados = arquivos da lista). A leitura da rodada
+   devolve `null`, nunca zero, quando o `bun` não imprime o resumo (D23).
+2. **Ela fica FORA da lista que ela roda**, e há trava disso: rodar a lista de dentro dela é a lista
+   se rodando a si mesma. Roda no verde completo, que é onde o número se escreve.
+3. A prova do LAB-84 entrou em `AS_ESPECIES` como **função da árvore, regerada pela trava** — só a
+   soma. O *"passam sem clone"* depende de ambiente e continua sendo do `bun run lab84`, que foi
+   rodado: **42 de 42 passam sem os clones**, 719 travas.
+4. Os seis lugares foram para **719**, contados — e não somados de cabeça, que é como o 661 do D311
+   nasceu.
+
+**Descartado:** contar `test(` com regex (mede texto: deu 688 e 739 nas duas formas tentadas, contra
+719 rodado — há travas dentro de laço); e tirar o número do texto (a trava do LAB-42 e o D311 o
+pedem escrito, e com a recontagem ele deixa de envelhecer calado).
+
+> **NÚMERO ESCRITO À MÃO CONFERIDO CONTRA PROVA MEDIDA À MÃO É CONCORDÂNCIA, NÃO MEDIÇÃO.** Seis
+> cópias concordando provam que ninguém esqueceu de copiar; só a recontagem prova que alguém
+> esqueceu de medir.
