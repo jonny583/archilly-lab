@@ -10225,3 +10225,37 @@ algoritmo que eu não testei, e régua com algoritmo adivinhado é afirmação s
 > **A MESMA PERGUNTA EM OUTRA PÁGINA PODE TER OUTRO SUJEITO.** No `CLAUDE.md` o ponteiro é o
 > trecho entre crases, e o leitor parte da raiz; no `INDEX.md` o ponteiro é a ligação, e o leitor
 > parte da pasta. Estender a régua sem medir o sujeito era mandar na coisa errada.
+
+## D328 · OS "SETE PASSOS" DO VERDE ESTAVAM CERTOS E NINGUÉM OS CONFERIA — número por extenso é número digitado à mão · 13/10/2026
+
+**Origem:** item 900, a dívida própria (a `FILA.md` sem proposta que não espere ninguém, como o
+LAB-100 deixou escrito). Relatório: [`relatorios/LAB-101.md`](relatorios/LAB-101.md).
+
+**O que a medição respondeu:** o `CLAUDE.md` §7 e a linha do `conferir.sh` no `INDEX.md` dizem
+*"sete passos"* (e o `INDEX.md`, *"dois pacotes"*). O script conta 2 × 3 + 1 = **7** — certo hoje.
+Mas nada conferia: o `verde.test.ts` cobra que os passos **existem**, e a trava do LAB-98 lê
+algarismos, não palavras. O próprio script manda acrescentar todo pacote novo a `COBERTOS`; quem
+obedecer leva o verde a dez passos com as duas páginas em sete, verdes.
+
+**O que se decidiu:**
+
+1. A contagem sai do script (`external-engines/esteira/src/passos-do-verde.ts`): `passo "…"` dentro
+   do laço de `COBERTOS` vale uma vez por pacote; fora, uma vez; forma não reconhecida é `null`.
+2. O número das páginas é lido **por extenso**, com o `lerNumeroEmPalavra` que já existia, e o
+   trecho é escolhido **pelo sujeito** (D218): o parágrafo *"Ele roda cobertura"* e a linha da
+   ligação do `conferir.sh`. Os *"DOIS passos"* de religar o CI, no mesmo §7, são outro objeto.
+3. As travas moram no `verde.test.ts`, que é a casa da afirmação desde o LAB-31: 7 novas, o portão
+   sem clones de 739 → **746**, recontado pela trava do LAB-98.
+
+**Os dois lados e as mutações:** terceiro pacote em `COBERTOS` reprova as três afirmações; página
+com *"oito"* reprova só ela; esquecer a conta por pacote derruba 5; `null` calado derruba 1. **A régua
+sem sujeito passou na primeira versão** — na página de hoje o *"sete"* vem antes do *"DOIS"* e a
+ordem acertava por sorte; o caso invertido entrou, e a mutação agora cai.
+
+**Descartado:** trocar a palavra por algarismo para caber na régua do LAB-98 (a régua mandando no
+texto); contar as *"duas guardas antes deles"* (decidir o que é guarda seria adivinhar); reescrever
+os *"sete passos"* do relato datado (história, verdadeira na data).
+
+> **NÚMERO ESCRITO POR EXTENSO É NÚMERO DIGITADO À MÃO.** A régua que lê algarismo não o vê, e a
+> palavra não muda quando a lista muda. E **mutação que passa por sorte de ordem não prova a régua**:
+> o caso de teste tem de pôr o objeto errado ANTES do certo.

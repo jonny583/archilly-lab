@@ -346,6 +346,14 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-101 · item 900 — a dívida própria: os "sete passos" do verde — ✅ **feito em 13/10/2026** (D328)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém; fui à dívida própria. Achado da espécie
+**número digitado à mão**, na forma que a trava do LAB-98 não lê: **por extenso**. O `CLAUDE.md` §7 e a linha do
+`conferir.sh` no `INDEX.md` dizem *"sete passos"* — certo hoje (2 × 3 + 1), e sem trava. Agora o
+`verde.test.ts` conta no script e lê a palavra pelo sujeito, 739 → 746 travas. Relatório:
+[`../relatorios/LAB-101.md`](../relatorios/LAB-101.md).
+
 ### LAB-100 · item 900 — a proposta do LAB-99: as outras páginas vivas — ✅ **feito em 13/10/2026** (D327)
 
 Caixa só com o 900; peguei a proposta que o LAB-99 deixou nesta página. Medido antes de estender: nas páginas de
@@ -1330,7 +1338,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 739 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 746 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
