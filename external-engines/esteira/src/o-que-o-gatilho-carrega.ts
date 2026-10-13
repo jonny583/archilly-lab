@@ -263,8 +263,8 @@ export function conferirOQueOGatilhoCarrega(
     problemas.push({
       tipo: "trabalho-1-condicionado",
       oQue:
-        "o `guardas-sem-clones` ganhou um `if:` — ele é o portão que roda em TODO envio, e " +
-        `condicioná-lo é desligar o único trabalho que hoje informa alguma coisa (achei \`${String(jobs["guardas-sem-clones"]?.if)}\`)`,
+        "o `guardas-sem-clones` ganhou um `if:` — ele é o portão feito para rodar em TODO envio, e " +
+        `condicioná-lo é desligar o único trabalho que informa alguma coisa sem segredo (achei \`${String(jobs["guardas-sem-clones"]?.if)}\`)`,
     });
   }
 

@@ -346,6 +346,15 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-102 · item 900 — a dívida própria: a frase que diz que o CI roda — ✅ **feito em 13/10/2026** (D329)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém; fui à dívida própria, espécie
+**mensagem fixa que afirma estado sem perguntar**. Com o gatilho do `verde.yml` comentado desde 08/10,
+seis frases vivas diziam que o CI *roda hoje* / *roda em todo push*; a trava do gatilho só cobrava o
+outro lado. Agora o `gatilho-do-verde.test.ts` cobra o espelho, dos dois sentidos, 746 → 754 travas.
+Na dívida própria falta varrer *"prova que só registra aparência"*. Relatório:
+[`../relatorios/LAB-102.md`](../relatorios/LAB-102.md).
+
 ### LAB-101 · item 900 — a dívida própria: os "sete passos" do verde — ✅ **feito em 13/10/2026** (D328)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém; fui à dívida própria. Achado da espécie
@@ -1337,8 +1346,8 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 **O levantamento mudou o formato da resposta:** o verde completo lê **dois clones
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
-enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda hoje
-e protege 746 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
+e protege 754 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

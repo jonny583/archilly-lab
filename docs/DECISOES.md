@@ -10259,3 +10259,33 @@ os *"sete passos"* do relato datado (história, verdadeira na data).
 > **NÚMERO ESCRITO POR EXTENSO É NÚMERO DIGITADO À MÃO.** A régua que lê algarismo não o vê, e a
 > palavra não muda quando a lista muda. E **mutação que passa por sorte de ordem não prova a régua**:
 > o caso de teste tem de pôr o objeto errado ANTES do certo.
+
+## D329 · DESLIGADO, A FRASE QUE DIZ QUE O CI RODA SAI — o espelho da trava do gatilho · 13/10/2026
+
+**Origem:** item 900, a dívida própria — a espécie *"mensagem fixa que afirma estado sem
+perguntar"*, que o LAB-101 deixou por varrer. Relatório: [`relatorios/LAB-102.md`](relatorios/LAB-102.md).
+
+**O que a medição respondeu:** com o gatilho automático do `verde.yml` comentado desde 08/10/2026,
+**seis frases vivas** diziam que o CI *roda hoje* / *roda em todo push* — no `conferir.sh`, duas no
+próprio `verde.yml`, no `INDEX.md`, num comentário de teste escrito já com o CI desligado e numa
+mensagem de problema fixa. A trava do gatilho cobrava só *ligado → o aviso de desligado sai*. O
+`grep` por frase achou cinco; a régua que atravessa a quebra de linha e a caixa achou a sexta.
+
+**O que se decidiu:**
+
+1. A pergunta ao gatilho e a régua da frase moram em `external-engines/esteira/src/o-ci-que-roda.ts`;
+   `gatilhoAutomaticoLigado` saiu da trava para haver uma implementação só (D231).
+2. Com o gatilho **desligado**, toda frase de estado fora de relato reprova, e **toda exceção declarada
+   tem de continuar achada** — os dois sentidos. As exceções são o argumento de segredo do D213
+   (*"o trabalho que roda em todo envio não tem segredo"*), que vale ligado ou desligado.
+3. As travas moram no `gatilho-do-verde.test.ts`, ao lado do teste de que ele é o espelho: 8 novas,
+   o portão sem clones de 746 → **754**.
+
+**Os dois lados e as mutações:** a frase volta, 1 cai; a exceção morre, 1 cai; não tirar o marcador
+de comentário, 2 caem; a régua que só registra, 1 cai; ler relato como vivo, 3 caem.
+
+**Descartado:** cobrar o lado ligado (é da trava do gatilho); reescrever o relato datado; alargar a
+régua a sinônimos.
+
+> **AVISO DE DESLIGADO AO LADO DA FRASE DE QUE RODA NÃO É AVISO: É CONTRADIÇÃO.** Trava que cobra
+> um estado tem de cobrar os dois — o aviso que entra **e** a afirmação contrária que sai.

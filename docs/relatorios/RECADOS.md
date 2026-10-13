@@ -2890,3 +2890,16 @@ Próximo na fila: a caixa só tem o 900; na dívida própria faltam varrer "prov
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 13/10/2026 · LAB-102 — item 900 (a dívida própria): a frase que diz que o CI roda
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-102 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); FILA sem proposta que não espere ninguém, então fui à dívida própria. FEITA. Conferido aqui, não no GitHub: esteira 1 043 pass · 9 fail (eram 1 035 · 9; as 9 do .wasm, iguais antes e depois), testfit 17 · 0, typecheck e lint limpos, lab84 43 de 43 sem clones.
+Feito: espécie "mensagem fixa que afirma estado sem perguntar" — com o gatilho do verde.yml comentado desde 08/10, SEIS frases vivas afirmavam que o CI estava rodando (conferir.sh, duas no próprio verde.yml, INDEX.md, um comentário de teste escrito já com o CI desligado e uma mensagem fixa de problema); a trava do gatilho só cobrava o outro lado. Nova src/o-ci-que-roda.ts + o espelho no gatilho-do-verde.test.ts (8 travas, dois sentidos, cinco mutações acusadas), 746 → 754; D329; relatório LAB-102.
+Achados para outros apps ou Central: AVISO DE DESLIGADO AO LADO DA FRASE DE QUE RODA É CONTRADIÇÃO. Toda casa com rotina desligada (Geo, Lab. de Parcelamento, Orçamento, Viabilidade, Render, Pesquisa) escreveu o aviso e a trava do prazo, e a frase antiga de que a rotina roda ficou ao lado: procurem o espelho, atravessando a quebra de linha — o grep por frase achou 5, a régua achou 6. E o clone raso aparece como "94 e 82 commits divergentes": é corte de ancestralidade, não divergência (conferido com merge-base).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na dívida própria falta varrer "prova que só registra aparência".
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

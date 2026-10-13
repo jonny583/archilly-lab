@@ -24,7 +24,7 @@
 #
 # Em vez de fingir, o workflow diz a verdade em duas partes:
 #
-#   1. **`guardas-sem-clones`** roda hoje, sem segredo nenhum: as 746 travas que não
+#   1. **`guardas-sem-clones`** roda sem segredo nenhum: as 754 travas que não
 #      dependem de clone vizinho — a página do Jonny estar atualizada, o formato do
 #      RECADO, a cobertura do próprio `conferir.sh` e as regras do `CLAUDE.md`.
 #      **Ele NÃO é o verde**, e o nome diz isso;
@@ -58,7 +58,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  # ── O que roda HOJE, sem segredo nenhum ──────────────────────────────────
+  # ── O que roda SEM SEGREDO nenhum (gatilho: ver o aviso acima) ──────────
   #
   # São as travas que leem ARQUIVO do próprio repositório, e as de geometria pura
   # do esqueleto reto. Nenhuma importa `@generate/*` nem `@testfit/*` — conferido
@@ -203,7 +203,7 @@ jobs:
             echo "  tornar os dois vizinhos públicos — e essa é decisão do Jonny."
             echo ""
             echo "  ENQUANTO ISSO: o trabalho 'guardas-sem-clones' roda e protege"
-            echo "  746 travas; e o verde completo continua sendo rodado à mão, antes"
+            echo "  754 travas; e o verde completo continua sendo rodado à mão, antes"
             echo "  de cada commit, como está no CLAUDE.md §7."
             exit 1
           fi

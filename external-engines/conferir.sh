@@ -36,8 +36,11 @@
 # **Há CI desde o LAB-38**, em `.github/workflows/verde.yml`, com DOIS trabalhos e
 # nomes que não enganam (D141):
 #
-#   · `guardas que não precisam dos clones vizinhos (NÃO é o verde)` roda em todo
-#     push, sem segredo — as travas que leem arquivo do próprio repositório;
+#   · `guardas que não precisam dos clones vizinhos (NÃO é o verde)` foi feito para
+#     rodar em todo push, sem segredo — as travas que leem arquivo do próprio
+#     repositório. **O gatilho automático está DESLIGADO desde 08/10/2026**; o
+#     estado e a receita de religar moram em docs/COMO_RELIGAR_O_CI.md, e a frase
+#     que disser que ele roda reprova enquanto o gatilho estiver comentado (D329);
 #   · `o verde completo` É este script, e precisa do segredo `VIZINHOS_TOKEN`,
 #     porque o comando único lê DOIS CLONES PRIVADOS por caminho (D16) e este
 #     repositório é público. Sem o segredo ele FALHA COM A RECEITA, e não pula

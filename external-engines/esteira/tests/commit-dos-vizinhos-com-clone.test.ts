@@ -15,8 +15,8 @@
  * > segredo.
  *
  * **O que NÃO se fez, e a medição é que decidiu:** tirar o arquivo inteiro da lista custaria as
- * **10** travas dele que são limpas de clone — e elas são 10 travas de graça num portão que roda
- * em todo push. *Mover por ARQUIVO quando a dependência é de TRAVA paga a conta de quem não
+ * **10** travas dele que são limpas de clone — e elas são 10 travas de graça num portão feito para
+ * rodar em todo push. *Mover por ARQUIVO quando a dependência é de TRAVA paga a conta de quem não
  * mediu.*
  *
  * Os dois lados do item 001 continuam exigidos, e continuam **contra o clone de verdade**: o caso
