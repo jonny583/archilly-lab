@@ -155,6 +155,24 @@ export const MOTIVOS_DE_RECUSA = [
 export type MotivoDeRecusa = (typeof MOTIVOS_DE_RECUSA)[number];
 
 /**
+ * Os motivos que o vocabulário GUARDA e que nenhuma função produz HOJE — lista fechada, com o
+ * motivo de cada um. (LAB-97, item 900)
+ *
+ * Até o LAB-97 o `"sem-via-publica"` estava nesta situação **sem estar declarado**: a palavra
+ * existia, a regra 2 dizia o que ela decide, e nenhuma função a produzia — regra sem guarda, com
+ * o nome no lugar da guarda. A trava agora cobra os DOIS sentidos: motivo fora desta lista tem de
+ * ter quem o produza, e motivo nesta lista NÃO pode ter (senão a lista mente que está parado).
+ */
+export const MOTIVOS_RESERVADOS: readonly { motivo: MotivoDeRecusa; porque: string }[] = [
+  {
+    motivo: "o-motor-recusou",
+    porque:
+      "este módulo avalia posições SEM rodar motor (o LAB-77 não mede gleba no sentido do §7); " +
+      "a recusa do motor só existe no dia em que a curva rodar o motor por posição",
+  },
+];
+
+/**
  * Quais faces do anel dão para via pública, por índice de segmento.
  *
  * `null` é **"não declarado"**, e não "nenhuma": são coisas diferentes, e tratá-las igual seria
@@ -286,6 +304,43 @@ export function dentroDaFaixaEmLinhaReta(
   return false;
 }
 
+/** 1 mm: o empate de projeção num vértice. Não é a faixa — é a régua do "mesmo ponto". */
+const TOLERANCIA_DO_EMPATE_m = 0.001;
+
+/**
+ * A posição está sobre uma face que dá para via pública? — a REGRA 2, com guarda. (LAB-97)
+ *
+ * *"Posição sem rua não é posição"*: quem decide é a face onde o ponto cai, e o ponto é
+ * **projetado no anel** como na régua da faixa — uma posição a milímetros da divisa não muda de
+ * face por arredondamento.
+ *
+ * **A escolha que a regra não responde, por escrito:** o ponto que cai EXATAMENTE num vértice
+ * pertence às duas faces que se encontram nele, e está sobre via se UMA delas der para rua. É o
+ * fim da testada de rua, e o fim da testada ainda é rua. O lado conservador — recusar o vértice
+ * entre rua e muro — não protege nada que a faixa de esquina já não proteja onde há esquina, e
+ * onde não há esquina recusaria a ponta de uma rua de verdade. A tolerância do empate é de 1 mm,
+ * a mesma ordem do `TOL_DIVISA_M` do Generate.
+ *
+ * `faces` não aceita `null` aqui: a falta de declaração é OUTRO motivo, e quem chama decide antes.
+ */
+export function sobreFaceComVia(ponto: P, anel: readonly P[], faces: readonly number[]): boolean {
+  const n = anel.length;
+  if (n < 2) return false;
+  const distancias: number[] = [];
+  for (let i = 0; i < n; i++) {
+    const a = anel[i]!;
+    const b = anel[(i + 1) % n]!;
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const l2 = dx * dx + dy * dy;
+    const t = l2 === 0 ? 0 : Math.max(0, Math.min(1, ((ponto.x - a.x) * dx + (ponto.y - a.y) * dy) / l2));
+    distancias.push(Math.hypot(a.x + dx * t - ponto.x, a.y + dy * t - ponto.y));
+  }
+  const menor = Math.min(...distancias);
+  const comVia = new Set(faces);
+  return distancias.some((d, i) => d <= menor + TOLERANCIA_DO_EMPATE_m && comVia.has(i));
+}
+
 /** Uma posição avaliada. `lotes` é `null` sempre que `motivo` não é `null`. */
 export interface PosicaoAvaliada {
   ponto: P;
@@ -297,7 +352,7 @@ export interface PosicaoAvaliada {
 }
 
 /**
- * Avalia posições contra as regras 2 e 3, SEM rodar motor.
+ * Avalia posições contra as regras 2 e 3, SEM rodar motor — e a 2 ganhou guarda no LAB-97.
  *
  * A posição do usuário entra com `doUsuario: true` e **atravessa sempre**: a regra 4 diz *"já se
  * o usuário escolher um ponto na esquina, deixa ele"* — a faixa vale para o que se **sugere**,
@@ -328,6 +383,11 @@ export function avaliarPosicoes(
         lotes: null,
         doUsuario: false,
       };
+    }
+    // Regra 2 ANTES da 3: posição sobre o muro do vizinho não é posição, e dizer que ela foi
+    // recusada "por estar perto da esquina" daria o motivo errado a quem lê a curva.
+    if (!sobreFaceComVia(ponto, anel, faces)) {
+      return { ponto, valida: false, motivo: "sem-via-publica", lotes: null, doUsuario: false };
     }
     if (dentroDaFaixaDeEsquina(ponto, anel, esquinas, faixa_m)) {
       return { ponto, valida: false, motivo: "dentro-da-faixa-de-esquina", lotes: null, doUsuario: false };

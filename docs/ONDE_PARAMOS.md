@@ -4,7 +4,7 @@
 >
 > **"leia docs/ONDE_PARAMOS.md e me diga onde estamos"**
 
-**Última atualização:** 12/10/2026, 23h · **Último prompt executado:** LAB-96 (item 029) — **as
+**Última atualização:** 13/10/2026, 03h · **Último prompt executado:** LAB-97 (item 900, a minha própria lista) — **a regra 2 do acesso ganhou guarda: posição sobre o muro do vizinho é recusada com `"sem-via-publica"`, antes da faixa de esquina**, e o vocabulário de recusa passou a ser conferido nos dois sentidos — a trava achou um segundo órfão, `"o-motor-recusou"`, declarado como reservado (D324). Tarefa tirada da `FILA.md`, proposta 1 do LAB-96 · **próximo: a caixa só tem o 900, e as propostas da FILA que não esperam ninguém acabaram** — o próximo disparo procura na dívida própria antes de anotar vazio · antes dele o LAB-96 (item 029) — **as
 respostas do Jonny ao 9-A e ao 9-B entraram no código: a faixa de esquina passou a se medir AO LONGO
 de cada rua, a partir do encontro das duas, e não mais em linha reta; "quadra" é o TRECHO DE RUA
 entre dois cruzamentos** (D323) — e medido nas sete glebas, a troca **quase não mexe**: um único
@@ -129,9 +129,10 @@ enquanto eu trabalhava no 001"*).
 | 12/10/2026 | 15:08 | observado | itens 028 e 029 na caixa; agendado para 15:05 | item 028 (LAB-95), **que fica aberto** |
 | 12/10/2026 | 19:07 | observado | itens 028 (aberto), 029 e 900 na caixa, contados na `origin/main` | item 028 (LAB-95), **fechado** |
 | 12/10/2026 | 23:07 | observado | itens 029 e 900 na caixa, contados na `origin/main` (o 900 é contínuo e só vale sem outro) | item 029 (LAB-96) |
+| 13/10/2026 | 03:05 | observado | só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista | item 900 (LAB-97), tarefa da `FILA.md` |
 
 ```
-disparos no registro: 43 · observados: 34 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
+disparos no registro: 44 · observados: 35 · derivados: 2 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05

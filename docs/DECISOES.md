@@ -10080,3 +10080,31 @@ gleba de 100 × 10 m (12,8 m pela reta, 18 m andando) e uma fenda de 10 m (14,1 
 > **PERGUNTA RESPONDIDA NÃO É DADO QUE CHEGOU.** O 9-A tirou uma decisão da mesa dele e não pôs
 > nenhum número a mais nesta casa: a conta dos 25 m continua sem o cruzamento para medir. Dizer
 > "respondido" e continuar usando 15 m não é contradição — é dizer qual metade andou.
+
+## D324 · A REGRA 2 DO ACESSO GANHOU GUARDA, E O VOCABULÁRIO DE RECUSA NÃO TEM MAIS PALAVRA ÓRFÃ · 13/10/2026
+
+**Origem:** item 900 (a minha própria lista), tarefa tirada da `FILA.md`, proposta 1 do LAB-96.
+Relatório: [`relatorios/LAB-97.md`](relatorios/LAB-97.md).
+
+**O defeito:** `"sem-via-publica"` estava no vocabulário de recusa e **nenhuma função o produzia**.
+Com as faces declaradas, uma posição sobre o muro do vizinho passava como válida em
+`avaliarPosicoes`, e a `sugerirAcesso` podia escolhê-la. Inofensivo hoje (nenhuma gleba declara as
+faces), a um dado de distância de sair.
+
+**O que se decidiu:**
+
+1. `sobreFaceComVia` projeta o ponto no anel e responde pela face; `avaliarPosicoes` recusa com
+   `"sem-via-publica"` **antes** da faixa de esquina — a regra 2 é o universo, a 3 é um recorte
+   dentro dele, e o motivo dado tem de ser o do universo.
+2. **Ponto exatamente no vértice entre rua e muro conta como rua** (fim da testada), com empate de
+   1 mm. Descartado: recusar o vértice — onde há esquina a faixa já recusa, e onde não há seria
+   recusar a ponta de uma rua de verdade.
+3. **`MOTIVOS_RESERVADOS`**, lista fechada nos dois sentidos com o porquê: motivo fora dela tem de
+   ter quem o produza; motivo dentro dela não pode ter. A trava procura o literal ao lado de
+   `motivo:`, com o recorte da própria declaração provado por trava.
+4. **`"o-motor-recusou"` entrou na lista**, e não no código nem no lixo: era o segundo órfão, que a
+   FILA não listava e a trava achou. Produzi-lo é rodar motor por posição, que o LAB-77 não faz.
+
+> **PALAVRA NO VOCABULÁRIO NÃO É REGRA NO CÓDIGO.** Um nome fechado num `as const` passa por
+> guarda — o tipo existe, o motivo existe, a prosa da regra existe — e nada o produz. Vocabulário
+> fechado se confere nos dois sentidos: quem o declara e quem o devolve.
