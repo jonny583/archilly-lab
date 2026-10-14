@@ -23,6 +23,8 @@ import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { PROMPT_DO_LAB } from "../src/nome-do-prompt.ts";
+
 import {
   O_QUE_NINGUEM_PEGA,
   SABOTAGENS,
@@ -238,7 +240,7 @@ function aRegua(
 }
 
 const relatorios = readdirSync(join(RAIZ, "docs", "relatorios"))
-  .map((f) => /^(LAB-\d\d)\.md$/.exec(f)?.[1])
+  .map((f) => new RegExp(`^(${PROMPT_DO_LAB})\\.md$`).exec(f)?.[1])
   .filter((p): p is string => p !== undefined)
   .sort();
 

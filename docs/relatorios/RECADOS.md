@@ -2916,3 +2916,16 @@ Próximo na fila: a caixa só tem o 900; na dívida própria falta "teste que nu
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 14/10/2026 · LAB-104 — item 900 (a minha própria lista): o nome do prompt tem duas casas ou mais
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-104 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta 3 do LAB-103 (a régua que lê o prompt com dois algarismos). FEITA. Conferido aqui, não no GitHub: esteira 1 063 pass · 9 fail (eram 1 051 · 9; as 9 do .wasm, iguais antes e depois), testfit 17 · 0, typecheck e lint limpos, lab84 45 de 45 sem clones.
+Feito: espécie "teste que nunca reprovou". Enumerados os lugares (233 .ts), a forma LAB-\d\d estava em 6 arquivos — e a trava "todo relatório tem recado" tirava LAB-100.md a LAB-103.md do universo: apagado o recado do LAB-103, ela seguia 9 pass · 0 fail. Nova src/nome-do-prompt.ts (LAB-\d{2,}, gulosa), as seis réguas e as duas ferramentas que espelham a trava a usam, e uma régua impede a forma velha de renascer no código; 12 travas, dois sentidos, sete mutações acusadas, 762 → 774; D331; relatório LAB-104.
+Achados para outros apps ou Central: TRAVA QUE DEFINE O UNIVERSO POR UMA FORMA ENVELHECE COM A FORMA — fica verde e para de olhar o que nasceu depois, e o tamanho que ela publica ("mais de 20") não acusa quando quatro somem de 95. Casa com prompt numerado passando de 99 (ou de 999), ou com relatório lido por /PREFIXO-\d\d/: comparem o universo lido com o total da pasta. A cura já existia num campo vizinho daqui e não andou para o lado.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA seguem as propostas 1 e 2 do LAB-103 e uma nova (a mesma pergunta para o número da decisão).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

@@ -346,6 +346,21 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-104 · item 900 — a minha própria lista: o nome do prompt com duas casas — ✅ **feito em 14/10/2026** (D331)
+
+Caixa só com o 900; peguei a proposta 3 do LAB-103, abaixo, e ela trouxe a espécie que faltava varrer,
+**teste que nunca reprovou**. Enumerados os lugares (233 `.ts` versionados em `external-engines/`), a
+forma `LAB-\d\d` estava em seis arquivos — e a do `recado.test.ts` tirava `LAB-100.md` a `LAB-103.md`
+do universo da trava *"todo relatório tem recado"*: apagado o recado do LAB-103, ela seguia verde.
+Agora `src/nome-do-prompt.ts` é a forma única, as seis réguas e as duas ferramentas que espelham a
+trava a usam, e uma régua impede a forma de renascer no código; sete mutações, todas acusadas,
+762 → 774 travas. Relatório: [`../relatorios/LAB-104.md`](../relatorios/LAB-104.md).
+
+**Proposto (minha lista, não espera ninguém):** a mesma pergunta para as travas que leem **outro**
+nome pela forma — a decisão (`D\d{2,3}`, na `varredura-das-propostas.ts` e noutras). Hoje não há
+defeito: a D1000 está a 669 decisões. Medir quais definem universo pela forma e travar antes do dia,
+não depois; é outra régua, por isso fica aqui em prosa.
+
 ### LAB-103 · item 900 — a dívida própria: o `true` do determinismo — ✅ **feito em 14/10/2026** (D330)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém; fui à dívida própria, espécie
@@ -364,12 +379,14 @@ derivado), as seis ferramentas a chamam, e as 33 são fotografias declaradas com
 2. **A mesma pergunta para os outros vereditos booleanos das provas** (`limpo`, `aceito`, `confere`,
    `desenhoIdentico`…): a evidência está ao lado, ou só o veredito? Medir antes de travar — cada um
    tem motivo diferente.
-3. **A régua das propostas lê o prompt com DOIS algarismos.** `secoesDePropostaEmProsa` e
+3. ✅ **FEITO no LAB-104** (item 900, D331): a forma única `LAB-\d{2,}` e a régua contra a de duas casas; o
+   universo dos relatórios do `recado.test.ts` também estava preso a duas casas. Relatório:
+   [`../relatorios/LAB-104.md`](../relatorios/LAB-104.md). — ~~**A régua das propostas lê o prompt com DOIS algarismos.** `secoesDePropostaEmProsa` e
    `MARCA_DO_EXECUTOR` (`src/varredura-das-propostas.ts`) casam `LAB-\d\d`: medido nesta rodada, uma
    seção intitulada *"Proposto ao chat, saído do LAB-103"* foi lida como **LAB-10**, e a trava acusou
    a origem errada. Os prompts passaram de 99 no LAB-100; trocar por `LAB-\d{2,3}` com o caso de teste
    é pequeno, e fica para o disparo seguinte por ser outra régua. Por isso estas propostas estão em
-   prosa **sob o item**, e não numa seção própria.
+   prosa **sob o item**, e não numa seção própria.~~
 
 ### LAB-102 · item 900 — a dívida própria: a frase que diz que o CI roda — ✅ **feito em 13/10/2026** (D329)
 
@@ -1372,7 +1389,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 762 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 774 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

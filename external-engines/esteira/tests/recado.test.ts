@@ -35,6 +35,7 @@
 import { describe, expect, test } from "bun:test";
 
 import { CLASSES_DE_RODADA } from "../src/classes-de-rodada.ts";
+import { PROMPT_DO_LAB } from "../src/nome-do-prompt.ts";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
@@ -96,7 +97,7 @@ const MARCA_DO_QUE_VAI_JUNTO = "--- O QUE VAI JUNTO ---";
  * existe de verdade* (D217, D219, D228, D237) —, e a lista das classes vem de
  * `CLASSES_DE_RODADA`, não de um literal repetido aqui.
  */
-const ITEM_DO_ACUMULADO = String.raw`(?:LAB-\d\d|§[\w-]+|${CLASSES_DE_RODADA.map((c) => c.id).join("|")})`;
+const ITEM_DO_ACUMULADO = String.raw`(?:${PROMPT_DO_LAB}|§[\w-]+|${CLASSES_DE_RODADA.map((c) => c.id).join("|")})`;
 const MARCA_DO_ACUMULADO = new RegExp(
   `^ACUMULADO — inclui os recados ${ITEM_DO_ACUMULADO}(?:(?:, | e )${ITEM_DO_ACUMULADO})*$`,
 );
@@ -156,7 +157,7 @@ describe("a regra do RECADO — CLAUDE.md §1", () => {
     const texto = readFileSync(RECADOS, "utf8");
     const cabecalhos = texto.match(/=== RECADO PARA O CHAT — [^·]+ · (.+?) ===/g) ?? [];
     const relatorios = readdirSync(join(RAIZ, "docs", "relatorios"))
-      .map((f) => /^(LAB-\d\d)\.md$/.exec(f)?.[1])
+      .map((f) => new RegExp(`^(${PROMPT_DO_LAB})\\.md$`).exec(f)?.[1])
       .filter((p): p is string => p !== undefined);
     expect(relatorios.length).toBeGreaterThan(20);
     expect(cabecalhos.length).toBeGreaterThan(20);
