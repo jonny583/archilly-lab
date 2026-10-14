@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# A ORDEM DA ENTREGA, cobrada no envio (LAB-106, D333).
+#
+# O git chama este arquivo antes de enviar, com as refs na entrada. Quem o liga é o
+# `external-engines/conferir.sh`, apontando `core.hooksPath` para esta pasta.
+# A decisão mora em `external-engines/esteira/src/antes-do-envio.ts`; aqui só se chama.
+#
+cd "$(git rev-parse --show-toplevel)/external-engines/esteira" || exit 1
+exec bun ferramentas/antes-do-envio.ts

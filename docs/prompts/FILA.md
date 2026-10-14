@@ -346,6 +346,24 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-106 · item 900 — a minha própria lista: a ordem da entrega, cobrada no envio — ✅ **feito em 14/10/2026** (D333)
+
+Caixa só com o 900; peguei a proposta do LAB-105, abaixo — a mais importante das três que não esperam
+ninguém, porque é a única com defeito já acontecido na `main`. Medido antes de escolher: as travas do
+LAB-52 e do LAB-57, rodadas sobre os **36 estados** da `main` desde o LAB-86, dão **2 de 21 envios
+desta casa vermelhos** (LAB-98 e LAB-104) e **15 de 15 escritas da direção na caixa vermelhas**. O
+`pre-commit` pararia a ordem certa e a trava na suíte roda antes do último `git add`; ficou o **envio**:
+o gancho `external-engines/ganchos/pre-push`, ligado pelo `conferir.sh`, recusa árvore suja ou commit
+que não é o `HEAD` e roda as travas do trabalho sem clones sobre o que vai. Nove mutações acusadas,
+778 → 793 travas. Relatório: [`../relatorios/LAB-106.md`](../relatorios/LAB-106.md).
+
+**Proposto (minha lista, não espera ninguém):** **a prova do LAB-57 deixar de ficar vermelha a cada
+item da caixa.** A outra metade da medição: toda escrita da direção em `docs/caixa-de-entrada/` muda
+`arquivosQueOGitCarrega` e deixa a `main` vermelha até o próximo envio desta casa — 15 de 15. Nenhum
+arquivo da caixa é configuração nem código, então a varredura não muda; só o número do universo. Medir
+se a recontagem deve declarar a caixa como escrita de outra mão (fora da conta, com o motivo) ou se o
+número do universo deve sair da recontagem — e decidir pelo que a régua perde em cada uma.
+
 ### LAB-105 · item 900 — a minha própria lista: a terceira pergunta do determinismo — ✅ **feito em 14/10/2026** (D332)
 
 Caixa só com o 900; peguei a proposta 1 do LAB-103, abaixo. Duas execuções iguais provam a
@@ -361,10 +379,11 @@ Relatório: [`../relatorios/LAB-105.md`](../relatorios/LAB-105.md).
 arquivo (`587` contra `588` no `git ls-files`) — as provas que contam a árvore foram regeradas antes
 do último arquivo entrar. Regerada nesta rodada, na ordem certa.
 
-**Proposto (minha lista, não espera ninguém):** **a ordem da entrega como trava** — as provas que
+✅ **FEITO no LAB-106** (item 900, D333): no envio, pelo gancho `pre-push`. Relatório:
+[`../relatorios/LAB-106.md`](../relatorios/LAB-106.md). — ~~**Proposto (minha lista, não espera ninguém):** **a ordem da entrega como trava** — as provas que
 contam a árvore (`LAB-52`, `LAB-57`, `LAB-84`) batem com a árvore **enviada**; hoje nada impede
 regerá-las antes do último arquivo, que foi o que aconteceu no LAB-104. Medir se um gancho de
-`pre-commit` versionado ou uma trava sobre o commit resolve, antes de escolher.
+`pre-commit` versionado ou uma trava sobre o commit resolve, antes de escolher.~~
 
 ### LAB-104 · item 900 — a minha própria lista: o nome do prompt com duas casas — ✅ **feito em 14/10/2026** (D331)
 
@@ -1411,7 +1430,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 778 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 793 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

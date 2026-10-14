@@ -256,7 +256,7 @@ reprova com a receita), sete passos, todos mesmo depois de uma falha, e **nada f
 (D126).
 
 **O CI** (`verde.yml`) tem dois trabalhos: o das
-**778 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
+**793 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
 exige `VIZINHOS_TOKEN` e sem ele **falha com a receita**.
 
 ### 🔴 O CI AUTOMÁTICO ESTÁ DESLIGADO desde 08/10/2026
@@ -268,4 +268,6 @@ passos, só em [`docs/COMO_RELIGAR_O_CI.md`](docs/COMO_RELIGAR_O_CI.md). **Toda 
 ### UM ENVIO POR ENTREGA
 
 Commit é de graça; `git push` custa. Código, prova, relatório, decisão e recado saem em **um envio
-só**, no fim. *(história: §H11)*
+só**, no fim. **O envio à `main` passa pelo gancho `external-engines/ganchos/pre-push`**, que o
+`conferir.sh` liga: recusa árvore suja ou commit que não é o `HEAD`, e roda o trabalho sem clones
+sobre o que vai (D333). *(história: §H11)*

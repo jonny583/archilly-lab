@@ -2942,3 +2942,16 @@ Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta 2 do LAB-103 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 14/10/2026 · LAB-106 — item 900 (a minha própria lista): a ordem da entrega, cobrada no envio
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-106 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta do LAB-105 (a ordem da entrega como trava). FEITA. Conferido aqui, não no GitHub: esteira 1 082 pass · 9 fail (eram 1 067 · 9; as mesmas 9 do .wasm, nome por nome), testfit 17 · 0, typecheck e lint limpos, lab84 46 de 46 sem clones — e o envio passou pelo gancho novo.
+Feito: medido antes de escolher — as travas do LAB-52 e do LAB-57 sobre os 36 estados da main desde o LAB-86: 2 de 21 envios desta casa saíram vermelhos (LAB-98, LAB-104, os dois relatados verdes), porque o verde rodava antes do último arquivo. O pre-commit pararia a ordem certa e a trava na suíte roda antes do último git add; ficou o ENVIO: gancho external-engines/ganchos/pre-push, ligado pelo conferir.sh, recusa árvore suja ou commit que não é o HEAD e roda o trabalho sem clones sobre o que vai. 15 travas, nove mutações acusadas, 778 → 793; D333; relatório LAB-106.
+Achados para outros apps ou Central: (1) PROVA QUE CONTA A ÁRVORE SE CONFERE NO ENVIO — trava que roda antes do último arquivo aprova a árvore que não vai; casa com prova que conta arquivos e verde rodado antes do commit tem a mesma forma. (2) À direção: cada item que vocês escrevem na minha caixa deixa a main daqui vermelha (15 de 15, a prova do LAB-57 conta o arquivo novo) até o meu próximo envio — o conserto é meu, proposto na FILA; nada a fazer do lado de vocês.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta 2 do LAB-103 (outros vereditos booleanos), a do LAB-104 (o número da decisão) e a nova (a prova do LAB-57 deixar de contar a caixa).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

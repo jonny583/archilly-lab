@@ -1,8 +1,8 @@
 {
   "prompt": "LAB-84",
-  "oQue": "os 45 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
+  "oQue": "os 46 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-14T11:22:11.684Z",
+  "quando": "2026-10-14T15:29:56.432Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -10,9 +10,9 @@
   "comoFoiMedido": "cópia do repositório num diretório onde os três clones irmãos NÃO existem — conferido antes de medir, e a ferramenta estoura se algum aparecer —, e `bun test <arquivo>` um a um, guardando o código de saída. Nada foi movido nem renomeado no vizinho (§4)",
   "porQueNaoPorLeitura": "o item 017 proibiu: rodar a lista sem os clones é a RESPOSTA, ler o `import` é a HIPÓTESE. E a diferença apareceu no número: o D279 disse DUAS travas, lidas do fonte; executadas são QUATRO, e três delas são anteriores à minha rodada",
   "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
-  "quantosArquivos": 45,
-  "quantosPassamSemClone": 45,
-  "quantasTravasNaLista": 778,
+  "quantosArquivos": 46,
+  "quantosPassamSemClone": 46,
+  "quantasTravasNaLista": 793,
   "asTrintaEUma": [
     {
       "arquivo": "tests/pagina.test.ts",
@@ -326,6 +326,13 @@
       "arquivo": "tests/nome-do-prompt.test.ts",
       "saida": 0,
       "passam": 12,
+      "reprovam": 0,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/antes-do-envio.test.ts",
+      "saida": 0,
+      "passam": 15,
       "reprovam": 0,
       "asQueReprovam": []
     }
