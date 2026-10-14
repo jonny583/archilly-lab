@@ -10477,3 +10477,38 @@ não é passo).
 
 > **A PROVA QUE CONTA A ÁRVORE SE CONFERE NO INSTANTE EM QUE A ÁRVORE PARA DE MUDAR — e numa entrega
 > esse instante é o envio.** Trava que roda antes do último arquivo aprova a árvore que não vai.
+
+## D334 · A ESCRITA DA OUTRA MÃO SAI DA CONTA DO UNIVERSO, não da varredura — a caixa e a prova do LAB-57 · 14/10/2026
+
+**Contexto:** o LAB-106 mediu que **15 de 15** escritas da direção em `docs/caixa-de-entrada/`
+deixavam a `main` vermelha: a prova do LAB-57 publica o número de arquivos que o `git` carrega, e
+cada item novo da caixa é um a mais — sem que a varredura mude uma linha. A `main` ficava vermelha
+da escrita da direção até o próximo envio desta casa.
+
+**Medido (LAB-107):** nos 37 estados da `main` desde o LAB-86, só esta chave, com e sem a caixa — a
+direção vai de **15 vermelhos a 0**, e os envios desta casa ficam **2 e 2** (LAB-98 e LAB-104, os
+mesmos).
+
+**O que se decidiu:**
+
+1. **Tirar da CONTA, não da recontagem.** Tirar o número do universo da recontagem cegaria a régua
+   para todo arquivo que não é configuração nem código — e foi por ele que os dois envios vermelhos
+   desta casa apareceram.
+2. **Estreita:** `DA_OUTRA_MAO` (`src/escopo-da-varredura.ts`) é uma exceção, com motivo, que casa só
+   arquivo da pasta `docs/caixa-de-entrada/` que **não** é configuração nem código. A varredura não
+   perde arquivo nenhum; `.yml` ou `.ts` na caixa seguem contados e varridos. O predicado de código
+   (`EH_CODIGO`) passou a ser um só para a varredura e para a conta.
+3. **A chave muda de nome com o sentido:** `arquivosQueOGitCarrega` → `arquivosQueOGitCarregaForaDaCaixa`,
+   e a prova publica o motivo em `escopo.foraDaContaDoUniverso`. Prova antiga não passa pela nova.
+4. Oito travas no `configuracao.test.ts`, dos dois lados; sete mutações, todas acusadas; 793 → **801**
+   no portão sem clones.
+
+**O que se perde, dito:** um `.md` que nasça na caixa deixa de envelhecer a prova — inclusive se for
+desta casa, que hoje só renomeia ali (renomear não muda a conta).
+
+**Descartado:** tirar a chave da recontagem (perde o que a trava pegou de verdade); pedir à direção
+que regere a prova a cada item (*quem mede é quem conserta*, e a direção não roda esta suíte); contar
+a caixa num número separado e recontado (voltaria a ficar vermelho a cada item).
+
+> **A RÉGUA QUE CONTA O QUE OUTRA MÃO ESCREVE FICA VERMELHA POR OFÍCIO.** Tire da conta só o que a
+> medição não lê, e prove que o que ela pegava de verdade continua pego.

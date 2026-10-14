@@ -14,7 +14,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { medirOEscopo, remedirAProva } from "../src/escopo-da-varredura.ts";
+import { DA_OUTRA_MAO, medirOEscopo, remedirAProva } from "../src/escopo-da-varredura.ts";
 import {
   REGRAS_DE_CONFIGURACAO,
   varrerConfiguracao,
@@ -35,15 +35,14 @@ const ler = (rel: string) => readFileSync(join(RAIZ, rel), "utf8");
  * comparar carimbos — *o carimbo do disco não é o do git, e numa sessão nova todo arquivo
  * tem a data do checkout* (D287).
  */
-const escopoDeAgora = () => {
-  const carregados = execFileSync("git", ["-C", RAIZ, "ls-files", "-z"], {
+const carregadosDeAgora = (): string[] =>
+  execFileSync("git", ["-C", RAIZ, "ls-files", "-z"], {
     encoding: "utf8",
     maxBuffer: 64 * 1024 * 1024,
   })
     .split("\0")
     .filter((f) => f.length > 0);
-  return medirOEscopo(carregados, ler);
-};
+const escopoDeAgora = () => medirOEscopo(carregadosDeAgora(), ler);
 
 describe("LAB-57 · o lint REPROVA aviso, nos dois pacotes", () => {
   for (const pacote of PACOTES) {
@@ -187,13 +186,16 @@ describe("LAB-57 · as regras e o escopo", () => {
     const comoEstavaNoDisco = {
       ...agora,
       arquivosDeCodigoVarridos: 128,
-      arquivosQueOGitCarrega: 364,
+      // Na prova de então a chave era `arquivosQueOGitCarrega`, o TOTAL; desde o LAB-107 o
+      // universo se conta sem a escrita da outra mão, com outro nome (D334). O 364 era o
+      // total e não serve de valor para a chave nova — aqui fica só para dizer que divergia.
+      arquivosQueOGitCarregaForaDaCaixa: 364,
       linhasDeCodigoLidas: 36157,
     };
     const achou = remedirAProva(comoEstavaNoDisco, agora);
     expect(achou.map((x) => x.chave).sort()).toEqual([
       "arquivosDeCodigoVarridos",
-      "arquivosQueOGitCarrega",
+      "arquivosQueOGitCarregaForaDaCaixa",
       "linhasDeCodigoLidas",
     ]);
     // E a régua VELHA, aqui inline, aprovava os três — é o que prova que havia defeito.
@@ -228,6 +230,82 @@ describe("LAB-57 · as regras e o escopo", () => {
     expect(por.get("teste-desligado"), "apareceu `.only`/`.skip`/`.todo` na suíte — o `.only` reduz a suíte a UM teste").toBe(0);
     expect(por.get("lint-sem-max-warnings")).toBe(0);
     expect(por.get("regra-em-warn")).toBe(0);
+  });
+});
+
+/**
+ * ── LAB-107 · A ESCRITA DA OUTRA MÃO SAI DA CONTA, nos dois sentidos (D334) ──
+ *
+ * Medido: 15 de 15 escritas da direção na caixa deixavam esta prova vermelha, e só pelo número
+ * do universo. A régua nova tem de **passar calada** no item novo da caixa e **continuar
+ * reprovando** tudo o que a velha pegava de verdade — o arquivo desta casa que entrou depois da
+ * prova (o LAB-98 e o LAB-104), e o desligador escondido na pasta da outra mão.
+ *
+ * Cada caso planta UM arquivo no universo de agora e reconta: o `ler` devolve texto vazio para o
+ * plantado, que não existe no disco.
+ */
+describe("LAB-107 · a escrita da outra mão sai da CONTA, não da varredura", () => {
+  const medirCom = (plantado: string, texto = "") => {
+    const base = carregadosDeAgora();
+    const lerComPlantado = (rel: string) => (rel === plantado ? texto : ler(rel));
+    return {
+      antes: medirOEscopo(base, ler).numeros,
+      depois: medirOEscopo([...base, plantado], lerComPlantado).numeros,
+    };
+  };
+
+  test("O LADO BOM: item NOVO da direção na caixa NÃO deixa a prova velha", () => {
+    // É o caso das 15: `docs/caixa-de-entrada/030.md` escrito noutro clone.
+    const { antes, depois } = medirCom("docs/caixa-de-entrada/030.md", "# 030 — um item\n");
+    expect(remedirAProva(antes, depois)).toEqual([]);
+  });
+
+  test("O LADO BOM que quase parece ruim: o adendo também, com nome que não é número", () => {
+    const { antes, depois } = medirCom("docs/caixa-de-entrada/029-adendo-2.md");
+    expect(remedirAProva(antes, depois)).toEqual([]);
+  });
+
+  test("O LADO RUIM: arquivo desta casa fora da caixa AINDA reprova — o caso do LAB-104", () => {
+    // O LAB-104 saiu com a prova contando 587 e a árvore 588: um arquivo desta casa entrou
+    // depois de a prova ser gerada. Isso a régua nova não pode deixar de ver.
+    const { antes, depois } = medirCom("docs/relatorios/LAB-999.md");
+    expect(remedirAProva(antes, depois).map((x) => x.chave)).toEqual(["arquivosQueOGitCarregaForaDaCaixa"]);
+  });
+
+  test("O LADO RUIM: ao lado da caixa, mas fora dela, reprova — o prefixo é a pasta inteira", () => {
+    const { antes, depois } = medirCom("docs/caixa-de-entrada-velha/001.md");
+    expect(remedirAProva(antes, depois).map((x) => x.chave)).toEqual(["arquivosQueOGitCarregaForaDaCaixa"]);
+  });
+
+  test("O LADO RUIM: CÓDIGO posto na caixa é contado E varrido — o desligador não se esconde lá", () => {
+    const { antes, depois } = medirCom("docs/caixa-de-entrada/truque.ts", "// @ts-ignore\nexport {};\n");
+    const chaves = remedirAProva(antes, depois).map((x) => x.chave).sort();
+    expect(chaves).toContain("arquivosQueOGitCarregaForaDaCaixa");
+    expect(chaves).toContain("arquivosDeCodigoVarridos");
+    expect(depois.arquivosDeCodigoVarridos).toBe(antes.arquivosDeCodigoVarridos + 1);
+  });
+
+  test("O LADO RUIM: CONFIGURAÇÃO posta na caixa é contada E encontrada", () => {
+    const { antes, depois } = medirCom("docs/caixa-de-entrada/verde.yml", "on: push\n");
+    const chaves = remedirAProva(antes, depois).map((x) => x.chave);
+    expect(chaves).toContain("arquivosQueOGitCarregaForaDaCaixa");
+    expect(chaves).toContain("configuracoesEncontradas");
+  });
+
+  test("a exceção é UMA, tem motivo escrito, e a prova a publica", () => {
+    expect(DA_OUTRA_MAO).toHaveLength(1);
+    expect(DA_OUTRA_MAO[0]!.porque.length).toBeGreaterThan(80);
+    const p = JSON.parse(readFileSync(PROVA, "utf8")) as { escopo: Record<string, unknown> };
+    expect(p.escopo["foraDaContaDoUniverso"]).toEqual(DA_OUTRA_MAO.map((x) => x.porque));
+    // E a chave velha, o TOTAL, não volta para a prova: chave que muda de sentido muda de nome.
+    expect(p.escopo["arquivosQueOGitCarrega"]).toBeUndefined();
+  });
+
+  test("o universo de agora TEM caixa — senão o lado bom passaria por não haver o que tirar", () => {
+    const carregados = carregadosDeAgora();
+    const daCaixa = carregados.filter((f) => DA_OUTRA_MAO.some((x) => x.casa(f)));
+    expect(daCaixa.length, "nenhum arquivo da caixa no `git ls-files`: a exceção não mediu nada").toBeGreaterThan(10);
+    expect(escopoDeAgora().numeros.arquivosQueOGitCarregaForaDaCaixa).toBe(carregados.length - daCaixa.length);
   });
 });
 

@@ -18,7 +18,7 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { FONTES_DA_PROPRIA_REGUA, medirOEscopo } from "../src/escopo-da-varredura.ts";
+import { DA_OUTRA_MAO, FONTES_DA_PROPRIA_REGUA, medirOEscopo } from "../src/escopo-da-varredura.ts";
 import { REGRAS_DE_CONFIGURACAO } from "../src/varredura-de-configuracao.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
@@ -112,6 +112,8 @@ writeFileSync(
         ...medicao.numeros,
         porque:
           "o escopo começa no `git ls-files`, não numa lista minha — e o que ficou fora sai NOMEADO com o motivo (D164, a lição do LAB-47)",
+        // O que sai da CONTA do universo (não da varredura), com o motivo — LAB-107, D334.
+        foraDaContaDoUniverso: DA_OUTRA_MAO.map((x) => x.porque),
       },
       regras: REGRAS_DE_CONFIGURACAO.map((r) => ({
         nome: r.nome,
