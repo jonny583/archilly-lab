@@ -2968,3 +2968,16 @@ Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta 2 do LAB-103 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 14/10/2026 · LAB-108 — item 900 (a minha própria lista): os outros vereditos booleanos das provas
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-108 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta 2 do LAB-103 (os outros vereditos booleanos das provas). FEITA. Conferido aqui, não no GitHub: esteira 1 098 pass · 9 fail (eram 1 090 · 9; as 9 são todas do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, lab84 47 de 47 sem clones, 809 travas — e o envio passa pelo gancho do LAB-106.
+Feito: medido nos 100 JSON de docs/ (2 262 booleanos, 138 nomes), recalculando cada veredito do que está ao lado: limpo 151 de 151, aceito 171 de 171, confere 70 de 70 — guardam a evidência e batem com ela. O de IDENTIDADE não: desenhoIdentico (40) e saidaIdenticaSemAVia (8) comparavam duas assinaturas e não gravavam nenhuma (a forma do D330 com outro nome). Agora vereditoDeIdentidade é a forma única, lab23/32/37 a chamam, os 48 são fotografias com a contagem; 8 travas, oito mutações acusadas, 801 → 809; D335; relatório LAB-108.
+Achados para outros apps ou Central: (1) VEREDITO DE IDENTIDADE É O ÚNICO CUJA EVIDÊNCIA NÃO CABE NUM NÚMERO: "mesmo número de lotes" não é "mesmo desenho" — casa que grava "idêntico/igual: true" entre duas saídas sem as duas assinaturas ao lado tem a forma do D330. (2) A conta dos disparos daqui tinha perdido a linha das 19:05 (o LAB-107 não a escreveu) e a trava não viu, porque total e linhas faltavam juntos; reconstruída como derivada. (3) O .wasm do Symbios segue sem se construir aqui (rustup sem saída pelo proxy).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta do LAB-104 (o número da decisão) e a nova do LAB-108 (a coerência do veredito com a evidência ao lado, 392 de 392 sem trava).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

@@ -10512,3 +10512,48 @@ a caixa num número separado e recontado (voltaria a ficar vermelho a cada item)
 
 > **A RÉGUA QUE CONTA O QUE OUTRA MÃO ESCREVE FICA VERMELHA POR OFÍCIO.** Tire da conta só o que a
 > medição não lê, e prove que o que ela pegava de verdade continua pego.
+
+## D335 · O VEREDITO "IDÊNTICO" GUARDA AS DUAS ASSINATURAS — e os outros três vereditos nomeados já guardavam a evidência · 14/10/2026
+
+**Contexto:** a proposta 2 do LAB-103 (D330) — *"a mesma pergunta para os outros vereditos booleanos
+das provas (`limpo`, `aceito`, `confere`, `desenhoIdentico`…): a evidência está ao lado, ou só o
+veredito? Medir antes de travar."*
+
+**Medido (LAB-108), por LUGAR:** os 100 `.json` versionados em `docs/`, **2 262 campos booleanos em
+138 nomes**. Para os quatro nomeados, a evidência que está no mesmo objeto, e se o veredito bate
+com ela, recalculado:
+
+| veredito | campos | evidência ao lado | bate |
+|---|---|---|---|
+| `limpo` (Validator) | 151 | `violacoes`, `porTipo`, `exemplos` | 151 de 151 |
+| `limpo` (clone vizinho) | 12 | `commit`, `origemMain`; a evidência de *limpo* é a lista vazia | os 12 são `true` |
+| `aceito` | 171 | `violacoes` (92), `recusa` (13) ou `lotes` (66) | 171 de 171 |
+| `confere` | 70 | o agregado publicado e o refeito dos crus | 70 de 70 |
+| **`desenhoIdentico`** | **40** | **nenhuma** — compara duas assinaturas e não grava nenhuma | os números ao lado são necessários, não suficientes |
+
+E um nome que a proposta não nomeou, com a mesma forma: **`saidaIdenticaSemAVia`** (LAB-23, 8).
+Três de igualdade com outro nome foram conferidos e têm a evidência: `saoIguais` (10 de 10),
+`divergem` (15 de 15, todos com `pelaConvencao` nulo), `mesmoRotuloDeVariante` (3 de 3).
+
+**O que se decidiu:**
+
+1. **Só o veredito de identidade ganha trava**, porque é o único sem evidência: `vereditoDeIdentidade`
+   (`src/veredito-de-identidade.ts`) grava `assinaturaSem` e `assinaturaCom` e **deriva** o campo com
+   o nome que a prova já usa; recusa o que não é assinatura. As três ferramentas (`lab23`, `lab32`,
+   `lab37`) passaram a chamá-la.
+2. **Os 48 de hoje são fotografias**, declaradas com a contagem (LAB-23: 8, LAB-32: 20, LAB-37: 20) —
+   a forma do D330, e pelo mesmo motivo: as três ferramentas carregam o Symbios e regerar é outra
+   medição com o nome da antiga (D288).
+3. Oito travas (`tests/veredito-de-identidade.test.ts`), oito mutações acusadas; 801 → **809** no
+   portão sem clones.
+
+**O que se perde, dito:** a régua lê `identic` no nome do campo; igualdade com outro nome passa sem ser
+cobrada. Os três medidos hoje têm a evidência, e isso está escrito, não travado.
+
+**Descartado:** estender a régua do D330 com um segundo nome (misturaria duas perguntas num módulo
+que já responde três); travar a **coerência** de `limpo`, `aceito` e `confere` com a evidência ao lado
+— medida em 392 de 392, mas é outra pergunta (*a evidência contradiz o veredito?*), e fica proposta
+na FILA; regerar as três provas.
+
+> **O VEREDITO DE IDENTIDADE É O ÚNICO CUJA EVIDÊNCIA NÃO CABE NUM NÚMERO.** "O mesmo número de lotes"
+> não é "o mesmo desenho" — e por isso é ele, e não os outros, que precisa guardar as assinaturas.

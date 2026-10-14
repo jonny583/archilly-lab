@@ -38,6 +38,7 @@ import {
 import { rodarGenerate } from "../src/motores/generate.ts";
 import { rodarTestfit } from "../src/motores/testfit.ts";
 import { rodarSymbios } from "../src/motores/symbios.ts";
+import { assinatura, vereditoDeIdentidade } from "../src/veredito-de-identidade.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-23");
@@ -150,7 +151,8 @@ for (const { id, entrada } of GLEBAS) {
     const sem = rodar(m.id, controle);
 
     // ── 1 · a prova por diferença ───────────────────────────────────────
-    const igual = JSON.stringify(com.saida) === JSON.stringify(sem.saida);
+    const identidade = vereditoDeIdentidade("saidaIdenticaSemAVia", assinatura(sem.saida), assinatura(com.saida));
+    const igual = identidade.saidaIdenticaSemAVia;
 
     // ── 2 · a comparação de assentamento no terreno ──────────────────────
     const doMotor = perfilDeRampa(viasDaSaida(com.saida), mapa);
@@ -159,7 +161,7 @@ for (const { id, entrada } of GLEBAS) {
       motor: m.nome,
       declarouRespeitar: com.naoSoubeFazer.every((x) => !x.includes("desenhada")) ? null : false,
       // A prova: com e sem a via no arquivo, a saída é a mesma?
-      saidaIdenticaSemAVia: igual,
+      ...identidade,
       rampaDoMotor: {
         media_pct: n2(doMotor.rampaMediaPonderada_pct),
         pior_pct: n2(doMotor.rampaPior_pct),

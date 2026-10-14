@@ -346,6 +346,21 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-108 · item 900 — a minha própria lista: os outros vereditos booleanos das provas — ✅ **feito em 14/10/2026** (D335)
+
+Caixa só com o 900; peguei a proposta 2 do LAB-103, abaixo — a mais velha das duas que não esperam
+ninguém (a do LAB-104 é defeito que ainda não existe). Medido nos 100 JSON de `docs/` (2 262 booleanos,
+138 nomes): `limpo`, `aceito` e `confere` **guardam a evidência ao lado e batem com ela** (151, 171 e
+70); **`desenhoIdentico` (40) e `saidaIdenticaSemAVia` (8) comparam duas assinaturas e não gravam
+nenhuma** — a forma do D330 com outro nome. Agora `src/veredito-de-identidade.ts` é a forma única, as
+três ferramentas a chamam, e os 48 são fotografias declaradas com a contagem; oito mutações acusadas,
+801 → 809 travas. Relatório: [`../relatorios/LAB-108.md`](../relatorios/LAB-108.md).
+
+**Proposto (minha lista, não espera ninguém):** **a coerência do veredito com a evidência ao lado.**
+`limpo` ⇔ `violacoes === 0`, `aceito` ⇔ sem violação/recusa/plano nulo, `confere` ⇔ o publicado igual
+ao refeito: medidos hoje **392 de 392**, e nada os cobra — um veredito que contradiga o número ao lado
+passaria. É outra pergunta (*a evidência contradiz o veredito?*), e por isso fica aqui em prosa.
+
 ### LAB-107 · item 900 — a minha própria lista: a escrita da outra mão sai da conta do universo — ✅ **feito em 14/10/2026** (D334)
 
 Caixa só com o 900; peguei a proposta do LAB-106, abaixo — a única das três com defeito acontecendo
@@ -428,9 +443,11 @@ derivado), as seis ferramentas a chamam, e as 33 são fotografias declaradas com
    D330 só provam a repetição. Determinismo de um motor que ignora a entrada também dá *idênticas* —
    *zero perfeito é tão suspeito quanto número absurdo*. Acrescentá-la muda **o que** se mede, e por
    isso é proposta e não conserto.~~
-2. **A mesma pergunta para os outros vereditos booleanos das provas** (`limpo`, `aceito`, `confere`,
+2. ✅ **FEITO no LAB-108** (item 900, D335): três dos quatro guardavam a evidência e batem com ela; o
+   de identidade não guardava, e ganhou a forma única e a trava. Relatório:
+   [`../relatorios/LAB-108.md`](../relatorios/LAB-108.md). — ~~**A mesma pergunta para os outros vereditos booleanos das provas** (`limpo`, `aceito`, `confere`,
    `desenhoIdentico`…): a evidência está ao lado, ou só o veredito? Medir antes de travar — cada um
-   tem motivo diferente.
+   tem motivo diferente.~~
 3. ✅ **FEITO no LAB-104** (item 900, D331): a forma única `LAB-\d{2,}` e a régua contra a de duas casas; o
    universo dos relatórios do `recado.test.ts` também estava preso a duas casas. Relatório:
    [`../relatorios/LAB-104.md`](../relatorios/LAB-104.md). — ~~**A régua das propostas lê o prompt com DOIS algarismos.** `secoesDePropostaEmProsa` e
@@ -1441,7 +1458,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 801 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 809 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
