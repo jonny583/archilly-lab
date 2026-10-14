@@ -346,6 +346,31 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-103 · item 900 — a dívida própria: o `true` do determinismo — ✅ **feito em 14/10/2026** (D330)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém; fui à dívida própria, espécie
+**prova que só registra aparência**. Seis provas guardavam **33** `"determinismo": true` sem o que se
+comparou; agora `src/prova-de-determinismo.ts` é a forma única (as duas assinaturas, o veredito
+derivado), as seis ferramentas a chamam, e as 33 são fotografias declaradas com a contagem,
+754 → 762 travas. Na dívida própria falta varrer *"teste que nunca reprovou"*. Relatório:
+[`../relatorios/LAB-103.md`](../relatorios/LAB-103.md).
+
+**Proposto (minha lista, não espera ninguém):**
+
+1. **A terceira assinatura: a outra semente muda a saída?** O LAB-07 a guarda; as seis ferramentas da
+   D330 só provam a repetição. Determinismo de um motor que ignora a entrada também dá *idênticas* —
+   *zero perfeito é tão suspeito quanto número absurdo*. Acrescentá-la muda **o que** se mede, e por
+   isso é proposta e não conserto.
+2. **A mesma pergunta para os outros vereditos booleanos das provas** (`limpo`, `aceito`, `confere`,
+   `desenhoIdentico`…): a evidência está ao lado, ou só o veredito? Medir antes de travar — cada um
+   tem motivo diferente.
+3. **A régua das propostas lê o prompt com DOIS algarismos.** `secoesDePropostaEmProsa` e
+   `MARCA_DO_EXECUTOR` (`src/varredura-das-propostas.ts`) casam `LAB-\d\d`: medido nesta rodada, uma
+   seção intitulada *"Proposto ao chat, saído do LAB-103"* foi lida como **LAB-10**, e a trava acusou
+   a origem errada. Os prompts passaram de 99 no LAB-100; trocar por `LAB-\d{2,3}` com o caso de teste
+   é pequeno, e fica para o disparo seguinte por ser outra régua. Por isso estas propostas estão em
+   prosa **sob o item**, e não numa seção própria.
+
 ### LAB-102 · item 900 — a dívida própria: a frase que diz que o CI roda — ✅ **feito em 13/10/2026** (D329)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém; fui à dívida própria, espécie
@@ -1347,7 +1372,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 754 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 762 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

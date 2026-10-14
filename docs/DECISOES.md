@@ -10289,3 +10289,41 @@ régua a sinônimos.
 
 > **AVISO DE DESLIGADO AO LADO DA FRASE DE QUE RODA NÃO É AVISO: É CONTRADIÇÃO.** Trava que cobra
 > um estado tem de cobrar os dois — o aviso que entra **e** a afirmação contrária que sai.
+
+## D330 · A PROVA DE DETERMINISMO GUARDA AS DUAS ASSINATURAS — um `true` sozinho é a aparência da prova · 14/10/2026
+
+**Origem:** item 900, a dívida própria — a espécie *"prova que só registra aparência"*, que o LAB-102
+deixou por varrer. Relatório: [`relatorios/LAB-103.md`](relatorios/LAB-103.md).
+
+**O que a medição respondeu:** o `LEIA-ME.md` das provas e o `CLAUDE.md` §7 prometem *determinismo
+provado*. Lidos os **100** `.json` versionados em `docs/`, **7** falam de determinismo: o LAB-07 guarda
+as assinaturas das duas execuções (e a da outra semente); **seis** provas — LAB-04, 05, 08, 13, 40 e
+46 — guardam **33** campos `"determinismo": true` / `"determinista": true`, sem o que se comparou. A
+régua do LAB-08 **já errou** comparando 20 variantes com 3, e o campo publicado tinha a mesma forma
+com a régua errada e com a certa.
+
+**O que se decidiu:**
+
+1. A prova de determinismo tem forma única, `provaDeDeterminismo` em
+   `external-engines/esteira/src/prova-de-determinismo.ts`: o **que** se comparou, as **duas
+   assinaturas** (SHA-256 do JSON, 16 caracteres) e `identicas` **derivado** delas. As seis
+   ferramentas — sete cálculos — passaram a chamá-la.
+2. A régua lê todo `.json` de `docs/`: campo `determinis*` com booleano, texto ou número precisa das
+   duas assinaturas ao lado. As 33 de hoje são **fotografias** (D182, D288) e ficam, declaradas **com
+   a contagem** — acima dela reprova, abaixo também (a lista envelheceu). Rodar a ferramenta de novo
+   encolhe a lista sozinho.
+3. As 8 travas moram em `tests/prova-de-determinismo.test.ts`, no portão sem clones: 754 → **762**,
+   e a lista do trabalho 43 → **44** arquivos.
+
+**Os dois lados e as mutações:** régua sem lista, 3 caem; todo objeto com evidência, 4; lista que não
+se revalida, 1; só o booleano, 1; ferramenta de volta ao `===`, 1; `true` posto na prova real do
+LAB-77, 1. **E a ferramenta foi rodada**, não só lida: a `lab46.ts`, numa cópia descartável, gravou as
+duas assinaturas — e o arquivo regerado mudou 69 + 32 linhas **fora** do determinismo contra o motor
+de hoje, que é o tamanho do motivo de não regerar fotografia.
+
+**Descartado:** regerar as seis; exigir a terceira assinatura (*outra semente*), que muda o que se
+mede e fica proposta; estender a régua aos outros vereditos booleanos (`limpo`, `aceito`,
+`confere`), também proposto.
+
+> **UM `true` SOZINHO É A APARÊNCIA DA PROVA, NÃO A PROVA.** Ele tem a mesma forma com a régua certa
+> e com a errada. A prova guarda o que se comparou, e o veredito **sai** disso — nunca entra ao lado.

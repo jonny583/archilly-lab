@@ -58,6 +58,7 @@ import { rodarEsteira } from "../../testfit/adapter/src/esteira.ts";
 import type { EntradaV1 } from "../../testfit/adapter/src/contrato-v1.ts";
 
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
+import { provaDeDeterminismo } from "../src/prova-de-determinismo.ts";
 import type { EntradaMinima } from "../src/gleba-v1.ts";
 import { auditarIdaDoParcelamento, auditarIdaDoSymbios } from "../src/guarda-em-acao.ts";
 import { promessasNaoExercitadas } from "../src/guarda-da-ida.ts";
@@ -390,8 +391,13 @@ const medicoes = AMOSTRAGENS.map((a) => {
 
 // Determinismo provado, e não prometido: a mesma entrada, a mesma semente, duas vezes.
 const umaDeNovo = medir(escolher(rodar(AMOSTRAGENS[2]!, true)));
-const determinista = JSON.stringify(umaDeNovo) === JSON.stringify(medicoes[2]!.comAsFaces);
-console.log(`    determinismo (amostragem completa, com as faces): ${determinista ? "ok" : "FALHOU"}`);
+// A prova guarda as duas assinaturas, não só o veredito (D330).
+const determinista = provaDeDeterminismo(
+  "a medição da amostragem completa, com as faces",
+  medicoes[2]!.comAsFaces,
+  umaDeNovo,
+);
+console.log(`    determinismo (amostragem completa, com as faces): ${determinista.identicas ? "ok" : "FALHOU"}`);
 
 mkdirSync(SAIDA, { recursive: true });
 writeFileSync(

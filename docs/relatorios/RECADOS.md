@@ -2903,3 +2903,16 @@ Próximo na fila: a caixa só tem o 900; na dívida própria falta varrer "prova
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 14/10/2026 · LAB-103 — item 900 (a dívida própria): o `true` do determinismo, sem as assinaturas
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-103 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); FILA sem proposta que não espere ninguém, então fui à dívida própria. FEITA. Conferido aqui, não no GitHub: esteira 1 051 pass · 9 fail (eram 1 043 · 9; as 9 do .wasm, iguais antes e depois), testfit 17 · 0, typecheck e lint limpos, lab84 44 de 44 sem clones.
+Feito: espécie "prova que só registra aparência". O LEIA-ME das provas e o CLAUDE.md §7 prometem determinismo provado; lidos os 100 JSON de docs/, SEIS provas (LAB-04, 05, 08, 13, 40, 46) guardavam 33 "determinismo": true sem o que se comparou — e a régua do LAB-08 já errou com a mesma forma de saída. Nova src/prova-de-determinismo.ts (as duas assinaturas, o veredito derivado), as seis ferramentas a chamam (lab46 rodada numa cópia descartável: gravou as assinaturas), as 33 ficam como fotografias declaradas com a contagem; 8 travas, dois sentidos, seis mutações acusadas, 754 → 762; D330; relatório LAB-103.
+Achados para outros apps ou Central: UM `true` SOZINHO É A APARÊNCIA DA PROVA — ele tem a mesma forma com a régua certa e com a errada. Casa que promete determinismo (o Laboratório de Parcelamento: "Determinismo é lei") pergunte: a prova guarda as duas assinaturas, ou só que deu igual? Não medi as outras casas. E régua que lê "LAB-\d\d" quebra no LAB-100: a minha leu LAB-103 como LAB-10 (proposto na FILA).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na dívida própria falta "teste que nunca reprovou", e há três propostas novas na FILA (terceira assinatura, outros vereditos booleanos, a régua de dois algarismos).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

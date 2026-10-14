@@ -51,6 +51,7 @@ import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
 import { symbiosParaOContrato, type LoteParaOContrato } from "../src/symbios-para-contrato.ts";
 import { lotearQuadra, type EixoDeVia } from "../src/lotear.ts";
+import { provaDeDeterminismo } from "../src/prova-de-determinismo.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-05");
@@ -202,9 +203,12 @@ for (const { id, entrada, julgaLote } of GLEBAS) {
 
   // Determinismo: a mesma entrada, a mesma saída, peça por peça.
   const bis = recortarPelaGleba(bruto, t, { ladoDoLoteMinimo_m, recortarQuadraQueAtravessa: true });
-  const determinismo =
-    JSON.stringify(bis.quadras.map((q) => q.pontos)) === JSON.stringify(com.quadras.map((q) => q.pontos)) &&
-    JSON.stringify(bis.vias.map((v) => v.pontos)) === JSON.stringify(com.vias.map((v) => v.pontos));
+  // A prova guarda as duas assinaturas, não só o veredito (D330).
+  const pecas = (r: { quadras: { pontos: unknown }[]; vias: { pontos: unknown }[] }) => ({
+    quadras: r.quadras.map((q) => q.pontos),
+    vias: r.vias.map((v) => v.pontos),
+  });
+  const determinismo = provaDeDeterminismo("as quadras e as vias do recorte, ponto a ponto", pecas(com), pecas(bis));
 
   const areaGleba = areaPoligono(t.gleba);
   const areaQueDesconta = t.restricoes
@@ -327,7 +331,7 @@ for (const { id, entrada, julgaLote } of GLEBAS) {
   console.log(`  quadras ${q.sem} → ${q.com} · atravessando ${q.atravessandoSem} → ${q.atravessandoCom} · recortadas ${q.recortadas} em ${q.pecas} peças · não recortaram ${q.naoRecortaram}`);
   console.log(`  área de quadra recuperada ${(q.areaRecortada_m2 / 1e4).toFixed(2)} ha · deslocamentos ${q.deslocamentosContraDegenerescencia}`);
   console.log(`  vértice de quadra além da folga de 5 cm: ${f.sem!.acimaDaFolga} (pior ${f.sem!.pior_m} m) → ${f.com!.acimaDaFolga} (pior ${f.com!.pior_m} m)`);
-  console.log(`  ${(linha.ms as Record<string, number>).com} ms · determinismo ${linha.determinismo ? "OK" : "FALHOU"}`);
+  console.log(`  ${(linha.ms as Record<string, number>).com} ms · determinismo ${(linha.determinismo as { identicas: boolean }).identicas ? "OK" : "FALHOU"}`);
   if (linha.loteamento) {
     const l = linha.loteamento as Record<string, Record<string, number>>;
     const j = linha.julgamento as Record<string, { recusa: string[] | null; judge: { numLotes: number } | null; validator: { violacoes: number; porTipo: Record<string, number> } | null }>;

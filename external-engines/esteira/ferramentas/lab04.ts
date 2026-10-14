@@ -42,6 +42,7 @@ import type { EntradaMotorV1 } from "@generate/contratos/motor-v1/index.ts";
 import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
 import { symbiosParaOContrato, type LoteParaOContrato } from "../src/symbios-para-contrato.ts";
 import { lotearQuadra, type EixoDeVia } from "../src/lotear.ts";
+import { provaDeDeterminismo } from "../src/prova-de-determinismo.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-04");
@@ -198,7 +199,8 @@ for (const id of ["ensaio-47ha", "geo-antonina"]) {
       bis.push({ quadraIndice: iq, pontos: l.pontos, area_m2: n2(l.area_m2), testada_m: n2(l.testada_m) });
     }
   });
-  const determinismo = JSON.stringify(bis) === JSON.stringify(lotes);
+  // A prova guarda as duas assinaturas, não só o veredito (D330).
+  const determinismo = provaDeDeterminismo("os lotes da subdivisão, peça por peça", lotes, bis);
 
   // ── As referências ─────────────────────────────────────────────────────
   const doGenerate = ["ortogonal", "espinha"].map((m) => {
@@ -273,7 +275,7 @@ for (const id of ["ensaio-47ha", "geo-antonina"]) {
   console.log(`  LOTES ${s.lotes} · área vendável ${(s.areaVendavel_m2 / 1e4).toFixed(2)} ha (${s.areaVendavel_pctDaGleba} % da gleba)`);
   console.log(`  aproveitamento das quadras ${s.aproveitamentoDasQuadras_pct} % · lote médio ${s.loteMedio_m2} m² · testada mediana ${s.testadaMediana_m} m`);
   console.log(`  arestas com rua ${s.arestasDeFrente}, sem rua ${s.arestasSemRua} · descartados: área mín ${s.descartadosPorArea}, área máx ${s.descartadosPorAreaMaxima}, sem rua na fatia ${s.descartadosPorFaltaDeRua}, testada ${s.descartadosPorTestada}, via por cima ${s.descartadosPorVia}`);
-  console.log(`  ${s.ms} ms · determinismo ${s.determinismo ? "OK" : "FALHOU"}`);
+  console.log(`  ${s.ms} ms · determinismo ${s.determinismo.identicas ? "OK" : "FALHOU"}`);
   if (j.recusa) console.log(`  CONTRATO RECUSADO: ${j.recusa[0]}`);
   else console.log(`  Judge ${j.judge!.numLotes} lotes · Validator ${j.validator!.violacoes} violações ${JSON.stringify(j.validator!.porTipo)}`);
   console.log(`  ── referências ──`);
