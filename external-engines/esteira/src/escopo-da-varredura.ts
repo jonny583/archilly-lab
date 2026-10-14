@@ -59,6 +59,42 @@ export const EH_CONFIGURACAO = (f: string): boolean =>
     f,
   );
 
+/** O que conta como CÓDIGO para as duas regras que vivem nele — o MESMO predicado na
+ * varredura e na conta da outra mão, para um `.ts` na caixa nunca sair das duas. */
+export const EH_CODIGO = (f: string): boolean => /\.(ts|js)$/.test(f) && !f.includes("node_modules/");
+
+/**
+ * ── A ESCRITA DA OUTRA MÃO SAI DA CONTA DO UNIVERSO, e não da varredura (LAB-107, D334) ──
+ *
+ * **Medido no LAB-106 e remedido aqui:** sobre os 37 estados da `main` desde o LAB-86, a
+ * recontagem desta prova ficava VERMELHA em **15 de 15** escritas da direção na caixa — cada
+ * item ou adendo é um arquivo a mais no `git ls-files`, e `arquivosQueOGitCarrega` mudava sem
+ * que a varredura mudasse uma linha. A `main` ficava vermelha da escrita da direção até o
+ * próximo envio desta casa, e *vigia que fica vermelho por ofício vira ruído e morre*.
+ *
+ * As duas saídas que a proposta pediu para medir, cada uma pelo que a régua PERDE:
+ *
+ * | forma | o que se perde |
+ * |---|---|
+ * | tirar o número do universo da recontagem | a recontagem deixa de ver **todo** arquivo que não é configuração nem código — o envelhecimento do LAB-98 e do LAB-104 (2 de 21 envios desta casa) só aparecia por ele. Perde-se o que a trava pegou de verdade |
+ * | **tirar da conta a escrita da outra mão** *(escolhida)* | só o `.md` que nasce na caixa — que a varredura nunca leu. Remedido: as 15 escritas da direção ficam verdes e **os 2 envios vermelhos desta casa seguem vermelhos** |
+ *
+ * **E é estreita de propósito:** sai da CONTA, não da VARREDURA, e só o que não é
+ * configuração nem código. Um `.yml` ou um `.ts` posto na caixa continua varrido e contado —
+ * o desligador escondido na pasta da outra mão é exatamente o que esta régua procura.
+ *
+ * Renomear para `-FEITO` não muda a conta; só o arquivo NOVO muda, e só a direção os cria.
+ */
+export const DA_OUTRA_MAO: readonly { casa: (f: string) => boolean; porque: string }[] = [
+  {
+    casa: (f) => f.startsWith("docs/caixa-de-entrada/") && !EH_CONFIGURACAO(f) && !EH_CODIGO(f),
+    porque:
+      "é a CAIXA DE ENTRADA, escrita pela direção noutro clone e noutro instante: cada item novo mudava o número do universo sem mudar a varredura, e deixava a `main` vermelha até o próximo envio desta casa (15 de 15, LAB-106). Sai da CONTA, não da varredura, e só o que não é configuração nem código",
+  },
+];
+
+export const eDaOutraMao = (f: string): boolean => DA_OUTRA_MAO.some((x) => x.casa(f));
+
 /**
  * O que fica FORA da varredura, e **por quê**. Conjunto fechado: a trava reprova arquivo
  * de configuração que não esteja nem varrido nem nomeado aqui.
@@ -123,7 +159,10 @@ export interface LinhaDoEscopo {
 
 /** Os números do escopo — o que a prova publica e a trava reconta. */
 export interface NumerosDoEscopo {
-  arquivosQueOGitCarrega: number;
+  /** O `git ls-files` MENOS a escrita da outra mão (`DA_OUTRA_MAO`, LAB-107). Era
+   * `arquivosQueOGitCarrega`, o total; o nome mudou junto com o que ele conta, para nenhuma
+   * prova antiga passar por esta (*rótulo não é identidade*, D148). */
+  arquivosQueOGitCarregaForaDaCaixa: number;
   configuracoesEncontradas: number;
   configuracoesVarridas: number;
   configuracoesForaDoEscopoNomeadas: number;
@@ -209,8 +248,7 @@ export function medirOEscopo(
   const jaVarridos = new Set(porArquivo.filter((l) => l.varrido).map((l) => l.arquivo));
   const codigo = carregados.filter(
     (f) =>
-      /\.(ts|js)$/.test(f) &&
-      !f.includes("node_modules/") &&
+      EH_CODIGO(f) &&
       !jaVarridos.has(f) &&
       !(f in FONTES_DA_PROPRIA_REGUA),
   );
@@ -226,7 +264,7 @@ export function medirOEscopo(
 
   return {
     numeros: {
-      arquivosQueOGitCarrega: carregados.length,
+      arquivosQueOGitCarregaForaDaCaixa: carregados.filter((f) => !eDaOutraMao(f)).length,
       configuracoesEncontradas: porArquivo.length,
       configuracoesVarridas: porArquivo.filter((l) => l.varrido).length,
       configuracoesForaDoEscopoNomeadas: porArquivo.filter((l) => !l.varrido).length,

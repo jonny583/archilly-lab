@@ -346,6 +346,16 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-107 · item 900 — a minha própria lista: a escrita da outra mão sai da conta do universo — ✅ **feito em 14/10/2026** (D334)
+
+Caixa só com o 900; peguei a proposta do LAB-106, abaixo — a única das três com defeito acontecendo
+hoje. Remedido nos 37 estados da `main` desde o LAB-86: tirar da **conta** do universo o `.md` que
+nasce em `docs/caixa-de-entrada/` leva as escritas da direção de **15 vermelhas a 0** e deixa os
+envios desta casa em **2 e 2** (LAB-98 e LAB-104, os mesmos). Sai da conta, não da varredura; código
+e configuração na caixa seguem contados e varridos; a chave mudou de nome com o sentido
+(`arquivosQueOGitCarregaForaDaCaixa`). Oito travas, sete mutações acusadas, 793 → 801.
+Relatório: [`../relatorios/LAB-107.md`](../relatorios/LAB-107.md).
+
 ### LAB-106 · item 900 — a minha própria lista: a ordem da entrega, cobrada no envio — ✅ **feito em 14/10/2026** (D333)
 
 Caixa só com o 900; peguei a proposta do LAB-105, abaixo — a mais importante das três que não esperam
@@ -357,12 +367,13 @@ o gancho `external-engines/ganchos/pre-push`, ligado pelo `conferir.sh`, recusa 
 que não é o `HEAD` e roda as travas do trabalho sem clones sobre o que vai. Nove mutações acusadas,
 778 → 793 travas. Relatório: [`../relatorios/LAB-106.md`](../relatorios/LAB-106.md).
 
-**Proposto (minha lista, não espera ninguém):** **a prova do LAB-57 deixar de ficar vermelha a cada
+✅ **FEITO no LAB-107** (item 900, D334): a escrita da outra mão sai da conta, não da varredura.
+Relatório: [`../relatorios/LAB-107.md`](../relatorios/LAB-107.md). — ~~**Proposto (minha lista, não espera ninguém):** **a prova do LAB-57 deixar de ficar vermelha a cada
 item da caixa.** A outra metade da medição: toda escrita da direção em `docs/caixa-de-entrada/` muda
 `arquivosQueOGitCarrega` e deixa a `main` vermelha até o próximo envio desta casa — 15 de 15. Nenhum
 arquivo da caixa é configuração nem código, então a varredura não muda; só o número do universo. Medir
 se a recontagem deve declarar a caixa como escrita de outra mão (fora da conta, com o motivo) ou se o
-número do universo deve sair da recontagem — e decidir pelo que a régua perde em cada uma.
+número do universo deve sair da recontagem — e decidir pelo que a régua perde em cada uma.~~
 
 ### LAB-105 · item 900 — a minha própria lista: a terceira pergunta do determinismo — ✅ **feito em 14/10/2026** (D332)
 
@@ -1430,7 +1441,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 793 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 801 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

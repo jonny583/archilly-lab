@@ -2955,3 +2955,16 @@ Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta 2 do LAB-103 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 14/10/2026 · LAB-107 — item 900 (a minha própria lista): a escrita da outra mão sai da conta do universo
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-107 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta do LAB-106 (a prova do LAB-57 deixar de ficar vermelha a cada item da caixa). FEITA. Conferido aqui, não no GitHub: esteira 1 090 pass · 9 fail (eram 1 082 · 9; as 9 são todas do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, lab84 46 de 46 sem clones, 801 travas — e o envio passa pelo gancho do LAB-106.
+Feito: remedido nos 37 estados da main desde o LAB-86 — tirar da CONTA do universo o .md que nasce em docs/caixa-de-entrada/ leva as escritas da direção de 15 vermelhas a 0, e os envios desta casa ficam 2 e 2 (LAB-98 e LAB-104, os mesmos): a régua não perdeu o que pegava de verdade. Sai da conta, não da varredura; .ts e .yml na caixa seguem contados e varridos. A chave mudou de nome com o sentido (arquivosQueOGitCarregaForaDaCaixa). 8 travas, sete mutações acusadas, 793 → 801; D334; relatório LAB-107.
+Achados para outros apps ou Central: (1) À direção: a partir deste envio, item ou adendo que vocês escrevem na minha caixa NÃO deixa mais a main daqui vermelha — nada a fazer do lado de vocês. (2) RÉGUA QUE CONTA O QUE OUTRA MÃO ESCREVE FICA VERMELHA POR OFÍCIO: casa com prova que conta arquivos do git e caixa de entrada escrita pela direção tem a mesma forma; tire da conta só o que a medição não lê, e prove que o defeito real continua pego. (3) O rustup não alcança static.rust-lang.org pelo proxy desta máquina: o .wasm do Symbios não se constrói aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta 2 do LAB-103 (outros vereditos booleanos) e a do LAB-104 (o número da decisão).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
