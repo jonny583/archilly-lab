@@ -41,7 +41,7 @@ import { areaPoligono } from "@symbios/geo.ts";
 import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
 import type { Terreno } from "@symbios/contrato.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
-import { provaDeDeterminismo } from "../src/prova-de-determinismo.ts";
+import { provaDeDeterminismo, type APerguntaDaOutraSemente } from "../src/prova-de-determinismo.ts";
 import {
   aderenciaAViaDesenhada,
   julgar,
@@ -90,11 +90,23 @@ const MOTORES = [
 
 type MotorId = (typeof MOTORES)[number]["id"];
 
-function rodar(id: MotorId, entrada: EntradaMinima): Rodada {
+function rodar(id: MotorId, entrada: EntradaMinima, semente: number = SEMENTE): Rodada {
   if (id === "generate-ortogonal") return rodarGenerate(entrada, "ortogonal", CARIMBO);
   if (id === "generate-espinha") return rodarGenerate(entrada, "espinha", CARIMBO);
-  if (id === "parcelamento") return rodarTestfit(entrada, SEMENTE);
-  return rodarSymbios(motorWasm, entrada, SEMENTE, CARIMBO);
+  if (id === "parcelamento") return rodarTestfit(entrada, semente);
+  return rodarSymbios(motorWasm, entrada, semente, CARIMBO);
+}
+
+/**
+ * A terceira pergunta da prova de determinismo (D332), motor a motor. O motor interno do Generate
+ * **não tem semente** (`src/motores/generate.ts` declara: entra na assinatura e não é usada) — e
+ * dizer isso é a resposta; os outros dois rodam a outra semente.
+ */
+function aOutraSemente(id: MotorId, entrada: EntradaMinima): APerguntaDaOutraSemente {
+  if (id === "generate-ortogonal" || id === "generate-espinha") {
+    return { semSemente: "o motor interno do Generate não tem semente: rodarGenerate não a lê (semente: null no veredito)" };
+  }
+  return { outraSemente: SEMENTE + 1, saida: rodar(id, entrada, SEMENTE + 1).saida };
 }
 
 /** As vias da SAÍDA, para medir aderência à via desenhada à mão. */
@@ -147,7 +159,7 @@ for (const { id, entrada } of GLEBAS) {
     // Determinismo: a mesma entrada, duas vezes, comparando a SAÍDA inteira.
     const bis = rodar(m.id, entrada);
     // A prova guarda as duas assinaturas, não só o veredito (D330).
-    const determinismo = provaDeDeterminismo("a saída inteira", r.saida, bis.saida);
+    const determinismo = provaDeDeterminismo("a saída inteira", r.saida, bis.saida, aOutraSemente(m.id, entrada));
 
     const ader = aderenciaAViaDesenhada(entrada, viasDaSaida(r.saida));
 

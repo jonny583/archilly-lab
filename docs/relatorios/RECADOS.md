@@ -2929,3 +2929,16 @@ Próximo na fila: a caixa só tem o 900; na FILA seguem as propostas 1 e 2 do LA
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 14/10/2026 · LAB-105 — item 900 (a minha própria lista): a terceira pergunta do determinismo, a outra semente
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-105 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta 1 do LAB-103 (a terceira assinatura). FEITA. Conferido aqui, não no GitHub: esteira 1 067 pass · 9 fail (eram 1 063 · 9 no LAB-104, e a main dele tinha uma 10ª, a prova do LAB-57 envelhecida; as 9 de agora são todas do .wasm), testfit 17 · 0, typecheck e lint limpos, lab84 45 de 45 sem clones.
+Feito: duas execuções iguais provam a REPETIÇÃO, não a DEPENDÊNCIA — um motor que ignora a entrada também dá "idênticas". provaDeDeterminismo agora exige a resposta: a saída da outra semente (SEMENTE + 1, sementeTemEfeito derivado) ou semSemente com o motivo. As 7 chamadas respondem (4 rodam a outra semente; lab04/lab05 dizem que a geometria não sorteia; lab13 decide por motor — o Generate não tem semente). Rodadas numa cópia descartável, lab40 e lab46: a outra semente MUDA a saída do Parcelamento. 4 travas, oito mutações acusadas, 774 → 778; D332; relatório LAB-105.
+Achados para outros apps ou Central: DUAS EXECUÇÕES IGUAIS PROVAM A REPETIÇÃO, NÃO A DEPENDÊNCIA — casa que prova determinismo (o Laboratório de Parcelamento: "Determinismo é lei") pergunte também se a outra semente muda a saída, ou escreva por que não há semente. E: a main do LAB-104 saiu com a prova do LAB-57 envelhecida (587 contra 588 arquivos) — prova que conta a árvore regerada ANTES do último arquivo; regerada aqui, na ordem certa.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta 2 do LAB-103 (outros vereditos booleanos), a do LAB-104 (o número da decisão) e a nova (a ordem da entrega como trava).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

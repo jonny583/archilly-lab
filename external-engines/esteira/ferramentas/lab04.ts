@@ -200,7 +200,9 @@ for (const id of ["ensaio-47ha", "geo-antonina"]) {
     }
   });
   // A prova guarda as duas assinaturas, não só o veredito (D330).
-  const determinismo = provaDeDeterminismo("os lotes da subdivisão, peça por peça", lotes, bis);
+  const determinismo = provaDeDeterminismo("os lotes da subdivisão, peça por peça", lotes, bis, {
+    semSemente: "a subdivisão não sorteia: lotearQuadra é função só da quadra, dos parâmetros e das vias",
+  });
 
   // ── As referências ─────────────────────────────────────────────────────
   const doGenerate = ["ortogonal", "espinha"].map((m) => {
