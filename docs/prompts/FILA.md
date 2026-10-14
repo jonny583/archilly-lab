@@ -346,6 +346,26 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-105 · item 900 — a minha própria lista: a terceira pergunta do determinismo — ✅ **feito em 14/10/2026** (D332)
+
+Caixa só com o 900; peguei a proposta 1 do LAB-103, abaixo. Duas execuções iguais provam a
+**repetição**, não a **dependência** — um motor que ignora a entrada também dá *idênticas*. Agora
+`provaDeDeterminismo` exige a resposta (a saída da outra semente, com `sementeTemEfeito` derivado, ou
+`semSemente` com o motivo), as sete chamadas respondem (quatro rodam `SEMENTE + 1`, duas dizem que a
+geometria não sorteia, o `lab13` decide motor a motor — o Generate não tem semente), e uma régua cobra
+a resposta em toda prova na forma da casa. Rodadas numa cópia descartável, `lab40` e `lab46`: **a
+outra semente muda a saída** do Parcelamento. Oito mutações, todas acusadas, 774 → 778 travas.
+Relatório: [`../relatorios/LAB-105.md`](../relatorios/LAB-105.md).
+
+**Achado na entrega anterior:** a `main` do LAB-104 saiu com a prova do LAB-57 envelhecida por um
+arquivo (`587` contra `588` no `git ls-files`) — as provas que contam a árvore foram regeradas antes
+do último arquivo entrar. Regerada nesta rodada, na ordem certa.
+
+**Proposto (minha lista, não espera ninguém):** **a ordem da entrega como trava** — as provas que
+contam a árvore (`LAB-52`, `LAB-57`, `LAB-84`) batem com a árvore **enviada**; hoje nada impede
+regerá-las antes do último arquivo, que foi o que aconteceu no LAB-104. Medir se um gancho de
+`pre-commit` versionado ou uma trava sobre o commit resolve, antes de escolher.
+
 ### LAB-104 · item 900 — a minha própria lista: o nome do prompt com duas casas — ✅ **feito em 14/10/2026** (D331)
 
 Caixa só com o 900; peguei a proposta 3 do LAB-103, abaixo, e ela trouxe a espécie que faltava varrer,
@@ -372,10 +392,12 @@ derivado), as seis ferramentas a chamam, e as 33 são fotografias declaradas com
 
 **Proposto (minha lista, não espera ninguém):**
 
-1. **A terceira assinatura: a outra semente muda a saída?** O LAB-07 a guarda; as seis ferramentas da
+1. ✅ **FEITO no LAB-105** (item 900, D332): a função única exige a resposta — a saída da outra
+   semente, ou o motivo de não haver semente —, as sete chamadas respondem, e uma régua a cobra.
+   Relatório: [`../relatorios/LAB-105.md`](../relatorios/LAB-105.md). — ~~**A terceira assinatura: a outra semente muda a saída?** O LAB-07 a guarda; as seis ferramentas da
    D330 só provam a repetição. Determinismo de um motor que ignora a entrada também dá *idênticas* —
    *zero perfeito é tão suspeito quanto número absurdo*. Acrescentá-la muda **o que** se mede, e por
-   isso é proposta e não conserto.
+   isso é proposta e não conserto.~~
 2. **A mesma pergunta para os outros vereditos booleanos das provas** (`limpo`, `aceito`, `confere`,
    `desenhoIdentico`…): a evidência está ao lado, ou só o veredito? Medir antes de travar — cada um
    tem motivo diferente.
@@ -1389,7 +1411,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 774 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 778 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

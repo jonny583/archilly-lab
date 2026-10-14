@@ -194,10 +194,13 @@ for (const id of ["ensaio-47ha", "geo-antonina"]) {
   // Determinismo: duas execuções, mesma semente.
   const bis = recortarPelaGleba(gerarRedeViaria(motor, t, {}, SEMENTE), t);
   // A prova guarda as duas assinaturas, não só o veredito (D330).
+  // A terceira pergunta (D332): a outra semente muda a saída? Se não muda, o motor ignora a entrada.
+  const outraSymbios = gerarRedeViaria(motor, t, {}, SEMENTE + 1);
   const determinismoSymbios = provaDeDeterminismo(
     "as vias recortadas e o hash do motor",
     { vias: corte.vias, hash: bruto.diagnostico.hash },
     { vias: bis.vias, hash: gerarRedeViaria(motor, t, {}, SEMENTE).diagnostico.hash },
+    { outraSemente: SEMENTE + 1, saida: { vias: recortarPelaGleba(outraSymbios, t).vias, hash: outraSymbios.diagnostico.hash } },
   );
 
   writeFileSync(
@@ -229,10 +232,18 @@ for (const id of ["ensaio-47ha", "geo-antonina"]) {
   const bisT = rodarEsteira(comRelevo as unknown as EntradaV1, {
     semente: SEMENTE, variantes: VARIANTES, aparar: true, formatos: [...TODOS_OS_FORMATOS],
   });
+  // A terceira pergunta (D332): a mesma rodada com a outra semente.
+  const outraT = rodarEsteira(comRelevo as unknown as EntradaV1, {
+    semente: SEMENTE + 1, variantes: VARIANTES, aparar: true, formatos: [...TODOS_OS_FORMATOS],
+  });
   const determinismoTestfit = provaDeDeterminismo(
     "a assinatura da rodada e a saída de todas as variantes",
     { assinatura: rt.assinaturaDaRodada, saidas: rt.variantes.map((v) => v.saida) },
     { assinatura: bisT.assinaturaDaRodada, saidas: bisT.variantes.map((v) => v.saida) },
+    {
+      outraSemente: SEMENTE + 1,
+      saida: { assinatura: outraT.assinaturaDaRodada, saidas: outraT.variantes.map((v) => v.saida) },
+    },
   );
 
   if (melhor) {

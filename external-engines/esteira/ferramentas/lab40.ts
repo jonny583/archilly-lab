@@ -337,9 +337,9 @@ const AMOSTRAGENS = [
   { rotulo: "completo (o que o Lab publica)", variantes: VARIANTES, formatos: FORMATOS },
 ];
 
-const rodar = (a: (typeof AMOSTRAGENS)[number], comAsFaces: boolean) =>
+const rodar = (a: (typeof AMOSTRAGENS)[number], comAsFaces: boolean, semente: number = SEMENTE) =>
   rodarEsteira(comTestada as unknown as EntradaV1, {
-    semente: SEMENTE,
+    semente,
     variantes: a.variantes,
     aparar: true,
     formatos: [...a.formatos] as never,
@@ -396,8 +396,13 @@ const determinista = provaDeDeterminismo(
   "a medição da amostragem completa, com as faces",
   medicoes[2]!.comAsFaces,
   umaDeNovo,
+  // A terceira pergunta (D332): a mesma amostragem com a outra semente.
+  { outraSemente: SEMENTE + 1, saida: medir(escolher(rodar(AMOSTRAGENS[2]!, true, SEMENTE + 1))) },
 );
-console.log(`    determinismo (amostragem completa, com as faces): ${determinista.identicas ? "ok" : "FALHOU"}`);
+console.log(
+  `    determinismo (amostragem completa, com as faces): ${determinista.identicas ? "ok" : "FALHOU"}` +
+    ` · outra semente: ${"sementeTemEfeito" in determinista ? (determinista.sementeTemEfeito ? "muda a saída" : "NÃO muda a saída") : "—"}`,
+);
 
 mkdirSync(SAIDA, { recursive: true });
 writeFileSync(

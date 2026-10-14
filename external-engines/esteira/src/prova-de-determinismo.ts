@@ -27,6 +27,10 @@
  *   **derivado** delas. As seis ferramentas que gravavam o `true` passaram a chamá-la.
  * - `vereditosSemEvidencia` — a régua: anda num JSON e acha todo campo `determinis*` booleano
  *   cujo objeto não traga **duas assinaturas** ao lado. Devolve o caminho.
+ * - **a terceira pergunta (LAB-105, D332)** — `provaDeDeterminismo` exige saber se **a outra
+ *   semente muda a saída**: ou roda-a e grava `assinaturaOutraSemente` e `sementeTemEfeito`, ou diz
+ *   em `semSemente` por que a computação não sorteia. `provasSemAOutraSemente` é a régua: toda prova
+ *   na forma desta casa (`oQueSeComparou`) traz a resposta.
  * - `conferirAsProvas` — os dois sentidos contra a lista fechada `FOTOGRAFIAS`: veredito sem
  *   evidência fora da lista reprova; **entrada da lista que não acha mais o que declarou
  *   reprova** (lista que não se revalida envelhece igual a comentário, D104). E publica o
@@ -42,15 +46,44 @@
  */
 import { createHash } from "node:crypto";
 
-/** A prova gravada: o que se comparou, as duas assinaturas e o veredito que sai delas. */
-export interface ProvaDeDeterminismo {
+/**
+ * **A terceira pergunta: a outra semente muda a saída?** (LAB-105, item 900, proposta 1 do LAB-103,
+ * D332). Duas execuções iguais provam a repetição — e um motor que **ignora a entrada** também dá
+ * *idênticas*. *Zero perfeito é tão suspeito quanto número absurdo.* O LAB-07 já guardava a
+ * resposta (`assinaturaOutraSemente`, `sementeTemEfeito`); as seis ferramentas da D330, não.
+ *
+ * O parâmetro é **obrigatório e tem duas formas**, e não há terceira: ou a ferramenta roda a outra
+ * semente e passa a saída dela, ou diz **por que** a computação não tem semente (*"a subdivisão não
+ * sorteia"*, *"o motor interno não lê a semente"*). Campo que não existe não se esquece — e
+ * pergunta que o tipo exige não se pula.
+ *
+ * `sementeTemEfeito: false` **não reprova**: é medição, e o Lab mede, não julga o motor (D20). Fica
+ * gravado para quem lê, que é exatamente o que um `true` sozinho não deixava.
+ */
+export type APerguntaDaOutraSemente =
+  | { outraSemente: number; saida: unknown }
+  | { semSemente: string };
+
+/** A prova gravada: o que se comparou, as duas assinaturas, o veredito que sai delas, e a outra semente. */
+export type ProvaDeDeterminismo = {
   /** O objeto da comparação, em palavras — *"a saída inteira"*, *"as vias e o hash"*. */
   oQueSeComparou: string;
   assinaturaExecucao1: string;
   assinaturaExecucao2: string;
   /** **Derivado** das duas assinaturas, nunca informado à parte. */
   identicas: boolean;
-}
+} & (
+  | {
+      outraSemente: number;
+      assinaturaOutraSemente: string;
+      /** **Derivado**: a assinatura da outra semente difere da primeira execução. */
+      sementeTemEfeito: boolean;
+    }
+  | {
+      /** Por que esta computação não tem semente — dito, nunca subentendido. */
+      semSemente: string;
+    }
+);
 
 /** SHA-256 do JSON, nos 16 primeiros caracteres — a largura das assinaturas do LAB-07. */
 export function assinatura(valor: unknown): string {
@@ -59,20 +92,38 @@ export function assinatura(valor: unknown): string {
 
 /**
  * A prova de determinismo, com a evidência dentro. O veredito **sai das assinaturas**: não há
- * parâmetro por onde um `true` entre sem as duas ao lado.
+ * parâmetro por onde um `true` entre sem as duas ao lado — nem um `sementeTemEfeito` sem a
+ * terceira.
  */
 export function provaDeDeterminismo(
   oQueSeComparou: string,
   execucao1: unknown,
   execucao2: unknown,
+  aOutraSemente: APerguntaDaOutraSemente,
 ): ProvaDeDeterminismo {
   const assinaturaExecucao1 = assinatura(execucao1);
   const assinaturaExecucao2 = assinatura(execucao2);
-  return {
+  const base = {
     oQueSeComparou,
     assinaturaExecucao1,
     assinaturaExecucao2,
     identicas: assinaturaExecucao1 === assinaturaExecucao2,
+  };
+  if ("semSemente" in aOutraSemente) {
+    if (aOutraSemente.semSemente.trim().length < 10) {
+      throw new Error(
+        "provaDeDeterminismo: semSemente precisa dizer POR QUE a computação não tem semente — " +
+          `"${aOutraSemente.semSemente}" não diz`,
+      );
+    }
+    return { ...base, semSemente: aOutraSemente.semSemente };
+  }
+  const assinaturaOutraSemente = assinatura(aOutraSemente.saida);
+  return {
+    ...base,
+    outraSemente: aOutraSemente.outraSemente,
+    assinaturaOutraSemente,
+    sementeTemEfeito: assinaturaOutraSemente !== assinaturaExecucao1,
   };
 }
 
@@ -117,6 +168,39 @@ export function vereditosSemEvidencia(json: unknown): string[] {
       }
       andar(v, aqui);
     }
+  };
+  andar(json, "");
+  return achados;
+}
+
+/**
+ * **A régua da terceira pergunta** (D332): toda prova **na forma desta casa** — objeto com
+ * `oQueSeComparou`, que só `provaDeDeterminismo` escreve — traz a resposta da outra semente: ou
+ * `assinaturaOutraSemente` (hexadecimal) com `sementeTemEfeito` (booleano), ou `semSemente` com o
+ * motivo escrito. Devolve o caminho de cada uma que não traz nenhuma das duas.
+ *
+ * **O que ela NÃO lê, de propósito:** as formas do LAB-07 e do Symbios, escritas à mão fora desta
+ * função (não têm `oQueSeComparou`), e as 33 fotografias da D330 — são de antes da pergunta, e
+ * cobrar delas a resposta seria regerá-las (D288).
+ */
+export function provasSemAOutraSemente(json: unknown): string[] {
+  const achados: string[] = [];
+  const andar = (x: unknown, caminho: string): void => {
+    if (Array.isArray(x)) {
+      x.forEach((v, i) => andar(v, `${caminho}[${i}]`));
+      return;
+    }
+    if (x === null || typeof x !== "object") return;
+    const o = x as Record<string, unknown>;
+    if (typeof o["oQueSeComparou"] === "string") {
+      const comAOutra =
+        typeof o["assinaturaOutraSemente"] === "string" &&
+        ASSINATURA.test(o["assinaturaOutraSemente"]) &&
+        typeof o["sementeTemEfeito"] === "boolean";
+      const semSemente = typeof o["semSemente"] === "string" && o["semSemente"].trim().length >= 10;
+      if (!comAOutra && !semSemente) achados.push(caminho || "(raiz)");
+    }
+    for (const [k, v] of Object.entries(o)) andar(v, caminho ? `${caminho}.${k}` : k);
   };
   andar(json, "");
   return achados;
@@ -180,6 +264,10 @@ export interface ConferenciaDasProvas {
   semEvidencia: string[];
   /** Fotografia cuja contagem não bate mais — a lista envelheceu. */
   fotografiasQueEnvelheceram: string[];
+  /** Quantas provas na forma desta casa (`oQueSeComparou`) a régua da terceira pergunta leu. */
+  provasNaFormaDaCasa: number;
+  /** Prova na forma desta casa sem a resposta da outra semente (D332). Não há fotografia para isto. */
+  semAOutraSemente: string[];
 }
 
 /** Algum campo `determinis*` em qualquer profundidade? */
@@ -191,16 +279,29 @@ function falaDeDeterminismo(json: unknown): boolean {
   );
 }
 
+/** Quantos objetos na forma desta casa (`oQueSeComparou` em texto), em qualquer profundidade. */
+function contarNaFormaDaCasa(json: unknown): number {
+  if (Array.isArray(json)) return json.reduce((s: number, v) => s + contarNaFormaDaCasa(v), 0);
+  if (json === null || typeof json !== "object") return 0;
+  const o = json as Record<string, unknown>;
+  const aqui = typeof o["oQueSeComparou"] === "string" ? 1 : 0;
+  return aqui + Object.values(o).reduce((s: number, v) => s + contarNaFormaDaCasa(v), 0);
+}
+
 /** Os dois sentidos contra a lista fechada, e o universo lido. */
 export function conferirAsProvas(
   provas: readonly ProvaLida[],
   fotografias: typeof FOTOGRAFIAS = FOTOGRAFIAS,
 ): ConferenciaDasProvas {
   const semEvidencia: string[] = [];
+  const semAOutraSemente: string[] = [];
+  let provasNaFormaDaCasa = 0;
   const contagem = new Map<string, number>();
   let falam = 0;
   for (const p of provas) {
     if (falaDeDeterminismo(p.json)) falam++;
+    provasNaFormaDaCasa += contarNaFormaDaCasa(p.json);
+    for (const c of provasSemAOutraSemente(p.json)) semAOutraSemente.push(`${p.arquivo} · ${c}`);
     const achados = vereditosSemEvidencia(p.json);
     contagem.set(p.arquivo, achados.length);
     if (achados.length === 0) continue;
@@ -212,5 +313,12 @@ export function conferirAsProvas(
   const fotografiasQueEnvelheceram = fotografias
     .filter((f) => (contagem.get(f.prova) ?? 0) < f.vereditos)
     .map((f) => `${f.prova}: declarados ${f.vereditos}, achados ${contagem.get(f.prova) ?? "o arquivo não foi lido"}`);
-  return { lidos: provas.length, falamDeDeterminismo: falam, semEvidencia, fotografiasQueEnvelheceram };
+  return {
+    lidos: provas.length,
+    falamDeDeterminismo: falam,
+    semEvidencia,
+    fotografiasQueEnvelheceram,
+    provasNaFormaDaCasa,
+    semAOutraSemente,
+  };
 }

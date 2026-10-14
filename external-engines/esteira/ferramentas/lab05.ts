@@ -208,7 +208,9 @@ for (const { id, entrada, julgaLote } of GLEBAS) {
     quadras: r.quadras.map((q) => q.pontos),
     vias: r.vias.map((v) => v.pontos),
   });
-  const determinismo = provaDeDeterminismo("as quadras e as vias do recorte, ponto a ponto", pecas(com), pecas(bis));
+  const determinismo = provaDeDeterminismo("as quadras e as vias do recorte, ponto a ponto", pecas(com), pecas(bis), {
+    semSemente: "o recorte não sorteia: recortarPelaGleba é função só da rede bruta, do terreno e das opções",
+  });
 
   const areaGleba = areaPoligono(t.gleba);
   const areaQueDesconta = t.restricoes

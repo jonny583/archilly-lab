@@ -81,9 +81,9 @@ const AMOSTRAGENS = [
 const { testadasDeFrente } = linhasDaEntrada(entrada);
 const faces = oQueAEsteiraPassaPronto(entrada).facesLoteamento;
 
-const rodar = (a: (typeof AMOSTRAGENS)[number], comAsFaces: boolean) =>
+const rodar = (a: (typeof AMOSTRAGENS)[number], comAsFaces: boolean, semente: number = SEMENTE) =>
   rodarEsteira(entrada as unknown as EntradaV1, {
-    semente: SEMENTE,
+    semente,
     variantes: a.variantes,
     aparar: true,
     formatos: [...a.formatos] as never,
@@ -206,8 +206,13 @@ const determinista = provaDeDeterminismo(
   "a medição da amostragem completa, com as faces (sem a contagem de aceitas, que medir() não traz)",
   medicoes[2]!.comAsFaces && { ...medicoes[2]!.comAsFaces, aceitas: 0 },
   deNovo,
+  // A terceira pergunta (D332): a mesma amostragem com a outra semente, medida igual à segunda.
+  { outraSemente: SEMENTE + 1, saida: medir(escolher(rodar(AMOSTRAGENS[2]!, true, SEMENTE + 1))) },
 );
-console.log(`\n  determinismo (amostragem completa, com as faces): ${determinista.identicas ? "ok" : "CONFERIR"}`);
+console.log(
+  `\n  determinismo (amostragem completa, com as faces): ${determinista.identicas ? "ok" : "CONFERIR"}` +
+    ` · outra semente: ${"sementeTemEfeito" in determinista ? (determinista.sementeTemEfeito ? "muda a saída" : "NÃO muda a saída") : "—"}`,
+);
 
 const soNaCompleta = medicoes.filter((m) => m.oPlanoFicouSoDeLoteExterno === true).map((m) => m.amostragem);
 console.log(

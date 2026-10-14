@@ -10373,3 +10373,52 @@ têm forma própria em `promptsDoCabecalho` (D217).
 > **TRAVA QUE DEFINE O UNIVERSO POR UMA FORMA ENVELHECE COM A FORMA.** Ela continua verde e passa a
 > não olhar o que nasceu depois. O universo que ela publica (*"mais de 20"*) não acusa quando quatro
 > somem de 95 — por isso a trava nova compara o universo lido com **todos** os relatórios de prompt.
+
+## D332 · A PROVA DE DETERMINISMO FAZ A TERCEIRA PERGUNTA — a outra semente muda a saída? · 14/10/2026
+
+**Origem:** item 900, a minha própria lista — a proposta 1 do LAB-103 na `FILA.md` (*"a terceira
+assinatura: a outra semente muda a saída?"*). Relatório: [`relatorios/LAB-105.md`](relatorios/LAB-105.md).
+
+**O defeito:** a D330 fez a prova guardar as duas assinaturas da **repetição**. Mas duas execuções
+iguais também saem de um motor que **ignora a entrada** — *zero perfeito é tão suspeito quanto
+número absurdo*. O LAB-07 sempre fez a terceira pergunta (`assinaturaOutraSemente`,
+`sementeTemEfeito`, com `SEMENTE + 1`); as sete chamadas das seis ferramentas da D330, não.
+
+**O que se decidiu:**
+
+1. `provaDeDeterminismo` ganhou um **quarto parâmetro obrigatório** com **duas formas e nenhuma
+   terceira**: `{ outraSemente, saida }` — a função assina a saída e **deriva** `sementeTemEfeito` —
+   ou `{ semSemente: "<por quê>" }`, com o motivo escrito (menos de dez caracteres lança erro).
+   *Pergunta que o tipo exige não se pula.*
+2. As sete chamadas respondem: **quatro rodam a outra semente** (Symbios e Parcelamento no `lab08`,
+   e as amostragens do `lab40` e do `lab46`), **duas dizem por que não há** (`lab04`, a subdivisão;
+   `lab05`, o recorte — funções puras da geometria) e **uma decide motor a motor** (`lab13`: o motor
+   interno do Generate não lê a semente, os outros dois rodam a outra).
+3. `sementeTemEfeito: false` **não reprova**: é medição, e o Lab mede, não julga o motor (D20). Fica
+   gravado, que é exatamente o que um `true` sozinho não deixava.
+4. A régua `provasSemAOutraSemente` cobra a resposta em **toda prova na forma desta casa**
+   (`oQueSeComparou`), sem fotografia possível — nenhuma prova dessa forma existia antes da pergunta.
+   Não lê as formas escritas à mão (LAB-07, Symbios) nem as 33 fotografias da D330: cobrar delas a
+   resposta seria regerá-las (D288).
+5. Quatro travas novas em `tests/prova-de-determinismo.test.ts`: 774 → **778** no portão sem clones.
+
+**Os dois lados e as mutações:** oito mutações, todas acusadas — `sementeTemEfeito` sempre `true`, a
+régua que nunca acha, a régua que aceita motivo vazio, a função que aceita motivo vazio, meia
+resposta (a assinatura sem o veredito), a chamada do `lab46` sem a terceira, o detector de texto que
+aceita tudo, e uma prova plantada em `docs/` sem a resposta. Duas das oito **não pegaram na primeira
+tentativa** — a mutação era um `sed` de várias linhas que não se aplicou; refeitas, pegaram (*mutação
+que diz NÃO PEGOU é suspeita da mutação*).
+
+**Rodado, não lido:** `lab40` e `lab46` numa cópia descartável (`git worktree`, removida): a outra
+semente **muda** a saída nas duas (`799b1e59…` → `2c26c4ed…`; `82405c0e…` → `548e39de…`), e as duas
+réguas acham zero na prova regerada. As outras quatro ferramentas carregam o `.wasm` do Symbios, que
+não se constrói nesta máquina: typecheck e lint limpos, **não rodadas**.
+
+**Descartado:** tornar `sementeTemEfeito: false` reprovação (seria o Lab julgando o motor, D20; e o
+Generate não tem semente por desenho); usar a terceira pergunta como **outra entrada** em vez de outra
+semente nas funções puras (é outra pergunta — *a geometria responde à quadra?* — e mudaria o que se
+mede); regerar as 33 fotografias (D182, D288).
+
+> **DUAS EXECUÇÕES IGUAIS PROVAM A REPETIÇÃO, NÃO A DEPENDÊNCIA.** A prova de determinismo pergunta
+> também se a entrada que deveria mudar a saída muda — ou diz, por escrito, por que não há entrada
+> dessas.

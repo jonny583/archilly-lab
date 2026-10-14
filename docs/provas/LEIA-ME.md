@@ -54,7 +54,11 @@ virar anônima na mesa do Generate; o rótulo da rodada do Lab vai em
   entrada, duas vezes, dá a mesma SAÍDA byte a byte — **e a prova guarda as DUAS assinaturas**,
   não só o `true` (LAB-103, D330: `external-engines/esteira/src/prova-de-determinismo.ts`). Seis
   provas de 14/09 a 05/10 trazem só o veredito e ficam como estão, declaradas como fotografias;
-  *um `true` sozinho é a aparência da prova, não a prova*;
+  *um `true` sozinho é a aparência da prova, não a prova*. **E desde o LAB-105 (D332) ela faz a
+  terceira pergunta: a outra semente muda a saída?** — `assinaturaOutraSemente` e
+  `sementeTemEfeito`, ou `semSemente` com o motivo, quando a computação não sorteia (a subdivisão, o
+  recorte, o motor interno do Generate). Duas execuções iguais também saem de um motor que ignora a
+  entrada;
 - **`geradoEm` é carimbo fixo** nas provas, de propósito — carimbo de hora real
   quebraria a comparação byte a byte, que é justamente o que se quer comparar;
 - **`null` é "não medido" e zero é uma medição** (D23). Um campo `null` nunca
