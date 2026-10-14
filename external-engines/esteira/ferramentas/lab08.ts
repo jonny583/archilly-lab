@@ -39,6 +39,7 @@ import type { EntradaV1 } from "../../testfit/adapter/src/contrato-v1.ts";
 
 import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
 import { symbiosParaOContrato } from "../src/symbios-para-contrato.ts";
+import { provaDeDeterminismo } from "../src/prova-de-determinismo.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-08");
@@ -192,9 +193,12 @@ for (const id of ["ensaio-47ha", "geo-antonina"]) {
 
   // Determinismo: duas execuções, mesma semente.
   const bis = recortarPelaGleba(gerarRedeViaria(motor, t, {}, SEMENTE), t);
-  const determinismoSymbios =
-    JSON.stringify(bis.vias) === JSON.stringify(corte.vias) &&
-    bruto.diagnostico.hash === gerarRedeViaria(motor, t, {}, SEMENTE).diagnostico.hash;
+  // A prova guarda as duas assinaturas, não só o veredito (D330).
+  const determinismoSymbios = provaDeDeterminismo(
+    "as vias recortadas e o hash do motor",
+    { vias: corte.vias, hash: bruto.diagnostico.hash },
+    { vias: bis.vias, hash: gerarRedeViaria(motor, t, {}, SEMENTE).diagnostico.hash },
+  );
 
   writeFileSync(
     join(CONTRATOS, `${id}.symbios.saida.json`),
@@ -225,10 +229,11 @@ for (const id of ["ensaio-47ha", "geo-antonina"]) {
   const bisT = rodarEsteira(comRelevo as unknown as EntradaV1, {
     semente: SEMENTE, variantes: VARIANTES, aparar: true, formatos: [...TODOS_OS_FORMATOS],
   });
-  const determinismoTestfit =
-    bisT.assinaturaDaRodada === rt.assinaturaDaRodada &&
-    JSON.stringify(bisT.variantes.map((v) => v.saida)) ===
-      JSON.stringify(rt.variantes.map((v) => v.saida));
+  const determinismoTestfit = provaDeDeterminismo(
+    "a assinatura da rodada e a saída de todas as variantes",
+    { assinatura: rt.assinaturaDaRodada, saidas: rt.variantes.map((v) => v.saida) },
+    { assinatura: bisT.assinaturaDaRodada, saidas: bisT.variantes.map((v) => v.saida) },
+  );
 
   if (melhor) {
     writeFileSync(
@@ -392,7 +397,7 @@ for (const id of ["ensaio-47ha", "geo-antonina"]) {
   console.log(`  │ lotes ${s.lotes} · quadras ${s.quadras} (${(s.areaDeQuadras_m2 / 1e4).toFixed(1)} ha) · via ${s.comprimentoDeVia_m} m`);
   console.log(`  │ via fora da gleba: ${s.viaForaDaGleba.semRecorte} % → ${s.viaForaDaGleba.comRecorte} % · conectividade ${s.conectividade_pctNoMaior} %`);
   console.log(`  │ violações ${s.violacoes} ${JSON.stringify(s.porRegra)} · rampa cruz. máx ${s.rampa.cruzamento.maxima_pct} %`);
-  console.log(`  │ ${s.ms} ms · determinismo ${s.determinismo ? "OK" : "FALHOU"}`);
+  console.log(`  │ ${s.ms} ms · determinismo ${s.determinismo.identicas ? "OK" : "FALHOU"}`);
   console.log(`  ├ TESTFIT T02 (${tf.variantesJulgadas}/${tf.variantesPedidas} julgadas)`);
   if (tf.melhorVariante) {
     const m = tf.melhorVariante;
@@ -406,7 +411,7 @@ for (const id of ["ensaio-47ha", "geo-antonina"]) {
     const sr = tf.naGlebaSemRelevo;
     console.log(`  │ na gleba SEM relevo (a que o Generate mediu): ${sr.formato} · ${sr.lotes} lotes · lote médio ${sr.loteMedio_m2} m²`);
   }
-  console.log(`  │ ${tf.ms} ms · determinismo ${tf.determinismo ? "OK" : "FALHOU"}`);
+  console.log(`  │ ${tf.ms} ms · determinismo ${tf.determinismo.identicas ? "OK" : "FALHOU"}`);
   console.log(`  └ MOTOR INTERNO DO GENERATE (referência)`);
   for (const v of vereditos) {
     console.log(`    ${v.motor.padEnd(10)} ${String(v.lotes).padStart(5)} lotes · lote médio ${v.loteMedio_m2} m² · quadro fecha? ${v.excessoSobreOTotal_pct === 0 ? "sim" : `NÃO, ${v.excessoSobreOTotal_pct} % a mais de terra`}`);

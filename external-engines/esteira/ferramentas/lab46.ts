@@ -46,6 +46,7 @@ import { rodarEsteira } from "../../testfit/adapter/src/esteira.ts";
 import type { EntradaV1 } from "../../testfit/adapter/src/contrato-v1.ts";
 
 import { contratoDasEntradas, type EntradaMinima } from "../src/gleba-v1.ts";
+import { provaDeDeterminismo } from "../src/prova-de-determinismo.ts";
 import {
   linhasDaEntrada,
   lotesNaTestadaDeFrente,
@@ -200,11 +201,13 @@ const medicoes = AMOSTRAGENS.map((a) => {
 
 // Determinismo provado, não prometido.
 const deNovo = medir(escolher(rodar(AMOSTRAGENS[2]!, true)));
-const determinista = JSON.stringify(deNovo) === JSON.stringify(medicoes[2]!.comAsFaces && {
-  ...medicoes[2]!.comAsFaces,
-  aceitas: 0,
-});
-console.log(`\n  determinismo (amostragem completa, com as faces): ${determinista ? "ok" : "CONFERIR"}`);
+// A prova guarda as duas assinaturas, não só o veredito (D330).
+const determinista = provaDeDeterminismo(
+  "a medição da amostragem completa, com as faces (sem a contagem de aceitas, que medir() não traz)",
+  medicoes[2]!.comAsFaces && { ...medicoes[2]!.comAsFaces, aceitas: 0 },
+  deNovo,
+);
+console.log(`\n  determinismo (amostragem completa, com as faces): ${determinista.identicas ? "ok" : "CONFERIR"}`);
 
 const soNaCompleta = medicoes.filter((m) => m.oPlanoFicouSoDeLoteExterno === true).map((m) => m.amostragem);
 console.log(

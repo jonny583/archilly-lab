@@ -41,6 +41,7 @@ import { areaPoligono } from "@symbios/geo.ts";
 import { glebaParaOSymbios, type EntradaMinima } from "../src/gleba-v1.ts";
 import type { Terreno } from "@symbios/contrato.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
+import { provaDeDeterminismo } from "../src/prova-de-determinismo.ts";
 import {
   aderenciaAViaDesenhada,
   julgar,
@@ -145,7 +146,8 @@ for (const { id, entrada } of GLEBAS) {
 
     // Determinismo: a mesma entrada, duas vezes, comparando a SAÍDA inteira.
     const bis = rodar(m.id, entrada);
-    const determinismo = JSON.stringify(bis.saida) === JSON.stringify(r.saida);
+    // A prova guarda as duas assinaturas, não só o veredito (D330).
+    const determinismo = provaDeDeterminismo("a saída inteira", r.saida, bis.saida);
 
     const ader = aderenciaAViaDesenhada(entrada, viasDaSaida(r.saida));
 
@@ -211,7 +213,7 @@ for (const { id, entrada } of GLEBAS) {
       console.log(
         `  ${" ".repeat(32)} sobra ${((v.sobras?.areaSobra_m2 ?? 0) / 1e4).toFixed(2)} ha em ${v.sobras?.pecas} peças · ` +
           `irregulares ${v.forma?.girada.naoRetangulares}/${v.forma?.lotes} (mediana ${n3(v.forma?.girada.mediana ?? 0)}) · ` +
-          `${n2(r.ms)} ms · determinismo ${determinismo ? "OK" : "FALHOU"}` +
+          `${n2(r.ms)} ms · determinismo ${determinismo.identicas ? "OK" : "FALHOU"}` +
           (ader.fracao == null ? "" : ` · aderência à via desenhada ${(100 * ader.fracao).toFixed(1)} %`) +
           (v.frenteNaTestada ? ` · ${v.frenteNaTestada.lotes} lotes de frente para a testada` : ""),
       );

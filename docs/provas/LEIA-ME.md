@@ -51,7 +51,10 @@ virar anônima na mesa do Generate; o rótulo da rodada do Lab vai em
 ## O que mais é bom saber antes de comparar dois arquivos
 
 - **A semente é a mesma em todos** (`20260913`), e o determinismo é provado: a mesma
-  entrada, duas vezes, dá a mesma SAÍDA byte a byte;
+  entrada, duas vezes, dá a mesma SAÍDA byte a byte — **e a prova guarda as DUAS assinaturas**,
+  não só o `true` (LAB-103, D330: `external-engines/esteira/src/prova-de-determinismo.ts`). Seis
+  provas de 14/09 a 05/10 trazem só o veredito e ficam como estão, declaradas como fotografias;
+  *um `true` sozinho é a aparência da prova, não a prova*;
 - **`geradoEm` é carimbo fixo** nas provas, de propósito — carimbo de hora real
   quebraria a comparação byte a byte, que é justamente o que se quer comparar;
 - **`null` é "não medido" e zero é uma medição** (D23). Um campo `null` nunca
