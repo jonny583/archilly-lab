@@ -77,9 +77,11 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // DESTE repositório, lidos por `git ls-files` e `readdirSync`; nenhum clone.
     // E 46 no LAB-106, com a `antes-do-envio.test.ts` — a decisão do gancho do envio, um
     // repositório temporário criado na trava e o texto do gancho DESTE repositório; nenhum clone.
+    // E 47 no LAB-108, com a `veredito-de-identidade.test.ts` — os `.json` de `docs/` e o texto
+    // das ferramentas DESTE repositório, um módulo puro; nenhum clone.
     // O número anda quando o trabalho ganha ou perde arquivo, e
     // mudá-lo é deliberado: é a lista que a medição cobriu.
-    expect(lista).toHaveLength(46);
+    expect(lista).toHaveLength(47);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

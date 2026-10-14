@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-14T19:18:19.889Z",
+  "quando": "2026-10-14T23:17:31.639Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -435,12 +435,28 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. Hora do `cron` (4 h, minuto :05): o disparo chegou como texto, sem notificação lida, e o primeiro `date` da sessão (15:08) veio depois de clonar e desrasar os quatro clones",
         "rodada": "item 900 (LAB-106), tarefa da `FILA.md` (proposta do LAB-105: a ordem da entrega como trava)",
         "emVazio": false
+      },
+      {
+        "data": "14/10/2026",
+        "hora": "19:05",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa — **linha reconstruída no LAB-108**: a rodada do LAB-107 não a escreveu, e ela sai do `cron` (4 h, minuto :05) e do commit `15154b8`, às 19:20",
+        "rodada": "item 900 (LAB-107), tarefa da `FILA.md` (proposta do LAB-106: a escrita da outra mão sai da conta do universo)",
+        "emVazio": false
+      },
+      {
+        "data": "14/10/2026",
+        "hora": "23:05",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. Hora do `cron` (4 h, minuto :05): o disparo chegou como texto, sem notificação lida, e o primeiro `date` da sessão (23:14) veio depois de clonar, desrasar os quatro clones e rodar o verde",
+        "rodada": "item 900 (LAB-108), tarefa da `FILA.md` (proposta 2 do LAB-103: os outros vereditos booleanos das provas)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 53,
+      "noRegistro": 55,
       "observados": 38,
-      "derivados": 8,
+      "derivados": 10,
       "emLote": 7,
       "emVazio": 5
     },

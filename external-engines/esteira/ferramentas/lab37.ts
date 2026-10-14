@@ -39,6 +39,7 @@ import {
   type P,
 } from "../src/motores/comum.ts";
 import { FORMATOS, VARIANTES } from "../src/motores/testfit.ts";
+import { vereditoDeIdentidade } from "../src/veredito-de-identidade.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-37");
@@ -136,7 +137,8 @@ for (const { id, entrada } of GLEBAS) {
     const b = lotesNaTestadaDeFrente(
       (vCom.saida as unknown as { lotes: { pontos: P[] }[] }).lotes, testadasDeFrente,
     );
-    const identico = vSem.assinatura === vCom.assinatura;
+    const identidade = vereditoDeIdentidade("desenhoIdentico", vSem.assinatura, vCom.assinatura);
+    const identico = identidade.desenhoIdentico;
     console.log(
       `    ${f.padEnd(13)} ${String(a?.lotes ?? "—").padStart(3)} → ${String(b?.lotes ?? "—").padStart(3)}` +
         `   (lotes ${(vSem.saida as unknown as { lotes: unknown[] }).lotes.length} → ` +
@@ -148,7 +150,7 @@ for (const { id, entrada } of GLEBAS) {
       lotesNaTestadaComAsFaces: b?.lotes ?? null,
       lotesSemAsFaces: (vSem.saida as unknown as { lotes: unknown[] }).lotes.length,
       lotesComAsFaces: (vCom.saida as unknown as { lotes: unknown[] }).lotes.length,
-      desenhoIdentico: identico,
+      ...identidade,
     });
   }
 

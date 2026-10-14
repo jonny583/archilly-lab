@@ -46,6 +46,7 @@ import { motorDoGenerate, motorDoParcelamento, motorDoSymbios, separar } from ".
 import { Motor } from "@symbios/index.ts";
 import { comViasDesenhadas, tracadoImposto, type ViaDesenhada } from "../src/vias-desenhadas.ts";
 import { FORMATOS, VARIANTES } from "../src/motores/testfit.ts";
+import { vereditoDeIdentidade } from "../src/veredito-de-identidade.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-32");
@@ -168,7 +169,7 @@ for (const { id, base, secundarias } of BASES) {
       aderenciaComAVia: aCom == null ? null : n3(aCom),
       viasSemAVia: nSem,
       viasComAVia: nCom,
-      desenhoIdentico: vSem.assinatura === vCom.assinatura,
+      ...vereditoDeIdentidade("desenhoIdentico", vSem.assinatura, vCom.assinatura),
       notaDoMotorSem: vSem.notaDoMotor,
       notaDoMotorCom: vCom.notaDoMotor,
     });
