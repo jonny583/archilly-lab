@@ -10327,3 +10327,49 @@ mede e fica proposta; estender a régua aos outros vereditos booleanos (`limpo`,
 
 > **UM `true` SOZINHO É A APARÊNCIA DA PROVA, NÃO A PROVA.** Ele tem a mesma forma com a régua certa
 > e com a errada. A prova guarda o que se comparou, e o veredito **sai** disso — nunca entra ao lado.
+
+## D331 · O NOME DO PROMPT TEM DUAS CASAS OU MAIS — e a trava que tirava os de três do universo nunca podia reprovar · 14/10/2026
+
+**Origem:** item 900, a minha própria lista — a proposta 3 do LAB-103 na `FILA.md` (*"a régua das
+propostas lê o prompt com DOIS algarismos"*), e com ela a espécie *"teste que nunca reprovou"*, a que
+o LAB-103 deixou por varrer. Relatório: [`relatorios/LAB-104.md`](relatorios/LAB-104.md).
+
+**O que a medição respondeu:** enumerados os **lugares** (todo `.ts` versionado em `external-engines/`,
+233 arquivos na árvore de antes, fora `upstream/`), a forma `LAB-\d\d` aparecia **dez** vezes, em **nove** linhas de
+código de seis arquivos: duas na
+`varredura-das-propostas.ts` (a proposta do LAB-103), duas no `recado.test.ts`, uma no
+`propostas.test.ts`, uma no `mecanismos.test.ts` e quatro em ferramentas de prompts fechados (três no
+`lab66`, uma no `lab70`). **A do `recado.test.ts` que monta o universo dos relatórios tirava `LAB-100.md` a
+`LAB-103.md` dele** — apagado do `RECADOS.md` o recado do LAB-103, a trava *"todo relatório de prompt
+tem recado"* seguia **9 pass · 0 fail**. Não reprovava porque não podia: o relatório não estava no que
+ela lia. Os quatro de hoje têm recado — a trava estava cega, não errada.
+
+**O que se decidiu:**
+
+1. O nome do prompt tem forma única, `PROMPT_DO_LAB` = `LAB-\d{2,}`, gulosa, em
+   `external-engines/esteira/src/nome-do-prompt.ts`; as seis réguas vivas a usam, **e as duas
+   ferramentas também**: `lab66.ts` e `lab70.ts` espelham a trava do recado para medi-la, e a D231 já
+   tinha medido o que acontece com ferramenta que fica para trás da trava que espelha. A prova do
+   item 003, que a `lab70.ts` regera a cada rodada, publicava **`relatoriosVarridos: 91`** com 95 no
+   disco — o universo estava publicado, e ninguém o comparava com o total.
+2. Uma régua contra a forma de duas casas renascer no **código** (comentário não conta — é relato):
+   `duasCasasNoCodigo` e `conferirDuasCasas`, sobre o universo publicado. **Uma** exceção declarada,
+   com o motivo e conferida nos dois sentidos: a própria trava, que reproduz a forma velha para
+   mostrar o lado ruim.
+3. As 12 travas moram em `tests/nome-do-prompt.test.ts`, no portão sem clones: 762 → **774**, e a
+   lista do trabalho 44 → **45** arquivos.
+
+**Os dois lados e as mutações:** sete mutações, todas acusadas — o universo dos relatórios de volta a
+duas casas (2 travas caem), o executor (3), a seção em prosa (3), o item do ACUMULADO (2), a forma única
+sem a gula (7), a forma velha de volta numa ferramenta (2), a exceção apontada para arquivo sem a forma
+(3). E a sabotagem que a trava velha deixava passar —
+apagar o recado do LAB-103 — agora **reprova** (8 pass · 1 fail).
+
+**Descartado:** declarar `lab66.ts` e `lab70.ts` como exceção — foi a primeira versão desta rodada, com
+o motivo *"a saída é a prova daquela data"*, e era falso para a `lab70.ts`, que regera a prova do item
+003 por estado. A prova do LAB-66 (09/10) **não** foi regerada: é fotografia daquele dia. Também descartado: trocar por `LAB-\d+` (aceitaria `LAB-7`, que não é nome desta casa); ler `LF-`/`T-`, que já
+têm forma própria em `promptsDoCabecalho` (D217).
+
+> **TRAVA QUE DEFINE O UNIVERSO POR UMA FORMA ENVELHECE COM A FORMA.** Ela continua verde e passa a
+> não olhar o que nasceu depois. O universo que ela publica (*"mais de 20"*) não acusa quando quatro
+> somem de 95 — por isso a trava nova compara o universo lido com **todos** os relatórios de prompt.

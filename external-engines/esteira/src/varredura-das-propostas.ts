@@ -45,6 +45,8 @@
  * na lista não vale, senão "segue aberto porque sim" passaria.
  */
 
+import { PROMPT_DO_LAB } from "./nome-do-prompt.ts";
+
 /** Por que um item PODE seguir aberto. Conjunto fechado — e a trava reprova um sétimo. */
 export const MOTIVOS_DE_SEGUIR_ABERTO = [
   {
@@ -132,7 +134,8 @@ export function sobreposicaoDeTitulo(a: string, b: string): number {
 /** A marca fixa do motivo, no fim do item aberto. Forma única, para a régua não adivinhar. */
 const MARCA_DO_MOTIVO = /\*\*Segue aberto:\*\*\s*`([a-z-]+)`/;
 /** A marca do executor, no item riscado. */
-const MARCA_DO_EXECUTOR = /✅\s*\*\*executad[oa] no (LAB-\d\d)\*\*/;
+/** O nome do prompt pela forma única de duas casas ou mais: `LAB-103` não é `LAB-10` (D331). */
+const MARCA_DO_EXECUTOR = new RegExp(String.raw`✅\s*\*\*executad[oa] no (${PROMPT_DO_LAB})\*\*`);
 
 /**
  * Lê os itens da seção cujo título casa `tituloDaSecao`.
@@ -218,7 +221,7 @@ export function secoesDePropostaEmProsa(texto: string): { linha: number; prompt:
   const linhas = texto.split("\n");
   const achados: { linha: number; prompt: string }[] = [];
   for (const [i, l] of linhas.entries()) {
-    const m = /^#{2,4} Proposto ao chat, saído do (LAB-\d\d)/.exec(l);
+    const m = new RegExp(String.raw`^#{2,4} Proposto ao chat, saído do (${PROMPT_DO_LAB})\b`).exec(l);
     if (m) achados.push({ linha: i + 1, prompt: m[1]! });
   }
   return achados;

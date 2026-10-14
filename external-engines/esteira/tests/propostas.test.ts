@@ -30,6 +30,7 @@ import {
   sobreposicaoDeTitulo,
   tituloDe,
 } from "../src/varredura-das-propostas.ts";
+import { PROMPT_DO_LAB } from "../src/nome-do-prompt.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const FILA = readFileSync(join(RAIZ, "docs", "prompts", "FILA.md"), "utf8");
@@ -62,7 +63,7 @@ describe("LAB-61 · a lista de HOJE não tem problema — é a trava que importa
 
   test("todo item riscado diz QUAL prompt o executou", () => {
     for (const i of itens.filter((x) => x.riscado)) {
-      expect(i.executadoPor, `L${i.linha}: riscado sem executor`).toMatch(/^LAB-\d\d$/);
+      expect(i.executadoPor, `L${i.linha}: riscado sem executor`).toMatch(new RegExp(`^${PROMPT_DO_LAB}$`));
     }
   });
 

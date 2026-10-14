@@ -34,6 +34,7 @@ import {
   type Limites,
   type ViolacaoMedida,
 } from "../src/mecanismos-das-violacoes.ts";
+import { PROMPT_DO_LAB } from "../src/nome-do-prompt.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const PROVA = join(RAIZ, "docs", "provas", "LAB-58", "mecanismos-das-81.json");
@@ -237,7 +238,7 @@ describe("LAB-58 · cada mecanismo declara o suficiente para virar item de fila"
         /lido|lida/i.test(mec.ondeNoMotor),
         `${mec.id}: \`ondeNoMotor\` não diz que a leitura foi SÓ leitura (§4)`,
       ).toBe(true);
-      expect(/LAB-\d\d/.test(mec.aProvaQueSustenta), `${mec.id}: a prova não cita prompt`).toBe(true);
+      expect(new RegExp(PROMPT_DO_LAB).test(mec.aProvaQueSustenta), `${mec.id}: a prova não cita prompt`).toBe(true);
     });
   }
 
