@@ -10422,3 +10422,58 @@ mede); regerar as 33 fotografias (D182, D288).
 > **DUAS EXECUÇÕES IGUAIS PROVAM A REPETIÇÃO, NÃO A DEPENDÊNCIA.** A prova de determinismo pergunta
 > também se a entrada que deveria mudar a saída muda — ou diz, por escrito, por que não há entrada
 > dessas.
+
+## D333 · A ORDEM DA ENTREGA SE COBRA NO ENVIO — o gancho `pre-push`, e não o commit nem a suíte · 14/10/2026
+
+**Origem:** item 900, a minha própria lista — a proposta do LAB-105 na `FILA.md` (*"a ordem da
+entrega como trava … medir se um gancho de `pre-commit` versionado ou uma trava sobre o commit
+resolve, antes de escolher"*). Relatório: [`relatorios/LAB-106.md`](relatorios/LAB-106.md).
+
+**O defeito, medido:** as provas que contam a árvore (LAB-52, LAB-57) **têm** trava que as reconta,
+e ela pega. Falhava a **ordem**: o verde rodava e um arquivo da entrega entrava no `git` depois.
+Rodadas as duas travas sobre **cada um dos 36 estados** da `main` desde o LAB-86 (D287):
+
+- **21 envios desta casa, 2 vermelhos** — LAB-98 (`0318814`) e LAB-104 (`3689986`), os dois pelo
+  LAB-57, e os dois relatados como *"9 fail, as do `.wasm`"*;
+- **15 escritas da direção na caixa, 15 vermelhas** — cada item novo é um arquivo a mais no
+  `git ls-files`, e a prova do LAB-57 o conta.
+
+E a medição de **qual** prova reage a **qual** arquivo: um arquivo neutro **adicionado** reprova só a
+do LAB-57; **não rastreado**, nenhuma (ela lê só o índice). Um `.ts` reprova a do LAB-52 já **não
+rastreado** (ela lê `--others`), e as duas quando adicionado.
+
+**O que se decidiu:**
+
+1. **No ENVIO.** O `pre-commit` cobraria a prova em todo commit, e o primeiro de uma entrega de dois
+   commits é vermelho **por construção** — pararia a ordem certa. Uma trava na suíte roda **antes**
+   do último `git add`, que é o instante que falhou. O CI veria depois e está desligado até
+   1º/11/2026. O envio é o único instante que é, por definição, depois do último arquivo — e a casa
+   já tem *um envio por entrega*.
+2. **O gancho `external-engines/ganchos/pre-push`** chama `ferramentas/antes-do-envio.ts`, que decide
+   por `src/antes-do-envio.ts`: só a `main` é cobrada; recusa quando o que vai **não é o `HEAD`** ou
+   a árvore tem **arquivo fora do commit** (mudado, adicionado e não commitado, ou não rastreado —
+   as duas provas respondem diferente sobre cada um); e então roda **as travas do trabalho sem
+   clones**, lidas do `verde.yml` pela mesma função do LAB-84 (D231). Lista vazia recusa (D213).
+3. **Quem liga é o `conferir.sh`**, a cada execução (`core.hooksPath`): é configuração local do
+   clone, e toda sessão nasce num clone novo. O verde reprova se o gancho não ficou ligado.
+4. Quinze travas novas em `tests/antes-do-envio.test.ts` (a decisão dos dois lados, a leitura do
+   estado num repositório de verdade, o gancho executável **no git**, a ferramenta sem lista à mão,
+   o `conferir.sh` apontando para a pasta certa): 778 → **793** no portão sem clones.
+
+**Os dois lados e as mutações:** nove, todas acusadas — a decisão que nunca recusa, a que ignora a
+árvore suja, a que ignora o commit diferente, a leitura que esquece o não rastreado, a que manda
+tudo às travas, o `conferir.sh` sem ligar, o gancho sem o bit de execução no git, o gancho que não
+chama a ferramenta, e a ferramenta com uma lista escrita à mão.
+
+**O que NÃO alcança, dito:** o verde completo (o gancho roda o que o CI rodaria, não o
+`conferir.sh`); quem envia de um clone que nunca rodou o verde, ou com `--no-verify`; e a escrita da
+direção na caixa — outra mão, outro clone. Essa metade fica **proposta** na `FILA.md`.
+
+**Descartado:** `pre-commit` (pararia a ordem certa); rodar o `conferir.sh` inteiro no envio (precisa
+do `.wasm` e dos clones, e leva minutos); conferir num `git worktree` do commit enviado em vez de
+exigir árvore limpa (mais peças para o mesmo resultado, e árvore suja no envio já é o defeito);
+acrescentar um `passo` ao `conferir.sh` (mudaria os *"sete passos"* da D328 por uma configuração, que
+não é passo).
+
+> **A PROVA QUE CONTA A ÁRVORE SE CONFERE NO INSTANTE EM QUE A ÁRVORE PARA DE MUDAR — e numa entrega
+> esse instante é o envio.** Trava que roda antes do último arquivo aprova a árvore que não vai.

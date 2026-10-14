@@ -101,6 +101,23 @@ for pacote in $achados; do
   fi
 done
 
+# ── 0b · O gancho do envio: a ordem da entrega (LAB-106, D333) ─────────────
+# As provas que contam a árvore saíram velhas na main duas vezes (LAB-98, LAB-104): o verde
+# rodou, e um arquivo da entrega entrou depois. O gancho `pre-push` roda as travas do trabalho
+# sem clones no envio, que é o único instante depois do último arquivo. Ligá-lo é configuração
+# LOCAL deste clone — e por isso ela é refeita a cada verde, porque todo clone nasce sem ela.
+GANCHOS="external-engines/ganchos"
+echo ""
+echo "══════════ o gancho do envio: core.hooksPath ══════════"
+git -C "$RAIZ" config core.hooksPath "$GANCHOS"
+if [ "$(git -C "$RAIZ" config --get core.hooksPath)" = "$GANCHOS" ] && [ -x "$RAIZ/$GANCHOS/pre-push" ]; then
+  echo "  ✓ $GANCHOS/pre-push ligado"
+else
+  echo "✗ o gancho do envio não ficou ligado (core.hooksPath ou o arquivo executável)."
+  falhou=1
+  passos_ruins+=("gancho do envio desligado")
+fi
+
 # ── 1 · A precondição do Symbios: o .wasm, que não é versionado ─────────────
 WASM="$RAIZ/external-engines/symbios/archilly/wasm/target/wasm32-unknown-unknown/release/archilly_symbios_wasm.wasm"
 echo ""
