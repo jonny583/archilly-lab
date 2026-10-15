@@ -33,6 +33,7 @@ import {
   semRiscadoNemCitado,
   soAProsa,
 } from "../src/texto-das-regras.ts";
+import { lerNomeDoItem } from "../src/numero-do-item.ts";
 import { soOsNomesUsados } from "../src/varredura-de-chamadas.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
@@ -186,11 +187,13 @@ describe("nenhuma leitura nova nasce fora do lugar único", () => {
 describe("a caixa de entrada não tem número repetido (D273)", () => {
   const CAIXA = join(RAIZ, "docs", "caixa-de-entrada");
 
-  /** O número de um item, do nome do arquivo: `013.md`, `013-FEITO.md` e `010-adendo.md` → `013`, `013`, `010-adendo`. */
-  const numeroDe = (nome: string): string | null => {
-    const m = /^(\d{3}(?:-adendo)?)(?:-FEITO)?\.md$/.exec(nome);
-    return m ? m[1]! : null;
-  };
+  /**
+   * A identidade de um item, do nome do arquivo, pela forma única (LAB-113, D340): `013.md` e
+   * `013-FEITO.md` são o mesmo; `010-adendo.md` é outro. Até o LAB-113 a leitura era
+   * `^(\d{3}(?:-adendo)?)(?:-FEITO)?\.md$` — três casas fixas, e só o sufixo `-adendo`: o `1000.md`,
+   * o `-RETIRADO` e o `025-adendo-2-FEITO.md` que EXISTE ficavam fora desta guarda.
+   */
+  const numeroDe = (nome: string): string | null => lerNomeDoItem(nome)?.identidade ?? null;
 
   test("cada número aparece UMA vez, feito ou aberto", () => {
     const porNumero = new Map<string, string[]>();
@@ -213,9 +216,16 @@ describe("a caixa de entrada não tem número repetido (D273)", () => {
   });
 
   test("a régua do número repetido REPROVA de verdade, e sabe ler o adendo", () => {
-    expect(numeroDe("013.md")).toBe("013");
-    expect(numeroDe("013-FEITO.md")).toBe("013");
-    expect(numeroDe("010-adendo-FEITO.md")).toBe("010-adendo");
+    expect(numeroDe("013.md")).not.toBeNull();
+    expect(numeroDe("013-FEITO.md")).toBe(numeroDe("013.md"));
+    expect(numeroDe("013-RETIRADO.md")).toBe(numeroDe("013.md"));
+    expect(numeroDe("010-adendo-FEITO.md")).toBe(numeroDe("010-adendo.md"));
+    // Três casas no MÍNIMO, sem teto (item 030): o `1000` é item, e não colide com o `100`.
+    expect(numeroDe("1000-FEITO.md")).toBe(numeroDe("1000.md"));
+    expect(numeroDe("1000.md")).not.toBe(numeroDe("100.md"));
+    // O sufixo com algarismo é outro adendo — e a forma velha nem o lia.
+    expect(numeroDe("025-adendo-2-FEITO.md")).not.toBe(numeroDe("025-adendo-FEITO.md"));
+    expect(numeroDe("025-adendo-2-FEITO.md")).not.toBeNull();
     // O adendo NÃO colide com o item: são dois objetos, e o nome diz isso.
     expect(numeroDe("010-FEITO.md")).not.toBe(numeroDe("010-adendo-FEITO.md"));
     // E o que não é item não entra na conta.

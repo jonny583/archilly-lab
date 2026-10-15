@@ -87,9 +87,11 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // repositório temporário que a própria trava monta com `git fast-import`; nenhum clone.
     // E 51 no LAB-112, com a `numero-da-decisao.test.ts` — os `.ts` versionados, o `RECADOS.md` e a
     // `FILA.md` DESTE repositório, e três módulos puros; nenhum clone.
+    // E 52 no LAB-113, com a `numero-do-item.test.ts` — os `.ts` versionados e a caixa de entrada
+    // DESTE repositório, e dois módulos puros; nenhum clone.
     // O número anda quando o trabalho ganha ou perde arquivo, e
     // mudá-lo é deliberado: é a lista que a medição cobriu.
-    expect(lista).toHaveLength(51);
+    expect(lista).toHaveLength(52);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

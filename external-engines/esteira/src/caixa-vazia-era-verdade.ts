@@ -52,16 +52,35 @@
  * desligada na semana seguinte** (A254/A255), e as oito do Propostas estão certas.
  */
 
-/** Um item **aberto**, pela definição do próprio `COMO_FUNCIONA.md` da direção. */
+import { ITEM_RESERVADO, itensEmOrdem, lerNomeDoItem } from "./numero-do-item.ts";
+
+/**
+ * Um item **aberto**, pela definição do próprio `COMO_FUNCIONA.md` da direção — com o número pela
+ * forma única ({@link lerNomeDoItem}): **três casas ou mais**. Até o LAB-113 era `^\d{3}`, e um
+ * `1000.md` aberto não era item: a caixa saía *vazia* com ele dentro (D340).
+ */
 export function ehItemAberto(nome: string): boolean {
-  if (!/^\d{3}(-[A-Za-z0-9-]+)?\.md$/.test(nome)) return false;
-  return !/-FEITO\.md$/i.test(nome) && !/-RETIRADO\.md$/i.test(nome);
+  return lerNomeDoItem(nome)?.estado === "aberto";
 }
 
-/** O número do item, do prefixo de três dígitos. */
+/**
+ * O número do item, pela forma única. Até o LAB-113 era o prefixo de **exatamente** três dígitos,
+ * e `1000.md` lia **`100`** — o número errado, não a ausência (D340).
+ */
 export function numeroDoItem(nome: string): number | null {
-  const m = /^(\d{3})/.exec(nome);
-  return m ? Number(m[1]) : null;
+  return lerNomeDoItem(nome)?.numero ?? null;
+}
+
+/**
+ * Os abertos **da direção**, em ordem de fila: o reservado `900` (*"lista própria"*) sai, porque não
+ * é item que a direção escreveu para ser feito e renomeado — é o que vale quando não há outro (item
+ * 030, regra 2). Com ele dentro, a declaração verdadeira de hoje (*"a caixa só tem o 900"*) saía
+ * FALSA: o `900` é maior que todo `-FEITO` (D340).
+ */
+function abertosDaDirecao(nomes: readonly string[]): string[] {
+  return itensEmOrdem(nomes)
+    .filter((i) => i.estado === "aberto" && i.numero !== ITEM_RESERVADO)
+    .map((i) => i.nome);
 }
 
 /**
@@ -135,7 +154,7 @@ export function aCaixaEstavaVazia(nomes: readonly string[], assunto?: string): L
     return {
       veredicto: "nao-e-declaracao",
       declaracaoEraVerdadeira: null,
-      abertos: [...nomes].filter(ehItemAberto).sort(),
+      abertos: abertosDaDirecao(nomes),
       oMaiorFeito: null,
       porque:
         `o assunto do commit NEGA a caixa vazia ("${assunto}") — é correção ou aviso, não ` +
@@ -154,11 +173,10 @@ export function aCaixaEstavaVazia(nomes: readonly string[], assunto?: string): L
     };
   }
 
-  const abertos = [...nomes].filter(ehItemAberto).sort();
-  const feitos = nomes
-    .filter((n) => /-(FEITO|RETIRADO)\.md$/i.test(n))
-    .map(numeroDoItem)
-    .filter((n): n is number => n !== null);
+  const abertos = abertosDaDirecao(nomes);
+  const feitos = itensEmOrdem(nomes)
+    .filter((i) => i.estado !== "aberto")
+    .map((i) => i.numero);
   const oMaiorFeito = feitos.length > 0 ? Math.max(...feitos) : null;
 
   if (abertos.length === 0) {
@@ -167,7 +185,9 @@ export function aCaixaEstavaVazia(nomes: readonly string[], assunto?: string): L
       declaracaoEraVerdadeira: true,
       abertos: [],
       oMaiorFeito,
-      porque: "nenhum item aberto na árvore daquele commit: a declaração era verdadeira",
+      porque: nomes.some((n) => ehItemAberto(n) && numeroDoItem(n) === ITEM_RESERVADO)
+        ? `nenhum item aberto da direção na árvore daquele commit — só o reservado ${ITEM_RESERVADO} ("lista própria"), que nunca se fecha: a declaração era verdadeira`
+        : "nenhum item aberto na árvore daquele commit: a declaração era verdadeira",
       oQueIstoNaoAlcanca: limite,
     };
   }

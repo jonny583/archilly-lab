@@ -45,6 +45,22 @@ A cada despertador:
    A casa dorme sem trabalho e ninguém fica sabendo. *O disco não é a origem, e
    esta pasta é escrita por uma mão que não é a sua.*
 
+   > **A convenção do número, respondida pela direção no item 030 (15/10/2026, D340):** três casas
+   > no **mínimo**, sem teto (`001`…`899`, `901`…, `1000`); o **`900` é reservado** — o item
+   > permanente *"lista própria"*, que nunca vira `-FEITO` e só vale quando não há outro aberto; e
+   > *"o menor ainda não feito"* é comparação **numérica**. A lista acima sai em ordem de **texto**
+   > (o `git` ordena por byte: `1000.md` antes de `900.md`), então leia o próximo pelo número, com o
+   > item antes do adendo, e pulando o `900`:
+   >
+   > ```sh
+   > git ls-tree --name-only origin/main docs/caixa-de-entrada/ | sed 's|.*/||' \
+   >   | grep -vE 'FEITO|RETIRADO|COMO_FUNCIONA' | grep -E '^[0-9]{3,}' | sed 's/\.md$//' \
+   >   | sort -t- -k1,1n -k2 | grep -vx '900' | head -1   # vazio → só o 900 (a lista própria), ou caixa vazia
+   > ```
+   >
+   > A forma única mora em `external-engines/esteira/src/numero-do-item.ts` (`proximoItem`).
+   > *(Acrescentado por mim no item 030; o texto do chat acima está intocado.)*
+
 1. Leia a pasta. Os arquivos são numerados: `001.md`, `002.md`, …
 2. Pegue **o menor número ainda não feito**. Um por despertador.
 3. Faça o trabalho, com as provas que o item exigir.
