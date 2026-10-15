@@ -89,9 +89,11 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // `FILA.md` DESTE repositório, e três módulos puros; nenhum clone.
     // E 52 no LAB-113, com a `numero-do-item.test.ts` — os `.ts` versionados e a caixa de entrada
     // DESTE repositório, e dois módulos puros; nenhum clone.
+    // E 53 no LAB-115, com a `numero-de-testes.test.ts` — os `.md` versionados DESTE repositório,
+    // lidos por `git ls-files`, e um módulo puro; nenhum clone.
     // O número anda quando o trabalho ganha ou perde arquivo, e
     // mudá-lo é deliberado: é a lista que a medição cobriu.
-    expect(lista).toHaveLength(52);
+    expect(lista).toHaveLength(53);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

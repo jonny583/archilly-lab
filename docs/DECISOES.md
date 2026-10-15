@@ -10844,3 +10844,69 @@ um retirado ali deixaria uma isenção órfã, inofensiva e silenciosa. E a busc
 
 > **ITEM RETIRADO É ORDEM DESFEITA, E O TEXTO DELE É A RETRATAÇÃO.** Quem lê um item como fonte de regra e
 > acha um retirado não tem regra para conferir: tem uma pergunta para a direção.
+
+## D342 · O TAMANHO DE UMA SUÍTE NÃO SE ESCREVE NUMA PÁGINA VIVA — quem diz é o `Ran N tests` · 15/10/2026
+
+**Contexto:** item 900 (LAB-115). A caixa só tinha o `900`, e o LAB-114 esvaziou as propostas da FILA que
+não esperam ninguém; fui à dívida própria, espécie **número digitado à mão**, nas páginas que as réguas do
+LAB-98 (travas), do LAB-101 (passos) e do LAB-102 (estado do CI) não leem.
+
+**Medido (LAB-115), por LUGAR:** os 31 `.md` versionados fora de relato (relato pela definição do LAB-102,
+`ehRelato`). *"&lt;número&gt; testes"* aparece em seis lugares; dois são as peças de um desenho datado (o LAB-26
+pôs **dois** testes de varredura ao lado da ficha, D108) e quatro são o tamanho de uma suíte:
+
+| página | escrito | contado em 15/10 | desde |
+|---|---|---|---|
+| `external-engines/esteira/README.md` | 93 | **1 164** (1 155 + 9 do `.wasm`) | 19/09 (LAB-13/14) |
+| `external-engines/testfit/README.md` (tabela e receita) | 14, 14 | **17** | 13/09 (LAB-07) |
+| `entrega/registro-de-motores/README.md` | 22 | **22** | 20/09 (LAB-06) |
+
+**Decidido:**
+
+1. **A frase sai** das três páginas: elas dizem **o que** os testes cobram, e o número fica com a linha
+   *"Ran N tests"* do `bun test`. Recontar exigiria rodar a suíte dentro da suíte (por isso a trava do LAB-98
+   fica fora do portão), e o número muda em toda rodada desta casa.
+2. `src/numero-de-testes.ts` acha *"N testes"* (algarismo com milhar, ou extenso de *dois* em diante,
+   atravessando o negrito; não o número de seção, não *"um teste"*); `tests/numero-de-testes.test.ts`, no
+   portão sem clones, reprova contagem em página viva e exceção morta (os dois sentidos), e publica o universo.
+   Oito travas; oito mutações, sete acusadas e uma neutra (o olhar para a frente que excluiria o número de
+   seção — o espaço colado já o exclui; saiu do código). 866 → 874 travas.
+
+**Descartado:** recontar por execução (a suíte dentro dela mesma); contar `test(` no texto (o texto não é a
+execução: um `test` dentro de laço se conta uma vez e roda N); corrigir os números para os de hoje (certos até a próxima
+rodada, e de novo sem trava).
+
+**O que se perde, dito:** a página não diz mais o tamanho da suíte a quem a lê sem rodar. E a régua não lê
+comentário de código, *"travas"* nem *"passos"* (das outras réguas), nem a contagem com outra palavra.
+
+> **NÚMERO QUE MUDA EM TODA RODADA NÃO MORA NUMA PÁGINA QUE NINGUÉM REESCREVE EM TODA RODADA.** Ou ele se
+> reconta onde é escrito, ou a página aponta para quem conta.
+
+## D343 · A CONTA DOS DISPAROS LÊ A HORA COM TETO — e a linha que ela não lê REPROVA, antes dos totais · 15/10/2026
+
+**Contexto:** no LAB-115, ao escrever a linha deste disparo (`≤ 21:10`, porque o minuto não se afirma) e
+somar um aos totais, a `lab71` reprovou: *"a seção declara 16 derivados e a tabela tem 15"*.
+
+**Medido (LAB-115):** a régua de linha (`lerAConta`, `src/disparos-do-despertador.ts`) só lia a hora `HH:MM`.
+A linha do LAB-114 (`≤ 20:14`) era **invisível** para ela; o LAB-114 não andou os totais (`git show b6b32bb`:
+a linha entra, o resumo fica em 60 e 15), e a conferência seguiu **verde** — porque contava só as linhas que
+sabia ler. É a forma do D281 (a classe de hífen que sumia), um mês depois, na coluna ao lado.
+
+**Decidido:**
+
+1. A hora aceita o teto: `(?:≤\s*)?HH:MM`; a célula fica como escrita, e a ordem compara o `HH:MM`.
+2. **Toda linha que começa como linha da conta** — a data e, na segunda célula, uma hora (algarismo depois de
+   qualquer sinal) — **e que a régua não lê, reprova**, antes dos totais (`linha-que-a-regua-nao-le`). A tabela
+   do precedente da FILA também começa pela data, com texto na segunda célula, e não é a conta: é o caso válido
+   que quase parece inválido, com trava.
+3. Os totais vão a **62** e **17** derivados (a linha do LAB-114 e a deste). Quatro travas; cinco mutações,
+   todas acusadas. 874 → 878 travas.
+
+**Descartado:** escrever `21:10` sem o teto (afirmaria um minuto que não se mediu); só aceitar o `≤` sem a
+trava da linha ilegível (a próxima grafia — `~`, `20h14` — sumiria do mesmo jeito).
+
+**O que se perde, dito:** uma linha de conta cuja segunda célula comece por letra (*"às 20:14"*) não é
+reconhecida como linha da conta, e some calada como antes.
+
+> **RÉGUA DE LINHA QUE NÃO DIZ QUAIS LINHAS NÃO LEU CONFERE OS TOTAIS CONTRA AS QUE SOBRARAM.** O vocabulário da
+> célula cresce em toda coluna, não só na que já quebrou.

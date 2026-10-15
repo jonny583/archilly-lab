@@ -346,6 +346,28 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-115 · item 900 — a dívida própria: o tamanho da suíte digitado nos `README.md` — ✅ **feito em 15/10/2026** (D342)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (o LAB-114 esvaziou-a); fui à dívida própria,
+espécie **número digitado à mão**, nas páginas que as réguas do LAB-98, do LAB-101 e do LAB-102 não leem.
+Enumerados por LUGAR os 31 `.md` vivos, *"N testes"* era o tamanho de uma suíte em quatro lugares de três
+`README.md`, e **três estavam errados**: 93 contra 1 164 no pacote principal (desde 19/09), 14 contra 17 duas
+vezes no `testfit`; o 22 do registro de motores estava certo e sem trava. A frase saiu (quem conta é o
+*"Ran N tests"*), e `src/numero-de-testes.ts` com a trava no portão sem clones impede que volte, nos dois
+sentidos; oito mutações, sete acusadas e uma neutra que saiu do código; 866 → 874. **E, ao escrever a linha
+deste disparo, a conta dos disparos recusou-a — e mostrou que a do LAB-114 nunca tinha sido lida**: a hora
+`≤ 20:14` não casava com `HH:MM`, os totais ficaram em 60 e 15, e a régua seguiu verde. Ela lê o teto `≤`, e a
+linha que ela não lê reprova antes dos totais (62 e 17 agora); cinco mutações (D343), 874 → 878. Relatório:
+[`../relatorios/LAB-115.md`](../relatorios/LAB-115.md).
+
+**Proposto (minha lista, não espera o Jonny):** **o passo 0 do `COMO_FUNCIONA.md` não diz o que fazer com o
+clone RASO.** Do LAB-101 ao LAB-114, catorze rodadas seguidas acharam a `main` local *"ahead 94, behind N"*
+(o `pull --ff-only` do disparo recusa), e cada uma redescobriu que era clone raso — `git fetch --unshallow`
+mostra o local como ancestral da origem; esta foi a décima quinta. O texto do disparo não muda (*"mudar o
+protocolo é commit naquele arquivo"*), então o lugar é o passo 0: a receita (desrasar antes de comparar, e
+nunca concluir divergência num clone raso) e uma trava que a cobre. Medir antes se o mesmo vale para as
+outras casas, que copiam o protocolo.
+
 ### LAB-114 · item 900 — a minha própria lista: o item RETIRADO — ✅ **feito em 15/10/2026** (D341)
 
 Caixa só com o 900; peguei a proposta do LAB-113, abaixo — a única que restava. Medido: **um** chamador
@@ -1564,7 +1586,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 866 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 878 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

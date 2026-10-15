@@ -132,4 +132,4 @@ jeitos porque um só não bastava:
   do próprio teste. Se a peça precisasse do Laboratório para funcionar, esse
   teste não compilaria.
 
-**22 testes**, e o primeiro deles é esse.
+É o bloco que abre o arquivo, *"APAGAR O LAB INTEIRO NÃO QUEBRA A PEÇA"* — dois por leitura e um por execução; quantos o arquivo tem ao todo, diz o `bun test`, não esta página (D342).

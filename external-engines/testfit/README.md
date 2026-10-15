@@ -63,7 +63,7 @@ não tem limiar mais frouxo, e não reimplementa nota.
 |---|---|
 | `adapter/src/` | A ponte: `contrato-v1.ts` (tipos), `ida.ts`, `volta.ts`, `aparo.ts`, `esteira.ts` |
 | `ferramentas/` | `medir.ts` (as medições do §2.4), `diagnostico-relevo.ts` (§2.6), `gleba-lab01.ts` (a terceira gleba) |
-| `tests/` | 14 testes: ida e volta nas três glebas, determinismo, perdas declaradas, recusas, superquadra vazia |
+| `tests/` | os testes — quantos são, diz o `bun test` (D342): ida e volta nas três glebas, determinismo, perdas declaradas, recusas, superquadra vazia |
 | `tipos/` | Uma declaração ambiente para o pacote privado vendorizado do Generate, que o clone não traz com código |
 
 ## Rodar
@@ -75,7 +75,7 @@ git clone https://github.com/jonny583/motor-testfit             ../../../motor-t
 git clone https://github.com/jonny583/urban-create-hub-41d93a4d ../../../urban-create-hub-41d93a4d
 
 bun install
-bun test                                # 14 testes, ~3 s
+bun test                                # quantos são, diz a linha "Ran N tests" (D342)
 bun ferramentas/gleba-lab01.ts          # a terceira gleba → docs/provas/LAB-07/
 bun ferramentas/medir.ts                # 60 variantes → docs/provas/LAB-07/medicoes.json
 bun ferramentas/diagnostico-relevo.ts   # §2.6 → docs/provas/LAB-07/diagnostico-relevo.json

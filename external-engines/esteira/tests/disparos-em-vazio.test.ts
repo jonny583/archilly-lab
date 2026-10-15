@@ -293,3 +293,52 @@ describe("D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteir
     expect(p.map((x) => x.oQue).join(" ")).toContain("disparos no registro");
   });
 });
+
+/**
+ * **LAB-115 · D343 — a linha que a régua não lê.** No LAB-114 a hora foi escrita `≤ 20:14` (o
+ * minuto não se afirmava), a régua só lia `HH:MM`, a linha sumiu da conta, os totais não andaram
+ * (60 e 15) e a conferência seguiu VERDE — a forma do D281, um mês depois, na coluna ao lado.
+ */
+describe("D343 · a hora com teto é lida, e a linha ilegível REPROVA", () => {
+  const secao = (linhas: string) => `\n# A CONTA DOS DISPAROS\n\n${linhas}\n# FIM\n`;
+
+  test("O LADO BOM, PRIMEIRO: `≤ HH:MM` é lido, com a hora como está escrita", () => {
+    const c = lerAConta(secao("| 15/10/2026 | ≤ 20:14 | derivado | só o 900 na caixa | item 900 (LAB-114) |\n"));
+    expect(c.linhas).toHaveLength(1);
+    expect(c.linhas[0]!.hora).toBe("≤ 20:14");
+    expect(c.ilegiveis).toEqual([]);
+    // E a régua velha, aqui inline, não a lia — o defeito do LAB-114, reproduzido.
+    const velha = /^\|\s*(\d{2}\/\d{2}\/\d{4})\s*\|\s*(\d{2}:\d{2})\s*\|/;
+    expect(velha.test("| 15/10/2026 | ≤ 20:14 | derivado | x | y |")).toBe(false);
+  });
+
+  test("a ordem compara o `HH:MM` do teto: `≤ 20:14` antes de `23:05` não é fora de ordem", () => {
+    const c = lerAConta(
+      secao(
+        "| 15/10/2026 | ≤ 20:14 | derivado | só o 900 na caixa | a |\n" +
+          "| 15/10/2026 | 23:05 | derivado | só o 900 na caixa | b |\n",
+      ),
+    );
+    expect(conferirAConta(c, [], "09/10/2026").map((p) => p.tipo)).not.toContain("datas-fora-de-ordem");
+  });
+
+  test("O LADO RUIM: linha da conta numa forma que a régua não lê REPROVA, antes dos totais", () => {
+    const c = lerAConta(secao("| 15/10/2026 | 20h14 | derivado | só o 900 na caixa | item 900 |\n"));
+    expect(c.linhas).toHaveLength(0);
+    expect(c.ilegiveis).toHaveLength(1);
+    const c2 = lerAConta(
+      secao(
+        "| 15/10/2026 | 19:05 | derivado | o 030 | item 030 |\n" +
+          "| 15/10/2026 | ~20:14 | derivado | só o 900 na caixa | item 900 |\n",
+      ),
+    );
+    expect(conferirAConta(c2, [], "09/10/2026").map((p) => p.tipo)).toContain("linha-que-a-regua-nao-le");
+  });
+
+  test("o caso válido que quase parece inválido: a tabela do precedente começa pela data e NÃO é a conta", () => {
+    const c = lerAConta(
+      secao("| 05/10/2026 | Disparo sem item pronto — a fila travou no LAB-47 | `despertador-sem-item` |\n"),
+    );
+    expect(c.ilegiveis).toEqual([]);
+  });
+});
