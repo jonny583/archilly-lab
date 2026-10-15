@@ -82,6 +82,8 @@ export function larguraDaLeitura(depoisDoD: string): { min: number; max: number 
     } else if (q[0] === "*") max = Infinity;
     else {
       const n = Number(q[1]);
+      // O `{n}` saiu de `\d+`, então é finito — mas a casa confere o número que guarda (LAB-52).
+      if (!Number.isFinite(n)) return null;
       min += n;
       max = q[2] === undefined ? max + n : q[3] === "" ? Infinity : max + Number(q[3]);
     }

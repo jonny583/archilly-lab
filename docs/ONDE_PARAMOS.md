@@ -147,7 +147,7 @@ enquanto eu trabalhava no 001"*).
 | 15/10/2026 | 15:05 | derivado | só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. Hora do `cron` (4 h, minuto :05): o disparo chegou como texto, sem notificação lida, e o primeiro `date` da sessão (15:13) veio depois de clonar e desrasar o clone desta casa | item 900 (LAB-112), tarefa da `FILA.md` (proposta do LAB-104: o número da decisão) |
 
 ```
-disparos no registro: 58 · observados: 38 · derivados: 13 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
+disparos no registro: 59 · observados: 38 · derivados: 14 · entregues em lote: 7 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
 ```
 
 **SETE DISPAROS CHEGARAM DE UMA VEZ ÀS 18:06, e isto NÃO é disparo em vazio** (D277). Os de 12:05
@@ -1854,7 +1854,7 @@ PRIVADOS**, e o `GITHUB_TOKEN` do Actions só alcança o próprio repositório.
 
 | trabalho | o que faz |
 |---|---|
-| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **sem segredo** (o gatilho automático está desligado desde 08/10/2026): 831 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
+| `guardas que não precisam dos clones vizinhos (NÃO é o verde)` | roda **sem segredo** (o gatilho automático está desligado desde 08/10/2026): 843 travas que leem arquivo do próprio repositório — a página do Jonny atualizada, o formato do RECADO, a cobertura do `conferir.sh`, as regras do `CLAUDE.md` — e as de geometria pura |
 | `o verde completo (precisa do segredo VIZINHOS_TOKEN)` | **falha com a receita** até alguém criar o segredo (D124): token *fine-grained*, `Contents: Read-only` nos dois repositórios, e a ressalva de que segredo em repositório público é decisão de quem configura |
 
 > **Um CI vermelho por falta de configuração é honesto; um CI verde que não roda o verde
