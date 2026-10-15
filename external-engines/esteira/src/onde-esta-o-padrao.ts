@@ -37,6 +37,7 @@
  * continua no histórico; o que a saída tira é a autoridade de parecer vigente.*
  */
 
+import { mesmoCommit } from "./mesmo-commit.ts";
 import { type LeituraDaHistoria, lerPelaHistoria } from "./profundidade-da-historia.ts";
 
 /** A fonte do Padrão, conferida **na origem** em 11/10/2026 — nunca de clone no disco. */
@@ -144,7 +145,8 @@ export function reconferirOCommitDaFonte(
  */
 export function oCommitGravadoAindaEOMesmo(leitura: LeituraDaHistoria): boolean | null {
   if (!leitura.podeAfirmar || leitura.valor === null) return null;
-  return leitura.valor.startsWith(A_FONTE_DO_PADRAO.commit);
+  // A igualdade única de commit (D338): era o mesmo prefixo, escrito aqui só de um lado.
+  return mesmoCommit(leitura.valor, A_FONTE_DO_PADRAO.commit);
 }
 
 export interface ProblemaDoPonteiro {
