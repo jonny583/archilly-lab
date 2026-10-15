@@ -10603,3 +10603,53 @@ que gravam os vereditos — em `esteira/ferramentas/`, quatro copiam o do Valida
 
 > **PROVA QUE SE CONTRADIZ É PIOR DO QUE PROVA QUE SE CALA:** as duas metades parecem medidas, e quem
 > lê escolhe a que confirma o que esperava.
+
+## D337 · "O PUBLICADO CONFERE COM O REFEITO" TEM UMA DEFINIÇÃO SÓ — e quem grava veredito diz de onde ele vem · 15/10/2026
+
+**Contexto:** a proposta do LAB-109 (D336) — *"as ferramentas que gravam o veredito. A régua do D336
+lê a prova gravada; o código que a grava não é cobrado. Medir se a cópia do Validator pode divergir da
+contagem que vai ao lado antes de decidir entre uma forma única e uma trava de texto."*
+
+**Medido (LAB-110), por LUGAR:** todo `.ts` versionado de `external-engines/`, fora `upstream/` e as
+travas — **166 arquivos**. **Quinze linhas em onze arquivos** gravam `limpo`, `aceito` ou `confere`
+(o LAB-109 nomeou sete ferramentas; `testfit/ferramentas/medir.ts`, `src/passagens-dos-legais.ts`,
+`symbios/adapter/ferramentas/medir.ts` e `src/commit-dos-vizinhos.ts` estavam fora da lista):
+
+| de onde vem o veredito | onde | pode divergir da evidência ao lado? |
+|---|---|---|
+| cópia do Validator | `lab02`, `04`, `05`, `08`, `testfit/medir`, `passagens-dos-legais` | **não**: `montarRelatorio` do Generate deriva `limpo` e `aceito` de `invariantes.violacoes === 0`, o mesmo campo que vai ao lado — **4 de 4** versões do arquivo desde 10/09/2026, e as seis cópias levam as duas metades do mesmo relatório |
+| deriva ali, de um número | `lab94`, `lab41` | não: a mesma variável |
+| deriva ali, de uma condição | `symbios/medir` | grava em `outputs/`, fora das provas |
+| o clone vizinho | `commit-dos-vizinhos` | a forma sem regra do D336 |
+| **compara o publicado com o refeito** | **`lab39`** | **sim — por regra, não por valor** |
+
+O `lab39` dizia *"confere"* por **bytes** (`JSON.stringify(a) === JSON.stringify(b)`); a régua do D336,
+por **valor** (a ordem das chaves não conta). Trocada só a ordem em que a ferramenta monta o agregado
+publicado, ela gravou **56 divergências** e o D336 acusou a prova de se contradizer. A trava que
+confere essa prova (`tests/acesso.test.ts`) tinha a definição da ferramenta, em três linhas.
+
+**O que se decidiu:**
+
+1. `src/mesmo-valor.ts`: `mesmoValor` é **a** igualdade do *publicado contra o refeito*; o
+   `canonico` mudou-se para lá e o D336, o `lab39` e o `acesso.test.ts` a chamam. A prova regerada pelo
+   `lab39` saiu **idêntica**, byte a byte; com as chaves embaralhadas, **0** divergências.
+2. Uma régua de texto **com o sujeito escrito**: comparação por `JSON.stringify` numa linha que fala do
+   **publicado** reprova. Não todo `JSON.stringify` comparado: em determinismo — a mesma função duas
+   vezes — os bytes são a pergunta certa.
+3. O censo dos que gravam, **fechado e com a contagem** (`GRAVADORES_DE_VEREDITO`): arquivo novo que
+   grava um dos três reprova até dizer de onde o veredito vem; e quem compara o publicado tem de chamar
+   `mesmoValor`.
+4. Seis travas (`tests/mesmo-valor.test.ts`) no portão sem clones; nove mutações acusadas;
+   816 → **822**.
+
+**Descartado:** uma forma única para a **cópia** do Validator — derivar o `limpo` aqui seria refazer o
+Validator (D20), e conferir na hora repetiria o D336 em tempo de execução; quem cobra o resultado é o
+D336, e se o Generate mudar a definição, o achado é sobre ele. Uma régua sobre o texto do
+`montarRelatorio` do vizinho (mede ortografia, D137, e o dono é o Generate). Trocar toda comparação por
+`JSON.stringify` (larga demais: proibiria o determinismo).
+
+**O que se perde, dito:** a régua de texto lê o nome (`publicado`, `pub`) e uma linha só; o censo não vê
+chave montada (`[campo]:`) nem espalhamento (`...relatorio`).
+
+> **DOIS INSTRUMENTOS COM O MESMO NOME DE VEREDITO E DUAS DEFINIÇÕES SÃO UM ACUSANDO O OUTRO.** A
+> ferramenta diria *"diverge"*, a régua diria *"a prova mente"*, e o dado estaria certo.

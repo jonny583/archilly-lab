@@ -33,6 +33,10 @@ import {
   type RendimentoNoAcesso,
   type SensibilidadeAoAcesso,
 } from "../src/acesso.ts";
+// O "confere" desta ferramenta e o da régua do D336 são o MESMO veredito: o mesmo valor, qualquer
+// que seja a ordem das chaves (LAB-110, D337). Por bytes, trocar a ordem do agregado dava 56
+// "divergências" que a régua via iguais.
+import { mesmoValor } from "../src/mesmo-valor.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const SAIDA = join(RAIZ, "docs", "provas", "LAB-39");
@@ -125,7 +129,7 @@ for (const a of ARQUIVOS) {
   for (const g of a.glebas) {
     const sens = Object.fromEntries(Object.entries(g.motores).map(([k, v]) => [k, sensDaProva(v)]));
     const refeito = confrontoDoAcesso(sens, LOTE);
-    const confere = JSON.stringify(refeito) === JSON.stringify(g.publicado);
+    const confere = mesmoValor(refeito, g.publicado);
     confrontosConferidos += 1;
 
     const porMotor: Record<string, unknown> = {};
@@ -139,7 +143,7 @@ for (const a of ARQUIVOS) {
         melhorPonto: bloco.melhorPonto,
         piorPonto: bloco.piorPonto,
       };
-      const ok = JSON.stringify(ag) === JSON.stringify(pub);
+      const ok = mesmoValor(ag, pub);
       posicoesConferidas += bloco.porPosicao.length;
       agregadosConferidos += 1;
       if (!ok) divergencias += 1;

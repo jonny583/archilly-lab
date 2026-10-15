@@ -40,7 +40,11 @@
  * - o `false` de `confere` e o `true` de `aceito`-por-recusa **nunca apareceram** na árvore: a regra
  *   está provada nesse lado só por caso sintético, na trava;
  * - as ferramentas que gravam esses campos: a régua lê a prova gravada, não o código que a produz.
+ *   O código foi medido no LAB-110 (D337): doze lugares, e o único com outra definição do
+ *   veredito era o `confere` do `lab39` — agora ele chama {@link mesmoValor}, a mesma desta régua.
  */
+
+import { canonico, mesmoValor } from "./mesmo-valor.ts";
 
 /** Os três nomes de veredito que o LAB-103 nomeou e o LAB-108 mediu. */
 export const VEREDITOS = ["limpo", "aceito", "confere"] as const;
@@ -48,18 +52,12 @@ export type Veredito = (typeof VEREDITOS)[number];
 
 type Objeto = Record<string, unknown>;
 
-/** Igualdade profunda com as chaves em ordem — a mesma que o LAB-108 usou para recalcular. */
-export function canonico(x: unknown): string {
-  if (Array.isArray(x)) return `[${x.map(canonico).join(",")}]`;
-  if (x !== null && typeof x === "object") {
-    const o = x as Objeto;
-    return `{${Object.keys(o)
-      .sort()
-      .map((k) => `${JSON.stringify(k)}:${canonico(o[k])}`)
-      .join(",")}}`;
-  }
-  return JSON.stringify(x) ?? "undefined";
-}
+/**
+ * Igualdade profunda com as chaves em ordem — a mesma que o LAB-108 usou para recalcular. Desde o
+ * LAB-110 (D337) ela mora em `mesmo-valor.ts`, e a ferramenta que GRAVA o `confere` (`lab39`) e a
+ * trava que confere aquela prova chamam a mesma: o veredito tem uma definição só.
+ */
+export { canonico };
 
 export interface RegraDeCoerencia {
   /** O nome da regra, que vai no relatório e na mensagem da trava. */
@@ -105,13 +103,13 @@ export const REGRAS_DE_COERENCIA: readonly RegraDeCoerencia[] = [
     nome: "confere ⇔ agregadoPublicado = agregadoRefeitoDosCrus",
     veredito: "confere",
     aplica: (o) => "agregadoPublicado" in o && "agregadoRefeitoDosCrus" in o,
-    esperado: (o) => canonico(o["agregadoPublicado"]) === canonico(o["agregadoRefeitoDosCrus"]),
+    esperado: (o) => mesmoValor(o["agregadoPublicado"], o["agregadoRefeitoDosCrus"]),
   },
   {
     nome: "confere ⇔ confrontoPublicado = confrontoRefeitoDosCrus",
     veredito: "confere",
     aplica: (o) => "confrontoPublicado" in o && "confrontoRefeitoDosCrus" in o,
-    esperado: (o) => canonico(o["confrontoPublicado"]) === canonico(o["confrontoRefeitoDosCrus"]),
+    esperado: (o) => mesmoValor(o["confrontoPublicado"], o["confrontoRefeitoDosCrus"]),
   },
 ];
 
