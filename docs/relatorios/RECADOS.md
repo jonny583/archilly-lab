@@ -3007,3 +3007,16 @@ Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta do LAB-104 (o
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 15/10/2026 · LAB-111 — item 900 (a minha própria lista): os outros vereditos de igualdade
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-111 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta do LAB-110 (os outros vereditos de igualdade) — a que podia achar buraco aberto hoje, por isso antes da do LAB-104. FEITA. Conferido aqui, não no GitHub: esteira 1 120 pass · 9 fail (eram 1 111 · 9; as 9 são todas do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, lab84 50 de 50 sem clones, 831 travas — e o envio passa pelo gancho do LAB-106.
+Feito: por LUGAR (244 .ts) e nos 100 JSON de docs/: saoIguais (números) e mesmoRotuloDeVariante (rótulos) comparam do jeito certo. O divergem do carimbo e o igual/mudou do conferirCarimbo comparavam o commit CURTO por texto, e a procedência do Padrão por prefixo — duas definições. O curto é fato sobre o CLONE: no git 2.43.0, 16 383 objetos dão 7 caracteres, 16 386 dão 8, e o clone raso do mesmo commit volta a 7; o Generate está a 11 703 objetos (cerca de dois meses do salto, estimativa) — aí toda prova carimbada diria "o vizinho ANDOU" de um vizinho parado. src/mesmo-commit.ts (prefixo) é a igualdade única; régua com sujeito nos arquivos que leem --short; nenhuma prova muda; 9 travas (uma monta o repositório de 16 386 objetos), nove mutações, 822 → 831; D338; relatório LAB-111.
+Achados para outros apps ou Central: (1) O COMMIT CURTO NÃO É O COMMIT: casa que grava `rev-parse --short` numa prova e o compara depois por texto vai acusar "mudou" no dia em que o repositório passar de 16 384 objetos, ou quando um clone for raso e o outro cheio — compare por prefixo, ou grave o commit inteiro. (2) Medir a definição antes de travar: igualdade exata de número e de rótulo é a pergunta certa; só a representação no lugar da identidade é defeito. (3) O .wasm do Symbios segue sem se construir aqui (rustup sem saída pelo proxy).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA segue a proposta do LAB-104 (o número da decisão, D\d{2,3}: defeito que ainda não existe).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

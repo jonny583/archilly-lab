@@ -31,6 +31,8 @@ import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 
+import { mesmoCommit } from "./mesmo-commit.ts";
+
 /** Os repositórios irmãos que este Lab lê, e só lê (§4). */
 export const VIZINHOS = ["motor-testfit", "urban-create-hub-41d93a4d", "urban-scout-tool"] as const;
 export type Vizinho = (typeof VIZINHOS)[number];
@@ -241,7 +243,9 @@ export function conferirCarimbo(
         "medida. NÃO MEDIDO, e isso não é o mesmo que igual",
     };
   }
-  if (gravado === agora) {
+  // O mesmo commit, e não o mesmo TEXTO curto: o tamanho do curto depende de quantos objetos o
+  // clone tem, e o vizinho parado "andaria" no dia em que passasse de 2¹⁴ objetos (D338).
+  if (mesmoCommit(gravado, agora)) {
     return {
       ...base,
       veredito: "igual",
@@ -359,7 +363,8 @@ export function carimbarVizinhos(
       atrasPor: atras === null ? null : Number(atras),
       de: resolvida === null ? "convencao" : "modulo-resolvido",
       pelaConvencao: daConvencao === null ? null : { caminho: porConvencao, commit: daConvencao },
-      divergem: daConvencao === null ? false : daConvencao !== commit,
+      // Por `mesmoCommit` (D338): um clone raso e um cheio imprimem o mesmo commit com tamanhos diferentes.
+      divergem: daConvencao === null ? false : !mesmoCommit(daConvencao, commit),
     });
   }
   return carimbos;

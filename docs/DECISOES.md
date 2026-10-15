@@ -10653,3 +10653,60 @@ chave montada (`[campo]:`) nem espalhamento (`...relatorio`).
 
 > **DOIS INSTRUMENTOS COM O MESMO NOME DE VEREDITO E DUAS DEFINIÇÕES SÃO UM ACUSANDO O OUTRO.** A
 > ferramenta diria *"diverge"*, a régua diria *"a prova mente"*, e o dado estaria certo.
+
+## D338 · "É O MESMO COMMIT" TEM UMA DEFINIÇÃO SÓ — o commit curto é representação, não identidade · 15/10/2026
+
+**Contexto:** a proposta do LAB-110 (D337) — *"os outros vereditos de igualdade têm a mesma definição?
+O D335 mediu que `saoIguais`, `divergem` e `mesmoRotuloDeVariante` guardam a evidência ao lado; ninguém
+perguntou **como** cada ferramenta os compara. […] medir antes de travar, porque em alguns deles os bytes
+podem ser a pergunta certa."*
+
+**Medido (LAB-111), por LUGAR** (os 244 `.ts` versionados de `external-engines/`, fora `upstream/`) e nos
+**100 JSON** de `docs/`:
+
+| veredito | onde | o que compara | nas provas | a definição serve? |
+|---|---|---|---|---|
+| `saoIguais` | `lab48` | dois **números** (`===`) | 10, coerentes 10 de 10 | **sim**: *"chegou o mesmo número?"* |
+| `mesmoRotuloDeVariante` | `lab40` | dois **rótulos** (`===`) | 3, 3 de 3 | **sim**: é rótulo, e diz que é |
+| `divergem` (carimbo) | `commit-dos-vizinhos` | dois **commits curtos**, por texto | 15, todos `false` sem segunda linha | **não** |
+| `divergem` (LAB-25) | `lab25` | uma **contagem** de faces — outro objeto, mesmo nome | 5 | não é veredito |
+
+E a mesma comparação, sem nome de veredito, em `conferirCarimbo` (`gravado === agora` → `igual` ou
+*"o vizinho ANDOU"*). A casa tinha **duas definições** de *"o mesmo commit"*: texto curto igual ali, e
+**prefixo** em `oCommitGravadoAindaEOMesmo` (`onde-esta-o-padrao`).
+
+**Por que o texto curto não serve — medido no git desta máquina (2.43.0):** `rev-parse --short` imprime a
+menor abreviação que **o clone** garante única, e o tamanho segue o número de objetos dele. Num repositório
+montado por `fast-import`, **16 383** objetos dão **7** caracteres e **16 386** dão **8** (o salto é em
+2¹⁴); o clone raso do segundo devolve o **mesmo** commit com **7** — `5ec11575` contra `5ec1157`. Os
+vizinhos estão a **11 703** (Generate), **10 595** (Geo) e **4 491** (Parcelamento) objetos; no ritmo do
+último mês (de ~2 200 a ~3 400 objetos novos por mês, por `rev-list --objects`, estimativa), o Generate e o
+Geo passam de 16 384 **em cerca de dois meses**. Nesse dia toda prova carimbada antes diria *"o vizinho
+ANDOU"* de um vizinho parado; e hoje já basta um clone raso ao lado de um cheio para `divergem: true`.
+
+**O que se decidiu:**
+
+1. `src/mesmo-commit.ts`: `mesmoCommit` é **a** igualdade de commit — o mesmo texto, ou, sendo os dois
+   abreviações (7 a 64 hexadecimais), o mais curto prefixo do mais longo. `conferirCarimbo`, o `divergem`
+   do carimbo e `oCommitGravadoAindaEOMesmo` a chamam. **Nenhuma prova muda:** os 15 `divergem` gravados
+   são todos sem segunda linha.
+2. Uma régua com o **sujeito escrito**: nos arquivos que leem o commit **curto** (`--short`), `===`/`!==`
+   entre dois nomes de commit reprova. Fora deles o commit inteiro tem tamanho fixo e o texto é a
+   identidade (o gancho de envio compara 40 contra 40).
+3. `saoIguais` e `mesmoRotuloDeVariante` **ficam como estão**: a igualdade exata é a pergunta certa
+   (número que chega; rótulo que é rótulo).
+4. Nove travas (`tests/mesmo-commit.test.ts`) no portão sem clones — uma delas monta o repositório de
+   16 386 objetos e o clone raso, e prova o defeito no git de verdade; nove mutações acusadas.
+
+**Descartado:** gravar o commit **inteiro** no carimbo — resolve na origem, mas muda a forma de toda prova
+carimbada e não conserta as gravadas; fica como remédio se a colisão de prefixo um dia valer o custo.
+Fixar o tamanho com `--short=7` — o git o estende quando há ambiguidade, então não fixa. Mudar o `false`
+do `divergem` sem segunda linha para nulo (D23) — ele vem ao lado de `pelaConvencao: null` e se lê; mudar
+reescreveria quinze provas por outra pergunta.
+
+**O que se perde, dito:** a colisão de prefixo (uma em 2²⁸ por par lido); a régua lê nomes (D137) e uma
+linha só; o `divergem` não tem trava semântica no portão sem clones (o carimbo precisa dos clones) — a
+mutação dele cai pela régua e pelo censo das chamadas.
+
+> **O TAMANHO DO COMMIT CURTO É UM FATO SOBRE O CLONE, NÃO SOBRE O COMMIT.** Comparar o texto curto é
+> perguntar *"os dois clones têm o mesmo tamanho?"* achando que se perguntou *"é a mesma versão?"*.

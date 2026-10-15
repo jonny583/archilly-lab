@@ -346,6 +346,19 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-111 · item 900 — a minha própria lista: os outros vereditos de igualdade — ✅ **feito em 15/10/2026** (D338)
+
+Caixa só com o 900; peguei a proposta do LAB-110, abaixo — a que pode achar buraco aberto hoje (a do
+LAB-104 é defeito que ainda não existe). Medido por LUGAR (244 `.ts`) e nos 100 JSON de `docs/`:
+`saoIguais` (10) compara **números** e `mesmoRotuloDeVariante` (3) compara **rótulos** — a igualdade exata
+é a pergunta certa nos dois. O `divergem` do carimbo (15) e o `igual`/`mudou` do `conferirCarimbo`
+comparavam o **commit curto por texto**, e a procedência do Padrão comparava por prefixo: duas definições.
+O tamanho do curto é fato sobre o clone — medido no git 2.43.0, 16 383 objetos dão 7 caracteres, 16 386
+dão 8, e o clone raso do mesmo commit volta a 7; o Generate está a 11 703 objetos. Agora
+`src/mesmo-commit.ts` é a igualdade única (prefixo), os três lugares a chamam, e uma régua com o sujeito
+escrito cobra os arquivos que leem o curto; nenhuma prova muda; nove mutações acusadas, 822 → 831.
+Relatório: [`../relatorios/LAB-111.md`](../relatorios/LAB-111.md).
+
 ### LAB-110 · item 900 — a minha própria lista: as ferramentas que gravam o veredito — ✅ **feito em 15/10/2026** (D337)
 
 Caixa só com o 900; peguei a proposta do LAB-109, abaixo — a das duas que não esperam ninguém com
@@ -359,10 +372,11 @@ acusava a prova. Agora `src/mesmo-valor.ts` é a igualdade única (o D336, o `la
 comparação por texto do publicado, e o censo dos que gravam é fechado e com a contagem. Nove mutações
 acusadas, 816 → 822. Relatório: [`../relatorios/LAB-110.md`](../relatorios/LAB-110.md).
 
-**Proposto (minha lista, não espera ninguém):** **os outros vereditos de igualdade têm a mesma
+✅ **FEITO no LAB-111** (item 900, D338): dois servem (número, rótulo); o commit curto não — igualdade
+única por prefixo e régua. Relatório: [`../relatorios/LAB-111.md`](../relatorios/LAB-111.md). — ~~**Proposto (minha lista, não espera ninguém):** **os outros vereditos de igualdade têm a mesma
 definição?** O D335 mediu que `saoIguais`, `divergem` e `mesmoRotuloDeVariante` guardam a evidência ao
 lado; ninguém perguntou **como** cada ferramenta os compara. É a pergunta do D337 com outros nomes —
-medir antes de travar, porque em alguns deles os bytes podem ser a pergunta certa.
+medir antes de travar, porque em alguns deles os bytes podem ser a pergunta certa.~~
 
 ### LAB-109 · item 900 — a minha própria lista: a coerência do veredito com a evidência ao lado — ✅ **feito em 15/10/2026** (D336)
 
@@ -1497,7 +1511,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 822 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 831 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
