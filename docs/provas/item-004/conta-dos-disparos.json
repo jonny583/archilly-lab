@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-15T20:16:27.701Z",
+  "quando": "2026-10-15T21:29:49.604Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -491,12 +491,28 @@
         "achou": "o **030** na caixa (com o 900), contado na `origin/main` — escrito pela direção às 18h50 UTC, quinze minutos antes; o menor ainda não feito. Hora do `cron` (4 h, minuto :05): o disparo chegou como texto, sem notificação lida, e o primeiro `date` da sessão (19:10) veio depois de clonar e desrasar o clone desta casa",
         "rodada": "item 030 (LAB-113): o número do item da caixa não tem teto",
         "emVazio": false
+      },
+      {
+        "data": "15/10/2026",
+        "hora": "≤ 20:14",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida, e o primeiro `date` da sessão (20:14) veio depois de clonar e desrasar o clone desta casa",
+        "rodada": "item 900 (LAB-114), tarefa da `FILA.md` (proposta do LAB-113: o item RETIRADO)",
+        "emVazio": false
+      },
+      {
+        "data": "15/10/2026",
+        "hora": "≤ 21:10",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida, e o primeiro `date` da sessão (21:10) veio depois de clonar e de uma primeira rodada do verde",
+        "rodada": "item 900 (LAB-115), tarefa da **dívida própria** (a FILA sem proposta que não espere ninguém): o tamanho da suíte digitado nos `README.md`",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 60,
+      "noRegistro": 62,
       "observados": 38,
-      "derivados": 15,
+      "derivados": 17,
       "emLote": 7,
       "emVazio": 5
     },
