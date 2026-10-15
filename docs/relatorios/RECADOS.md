@@ -3046,3 +3046,16 @@ Próximo na fila: a caixa só tem o 900; na FILA segue a nova do LAB-113 (caminh
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 15/10/2026 · LAB-114 — item 900 (a minha própria lista): o item RETIRADO
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-114 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta do LAB-113 (caminhoDoItemDaCaixa não conhece o -RETIRADO), a única que restava. FEITA. Conferido aqui, não no GitHub: esteira 1 155 pass · 9 fail (as 9 são todas do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, 866 travas — e o envio passa pelo gancho do LAB-106.
+Feito: medido, UM chamador (acesso-sugerido.test.ts lê o 010-adendo e o 029 como fonte de regra) e UM retirado na história das 12 caixas — o 002-RETIRADO do Generate (09/10), reescrito pela direção como retratação ("Não faça nada deste item"). A busca dizia "não foi encontrado" para um arquivo no disco. Agora lê o nome pela forma única (lerNomeDoItem) e RECUSA o retirado dizendo o estado e o caminho; feito + retirado é ambiguidade; pedir pelo estado é recusado. 4 travas numa caixa de mentira, 6 mutações (5 acusadas, 1 neutra); 862 → 866; D341; relatório LAB-114.
+Achados para outros apps ou Central: (1) ITEM RETIRADO É ORDEM DESFEITA, e o texto dele é a retratação: casa que lê item da caixa como fonte de regra deve recusar o retirado com o nome do estado — ler ou dizer "não encontrado" são os dois erros. (2) Para a direção: retirar por REESCRITA (o 002 do Generate) faz o arquivo mentir para quem o lê pelo número; o -RETIRADO no nome é o que salva. (3) O .wasm do Symbios segue sem se construir aqui (rustup sem saída pelo proxy).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900, e as propostas da FILA que não esperam ninguém acabaram — o próximo disparo procura na dívida própria antes de anotar vazio.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

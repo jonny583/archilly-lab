@@ -346,6 +346,19 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-114 · item 900 — a minha própria lista: o item RETIRADO — ✅ **feito em 15/10/2026** (D341)
+
+Caixa só com o 900; peguei a proposta do LAB-113, abaixo — a única que restava. Medido: **um** chamador
+(`acesso-sugerido.test.ts`, que lê o `010-adendo` e o `029` como fonte de regra) e **um** retirado na história
+das doze caixas — o `002-RETIRADO.md` do Generate (09/10), reescrito pela direção como retratação (*"Não faça
+nada deste item"*). A busca saía com *"não foi encontrado"* para um arquivo no disco. Agora
+`caminhoDoItemDaCaixa` lê o nome pela forma única (`lerNomeDoItem`) e **recusa** o retirado dizendo o estado e o
+caminho; feito + retirado é ambiguidade; pedir pelo estado é recusado. Quatro travas numa caixa de mentira,
+seis mutações (cinco acusadas e uma neutra), 862 → 866. Relatório: [`../relatorios/LAB-114.md`](../relatorios/LAB-114.md).
+
+**A lista própria, nas propostas que não esperam ninguém, esvaziou com este item.** O próximo disparo com a
+caixa só no `900` procura na dívida própria antes de anotar vazio.
+
 ### LAB-113 · item 030 — o número do item da caixa não tem teto: a convenção, respondida pela direção — ✅ **feito em 15/10/2026** (D340)
 
 A direção respondeu a proposta do LAB-112: **três casas no mínimo, sem teto**; o **`900` é reservado**;
@@ -361,10 +374,11 @@ nenhum veredicto muda sem o `900`; com ele, **49** passam de *falsa* a *vazia* e
 Dezenove travas, onze mutações acusadas, 843 → 862. Relatório:
 [`../relatorios/LAB-113.md`](../relatorios/LAB-113.md).
 
-**Proposto (minha lista, não espera o Jonny):** **`caminhoDoItemDaCaixa` não conhece o `-RETIRADO`.** A
+✅ **FEITO no LAB-114** (item 900, D341): o retirado se recusa dizendo o estado. Relatório:
+[`../relatorios/LAB-114.md`](../relatorios/LAB-114.md). — ~~**Proposto (minha lista, não espera o Jonny):** **`caminhoDoItemDaCaixa` não conhece o `-RETIRADO`.** A
 leitura de um item pelo número (`texto-das-regras.ts`, D252) procura `NNN.md` e `NNN-FEITO.md`; um item
 retirado pela direção estoura como *"não encontrado"*, e a forma única já sabe o estado. Hoje nenhum item
-desta caixa foi retirado — medir quem chama e se o estado deve ser recusa ou leitura.
+desta caixa foi retirado — medir quem chama e se o estado deve ser recusa ou leitura.~~
 
 ### LAB-112 · item 900 — a minha própria lista: o número da decisão — ✅ **feito em 15/10/2026** (D339)
 
@@ -1550,7 +1564,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 862 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 866 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

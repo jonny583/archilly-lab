@@ -1,4 +1,6 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+
+import { lerNomeDoItem } from "./numero-do-item.ts";
 
 /**
  * COMO SE LÊ UMA REGRA ESCRITA EM MARKDOWN — num lugar só. (LAB-77)
@@ -79,8 +81,21 @@ export function aRegraEstaEscrita(texto: string, oQueProcurar: string): boolean 
  */
 export function caminhoDoItemDaCaixa(raiz: string, numero: string): string {
   const dir = `${raiz}/docs/caixa-de-entrada`;
-  const candidatos = [`${dir}/${numero}.md`, `${dir}/${numero}-FEITO.md`];
-  const achados = candidatos.filter((c) => existsSync(c));
+  // **O NOME SE LÊ PELA FORMA ÚNICA, e não por uma lista de dois candidatos** (LAB-114, D341).
+  // A lista era `NNN.md` e `NNN-FEITO.md`: o terceiro estado, `-RETIRADO`, saía como *"não foi
+  // encontrado"* — a mensagem errada para um arquivo que está no disco. `lerNomeDoItem` já sabe os
+  // três estados; perguntar a ela é o que impede uma quarta leitura do nome de nascer aqui.
+  const pedido = lerNomeDoItem(`${numero}.md`);
+  if (!pedido || pedido.estado !== "aberto") {
+    throw new Error(
+      `"${numero}" não é o número de um item da caixa de entrada — pede-se pelo NÚMERO ` +
+        "(`010`, `010-adendo`), nunca pelo estado, porque o estado é o que muda (D252)",
+    );
+  }
+  const achados = (existsSync(dir) ? readdirSync(dir) : [])
+    .map(lerNomeDoItem)
+    .filter((i) => i !== null && i.identidade === pedido.identidade)
+    .map((i) => ({ caminho: `${dir}/${i!.nome}`, estado: i!.estado }));
   // **OS DOIS AO MESMO TEMPO É ERRO, não preferência** (LAB-80). Medido no próprio prompt: eu
   // renomeei `013.md` para `013-FEITO.md` no ramo, e o `git merge` da `origin/main` — que ainda
   // tinha o original — **ressuscitou o `013.md`**. Os dois no disco, e esta função devolvia o
@@ -91,20 +106,34 @@ export function caminhoDoItemDaCaixa(raiz: string, numero: string): string {
   // > são uma ambiguidade — que se recusa, nunca se resolve por ordem de lista.
   if (achados.length > 1) {
     throw new Error(
-      `o item "${numero}" da caixa de entrada existe DUAS vezes — ${achados.join(" e ")}. O ` +
+      `o item "${numero}" da caixa de entrada existe DUAS vezes — ${achados.map((a) => a.caminho).join(" e ")}. O ` +
         "estado de um item é o nome do arquivo, e dois nomes são ambiguidade: apague o que não " +
         "vale. Costuma ser um `git merge` da origem que ressuscitou o nome antigo depois de um " +
         "renomear no ramo",
     );
   }
-  for (const c of achados) {
-    return c;
+  const [achado] = achados;
+  if (!achado) {
+    throw new Error(
+      `o item "${numero}" da caixa de entrada não foi encontrado — procurei por ` +
+        `${dir}/${numero}.md e ${dir}/${numero}-FEITO.md (e o -RETIRADO). Item some da caixa quando o ` +
+        "chat o apaga; item RENOMEADO continua lá, e é isso que esta função existe para atravessar",
+    );
   }
-  throw new Error(
-    `o item "${numero}" da caixa de entrada não foi encontrado — procurei por ` +
-      `${candidatos.join(" e ")}. Item some da caixa quando o chat o apaga; item RENOMEADO ` +
-      "continua lá, e é isso que esta função existe para atravessar",
-  );
+  // **ITEM RETIRADO SE RECUSA, não se lê** (LAB-114, D341). O único `-RETIRADO` da família, o
+  // `002-RETIRADO.md` do Generate (09/10/2026), foi **reescrito** pela direção — *"Não faça nada
+  // deste item"* — e o texto dele é a retratação, não a ordem. Quem lê um item pelo número o lê
+  // como FONTE de uma regra (as travas do acesso sugerido leem o `010-adendo` e o `029`): lido o
+  // retirado, a trava conferiria a regra contra a retratação — verde por acaso ou vermelho pelo
+  // motivo errado. O retirado é estado conhecido, e por isso a recusa diz o nome dele.
+  if (achado.estado === "retirado") {
+    throw new Error(
+      `o item "${numero}" da caixa de entrada foi RETIRADO pela direção — ${achado.caminho}. Item ` +
+        "retirado é ordem desfeita, e o texto dele é a retratação, não a regra: quem o lia como fonte " +
+        "tem de perguntar à direção onde a regra mora agora, em vez de conferi-la contra o que a desfez",
+    );
+  }
+  return achado.caminho;
 }
 
 /** O texto de um item da caixa, achado pelo número e lido como a regra se lê. */

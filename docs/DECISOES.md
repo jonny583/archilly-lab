@@ -10812,3 +10812,35 @@ programa que leia a caixa sem nomear a pasta, o estado nem a forma no código.
 
 > **A CONVENÇÃO TEM DUAS METADES, E A SEGUNDA É A QUE ESTAVA ABERTA.** A proposta perguntou pelo `1000`, que
 > não existe; o `900`, que existe desde 12/10, já fazia a régua errar contra a declaração de hoje.
+
+## D341 · O ITEM RETIRADO SE RECUSA PELO NOME DO ESTADO — e a busca por número lê o nome pela forma única · 15/10/2026
+
+**Contexto:** a proposta do LAB-113 (D340) — *"`caminhoDoItemDaCaixa` não conhece o `-RETIRADO` […]; medir
+quem chama e se o estado deve ser recusa ou leitura."* Peguei-a no item 900 (LAB-114): a caixa só tinha o
+`900`, e era a única proposta da FILA que não espera ninguém.
+
+**Medido (LAB-114):** um único chamador, `tests/acesso-sugerido.test.ts`, que lê o `010-adendo` e o `029`
+**como fonte de regra**. Nos doze clones, a história inteira das caixas tem **um** retirado — o
+`002-RETIRADO.md` do Generate (09/10/2026, `5dec495`) — e a direção o **reescreveu** como retratação:
+*"Não faça nada deste item."* A busca procurava uma lista fixa de dois nomes, e o retirado saía como
+*"não foi encontrado"*, para um arquivo que está no disco — e a lista era uma quarta leitura do nome, ao lado
+da forma única do D340.
+
+**Decidido:**
+
+1. `caminhoDoItemDaCaixa` lê a pasta e pergunta a `lerNomeDoItem`, casando pela identidade do D273. Um
+   achado aberto ou feito → o caminho; mais de um → *"DUAS vezes"* (também feito + retirado); **retirado →
+   recusa dizendo RETIRADO e o caminho**. Pedir pelo estado, ou com menos de três casas, é recusado.
+2. Quatro travas numa caixa de mentira, em pasta descartável, com o lado bom na mesma caixa; seis mutações
+   (cinco acusadas, uma neutra que passa); a função velha de volta derruba três. 862 → 866 travas.
+
+**Descartado:** **ler** o retirado — a trava conferiria a regra contra a retratação, verde por acaso ou
+vermelha pelo motivo errado; **manter** o *"não foi encontrado"* — manda procurar um arquivo apagado; esperar
+um retirado de verdade nesta caixa para escrever a trava — trava que espera o defeito acontecer.
+
+**O que se perde, dito:** as listas que gravam o nome literal de um item (`AS_ONZE_ISENCOES`,
+`FALAM_SOBRE_O_ASSUNTO` com `005-FEITO.md`; o prefixo `006` da `trava-de-estrutura`) não passam pela busca:
+um retirado ali deixaria uma isenção órfã, inofensiva e silenciosa. E a busca lê o disco, não a origem.
+
+> **ITEM RETIRADO É ORDEM DESFEITA, E O TEXTO DELE É A RETRATAÇÃO.** Quem lê um item como fonte de regra e
+> acha um retirado não tem regra para conferir: tem uma pergunta para a direção.

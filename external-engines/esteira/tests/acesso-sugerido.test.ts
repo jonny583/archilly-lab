@@ -12,7 +12,8 @@
  */
 
 import { describe, expect, test } from "bun:test";
-import { existsSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 import type { P } from "../src/motores/comum.ts";
@@ -91,6 +92,77 @@ describe("o item da caixa achado pelo NÚMERO — e o nome ambíguo recusado", (
     }
     // E depois de tirar o sósia, volta a achar o certo: a recusa não deixa resíduo.
     expect(caminhoDoItemDaCaixa(RAIZ, "013")).toContain("013-FEITO.md");
+  });
+});
+
+/**
+ * ── O TERCEIRO ESTADO: o item RETIRADO se recusa, com o nome dele (LAB-114, D341) ──
+ *
+ * A busca por número conhecia dois nomes, `NNN.md` e `NNN-FEITO.md`, e o `-RETIRADO` saía como
+ * *"não foi encontrado"* — a mensagem errada para um arquivo que está no disco. O único retirado da
+ * família (o `002-RETIRADO.md` do Generate, 09/10) foi REESCRITO pela direção como retratação:
+ * *"Não faça nada deste item."* Lê-lo como fonte de regra é conferir a regra contra o que a desfez.
+ *
+ * As travas montam uma caixa de mentira numa pasta descartável: nenhum item desta casa foi
+ * retirado, e uma trava que dependesse de um retirado de verdade esperaria um defeito acontecer.
+ */
+describe("o item RETIRADO se recusa pelo nome do estado, nunca como 'não encontrado'", () => {
+  function caixaDeMentira(nomes: readonly string[]): string {
+    const raiz = mkdtempSync(join(tmpdir(), "lab114-"));
+    mkdirSync(join(raiz, "docs", "caixa-de-entrada"), { recursive: true });
+    for (const n of nomes) writeFileSync(join(raiz, "docs", "caixa-de-entrada", n), `# ${n}\n`);
+    return raiz;
+  }
+
+  test("o retirado ESTOURA dizendo RETIRADO e o caminho — e não diz 'não foi encontrado'", () => {
+    const raiz = caixaDeMentira(["031-RETIRADO.md", "COMO_FUNCIONA.md"]);
+    try {
+      let msg = "";
+      try {
+        caminhoDoItemDaCaixa(raiz, "031");
+      } catch (e) {
+        msg = (e as Error).message;
+      }
+      expect(msg).toMatch(/foi RETIRADO/);
+      expect(msg).toContain("031-RETIRADO.md");
+      expect(msg).not.toMatch(/não foi encontrado/);
+      expect(() => lerItemDaCaixa(raiz, "031")).toThrow(/RETIRADO/);
+    } finally {
+      rmSync(raiz, { recursive: true });
+    }
+  });
+
+  test("o lado bom na MESMA caixa: aberto, feito e adendo continuam achados", () => {
+    const raiz = caixaDeMentira(["031-RETIRADO.md", "032.md", "033-FEITO.md", "033-adendo-2-FEITO.md", "1000.md"]);
+    try {
+      expect(caminhoDoItemDaCaixa(raiz, "032")).toContain("032.md");
+      expect(caminhoDoItemDaCaixa(raiz, "033")).toContain("033-FEITO.md");
+      expect(caminhoDoItemDaCaixa(raiz, "033-adendo-2")).toContain("033-adendo-2-FEITO.md");
+      // Sem teto de casas (D340): o `1000` é item, e não colide com o `100`.
+      expect(caminhoDoItemDaCaixa(raiz, "1000")).toContain("1000.md");
+      expect(() => caminhoDoItemDaCaixa(raiz, "100")).toThrow(/não foi encontrado/);
+    } finally {
+      rmSync(raiz, { recursive: true });
+    }
+  });
+
+  test("feito E retirado do mesmo número é ambiguidade, como aberto e feito (LAB-80)", () => {
+    const raiz = caixaDeMentira(["034-FEITO.md", "034-RETIRADO.md"]);
+    try {
+      expect(() => caminhoDoItemDaCaixa(raiz, "034")).toThrow(/DUAS vezes/);
+    } finally {
+      rmSync(raiz, { recursive: true });
+    }
+  });
+
+  test("pede-se pelo NÚMERO: pedir pelo estado é recusado, não atravessado", () => {
+    const raiz = caixaDeMentira(["035-FEITO.md"]);
+    try {
+      expect(() => caminhoDoItemDaCaixa(raiz, "035-FEITO")).toThrow(/não é o número de um item/);
+      expect(() => caminhoDoItemDaCaixa(raiz, "35")).toThrow(/não é o número de um item/);
+    } finally {
+      rmSync(raiz, { recursive: true });
+    }
   });
 });
 
