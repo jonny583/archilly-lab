@@ -10557,3 +10557,49 @@ na FILA; regerar as três provas.
 
 > **O VEREDITO DE IDENTIDADE É O ÚNICO CUJA EVIDÊNCIA NÃO CABE NUM NÚMERO.** "O mesmo número de lotes"
 > não é "o mesmo desenho" — e por isso é ele, e não os outros, que precisa guardar as assinaturas.
+
+## D336 · O VEREDITO NÃO CONTRADIZ A EVIDÊNCIA AO LADO — sete formas, seis regras e uma forma sem regra declarada · 15/10/2026
+
+**Contexto:** a proposta do LAB-108 (D335) — *"a coerência do veredito com a evidência ao lado.
+`limpo` ⇔ `violacoes === 0`, `aceito` ⇔ sem violação/recusa/plano nulo, `confere` ⇔ o publicado igual
+ao refeito: medidos hoje 392 de 392, e nada os cobra — um veredito que contradiga o número ao lado
+passaria."* É a outra pergunta: não *"a evidência está lá?"*, e sim *"ela contradiz o veredito?"*.
+
+**Medido (LAB-109), por LUGAR:** os mesmos 100 `.json` versionados em `docs/`. **404** campos com os
+três nomes, em **sete formas** — e a forma decide a regra:
+
+| veredito | evidência ao lado | regra | campos | lados vistos |
+|---|---|---|---|---|
+| `limpo` | `violacoes` (número) | `⇔ violacoes === 0` | 151 | os dois |
+| `aceito` | `violacoes` (número) | `⇔ violacoes === 0` | 92 | os dois |
+| `aceito` | `recusa` (lista) | `⇔ recusa vazia` | 13 | só `false` |
+| `aceito` | `lotes` (número ou nulo) | `⇔ lotes !== null` | 66 | os dois |
+| `confere` | `agregadoPublicado` / `agregadoRefeitoDosCrus` | igualdade profunda | 56 | só `true` |
+| `confere` | `confrontoPublicado` / `confrontoRefeitoDosCrus` | igualdade profunda | 14 | só `true` |
+| `limpo` do clone vizinho | `commit`, `origemMain` | **nenhuma**, declarada | 12 | só `true` |
+
+**O que se decidiu:**
+
+1. `src/coerencia-do-veredito.ts`: as seis regras, **na ordem em que se tentam** (com violações e
+   lotes juntos — LAB-07, LAB-93 —, quem decide é o Validator); a forma sem regra, fechada e com o
+   motivo (a evidência de um clone limpo é a saída vazia do `git status`, que não se grava); o **nulo**
+   passa como *não medido* (D23), porque `passagens-dos-legais.ts` declara `aceito: boolean | null`.
+2. **Campo com um dos três nomes que não cai em regra nem em forma declarada reprova**, e não booleano
+   também — forma nova não nasce fora da régua. E toda regra tem de conferir **algum** campo da árvore:
+   regra que não lê nada é regra desligada.
+3. Sete travas (`tests/coerencia-do-veredito.test.ts`) no portão sem clones, com os lados que a árvore
+   nunca mostrou (`confere: false`, `aceito: true` por recusa vazia) provados por caso sintético; nove
+   mutações acusadas; 809 → **816**.
+
+**O que se perde, dito:** a régua cobra que as duas metades concordem, não que a contagem esteja certa
+— `violacoes: 0` errado ao lado de `limpo: true` passa. E lê três nomes; veredito com outro nome
+(`semPlano`, `divergem`) não é cobrado.
+
+**Descartado:** juntar à régua do D335 (outra pergunta, e aquela lê o nome `identic`); uma regra só por
+nome, sem forma (o `aceito` tem três evidências diferentes, e o `limpo` do clone não tem nenhuma);
+deixar a forma desconhecida passar calada (*verde porque não achou nada*, D263); travar as ferramentas
+que gravam os vereditos — em `esteira/ferramentas/`, quatro copiam o do Validator (`lab02`, `04`, `05`,
+`08`) e três derivam ali mesmo (`lab39`, `41`, `94`): medir antes, proposto na FILA.
+
+> **PROVA QUE SE CONTRADIZ É PIOR DO QUE PROVA QUE SE CALA:** as duas metades parecem medidas, e quem
+> lê escolhe a que confirma o que esperava.

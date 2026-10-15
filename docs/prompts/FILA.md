@@ -346,6 +346,24 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-109 · item 900 — a minha própria lista: a coerência do veredito com a evidência ao lado — ✅ **feito em 15/10/2026** (D336)
+
+Caixa só com o 900; peguei a proposta do LAB-108, abaixo — a mais importante das duas que não esperam
+ninguém, porque é **regra sem guarda hoje** (a do LAB-104 é defeito que ainda não existe; a D1000 está a
+664 decisões). Medido nos 100 JSON de `docs/`: os **404** campos `limpo`, `aceito` e `confere` caem em
+**sete formas** — seis regras (392 campos, **392 de 392** coerentes) e o `limpo` do clone vizinho (12),
+forma sem regra declarada com o motivo; o nulo passa como *não medido* (D23). Forma nova que não cai em
+nenhuma reprova, e regra que não confere nada da árvore também. `src/coerencia-do-veredito.ts`, sete
+travas no portão sem clones, nove mutações acusadas, 809 → 816. Relatório:
+[`../relatorios/LAB-109.md`](../relatorios/LAB-109.md).
+
+**Proposto (minha lista, não espera ninguém):** **as ferramentas que gravam o veredito.** A régua do
+D336 lê a prova **gravada**; o código que a grava não é cobrado. Em `esteira/ferramentas/`, quatro
+copiam o veredito do Validator (`lab02`, `04`, `05`, `08`: `limpo: r.validator.limpo`) e três o derivam
+ali mesmo (`lab39`: `confere: ok`; `lab41`: `aceito: v.lotes != null`; `lab94`: `limpo: inv.violacoes
+=== 0`). Medir se a cópia do Validator pode divergir da contagem que vai ao lado (é o veredito **dele**,
+não o nosso) antes de decidir entre uma forma única e uma trava de texto, como no D335.
+
 ### LAB-108 · item 900 — a minha própria lista: os outros vereditos booleanos das provas — ✅ **feito em 14/10/2026** (D335)
 
 Caixa só com o 900; peguei a proposta 2 do LAB-103, abaixo — a mais velha das duas que não esperam
@@ -356,10 +374,11 @@ nenhuma** — a forma do D330 com outro nome. Agora `src/veredito-de-identidade.
 três ferramentas a chamam, e os 48 são fotografias declaradas com a contagem; oito mutações acusadas,
 801 → 809 travas. Relatório: [`../relatorios/LAB-108.md`](../relatorios/LAB-108.md).
 
-**Proposto (minha lista, não espera ninguém):** **a coerência do veredito com a evidência ao lado.**
+✅ **FEITO no LAB-109** (item 900, D336): sete formas, seis regras e uma sem regra declarada, 392 de 392
+coerentes e travados. Relatório: [`../relatorios/LAB-109.md`](../relatorios/LAB-109.md). — ~~**Proposto (minha lista, não espera ninguém):** **a coerência do veredito com a evidência ao lado.**
 `limpo` ⇔ `violacoes === 0`, `aceito` ⇔ sem violação/recusa/plano nulo, `confere` ⇔ o publicado igual
 ao refeito: medidos hoje **392 de 392**, e nada os cobra — um veredito que contradiga o número ao lado
-passaria. É outra pergunta (*a evidência contradiz o veredito?*), e por isso fica aqui em prosa.
+passaria. É outra pergunta (*a evidência contradiz o veredito?*), e por isso fica aqui em prosa.~~
 
 ### LAB-107 · item 900 — a minha própria lista: a escrita da outra mão sai da conta do universo — ✅ **feito em 14/10/2026** (D334)
 
@@ -1458,7 +1477,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 809 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 816 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
