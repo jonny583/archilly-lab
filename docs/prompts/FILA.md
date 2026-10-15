@@ -346,6 +346,23 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-116 · item 900 — a minha própria lista: o clone RASO no passo 0 do protocolo — ✅ **feito em 15/10/2026** (D344)
+
+Caixa só com o 900; peguei a proposta do LAB-115, abaixo — a única que restava sem esperar ninguém. Medido nesta
+máquina e nas doze casas que ela trouxe: **todas** chegam rasas, com o `HEAD` destacado na ponta de hoje e uma
+`main` local velha (09 e 10/10). O comando do disparo faz `checkout main` **antes** de o `pull --ff-only` recusar
+(no raso não há base comum), e **a árvore fica no retrato**: o protocolo de 09/10, sem passo 0 (zero `git fetch`
+nas onze casas que têm a página), e item já feito aberto na caixa em oito das doze — aqui o `011.md`. A receita
+(desrasar antes de comparar; só avançar a `main` ancestral, por `--ff-only`; a divergência de verdade não se
+toca) mora no passo 0 do `COMO_FUNCIONA.md`, com marca, e `tests/clone-da-maquina.test.ts` a tira da página e a
+**roda** num clone raso montado como a máquina monta, depois do comando real do disparo, nos dois lados e com a
+mutação. Dez travas, sete mutações na página, sete acusadas; 878 → 888. Relatório:
+[`../relatorios/LAB-116.md`](../relatorios/LAB-116.md).
+
+**O que a página não alcança vai à direção, no recado:** a sessão que lê o disco depois do disparo falhar lê o
+protocolo do retrato. Quem fecha esse buraco é o comando do disparo, que esta sessão não toca. **As propostas
+da FILA que não esperam ninguém acabaram de novo**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-115 · item 900 — a dívida própria: o tamanho da suíte digitado nos `README.md` — ✅ **feito em 15/10/2026** (D342)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (o LAB-114 esvaziou-a); fui à dívida própria,
@@ -360,13 +377,13 @@ deste disparo, a conta dos disparos recusou-a — e mostrou que a do LAB-114 nun
 linha que ela não lê reprova antes dos totais (62 e 17 agora); cinco mutações (D343), 874 → 878. Relatório:
 [`../relatorios/LAB-115.md`](../relatorios/LAB-115.md).
 
-**Proposto (minha lista, não espera o Jonny):** **o passo 0 do `COMO_FUNCIONA.md` não diz o que fazer com o
+✅ **FEITO no LAB-116** (D344), acima. — ~~**Proposto (minha lista, não espera o Jonny):** **o passo 0 do `COMO_FUNCIONA.md` não diz o que fazer com o
 clone RASO.** Do LAB-101 ao LAB-114, catorze rodadas seguidas acharam a `main` local *"ahead 94, behind N"*
 (o `pull --ff-only` do disparo recusa), e cada uma redescobriu que era clone raso — `git fetch --unshallow`
 mostra o local como ancestral da origem; esta foi a décima quinta. O texto do disparo não muda (*"mudar o
 protocolo é commit naquele arquivo"*), então o lugar é o passo 0: a receita (desrasar antes de comparar, e
 nunca concluir divergência num clone raso) e uma trava que a cobre. Medir antes se o mesmo vale para as
-outras casas, que copiam o protocolo.
+outras casas, que copiam o protocolo.~~
 
 ### LAB-114 · item 900 — a minha própria lista: o item RETIRADO — ✅ **feito em 15/10/2026** (D341)
 
@@ -1586,7 +1603,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 878 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 888 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
