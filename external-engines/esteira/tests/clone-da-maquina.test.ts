@@ -155,7 +155,7 @@ describe("LAB-116 · a receita RODADA, nos dois lados e com a mutação", () => 
     expect(r.codigo, r.saida).toBe(0);
     expect(git(maquina, "rev-parse", "main")).toBe(ponta);
     expect(git(maquina, "rev-parse", "HEAD")).toBe(ponta);
-    expect(git(maquina, "symbolic-ref", "--short", "HEAD")).toBe("main");
+    expect(git(maquina, "symbolic-ref", "HEAD")).toBe("refs/heads/main");
     expect(git(maquina, "rev-parse", "--is-shallow-repository")).toBe("false");
     expect(git(maquina, "status", "--porcelain")).toBe("");
   });
@@ -165,7 +165,7 @@ describe("LAB-116 · a receita RODADA, nos dois lados e com a mutação", () => 
     const r = sh(maquina, RECEITA!);
     expect(r.codigo, r.saida).toBe(0);
     expect(git(maquina, "rev-parse", "HEAD")).toBe(ponta);
-    expect(git(maquina, "symbolic-ref", "--short", "HEAD")).toBe("main");
+    expect(git(maquina, "symbolic-ref", "HEAD")).toBe("refs/heads/main");
   });
 
   test("a máquina SEM `main` local (só o HEAD destacado): a receita cria a `main` na ponta, rastreando a origem", () => {
