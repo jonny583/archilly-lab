@@ -50,7 +50,10 @@ export type Origem = (typeof ORIGENS)[number];
 export interface DisparoDaConta {
   /** `DD/MM/AAAA`, como está no documento. */
   data: string;
-  /** `HH:MM` em UTC. */
+  /**
+   * `HH:MM` em UTC — ou `≤ HH:MM`, quando o minuto não se afirma e a hora é só o teto (o primeiro
+   * `date` da sessão, depois do disparo). A ordem da tabela compara o `HH:MM` dos dois (LAB-115).
+   */
   hora: string;
   origem: Origem;
   /** O que o disparo achou na caixa. */
@@ -81,6 +84,12 @@ export interface ContaDosDisparos {
   temAFraseDoQueDecide: boolean;
   /** Os `trig_...` citados na seção. Mais de um id distinto é o defeito do D234. */
   idsCitados: string[];
+  /**
+   * As linhas que COMEÇAM como linha da conta (`| DD/MM/AAAA |`) e que a régua não soube ler.
+   * Linha ilegível é linha invisível: no LAB-114 a hora `≤ 20:14` não casava com `HH:MM`, a linha
+   * sumiu da conta, os totais não andaram, e a régua seguiu verde sem vê-la (LAB-115, D343).
+   */
+  ilegiveis: string[];
 }
 
 const RE_SECAO = /\n# [^\n]*CONTA DOS DISPAROS[^\n]*\n([\s\S]*?)(?=\n# )/;
@@ -101,14 +110,23 @@ export function diaDe(data: string): string {
 export function lerAConta(ondeParamos: string): ContaDosDisparos {
   const secao = RE_SECAO.exec(ondeParamos)?.[1] ?? "";
   const linhas: DisparoDaConta[] = [];
+  const ilegiveis: string[] = [];
   for (const l of secao.split("\n")) {
     // **A CLASSE DE ORIGEM ACEITA HÍFEN, e isto é o conserto do D281.** No LAB-83 eu pus
     // `entregue-em-lote` no vocabulário e **não** aqui: `[a-z]+` para no `-`, a linha inteira
     // deixava de casar, e as SETE linhas novas ficaram **invisíveis para esta régua** — o verde
     // passou porque ela não as viu. *Vocabulário que cresce e régua de linha que não cresce com
     // ele é guarda que fica cega exatamente na classe nova.*
-    const m = /^\|\s*(\d{2}\/\d{2}\/\d{4})\s*\|\s*(\d{2}:\d{2})\s*\|\s*([a-z-]+)\s*\|([^|]*)\|([^|]*)\|/.exec(l);
-    if (!m) continue;
+    // **E A HORA ACEITA O TETO `≤`**, a outra metade do mesmo defeito, um mês depois (D343): a
+    // hora que não se afirma é escrita `≤ HH:MM`, e a régua que só lia `HH:MM` a deixava de fora.
+    const m = /^\|\s*(\d{2}\/\d{2}\/\d{4})\s*\|\s*((?:≤\s*)?\d{2}:\d{2})\s*\|\s*([a-z-]+)\s*\|([^|]*)\|([^|]*)\|/.exec(l);
+    if (!m) {
+      // Linha da conta é a que traz a data e, na segunda célula, uma HORA (começa por algarismo,
+      // depois de qualquer sinal: `≤`, `~`). A tabela do precedente da FILA, logo abaixo, também
+      // começa pela data — e a segunda célula dela é texto: não é linha desta conta.
+      if (/^\|\s*\d{2}\/\d{2}\/\d{4}\s*\|\s*[^\p{L}|]*\d/u.test(l)) ilegiveis.push(l.slice(0, 80));
+      continue;
+    }
     const achou = m[4]!.trim();
     linhas.push({
       data: m[1]!,
@@ -146,6 +164,7 @@ export function lerAConta(ondeParamos: string): ContaDosDisparos {
     },
     temAFraseDoQueDecide: /não é fracasso/.test(secao) && /intervalo/.test(secao),
     idsCitados: [...new Set(secao.match(/trig_[A-Za-z0-9]+/g) ?? [])],
+    ilegiveis,
   };
 }
 
@@ -158,7 +177,8 @@ export interface ProblemaDaConta {
     | "sem-a-frase-do-que-decide"
     | "mais-de-um-id"
     | "vazio-sem-recado"
-    | "recado-sem-linha";
+    | "recado-sem-linha"
+    | "linha-que-a-regua-nao-le";
   oQue: string;
 }
 
@@ -184,6 +204,17 @@ export function conferirAConta(
         "linha — e isso NÃO é aprovação: é a régua sem medir nada",
     });
     return problemas;
+  }
+
+  // **Antes dos totais: a linha que a régua não lê.** Sem isto, uma forma nova de escrever uma
+  // célula tira a linha da conta, e os totais conferem contra as linhas que SOBRARAM (D343).
+  for (const l of conta.ilegiveis) {
+    problemas.push({
+      tipo: "linha-que-a-regua-nao-le",
+      oQue:
+        `a linha "${l}" começa como linha da conta e a régua não a lê — linha ilegível é linha ` +
+        "invisível, e os totais passam a conferir só as que sobraram",
+    });
   }
 
   if (conta.declarados.noRegistro !== conta.linhas.length) {
@@ -232,7 +263,7 @@ export function conferirAConta(
     });
   }
 
-  const chaves = conta.linhas.map((l) => `${diaDe(l.data)} ${l.hora}`);
+  const chaves = conta.linhas.map((l) => `${diaDe(l.data)} ${l.hora.replace(/^≤\s*/, "")}`);
   for (let i = 1; i < chaves.length; i += 1) {
     if (chaves[i]! < chaves[i - 1]!) {
       problemas.push({

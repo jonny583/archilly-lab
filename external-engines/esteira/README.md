@@ -37,7 +37,7 @@ Então o que é de ninguém mora aqui. Ver `docs/DECISOES.md`, D31.
 | `ferramentas/lab04.ts` | a medição do LAB-04: lotes, área vendável e violações contra os outros dois motores |
 | `ferramentas/lab05.ts` | a medição do LAB-05: antes e depois do recorte de quadra e do descarte de lasca, nas cinco glebas |
 | `ferramentas/lab13.ts` | a medição do LAB-13: cinco glebas × quatro motores, uma tabela |
-| `tests/` | 93 testes |
+| `tests/` | as travas do pacote — quantas são, diz a linha *"Ran N tests"* do `bun test`, não esta página (D342) |
 
 O recorte em si **não** mora aqui: ele é geometria pura e vive no adaptador do
 Symbios, em `../symbios/adapter/src/recorte.ts` e `../symbios/adapter/src/poligono.ts`,

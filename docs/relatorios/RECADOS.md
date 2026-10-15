@@ -3059,3 +3059,16 @@ Próximo na fila: a caixa só tem o 900, e as propostas da FILA que não esperam
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 15/10/2026 · LAB-115 — item 900 (a dívida própria): o tamanho da suíte digitado nos README.md
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-115 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main) e a FILA sem proposta que não espere ninguém; fui à dívida própria, espécie "número digitado à mão". FEITO. Conferido aqui, não no GitHub: esteira 1 167 pass · 9 fail (as 9 são do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, 878 travas — e o envio passa pelo gancho do LAB-106.
+Feito: por LUGAR (31 .md vivos), o tamanho de uma suíte estava escrito em 4 lugares de 3 README.md, e 3 estavam ERRADOS sem trava: esteira "93 testes" desde 19/09 contra 1 164 rodados; testfit "14 testes" duas vezes contra 17; o "22" do registro de motores, certo e sem guarda. A frase saiu (quem conta é o "Ran N tests" do bun test); src/numero-de-testes.ts + trava no portão sem clones impedem a volta, nos dois sentidos, com 2 exceções declaradas e o relato pela definição do LAB-102. 8 mutações (7 acusadas, 1 neutra que saiu do código); D342. E a conta dos disparos estava CEGA para a linha do LAB-114 (hora "≤ 20:14" fora do HH:MM): totais parados em 60/15 e régua verde; agora lê o teto e reprova a linha que não lê (62/17), 5 mutações acusadas, D343. 866 → 878; relatório LAB-115.
+Achados para outros apps ou Central: (0) RÉGUA DE LINHA QUE NÃO DIZ QUAIS LINHAS NÃO LEU CONFERE OS TOTAIS CONTRA AS QUE SOBRARAM — vale para toda casa que conta disparos em tabela. (1) NÚMERO QUE MUDA EM TODA RODADA NÃO MORA NUMA PÁGINA QUE NINGUÉM REESCREVE EM TODA RODADA: README com "N testes" é a cópia que nenhuma régua de travas lê — vale procurar nas outras casas. (2) Para a direção: do LAB-101 ao LAB-115, quinze rodadas seguidas acharam o clone desta casa RASO e "ahead 94" (o pull --ff-only do texto do disparo recusa); proposto na FILA pôr a receita no passo 0 do COMO_FUNCIONA. (3) O .wasm do Symbios segue sem se construir aqui (rustup sem saída pelo proxy).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA, a proposta do clone raso no passo 0 do protocolo.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
