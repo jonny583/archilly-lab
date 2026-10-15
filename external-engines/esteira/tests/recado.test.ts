@@ -73,6 +73,11 @@ function recados(): string[][] {
  * É a **terceira** vez em dois dias que uma régua minha nega o caso legítimo que ela não tinha
  * visto (D217, D219, e esta). *Régua nova nasce estreita demais, e o primeiro uso real é que
  * mostra onde.*
+ *
+ * **E o conserto a deixou larga demais** (LAB-117, D345): com `.+` no `<app>`, o `Lab` velho
+ * também passa — plantado no recado do LAB-116, os nove arquivos que leem o acumulado ficaram
+ * verdes. Esta régua cobra a FORMA; o NOME exato, lido do `CLAUDE.md` §1, é cobrado em
+ * `tests/nome-do-aplicativo.test.ts`.
  */
 const CABECALHO = /^=== RECADO PARA O CHAT — .+ · .+ ===$/;
 

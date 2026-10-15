@@ -10959,3 +10959,43 @@ buraco é o comando do disparo, e por isso o achado vai à direção no recado.
 
 > **NO CLONE RASO, "DIVERGIU" É FALTA DE HISTÓRIA, NUNCA FATO.** E o comando que falha no segundo passo
 > já fez o primeiro: depois dele, o disco é o retrato, e o protocolo que se lê é o do retrato.
+
+## D345 · O `<app>` DO RECADO É COBRADO PELO NOME EXATO, LIDO DA PÁGINA — a régua do D228 cobra a forma, e ficou larga · 15/10/2026
+
+**Contexto:** item 900 (LAB-117). A caixa só tinha o `900`, e a FILA, desde o LAB-116, não tem proposta que
+não espere ninguém; fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1: *"`<app>` é
+`MOTOR LAB (archilly-lab)`, nunca `Lab`"*.
+
+**Medido (LAB-117):**
+
+1. **A trava do cabeçalho aceita qualquer nome.** No D228 ela casava `Lab` literal e reprovou o primeiro
+   cabeçalho certo; o conserto pôs `.+` no `<app>` — a forma nova passou e **a velha continuou passando**.
+   Plantado `— Lab · LAB-116 (item 900) ===` no acumulado de verdade (e desfeito depois), os **nove** arquivos
+   de teste que leem o `RECADOS.md` rodaram **127 de 127 verdes**.
+2. **A regra foi cumprida por disciplina:** dos 128 cabeçalhos, os **72** até o LAB-67 dizem `Lab` (antes do
+   D228) e os **56** do LAB-68 (item 001) ao LAB-116 dizem `MOTOR LAB (archilly-lab)` — 56 de 56.
+
+**Decidido:**
+
+1. `src/nome-do-aplicativo.ts`: o `<app>` vem **da página** (`appDaPagina`, `null` se ela não declarar
+   exatamente um), todo cabeçalho do acumulado é lido com a linha, e o que começa como cabeçalho e não tem a
+   forma **reprova**. O **corte** é o recado do `LAB-68`, achado pelo **prompt** (com fronteira: `LAB-680` não
+   é ele) e não pelo primeiro `MOTOR LAB` — senão um erro no próprio LAB-68 andaria o corte para frente. Antes
+   do corte, `Lab` e **72**: fotografia do registro, que não se reescreve e não cresce. Do corte em diante, o
+   nome da página, **exato**.
+2. `tests/nome-do-aplicativo.test.ts`, no portão sem clones: os dois lados no arquivo de verdade (zero
+   desvios; o `Lab` no último recado reprova), o caso válido que quase parece inválido (`<prompt>` com ` · `
+   dentro passa — o `<app>` é o trecho mais curto) e as mutações no arquivo. **Oito mutações no módulo, oito
+   acusadas** — a do casamento guloso saiu neutra na primeira rodada e ganhou o caso válido que a mata.
+   888 → 903 travas.
+3. A régua da **forma** fica como está (`recado.test.ts`), com um comentário que aponta para esta.
+
+**Descartado:** estreitar o `CABECALHO` de `recado.test.ts` para o nome (reprovaria os 72 do registro, ou
+pediria a mesma lista de corte lá dentro — duas réguas para um corte só); achar o corte pela data do recado
+(a seção do acumulado não traz hora, e dois recados no mesmo dia são comuns, D229).
+
+**O que se perde, dito:** o recado que só foi à tela; o recado copiado dentro de um relatório ou de um item
+`-FEITO`; e o `<prompt>`, que é da âncora do item 002.
+
+> **CONSERTO QUE ALARGA A RÉGUA PARA O CASO NOVO TEM DE FECHÁ-LA PARA O VELHO.** A régua que reprovou o certo
+> no D228 foi aberta dos dois lados, e por seis dias o errado que ela existia para pegar passava de novo.
