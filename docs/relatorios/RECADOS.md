@@ -3033,3 +3033,16 @@ Próximo na fila: a caixa só tem o 900; na FILA segue a nova do LAB-112 (o núm
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 15/10/2026 · LAB-113 — item 030: o número do item da caixa não tem teto
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-113 (item 030) ===
+Estado: item 030 (da direção, 18h50) FEITO, contado na origin/main. Conferido aqui, não no GitHub: esteira 1 151 pass · 9 fail (eram 1 132 · 9; as 9 são todas do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, lab84 52 de 52 sem clones, 862 travas — e o envio passa pelo gancho do LAB-106.
+Feito: por LUGAR (248 .ts, 20 falam da caixa), três leituras do nome tinham teto de 3 casas: ehItemAberto (1000.md não era item → caixa "vazia" com ele dentro), numeroDoItem (lia 100 do 1000.md) e a guarda do número repetido (só -adendo: o 025-adendo-2-FEITO de hoje ficava fora); os abertos saíam em ordem de texto; e o 900 contava como item da direção — a declaração verdadeira "só o 900" sairia FALSA. src/numero-do-item.ts (\d{3,}, ordem numérica, proximoItem pulando o 900) é a forma única; régua contra o teto com o sujeito escrito; COMO_FUNCIONA passo 0 com a convenção e o comando em ordem de fila. 779 árvores de 11 casas remedidas: 0 veredictos mudam sem o 900; com ele, 49 passam de falsa a vazia. 19 travas, 11 mutações (a forma antiga de volta derruba 7); 843 → 862; D340; relatório LAB-113.
+Achados para outros apps ou Central: (1) leem a caixa pela forma, na origin/main (não escrevi): Pesquisa scripts/rodadas-no-livro.mjs 117 (/\d{3}-FEITO/ sem âncora: 1000-FEITO conta como 000), 151 (o 1000 some) e 155 (localeCompare em CE-NNN = ordem de texto); Parcelamento tests/despertador.test.ts:118 (\d{3}, sem adendo); Propostas ferramentas/despertador.mjs:148 conta o 900 como aberto (caixa vazia MEDIDA fica impossível). (2) Para a direção: "o menor ainda não feito" com o 900 permanente põe o 900 na frente do 901 — o texto do 900.md diz "nenhum outro com número MENOR"; aqui o 900 é pulado. (3) No shell, sort -n põe 030-adendo antes de 030; sort -t- -k1,1n -k2 sem o .md acerta.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA segue a nova do LAB-113 (caminhoDoItemDaCaixa não conhece o -RETIRADO).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

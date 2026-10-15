@@ -346,6 +346,26 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-113 · item 030 — o número do item da caixa não tem teto: a convenção, respondida pela direção — ✅ **feito em 15/10/2026** (D340)
+
+A direção respondeu a proposta do LAB-112: **três casas no mínimo, sem teto**; o **`900` é reservado**;
+*"o menor ainda não feito"* é comparação **numérica**. Medido por LUGAR (os `.ts` versionados de
+`external-engines/`, 20 falam da caixa no código), três leituras do nome tinham teto de três casas — o
+`ehItemAberto` (o `1000.md` não era item: a caixa saía *vazia* com ele dentro), o `numeroDoItem` (lia
+**`100`** do `1000.md`) e a guarda do número repetido (só `-adendo`: o `025-adendo-2-FEITO.md` que existe
+ficava fora dela) —, os abertos saíam em ordem de **texto**, e o **`900` contava como item da direção**:
+a declaração verdadeira de hoje (*"só o 900"*) sairia FALSA. Agora `src/numero-do-item.ts` é a forma única
+(`\d{3,}`, `proximoItem` numérico e pulando o reservado), as três a chamam, e uma régua impede o teto de
+renascer, com o sujeito escrito e duas exceções nos dois sentidos. Remedido em **779 árvores de onze casas**:
+nenhum veredicto muda sem o `900`; com ele, **49** passam de *falsa* a *vazia* e **2** a *já pulada*.
+Dezenove travas, onze mutações acusadas, 843 → 862. Relatório:
+[`../relatorios/LAB-113.md`](../relatorios/LAB-113.md).
+
+**Proposto (minha lista, não espera o Jonny):** **`caminhoDoItemDaCaixa` não conhece o `-RETIRADO`.** A
+leitura de um item pelo número (`texto-das-regras.ts`, D252) procura `NNN.md` e `NNN-FEITO.md`; um item
+retirado pela direção estoura como *"não encontrado"*, e a forma única já sabe o estado. Hoje nenhum item
+desta caixa foi retirado — medir quem chama e se o estado deve ser recusa ou leitura.
+
 ### LAB-112 · item 900 — a minha própria lista: o número da decisão — ✅ **feito em 15/10/2026** (D339)
 
 Caixa só com o 900; peguei a proposta do LAB-104, abaixo — a única que restava. *"Hoje não há defeito"*
@@ -356,11 +376,13 @@ decisões de um item (`\bD(\d{2,3})\b`) perderia a D1000 em silêncio. Agora `sr
 citações, 0 diferentes), e uma régua contra o teto no código, com a exceção nos dois sentidos; doze travas,
 nove mutações acusadas, 831 → 843. Relatório: [`../relatorios/LAB-112.md`](../relatorios/LAB-112.md).
 
-**Proposto (minha lista, não espera o Jonny):** **o número do item da caixa tem três casas fixas.**
+✅ **FEITO no LAB-113** (item 030, D340 — a direção respondeu a convenção): três leituras com teto e uma
+ordenação por texto, e o `900` contado como item da direção. Relatório:
+[`../relatorios/LAB-113.md`](../relatorios/LAB-113.md). — ~~**Proposto (minha lista, não espera o Jonny):** **o número do item da caixa tem três casas fixas.**
 `caixa-vazia-era-verdade.ts` (`^\d{3}`) e `leituras.test.ts` leem o nome do item com exatamente três
 algarismos — um `1000.md` cairia fora da régua que existe para impedir a caixa vazia falsa. É a mesma
 pergunta com outro dono: a convenção do nome é **da direção**, que escreve a caixa. Medir o que cada uma faz
-com ele antes de decidir entre travar aqui e perguntar a convenção.
+com ele antes de decidir entre travar aqui e perguntar a convenção.~~
 
 ### LAB-111 · item 900 — a minha própria lista: os outros vereditos de igualdade — ✅ **feito em 15/10/2026** (D338)
 
@@ -1528,7 +1550,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 843 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 862 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

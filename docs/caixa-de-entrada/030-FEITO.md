@@ -1,3 +1,28 @@
+> ## ✅ FEITO EM 15/10/2026 — disparo das 19:05 UTC · LAB-113 · D340
+>
+> **A forma única:** `external-engines/esteira/src/numero-do-item.ts` — `ITEM_DA_CAIXA` (`\d{3,}`, três
+> casas no mínimo, sem teto), `lerNomeDoItem` (número como número, sufixo e estado), `itensEmOrdem` (ordem
+> de fila, nunca de texto) e `proximoItem` (o menor aberto, **pulando o `900`**, que só é o próximo quando
+> não há outro).
+>
+> **As leituras que a chamam:** `src/caixa-vazia-era-verdade.ts` — `ehItemAberto` (era `^\d{3}…`: o
+> `1000.md` não era item) e `numeroDoItem` (era `^(\d{3})`: lia `100`), e os abertos da direção sem o `900`
+> e em ordem de fila (só o `900` aberto → caixa **vazia**, declaração verdadeira); `tests/leituras.test.ts`,
+> a guarda do número repetido (era só `-adendo`: o `025-adendo-2-FEITO.md` ficava fora).
+>
+> **Nada do histórico muda sem o `900`:** 779 árvores de caixa em onze casas, remedidas pelas duas
+> réguas; 0 veredictos mudam sem ele, 55 mudam só a ordem, e com ele 49 passam de *falsa* a *vazia*.
+>
+> **A prova:** `external-engines/esteira/tests/numero-do-item.test.ts`, 19 travas — os três casos (`1000.md`
+> ao lado do `030.md` → o `030`; `900.md` sozinho → sem item da direção; `09.md` → recusa), nos dois
+> sentidos; a régua contra o teto, com o sujeito escrito. Com a forma antiga de volta (`\d{3}`), caem **7**
+> (M1), e onze mutações, todas acusadas. O protocolo ganhou a convenção no passo 0 do `COMO_FUNCIONA.md`.
+>
+> **De passagem (só leitura):** Pesquisa `scripts/rodadas-no-livro.mjs` 117, 151 e 155 (teto de três e
+> `localeCompare`); Parcelamento `tests/despertador.test.ts:118` (teto de três); Propostas
+> `ferramentas/despertador.mjs:148` (conta o `900` como aberto). Relatório:
+> [`../relatorios/LAB-113.md`](../relatorios/LAB-113.md).
+
 # 030 — LAB-113 · o número do item da caixa não tem teto: a convenção, respondida pela direção
 
 **Passo 0:** `git fetch -q origin` e conte a caixa na **origem**.

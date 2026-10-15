@@ -10755,3 +10755,60 @@ arquivo que não seja `.ts` em `external-engines/`.
 
 > **"HOJE NÃO HÁ DEFEITO" É UMA AFIRMAÇÃO, E SE MEDE COMO AS OUTRAS.** A proposta perguntou pela D1000 e a
 > medição achou a D100: o teto de duas casas tinha passado doze dias antes, sem barulho.
+
+## D340 · O NÚMERO DO ITEM DA CAIXA NÃO TEM TETO DE CASAS — e o 900 não é item da direção · 15/10/2026
+
+**Contexto:** a proposta do LAB-112 (D339) — *"o número do item da caixa tem três casas fixas […]. A
+convenção do nome é da direção."* A direção a respondeu no **item 030**: (1) **três casas no mínimo, sem
+teto** — `001`…`899`, `901`…, `1000`; (2) **`900` é reservado**, o item permanente *"lista própria"*, nunca
+`-FEITO`, e a numeração comum o pula; (3) *"o menor ainda não feito"* é comparação **numérica** — em texto,
+`"1000" < "900" < "901"`.
+
+**Medido (LAB-113), por LUGAR** (os 248 `.ts` versionados de `external-engines/`, fora `upstream/` — 250 com os dois desta rodada; 20 falam
+da caixa no código — 22 depois):
+
+| onde | a forma | o que fazia |
+|---|---|---|
+| `caixa-vazia-era-verdade.ts`, `ehItemAberto` | `^\d{3}(-…)?\.md$` | `1000.md` aberto **não era item**: a caixa saía *vazia* com ele dentro |
+| `caixa-vazia-era-verdade.ts`, `numeroDoItem` | `^(\d{3})` | `1000.md` lia **`100`** — o número errado, não a ausência |
+| `leituras.test.ts`, a guarda do número repetido (D273) | `^(\d{3}(?:-adendo)?)(?:-FEITO)?\.md$` | três casas e só `-adendo`: o `025-adendo-2-FEITO.md` **de hoje** ficava fora |
+| `caixa-vazia-era-verdade.ts`, os `abertos` | `.sort()` | ordem de **texto**: `025-adendo-2`, `025-adendo`, `025` |
+
+E a outra metade da convenção: a régua da caixa vazia contava o **`900`** como item aberto — maior que todo
+`-FEITO`, ele saía *"o próximo"*, e a declaração verdadeira de hoje (*"a caixa só tem o 900"*) sairia
+**FALSA**. Nenhuma prova a chamou com o `900` (as nove declarações do LAB-90 são de 09 a 11/10; o `900.md`
+nasceu em 12/10). **Teste que nunca reprovou** porque nunca lhe deram o caso.
+
+**O que se decidiu:**
+
+1. `src/numero-do-item.ts`: `ITEM_DA_CAIXA` (`\d{3,}`) e `lerNomeDoItem` são **a** forma — número como
+   número, sufixo (`-adendo`, `-adendo-2`, `-bis`) e estado (`-FEITO`, `-RETIRADO`) separados, e a
+   identidade do D273 (`0030` colide com `030`); `itensEmOrdem` ordena pela fila; `proximoItem` é o menor
+   aberto **pulando o `900`**, que só é o próximo quando não há outro. As três leituras a chamam.
+2. A régua da caixa vazia tira o `900` dos abertos da direção: só com ele, a caixa está **vazia** (sem item
+   da direção) e a declaração é verdadeira.
+3. Uma régua contra o **teto** renascer: leitura de algarismos com máximo finito de três ou mais, no CÓDIGO
+   de um programa que fala da caixa (o caminho, o estado, ou que importa a forma ou a régua da caixa vazia —
+   **o sujeito escrito**, §1-C), reprova fora das exceções, conferidas nos dois sentidos: a trava (reproduz
+   as formas velhas) e `disparos-em-vazio.test.ts` (o ano de uma data — o caso que quase parece a doença).
+4. O protocolo (`COMO_FUNCIONA.md`, passo 0) ganha a convenção e o comando do próximo em ordem de fila,
+   como nota minha; o texto do chat fica intocado.
+5. Dezenove travas (`tests/numero-do-item.test.ts`) no portão sem clones; onze mutações acusadas; 843 → 862.
+
+**Nada do histórico muda sem o `900`, e isto é medição:** remedidas as **779 árvores** de caixa em onze
+casas (toda a história de cada uma, clones inteiros), 548 saem idênticas, **55** mudam só a ordem dos abertos
+(texto → fila), e as **176** com o `900` mudam como a convenção manda — 125 só o tiram da lista, **49** passam
+de *falsa* a *vazia*, **2** de *falsa* a *já pulada*. Nenhum nome da caixa de hoje muda de número.
+
+**Descartado:** contar o `900` como item comum e consertar só o teto — a convenção diz que ele não é item da
+direção, e a régua da caixa vazia existe para a declaração da direção; tirar o `900` de `ehItemAberto` — ele
+**é** aberto pela definição do `COMO_FUNCIONA.md`, e o que muda é quem o conta; uma régua de ordenação por
+texto — `.sort()` de nome de item não se distingue, no programa, de qualquer outro `.sort()`: a defesa é a
+forma única e a trava do lado ruim; estender a régua a todo `\d{3}` da árvore — sem sujeito, o ano de uma
+data reprovaria.
+
+**O que se perde, dito:** o `.sort()` de nomes de item, o número escrito por `padStart` ou concatenação, e o
+programa que leia a caixa sem nomear a pasta, o estado nem a forma no código.
+
+> **A CONVENÇÃO TEM DUAS METADES, E A SEGUNDA É A QUE ESTAVA ABERTA.** A proposta perguntou pelo `1000`, que
+> não existe; o `900`, que existe desde 12/10, já fazia a régua errar contra a declaração de hoje.

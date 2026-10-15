@@ -2,7 +2,7 @@
   "prompt": "LAB-90",
   "oQue": "a guarda que diz se uma declaração de \"caixa vazia\" era verdadeira, pela árvore do commit que a declarou",
   "oQueIstoNaoMede": "não mede gleba, motor nem semente — mede declarações e árvores de caixa de entrada, e está na lista de exceções do §7",
-  "quando": "2026-10-12T00:06:17.968Z",
+  "quando": "2026-10-15T19:18:02.018Z",
   "aDefinicaoDeABERTO": "`NNN.md` sem `-FEITO`, sem `-RETIRADO` e sem `COMO_FUNCIONA` — a definição do próprio `COMO_FUNCIONA.md` da direção",
   "oTerceiroEstado": {
     "oQueOItemPediu": "`bloqueado` — item aberto cuja execução espera pessoa ou outro repositório",
@@ -51,10 +51,10 @@
         "veredicto": "aberta-ja-pulada",
         "declaracaoEraVerdadeira": null,
         "abertos": [
-          "007-adendo-2.md",
-          "007-adendo-3.md",
+          "007.md",
           "007-adendo.md",
-          "007.md"
+          "007-adendo-2.md",
+          "007-adendo-3.md"
         ],
         "oMaiorFeito": 13,
         "porque": "havia item aberto, mas todos com número MENOR que o maior já feito (013): a casa já passou por eles em rodadas anteriores. Isto NÃO é o caso do clone velho, e se é bloqueio legítimo esta régua não decide — nenhuma casa marca bloqueio no nome do arquivo",
@@ -66,11 +66,11 @@
         ]
       },
       "assunto": "caixa vazia às 22:47 — pelo protocolo, e sem ponta solta",
-      "raso": true,
+      "raso": false,
       "quando": {
-        "podeAfirmar": false,
-        "valor": null,
-        "motivo": "clone-raso"
+        "podeAfirmar": true,
+        "valor": "2026-10-10T22:48:11+00:00",
+        "motivo": "historia-inteira"
       }
     },
     {
@@ -94,11 +94,11 @@
         ]
       },
       "assunto": "despertador 11/10 01:47 · caixa vazia, e a leitura dos dez pontos",
-      "raso": true,
+      "raso": false,
       "quando": {
-        "podeAfirmar": false,
-        "valor": null,
-        "motivo": "clone-raso"
+        "podeAfirmar": true,
+        "valor": "2026-10-11T01:50:31+00:00",
+        "motivo": "historia-inteira"
       }
     },
     {
@@ -124,11 +124,11 @@
         ]
       },
       "assunto": "correcao: a caixa NAO esta vazia — o 010 chegou durante a rodada do 009",
-      "raso": true,
+      "raso": false,
       "quando": {
-        "podeAfirmar": false,
-        "valor": null,
-        "motivo": "clone-raso"
+        "podeAfirmar": true,
+        "valor": "2026-10-10T00:44:09+00:00",
+        "motivo": "historia-inteira"
       }
     },
     {
