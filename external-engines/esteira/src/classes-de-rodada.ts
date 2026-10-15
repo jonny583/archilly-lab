@@ -36,6 +36,8 @@
  * e ninguém a lê; classe se aplica a tudo que vier.
  */
 
+import { DECISAO_DA_CASA } from "./numero-da-decisao.ts";
+
 /** Por que uma rodada pode não ter relatório. Conjunto fechado — a trava reprova um sétimo. */
 export const CLASSES_DE_RODADA = [
   {
@@ -57,7 +59,8 @@ export const CLASSES_DE_RODADA = [
   {
     id: "decisao-registrada",
     oQue: "uma decisão do Jonny ou da família foi gravada sem prompt por trás dela",
-    noTitulo: [/decisão d/i, /\bD\d\d\b —/],
+    // O número da decisão pela forma única: `D339 —` é decisão, não órfão (D339).
+    noTitulo: [/decisão d/i, new RegExp(String.raw`\b${DECISAO_DA_CASA}\b —`)],
   },
   {
     id: "recado-recuperado",

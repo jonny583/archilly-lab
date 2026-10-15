@@ -46,6 +46,7 @@
  */
 
 import { PROMPT_DO_LAB } from "./nome-do-prompt.ts";
+import { decisoesCitadas } from "./numero-da-decisao.ts";
 
 /** Por que um item PODE seguir aberto. Conjunto fechado — e a trava reprova um sétimo. */
 export const MOTIVOS_DE_SEGUIR_ABERTO = [
@@ -169,7 +170,8 @@ export function lerPropostas(texto: string, tituloDaSecao = "## Proposto ao chat
       texto,
       riscado,
       executadoPor: exec ? exec[1]! : null,
-      decisoes: [...new Set([...texto.matchAll(/\bD(\d{2,3})\b/g)].map((m) => `D${m[1]}`))].sort(),
+      // Pela forma única, sem teto de casas: a `D1000` não some da lista (D339).
+      decisoes: decisoesCitadas(texto),
       motivo: mot ? (mot[1] as MotivoDeSeguirAberto) : null,
     });
     atual = null;

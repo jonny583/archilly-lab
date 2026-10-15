@@ -346,6 +346,22 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-112 · item 900 — a minha própria lista: o número da decisão — ✅ **feito em 15/10/2026** (D339)
+
+Caixa só com o 900; peguei a proposta do LAB-104, abaixo — a única que restava. *"Hoje não há defeito"*
+estava errado: medido por LUGAR (246 `.ts`), oito linhas leem a decisão pela forma, e duas têm **teto** — a
+classe `decisao-registrada` (`\bD\d\d\b —`) deixava *"D339 — …"* **órfão** desde a D100, e a lista de
+decisões de um item (`\bD(\d{2,3})\b`) perderia a D1000 em silêncio. Agora `src/numero-da-decisao.ts`
+(`D\d{2,}`) é a forma única, as duas a chamam, nada do histórico muda (4 rodadas da classe; 38 itens, 67
+citações, 0 diferentes), e uma régua contra o teto no código, com a exceção nos dois sentidos; doze travas,
+nove mutações acusadas, 831 → 843. Relatório: [`../relatorios/LAB-112.md`](../relatorios/LAB-112.md).
+
+**Proposto (minha lista, não espera o Jonny):** **o número do item da caixa tem três casas fixas.**
+`caixa-vazia-era-verdade.ts` (`^\d{3}`) e `leituras.test.ts` leem o nome do item com exatamente três
+algarismos — um `1000.md` cairia fora da régua que existe para impedir a caixa vazia falsa. É a mesma
+pergunta com outro dono: a convenção do nome é **da direção**, que escreve a caixa. Medir o que cada uma faz
+com ele antes de decidir entre travar aqui e perguntar a convenção.
+
 ### LAB-111 · item 900 — a minha própria lista: os outros vereditos de igualdade — ✅ **feito em 15/10/2026** (D338)
 
 Caixa só com o 900; peguei a proposta do LAB-110, abaixo — a que pode achar buraco aberto hoje (a do
@@ -474,10 +490,11 @@ Agora `src/nome-do-prompt.ts` é a forma única, as seis réguas e as duas ferra
 trava a usam, e uma régua impede a forma de renascer no código; sete mutações, todas acusadas,
 762 → 774 travas. Relatório: [`../relatorios/LAB-104.md`](../relatorios/LAB-104.md).
 
-**Proposto (minha lista, não espera ninguém):** a mesma pergunta para as travas que leem **outro**
+✅ **FEITO no LAB-112** (item 900, D339): duas das oito leituras tinham teto, e a de duas casas era defeito
+aberto desde a D100. Relatório: [`../relatorios/LAB-112.md`](../relatorios/LAB-112.md). — ~~**Proposto (minha lista, não espera ninguém):** a mesma pergunta para as travas que leem **outro**
 nome pela forma — a decisão (`D\d{2,3}`, na `varredura-das-propostas.ts` e noutras). Hoje não há
 defeito: a D1000 está a 669 decisões. Medir quais definem universo pela forma e travar antes do dia,
-não depois; é outra régua, por isso fica aqui em prosa.
+não depois; é outra régua, por isso fica aqui em prosa.~~
 
 ### LAB-103 · item 900 — a dívida própria: o `true` do determinismo — ✅ **feito em 14/10/2026** (D330)
 
