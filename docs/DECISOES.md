@@ -10910,3 +10910,52 @@ reconhecida como linha da conta, e some calada como antes.
 
 > **RÉGUA DE LINHA QUE NÃO DIZ QUAIS LINHAS NÃO LEU CONFERE OS TOTAIS CONTRA AS QUE SOBRARAM.** O vocabulário da
 > célula cresce em toda coluna, não só na que já quebrou.
+
+## D344 · A MÁQUINA DO DISPARO NASCE RASA E COM UMA `main` VELHA — desrasa-se ANTES de comparar, e só se avança a `main` ancestral · 15/10/2026
+
+**Contexto:** item 900 (LAB-116). A caixa só tinha o `900`; peguei a única proposta da FILA que não espera
+ninguém, deixada pelo LAB-115: *"o passo 0 do `COMO_FUNCIONA.md` não diz o que fazer com o clone RASO"*. Do
+LAB-101 ao LAB-115, quinze rodadas seguidas acharam a `main` *"divergente"* e redescobriram o raso; esta foi a
+décima sexta, e o disparo de 22h06 UTC deixou o defeito à vista inteiro.
+
+**Medido (LAB-116), no disco desta máquina e nas doze casas da família que ela trouxe:**
+
+1. **As doze estão no mesmo estado:** clone **raso**, `HEAD` **destacado** na ponta de hoje, e um ramo `main`
+   local **velho**, do retrato da máquina (09/10 em nove casas, 10/10 em três; aqui, `84e63d4`, 09/10 23h54).
+2. **O comando do disparo recusa e deixa a árvore NO RETRATO.** Ele faz `fetch` → `checkout main` →
+   `pull --ff-only`; no raso não há base comum e o `git` declara divergência (*"Not possible to
+   fast-forward"*) — mas o `checkout main` já rodou. Reproduzido com `file://`: mesma mensagem, mesmo código
+   128, `HEAD` no retrato. Desrasado (`fetch --unshallow`), a `main` velha **é** ancestral da origem: `0`
+   commits só dela.
+3. **O que o disco diz depois disso é a casa de seis dias atrás:** o `COMO_FUNCIONA.md` do retrato não tem
+   passo 0 (**zero** `git fetch` nas onze casas que têm a página; a direção não tem caixa), e a caixa mostra
+   item aberto **já feito** em **oito** das doze (aqui, o `011.md`, feito no LAB-78 em 10/10; no Studio, do `003` ao `006`). Uma sessão que seguisse
+   o disco refaria um item velho pelo protocolo velho.
+
+**Decidido:**
+
+1. **A receita mora no passo 0 da página**, depois do bloco do item 030, com a marca
+   `<!-- receita-do-clone (LAB-116) -->`: `fetch`; **se raso, desrasa**; cria a `main` se faltar; **só se
+   ancestral**, `checkout main` + `merge --ff-only`; se não, diz *"DIVERGÊNCIA DE VERDADE"*, sai com erro e
+   **não toca em nada**. E a página manda **não ler nada do disco antes de rodá-la** (e reler depois).
+2. **Receita na página, não script no repositório:** o script não existe na árvore do retrato, que é onde a
+   sessão está quando precisa dele.
+3. `src/clone-da-maquina.ts` (a marca, a extração do bloco, o que a receita tem de dizer e o que não pode,
+   com o sujeito escrito — a receita, não a página, que cita `--force` para proibi-lo) e
+   `tests/clone-da-maquina.test.ts`, no portão sem clones e hermético: **roda** a receita tirada da página
+   num clone raso montado como a máquina monta, depois do comando real do disparo e antes dele; o lado ruim
+   (a `main` com commit não enviado fica intacta e a receita sai com erro); a `main` ausente; a máquina já em
+   dia; e a mutação dentro da trava (sem a linha que desrasa, a receita fabrica a divergência falsa). Dez
+   travas; sete mutações na receita da página, **sete acusadas**. 878 → 888 travas.
+
+**Descartado:** `reset --hard origin/main` ou `checkout -B main origin/main` (resolvem a divergência apagando a
+`main` local — que, se não for ancestral, tem trabalho não enviado); aprofundar só o necessário
+(`--deepen`/`--shallow-since`: o quanto falta não se sabe antes, e o portão desta casa já pede história
+inteira, D294); mudar o comando do disparo (é texto da tarefa agendada, e esta sessão não toca nela).
+
+**O que se perde, dito:** a receita só vale para quem lê a página **da origem ou depois de rodá-la** — a
+sessão que leu o disco depois do disparo falhar leu o protocolo de 09/10, que não a tem. Quem fecha esse
+buraco é o comando do disparo, e por isso o achado vai à direção no recado.
+
+> **NO CLONE RASO, "DIVERGIU" É FALTA DE HISTÓRIA, NUNCA FATO.** E o comando que falha no segundo passo
+> já fez o primeiro: depois dele, o disco é o retrato, e o protocolo que se lê é o do retrato.

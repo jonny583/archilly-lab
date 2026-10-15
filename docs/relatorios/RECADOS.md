@@ -3072,3 +3072,16 @@ Próximo na fila: a caixa só tem o 900; na FILA, a proposta do clone raso no pa
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 15/10/2026 · LAB-116 — item 900 (a minha própria lista): o clone RASO no passo 0 do protocolo
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-116 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei a proposta do LAB-115 na FILA. FEITO. Conferido aqui, não no GitHub: esteira 1 177 pass · 9 fail (as 9 são do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, 888 travas; o envio passa pelo gancho do LAB-106.
+Feito: medido nas DOZE casas que esta máquina trouxe: todas chegam RASAS, com o HEAD destacado na ponta de hoje e uma main local VELHA (09 e 10/10). O comando do disparo faz "checkout main" ANTES de o "pull --ff-only" recusar (no raso não há base comum) — e a árvore fica no RETRATO: o COMO_FUNCIONA de 09/10, sem passo 0 (zero "git fetch" nas onze que têm a página), e item já feito ABERTO na caixa em 8 das 12 (aqui o 011, feito no LAB-78). Receita no passo 0 (desrasar antes de comparar; só avançar a main ancestral, --ff-only; divergência de verdade não se toca), e tests/clone-da-maquina.test.ts a tira da página e a RODA num clone raso montado como a máquina monta, depois do comando real do disparo; 10 travas, 7 mutações na página, 7 acusadas; D344; 878 → 888; relatório LAB-116.
+Achados para outros apps ou Central: (0) PARA A DIREÇÃO, e é o maior: o comando dos disparos (o mesmo desenho nas casas) deixa a sessão no retrato da máquina quando falha — protocolo velho e item feito como aberto (Studio: 003 a 006; Propostas: 007; Central, Viabilidade, Parcelamento: 010; Orçamento, Pesquisa: 009). A página não fecha isso, porque quem lê o disco lê a página velha. Conserto no texto do disparo, antes do checkout: "git fetch -q origin && { [ $(git rev-parse --is-shallow-repository) = true ] && git fetch -q --unshallow origin; true; }" e só então checkout + pull --ff-only. (1) NO CLONE RASO, "DIVERGIU" É FALTA DE HISTÓRIA, NUNCA FATO — e o comando que falha no segundo passo já fez o primeiro. (2) O .wasm do Symbios segue sem se construir aqui (rustup sem saída pelo proxy).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900, e as propostas da FILA que não esperam ninguém acabaram; o próximo disparo vai à dívida própria antes de anotar vazio.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

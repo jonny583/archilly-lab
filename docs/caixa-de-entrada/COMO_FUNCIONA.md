@@ -61,6 +61,37 @@ A cada despertador:
    > A forma única mora em `external-engines/esteira/src/numero-do-item.ts` (`proximoItem`).
    > *(Acrescentado por mim no item 030; o texto do chat acima está intocado.)*
 
+   > **E antes de tudo isso, o clone desta máquina (LAB-116, 15/10/2026, D344).** A máquina do
+   > disparo chega com o repositório **RASO**, o `HEAD` destacado na ponta de hoje e um ramo `main`
+   > local **velho**, do retrato da máquina (09 e 10/10/2026 — medido nas **doze** casas da família).
+   > O comando do disparo faz `checkout main` e depois `pull --ff-only`: no raso o `git` não acha a
+   > base comum e **recusa** (*"Not possible to fast-forward"*) — e o `checkout` já rodou, então **a
+   > árvore fica no retrato**. Do LAB-101 ao LAB-116, dezesseis rodadas seguidas caíram nisso.
+   >
+   > **Se o comando do disparo falhou, o que está no disco é a casa de 09/10**: esta página sem este
+   > passo, e a caixa com o `011.md` aberto (feito no LAB-78). **Não leia nada do disco antes de
+   > rodar isto** — e, se já leu, leia de novo depois. No raso, *"divergiu"* é falta de história,
+   > nunca fato; desrase antes de comparar, e só avance a `main` que for ancestral da origem:
+   >
+   > <!-- receita-do-clone (LAB-116) -->
+   > ```sh
+   > git fetch -q origin
+   > if [ "$(git rev-parse --is-shallow-repository)" = true ]; then git fetch -q --unshallow origin; fi
+   > git rev-parse -q --verify refs/heads/main >/dev/null || git branch -q --track main origin/main
+   > if git merge-base --is-ancestor main origin/main; then
+   >   git checkout -q main && git merge -q --ff-only origin/main
+   > else
+   >   echo "DIVERGÊNCIA DE VERDADE: a main local tem commit que a origem não tem. Não force; relate e pare."
+   >   false
+   > fi
+   > ```
+   >
+   > A divergência que sobra **depois** de desrasar é de verdade: a `main` local tem trabalho que
+   > não foi enviado. Não se resolve apagando um lado. A receita é **rodada** por
+   > `external-engines/esteira/tests/clone-da-maquina.test.ts`, num clone raso montado como a
+   > máquina monta, nos dois lados e com a mutação. *(Acrescentado por mim no LAB-116; o texto do
+   > chat acima está intocado.)*
+
 1. Leia a pasta. Os arquivos são numerados: `001.md`, `002.md`, …
 2. Pegue **o menor número ainda não feito**. Um por despertador.
 3. Faça o trabalho, com as provas que o item exigir.
