@@ -2,11 +2,11 @@
   "prompt": "LAB-95",
   "aPergunta": "item 028 da caixa de entrada: enxugar o `CLAUDE.md` movendo a história para docs/HISTORIA_DAS_REGRAS.md, sem perder regra nenhuma — e CONFERIR POR CONTAGEM que nada se perdeu",
   "oQueIstoMede": "as três contas que o item pediu: caracteres antes × depois nos dois arquivos, regras antes × depois pelo inventário declarado (cada marca conferida NO CLAUDE.MD DE HOJE E NA HISTÓRIA, que é o texto antigo movido literal) e as linhas do texto antigo que não estão em nenhum dos dois",
-  "quando": "2026-10-15T11:20:39.227Z",
+  "quando": "2026-10-15T15:23:43.674Z",
   "oChaoDaMedicao": {
     "oCommitDeAntes": "490c102",
     "sha256DoAntes": "1c3fc0792d9eb02b1d054b42f28c59ebe15c4ce03dc9bb8fb49eea1774b273be",
-    "sha256DoClaudeDeHoje": "ab5e0f8272f67d23658cd31fc74de8ff7f3057e47dd30df71741afe1419dcb97",
+    "sha256DoClaudeDeHoje": "b1aebdd3b66d8f4f19b7d65814990e4f8920551113297b5bb825a09d76a78534",
     "sha256DaHistoria": "8a112ff66b88a42e05e8f7c3cfbeb5459aa9dfcf10271401b6e9e6ec9c1435a9",
     "cloneRaso": false,
     "bun": "1.4.2"

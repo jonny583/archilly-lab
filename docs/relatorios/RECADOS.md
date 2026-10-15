@@ -3020,3 +3020,16 @@ Próximo na fila: a caixa só tem o 900; na FILA segue a proposta do LAB-104 (o 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 15/10/2026 · LAB-112 — item 900 (a minha própria lista): o número da decisão
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-112 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta do LAB-104 (o número da decisão), a única que restava. FEITA. Conferido aqui, não no GitHub: esteira 1 132 pass · 9 fail (eram 1 120 · 9; as 9 são todas do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, lab84 51 de 51 sem clones, 843 travas — e o envio passa pelo gancho do LAB-106.
+Feito: por LUGAR (246 .ts), oito linhas leem a decisão pela forma; duas tinham TETO. A classe decisao-registrada lia \bD\d\d\b — e deixava "D339 — …" ÓRFÃO: defeito aberto desde a D100 (03/10), que a proposta dizia futuro — o único título do histórico que ela segurava era o "D69 — …" de 20/09. A lista de decisões de um item da FILA lia \bD(\d{2,3})\b e perderia a D1000 em silêncio. src/numero-da-decisao.ts (D\d{2,}) é a forma única, as duas a chamam, nada do histórico muda (4 rodadas da classe; 38 itens, 67 citações, 0 diferentes), e uma régua contra o teto no código; 12 travas, nove mutações acusadas, 831 → 843; D339; relatório LAB-112.
+Achados para outros apps ou Central: (1) "HOJE NÃO HÁ DEFEITO" SE MEDE: a régua com teto de casas quebra no dia em que a numeração passa da casa — aqui a D100 passou doze dias antes sem barulho. Casa que lê número de decisão, prompt ou item por forma de largura fixa (\d\d, \d{2,3}) deve conferir se já passou do teto. (2) A doença é o TETO, não a largura: \d\d\d? aceita três e corta a quarta. (3) O .wasm do Symbios segue sem se construir aqui (rustup sem saída pelo proxy).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA segue a nova do LAB-112 (o número do item da caixa tem três casas fixas: 1000.md cairia fora da régua da caixa vazia falsa — a convenção é da direção; medir antes).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

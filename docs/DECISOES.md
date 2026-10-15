@@ -10710,3 +10710,48 @@ mutação dele cai pela régua e pelo censo das chamadas.
 
 > **O TAMANHO DO COMMIT CURTO É UM FATO SOBRE O CLONE, NÃO SOBRE O COMMIT.** Comparar o texto curto é
 > perguntar *"os dois clones têm o mesmo tamanho?"* achando que se perguntou *"é a mesma versão?"*.
+
+## D339 · O NÚMERO DA DECISÃO NÃO TEM TETO DE CASAS — e o defeito que a proposta dizia futuro estava aberto · 15/10/2026
+
+**Contexto:** a proposta do LAB-104 (D331) — *"a mesma pergunta para as travas que leem **outro** nome pela
+forma — a decisão (`D\d{2,3}`) […]. Hoje não há defeito: a D1000 está a 669 decisões. Medir quais definem
+universo pela forma e travar antes do dia, não depois."*
+
+**Medido (LAB-112), por LUGAR** (os 246 `.ts` versionados de `external-engines/`, fora `upstream/`): oito
+linhas de código em três arquivos leem a decisão pela forma.
+
+| onde | a forma | o teto | o que faz hoje |
+|---|---|---|---|
+| `classes-de-rodada.ts`, classe `decisao-registrada` | `\bD\d\d\b —` | 2 casas | *"D339 — …"* sai **ÓRFÃO** — defeito aberto **desde a D100** (03/10/2026) |
+| `varredura-das-propostas.ts`, decisões de um item | `\bD(\d{2,3})\b` | 3 casas | a `D1000` some da lista, em silêncio |
+| `varredura-do-que-eu-aceitei.ts`, seis linhas | `D\d+`, `^\|\s*D\d` | nenhum | servem |
+
+O primeiro ninguém viu porque, das quatro rodadas da classe no `RECADOS.md`, a única que essa forma segura
+é a de 20/09 (*"D69 — …"*), de antes da D100. **Teste que nunca reprovou** porque nunca lhe deram o caso. As
+decisões de `docs/DECISOES.md` têm duas casas (99) ou três (237), nenhuma de uma.
+
+**O que se decidiu:**
+
+1. `src/numero-da-decisao.ts`: `DECISAO_DA_CASA` (`D\d{2,}`) é **a** forma, e `decisoesCitadas` a lê com
+   fronteira. A classe e a lista de decisões a chamam. **Nada que já valia muda:** as quatro rodadas da
+   classe seguem nela, e os 38 itens da `FILA.md` (67 citações) saem iguais pelas duas formas.
+2. Uma régua contra o **teto** renascer no código: leitura `D` + algarismos com máximo finito de duas
+   casas ou mais reprova, fora da exceção declarada (a trava, que reproduz as formas velhas), conferida nos
+   dois sentidos.
+3. Doze travas (`tests/numero-da-decisao.test.ts`) no portão sem clones; nove mutações acusadas;
+   831 → 843.
+
+**A doença aqui é o TETO, não a largura fixa** — diferente do D331, onde `LAB-\d\d\d?` foi declarada sã
+(aceita três). Para a decisão ela corta a quarta casa, que é o defeito da D1000. O teto de **uma** casa
+(`D\d` sem quantificador) fica fora, dito: é teste de prefixo de linha, não leitura do número.
+
+**Descartado:** estender a régua do D331 a todo prefixo (`[A-Z]+-\d\d`) — `DD-NNN` é numeração da
+direção, e régua sem sujeito escrito manda na coisa errada; `D\d+` como forma única — aceita `D1`, que não
+existe; reescrever as seis leituras sem teto da `varredura-do-que-eu-aceitei.ts` — respondem certo, e
+régua que já responde certo não se troca.
+
+**O que se perde, dito:** o número montado por concatenação, a letra minúscula com a bandeira `i`, e todo
+arquivo que não seja `.ts` em `external-engines/`.
+
+> **"HOJE NÃO HÁ DEFEITO" É UMA AFIRMAÇÃO, E SE MEDE COMO AS OUTRAS.** A proposta perguntou pela D1000 e a
+> medição achou a D100: o teto de duas casas tinha passado doze dias antes, sem barulho.

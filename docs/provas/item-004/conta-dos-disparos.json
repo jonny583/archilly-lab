@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-15T11:20:40.343Z",
+  "quando": "2026-10-15T15:23:43.139Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -475,12 +475,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. Hora do `cron` (4 h, minuto :05): o disparo chegou como texto, sem notificação lida, e o primeiro `date` da sessão (11:07) veio depois de clonar e desrasar o clone desta casa",
         "rodada": "item 900 (LAB-111), tarefa da `FILA.md` (proposta do LAB-110: os outros vereditos de igualdade)",
         "emVazio": false
+      },
+      {
+        "data": "15/10/2026",
+        "hora": "15:05",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. Hora do `cron` (4 h, minuto :05): o disparo chegou como texto, sem notificação lida, e o primeiro `date` da sessão (15:13) veio depois de clonar e desrasar o clone desta casa",
+        "rodada": "item 900 (LAB-112), tarefa da `FILA.md` (proposta do LAB-104: o número da decisão)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 58,
+      "noRegistro": 59,
       "observados": 38,
-      "derivados": 13,
+      "derivados": 14,
       "emLote": 7,
       "emVazio": 5
     },
