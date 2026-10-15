@@ -2981,3 +2981,16 @@ Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta do LAB-104 (o
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 15/10/2026 · LAB-109 — item 900 (a minha própria lista): a coerência do veredito com a evidência ao lado
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-109 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta do LAB-108 (a coerência do veredito com a evidência ao lado) — regra sem guarda hoje, por isso antes da do LAB-104. FEITA. Conferido aqui, não no GitHub: esteira 1 105 pass · 9 fail (eram 1 098 · 9; as 9 são todas do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, lab84 48 de 48 sem clones, 816 travas — e o envio passa pelo gancho do LAB-106.
+Feito: nos 100 JSON de docs/, os 404 campos limpo/aceito/confere caem em SETE formas: seis regras (limpo e aceito ⇔ violacoes === 0; aceito ⇔ recusa vazia; aceito ⇔ lotes !== null; confere ⇔ publicado = refeito, nas duas roupas) — 392 de 392 coerentes — e o limpo do clone vizinho (12), forma sem regra declarada com o motivo; o nulo passa como "não medido" (D23). Forma nova que não cai em nenhuma reprova, e regra que não confere nada da árvore também. src/coerencia-do-veredito.ts; 7 travas, nove mutações acusadas, 809 → 816; D336; relatório LAB-109.
+Achados para outros apps ou Central: (1) PROVA QUE SE CONTRADIZ É PIOR QUE PROVA QUE SE CALA: casa que grava um veredito (limpo/aceito/ok) ao lado da contagem que o decide pode cobrar que os dois concordem — e a regra se escolhe pela FORMA do objeto (que evidência está ao lado), não pelo nome do campo; forma desconhecida reprova, senão a régua fica verde por não achar nada. (2) Dois lados nunca apareceram nas provas daqui (confere: false; aceito: true por recusa vazia): provados só por caso sintético. (3) O .wasm do Symbios segue sem se construir aqui (rustup sem saída pelo proxy).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta do LAB-104 (o número da decisão) e a nova do LAB-109 (as ferramentas que gravam o veredito: quatro copiam o do Validator, três derivam — medir antes).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
