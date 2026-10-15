@@ -346,6 +346,24 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-110 · item 900 — a minha própria lista: as ferramentas que gravam o veredito — ✅ **feito em 15/10/2026** (D337)
+
+Caixa só com o 900; peguei a proposta do LAB-109, abaixo — a das duas que não esperam ninguém com
+buraco aberto hoje (a do LAB-104 é defeito que ainda não existe). Medido por LUGAR, nos 166 `.ts` de
+código de `external-engines/`: **quinze linhas em onze arquivos** gravam `limpo`, `aceito` ou
+`confere`. A cópia do Validator **não pode divergir** da contagem ao lado — o Generate deriva os dois do
+mesmo campo nas 4 de 4 versões de `montarRelatorio` —; **o `confere` do `lab39` podia**: comparava por
+bytes, e o D336 por valor. Trocada só a ordem das chaves, a ferramenta gravava 56 divergências e o D336
+acusava a prova. Agora `src/mesmo-valor.ts` é a igualdade única (o D336, o `lab39` e o
+`acesso.test.ts` a chamam; a prova regerada saiu idêntica), há uma régua com o sujeito escrito contra a
+comparação por texto do publicado, e o censo dos que gravam é fechado e com a contagem. Nove mutações
+acusadas, 816 → 822. Relatório: [`../relatorios/LAB-110.md`](../relatorios/LAB-110.md).
+
+**Proposto (minha lista, não espera ninguém):** **os outros vereditos de igualdade têm a mesma
+definição?** O D335 mediu que `saoIguais`, `divergem` e `mesmoRotuloDeVariante` guardam a evidência ao
+lado; ninguém perguntou **como** cada ferramenta os compara. É a pergunta do D337 com outros nomes —
+medir antes de travar, porque em alguns deles os bytes podem ser a pergunta certa.
+
 ### LAB-109 · item 900 — a minha própria lista: a coerência do veredito com a evidência ao lado — ✅ **feito em 15/10/2026** (D336)
 
 Caixa só com o 900; peguei a proposta do LAB-108, abaixo — a mais importante das duas que não esperam
@@ -357,12 +375,14 @@ nenhuma reprova, e regra que não confere nada da árvore também. `src/coerenci
 travas no portão sem clones, nove mutações acusadas, 809 → 816. Relatório:
 [`../relatorios/LAB-109.md`](../relatorios/LAB-109.md).
 
-**Proposto (minha lista, não espera ninguém):** **as ferramentas que gravam o veredito.** A régua do
+✅ **FEITO no LAB-110** (item 900, D337): onze arquivos, quinze linhas; a cópia do Validator não diverge,
+o `confere` do `lab39` divergia de regra e ganhou a igualdade única. Relatório:
+[`../relatorios/LAB-110.md`](../relatorios/LAB-110.md). — ~~**Proposto (minha lista, não espera ninguém):** **as ferramentas que gravam o veredito.** A régua do
 D336 lê a prova **gravada**; o código que a grava não é cobrado. Em `esteira/ferramentas/`, quatro
 copiam o veredito do Validator (`lab02`, `04`, `05`, `08`: `limpo: r.validator.limpo`) e três o derivam
 ali mesmo (`lab39`: `confere: ok`; `lab41`: `aceito: v.lotes != null`; `lab94`: `limpo: inv.violacoes
 === 0`). Medir se a cópia do Validator pode divergir da contagem que vai ao lado (é o veredito **dele**,
-não o nosso) antes de decidir entre uma forma única e uma trava de texto, como no D335.
+não o nosso) antes de decidir entre uma forma única e uma trava de texto, como no D335.~~
 
 ### LAB-108 · item 900 — a minha própria lista: os outros vereditos booleanos das provas — ✅ **feito em 14/10/2026** (D335)
 
@@ -1477,7 +1497,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 816 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 822 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

@@ -31,6 +31,8 @@ import {
   type SensibilidadeAoAcesso,
 } from "../src/acesso.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
+// o publicado contra o refeito é igualdade de VALOR, a mesma da ferramenta e do D336 (LAB-110, D337)
+import { mesmoValor } from "../src/mesmo-valor.ts";
 import type { EntradaMinima } from "../src/gleba-v1.ts";
 import type { P } from "../src/motores/comum.ts";
 
@@ -365,7 +367,7 @@ describe("o confronto é calculado UMA vez, e CONFERIDO contra os números crus"
             melhorPonto: bloco.melhorPonto,
             piorPonto: bloco.piorPonto,
           };
-          if (JSON.stringify(refeito) !== JSON.stringify(publicado)) {
+          if (!mesmoValor(refeito, publicado)) {
             erradas.push(`${a.arquivo} · ${g.gleba} · ${mid} (regere com \`${a.regere}\`)`);
           }
         }
@@ -382,7 +384,7 @@ describe("o confronto é calculado UMA vez, e CONFERIDO contra os números crus"
           Object.entries(g.motores).map(([k, v]) => [k, sensDaProva(v)]),
         );
         const refeito = confrontoDoAcesso(sens, LOTE);
-        if (JSON.stringify(refeito) !== JSON.stringify(g.publicado)) {
+        if (!mesmoValor(refeito, g.publicado)) {
           erradas.push(
             `${a.arquivo} · ${g.gleba}: publicado ${JSON.stringify(g.publicado)} ` +
               `vs refeito dos crus ${JSON.stringify(refeito)} (regere com \`${a.regere}\`)`,
@@ -400,13 +402,11 @@ describe("o confronto é calculado UMA vez, e CONFERIDO contra os números crus"
     const sens = Object.fromEntries(
       Object.entries(g.motores).map(([k, v]) => [k, sensDaProva(v)]),
     );
-    expect(JSON.stringify(confrontoDoAcesso(sens, LOTE))).toBe(JSON.stringify(g.publicado));
+    expect(mesmoValor(confrontoDoAcesso(sens, LOTE), g.publicado)).toBe(true);
 
     const sabotado = JSON.parse(JSON.stringify(sens)) as Record<string, SensibilidadeAoAcesso>;
     sabotado["generate-ortogonal"]!.porPosicao[0]!.lotes = 1;
-    expect(JSON.stringify(confrontoDoAcesso(sabotado, LOTE))).not.toBe(
-      JSON.stringify(g.publicado),
-    );
+    expect(mesmoValor(confrontoDoAcesso(sabotado, LOTE), g.publicado)).toBe(false);
   });
 
   test("a montagem do confronto é falsificável num caso de cabeça", () => {

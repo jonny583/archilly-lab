@@ -2994,3 +2994,16 @@ Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta do LAB-104 (o
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 15/10/2026 · LAB-110 — item 900 (a minha própria lista): as ferramentas que gravam o veredito
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-110 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); peguei da FILA a proposta do LAB-109 (as ferramentas que gravam o veredito) — o buraco que o D336 declarou aberto, por isso antes da do LAB-104. FEITA. Conferido aqui, não no GitHub: esteira 1 111 pass · 9 fail (eram 1 105 · 9; as 9 são todas do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, lab84 49 de 49 sem clones, 822 travas — e o envio passa pelo gancho do LAB-106.
+Feito: por LUGAR (166 .ts de código), quinze linhas em onze arquivos gravam limpo/aceito/confere. A cópia do Validator NÃO diverge da contagem ao lado: o Generate deriva os dois do mesmo campo nas 4 de 4 versões de montarRelatorio. O confere do lab39 divergia DE REGRA: bytes contra o valor do D336 — trocada só a ordem das chaves, a ferramenta gravava 56 divergências e o D336 acusava a prova. src/mesmo-valor.ts é a igualdade única (D336, lab39 e acesso.test a chamam; prova regerada idêntica), régua da comparação por texto do publicado e censo fechado de quem grava; 6 travas, nove mutações, 816 → 822; D337; relatório LAB-110.
+Achados para outros apps ou Central: (1) DOIS INSTRUMENTOS COM O MESMO NOME DE VEREDITO E DUAS DEFINIÇÕES SÃO UM ACUSANDO O OUTRO: casa que grava "confere" numa ferramenta e o confere numa trava deve usar a MESMA igualdade — por bytes, a ordem das chaves vira divergência falsa. (2) Mas não troque toda comparação por JSON.stringify: em determinismo os bytes são a pergunta certa; a régua precisa do sujeito escrito. (3) O Validator do Generate deriva limpo e aceito de invariantes.violacoes === 0 desde 10/09 — quem copia, copie as duas metades do mesmo relatório. (4) O .wasm do Symbios segue sem se construir aqui (rustup sem saída pelo proxy).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA seguem a proposta do LAB-104 (o número da decisão) e a nova do LAB-110 (os outros vereditos de igualdade: como cada ferramenta compara saoIguais, divergem, mesmoRotuloDeVariante).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
