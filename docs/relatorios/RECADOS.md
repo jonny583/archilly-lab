@@ -3085,3 +3085,16 @@ Próximo na fila: a caixa só tem o 900, e as propostas da FILA que não esperam
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 15/10/2026 · LAB-117 — item 900 (a dívida própria): o `<app>` do recado, regra sem guarda
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-117 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, depois de desrasar: o comando do disparo recusou o pull de novo e o disco ficou no retrato de 09/10); a FILA sem proposta que não espere ninguém, então fui à dívida própria, espécie "regra sem guarda". FEITO. Conferido aqui, não no GitHub: esteira 1 192 pass · 9 fail (as 9 são do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, 903 travas; o envio passa pelo gancho do LAB-106.
+Feito: o CLAUDE.md §1 manda "<app> é MOTOR LAB (archilly-lab), nunca Lab", e NADA cobrava: a trava do cabeçalho virou ".+" no D228 (quando reprovou o certo) e ficou larga — plantado "Lab" no recado do LAB-116, os 9 arquivos que leem o RECADOS.md rodaram 127 de 127 verdes. Cumprida por disciplina: 72 "Lab" antes do LAB-68, 56 de 56 "MOTOR LAB (archilly-lab)" depois. src/nome-do-aplicativo.ts lê o nome DA PÁGINA e o cobra exato do recado do LAB-68 em diante (corte achado pelo prompt, não pelo nome), com os 72 de antes como fotografia que não se reescreve nem cresce; 15 travas no portão sem clones, 8 mutações no módulo, 8 acusadas (a do casamento guloso saiu neutra e ganhou o caso válido que a mata); D345; 888 → 903; relatório LAB-117.
+Achados para outros apps ou Central: (0) CONSERTO QUE ALARGA A RÉGUA PARA O CASO NOVO TEM DE FECHÁ-LA PARA O VELHO — vale para toda casa cuja trava de cabeçalho trocou "Lab"/"Geo"/… por ".+" quando a Central mandou o nome do aplicativo (09/10): ela aceita o nome velho de novo. (1) Para a direção: a regra "linha sem conteúdo leva —" convive com "Depende do Jonny: nada." (22 vezes aqui desde 09/10; o Render diz que "nada" é resposta) — a leitura é do chat, e está proposta na FILA. (2) O comando do disparo recusou o pull --ff-only outra vez (o achado do LAB-116 segue valendo). (3) O .wasm do Symbios segue sem se construir aqui (rustup sem saída pelo proxy).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA, a única proposta nova espera a leitura do chat (o "—" contra o "nada").
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

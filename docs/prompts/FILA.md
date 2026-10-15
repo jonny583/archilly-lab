@@ -346,6 +346,25 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-117 · item 900 — a dívida própria: o `<app>` do recado, regra sem guarda — ✅ **feito em 15/10/2026** (D345)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (o LAB-116 esvaziou-a); fui à dívida própria,
+espécie **regra sem guarda**, no `CLAUDE.md` §1: *"`<app>` é `MOTOR LAB (archilly-lab)`, nunca `Lab`"*. A trava do
+cabeçalho aceita qualquer nome desde o D228 (o `<app>` virou `.+`): plantado `Lab` no recado do LAB-116, os
+nove arquivos que leem o `RECADOS.md` rodaram 127 de 127 verdes. A regra estava cumprida por disciplina — 72
+`Lab` antes do LAB-68, 56 de 56 `MOTOR LAB (archilly-lab)` depois. `src/nome-do-aplicativo.ts` lê o nome **da
+página** e o cobra exato do recado do LAB-68 em diante (corte achado pelo prompt, não pelo nome), com os 72 de
+antes como fotografia que não se reescreve nem cresce; `tests/nome-do-aplicativo.test.ts` no portão sem
+clones, dos dois lados, com o caso válido do ` · ` dentro do prompt. Oito mutações no módulo, oito acusadas;
+888 → 903. Relatório: [`../relatorios/LAB-117.md`](../relatorios/LAB-117.md).
+
+**Proposto ao chat, saído do LAB-117 — e é pergunta de FORMA, não de urbanismo:** o §1 manda *"linha sem
+conteúdo leva `—`, nunca some"*, e nos 56 recados desde o LAB-68 a linha `Depende do Jonny` diz **`nada.`** 22
+vezes, enquanto `—` aparece 4 (duas em `Feito`, duas em `Achados`). Ou *"nada"* é conteúdo (a resposta *"nada
+depende de você"*; o `CLAUDE.md` do Render diz *"'nada' é uma resposta, dita por escrito"*) e o §1 precisa dizer isso, ou é linha vazia e as 22 são
+desvio. **Aguardando** a leitura do chat; a trava só nasce depois dela, porque régua escrita sobre leitura que
+eu escolhi sozinha mede a minha escolha.
+
 ### LAB-116 · item 900 — a minha própria lista: o clone RASO no passo 0 do protocolo — ✅ **feito em 15/10/2026** (D344)
 
 Caixa só com o 900; peguei a proposta do LAB-115, abaixo — a única que restava sem esperar ninguém. Medido nesta
@@ -1603,7 +1622,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 888 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 903 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
