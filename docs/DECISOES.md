@@ -11960,3 +11960,41 @@ que diz *"mesclado por git direto"* de uma entrega que foi por PR passa — a r�
 > de verdade; a que lê o *committer* separa PR de mescla local sem perguntar a ninguém. E a declaração que a D29 pediu no
 > recado foi morar, 41 vezes, no único lugar que ela não nomeou — cumprida no lugar errado é cumprida para quem não lê
 > aquele lugar.
+
+## D367 · TODA ENTREGA DECLARA "CONFERIDO AQUI, NÃO NO GITHUB" — cumprida 73 de 73 vezes, e nada perguntava · 16/10/2026
+
+**Contexto:** item 900 (LAB-139). A caixa só tinha o `900`, e a FILA continuava sem proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, a das duas marcas de fim, do LAB-129, a do `.wasm`, do LAB-135, e a da §6, do
+LAB-137, esperam a leitura do chat). Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7, sob o CI
+desligado: *"**Toda entrega declara "conferido aqui, não no GitHub"**"* — e o `docs/COMO_RELIGAR_O_CI.md` diz o porquê:
+verde na mão e verde na nuvem são afirmações diferentes.
+
+**Medido (LAB-139):** por mutação, tirar a frase do recado do LAB-138 → a suíte inteira da esteira com **as mesmas 9
+falhas** de sempre (as do `.wasm`) e 1 552 aprovadas: nenhuma trava lia a frase. Por LUGAR, os dois lugares onde a
+família lê como uma entrega foi conferida — 150 recados no `RECADOS.md`, 19 de classe (sem prompt), 58 de antes do
+LAB-67 (o prompt que desligou o CI) e **73 recados de entrega do LAB-67 ao LAB-138 (o LAB-95 tem dois): 73 de 73
+declaram**; e **72 relatórios, 71 declaram** — dois com a frase quebrada pela coluna (LAB-75, LAB-81), e **o LAB-118 em
+lugar nenhum**: o recado declara, o relatório não diz como foi conferido.
+
+**Decidido:**
+
+1. `src/conferido-aqui-declarado.ts` (`conferirADeclaracao`, `declara`, `promptsDoCabecalho`). A frase se lê pelo
+   `comoARegraSeLe` (sem quebra de coluna, sem negrito), sem caixa e **com acento**; a metade (*"conferido aqui"*) não
+   declara. Recado de classe não é cobrado, e é contado.
+2. **O alcance é a vida do CI desligado:** do LAB-67 a `ULTIMO_PROMPT_COBRADO`, que é `null` com o gatilho do
+   `verde.yml` comentado. **Gatilho ativo com o número em branco reprova** — quem religa escreve onde a regra acabou —, e
+   o número escrito com o gatilho comentado também.
+3. O LAB-118 é **exceção nomeada** (só `relatorio-nao-declara`), conferida nos dois sentidos — relatório gravado não se
+   reescreve.
+4. `tests/conferido-aqui-declarado.test.ts` no portão sem clones: **1 234 → 1 247** travas, 74 arquivos.
+
+**Os dois lados e as mutações:** na página de verdade, a frase tirada do recado do LAB-138 e a do relatório do LAB-75
+trocada por *"conferido aqui, e no GitHub"* → as duas acusadas pelo nome. Doze mutações no módulo, doze acusadas.
+
+**Descartado:** cobrar o relatório só com a frase numa linha (reprovaria o LAB-75 e o LAB-81, que declaram — a coluna é
+escolha de quem escreve); aceitar *"conferido aqui"* sozinho (é a metade que não diz qual verde); reescrever o relatório
+do LAB-118; e cobrar o recado de classe (`despertador-sem-item` não entrega trabalho conferido).
+
+> **REGRA COM PRAZO TEM DE SABER QUANDO ACABA.** Esta vale enquanto o CI estiver desligado — e a trava que a cobra para
+> sempre reprovaria o primeiro recado honesto depois de religar. Quem religa escreve onde ela acabou, e o teste não deixa
+> esquecer nem o começo nem o fim.

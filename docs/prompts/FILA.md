@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-139 · item 900 — a dívida própria: toda entrega declara "conferido aqui, não no GitHub", e nada perguntava — ✅ **feito em 16/10/2026** (D367)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"Toda entrega declara "conferido aqui, não no GitHub""* — cumprida por disciplina, sem trava: tirar a frase do recado do LAB-138 deixava a suíte com as mesmas 9 falhas. Medido por LUGAR: 73 de 73 recados de entrega do LAB-67 ao LAB-138 declaram, 71 de 72 relatórios (o do LAB-118 não). Trava: `src/conferido-aqui-declarado.ts`, com o alcance preso à vida do CI desligado (quem religa escreve onde a regra acabou); 1 234 → 1 247 travas. Detalhe em [`../relatorios/LAB-139.md`](../relatorios/LAB-139.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-138 · item 900 — a dívida própria: sem PR, mesclar com `--no-ff` e declarar, e duas entregas tinham entrado direto — ✅ **feito em 16/10/2026** (D366)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-A: *"Sem `mcp__github__*`, mesclar com `git merge --no-ff` na `main` e declarar (D29)"* — e a D29 diz onde: no relatório e no recado. Nenhuma trava lia a primeira linha da `main`. Medido pelo caso de verdade: dos 201 commits dela, separados por quem os **gravou**, o LAB-102 (`7d0e635`) e o LAB-114 (`b6b32bb`) entraram **direto**, sem mescla e sem dizer, com a suíte verde; e nenhum dos 44 recados do LAB-95 ao LAB-137 diz como a entrega entrou (as 41 mesclas dizem só no assunto do commit). Trava: `src/mescla-declarada.ts`, na suíte (`tests/mescla-declarada.test.ts`, portão sem clones, 1 214 → 1 234 travas; recusa no clone raso, D295) e no gancho do envio; quatro exceções nomeadas por hash; quinze mutações, quinze acusadas. Do LAB-138 em diante o recado e o relatório dizem *"mesclado por git direto (D29)"*. [Relatório](../relatorios/LAB-138.md).
@@ -1929,7 +1935,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1234 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1247 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
