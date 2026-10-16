@@ -3215,3 +3215,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-127 — item 900 (a dívida própria): o recado de uma rodada do 900 diz qual tarefa e de qual lista
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-127 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only pela 24ª rodada seguida, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no próprio 900.md. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1054 de 1054 (64 de 64 arquivos passam sem os clones, lab84); esteira 1 345 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — 18 linhas ENOENT, as mesmas do LAB-126), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o 900.md termina com "No recado, diga qual tarefa da sua lista você pegou, e de qual arquivo" — e nada lia o que os recados diziam da origem. Lidos por LUGAR os 29 recados do 900 (Estado e bloco): 14 da FILA ("peguei … a proposta do LAB-NN", sempre anterior e com relatório), 15 da dívida própria, e UMA destas sem espécie nenhuma — o LAB-118 ("fui à dívida própria, no docs/INDEX.md"), cuja espécie só o relatório diz. Declarado como exceção, reconstruída do relatório e conferida nos dois sentidos (recado não se reescreve). src/a-tarefa-do-novecentos.ts cobra uma origem só, a proposta anterior com relatório, a FILA nomeada e a espécie. 13 mutações no módulo, 13 acusadas; 2 plantadas no RECADOS.md, 2 acusadas; D355; 1039 → 1054; relatório LAB-127.
+Achados para outros apps ou Central: (0) A REGRA QUE O PRÓPRIO ITEM DÁ É A QUE MENOS SE CONFERE — a última frase do 900 ("diga qual tarefa e de qual arquivo") se cumpre de cabeça, e aqui falhou uma vez em 29. Só por PALAVRA (a frase da regra em toda a árvore, fora da caixa), origin/main: Generate 0, Laboratório de Parcelamento 0, Geo 0 arquivos — diz que nenhuma a escreveu fora do item, não que nenhuma a guarda; não li os recados delas. (1) A pergunta da "linha" (LAB-123) segue na FILA esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (achado do LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
