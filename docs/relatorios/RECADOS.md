@@ -3176,3 +3176,16 @@ Próximo na fila: a caixa só tem o 900; na FILA ficou a pergunta da "linha", qu
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-124 — item 900 (a dívida própria): a pendência resolvida é marcada, nunca apagada (`CLAUDE.md` §5)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-124 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only pela 21ª rodada seguida, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §5. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1005 de 1005; esteira 1 296 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o §5 diz "item resolvido é marcado, nunca apagado" na página do Jonny, e só a régua do LAB-85 lia a página assim — de uma pendência. Medido por LUGAR (19 títulos numerados, 29 commits do arquivo): NENHUM assunto apagado, mas a §1 ("desproporcional", respondida por ele em 02/10, D84) estava SEM MARCA no título há 14 dias, com o corpo dizendo "enquanto não vier, nenhuma travessia é proposta". Marcada (como a sessão já fez com a 3, a 4, a 9 e a 12), texto antigo intocado; src/pendencias-marcadas.ts confere a página contra uma declaração escrita à mão, fechada nos dois sentidos: nenhuma apagada, nenhuma nova sem linha, resolvida com marca, parada com PARADA, aberta sem risco. 13 mutações, 13 acusadas; D352; 983 → 1005; relatório LAB-124.
+Achados para outros apps ou Central: (0) A REGRA DE DOIS VERBOS ("marcado, nunca apagado") TEM GUARDA NA METADE QUE SE CUMPRE SOZINHA — "nunca apagado" se cumpre enquanto ninguém apaga; "marcado" só se alguém lembrar, e foi lá que a §1 escapou. Nas três casas que leio, só por PALAVRA (apagad/riscad/~~) nos arquivos que citam a página, origin/main: Generate 0 de 5, Laboratório de Parcelamento 2 de 10, Geo 1 de 6 — não li os três que acusaram; não afirmo que guardam nem que não. (1) A pergunta da "linha" (LAB-123) segue na FILA esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (achado do LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada (a §1 já era resposta dele).
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
