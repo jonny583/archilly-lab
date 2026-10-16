@@ -346,6 +346,25 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-129 · item 900 — a dívida própria: as cinco linhas do recado, *"linha sem conteúdo leva `—`, nunca some"* — ✅ **feito em 16/10/2026** (D357)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, espera a leitura do
+chat); fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1 (*"Linha sem conteúdo leva `—`, nunca
+some"*). A única trava das cinco linhas olhava só o último recado e só a presença da palavra. Medido por mutação:
+`Depende do Jonny:` vazio no LAB-128, os `Achados` tirados do LAB-50, `Feito:` antes de `Estado:` no LAB-110 e
+`Depende do Jonny:` em dobro no LAB-90 → **zero** falhas na suíte inteira. Por LUGAR: 140 recados, as cinco linhas em
+todos, uma vez cada, na ordem, nenhuma calada; uma linha a mais, a do LF-01, declarada como exceção histórica.
+`src/as-cinco-linhas-do-recado.ts` com `tests/as-cinco-linhas-do-recado.test.ts` no portão sem clones. Quinze mutações,
+quinze acusadas; 1070 → 1090. Relatório: [`../relatorios/LAB-129.md`](../relatorios/LAB-129.md).
+
+**Proposto ao chat, saído do LAB-129:** a regra das **duas marcas de fim** (`=== FIM DO PROMPT ===` na entrada,
+`=== FIM DA SESSÃO ===` na saída) **não está escrita nesta casa** — o `CLAUDE.md` §1-C grava o texto da Central de
+08/10, que não as tem — e mesmo assim 32 recados do `RECADOS.md` terminam em `=== FIM DA SESSÃO ===`, e 7 itens da
+caixa trazem `=== FIM DO PROMPT ===`. Cumprida sem estar escrita. Escrever uma regra no `CLAUDE.md` é do chat (o §1-C é
+literal da Central); não executado.
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-128 · item 900 — a dívida própria: o recado vai ao `RECADOS.md` com data, e em ordem cronológica — ✅ **feito em 16/10/2026** (D356)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, espera a leitura do

@@ -11496,3 +11496,46 @@ chat.
 > **A EXPRESSÃO QUE EXIGE A FORMA NÃO VÊ QUEM A PERDEU.** A trava do LAB-126 lia os títulos pela data, e por isso o
 > título que perdesse a data simplesmente sumia dela — nem acusado, nem contado. Ler pela forma certa não é cobrar
 > a forma: é preciso também contar o que não casou.
+
+## D357 · AS CINCO LINHAS DO RECADO — "linha sem conteúdo leva `—`, nunca some" passa a ser cobrada em TODO recado · 16/10/2026
+
+**Contexto:** item 900 (LAB-129). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, espera a leitura do chat). Fui à dívida própria, espécie **regra sem
+guarda**, no `CLAUDE.md` §1: *"**Linha sem conteúdo leva `—`, nunca some.**"* A única trava das cinco linhas era o
+`recado.test.ts`, que olha **só o último** recado e só a **presença** da palavra (`toContain`).
+
+**Medido (LAB-129), primeiro por mutação:** as 200 travas dos 14 arquivos de teste que citam o `RECADOS.md`, contra a
+página com uma mudança plantada de cada vez: `Depende do Jonny:` **vazio** no último recado (LAB-128) → **0**
+falhas; a linha dos `Achados` tirada do LAB-50 → **0**; `Feito:` antes de `Estado:` no LAB-110 → **0**; `Depende do
+Jonny:` duas vezes no LAB-90 → **0**. As quatro juntas, a suíte inteira da esteira: 1 361 aprovadas e 9 reprovadas
+(as do `.wasm`), as mesmas de antes. **Depois, por LUGAR** (todo bloco que abre com `=== RECADO PARA O CHAT`):
+**140** recados; em todos, as cinco linhas uma vez cada, na ordem e nenhuma calada (118 dizem *"nada…"*, 6 dizem
+`—`); 14 com continuação recuada e 4 com a marca `ACUMULADO` logo depois do cabeçalho; e **uma** linha que não é
+nenhuma das cinco nem continuação: `Não saiu como pedido:`, no recado do LF-01 (14/09/2026).
+
+**Decidido:**
+
+1. `src/as-cinco-linhas-do-recado.ts` (`lerOsRecados`, `conferirUmRecado`, `conferirAsCincoLinhas`). Em todo recado
+   do `RECADOS.md`, as cinco linhas do formato existem, uma vez cada, na ordem, e nenhuma calada (nada depois dos
+   dois-pontos e nenhuma continuação recuada); a linha recuada continua a anterior; a marca `ACUMULADO` só vale logo
+   depois do cabeçalho; qualquer outra linha é **solta**; o recado fecha com `=== FIM ===`.
+2. **A linha do LF-01 é exceção histórica declarada** (`EXCECOES_HISTORICAS`), casada por cabeçalho, tipo e começo
+   da linha, e conferida nos dois sentidos — a exceção que não casar mais com nada reprova. O registro do que foi
+   enviado não se reescreve.
+3. `tests/as-cinco-linhas-do-recado.test.ts` no portão sem clones: a frase e os cinco nomes conferidos contra o
+   formato do `CLAUDE.md` §1, o universo publicado (140 recados, igual à contagem ingênua, 14 com continuação, 4 com
+   `ACUMULADO`, 1 perdoada, 0 problemas), as quatro mutações que passavam caladas plantadas na página de verdade, e a
+   régua dos dois lados — com o caso válido que quase parece inválido (a linha calada seguida de continuação
+   recuada **tem** conteúdo). Quinze mutações no módulo, **quinze acusadas**. 1070 → 1090 travas no portão; o
+   trabalho sem clones, 65 → 66 arquivos.
+
+**Descartado:** exigir o `—` literal (reprovaria 118 recados escritos *"nada"*, a forma que as outras casas usam, por
+grafia e não por conteúdo — a regra proíbe a linha **calada**); olhar só o último, como o teto de doze linhas (lá há
+o que perdoar em massa; aqui, uma linha em 140); reescrever o recado do LF-01.
+
+**O que se perde, dito:** se a resposta é verdadeira (*"Depende do Jonny: nada"* com pendência aberta passa); o
+recado que foi ao chat e não ao arquivo.
+
+> **A TRAVA QUE PERGUNTA SE A PALAVRA ESTÁ LÁ NÃO PERGUNTA SE A LINHA RESPONDE.** `toContain("Depende do Jonny:")`
+> aprova a linha calada, a linha fora do lugar e a linha em dobro — e só no último recado. Presença é a forma mais
+> barata de uma régua parecer que cobra o formato.
