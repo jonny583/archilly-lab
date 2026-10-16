@@ -121,7 +121,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // DESTE repositório, lidos como texto; nenhum clone, nenhuma rede.
     // E 67 no LAB-130, com a `onde-esta-o-detalhe.test.ts` — o `COMO_FUNCIONA.md`, o `RECADOS.md` e
     // os relatórios DESTE repositório, lidos como texto; nenhum clone, nenhuma rede.
-    expect(lista).toHaveLength(67);
+    // E 68 no LAB-131, com a `a-sequencia-das-decisoes.test.ts` — o `DECISOES.md` e as páginas DESTE
+    // repositório, lidos como texto; nenhum clone, nenhuma rede.
+    expect(lista).toHaveLength(68);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

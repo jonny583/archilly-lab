@@ -346,6 +346,21 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-131 · item 900 — a dívida própria: a decisão é numerada, e a sequência do `DECISOES.md` passa a ser cobrada — ✅ **feito em 16/10/2026** (D359)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de
+fim, do LAB-129, esperam a leitura do chat); fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7
+(*"decisões em `docs/DECISOES.md`"*) e na D01 (*"decisões numeradas"*). Medido por mutação: o título da D200 apagado,
+a D201 renumerada como D200, a D300 datada em 01/09/2026 e a D358 apagada inteira → **zero** falhas na suíte inteira.
+Por LUGAR: 357 títulos, D01 a D358, em ordem, datados, sem repetição e sem o calendário voltar — e **um buraco, a
+D176, que nunca existiu** (o LAB-51 pulou da D175 para a D177); nas 140 versões do arquivo, nenhum número sumiu; nas
+171 páginas da casa, 4 778 citações, 28 sem título (27 a `D1000` hipotética e a *"próxima decisão D176"* do LAB-50).
+O buraco declarado e não tapado, com nota ao lado da D177. `src/a-sequencia-das-decisoes.ts` com
+`tests/a-sequencia-das-decisoes.test.ts` no portão sem clones. Dezessete mutações, dezessete acusadas; 1106 → 1124.
+Relatório: [`../relatorios/LAB-131.md`](../relatorios/LAB-131.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-130 · item 900 — a dívida própria: o recado diz onde está o detalhe — ✅ **feito em 16/10/2026** (D358)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de
@@ -1805,7 +1820,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1106 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1124 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
