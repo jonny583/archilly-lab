@@ -131,7 +131,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // repositório (`git ls-files`); o apelido se resolve por aritmética de caminho, sem abrir clone.
     // E 72 no LAB-136, com a `a-fila-em-dia.test.ts` — a `FILA.md`, o `RECADOS.md` e a pasta da caixa
     // DESTE repositório; nenhum clone.
-    expect(lista).toHaveLength(72);
+    // E 73 no LAB-138, com a `mescla-declarada.test.ts` — o `git` DESTE repositório (que no clone raso
+    // recusa, D295) e um repositório temporário; nenhum clone.
+    expect(lista).toHaveLength(73);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

@@ -3358,3 +3358,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-138 — item 900 (a dívida própria): sem PR, mesclar com `--no-ff` e declarar — e duas entregas tinham entrado direto
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-138 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main; o comando do disparo recusou o pull --ff-only de novo — desrasei primeiro, e a main velha era ancestral da origem, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §1-A. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1234 de 1234 (73 de 73 arquivos passam sem os clones, lab84); esteira 1 552 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106, que agora confere a mescla também.
+Feito: "sem mcp__github__*, mesclar com git merge --no-ff na main e declarar (D29)" — e a D29 diz onde: no relatório e no recado — não tinha trava. Medido pelo caso de verdade: dos 201 commits da primeira linha da main, separados por QUEM GRAVOU cada um, o LAB-102 (7d0e635) e o LAB-114 (b6b32bb) são entregas desta casa commitadas DIRETO na main, sem mescla e sem dizer, e a suíte estava verde com as duas; e nenhum dos 44 recados do LAB-95 ao LAB-137 diz como a entrega entrou (as 41 mesclas dizem só no assunto do commit). Trava: src/mescla-declarada.ts, na suíte (recusa no clone raso, D295) e no gancho do envio; 4 exceções nomeadas por hash; 15 mutações, 15 acusadas; D366; 1214 → 1234 travas; detalhe em docs/relatorios/LAB-138.md.
+Achados para outros apps ou Central: (0) QUEM GRAVOU O COMMIT É O FATO; O ASSUNTO É O QUE ALGUÉM ESCREVEU — a primeira régua leu o "(#N)" do assunto e acusou nove PRs de verdade (LAB-39 a LAB-47); o committer separa PR (gravado pelo GitHub, noreply@github.com) de mescla local sem perguntar a ninguém. Toda casa com a regra "um envio por entrega / mesclar na main" pode medir o mesmo: git log --first-parent main --format='%h %P %ce %s' — entrega gravada localmente com UM pai entrou direto. Não medi as vizinhas. (1) A pergunta da "linha" (LAB-123), a das duas marcas de fim (LAB-129), a do .wasm (LAB-135) e a da §6 (LAB-137) seguem esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
