@@ -1,3 +1,10 @@
+> ✅ **FEITO no LAB-76**, em 10/10/2026, 00h58 UTC (commit `d3d6bd8`). Relatório em
+> [`../relatorios/LAB-76.md`](../relatorios/LAB-76.md), prova em `docs/provas/LAB-76/registro-de-motores.json`, decisões **D245 a D247**.
+>
+> **Marca RECONSTRUÍDA no LAB-123 (16/10/2026, D351)** — o LAB-76 renomeou o arquivo e não escreveu
+> no topo, como o passo 4 do protocolo manda; a fonte de cada campo é a tabela da `FILA.md` e o
+> `git log` deste arquivo. O texto do chat abaixo está intocado.
+
 # 009 — O LAB-06: o registro de motores, que é o item mais VELHO da sua fila
 
 **Por que este item, e não outro:** o Jonny estabeleceu em 09/10/2026 a ordem de

@@ -346,6 +346,25 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-123 · item 900 — a dívida própria: a marca de FEITO no topo do item, o passo 4 do protocolo — ✅ **feito em 16/10/2026** (D351)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); fui à
+dívida própria, espécie **regra sem guarda**, no próprio protocolo: o passo 4 do `COMO_FUNCIONA.md` manda renomear
+o item para `-FEITO` *"e escrever no topo dele o que foi feito, com arquivo e linha"*. O nome tem trava desde o
+LAB-80; o topo, nenhuma. Enumerados por LUGAR os 34 `-FEITO.md`: 29 abrem com a marca (`FEITO`, o prompt e o
+relatório) e **cinco não têm nada** — `009`, `010`, `010-adendo`, `011` e `012`, os quatro disparos da madrugada
+de 10/10 (LAB-76 a LAB-79). As cinco marcas foram reconstruídas da tabela acima e do `git log`, etiquetadas como
+reconstrução; `src/marca-de-feito.ts` com `tests/marca-de-feito.test.ts` no portão sem clones exige, no bloco de
+citação inicial, o `FEITO` da marca, o prompt citado depois dele e o relatório desse prompt, que existe. Dez
+mutações, dez acusadas; 972 → 983. Relatório: [`../relatorios/LAB-123.md`](../relatorios/LAB-123.md).
+
+**Proposto ao chat, saído do LAB-123 — e é pergunta de FORMA, não de urbanismo:** o passo 4 diz *"com arquivo e
+linha"*, e das 29 marcas escritas no dia só **7** citam linha (`001`, `002`, `003`, `024`, `024-adendo`, `026` e
+`030`); as outras 22 citam o relatório, a prova e as decisões, sem linha. Ou a *"linha"* é obrigatória e as 22 são
+desvio (reescrevê-las seria reconstrução de relato, e a trava passaria a cobrá-la), ou o relatório é o *"arquivo"*
+que basta e o passo 4 pode dizê-lo. **Aguardando** a leitura do chat; até lá a trava cobra o relatório e declara
+que não cobra a linha.
+
 ### LAB-122 · item 900 — a dívida própria: a rotina no GitHub, o passo 2 do desligamento — ✅ **feito em 16/10/2026** (D350)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); fui à
@@ -1693,7 +1712,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 972 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 983 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
