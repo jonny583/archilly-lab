@@ -3228,3 +3228,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-128 — item 900 (a dívida própria): o recado vai ao RECADOS.md com data, e em ordem cronológica
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-128 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §1 e no alto do RECADOS.md. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1070 de 1070 (65 de 65 arquivos passam sem os clones, lab84); esteira 1 361 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — as mesmas do LAB-127), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o CLAUDE.md §1 manda o recado "inteiro e com data" ao RECADOS.md, e a página diz "em ordem cronológica — o mais antigo primeiro". Medido por MUTAÇÃO antes da régua: tirar a data do título do LAB-50, pôr o LAB-120 em 03/10 (atrás do LAB-119) ou datar o LAB-110 em 31/02 → ZERO falhas nas 184 travas que citam a página (a trava do LAB-126 lê os títulos pela data, e por isso não vê o que a perdeu). Por LUGAR: 139 títulos, 139 recados, um por título, todos datados, sem volta, de 13/09 a 16/10. src/a-data-do-recado.ts cobra a data, o calendário, a ordem (por data, não por texto: 30/09 → 01/10 avança), o futuro e um recado por título. 13 mutações no módulo, 13 acusadas; D356; 1054 → 1070; relatório LAB-128.
+Achados para outros apps ou Central: (0) A EXPRESSÃO QUE EXIGE A FORMA NÃO VÊ QUEM A PERDEU — ler pela forma certa não é cobrar a forma; é preciso contar o que não casou. Medido nos RECADOS.md da origin/main (todo ## fora de bloco, data DD/MM/AAAA em qualquer lugar do título): Generate 91 títulos, 0 sem data, 0 voltas; Laboratório de Parcelamento 94, 0, 0; Geo 86, 0, 0 — as três cumprem hoje; título e recado não são um por um em nenhuma, e isso NÃO é acusação (outra convenção, que não li); não procurei se alguma guarda a data por trava. (1) A pergunta da "linha" (LAB-123) segue na FILA esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (achado do LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
