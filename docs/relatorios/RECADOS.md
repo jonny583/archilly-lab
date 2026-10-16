@@ -3293,3 +3293,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-133 — item 900 (a dívida própria): o Symbios roda em Node 22+ sem npm, e quem diz o que o Node aceita passa a ser o Node
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-133 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo; receita do passo 0, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §7. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1141 de 1141 (69 de 69 arquivos passam sem os clones, lab84); esteira 1 456 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — o proxy recusa o rustup), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o §7 diz "Symbios em Node 22+ sem npm" (D14), e a esteira roda o adaptador no BUN, que aceita o que o Node recusa. Medido por mutação antes da régua: um enum, uma propriedade de parâmetro e um namespace no src/hash.ts e um import sem extensão numa ferramenta → nenhuma falha que fale da regra (caíam só as duas contadoras do tamanho da árvore), e o Node recusava o adaptador inteiro. Por LUGAR: 16 arquivos, 35 importações, os 11 de src/ carregam no Node 22.22; UMA ferramenta importa pacote npm de propósito (prova-automatica.ts, o passo do verde no Bun, com o playwright) — virou exceção declarada. src/node-sem-npm.ts: o próprio Node tira os tipos de cada arquivo; 16 mutações no módulo, 16 acusadas; D361; roda no verde completo (o verde.yml ganhou o Node 22 lá); detalhe em docs/relatorios/LAB-133.md.
+Achados para outros apps ou Central: (0) A PILHA QUE RODA O CÓDIGO NÃO É A PILHA QUE A REGRA PROMETE — toda casa que promete um runtime e testa noutro (Bun x Node, vite dev x build do Cloudflare — o Propostas já mediu esse, PX-01) pode medir o mesmo: plante uma sintaxe que só o runtime da suíte aceita e veja se algo cai. O removedor de tipos do próprio Node (node:module, stripTypeScriptTypes) responde sem rede. Não medi as vizinhas. (1) A pergunta da "linha" (LAB-123) e a das duas marcas de fim (LAB-129) seguem esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

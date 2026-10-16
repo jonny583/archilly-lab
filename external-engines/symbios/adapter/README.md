@@ -8,7 +8,10 @@ chega lá, um dia, como peça pronta (WebAssembly) atrás do contrato de motor.
 
 ## Instalar e executar
 
-**Nenhuma dependência npm.** Requer `cargo` e Node 22+.
+**Nenhuma dependência npm.** Requer `cargo` e Node 22+. Uma exceção, declarada: a
+`ferramentas/navegador/prova-automatica.ts` é o passo do verde e roda no Bun, com o
+`playwright` do pacote da esteira. A trava é `esteira/tests/node-sem-npm.test.ts`
+(LAB-133, D361), que pergunta ao próprio Node.
 
 ```shell
 # o .wasm (uma vez, e a cada mudança na ponte Rust)

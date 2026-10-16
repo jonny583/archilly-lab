@@ -11668,3 +11668,49 @@ tenha nascido exata.
 
 > **O QUE A CASA PULA POR SER INTOCÁVEL É O QUE NINGUÉM OLHA.** Seis réguas deixavam o `upstream/` de fora, com o
 > motivo certo; nenhuma conferia o motivo.
+
+## D361 · O SYMBIOS RODA EM NODE 22+ SEM NPM — quem diz o que o Node aceita passa a ser o Node · 16/10/2026
+
+**Contexto:** item 900 (LAB-133). A caixa só tinha o `900`, e a FILA continuava sem proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de fim, do LAB-129, esperam a leitura do chat; a 2 e a 3 do
+LAB-96 são mudança de contrato e dado que falta; a do LAB-78 espera o olho do Jonny). Fui à dívida própria, espécie
+**regra sem guarda**, no `CLAUDE.md` §7: *"Duas pilhas convivem (D14, D17): Symbios em Node 22+ sem npm; LAB-07 em
+Bun."* A D14 diz o preço da primeira metade: sem `enum`, sem `namespace`, sem propriedade de parâmetro — o removedor
+de tipos do Node não os aceita. **Só que ninguém roda o adaptador no Node:** a esteira o importa pelo apelido
+`@symbios/*` e o roda no **Bun**, que aceita tudo isso e ainda completa import relativo sem extensão.
+
+**Medido (LAB-133), primeiro por mutação:** a suíte inteira da esteira, o `typecheck` e o `lint`, com quatro mudanças
+plantadas ao mesmo tempo — um `enum`, uma classe com `constructor(private a: number)` e um `namespace` no
+`src/hash.ts`, e um `import … from "../src/geo"` sem extensão no `ferramentas/gerar-terrenos.ts` → **nenhuma falha que
+fale da regra**. Caíram duas, as contadoras do tamanho da árvore (`chamadas.test.ts` e `configuracao.test.ts`), que
+caem com qualquer linha a mais em qualquer arquivo. O Node, perguntado, recusava o adaptador inteiro
+(`ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`). **Depois, por LUGAR:** os dezesseis `.ts` versionados do adaptador (onze em
+`src/`, cinco em `ferramentas/`), rodados um a um no Node 22.22 com `--experimental-strip-types` — os onze de `src/`
+carregam, duas ferramentas carregam, duas leem o `.wasm` que não se constrói aqui, e **uma não roda no Node de
+propósito**: a `ferramentas/navegador/prova-automatica.ts` é `#!/usr/bin/env bun` e importa o `playwright` do pacote
+da esteira — é o passo `prova no navegador` do `conferir.sh` (LAB-31), não o adaptador. Nenhum `package.json` no
+Symbios fora do `upstream/`.
+
+**Decidido:**
+
+1. `src/node-sem-npm.ts` (`conferirONodeSemNpm`, `EXCECOES_DE_PACOTE`, `PERGUNTA_AO_NODE`). **O próprio Node tira os
+   tipos de cada arquivo** (`node:module` · `stripTypeScriptTypes`, modo `strip`): quem diz o que o Node aceita é o
+   Node, não uma lista minha de sintaxes. **Toda importação de verdade** — lida pelo `Bun.Transpiler`, que ignora
+   comentário e texto entre aspas (D142, D257) — é `node:`, módulo nativo, ou relativa **com extensão** e para arquivo
+   que existe. **Pacote npm só na exceção**, arquivo a arquivo e pacote a pacote, e a exceção que sobrou reprova.
+   **Nenhum manifesto** (`package.json`, `package-lock.json`, `bun.lock`) no Symbios fora do `upstream/`.
+2. `tests/node-sem-npm.test.ts` **roda** os onze de `src/` no Node de verdade (D308: leitura de fonte é hipótese) e
+   exige Node 22+, com o mínimo lido da frase da regra; sem ele, **reprova com a receita** — nunca pula (D124).
+3. **Não entra no portão sem clones**: aquele trabalho do `verde.yml` instala só o Bun. Entra no verde completo, e o
+   `verde.yml` ganhou `actions/setup-node` com o Node 22 nele — o mesmo trabalho que roda o `conferir.sh`.
+
+**Descartado:** proibir por texto as sintaxes que a D14 lista (lista minha envelhece; o Node é a fonte); rodar as
+cinco ferramentas no Node (escrevem medição e pedem o `.wasm` — passam só pelo removedor); tirar a
+`prova-automatica.ts` de dentro do `adapter/` (mexe em caminho que o `conferir.sh`, o CI e três provas citam, para
+resolver uma frase); contar o `import type` (some na remoção de tipos — limite declarado).
+
+**O que se perde, dito:** o `import type` de pacote passa; as ferramentas que leem o `.wasm` não são rodadas até o
+fim; o `.js` da página do navegador não é desta régua.
+
+> **A PILHA QUE RODA O CÓDIGO NÃO É A PILHA QUE A REGRA PROMETE.** O Bun aceita mais do que o Node, e quem testava o
+> adaptador era só o Bun — a regra do Node não tinha ninguém do lado do Node.
