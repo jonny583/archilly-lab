@@ -93,8 +93,26 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
    * ortografia, não conteúdo. Com os nomes aceitos declarados, sobram **9**, e aí
    * cada uma é um caso de verdade.
    */
+  /*
+   * O `motor` entrou no LAB-141 (D369). A regra do `CLAUDE.md` §7 e o nome deste
+   * `describe` diziam QUATRO conceitos desde o LAB-36; a régua cobrava TRÊS, e o
+   * teste se chamava "os três conceitos". Medido por mutação: uma prova plantada
+   * com gleba, semente e contrato e SEM motor passou a suíte inteira, e a mesma
+   * prova sem semente foi acusada pelo nome.
+   *
+   * Os nomes aceitos, um por um, com o arquivo que os usa (das 38 provas de
+   * medição, 34 dizem `motor` ou `motores`):
+   *   · `motorId` — o ranking do LAB-06, uma linha por motor;
+   *   · `pontesAuditadas` / `idasAuditadas` — LAB-25 e LAB-30: cada ponte e cada
+   *     ida é a de UM motor, e o valor é o id dele (`parcelamento`, `symbios`);
+   *   · `ondeOMotorFoiLido` — LAB-93: o repositório e o commit do motor lido.
+   * Nome que só CONTÉM a palavra (`notaDoMotor`, `avisosDoMotor`, `msMotor`) não
+   * entra: diz o que o motor fez, não QUAL motor — e é por isso que o LAB-94 e o
+   * `LAB-07/medicoes.json` ficam congelados com o valor nomeado, abaixo.
+   */
   const CONCEITOS: Record<string, string[]> = {
     gleba: ["gleba", "glebas", "entrada", "montadaSobre", "projeto"],
+    motor: ["motor", "motores", "motorId", "pontesAuditadas", "idasAuditadas", "ondeOMotorFoiLido"],
     semente: ["semente"],
     contrato: ["contrato", "contratoLidoPelaEsteira", "archilly", "contratoDeSaida"],
   };
@@ -204,9 +222,18 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
    * congelada para consertar etiqueta (D118) — então o dado que falta no arquivo
    * **mora aqui**, nomeado, em vez de ficar perdido.
    */
-  const CONGELADAS_ANTES_DA_REGRA: Record<string, { falta: string; oValor: string }> = {
-    "LAB-06/ranking.json": { falta: "contrato", oValor: "1 — contrato de motor v1, como diz o LAB-06.md" },
-    "LAB-07/medicoes.json": { falta: "contrato", oValor: "1 — contrato de motor v1, como diz o LAB-07.md" },
+  const CONGELADAS_ANTES_DA_REGRA: Record<string, { [conceito: string]: string }> = {
+    "LAB-06/ranking.json": { contrato: "1 — contrato de motor v1, como diz o LAB-06.md" },
+    "LAB-07/medicoes.json": {
+      motor: "motor-testfit — o motor do Laboratório de Parcelamento, como diz o título do LAB-07.md",
+      contrato: "1 — contrato de motor v1, como diz o LAB-07.md",
+    },
+    // Congelada de antes do conceito `motor` (LAB-141), não de antes da regra
+    // inteira: as outras três ela traz. O sétimo mecanismo é do Parcelamento,
+    // como diz o LAB-94.md ("o sétimo mecanismo continua sendo dele").
+    "LAB-94/o-preco-do-setimo.json": {
+      motor: "parcelamento (motor-testfit) — como diz o LAB-94.md",
+    },
   };
 
   const provas = arquivos(PROVAS, (f) => f.endsWith(".json")).map((f) => f.slice(PROVAS.length + 1));
@@ -230,7 +257,7 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       .map(([c]) => c);
   };
 
-  test("toda prova de medição traz os três conceitos, pelos nomes aceitos", () => {
+  test("toda prova de medição traz os quatro conceitos, pelos nomes aceitos", () => {
     const faltando: string[] = [];
     for (const rel of provas) {
       if (rel in NAO_MEDEM_GLEBA || rel in CONGELADAS_ANTES_DA_REGRA) continue;
@@ -259,16 +286,21 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
 
   test("as congeladas são conjunto FECHADO, e o dado que falta está nomeado aqui", () => {
     // Se esta lista crescer, alguém publicou prova nova incompleta e a chamou de
-    // "de antes da regra". Duas, e são do LAB-06 e do LAB-07.
+    // "de antes da regra". Duas do LAB-36 (LAB-06 e LAB-07), e a do LAB-94, que
+    // entrou no LAB-141 quando o conceito `motor` passou a ser cobrado — a única
+    // prova de medição, depois da regra, que não diz QUAL motor mediu.
     expect(Object.keys(CONGELADAS_ANTES_DA_REGRA).sort()).toEqual([
       "LAB-06/ranking.json",
       "LAB-07/medicoes.json",
+      "LAB-94/o-preco-do-setimo.json",
     ]);
-    for (const [rel, { falta, oValor }] of Object.entries(CONGELADAS_ANTES_DA_REGRA)) {
+    for (const [rel, oQueFalta] of Object.entries(CONGELADAS_ANTES_DA_REGRA)) {
       // O que falta no arquivo tem de ser o que a guarda de fato acha faltando —
       // senão a lista descreve um arquivo que não é este.
-      expect(faltaEm(rel), `${rel}: a lista diz que falta outra coisa`).toEqual([falta]);
-      expect(oValor.length, `${rel}: declare o valor, ou o dado se perde`).toBeGreaterThan(10);
+      expect(faltaEm(rel).sort(), `${rel}: a lista diz que falta outra coisa`).toEqual(Object.keys(oQueFalta).sort());
+      for (const [conceito, oValor] of Object.entries(oQueFalta)) {
+        expect(oValor.length, `${rel} (${conceito}): declare o valor, ou o dado se perde`).toBeGreaterThan(10);
+      }
     }
   });
 });

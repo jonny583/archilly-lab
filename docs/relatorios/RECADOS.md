@@ -3397,3 +3397,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-141 — item 900 (a dívida própria): a prova de medição traz o MOTOR, e a régua cobrava três de quatro
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-141 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo; desrasada, a main velha era ancestral da origem, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §7. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1257 de 1257; esteira 1 575 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — as mesmas da linha de base, nome por nome), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o §7 manda prova de medição "com gleba, motor, semente e contrato", e a guarda do LAB-36 dizia os quatro no título e cobrava TRÊS — o motor nunca entrou. Medido por mutação: prova plantada sem motor passou a suíte inteira; sem semente, foi acusada. Por LUGAR, 38 provas de medição: 34 dizem motor/motores, três por outro nome (pontesAuditadas, idasAuditadas, ondeOMotorFoiLido), e a do LAB-94 não diz. Trava: CONCEITOS.motor em tests/regras.test.ts, LAB-94 e LAB-07 congelados com o valor nomeado (D118); 10 mutações, 10 acusadas; nenhum teste novo; D369; detalhe em docs/relatorios/LAB-141.md.
+Achados para outros apps ou Central: (0) O TÍTULO QUE REPETE A REGRA NÃO PROVA QUE A RÉGUA A COBRA — quem tem guarda com lista de chaves exigidas confira a lista contra a frase da regra, não contra o nome do teste. (1) Proposto ao chat (FILA): cobrar o VALOR do motor contra o registro de motores (LAB-76). (2) Para a direção: o disparo segue recusando o pull --ff-only (LAB-116), e o Generate segue sem instalar pelo registro do Lovable (403) — a esteira só precisa do zod dele. (3) A "linha" (LAB-123), as duas marcas de fim (LAB-129), o .wasm (LAB-135), a §6 (LAB-137) e a frase das provas (LAB-140) seguem esperando o chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

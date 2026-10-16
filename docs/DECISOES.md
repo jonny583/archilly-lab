@@ -12038,3 +12038,38 @@ reescrever a frase do §7 para a forma que a casa cumpre (a regra é do `CLAUDE.
 > **REGRA FALSA COMO ESCRITA NÃO SE CONSERTA FINGINDO CUMPRI-LA.** A frase do §7 mandava pasta em todo prompt, e a casa
 > já tinha inventado a forma honesta — *"não há, e isso vai declarado"* —, que morreu porque nada a pedia. A trava pede a
 > forma; a frase do `CLAUDE.md` fica para quem manda nele.
+
+## D369 · A PROVA DE MEDIÇÃO TRAZ O MOTOR — a régua do §7 cobrava três de quatro conceitos desde o LAB-36 · 16/10/2026
+
+**Contexto:** item 900 (LAB-141). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"JSON em `docs/provas/<prompt>/` com gleba,
+**motor**, semente e contrato"*. A guarda (`tests/regras.test.ts`, LAB-36) tem o `describe` com os quatro, mas a tabela
+`CONCEITOS` com três, e o teste chamado *"os três conceitos"*.
+
+**Medido (LAB-141):** por mutação, uma prova plantada com gleba, semente e contrato e **sem motor** passou a suíte
+inteira (1 575 e as 9 do `.wasm`, as mesmas da linha de base); a mesma prova sem semente foi acusada pelo nome. Por
+LUGAR, as 84 provas: 46 exceções, **38 de medição** — 34 dizem `motor`/`motores`; três dizem por outro nome
+(`pontesAuditadas`, `idasAuditadas`, `ondeOMotorFoiLido`); **uma não diz** (`LAB-94/o-preco-do-setimo.json`). Das duas
+congeladas do LAB-36, o LAB-06 diz em `motorId` e o `LAB-07/medicoes.json` não diz.
+
+**Decidido:**
+
+1. `CONCEITOS.motor` com seis nomes aceitos, lista fechada, cada um com o arquivo que o usa. Chave que só **contém** a
+   palavra (`notaDoMotor`) não entra: diz o que o motor fez, não qual — por *"contém motor"*, a do LAB-94 passaria.
+2. `CONGELADAS_ANTES_DA_REGRA` nomeia o valor de **cada** conceito que falta: o LAB-07 ganha o `motor` (motor-testfit,
+   do título do LAB-07.md); o LAB-94 entra com o `motor` (parcelamento, do LAB-94.md). Prova congelada não se regera
+   para consertar etiqueta (D118).
+3. O conjunto fechado passa de dois a **três**, com o motivo no teste; o teste passa a dizer *"quatro conceitos"*.
+4. Nenhum teste novo: o portão sem clones segue em 1 257 travas.
+
+**Os dois lados:** dez mutações, dez acusadas (a prova sem motor, a só com `notaDoMotor`, a do LAB-94 fora da lista, o
+conceito apagado, `notaDoMotor` aceito, `motorId` tirado, pontes e idas tiradas, `ondeOMotorFoiLido` tirado, o motor do
+LAB-07 apagado, o valor do LAB-94 reduzido); a prova completa plantada passa.
+
+**Descartado:** aceitar qualquer chave que contenha *"motor"* (mede ortografia, D137, e perdoa o LAB-94); regerar as
+provas do LAB-07 e do LAB-94 com a chave (D118); cobrar já o VALOR contra o registro de motores (LAB-76) — os valores
+têm quatro formas, e é outro passo; fica proposto ao chat.
+
+> **O TÍTULO QUE REPETE A REGRA NÃO PROVA QUE A RÉGUA A COBRA.** O `describe` dizia *"gleba, motor, semente e
+> contrato"* e o teste, cinquenta linhas abaixo, *"os três conceitos"* — os dois certos sobre coisas diferentes, por
+> cinco semanas. Quem separa os dois é a mutação.
