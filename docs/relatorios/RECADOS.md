@@ -3371,3 +3371,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-139 — item 900 (a dívida própria): toda entrega declara "conferido aqui, não no GitHub", e nada perguntava
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-139 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo; no raso a main velha parecia ter 2 commits só daqui, e desrasada era ancestral da origem, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §7. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1247 de 1247 (74 de 74 arquivos passam sem os clones, lab84); esteira 1 565 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: "toda entrega declara 'conferido aqui, não no GitHub'" (CLAUDE.md §7, CI desligado) não tinha trava — medido por mutação: a frase tirada do recado do LAB-138 → as mesmas 9 falhas do .wasm. Por LUGAR: 73 de 73 recados de entrega do LAB-67 (que desligou o CI) ao LAB-138 declaram, e 71 de 72 relatórios (dois só com a frase quebrada pela coluna; o do LAB-118 em lugar nenhum — exceção nomeada). Trava: src/conferido-aqui-declarado.ts, com o alcance preso à vida do CI desligado — gatilho religado com ULTIMO_PROMPT_COBRADO em branco reprova, e quem religa escreve onde a regra acabou; 12 mutações, 12 acusadas; D367; 1234 → 1247 travas; detalhe em docs/relatorios/LAB-139.md.
+Achados para outros apps ou Central: (0) REGRA COM PRAZO TEM DE SABER QUANDO ACABA — toda casa tem a mesma frase sob o mesmo CI desligado, e a cota volta em 1º/11: trava sem fim reprova o primeiro recado honesto depois de religar; sem trava, a frase some sem ninguém ver. Não medi as vizinhas. (1) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116), e no raso o git log origin/main..main mostra commits "só daqui" que estão na origem — só a comparação depois de desrasar responde certo. (2) A pergunta da "linha" (LAB-123), a das duas marcas de fim (LAB-129), a do .wasm (LAB-135) e a da §6 (LAB-137) seguem esperando o chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

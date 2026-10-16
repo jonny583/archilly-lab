@@ -133,7 +133,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // DESTE repositório; nenhum clone.
     // E 73 no LAB-138, com a `mescla-declarada.test.ts` — o `git` DESTE repositório (que no clone raso
     // recusa, D295) e um repositório temporário; nenhum clone.
-    expect(lista).toHaveLength(73);
+    // E 74 no LAB-139, com a `conferido-aqui-declarado.test.ts` — o `RECADOS.md`, os relatórios, o `verde.yml` e o
+    // `CLAUDE.md` DESTE repositório; nenhum clone.
+    expect(lista).toHaveLength(74);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
