@@ -12,7 +12,7 @@
  */
 import { areaPoligono } from "@symbios/geo.ts";
 import type { Motor } from "@symbios/index.ts";
-import { rodarMotor } from "@testfit/api.ts";
+import { rodarMotor } from "../../testfit/adapter/src/motor.ts";
 
 import { CARIMBO_FIXO } from "../../testfit/adapter/src/esteira.ts";
 import { idaParaOMotor } from "../../testfit/adapter/src/ida.ts";

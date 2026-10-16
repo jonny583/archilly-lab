@@ -33,7 +33,7 @@ import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { MOTOR_NOME, MOTOR_VERSAO } from "@testfit/contrato/tipos.ts";
+import { MOTOR_NOME, MOTOR_VERSAO } from "../../testfit/adapter/src/motor.ts";
 import { Motor } from "@symbios/index.ts";
 
 import { glebaDoLab } from "../src/gleba-do-lab.ts";

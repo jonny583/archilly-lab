@@ -346,6 +346,29 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-135 · item 900 — a dívida própria: `adapter/` é a única fronteira, e onze arquivos importavam o motor por fora — ✅ **feito em 16/10/2026** (D363)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de
+fim, do LAB-129, esperam a leitura do chat); fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §3, a
+terceira linha da regra de ouro (*"`adapter/` é a única fronteira"*), a que o LAB-134 deixou sem medir. Medido por
+mutação: um `src/` da esteira importando `@testfit/api.ts`, e outro importando o motor por caminho relativo ao clone
+(o que a D16 proíbe) → **nenhuma** falha que fale da regra. Por LUGAR (295 códigos, 2 `tsconfig`, 1 307
+especificadores), a regra **já estava quebrada**: onze arquivos fora de um `adapter/` importavam o motor do
+Laboratório de Parcelamento direto. Conserto: a porta `testfit/adapter/src/motor.ts`, por onde os onze passaram a
+entrar; trava: `src/adapter-unica-fronteira.ts`, no portão sem clones (70 → 71 arquivos, 1 163 → 1 186 travas);
+quinze mutações, quinze acusadas. Relatório: [`../relatorios/LAB-135.md`](../relatorios/LAB-135.md).
+
+**Proposto ao chat, saído do LAB-135 — não executado:** **o caminho do `.wasm` do Symbios mora em 27 arquivos fora do
+adaptador** (9 testes e 18 ferramentas da esteira, nenhum do `src/`): cada um escreve
+`archilly/wasm/target/wasm32-unknown-unknown/release/archilly_symbios_wasm.wasm` para ler os bytes e entregar ao
+`Motor.carregar`. É detalhe do motor fora da fronteira — trocar o artefato de lugar obriga a mexer nos 27. O conserto
+é uma função do `symbios/adapter/` que diz onde o artefato mora, e os 27 perguntando a ela; e a trava do LAB-135
+ganharia o caso *"texto que roda cita o artefato"*. **Precisa de uma máquina com o `.wasm`**: os nove testes são
+justamente os que não rodam sem ele, e mexer em teste que não se roda é afirmar sem prova. Não espera o Jonny.
+
+**A FILA continua sem proposta que não espere ninguém** (a nova espera a máquina com o `.wasm`); o próximo disparo só
+com o `900` vai à dívida própria.
+
 ### LAB-134 · item 900 — a dívida própria: o Generate nunca depende disto, e quem responde passa a ser o Generate — ✅ **feito em 16/10/2026** (D362)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de
@@ -1864,7 +1887,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1163 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1186 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

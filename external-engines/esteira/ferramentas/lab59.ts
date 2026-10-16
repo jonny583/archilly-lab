@@ -56,7 +56,7 @@ import { montarParcelamentoExterno } from "@generate/import/parcelamento-externo
 import { _testadaDoLote, superficiesDeFrente, verificarInvariantesPlano } from "@generate/engine/invariantes.ts";
 import { divisaDoAcesso, faixaViaPublica } from "@generate/engine/espinha/fileira-fachada.ts";
 import type { EntradaMotorV1 } from "@generate/contratos/motor-v1/index.ts";
-import { distanciaSegmento } from "@testfit/geo.ts";
+import { distanciaSegmento } from "../../testfit/adapter/src/motor.ts";
 
 import { contratoDasEntradas, type EntradaMinima } from "../src/gleba-v1.ts";
 import { linhasDaEntrada, type P } from "../src/motores/comum.ts";

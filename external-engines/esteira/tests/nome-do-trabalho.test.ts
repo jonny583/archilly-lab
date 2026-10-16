@@ -127,7 +127,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // `rev-parse HEAD:<pasta>`, `status`) e o `VERSION` do disco; nenhum clone, nenhuma rede.
     // E 70 no LAB-134, com a `generate-nao-depende.test.ts` — só um Generate de mentira escrito no
     // próprio teste e o `CLAUDE.md` DESTE repositório; a do clone mora no verde completo.
-    expect(lista).toHaveLength(70);
+    // E 71 no LAB-135, com a `adapter-unica-fronteira.test.ts` — o código e os `tsconfig.json` DESTE
+    // repositório (`git ls-files`); o apelido se resolve por aritmética de caminho, sem abrir clone.
+    expect(lista).toHaveLength(71);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

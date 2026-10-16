@@ -33,8 +33,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { rodarMotor } from "@testfit/api.ts";
-import { distanciaSegmento } from "@testfit/geo.ts";
+import { distanciaSegmento, rodarMotor } from "../adapter/src/motor.ts";
 
 import { rodarEsteira, type RodadaMedida } from "../adapter/src/index.ts";
 import { idaParaOMotor } from "../adapter/src/ida.ts";

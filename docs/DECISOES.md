@@ -11770,3 +11770,59 @@ não o devolve em nenhum carregador — reprova do mesmo jeito, com outro nome);
 
 > **A REGRA QUE PROMETE PELO VIZINHO SE PERGUNTA AO VIZINHO.** A trava do LAB-06 olhava esta casa — e a dependência,
 > se nascer, nasce do outro lado da seta.
+
+---
+
+## D363 · `adapter/` É A ÚNICA FRONTEIRA — onze arquivos importavam o motor por fora, e agora há porta · 16/10/2026
+
+**Contexto:** item 900 (LAB-135). A caixa só tinha o `900`, e a FILA continuava sem proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de fim, do LAB-129, esperam a leitura do chat; a 2 e a 3 do
+LAB-96 são mudança de contrato e dado que falta; a do LAB-78 espera o olho do Jonny). Fui à dívida própria, espécie
+**regra sem guarda**, no `CLAUDE.md` §3, a terceira linha da regra de ouro — a única das quatro que o LAB-134 deixou
+escrito que não tinha medido: *"`adapter/` é a única fronteira."* O `README.md` da raiz diz o que ela quer dizer:
+*"Só ele conhece detalhes do motor. Trocar o motor não deve exigir mexer em nada fora dessa pasta."*
+
+**Medido (LAB-135), primeiro por mutação:** dois arquivos novos em `esteira/src/` — um importando `@testfit/api.ts`,
+outro importando o motor por caminho relativo ao clone (`../../../../motor-testfit/src/lib/lab/api.ts`, que a D16
+proíbe por escrito) — e a suíte inteira da esteira: **nenhuma falha que fale da regra**. Caiu uma só, a prova do
+LAB-52, que conta a árvore e cai com qualquer arquivo novo. **Depois, por LUGAR:** os 295 códigos versionados de
+`external-engines/`, os 2 `tsconfig.json`, 1 307 especificadores — e a regra **já estava quebrada**: **onze arquivos**
+fora de um `adapter/` importavam o motor do Laboratório de Parcelamento direto (doze importações): três do
+`esteira/src/` (`porta/motores.ts`, `guarda-em-acao.ts`, `passagens-dos-legais.ts`), dois testes da esteira, quatro
+ferramentas da esteira (`lab55`, `lab58`, `lab59`, `lab76`) e, no próprio pacote `testfit/`, o teste e a ferramenta
+de medida. Nenhum alcançava o Symbios por código: a esteira o importa por `@symbios/`, que resolve para o adaptador.
+
+**Decidido:**
+
+1. **O conserto antes da trava:** `testfit/adapter/src/motor.ts`, a porta do motor — repassa as sete coisas que os onze
+   usavam (`rodarMotor`, `impressao`, `MOTOR_NOME`, `MOTOR_VERSAO`, `distanciaSegmento`, `distanciaAoPoligono`,
+   `pontoEmPoligono`) e nada mais. Os onze passaram a importar dela; comportamento idêntico (é repasse).
+2. `src/adapter-unica-fronteira.ts` (`conferirAFronteira`, `A_REGRA`, `MOTORES_DE_FORA`, `CLONES_QUE_NAO_SAO_MOTOR`).
+   O especificador sai do `ts.preProcessFile` — **com** `import type`/`export type` (tipo do motor fora do adaptador
+   também obriga a mexer), com `export … from`, `import()` e `require()`, sem comentário (D142, D257) — e se resolve
+   pelos `paths` e o `baseUrl` do `tsconfig.json` mais fundo (o apelido se LÊ de onde mora, D310). Alvo em
+   `external-engines/<m>/upstream|archilly/` ou num clone de motor, importado de fora do `adapter/` daquele motor,
+   reprova; de outro adaptador, reprova com outro nome.
+3. **A tabela é cobrada nos dois sentidos:** apelido que sai do repositório sem ser motor nem clone declarado reprova
+   (o próximo clone nasce com dono); motor de fora que o próprio adaptador deixou de importar reprova (tabela velha).
+   Universo vazio reprova (D213); código que não se lê reprova.
+4. **Uma trava, no portão sem clones:** a régua lê só o código e os `tsconfig` desta casa, e resolver apelido é
+   aritmética de caminho — o clone não precisa existir. `tests/adapter-unica-fronteira.test.ts`, sintético e contra a
+   árvore de hoje.
+
+**Os dois lados e as mutações:** quinze mutações no módulo, quinze acusadas (três delas só depois de eu acrescentar o
+caso que as pegava: o `tsconfig` mais raso escolhido, o `baseUrl` ignorado e o universo saindo de `external-engines/`).
+
+**Descartado:** declarar os onze como exceção (exceção para onze é a regra ao contrário, e o conserto custava um
+arquivo de repasse); tirar o `@testfit/*` do `tsconfig` da esteira (o programa dela compila os arquivos do adaptador,
+que usam o apelido); consertar agora o caminho do `.wasm` (abaixo).
+
+**O que se perde, dito:** o **caminho do artefato do Symbios** — **27** arquivos fora do `symbios/adapter/` (9 testes e
+18 ferramentas, nenhum do `src/`) escrevem `archilly/wasm/target/…/archilly_symbios_wasm.wasm` no código que roda,
+para ler os bytes e entregar ao `Motor.carregar`. É detalhe do motor fora do adaptador, mas é texto, não importação, e
+consertá-lo sem o `.wasm` nesta máquina seria mexer em nove testes que eu não posso rodar. Vai à `FILA.md` como
+*"proposto ao chat"*. Também não se cobra o `import.meta.resolve("@testfit/api.ts")` do carimbo dos vizinhos (ele
+pergunta **onde o clone mora**, não usa o motor) nem o Generate, que é o juiz e tem a regra dele (D362).
+
+> **A REGRA QUE NINGUÉM COBRA JÁ ESTÁ QUEBRADA QUANDO ALGUÉM OLHA.** A primeira e a quarta linha da regra de ouro
+> ganharam trava sem achar defeito (LAB-132, LAB-134); a terceira, a primeira vez que alguém a mediu, tinha onze.
