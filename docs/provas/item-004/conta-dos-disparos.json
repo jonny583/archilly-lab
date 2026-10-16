@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-16T00:17:16.590Z",
+  "quando": "2026-10-16T01:24:51.946Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -531,12 +531,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 00:06:18 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-118), tarefa da **dívida própria** (a FILA sem proposta que não espere ninguém): o índice afirma o que existe",
         "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 01:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 01:06:03 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-119), tarefa da `FILA.md` (proposta do LAB-118: as contagens de desenho da seção *\"O código\"* do índice)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 65,
+      "noRegistro": 66,
       "observados": 38,
-      "derivados": 20,
+      "derivados": 21,
       "emLote": 7,
       "emVazio": 5
     },

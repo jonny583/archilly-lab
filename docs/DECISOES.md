@@ -11048,3 +11048,56 @@ pasta e arquivo de outra espécie fora do índice — só o relatório tem a pro
 
 > **A TRAVA QUE CONFERE QUE A LIGAÇÃO LEVA A ALGUM LUGAR NÃO CONFERE QUE O LUGAR TEM LIGAÇÃO.** Ponteiro tem
 > dois sentidos, e a promessa *"um por prompt"* está no segundo.
+
+**Remedido no D347 (LAB-119), e acrescentado lá, sem reescrever esta:** a contagem de desenho da seção *"O código"*
+não era *"verdade por construção"* — conferidos os 22 números contra os arquivos, três estavam errados em duas linhas
+(a guarda da IDA e os experimentos). A régua dela mora em `src/contagens-do-indice.ts`.
+
+## D347 · O NÚMERO DO DESENHO É O QUE O ARQUIVO CONTA — as contagens da seção "O código" do índice, conferidas contra o arquivo · 16/10/2026
+
+**Contexto:** item 900 (LAB-119). A caixa só tinha o `900`; peguei da FILA a proposta do LAB-118 — a única
+que não espera ninguém. A seção *"O código"* do `docs/INDEX.md` descreve arquivo VIVO, e a descrição conta
+(*"seis pontos"*, *"três regras"*, *"quatro cortes"*). O D346 a deixou de fora porque a contagem de desenho
+*"é verdade por construção"* — e uma delas, a *"seis travas"* do `verde.test.ts` (que tinha quinze), já
+estava errada.
+
+**Medido (LAB-119):** lido número por número — por extenso (*dois* a *doze*), ordinal (*primeira* a
+*décima*) e algarismo, depois de tirar o ponteiro (crases, ligações, `LAB-NN`, `D123`, `§1-B`, a limpeza do
+D346) —, as **22 linhas** da tabela traziam **22 números**, e **três estavam errados, em duas linhas**:
+
+1. a guarda da IDA: *"Quatro regras, e a **quarta** é a dívida declarada"* — `REGRAS_DA_IDA` tem **cinco**
+   desde 04/10 (o LAB-35 acrescentou `promessa-nao-exercitada`), e a dívida é a **quinta**. Doze dias errada;
+2. os experimentos: *"**dois** testes de varredura"* — o `describe` da varredura em `tests/porta.test.ts` tem
+   **três** (cobertura, existência e a contagem que o relatório do LAB-26 publica).
+
+Os outros dezenove batiam. *"Verdade por construção"* era verdade no dia em que a linha nasceu; o arquivo
+andou e a frase não.
+
+**Decidido:**
+
+1. As duas linhas foram corrigidas, e a da IDA passou a dizer também quantas reprovam (*duas*, contadas em
+   `REGRAS_DA_IDA_QUE_REPROVAM`).
+2. `src/contagens-do-indice.ts` e `tests/contagens-do-indice.test.ts`, no portão sem clones. Cada número
+   da seção tem **exatamente uma** entrada: a **contagem** (`CONTAGENS`, 18 — cada uma com a função que conta
+   no TEXTO do arquivo: o valor de `POSICOES_DE_ACESSO`, os itens de `REGRAS_DA_PONTE`, os `test(` de um
+   `describe`, os passos do `conferir.sh` pela régua do D328…), ou o **não conta** (`NAO_CONTAM`, 5 — duas
+   datas, um relato, uma geometria e uma enumeração feita na própria frase —, com o motivo). Número sem
+   entrada reprova, entrada sem trecho reprova, trecho repetido ou sem um número só reprova, e a contagem
+   que não acha o que procura reprova com *"não contou"*, nunca com zero. Seção ausente é `null`: não lê, não
+   aprova. **Doze mutações no módulo, doze acusadas.** 914 → 929 travas.
+
+**Descartado:** importar as constantes em vez de ler o texto (a contagem de `test(` dentro de um `describe`
+não tem constante, e a trava precisa trocar o arquivo para provar o lado ruim — texto troca, `import` não);
+ler também *"um"* e *"uma"* (artigo em quase toda frase: a régua viraria lista de exceções do português);
+tirar as contagens da seção, como o D346 fez com as de estado (estas não mudam a cada rodada: mudam quando o
+arquivo muda, e a frase diz algo útil sobre o desenho — *sem frase honesta a frase sai*, e esta tem como ser
+honesta); e estender a régua às outras seções (as de relatório são relato datado, e as de *"Decisão e fila"*
+já não podem ter algarismo, D346).
+
+**O que se perde, dito:** a contagem dita sem número (*"o par que impede"*); o que se conta ser o que a
+frase diz que é — a função diz QUANTOS, não se os cinco de `REGRAS_DA_IDA` são regras da ida; e a
+`duas guardas antes` do `conferir.sh`, que fica como enumeração da frase, porque contar guarda num script
+de shell seria régua para um número só.
+
+> **"VERDADE POR CONSTRUÇÃO" É VERDADE NO DIA DA CONSTRUÇÃO.** A contagem do desenho envelhece quando o
+> desenho muda, e o desenho muda sem reler a frase que o conta.

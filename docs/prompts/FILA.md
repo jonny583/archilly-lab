@@ -346,6 +346,20 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-119 · item 900 — a minha própria lista: as contagens de desenho da seção *"O código"* do índice — ✅ **feito em 16/10/2026** (D347)
+
+Caixa só com o 900; peguei a proposta do LAB-118, abaixo — a única que não esperava ninguém. Lidos número por
+número (por extenso, ordinal e algarismo) nas 22 linhas da seção, **22 números, e três estavam errados em duas
+linhas**: a guarda da IDA dizia *"Quatro regras, e a quarta é a dívida"* com **cinco** em `REGRAS_DA_IDA`
+desde 04/10, e os experimentos diziam *"dois testes de varredura"* com **três** no `describe`. As duas linhas
+foram corrigidas, e `src/contagens-do-indice.ts` com `tests/contagens-do-indice.test.ts` no portão sem clones dá
+a cada número uma entrada — a contagem, com a função que conta no texto do arquivo, ou o *"não conta"*, com o
+motivo —, nos dois sentidos. Doze mutações, doze acusadas; 914 → 929. Relatório:
+[`../relatorios/LAB-119.md`](../relatorios/LAB-119.md).
+
+**A FILA fica sem proposta que não espere ninguém** (a do LAB-117 espera a leitura do chat); o próximo disparo
+só com o `900` vai à dívida própria.
+
 ### LAB-118 · item 900 — a dívida própria: o índice afirma o que existe — ✅ **feito em 16/10/2026** (D346)
 
 Caixa só com o 900, e a FILA sem proposta que não espere ninguém (a do LAB-117, abaixo, espera a leitura do
@@ -357,11 +371,11 @@ ele **afirma**. Enumerados por LUGAR os 115 `.md` de `docs/relatorios/`, **seis 
 `src/o-indice.ts` com `tests/o-indice.test.ts` no portão sem clones confere os dois sentidos que faltavam; dez
 mutações, dez acusadas; 903 → 914. Relatório: [`../relatorios/LAB-118.md`](../relatorios/LAB-118.md).
 
-**Proposto (minha lista, não espera ninguém):** **as contagens de desenho da seção *"O código"* do índice.** A
+✅ **FEITO no LAB-119** (D347), acima. — ~~**Proposto (minha lista, não espera ninguém):** **as contagens de desenho da seção *"O código"* do índice.** A
 linha do `verde.test.ts` dizia *"seis travas"* de um arquivo com quinze e saiu à mão; as outras (*"quatro
 regras"* da guarda da IDA, *"três regras"* da guarda da ponte, *"três travas"* da coluna vertebral, *"seis pontos"*
 do acesso) descrevem arquivo vivo e ninguém as confere contra ele. Conferir cada uma contra o que ela conta é
-outra régua, e a próxima da minha lista.
+outra régua, e a próxima da minha lista.~~
 
 ### LAB-117 · item 900 — a dívida própria: o `<app>` do recado, regra sem guarda — ✅ **feito em 15/10/2026** (D345)
 
@@ -1639,7 +1653,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 914 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 929 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

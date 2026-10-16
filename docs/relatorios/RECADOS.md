@@ -3111,3 +3111,16 @@ Próximo na fila: a caixa só tem o 900; na FILA, a proposta nova do LAB-118 (as
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-119 — item 900 (a minha própria lista): as contagens de desenho da seção "O código" do índice
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-119 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, depois de desrasar: o comando do disparo recusou o pull de novo, e a receita do passo 0 resolveu); peguei da FILA a proposta do LAB-118, a única que não esperava ninguém. FEITA. Conferido aqui, não no GitHub: o portão sem clones 929 de 929, lint limpo nos dois pacotes; o verde COMPLETO não rodou inteiro — esta máquina recusou instalar o zod dentro do clone do Generate (as rodadas de antes faziam isso): esteira 1 066 pass, ZERO reprovam por asserção, e 18 arquivos não carregam (15 pelo zod do Generate, 3 pelo .wasm); testfit não carrega (zod); typecheck com 3 erros, todos no arquivo do Generate sem o zod. O envio passa pelo gancho do LAB-106.
+Feito: lidos os 22 números da seção "O código" do INDEX.md contra os arquivos que eles contam: 3 errados, em 2 linhas — a guarda da IDA dizia "Quatro regras, e a quarta é a dívida" com CINCO em REGRAS_DA_IDA desde 04/10 (o LAB-35 pôs promessa-nao-exercitada), e os experimentos "dois testes de varredura" com TRÊS no describe. Linhas corrigidas; src/contagens-do-indice.ts dá a cada número uma entrada — a contagem (18, contada no texto do arquivo) ou o "não conta" (5, com motivo) —, nos dois sentidos; 15 travas, 12 mutações, 12 acusadas (a varredura do LAB-52 ainda pegou um ?? "" meu, que fazia arquivo sumido contar zero — consertado); D347 (e o D346 ganhou a linha que aponta para cá); 914 → 929; relatório LAB-119.
+Achados para outros apps ou Central: (0) "VERDADE POR CONSTRUÇÃO" É VERDADE NO DIA DA CONSTRUÇÃO — índice que descreve arquivo vivo com "N regras"/"N cortes" envelhece quando o arquivo muda; vale para toda casa com INDEX.md desse tipo. (1) Duas réguas de palavra sobre a mesma linha brigam: o conserto "três testes" reprovou na régua do "N testes" (que não lia o "dois testes" errado). (2) Para a direção: o comando do disparo recusou o pull --ff-only outra vez (achado do LAB-116). (3) A máquina desta rodada não deixou escrever no clone do Generate (zod): o verde completo daqui depende disso, ou de o kit do contrato não exigir dependência do vizinho. (4) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a FILA fica sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
