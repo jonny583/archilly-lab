@@ -3137,3 +3137,16 @@ Próximo na fila: a caixa só tem o 900; a FILA continua sem proposta que não e
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-121 — item 900 (a dívida própria): os ramos abertos, a lista que o protocolo manda manter
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-121 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only pela 18ª rodada seguida, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no próprio protocolo. FEITA. Conferido aqui, não no GitHub: o portão sem clones 954 de 954; esteira 1 244 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o COMO_FUNCIONA.md manda manter docs/RAMOS_ABERTOS.md (os ramos que esperam uma pergunta, com a pergunta) — a página NUNCA existiu (nenhum commit) e nada lia os ramos da origem. Medido com git ls-remote: a main e claude/stoic-ritchie-ijzqy3, inteiro na main → zero abertos, e o repositório dizia "nada" (não medi) onde a resposta era "zero". A página nasceu com a tabela vazia; src/ramos-abertos.ts cruza página e origem nos dois sentidos; a régua pura no portão (tests/ramos-abertos.test.ts) e a pergunta à origem fora dele (tests/ramos-abertos-na-origem.test.ts: rede e história). 10 mutações, 10 acusadas; D349; 942 → 954; relatório LAB-121.
+Achados para outros apps ou Central: (0) PÁGINA QUE A REGRA MANDA EXISTIR E NÃO EXISTE NÃO DIZ "NENHUM": DIZ "NÃO OLHEI" — medido nos três clones que leio, na origin/main: o COMO_FUNCIONA.md do Generate e o do Laboratório de Parcelamento mandam o mesmo docs/RAMOS_ABERTOS.md, e nenhum dos dois o tem; o do Geo não traz a regra. As outras oito casas não medi. (1) Trava que pergunta à origem não cabe no checkout do CI (sem história, todo ramo sai "não sei"): fica no verde da sessão, dito. (2) O ramo claude/stoic-ritchie-ijzqy3 segue na origem, inteiro na main; apagá-lo não é meu (não se desfaz). (3) Para a direção: o comando do disparo segue recusando o pull --ff-only (achado do LAB-116). (4) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a FILA continua sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
