@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-138 · item 900 — a dívida própria: sem PR, mesclar com `--no-ff` e declarar, e duas entregas tinham entrado direto — ✅ **feito em 16/10/2026** (D366)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-A: *"Sem `mcp__github__*`, mesclar com `git merge --no-ff` na `main` e declarar (D29)"* — e a D29 diz onde: no relatório e no recado. Nenhuma trava lia a primeira linha da `main`. Medido pelo caso de verdade: dos 201 commits dela, separados por quem os **gravou**, o LAB-102 (`7d0e635`) e o LAB-114 (`b6b32bb`) entraram **direto**, sem mescla e sem dizer, com a suíte verde; e nenhum dos 44 recados do LAB-95 ao LAB-137 diz como a entrega entrou (as 41 mesclas dizem só no assunto do commit). Trava: `src/mescla-declarada.ts`, na suíte (`tests/mescla-declarada.test.ts`, portão sem clones, 1 214 → 1 234 travas; recusa no clone raso, D295) e no gancho do envio; quatro exceções nomeadas por hash; quinze mutações, quinze acusadas. Do LAB-138 em diante o recado e o relatório dizem *"mesclado por git direto (D29)"*. [Relatório](../relatorios/LAB-138.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-137 · item 900 — a dívida própria: a dívida técnica não entra na página do Jonny — ✅ **feito em 16/10/2026** (D365)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §5: *"item resolvido é marcado, nunca apagado, e dívida técnica não entra lá"* — a primeira metade tem a trava do LAB-124, a segunda não tinha nenhuma. Medido por mutação: uma pendência de refatoração, declarada, passava em tudo. Por LUGAR, as 19 pendências de hoje: nenhuma é dívida técnica. A declaração do LAB-124 ganhou o campo `dono` — as cinco classes que param, da `COMO_FUNCIONA.md`, e o `informe` —, sem valor para dívida técnica; a trava é `external-engines/esteira/src/o-que-e-dele.ts`. Relatório: [`../relatorios/LAB-137.md`](../relatorios/LAB-137.md).

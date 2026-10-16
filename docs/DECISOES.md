@@ -11912,3 +11912,51 @@ cobrar o corpo das seções: uma seção de urbanismo cita código no relato (a 
 > **A RÉGUA QUE EXIGE DECLARAR TAMBÉM APROVA O QUE FOI DECLARADO.** A trava do LAB-124 fez toda pendência nova nascer
 > numa lista — e com isso uma refatoração bem declarada passava com selo. Declaração sem campo para dizer *de quem* é a
 > coisa não separa o que é dele do que é meu.
+
+## D366 · SEM PR, MESCLAR COM `--no-ff` E DECLARAR — duas entregas entraram direto, e quem responde é quem GRAVOU · 16/10/2026
+
+**Contexto:** item 900 (LAB-138). A caixa só tinha o `900`, e a FILA continuava sem proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, a das duas marcas de fim, do LAB-129, a do `.wasm`, do LAB-135, e a da §6, do
+LAB-137, esperam a leitura do chat). Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-A: *"Sem
+`mcp__github__*`, mesclar com `git merge --no-ff` na `main` e declarar (D29)."* A D29 diz onde se declara: **no
+relatório e no recado**. Nenhuma trava lia a primeira linha da `main`.
+
+**Medido (LAB-138), pelo caso de verdade:** a primeira linha da `main` inteira, com a história desrasada — 201 commits,
+separados por quem os **gravou** (o *committer*) e quantos pais têm: 1 raiz, 123 gravados pelo GitHub (PR), 32 escritas
+da direção só na caixa, 41 mesclas por git direto — **todas** com *"mesclado por git direto (D29)"* no assunto — e **4
+que não são nada disso**: o LAB-102 (`7d0e635`, 13/10) e o LAB-114 (`b6b32bb`, 15/10), **entregas desta casa
+commitadas direto na `main`**, sem mescla e sem dizer, e duas escritas da direção fora da caixa (o nascimento dela,
+`6f43837`, e o `.claude/settings.json`, `d103582`). A suíte estava verde com as duas entregas na história (1 532
+aprovadas, 9 reprovadas — as do `.wasm`). E a outra metade: **nenhum** dos 44 recados do LAB-95 ao LAB-137 diz como a
+entrega entrou, nem o relatório de nenhum deles — a declaração foi morar no assunto do commit, o único lugar que a D29
+não nomeou.
+
+**Decidido:**
+
+1. `src/mescla-declarada.ts` (`conferirAPrimeiraLinha`, `monteDe`, `lerALinha`, `argumentosDoLog`, `motivosDaMescla`,
+   `conferirADeclaracaoNoTexto`, `dizComoEntrou`). **Quem grava decide, não o assunto:** gravado pelo GitHub é PR;
+   gravado aqui com todo arquivo na caixa é a direção; gravado aqui com dois pais e a frase é a mescla declarada.
+   Problema é `entrega-sem-mescla` (um pai, arquivo fora da caixa) e `mescla-sem-declaracao` (dois pais, sem a frase).
+   As quatro de cima são exceção nomeada por hash, cada uma com o motivo, e só perdoam o problema que nomeiam — a
+   história da `main` não se reescreve.
+2. **No gancho do envio** (`ferramentas/antes-do-envio.ts`, LAB-106): a primeira linha do que vai (`<remoto>..<local>`)
+   passa pela régua antes das travas. Não ler a linha recusa, não aprova (D213).
+3. **Na suíte**, `tests/mescla-declarada.test.ts`, no portão sem clones: lê a `main` local quando a história está
+   inteira, e **recusa** pelo LAB-89 (D295) no clone raso do CI — a primeira linha de um clone raso termina no corte, e
+   o corte sem pai passaria por `raiz`. **1 214 → 1 234** travas, 73 arquivos.
+4. **A outra metade, do LAB-138 em diante**: o recado e o relatório dizem *"mesclado por git direto (D29)"* ou o `PR #N`.
+   Os 130 recados de antes são registro do que foi enviado e não se reescrevem (a regra do LAB-130).
+
+**Os dois lados e as mutações:** o LAB-102, replantado sem a exceção, é acusado pelo nome; nove PRs de verdade (LAB-39
+a LAB-47) **sem** `(#N)` no assunto passam, porque o GitHub os gravou; um `(#999)` escrito num commit local não passa.
+Quinze mutações no módulo, quinze acusadas — uma delas (o relatório ausente calado) escrita errada na primeira rodada,
+sem compilar, e contada pelo meu script como sobrevivente; reescrita, acusada.
+
+**Descartado:** separar PR de mescla pelo `(#N)` no assunto — foi a primeira tentativa, e acusava nove PRs de verdade.
+Exigir a declaração nos 130 recados de antes — o recado é registro. E cobrar *qual* foi o caminho de verdade: o recado
+que diz *"mesclado por git direto"* de uma entrega que foi por PR passa — a régua pega o esquecimento, não a mentira.
+
+> **QUEM GRAVOU O COMMIT É O FATO; O ASSUNTO É O QUE ALGUÉM ESCREVEU.** A primeira régua leu o assunto e acusou nove PRs
+> de verdade; a que lê o *committer* separa PR de mescla local sem perguntar a ninguém. E a declaração que a D29 pediu no
+> recado foi morar, 41 vezes, no único lugar que ela não nomeou — cumprida no lugar errado é cumprida para quem não lê
+> aquele lugar.
