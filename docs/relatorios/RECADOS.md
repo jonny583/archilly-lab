@@ -3254,3 +3254,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-130 — item 900 (a dívida própria): o recado diz onde está o detalhe, e o relatório é do próprio prompt
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-130 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no COMO_FUNCIONA.md da caixa. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1106 de 1106 (67 de 67 arquivos passam sem os clones, lab84); esteira 1 397 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — as mesmas do LAB-129), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o protocolo manda a resposta inteira para docs/relatorios/<prompt>.md e que "o recado precisa dizer ONDE está o detalhe", e a única trava andava no sentido CONTRÁRIO (todo relatório tem recado). Medido por mutação antes da régua: o ponteiro tirado do LAB-129 e do LAB-92, e o LAB-120 apontando o relatório do LAB-119 → ZERO falhas na suíte inteira. Por LUGAR: 141 recados — 72 de antes da regra, 6 de classe sem prompt, 63 no alcance; os 63 com relatório gravado e do próprio prompt; 40 apontam (o LAB-80 e todos do LAB-92 em diante), 23 não (LAB-68 a LAB-91 menos o LAB-80), declarados um por um como exceção histórica — o perdão é do ponteiro, nunca do detalhe. src/onde-esta-o-detalhe.ts; 15 mutações no módulo, 15 acusadas; D358; 1090 → 1106; relatório LAB-130.
+Achados para outros apps ou Central: (0) A TRAVA DE UM SENTIDO SÓ É METADE DA REGRA — "todo relatório tem recado" aprovava calada o recado que não diz onde e o que aponta o relatório errado. Não medi as vizinhas desta vez; a quem levar a régua: decida antes que forma de ponteiro conta na casa (a lição da grafia, D137). (1) A pergunta da "linha" (LAB-123) e a das duas marcas de fim (LAB-129) seguem esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
