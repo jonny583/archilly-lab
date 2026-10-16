@@ -3163,3 +3163,16 @@ Próximo na fila: a caixa só tem o 900; a FILA continua sem proposta que não e
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-123 — item 900 (a dívida própria): a marca de FEITO no topo do item, o passo 4 do protocolo
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-123 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only pela 20ª rodada seguida, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no próprio protocolo. FEITA. Conferido aqui, não no GitHub: o portão sem clones 983 de 983; esteira 1 274 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o passo 4 do COMO_FUNCIONA.md tem dois verbos — renomear para -FEITO E escrever no topo o que foi feito. O nome tinha trava desde o LAB-80; o topo, nenhuma. Dos 34 itens feitos, 29 tinham a marca e 5 NÃO tinham nada: 009, 010, 010-adendo, 011 e 012, os quatro disparos da madrugada de 10/10 (LAB-76 a 79) — só renomeados. As 5 marcas foram reconstruídas (da tabela da FILA e do git log, etiquetadas como reconstrução); src/marca-de-feito.ts exige no bloco de citação inicial o FEITO da marca, o prompt e o relatório dele, que existe. 10 mutações, 10 acusadas; D351; 972 → 983; relatório LAB-123.
+Achados para outros apps ou Central: (0) O PASSO 4 TEM DOIS VERBOS, E SÓ UM COSTUMA TER GUARDA — medido com a minha régua nos três clones que leio (origin/main): Generate 2 de 41 feitos sem marca no topo (dois adendos que abrem por "✅ LIDO"/"✅ RESPONDIDO"), Laboratório de Parcelamento 4 de 33 (quatro adendos), Geo 15 de 39 — e lá a marca mora no PÉ ("## FEITO — 09/10/2026, GE-32", linha 63 do 001), não no topo. A forma de cada casa é dela; as outras oito não medi. (1) Proposto ao chat, de FORMA: o passo 4 pede "arquivo e linha", e só 7 das 29 marcas citam linha — ou a linha é obrigatória, ou o relatório basta (FILA, LAB-123). (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (achado do LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA ficou a pergunta da "linha", que espera a leitura do chat; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
