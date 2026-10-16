@@ -10999,3 +10999,52 @@ pediria a mesma lista de corte lá dentro — duas réguas para um corte só); a
 
 > **CONSERTO QUE ALARGA A RÉGUA PARA O CASO NOVO TEM DE FECHÁ-LA PARA O VELHO.** A régua que reprovou o certo
 > no D228 foi aberta dos dois lados, e por seis dias o errado que ela existia para pegar passava de novo.
+
+## D346 · O ÍNDICE AFIRMA O QUE EXISTE, E É CONFERIDO NO QUE AFIRMA — todo relatório tem a sua linha, e a linha da página que muda a cada rodada não diz o estado do dia · 16/10/2026
+
+**Contexto:** item 900 (LAB-118). A caixa só tinha o `900`, e a FILA segue sem proposta que não espere ninguém
+(a do LAB-117 espera a leitura do chat); fui à dívida própria, no `docs/INDEX.md` — a página que o `CLAUDE.md`
+§7 manda manter *"em dia"* ao fim de todo prompt e que nenhuma trava lia pelo que ela **afirma**.
+
+**Medido (LAB-118):**
+
+1. **Seis relatórios nunca tiveram linha.** A seção se chama *"As medições — um relatório por prompt"*;
+   enumerados por LUGAR os 115 `.md` de `docs/relatorios/`, **109** eram alvo de uma ligação do índice e
+   `LAB-70.md` a `LAB-75.md` não — os itens 003 a 008 da caixa, todos de 09/10/2026 e do mesmo ramo
+   (`claude/stoic-ritchie-ijzqy3`). O `git log -S` do nome de cada um no `INDEX.md` volta vazio: não saíram,
+   nunca entraram. A trava do LAB-100 (D327) confere que toda ligação **leva** a algum lugar; o outro sentido
+   — que todo relatório **tem** uma ligação — ninguém conferia.
+2. **Três linhas da tabela *"Decisão e fila"* afirmavam o estado de um dia que passou:** `DECISOES.md` com
+   **72 decisões** (escrito no LAB-06, 20/09; a última é a D345), `prompts/FILA.md` com *"a fila de 19/09,
+   a da tela unificada, esgotou"* (a ida vem da caixa desde 09/10) e `PENDENCIAS_JONNY.md` com *"Hoje: quanto
+   é desvio desproporcional?"* — respondido pelo Jonny em **02/10** (D84), e marcado como resolvido na própria
+   página dele.
+3. E, fora da tabela, a linha do `verde.test.ts` dizia **seis travas**; o arquivo tem **quinze**.
+
+**Decidido:**
+
+1. As seis linhas entram no índice, cada uma dizendo que foi acrescentada agora (o relato do dia não se
+   reescreve; a linha nova se declara). As três frases de estado **saem**: a linha diz o que a página
+   **responde**, e o que ela diz hoje ela mesma diz — a mesma forma do D342 (*sem frase honesta, a frase sai*).
+   O *"seis travas"* sai à mão.
+2. `src/o-indice.ts` e `tests/o-indice.test.ts`, no portão sem clones: (a) todo `docs/relatorios/<nome>.md`
+   é alvo de uma ligação do índice, resolvida pela **mesma** régua do LAB-100 (`resolverDaPagina`) — o nome
+   entre crases sem ligação **não** conta; (b) nas linhas cujo primeiro campo liga para uma das sete páginas
+   que mudam a cada rodada, **algarismo** (contagem ou data) e ***"hoje:"*** reprovam, depois de tirar a
+   citação (`LAB-NN`, `D123`, `item 003`, `§1-B`); *"Onde estamos hoje"*, sem os dois-pontos, é o caso
+   válido que quase parece inválido; e **cada uma das sete tem exatamente uma linha** — sem linha, a régua
+   aprovaria por não ler. Rodada contra o índice de antes: **duas reprovam**, as duas pelo defeito.
+   **Dez mutações no módulo, dez acusadas.** 903 → 914 travas.
+
+**Descartado:** recontar *"N decisões"* contra o `DECISOES.md` (o número muda em toda rodada; recontagem é
+página que se reescreve sozinha a cada prompt, e a página já diz a última); estender a régua a todas as
+linhas do índice (as de *"O código"* têm contagem **de desenho** — *"quatro regras"*, *"seis pontos"* — que é
+verdade por construção, e as de relatório são relato datado); e alargar a régua do D342 de *"testes"* para
+*"travas"* e *"decisões"* (pegaria as linhas de relatório, e o `CLAUDE.md` §7 já tem a recontagem do D325).
+
+**O que se perde, dito:** a contagem de desenho na seção *"O código"* (uma, a do `verde.test.ts`, estava
+errada e saiu à mão — proposto na FILA); o estado dito por extenso, sem algarismo nem *"hoje:"*; prova,
+pasta e arquivo de outra espécie fora do índice — só o relatório tem a promessa *"um por prompt"* escrita.
+
+> **A TRAVA QUE CONFERE QUE A LIGAÇÃO LEVA A ALGUM LUGAR NÃO CONFERE QUE O LUGAR TEM LIGAÇÃO.** Ponteiro tem
+> dois sentidos, e a promessa *"um por prompt"* está no segundo.

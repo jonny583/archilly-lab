@@ -346,6 +346,23 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-118 · item 900 — a dívida própria: o índice afirma o que existe — ✅ **feito em 16/10/2026** (D346)
+
+Caixa só com o 900, e a FILA sem proposta que não espere ninguém (a do LAB-117, abaixo, espera a leitura do
+chat); fui à dívida própria, no `docs/INDEX.md`, que o §7 manda manter em dia e que nenhuma trava lia pelo que
+ele **afirma**. Enumerados por LUGAR os 115 `.md` de `docs/relatorios/`, **seis nunca tiveram linha** na seção
+*"um relatório por prompt"* (`LAB-70.md` a `LAB-75.md`, itens 003 a 008, todos de 09/10); e três linhas de
+*"Decisão e fila"* afirmavam o estado de um dia que passou (*"72 decisões"*, *"a fila de 19/09 esgotou"*,
+*"Hoje: desvio desproporcional?"*, respondido em 02/10, D84). As seis entraram, as frases saíram, e
+`src/o-indice.ts` com `tests/o-indice.test.ts` no portão sem clones confere os dois sentidos que faltavam; dez
+mutações, dez acusadas; 903 → 914. Relatório: [`../relatorios/LAB-118.md`](../relatorios/LAB-118.md).
+
+**Proposto (minha lista, não espera ninguém):** **as contagens de desenho da seção *"O código"* do índice.** A
+linha do `verde.test.ts` dizia *"seis travas"* de um arquivo com quinze e saiu à mão; as outras (*"quatro
+regras"* da guarda da IDA, *"três regras"* da guarda da ponte, *"três travas"* da coluna vertebral, *"seis pontos"*
+do acesso) descrevem arquivo vivo e ninguém as confere contra ele. Conferir cada uma contra o que ela conta é
+outra régua, e a próxima da minha lista.
+
 ### LAB-117 · item 900 — a dívida própria: o `<app>` do recado, regra sem guarda — ✅ **feito em 15/10/2026** (D345)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (o LAB-116 esvaziou-a); fui à dívida própria,
@@ -1622,7 +1639,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 903 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 914 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

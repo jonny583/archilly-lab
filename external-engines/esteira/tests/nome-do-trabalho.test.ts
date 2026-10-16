@@ -95,9 +95,11 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // repositórios `git` montados numa pasta descartável, por `file://`; nenhum clone vizinho.
     // E 55 no LAB-117, com a `nome-do-aplicativo.test.ts` — o `CLAUDE.md` e o `RECADOS.md` DESTE
     // repositório, e um módulo puro; nenhum clone.
+    // E 56 no LAB-118, com a `o-indice.test.ts` — o `INDEX.md` e o `git ls-files` DESTE repositório,
+    // e um módulo puro; nenhum clone.
     // O número anda quando o trabalho ganha ou perde arquivo, e
     // mudá-lo é deliberado: é a lista que a medição cobriu.
-    expect(lista).toHaveLength(55);
+    expect(lista).toHaveLength(56);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
