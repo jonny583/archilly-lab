@@ -11998,3 +11998,43 @@ do LAB-118; e cobrar o recado de classe (`despertador-sem-item` não entrega tra
 > **REGRA COM PRAZO TEM DE SABER QUANDO ACABA.** Esta vale enquanto o CI estiver desligado — e a trava que a cobra para
 > sempre reprovaria o primeiro recado honesto depois de religar. Quem religa escreve onde ela acabou, e o teste não deixa
 > esquecer nem o começo nem o fim.
+
+## D368 · TODO PROMPT FECHA COM PROVAS EM `docs/provas/` — ou diz que não há; 63 de 131 fecharam calados · 16/10/2026
+
+**Contexto:** item 900 (LAB-140). A caixa só tinha o `900`, e a FILA continuava sem proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, a das duas marcas de fim, do LAB-129, a do `.wasm`, do LAB-135, e a da §6, do
+LAB-137, esperam a leitura do chat). Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"Todo
+prompt fecha com relatório em `docs/relatorios/`, **provas em `docs/provas/`**, …"* — a sétima coisa da frase, a única
+sem trava (as outras seis: LAB-130, 131, 136, 126, 118 e 138). O LAB-136 a deixou de fora com *"há prompt que não mede
+nada"*.
+
+**Medido (LAB-140):** por mutação, três mudanças plantadas ao mesmo tempo — uma pasta de prova para o LAB-998, que não
+existe; uma pasta para o LAB-44, cujo relatório diz que não há; a declaração do LAB-43 apagada → **nenhuma** acusada (a
+única falha a mais foi a §7 das chaves, porque o JSON plantado não as trazia). Por LUGAR, os 131 relatórios e as 66
+pastas: **64** prompts com pasta, **4** dizendo *"Não há `docs/provas/LAB-NN/`"* (LAB-42 a LAB-45, a forma nasceu
+aqui e caiu em desuso), e **63 calados** — 19 até o LAB-75 e **todos os 44 do LAB-96 ao LAB-139**. As 66 pastas: 64 de
+prompt, todas com relatório; 2 de item feito.
+
+**Decidido:**
+
+1. `src/onde-mora-a-prova.ts` (`conferirOndeMoraAProva`, `declaraQueNaoHa`, `nomeDoPrompt`). A prova de um prompt mora
+   em `docs/provas/<prompt>/`, **ou** o relatório diz, com o caminho da própria pasta, que não há — a forma do LAB-43,
+   lida pelo `comoARegraSeLe`, sem caixa e com acento.
+2. **O alcance começa no LAB-140.** Os 63 calados de antes são **contados e congelados** (`CALADOS_ANTES_DA_TRAVA`), não
+   perdoados um a um nem reescritos: pasta antiga apagada faz o número subir e reprova.
+3. Em qualquer prompt: dizer que não há e ter a pasta reprova; pasta de prompt sem relatório, de item não feito, sem
+   dono ou vazia reprova.
+4. `tests/onde-mora-a-prova.test.ts` no portão sem clones: **1 247 → 1 257** travas, 75 arquivos.
+5. Este prompt é o quinto a usar a forma: a prova dele é a trava, que reconta da fonte a cada verde (D144).
+
+**Os dois lados e as mutações:** na página de verdade, quatro plantadas — a frase deste relatório tirada, a pasta do
+LAB-02 apagada, a do LAB-998 criada, a do LAB-44 criada —, quatro acusadas pelo nome. Quinze mutações no módulo, quinze
+acusadas (uma sobreviveu na primeira rodada e virou teste).
+
+**Descartado:** cobrar a pasta de todo prompt (63 de 131 reprovariam, e a saída seria JSON sem medição — prova que só
+registra aparência); escrever a frase nos 63 relatórios de antes (é reconstrução, §1-B, e fica proposta ao chat);
+reescrever a frase do §7 para a forma que a casa cumpre (a regra é do `CLAUDE.md`; proposta ao chat).
+
+> **REGRA FALSA COMO ESCRITA NÃO SE CONSERTA FINGINDO CUMPRI-LA.** A frase do §7 mandava pasta em todo prompt, e a casa
+> já tinha inventado a forma honesta — *"não há, e isso vai declarado"* —, que morreu porque nada a pedia. A trava pede a
+> forma; a frase do `CLAUDE.md` fica para quem manda nele.
