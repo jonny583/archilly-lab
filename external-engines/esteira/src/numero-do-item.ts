@@ -209,6 +209,11 @@ export const EXCECOES_DE_TETO_NO_ITEM: readonly { arquivo: string; motivo: strin
     motivo:
       "lê a DATA da conta dos disparos (o ano de `dd/mm/aaaa`, quatro algarismos com teto) e fala da caixa porque abre o `COMO_FUNCIONA.md` dela — o caso que quase parece a doença e não é: não lê número de item",
   },
+  {
+    arquivo: "external-engines/esteira/tests/pendencias-marcadas.test.ts",
+    motivo:
+      "a contagem ingênua do LAB-124 tira os títulos DATADOS da página do Jonny (`## dd/mm/aaaa —`, o ano com teto de quatro), e desde o LAB-137 o arquivo fala da caixa porque abre o `COMO_FUNCIONA.md` dela para ler as cinco classes que param — o mesmo caso da linha de cima: não lê número de item",
+  },
 ];
 
 export interface TetoNoItem {

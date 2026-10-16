@@ -3345,3 +3345,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-137 — item 900 (a dívida própria): a dívida técnica não entra na página do Jonny
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-137 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main; o comando do disparo recusou o pull --ff-only de novo — desrasei primeiro, como manda o passo 0, e a main velha era ancestral da origem, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §5. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1214 de 1214 (72 de 72 arquivos passam sem os clones, lab84); esteira 1 532 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: "dívida técnica não entra lá" (a outra metade do CLAUDE.md §5; a "marcado, nunca apagado" tem a trava do LAB-124) não tinha trava — medido por mutação: uma pendência "20 · Refatorar src/forma.ts e subir a cobertura dos testes", DECLARADA na lista do LAB-124, → as mesmas 9 falhas do .wasm (a régua do LAB-124 até a ajudava: declarada, passava). Por LUGAR, as 19 pendências de hoje: nenhuma é dívida técnica (14 urbanismo ou negócio, 1 dinheiro, 1 segurança, 3 avisos que se dizem avisos). Trava pela ESTRUTURA: a declaração ganhou o campo dono — as cinco classes que param da COMO_FUNCIONA.md e o informe, SEM valor para dívida técnica —, cobrado por src/o-que-e-dele.ts (pergunta-sem-classe, informe-sem-aviso, titulo-de-oficina, classes-divergem); 11 mutações, 8 acusadas na primeira rodada, as 2 sobreviventes viraram teste, 1 equivalente declarada; D365; 1200 → 1214 travas; detalhe em docs/relatorios/LAB-137.md.
+Achados para outros apps ou Central: (0) A RÉGUA QUE EXIGE DECLARAR TAMBÉM APROVA O QUE FOI DECLARADO — toda casa com uma "página do Jonny" e a regra "dívida técnica não entra lá" (Generate, Geo, Propostas, Orçamento, Render…) pode medir o mesmo: há onde dizer DE QUEM é cada pendência, com as cinco classes que param e sem valor para "é minha"? Não medi as vizinhas. (1) Proposto ao chat na FILA: a §6 da página do Jonny (o que o Lab achou no Generate e no Geo) se diz "não é pendência sua" — deve continuar ali? (2) A pergunta da "linha" (LAB-123), a das duas marcas de fim (LAB-129) e a do .wasm (LAB-135) seguem esperando o chat. (3) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

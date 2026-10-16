@@ -81,32 +81,52 @@ export interface DeclaracaoDePendencia {
   estado: EstadoDaPendencia;
   /** de onde se sabe o estado — a decisão, a data da resposta, ou o que o título já diz */
   fonte: string;
+  /**
+   * **Por que é dele** — uma das cinco classes que param (`COMO_FUNCIONA.md`), ou `informe`, o aviso
+   * que diz na própria seção que não é pergunta. **Não existe valor para dívida técnica**: é a
+   * estrutura da regra *"dívida técnica não entra lá"* (`CLAUDE.md` §5), cobrada em
+   * `o-que-e-dele.ts` (LAB-137, D365).
+   */
+  dono: DonoDaPendencia;
 }
+
+/**
+ * As cinco classes que **param e viram pergunta** (`docs/caixa-de-entrada/COMO_FUNCIONA.md`, *"O
+ * que você NÃO faz sozinho"*), na ordem de lá, e o `informe`. Campo que não existe não se esquece:
+ * pendência que não cabe em nenhuma é dívida minha, e mora na minha lista, não na página dele.
+ */
+export type DonoDaPendencia =
+  | "dinheiro"
+  | "sem-volta"
+  | "promessa"
+  | "seguranca"
+  | "urbanismo-ou-negocio"
+  | "informe";
 
 /**
  * As pendências numeradas da página, uma por título. **Pendência nova entra aqui no mesmo commit em
  * que entra na página**; resolvida, muda o `estado` aqui **e** ganha a marca no título lá.
  */
 export const PENDENCIAS: readonly DeclaracaoDePendencia[] = [
-  { numero: "1", chave: "desproporcional", estado: "resolvida", fonte: "D84 — respondida pelo Jonny em 02/10/2026; título marcado no LAB-124" },
-  { numero: "2", chave: "A rua que você desenha atravessa o rio", estado: "aviso", fonte: "D69 — o título diz: não é pergunta, é aviso" },
-  { numero: "3", chave: "Pode haver ponte?", estado: "resolvida", fonte: "D61 — respondida em 15/09/2026" },
-  { numero: "4", chave: "A calçada é da rua", estado: "resolvida", fonte: "confirmada pelo chat em 15/09/2026" },
-  { numero: "5", chave: "não** depende de você", estado: "aviso", fonte: "o título: o que não depende dele" },
-  { numero: "5-A", chave: "o que é um lote de forma ruim", estado: "resolvida", fonte: "respondida pelo chat em 02/10/2026" },
-  { numero: "5-B", chave: "A régua de forma", estado: "parada", fonte: "pedido do Jonny, 12/10/2026" },
-  { numero: "5-C", chave: "A inclinação máxima de uma RUA", estado: "resolvida", fonte: "respondida pelo Jonny em 03/10/2026" },
-  { numero: "5-D", chave: "Como a pergunta estava antes da sua resposta", estado: "aviso", fonte: "registro da 5-C" },
-  { numero: "6", chave: "O que o laboratório descobriu", estado: "aviso", fonte: "o que já foi repassado ou consertado" },
-  { numero: "7", chave: "33 lotes tendo 1 228", estado: "parada", fonte: "pedido do Jonny, 12/10/2026" },
-  { numero: "8", chave: "Ligar dado pago só onde há cliente", estado: "aberta", fonte: "a obra que ninguém tem ainda — nada agora, só saber que existe" },
-  { numero: "9", chave: "As suas regras do acesso", estado: "resolvida", fonte: "respondidas pelo Jonny em 12/10/2026" },
-  { numero: "9-A", chave: "pega a quadra toda", estado: "resolvida", fonte: "D323 — respondida em 12/10/2026" },
-  { numero: "9-B", chave: "Os 15 metros se medem", estado: "resolvida", fonte: "D323 — respondida em 12/10/2026" },
-  { numero: "9-C", chave: "E uma terceira coisa, que não é pergunta", estado: "aviso", fonte: "o título: não é pergunta" },
-  { numero: "10", chave: "Dois lotes nascem na esquina sem rua na frente", estado: "parada", fonte: "pedido do Jonny, 12/10/2026" },
-  { numero: "11", chave: "Uma senha que só você pode criar", estado: "parada", fonte: "pedido do Jonny, 12/10/2026 (e a régua do LAB-85 cobra a condição dela)" },
-  { numero: "12", chave: "Em que REGIME a competição dos motores vai rodar", estado: "resolvida", fonte: "respondida pelo Jonny em 12/10/2026" },
+  { numero: "1", chave: "desproporcional", estado: "resolvida", fonte: "D84 — respondida pelo Jonny em 02/10/2026; título marcado no LAB-124", dono: "urbanismo-ou-negocio" },
+  { numero: "2", chave: "A rua que você desenha atravessa o rio", estado: "aviso", fonte: "D69 — o título diz: não é pergunta, é aviso", dono: "urbanismo-ou-negocio" },
+  { numero: "3", chave: "Pode haver ponte?", estado: "resolvida", fonte: "D61 — respondida em 15/09/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "4", chave: "A calçada é da rua", estado: "resolvida", fonte: "confirmada pelo chat em 15/09/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "5", chave: "não** depende de você", estado: "aviso", fonte: "o título: o que não depende dele", dono: "informe" },
+  { numero: "5-A", chave: "o que é um lote de forma ruim", estado: "resolvida", fonte: "respondida pelo chat em 02/10/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "5-B", chave: "A régua de forma", estado: "parada", fonte: "pedido do Jonny, 12/10/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "5-C", chave: "A inclinação máxima de uma RUA", estado: "resolvida", fonte: "respondida pelo Jonny em 03/10/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "5-D", chave: "Como a pergunta estava antes da sua resposta", estado: "aviso", fonte: "registro da 5-C", dono: "urbanismo-ou-negocio" },
+  { numero: "6", chave: "O que o laboratório descobriu", estado: "aviso", fonte: "o que já foi repassado ou consertado", dono: "informe" },
+  { numero: "7", chave: "33 lotes tendo 1 228", estado: "parada", fonte: "pedido do Jonny, 12/10/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "8", chave: "Ligar dado pago só onde há cliente", estado: "aberta", fonte: "a obra que ninguém tem ainda — nada agora, só saber que existe", dono: "dinheiro" },
+  { numero: "9", chave: "As suas regras do acesso", estado: "resolvida", fonte: "respondidas pelo Jonny em 12/10/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "9-A", chave: "pega a quadra toda", estado: "resolvida", fonte: "D323 — respondida em 12/10/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "9-B", chave: "Os 15 metros se medem", estado: "resolvida", fonte: "D323 — respondida em 12/10/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "9-C", chave: "E uma terceira coisa, que não é pergunta", estado: "aviso", fonte: "o título: não é pergunta", dono: "informe" },
+  { numero: "10", chave: "Dois lotes nascem na esquina sem rua na frente", estado: "parada", fonte: "pedido do Jonny, 12/10/2026", dono: "urbanismo-ou-negocio" },
+  { numero: "11", chave: "Uma senha que só você pode criar", estado: "parada", fonte: "pedido do Jonny, 12/10/2026 (e a régua do LAB-85 cobra a condição dela)", dono: "seguranca" },
+  { numero: "12", chave: "Em que REGIME a competição dos motores vai rodar", estado: "resolvida", fonte: "respondida pelo Jonny em 12/10/2026", dono: "urbanismo-ou-negocio" },
 ];
 
 /** Os assuntos da lista *"Já resolvidos"*, que não têm número: cada um continua lá, riscado. */
