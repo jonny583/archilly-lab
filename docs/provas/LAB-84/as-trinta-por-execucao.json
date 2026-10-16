@@ -2,7 +2,7 @@
   "prompt": "LAB-84",
   "oQue": "os 73 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-16T20:24:11.693Z",
+  "quando": "2026-10-16T20:27:32.439Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -11,7 +11,7 @@
   "porQueNaoPorLeitura": "o item 017 proibiu: rodar a lista sem os clones é a RESPOSTA, ler o `import` é a HIPÓTESE. E a diferença apareceu no número: o D279 disse DUAS travas, lidas do fonte; executadas são QUATRO, e três delas são anteriores à minha rodada",
   "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
   "quantosArquivos": 73,
-  "quantosPassamSemClone": 69,
+  "quantosPassamSemClone": 72,
   "quantasTravasNaLista": 1234,
   "asTrintaEUma": [
     {
@@ -51,12 +51,10 @@
     },
     {
       "arquivo": "tests/regras.test.ts",
-      "saida": 1,
-      "passam": 24,
-      "reprovam": 1,
-      "asQueReprovam": [
-        "§7 · o CI existe, e a lista dele não é mentira (LAB-38) > o número de travas do trabalho sem clones é o MESMO em todo lugar que o cita"
-      ]
+      "saida": 0,
+      "passam": 25,
+      "reprovam": 0,
+      "asQueReprovam": []
     },
     {
       "arquivo": "tests/segredos.test.ts",
@@ -67,12 +65,10 @@
     },
     {
       "arquivo": "tests/chamadas.test.ts",
-      "saida": 1,
-      "passam": 16,
-      "reprovam": 1,
-      "asQueReprovam": [
-        "LAB-52 · a lista de ausência-não-é-erro, que estreitou a régua > a prova do LAB-52 BATE COM A ÁRVORE, número por número"
-      ]
+      "saida": 0,
+      "passam": 17,
+      "reprovam": 0,
+      "asQueReprovam": []
     },
     {
       "arquivo": "tests/esqueleto.test.ts",
@@ -97,12 +93,10 @@
     },
     {
       "arquivo": "tests/configuracao.test.ts",
-      "saida": 1,
-      "passam": 22,
-      "reprovam": 1,
-      "asQueReprovam": [
-        "LAB-57 · as regras e o escopo > a prova existe, traz o ESCOPO como número e nada fica fora sem motivo"
-      ]
+      "saida": 0,
+      "passam": 23,
+      "reprovam": 0,
+      "asQueReprovam": []
     },
     {
       "arquivo": "tests/configuracao-do-motor.test.ts",
@@ -534,6 +528,6 @@
       "asQueReprovam": []
     }
   ],
-  "oQueIssoDecide": "a afirmação é FALSA por 4 arquivo(s): tests/regras.test.ts, tests/chamadas.test.ts, tests/configuracao.test.ts, tests/nome-do-trabalho.test.ts",
+  "oQueIssoDecide": "a afirmação é FALSA por 1 arquivo(s): tests/nome-do-trabalho.test.ts",
   "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
 }
