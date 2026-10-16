@@ -346,6 +346,19 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-128 · item 900 — a dívida própria: o recado vai ao `RECADOS.md` com data, e em ordem cronológica — ✅ **feito em 16/10/2026** (D356)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, espera a leitura do
+chat); fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1 (*"inteiro e com data"*) e no alto do
+`RECADOS.md` (*"em ordem cronológica — o mais antigo primeiro"*). Medido por mutação: tirar a data do título do
+LAB-50, voltar o LAB-120 a 03/10 ou datar o LAB-110 em 31/02 → **zero** falhas nas 184 travas que citam a página. Por
+LUGAR: 139 títulos, 139 recados, um por título, todos datados e sem volta. `src/a-data-do-recado.ts` com
+`tests/a-data-do-recado.test.ts` no portão sem clones cobra a data, o calendário, a ordem (por data, não por texto),
+o futuro e um recado por título. Treze mutações, treze acusadas; 1054 → 1070. Relatório:
+[`../relatorios/LAB-128.md`](../relatorios/LAB-128.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-127 · item 900 — a dívida própria: o recado do 900 diz qual tarefa e de qual lista — ✅ **feito em 16/10/2026** (D355)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, espera a leitura do
@@ -1760,7 +1773,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1054 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1070 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

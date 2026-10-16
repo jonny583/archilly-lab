@@ -11459,3 +11459,40 @@ confere que ele a diz, não que a tarefa veio de lá.
 > **A REGRA QUE O PRÓPRIO ITEM DÁ É A QUE MENOS SE CONFERE.** Quem lê o `900` lê para saber o que fazer, e a última
 > frase — o que dizer no fim — se cumpre de cabeça. Vinte e oito vezes deu certo; a vigésima nona disse o lugar e
 > esqueceu a espécie, e ninguém acusou.
+
+## D356 · O RECADO VAI AO `RECADOS.md` COM DATA, E EM ORDEM CRONOLÓGICA — e passa a ser cobrado · 16/10/2026
+
+**Contexto:** item 900 (LAB-128). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, espera a leitura do chat). Fui à dívida própria, espécie **regra sem
+guarda**, no `CLAUDE.md` §1 — *"O recado vai também, inteiro e com data, a `docs/relatorios/RECADOS.md`"* — e no
+alto do próprio `RECADOS.md` — *"com a data, em ordem cronológica — o mais antigo primeiro"*.
+
+**Medido (LAB-128), primeiro por mutação:** as 184 travas dos 13 arquivos de teste que citam o `RECADOS.md`,
+contra a página com uma mudança plantada de cada vez: a data tirada do título do LAB-50 → **0** falhas; o LAB-120
+datado 03/10, atrás do LAB-119 → **0**; o LAB-110 em 31/02 → **0**. A data tirada do LAB-121 deu **1**, só porque
+ele está na corrente do cabeçalho do `ONDE_PARAMOS.md` — acaso de posição, não guarda. **Depois, por LUGAR** (todo
+`## ` fora de bloco de código): **139** títulos, **139** recados, um por título, nenhum sem data, nenhuma data que
+volta, de 13/09 a 16/10/2026. Uma forma diferente e válida: `## 07/10/2026 (noite) · …`.
+
+**Decidido:**
+
+1. `src/a-data-do-recado.ts` (`lerOsTitulos`, `conferirADataDoRecado`). Todo `## ` fora de bloco de código é título
+   de rodada e abre com `DD/MM/AAAA`, com qualificador entre parênteses opcional, e ` · `; a data existe no
+   calendário, nunca é anterior à do último título com data (comparada como **data**), nem posterior a hoje; um
+   recado por título, nenhum antes do primeiro.
+2. `tests/a-data-do-recado.test.ts` no portão sem clones: as duas frases conferidas onde moram, o universo publicado
+   (139 títulos, 139 recados, igual à contagem ingênua, 0 problemas), as três mutações que passavam caladas
+   plantadas na página de verdade, e a régua dos dois lados — com o caso válido que quase parece inválido (*"30/09
+   → 01/10"*, que a ordem das letras inverteria). Treze mutações no módulo, **treze acusadas**. 1054 → 1070 travas
+   no portão; o trabalho sem clones, 64 → 65 arquivos.
+
+**Descartado:** comparar a data do título com a do commit que o gravou (lê a história do `git`, tira a trava do
+portão sem clones, por um defeito que nunca aconteceu); exigir só `DD/MM/AAAA · ` (reprovaria o título de 07/10
+pela forma, não pela falta); conferir o *"inteiro"* (o chat não é arquivo).
+
+**O que se perde, dito:** se a data é a do dia em que o recado foi escrito; se o recado do arquivo é o que foi ao
+chat.
+
+> **A EXPRESSÃO QUE EXIGE A FORMA NÃO VÊ QUEM A PERDEU.** A trava do LAB-126 lia os títulos pela data, e por isso o
+> título que perdesse a data simplesmente sumia dela — nem acusado, nem contado. Ler pela forma certa não é cobrar
+> a forma: é preciso também contar o que não casou.
