@@ -256,7 +256,7 @@ reprova com a receita), sete passos, todos mesmo depois de uma falha, e **nada f
 (D126).
 
 **O CI** (`verde.yml`) tem dois trabalhos: o das
-**1141 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
+**1163 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
 exige `VIZINHOS_TOKEN` e sem ele **falha com a receita**.
 
 ### 🔴 O CI AUTOMÁTICO ESTÁ DESLIGADO desde 08/10/2026

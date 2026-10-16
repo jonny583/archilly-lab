@@ -3306,3 +3306,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-134 — item 900 (a dívida própria): o Generate nunca depende disto, e quem responde passa a ser o Generate
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-134 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo; receita do passo 0, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §3. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1163 de 1163 (70 de 70 arquivos passam sem os clones, lab84); esteira 1 481 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — o proxy recusa o rustup), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o §3 fecha a regra de ouro por "O Generate nunca depende disto: external-engines/ pode ser apagado", e só a metade DESTA casa tinha trava (LAB-06: nada de entrega/ importa external-engines/). Medido por mutação no clone do Generate, desfeita (git status dele limpo): uma dependência github:jonny583/archilly-lab no package.json, um import de external-engines/ no arquivo que esta casa compila (e ele RESOLVE, os clones moram lado a lado) e a bateria diag-tudo.ts citando o medidor que lê o Lab → ZERO falhas que falem da regra (caiu só a do clone sujo, que não cai quando a mudança chega commitada). Por LUGAR: 1 114 versionados, 4 configurações, 608 códigos, 2 248 importações, nenhuma do Lab; UMA leitura (scripts/medir-violacoes-do-testfit.ts, o medidor do GU-06, fora da bateria) — virou exceção com três condições cobradas. src/generate-nao-depende.ts; 14 mutações, 14 acusadas; D362; a trava sintética no portão sem clones (1141 → 1163), a do clone no verde completo; detalhe em docs/relatorios/LAB-134.md.
+Achados para outros apps ou Central: (0) A REGRA QUE PROMETE PELO VIZINHO SE PERGUNTA AO VIZINHO — toda casa com regra do tipo "o outro nunca depende de mim" (a Central e o kit vendorizado, o Generate e os motores de fora) pode medir o mesmo: plante a dependência do lado de lá e veja se algo cai do lado de cá. Não medi as vizinhas. (1) Para o Generate, informação e não pedido: o medidor do GU-06 tem caminho padrão /home/user/jonny583/archilly-lab/docs/contratos/saidas, de outra máquina — aceita a pasta por argumento e sai com a receita, não quebra nada. (2) A pergunta da "linha" (LAB-123) e a das duas marcas de fim (LAB-129) seguem esperando o chat. (3) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116). (4) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
