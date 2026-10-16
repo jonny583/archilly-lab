@@ -4861,6 +4861,14 @@ O comentário ficou no código, ao lado da linha consertada, para a próxima pes
 
 ---
 
+> **Não há D176.** O número foi pulado: o recado do LAB-50 (06/10/2026) anunciou *"próxima decisão D176"*, e o
+> LAB-51 (commit `44d2e34`) escreveu a D177 logo depois da D175. Nenhum commit da história escreveu um título D176 —
+> e não se inventa decisão para tapar número. O buraco é declarado em
+> `external-engines/esteira/src/a-sequencia-das-decisoes.ts`. *(Acrescentado por mim no LAB-131, D359; nada acima nem
+> abaixo mudou.)*
+
+---
+
 ## D177 · Citação marcada não é afirmação — e a régua respeita a marca · 06/10/2026
 
 O alto do `conferir.sh` — **o arquivo mais lido do repositório** — dizia *"Não há CI neste
@@ -11580,3 +11588,44 @@ recado que foi ao chat e não ao arquivo.
 > **A TRAVA DE UM SENTIDO SÓ É METADE DA REGRA.** *"Todo relatório tem recado"* e *"todo recado aponta o relatório"*
 > parecem a mesma frase lida ao contrário — e a primeira aprovava, calada, o recado que não diz onde e o que diz o
 > lugar errado.
+
+---
+
+## D359 · A DECISÃO É NUMERADA — a sequência do `DECISOES.md` e as citações dela passam a ser cobradas · 16/10/2026
+
+**Contexto:** item 900 (LAB-131). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse ninguém (a
+da *"linha"*, do LAB-123, e a das duas marcas de fim, do LAB-129, esperam a leitura do chat). Fui à dívida própria,
+espécie **regra sem guarda**, no `CLAUDE.md` §7 (*"decisões em `docs/DECISOES.md`"*) e na D01, que fez o arquivo
+nascer *"decisões numeradas"*. A casa cita as decisões pelo número em todo lugar, e nada lia a numeração.
+
+**Medido (LAB-131), primeiro por mutação:** a suíte inteira da esteira com quatro mudanças plantadas ao mesmo tempo no
+`DECISOES.md` — o título da D200 apagado, a D201 renumerada como D200, a D300 datada em 01/09/2026 e a D358 apagada
+inteira → **0** falhas (1 397 aprovadas e 9 reprovadas, as do `.wasm`, as mesmas de antes). **Depois, por LUGAR:**
+357 títulos `## D…`, de D01 a D358, nenhum repetido, em ordem, todos datados, sem o calendário voltar — e **um
+buraco: a D176 nunca existiu** (o LAB-51 pulou da D175 para a D177; `git log -S` não acha título D176 em commit
+nenhum). Nas 140 versões do arquivo na `main`, **nenhum número sumiu** de uma para a seguinte. Nas páginas da casa,
+4 778 citações `D\d{2,}` em 171 arquivos; **28** sem título — 27 são a `D1000` hipotética da D339, e uma é a
+*"próxima decisão D176"* do recado do LAB-50.
+
+**Decidido:**
+
+1. `src/a-sequencia-das-decisoes.ts` (`lerAsDecisoes`, `conferirASequenciaDasDecisoes`). Todo título de decisão fora
+   de bloco de código é `## D…`, tem data `DD/MM/AAAA` que o calendário tem e que não é futura; os números começam na
+   D01, sobem de um em um, sem repetição e sem buraco; a data nunca volta. Toda citação `D\d{2,}` nas páginas da casa
+   (o `CLAUDE.md`, o `DECISOES.md`, o `INDEX.md`, o `ONDE_PARAMOS.md`, a `PENDENCIAS_JONNY.md`, o `RAMOS_ABERTOS.md`, a
+   `FILA.md`, os relatórios e os itens da caixa) tem título.
+2. **O buraco da D176 é declarado, com o motivo, e não tapado** — conferido nos dois sentidos (a D176 escrita depois
+   faz o perdão sobrar e reprovar). Uma nota no `DECISOES.md`, ao lado da D177, diz que ela não existe. Citar o
+   buraco declarado vale (é dizer que ele não existe); a `D1000` é a única citação sem título declarada.
+3. `tests/a-sequencia-das-decisoes.test.ts`, no portão sem clones.
+
+**Descartado:** escrever uma D176 de remendo (seria inventar decisão — e reconstrução que se apresenta como registro);
+renumerar da D177 em diante (quebraria 4 778 citações para consertar uma); conferir a história no teste (o CI clona
+raso — D293, D344; a medida das 140 versões fica no relatório); exigir que a citação seja desta casa (*"a D17 do
+Geo"* não se distingue pela forma).
+
+**O que se perde, dito:** que a citação diga o que o título diz; que a decisão tenha motivo; que todo prompt tenha
+decisão; a citação de outra casa que cai num número que existe aqui.
+
+> **NÚMERO QUE TODOS CITAM E NINGUÉM CONFERE É ENDEREÇO SEM CARTEIRO.** A casa escreve *"(D358)"* em cinco páginas
+> por rodada; apagar a D358 deixava as cinco apontando para o nada, e nada reprovava.

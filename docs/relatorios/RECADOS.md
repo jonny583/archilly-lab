@@ -3267,3 +3267,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-131 — item 900 (a dívida própria): a decisão é numerada, e a sequência do DECISOES.md passa a ser cobrada
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-131 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §7 e na D01. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1124 de 1124 (68 de 68 arquivos passam sem os clones, lab84); esteira 1 415 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — o proxy recusa o rustup), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o §7 manda as decisões para o DECISOES.md e a D01 as fez numeradas; a casa cita "(Dnnn)" em toda página, e nada lia a numeração. Medido por mutação antes da régua: o título da D200 apagado, a D201 renumerada como D200, a D300 datada em 01/09/2026 e a D358 apagada INTEIRA → ZERO falhas na suíte inteira. Por LUGAR: 357 títulos, D01 a D358, em ordem, datados, sem repetição, sem o calendário voltar — e UM BURACO: a D176 nunca existiu (o LAB-51 pulou da D175 para a D177; nenhum commit escreveu o título), declarado e NÃO tapado, com nota ao lado da D177. Nas 140 versões do arquivo, nenhum número sumiu. 4 778 citações em 171 páginas, 28 sem título (27 a D1000 hipotética da D339 e a previsão da D176 no recado do LAB-50). src/a-sequencia-das-decisoes.ts; 17 mutações no módulo, 17 acusadas; D359; 1106 → 1124; relatório LAB-131.
+Achados para outros apps ou Central: (0) NÚMERO QUE TODOS CITAM E NINGUÉM CONFERE É ENDEREÇO SEM CARTEIRO — apagar a última decisão não deixa buraco nenhum; só a citação órfã a denuncia. As casas que numeram decisões (todas) podem medir o mesmo: buraco, repetição, data que volta, e citação sem título. Não medi as vizinhas. (1) A pergunta da "linha" (LAB-123) e a das duas marcas de fim (LAB-129) seguem esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
