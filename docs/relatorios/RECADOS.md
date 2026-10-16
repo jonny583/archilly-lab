@@ -3241,3 +3241,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-129 — item 900 (a dívida própria): as cinco linhas do recado, "linha sem conteúdo leva —, nunca some"
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-129 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §1. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1090 de 1090 (66 de 66 arquivos passam sem os clones, lab84); esteira 1 381 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — as mesmas do LAB-128), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o CLAUDE.md §1 manda "Linha sem conteúdo leva —, nunca some", e a única trava olhava SÓ o último recado e SÓ a presença da palavra (toContain). Medido por mutação antes da régua: Depende do Jonny vazio no LAB-128, os Achados tirados do LAB-50, Feito antes de Estado no LAB-110, Depende do Jonny em dobro no LAB-90 → ZERO falhas na suíte inteira. Por LUGAR: 140 recados, as cinco linhas em todos, uma vez cada, na ordem, nenhuma calada (118 "nada", 6 "—"); uma linha a mais, a do LF-01 (14/09, "Não saiu como pedido:"), declarada como exceção histórica e conferida nos dois sentidos. src/as-cinco-linhas-do-recado.ts; 15 mutações no módulo, 15 acusadas; D357; 1070 → 1090; relatório LAB-129.
+Achados para outros apps ou Central: (0) A TRAVA QUE PERGUNTA SE A PALAVRA ESTÁ LÁ NÃO PERGUNTA SE A LINHA RESPONDE — e a régua de nome exato mede ortografia. Medido nos RECADOS.md da origin/main: linha calada ZERO nas três casas; Generate 102 recados, 52 com "Proximo na fila:" SEM ACENTO (os últimos 20 todos); Laboratório de Parcelamento 80, 2 dos últimos 20 com os nomes abreviados ("Achados:", "Próximo:"); Geo 101, os últimos 20 exatos. NÃO é acusação (outra convenção; não li se guardam por trava) — é aviso a quem levar esta trava a outra casa: decida antes se a grafia conta. (1) Proposto ao chat, na FILA: as DUAS MARCAS DE FIM não estão escritas nesta casa (o §1-C é o texto de 08/10, sem elas), e 32 recados já terminam em FIM DA SESSÃO — cumprida sem estar escrita. (2) A pergunta da "linha" (LAB-123) segue esperando o chat. (3) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116). (4) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
