@@ -11539,3 +11539,44 @@ recado que foi ao chat e não ao arquivo.
 > **A TRAVA QUE PERGUNTA SE A PALAVRA ESTÁ LÁ NÃO PERGUNTA SE A LINHA RESPONDE.** `toContain("Depende do Jonny:")`
 > aprova a linha calada, a linha fora do lugar e a linha em dobro — e só no último recado. Presença é a forma mais
 > barata de uma régua parecer que cobra o formato.
+
+## D358 · O RECADO DIZ ONDE ESTÁ O DETALHE — e o relatório tem de ser do próprio prompt; passa a ser cobrado · 16/10/2026
+
+**Contexto:** item 900 (LAB-130). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse ninguém (a
+da *"linha"*, do LAB-123, e a das duas marcas de fim, do LAB-129, esperam a leitura do chat). Fui à dívida própria,
+espécie **regra sem guarda**, no `docs/caixa-de-entrada/COMO_FUNCIONA.md` (*"A RESPOSTA INTEIRA VAI PARA O
+ARQUIVO"*, commit `b0b537b`, 09/10/2026): a resposta inteira vai para `docs/relatorios/<prompt>.md`, *"e é por isso
+que o recado precisa dizer **onde** está o detalhe"*. A única trava (`recado.test.ts`) anda no sentido contrário:
+todo relatório tem recado.
+
+**Medido (LAB-130), primeiro por mutação:** a suíte inteira da esteira contra a página com três mudanças plantadas —
+o ponteiro tirado do LAB-129, o ponteiro tirado do LAB-92, o LAB-120 apontando o relatório do LAB-119 → **0**
+falhas (1 381 aprovadas e 9 reprovadas, as do `.wasm`, as mesmas de antes). O relatório **sumido** do disco já
+reprovava por outras travas (as ligações das páginas, a régua do LAB-127); o recado **mudo**, nenhuma. **Depois, por
+LUGAR:** 141 recados — 72 de antes de 09/10, 6 de classe sem prompt, **63 no alcance**; os 63 com o relatório gravado
+e do próprio prompt; **40** apontam (o LAB-80 e todos do LAB-92 em diante), **23** não (LAB-68 a LAB-91, menos o
+LAB-80 — dois deles de antes do commit da regra, no mesmo dia).
+
+**Decidido:**
+
+1. `src/onde-esta-o-detalhe.ts` (`dizOnde`, `conferirOndeEstaODetalhe`). Em todo recado cujo `<prompt>` é `LAB-NNN` e
+   cuja seção é datada a partir de 09/10/2026: o relatório `docs/relatorios/<prompt>.md` existe, a primeira linha
+   dele é `# <prompt>`, e o recado o aponta — `LAB-NNN.md` em qualquer caminho, ou *relatório* seguido do prompt.
+   O universo sai em três montes (antes da regra, classe sem prompt, no alcance), e a soma é conferida.
+2. **As 23 são exceção histórica declarada, uma por uma, com o motivo**, e conferidas nos dois sentidos: perdoam só
+   o tipo *"não diz onde"*, só do prompt delas; a que não tem o que perdoar sobra e reprova; a cujo relatório sumiu
+   é denunciada. **O perdão é do ponteiro, nunca do detalhe.**
+3. `tests/onde-esta-o-detalhe.test.ts`, 16 travas, no portão sem clones. Quinze mutações no módulo, **quinze
+   acusadas**. 1090 → 1106 travas no portão; o trabalho sem clones, 66 → 67 arquivos.
+
+**Descartado:** aceitar o prompt em qualquer lugar do corpo (todo recado o tem no cabeçalho; a régua passaria por
+definição); proibir o recado de citar outros relatórios (citar o de quem deixou a proposta é informação); perdoar por
+corte de número (*"antes do LAB-92"* perdoaria também o ponteiro errado naquela faixa); ler o dia de corte do `git`
+(o CI clona raso — D293, D344).
+
+**O que se perde, dito:** se o relatório contém a resposta **inteira** (juízo); o recado das classes sem prompt; o
+recado que foi ao chat e não ao arquivo.
+
+> **A TRAVA DE UM SENTIDO SÓ É METADE DA REGRA.** *"Todo relatório tem recado"* e *"todo recado aponta o relatório"*
+> parecem a mesma frase lida ao contrário — e a primeira aprovava, calada, o recado que não diz onde e o que diz o
+> lugar errado.
