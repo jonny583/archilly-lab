@@ -3384,3 +3384,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-140 — item 900 (a dívida própria): todo prompt fecha com provas em `docs/provas/`, e 63 fecharam calados
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-140 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo; desrasada, a main velha era ancestral da origem, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §7. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1257 de 1257 (75 de 75 arquivos passam sem os clones, lab84); esteira 1 575 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — as mesmas da linha de base, nome por nome), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: das sete coisas do "todo prompt fecha com" (CLAUDE.md §7), as provas eram a única sem trava — medido por mutação: pasta de prova para o LAB-998 (não existe), para o LAB-44 (diz não ter) e a declaração do LAB-43 apagada passavam em tudo. Por LUGAR, 131 relatórios: 64 com pasta, 4 dizendo "Não há docs/provas/LAB-NN/" (LAB-42 a 45, a forma nasceu aqui) e 63 calados — todos os 44 do LAB-96 ao LAB-139. Trava: src/onde-mora-a-prova.ts, do LAB-140 em diante (pasta, ou a frase com o caminho), com os 63 de antes contados e congelados; 15 mutações, 15 acusadas; D368; 1247 → 1257 travas; detalhe em docs/relatorios/LAB-140.md.
+Achados para outros apps ou Central: (0) REGRA FALSA COMO ESCRITA NÃO SE CONSERTA FINGINDO CUMPRI-LA — a frase "todo prompt fecha com provas" era falsa em 63 de 131 aqui, e a casa já tinha a forma honesta ("não há, e isso vai declarado"), que morreu porque nada a pedia; várias casas têm a mesma frase, não medi as vizinhas. (1) Proposto ao chat (FILA): reescrever a frase do §7 para a forma cumprida, e reconstruir a declaração nos 63 calados. (2) Para a direção: o disparo segue recusando o pull --ff-only (LAB-116); e o Generate não instala pelo registro do Lovable nesta máquina (403) — a esteira só precisa do zod dele. (3) A "linha" (LAB-123), as duas marcas de fim (LAB-129), o .wasm (LAB-135) e a §6 (LAB-137) seguem esperando o chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

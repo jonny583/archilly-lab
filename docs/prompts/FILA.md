@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-140 · item 900 — a dívida própria: todo prompt fecha com provas em `docs/provas/`, e 63 fecharam calados — ✅ **feito em 16/10/2026** (D368)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"Todo prompt fecha com relatório em `docs/relatorios/`, provas em `docs/provas/`, …"* — a sétima coisa da frase, a única sem trava. Medido por mutação: uma pasta de prova para um prompt que não existe, outra para um prompt que diz não ter, e uma declaração apagada passavam em tudo. Por LUGAR: 64 de 131 prompts com pasta, 4 dizendo *"Não há `docs/provas/LAB-NN/`"* (LAB-42 a LAB-45, a forma nasceu aqui) e **63 calados**, todos os 44 do LAB-96 ao LAB-139. Trava: `external-engines/esteira/src/onde-mora-a-prova.ts`, do LAB-140 em diante, com os 63 de antes contados e congelados; 1 247 → 1 257 travas. Detalhe em [`../relatorios/LAB-140.md`](../relatorios/LAB-140.md).
+
+**Proposto ao chat, saído do LAB-140 — não executado:** (1) **reescrever a frase do §7** para a forma que a casa cumpre — *"provas em `docs/provas/<prompt>/`, ou o relatório diz que não há, e onde está a prova"*: como está escrita, ela é falsa em 63 de 131 prompts, e a regra mora no `CLAUDE.md`, que não se reescreve por uma rodada da dívida própria; (2) se valer, **reconstruir** a frase nos 63 relatórios calados, etiquetada como reconstrução (§1-B), com a fonte de cada linha — e então o `CALADOS_ANTES_DA_TRAVA` desce, de propósito.
+
 ### LAB-139 · item 900 — a dívida própria: toda entrega declara "conferido aqui, não no GitHub", e nada perguntava — ✅ **feito em 16/10/2026** (D367)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"Toda entrega declara "conferido aqui, não no GitHub""* — cumprida por disciplina, sem trava: tirar a frase do recado do LAB-138 deixava a suíte com as mesmas 9 falhas. Medido por LUGAR: 73 de 73 recados de entrega do LAB-67 ao LAB-138 declaram, 71 de 72 relatórios (o do LAB-118 não). Trava: `src/conferido-aqui-declarado.ts`, com o alcance preso à vida do CI desligado (quem religa escreve onde a regra acabou); 1 234 → 1 247 travas. Detalhe em [`../relatorios/LAB-139.md`](../relatorios/LAB-139.md).
@@ -1935,7 +1941,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1247 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1257 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
