@@ -346,6 +346,20 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-122 · item 900 — a dívida própria: a rotina no GitHub, o passo 2 do desligamento — ✅ **feito em 16/10/2026** (D350)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); fui à
+dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, num estado que mora **fora** da árvore:
+a rotina do CI no GitHub. Nos 303 arquivos vivos, ela é afirmada `disabled_manually` em quatro lugares e o id
+digitado em três, e nada perguntava — o passo 1 do desligamento (o gatilho) tinha trava desde o LAB-67, o passo 2
+não. Perguntada a API pública, sem chave: as sete afirmações estavam certas, por sorte. `src/a-rotina-no-github.ts`
+cobra o par (gatilho ligado ⇔ rotina `active`), o estado e o id afirmados contra os perguntados, e o espelho;
+a régua pura no portão sem clones (`tests/a-rotina-no-github.test.ts`) e a pergunta ao GitHub fora dele
+(`tests/a-rotina-no-github-na-origem.test.ts`, que precisa da rede). Doze mutações, doze acusadas; 954 → 972.
+Relatório: [`../relatorios/LAB-122.md`](../relatorios/LAB-122.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-121 · item 900 — a dívida própria: os ramos abertos, a lista que o protocolo manda manter — ✅ **feito em 16/10/2026** (D349)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); fui à
@@ -1679,7 +1693,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 954 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 972 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

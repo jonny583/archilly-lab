@@ -63,6 +63,13 @@ são afirmações diferentes: no Render um teste já ficou verde na mão e verme
   partir de 1º/11/2026**, que é quando a cota zera e o motivo de estar desligado acaba;
 - **gatilho ativo** → exige que o aviso de desligado **saia** daqui e do `ONDE_PARAMOS.md`.
 
+**E o passo 2 tem a dele desde o LAB-122 (D350):** `external-engines/esteira/tests/a-rotina-no-github-na-origem.test.ts`
+**pergunta ao GitHub** o estado da rotina (a API pública, sem chave) e reprova se o par estiver pela
+metade — gatilho descomentado com a rotina desabilitada, ou o contrário —, se uma página viva disser
+um estado ou um id que a API não diz, ou se a rotina estiver desabilitada e nenhuma página o disser.
+Precisa da rede, então roda no `conferir.sh` e não no portão sem clones; a régua pura e a concordância
+das páginas entre si estão em `a-rotina-no-github.test.ts`, no portão.
+
 **Por que ela precisava existir, e o achado é do Render:** a régua que caça desligadores de
 conferência procura regra em `"off"` e passo que ignora erro, e **não tem forma para "o gatilho
 virou comentário"** — que é o desligamento mais completo que existe. *Régua desligada publica
