@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-141 · item 900 — a dívida própria: a prova de medição traz o MOTOR, e a régua cobrava três de quatro — ✅ **feito em 16/10/2026** (D369)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"JSON em `docs/provas/<prompt>/` com gleba, motor, semente e contrato"*. A guarda do LAB-36 dizia os quatro no título e cobrava três — o `motor` nunca entrou. Medido por mutação: uma prova sem motor passou a suíte inteira; sem semente, foi acusada. Por LUGAR, 38 provas de medição: 34 dizem `motor`/`motores`, três dizem por outro nome, e a do LAB-94 não diz. Trava: `CONCEITOS.motor` em `external-engines/esteira/tests/regras.test.ts`, com seis nomes aceitos; LAB-94 e LAB-07 congelados com o valor nomeado; dez mutações, dez acusadas. Detalhe em [`../relatorios/LAB-141.md`](../relatorios/LAB-141.md).
+
+**Proposto ao chat, saído do LAB-141 — não executado:** cobrar o **valor** do conceito `motor` contra o registro de motores (`external-engines/esteira/src/registro-do-lab.ts`, LAB-76) — hoje a régua é de chave, e `motor: "qualquer coisa"` passa; os valores têm quatro formas (texto, objeto com `nome`, mapa por id, lista de ids).
+
 ### LAB-140 · item 900 — a dívida própria: todo prompt fecha com provas em `docs/provas/`, e 63 fecharam calados — ✅ **feito em 16/10/2026** (D368)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"Todo prompt fecha com relatório em `docs/relatorios/`, provas em `docs/provas/`, …"* — a sétima coisa da frase, a única sem trava. Medido por mutação: uma pasta de prova para um prompt que não existe, outra para um prompt que diz não ter, e uma declaração apagada passavam em tudo. Por LUGAR: 64 de 131 prompts com pasta, 4 dizendo *"Não há `docs/provas/LAB-NN/`"* (LAB-42 a LAB-45, a forma nasceu aqui) e **63 calados**, todos os 44 do LAB-96 ao LAB-139. Trava: `external-engines/esteira/src/onde-mora-a-prova.ts`, do LAB-140 em diante, com os 63 de antes contados e congelados; 1 247 → 1 257 travas. Detalhe em [`../relatorios/LAB-140.md`](../relatorios/LAB-140.md).
