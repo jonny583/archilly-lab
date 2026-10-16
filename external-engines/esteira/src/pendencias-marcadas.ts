@@ -54,8 +54,9 @@
  * - **se o estado da lista é o verdadeiro.** A lista é a declaração; quem a escreve é a sessão, a
  *   partir da resposta do Jonny. Ela impede que a página e a declaração divirjam — não que as duas
  *   errem juntas;
- * - **a tabela *"Em cinco minutos"***, que numera as linhas dela (1, 2, 8) por outra conta e não tem
- *   número estável;
+ * - ~~**a tabela *"Em cinco minutos"***, que numera as linhas dela (1, 2, 8) por outra conta e não tem
+ *   número estável;~~ — **cobrada desde o LAB-125** (D353), por {@link conferirOsCincoMinutos}, logo
+ *   abaixo: a numeração própria dela ficou declarada à mão, linha a linha, apontando para a pendência;
  * - **o histórico**: a régua lê a página de hoje. A medição dos 29 commits foi feita uma vez, no
  *   LAB-124, e está no relatório — repeti-la a cada verde exigiria a história inteira, e o portão sem
  *   clones roda em clone raso (D293).
@@ -229,4 +230,189 @@ export function conferirAsPendencias(
   }
 
   return { titulos: titulos.length, resolvidosSemNumero: resolvidos?.length ?? 0, problemas };
+}
+
+/*
+ * ════════════════════════════════════════════════════════════════════════════════════════════════
+ *  O RESUMO DO ALTO TAMBÉM AFIRMA ESTADO — a tabela "Em cinco minutos". (LAB-125, item 900, D353)
+ * ════════════════════════════════════════════════════════════════════════════════════════════════
+ *
+ * # O defeito, medido em 16/10/2026
+ *
+ * O LAB-124 pôs guarda nos **títulos** e declarou, por escrito, o que não alcançava: *"a tabela 'Em
+ * cinco minutos' no alto, que numera as linhas dela (1, 2, 8) por outra conta. Vi, e ela ainda diz
+ * 'Ficam faltando três coisas', duas delas paradas desde 12/10 (5-B e 7)"*. É a quinta espécie da
+ * dívida própria — **mensagem fixa que afirma estado sem perguntar** — e está no lugar mais lido da
+ * página: o resumo de cinco minutos, logo abaixo dos endereços.
+ *
+ * Lida por LUGAR, a seção tem **três linhas** de tabela e **uma** frase de contagem:
+ *
+ * | linha | assunto | a pendência | estado declarado | o que a linha dizia |
+ * |---|---|---|---|---|
+ * | 1 | a régua de forma de lote | 5-B | parada (12/10) | pede para *confirmar*, 2 min |
+ * | 2 | os 33 lotes em Antonina | 7 | parada (12/10) | pede para *olhar*, 10 min |
+ * | 8 | ligar dado pago só onde há cliente | 8 | aberta (nada agora) | *nada agora* |
+ *
+ * e *"Ficam faltando três coisas, e as duas primeiras são de olhar e dizer"* — **duas das três
+ * estão paradas a pedido dele há quatro dias**, e a nota de 12/10, logo acima, diz que *"nada aqui
+ * precisa de você agora"*. A mesma página, de novo, dizendo duas coisas; e quem lê só o resumo lê a
+ * errada.
+ *
+ * # O que a régua cobra
+ *
+ * A numeração da tabela **não é** a das pendências (a linha `1` é a pendência `5-B`, a `2` é a `7`),
+ * então a ligação não se lê do texto: mora numa declaração escrita à mão, {@link CINCO_MINUTOS},
+ * fechada nos dois sentidos, e o estado vem de {@link PENDENCIAS} — **um lugar só para o estado**.
+ *
+ * 1. toda linha `| **N** |` da seção tem declaração, e toda declaração tem a linha, com o assunto
+ *    (`cinco-minutos-sem-linha-na-lista`, `cinco-minutos-linha-apagada`, `cinco-minutos-assunto-trocado`);
+ * 2. a declaração aponta para uma pendência que existe (`cinco-minutos-pendencia-desconhecida`);
+ * 3. a linha de pendência **parada** diz `PARADA`; a de **resolvida** tem a marca; a de **aberta** não
+ *    tem nenhuma das duas (`cinco-minutos-parada-sem-marca`, `cinco-minutos-resolvida-sem-marca`,
+ *    `cinco-minutos-aberta-com-marca`);
+ * 4. **a contagem**: toda frase *"fica(m) faltando N"* da seção que não esteja riscada diz o número
+ *    de linhas cuja pendência está **aberta** — nem as paradas, nem as resolvidas
+ *    (`cinco-minutos-contagem-errada`); número que a régua não lê é acusado, não aprovado
+ *    (`cinco-minutos-contagem-ilegivel`);
+ * 5. a seção existe (`cinco-minutos-sem-secao`).
+ *
+ * # O que ela NÃO cobra, dito
+ *
+ * - **o resto da prosa da seção** — os parágrafos da ponte e da inclinação são relato de respostas
+ *   que já valem, e não afirmam o que falta;
+ * - **uma contagem escrita de outro jeito** (*"resta uma"*, *"sobram duas"*): a régua lê o verbo da
+ *   frase que existe, *faltar*. O teste publica quantas frases leu, e a página de hoje tem uma;
+ * - **se o estado declarado é o verdadeiro** — o mesmo limite do LAB-124: a régua impede a tabela e a
+ *   declaração de divergirem, não as duas de errarem juntas.
+ */
+
+/** O título da seção de resumo do alto da página. */
+export const TITULO_DOS_CINCO_MINUTOS = "## Em cinco minutos";
+
+export interface LinhaDosCincoMinutos {
+  /** o número em negrito da primeira coluna — a conta da tabela, que não é a das pendências */
+  linha: string;
+  /** um pedaço do texto da linha que diz o assunto */
+  chave: string;
+  /** o número da pendência de {@link PENDENCIAS} de que a linha fala */
+  pendencia: string;
+}
+
+/**
+ * As linhas da tabela *"Em cinco minutos"*, cada uma apontando para a pendência dela. **Linha nova
+ * na tabela entra aqui no mesmo commit**; o estado não se escreve aqui — vem de {@link PENDENCIAS}.
+ */
+export const CINCO_MINUTOS: readonly LinhaDosCincoMinutos[] = [
+  { linha: "1", chave: "régua de forma de lote", pendencia: "5-B" },
+  { linha: "2", chave: "**33 lotes**", pendencia: "7" },
+  { linha: "8", chave: "ligar e desligar a fonte paga", pendencia: "8" },
+];
+
+/** Os números por extenso que a frase de contagem usa. */
+const POR_EXTENSO: Readonly<Record<string, number>> = {
+  nenhuma: 0, nenhum: 0, nada: 0, zero: 0,
+  um: 1, uma: 1, dois: 2, duas: 2, "três": 3, quatro: 4, cinco: 5, seis: 6, sete: 7, oito: 8, nove: 9, dez: 10,
+};
+
+export function lerNumeroPorExtenso(palavra: string): number | null {
+  const p = palavra.toLowerCase();
+  if (/^\d+$/.test(p)) return Number(p);
+  return POR_EXTENSO[p] ?? null;
+}
+
+const LINHA_DA_TABELA = /^\| \*\*(\d+(?:-[A-Z])?)\*\* \|(.*)$/;
+const RISCADO = /~~[^~\n]+~~/g;
+const CONTAGEM = /\b[Ff]ica(?:m)? faltando \**(\S+?)\**(?=[\s,.:;]|$)/g;
+
+export interface SecaoDosCincoMinutos {
+  linhas: { linha: string; texto: string }[];
+  /** as frases de contagem fora do risco: a palavra como está e o número que ela diz (`null`: ilegível) */
+  contagens: { palavra: string; n: number | null }[];
+}
+
+/** A seção *"Em cinco minutos"*: do título até o próximo título `## `. `null` se não existe. */
+export function lerOsCincoMinutos(pagina: string): SecaoDosCincoMinutos | null {
+  const linhas = pagina.split("\n");
+  const ini = linhas.findIndex((l) => l.startsWith(TITULO_DOS_CINCO_MINUTOS));
+  if (ini < 0) return null;
+  const secao: SecaoDosCincoMinutos = { linhas: [], contagens: [] };
+  for (const l of linhas.slice(ini + 1)) {
+    if (l.startsWith("## ")) break;
+    const m = LINHA_DA_TABELA.exec(l);
+    if (m) secao.linhas.push({ linha: m[1]!, texto: m[2]! });
+    for (const c of l.replace(RISCADO, "").matchAll(CONTAGEM)) {
+      secao.contagens.push({ palavra: c[1]!, n: lerNumeroPorExtenso(c[1]!) });
+    }
+  }
+  return secao;
+}
+
+export type TipoDeProblemaDosCincoMinutos =
+  | "cinco-minutos-sem-secao"
+  | "cinco-minutos-sem-linha-na-lista"
+  | "cinco-minutos-linha-apagada"
+  | "cinco-minutos-assunto-trocado"
+  | "cinco-minutos-pendencia-desconhecida"
+  | "cinco-minutos-parada-sem-marca"
+  | "cinco-minutos-resolvida-sem-marca"
+  | "cinco-minutos-aberta-com-marca"
+  | "cinco-minutos-contagem-errada"
+  | "cinco-minutos-contagem-ilegivel";
+
+export interface ProblemaDosCincoMinutos {
+  tipo: TipoDeProblemaDosCincoMinutos;
+  onde: string;
+}
+
+/**
+ * Confere a tabela *"Em cinco minutos"* contra as declarações. Nunca lança; página sem a seção é um
+ * problema, não um verde.
+ */
+export function conferirOsCincoMinutos(
+  pagina: string,
+  cincoMinutos: readonly LinhaDosCincoMinutos[] = CINCO_MINUTOS,
+  pendencias: readonly DeclaracaoDePendencia[] = PENDENCIAS,
+): { linhas: number; contagens: number; abertas: number; problemas: ProblemaDosCincoMinutos[] } {
+  const problemas: ProblemaDosCincoMinutos[] = [];
+  const secao = lerOsCincoMinutos(pagina);
+  if (secao === null) {
+    return { linhas: 0, contagens: 0, abertas: 0, problemas: [{ tipo: "cinco-minutos-sem-secao", onde: TITULO_DOS_CINCO_MINUTOS }] };
+  }
+  const declaradas = new Map(cincoMinutos.map((c) => [c.linha, c]));
+  const estado = new Map(pendencias.map((p) => [p.numero, p.estado]));
+
+  for (const l of secao.linhas) {
+    if (!declaradas.has(l.linha)) problemas.push({ tipo: "cinco-minutos-sem-linha-na-lista", onde: l.linha });
+  }
+
+  let abertas = 0;
+  for (const c of cincoMinutos) {
+    const e = estado.get(c.pendencia);
+    if (e === undefined) {
+      problemas.push({ tipo: "cinco-minutos-pendencia-desconhecida", onde: `${c.linha}→${c.pendencia}` });
+      continue;
+    }
+    const l = secao.linhas.find((x) => x.linha === c.linha);
+    if (!l) {
+      problemas.push({ tipo: "cinco-minutos-linha-apagada", onde: c.linha });
+      continue;
+    }
+    if (e === "aberta") abertas++;
+    if (!l.texto.includes(c.chave)) {
+      problemas.push({ tipo: "cinco-minutos-assunto-trocado", onde: c.linha });
+      continue;
+    }
+    const parada = MARCA_DE_PARADA.test(l.texto);
+    const resolvida = temMarcaDeResolvida(l.texto);
+    if (e === "parada" && !parada) problemas.push({ tipo: "cinco-minutos-parada-sem-marca", onde: c.linha });
+    if (e === "resolvida" && !resolvida) problemas.push({ tipo: "cinco-minutos-resolvida-sem-marca", onde: c.linha });
+    if (e === "aberta" && (parada || resolvida)) problemas.push({ tipo: "cinco-minutos-aberta-com-marca", onde: c.linha });
+  }
+
+  for (const k of secao.contagens) {
+    if (k.n === null) problemas.push({ tipo: "cinco-minutos-contagem-ilegivel", onde: k.palavra });
+    else if (k.n !== abertas) problemas.push({ tipo: "cinco-minutos-contagem-errada", onde: `${k.palavra}≠${abertas}` });
+  }
+
+  return { linhas: secao.linhas.length, contagens: secao.contagens.length, abertas, problemas };
 }

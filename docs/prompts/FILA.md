@@ -346,6 +346,17 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-125 · item 900 — a dívida própria: o resumo *"Em cinco minutos"* da página do Jonny afirmava estado sem perguntar — ✅ **feito em 16/10/2026** (D353)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, espera a leitura do
+chat); fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no lugar que o LAB-124
+declarou não alcançar: a tabela *"Em cinco minutos"* do alto de `docs/PENDENCIAS_JONNY.md` dizia *"Ficam faltando
+três coisas"*, e duas delas (a 5-B e a 7) estão **paradas a pedido do Jonny desde 12/10**. Frase riscada e nota ao
+lado; as duas linhas com `⏸ PARADA`; `conferirOsCincoMinutos` em `src/pendencias-marcadas.ts` liga cada linha da
+tabela (numerada por outra conta) à pendência, por declaração escrita à mão, e lê o estado da declaração do LAB-124
+— um lugar só. Quinze mutações, quinze acusadas; 1005 → 1023. Relatório:
+[`../relatorios/LAB-125.md`](../relatorios/LAB-125.md).
+
 ### LAB-124 · item 900 — a dívida própria: a pendência resolvida é marcada, nunca apagada (`CLAUDE.md` §5) — ✅ **feito em 16/10/2026** (D352)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, espera a leitura do
@@ -1724,7 +1735,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1005 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1023 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
