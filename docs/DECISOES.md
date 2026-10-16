@@ -11238,3 +11238,43 @@ desabilitada; e a trava viva não roda no CI — quem a roda é a sessão, no `c
 
 > **ESTADO QUE MORA FORA DA ÁRVORE NÃO SE CONFERE LENDO A ÁRVORE.** Frase certa por sorte e frase certa por
 > conferência só se distinguem no dia em que o mundo muda — e nesse dia só uma delas reprova.
+
+## D351 · A MARCA DE FEITO MORA NO TOPO DO ITEM, e passa a ser cobrada — o passo 4 do protocolo ganhou a guarda que o nome já tinha · 16/10/2026
+
+**Contexto:** item 900 (LAB-123). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém (a do LAB-117 espera a leitura do chat). Fui à dívida própria, espécie **regra sem guarda**, no próprio
+protocolo: o passo 4 do `docs/caixa-de-entrada/COMO_FUNCIONA.md` manda *"renomeie o arquivo para `001-FEITO.md`
+e escreva no topo dele o que foi feito, com arquivo e linha"*. O **nome** tem guarda desde o LAB-80 (o estado mora
+no sufixo, `lerNomeDoItem`); o **topo** não tinha nenhuma — nenhum `.ts` abria um `-FEITO.md`.
+
+**Medido (LAB-123), por LUGAR:** os **34** `-FEITO.md` da caixa na `main` de 16/10/2026. **29** abrem com um bloco
+de citação que diz `FEITO`, o prompt e o relatório dele; **5 não têm marca nenhuma** — `009`, `010`,
+`010-adendo`, `011` e `012`, os quatro disparos seguidos de 10/10/2026, 00h58 a 05h22 UTC (LAB-76 a LAB-79). Neles
+o arquivo foi só renomeado: quem abre o item lê o pedido sem saber se, onde e por quem ele foi feito. Cumprida por
+disciplina antes e depois; quebrada numa madrugada, sem que nada acusasse.
+
+**Decidido:**
+
+1. **As cinco marcas foram reconstruídas**, no topo, com o prompt, a data e o commit, o relatório, a prova e as
+   decisões — e dizem no próprio texto que são reconstrução e de onde veio cada campo (a tabela da `FILA.md` e o
+   `git log`), como manda o §1-B. O texto do chat abaixo ficou intocado.
+2. `src/marca-de-feito.ts`: o **topo** é o bloco de citação com que o arquivo começa (a forma das 29); nele a
+   régua exige o `FEITO` **da marca** — `013-FEITO.md` citado não conta, medido no `015`, que abre pelo aviso de
+   renumeração —, o **prompt** citado depois dele, pela forma única (`LAB-\d{2,}`), e o **relatório** desse
+   prompt, que a trava confere no disco. Os `-FEITO` são escolhidos pela forma única do nome (`lerNomeDoItem`),
+   nunca por filtro de texto: o `1000-FEITO.md` é item e é cobrado; o `-RETIRADO`, o aberto e o `900` ficam fora.
+3. `tests/marca-de-feito.test.ts`, **no portão sem clones**: a caixa de verdade (publicando o universo — 34
+   feitos lidos, igual à contagem ingênua), as cinco reconstruídas apontando o prompt certo, o `015`, e a régua
+   dos dois lados. Dez mutações (uma na página — as cinco marcas tiradas —, nove no módulo), dez acusadas. 972 →
+   983 travas no portão.
+
+**Descartado:** cobrar a *"linha"* (só 7 das 29 marcas a citam; reprovaria 22 marcas de boa-fé, e reescrevê-las
+seria reconstrução de relato — a pergunta de forma foi **proposta ao chat**); aceitar *"um arquivo qualquer"* no
+lugar do relatório (a marca podia citar o prompt certo e apontar para nada); cruzar o prompt da marca com a
+tabela da `FILA.md` (relato sem forma fixa — fica dito como limite); e deixar as cinco sem marca como
+*"fotografia"* (o defeito é de presente: o item mente pela omissão a quem o abre hoje).
+
+**O que se perde, dito:** a linha; se o prompt citado é o que de fato fez o item; e o item feito fora desta caixa.
+
+> **O NOME DIZ QUE ACABOU; SÓ O TOPO DIZ ONDE.** Guardar a metade de uma regra de dois verbos é guardar a metade
+> que dá menos trabalho — e a outra metade se perde exatamente na rodada em que o trabalho foi maior.

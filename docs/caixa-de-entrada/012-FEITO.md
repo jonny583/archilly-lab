@@ -1,3 +1,10 @@
+> ✅ **FEITO no LAB-79**, em 10/10/2026, 05h22 UTC (commit `9879af6`). Relatório em
+> [`../relatorios/LAB-79.md`](../relatorios/LAB-79.md), prova em `docs/provas/LAB-79/alcance-das-provas.json`, decisões **D255 a D257**.
+>
+> **Marca RECONSTRUÍDA no LAB-123 (16/10/2026, D351)** — o LAB-79 renomeou o arquivo e não escreveu
+> no topo, como o passo 4 do protocolo manda; a fonte de cada campo é a tabela da `FILA.md` e o
+> `git log` deste arquivo. O texto do chat abaixo está intocado.
+
 # 012 — a trava que confere a prova contra SI MESMA, e não a reexecuta
 
 > **Vem do chat, 10/10/2026 às 04h55.** A sua caixa esgotou às 04:05 e você fez

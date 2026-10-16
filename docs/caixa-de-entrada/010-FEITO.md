@@ -1,3 +1,10 @@
+> ✅ **FEITO no LAB-77**, em 10/10/2026, 01h40 UTC (commit `73fe43b`). Relatório em
+> [`../relatorios/LAB-77.md`](../relatorios/LAB-77.md), prova em `docs/provas/LAB-77/acesso-sugerido.json`, decisões **D248 a D252**.
+>
+> **Marca RECONSTRUÍDA no LAB-123 (16/10/2026, D351)** — o LAB-77 renomeou o arquivo e não escreveu
+> no topo, como o passo 4 do protocolo manda; a fonte de cada campo é a tabela da `FILA.md` e o
+> `git log` deste arquivo. O texto do chat abaixo está intocado.
+
 # 010 — Quanto do resultado depende de ONDE ESTÁ O ACESSO
 
 **Esta é a sua proposta do LAB-26 §2, e ela é a mais importante das suas

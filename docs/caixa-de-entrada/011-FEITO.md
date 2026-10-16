@@ -1,3 +1,10 @@
+> ✅ **FEITO no LAB-78**, em 10/10/2026, 03h28 UTC (commit `4eaae24`). Relatório em
+> [`../relatorios/LAB-78.md`](../relatorios/LAB-78.md), prova em `docs/provas/LAB-78/setimo-mecanismo.json`, decisões **D253 e D254**.
+>
+> **Marca RECONSTRUÍDA no LAB-123 (16/10/2026, D351)** — o LAB-78 renomeou o arquivo e não escreveu
+> no topo, como o passo 4 do protocolo manda; a fonte de cada campo é a tabela da `FILA.md` e o
+> `git log` deste arquivo. O texto do chat abaixo está intocado.
+
 # 011 — O SÉTIMO MECANISMO, se ele existir
 
 **Sua proposta do LAB-59**, e ela é a mais importante das suas abertas porque é
