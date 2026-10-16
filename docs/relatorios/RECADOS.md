@@ -3202,3 +3202,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-126 — item 900 (a dívida própria): o cabeçalho do ONDE_PARAMOS.md afirmava o último prompt sem perguntar
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-126 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only pela 23ª rodada seguida, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), no arquivo que se lê primeiro. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1039 de 1039 (63 de 63 arquivos passam sem os clones, lab84); esteira 1 330 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — 18 linhas ENOENT, 9 de 9), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: a primeira linha do ONDE_PARAMOS.md afirma a data, o "Último prompt executado" com o item e a corrente "antes dele o …" — à mão, a cada rodada — e nenhum dos 17 módulos que leem a página lia essa linha. Rodada a régua na história (151 versões da main que mexeram nela ou no RECADOS.md): 139 de 140 limpas, e a exceção é de verdade — 76bfdcd (LAB-67, 09/10), 13h20 com o cabeçalho ainda no LAB-66 e o recado do LAB-67 gravado. src/o-ultimo-prompt.ts cobra prompt, item, data (não anterior ao recado) e a corrente elo a elo, contra o RECADOS.md; título de classe não é prompt. Ela já trabalhou nesta rodada: com o cabeçalho escrito e o recado não, reprovou. 13 mutações no módulo, 12 acusadas e 1 neutra declarada; 2 plantadas na página, 2 acusadas; D354; 1023 → 1039; relatório LAB-126.
+Achados para outros apps ou Central: (0) O ARQUIVO QUE SE LÊ PRIMEIRO AFIRMA ESTADO À MÃO, E A DATA DELE ENVELHECE QUANDO A RODADA SÓ ACRESCENTA — medido no topo do ONDE_PARAMOS.md das três casas que leio (origin/main): Generate diz "Última atualização: 12/10/2026" e a página mudou hoje às 07h38 UTC (ad5b756, disparo em vazio) — não li a página inteira, pode ser "último trabalho de verdade", mas as duas leituras dão datas diferentes; Laboratório de Parcelamento e Geo dizem 16/10, e o Geo já tem guarda (arquivo-de-retomada.test.ts). (1) A pergunta da "linha" (LAB-123) segue na FILA esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (achado do LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
