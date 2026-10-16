@@ -38,7 +38,9 @@
  *   régua que os lesse viraria lista de exceções do português;
  * - **a contagem dita sem número** (*"o par que impede"*, *"as duas metades"* escritas como
  *   *"ambas"*): régua de palavra não pega o que não reconhece;
- * - **a verdade do que se conta**: a função diz QUANTOS, não se a frase descreve o que eles são.
+ * - **a verdade do que se conta**: a função diz QUANTOS, não se a frase descreve o que eles são;
+ * - **as outras páginas**: o `CLAUDE.md` é conferido desde o LAB-120 por `contagens-do-claude.ts`
+ *   (D348), que lê número pelo {@link NUMERO} daqui.
  */
 import { ligacoes, resolverDaPagina } from "./caminhos-da-pagina.ts";
 import { contarOsPassosDoScript } from "./passos-do-verde.ts";
@@ -76,7 +78,7 @@ const ORDINAIS: [RegExp, number][] = [
 ];
 /** Fronteira de palavra que conhece o acento — o `\b` do JavaScript é só ASCII. */
 const L = "A-Za-zÀ-ÿ";
-const NUMERO = new RegExp(
+export const NUMERO = new RegExp(
   `(?<![${L}\\d])(?:dois|duas|tr[êe]s|quatro|cinco|seis|sete|oito|nove|dez|onze|doze|` +
     `primeir[oa]s?|segund[oa]s?|terceir[oa]s?|quart[oa]s?|quint[oa]s?|sext[oa]s?|s[ée]tim[oa]s?|` +
     `oitav[oa]s?|non[oa]s?|d[ée]cim[oa]s?|\\d+(?:[.,/]\\d+)*)(?![${L}\\d])`,

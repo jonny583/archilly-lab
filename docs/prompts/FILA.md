@@ -346,6 +346,19 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-120 · item 900 — a dívida própria: as contagens de desenho do `CLAUDE.md` — ✅ **feito em 16/10/2026** (D348)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); fui à
+dívida própria, espécie **número digitado à mão**, no lugar que o LAB-119 declarou não alcançar. Lidos os números
+do `CLAUDE.md` fora do código e das citações literais, **29**: dezesseis contam um arquivo e batiam todos, e
+nenhum era conferido contra ele — os que tinham trava tinham-na por cópia (o `toBe(4)` e o *"8 dos 12"*, o
+`toBeLessThanOrEqual(12)` e o *"doze"*). `src/contagens-do-claude.ts` com `tests/contagens-do-claude.test.ts` no
+portão sem clones dá a cada número uma entrada, com o trecho deixando o lugar do número em aberto (`{n}`), para a
+falha ser *conta diferente* e não *entrada sumida*. Treze mutações, treze acusadas; 929 → 942. Relatório:
+[`../relatorios/LAB-120.md`](../relatorios/LAB-120.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-119 · item 900 — a minha própria lista: as contagens de desenho da seção *"O código"* do índice — ✅ **feito em 16/10/2026** (D347)
 
 Caixa só com o 900; peguei a proposta do LAB-118, abaixo — a única que não esperava ninguém. Lidos número por
@@ -1653,7 +1666,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 929 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 942 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

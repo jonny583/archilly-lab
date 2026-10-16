@@ -11101,3 +11101,57 @@ de shell seria régua para um número só.
 
 > **"VERDADE POR CONSTRUÇÃO" É VERDADE NO DIA DA CONSTRUÇÃO.** A contagem do desenho envelhece quando o
 > desenho muda, e o desenho muda sem reler a frase que o conta.
+
+*Acrescentado no LAB-120, sem reescrever o acima:* o `CLAUDE.md`, que esta decisão declarou não alcançar, é
+conferido desde o **D348**, com a mesma leitura de número.
+
+## D348 · O NÚMERO DO `CLAUDE.md` TAMBÉM É O QUE O ARQUIVO CONTA — e o trecho da entrada deixa o lugar do número em aberto · 16/10/2026
+
+**Contexto:** item 900 (LAB-120). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém (a do LAB-117 espera a leitura do chat). Fui à dívida própria, espécie **número digitado à mão**, no
+lugar que o D347 declarou não alcançar: *"as outras páginas vivas (`CLAUDE.md`, `ONDE_PARAMOS.md`), que têm
+contagens de desenho também — não foram medidas aqui"*. O `CLAUDE.md` é a página que toda sessão lê primeiro,
+e a regra dele conta coisas que um arquivo vivo tem: *"as oito consequências"*, *"a régua pega 4 dos 12
+compromissos"*, *"o teto de doze linhas"*, *"Religar são DOIS passos"*, *"dois trabalhos"* do CI.
+
+**Medido (LAB-120):** lidos número por número (por extenso, ordinal e algarismo, a mesma leitura do D347) nas
+linhas que não são bloco de código nem citação literal, depois de tirar o ponteiro, as datas, o número da seção
+no título e o marcador de lista: **29 números**. **Dezesseis** contam ou leem um arquivo; **treze** não (ordem,
+método, relato, versão, e as travas do portão, que já se recontam por execução no D325). **Nenhum dos dezesseis
+estava errado — e nenhum era conferido contra o arquivo.** Os que tinham trava tinham-na por **cópia**: o
+`toBe(4)` da `trava-de-estrutura.test.ts` e o *"8 dos 12"* da página, iguais por disciplina; o
+`toBeLessThanOrEqual(12)` do `recado.test.ts` e o *"doze"* da página; o `toHaveLength(8)` da
+`custo-por-uso.test.ts` e o *"oito"*. Consistência entre cópias não é correção (D311).
+
+**Decidido:**
+
+1. `src/contagens-do-claude.ts` e `tests/contagens-do-claude.test.ts`, no portão sem clones. A forma é a do
+   D347 — cada número tem **exatamente uma** entrada, `CONTAGENS` (16, com a função que conta no texto do
+   arquivo) ou `NAO_CONTAM` (13, com o motivo), nos dois sentidos —, com uma diferença: **o trecho tem um
+   `{n}` no lugar do número.** No D347, se a página passar de *"seis pontos"* a *"sete pontos"*, a entrada
+   some e o número fica sem entrada: reprova, pelo motivo torto. Aqui a entrada continua achando a frase e a
+   falha é a verdadeira, *conta diferente*, com o escrito e o contado lado a lado — e a frase das travas, que
+   muda a cada rodada, tem entrada estável.
+2. A leitura **pula por PARTE, não por linha**: a data, o número da seção e o marcador de lista saem, e o
+   resto da linha é lido (*"## 7 · As oito regras"* teria o *oito* lido). Pula a linha inteira só no bloco de
+   código (exemplo) e na citação literal (o texto da Central na §1-C e as palavras do Jonny na §4-A não se
+   reescrevem; o número é de quem falou). O que pulou é contado e publicado.
+3. O *"4 dos 12"* se conta **rodando a régua** (`COMPROMISSO_MENSAL`, importada) sobre a lista **lida do
+   texto** (`COMPROMISSOS_DE_FORMATO_REAL`): o compromisso novo que a régua pega acusa o 4 e o 12, e não o 8.
+4. `NUMERO` passou a ser exportado de `contagens-do-indice.ts`, para as duas réguas lerem número do mesmo jeito.
+
+Treze mutações no módulo, treze acusadas (duas só depois de travas novas: o teto que lia o primeiro de dois
+`toBeLessThanOrEqual`, e a receita sem nenhum *"Passo N"* que contava zero em vez de *"não contou"*). 929 → 942.
+
+**Descartado:** estender a régua do D347 em vez de escrever outra (a do índice lê linhas de tabela e as acha
+pela ligação; a página é prosa, e o arquivo de uma frase não está nela — está na entrada); trocar o trecho do
+D347 pela forma com `{n}` (mudaria uma régua verde que responde certo, D314); medir o `ONDE_PARAMOS.md` junto
+(é relato datado quase inteiro; não medido, e não proposto sem medir); e ler *"Trinta e três"* como 33 (a
+régua lê até doze por extenso; a frase é relato e a aritmética dela tem trava própria, a `aritmetica-da-regra.test.ts`, que mudou de alvo no D318).
+
+**O que se perde, dito:** as citações literais; número acima de doze por extenso; a contagem dita sem número;
+e a verdade do que se conta — a função diz QUANTOS, não se as oito de `CONSEQUENCIAS` são as oito da página
+(isso a `custo-por-uso.test.ts` confere, pela marca de cada uma).
+
+> **CÓPIA QUE CONCORDA COM CÓPIA NÃO FOI CONFERIDA.** Duas vezes o mesmo número, digitado em dois lugares,
+> é uma afirmação feita duas vezes — e nenhuma medição.
