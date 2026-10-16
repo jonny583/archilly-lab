@@ -3098,3 +3098,16 @@ Próximo na fila: a caixa só tem o 900; na FILA, a única proposta nova espera 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-118 — item 900 (a dívida própria): o índice afirma o que existe
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-118 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, depois de desrasar: o comando do disparo recusou o pull de novo, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria, no docs/INDEX.md. FEITO. Conferido aqui, não no GitHub: esteira 1 203 pass · 9 fail (as 9 são do .wasm, que não se constrói nesta máquina), testfit 17 · 0, typecheck e lint limpos, 914 travas; o envio passa pelo gancho do LAB-106.
+Feito: o índice promete "um relatório por prompt" e SEIS nunca tiveram linha (LAB-70 a LAB-75, os itens 003 a 008 de 09/10; o git log -S vazio para os seis) — a trava do LAB-100 conferia que a ligação leva a algum lugar, ninguém conferia que o relatório tem ligação. E três linhas de "Decisão e fila" afirmavam o estado de um dia que passou: "72 decisões" (a última é a D345), "a fila de 19/09 esgotou", "Hoje: quanto é desvio desproporcional?" (respondido pelo Jonny em 02/10, D84); mais "seis travas" de um arquivo com quinze. As seis linhas entraram, declaradas; as frases saíram; src/o-indice.ts confere os dois sentidos (11 travas no portão sem clones; contra o índice de antes, 2 reprovam; 10 mutações, 10 acusadas); D346; 903 → 914; relatório LAB-118.
+Achados para outros apps ou Central: (0) A TRAVA QUE CONFERE QUE A LIGAÇÃO LEVA A ALGUM LUGAR NÃO CONFERE QUE O LUGAR TEM LIGAÇÃO — vale para toda casa com INDEX.md e régua de ligações: a lacuna aqui era exatamente a tarde de 09/10 em que a caixa nasceu, e pode ser a mesma noutras casas. (1) Linha de índice de página que muda a cada rodada ("N decisões", "Hoje: …") envelhece em silêncio; aqui ficou de 20/09 a 16/10. (2) O comando do disparo recusou o pull --ff-only outra vez (achado do LAB-116 segue valendo). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na FILA, a proposta nova do LAB-118 (as contagens de desenho da seção "O código" do índice) não espera ninguém; a do LAB-117 (o "—" contra o "nada") espera a leitura do chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
