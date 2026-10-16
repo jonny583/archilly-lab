@@ -11278,3 +11278,50 @@ tabela da `FILA.md` (relato sem forma fixa — fica dito como limite); e deixar 
 
 > **O NOME DIZ QUE ACABOU; SÓ O TOPO DIZ ONDE.** Guardar a metade de uma regra de dois verbos é guardar a metade
 > que dá menos trabalho — e a outra metade se perde exatamente na rodada em que o trabalho foi maior.
+
+## D352 · A PENDÊNCIA RESOLVIDA É MARCADA, NUNCA APAGADA — e a página do Jonny passa a ser conferida contra uma declaração · 16/10/2026
+
+**Contexto:** item 900 (LAB-124). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, espera a leitura do chat). Fui à dívida própria, espécie **regra sem
+guarda**, no `CLAUDE.md` §5: *"`docs/PENDENCIAS_JONNY.md` é escrito para leigo; item resolvido é **marcado,
+nunca apagado**"*. A única régua que lia a página por essa convenção era a do LAB-85
+(`o-que-o-gatilho-carrega.ts`), e ela pergunta por **uma** pendência — a §11, do segredo.
+
+**Medido (LAB-124), por LUGAR:** os títulos numerados da página (`## N ·`, `### N-X ·`) — **19** na `main` de
+16/10/2026 — e a história do arquivo, **29 commits**, com o clone desrasado. **Nunca apagado: cumprido.** Todo
+título que não existe mais é o mesmo assunto renumerado (até 14/09) ou riscado depois de respondido, e os cinco
+que saíram da numeração moram, riscados, em *"Já resolvidos"*. **Marcado: não.** A **§1** (*"Confirme o número:
+'desproporcional' é 3 vezes, ou 1,5 km?"*) foi respondida pelo Jonny em **02/10/2026** (D84), a mesma página o
+dá como respondido em *"Já resolvidos"* e no alto — e o título ficou **sem marca por 14 dias**, com o corpo
+afirmando *"enquanto não vier, nenhuma travessia é proposta"*, falso desde a D84. O LAB-118 viu e não tocou
+(*"a página é do Jonny para riscar"*); medido no `git log -S`, quem riscou a 3 (15/09) e a 12 (12/10) foi a
+sessão, depois da resposta dele — marcar o que ele já respondeu é a prática da casa, e não pergunta nada a ele.
+
+**Decidido:**
+
+1. **A §1 foi marcada** — título riscado, *"você respondeu em 02/10/2026"*, e uma nota no alto dizendo que o
+   texto abaixo é a pergunta como estava; o texto antigo ficou intocado (*nunca apagado*).
+2. `src/pendencias-marcadas.ts`: **o estado não se lê do texto** — era o texto que mentia. Ele mora numa
+   **declaração escrita à mão** (`PENDENCIAS`: número, uma chave do assunto, estado e fonte; e `JA_RESOLVIDOS`,
+   os cinco sem número), **fechada nos dois sentidos**: título sem linha na declaração reprova (a pendência nova
+   nasce declarada), linha sem título reprova (*apagada*), número reaproveitado para outro assunto reprova, número
+   repetido reprova. E o estado declarado se confere no título: a resolvida tem `~~…~~` ou a palavra da resposta
+   (*respondeu, respondido, confirmado, decidido*) **na linha do título**; a parada tem `PARADA`; a aberta não tem
+   marca de resolvida. Os *"Já resolvidos"* estão todos riscados, e nenhum sai.
+3. `tests/pendencias-marcadas.test.ts`, **no portão sem clones**: a página de verdade (publicando o universo —
+   19 títulos, igual à contagem ingênua que descarta o título datado `## 12/10/2026 —`, achado na primeira
+   rodada), a §1, e a régua dos dois lados. Treze mutações (uma na página — a §1 sem marca —, doze no módulo),
+   treze acusadas. 983 → 1005 travas no portão.
+
+**Descartado:** ler o estado do texto da seção (a §1 é a prova de que o texto envelhece); cobrar a história a
+cada verde (o portão roda em clone raso, D293 — a medição dos 29 commits foi feita uma vez e está no relatório);
+cobrar o corpo da seção (régua de prosa livre, que acusaria o registro da 5-D, que guarda a pergunta antiga de
+propósito); e deixar a §1 como estava até o Jonny riscar (ele pediu que nada desta casa volte a ele antes da
+integração, e a resposta dele já existe — a marca só a registra no lugar certo).
+
+**O que se perde, dito:** o corpo da seção; se o estado declarado é o verdadeiro (a régua impede a página e a
+declaração de divergirem, não as duas de errarem juntas); a tabela *"Em cinco minutos"*, que numera por outra
+conta.
+
+> **A PÁGINA QUE DIZ AS DUAS COISAS DIZ A ERRADA A QUEM ABRE PELA SEÇÃO.** *"Nunca apagado"* se cumpre sozinho
+> enquanto ninguém apaga; *"marcado"* só se cumpre se alguém lembrar — e é nessa metade que a guarda faz falta.

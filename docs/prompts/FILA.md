@@ -346,6 +346,18 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-124 · item 900 — a dívida própria: a pendência resolvida é marcada, nunca apagada (`CLAUDE.md` §5) — ✅ **feito em 16/10/2026** (D352)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, espera a leitura do
+chat); fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §5: *"item resolvido é marcado, nunca
+apagado"*. Só a régua do LAB-85 lia a página por essa convenção, e de uma pendência. Enumerados por LUGAR os 19
+títulos numerados de `docs/PENDENCIAS_JONNY.md`, e lida a história do arquivo (29 commits): **nenhum assunto
+apagado**, mas a **§1** (respondida em 02/10, D84) estava **sem marca há 14 dias**, com o corpo dizendo
+*"enquanto não vier, nenhuma travessia é proposta"*. Marcada, com nota e texto antigo intocado;
+`src/pendencias-marcadas.ts` com `tests/pendencias-marcadas.test.ts` no portão sem clones confere a página contra
+uma declaração escrita à mão, fechada nos dois sentidos. Treze mutações, treze acusadas; 983 → 1005. Relatório:
+[`../relatorios/LAB-124.md`](../relatorios/LAB-124.md).
+
 ### LAB-123 · item 900 — a dívida própria: a marca de FEITO no topo do item, o passo 4 do protocolo — ✅ **feito em 16/10/2026** (D351)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); fui à
@@ -1712,7 +1724,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 983 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1005 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
