@@ -22,6 +22,7 @@ import {
   numerosDaPagina,
   trechoComoExpressao,
 } from "../src/contagens-do-claude.ts";
+import { COMPROMISSO_MENSAL } from "../src/cobranca-por-uso.ts";
 import type { Ler } from "../src/contagens-do-indice.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
@@ -81,12 +82,18 @@ describe("LAB-120 · o número do CLAUDE.md é o que o arquivo conta", () => {
     );
   });
 
-  test("o lado ruim, no ARQUIVO: um compromisso a mais que a régua pega muda o 4 e o 12, e o 8 não", () => {
+  // Tirar, e não acrescentar: um compromisso novo escrito aqui seria um compromisso mensal num
+  // arquivo que o git carrega, e a `custo-por-uso.test.ts` (item 005) acusaria este teste.
+  test("o lado ruim, no ARQUIVO: um compromisso a menos que a régua pega muda o 4 e o 12, e o 8 não", () => {
     const ESTRUTURA = "external-engines/esteira/src/trava-de-estrutura.ts";
-    const mais = comArquivo(ESTRUTURA, (t) =>
-      trocar(t, '  "teste de 14 dias, cartão obrigatório",', '  "teste de 14 dias, cartão obrigatório",\n  "assinatura mensal de R$ 50",'),
-    );
-    expect(motivos(conferirAsContagensDoClaude(PAGINA, mais)).sort()).toEqual(
+    // A linha a tirar é ACHADA pela régua, para o texto dela não precisar estar escrito aqui.
+    const menos = comArquivo(ESTRUTURA, (t) => {
+      const linhas = t.split("\n");
+      const i = linhas.findIndex((l) => /^ {2}"/.test(l) && COMPROMISSO_MENSAL.some((re) => re.test(l)));
+      expect(i, "a mutação não achou compromisso que a régua pega").toBeGreaterThan(0);
+      return [...linhas.slice(0, i), ...linhas.slice(i + 1)].join("\n");
+    });
+    expect(motivos(conferirAsContagensDoClaude(PAGINA, menos)).sort()).toEqual(
       [
         "conta-diferente:pega {n} dos",
         "conta-diferente:dos {n} compromissos",
