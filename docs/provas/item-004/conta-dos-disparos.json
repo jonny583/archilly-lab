@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-16T10:19:18.065Z",
+  "quando": "2026-10-16T11:24:39.697Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -611,12 +611,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 10:07:13 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-128), tarefa da **dívida própria** (a FILA sem proposta que não espere ninguém): o recado vai ao `RECADOS.md` com data e em ordem cronológica, e nada perguntava",
         "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 11:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 11:06:46 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-129), tarefa da **dívida própria** (a FILA sem proposta que não espere ninguém): as cinco linhas do recado — *\"linha sem conteúdo leva `—`, nunca some\"* — e só o último recado era conferido, e só pela presença",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 75,
+      "noRegistro": 76,
       "observados": 38,
-      "derivados": 30,
+      "derivados": 31,
       "emLote": 7,
       "emVazio": 5
     },
