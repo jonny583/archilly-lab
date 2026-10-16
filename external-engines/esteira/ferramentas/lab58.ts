@@ -66,7 +66,7 @@ import { join } from "node:path";
 import { montarParcelamentoExterno } from "@generate/import/parcelamento-externo.ts";
 import { _testadaDoLote, superficiesDeFrente, verificarInvariantesPlano } from "@generate/engine/invariantes.ts";
 import type { EntradaMotorV1 } from "@generate/contratos/motor-v1/index.ts";
-import { distanciaSegmento } from "@testfit/geo.ts";
+import { distanciaSegmento } from "../../testfit/adapter/src/motor.ts";
 
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
 import { contratoDasEntradas, type EntradaMinima } from "../src/gleba-v1.ts";

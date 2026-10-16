@@ -21,7 +21,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { MOTOR_VERSAO } from "@testfit/contrato/tipos.ts";
+import { MOTOR_VERSAO } from "../../testfit/adapter/src/motor.ts";
 
 import {
   carimbarVizinhos,

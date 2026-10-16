@@ -83,7 +83,7 @@ import {
 import type { EntradaMotorV1 } from "@generate/contratos/motor-v1/index.ts";
 // As duas funções de geometria são DO MOTOR: é a geometria dele que decide onde
 // os lotes dele estão, e importá-las é o D16 (motor da família se lê por caminho).
-import { distanciaAoPoligono, pontoEmPoligono } from "@testfit/geo.ts";
+import { distanciaAoPoligono, pontoEmPoligono } from "../../testfit/adapter/src/motor.ts";
 
 import { contratoDasEntradas, type EntradaMinima } from "../src/gleba-v1.ts";
 import { linhasDaEntrada, oQueAEsteiraPassaPronto, type P } from "../src/motores/comum.ts";

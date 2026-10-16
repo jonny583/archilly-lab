@@ -15,7 +15,7 @@ import type { EntradaMinima } from "../gleba-v1.ts";
 import { linhasDaEntrada } from "../motores/comum.ts";
 import { rodarGenerate, type Candidata } from "../motores/generate.ts";
 import { rodarTestfit } from "../motores/testfit.ts";
-import { MOTOR_VERSAO } from "@testfit/contrato/tipos.ts";
+import { MOTOR_VERSAO } from "../../../testfit/adapter/src/motor.ts";
 
 import { rodarSymbios, VERSAO_DO_SYMBIOS } from "../motores/symbios.ts";
 import type {

@@ -33,7 +33,7 @@ import {
   type EntradaV1,
 } from "../adapter/src/index.ts";
 import { glebaDoLab01 } from "../ferramentas/gleba-lab01.ts";
-import { rodarMotor } from "@testfit/api.ts";
+import { rodarMotor } from "../adapter/src/motor.ts";
 
 const GLEBAS = join(
   import.meta.dirname,

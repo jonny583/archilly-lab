@@ -3319,3 +3319,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-135 — item 900 (a dívida própria): `adapter/` é a única fronteira, e onze arquivos importavam o motor por fora
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-135 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo; receita do passo 0, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §3, terceira linha da regra de ouro. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1186 de 1186 (71 de 71 arquivos passam sem os clones, lab84); esteira 1 504 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — o rust-toolchain pede 1.96.1 com wasm32 e o static.rust-lang.org não conecta), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: "adapter/ é a única fronteira" (o README: "trocar o motor não deve exigir mexer em nada fora dessa pasta") não tinha trava — medido por mutação: um src/ da esteira importando @testfit/api.ts, e outro importando o motor por caminho relativo ao clone (o que a D16 proíbe), → ZERO falhas que falem da regra. Por LUGAR (295 códigos, 2 tsconfig, 1 307 especificadores) a regra JÁ ESTAVA QUEBRADA: onze arquivos fora de um adapter/ (três do esteira/src/, dois testes, quatro ferramentas, e o teste e a ferramenta do pacote testfit/) importavam o motor do Laboratório de Parcelamento direto. Conserto: a porta testfit/adapter/src/motor.ts, por onde os onze passaram a entrar (repasse, comportamento idêntico); trava: src/adapter-unica-fronteira.ts, com import type, resolvendo pelos paths do tsconfig; 15 mutações, 15 acusadas; D363; 1163 → 1186 travas no portão sem clones; detalhe em docs/relatorios/LAB-135.md.
+Achados para outros apps ou Central: (0) A REGRA QUE NINGUÉM COBRA JÁ ESTÁ QUEBRADA QUANDO ALGUÉM OLHA — a primeira e a quarta linha da regra de ouro ganharam trava sem achar defeito; a terceira, na primeira medição, tinha onze. Toda casa com uma "fronteira única" escrita (a porta de créditos, src/lib/central/central.ts, o vendor/ do kit) pode medir o mesmo por LUGAR: quem importa o que está atrás da porta sem passar por ela. Não medi as vizinhas. (1) Proposto ao chat na FILA: o caminho do .wasm do Symbios está escrito em 27 arquivos fora do adaptador (9 testes, 18 ferramentas) — precisa de máquina com o .wasm para consertar com prova. (2) A pergunta da "linha" (LAB-123) e a das duas marcas de fim (LAB-129) seguem esperando o chat. (3) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

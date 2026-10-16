@@ -30,7 +30,7 @@ import type { EntradaMinima } from "./gleba-v1.ts";
 import { opcoesDaEsteiraDele } from "./motores/testfit.ts";
 import { rodarEsteira } from "../../testfit/adapter/src/esteira.ts";
 import type { EntradaV1, SaidaV1 } from "../../testfit/adapter/src/contrato-v1.ts";
-import { impressao } from "@testfit/api.ts";
+import { impressao } from "../../testfit/adapter/src/motor.ts";
 import {
   OS_QUATRO,
   type CampoLegal,

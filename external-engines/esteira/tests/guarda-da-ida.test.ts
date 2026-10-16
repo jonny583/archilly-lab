@@ -32,7 +32,7 @@ import { beforeAll, describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { rodarMotor } from "@testfit/api.ts";
+import { rodarMotor } from "../../testfit/adapter/src/motor.ts";
 
 import { idaParaOMotor } from "../../testfit/adapter/src/ida.ts";
 import type { EntradaV1 } from "../../testfit/adapter/src/contrato-v1.ts";
