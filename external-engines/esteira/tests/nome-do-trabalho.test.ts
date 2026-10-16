@@ -99,7 +99,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // e um módulo puro; nenhum clone.
     // O número anda quando o trabalho ganha ou perde arquivo, e
     // mudá-lo é deliberado: é a lista que a medição cobriu.
-    expect(lista).toHaveLength(56);
+    // E 57 no LAB-119, com a `contagens-do-indice.test.ts` — o `INDEX.md` e arquivos DESTE repositório,
+    // lidos como texto; nenhum clone.
+    expect(lista).toHaveLength(57);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

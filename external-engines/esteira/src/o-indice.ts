@@ -50,7 +50,8 @@
  * - **as outras seções do índice** — *"O código"* descreve arquivo vivo com contagem de desenho
  *   (*"quatro regras"*, *"seis pontos por comprimento de arco"*), que é verdade por construção e
  *   não estado do dia; uma delas (*"seis travas"* do `verde.test.ts`, que tem quinze) estava
- *   errada e saiu à mão, sem régua — proposta na FILA;
+ *   errada e saiu à mão, sem régua — proposta na FILA, e conferida desde o LAB-119 por
+ *   `contagens-do-indice.ts` (D347), que achou outras três erradas;
  * - **as linhas de relatório**: são relato datado, e o relato não se reescreve;
  * - **estado dito por extenso** (*"nenhuma pendência"*, *"a fila esgotou"* sem data): régua de
  *   palavra não pega o que não reconhece;
