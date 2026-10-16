@@ -3332,3 +3332,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-136 — item 900 (a dívida própria): a `FILA.md` em dia, e dezenove prompts não tinham o seu lugar nela
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-136 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main; o comando do disparo recusou o pull --ff-only de novo — a main velha era ancestral da origem, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §7. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1200 de 1200 (72 de 72 arquivos passam sem os clones, lab84); esteira 1 518 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: "FILA.md em dia" (CLAUDE.md §7) não tinha trava — o DECISOES, o ONDE_PARAMOS e o INDEX tinham. Medido por mutação: apagar a linha do item 012 e o título do LAB-135 → as MESMAS 9 falhas de antes. Por LUGAR, contra os 69 prompts com item no RECADOS.md: a tabela da caixa parava no 012 — os itens 013 a 030 (LAB-80 a LAB-96 e LAB-113) nunca tiveram linha, e o LAB-97 não tinha título. Conserto: as 18 linhas e o título, cada um com o texto do recado; trava: src/a-fila-em-dia.ts, nos dois sentidos (RECADOS e caixa); 6 mutações na página e 10 no módulo, todas acusadas; D364; 1186 → 1200 travas no portão sem clones; detalhe em docs/relatorios/LAB-136.md.
+Achados para outros apps ou Central: (0) A PÁGINA QUE NINGUÉM RELÊ PARA DE ANDAR EM SILÊNCIO — o relatório e o recado saíam (tinham trava), a linha da fila deixou de sair 18 vezes seguidas depois que a fila deixou de ser a porta de entrada. Toda casa que trocou a FILA pela caixa pode medir o mesmo: cada recado com item tem a sua linha na FILA? Não medi as vizinhas. (1) A pergunta da "linha" (LAB-123), a das duas marcas de fim (LAB-129) e a do .wasm (LAB-135) seguem esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

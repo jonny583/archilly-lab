@@ -68,6 +68,26 @@ despertador, o menor número ainda não feito.**
 | `010` + adendo | a **sensibilidade ao acesso**, com regra urbanística do Jonny | ✅ **LAB-77**, 10/10 · **ZERO das 7 glebas** dizem quais faces dão para via, e o campo **não existe no contrato** · a esquina é das **RUAS**, não do anel · a sugestão **se recusa a sair** · D248 a D251 |
 | `011` | o **sétimo mecanismo**, se ele existir | ✅ **LAB-78**, 10/10 · **EXISTE e é do MOTOR**: a fileira externa **transborda o canto** 10 a 13 m para a face vizinha · largura **indiferente** (0,19 = 0,19) e cobertura **100 %** · conserto **PROPOSTO, não executado** · D253, D254 |
 | `012` | a trava que confere a prova contra **SI MESMA** | ✅ **LAB-79**, 10/10 · medido: **2 de 67** eram remedidas da fonte · **três** classes, não duas · a trava pegou uma prova **VELHA** na 1ª execução · D255, D256, D257 |
+| `013` | a varredura de custo **escopada por destino** (proposta do item 007, D243) | ✅ **LAB-80**, 10/10 · a varredura de custo escopada por destino, 11 isenções a zero · [relatório](../relatorios/LAB-80.md) |
+| `014` | as leituras terminadas | ✅ **LAB-81**, 10/10 · as cinco leituras terminadas, e UMA declarada diferente · [relatório](../relatorios/LAB-81.md) |
+| `015` | a remedição antes do pedido | ✅ **LAB-82**, 10/10 · a remedição antes do pedido, e o dono é o motor-testfit · [relatório](../relatorios/LAB-82.md) |
+| `016` | o carimbo do vizinho | ✅ **LAB-83**, 10/10 · o carimbo sai do módulo resolvido, e o Geo não tem módulo a resolver · [relatório](../relatorios/LAB-83.md) |
+| `017` | as travas por EXECUÇÃO | ✅ **LAB-84**, 10/10 · as trinta e uma por EXECUÇÃO, e eram QUATRO travas, não duas · [relatório](../relatorios/LAB-84.md) |
+| `018` | o que o gatilho carrega | ✅ **LAB-85**, 10/10 · o que o gatilho carrega, e a conta estava na unidade errada · [relatório](../relatorios/LAB-85.md) |
+| `019` | a prova velha | ✅ **LAB-86**, 10/10 · a prova velha, e o limiar que a deixava passar · [relatório](../relatorios/LAB-86.md) |
+| `020` | as onze, reclassificadas | ✅ **LAB-87**, 10/10 · as onze, reclassificadas · [relatório](../relatorios/LAB-87.md) |
+| `021` | o Padrão não mora aqui | ✅ **LAB-88**, 11/10 · o Padrão não mora aqui · [relatório](../relatorios/LAB-88.md) |
+| `022` | o clone raso | ✅ **LAB-89**, 11/10 · a pergunta do clone raso virou guarda · [relatório](../relatorios/LAB-89.md) |
+| `023` | *"caixa vazia"* era verdade? | ✅ **LAB-90**, 11/10 · "caixa vazia" era verdade? · [relatório](../relatorios/LAB-90.md) |
+| `024` + adendo` | a trava que regera a varredura (proposta do LAB-60) | ✅ **LAB-91**, 11/10 · a trava que regera a varredura · [relatório](../relatorios/LAB-91.md) |
+| `025` + dois adendos` | premissas idênticas? | ✅ **LAB-92**, 11/10 · premissas idênticas? não, e K = 17 · [relatório](../relatorios/LAB-92.md) |
+| `026` | a D226 entregue | ✅ **LAB-93**, 12/10 · a D226 entregue, e o delta de desenho é zero · [relatório](../relatorios/LAB-93.md) |
+| `027` | o preço do sétimo mecanismo | ✅ **LAB-94**, 12/10 · o preço do sétimo mecanismo, em lotes · [relatório](../relatorios/LAB-94.md) |
+| `028` | o `CLAUDE.md` enxugado | ✅ **LAB-95**, 12/10 · o CLAUDE.md enxugado; num segundo despertador, a meta alcançada e a D321 desmentida · [relatório](../relatorios/LAB-95.md) |
+| `029` | os 15 m andando pela divisa | ✅ **LAB-96**, 12/10 · os 15 m andando pela divisa, e "quadra" é trecho de rua · [relatório](../relatorios/LAB-96.md) |
+| `030` | o número do item da caixa não tem teto | ✅ **LAB-113**, 15/10 · o número do item da caixa não tem teto (D340) · [relatório](../relatorios/LAB-113.md) |
+
+> **As linhas do `013` ao `030` entraram no LAB-136 (16/10/2026, D364)**, todas de uma vez: as dezoito rodadas fecharam o item com relatório e recado e **nenhuma** escreveu a linha aqui — o `CLAUDE.md` §7 manda a `FILA.md` em dia, e nada perguntava. O texto de cada linha é o título do recado no `RECADOS.md`, não uma lembrança. Desde então a trava `external-engines/esteira/src/a-fila-em-dia.ts` confere a tabela contra o `RECADOS.md` e contra a caixa, nos dois sentidos. *(Acrescentado por mim no LAB-136; as linhas acima estão intocadas.)*
 
 **Prompt fora da caixa continua não existindo**, exatamente como prompt fora desta fila: o que
 faltar entra como *"proposto ao chat"*, sem executar.
@@ -345,6 +365,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
    que falta para as faces com via, já pedido ao Generate no LAB-77.
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
+
+### LAB-136 · item 900 — a dívida própria: a `FILA.md` em dia, e dezenove prompts não tinham o seu lugar — ✅ **feito em 16/10/2026** (D364)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"`FILA.md`, `ONDE_PARAMOS.md` e `INDEX.md` em dia"* — os dois últimos têm trava (LAB-126 e LAB-118), esta página não tinha. Medido: a tabela da caixa parava no `012`; os itens `013` a `030` nunca tiveram linha, e o LAB-97 não tinha título. As dezoito linhas e o título entraram, com o texto de cada recado; a trava é `external-engines/esteira/src/a-fila-em-dia.ts`, que confere a página contra o `RECADOS.md` e contra a caixa. Relatório: [`../relatorios/LAB-136.md`](../relatorios/LAB-136.md).
 
 ### LAB-135 · item 900 — a dívida própria: `adapter/` é a única fronteira, e onze arquivos importavam o motor por fora — ✅ **feito em 16/10/2026** (D363)
 
@@ -929,6 +953,10 @@ Com a caixa só com o 900 e as propostas que não esperam ninguém esgotadas, pr
 própria, como o LAB-97 indicou. Achado da espécie **número digitado à mão**: *"698 travas"* em seis
 lugares, verde, contra **719** rodadas. Conserto: `tests/contar-as-travas.test.ts` reconta por
 execução. Relatório: [`../relatorios/LAB-98.md`](../relatorios/LAB-98.md).
+
+### LAB-97 · item 900 — a minha própria lista: a regra 2 do acesso ganhou guarda — ✅ **feito em 13/10/2026** (D324)
+
+O primeiro disparo do 900. A tarefa foi a proposta 1 do LAB-96 (*"a regra 2 do acesso não tem guarda que a cumpra no código"*), a única das abertas que não esperava ninguém. Este título faltava: os do 900 começavam no LAB-98, e só o LAB-136 o escreveu, a partir do relatório. Relatório: [`../relatorios/LAB-97.md`](../relatorios/LAB-97.md).
 
 ### LAB-61 · A dívida própria era ESTA LISTA — ✅ concluído em 07/10/2026 · **a fila ESGOTOU**
 
@@ -1887,7 +1915,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1186 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1200 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

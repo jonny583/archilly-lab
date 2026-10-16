@@ -129,7 +129,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // próprio teste e o `CLAUDE.md` DESTE repositório; a do clone mora no verde completo.
     // E 71 no LAB-135, com a `adapter-unica-fronteira.test.ts` — o código e os `tsconfig.json` DESTE
     // repositório (`git ls-files`); o apelido se resolve por aritmética de caminho, sem abrir clone.
-    expect(lista).toHaveLength(71);
+    // E 72 no LAB-136, com a `a-fila-em-dia.test.ts` — a `FILA.md`, o `RECADOS.md` e a pasta da caixa
+    // DESTE repositório; nenhum clone.
+    expect(lista).toHaveLength(72);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

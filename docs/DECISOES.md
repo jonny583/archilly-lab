@@ -11826,3 +11826,44 @@ pergunta **onde o clone mora**, não usa o motor) nem o Generate, que é o juiz 
 
 > **A REGRA QUE NINGUÉM COBRA JÁ ESTÁ QUEBRADA QUANDO ALGUÉM OLHA.** A primeira e a quarta linha da regra de ouro
 > ganharam trava sem achar defeito (LAB-132, LAB-134); a terceira, a primeira vez que alguém a mediu, tinha onze.
+
+## D364 · A `FILA.md` EM DIA — dezenove prompts não tinham o seu lugar nela, e quem responde é o `RECADOS.md` · 16/10/2026
+
+**Contexto:** item 900 (LAB-136). A caixa só tinha o `900`, e a FILA continuava sem proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, a das duas marcas de fim, do LAB-129, e a do `.wasm`, do LAB-135, esperam a
+leitura do chat; a 2 e a 3 do LAB-96 são mudança de contrato e dado que falta; a do LAB-78 espera o olho do Jonny).
+Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"`DECISOES.md`, `FILA.md`, `ONDE_PARAMOS.md` e
+`INDEX.md` em dia"*. O `ONDE_PARAMOS.md` tem a trava do LAB-126, o `INDEX.md` a do LAB-118, o `DECISOES.md` a do
+LAB-131. **A `FILA.md` não tinha nenhuma.**
+
+**Medido (LAB-136), primeiro por mutação:** a linha do item `012` apagada da tabela da caixa e o título do LAB-135
+trocado — e a suíte inteira da esteira deu **1 504 aprovadas e 9 reprovadas, as mesmas 9 de antes** (as do `.wasm`).
+**Depois, por LUGAR:** a página registra os prompts da caixa em dois lugares — a tabela da seção *"A IDA MUDOU DE
+LUGAR"*, uma linha por item numerado, e um título `### LAB-NN ·` por rodada do 900. Contra os **69** prompts com item
+no `RECADOS.md` (LAB-68 a LAB-135; o LAB-95 tem dois títulos), **19 não tinham o seu lugar**: a tabela parava no `012`
+(LAB-79) e os itens `013` a `030` — dezoito, LAB-80 a LAB-96 e LAB-113 — nunca tiveram linha; e o LAB-97, o primeiro
+do 900, não tinha título (os títulos começavam no LAB-98). A regra já estava quebrada, dezoito vezes seguidas.
+
+**Decidido:**
+
+1. **O conserto antes da trava:** as dezoito linhas, cada uma com o **título do recado** no `RECADOS.md` (não com
+   lembrança) e a ligação para o relatório, e o título do LAB-97, com a D324 do relatório dele. Uma nota abaixo da
+   tabela diz que entraram juntas, no LAB-136; as doze linhas de antes ficaram intocadas.
+2. `src/a-fila-em-dia.ts` (`conferirAFilaEmDia`, `lerATabela`, `lerOsTitulos`, `A_REGRA`). O universo sai da leitura
+   que já existe (`lerAsRodadas`, LAB-126) e, no outro sentido, da caixa: todo `NNN-FEITO.md` fora o `900`. Cinco
+   defeitos pelo nome — `item-sem-linha`, `linha-com-outro-prompt` (a linha não cita o prompt que o recado diz ter
+   fechado o item), `linha-de-item-aberto` (o ✅ contra a caixa), `novecentos-sem-titulo` e `sem-tabela` (a régua não
+   aprova por não ler).
+3. **Uma trava, no portão sem clones:** lê a `FILA.md`, o `RECADOS.md` e a pasta da caixa deste repositório.
+   `tests/a-fila-em-dia.test.ts`, catorze testes (1 186 → 1 200 travas no portão).
+
+**Os dois lados e as mutações:** seis mutações plantadas na página de verdade, seis acusadas pelo nome; dez no módulo,
+dez acusadas.
+
+**Descartado:** cobrar os prompts de antes da caixa (LAB-02 a LAB-67, sem item no recado) — a fila então era a porta
+de entrada e tinha outra forma, e oito deles nunca tiveram título próprio; é história, e não se reescreve. E cobrar o
+**texto** de cada linha, ou a ordem: é relato, e o relato mora no relatório.
+
+> **A PÁGINA QUE NINGUÉM RELÊ PARA DE ANDAR EM SILÊNCIO.** O relatório e o recado de cada rodada saíam porque havia
+> trava para eles; a linha da fila, sem trava, deixou de sair dezoito vezes — e ninguém viu, porque a fila deixou de ser
+> a porta de entrada e ninguém mais a abria para trabalhar.
