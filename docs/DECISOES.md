@@ -11371,3 +11371,50 @@ se o estado declarado é o verdadeiro (o mesmo limite da D352).
 
 > **O RESUMO É A PARTE DA PÁGINA QUE MAIS SE LÊ E A QUE MENOS SE REVÊ.** Pôr guarda nos títulos e deixar o
 > resumo de fora é guardar o que quem abre pela seção lê, e esquecer o que quem lê cinco minutos lê.
+
+## D354 · O CABEÇALHO DO ONDE_PARAMOS AFIRMA O ÚLTIMO PROMPT — e passa a ser perguntado ao RECADOS.md · 16/10/2026
+
+**Contexto:** item 900 (LAB-126). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, espera a leitura do chat). Fui à dívida própria, espécie **mensagem fixa que
+afirma estado sem perguntar**, no arquivo que o `CLAUDE.md` manda ler **primeiro**: a linha de cabeçalho de
+`docs/ONDE_PARAMOS.md` — *"**Última atualização:** … · **Último prompt executado:** LAB-NN (item NNN, …) — … ·
+antes dele o LAB-NN …"*. Três afirmações de estado (a data, o prompt com o item, a ordem dos anteriores), escritas
+à mão a cada rodada; o mesmo estado mora com forma fixa no `RECADOS.md` (o título `## DD/MM/AAAA · <prompt>` e o
+cabeçalho do recado). Dezessete módulos leem o `ONDE_PARAMOS.md`, e **nenhum lia o cabeçalho**.
+
+**Medido (LAB-126), na `main` e na história:** hoje as três batem (LAB-125, item 900, corrente de 29 elos igual à
+ordem dos títulos). Rodada a régua nas **151** versões da `main` (`--first-parent`) que mexeram num dos dois
+arquivos: **140** têm os dois arquivos e o cabeçalho na forma, e **139** saem limpas. A exceção é de verdade —
+**`76bfdcd`** (LAB-67, 09/10/2026, 00h01): o recado do LAB-67 gravado e o cabeçalho ainda dizendo *"LAB-66"*, assim
+por **13h20**, até o `093f6ae`. A primeira rodada acusou mais duas, e as duas eram defeito da régua (o título
+`LAB-83 (continuação) · decisao-registrada`, cujo recado não repete o item; o `LAB-13 e LAB-14`, de 19/09, que fecha
+dois prompts) — consertadas antes de virar trava.
+
+**Decidido:**
+
+1. `src/o-ultimo-prompt.ts` (`lerOCabecalho`, `lerAsRodadas`, `conferirOCabecalho`). O *"último prompt"* é o último
+   **título de prompt** do `RECADOS.md` pela forma única (`PROMPT_DO_LAB`) — título de classe (`despertador-sem-item`,
+   `decisao-registrada`) não é prompt executado, e o cabeçalho que fica no último prompt num disparo em vazio está
+   certo. Cobra: prompt diferente; item diferente do **primeiro** título daquele prompt; data do cabeçalho
+   **anterior** a esse título (posterior pode: o segundo despertador do LAB-95); e a corrente, elo a elo, contra a
+   sequência dos prompts **sem repetição**, mais novo primeiro — pode parar onde quiser, não pode pular nem trocar.
+   Cabeçalho sem a forma e `RECADOS.md` sem prompt reprovam: não há verde em zero.
+2. `tests/o-ultimo-prompt.test.ts` no portão sem clones (só lê dois arquivos deste repositório): as páginas de
+   verdade publicando o universo (118 rodadas de prompt, igual à contagem ingênua dos títulos; 29 elos; 0
+   problemas), a régua dos dois lados, e os quatro casos válidos que quase parecem inválidos que a história tem.
+   Treze mutações no módulo, **doze acusadas** e **uma neutra**, declarada: ler o item por prefixo (`LAB-12` casando
+   `LAB-125 (item …`) não tem onde morder — o cabeçalho começa pelo próprio prompt e o cabeçalho do recado tem um
+   prompt só. E duas plantadas na página de verdade (o cabeçalho no LAB-124; a corrente pulando um elo), as duas
+   acusadas. 1023 → 1039 travas no portão; o trabalho sem clones, 62 → 63 arquivos.
+
+**Descartado:** cobrar o **texto** de cada elo (é relato, e relato mora no relatório); cobrar a **hora** (o título do
+recado não tem hora); cobrar o *"próximo:"* (é intenção, não estado); e exigir que o cabeçalho cresça até o começo
+da história (a corrente para onde a rodada escolher — hoje no LAB-96 —, e encurtá-la não é afirmar nada falso).
+
+**O que se perde, dito:** o corpo do `ONDE_PARAMOS.md` abaixo do cabeçalho (a conta dos disparos tem a trava do
+LAB-81); se o recado diz a verdade — a régua confere que as duas páginas dizem a mesma coisa, não que a coisa
+aconteceu.
+
+> **O ARQUIVO QUE SE LÊ PRIMEIRO É O QUE MAIS PRECISA DIZER A MESMA COISA QUE O RESTO.** Quem acorda numa máquina
+> nova lê o cabeçalho antes de abrir qualquer outra página — e se ele estiver um prompt atrás, a rodada começa
+> refazendo o que já está feito.

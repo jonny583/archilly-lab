@@ -346,6 +346,18 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-126 · item 900 — a dívida própria: o cabeçalho do `ONDE_PARAMOS.md` afirma o último prompt — ✅ **feito em 16/10/2026** (D354)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, espera a leitura do
+chat); fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, na primeira linha do arquivo
+que se lê ao acordar: a data, o *"Último prompt executado"* com o item e a corrente *"antes dele o …"*, escritos à
+mão a cada rodada, e nenhum dos dezessete módulos que leem o `ONDE_PARAMOS.md` lia o cabeçalho. Rodada a régua nas
+151 versões da `main` que mexeram nele ou no `RECADOS.md`: 139 de 140 limpas, e a exceção é de verdade — `76bfdcd`
+(LAB-67, 09/10), 13h20 com o cabeçalho no LAB-66. `src/o-ultimo-prompt.ts` com `tests/o-ultimo-prompt.test.ts` no
+portão sem clones cobra prompt, item, data e corrente contra o `RECADOS.md`. Treze mutações no módulo, doze
+acusadas e uma neutra declarada; duas plantadas na página, duas acusadas; 1023 → 1039. Relatório:
+[`../relatorios/LAB-126.md`](../relatorios/LAB-126.md).
+
 ### LAB-125 · item 900 — a dívida própria: o resumo *"Em cinco minutos"* da página do Jonny afirmava estado sem perguntar — ✅ **feito em 16/10/2026** (D353)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, espera a leitura do
@@ -1735,7 +1747,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1023 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1039 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
