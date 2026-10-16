@@ -346,6 +346,21 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-134 · item 900 — a dívida própria: o Generate nunca depende disto, e quem responde passa a ser o Generate — ✅ **feito em 16/10/2026** (D362)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de
+fim, do LAB-129, esperam a leitura do chat); fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §3
+(*"O Generate nunca depende disto: `external-engines/` pode ser apagado"*). A metade desta casa tinha trava desde o
+LAB-06; a do Generate, nenhuma. Medido por mutação no clone do Generate (desfeita, `git status` limpo): uma dependência
+`github:jonny583/archilly-lab` no `package.json`, um `import` de `external-engines/` no arquivo que esta casa compila (e
+ele resolve) e a bateria citando o medidor que lê o Lab → **nenhuma** falha que fale da regra. Por LUGAR: 4
+configurações, 608 códigos, 2 248 importações, nenhuma do Lab; uma leitura declarada como exceção (o
+`scripts/medir-violacoes-do-testfit.ts`, fora da bateria). `src/generate-nao-depende.ts`, a trava sintética no portão
+sem clones e a do clone no verde completo; catorze mutações, catorze acusadas. Relatório:
+[`../relatorios/LAB-134.md`](../relatorios/LAB-134.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-133 · item 900 — a dívida própria: o Symbios roda em Node 22+ sem npm, e quem diz o que o Node aceita passa a ser o Node — ✅ **feito em 16/10/2026** (D361)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de
@@ -1849,7 +1864,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1141 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1163 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

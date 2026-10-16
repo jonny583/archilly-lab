@@ -11714,3 +11714,59 @@ fim; o `.js` da página do navegador não é desta régua.
 
 > **A PILHA QUE RODA O CÓDIGO NÃO É A PILHA QUE A REGRA PROMETE.** O Bun aceita mais do que o Node, e quem testava o
 > adaptador era só o Bun — a regra do Node não tinha ninguém do lado do Node.
+
+## D362 · O GENERATE NUNCA DEPENDE DISTO — e quem responde é o Generate · 16/10/2026
+
+**Contexto:** item 900 (LAB-134). A caixa só tinha o `900`, e a FILA continuava sem proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de fim, do LAB-129, esperam a leitura do chat; a 2 e a 3 do
+LAB-96 são mudança de contrato e dado que falta; a do LAB-78 espera o olho do Jonny). Fui à dívida própria, espécie
+**regra sem guarda**, no `CLAUDE.md` §3, a quarta linha da regra de ouro: *"O Generate nunca depende disto:
+`external-engines/` pode ser apagado."* A metade **desta casa** tem trava desde o LAB-06 (`entrega.test.ts`: nada de
+`entrega/` importa `external-engines/`, D70). **A metade do Generate não tinha ninguém** — nada lia o Generate para
+perguntar se ele passou a depender do Lab.
+
+**Medido (LAB-134), primeiro por mutação:** no clone do Generate (`18a7a6d`), três mudanças plantadas ao mesmo tempo e
+desfeitas por `git checkout` (o `git status` dele terminou limpo) — `"archilly-lab": "github:jonny583/archilly-lab"`
+nas dependências do `package.json`; `import "../../../../../archilly-lab/external-engines/esteira/src/forma.ts"` no
+`src/lib/contratos/motor-v1/index.ts`, que é o arquivo que **esta casa compila**; e o `scripts/diag-tudo.ts` citando
+o `scripts/medir-violacoes-do-testfit.ts`. A suíte inteira da esteira e o `typecheck` → **nenhuma falha que fale da
+regra**. O `typecheck` passou porque o `import` **resolve**: os dois clones moram lado a lado. Caiu uma só, a do §4
+(*"os clones somente-leitura estão limpos"*) — e ela não cai quando a mesma mudança chega **commitada** pela origem.
+**Depois, por LUGAR:** 1 114 arquivos versionados no Generate; 4 de configuração (`package.json`,
+`tsconfig.json`, `tsconfig.scripts.json`, `vendor/archilly-central/package.json`), nenhum cita o Lab; 608 de código,
+2 248 importações, nenhuma do Lab; e **uma** leitura do Lab no texto que roda: o `scripts/medir-violacoes-do-testfit.ts`
+(o medidor do GU-06), que lê as saídas de `docs/contratos/saidas/` e, sem a pasta, sai com código 2. O catálogo da
+família (`vendor/archilly-central/dist/familia.json`) cita o repositório — é dado, não dependência.
+
+**Decidido:**
+
+1. `src/generate-nao-depende.ts` (`conferirOGenerate`, `EXCECOES`, `A_REGRA`). Os lugares: **configuração**
+   (`package.json`, `tsconfig*.json`, `jsconfig.json`, `.gitmodules`, em qualquer pasta) que cite o Lab reprova; **o
+   especificador de importação** (lido pelo `Bun.Transpiler`) que cite o Lab reprova; **o código sem comentário** que
+   cite o Lab reprova, salvo exceção declarada. O comentário não conta (D142, D257): *dizer não é depender*.
+2. **A exceção vale com três condições**, cobradas: não lê `external-engines/`; **nenhum outro arquivo de código ou
+   configuração a cita pelo nome** (é o *"fora da bateria"* sem escrever a lista da bateria aqui); e ainda lê o Lab
+   (exceção que sobrou reprova, e a sem arquivo também). Universo vazio reprova (D213); código que não se lê reprova,
+   não pula.
+3. **Duas travas, em dois arquivos** (a lição do LAB-84): `tests/generate-nao-depende.test.ts`, só sintético, **no
+   portão sem clones**; `tests/generate-nao-depende-com-clone.test.ts`, contra o clone de verdade, no verde completo,
+   e sem o clone **reprova com a receita** (D124).
+
+**Os dois lados e as mutações:** catorze mutações no módulo, catorze acusadas — a caixa ignorada, a configuração nunca
+acusada, a importação nunca acusada, o comentário contando, o universo vazio aprovado, a exceção lendo
+`external-engines/`, a exceção citada ignorada, a exceção que sobrou, a sem arquivo, só o `tsconfig.json`, só o
+`package.json` da raiz, sem o `.gitmodules`, o código ilegível pulado, e a configuração que não cita a exceção.
+
+**Descartado:** escrever aqui a lista da bateria do Generate (envelhece no dia em que ele acrescentar uma guarda; *"nenhum
+outro arquivo a cita"* pergunta o mesmo sem lista); varrer os `.md` e os JSON de dados (citar não é depender);
+conferir pela execução — apagar o Lab e rodar a bateria do Generate (leva minutos, precisa do `tsx` e das dependências
+dele, e esta casa não instala nada no vizinho); procurar `symbios`/`packingsolver` (o Generate depender do motor é
+outra pergunta).
+
+**O que se perde, dito:** o arquivo do Lab **copiado** para dentro do Generate sem citar o caminho (apagar o Lab não o
+quebra, que é o que a regra protege); o `require()` sai como leitura e não como importação (o `Bun.Transpiler.scan`
+não o devolve em nenhum carregador — reprova do mesmo jeito, com outro nome); os ramos do Generate que não são o
+`HEAD` do clone.
+
+> **A REGRA QUE PROMETE PELO VIZINHO SE PERGUNTA AO VIZINHO.** A trava do LAB-06 olhava esta casa — e a dependência,
+> se nascer, nasce do outro lado da seta.

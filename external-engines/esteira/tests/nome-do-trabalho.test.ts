@@ -125,7 +125,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // repositório, lidos como texto; nenhum clone, nenhuma rede.
     // E 69 no LAB-132, com a `upstream-intocavel.test.ts` — o `git` DESTE repositório (`ls-files`,
     // `rev-parse HEAD:<pasta>`, `status`) e o `VERSION` do disco; nenhum clone, nenhuma rede.
-    expect(lista).toHaveLength(69);
+    // E 70 no LAB-134, com a `generate-nao-depende.test.ts` — só um Generate de mentira escrito no
+    // próprio teste e o `CLAUDE.md` DESTE repositório; a do clone mora no verde completo.
+    expect(lista).toHaveLength(70);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
