@@ -3124,3 +3124,16 @@ Próximo na fila: a caixa só tem o 900; a FILA fica sem proposta que não esper
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-120 — item 900 (a dívida própria): as contagens de desenho do CLAUDE.md
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-120 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only pela 17ª rodada seguida, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (número digitado à mão), no lugar que o LAB-119 declarou não alcançar. FEITA. Conferido aqui, não no GitHub: o portão sem clones 942 de 942; esteira 1 231 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: lidos os 29 números do CLAUDE.md fora do código e das citações literais; 16 contam um arquivo (o teto de doze linhas do recado, os doze caracteres do segredo, as oito consequências, as três faixas 3/20/200, o "4 dos 12" e o "8 dos 12", os sete passos, os dois trabalhos do CI, os DOIS passos de religar) e batiam TODOS — mas nenhum era conferido contra o arquivo, só copiado noutro teste (toBe(4), toBeLessThanOrEqual(12), toHaveLength(8)). src/contagens-do-claude.ts dá a cada número uma entrada (16 contagens, 13 "não conta" com motivo), e o trecho deixa o lugar do número em aberto ({n}), para a falha ser "conta diferente" e não "entrada sumida"; 13 travas, 13 mutações, 13 acusadas (2 só depois de travas novas); D348; 929 → 942; relatório LAB-120.
+Achados para outros apps ou Central: (0) CÓPIA QUE CONCORDA COM CÓPIA NÃO FOI CONFERIDA — o número da regra repetido num teste (toBe(4) ao lado de "4 dos 12") é a mesma afirmação duas vezes; vale para todo CLAUDE.md da família que diga "N coisas". (1) Régua de número por frase: deixar o lugar do número em aberto no trecho ("As {n}") faz a falha dizer o escrito e o contado, em vez de "trecho sumiu". (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (achado do LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a FILA continua sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
