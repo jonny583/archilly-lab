@@ -346,6 +346,21 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-133 · item 900 — a dívida própria: o Symbios roda em Node 22+ sem npm, e quem diz o que o Node aceita passa a ser o Node — ✅ **feito em 16/10/2026** (D361)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de
+fim, do LAB-129, esperam a leitura do chat); fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7
+(*"Symbios em Node 22+ sem npm; LAB-07 em Bun"*, D14). A esteira roda o adaptador no **Bun**, que aceita o que o Node
+recusa. Medido por mutação: um `enum`, uma propriedade de parâmetro e um `namespace` no `src/hash.ts` e um import
+relativo sem extensão numa ferramenta → **nenhuma** falha que fale da regra (caem só as duas contadoras do tamanho da
+árvore). Por LUGAR: dezesseis `.ts` no adaptador, onze de `src/` carregam no Node 22.22, e uma ferramenta importa pacote
+npm de propósito — a `prova-automatica.ts` (o passo do verde, no Bun, com o `playwright`), agora exceção declarada.
+`src/node-sem-npm.ts` com `tests/node-sem-npm.test.ts` no verde completo (o portão sem clones só instala o Bun; o
+`verde.yml` ganhou o Node 22 no verde completo). Dezesseis mutações, dezesseis acusadas. Relatório:
+[`../relatorios/LAB-133.md`](../relatorios/LAB-133.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-132 · item 900 — a dívida própria: o `upstream/` é intocável, e a árvore da cópia passa a ser cobrada — ✅ **feito em 16/10/2026** (D360)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de

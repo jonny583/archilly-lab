@@ -255,6 +255,13 @@ jobs:
         with:
           bun-version: "1.3.11"
 
+      # A regra do CLAUDE.md §7 é "Symbios em Node 22+ sem npm", e a trava dela
+      # (tests/node-sem-npm.test.ts, LAB-133) pergunta ao Node — o 22, não o que a
+      # imagem do runner trouxer. Sem ele a trava reprova com a receita.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       # O `.wasm` do Symbios NÃO é versionado, de propósito (o `.gitignore`
       # argumenta que binário velho no git é pior que binário ausente). Então o CI
       # o compila, com a mesma receita que o `conferir.sh` imprime quando ele falta.
