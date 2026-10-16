@@ -346,6 +346,19 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-121 · item 900 — a dívida própria: os ramos abertos, a lista que o protocolo manda manter — ✅ **feito em 16/10/2026** (D349)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); fui à
+dívida própria, espécie **regra sem guarda**, no próprio protocolo: o `COMO_FUNCIONA.md` manda manter
+`docs/RAMOS_ABERTOS.md`, e a página **nunca existiu** — nenhum commit —, e nada lia os ramos da origem. Medido com
+`git ls-remote`, a origem tinha a `main` e `claude/stoic-ritchie-ijzqy3`, inteiro na `main`: zero abertos, e o
+repositório dizia *"nada"*. A página nasceu com a tabela vazia; `src/ramos-abertos.ts` cruza página e origem nos
+dois sentidos, com a régua pura no portão sem clones (`tests/ramos-abertos.test.ts`) e a pergunta à origem fora
+dele (`tests/ramos-abertos-na-origem.test.ts`, que precisa da rede e da história). Dez mutações, dez acusadas;
+942 → 954. Relatório: [`../relatorios/LAB-121.md`](../relatorios/LAB-121.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-120 · item 900 — a dívida própria: as contagens de desenho do `CLAUDE.md` — ✅ **feito em 16/10/2026** (D348)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); fui à
@@ -1666,7 +1679,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 942 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 954 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

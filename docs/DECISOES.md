@@ -11155,3 +11155,47 @@ e a verdade do que se conta — a função diz QUANTOS, não se as oito de `CONS
 
 > **CÓPIA QUE CONCORDA COM CÓPIA NÃO FOI CONFERIDA.** Duas vezes o mesmo número, digitado em dois lugares,
 > é uma afirmação feita duas vezes — e nenhuma medição.
+
+## D349 · OS RAMOS ABERTOS TÊM UMA PÁGINA, E ELA É CONFERIDA CONTRA A ORIGEM — tabela vazia é zero medido, página ausente era nulo · 16/10/2026
+
+**Contexto:** item 900 (LAB-121). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém (a do LAB-117 espera a leitura do chat). Fui à dívida própria, espécie **regra sem guarda**, numa
+página que nenhuma régua da série lê: o próprio protocolo. O `COMO_FUNCIONA.md`, *"O que vai para ramo em vez
+da main"*, manda *"Mantenha a lista dos ramos abertos, com a pergunta de cada um, em `docs/RAMOS_ABERTOS.md`"*.
+
+**Medido (LAB-121), por LUGAR:** a página **nunca existiu** (`git log --all -- docs/RAMOS_ABERTOS.md` vazio);
+o nome aparece numa linha só do repositório, a da regra; nenhum `.ts` lia os ramos da origem. E a origem
+(`git ls-remote --heads origin`) tinha **dois** ramos: a `main` e `claude/stoic-ritchie-ijzqy3`, de onde saíram
+52 PRs, com a ponta no LAB-95 (12/10/2026) — **inteira** na `main`. Ramos abertos no sentido da regra: zero. O
+repositório dizia *"nada"* onde a resposta era *"zero"* — *zero é uma medição, nulo é "não medi"*, quatro seções
+abaixo no mesmo protocolo.
+
+**Decidido:**
+
+1. `docs/RAMOS_ABERTOS.md` nasce com a tabela (ramo, pergunta) **vazia**, e a página diz que vazia é *"nenhum"*
+   conferido — não a contagem do dia.
+2. `src/ramos-abertos.ts`: `lerAPagina` (sem a tabela, `null`, nunca lista vazia) e `conferirOsRamos`, nos dois
+   sentidos — ramo não mesclado sem linha; linha sem ramo na origem, de ramo já mesclado, sem pergunta,
+   repetida, ou da `main`. *"Não sei se mesclou"* (o objeto não está no clone) **reprova**.
+3. Duas travas: `tests/ramos-abertos.test.ts` (a régua pura e a página, **no portão sem clones**) e
+   `tests/ramos-abertos-na-origem.test.ts` (`git ls-remote` e `git merge-base --is-ancestor`, **fora** do portão:
+   precisa da rede e da história, e o `actions/checkout` traz a ponta sem história — todo ramo sairia *"não
+   sei"*). A viva publica o universo lido, e sem rede, sem `origin` ou sem o objeto falha com a receita do
+   passo 0.
+4. O `COMO_FUNCIONA.md` ganhou a nota de que a lista existe, abaixo do texto do chat, intocado.
+
+Dez mutações (quatro na página, três no módulo, três na trava viva — a `main` da origem recuada para antes do
+LAB-95, o objeto ausente, a rede ausente), dez acusadas. 942 → 954 travas no portão.
+
+**Descartado:** apagar o `claude/stoic-ritchie-ijzqy3` da origem (está inteiro na `main`, mas apagar é ato que
+não se desfaz, classe 2 do protocolo — e ramo mesclado não é aberto, então a regra não o pede); exigir que o
+nome do ramo seja a pergunta (leitura de sentido, régua de palavra não faz); contar ramo só local (a página
+serve ao chat, e o chat só vê a origem); escrever na página *"nenhum ramo aberto em 16/10"* (seria a mensagem
+fixa que afirma estado — a tabela vazia diz o mesmo e é conferida).
+
+**O que se perde, dito:** o nome-pergunta; o ramo que nunca subiu; e a trava viva não roda no CI (nem no
+`guardas-sem-clones`, que não tem a história, nem no verde completo enquanto o segredo não existir) — quem a
+roda é a sessão, no `conferir.sh`.
+
+> **PÁGINA QUE A REGRA MANDA EXISTIR E NÃO EXISTE NÃO DIZ "NENHUM": DIZ "NÃO OLHEI".** A lista vazia só
+> responde zero se alguém a conferiu contra o mundo.

@@ -139,6 +139,14 @@ quadra`, não `ajuste-invariante`. Mantenha a lista dos ramos abertos, com a
 pergunta de cada um, em `docs/RAMOS_ABERTOS.md`. Sem isso, em duas semanas há
 sete ramos e ninguém lembra o que cada um esperava.
 
+> **A lista existe desde o LAB-121 (16/10/2026, D349), e é conferida contra a origem.** Até ali a
+> página nunca tinha existido — nenhum commit — e nada lia os ramos da origem: com zero ramos
+> esperando pergunta, o repositório dizia *"nada"* (não medi) onde a resposta era *"zero"* (medi).
+> A página é [`docs/RAMOS_ABERTOS.md`](../RAMOS_ABERTOS.md), uma tabela de ramo e pergunta; a
+> trava `external-engines/esteira/tests/ramos-abertos-na-origem.test.ts` lê `git ls-remote` a cada
+> verde e reprova nos dois sentidos — ramo não mesclado sem linha, e linha de ramo que não existe ou
+> que já entrou na `main`. *(Acrescentado por mim no LAB-121; o texto do chat acima está intocado.)*
+
 ## O que não mudou
 
 Tudo o que já valia continua valendo, e nada aqui revoga o `CLAUDE.md`:

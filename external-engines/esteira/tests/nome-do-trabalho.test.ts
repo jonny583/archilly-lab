@@ -103,7 +103,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // lidos como texto; nenhum clone.
     // E 58 no LAB-120, com a `contagens-do-claude.test.ts` — o `CLAUDE.md` e arquivos DESTE
     // repositório, lidos como texto; nenhum clone.
-    expect(lista).toHaveLength(58);
+    // E 59 no LAB-121, com a `ramos-abertos.test.ts` — a régua pura e `docs/RAMOS_ABERTOS.md`,
+    // lidos como texto; nenhum clone, nenhuma rede (a metade que pergunta à origem fica fora).
+    expect(lista).toHaveLength(59);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-16T02:23:02.101Z",
+  "quando": "2026-10-16T03:19:52.878Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -547,12 +547,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 02:05:55 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-120), tarefa da **dívida própria** (a FILA sem proposta que não espere ninguém): as contagens de desenho do `CLAUDE.md`",
         "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 03:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 03:06:06 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-121), tarefa da **dívida própria** (a FILA sem proposta que não espere ninguém): a página dos ramos abertos, que o protocolo manda manter, conferida contra a origem",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 67,
+      "noRegistro": 68,
       "observados": 38,
-      "derivados": 22,
+      "derivados": 23,
       "emLote": 7,
       "emVazio": 5
     },
