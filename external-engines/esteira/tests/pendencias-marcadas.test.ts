@@ -14,6 +14,11 @@
  * **LAB-125 (item 900) · o resumo do alto também afirma estado** (D353): a tabela *"Em cinco
  * minutos"*, que o LAB-124 declarou não alcançar, dizia *"Ficam faltando três coisas"* com duas
  * paradas desde 12/10. Os três últimos blocos desta trava a cobram.
+ *
+ * **LAB-137 (item 900) · a dívida técnica não entra na página** (D365): a outra metade do §5, sem
+ * trava até aqui — uma pendência de refatoração declarada passava em tudo. A declaração ganhou o
+ * campo `dono`, sem valor para dívida técnica, e os quatro últimos blocos o cobram
+ * (`src/o-que-e-dele.ts`).
  */
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
@@ -31,6 +36,14 @@ import {
   lerOsTitulos,
   temMarcaDeResolvida,
 } from "../src/pendencias-marcadas.ts";
+import {
+  A_REGRA,
+  PALAVRA_DA_CLASSE,
+  conferirODono,
+  eTituloDeOficina,
+  lerAsCincoClasses,
+  lerOAlto,
+} from "../src/o-que-e-dele.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const PAGINA = readFileSync(join(RAIZ, "docs", "PENDENCIAS_JONNY.md"), "utf8");
@@ -302,5 +315,136 @@ describe("LAB-125 · a contagem por extenso — o caso válido que quase parece 
     expect(t("Ficam faltando **três** coisas")).toEqual([{ palavra: "três", n: 3 }]);
     expect(t("e por isso **fica faltando uma** coisa")).toEqual([{ palavra: "uma", n: 1 }]);
     expect(t("Fica faltando nada.")).toEqual([{ palavra: "nada", n: 0 }]);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════════════════════════════════════
+//  LAB-137 · a dívida técnica não entra na página do Jonny (D365)
+// ═══════════════════════════════════════════════════════════════════════════════════════════════
+
+const COMO_FUNCIONA = readFileSync(join(RAIZ, "docs", "caixa-de-entrada", "COMO_FUNCIONA.md"), "utf8");
+const CLAUDE = readFileSync(join(RAIZ, "CLAUDE.md"), "utf8");
+const dono = (pagina: string, como = COMO_FUNCIONA, pend = PENDENCIAS): string[] =>
+  conferirODono(pagina, como, pend).problemas.map((p) => `${p.tipo}:${p.onde}`);
+
+describe("LAB-137 · a página de verdade — toda pendência tem dono, e nenhum é 'minha dívida'", () => {
+  const r = conferirODono(PAGINA, COMO_FUNCIONA);
+
+  test("o universo: as 19 declarações, os mesmos títulos da régua do LAB-124, e a conta por dono", () => {
+    console.log(`    ${r.pendencias} declaradas · ${r.titulos} títulos · por dono: ${JSON.stringify(r.porDono)}`);
+    expect(r.pendencias).toBe(PENDENCIAS.length);
+    expect(r.titulos).toBe(conferirAsPendencias(PAGINA).titulos);
+    expect(r.pendencias).toBeGreaterThanOrEqual(19);
+    const soma = Object.values(r.porDono).reduce((a, b) => a + b, 0);
+    expect(soma).toBe(r.pendencias);
+  });
+
+  test("nenhum problema — e a lista diz QUAIS, se houver", () => {
+    expect(r.problemas).toEqual([]);
+  });
+
+  test("a regra continua escrita no CLAUDE.md §5 e no alto da página — a trava cobra uma regra que existe", () => {
+    expect(CLAUDE).toContain(A_REGRA);
+    expect(PAGINA).toContain("Dívida técnica **do código** é minha e não entra nesta lista");
+  });
+
+  test("os três informes são os avisos que se dizem avisos (§5, §6, §9-C)", () => {
+    expect(PENDENCIAS.filter((p) => p.dono === "informe").map((p) => p.numero)).toEqual(["5", "6", "9-C"]);
+  });
+});
+
+describe("LAB-137 · a régua do dono dos dois lados — cada defeito plantado é acusado pelo nome", () => {
+  const comPendencia = (titulo: string): string =>
+    PAGINA.replace("## Já resolvidos", `## 20 · ${titulo}\n\nTexto.\n\n---\n\n## Já resolvidos`);
+  const declarar = (d: Partial<(typeof PENDENCIAS)[number]>) => [
+    ...PENDENCIAS,
+    { numero: "20", chave: "Refatorar", estado: "aberta" as const, fonte: "mutação do teste", dono: "urbanismo-ou-negocio" as const, ...d },
+  ];
+
+  test("a mutação que criou a régua: uma refatoração declarada — o título de oficina é acusado", () => {
+    const p = comPendencia("Refatorar `src/forma.ts` e subir a cobertura dos testes");
+    expect(dono(p, COMO_FUNCIONA, declarar({}))).toEqual(["titulo-de-oficina:20"]);
+    // e a régua do LAB-124, sozinha, a deixava passar — o defeito medido
+    expect(conferirAsPendencias(p, declarar({})).problemas).toEqual([]);
+  });
+
+  test("pergunta declarada como informe → pergunta-sem-classe", () => {
+    const p = comPendencia("Refatorar a régua de forma? Que tal?");
+    expect(dono(p, COMO_FUNCIONA, declarar({ dono: "informe" }))).toEqual(["pergunta-sem-classe:20", "titulo-de-oficina:20"]);
+    const so = PENDENCIAS.map((x) => (x.numero === "8" ? { ...x, dono: "informe" as const } : x));
+    expect(dono(PAGINA, COMO_FUNCIONA, so)).toEqual(["pergunta-sem-classe:8"]);
+  });
+
+  test("aviso declarado informe que não diz que é aviso → informe-sem-aviso", () => {
+    const p = PAGINA.replace("Não é pendência sua — **é do chat e dos outros aplicativos**.", "É do chat e dos outros aplicativos.");
+    expect(p).not.toBe(PAGINA);
+    expect(dono(p)).toEqual(["informe-sem-aviso:6"]);
+  });
+
+  test("o 'não' em negrito do título da §5 ainda conta — e tirá-lo é acusado", () => {
+    expect(lerOAlto(PAGINA, "5")).toContain("não depende de você");
+    const p = PAGINA.replace("## 5 · O que **não** depende de você", "## 5 · O que depende de você");
+    expect(dono(p, COMO_FUNCIONA, PENDENCIAS.map((x) => (x.numero === "5" ? { ...x, chave: "O que depende" } : x)))).toEqual([
+      "informe-sem-aviso:5",
+    ]);
+  });
+
+  test("o aviso só vale no ALTO da seção: dito no terceiro parágrafo, não conta", () => {
+    const p = PAGINA.replace(
+      "Não é pendência sua — **é do chat e dos outros aplicativos**. Fica aqui para você\nsaber que existe.",
+      "É do chat e dos outros aplicativos. Fica aqui para você saber que existe.\n\nMais.\n\nNão é pendência sua.",
+    );
+    expect(p).not.toBe(PAGINA);
+    expect(dono(p)).toEqual(["informe-sem-aviso:6"]);
+  });
+
+  test("o aviso sob um subtítulo não é o alto da seção: o alto acaba no primeiro título", () => {
+    const p = PAGINA.replace(
+      "Não é pendência sua — **é do chat e dos outros aplicativos**. Fica aqui para você\nsaber que existe.",
+      "### Um subtítulo\nNão é pendência sua.",
+    );
+    expect(p).not.toBe(PAGINA);
+    expect(dono(p)).toEqual(["informe-sem-aviso:6"]);
+  });
+
+  test("a COMO_FUNCIONA com uma classe a menos, ou a mais, ou trocada → classes-divergem", () => {
+    const menos = COMO_FUNCIONA.replace(/^5\. \*\*É decisão de urbanismo.*$/m, "");
+    expect(dono(PAGINA, menos)).toEqual(["classes-divergem:4 itens na lista"]);
+    const mais = COMO_FUNCIONA.replace("Fora dessas cinco", "6. **Mexe no despertador.**\n\nFora dessas cinco");
+    expect(dono(PAGINA, mais)).toEqual(["classes-divergem:6 itens na lista"]);
+    const trocada = COMO_FUNCIONA.replace("Toca segurança", "Toca o servidor");
+    expect(dono(PAGINA, trocada)).toEqual(["classes-divergem:seguranca: 0"]);
+    const emDois = COMO_FUNCIONA.replace("Essas são dele por definição.", "Essas são dele, e custam dinheiro.");
+    expect(emDois).not.toBe(COMO_FUNCIONA);
+    expect(dono(PAGINA, emDois)).toEqual(["classes-divergem:dinheiro: 2"]);
+    const semSecao = COMO_FUNCIONA.replace("## O que você NÃO faz sozinho", "## Outra coisa");
+    expect(dono(PAGINA, semSecao)).toEqual(["classes-divergem:0 itens na lista"]);
+  });
+});
+
+describe("LAB-137 · o caso válido que quase parece inválido", () => {
+  test("título de leigo com palavra parecida passa: 'testada', 'a lista dos lotes', 'listar', '1,5 km'", () => {
+    for (const t of ["A testada mínima do lote", "a lista dos lotes que sobram", "listar as ruas", "3 vezes, ou 1,5 km?", "O rio corta o terreno"]) {
+      expect(eTituloDeOficina(t), t).toBe(false);
+    }
+    for (const t of ["subir a `src/x`", "o arquivo `prova.json`", "rodar o lint", "o typecheck", "Refatoração da ponte", "os tests/ do motor"]) {
+      expect(eTituloDeOficina(t), t).toBe(true);
+    }
+  });
+
+  test("a lista das cinco classes é lida com as linhas de continuação, e cada palavra cai num item só", () => {
+    const c = lerAsCincoClasses(COMO_FUNCIONA)!;
+    expect(c).toHaveLength(5);
+    expect(c[3]).toContain("isso nunca desce ao navegador"); // a continuação do item 4
+    for (const [k, w] of Object.entries(PALAVRA_DA_CLASSE)) {
+      expect(c.filter((x) => x.toLowerCase().includes(w.toLowerCase())), k).toHaveLength(1);
+    }
+  });
+
+  test("informe de pendência que sumiu da página não é acusado aqui — é da régua do LAB-124 (apagada)", () => {
+    const p = PAGINA.replace(/^### 9-C · .*$/m, "### X · fora da numeração");
+    expect(p).not.toBe(PAGINA);
+    expect(dono(p)).toEqual([]);
+    expect(conferirAsPendencias(p).problemas.map((x) => x.tipo)).toContain("apagada");
   });
 });

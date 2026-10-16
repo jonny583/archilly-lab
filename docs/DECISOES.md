@@ -11867,3 +11867,48 @@ de entrada e tinha outra forma, e oito deles nunca tiveram título próprio; é 
 > **A PÁGINA QUE NINGUÉM RELÊ PARA DE ANDAR EM SILÊNCIO.** O relatório e o recado de cada rodada saíam porque havia
 > trava para eles; a linha da fila, sem trava, deixou de sair dezoito vezes — e ninguém viu, porque a fila deixou de ser
 > a porta de entrada e ninguém mais a abria para trabalhar.
+
+## D365 · A DÍVIDA TÉCNICA NÃO ENTRA NA PÁGINA DO JONNY — e a régua do LAB-124 até a ajudava a entrar · 16/10/2026
+
+**Contexto:** item 900 (LAB-137). A caixa só tinha o `900`, e a FILA continuava sem proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, a das duas marcas de fim, do LAB-129, e a do `.wasm`, do LAB-135, esperam a
+leitura do chat). Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §5: *"`docs/PENDENCIAS_JONNY.md` é
+escrito para leigo; item resolvido é marcado, nunca apagado, e **dívida técnica não entra lá**"*. A primeira metade tem
+a trava do LAB-124 (D352); **a segunda não tinha nenhuma** — nenhum `.ts` cita a frase.
+
+**Medido (LAB-137), primeiro por mutação:** na página de verdade, uma pendência nova *"20 · Refatorar `src/forma.ts` e
+subir a cobertura dos testes"*, declarada na lista do LAB-124 como `aberta` → a suíte inteira da esteira deu **as mesmas
+9 falhas** de antes (as do `.wasm`), mais as duas provas que contam linhas da árvore (LAB-52, LAB-57), que reprovam com
+qualquer mudança em `src/` e não falam da regra. A régua do LAB-124 até ajudava a dívida a entrar: pedia que ela fosse
+**declarada**, e declarada ela passava. **Depois, por LUGAR:** as 19 pendências numeradas de hoje, uma a uma — **nenhuma é
+dívida técnica**: 14 de urbanismo ou negócio, a §8 de dinheiro, a §11 de segurança, e três avisos (§5, §6, §9-C) que
+dizem, na própria seção, que não são pergunta. Cumprida por disciplina.
+
+**Decidido:**
+
+1. **Pela estrutura, não pela palavra** (D239, LAB-73: trava de palavra deixa passar 8 de 12): a `DeclaracaoDePendencia`
+   ganhou o campo **`dono`** (`DonoDaPendencia`), cujos valores são **as cinco classes que param** da
+   `docs/caixa-de-entrada/COMO_FUNCIONA.md` e o `informe`. **Não existe valor para dívida técnica**: quem quiser pôr uma
+   na página tem de escrever, numa linha revisável, que ela gasta dinheiro, não tem volta, muda promessa, toca segurança
+   ou é urbanismo.
+2. `src/o-que-e-dele.ts` (`conferirODono`, `lerOAlto`, `lerAsCincoClasses`, `eTituloDeOficina`, `A_REGRA`). Quatro
+   defeitos pelo nome: `pergunta-sem-classe` (pendência aberta, parada ou resolvida declarada `informe`),
+   `informe-sem-aviso` (o informe não diz, no título ou no primeiro parágrafo, que não é pergunta), `titulo-de-oficina`
+   (caminho de código ou palavra de oficina num título — o sintoma que a palavra **alcança**, e a página é para leigo) e
+   `classes-divergem` (a lista da `COMO_FUNCIONA.md` não tem cinco itens, ou uma classe não tem a sua palavra num item
+   só — o tipo e o protocolo mudam juntos).
+3. **No portão sem clones**, no mesmo arquivo de teste do LAB-124 e do LAB-125
+   (`tests/pendencias-marcadas.test.ts`, 40 → 54 testes): **1 200 → 1 214** travas, 72 arquivos.
+
+**Os dois lados e as mutações:** a mutação que criou a régua é acusada (`titulo-de-oficina:20`), com a régua do
+LAB-124 dizendo zero ao lado; onze mutações no módulo, **oito** acusadas na primeira rodada; as duas que sobreviveram
+(a palavra de uma classe em dois itens; o alto da seção lido além do primeiro título) viraram teste e passaram a ser
+acusadas; a décima primeira (tirar a fronteira `\b` de `src/`) é **equivalente** para título de leigo e fica declarada.
+
+**Descartado:** decidir sozinho se a §6 (o que o Lab achou nos **outros** aplicativos) sai da página — ela se diz aviso,
+e é dívida técnica dos vizinhos, não *"do código"* daqui; é pergunta de forma da página dele, **proposta ao chat**. E
+cobrar o corpo das seções: uma seção de urbanismo cita código no relato (a §7 cita), e acusar isso seria régua larga.
+
+> **A RÉGUA QUE EXIGE DECLARAR TAMBÉM APROVA O QUE FOI DECLARADO.** A trava do LAB-124 fez toda pendência nova nascer
+> numa lista — e com isso uma refatoração bem declarada passava com selo. Declaração sem campo para dizer *de quem* é a
+> coisa não separa o que é dele do que é meu.

@@ -366,6 +366,14 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-137 · item 900 — a dívida própria: a dívida técnica não entra na página do Jonny — ✅ **feito em 16/10/2026** (D365)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §5: *"item resolvido é marcado, nunca apagado, e dívida técnica não entra lá"* — a primeira metade tem a trava do LAB-124, a segunda não tinha nenhuma. Medido por mutação: uma pendência de refatoração, declarada, passava em tudo. Por LUGAR, as 19 pendências de hoje: nenhuma é dívida técnica. A declaração do LAB-124 ganhou o campo `dono` — as cinco classes que param, da `COMO_FUNCIONA.md`, e o `informe` —, sem valor para dívida técnica; a trava é `external-engines/esteira/src/o-que-e-dele.ts`. Relatório: [`../relatorios/LAB-137.md`](../relatorios/LAB-137.md).
+
+**Proposto ao chat, saído do LAB-137:** a **§6** da página do Jonny (*"O que o laboratório descobriu — e o que já foi consertado"*) é aviso do que o Lab achou nos **outros** aplicativos — a altura do terreno no Generate, a nascente e o rumo do rio no Geo. Ela se diz *"não é pendência sua"* e por isso passa na trava (é dívida técnica dos vizinhos, não *"do código"* daqui, que é o que a página exclui). Se ela deve continuar na página dele ou ir para um relatório é pergunta de forma da página, e a página é escrita para ele; não executado.
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-136 · item 900 — a dívida própria: a `FILA.md` em dia, e dezenove prompts não tinham o seu lugar — ✅ **feito em 16/10/2026** (D364)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"`FILA.md`, `ONDE_PARAMOS.md` e `INDEX.md` em dia"* — os dois últimos têm trava (LAB-126 e LAB-118), esta página não tinha. Medido: a tabela da caixa parava no `012`; os itens `013` a `030` nunca tiveram linha, e o LAB-97 não tinha título. As dezoito linhas e o título entraram, com o texto de cada recado; a trava é `external-engines/esteira/src/a-fila-em-dia.ts`, que confere a página contra o `RECADOS.md` e contra a caixa. Relatório: [`../relatorios/LAB-136.md`](../relatorios/LAB-136.md).
@@ -1915,7 +1923,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1200 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1214 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
