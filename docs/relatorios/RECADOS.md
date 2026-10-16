@@ -3150,3 +3150,16 @@ Próximo na fila: a caixa só tem o 900; a FILA continua sem proposta que não e
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-122 — item 900 (a dívida própria): a rotina no GitHub, o passo 2 do desligamento
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-122 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only pela 19ª rodada seguida, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar). FEITA. Conferido aqui, não no GitHub: o portão sem clones 972 de 972; esteira 1 263 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o CI foi desligado em 08/10 em DOIS passos (gatilho comentado E rotina desabilitada no GitHub); só o 1º tinha trava. Nos 303 arquivos vivos a rotina é afirmada `disabled_manually` em 4 lugares e o id 374646435 digitado em 3, e nada perguntava ao GitHub. Perguntada a API pública, sem chave: as 7 estavam certas — por sorte. src/a-rotina-no-github.ts cobra o par (gatilho ligado ⇔ rotina active: o passo pela metade, nos dois sentidos), estado e id contra os perguntados, e o espelho (desligada sem ninguém dizendo); a régua pura no portão, a pergunta à API (rede) no conferir.sh. 12 mutações, 12 acusadas; D350; 954 → 972; relatório LAB-122.
+Achados para outros apps ou Central: (0) ESTADO QUE MORA FORA DA ÁRVORE NÃO SE CONFERE LENDO A ÁRVORE — medido nos três clones que leio, na origin/main: o Laboratório de Parcelamento afirma `disabled_manually` em docs/ROTINAS_DESLIGADAS.md e nenhum arquivo dele pergunta à API; o Geo DECLARA o limite na própria régua (rotina-nao-fica-desligada-calada.test.ts: "o estado no painel do GitHub… nenhum teste local vê isso", medido à mão em 09/10, as duas active); o Generate não tem rotina. Repositório público responde sem chave; privado precisaria de chave — e chave em trava é decisão de cada casa. As outras oito não medi. (1) Para quem for religar: o verde.yml diz que o workflow_dispatch "segue ligado para rodar à mão" com a rotina desabilitada — provavelmente não roda, NÃO TESTADO (testar seria disparar). (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (achado do LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a FILA continua sem proposta que não espere ninguém (a do LAB-117 espera a leitura do chat); o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
