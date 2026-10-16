@@ -346,6 +346,20 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-132 · item 900 — a dívida própria: o `upstream/` é intocável, e a árvore da cópia passa a ser cobrada — ✅ **feito em 16/10/2026** (D360)
+
+Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de
+fim, do LAB-129, esperam a leitura do chat); fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §3
+(*"`upstream/` é intocável: cópia exata, commit e data em `VERSION`; sem patch"*). Seis réguas deixam o `upstream/` de
+fora por ele ser intocável, e nenhuma conferia que ele continuava intocado. Medido por mutação: uma linha acrescentada
+ao `src/lib.rs` do Symbios, um arquivo novo ao lado e o `Commit:` apagado do `VERSION` → **zero** falhas novas na suíte
+inteira. Por LUGAR: uma pasta `upstream` versionada, 25 arquivos, a árvore no `HEAD` igual à do commit que a trouxe
+(`f61be91`, LAB-00), e nenhum outro commit, em ramo nenhum, a tocou. `src/upstream-intocavel.ts` com
+`tests/upstream-intocavel.test.ts` no portão sem clones. Doze mutações, doze acusadas, e o patch commitado de verdade
+acusado pela árvore; 1124 → 1141. Relatório: [`../relatorios/LAB-132.md`](../relatorios/LAB-132.md).
+
+**A FILA continua sem proposta que não espere ninguém**; o próximo disparo só com o `900` vai à dívida própria.
+
 ### LAB-131 · item 900 — a dívida própria: a decisão é numerada, e a sequência do `DECISOES.md` passa a ser cobrada — ✅ **feito em 16/10/2026** (D359)
 
 Caixa só com o 900 e a FILA sem proposta que não espere ninguém (a da *"linha"*, do LAB-123, e a das duas marcas de
@@ -1820,7 +1834,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1124 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1141 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

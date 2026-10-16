@@ -3280,3 +3280,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-132 — item 900 (a dívida própria): o upstream/ é intocável, e a árvore da cópia passa a ser cobrada
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-132 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo; segui a receita do passo 0 na ordem dela, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §3. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1141 de 1141 (69 de 69 arquivos passam sem os clones, lab84); esteira 1 432 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — o proxy recusa o rustup), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106..
+Feito: o §3 abre a regra de ouro por "upstream/ é intocável: cópia exata, commit e data em VERSION; sem patch", e seis réguas pulavam o upstream/ POR ele ser intocável sem nenhuma conferir que continuava. Medido por mutação antes da régua: uma linha no src/lib.rs do Symbios, um arquivo novo ao lado e o Commit: apagado do VERSION → ZERO falhas novas na suíte inteira. Por LUGAR: uma pasta upstream versionada, 25 arquivos, a árvore no HEAD igual à do commit que a trouxe (f61be91, LAB-00), e um commit só a tocou, em todos os ramos. src/upstream-intocavel.ts (árvore registrada, nada diferente do HEAD, VERSION com commit e data); 12 mutações no módulo, 12 acusadas, e o patch COMMITADO de verdade (worktree descartável) acusado pela árvore; D360; 1124 → 1141; detalhe em docs/relatorios/LAB-132.md.
+Achados para outros apps ou Central: (0) O QUE A CASA PULA POR SER INTOCÁVEL É O QUE NINGUÉM OLHA — toda casa que tem pasta "não editar" (vendor/archilly-central nas casas, src/components/ui do Lovable) pode medir o mesmo: a pasta é pulada pelas réguas, e quem confere que ela não mudou? A árvore do git no HEAD resolve sem rede. Não medi as vizinhas. (1) A pergunta da "linha" (LAB-123) e a das duas marcas de fim (LAB-129) seguem esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

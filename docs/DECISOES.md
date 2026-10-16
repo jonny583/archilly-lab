@@ -11629,3 +11629,42 @@ decisão; a citação de outra casa que cai num número que existe aqui.
 
 > **NÚMERO QUE TODOS CITAM E NINGUÉM CONFERE É ENDEREÇO SEM CARTEIRO.** A casa escreve *"(D358)"* em cinco páginas
 > por rodada; apagar a D358 deixava as cinco apontando para o nada, e nada reprovava.
+
+## D360 · O `upstream/` É INTOCÁVEL — a árvore da cópia de motor de fora passa a ser cobrada · 16/10/2026
+
+**Contexto:** item 900 (LAB-132). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse ninguém (a
+da *"linha"*, do LAB-123, e a das duas marcas de fim, do LAB-129, esperam a leitura do chat). Fui à dívida própria,
+espécie **regra sem guarda**, no `CLAUDE.md` §3, a regra de ouro: *"`upstream/` é intocável: cópia exata, commit e
+data em `VERSION`; sem patch."* O que existia lia o `VERSION` (a versão e o nome, `identidade.test.ts`) e **pulava** o
+`upstream/` nas varreduras de texto, justamente por ele ser intocável. Nada perguntava se ele continuava intocado.
+
+**Medido (LAB-132), primeiro por mutação:** a suíte inteira da esteira com três mudanças plantadas ao mesmo tempo em
+`external-engines/symbios/upstream/` — uma linha acrescentada ao `src/lib.rs`, um arquivo novo `src/patch.rs` e a
+linha `Commit:` apagada do `VERSION` → **0** falhas novas (1 415 aprovadas e 9 reprovadas, as do `.wasm`, as mesmas
+de antes). **Depois, por LUGAR:** todo arquivo versionado com um segmento `upstream` no caminho — **uma** pasta, a do
+Symbios, 25 arquivos. A árvore dela no `HEAD` é `7ea7b17aadf2fa9fb998a8ce7eb0a39b590dd21b`, **a mesma** do commit que a
+trouxe (`f61be91`, LAB-00, 09/09/2026); `git log --all` sobre a pasta acha **um** commit, esse. O `VERSION` diz o
+commit do upstream (40 caracteres), a data dele e a data da cópia.
+
+**Decidido:**
+
+1. `src/upstream-intocavel.ts` (`COPIAS_DE_UPSTREAM`, `pastasDeUpstream`, `oVersionDiz`, `conferirOUpstream`). Toda
+   pasta `upstream` versionada tem linha no registro, e toda linha tem pasta; a árvore dela no `HEAD` é a registrada;
+   nada na pasta difere do `HEAD` (`git status --porcelain --untracked-files=all`); o `VERSION` existe e diz o commit
+   de 40 caracteres e uma data. O que o `.gitignore` ignora (`target/`) é saída de build, não patch.
+2. **Trocar a cópia por uma versão nova do motor é ato deliberado:** o `VERSION` novo, a árvore nova no registro e uma
+   decisão, no mesmo commit.
+3. `tests/upstream-intocavel.test.ts`, no portão sem clones — ele lê o `git` desta casa, e o clone raso do CI tem a
+   árvore do `HEAD` inteira.
+
+**Descartado:** conferir contra o upstream de verdade (pede rede e o repositório de outra pessoa; a régua confere que
+a cópia não mudou **desde que entrou**, e que ela entrou exata quem atesta é o `VERSION`); conferir a história no teste
+(o CI clona raso — D293, D344; a medida fica no relatório); um resumo próprio dos bytes em vez da árvore do `git` (o
+`git` já resume cada byte, nome e modo, e a casa inteira já confia nele); procurar outros nomes de pasta de terceiros
+(`vendor/`, `third_party/`) — a regra diz `upstream/`.
+
+**O que se perde, dito:** um patch commitado e desfeito depois volta à mesma árvore e passa (é a história); que a cópia
+tenha nascido exata.
+
+> **O QUE A CASA PULA POR SER INTOCÁVEL É O QUE NINGUÉM OLHA.** Seis réguas deixavam o `upstream/` de fora, com o
+> motivo certo; nenhuma conferia o motivo.
