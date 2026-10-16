@@ -78,7 +78,13 @@ linha no código, e trocá-la é trocar dois números.
 
 ---
 
-## 1 · Confirme o número: "desproporcional" é 3 vezes, ou 1,5 km?
+## 1 · ~~Confirme o número: "desproporcional" é 3 vezes, ou 1,5 km?~~ — **você respondeu em 02/10/2026**
+
+> ✅ **Respondido por você em 02/10/2026, e valendo** (D84): é **3 vezes a distância direta OU 1,5 km
+> a mais de percurso**, qualquer um dos dois. **O que está abaixo é a pergunta como ela estava** —
+> inclusive o *"enquanto não vier, nenhuma travessia é proposta"*, que deixou de valer no dia da sua
+> resposta. O título ficou sem a marca por 14 dias; marquei em 16/10/2026, e agora uma conferência
+> automática avisa se alguma pergunta respondida desta página ficar sem a marca. Nada a fazer.
 
 **O que a sua regra diz.** A rua tenta primeiro dar a volta na área de
 preservação. Só quando esse contorno for **desproporcional** é que a travessia

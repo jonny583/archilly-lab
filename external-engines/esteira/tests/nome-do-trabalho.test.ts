@@ -109,7 +109,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // repositório, lidos por `git ls-files`; nenhum clone, nenhuma rede (a pergunta ao GitHub fica fora).
     // E 61 no LAB-123, com a `marca-de-feito.test.ts` — a régua pura e os `-FEITO.md` da caixa DESTE
     // repositório, lidos como texto; nenhum clone, nenhuma rede.
-    expect(lista).toHaveLength(61);
+    // E 62 no LAB-124, com a `pendencias-marcadas.test.ts` — a régua pura e a página do Jonny DESTE
+    // repositório, lida como texto; nenhum clone, nenhuma rede.
+    expect(lista).toHaveLength(62);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
