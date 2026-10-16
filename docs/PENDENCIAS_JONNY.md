@@ -58,12 +58,16 @@ nenhuma**, porque não tinha como saber quando ela se justifica. Agora tem.
 nos quatro motores, e a sua razão para a rua só avisar foi para dentro do código
 com as suas palavras.
 
-**Ficam faltando três coisas, e as duas primeiras são de olhar e dizer:**
+> **Nota de 16/10/2026 (LAB-125):** a frase e a tabela abaixo ficaram como estavam antes do seu pedido
+> de 12/10 — só ganharam a marca. As duas primeiras linhas estão **paradas** até o Lab entrar no
+> Generate, e por isso **fica faltando uma** coisa, a 8, que não pede nada agora.
+
+~~**Ficam faltando três coisas, e as duas primeiras são de olhar e dizer:**~~
 
 | # | o que | quanto custa | o que muda se você responder |
 |---|---|---|---|
-| **1** | **Confirmar a régua de forma de lote que veio pelo chat:** lote que aproveita **menos de 85 %** do retângulo em volta dele fica marcado *"a conferir"*; **menos de 70 %**, *"ruim"*. | 2 min | é a linha que decide quais lotes aparecem marcados na comparação entre motores |
-| **2** | **Olhar um resultado estranho do Laboratório de Parcelamento em Antonina:** ele passou a escolher, para si mesmo, um plano de **33 lotes** quando tinha um de **1 228** à disposição. Ver o item **7** abaixo. | 10 min, olhando a tabela | se for de propósito, nada muda e eu paro de achar estranho; se não for, é conserto no Laboratório de Parcelamento |
+| **1** | ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026; é a 5-B) · **Confirmar a régua de forma de lote que veio pelo chat:** lote que aproveita **menos de 85 %** do retângulo em volta dele fica marcado *"a conferir"*; **menos de 70 %**, *"ruim"*. | 2 min | é a linha que decide quais lotes aparecem marcados na comparação entre motores |
+| **2** | ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026) · **Olhar um resultado estranho do Laboratório de Parcelamento em Antonina:** ele passou a escolher, para si mesmo, um plano de **33 lotes** quando tinha um de **1 228** à disposição. Ver o item **7** abaixo. | 10 min, olhando a tabela | se for de propósito, nada muda e eu paro de achar estranho; se não for, é conserto no Laboratório de Parcelamento |
 | **8** | **Uma obra para o dia em que algum aplicativo usar dado pago:** poder **ligar e desligar a fonte paga por pedaço** — só num estado, só numa conta, só numa operação — **sem mexer em código**. Ver o item **8** abaixo. | **nada agora**, só saber que existe | é o que permite acender a fonte paga **só onde há cliente**, em vez de ligar o país inteiro no dia do lançamento |
 
 

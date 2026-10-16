@@ -3189,3 +3189,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 16/10/2026 · LAB-125 — item 900 (a dívida própria): o resumo "Em cinco minutos" da página do Jonny afirmava estado sem perguntar
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-125 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only pela 22ª rodada seguida, e a receita do passo 0 resolveu); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), no lugar que o LAB-124 declarou não alcançar. FEITA. Conferido aqui, não no GitHub: o portão sem clones 1023 de 1023; esteira 1 314 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: a tabela "Em cinco minutos", no alto da página do Jonny, dizia "Ficam faltando três coisas" — e duas delas (a 5-B, a régua de forma, e a 7, os 33 lotes) estão PARADAS a pedido dele desde 12/10, com a nota de 12/10 logo acima dizendo "nada aqui precisa de você agora". Frase riscada (nunca apagada), nota ao lado ("fica faltando uma, a 8, que não pede nada agora"), linhas 1 e 2 com ⏸ PARADA. conferirOsCincoMinutos (src/pendencias-marcadas.ts) liga cada linha da tabela — numerada por outra conta — à pendência por declaração escrita à mão, lê o estado da declaração do LAB-124 (um lugar só) e cobra: parada sem PARADA, aberta marcada, contagem fora do risco diferente das abertas, linha nova ou apagada. 15 mutações, 15 acusadas; D353; 1005 → 1023; relatório LAB-125.
+Achados para outros apps ou Central: (0) O RESUMO É A PARTE DA PÁGINA QUE MAIS SE LÊ E A QUE MENOS SE REVÊ — contagem do que falta escrita à mão num resumo envelhece quando uma pendência muda de estado. Só por PALAVRA ("fica(m) faltando", "faltam N") nas PENDENCIAS_JONNY.md das três casas que leio, origin/main: Generate 1 (o título "MAS FALTAM DUAS COISAS", linha 66 — não li a seção, não afirmo que esteja errado), Laboratório de Parcelamento 0, Geo 2 (sobre tabelas de banco, não sobre o que falta a ele). (1) A pergunta da "linha" (LAB-123) segue na FILA esperando o chat. (2) Para a direção: o comando do disparo segue recusando o pull --ff-only (achado do LAB-116). (3) O .wasm do Symbios segue sem se construir aqui.
+Depende do Jonny: nada (as marcas registram o pedido dele de 12/10).
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

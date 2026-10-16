@@ -11325,3 +11325,49 @@ conta.
 
 > **A PÁGINA QUE DIZ AS DUAS COISAS DIZ A ERRADA A QUEM ABRE PELA SEÇÃO.** *"Nunca apagado"* se cumpre sozinho
 > enquanto ninguém apaga; *"marcado"* só se cumpre se alguém lembrar — e é nessa metade que a guarda faz falta.
+
+## D353 · O RESUMO DO ALTO TAMBÉM AFIRMA ESTADO — a tabela "Em cinco minutos" da página do Jonny passa a ser conferida · 16/10/2026
+
+**Contexto:** item 900 (LAB-125). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, espera a leitura do chat). Fui à dívida própria, espécie **mensagem fixa que
+afirma estado sem perguntar**, no lugar que a D352 deixou escrito em *"o que se perde"*: a tabela *"Em cinco
+minutos"* do alto de `docs/PENDENCIAS_JONNY.md`, *"que numera por outra conta"*. **Esta decisão substitui essa
+linha da D352** — a tabela deixa de estar fora da guarda; o resto da D352 fica como está.
+
+**Medido (LAB-125), por LUGAR:** a seção, do título até o próximo `## `, tem **três** linhas de tabela
+(`| **1** |`, `| **2** |`, `| **8** |`) e **uma** frase de contagem: *"Ficam faltando três coisas, e as duas
+primeiras são de olhar e dizer"*. A linha `1` é a pendência **5-B** (a régua de forma), a `2` é a **7** (os 33
+lotes), a `8` é a **8** (dado pago só onde há cliente). A 5-B e a 7 estão **paradas a pedido do Jonny desde
+12/10/2026**, com `PARADA` no título — e a nota de 12/10, logo acima da tabela, diz *"nada aqui precisa de você
+agora"*. A tabela pedia 2 e 10 minutos dele para duas coisas que ele pediu para não ver. A mesma página dizendo
+duas coisas, quatro dias, no resumo de cinco minutos.
+
+**Decidido:**
+
+1. **A frase foi riscada, nunca apagada**, com uma nota de 16/10 ao lado (*"fica faltando uma coisa, a 8, que
+   não pede nada agora"*); as linhas 1 e 2 ganharam `⏸ PARADA até o Lab entrar no Generate` no começo do texto.
+   Nada na página pergunta nada a ele — é a mesma prática da D352: marcar o que ele já disse.
+2. `conferirOsCincoMinutos` em `src/pendencias-marcadas.ts`. **A numeração da tabela não é a das pendências**,
+   então a ligação mora numa declaração escrita à mão (`CINCO_MINUTOS`: linha, chave do assunto, pendência),
+   fechada nos dois sentidos; **o estado não se repete nela** — vem de `PENDENCIAS`, a declaração da D352, um
+   lugar só. Cobra: linha sem declaração e declaração sem linha; assunto trocado; pendência inexistente; a linha
+   de parada sem `PARADA`, a de resolvida sem marca, a de aberta com qualquer das duas; e **toda frase *"fica(m)
+   faltando N"* fora do risco diz o número de linhas cuja pendência está aberta** — número que a régua não lê
+   reprova (`contagem-ilegivel`), não passa.
+3. A trava estendida em `tests/pendencias-marcadas.test.ts`, no portão sem clones: a página de verdade
+   publicando o universo (3 linhas, igual à contagem ingênua; 1 frase de contagem; 1 aberta), a régua dos dois
+   lados e o extenso. Quinze mutações (uma na página — a tabela e a frase como estavam —, catorze no módulo),
+   quinze acusadas. 1005 → 1023 travas no portão.
+
+**Descartado:** apagar as linhas paradas da tabela (seria *apagar* — a tabela é o que ele leu, e as duas voltam
+quando o Lab entrar no Generate); reescrever a frase no lugar (a frase antiga é o registro do que se afirmou);
+pôr o estado na declaração da tabela (dois lugares para o mesmo estado divergem — foi o defeito que esta régua
+pega); ler a contagem de qualquer verbo (*resta*, *sobra*) — a régua lê o verbo da frase que existe e o teste
+publica quantas leu; e um módulo novo (a tabela é a mesma página e o mesmo estado — a trava do LAB-124 era o
+lugar certo, e a lista do trabalho não muda).
+
+**O que se perde, dito:** a prosa da seção fora da tabela e da contagem; uma contagem escrita com outro verbo;
+se o estado declarado é o verdadeiro (o mesmo limite da D352).
+
+> **O RESUMO É A PARTE DA PÁGINA QUE MAIS SE LÊ E A QUE MENOS SE REVÊ.** Pôr guarda nos títulos e deixar o
+> resumo de fora é guardar o que quem abre pela seção lê, e esquecer o que quem lê cinco minutos lê.
