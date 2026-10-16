@@ -11199,3 +11199,42 @@ roda é a sessão, no `conferir.sh`.
 
 > **PÁGINA QUE A REGRA MANDA EXISTIR E NÃO EXISTE NÃO DIZ "NENHUM": DIZ "NÃO OLHEI".** A lista vazia só
 > responde zero se alguém a conferiu contra o mundo.
+
+## D350 · A ROTINA DO GITHUB É PERGUNTADA, NÃO LEMBRADA — o passo 2 do desligamento ganhou a trava que o passo 1 tinha · 16/10/2026
+
+**Contexto:** item 900 (LAB-122). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém. Fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**. O CI foi desligado em
+08/10 em dois passos (D220): o gatilho comentado no `verde.yml` **e** a rotina desabilitada no GitHub. O passo 1
+tem trava desde o LAB-67 (`gatilho-do-verde.test.ts`, que lê o arquivo); o passo 2 não tinha nenhuma.
+
+**Medido (LAB-122), por LUGAR:** nos 303 arquivos vivos (164 de relato fora, pela lista do D329), a rotina é
+afirmada `disabled_manually` em **quatro** lugares (`CLAUDE.md`, `verde.yml`, `COMO_RELIGAR_O_CI.md`,
+`lugares-das-condicoes.ts`) e o id `374646435` digitado em **três**; nenhum `.ts` perguntava ao GitHub.
+Perguntada a API pública, sem chave: `disabled_manually`, id `374646435`, caminho `.github/workflows/verde.yml`.
+**As sete estavam certas — por sorte, não por conferência.** O estado mora fora da árvore e muda sem commit.
+
+**Decidido:**
+
+1. `src/a-rotina-no-github.ts`: a rotina é achada na resposta pelo **caminho**; resposta sem ela é `null`
+   (*não sei*), nunca *desligada*. O estado se acha num texto pelo nome que a API usa (`disabled_*`); o id, só
+   no endereço da API **desta** casa. A lista de relato é a do `o-ci-que-roda.ts` — uma só para as duas réguas.
+2. `conferirARotina` cobra quatro coisas: **o par** (gatilho ligado ⇔ rotina `active` — o passo pela metade,
+   nos dois sentidos), **o estado afirmado** é o perguntado, **o id digitado** é o perguntado, e **o espelho**
+   (rotina desabilitada e nenhuma página dizendo reprova). *Não sei* reprova.
+3. Duas travas: `tests/a-rotina-no-github.test.ts` (a régua pura e a concordância das páginas entre si, **no
+   portão sem clones**) e `tests/a-rotina-no-github-na-origem.test.ts` (a API, **fora** do portão: precisa da
+   rede), que publica o universo e, sem rede ou com a cota estourada, falha com o que leu.
+
+Doze mutações (cinco nas páginas, seis no módulo, uma na rede), doze acusadas. 954 → 972 travas no portão.
+
+**Descartado:** perguntar com chave (a API responde sem, e trava que carrega segredo é o que o §4 proíbe);
+`fetch` do Bun (o `curl` respeita o proxy sem configuração); ler o `ONDE_PARAMOS.md` (relato pela lista do
+D329); achar o estado em português (régua de palavra — o espelho cobra o nome da API em troca); e tirar do
+`verde.yml` a frase *"o `workflow_dispatch` segue ligado para rodar à mão"*, que provavelmente não vale com a
+rotina desabilitada — **não testado**, porque perguntar seria disparar a rotina.
+
+**O que se perde, dito:** o estado com outras palavras; o relato datado; se o disparo manual roda com a rotina
+desabilitada; e a trava viva não roda no CI — quem a roda é a sessão, no `conferir.sh`.
+
+> **ESTADO QUE MORA FORA DA ÁRVORE NÃO SE CONFERE LENDO A ÁRVORE.** Frase certa por sorte e frase certa por
+> conferência só se distinguem no dia em que o mundo muda — e nesse dia só uma delas reprova.
