@@ -11418,3 +11418,44 @@ aconteceu.
 > **O ARQUIVO QUE SE LÊ PRIMEIRO É O QUE MAIS PRECISA DIZER A MESMA COISA QUE O RESTO.** Quem acorda numa máquina
 > nova lê o cabeçalho antes de abrir qualquer outra página — e se ele estiver um prompt atrás, a rodada começa
 > refazendo o que já está feito.
+
+## D355 · O RECADO DE UMA RODADA DO 900 DIZ QUAL TAREFA E DE QUAL LISTA — e passa a ser cobrado · 16/10/2026
+
+**Contexto:** item 900 (LAB-127). A caixa só tinha o `900`, e a FILA não tinha proposta que não esperasse
+ninguém (a da *"linha"*, do LAB-123, espera a leitura do chat). Fui à dívida própria, espécie **regra sem
+guarda**, no próprio `900.md`, que termina com *"No recado, diga qual tarefa da sua lista você pegou, e de qual
+arquivo."* Nenhum módulo lia o que os recados diziam sobre a origem da tarefa.
+
+**Medido (LAB-127), por LUGAR:** os **29** recados cujo cabeçalho diz `(item 900` (LAB-97 a LAB-126, menos o
+LAB-113). Pela linha `Estado:`: **14** da FILA (*"peguei … a proposta … do LAB-NN"*, a FILA nomeada, a proposta
+sempre anterior e com relatório) e **15** da dívida própria (*"fui à dívida própria"*); nenhum sem origem, nenhum
+com as duas. Pelo bloco inteiro: **14** dos 15 da dívida nomeiam ao menos uma das cinco espécies; **o LAB-118 não
+nomeia nenhuma** (*"fui à dívida própria, no docs/INDEX.md"*) — o relatório dele nomeia três. A minha primeira
+contagem (15 e 14) era da régua solta: sem exigir o *"peguei"*, *"a FILA sem proposta que não espere ninguém"*
+contava como origem FILA.
+
+**Decidido:**
+
+1. `src/a-tarefa-do-novecentos.ts` (`lerOsRecadosDoNovecentos`, `lerAOrigem`, `conferirATarefaDoNovecentos`). A
+   origem se lê no `Estado:` por duas formas — *"peguei … proposta … LAB-NN"* ou *"fui à dívida própria"* —, uma e
+   só uma. FILA: a palavra FILA no `Estado:`, a proposta de um prompt **anterior** e com relatório. Dívida: ao menos
+   uma das cinco espécies no recado inteiro, sem acento e sem caixa. A exceção (o LAB-118) é declarada como
+   reconstrução, com a fonte, e se confere nos dois sentidos: o relatório tem de nomear o que ela declara, e ela
+   reprova no dia em que deixar de ser necessária.
+2. `tests/a-tarefa-do-novecentos.test.ts` no portão sem clones: a frase conferida no `900.md`, o universo publicado
+   (29 recados, igual à contagem ingênua dos cabeçalhos; 14 da FILA; 15 da dívida; 0 problemas), a régua dos dois
+   lados. Treze mutações no módulo, **treze acusadas**; duas plantadas no `RECADOS.md` (a espécie apagada do LAB-121;
+   a proposta do LAB-112 trocada por um número do futuro), as duas acusadas. 1039 → 1054 travas no portão; o
+   trabalho sem clones, 63 → 64 arquivos.
+
+**Descartado:** conferir que a FILA ainda tem o texto da proposta (as propostas mudam ao serem executadas e moram
+em lugares diferentes — medido: das doze citadas, só duas ainda casam *"Proposto ao chat … LAB-NN"*); exigir a
+espécie no `Estado:` (reprovaria seis recados por posição, não por falta); criar uma página para a dívida própria
+(escopo novo — o `900.md` a aceita como lista sem arquivo); reescrever o recado do LAB-118 (é história).
+
+**O que se perde, dito:** se a escolha foi a mais importante; se o recado diz a verdade sobre a origem — a régua
+confere que ele a diz, não que a tarefa veio de lá.
+
+> **A REGRA QUE O PRÓPRIO ITEM DÁ É A QUE MENOS SE CONFERE.** Quem lê o `900` lê para saber o que fazer, e a última
+> frase — o que dizer no fim — se cumpre de cabeça. Vinte e oito vezes deu certo; a vigésima nona disse o lugar e
+> esqueceu a espécie, e ninguém acusou.
