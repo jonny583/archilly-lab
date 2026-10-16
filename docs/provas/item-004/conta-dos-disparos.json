@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-16T14:27:51.653Z",
+  "quando": "2026-10-16T15:28:28.066Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -643,12 +643,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 14:07:20 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-132), tarefa da **dívida própria** (a FILA sem proposta que não espere ninguém): o `upstream/` é intocável — a árvore da cópia do Symbios, que nada lia",
         "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 15:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 15:06:56 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-133), tarefa da **dívida própria** (a FILA sem proposta que não espere ninguém): o Symbios roda em Node 22+ sem npm — e quem rodava o adaptador era só o Bun",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 79,
+      "noRegistro": 80,
       "observados": 39,
-      "derivados": 33,
+      "derivados": 34,
       "emLote": 7,
       "emVazio": 5
     },
