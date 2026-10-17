@@ -3449,3 +3449,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-145 — item 900 (a dívida própria): um despertador por aplicativo, e nada perguntava de quem eram os ids escritos aqui
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-145 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §1-A. FEITA, mesclado por git direto (D29). O disparo recusou o pull --ff-only (o clone raso da D344): desrasei, a main local era ancestral da origem — nada forçado nem perdido. Conferido aqui, não no GitHub: o portão sem clones 1298 de 1298; esteira com só as 9 falhas do .wasm (as mesmas da linha de base), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "um despertador por aplicativo; nunca se toca no de outro repositório" tinha só a guarda do item 004 (um id na seção). O toque é ato na conta, fora da árvore; o rastro é o id que ele deixa escrito. Medido por LUGAR (git grep): 5 ids, quatro da casa e um fictício declarado; cinco despertadores na história, um por vez; nos três vizinhos clonados (Generate 2 ids, Parcelamento 9, Geo 1), nenhum daqui. Trava: src/um-despertador-por-aplicativo.ts + tests (sem clones) + -com-clone (verde completo); 9 mutações, 9 acusadas; 1283 → 1298; D373; detalhe em docs/relatorios/LAB-145.md.
+Achados para outros apps ou Central: (0) UM DESPERTADOR DESTA CASA NASCEU E MORREU SEM ID ESCRITO — o que o LAB-20 criou para o LAB-18 em 02/10; o registro diz null, não um id suposto. (1) Abreviar um id com o prefixo é escrever outro id: a régua acusou quatro abreviações minhas no próprio cabeçalho. (2) Toda casa pode perguntar o mesmo só com git grep, sem tocar em tarefa nenhuma: os ids escritos na árvore são todos dela, um vivo só, nenhum na árvore de um vizinho. (3) As propostas do LAB-123, 129, 135, 137, 140 e 141 seguem esperando o chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
