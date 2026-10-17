@@ -3540,3 +3540,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-152 — item 900 (a dívida própria): o trabalho acontece em `archilly/`, documentado
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-152 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §3, a regra de ouro. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1447 de 1447 (85 de 85 arquivos); esteira 1780 aprovadas e só as 9 falhas do .wasm (as mesmas da linha de base), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "o trabalho acontece em archilly/, documentado" só se conferia escrito; os outros três itens do §3 têm trava. Medido por LUGAR (git ls-files): dois motores com archilly/, cinco projetos. O straight-skeleton nomeia os dois no archilly/README.md; a linha archilly/ da página do Symbios, escrita no LAB-00, nomeava SÓ probe/ — calava o wasm-probe/ e o wasm/, a ponte que o navegador carrega (37 dias fora da página). Regra descumprida, linha consertada. Trava: src/o-trabalho-em-archilly.ts + tests (sem clones), nos dois sentidos (projeto calado e nome de projeto que não existe); 11 mutações, 11 acusadas; 1427 → 1447; D380; detalhe em docs/relatorios/LAB-152.md.
+Achados para outros apps ou Central: (0) A tabela de pastas escrita no dia em que a casa nasce é a primeira página a envelhecer: conta o que havia, e ninguém volta a ela quando nasce a pasta nova. Quem tem uma pode perguntar ao git ls-files, nos dois sentidos. (1) Proposto ao chat (FILA): as frases do adapter/ na mesma página ("Vazia. Fase futura.", "Adapter: não escrito"), falsas desde o LAB-01, ganharem conserto com trava. (2) As propostas do LAB-123, 129, 135, 137, 140, 141 e 147 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
