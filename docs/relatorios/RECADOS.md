@@ -3462,3 +3462,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-146 — item 900 (a dívida própria): motor da família não ganha `upstream/`, e nada perguntava se ele tinha sido copiado com outro nome
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-146 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §3. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1319 de 1319; esteira com só as 9 falhas do .wasm (as mesmas da linha de base), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "motor da própria família não ganha upstream/ (D16)" tinha trava na metade do "ler pelos paths" (LAB-135) e só guarda pelo NOME na do "não copiar": o quadra.ts do motor copiado para o adaptador passava a suíte. Medido pelo conteúdo (git ls-files, linhas de código em comum): 343 arquivos daqui contra 350 do Parcelamento e 608 do Generate; nenhum idêntico; o único alto é o contrato-v1.ts (72 %), redeclaração declarada desde o LAB-07; o resto 15 % no máximo. Trava: src/o-motor-da-familia-nao-se-copia.ts + tests (sem clones) + -com-clone (verde completo); 14 mutações, 14 acusadas; 1298 → 1319; D374; detalhe em docs/relatorios/LAB-146.md.
+Achados para outros apps ou Central: (0) Este Lab e o Laboratório de Parcelamento redeclaram os tipos do MESMO contrato do Generate, e 36 de 50 linhas são iguais — os dois dizem por quê e o validador do dono julga; é informação para quem um dia publicar os tipos do contrato como pacote, não defeito. (1) Regra guardada pelo nome perdoa a cópia com outro nome: toda casa que lê vizinho por caminho pode perguntar o mesmo só com git ls-files e linhas em comum, sem rede. (2) As propostas do LAB-123, 129, 135, 137, 140 e 141 seguem esperando o chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

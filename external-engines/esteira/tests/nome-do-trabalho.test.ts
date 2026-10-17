@@ -143,7 +143,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // clone raso) e um repositório temporário; nenhum clone.
     // E 78 no LAB-145, com a `um-despertador-por-aplicativo.test.ts` — o `git grep` dos arquivos versionados DESTE
     // repositório e um módulo puro; a metade dos vizinhos mora na `-com-clone`, fora do trabalho.
-    expect(lista).toHaveLength(78);
+    // E 79 no LAB-146, com a `o-motor-da-familia-nao-se-copia.test.ts` — o `git ls-files` DESTE repositório e dados
+    // plantados; a comparação com os vizinhos de verdade mora na `-com-clone`, fora do trabalho.
+    expect(lista).toHaveLength(79);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
