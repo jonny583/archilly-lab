@@ -12353,3 +12353,39 @@ item (um pedido só, numerado `1.`, cumpre); reescrever os cinco relatórios ant
 
 > **REGRA QUE DIVIDE A LINHA COM UMA REGRA GUARDADA PARECE GUARDADA.** A trava da primeira metade da frase deixou a
 > segunda metade de fora por cinco semanas, e a conta da espécie "esgotada" passou por cima dela.
+
+## D378 · O BALANÇO VAI AO ARQUIVO COM DATA, ORIGEM, CONTEÚDO E PROVA, E A RÉGUA LÊ TODA ENTRADA DATADA — nove de onze sem algum campo · 17/10/2026
+
+**Contexto:** item 900 (LAB-150). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda** (aqui, guarda estreita), no `CLAUDE.md` §1-B: *"Vai a `BALANCOS.md` com
+**data, origem, conteúdo e prova**."* A guarda do LAB-42 (`tests/balancos.test.ts`) perguntava os campos só às entradas
+do §1 (`### 1.N`), e só `origem` e `o que produziu`; os saldos que nasceram dentro do arquivo (`## 3` a `## 10`) não eram
+lidos, e *conteúdo* e *prova* não eram perguntados em entrada nenhuma.
+
+**Medido (LAB-150), por LUGAR:** a entrada de balanço é o título do `BALANCOS.md` com número de seção e data; os campos
+moram na tabela logo abaixo dele, antes do primeiro subtítulo. **Onze entradas, duas completas (§7 e §8) e nove com campo
+faltando**: §1.1 a §1.3 sem conteúdo e prova, §3 a §5 sem tabela nenhuma, §6 sem prova, §9 e §10 sem *o que produziu*.
+Nenhuma depois de 08/10: os saldos recentes moram nos recados (o índice do §2).
+
+**Decidido:**
+
+1. `src/balanco-com-os-campos.ts` cobra os **cinco** que o próprio `BALANCOS.md` promete (data no título; origem, o que
+   continha, o que produziu e onde está a prova na tabela) — os quatro do `CLAUDE.md` e o quinto do arquivo: régua que
+   cobra menos do que o arquivo promete repete o defeito.
+2. As nove de antes congeladas em `FALTAVA_ANTES_DA_TRAVA` com **exatamente** o que falta e o motivo; **não se completa
+   balanço antigo** (D118) — acrescentar a prova hoje a um saldo de 07/10 seria reconstrução sem etiqueta. Entrada datada
+   depois de 17/10/2026 não se congela.
+3. *Estado* não vale por *o que produziu*: um diz se a fila terminou, o outro o que saiu dela.
+4. `tests/balanco-com-os-campos.test.ts`, 24 testes, sem clones: 1 378 → 1 402 no trabalho sem clones.
+
+**Os dois lados:** o arquivo de hoje passa; as escritas da casa (*"o que ele continha"*, *"continha ao fim"*, *"o que ele
+produziu"*) passam; subtítulo, título em bloco de código e o índice sem data não são entrada. Cada campo tirado, entrada
+sem tabela, campo abaixo do subtítulo, data que não existe, congelada depois da trava, congelada que perde mais um campo,
+declaração que sobra (nos dois jeitos), motivo curto e universo vazio reprovam. Doze mutações no módulo, doze acusadas.
+
+**Descartado:** ler os campos na entrada inteira (as tabelas de conteúdo seriam lidas como campo); exigir ordem entre as
+entradas (o §1 é grupo à parte, e a ordem do índice tem trava); alargar a guarda do *"Testfit é nome interno"* (§5), que
+não tinha caso a acusar.
+
+> **GUARDA QUE NASCE JUNTO DE UM ARQUIVO COBRA A FORMA QUE ELE TINHA NO DIA.** O `BALANCOS.md` cresceu numa forma nova
+> (os saldos `## N`) que a guarda do LAB-42 não lia, e os campos que ela não perguntava foram os que faltaram.

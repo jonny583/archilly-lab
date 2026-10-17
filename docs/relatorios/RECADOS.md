@@ -3514,3 +3514,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-150 — item 900 (a dívida própria): o balanço vai ao arquivo com data, origem, conteúdo e prova
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-150 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda — aqui, guarda estreita), no CLAUDE.md §1-B. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1402 de 1402 (83 de 83 arquivos); esteira 1735 aprovadas e só as 9 falhas do .wasm (as mesmas da linha de base), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "vai a BALANCOS.md com data, origem, conteúdo e prova" tinha a guarda do LAB-42, que lia só as três entradas do §1 e só origem e "o que produziu". Medido por LUGAR: onze entradas datadas no BALANCOS.md, duas completas (§7 e §8), nove com campo faltando (§1.1–1.3 sem conteúdo e prova, §3–5 sem tabela, §6 sem prova, §9 e §10 sem "o que produziu"), todas de antes de 08/10. Trava: src/balanco-com-os-campos.ts + tests (sem clones), as nove congeladas com o que falta e o motivo, balanço novo sem exceção; 12 mutações, 12 acusadas; 1378 → 1402; D378; detalhe em docs/relatorios/LAB-150.md.
+Achados para outros apps ou Central: (0) Guarda que nasce junto de um arquivo de prosa cobra a forma que ele tinha no dia; o arquivo cresce numa forma nova e ela não lê. Quem tem guarda de arquivo de prosa pode perguntar quantas entradas dele a guarda acha hoje. (1) As propostas do LAB-123, 129, 135, 137, 140, 141 e 147 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
