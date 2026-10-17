@@ -82,7 +82,8 @@ mantém não deve morar nela.*
 
 **Balanço é resposta que faz as contas** (de uma fila, de dívidas, do repositório). Vai a
 [`docs/relatorios/BALANCOS.md`](docs/relatorios/BALANCOS.md) com data, origem, conteúdo e prova.
-**Balanço que já mora num recado não se copia:** aponta-se para ele. **Reconstrução sai etiquetada
+**Balanço que já mora num recado não se copia:** aponta-se para ele, com guarda comparando o balanço
+com o recado (D384). **Reconstrução sai etiquetada
 como reconstrução**, com a fonte de cada linha, e se confere, não se obedece.
 
 > **O que vai ao chat e não vai a um arquivo não existe amanhã.** *(história: §H3)*
@@ -258,7 +259,7 @@ reprova com a receita), sete passos, todos mesmo depois de uma falha, e **nada f
 (D126).
 
 **O CI** (`verde.yml`) tem dois trabalhos: o das
-**1507 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
+**1523 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
 exige `VIZINHOS_TOKEN` e sem ele **falha com a receita**.
 
 ### 🔴 O CI AUTOMÁTICO ESTÁ DESLIGADO desde 08/10/2026
