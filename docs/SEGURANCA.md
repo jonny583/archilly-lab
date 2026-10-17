@@ -36,7 +36,7 @@ conferência possa ser refeita por quem quiser.
 
 | item | estado | como foi conferido |
 |---|---|---|
-| Nada de rede em execução | ✅ | o adaptador do Symbios roda com **zero dependência npm**; os outros dois leem arquivo local e código dos clones irmãos. Nenhum `fetch`, nenhum `http` |
+| Nada de rede em execução | ✅ | o adaptador do Symbios roda com **zero dependência npm**; os outros dois leem arquivo local e código dos clones irmãos. **No caminho do motor**, nenhum `fetch`, nenhum `http` — e, fora dele, sete redes declaradas uma a uma (ver *Reconferido no LAB-158*, abaixo) |
 | O `.wasm` não pede nada do ambiente | ✅ | carregado com `WebAssembly.instantiate(bytes, {})` — **objeto de imports vazio**. Medido no LAB-01: 189 KB, zero imports |
 | Nada de exportar motor ou código ao usuário | ✅ **não se aplica** | o Lab não tem usuário nem exportação. O que ele publica são relatórios e JSON de medição |
 | Entrada validada antes de entrar no núcleo | ✅ | versão do contrato, unidade (metro) e anel com ao menos 3 pontos são recusados com mensagem legível — `ida.ts` e `gleba-v1.ts`, com teste |
@@ -79,3 +79,33 @@ vez nesta volta:
 |---|---|---|
 | Os commits dos clones vizinhos são **deles**, não meus | ✅ | `git -C <clone> log --since=2026-09-13 --format="%an"` — os 14 commits de `motor-testfit` são da sessão dele, no branch `claude/upbeat-fermi-t1rp11`, mesclados pelo Jonny. **Nenhum desta sessão** |
 | `external-engines/symbios/upstream/` nunca foi tocado depois de criado | ✅ | `git log --oneline -- external-engines/symbios/upstream/` — **um commit**, o do LAB-00 que o criou |
+
+---
+
+## Reconferido no LAB-158 · 17/10/2026 — a rede, perguntada à árvore
+
+A frase do topo — o Lab *"não faz chamada de rede em execução"* — e a linha *"Nada de rede em execução"* não tinham
+trava: foram um `grep` feito uma vez, em 14/09. **Desde o LAB-158 elas são perguntadas a cada verde**, por
+`external-engines/esteira/src/rede-em-execucao.ts` e `tests/rede-em-execucao.test.ts` (sem clones), que leem todo o
+código que o `git` carrega — `upstream/` incluído — por quatro portas: chamada (`fetch(`, `Bun.serve`, `createServer`,
+`WebSocket`…), módulo (`node:http`, `node:net`…; no Rust, `std::net`, `reqwest`…), processo filho (`git fetch`,
+`ls-remote`, `pull`, `push`, `clone`, `curl`, `wget`) e linha de script.
+
+**O que a medição de 17/10 respondeu:** 370 arquivos de código lidos, 52 no caminho do motor (os adaptadores, a porta,
+os motores e o esqueleto da esteira, o Rust do Lab e o `upstream/` do Symbios) — **zero rede no motor**. A frase do topo
+é verdadeira. A linha da tabela dizia *"Nenhum `fetch`, nenhum `http`"* sem dizer onde, e **fora do motor há sete**,
+todas de ferramenta ou de teste, nenhuma que escreva em lugar nenhum. Uma delas, o `fetch` da bancada, já existia
+quando a linha foi escrita (LAB-01, 10/09) — e a linha era a única da tabela *Execução* sem comando ao lado:
+
+| onde | o que | classe |
+|---|---|---|
+| `symbios/adapter/ferramentas/navegador/prova-automatica.ts` | o `Bun.serve` em 127.0.0.1 que abre a bancada, e o `fetch(req)` dele (2) | servidor local |
+| `symbios/adapter/ferramentas/navegador/prova.js` | a bancada lê o `.wasm` desse servidor local | servidor local |
+| `esteira/src/commit-dos-vizinhos.ts` | o `git fetch` do carimbo dos vizinhos — só referências, nada puxado (LAB-68) | origem pública |
+| `esteira/tests/ramos-abertos-na-origem.test.ts` | o `git ls-remote` dos ramos abertos (LAB-121) | origem pública |
+| `esteira/tests/a-rotina-no-github-na-origem.test.ts` | o `curl` à API pública do GitHub (LAB-122) | origem pública |
+| `esteira/tests/clone-da-maquina.test.ts` | o `fetch` de um clone de teste, de origem `file://` | origem de teste |
+
+A trava reprova rede no caminho do motor **mesmo declarada**, rede nova fora dele sem declaração (ou uma a mais num
+arquivo declarado) e declaração cuja rede sumiu. O que ela não alcança está dito no fim do módulo — entre outros, o
+`verde.yml` (a máquina do GitHub clona e instala; não é a execução do Lab) e o `bun install` de quem prepara a máquina.

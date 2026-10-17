@@ -3618,3 +3618,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-158 — item 900 (a dívida própria): o Lab não faz chamada de rede em execução
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-158 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), no docs/SEGURANCA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1562 de 1562 (91 de 91 arquivos); esteira 1895 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: o SEGURANCA.md (LF-FINAL, 14/09) diz que o Lab "não faz chamada de rede em execução" e, na tabela, "Nenhum fetch, nenhum http" — nada perguntava. Por LUGAR, todo o código que o git carrega (upstream/ incluído), por quatro portas (chamada, módulo, processo filho, linha de script): 370 arquivos, 52 no caminho do motor, zero rede no motor — a frase é verdadeira. Fora dele, sete em seis arquivos, que a linha calava: o servidor local da bancada e o fetch do .wasm, o git fetch do carimbo dos vizinhos, o git ls-remote dos ramos, o curl à API do GitHub e o fetch de um clone de teste file://. Nenhuma escreve. O fetch da bancada é de 10/09, anterior à página: a linha nasceu falsa fora do motor, e era a única da tabela sem comando ao lado. A linha diz onde vale e a página ganha a tabela das sete. Trava: src/rede-em-execucao.ts + tests (sem clones), rede no motor reprova mesmo declarada; onze mutações na árvore de verdade, onze acusadas; 1546 → 1562; D386; detalhe em docs/relatorios/LAB-158.md.
+Achados para outros apps ou Central: (0) "✅" sem comando ao lado é a afirmação que ninguém refez: o SEGURANCA.md prometia o comando de cada linha, e a única linha sem comando era a falsa — vale para o SEGURANCA.md de toda casa. (1) "Nenhum X", sem dizer onde, é a frase que a primeira ferramenta desmente. (2) Nada novo proposto ao chat; as propostas do LAB-123, 129, 135, 137, 140, 141, 147 e 152 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
