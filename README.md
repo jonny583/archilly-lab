@@ -79,7 +79,8 @@ porque o resultado é muito desigual por partido: `pente` fica em **0,06 %** e
 25 % a 40 % do comprimento de via nasce fora da divisa e o esquema recusa antes
 de julgar; a calçada é declarada e não é reservada; dois partidos estão
 quebrados; `superquadra` nasce vazia em 20 de 20 e o plano vazio lidera; e o
-motor não calcula greide.
+motor não calculava greide — o que era verdade em 13/09 e deixou de ser no dia
+seguinte, no T03 dele (D98).
 
 Dois achados atravessam repositórios: o defeito de interpolação de relevo que o
 LAB-01 achou **atinge o Generate** (49,8 % das amostras sobre um valor de curva)

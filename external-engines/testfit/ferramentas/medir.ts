@@ -97,10 +97,13 @@ function comprimentoDeVias(vias: { pontos: { x: number; y: number }[] }[]): numb
 /**
  * A rampa que o TERRENO impõe ao longo de cada eixo, em porcento.
  *
- * O §2.4 pede "rampa máxima nos cruzamentos e ao longo da via". O motor do
- * Testfit **não calcula greide** — nenhuma via tem cota em lugar nenhum do
- * `Plano`, e é por isso que `rampaMedia_pct` sai `null` no contrato. Medir a
- * rampa do motor, então, é impossível: não há o que medir.
+ * O §2.4 pede "rampa máxima nos cruzamentos e ao longo da via". No LAB-07
+ * (13/09), quando esta ferramenta nasceu, o motor do Testfit não calculava
+ * greide e as vias do `Plano` não tinham cota — e era por isso que
+ * `rampaMedia_pct` saía `null` no contrato. **Deixou de ser verdade no dia
+ * seguinte**, no T03 dele, e a ponte passou a ler as duas rampas no LAB-22
+ * (D98). Esta ferramenta reproduz a medição do LAB-07, e por isso continua
+ * medindo o que estava ao alcance naquele dia.
  *
  * O que se pode medir, e é o que está aqui, é a rampa que o **terreno** impõe:
  * se a via seguisse o chão, qual seria a inclinação dela. É o número que diz se
@@ -314,7 +317,7 @@ for (const id of GLEBAS) {
     rampa = rampaDoTerreno(melhor.saida.vias, cota);
     if (rampa) {
       console.log(
-        `\n  rampa imposta pelo terreno (a melhor variante; o motor NÃO calcula greide):`,
+        `\n  rampa imposta pelo terreno (a melhor variante; no LAB-07 o motor não calculava greide — D98):`,
       );
       console.log(
         `    ao longo da via: mediana ${rampa.aoLongoDaVia.mediana_pct} % · p90 ` +

@@ -12389,3 +12389,40 @@ não tinha caso a acusar.
 
 > **GUARDA QUE NASCE JUNTO DE UM ARQUIVO COBRA A FORMA QUE ELE TINHA NO DIA.** O `BALANCOS.md` cresceu numa forma nova
 > (os saldos `## N`) que a guarda do LAB-42 não lia, e os campos que ela não perguntava foram os que faltaram.
+
+## D379 · O MOTIVO DE UMA PERDA NÃO MORA EM COMENTÁRIO, E A FRASE QUE A CASA MEDIU FALSA SE PERGUNTA À ÁRVORE INTEIRA — nove vivas em cinco arquivos · 17/10/2026
+
+**Contexto:** item 900 (LAB-151). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"O motivo de uma perda não mora em comentário (D98,
+D104)."* A primeira metade da linha (o destino no inventário, conferido contra o motor rodando) tem trava desde o
+LAB-25; esta só se conferia escrita (item 028). O D98 e o D105 ensinam que comentário não se revalida — e o inventário
+tirou o motivo do comentário **na ponte**, sem nada perguntar se a frase seguia viva noutro lugar.
+
+**Medido (LAB-151), por LUGAR:** quatro frases que a casa registrou como falsas (duas do D98, uma do D104, uma das perdas
+remedidas do LAB-93), procuradas parágrafo a parágrafo em 346 arquivos que o `git` carrega fora de `docs/`, `upstream/`
+e `node_modules/`. **26 ocorrências em 24 parágrafos de 19 arquivos: 13 citadas, uma na história, três genéricas e nove
+vivas, em oito parágrafos de cinco arquivos** — a ponte do Symbios (escrita em 02/10, na véspera do D98), a ferramenta do
+LAB-07 (duas, uma delas mensagem fixa do console), os dois README e a ferramenta do LAB-08 (três).
+
+**Decidido:**
+
+1. Consertadas as seis do texto vivo — ponte do Symbios, `medir.ts` (cabeçalho e console), os dois README —, sem mudar
+   comportamento: no passado e com a data, ou riscadas.
+2. As três do `lab08.ts` ficam, **declaradas** em `VIVAS_DECLARADAS` com o motivo: a ferramenta reproduz a prova congelada
+   do LAB-08, e consertar o `rampa: null` reescreveria a prova do dia (D118).
+3. `src/frase-vencida.ts`: lista fechada `AS_FRASES_VENCIDAS`, **cada uma com a fonte onde a medição mora**, conferida
+   (`frase-sem-fonte`); a frase citada, na história ou genérica passa; a viva fora da declaração reprova; a declaração
+   desce com a árvore. As aspas se contam no parágrafo; a marca de história e a genérica, na sentença.
+4. `tests/frase-vencida.test.ts`, 25 testes, sem clones: 1 402 → 1 427 no trabalho sem clones.
+
+**Os dois lados:** a árvore de hoje passa; citada, história, genérica, passado e declaração que bate passam. A forma exata
+do D98, a do Symbios quebrada no JSDoc, a de dois `//`, a do console, a do README, cada uma das quatro frases, a história
+noutra sentença, a citada antes da viva, a sobra nos dois jeitos, o motivo curto, o universo vazio e a fonte nos três
+jeitos reprovam. Treze mutações no módulo, treze acusadas — duas só depois de entrar o caso que faltava (lição 12c).
+
+**Descartado:** varrer só as pontes (acharia uma das nove); varrer `docs/` (o registro do dia conta o que era); derivar a
+lista das `oQueDizia` automaticamente (frase longa casada inteira só pega cópia exata); consertar o `lab08.ts`.
+
+> **O CONSERTO DE UMA FRASE FALSA NUM LUGAR NÃO A MATA NOS OUTROS.** O D98 achou a frase no `volta.ts`, consertou e
+> escreveu a regra; a cópia da véspera, noutra ponte, seguiu viva por quinze dias — e mais quatro, em README e ferramenta,
+> por um mês.
