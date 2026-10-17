@@ -3644,3 +3644,17 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-160 — item 900 (a dívida própria): nenhum `.env`, `.pem` ou arquivo de credencial, perguntado pelo nome
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-160 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), no docs/SEGURANCA.md, tabela Chaves e segredos. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1593 de 1593 (93 de 93 arquivos); esteira 1929 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17. O envio passa pelo gancho do LAB-106.
+Feito: a linha "Nenhum .env, .pem ou arquivo de credencial" (LF-FINAL, 14/09) era um find rodado uma vez, três formas de nome, sem trava. A varredura de segredos lê o CONTEÚDO: de seis arquivos de credencial plantados, cinco passaram calados (.env com e sem aspas, .npmrc, .netrc, .git-credentials) e o binário .p12 ela declara de fora e aprova. Por LUGAR, o que o git carrega (753 caminhos) e todo nome que já entrou na história (762, desrasado): zero nos dois — regra verdadeira, guarda ausente. Trava: src/arquivo-de-credencial.ts + tests (sem clones; a história recusa no clone raso), dezessete formas de nome, o .env.exemplo perdoado; oito mutações acusadas; 1583 → 1593; D388; detalhe em docs/relatorios/LAB-160.md.
+Achados para outros apps ou Central: (0) varredura de segredos lê conteúdo e não responde "nenhum .env": medido aqui, .env, .npmrc, .netrc e .git-credentials típicos passam por ela calados, e binário sai "de fora". Onde um SEGURANCA.md diz "nenhum .env" com a varredura ao lado, a linha não tem guarda. Nas casas do Cloudflare, o .dev.vars do wrangler é o .env com outro nome. (1) A linha do .wasm segue sem trava: esta máquina não tem o alvo wasm32 e o rustup não alcança a origem dele. (2) As propostas do LAB-123, 129, 135, 137, 140, 141, 147, 152 e 159 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
+

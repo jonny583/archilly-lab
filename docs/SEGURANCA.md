@@ -18,7 +18,7 @@ conferência possa ser refeita por quem quiser.
 |---|---|---|
 | Nenhuma chave sensível no repositório | ✅ **limpo** | `grep -rE "\b(apiKey\|api_key\|API_KEY\|SECRET\|Bearer \|Authorization\|sk-[A-Za-z0-9]{20}\|VITE_[A-Z_]+)\b"` sobre todo `.ts`, `.js`, `.json` e `.rs` fora de `node_modules` e de `upstream/` — **zero ocorrências** |
 | Nenhuma chave em `VITE_` | ✅ **não se aplica, e está limpo** | não há build de navegador neste repositório; e a busca acima cobre `VITE_` |
-| Nenhum `.env`, `.pem` ou arquivo de credencial | ✅ **limpo** | `find . -name ".env*" -o -name "*.pem" -o -name "*credential*"` — **nada** |
+| Nenhum `.env`, `.pem` ou arquivo de credencial | ✅ **limpo** | em 14/09, `find . -name ".env*" -o -name "*.pem" -o -name "*credential*"` — **nada**; **desde o LAB-160, perguntado a cada verde pelo NOME**, em dezessete formas, a tudo o que o `git` carrega e a todo nome que já entrou na história (`external-engines/esteira/src/arquivo-de-credencial.ts`; ver *Reconferido no LAB-160*, abaixo) |
 | Chave de IA só no servidor da Central | ✅ **não se aplica** | o Lab não chama IA. Ver `ADOCAO_CENTRAL.md` |
 
 ## Banco e RLS
@@ -134,3 +134,29 @@ desta página. As três recusas passaram a morar em `recusaDaEntrada` (`gleba-v1
 portas da esteira perguntam a ela antes do motor; no Generate a recusa volta sem SAÍDA, com o motivo, e o motor não roda.
 O que a trava não alcança está dito no fim do módulo — entre outros, que a porta comum ainda **estoura** com a recusa da
 ida do Laboratório de Parcelamento, em vez de devolver `recusei` (proposto ao chat).
+
+---
+
+## Reconferido no LAB-160 · 17/10/2026 — o arquivo de credencial, perguntado pelo nome
+
+A linha *"Nenhum `.env`, `.pem` ou arquivo de credencial"* era um `find` rodado uma vez, com três formas de nome, e
+nenhuma trava a perguntava. A varredura de segredos (LAB-47) não a responde: ela lê o **conteúdo**, e medido em 17/10,
+de seis arquivos de credencial plantados, **cinco passaram por ela calados** — o `.env` sem aspas e com aspas, o
+`.npmrc`, o `.netrc` e o `.git-credentials`; só a chave de SSH em texto foi acusada. E o binário (`.p12`, `.pfx`,
+`.jks`) ela declara *"de fora"*, com o nome, e passa.
+
+**Desde o LAB-160 a linha é perguntada a cada verde**, por `external-engines/esteira/src/arquivo-de-credencial.ts` e
+`tests/arquivo-de-credencial.test.ts` (sem clones), pelo **nome**, em dezessete formas (as três da página, mais a chave
+solta, o certificado binário, o cofre Java, o PuTTY, a chave de SSH, o `.npmrc`, o `.netrc`, o `.pypirc`, o
+`.htpasswd`, o `.dev.vars` do Cloudflare, a conta de serviço do Google, o arquivo `secrets`, o `.tfvars` e o KeePass),
+e em dois universos:
+
+| universo | lido em 17/10/2026 | nome de credencial |
+|---|---|---|
+| o que o `git` carrega (rastreado e o que entraria no próximo `commit -a`) | 753 caminhos | **zero** |
+| todo nome que já entrou num commit do `HEAD` — chave que apareceu é chave vazada, mesmo apagada | 762 nomes, 456 commits | **zero** |
+
+**A linha é verdadeira**, nos dois. O modelo do `.env` (`.env.exemplo`, sem valor) é o caso válido que quase parece
+inválido, e passa; a chave pública (`.pub`) também. A história só se pergunta com ela inteira: no clone raso do CI a
+leitura recusa e diz por quê (LAB-89). O que a trava não alcança está dito no fim do módulo — entre outros, credencial
+com nome de outra coisa, que é da varredura de conteúdo, e o `.env` ignorado no disco, que é o jeito certo de tê-lo.
