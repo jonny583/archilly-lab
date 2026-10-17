@@ -3671,3 +3671,17 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+
+## 17/10/2026 · LAB-162 — item 900 (a dívida própria): nenhum commit, nenhum push nos vizinhos, perguntado pela sessão
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-162 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), no docs/SEGURANCA.md, tabela Os repositórios vizinhos. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1622 de 1622 (95 de 95 arquivos); esteira 1962 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17. O envio passa pelo gancho do LAB-106.
+Feito: a linha "Nenhum commit, nenhum push nos vizinhos" (LF-FINAL) e a do LF-FINAL-2 ("os commits dos vizinhos são deles", conferida pelo AUTOR) não tinham trava; a do LAB-38 só pergunta o clone desta máquina limpo. Hoje o autor de todo commit de sessão é Claude em toda a família (204, 1076 e 449 nos três vizinhos) — a pergunta de 15/09 já não teria resposta. Pela SESSÃO do rodapé, na história inteira da origem dos quatro: 14 sessões em comum, todas da direção (as caixas); nenhuma das 68 que trabalharam aqui num vizinho, nenhum assunto LAB-<n> lá — regra verdadeira, guarda ausente. Trava: src/nenhum-commit-nos-vizinhos.ts + teste sem clones + teste no verde completo; onze mutações acusadas (uma, commit plantado numa cópia do clone do Parcelamento); 1607 → 1622; D390; detalhe em docs/relatorios/LAB-162.md.
+Achados para outros apps ou Central: (0) conferência "os commits são deles / nenhum commit nosso lá" feita pelo AUTOR não responde mais: é Claude em toda casa. O que distingue é a sessão do rodapé Claude-Session — e as sessões da direção aparecem em todas as casas (escrevem as caixas); sem separá-las, a primeira leitura vira acusação falsa. (1) As propostas do LAB-123, 129, 135, 137, 140, 141, 147, 152 e 159 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

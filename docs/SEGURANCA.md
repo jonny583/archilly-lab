@@ -46,7 +46,7 @@ conferência possa ser refeita por quem quiser.
 | item | estado | como foi conferido |
 |---|---|---|
 | Geo, Generate e o motor de parcelamento são **só leitura** | ✅ | `git status` nos três ao fim de **toda** rodada, e o número sai no relatório. Em 14/09, ao fim do LAB-08: **0 alterações** em cada |
-| Nenhum commit, nenhum push nos vizinhos | ✅ | o histórico deles não tem commit desta sessão. O único toque foi `git merge --ff-only origin/main` no clone local do motor, para medir o T02 (D40) |
+| Nenhum commit, nenhum push nos vizinhos | ✅ | o histórico deles não tem commit desta sessão. O único toque foi `git merge --ff-only origin/main` no clone local do motor, para medir o T02 (D40); **desde o LAB-162, perguntado a cada verde pela SESSÃO** — o autor é o mesmo em toda a família —: nenhuma sessão que trabalhou nesta casa no rodapé de um commit da origem dos três vizinhos, e nenhum assunto `LAB-<n>` lá (`external-engines/esteira/src/nenhum-commit-nos-vizinhos.ts`; ver *Reconferido no LAB-162*, abaixo) |
 | O que precisa mudar neles vira **lista em relatório** | ✅ | LAB-07 §9 (8 correções), LAB-02 §5, LAB-03 e LAB-08 — todos com o número e sem commit lá |
 
 ## Integridade do que foi copiado
@@ -77,7 +77,7 @@ vez nesta volta:
 
 | item | estado | como foi conferido |
 |---|---|---|
-| Os commits dos clones vizinhos são **deles**, não meus | ✅ | `git -C <clone> log --since=2026-09-13 --format="%an"` — os 14 commits de `motor-testfit` são da sessão dele, no branch `claude/upbeat-fermi-t1rp11`, mesclados pelo Jonny. **Nenhum desta sessão** |
+| Os commits dos clones vizinhos são **deles**, não meus | ✅ | `git -C <clone> log --since=2026-09-13 --format="%an"` — os 14 commits de `motor-testfit` são da sessão dele, no branch `claude/upbeat-fermi-t1rp11`, mesclados pelo Jonny. **Nenhum desta sessão** — e o autor deixou de responder isto: hoje é `Claude` em toda casa da família; a pergunta passou à sessão no LAB-162 |
 | `external-engines/symbios/upstream/` nunca foi tocado depois de criado | ✅ | `git log --oneline -- external-engines/symbios/upstream/` — **um commit**, o do LAB-00 que o criou |
 
 ---
@@ -184,3 +184,37 @@ A linha é verdadeira; faltava a pergunta. Uma dependência trocada por `symbios
 crates.io um motor que ninguém conferiu, com o `upstream-intocavel` verde sobre uma pasta que ninguém compila — e agora
 reprova. O que a trava não alcança está dito no fim do módulo: a cópia reescrita (outra linguagem, outros nomes), o que
 não é código, e a sondagem do straight-skeleton, que aponta para fora do repositório de propósito e não tem `upstream/`.
+
+---
+
+## Reconferido no LAB-162 · 17/10/2026 — os commits nos vizinhos, perguntados pela sessão
+
+A linha *"Nenhum commit, nenhum push nos vizinhos"* e a do LF-FINAL-2, *"os commits dos clones vizinhos são **deles**"*,
+eram um comando rodado duas vezes, sem trava. A trava do LAB-38 (`regras.test.ts`, §4) pergunta outra coisa — o clone
+**desta máquina** limpo —, e um commit enviado à origem do vizinho deixa o clone limpo. E o comando do LF-FINAL-2 lia o
+**autor**, que hoje não distingue casa nenhuma: `Claude <noreply@anthropic.com>` é o autor de 204 commits no Laboratório
+de Parcelamento, 1 076 no Generate e 449 no Geo.
+
+**Desde o LAB-162 a linha é perguntada a cada verde**, por `external-engines/esteira/src/nenhum-commit-nos-vizinhos.ts`,
+`tests/nenhum-commit-nos-vizinhos.test.ts` (sem clones, histórias plantadas) e
+`tests/nenhum-commit-nos-vizinhos-com-clone.test.ts` (verde completo, a história inteira da origem dos quatro). O que
+identifica a casa é a **sessão** do rodapé `Claude-Session`.
+
+**O que a medição de 17/10 respondeu**, clones desrasados, todas as referências da origem:
+
+| repositório | commits | com rodapé de sessão | sessões em comum com esta casa |
+|---|---|---|---|
+| esta casa | 460 | 339 | — (82 sessões: 68 que trabalharam aqui, 14 da direção) |
+| Laboratório de Parcelamento | 479 | 199 | 10, todas da direção |
+| Generate | 1 356 | 651 | 10, todas da direção |
+| Geo | 1 135 | 472 | 10, todas da direção |
+
+As sessões em comum são **da direção** — a sessão do chat, que escreve nas caixas de entrada das onze casas na mesma
+rodada. Aqui, os commits dela só mexem em `docs/caixa-de-entrada/`, com duas exceções de 09/10, o dia em que ela montou a
+caixa (`6f43837`, o `docs/INDEX.md`; `d103582`, o `.claude/settings.json`), declaradas com o motivo. **Nenhuma sessão que
+trabalhou nesta casa aparece num vizinho, e nenhum commit de vizinho tem assunto `LAB-<n>`** — a linha é verdadeira.
+
+A trava reprova a sessão da casa num vizinho, o assunto `LAB-<n>` num vizinho, a declaração que sobra, a história rasa e
+o universo vazio. O que ela não alcança está dito no fim do módulo — entre outros, o commit sem rodapé e sem o assunto
+desta casa, e o que nunca chegou à origem.
+

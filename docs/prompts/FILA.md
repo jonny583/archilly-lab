@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-162 · item 900 — a dívida própria: nenhum commit, nenhum push nos vizinhos, e o autor já não distingue casa nenhuma — ✅ **feito em 17/10/2026** (D390)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/SEGURANCA.md`, tabela *Os repositórios vizinhos*: *"Nenhum commit, nenhum push nos vizinhos · ✅ · o histórico deles não tem commit desta sessão"*, do LF-FINAL (14/09), e a do LF-FINAL-2, conferida pelo **autor** — que hoje é `Claude` em toda a família. Pela **sessão** do rodapé, na história inteira da origem dos quatro: 14 sessões em comum, todas da direção (as caixas); nenhuma das 68 que trabalharam aqui num vizinho, nenhum assunto `LAB-<n>` lá. Trava `src/nenhum-commit-nos-vizinhos.ts`, um teste sem clones e um no verde completo; onze mutações, onze acusadas; 1 607 → 1 622. Detalhe em [`../relatorios/LAB-162.md`](../relatorios/LAB-162.md).
+
 ### LAB-161 · item 900 — a dívida própria: nenhum motor copiado para fora de `upstream/`, e a página nomeava as duas pastas onde ele não estava — ✅ **feito em 17/10/2026** (D389)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/SEGURANCA.md`, tabela *Integridade do que foi copiado*: *"Nenhum motor copiado para fora de `upstream/` · ✅ · `external-engines/testfit/` e `external-engines/esteira/` não contêm código de motor — só a ponte (D16)"*, do LF-FINAL (14/09), sem trava. As duas outras linhas da tabela já tinham a do LAB-132 (a árvore do `git` do `upstream/`, que cobre também a licença) — a página não dizia, e passou a dizer. O LAB-146 compara a casa com os motores **da família**; o motor **de fora**, o Symbios, nunca era o comparado, e o lugar onde uma cópia dele nasceria é `symbios/archilly/`, onde o Lab escreve Rust contra ele. Medido por mutação: `upstream/src/rationalize.rs` copiado para `symbios/archilly/wasm/src/` e adicionado ao `git` → só a contagem de árvore do LAB-57 caiu, sem dizer por quê. Medido por LUGAR: 18 arquivos de código do `upstream/` contra 354 da casa, **nenhuma cópia** (o mais parecido, 3 de 8 linhas, é a chamada à API); 4 `Cargo.toml`, 3 dependem do motor, **os três por `path = "../../upstream"`**. Regra verdadeira, guarda ausente. Trava: `external-engines/esteira/src/o-upstream-nao-sai-do-upstream.ts` e `tests/o-upstream-nao-sai-do-upstream.test.ts` (sem clones), as linhas e os limites do LAB-146 contra toda pasta `upstream/`, e a dependência que não aponta para ela; dez mutações, dez acusadas; 1 593 → 1 607 travas. Detalhe em [`../relatorios/LAB-161.md`](../relatorios/LAB-161.md).
@@ -2033,7 +2037,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1607 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1622 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
