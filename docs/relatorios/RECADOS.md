@@ -3436,3 +3436,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-144 — item 900 (a dívida própria): um prompt por despertador, e o anterior aberto se termina primeiro
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-144 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §1-A. FEITA, mesclado por git direto (D29). O disparo recusou o pull --ff-only (o clone raso da D344): desrasei, a main local era ancestral da origem, avancei por --ff-only — nada forçado nem apagado. Conferido aqui, não no GitHub: o portão sem clones 1283 de 1283; esteira 1 609 pass e 9 fail (as 9 do .wasm, as mesmas da linha de base), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "Um prompt por despertador; o anterior aberto se termina primeiro" foi descartado seis vezes (LAB-138 a 143) como imensurável pelo DISPARO — mas o ITEM deixa rastro: vira -FEITO num commit da primeira linha da main. Medido: 30 entregas fecharam 001 a 030, uma cada, em ordem, sem buraco, e o 900 nunca. A primeira leitura acusou o LAB-82 de pular o 013 — era a colisão que ele renumerou para 015 (D273), agora separada e contada. Trava: src/um-item-por-entrega.ts e tests/um-item-por-entrega.test.ts; 8 mutações, 8 acusadas; 1270 → 1283 travas; D372; detalhe em docs/relatorios/LAB-144.md.
+Achados para outros apps ou Central: (0) "NÃO SE MEDE" PODE SER "NÃO SE MEDE AQUI" — a regra deixava marca no item, não no disparo. (1) Toda casa com caixa pode perguntar à própria main, só com git: um item por entrega, em ordem, e o 900 nunca fechado. (2) A peça que não pode sair do git log é o --first-parent; o --diff-merges=first-parent já vem implícito desde o git 2.31 (medido: tirá-lo não muda nada no 2.43). (3) As propostas do LAB-123, 129, 135, 137, 140 e 141 seguem esperando o chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
