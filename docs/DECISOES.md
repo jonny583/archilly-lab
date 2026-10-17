@@ -12426,3 +12426,40 @@ lista das `oQueDizia` automaticamente (frase longa casada inteira só pega cópi
 > **O CONSERTO DE UMA FRASE FALSA NUM LUGAR NÃO A MATA NOS OUTROS.** O D98 achou a frase no `volta.ts`, consertou e
 > escreveu a regra; a cópia da véspera, noutra ponte, seguiu viva por quinze dias — e mais quatro, em README e ferramenta,
 > por um mês.
+
+## D380 · O TRABALHO ACONTECE EM `archilly/`, DOCUMENTADO, E O LUGAR QUE O DOCUMENTA NOMEIA CADA PROJETO QUE EXISTE — a página do Symbios dizia um de três · 17/10/2026
+
+**Contexto:** item 900 (LAB-152). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §3, a regra de ouro, item 2: *"O trabalho acontece em
+`archilly/`, documentado."* Os itens 1, 3 e 4 têm trava (LAB-132, LAB-135, LAB-134); o 2 só se conferia escrito (item
+028).
+
+**Medido (LAB-152), por LUGAR:** o `git ls-files` dá dois motores com `archilly/` e cinco projetos. Um motor diz o que
+mora em `archilly/` num de dois lugares que a casa já usa: o `archilly/README.md`, com uma seção por projeto (o
+`straight-skeleton`, que nomeia os dois), ou a linha `archilly/` da tabela de pastas da página do motor (o Symbios). A
+linha do Symbios, escrita no LAB-00, nomeava **só `probe/`**, e calava o `wasm-probe/` (LAB-00) e o `wasm/` — a ponte
+Rust que vira o `.wasm` do navegador, nascida no LAB-01.
+
+**Decidido:**
+
+1. Consertada a linha do Symbios: os três projetos, cada um com o que é e de onde veio, e quem a confere desde quando.
+2. *Documentado* é **nomeado no lugar onde o motor diz o que mora em `archilly/`**. Não se exige `README.md` em cada
+   projeto: a página única com uma seção por projeto, do `straight-skeleton`, é a forma mais legível da casa.
+3. `src/o-trabalho-em-archilly.ts`: `sem-lugar`, `projeto-calado`, `nomeado-sem-existir` e `universo-vazio`. O nome é o
+   que está entre crases e acaba em barra, fora a anatomia; no README vale só o título de seção, na página só a célula da
+   tabela; o que o `git` não carrega não é lugar.
+4. `tests/o-trabalho-em-archilly.test.ts`, 20 testes, sem clones: 1 427 → 1 447 no trabalho sem clones.
+
+**Os dois lados:** a árvore de hoje passa; a linha que nomeia, o README com seções, os dois lugares somados, a prosa antes
+da tabela e o motor sem `archilly/` passam. A linha do LAB-00, o projeto novo calado, o nome de projeto apagado (nos dois
+lugares), a menção solta no corpo, nenhum lugar, o README fora do `git`, o motor só com arquivo solto e o universo vazio
+reprovam — e a página de hoje com a linha antiga devolvida também. Onze mutações no módulo, onze acusadas — uma só depois
+de entrar o caso que faltava (lição 12c).
+
+**Descartado:** exigir `README.md` por projeto (acusaria o que está bem documentado); um lugar só (reescreveria página
+certa); consertar agora as duas frases do `adapter/` na mesma página (*"Vazia. Fase futura."*, *"Adapter: não
+escrito"*), falsas desde o LAB-01 — são de outra regra do §3, e conserto de texto sem trava envelhece calado (D104): vão à
+FILA como proposto ao chat.
+
+> **A TABELA DE PASTAS ESCRITA NO DIA EM QUE A CASA NASCE É A PRIMEIRA PÁGINA A ENVELHECER.** Ela conta o que havia, e
+> ninguém volta a ela quando nasce a pasta nova — o `wasm/`, o projeto mais usado da pasta, viveu 37 dias fora dela (10/09 a 17/10).

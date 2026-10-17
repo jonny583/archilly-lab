@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-152 · item 900 — a dívida própria: o trabalho acontece em `archilly/`, documentado, e a página do Symbios dizia um projeto onde havia três — ✅ **feito em 17/10/2026** (D380)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §3, a regra de ouro: *"O trabalho acontece em `archilly/`, documentado."* — os outros três itens do §3 têm trava (LAB-132, LAB-134, LAB-135), este só se conferia escrito. Medido por LUGAR, o `git ls-files`: dois motores com `archilly/`, cinco projetos; o `straight-skeleton` nomeia os dois no `archilly/README.md`, e a linha `archilly/` da página do Symbios, escrita no LAB-00, nomeava **só `probe/`** — calava o `wasm-probe/` (LAB-00) e o `wasm/`, a ponte que o navegador carrega (LAB-01). Regra descumprida, consertada a linha. Trava: `external-engines/esteira/src/o-trabalho-em-archilly.ts` e `tests/o-trabalho-em-archilly.test.ts` (sem clones), nos dois sentidos; onze mutações, onze acusadas; 1 427 → 1 447 travas. Detalhe em [`../relatorios/LAB-152.md`](../relatorios/LAB-152.md).
+
+**Proposto ao chat, saído do LAB-152 — não executado:** a mesma tabela da página do Symbios diz *"`adapter/` · Vazia. Fase futura."* e o cabeçalho diz *"Adapter: não escrito"* — os dois falsos desde o LAB-01. São de outra regra do §3 (a fronteira, que já tem trava e não lê a página), e consertar texto sem trava que o confira é o conserto que envelhece calado (D104). A proposta: a página de cada motor dizer, para cada uma das três pastas da anatomia, o que o `git` carrega nela — e uma trava perguntar.
+
 ### LAB-151 · item 900 — a dívida própria: o motivo de uma perda não mora em comentário, e a frase que o D98 matou seguia viva em cinco arquivos — ✅ **feito em 17/10/2026** (D379)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"O motivo de uma perda não mora em comentário (D98, D104)."* — a primeira metade da linha tem trava desde o LAB-25 (contra o motor rodando), esta só se conferia escrita. Medido por LUGAR: quatro frases que a casa registrou como falsas, parágrafo a parágrafo, em 346 arquivos fora de `docs/` e `upstream/` — 26 ocorrências, 13 citadas, uma na história, três genéricas e **nove vivas em cinco arquivos**: a ponte do Symbios (*"o outro motor, que não calcula greide"*, escrita na véspera do D98), a ferramenta do LAB-07, os dois README e a ferramenta do LAB-08. Seis consertadas (texto, nenhum comportamento), as três do `lab08.ts` declaradas com motivo (D118). Trava: `external-engines/esteira/src/frase-vencida.ts` e `tests/frase-vencida.test.ts` (sem clones), cada frase com a fonte da medição conferida; treze mutações, treze acusadas; 1 402 → 1 427 travas. Detalhe em [`../relatorios/LAB-151.md`](../relatorios/LAB-151.md).
@@ -1989,7 +1995,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1427 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1447 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

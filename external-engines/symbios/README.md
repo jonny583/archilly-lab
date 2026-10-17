@@ -20,7 +20,7 @@ Análise completa: [`../../docs/SYMBIOS_ANALYSIS.md`](../../docs/SYMBIOS_ANALYSI
 | Pasta | Regra |
 |---|---|
 | `upstream/` | **Intocada.** Cópia byte a byte do commit acima, verificada com `cmp` arquivo a arquivo. Manifesto em `upstream/VERSION`. Não editar. |
-| `archilly/` | Cópia de trabalho. Contém `probe/`, o arranjo de medição do LAB-00. Ele **depende** do upstream por caminho; não o modifica. |
+| `archilly/` | Cópia de trabalho: o código **nosso** que chama o motor. Cada projeto **depende** do upstream por caminho e não o modifica. São três: `probe/`, o arranjo de medição do LAB-00; `wasm-probe/`, a prova de que o motor compila para `wasm32-unknown-unknown` (LAB-00, com `README.md` próprio); e `wasm/`, a ponte Rust que vira o `.wasm` que o `adapter/` carrega (LAB-01; como construir em `adapter/README.md`). *(Até 17/10/2026 esta linha dizia só `probe/`; `tests/o-trabalho-em-archilly.test.ts` confere que ela nomeia cada projeto que existe, e só eles.)* |
 | `adapter/` | Vazia. Fase futura. |
 | `tests/` | Testes do motor e da integração. |
 
