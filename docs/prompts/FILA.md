@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-147 · item 900 — a dívida própria: o não medido sai `null`, nunca zero, e a porta dizia zero metro de rua — ✅ **feito em 17/10/2026** (D375)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"Não inventa dado: o não medido sai `null`, nunca zero (D23)."* — descartada nove vezes como *"espalhada por vinte módulos"*, e a mais velha das que sobravam. A varredura de chamadas (LAB-52) declarava não pegar o `?? 0` sobre propriedade, e era ali: a porta somava `v.comprimento_m ?? 0` sobre uma via que o contrato v1 do Generate não mede, e a prova do LAB-06 gravou `comprimentoDeVia_m: 0` nas três aprovadas (974, 776 e 214 lotes). **Regra descumprida**, consertada: `null` em `external-engines/esteira/src/porta/indicadores.ts`, e o `julgar` de `motores/comum.ts` com `?? null`. Medido por LUGAR: 206 arquivos de código, 177 zeros `?? 0`/`|| 0`, 45 sobre medida em 17 arquivos, todos declarados com classe e motivo. Trava: `external-engines/esteira/src/nulo-nunca-zero.ts` e `tests/nulo-nunca-zero.test.ts` (sem clones); doze mutações, doze acusadas; 1 319 → 1 338 travas. Detalhe em [`../relatorios/LAB-147.md`](../relatorios/LAB-147.md).
+
+**Proposto ao chat, saído do LAB-147 — não executado:** estender a régua do nulo à forma **`: 0` de ternário** sobre chave de medida (`maxima_pct: lista.length ? … : 0`). Existe e está medida: `external-engines/testfit/ferramentas/medir.ts` grava assim, e a prova do LAB-07 tem `maxima_pct: 0` com `cruzamentos: 0`. É escopo novo, e por isso fica aqui.
+
 ### LAB-146 · item 900 — a dívida própria: motor da família não ganha `upstream/`, e nada perguntava se ele tinha sido copiado com outro nome — ✅ **feito em 17/10/2026** (D374)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §3: *"Motor da própria família não ganha `upstream/` (D16): lê-se do clone irmão pelos `paths` do `tsconfig.json`."* A metade do *ler pelos `paths`* tem trava (LAB-135); a do *não copiar* só tinha guarda pelo nome. Medido pelo conteúdo, `git ls-files` dos dois lados: 343 arquivos de código daqui, 350 do Laboratório de Parcelamento, 608 do Generate; nenhum idêntico; o único alto é o `contrato-v1.ts` (72 %), redeclaração declarada do contrato desde o LAB-07; o resto, 15 % no máximo. Trava: `external-engines/esteira/src/o-motor-da-familia-nao-se-copia.ts`, `tests/o-motor-da-familia-nao-se-copia.test.ts` (sem clones) e `-com-clone.test.ts` (verde completo); quatorze mutações, quatorze acusadas; 1 298 → 1 319 travas. Detalhe em [`../relatorios/LAB-146.md`](../relatorios/LAB-146.md).
@@ -1967,7 +1973,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1319 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1338 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

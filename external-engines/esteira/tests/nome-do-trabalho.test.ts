@@ -145,7 +145,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // repositório e um módulo puro; a metade dos vizinhos mora na `-com-clone`, fora do trabalho.
     // E 79 no LAB-146, com a `o-motor-da-familia-nao-se-copia.test.ts` — o `git ls-files` DESTE repositório e dados
     // plantados; a comparação com os vizinhos de verdade mora na `-com-clone`, fora do trabalho.
-    expect(lista).toHaveLength(79);
+    // E 80 no LAB-147, com a `nulo-nunca-zero.test.ts` — o `git ls-files` DESTE repositório, o texto de cada arquivo de
+    // código e dados plantados; nenhum clone.
+    expect(lista).toHaveLength(80);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

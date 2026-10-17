@@ -476,7 +476,9 @@ export function julgar(saida: unknown, entrada: EntradaMinima): Veredito {
   return {
     recusa: null,
     lotes: r.judge.numLotes,
-    areaPrivativa_m2: r.judge.areaPrivativa_m2 ?? 0,
+    // `?? null`, e não `?? 0` (LAB-147, D375): o tipo do dono diz `number` e hoje nunca falta — mas, se um dia
+    // faltar, o que sai daqui é "não medido", como o cabeçalho desta função promete (D23).
+    areaPrivativa_m2: r.judge.areaPrivativa_m2 ?? null,
     violacoes: r.validator.violacoes,
     porTipo: r.validator.porTipo,
     exemplos: (r.validator.exemplos ?? []).slice(0, 3),
