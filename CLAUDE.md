@@ -201,7 +201,8 @@ silêncio.* *(história: §H8)*
 
 ## 5 · Nomes
 
-**"Testfit" é nome interno**; para o usuário é **Laboratório de Parcelamento**.
+**"Testfit" é nome interno**; para o usuário é **Laboratório de Parcelamento**, com guarda lendo onde
+a página do Jonny o manda e a bancada (D383).
 `docs/PENDENCIAS_JONNY.md` é escrito **para leigo**; item resolvido é **marcado, nunca apagado**, e
 dívida técnica não entra lá. *(história: §H9)*
 
@@ -257,7 +258,7 @@ reprova com a receita), sete passos, todos mesmo depois de uma falha, e **nada f
 (D126).
 
 **O CI** (`verde.yml`) tem dois trabalhos: o das
-**1486 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
+**1507 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
 exige `VIZINHOS_TOKEN` e sem ele **falha com a receita**.
 
 ### 🔴 O CI AUTOMÁTICO ESTÁ DESLIGADO desde 08/10/2026

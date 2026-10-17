@@ -161,7 +161,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // plantados; nenhum clone.
     // E 87 no LAB-154, com a `o-julgamento-vem-do-generate.test.ts` — o `git ls-files` DESTE repositório, a árvore
     // sintática de cada arquivo e dados plantados; não segue import para dentro de clone nenhum.
-    expect(lista).toHaveLength(87);
+    // E 88 no LAB-155, com a `nome-interno.test.ts` — a página do Jonny, os arquivos desta casa a que ela manda, a
+    // bancada e dados plantados; nenhum clone.
+    expect(lista).toHaveLength(88);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

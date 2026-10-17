@@ -12539,3 +12539,46 @@ sintaxe); congelar os 18 e os 8 no teste.
 
 > **"TEM GUARDA" NÃO RESPONDE "A REGRA É GUARDADA".** A pergunta que responde é a mutação no ponto central rodada contra a
 > suíte inteira: um veredito falso no `comum.ts` não foi acusado por nenhum teste que olha veredito.
+
+## D383 · "TESTFIT" É NOME INTERNO, E A GUARDA LÊ ONDE A PÁGINA DO JONNY O MANDA — a do LAB-36 lia dois arquivos de uma lista · 17/10/2026
+
+**Contexto:** item 900 (LAB-155). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda** (guarda estreita), no `CLAUDE.md` §5: *"**"Testfit" é nome interno**; para
+o usuário é **Laboratório de Parcelamento**."* A guarda do LAB-36 lê `docs/PENDENCIAS_JONNY.md` e
+`docs/COMPARACAO_DOS_MOTORES.md`, escritos à mão numa lista, e pergunta se o texto contém `testfit`. O LAB-150 tinha
+descartado esta frase dizendo *"a bancada não diz Testfit — nada a acusar"*, sem perguntar onde mais o Jonny lê.
+
+**Medido (LAB-155):** por mutação, `Testfit` no título da bancada do navegador (a única interface, §4) passou 25 de 25, e
+`Test Fit` na página do Jonny passou 25 de 25. Por LUGAR, *"voltado ao usuário"* é **onde a página dele o manda**: onze
+endereços, dois de fora da casa (configurações do GitHub), nove desta casa em oito arquivos mais o repositório sem caminho,
+que o GitHub abre no `README.md`. O `README.md` da raiz — o **primeiro** endereço da página dele — dizia *"motor do
+Testfit"* **seis vezes**, em texto corrido, com a guarda verde. **Regra descumprida**, consertada (texto, nenhum
+comportamento): *"motor do Laboratório de Parcelamento"*, seis linhas. Os outros cinco do README
+(`external-engines/testfit/`, `motor-testfit`) são caminho e endereço, e ficam.
+
+**Decidido:**
+
+1. `src/nome-interno.ts`: `nome-interno-na-pagina` (com a linha), `endereco-sem-classe`, `declarado-que-sumiu` e
+   `universo-vazio`. O universo sai da página do Jonny — os endereços desta casa que ela traz, absolutos ou relativos —,
+   mais a bancada (a exceção de interface do LAB-153 e o que ela carrega por `src=`). Cada endereço é `pagina` (cobrada:
+   o README, a comparação) ou `registro` (declarado com motivo: `ONDE_PARAMOS`, `INDEX`, `RECADOS` e quatro relatórios),
+   em lista fechada.
+2. A palavra cobrada é a **solta** — sem hífen, barra, sublinhado, ponto ou crase colados, fora de endereço —, nas cinco
+   grafias `Testfit`, `TestFit`, `TESTFIT`, `Test Fit`, `test-fit`.
+3. `tests/nome-interno.test.ts`, 21 testes, sem clones, no portão sem clones do `verde.yml`.
+4. A frase do `CLAUDE.md` §5 diz o que a guarda lê: *"com guarda lendo onde a página do Jonny o manda e a bancada
+   (D383)"*. A guarda do LAB-36 fica, com um comentário apontando para cá.
+
+**Os dois lados:** a árvore de hoje, a casa de mentira do mesmo tamanho, pasta, repositório vizinho, crase, endereço,
+`test_fit` e `testfitAtivo`, e a palavra num `registro` passam. As cinco grafias soltas, a palavra na página dele, no título
+da bancada, no script que ela carrega e no README, o endereço novo sem classe (absoluto e relativo), o declarado que a
+página não traz, o arquivo declarado que não existe, o script da bancada que sumiu e a página vazia reprovam. Seis
+mutações na árvore de verdade, seis acusadas.
+
+**Descartado:** cobrar os registros (o `ONDE_PARAMOS.md` tem a história embaixo, e recado enviado não se reescreve; e ali a
+palavra é quase sempre a pasta `testfit/`); seguir link de dentro das páginas cobradas (um salto basta para o que a página
+dele promete; declarado como buraco); ler o código dos adaptadores (comentário de código é língua da casa, não texto ao
+usuário); congelar os nove endereços no teste fora da lista declarada.
+
+> **"VOLTADO AO USUÁRIO" NÃO É UMA LISTA QUE SE LEMBRA: É ONDE A CASA MANDA O USUÁRIO.** A lista do LAB-36 tinha os dois
+> arquivos que alguém lembrou, e o primeiro endereço da página dele não estava nela.
