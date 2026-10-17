@@ -12282,3 +12282,38 @@ zeros); ler o zero no JSON gravado (um zero escrito não diz se foi medido).
 
 > **O BURACO DECLARADO DE UMA RÉGUA É O LUGAR ONDE A PRÓXIMA REGRA ESTÁ DESCUMPRIDA.** A varredura de chamadas dizia, por
 > escrito, o que não pegava — e era exatamente ali.
+
+---
+
+## D376 · "NÃO HÁ NADA PAGO NESTE REPOSITÓRIO HOJE" PASSA A PERGUNTAR À ÁRVORE — cinco portas, lista fechada com classe · 17/10/2026
+
+**Contexto:** item 900 (LAB-148). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém; a
+espécie *regra sem guarda* ficou dita como esgotada no LAB-147. Fui à quinta espécie da dívida própria, **mensagem fixa
+que afirma estado sem perguntar**, no `CLAUDE.md` §4-A: *"não há nada pago neste repositório hoje"*. A única trava
+(`custo-por-uso.test.ts`, item 005) conferia que a frase estava ESCRITA — um cliente de API paga entrando deixaria a
+frase escrita e a trava verde.
+
+**Medido (LAB-148), por LUGAR:** uma coisa paga só funciona se entrar por uma porta da árvore, e são cinco —
+dependência (`package.json`, `Cargo.toml`, `upstream/` incluído), variável de ambiente lida por nome, endereço
+`http(s)://` no código, segredo da rotina, ação e máquina da rotina. **33 portas** (17, 4, 7, 1, 4), **nenhuma paga**:
+nenhum SDK de serviço, nenhuma chave, nenhum host de API de terceiro, nenhuma máquina maior que a padrão.
+
+**Decidido:**
+
+1. `src/nada-pago.ts`: as cinco portas lidas do texto versionado, e `PORTAS_DECLARADAS`, lista fechada por
+   `porta:nome` com **classe** (`gratuito`, `local`, `nao-e-chamada`, `pago`) e motivo, conferida nos dois sentidos.
+2. **A frase e a classe se amarram:** porta `pago` com a frase escrita é `a-frase-mente`; nenhuma `pago` e a frase
+   sumida é `a-frase-sumiu`.
+3. No Rust, a limpeza de comentário é por linha `//`: a de JS (LAB-52) se perde nas aspas de dentro da string bruta e
+   apagava o endereço do exemplo SVG do `upstream/` — medido na primeira rodada.
+4. `tests/nada-pago.test.ts`, 16 testes, sem clones: 1 338 → 1 354 no trabalho sem clones.
+
+**Os dois lados:** a casa de hoje passa, comentário não é porta, `[[bench]]` fecha a seção; doze jeitos plantados de
+pôr uma coisa paga reprovam; onze mutações no módulo, onze acusadas.
+
+**Descartado:** ler os `.lock` (o transitivo não entra por escolha nossa; o SDK pago entra pelo nome direto); ler
+endereço em `docs/` (documento cita sem chamar); declarar sem classe (uma porta paga entraria como "declarada" e a frase
+continuaria passando).
+
+> **FRASE QUE AFIRMA ESTADO E SÓ SE CONFERE ESCRITA É UMA FOTOGRAFIA QUE NINGUÉM DATA.** A trava não pergunta se a
+> frase existe; pergunta à árvore se ela ainda é verdade.

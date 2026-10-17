@@ -147,7 +147,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // plantados; a comparação com os vizinhos de verdade mora na `-com-clone`, fora do trabalho.
     // E 80 no LAB-147, com a `nulo-nunca-zero.test.ts` — o `git ls-files` DESTE repositório, o texto de cada arquivo de
     // código e dados plantados; nenhum clone.
-    expect(lista).toHaveLength(80);
+    // E 81 no LAB-148, com a `nada-pago.test.ts` — o `git ls-files` DESTE repositório (código, manifestos e rotinas),
+    // o `CLAUDE.md` e dados plantados; nenhum clone.
+    expect(lista).toHaveLength(81);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
