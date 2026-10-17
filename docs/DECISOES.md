@@ -12104,3 +12104,35 @@ do `.wasm`).
 
 > **DECLARADO NO COMENTÁRIO NÃO É DECLARADO NA MEDIÇÃO.** O cabeçalho do motor dizia *"escolha declarada"*, e era — para
 > quem lê o código. Quem lê a tabela nunca soube. A regra é sobre o que sai, e o que sai é o que se cobra.
+
+## D371 · A MEDIÇÃO É EM METROS — e duas ferramentas gravavam a gleba em hectare · 17/10/2026
+
+**Contexto:** item 900 (LAB-143). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"Medição é em metros e em dados: JSON em
+`docs/provas/<prompt>/` com gleba, motor, semente e contrato, e determinismo provado"*. A metade de depois dos
+dois-pontos tem trava (LAB-36, LAB-103, LAB-105, LAB-141); a de antes — *"em metros"* — não tinha nenhuma.
+
+**Medido (LAB-143):** por LUGAR, as 84 provas JSON, chave por chave pelo sufixo: `_m` 8 979, `_m2` 6 770, `_pct`
+1 389, `_graus` 22, `_ms` 12 — e `_ha` 5: `area_ha` no `LAB-07/medicoes.json` (3×, `testfit/ferramentas/medir.ts`) e
+`areaDaGleba_ha` no `LAB-50/passagem-externa.json` (2×, `esteira/ferramentas/lab50.ts`), as duas em hectare
+arredondado, sem o metro quadrado ao lado. Regra descumprida, com perda. No código, mais duas ferramentas do Symbios
+escrevem hectare, nenhuma em `docs/provas/`.
+
+**Decidido:**
+
+1. `src/medicao-em-metros.ts`: a régua do sufixo (comprimento e área fora do metro), no JSON (com o caminho) e no texto
+   do `.ts` (sem comentários). Grandeza que não é terra (`_pct`, `_graus`, `_ms`) fica fora.
+2. As duas ferramentas gravam metro quadrado (`areaDaGleba_m2`, `area_m2`); o hectare fica no console, que é tela.
+3. `tests/medicao-em-metros.test.ts`, 13 testes, nos dois universos: as provas (as duas antigas congeladas com a
+   contagem, D118) e o código (as duas ferramentas do Symbios em exceção com o motivo, e reprova se passarem a gravar
+   em `docs/provas/`). Lê só este repositório: entra no trabalho sem clones, 1 257 → 1 270.
+
+**Os dois lados:** oito mutações, oito acusadas; o arquivo limpo passa.
+
+**Descartado:** regerar as provas do LAB-07 e do LAB-50 para trocar a unidade (D118: prova é história); trocar a chave
+das duas ferramentas do Symbios (gravam fora de `docs/provas/`, e a medição só roda com o `.wasm` — a ferramenta e a
+gravação discordariam sem que ninguém pudesse remedir); régua de VALOR (exigiria saber a ordem de grandeza de cada
+medida — inventar).
+
+> **A METADE DA REGRA QUE TEM TRAVA ESCONDE A METADE QUE NÃO TEM.** Quem conferia *"a §7 tem guarda"* achava guarda —
+> da segunda metade da frase.

@@ -242,13 +242,16 @@ for (const { id, entrada } of GLEBAS) {
     motor: "Laboratório de Parcelamento (motor-testfit)",
     semente: SEMENTE,
     variante: r.variante,
-    areaDaGleba_ha: n1(
+    // Em METRO QUADRADO, não em hectare (LAB-143, D371): o `CLAUDE.md` §7 diz "medição é em metros", e
+    // esta chave saía `areaDaGleba_ha`, arredondada a uma casa — a prova gravada fica como está (D118),
+    // e a trava `medicao-em-metros.test.ts` a congela como história. O hectare é da tela.
+    areaDaGleba_m2: n1(
       Math.abs(
         perimetro.reduce((s, p, i) => {
           const q = perimetro[(i + 1) % perimetro.length]!;
           return s + p.x * q.y - q.x * p.y;
         }, 0) / 2,
-      ) / 10000,
+      ),
     ),
     verticesDoPerimetro: perimetro.length,
     facesEntregues,
@@ -302,7 +305,7 @@ for (const { id, entrada } of GLEBAS) {
 console.log("══════════ LAB-50 · a passagem externa, medida ══════════");
 for (const g of linhas) {
   const p = g.previsoes as Record<string, { cumprida: boolean | null }>;
-  console.log(`\n  ${g.gleba} · ${g.areaDaGleba_ha} ha · ${g.verticesDoPerimetro} vértices · ${g.lotesExternos} lotes externos`);
+  console.log(`\n  ${g.gleba} · ${n1(Number(g.areaDaGleba_m2) / 10000)} ha · ${g.verticesDoPerimetro} vértices · ${g.lotesExternos} lotes externos`);
   console.log(`    faces entregues: ${JSON.stringify((g.facesEntregues as { indice: number; comprimento_m: number }[]).map((f) => `${f.indice} (${f.comprimento_m} m)`))}`);
   for (const [nome, v] of Object.entries(p)) {
     console.log(`    ${v.cumprida === true ? "✓" : v.cumprida === false ? "✗" : "—"} ${nome}  ${JSON.stringify(v).slice(0, 160)}`);
