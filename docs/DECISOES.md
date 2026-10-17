@@ -12904,3 +12904,45 @@ fora do repositório de propósito e não tem `upstream/` — dita no que a trav
 
 > **A RÉGUA QUE COMPARA COM A FAMÍLIA NÃO VÊ O MOTOR DE FORA, E A PÁGINA OLHAVA AS PASTAS ERRADAS.** A cópia do Symbios
 > nasceria ao lado do `upstream/`, onde o Lab escreve Rust contra ele — e nenhuma das duas pastas da linha é essa.
+
+## D390 · NENHUM COMMIT, NENHUM PUSH NOS VIZINHOS, E A GUARDA PERGUNTA PELA SESSÃO — o autor já não distingue casa nenhuma · 17/10/2026
+
+**Contexto:** item 900 (LAB-162). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, na mesma espécie e na mesma página do LAB-158 ao LAB-161 — **mensagem fixa que afirma estado sem
+perguntar**, no `docs/SEGURANCA.md` —, na tabela *Os repositórios vizinhos*: *"Nenhum commit, nenhum push nos vizinhos ·
+✅ · o histórico deles não tem commit desta sessão"* (LF-FINAL, 14/09), e a do LF-FINAL-2 (15/09), *"os commits dos
+clones vizinhos são **deles**, não meus"*, conferida pelo autor. A trava do LAB-38 pergunta o clone **desta máquina**
+limpo, e um commit enviado à origem do vizinho o deixa limpo.
+
+**Medido (LAB-162):** o autor de todo commit de sessão da família é `Claude <noreply@anthropic.com>` — 204 no
+Laboratório de Parcelamento, 1 076 no Generate, 449 no Geo: a pergunta de 15/09 já não teria resposta. O que identifica a
+casa é a sessão do rodapé `Claude-Session`. Na história inteira da origem dos quatro, 14 sessões aparecem aqui e num
+vizinho, **todas da direção** (escreve as caixas das onze casas na mesma rodada); aqui, os commits dela só mexem em
+`docs/caixa-de-entrada/`, salvo dois de 09/10 (`6f43837`, o `docs/INDEX.md`; `d103582`, o `.claude/settings.json`).
+Nenhuma das 68 sessões que trabalharam aqui aparece num vizinho; nenhum assunto `LAB-<n>` lá. Regra verdadeira, guarda
+ausente.
+
+**Decidido:**
+
+1. `external-engines/esteira/src/nenhum-commit-nos-vizinhos.ts`: sessão da casa é a de todo commit desta casa que não é
+   da direção (só a caixa, sem `-FEITO`, ou uma das duas exceções declaradas com motivo); reprova a sessão da casa em
+   commit de vizinho, o assunto `LAB-<n>` em commit de vizinho, a declaração que sobra, a história rasa e o universo
+   vazio. A sessão ambígua (caixa e fora dela) conta como da casa.
+2. `tests/nenhum-commit-nos-vizinhos.test.ts`, 15 testes, sem clones, no portão sem clones do `verde.yml` (1 607 →
+   1 622); `tests/nenhum-commit-nos-vizinhos-com-clone.test.ts` no verde completo, com o universo publicado.
+3. A linha da página aponta para a régua; a do LF-FINAL-2 diz que o autor deixou de responder; a seção *Reconferido no
+   LAB-162* traz a tabela.
+
+**Os dois lados:** o trabalho do vizinho e os itens da direção passam; a sessão de uma rodada daqui, o assunto
+`LAB-<n>`, o `-FEITO` contado como direção, a direção fora da caixa sem declaração, a declaração que sobra (sumida ou já
+na caixa), a história rasa e o universo vazio reprovam. **Onze mutações, onze acusadas**, uma delas um commit plantado
+numa cópia do clone do Laboratório de Parcelamento; a primeira versão da mutação das declarações não pegou por defeito da
+mutação (`[] && [...]` devolve a lista), refeita, acusou.
+
+**Descartado:** perguntar pelo autor (não distingue); perguntar pela data da sessão (a direção e a casa trabalham no
+mesmo dia); pedir à direção uma lista das sessões dela (seria afirmação de outra casa, e a forma do commit já responde);
+ler a API do GitHub pelos pushes (rede numa trava, e o que interessa é o que ficou na origem).
+
+> **A PERGUNTA QUE CONFERIU A LINHA DEIXOU DE EXISTIR ANTES DA LINHA FICAR FALSA.** O autor distinguia as casas em
+> setembro; em outubro todas assinam igual. Comando de conferência também envelhece — e quem não o roda de novo não vê.
+

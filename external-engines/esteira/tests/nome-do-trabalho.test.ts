@@ -175,7 +175,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // história recusa no clone raso), o `docs/SEGURANCA.md` e nomes plantados; nenhum clone.
     // E 94 no LAB-161, com a `o-upstream-nao-sai-do-upstream.test.ts` — o `git ls-files` DESTE repositório, o
     // `docs/SEGURANCA.md` e dados plantados; nenhum clone.
-    expect(lista).toHaveLength(94);
+    // E 95 no LAB-162, com a `nenhum-commit-nos-vizinhos.test.ts` — o `docs/SEGURANCA.md` e histórias plantadas;
+    // nenhum clone (a história de verdade dos quatro mora na `-com-clone`, no verde completo).
+    expect(lista).toHaveLength(95);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
