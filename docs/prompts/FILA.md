@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-154 · item 900 — a dívida própria: não reimplementa o Validator nem o Judge, e um Validator falso no `comum.ts` passava a suíte inteira — ✅ **feito em 17/10/2026** (D382)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda** (guarda estreita), no `CLAUDE.md` §4: *"Não reimplementa o Validator nem o Judge (D20)"*. A guarda do LAB-36 lia só `esteira/src/`, cinco nomes na forma `function`/`class`, e a MENÇÃO de `@generate/` no `comum.ts`. Medido por mutação: uma função de julgamento no adaptador do Symbios e uma seta em `esteira/src/` passaram 25 de 25; um Validator e um Judge falsos no `comum.ts`, tipados e sem gravar `limpo`, passaram a suíte inteira com os clones (só caíram as provas de contagem do LAB-52 e do LAB-57). Medido por LUGAR, pela árvore sintática, 335 arquivos TypeScript/JavaScript e 5 Rust: 18 importam o julgamento; 8 funções com nome de julgamento, 7 chegam ao Generate pela cadeia de chamadas, a oitava é o dublê do LAB-06 (`julgarPorLotes`). Regra verdadeira, guarda estreita. Trava: `external-engines/esteira/src/o-julgamento-vem-do-generate.ts` e `tests/o-julgamento-vem-do-generate.test.ts` (sem clones), nos dois sentidos; vinte mutações acusadas, uma equivalente declarada; 1 464 → 1 486 travas. Detalhe em [`../relatorios/LAB-154.md`](../relatorios/LAB-154.md).
+
 ### LAB-153 · item 900 — a dívida própria: não tem interface, com uma exceção declarada, e a guarda só olhava `.html` numa pasta — ✅ **feito em 17/10/2026** (D381)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda** (guarda estreita), no `CLAUDE.md` §4: *"Não tem interface — com UMA exceção, declarada"*. A guarda do LAB-36 diz *"exatamente UM html no repositório"* e lia o disco de `external-engines/`, só `.html`: uma página em `docs/` e um componente `.tsx` postos no `git` passaram 25 de 25. Medido por LUGAR, o `git ls-files` inteiro (733 arquivos, 334 de código), três portas — página, componente, servidor —: os dois achados são a bancada, a página e o `prova-automatica.ts` que a serve. Regra verdadeira, guarda estreita. Trava: `external-engines/esteira/src/a-unica-interface.ts` e `tests/a-unica-interface.test.ts` (sem clones), exceção por arquivo e porta, nos dois sentidos; onze mutações, onze acusadas; 1 447 → 1 464 travas. Detalhe em [`../relatorios/LAB-153.md`](../relatorios/LAB-153.md).
@@ -1999,7 +2003,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1464 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1486 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

@@ -12497,3 +12497,45 @@ somar (régua que responde certo não se troca); congelar o tamanho do universo 
 
 > **GUARDA QUE DIZ "NO REPOSITÓRIO" NO TÍTULO TEM DE SER PERGUNTADA SOBRE QUEM É O REPOSITÓRIO NO CÓDIGO.** A do LAB-36
 > dizia o repositório e lia uma pasta do disco, e um tipo de arquivo — o título prometia mais do que o código lia.
+
+## D382 · NÃO REIMPLEMENTA O VALIDATOR NEM O JUDGE, E A GUARDA SEGUE A CADEIA DE CHAMADAS ATÉ O GENERATE — a do LAB-36 lia cinco nomes numa pasta e uma menção · 17/10/2026
+
+**Contexto:** item 900 (LAB-154). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda** (guarda estreita), no `CLAUDE.md` §4: *"Não reimplementa o Validator nem o
+Judge (D20)."* A guarda do LAB-36 confere que o `comum.ts` **contém o texto** `@generate/` e que nenhum `.ts` de
+`esteira/src/` diz `function`/`class` seguido de cinco nomes.
+
+**Medido (LAB-154):** por mutação, `export function julgarLocal` no adaptador do Symbios e `export const validar = () =>`
+em `esteira/src/`, os dois no `git`, passaram a guarda (25 de 25). O `comum.ts` com o import trocado por um Validator e um
+Judge locais que aprovam tudo, tipados pelo `typeof` do Generate e sem gravar `limpo`, passou a suíte inteira com os três
+clones: 1 797 e 9 antes, 1 795 e 11 depois — as duas novas são as provas do LAB-52 e do LAB-57, que contam linhas e bytes.
+Gravando `limpo: true`, cai também a LAB-110. Por LUGAR, pela árvore sintática do TypeScript, 335 arquivos
+TypeScript/JavaScript e 5 Rust (fora `upstream/` e `node_modules/`): 18 importam `montarParcelamentoExterno` e
+`montarRelatorio` do especificador da D20; 8 funções com nome de julgamento, 7 chegam a eles pela cadeia de chamadas, e a
+oitava é o `julgarPorLotes` de `tests/entrega.test.ts`, o Validator de mentira do LAB-06; nenhuma `fn` Rust. A regra está
+verdadeira; a guarda é que não perguntava ao repositório, nem pela forma de escrever função, nem pela importação.
+
+**Decidido:**
+
+1. `src/o-julgamento-vem-do-generate.ts`: `julgamento-proprio`, `simbolo-redefinido`, `ponto-sem-importacao`,
+   `excecao-que-sumiu` e `universo-vazio`. A cadeia segue import relativo, o apelido `@symbios/` e re-exportação, até
+   parar de mudar; o vocabulário é `julga…`, `julgu…`, `valida…`, `validator`, `judge`, `juiz`; a exceção é por **arquivo
+   e nome**, com motivo — o dublê do LAB-06.
+2. `tests/o-julgamento-vem-do-generate.test.ts`, 22 testes, sem clones: 1 464 → 1 486 no trabalho sem clones.
+3. A frase do `CLAUDE.md` §4 diz o que a guarda conta: *"com guarda seguindo a cadeia de chamadas até o Generate em tudo o
+   que o `git` carrega (D382)"*. A guarda do LAB-36 fica, com um comentário apontando para cá.
+
+**Os dois lados:** a árvore de hoje, o embrulho pela cadeia (relativo com outro nome, apelido, re-exportação), o símbolo
+passado como argumento, a menção em comentário ou string, o resultado guardado, `upstream/` e `node_modules/` passam. As
+três mutações literais, cada forma de escrever função, o ponto que só menciona ou importa de outro arquivo, o nome do
+julgamento redefinido, a cadeia cortada, `fn julgar` em Rust, a exceção apagada ou que passou a chegar, o mesmo nome noutro
+arquivo e o universo vazio reprovam. Vinte e uma mutações no módulo: vinte acusadas, uma equivalente declarada no
+relatório (lição 12c).
+
+**Descartado:** um vocabulário com `nota`, `score`, `avaliar` e `conferir` (a casa tem dezenas de `conferir…` que são
+réguas; a lista viraria exceção) — o buraco é fechado pelo ponto que tem de importar e pelos dois nomes que não se
+redefinem; exigir chamada direta ao Generate (acusaria o embrulho que a D20 pede); ler por texto (as formas perdidas eram de
+sintaxe); congelar os 18 e os 8 no teste.
+
+> **"TEM GUARDA" NÃO RESPONDE "A REGRA É GUARDADA".** A pergunta que responde é a mutação no ponto central rodada contra a
+> suíte inteira: um veredito falso no `comum.ts` não foi acusado por nenhum teste que olha veredito.

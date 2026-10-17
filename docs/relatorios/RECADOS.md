@@ -3566,3 +3566,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-154 — item 900 (a dívida própria): não reimplementa o Validator nem o Judge
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-154 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda — aqui, guarda estreita), no CLAUDE.md §4. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1486 de 1486 (87 de 87 arquivos); esteira 1819 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "não reimplementa o Validator nem o Judge" tinha a guarda do LAB-36, que lia só esteira/src/, cinco nomes na forma function/class, e a MENÇÃO de @generate/ no comum.ts. Medido por mutação: um julgamento próprio no adaptador do Symbios e uma seta em esteira/src/ passaram 25 de 25; um Validator e um Judge falsos no comum.ts, que aprovam tudo, passaram a suíte inteira com os clones (só caíram duas provas de contagem de bytes). Por LUGAR, pela árvore sintática, 335 arquivos TS/JS e 5 Rust: 18 importam o julgamento; 8 funções com nome de julgamento, 7 chegam ao Generate pela cadeia, a oitava é o dublê do LAB-06. Trava: src/o-julgamento-vem-do-generate.ts + tests (sem clones); 20 mutações acusadas, 1 equivalente declarada; 1464 → 1486; D382; detalhe em docs/relatorios/LAB-154.md.
+Achados para outros apps ou Central: (0) "Tem guarda" não responde "a regra é guardada": rode a mutação no ponto central contra a suíte inteira — aqui, um veredito falso no único ponto do julgamento não foi acusado por nenhum teste que olha veredito. (1) Sem o zod copiado para a node_modules do Generate, a suíte com clones perde um arquivo de import inteiro: 1713 testes em vez de 1806. (2) Nada novo proposto ao chat; as propostas do LAB-123, 129, 135, 137, 140, 141, 147 e 152 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

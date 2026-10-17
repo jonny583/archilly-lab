@@ -308,6 +308,9 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
 });
 
 describe("§4 · não reimplementa o Validator nem o Judge", () => {
+  // LAB-154 (D382): estas duas perguntam a MENÇÃO de `@generate/` no `comum.ts` e cinco nomes na forma `function`/
+  // `class` em `esteira/src/`; a importação lida na árvore sintática, o repositório inteiro e a cadeia de chamadas até
+  // o Generate são da `tests/o-julgamento-vem-do-generate.test.ts`.
   test("o julgamento vem do Generate, por importação", () => {
     // D20: sem versão leve, sem limiar mais frouxo por ser de fora. A forma de
     // desmentir é simples — o julgamento ser calculado aqui.
