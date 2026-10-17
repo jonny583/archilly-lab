@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-148 · item 900 — a dívida própria: "não há nada pago neste repositório hoje" passa a perguntar à árvore — ✅ **feito em 17/10/2026** (D376)
+
+A FILA continuava sem proposta que não esperasse ninguém, e a espécie *regra sem guarda* ficou dita como esgotada no LAB-147. Fui à quinta espécie, **mensagem fixa que afirma estado sem perguntar**, no `CLAUDE.md` §4-A: *"não há nada pago neste repositório hoje"* — a única trava (`custo-por-uso.test.ts`) conferia que a frase estava escrita, não que era verdade. Medido por LUGAR, as cinco portas por onde uma coisa paga entra na árvore: **33 portas, nenhuma paga**. Trava `external-engines/esteira/src/nada-pago.ts` e `tests/nada-pago.test.ts` (sem clones), onze mutações, onze acusadas; 1338 → 1354. Relatório: [`../relatorios/LAB-148.md`](../relatorios/LAB-148.md).
+
 ### LAB-147 · item 900 — a dívida própria: o não medido sai `null`, nunca zero, e a porta dizia zero metro de rua — ✅ **feito em 17/10/2026** (D375)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"Não inventa dado: o não medido sai `null`, nunca zero (D23)."* — descartada nove vezes como *"espalhada por vinte módulos"*, e a mais velha das que sobravam. A varredura de chamadas (LAB-52) declarava não pegar o `?? 0` sobre propriedade, e era ali: a porta somava `v.comprimento_m ?? 0` sobre uma via que o contrato v1 do Generate não mede, e a prova do LAB-06 gravou `comprimentoDeVia_m: 0` nas três aprovadas (974, 776 e 214 lotes). **Regra descumprida**, consertada: `null` em `external-engines/esteira/src/porta/indicadores.ts`, e o `julgar` de `motores/comum.ts` com `?? null`. Medido por LUGAR: 206 arquivos de código, 177 zeros `?? 0`/`|| 0`, 45 sobre medida em 17 arquivos, todos declarados com classe e motivo. Trava: `external-engines/esteira/src/nulo-nunca-zero.ts` e `tests/nulo-nunca-zero.test.ts` (sem clones); doze mutações, doze acusadas; 1 319 → 1 338 travas. Detalhe em [`../relatorios/LAB-147.md`](../relatorios/LAB-147.md).
@@ -1973,7 +1977,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1338 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1354 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

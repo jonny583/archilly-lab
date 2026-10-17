@@ -3488,3 +3488,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-148 — item 900 (a dívida própria): "não há nada pago neste repositório hoje" passa a perguntar à árvore
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-148 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), no CLAUDE.md §4-A. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1354 de 1354; esteira com só as falhas do .wasm (as mesmas da linha de base), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "não há nada pago neste repositório hoje" só era conferida ESCRITA (custo-por-uso.test.ts, toContain). Agora pergunta à árvore: as cinco portas por onde uma coisa paga entra (dependência, variável de ambiente, endereço, segredo e máquina da rotina), medidas por LUGAR — 33 portas, nenhuma paga. Trava: src/nada-pago.ts + tests (sem clones), lista fechada com classe e motivo, e a frase só pode estar escrita enquanto nenhuma porta for "pago"; 11 mutações, 11 acusadas; 1338 → 1354; D376; detalhe em docs/relatorios/LAB-148.md.
+Achados para outros apps ou Central: (0) "Não há nada pago" é frase que toda casa pode escrever e provavelmente só confere escrita; as cinco portas são onde perguntar, e nas casas que TÊM fonte paga a mesma lista com a classe "pago" diz quais são. (1) A limpeza de comentário de JS apaga endereço dentro de string bruta do Rust (as aspas de dentro invertem o estado): régua de texto que lê Rust precisa de limpeza própria. As propostas do LAB-123, 129, 135, 137, 140, 141 e 147 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
