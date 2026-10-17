@@ -3423,3 +3423,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-143 — item 900 (a dívida própria): a medição é em metros, e duas ferramentas gravavam a gleba em hectare
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-143 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §7. FEITA, mesclado por git direto (D29). O disparo recusou o pull --ff-only, e desta vez a main local não tinha base comum NENHUMA com a origem (clone completo, não raso): movi a pasta para o lado e clonei de novo, nada forçado nem apagado. Conferido aqui, não no GitHub: o portão sem clones 1270 de 1270; esteira 1 596 pass e 9 fail (as 9 do .wasm, as mesmas da linha de base, nome por nome), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o §7 diz "Medição é em metros e em dados" — a metade depois dos dois-pontos tinha trava (LAB-36, 103, 105, 141), a de antes nenhuma. Por LUGAR, as 84 provas JSON pelo sufixo das chaves: _m 8 979, _m2 6 770 — e _ha 5, no LAB-07 (area_ha) e no LAB-50 (areaDaGleba_ha), em hectare arredondado, sem o m² ao lado: regra descumprida. As duas ferramentas passam a gravar m²; trava: src/medicao-em-metros.ts e tests/medicao-em-metros.test.ts (as provas, com as duas antigas congeladas pela contagem, D118; o código, com as duas ferramentas do Symbios em exceção declarada); 8 mutações, 8 acusadas; 1257 → 1270 travas; D371; detalhe em docs/relatorios/LAB-143.md.
+Achados para outros apps ou Central: (0) A METADE DA REGRA QUE TEM TRAVA ESCONDE A METADE QUE NÃO TEM — frase com dois-pontos se confere metade por metade. (1) Geo, Generate e Parcelamento gravam medição em JSON: vale perguntar pelo sufixo das chaves (_ha, _km, _cm) antes de confiar que "está em metros". (2) Para a direção: o disparo recusou o pull --ff-only de novo, agora por main local SEM BASE COMUM (não por clone raso) — a receita do LAB-116 diria "pare"; o que resolve é clonar ao lado. (3) As propostas do LAB-123, 129, 135, 137, 140 e 141 seguem esperando o chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

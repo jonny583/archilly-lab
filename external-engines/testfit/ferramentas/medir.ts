@@ -329,7 +329,10 @@ for (const id of GLEBAS) {
   }
 
   porGleba[id] = {
-    area_ha: n2(entrada.gleba.area_m2 / 1e4),
+    // Em METRO QUADRADO, não em hectare (LAB-143, D371): o `CLAUDE.md` do Lab, §7, diz "medição é em
+    // metros", e esta chave saía `area_ha`, arredondada a duas casas. A prova gravada (`LAB-07`) fica
+    // como está (D118); a trava `esteira/tests/medicao-em-metros.test.ts` a congela como história.
+    area_m2: n2(entrada.gleba.area_m2),
     temRelevo: Boolean(entrada.relevo?.curvas?.length || entrada.relevo?.cotas?.length),
     assinaturaDaRodada: r.assinaturaDaRodada,
     perdasNaIda: r.perdasNaIda,

@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-143 · item 900 — a dívida própria: a medição é em metros, e duas ferramentas gravavam a gleba em hectare — ✅ **feito em 17/10/2026** (D371)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"Medição é em metros e em dados"* — a metade de depois dos dois-pontos tinha trava, a de antes nenhuma. Por LUGAR, as 84 provas JSON pelo sufixo das chaves: `_ha` 5 vezes, no `LAB-07` (`area_ha`) e no `LAB-50` (`areaDaGleba_ha`), em hectare arredondado — regra descumprida. As duas ferramentas passam a gravar metro quadrado; trava: `external-engines/esteira/src/medicao-em-metros.ts` e `tests/medicao-em-metros.test.ts`, com as duas provas antigas congeladas (D118) e as duas ferramentas do Symbios em exceção declarada; oito mutações, oito acusadas; 1 257 → 1 270 travas. Detalhe em [`../relatorios/LAB-143.md`](../relatorios/LAB-143.md).
+
 ### LAB-142 · item 900 — a dívida própria: o conserto do Lab sai dito na medição, e o do Symbios saía calado — ✅ **feito em 17/10/2026** (D370)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"Não conserta geometria em silêncio: conserto declarado, desligado por padrão, medido nas duas passagens."* Três cláusulas, dois consertos (o aparo do Laboratório de Parcelamento e o recorte do Symbios): a guarda do LAB-36 cobria duas das seis casas. Medido por mutação: o recorte ligado por padrão e o aparo sem a passagem fiel passaram a suíte inteira (acusados só pela contagem de bytes do LAB-52; a trava do LAB-05 precisa do `.wasm`). Por LUGAR: o `rodarSymbios` ligava a lasca e o recorte de quadra e não declarava nada. Trava: `external-engines/esteira/src/conserto-declarado.ts` e `tests/conserto-declarado.test.ts`; sete mutações, sete acusadas. Detalhe em [`../relatorios/LAB-142.md`](../relatorios/LAB-142.md).
@@ -1951,7 +1955,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1257 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1270 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
