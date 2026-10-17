@@ -12682,3 +12682,63 @@ sobre as provas — o `outputs/lab01/medicoes.json` fica como está, e a ferrame
 > **A CONVENÇÃO NOVA, ESCRITA COMO SE SEMPRE TIVESSE VALIDO, ESCONDE A PROVA VELHA.** A página disse *"todas"* depois que
 > a casa passou a chamar a hora real de `quando` — e a única prova de antes que usava o outro nome ficou desmentindo-a
 > sem que ninguém perguntasse.
+
+## D386 · O LAB NÃO FAZ CHAMADA DE REDE EM EXECUÇÃO, E A GUARDA PERGUNTA A TODO O CÓDIGO PELAS QUATRO PORTAS — a página afirmava "nenhum `fetch`, nenhum `http`" e havia sete fora do motor · 17/10/2026
+
+**Contexto:** item 900 (LAB-158). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/SEGURANCA.md` — a lista do Padrão
+de Segurança, escrita no LF-FINAL (14/09/2026) e nunca mais perguntada. O topo diz que o Lab *"não tem tela, não tem
+banco, não tem conta de usuário e não faz chamada de rede em execução"*; a linha *"Nada de rede em execução"* diz
+*"Nenhum `fetch`, nenhum `http`"*. A tela tem trava (LAB-153), o banco tem a do `verde.test.ts` (caminho que *"não
+existe"* conferido contra o disco); **a rede não tinha nenhuma** — nenhum arquivo de `esteira/` cita o `SEGURANCA.md`, e
+a conferência de 14/09 foi um `grep` feito uma vez.
+
+**Medido (LAB-158), por LUGAR:** todo o código que o `git` carrega (`.ts`, `.mts`, `.cts`, `.js`, `.mjs`, `.cjs`, `.rs`,
+`.sh` e o gancho `pre-push`), `upstream/` incluído, por quatro portas — chamada (`fetch(`, `Bun.serve`, `createServer`,
+`WebSocket`, `XMLHttpRequest`, `EventSource`, `sendBeacon`, `Bun.connect`/`listen`), módulo (`http`, `https`, `http2`,
+`net`, `tls`, `dgram`, `dns`; no Rust `std::net`, `TcpStream`, `UdpSocket`, `TcpListener`, `reqwest`, `ureq`, `hyper`),
+processo filho (o argumento `fetch`/`ls-remote`/`pull`/`push`/`clone`/`curl`/`wget`, string inteira, em posição de
+argumento; `clone` com `file://` não conta) e linha de script. **370 arquivos, 52 no caminho do motor** (os adaptadores,
+a porta, os motores e o esqueleto da esteira, o Rust do Lab em `archilly/` e o `upstream/`): **zero rede no motor** — a
+frase do topo é verdadeira. **Fora do motor, sete, em seis arquivos**, que a linha da tabela calava: o `Bun.serve` em
+127.0.0.1 da bancada e o `fetch(req)` dele (`prova-automatica.ts`, 2), o `fetch` do `.wasm` pela bancada (`prova.js`),
+o `git fetch` do carimbo dos vizinhos (`commit-dos-vizinhos.ts`, que as ferramentas do LAB-68, 76, 93 e 94 chamam), o
+`git ls-remote` dos ramos (LAB-121), o `curl` à API do GitHub (LAB-122) e o `fetch` de um clone de teste com origem
+`file://` (LAB-116). Nenhuma escreve em lugar nenhum. A linha *"Nenhum `fetch`, nenhum `http`"* era **falsa como foi
+escrita**: verdade no motor, sem dizer onde. E **nasceu falsa** fora dele — o `fetch` da bancada é do LAB-01 (10/09), a
+linha é de 14/09, e é a única da tabela *Execução* sem comando nem medição ao lado, numa página que promete *"o comando ao lado de cada linha"*; as outras seis vieram depois (04/10 a 16/10), pela
+`git log -S` de cada uma.
+
+**Decidido:**
+
+1. **A linha da tabela diz onde vale** (*"No caminho do motor, nenhum `fetch`, nenhum `http` — e, fora dele, sete redes
+   declaradas"*), e a página ganha a seção *Reconferido no LAB-158* com a tabela das sete e o ponteiro para a trava. O
+   texto do LF-FINAL fica; muda uma linha, nenhum comportamento.
+2. `src/rede-em-execucao.ts`: `conferirARedeEmExecucao(arquivos, ler)` cobra — rede no caminho do motor reprova **mesmo
+   declarada** (exceção ali seria a frase mentindo com licença); rede fora dele precisa de declaração em `DECLARADAS`
+   (arquivo, forma, quantas, classe — `servidor-local`, `origem-publica`, `origem-de-teste` — e motivo), e uma a mais
+   num arquivo declarado reprova; declaração com mais do que a árvore tem reprova; universo vazio reprova.
+3. `tests/rede-em-execucao.test.ts`, 16 testes, sem clones, no portão sem clones do `verde.yml` (1 546 → 1 562); ele
+   também cobra que o `SEGURANCA.md` diga a frase, aponte para a trava e mantenha a ressalva na linha da tabela.
+
+**Os dois lados:** a árvore de hoje, a rede em comentário, em string e em template, a mensagem de erro que manda rodar
+`git fetch`, o campo `evento: "push"`, o `clone` de `file://`, o nome do gancho `pre-push` e o `import` de `node:fs`
+passam. Rede na porta, no adaptador, no Rust do Lab, no `upstream/` e nos motores, a declaração no motor, rede nova numa
+ferramenta, uma a mais num arquivo declarado, declaração cuja rede sumiu e o universo vazio reprovam. **Onze mutações na
+árvore de verdade, onze acusadas** (fetch na porta, `node:https` no adaptador, `std::net` no `upstream/`, `TcpStream` no
+Rust do Lab, `require("net")` nos motores, `git pull` numa ferramenta, `curl` no `conferir.sh`, o `fetch` da bancada que
+some, um `ls-remote` a mais, `git push` no gancho, a ressalva que sai da página).
+
+**A primeira régua acusou duas vezes à toa, e consertei a régua, não a lista:** o nome do gancho na linha do
+`conferir.sh` que confere o `core.hooksPath` (*pre-**push***) — o subcomando agora tem de vir logo depois do `git` e das
+opções `-C`/`-c` —; e a própria lista de argumentos de rede deste módulo — agora uma string só, partida por espaço.
+
+**Descartado:** cobrar o `verde.yml` (a máquina do GitHub clona e instala; não é a execução do Lab, e o arquivo não é
+código que o Lab roda); cobrar o `bun install` (é de quem prepara a máquina, antes); desligar a rede das três travas e da
+ferramenta que leem a origem (são a resposta da casa a *"o disco não é a origem"*, D241, e o `commit-dos-vizinhos` já dá
+à trava o `false`); declarar por arquivo sem a contagem (uma segunda chamada no mesmo arquivo passaria calada).
+
+> **"NENHUM", SEM DIZER ONDE, É A FRASE QUE A PRIMEIRA FERRAMENTA DESMENTE.** A linha era verdadeira para o motor e já
+> falsa para a bancada no dia em que foi escrita; depois a casa ganhou um servidor de bancada e quatro leituras da origem —
+> nenhuma no motor, todas no repositório que a página descreve. **E "✅" sem comando ao lado é a afirmação que ninguém
+> refez:** a página prometia o comando de cada linha, e a da rede foi a que não trouxe.
