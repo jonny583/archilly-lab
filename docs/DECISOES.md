@@ -12463,3 +12463,37 @@ FILA como proposto ao chat.
 
 > **A TABELA DE PASTAS ESCRITA NO DIA EM QUE A CASA NASCE É A PRIMEIRA PÁGINA A ENVELHECER.** Ela conta o que havia, e
 > ninguém volta a ela quando nasce a pasta nova — o `wasm/`, o projeto mais usado da pasta, viveu 37 dias fora dela (10/09 a 17/10).
+
+## D381 · NÃO TEM INTERFACE, E A GUARDA PERGUNTA AO REPOSITÓRIO INTEIRO PELAS TRÊS PORTAS — a do LAB-36 lia `.html` num disco só · 17/10/2026
+
+**Contexto:** item 900 (LAB-153). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda** (guarda estreita), no `CLAUDE.md` §4: *"Não tem interface — com UMA
+exceção, declarada: a bancada do navegador, com guarda contando HTML."* A guarda do LAB-36 diz no título *"exatamente UM
+html no repositório"* e lê o **disco** de `external-engines/`, só `.html`.
+
+**Medido (LAB-153):** por mutação, uma página `docs/painel/index.html` com formulário e um componente
+`external-engines/testfit/adapter/src/Painel.tsx`, os dois no `git`, passaram a guarda (25 de 25). Por LUGAR, o
+`git ls-files` inteiro (733 arquivos, 334 de código), três portas: **página** (`.html`, `.htm`, `.xhtml`) — 1, a bancada;
+**componente** (`.tsx`, `.jsx`, `.vue`, `.svelte`, `.astro`) — 0; **servidor** (`Bun.serve(`, `createServer(` no código,
+sem comentário e sem string) — 1, o `prova-automatica.ts` que abre a bancada. A regra está verdadeira; a guarda é que não
+perguntava ao repositório.
+
+**Decidido:**
+
+1. `src/a-unica-interface.ts`: `interface-fora-da-excecao`, `excecao-que-sumiu` e `universo-vazio`; a exceção é uma lista
+   fechada por **arquivo e porta**, com motivo — a página e o servidor da bancada.
+2. `tests/a-unica-interface.test.ts`, 17 testes, sem clones: 1 447 → 1 464 no trabalho sem clones.
+3. A frase do `CLAUDE.md` §4 diz o que a guarda conta: *"com guarda contando página, componente e servidor em tudo o que
+   o `git` carrega (D381)"*. A guarda do LAB-36 fica (ela pergunta o `<form`), com um comentário apontando para cá.
+
+**Os dois lados:** a árvore de hoje e a plantada só com a exceção passam; servidor em comentário ou string, `html.ts`,
+`.d.ts` e `node_modules/` não contam. As duas formas da mutação, cada extensão em qualquer pasta, uma segunda página na
+pasta da bancada, servidor noutro arquivo, a exceção apagada, sem servidor ou com a porta trocada, e o universo vazio
+reprovam. Onze mutações, onze acusadas — a da porta ignorada só depois de entrar o caso da porta trocada (lição 12c: era
+equivalente com a exceção de hoje).
+
+**Descartado:** contar CLI e PNG de prova como interface (não é o que a regra proíbe); trocar a guarda do LAB-36 em vez de
+somar (régua que responde certo não se troca); congelar o tamanho do universo no teste (cada arquivo novo o mudaria).
+
+> **GUARDA QUE DIZ "NO REPOSITÓRIO" NO TÍTULO TEM DE SER PERGUNTADA SOBRE QUEM É O REPOSITÓRIO NO CÓDIGO.** A do LAB-36
+> dizia o repositório e lia uma pasta do disco, e um tipo de arquivo — o título prometia mais do que o código lia.

@@ -157,7 +157,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // dados plantados; nenhum clone.
     // E 85 no LAB-152, com a `o-trabalho-em-archilly.test.ts` — o `git ls-files` e as páginas dos motores DESTE
     // repositório, o `CLAUDE.md` e dados plantados; nenhum clone.
-    expect(lista).toHaveLength(85);
+    // E 86 no LAB-153, com a `a-unica-interface.test.ts` — o `git ls-files` DESTE repositório, o `CLAUDE.md` e dados
+    // plantados; nenhum clone.
+    expect(lista).toHaveLength(86);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

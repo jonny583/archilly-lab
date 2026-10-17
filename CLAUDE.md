@@ -148,7 +148,7 @@ Motor da própria família **não ganha `upstream/`** (D16): lê-se do clone irm
 - **Não escreve em repositório vizinho:** clones só leitura, `git status` limpo ao fim; o que o
   vizinho precisa **vira lista numerada em relatório**.
 - **Não tem interface — com UMA exceção, declarada:** a bancada do navegador
-  (`external-engines/symbios/adapter/ferramentas/navegador/index.html`), com guarda contando HTML.
+  (`external-engines/symbios/adapter/ferramentas/navegador/index.html`), com guarda contando página, componente e servidor em tudo o que o `git` carrega (D381).
 - **Não reimplementa o Validator nem o Judge** (D20).
 - **Não conserta geometria em silêncio:** conserto declarado, desligado por padrão, medido nas duas
   passagens.
@@ -256,7 +256,7 @@ reprova com a receita), sete passos, todos mesmo depois de uma falha, e **nada f
 (D126).
 
 **O CI** (`verde.yml`) tem dois trabalhos: o das
-**1447 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
+**1464 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
 exige `VIZINHOS_TOKEN` e sem ele **falha com a receita**.
 
 ### 🔴 O CI AUTOMÁTICO ESTÁ DESLIGADO desde 08/10/2026

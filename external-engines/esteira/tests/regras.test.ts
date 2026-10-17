@@ -60,6 +60,8 @@ describe("§4 · não tem interface — e a única exceção é declarada", () =
   );
 
   test("existe exatamente UM html no repositório, e é a bancada da prova no navegador", () => {
+    // LAB-153 (D381): esta guarda lê só o DISCO de `external-engines/` e só `.html`; o repositório inteiro, pelo
+    // `git ls-files`, e as três portas (página, componente, servidor) são da `tests/a-unica-interface.test.ts`.
     // Antes do LAB-36 a regra dizia "não tem interface" e este arquivo já existia:
     // a regra era FALSA como escrita. Agora ela declara a exceção, e esta guarda
     // reprova um segundo HTML — que seria interface de verdade entrando sem aviso.

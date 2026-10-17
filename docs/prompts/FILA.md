@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-153 · item 900 — a dívida própria: não tem interface, com uma exceção declarada, e a guarda só olhava `.html` numa pasta — ✅ **feito em 17/10/2026** (D381)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda** (guarda estreita), no `CLAUDE.md` §4: *"Não tem interface — com UMA exceção, declarada"*. A guarda do LAB-36 diz *"exatamente UM html no repositório"* e lia o disco de `external-engines/`, só `.html`: uma página em `docs/` e um componente `.tsx` postos no `git` passaram 25 de 25. Medido por LUGAR, o `git ls-files` inteiro (733 arquivos, 334 de código), três portas — página, componente, servidor —: os dois achados são a bancada, a página e o `prova-automatica.ts` que a serve. Regra verdadeira, guarda estreita. Trava: `external-engines/esteira/src/a-unica-interface.ts` e `tests/a-unica-interface.test.ts` (sem clones), exceção por arquivo e porta, nos dois sentidos; onze mutações, onze acusadas; 1 447 → 1 464 travas. Detalhe em [`../relatorios/LAB-153.md`](../relatorios/LAB-153.md).
+
 ### LAB-152 · item 900 — a dívida própria: o trabalho acontece em `archilly/`, documentado, e a página do Symbios dizia um projeto onde havia três — ✅ **feito em 17/10/2026** (D380)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §3, a regra de ouro: *"O trabalho acontece em `archilly/`, documentado."* — os outros três itens do §3 têm trava (LAB-132, LAB-134, LAB-135), este só se conferia escrito. Medido por LUGAR, o `git ls-files`: dois motores com `archilly/`, cinco projetos; o `straight-skeleton` nomeia os dois no `archilly/README.md`, e a linha `archilly/` da página do Symbios, escrita no LAB-00, nomeava **só `probe/`** — calava o `wasm-probe/` (LAB-00) e o `wasm/`, a ponte que o navegador carrega (LAB-01). Regra descumprida, consertada a linha. Trava: `external-engines/esteira/src/o-trabalho-em-archilly.ts` e `tests/o-trabalho-em-archilly.test.ts` (sem clones), nos dois sentidos; onze mutações, onze acusadas; 1 427 → 1 447 travas. Detalhe em [`../relatorios/LAB-152.md`](../relatorios/LAB-152.md).
@@ -1995,7 +1999,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1447 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1464 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
