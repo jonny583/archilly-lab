@@ -139,7 +139,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // DESTE repositório; nenhum clone.
     // E 76 no LAB-143, com a `medicao-em-metros.test.ts` — as provas JSON e os `.ts` versionados DESTE repositório,
     // lidos por `git ls-files`, e um módulo puro; nenhum clone.
-    expect(lista).toHaveLength(76);
+    // E 77 no LAB-144, com a `um-item-por-entrega.test.ts` — a primeira linha da `main` DESTE repositório (recusa no
+    // clone raso) e um repositório temporário; nenhum clone.
+    expect(lista).toHaveLength(77);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

@@ -12136,3 +12136,37 @@ medida — inventar).
 
 > **A METADE DA REGRA QUE TEM TRAVA ESCONDE A METADE QUE NÃO TEM.** Quem conferia *"a §7 tem guarda"* achava guarda —
 > da segunda metade da frase.
+
+## D372 · UM PROMPT POR DESPERTADOR SE LÊ PELO ITEM, NÃO PELO DISPARO — e a caixa passa a ser cobrada pela história · 17/10/2026
+
+**Contexto:** item 900 (LAB-144). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-A: *"Um prompt por despertador; o anterior aberto se
+termina primeiro."* Do LAB-138 ao LAB-143 ela foi descartada seis vezes — *"não se mede sem ler o que cada disparo
+fez"*. O disparo não deixa rastro; **o item deixa**: vira `NNN-FEITO.md` num commit da primeira linha da `main`.
+
+**Medido (LAB-144):** a primeira linha da `main`, só a caixa, cada commit contra o primeiro pai, a árvore reconstruída:
+67 passos, **30 entregas fecharam item — `001` a `030`, um por entrega, em ordem, sem buraco**, 34 arquivos `-FEITO`
+(os quatro adendos na entrega do seu item), o `900` nunca fechado. A primeira leitura acusou o LAB-82 (`306954d`) de
+pular o `013`; era a **colisão** que ele mesmo renumerou para `015` (D273) — o `013` já estava feito. Cumprida por
+disciplina, sem guarda.
+
+**Decidido:**
+
+1. `src/um-item-por-entrega.ts`: `conferirAsEntregas` acusa `dois-itens-numa-entrega`, `pulou-o-anterior` (fora o `900`
+   e fora a colisão, contada à parte) e `fechou-o-reservado`; publica universo, ordem, colisões e o que não alcança.
+   Exceções: nenhuma.
+2. A leitura é `git log --reverse --first-parent --diff-merges=first-parent --no-renames --name-status`. **A peça que não
+   pode sair é o `--first-parent`** (sem ele a régua lê o ramo, não a `main`); o `--diff-merges` fica escrito para o
+   `git` de antes do 2.31 — medido: no 2.43 daqui tirá-lo não muda nada.
+3. `tests/um-item-por-entrega.test.ts`, 13 testes; recusa no clone raso (D295). Lê só este repositório: entra no trabalho
+   sem clones, 1 270 → 1 283.
+
+**Os dois lados:** oito mutações, oito acusadas; o arquivo limpo passa.
+
+**Descartado:** pôr a régua no gancho do envio (a entrega em curso já é a ponta da `main` no envio e o verde seguinte a
+lê; seria uma segunda leitura do mesmo); perdoar o LAB-82 por exceção de hash (a colisão é um caso geral, com nome e
+guarda própria, não um acidente daquela entrega); tentar medir o DISPARO (não deixa rastro — e a régua diz isso na
+saída).
+
+> **"NÃO SE MEDE" PODE SER "NÃO SE MEDE AQUI".** A regra que seis rodadas declararam imensurável deixava marca o tempo
+> todo — no item, não no disparo.
