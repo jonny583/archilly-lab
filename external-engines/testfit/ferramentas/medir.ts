@@ -254,7 +254,10 @@ function resumirVariante(v: RodadaMedida["variantes"][number]) {
 const GLEBAS = ["ensaio-47ha", "geo-antonina", "lab01-50ha-ondulado"] as const;
 const medicoes: Record<string, unknown> = {
   prompt: "LAB-07",
-  geradoEm: new Date().toISOString(),
+  // A hora em que rodou de verdade (`adapter/src/esteira.ts`: "quando rodou de verdade fica no JSON de
+  // medições"). Até o LAB-157 ela ia em `geradoEm`, a chave que a SAÍDA usa para o carimbo constante; a
+  // casa a chama `quando` desde o LAB-47, e `esteira/src/semente-e-carimbo.ts` cobra (D385).
+  quando: new Date().toISOString(),
   ambiente: { bun: Bun.version, plataforma: `${process.platform}-${process.arch}` },
   semente: SEMENTE,
   variantesPedidas: VARIANTES,

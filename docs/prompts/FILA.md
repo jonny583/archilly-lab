@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-157 · item 900 — a dívida própria: a semente é a mesma em todas as provas e o `geradoEm` é carimbo fixo, e a página afirmava "todas" sem perguntar — ✅ **feito em 17/10/2026** (D385)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/provas/LEIA-ME.md`: *"**A semente é a mesma em todos** (`20260913`)"* e *"**`geradoEm` é carimbo fixo** nas provas"*, as duas sobre todas as provas e sem trava. Antes, medi *"teste que nunca reprovou"* pela forma: 1 923 blocos de teste, zero sem asserção. Medido por LUGAR, as 84 provas: 111 sementes em 35 arquivos, todas `20260913`; 34 `geradoEm`, 33 carimbo escolhido e **um relógio** — `LAB-07/medicoes.json`, `2026-09-13T14:31:44.835Z`. No código, pela árvore sintática, três linhas liam o relógio para o `geradoEm`: os dois `medir.ts` (testfit e Symbios) e a queda do `volta.ts`. Era desenho com o nome trocado: a hora real *"fica no JSON de medições"* (`testfit/adapter/src/esteira.ts`), e do LAB-47 em diante a casa a chama `quando`. Consertados os dois `medir.ts` (a hora real em `quando`), a prova do LAB-07 declarada sem regerar, a queda declarada, a página dizendo a exceção. Trava: `external-engines/esteira/src/semente-e-carimbo.ts` e `tests/semente-e-carimbo.test.ts` (sem clones), nos dois sentidos; dez mutações na régua, dez acusadas; 1 523 → 1 546 travas. Detalhe em [`../relatorios/LAB-157.md`](../relatorios/LAB-157.md).
+
 ### LAB-156 · item 900 — a dívida própria: balanço que já mora num recado não se copia, e só o "aponta-se" tinha trava — ✅ **feito em 17/10/2026** (D384)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-B: *"**Balanço que já mora num recado não se copia:** aponta-se para ele."* A frase tem dois verbos e a guarda do LAB-42 (`tests/balancos.test.ts`) responde só o segundo: o índice do §2 cita seção que existe. Medido por mutação: as linhas `Estado:` e `Feito:` do recado do LAB-37 (1 406 caracteres) coladas no §2 do `BALANCOS.md` deixaram a esteira inteira como estava. Medido por LUGAR, os dois arquivos inteiros lidos como a regra se lê (sem `>`, sem negrito, espaço colapsado): um único trecho em comum de 120 caracteres ou mais, de 155, no sentido contrário ao da regra — a lista das cinco propostas do saldo do §6 que o recado do LAB-52 repetiu depois de apontar para ela —, declarado com motivo e teto. A primeira conta, a cru, dava zero: o negrito escondia o trecho. Regra verdadeira, guarda ausente. Trava: `external-engines/esteira/src/balanco-nao-se-copia.ts` e `tests/balanco-nao-se-copia.test.ts` (sem clones), o título de recado citado no índice sai antes de comparar; oito mutações na régua, sete acusadas e uma equivalente declarada; 1 507 → 1 523 travas. Detalhe em [`../relatorios/LAB-156.md`](../relatorios/LAB-156.md).
@@ -2011,7 +2015,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1523 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1546 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

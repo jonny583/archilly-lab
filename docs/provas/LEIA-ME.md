@@ -60,7 +60,13 @@ virar anônima na mesa do Generate; o rótulo da rodada do Lab vai em
   recorte, o motor interno do Generate). Duas execuções iguais também saem de um motor que ignora a
   entrada;
 - **`geradoEm` é carimbo fixo** nas provas, de propósito — carimbo de hora real
-  quebraria a comparação byte a byte, que é justamente o que se quer comparar;
+  quebraria a comparação byte a byte, que é justamente o que se quer comparar. **A hora em
+  que a medição rodou de verdade se chama `quando`**, e mora do lado de fora da saída.
+  **Uma exceção, que não se regera:** `LAB-07/medicoes.json` gravou a hora real
+  (`2026-09-13T14:31:44.835Z`) sob o nome `geradoEm`, antes de a casa dar a ela o nome
+  `quando`; é o registro daquele dia, citado nos relatórios do LAB-07 e do LAB-08. As duas
+  frases — a semente e o carimbo — são conferidas prova a prova, e o código que escreve o
+  `geradoEm` também (LAB-157, D385: `external-engines/esteira/src/semente-e-carimbo.ts`);
 - **`null` é "não medido" e zero é uma medição** (D23). Um campo `null` nunca
   significa "deu zero";
 - **a versão do contrato viaja em cada arquivo.** Provas da v1 e da v2 convivem: a v2

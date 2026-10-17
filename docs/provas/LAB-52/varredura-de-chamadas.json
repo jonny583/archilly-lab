@@ -1,7 +1,7 @@
 {
   "prompt": "LAB-52",
   "oQueIstoMede": "o código TypeScript deste repositório atrás das duas classes que a Central nomeou — não mede terreno",
-  "quando": "2026-10-17T14:24:55.997Z",
+  "quando": "2026-10-17T18:30:20.372Z",
   "aOrigem": "achado da Central: (a) erro de chamada não conferido que degrada para número que PARECE certo; (b) função que recebe identificador de conta como argumento",
   "doisMotores": {
     "porque": "a metade mais perigosa de (a) — promessa sem `await` — NÃO se mede com regex: precisa de tipo",
@@ -21,12 +21,12 @@
     }
   },
   "escopo": {
-    "arquivos": 335,
-    "linhas": 82305,
-    "bytes": 3776508,
+    "arquivos": 337,
+    "linhas": 82982,
+    "bytes": 3808023,
     "regras": 6,
-    "parametrosExaminados": 13101,
-    "camposExaminados": 8999
+    "parametrosExaminados": 13224,
+    "camposExaminados": 9064
   },
   "regras": [
     {
@@ -121,7 +121,7 @@
       "regra": "numero-sem-conferir",
       "familia": "erro-nao-conferido",
       "arquivo": "external-engines/symbios/adapter/ferramentas/medir.ts",
-      "linha": 377,
+      "linha": 379,
       "trecho": "ha"
     }
   ]
