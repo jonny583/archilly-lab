@@ -2,11 +2,11 @@
   "prompt": "LAB-95",
   "aPergunta": "item 028 da caixa de entrada: enxugar o `CLAUDE.md` movendo a história para docs/HISTORIA_DAS_REGRAS.md, sem perder regra nenhuma — e CONFERIR POR CONTAGEM que nada se perdeu",
   "oQueIstoMede": "as três contas que o item pediu: caracteres antes × depois nos dois arquivos, regras antes × depois pelo inventário declarado (cada marca conferida NO CLAUDE.MD DE HOJE E NA HISTÓRIA, que é o texto antigo movido literal) e as linhas do texto antigo que não estão em nenhum dos dois",
-  "quando": "2026-10-17T13:27:12.426Z",
+  "quando": "2026-10-17T14:24:56.213Z",
   "oChaoDaMedicao": {
     "oCommitDeAntes": "490c102",
     "sha256DoAntes": "1c3fc0792d9eb02b1d054b42f28c59ebe15c4ce03dc9bb8fb49eea1774b273be",
-    "sha256DoClaudeDeHoje": "a7f5efd47dc534aae99e5e3a6c939f4daff8ae0ad1c28c00e25c0aa2c088446c",
+    "sha256DoClaudeDeHoje": "0acc30b7bda7a0aee29f830ee4d5915ce8ff4e52dd83e91d9bbb8ca6e9e8ea60",
     "sha256DaHistoria": "8a112ff66b88a42e05e8f7c3cfbeb5459aa9dfcf10271401b6e9e6ec9c1435a9",
     "cloneRaso": false,
     "bun": "1.4.2"
@@ -14,20 +14,20 @@
   "caracteres": {
     "claudeMd": {
       "antes": 52383,
-      "depois": 13331
+      "depois": 13384
     },
     "historia": {
       "antes": 0,
       "depois": 56483
     },
-    "cortePct": 74.6,
+    "cortePct": 74.4,
     "meta": 15000,
     "chegouNaMeta": true,
     "quantoFalta": 0
   },
   "linhasQueImportam": {
     "antes": 639,
-    "claudeMdDepois": 193,
+    "claudeMdDepois": 194,
     "historia": 689
   },
   "regras": {

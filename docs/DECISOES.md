@@ -12582,3 +12582,51 @@ usuário); congelar os nove endereços no teste fora da lista declarada.
 
 > **"VOLTADO AO USUÁRIO" NÃO É UMA LISTA QUE SE LEMBRA: É ONDE A CASA MANDA O USUÁRIO.** A lista do LAB-36 tinha os dois
 > arquivos que alguém lembrou, e o primeiro endereço da página dele não estava nela.
+
+## D384 · BALANÇO QUE JÁ MORA NUM RECADO NÃO SE COPIA, E A GUARDA COMPARA OS DOS ARQUIVOS — só o "aponta-se" tinha trava · 17/10/2026
+
+**Contexto:** item 900 (LAB-156). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-B: *"**Balanço que já mora num recado não se copia:**
+aponta-se para ele."* A metade *"aponta-se"* tem a guarda do LAB-42 (`tests/balancos.test.ts`: toda seção citada no
+índice do §2 existe no `RECADOS.md`). A metade *"não se copia"* — a que o `BALANCOS.md` justifica com *"copiar criaria a
+segunda montagem que o D116 proíbe"* — não tinha nenhuma.
+
+**Medido (LAB-156):** por mutação, as linhas `Estado:` e `Feito:` do recado do LAB-37 (o quarto balanço do índice,
+1 406 caracteres) coladas no §2 do `BALANCOS.md` deixaram a esteira inteira como estava: 1 840 aprovadas e as 9
+reprovações do `.wasm` de sempre. Por LUGAR, os dois arquivos inteiros, lidos como a regra se lê (sem `>`, sem negrito,
+espaço colapsado), seção por seção do `BALANCOS.md`: trechos contíguos em comum de 40 caracteres, 64; de 80, 8 (sete de
+81 a 98, frases que a mesma mão escreveu nos dois); de 100 e de 120, **um só**, de 155, e no sentido **contrário** ao
+da regra — a lista das cinco propostas que nasceu no saldo do §6 e que o recado do LAB-52 repetiu no *Próximo na fila*,
+depois de apontar para ela. **Regra verdadeira, guarda ausente.**
+
+**E uma medição minha estava errada:** lida a cru, com o negrito, a mesma conta dava **zero** trechos de 120 — o
+`BALANCOS.md` põe negrito no meio da lista, e o recado não. Cópia com ênfase diferente é cópia; a
+régua lê pelo `comoARegraSeLe` do LAB-77.
+
+**Decidido:**
+
+1. `src/balanco-nao-se-copia.ts`: `conferirQueOBalancoNaoSeCopia(balancos, recados)` devolve o universo (seções,
+   caracteres dos dois lados, janelas, títulos citados), os trechos em comum de `JANELA` = 120 ou mais, as cópias (os
+   não declarados) e as declarações fantasma. Filtro de prefixo de 32 caracteres antes do `includes` (exato; a conta
+   caiu de ~5 s para menos de 1 s).
+2. **O caso válido:** o título de seção do `RECADOS.md` citado entre crases no índice do §2 — o próprio *"aponta-se para
+   ele"* — sai antes de comparar, só quando é igual a um título que existe. Os de hoje têm 55 a 63 caracteres; um título
+   longo citado seria acusado por cumprir a regra.
+3. `COPIAS_DECLARADAS`: o trecho do §6, com motivo e **teto** de 155 caracteres (crescer é cópia nova); declaração sem
+   trecho reprova. O recado do LAB-52 não se reescreve (D118).
+4. `tests/balanco-nao-se-copia.test.ts`, 16 testes, sem clones, no portão sem clones do `verde.yml`. A frase do
+   `CLAUDE.md` §1-B diz o que a guarda lê. A do LAB-42 fica, com um comentário apontando para cá.
+
+**Os dois lados:** a árvore de hoje, o título longo citado, a frase-lema nos dois e os trechos de 81 a 98 passam. A
+mutação da medição, o sentido contrário (balanço colado num recado), a cópia com negrito e quebra de linha, o parágrafo
+entre crases que não é título, o trecho declarado que cresce e a declaração fantasma reprovam. Oito mutações na régua,
+sete acusadas; a oitava (o título sair sem separador) é **equivalente** na prática — a janela atravessaria o buraco só
+se o texto de antes e o de depois do título formassem, juntos, 120 caracteres de um recado — e fica declarada.
+
+**Descartado:** janela abaixo de 100 (mediria a mão que repete as próprias frases); subir a janela para 160 e não
+declarar nada (é afinar a régua até o trecho passar); comparar o `BALANCOS.md` com os relatórios de prompt (a regra do
+§1-B fala do recado); decidir o que é balanço dentro do `RECADOS.md` (a régua compara os dois arquivos inteiros e não
+precisa).
+
+> **"TEM GUARDA" PODE SER METADE DA FRASE.** A trava do LAB-42 respondia o *"aponta-se para ele"*, e a frase tem dois
+> verbos: o *"não se copia"* passava calado ao lado dela.

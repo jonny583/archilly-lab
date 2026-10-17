@@ -3592,3 +3592,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-156 — item 900 (a dívida própria): balanço que já mora num recado não se copia
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-156 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §1-B. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1523 de 1523 (89 de 89 arquivos); esteira 1856 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "Balanço que já mora num recado não se copia: aponta-se para ele" tem dois verbos, e a guarda do LAB-42 só respondia o segundo (o índice do §2 cita seção que existe). Medido por mutação: 1406 caracteres do recado do LAB-37 colados no BALANCOS.md deixaram a esteira inteira como estava. Por LUGAR, os dois arquivos inteiros lidos como a regra se lê: um único trecho em comum de 120 ou mais, de 155, no sentido contrário (a lista do saldo do §6 que o recado do LAB-52 repetiu depois de apontar para ela), declarado com teto. A primeira conta, a cru, dava zero: o negrito escondia o trecho. Regra verdadeira, guarda ausente. Trava: src/balanco-nao-se-copia.ts + tests (sem clones); oito mutações na régua, sete acusadas, uma equivalente declarada; 1507 → 1523; D384; detalhe em docs/relatorios/LAB-156.md.
+Achados para outros apps ou Central: (0) "Tem guarda" pode ser metade da frase: regra com dois verbos pode ter trava num e nenhuma no outro, e a trava do primeiro faz a frase inteira parecer guardada. (1) Comparar texto a cru acha menos do que a regra proíbe — a mesma frase com negrito num arquivo e sem no outro é a mesma frase. (2) Nada novo proposto ao chat; as propostas do LAB-123, 129, 135, 137, 140, 141, 147 e 152 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

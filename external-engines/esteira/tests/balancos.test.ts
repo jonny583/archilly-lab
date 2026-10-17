@@ -87,6 +87,8 @@ describe("o `BALANCOS.md` existe e diz o que é", () => {
 });
 
 describe("o índice do §2 não aponta para o vazio", () => {
+  // LAB-156 (D384): esta é a metade "aponta-se para ele" do §1-B; a metade "não se copia" — texto do BALANCOS.md
+  // igual ao do RECADOS.md, 120 caracteres ou mais, lido como a regra se lê — é da `tests/balanco-nao-se-copia.test.ts`.
   /** Os títulos de seção do `RECADOS.md`, como eles estão escritos lá. */
   const secoesDoRecados = (): string[] =>
     [...readFileSync(RECADOS, "utf8").matchAll(/^## (.+)$/gm)].map((m) => m[1]!.trim());
