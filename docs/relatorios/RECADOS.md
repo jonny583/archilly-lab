@@ -3410,3 +3410,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-142 — item 900 (a dívida própria): o conserto do Lab sai dito na medição, e o do Symbios saía calado
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-142 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main depois de desrasar — o comando do disparo recusou o pull --ff-only de novo; desrasada, a main velha era ancestral da origem, nada forçado); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §4. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1257 de 1257; esteira 1 583 pass e 9 fail (as 9 do .wasm, que não se constrói nesta máquina — as mesmas da linha de base, nome por nome), testfit 17 de 17, typecheck e lint limpos nos dois pacotes. O envio passa pelo gancho do LAB-106.
+Feito: o §4 diz "conserto declarado, desligado por padrão, medido nas duas passagens" — três cláusulas, dois consertos (o aparo do Laboratório de Parcelamento e o recorte do Symbios), seis casas, e a guarda do LAB-36 cobria duas. Medido por mutação: o recorte ligado por padrão e o aparo sem a passagem fiel passaram a suíte inteira (só a contagem de bytes do LAB-52 acusou; a trava do LAB-05 precisa do .wasm). Por LUGAR: o rodarSymbios ligava a lasca e o recorte de quadra e NÃO declarava nada — regra descumprida. Trava: src/conserto-declarado.ts (o rodarSymbios passa a declarar) e tests/conserto-declarado.test.ts, com rede montada à mão sem o .wasm; 7 mutações, 7 acusadas; D370; detalhe em docs/relatorios/LAB-142.md.
+Achados para outros apps ou Central: (0) DECLARADO NO COMENTÁRIO NÃO É DECLARADO NA MEDIÇÃO — quem liga conserto de geometria de propósito confira se o RESULTADO diz o que foi consertado, não só o código. (1) Trava que só roda com o .wasm é trava escura nesta máquina — outro lado da proposta do LAB-135. (2) Para a direção: o disparo segue recusando o pull --ff-only (LAB-116), e o Generate segue sem instalar pelo registro do Lovable — a esteira só precisa do zod dele. (3) A "linha" (LAB-123), as duas marcas de fim (LAB-129), o .wasm (LAB-135), a §6 (LAB-137), a frase das provas (LAB-140) e o valor do motor (LAB-141) seguem esperando o chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
