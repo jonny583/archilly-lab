@@ -12205,3 +12205,39 @@ mede onde o arquivo mora, LAB-93); inventar um id para o despertador do LAB-18.
 
 > **ABREVIAR UM ID COM O PREFIXO É ESCREVER OUTRO ID.** Quem procura não sabe que era abreviação.
 
+---
+
+## D374 · MOTOR DA FAMÍLIA NÃO SE COPIA, E ISSO SE LÊ PELO CONTEÚDO — e a redeclaração vira lista fechada, por par · 17/10/2026
+
+**Contexto:** item 900 (LAB-146). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §3: *"Motor da própria família não ganha `upstream/`
+(D16): lê-se do clone irmão pelos `paths` do `tsconfig.json`."* A metade do *ler pelos `paths`* tem trava (LAB-135); a
+do *não copiar* só tinha guarda pelo nome (`upstream-intocavel.ts`, LAB-132). Medido por mutação: o `quadra.ts` do
+motor copiado para o adaptador do Testfit passou a suíte, acusado só pelas contagens de árvore do LAB-52 e do LAB-57.
+
+**Medido (LAB-146):** `git ls-files` dos dois lados — 343 arquivos de código desta casa, 350 do Laboratório de
+Parcelamento, 608 do Generate — e as linhas de código em comum por par. Nenhum idêntico; o `contrato-v1.ts` do
+adaptador do Testfit em 72 % com o `contrato/tipos.ts` do motor, redeclaração declarada desde o LAB-07 (os dois copiam o
+mesmo contrato do Generate); o resto, 15 % e 9 linhas no máximo. Cumprida por disciplina, sem guarda.
+
+**Decidido:**
+
+1. `src/o-motor-da-familia-nao-se-copia.ts`: `conferirQueOMotorNaoSeCopia` acusa cópia inteira, cópia por fração (50 %,
+   com 10 linhas ao menos) ou por bloco (30 linhas), `upstream/` debaixo da pasta de um motor da família, vizinho vazio,
+   e a lista `REDECLARACOES` nos dois sentidos (sem arquivo, calada, que já não copia). Os clones vêm do
+   `adapter-unica-fronteira.ts` — nenhuma lista nova (D116).
+2. **A redeclaração é por PAR** (arquivo daqui + arquivo de lá) e **mora também no arquivo**: o trecho que ele escreve
+   dizendo que é redeclaração é conferido. Redeclaração nova entra na lista no mesmo commit, com o motivo.
+3. `tests/o-motor-da-familia-nao-se-copia.test.ts`, 21 testes, sem clones: no trabalho sem clones, 1 298 → 1 319.
+   `tests/o-motor-da-familia-nao-se-copia-com-clone.test.ts`, 3 testes, no verde completo.
+
+**Os dois lados:** dez mutações plantadas e quatro na árvore de verdade, todas acusadas; cada limite com uma mutação de
+cada lado (20/19 de 40; 30/29 linhas). A casa de hoje passa.
+
+**Descartado:** comparar só contra o Laboratório de Parcelamento (a regra diz *"motor da família"*, e o Generate também é
+lido por caminho); trechos de N linhas seguidas (régua mais difícil de explicar, sem pegar mais); limite perto dos 15 %
+medidos (acusaria vocabulário de contrato, não cópia); declarar a redeclaração por arquivo, sem o par (perdoaria uma
+cópia de outro arquivo de lá no mesmo lugar).
+
+> **REGRA GUARDADA PELO NOME PERDOA A CÓPIA COM OUTRO NOME.** A D16 proíbe a cópia, não a pasta.
+

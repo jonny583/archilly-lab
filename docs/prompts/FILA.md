@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-146 · item 900 — a dívida própria: motor da família não ganha `upstream/`, e nada perguntava se ele tinha sido copiado com outro nome — ✅ **feito em 17/10/2026** (D374)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §3: *"Motor da própria família não ganha `upstream/` (D16): lê-se do clone irmão pelos `paths` do `tsconfig.json`."* A metade do *ler pelos `paths`* tem trava (LAB-135); a do *não copiar* só tinha guarda pelo nome. Medido pelo conteúdo, `git ls-files` dos dois lados: 343 arquivos de código daqui, 350 do Laboratório de Parcelamento, 608 do Generate; nenhum idêntico; o único alto é o `contrato-v1.ts` (72 %), redeclaração declarada do contrato desde o LAB-07; o resto, 15 % no máximo. Trava: `external-engines/esteira/src/o-motor-da-familia-nao-se-copia.ts`, `tests/o-motor-da-familia-nao-se-copia.test.ts` (sem clones) e `-com-clone.test.ts` (verde completo); quatorze mutações, quatorze acusadas; 1 298 → 1 319 travas. Detalhe em [`../relatorios/LAB-146.md`](../relatorios/LAB-146.md).
+
 ### LAB-145 · item 900 — a dívida própria: um despertador por aplicativo, e nada perguntava de quem eram os ids escritos aqui — ✅ **feito em 17/10/2026** (D373)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-A: *"um despertador por aplicativo; nunca se toca no de outro repositório."* O toque é ato na conta; o id que ele deixa escrito é o rastro. Medido: 5 ids na árvore, quatro da casa e um fictício declarado; cinco despertadores na história, um por vez — **um deles, o do LAB-18 (02/10), sem id escrito em lugar nenhum**; nos três vizinhos clonados, nenhum id desta casa. Trava: `external-engines/esteira/src/um-despertador-por-aplicativo.ts`, `tests/um-despertador-por-aplicativo.test.ts` (sem clones) e `-com-clone.test.ts` (verde completo); nove mutações, nove acusadas; 1 283 → 1 298 travas. Detalhe em [`../relatorios/LAB-145.md`](../relatorios/LAB-145.md).
@@ -1963,7 +1967,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1298 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1319 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
