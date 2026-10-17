@@ -173,7 +173,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // `motores/`, a `gleba-v1.ts`, a ida do Parcelamento, o `docs/SEGURANCA.md` e dados plantados; nenhum clone.
     // E 93 no LAB-160, com a `arquivo-de-credencial.test.ts` — o `git ls-files` e o `git log` DESTE repositório (a
     // história recusa no clone raso), o `docs/SEGURANCA.md` e nomes plantados; nenhum clone.
-    expect(lista).toHaveLength(93);
+    // E 94 no LAB-161, com a `o-upstream-nao-sai-do-upstream.test.ts` — o `git ls-files` DESTE repositório, o
+    // `docs/SEGURANCA.md` e dados plantados; nenhum clone.
+    expect(lista).toHaveLength(94);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

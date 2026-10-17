@@ -3658,3 +3658,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM DA SESSÃO ===
 ```
 
+
+## 17/10/2026 · LAB-161 — item 900 (a dívida própria): nenhum motor copiado para fora de `upstream/`, comparado com o motor de fora
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-161 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), no docs/SEGURANCA.md, tabela Integridade do que foi copiado. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1607 de 1607 (94 de 94 arquivos); esteira 1943 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17. O envio passa pelo gancho do LAB-106.
+Feito: a linha "Nenhum motor copiado para fora de upstream/" (LF-FINAL, 14/09) nomeava testfit/ e esteira/ e não tinha trava. O LAB-146 compara a casa com os motores DA FAMÍLIA; o motor de fora (Symbios) nunca era o comparado — uma cópia de upstream/src/rationalize.rs em symbios/archilly/wasm/src/ só derrubava a contagem de árvore do LAB-57. Por LUGAR, 18 arquivos do upstream/ contra 354 da casa: nenhuma cópia; os 3 Cargo.toml que dependem do motor apontam para o upstream/ por path — regra verdadeira, guarda ausente. Trava: src/o-upstream-nao-sai-do-upstream.ts + tests (sem clones), as linhas e os limites do LAB-146 contra toda pasta upstream/, e a dependência que não aponta para ela; dez mutações acusadas; 1593 → 1607; D389; detalhe em docs/relatorios/LAB-161.md.
+Achados para outros apps ou Central: (0) régua que compara com a família não vê o motor de fora: onde uma casa tem vendor/ ou upstream/ de terceiro e a página diz "não copiado", vale perguntar se alguma trava compara o resto da casa com AQUELA pasta, e se o build usa aquela pasta e não o mesmo pacote baixado de um registro. (1) As duas linhas vizinhas da tabela já tinham trava (LAB-132) e a página não dizia — agora diz. (2) As propostas do LAB-123, 129, 135, 137, 140, 141, 147, 152 e 159 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

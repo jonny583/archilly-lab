@@ -53,9 +53,9 @@ conferência possa ser refeita por quem quiser.
 
 | item | estado | como foi conferido |
 |---|---|---|
-| `external-engines/symbios/upstream/` byte a byte igual ao commit declarado | ✅ | `cmp` arquivo a arquivo contra `c3f287556b98cc616d4263d163e6643ae32111ff`, no LAB-00 |
-| Licença do upstream preservada | ✅ | `upstream/LICENSE` (MIT, `Copyright (c) 2026 TheJanusStream`) intocado |
-| Nenhum motor copiado para fora de `upstream/` | ✅ | `external-engines/testfit/` e `external-engines/esteira/` não contêm código de motor — só a ponte (D16) |
+| `external-engines/symbios/upstream/` byte a byte igual ao commit declarado | ✅ | `cmp` arquivo a arquivo contra `c3f287556b98cc616d4263d163e6643ae32111ff`, no LAB-00; **desde o LAB-132, a árvore do `git` da pasta é perguntada a cada verde** contra a registrada (`external-engines/esteira/src/upstream-intocavel.ts`) |
+| Licença do upstream preservada | ✅ | `upstream/LICENSE` (MIT, `Copyright (c) 2026 TheJanusStream`) intocado — e, desde o LAB-132, dentro da árvore perguntada na linha acima: um byte da licença mudado muda a árvore |
+| Nenhum motor copiado para fora de `upstream/` | ✅ | em 14/09, `external-engines/testfit/` e `external-engines/esteira/` não contêm código de motor — só a ponte (D16); **desde o LAB-161, perguntado a cada verde** a todo arquivo de código que o `git` carrega fora de toda pasta `upstream/`, linha a linha contra o motor, e a todo `Cargo.toml` que depende dele — tem de apontar para o `upstream/` por `path` (`external-engines/esteira/src/o-upstream-nao-sai-do-upstream.ts`; ver *Reconferido no LAB-161*, abaixo) |
 
 ---
 
@@ -160,3 +160,27 @@ e em dois universos:
 inválido, e passa; a chave pública (`.pub`) também. A história só se pergunta com ela inteira: no clone raso do CI a
 leitura recusa e diz por quê (LAB-89). O que a trava não alcança está dito no fim do módulo — entre outros, credencial
 com nome de outra coisa, que é da varredura de conteúdo, e o `.env` ignorado no disco, que é o jeito certo de tê-lo.
+
+---
+
+## Reconferido no LAB-161 · 17/10/2026 — o motor de fora, perguntado fora do `upstream/`
+
+A linha *"Nenhum motor copiado para fora de `upstream/`"* era uma frase sobre duas pastas — `testfit/` e `esteira/` —, e
+nenhuma trava a perguntava. As duas linhas de cima têm trava desde o LAB-132 (a árvore do `git` do `upstream/`), e o
+LAB-146 compara esta casa com os motores **da família**; o motor de **fora**, o Symbios, nunca era o comparado. Medido
+por mutação em 17/10: o `upstream/src/rationalize.rs` copiado byte a byte para `symbios/archilly/wasm/src/` e
+adicionado ao `git` fez cair **uma** trava, a de contagem de árvore do LAB-57, que acusa qualquer arquivo novo e não diz
+por quê.
+
+**Desde o LAB-161 a linha é perguntada a cada verde**, por `external-engines/esteira/src/o-upstream-nao-sai-do-upstream.ts`
+e `tests/o-upstream-nao-sai-do-upstream.test.ts` (sem clones), em duas metades:
+
+| pergunta | universo lido em 17/10 | resposta |
+|---|---|---|
+| algum arquivo de código fora de `upstream/` copia o motor? (as linhas e os limites do LAB-146) | 18 arquivos de código do `upstream/` do Symbios contra 354 da casa | **nenhum**; o mais parecido tem 3 de 8 linhas em comum (`wasm-probe/src/lib.rs` com `examples/full_city.rs`: a chamada à API) |
+| o Lab usa **este** motor, o conferido? (todo `Cargo.toml` fora de `upstream/` que depende de `symbios-tensor`) | 4 `Cargo.toml` lidos, 3 dependem do motor | **os três** (`probe/`, `wasm-probe/`, `wasm/`) por `path = "../../upstream"` |
+
+A linha é verdadeira; faltava a pergunta. Uma dependência trocada por `symbios-tensor = "0.4"` faria o `cargo` baixar do
+crates.io um motor que ninguém conferiu, com o `upstream-intocavel` verde sobre uma pasta que ninguém compila — e agora
+reprova. O que a trava não alcança está dito no fim do módulo: a cópia reescrita (outra linguagem, outros nomes), o que
+não é código, e a sondagem do straight-skeleton, que aponta para fora do repositório de propósito e não tem `upstream/`.
