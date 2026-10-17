@@ -12742,3 +12742,62 @@ ferramenta que leem a origem (são a resposta da casa a *"o disco não é a orig
 > falsa para a bancada no dia em que foi escrita; depois a casa ganhou um servidor de bancada e quatro leituras da origem —
 > nenhuma no motor, todas no repositório que a página descreve. **E "✅" sem comando ao lado é a afirmação que ninguém
 > refez:** a página prometia o comando de cada linha, e a da rede foi a que não trouxe.
+
+## D387 · A ENTRADA SE CONFERE ANTES DO NÚCLEO EM TODA PORTA, E A GUARDA PERGUNTA PORTA A PORTA — a página nomeava duas portas, e a terceira, a do Generate, não recusava nada · 17/10/2026
+
+**Contexto:** item 900 (LAB-159). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, na mesma espécie e na mesma página do LAB-158 — **mensagem fixa que afirma estado sem perguntar**, no
+`docs/SEGURANCA.md` —, na linha seguinte da tabela *Execução*: *"Entrada validada antes de entrar no núcleo · ✅ · versão
+do contrato, unidade (metro) e anel com ao menos 3 pontos são recusados com mensagem legível — `ida.ts` e `gleba-v1.ts`,
+com teste"*. Escrita no LF-FINAL (14/09) e sem trava.
+
+**Medido (LAB-159), por LUGAR:** toda função exportada de `esteira/src/motores/` (menos o `comum.ts`) — **sete**, e as
+sete recebem a `EntradaMinima`. Cinco rodam motor, duas só traduzem parâmetro. Elas chegam ao núcleo por **três
+portas**: a ida do Laboratório de Parcelamento (`idaParaOMotor`, as três recusas, as três com teste em
+`testfit/tests/esteira.test.ts`), a do Symbios (`glebaParaOSymbios`, as três recusas, **só a da versão** com teste, em
+`contrato-v2.test.ts`) e **a do motor interno do Generate (`rodarGenerate`), sem recusa nenhuma**. Rodado na gleba
+`completo`: contrato `"9"` e `unidade: "ft"` voltaram com **1 606 lotes** cada, o mesmo número da gleba em metro — o motor
+lê o número, não a unidade —, e o anel de 2 pontos voltou sem plano porque o motor não achou plano, não porque alguém
+recusou. A porta do Generate nasceu no LAB-13 (19/09), cinco dias depois da página: a linha ficou falsa sem ninguém a
+reescrever.
+
+**Decidido:**
+
+1. **Regra descumprida, consertada.** As três recusas saem do `glebaParaOSymbios` para `recusaDaEntrada` (`gleba-v1.ts`),
+   com as mensagens de antes, palavra por palavra (o `contrato-v2.test.ts` continua passando sem mudar). O
+   `glebaParaOSymbios` e o `rodarGenerate` perguntam a ela **antes** do motor. No Generate a recusa **não estoura** — a
+   porta proíbe estourar —: volta `saida: null`, `ms: 0` e uma linha `recusei a entrada antes do motor: …` em
+   `naoSoubeFazer`, e o `gerarPlano` não roda; a porta comum usa essa linha como `consequencia` em vez de *"não produziu
+   plano"*.
+2. A ida do Laboratório de Parcelamento fica com as suas: é de outro pacote e não importa a esteira.
+3. `src/entrada-validada.ts`: `conferirAsPortasDaEntrada(arquivos, ler)` cobra, pelo código sem comentário —
+   `porta-nao-declarada` (função de `motores/` que recebe a entrada ou chama motor e não está declarada),
+   `declarada-que-sumiu`, `motor-antes-da-conferencia` (a conferência falta ou vem depois da chamada ao motor),
+   `nao-porta-que-roda-motor`, `recusa-que-falta` (quem confere perdeu uma das três perguntas) e `universo-vazio`.
+4. `tests/entrada-validada.test.ts`, 21 testes, sem clones, no portão sem clones do `verde.yml` (1 562 → 1 583): a
+   página, a árvore, o comportamento da `recusaDaEntrada` e as duas recusas do `glebaParaOSymbios` que não tinham teste;
+   e três testes novos em `motores.test.ts` (com o clone) provando o `rodarGenerate` nos três casos.
+
+**Os dois lados:** a árvore de hoje, a chamada ao motor em comentário, o corpo de função com tipo de objeto no parâmetro e
+o anel de exatamente 3 pontos passam. A porta do Generate de ontem, a conferência depois do motor, o Symbios que pula o
+`glebaParaOSymbios`, a quarta porta sem declaração (recebendo a entrada ou só chamando o motor), a não-porta que passa a
+rodar motor, a porta declarada que some, a recusa da unidade que some, o `glebaParaOSymbios` que deixa de perguntar, a
+recusa do anel que some da ida e o universo vazio reprovam. **Doze mutações, doze acusadas**, e a de verdade — o
+`generate.ts` da origem posto de volta no disco — derruba a árvore de hoje.
+
+**A régua acusou duas travas vizinhas, e as duas tinham razão sobre o nome:** a do LAB-154 leu `conferirAEntradaValidada`
+como nome de julgamento (*valida*), e a do LAB-110 leu o campo `confere:` como gravador de veredito. Renomeei a função
+(`conferirAsPortasDaEntrada`) e o campo (`conferencia`); nenhuma régua afrouxada.
+
+**Medido e NÃO consertado, proposto ao chat:** a porta comum (`porta/motores.ts`) **estoura** com a recusa da ida do
+Laboratório de Parcelamento — `motorDoParcelamento().gerar` com `unidade: "ft"` lança em vez de devolver `recusei`, e a
+porta promete nunca estourar —; e o `catch` da porta do Symbios rotula toda exceção como `relevo.curvas`. É outra regra
+(a da porta, LAB-14), e o item 900 é uma tarefa por disparo.
+
+**Descartado:** consertar a porta comum agora (fora do escopo, e é conserto de comportamento com regra própria);
+validar o `schema` nas portas da esteira (a página não o promete); pôr a recusa dentro do `gerarPlano` (é código do
+vizinho); deixar o `rodarGenerate` estourar como os outros dois (a porta proíbe).
+
+> **A LINHA QUE NOMEIA AS PORTAS ENVELHECE NO DIA EM QUE NASCE A PRÓXIMA.** A página dizia `ida.ts` e `gleba-v1.ts`
+> porque eram as duas portas de 14/09; a terceira chegou cinco dias depois, pela porta comum, e entrou no núcleo sem
+> ninguém a perguntar. **O universo de "toda entrada" é a lista de portas, e ela se mede, não se lembra.**

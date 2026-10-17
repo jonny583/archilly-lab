@@ -138,22 +138,47 @@ export interface EntradaMinima {
   parametros: Record<string, number | null>;
 }
 
+/**
+ * POR QUE ESTA ENTRADA NÃO ENTRA NO NÚCLEO — ou `null`, se entra. (LAB-159)
+ *
+ * As três recusas que o `docs/SEGURANCA.md` promete desde o LF-FINAL: **versão do contrato**
+ * que esta esteira não lê, **unidade** que não é metro e **anel** com menos de 3 pontos. Até o
+ * LAB-159 elas moravam escritas dentro do `glebaParaOSymbios`, e **a porta do motor interno do
+ * Generate não passava por nenhuma**: medido, `rodarGenerate` aceitou uma gleba em pés
+ * (`unidade: "ft"`) e uma de contrato `"9"` e devolveu 1 606 lotes nas duas — o mesmo número da
+ * gleba em metro, porque o motor lê o número e não a unidade. Agora as duas portas do Lab
+ * perguntam aqui, e a mensagem é a mesma de antes, palavra por palavra.
+ *
+ * A ida do Laboratório de Parcelamento (`testfit/adapter/src/ida.ts`) tem as suas, com as
+ * mesmas três perguntas e mais a do `schema`; ela é de outro pacote e não importa a esteira.
+ * A trava `src/entrada-validada.ts` confere as três portas.
+ */
+export function recusaDaEntrada(e: {
+  archilly: { versao: string };
+  crs: { unidade: string };
+  gleba: { anel: readonly unknown[] };
+}): string | null {
+  if (!(VERSOES_LIDAS as readonly string[]).includes(e.archilly.versao)) {
+    return (
+      `esta esteira lê o contrato ${VERSOES_LIDAS.map((v) => `"${v}"`).join(" e ")}; ` +
+      `chegou versão "${e.archilly.versao}"`
+    );
+  }
+  if (e.crs.unidade !== "m") {
+    return `o núcleo é em metro; o CRS declarou "${e.crs.unidade}"`;
+  }
+  if (e.gleba.anel.length < 3) {
+    return `a gleba tem ${e.gleba.anel.length} ponto(s); um anel precisa de 3`;
+  }
+  return null;
+}
+
 export function glebaParaOSymbios(e: EntradaMinima): {
   terreno: Terreno;
   perdas: PerdaNaGleba[];
 } {
-  if (!(VERSOES_LIDAS as readonly string[]).includes(e.archilly.versao)) {
-    throw new Error(
-      `esta esteira lê o contrato ${VERSOES_LIDAS.map((v) => `"${v}"`).join(" e ")}; ` +
-        `chegou versão "${e.archilly.versao}"`,
-    );
-  }
-  if (e.crs.unidade !== "m") {
-    throw new Error(`o núcleo é em metro; o CRS declarou "${e.crs.unidade}"`);
-  }
-  if (e.gleba.anel.length < 3) {
-    throw new Error(`a gleba tem ${e.gleba.anel.length} ponto(s); um anel precisa de 3`);
-  }
+  const recusa = recusaDaEntrada(e);
+  if (recusa) throw new Error(recusa);
 
   const perdas: PerdaNaGleba[] = [];
 

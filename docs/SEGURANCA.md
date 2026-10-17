@@ -39,7 +39,7 @@ conferência possa ser refeita por quem quiser.
 | Nada de rede em execução | ✅ | o adaptador do Symbios roda com **zero dependência npm**; os outros dois leem arquivo local e código dos clones irmãos. **No caminho do motor**, nenhum `fetch`, nenhum `http` — e, fora dele, sete redes declaradas uma a uma (ver *Reconferido no LAB-158*, abaixo) |
 | O `.wasm` não pede nada do ambiente | ✅ | carregado com `WebAssembly.instantiate(bytes, {})` — **objeto de imports vazio**. Medido no LAB-01: 189 KB, zero imports |
 | Nada de exportar motor ou código ao usuário | ✅ **não se aplica** | o Lab não tem usuário nem exportação. O que ele publica são relatórios e JSON de medição |
-| Entrada validada antes de entrar no núcleo | ✅ | versão do contrato, unidade (metro) e anel com ao menos 3 pontos são recusados com mensagem legível — `ida.ts` e `gleba-v1.ts`, com teste |
+| Entrada validada antes de entrar no núcleo | ✅ | versão do contrato, unidade (metro) e anel com ao menos 3 pontos são recusados com mensagem legível — `ida.ts` e `gleba-v1.ts`, com teste; **e, desde o LAB-159, também na terceira porta, a do motor interno do Generate (`motores/generate.ts`), que não recusava nada** (ver *Reconferido no LAB-159*, abaixo) |
 
 ## Os repositórios vizinhos
 
@@ -109,3 +109,28 @@ quando a linha foi escrita (LAB-01, 10/09) — e a linha era a única da tabela 
 A trava reprova rede no caminho do motor **mesmo declarada**, rede nova fora dele sem declaração (ou uma a mais num
 arquivo declarado) e declaração cuja rede sumiu. O que ela não alcança está dito no fim do módulo — entre outros, o
 `verde.yml` (a máquina do GitHub clona e instala; não é a execução do Lab) e o `bun install` de quem prepara a máquina.
+
+---
+
+## Reconferido no LAB-159 · 17/10/2026 — a entrada, perguntada porta a porta
+
+A linha *"Entrada validada antes de entrar no núcleo"* nomeava duas portas e não tinha trava. **Desde o LAB-159 ela é
+perguntada a cada verde**, por `external-engines/esteira/src/entrada-validada.ts` e `tests/entrada-validada.test.ts`
+(sem clones), que leem toda função exportada de `esteira/src/motores/` que recebe a entrada e conferem, em cada porta,
+que a conferência vem **antes** do motor.
+
+**O que a medição de 17/10 respondeu:** sete funções recebem a entrada, e elas chegam ao núcleo por **três** portas, não
+duas:
+
+| porta | quem confere | antes do LAB-159 |
+|---|---|---|
+| Laboratório de Parcelamento | `idaParaOMotor` (`testfit/adapter/src/ida.ts`) | as três recusas, as três com teste |
+| Symbios | `glebaParaOSymbios` (`esteira/src/gleba-v1.ts`) | as três recusas; só a da versão com teste |
+| motor interno do Generate | `rodarGenerate` (`esteira/src/motores/generate.ts`) | **nenhuma recusa** |
+
+Rodado na gleba `completo`, a porta do Generate aceitou contrato `"9"` e `unidade: "ft"` e devolveu **1 606 lotes** nas
+duas — o mesmo número da gleba em metro: o motor lê o número, não a unidade. Ela existe desde o LAB-13 (19/09), cinco dias depois
+desta página. As três recusas passaram a morar em `recusaDaEntrada` (`gleba-v1.ts`), com as mensagens de antes, e as duas
+portas da esteira perguntam a ela antes do motor; no Generate a recusa volta sem SAÍDA, com o motivo, e o motor não roda.
+O que a trava não alcança está dito no fim do módulo — entre outros, que a porta comum ainda **estoura** com a recusa da
+ida do Laboratório de Parcelamento, em vez de devolver `recusei` (proposto ao chat).

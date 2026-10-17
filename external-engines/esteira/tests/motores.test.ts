@@ -31,6 +31,7 @@ import {
   type P,
 } from "../src/motores/comum.ts";
 import { glebaDoLab } from "../src/gleba-do-lab.ts";
+import { PREFIXO_DA_RECUSA, rodarGenerate } from "../src/motores/generate.ts";
 import type { EntradaMinima } from "../src/gleba-v1.ts";
 
 const FIXTURES = join(import.meta.dirname, "..", "..", "..", "docs", "fixtures", "glebas-padrao-com-relevo");
@@ -170,4 +171,25 @@ describe("a comparação só vale com as mesmas cinco glebas e os mesmos parâme
     const comAtracao = CINCO.filter((e) => (e.atracoes?.length ?? 0) > 0);
     expect(comAtracao).toHaveLength(1);
   });
+});
+
+describe("LAB-159 · a porta do Generate recusa a entrada ANTES do motor (D387)", () => {
+  // Até o LAB-159 ela não recusava nada: contrato "9" e `unidade: "ft"` voltaram com 1 606 lotes cada, na
+  // gleba `completo`. A trava estrutural é `tests/entrada-validada.test.ts`; aqui, o comportamento, com o clone.
+  const base = glebaDoLab("completo");
+  const casos: [string, EntradaMinima, RegExp][] = [
+    ["contrato 9", { ...base, archilly: { ...base.archilly, versao: "9" } }, /chegou versão "9"/],
+    ["pés", { ...base, crs: { ...base.crs, unidade: "ft" } }, /o CRS declarou "ft"/],
+    ["anel de 2", { ...base, gleba: { ...base.gleba, anel: base.gleba.anel.slice(0, 2) } }, /um anel precisa de 3/],
+  ];
+  for (const [nome, e, motivo] of casos) {
+    test(`${nome}: sem SAÍDA, com o motivo, e o motor não roda (zero ms)`, () => {
+      const r = rodarGenerate(e, "ortogonal", "2026-10-17T00:00:00.000Z");
+      expect(r.saida).toBeNull();
+      expect(r.ms).toBe(0);
+      expect(r.naoSoubeFazer).toHaveLength(1);
+      expect(r.naoSoubeFazer[0]!.startsWith(PREFIXO_DA_RECUSA)).toBe(true);
+      expect(r.naoSoubeFazer[0]).toMatch(motivo);
+    });
+  }
 });
