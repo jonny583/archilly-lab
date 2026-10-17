@@ -12801,3 +12801,56 @@ vizinho); deixar o `rodarGenerate` estourar como os outros dois (a porta proíbe
 > **A LINHA QUE NOMEIA AS PORTAS ENVELHECE NO DIA EM QUE NASCE A PRÓXIMA.** A página dizia `ida.ts` e `gleba-v1.ts`
 > porque eram as duas portas de 14/09; a terceira chegou cinco dias depois, pela porta comum, e entrou no núcleo sem
 > ninguém a perguntar. **O universo de "toda entrada" é a lista de portas, e ela se mede, não se lembra.**
+
+## D388 · NENHUM `.env`, `.pem` OU ARQUIVO DE CREDENCIAL, E A GUARDA PERGUNTA PELO NOME AO QUE O `git` CARREGA E À HISTÓRIA — a varredura de conteúdo não respondia esta linha · 17/10/2026
+
+**Contexto:** item 900 (LAB-160). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, na mesma espécie e na mesma página do LAB-158 e do LAB-159 — **mensagem fixa que afirma estado sem
+perguntar**, no `docs/SEGURANCA.md` —, na tabela *Chaves e segredos*: *"Nenhum `.env`, `.pem` ou arquivo de credencial ·
+✅ limpo · `find . -name ".env*" -o -name "*.pem" -o -name "*credential*"` — nada"*. Escrita no LF-FINAL (14/09), sem
+trava. A linha do `.wasm` com imports vazios, descartada pelas duas rodadas anteriores, foi descartada de novo com o motivo
+medido: esta máquina tem `cargo`, não tem o alvo `wasm32-unknown-unknown`, e o `rustup` não alcança `static.rust-lang.org`
+pelo proxy.
+
+**Medido (LAB-160):** primeiro, se a varredura de segredos (LAB-47) já respondia a linha — ela lê o **conteúdo**, e a
+linha é sobre o **nome**. Seis arquivos de credencial plantados com o conteúdo típico: o `.env` sem aspas, o `.env` com
+aspas (`DB_PASSWORD="…"` — o `\b` da regra não separa `DB_` de `PASSWORD`), o `.npmrc`, o `.netrc` e o
+`.git-credentials` **passaram calados**; só a chave de SSH em texto foi acusada. O binário (`.p12` com byte nulo) ela põe
+em `deFora`, com o motivo, e aprova. Depois, por LUGAR: o que o `git` carrega (`ls-files --cached --others
+--exclude-standard`, 753 caminhos) e todo nome que já entrou num commit do `HEAD` (`log --diff-filter=A`, 762 nomes em 456
+commits, desrasado) — **zero** nome de credencial nos dois. O `find` da página, refeito, também zero.
+
+**Decidido:**
+
+1. **Regra verdadeira, guarda ausente.** `src/arquivo-de-credencial.ts`: dezessete formas de nome — as três da página e
+   catorze do que as ferramentas usam (`.key`, `.p12`/`.pfx`, `.jks`/`.keystore`, `.ppk`, `id_rsa` e família sem `.pub`,
+   `.npmrc`, `.netrc`, `.pypirc`, `.htpasswd`, o `.dev.vars` do `wrangler`, a conta de serviço do Google, `secrets`,
+   `.tfvars`, `.kdbx`) —, cada uma com motivo; o modelo do `.env` (`.exemplo`, `.example`, `.sample`, `.modelo`,
+   `.template`) perdoado pelo nome; `conferirOsNomes` com `credencial-no-git`, `credencial-na-historia` e
+   `universo-vazio`.
+2. **A história entra**, porque o repositório é público e chave que apareceu é chave vazada; mas **só com ela inteira**:
+   a leitura passa pelo `lerPelaHistoria` (LAB-89) e recusa no clone raso do CI, dizendo por quê.
+3. `tests/arquivo-de-credencial.test.ts`, 10 testes, sem clones, no portão sem clones do `verde.yml` (1 583 → 1 593). O
+   teste afirma também que a varredura de conteúdo deixa passar cinco dos seis plantados — se ela melhorar, o teste
+   avisa para a tabela do cabeçalho não envelhecer calada.
+4. A linha da página diz com o que é conferida hoje, e a seção *Reconferido no LAB-160* traz os dois universos.
+
+**Os dois lados:** a árvore de hoje, a história de hoje, o `.env.exemplo`, a chave pública, `keys.ts`, `environment.md`,
+a própria régua e a varredura de segredos passam. Um `.env` e um `.p12` de verdade no disco, a linha sem ponteiro, uma
+forma tirada da lista, o modelo perdoado largo demais, a pergunta pelo universo vazio desligada, a história lida pelo
+filtro errado e um clone com `.env` commitado e apagado reprovam. **Oito mutações, oito acusadas.**
+
+**A régua vizinha acusou a primeira versão, com razão:** a tabela do cabeçalho trazia o cabeçalho literal de chave
+privada do OpenSSH, e a varredura de segredos reprovou a árvore. A célula foi reescrita por extenso. No envio, o gancho do `pre-push` recusou a árvore: a trava
+do "nada pago" (LAB-148) leu o endereço do `.git-credentials` plantado no teste como porta nova — ela lê o que o `git`
+rastreia, e o verde completo rodou antes do commit. O endereço passou a ser montado em pedaços; nenhuma régua afrouxada.
+
+**Descartado:** ler o disco inteiro como o `find` (reprovaria o `.env` ignorado, que é o jeito certo de tê-lo); exigir
+que o `.gitignore` cubra `.env` (a página não promete, e o que o `git` carregaria já reprova); nome em português (as
+ferramentas nomeiam em inglês, e `credencia` faria a régua se acusar); ampliar a varredura de conteúdo (outra regra, a do
+LAB-47, com falso positivo a medir — o nome já fecha o buraco desta linha).
+
+> **A VARREDURA DE SEGREDOS LÊ O CONTEÚDO, E O ARQUIVO DE CREDENCIAL SE RECONHECE PELO NOME.** Uma varredura bem feita
+> deixou passar cinco de seis arquivos típicos, e o binário saiu *"de fora"* com o motivo certo. **Duas perguntas
+> diferentes, duas guardas — e a linha que tinha o comando de uma parecia ter as duas.**
+
