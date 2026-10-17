@@ -3553,3 +3553,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-153 — item 900 (a dívida própria): não tem interface, com uma exceção declarada
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-153 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda — aqui, guarda estreita), no CLAUDE.md §4. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1464 de 1464 (86 de 86 arquivos); esteira 1797 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "não tem interface — com UMA exceção, declarada" tinha a guarda do LAB-36, que diz "exatamente UM html no repositório" e lia só o disco de external-engines/, só .html. Medido por mutação: uma página em docs/ e um componente .tsx postos no git passaram 25 de 25. Por LUGAR, o git ls-files inteiro (733 arquivos, 334 de código), três portas — página, componente, servidor: os dois achados são a bancada, a página e o servidor que a abre. Regra verdadeira, guarda estreita. Trava: src/a-unica-interface.ts + tests (sem clones), exceção por arquivo e porta, nos dois sentidos; 11 mutações, 11 acusadas; 1447 → 1464; D381; detalhe em docs/relatorios/LAB-153.md.
+Achados para outros apps ou Central: (0) Guarda escrita "existe exatamente um X no repositório" merece a pergunta "quem é o repositório no código?" — aqui era uma pasta do disco e um tipo de arquivo; o título prometia mais do que o código lia. (1) Nada novo proposto ao chat; as propostas do LAB-123, 129, 135, 137, 140, 141, 147 e 152 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
