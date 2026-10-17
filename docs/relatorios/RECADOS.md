@@ -3631,3 +3631,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-159 — item 900 (a dívida própria): a entrada se confere antes do núcleo, em três portas
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-159 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), na linha seguinte do docs/SEGURANCA.md à do LAB-158. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1583 de 1583 (92 de 92 arquivos); esteira 1919 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: o SEGURANCA.md (LF-FINAL, 14/09) diz que versão, unidade e anel de menos de 3 pontos são recusados antes do núcleo, "ida.ts e gleba-v1.ts, com teste" — nada perguntava. Por LUGAR, as funções de esteira/src/motores/: sete recebem a entrada, por TRÊS portas. A do Parcelamento recusa as três (testadas); a do Symbios recusa as três (só a versão testada); a do motor interno do Generate (LAB-13, 19/09, cinco dias depois da página) não recusava nada — na gleba completo, contrato "9" e unidade "ft" voltaram com 1 606 lotes cada, o número da gleba em metro. Regra descumprida, consertada: as três recusas em recusaDaEntrada (gleba-v1.ts), mensagens iguais, perguntadas antes do motor pelo glebaParaOSymbios e pelo rodarGenerate, que recusa sem SAÍDA e sem rodar o motor. Trava: src/entrada-validada.ts + tests (sem clones) e três testes de comportamento em motores.test.ts; doze mutações acusadas; 1562 → 1583; D387; detalhe em docs/relatorios/LAB-159.md.
+Achados para outros apps ou Central: (0) a linha que nomeia as portas envelhece no dia em que nasce a próxima: "validado em A e B" era verdade com duas portas — onde um SEGURANCA.md diz "toda entrada é validada", contem as portas, não as validações. (1) Proposto ao chat (FILA, abaixo do LAB-159): a porta comum promete nunca estourar e estoura com a recusa da ida do Parcelamento; e o catch do Symbios rotula toda recusa como relevo.curvas. (2) As propostas do LAB-123, 129, 135, 137, 140, 141, 147 e 152 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

@@ -13,7 +13,7 @@ import { Motor } from "@symbios/index.ts";
 
 import type { EntradaMinima } from "../gleba-v1.ts";
 import { linhasDaEntrada } from "../motores/comum.ts";
-import { rodarGenerate, type Candidata } from "../motores/generate.ts";
+import { PREFIXO_DA_RECUSA, rodarGenerate, type Candidata } from "../motores/generate.ts";
 import { rodarTestfit } from "../motores/testfit.ts";
 import { MOTOR_VERSAO } from "../../../testfit/adapter/src/motor.ts";
 
@@ -135,11 +135,13 @@ export function motorDoGenerate(candidata: Candidata): MotorNaPorta {
       const r = rodarGenerate(e.v1, candidata, e.geradoEm);
       const naoAtendido = ignorados(e, cap);
       if (!r.saida) {
+        // A recusa da entrada (LAB-159) diz o motivo; sem ela, foi o motor que não fez plano.
+        const recusa = r.naoSoubeFazer.find((x) => x.startsWith(PREFIXO_DA_RECUSA));
         naoAtendido.push({
           campo: "—",
           oQueChegou: "a gleba inteira",
           postura: "recusei",
-          consequencia: `a candidata "${candidata}" não produziu plano para esta gleba`,
+          consequencia: recusa ?? `a candidata "${candidata}" não produziu plano para esta gleba`,
         });
       }
       return {

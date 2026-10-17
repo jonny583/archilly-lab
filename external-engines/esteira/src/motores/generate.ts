@@ -26,8 +26,11 @@ import type { GerarV1Params } from "@generate/engine/gerar-v1.ts";
 import type { ResultadoMotor } from "@generate/engine/gerar-v1-motor.ts";
 import { paraSaida } from "@generate/contratos/motor-v1/traducao.ts";
 
-import type { EntradaMinima } from "../gleba-v1.ts";
+import { recusaDaEntrada, type EntradaMinima } from "../gleba-v1.ts";
 import type { P, Rodada } from "./comum.ts";
+
+/** Como começa a linha de `naoSoubeFazer` quando a ENTRADA foi recusada antes do motor. */
+export const PREFIXO_DA_RECUSA = "recusei a entrada antes do motor: ";
 
 /** As duas candidatas que o motor interno oferece. */
 export const CANDIDATAS = ["ortogonal", "espinha"] as const;
@@ -86,6 +89,18 @@ export function rodarGenerate(
   candidata: Candidata,
   geradoEm: string,
 ): Rodada {
+  // ── A ENTRADA SE CONFERE ANTES DO MOTOR (LAB-159) ─────────────────────────
+  //
+  // Até o LAB-159 esta porta entregava ao `gerarPlano` qualquer coisa: medido, uma gleba
+  // em pés e uma de contrato "9" voltaram com 1 606 lotes cada, o mesmo número da gleba em
+  // metro — o motor lê o número, não a unidade. As outras duas portas já recusavam. A
+  // recusa aqui não estoura (a porta proíbe): volta sem SAÍDA, com o motivo escrito, e o
+  // motor não roda.
+  const recusa = recusaDaEntrada(entrada);
+  if (recusa) {
+    return { saida: null, ms: 0, naoSoubeFazer: [`${PREFIXO_DA_RECUSA}${recusa}`], variante: candidata };
+  }
+
   const anel: P[] = entrada.gleba.anel.map((p) => ({ x: p.x, y: p.y }));
   const restricoes: P[][] = entrada.restricoes
     .filter((r) => r.desconta)

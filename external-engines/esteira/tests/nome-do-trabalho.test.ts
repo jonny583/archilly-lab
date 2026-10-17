@@ -169,7 +169,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // pela árvore sintática, a página das provas e dados plantados; nenhum clone.
     // E 91 no LAB-158, com a `rede-em-execucao.test.ts` — o código que o `git` carrega, o `docs/SEGURANCA.md` e dados
     // plantados; nenhum clone.
-    expect(lista).toHaveLength(91);
+    // E 92 no LAB-159, com a `entrada-validada.test.ts` — o `git ls-files` DESTE repositório, as portas de
+    // `motores/`, a `gleba-v1.ts`, a ida do Parcelamento, o `docs/SEGURANCA.md` e dados plantados; nenhum clone.
+    expect(lista).toHaveLength(92);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
