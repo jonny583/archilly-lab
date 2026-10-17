@@ -12854,3 +12854,53 @@ LAB-47, com falso positivo a medir — o nome já fecha o buraco desta linha).
 > deixou passar cinco de seis arquivos típicos, e o binário saiu *"de fora"* com o motivo certo. **Duas perguntas
 > diferentes, duas guardas — e a linha que tinha o comando de uma parecia ter as duas.**
 
+
+## D389 · NENHUM MOTOR COPIADO PARA FORA DE `upstream/`, E A GUARDA COMPARA COM O MOTOR DE FORA — a página nomeava as duas pastas onde ele não estava · 17/10/2026
+
+**Contexto:** item 900 (LAB-161). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, na mesma espécie e na mesma página do LAB-158 ao LAB-160 — **mensagem fixa que afirma estado sem
+perguntar**, no `docs/SEGURANCA.md` —, na tabela *Integridade do que foi copiado*: *"Nenhum motor copiado para fora de
+`upstream/` · ✅ · `external-engines/testfit/` e `external-engines/esteira/` não contêm código de motor — só a ponte
+(D16)"*. As duas outras linhas da tabela (o `upstream/` byte a byte, a licença) já tinham a trava do LAB-132 — a árvore
+do `git` da pasta contra a registrada —, e a página não dizia. Esta não tinha nenhuma.
+
+**Medido (LAB-161):** o LAB-146 compara a casa com os motores **da família**; o `upstream/` entra lá do lado da casa,
+nunca como o comparado. Por mutação, `upstream/src/rationalize.rs` copiado byte a byte para `symbios/archilly/wasm/src/`
+e adicionado ao `git`: a suíte inteira com os clones derrubou **uma** trava, a contagem de árvore do LAB-57, que acusa
+qualquer arquivo novo e não diz por quê. Por LUGAR, toda pasta `upstream/` versionada (uma, a do Symbios: 18 arquivos de
+código, 2 159 linhas significativas) contra todo arquivo de código versionado fora dela (354): **nenhum idêntico, nenhum
+parecido** — o mais parecido, `wasm-probe/src/lib.rs`, tem 3 de 8 linhas em comum com `examples/full_city.rs` (a chamada
+à API). E 4 `Cargo.toml` fora do `upstream/`: os 3 que dependem de `symbios-tensor` (`probe/`, `wasm-probe/`, `wasm/`)
+apontam para o `upstream/` por `path`.
+
+**Decidido:**
+
+1. **Regra verdadeira, guarda ausente.** `src/o-upstream-nao-sai-do-upstream.ts`, com as linhas e os limites do LAB-146
+   (`linhasDeCodigo`, 50 % com 10 linhas, ou 30 linhas), contra **toda** pasta `upstream/` que o `pastasDeUpstream` do
+   LAB-132 acha — motor de fora que entrar amanhã entra aqui sem ninguém lembrar.
+2. **A outra metade entra:** não copiar só fecha se o Lab usa o motor conferido. Todo `Cargo.toml` fora do `upstream/`
+   que depende do pacote de um `upstream/` (o nome lido do `[package]` dele) tem de apontar para a pasta por `path`, em
+   linha ou em tabela, em `[dependencies]`, de dev, de build ou de alvo. Uma troca por `symbios-tensor = "0.4"` faria o
+   `cargo` baixar do crates.io um motor que ninguém conferiu, com o `upstream-intocavel` verde sobre uma pasta que
+   ninguém compila.
+3. `tests/o-upstream-nao-sai-do-upstream.test.ts`, 14 testes, sem clones, no portão sem clones do `verde.yml`
+   (1 593 → 1 607). A casa de hoje afirma o universo (uma pasta, os três manifestos, o caminho de cada um) e a folga.
+4. A linha da página diz com o que é conferida hoje; as duas de cima apontam para o LAB-132; a seção *Reconferido no
+   LAB-161* traz a tabela.
+
+**Os dois lados:** a ponte que usa a API (três linhas iguais às do exemplo), o `path` certo, um segundo `upstream/` e uma
+dependência de outro pacote passam. A cópia real, uma função de 30 linhas colada num arquivo grande, o crates.io no lugar
+do `path`, a linha sem ponteiro, os dois limites deslocados de um, o universo vazio desligado, só `[dependencies]` lido,
+o `upstream/` comparado consigo e o `path` sem resolver reprovam. **Dez mutações, dez acusadas** — e a primeira versão da
+mutação da função colada não pegou porque as linhas que eu colei eram comentário de documentação, que a régua não conta
+de propósito; refeita com trinta linhas de código, acusou. Defeito da mutação, não da régua (lição 12c do Generate).
+
+**A régua vizinha acusou a primeira versão, de novo com razão:** o endereço de `git` plantado no teste foi lido pela
+trava do "nada pago" (LAB-148) como porta nova. Montado em pedaços, como no LAB-160; nenhuma régua afrouxada.
+
+**Descartado:** comparar com o upstream de verdade no GitHub (seria rede numa trava, e o LAB-132 já fixa a árvore);
+ler `package.json` (o Symbios não publica pacote npm); cobrir a sondagem do straight-skeleton, que aponta por `path` para
+fora do repositório de propósito e não tem `upstream/` — dita no que a trava não alcança.
+
+> **A RÉGUA QUE COMPARA COM A FAMÍLIA NÃO VÊ O MOTOR DE FORA, E A PÁGINA OLHAVA AS PASTAS ERRADAS.** A cópia do Symbios
+> nasceria ao lado do `upstream/`, onde o Lab escreve Rust contra ele — e nenhuma das duas pastas da linha é essa.
