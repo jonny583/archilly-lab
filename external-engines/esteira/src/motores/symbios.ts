@@ -24,6 +24,7 @@ import { gerarRedeViaria, Motor, recortarPelaGleba } from "@symbios/index.ts";
 import type { Terreno } from "@symbios/contrato.ts";
 import { areaPoligono } from "@symbios/geo.ts";
 
+import { oQueORecorteConsertou } from "../conserto-declarado.ts";
 import { glebaParaOSymbios, type EntradaMinima } from "../gleba-v1.ts";
 import { symbiosParaOContrato, type LoteParaOContrato } from "../symbios-para-contrato.ts";
 import { lotearQuadra, type EixoDeVia } from "../lotear.ts";
@@ -107,6 +108,9 @@ export function rodarSymbios(
 
   const naoSoubeFazer: string[] = perdas.map((x) => `na ida: ${x.campo} — ${x.motivo}`);
   naoSoubeFazer.push("o motor não parcela em lote: quem subdivide a quadra é o esqueleto reto do Lab (D50)");
+  // Os dois consertos do recorte vêm LIGADOS aqui (cabeçalho deste arquivo), e o §4 proíbe ligar
+  // calado: o que eles fizeram sai na medição, como o aparo do outro motor (LAB-142, D370).
+  naoSoubeFazer.push(...oQueORecorteConsertou(corte));
   if (puladasPeloEsqueleto > 0) {
     naoSoubeFazer.push(
       `${puladasPeloEsqueleto} de ${corte.quadras.length} quadras foram puladas: o esqueleto não fechou nelas (D51)`,

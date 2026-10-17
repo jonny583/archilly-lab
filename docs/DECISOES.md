@@ -12073,3 +12073,34 @@ têm quatro formas, e é outro passo; fica proposto ao chat.
 > **O TÍTULO QUE REPETE A REGRA NÃO PROVA QUE A RÉGUA A COBRA.** O `describe` dizia *"gleba, motor, semente e
 > contrato"* e o teste, cinquenta linhas abaixo, *"os três conceitos"* — os dois certos sobre coisas diferentes, por
 > cinco semanas. Quem separa os dois é a mutação.
+
+## D370 · O CONSERTO DO LAB SAI DITO NA MEDIÇÃO — e o recorte do Symbios saía calado · 17/10/2026
+
+**Contexto:** item 900 (LAB-142). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"Não conserta geometria em silêncio: conserto
+declarado, desligado por padrão, medido nas duas passagens."* Três cláusulas, dois consertos (o aparo do Laboratório
+de Parcelamento e o recorte do Symbios) — seis casas. A guarda do LAB-36 cobria duas.
+
+**Medido (LAB-142):** o recorte ligado por padrão e o aparo sem a passagem fiel passaram a suíte inteira, acusados só
+pela contagem de bytes do LAB-52 (que acusa qualquer edição). A trava do LAB-05 para o recorte desligado existe, mas
+precisa do `.wasm`. E, por LUGAR, os dois motores que ligam conserto na comparação: o `testfit.ts` declara *"o Lab
+aparou"*; o `symbios.ts` liga a lasca e o recorte de quadra e **não declara nada** — regra descumprida, não só sem
+guarda.
+
+**Decidido:**
+
+1. `src/conserto-declarado.ts`, função pura `oQueORecorteConsertou`, que lê os contadores que o recorte já publica e
+   devolve as linhas do `naoSoubeFazer` com o sujeito do aparo; contador zero, linha nenhuma.
+2. O `rodarSymbios` a chama com o mesmo `corte` que usa.
+3. `tests/conserto-declarado.test.ts`, oito testes: o recorte declarado; o recorte desligado por padrão **numa rede
+   montada à mão**, sem o `.wasm`; o aparo nas duas passagens, com e sem aparo.
+4. As provas antigas da comparação não se regeram para ganhar a frase (D118).
+
+**Os dois lados:** sete mutações, sete acusadas; o arquivo limpo passa.
+
+**Descartado:** levar a passagem sem recorte para a `Rodada` da comparação (mudaria o que a tabela mede — é escopo, e
+a medição das duas passagens do recorte existe no LAB-05); cobrar o número contra uma rodada real do Symbios (precisa
+do `.wasm`).
+
+> **DECLARADO NO COMENTÁRIO NÃO É DECLARADO NA MEDIÇÃO.** O cabeçalho do motor dizia *"escolha declarada"*, e era — para
+> quem lê o código. Quem lê a tabela nunca soube. A regra é sobre o que sai, e o que sai é o que se cobra.

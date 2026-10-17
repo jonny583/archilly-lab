@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-142 · item 900 — a dívida própria: o conserto do Lab sai dito na medição, e o do Symbios saía calado — ✅ **feito em 17/10/2026** (D370)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"Não conserta geometria em silêncio: conserto declarado, desligado por padrão, medido nas duas passagens."* Três cláusulas, dois consertos (o aparo do Laboratório de Parcelamento e o recorte do Symbios): a guarda do LAB-36 cobria duas das seis casas. Medido por mutação: o recorte ligado por padrão e o aparo sem a passagem fiel passaram a suíte inteira (acusados só pela contagem de bytes do LAB-52; a trava do LAB-05 precisa do `.wasm`). Por LUGAR: o `rodarSymbios` ligava a lasca e o recorte de quadra e não declarava nada. Trava: `external-engines/esteira/src/conserto-declarado.ts` e `tests/conserto-declarado.test.ts`; sete mutações, sete acusadas. Detalhe em [`../relatorios/LAB-142.md`](../relatorios/LAB-142.md).
+
 ### LAB-141 · item 900 — a dívida própria: a prova de medição traz o MOTOR, e a régua cobrava três de quatro — ✅ **feito em 16/10/2026** (D369)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §7: *"JSON em `docs/provas/<prompt>/` com gleba, motor, semente e contrato"*. A guarda do LAB-36 dizia os quatro no título e cobrava três — o `motor` nunca entrou. Medido por mutação: uma prova sem motor passou a suíte inteira; sem semente, foi acusada. Por LUGAR, 38 provas de medição: 34 dizem `motor`/`motores`, três dizem por outro nome, e a do LAB-94 não diz. Trava: `CONCEITOS.motor` em `external-engines/esteira/tests/regras.test.ts`, com seis nomes aceitos; LAB-94 e LAB-07 congelados com o valor nomeado; dez mutações, dez acusadas. Detalhe em [`../relatorios/LAB-141.md`](../relatorios/LAB-141.md).
