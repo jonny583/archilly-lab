@@ -165,7 +165,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // bancada e dados plantados; nenhum clone.
     // E 89 no LAB-156, com a `balanco-nao-se-copia.test.ts` — o `BALANCOS.md`, o `RECADOS.md`, o `CLAUDE.md` e dados
     // plantados; nenhum clone.
-    expect(lista).toHaveLength(89);
+    // E 90 no LAB-157, com a `semente-e-carimbo.test.ts` — as provas de `docs/provas/`, o código de `external-engines/`
+    // pela árvore sintática, a página das provas e dados plantados; nenhum clone.
+    expect(lista).toHaveLength(90);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

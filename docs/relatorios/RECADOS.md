@@ -3605,3 +3605,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-157 — item 900 (a dívida própria): a semente é a mesma em todas as provas e o geradoEm é carimbo fixo
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-157 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), no docs/provas/LEIA-ME.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1546 de 1546 (90 de 90 arquivos); esteira 1879 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: a página das provas diz "a semente é a mesma em todos (20260913)" e "geradoEm é carimbo fixo nas provas", e nada as perguntava. Antes, medi "teste que nunca reprovou" pela forma: 1923 blocos de teste, zero sem asserção. Por LUGAR, as 84 provas: 111 sementes, todas 20260913; 34 geradoEm, 33 carimbo escolhido e um relógio (LAB-07/medicoes.json, 14:31:44.835). No código, pela árvore sintática, três linhas liam o relógio para o geradoEm: os dois medir.ts (testfit e Symbios) e a queda do volta.ts. Era desenho com o nome trocado: a hora real "fica no JSON de medições", e desde o LAB-47 se chama quando. Os dois medir.ts gravam quando; a prova do LAB-07 declarada sem regerar, a queda declarada, a página diz a exceção. Trava: src/semente-e-carimbo.ts + tests (sem clones); dez mutações na régua, dez acusadas; 1523 → 1546; D385; detalhe em docs/relatorios/LAB-157.md.
+Achados para outros apps ou Central: (0) A convenção nova escrita como se sempre tivesse valido esconde a prova velha: a página disse "todas" depois que a hora real ganhou outro nome, e a única prova de antes ficou desmentindo calada. (1) grep cortado no meio da lista dá a régua por boa com um arquivo de menos — a árvore sintática achou três linhas onde o grep mostrou uma. (2) Nada novo proposto ao chat; as propostas do LAB-123, 129, 135, 137, 140, 141, 147 e 152 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

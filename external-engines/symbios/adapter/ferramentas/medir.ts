@@ -273,7 +273,9 @@ console.log(`motor carregado: ${readFileSync(WASM).byteLength} bytes\n`);
 
 const resultados: Record<string, unknown> = {
   prompt: "LAB-01",
-  geradoEm: new Date().toISOString(),
+  // A hora em que rodou de verdade. Até o LAB-157 ela ia em `geradoEm`, a chave que a SAÍDA do contrato usa
+  // para o carimbo constante; a casa a chama `quando` desde o LAB-47 (D385).
+  quando: new Date().toISOString(),
   ambiente: { node: process.version, plataforma: `${process.platform}-${process.arch}` },
   wasm_bytes: readFileSync(WASM).byteLength,
 };

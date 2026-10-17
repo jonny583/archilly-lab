@@ -12630,3 +12630,55 @@ precisa).
 
 > **"TEM GUARDA" PODE SER METADE DA FRASE.** A trava do LAB-42 respondia o *"aponta-se para ele"*, e a frase tem dois
 > verbos: o *"não se copia"* passava calado ao lado dela.
+
+## D385 · A SEMENTE É A MESMA EM TODAS AS PROVAS E O `geradoEm` É CARIMBO FIXO, E A GUARDA PERGUNTA PROVA A PROVA — a página afirmava "todas" e uma desmentia calada · 17/10/2026
+
+**Contexto:** item 900 (LAB-157). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/provas/LEIA-ME.md` — a página
+que diz como ler as provas. Duas frases dela falam de **todas** as provas: *"**A semente é a mesma em todos**
+(`20260913`)"* e *"**`geradoEm` é carimbo fixo** nas provas, de propósito"*. As outras frases da página têm trava (LAB-29,
+LAB-103/105, LAB-147, as chaves do §7); estas duas não tinham nenhuma — nada lia as provas por elas. Antes de escolher,
+medi a espécie *"teste que nunca reprovou"* pela forma: dos 1 923 blocos `test`/`it` dos 124 arquivos de teste, **zero**
+sem asserção (direta, por função local ou por `throw`); nada a pagar ali.
+
+**Medido (LAB-157), por LUGAR:** os 84 `.json` de `docs/provas/`, chave a chave. **`semente`**: 111 valores em 35
+arquivos, todos `20260913` — verdadeira. **`geradoEm`**: 34 valores (27 no alto, 7 em `archilly.geradoEm`); 33 com a
+forma de carimbo escolhido (a data só, ou a hora cheia), **um com a forma do relógio**: `LAB-07/medicoes.json`,
+`2026-09-13T14:31:44.835Z`. E o código (217 arquivos de `external-engines/` fora de `upstream/` e dos testes, pela árvore
+sintática): três linhas leem o relógio para o `geradoEm` — `testfit/ferramentas/medir.ts:257` (a que escreveu a prova do
+LAB-07), `symbios/adapter/ferramentas/medir.ts:276` (a do LAB-01, que grava em `outputs/lab01/`, fora das provas) e a
+queda `opcoes.geradoEm ?? new Date()` do `testfit/adapter/src/volta.ts:382`. **A primeira não era descuido: era desenho
+com o nome trocado** — o `adapter/src/esteira.ts` diz, ao lado do `CARIMBO_FIXO`, *"quando rodou de verdade fica no
+JSON de medições"*; do LAB-47 em diante a casa chama a hora real de `quando` (46 vezes nas provas), e a página
+generalizou a convenção nova sem a exceção.
+
+**Decidido:**
+
+1. **As duas ferramentas de medição gravam a hora real em `quando`** — o nome que a casa já usa —, e o `geradoEm` sai
+   delas. Muda o nome de um campo de metadado, nenhum número; nenhum leitor de código lia aquele campo.
+2. **A prova do LAB-07 não se regera** (D182, D288; citada nos relatórios do LAB-07 e do LAB-08): fica declarada em
+   `CARIMBOS_DE_RELOGIO_DECLARADOS`, com o valor e o motivo, e a página passa a citá-la e a dizer que a hora real se
+   chama `quando`.
+3. **A queda do `volta.ts` fica**, declarada em `RELOGIO_DECLARADO_NO_CODIGO`: quem grava prova passa o carimbo, e quem cai
+   nela são os testes do pacote. Trocá-la por uma data constante seria inventar quando a saída nasceu (D23).
+4. `src/semente-e-carimbo.ts`: `conferirASementeEOCarimbo({ provas, codigo, pagina })` cobra — toda `semente` numérica é
+   `20260913` e a página escreve o mesmo número; todo `geradoEm` tem a forma do carimbo escolhido (`ehCarimboFixo`: a
+   data só, ou segundo e milissegundo zero); nenhum `geradoEm` do código lê o relógio (`new Date()` sem argumento,
+   `Date.now()`, `performance.now()`, na propriedade, na variável, no parâmetro ou na atribuição); declaração que não
+   acha mais o que declarou reprova; a página diz as duas frases e cita cada prova declarada; universo vazio reprova.
+5. `tests/semente-e-carimbo.test.ts`, 23 testes, sem clones, no portão sem clones do `verde.yml`.
+
+**Os dois lados:** a árvore de hoje, a hora cheia, a data só, `new Date("…")` com argumento, o relógio em `quando`, a
+menção em comentário e em texto e a semente com outro nome passam. O `medir.ts` de volta ao relógio, uma prova nova com
+a hora real, o relógio aninhado na SAÍDA, a semente diferente, a página com outra semente ou sem número, a página sem
+uma das frases, a página que cala a exceção, as duas declarações fantasma, as seis formas do relógio no código e o
+universo vazio reprovam. Dez mutações na régua, dez acusadas.
+
+**Descartado:** regerar a prova do LAB-07 (apagaria a medição daquele dia para consertar um nome); tornar o carimbo
+obrigatório no `voltaParaOContrato` (mudaria dez chamadas de teste para cobrar quem não grava nada); ler o `quando`
+(é a hora real por convenção, e a régua pergunta o carimbo); cobrar o JSON fora de `docs/provas/` (a frase da página é
+sobre as provas — o `outputs/lab01/medicoes.json` fica como está, e a ferramenta dele já grava `quando`).
+
+> **A CONVENÇÃO NOVA, ESCRITA COMO SE SEMPRE TIVESSE VALIDO, ESCONDE A PROVA VELHA.** A página disse *"todas"* depois que
+> a casa passou a chamar a hora real de `quando` — e a única prova de antes que usava o outro nome ficou desmentindo-a
+> sem que ninguém perguntasse.
