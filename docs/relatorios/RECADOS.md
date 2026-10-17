@@ -3501,3 +3501,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-149 — item 900 (a dívida própria): o que o vizinho precisa vira lista numerada em relatório
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-149 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §4. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1378 de 1378 (82 de 82 arquivos); esteira 1711 aprovadas e só as 9 falhas do .wasm (as mesmas da linha de base), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "o que o vizinho precisa vira lista numerada em relatório" só se conferia ESCRITA; a outra metade da linha (clone limpo) tem trava desde o LAB-38, e por isso parecia guardada. Medido por LUGAR: 145 relatórios, 27 lugares de pedido ao vizinho (título de seção e marcador "Para o Generate"), 22 com lista e CINCO SEM — LAB-03, LAB-07, LAB-24, LAB-82 (o pedido foi só no recado) e o LAB-147, a véspera. Trava: src/pedido-ao-vizinho.ts + tests (sem clones), os cinco congelados com motivo, relatório novo sem exceção; 15 mutações, 15 acusadas; 1354 → 1378; D377; detalhe em docs/relatorios/LAB-149.md.
+Achados para outros apps ou Central: (0) Regra que divide a linha com uma regra guardada parece guardada: toda casa com frase de duas metades no CLAUDE.md pode perguntar se a trava da primeira cobre a segunda. (1) O marcador "Para o <vizinho>" nas seções de achados é a forma nova por onde o pedido escapa da lista numerada. As propostas do LAB-123, 129, 135, 137, 140, 141 e 147 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

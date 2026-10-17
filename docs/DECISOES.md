@@ -12317,3 +12317,39 @@ continuaria passando).
 
 > **FRASE QUE AFIRMA ESTADO E SÓ SE CONFERE ESCRITA É UMA FOTOGRAFIA QUE NINGUÉM DATA.** A trava não pergunta se a
 > frase existe; pergunta à árvore se ela ainda é verdade.
+
+## D377 · O QUE O VIZINHO PRECISA VIRA LISTA NUMERADA EM RELATÓRIO, E A RÉGUA LÊ A FORMA DO PEDIDO — cinco pedidos sem lista, o último na véspera · 17/10/2026
+
+**Contexto:** item 900 (LAB-149). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"o que o vizinho precisa **vira lista numerada em
+relatório**"*. A primeira metade da frase (clones só leitura, `git status` limpo) tem trava desde o LAB-38; esta metade
+só tinha a do enxugamento (item 028), que confere que a frase está ESCRITA no `CLAUDE.md`. O LAB-147 dizia a espécie
+esgotada — e esta cláusula tinha escapado à conta porque mora na mesma linha de uma regra guardada.
+
+**Medido (LAB-149), por LUGAR:** o pedido ao vizinho mora em dois lugares de um relatório — o **título de seção** (um
+destino e um gesto de levar: *"Para o Generate — lista numerada"*, *"O que vai ao Laboratório de Parcelamento"*, *"O que
+fica pedido"*) e o **marcador** *"- **Para o Generate …:**"* das seções de achados. Nos 145 relatórios de
+`docs/relatorios/` (o `RECADOS.md` fora): **27 lugares, 22 com lista e cinco sem** — LAB-03 e LAB-07 (a correção das
+duas cotas em prosa), LAB-24 (a proposta como arquivo, descrita em tópicos), LAB-82 (o pedido de seis linhas foi só no
+recado) e **LAB-147, a véspera**: um marcador *"Para o Generate"* em tópico. A regra estava descumprida até ontem.
+
+**Decidido:**
+
+1. `src/pedido-ao-vizinho.ts`: os dois lugares lidos pela forma, e as **quatro escritas** de lista numerada da casa
+   (`1.`, linha de tabela que começa pelo número, subtítulo numerado, linha numerada em bloco de código).
+2. Os cinco de antes congelados em `SEM_LISTA_ANTES_DA_TRAVA`, com motivo; **não se reescreve relatório antigo** para
+   passar (D118). Do LAB-149 em diante, congelar é `excecao-depois-da-trava`: relatório novo numera.
+3. `NAO_E_PEDIDO` existe, vazio: o título que tem a forma e não é pedido se declara com motivo, e a declaração sobra
+   quando o título some.
+4. `tests/pedido-ao-vizinho.test.ts`, 24 testes, sem clones: 1 354 → 1 378 no trabalho sem clones.
+
+**Os dois lados:** a casa de hoje passa; as quatro escritas de lista passam; título que fala do vizinho sem pedir
+(*"Os clones vizinhos ficaram limpos"*) não é lugar; título dentro de bloco de código não é título. Pedido sem número,
+pedido sozinho, marcador em tópico, congelado depois da trava, declaração que sobra, motivo curto e universo vazio
+reprovam. Quinze mutações no módulo, quinze acusadas.
+
+**Descartado:** contar o pedido no recado (a regra diz *"em relatório"*, e o recado tem doze linhas); exigir mais de um
+item (um pedido só, numerado `1.`, cumpre); reescrever os cinco relatórios antigos (é reescrever o registro do dia).
+
+> **REGRA QUE DIVIDE A LINHA COM UMA REGRA GUARDADA PARECE GUARDADA.** A trava da primeira metade da frase deixou a
+> segunda metade de fora por cinco semanas, e a conta da espécie "esgotada" passou por cima dela.
