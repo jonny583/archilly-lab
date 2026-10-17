@@ -3475,3 +3475,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-147 — item 900 (a dívida própria): o não medido sai `null`, nunca zero — e a porta dizia zero metro de rua
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-147 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §4. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1338 de 1338; esteira com só as 9 falhas do .wasm (as mesmas da linha de base), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "o não medido sai null, nunca zero (D23)", descartada nove vezes como espalhada, estava DESCUMPRIDA na porta: comprimentoDeVia_m somava v.comprimento_m ?? 0 sobre uma via que o contrato v1 não mede, e a prova do LAB-06 gravou 0 m de rua para 974, 776 e 214 lotes. Consertado (null, em src/porta/indicadores.ts; e o julgar de motores/comum.ts com ?? null). Medido: 206 arquivos de código, 177 zeros ?? 0/|| 0, 45 sobre medida em 17 arquivos, todos declarados com classe e motivo. Trava: src/nulo-nunca-zero.ts + tests (sem clones); 12 mutações, 12 acusadas; 1319 → 1338; D375; detalhe em docs/relatorios/LAB-147.md.
+Achados para outros apps ou Central: (0) Para o Generate: a via do contrato v1 não tem comprimento — quem soma o campo dela recebe zero sem erro; quem quer metros de rua tem de medir a geometria ou receber o campo. (1) O buraco declarado de uma régua é onde a próxima regra está descumprida: a varredura de chamadas dizia por escrito que não pegava o ?? 0 sobre propriedade, e era ali. (2) Proposto ao chat: estender a régua ao ": 0" de ternário (há um medido, na prova do LAB-07). As propostas do LAB-123, 129, 135, 137, 140 e 141 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

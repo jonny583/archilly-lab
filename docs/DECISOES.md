@@ -12241,3 +12241,44 @@ cópia de outro arquivo de lá no mesmo lugar).
 
 > **REGRA GUARDADA PELO NOME PERDOA A CÓPIA COM OUTRO NOME.** A D16 proíbe a cópia, não a pasta.
 
+---
+
+## D375 · O NÃO MEDIDO SAI `null`, NUNCA ZERO, SE LÊ PELO CÓDIGO QUE ESCREVE A MEDIDA — e a porta dizia zero metro de rua · 17/10/2026
+
+**Contexto:** item 900 (LAB-147). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"Não inventa dado: o não medido sai `null`, nunca
+zero (D23)."* Descartada do LAB-138 ao LAB-146 como *"espalhada por vinte módulos"*. A varredura de chamadas (LAB-52)
+pega o `?? 0` sobre CHAMADA e declara que não pega o `?? 0` sobre PROPRIEDADE — que é a forma em que uma medida ausente
+vira zero. O buraco estava escrito e ninguém o cobria.
+
+**Medido (LAB-147):** `git ls-files`, código fora de `upstream/` e de `tests/` — 206 arquivos, 177 `?? 0`/`|| 0` fora de
+comentário, **45** sobre medida (pelo sufixo de unidade da convenção do LAB-143), em 17 arquivos, depois dos dois
+consertos (eram 47 em 19). Pelo escrito: nas provas, `comprimentoDeVia_m` vale **0** nas três aprovadas de
+`docs/provas/LAB-06/ranking.json` (974, 776 e 214 lotes) — a via do contrato v1 do Generate não tem campo de
+comprimento, e a porta somava `v.comprimento_m ?? 0`. **Regra descumprida**, ao lado de um comentário que prometia o
+contrário (`Indicadores`, em `porta.ts`: *"nunca zero"*).
+
+**Decidido:**
+
+1. A porta devolve `comprimentoDeVia_m: null` se qualquer via vier sem comprimento. A função `indicadoresDa` sai de
+   `porta/motores.ts` para `porta/indicadores.ts`, sem import de motor, para que a prova rode no portão sem clones.
+2. O `julgar` de `motores/comum.ts` grava `areaPrivativa_m2 ?? null` (o tipo do dono diz `number`; hoje não muda
+   nada, e o dia em que faltar sai "não medido", como o cabeçalho da função promete).
+3. `src/nulo-nunca-zero.ts`: as duas formas (`operando` e `chave`), a lista fechada `ZEROS_DECLARADOS` por arquivo,
+   com contagem, **classe** e motivo — `nunca-dispara`, `nao-disparou-nas-provas`, `ausencia-e-zero-de-verdade`,
+   `parametro-padrao`, `ferramenta-historica` —, conferida nos dois sentidos (zero novo e declaração que sobra).
+4. `tests/nulo-nunca-zero.test.ts`, 19 testes, sem clones: 1 319 → 1 338 no trabalho sem clones.
+5. **A prova do LAB-06 não se rege** (D118): é a fotografia do dia, e o relatório do LAB-147 diz que o zero dela é
+   inventado.
+
+**Os dois lados:** sete mutações plantadas e cinco na árvore de verdade (a porta velha, o `?? 0` do `julgar` de volta,
+um zero a mais na rampa, um a menos no preço do sétimo, a frase tirada do `CLAUDE.md`), todas acusadas. A casa de hoje
+passa; o contador e o comprimento de lista passam (o caso que quase parece inválido).
+
+**Descartado:** consertar as ferramentas antigas (`lab02` … `lab50`, as duas do Symbios) — regerariam provas
+históricas, e as do Symbios só rodam com o `.wasm`; régua por nome sem unidade (`lotes ?? 0` é contagem, e a régua não
+tem como saber); `soOCodigo` em vez de `semComentarios` (apagaria o `${…}` dos textos impressos, onde mora parte dos
+zeros); ler o zero no JSON gravado (um zero escrito não diz se foi medido).
+
+> **O BURACO DECLARADO DE UMA RÉGUA É O LUGAR ONDE A PRÓXIMA REGRA ESTÁ DESCUMPRIDA.** A varredura de chamadas dizia, por
+> escrito, o que não pegava — e era exatamente ali.
