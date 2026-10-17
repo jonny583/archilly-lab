@@ -357,6 +357,9 @@ describe("§4 · conserto do Lab vem DESLIGADO por padrão", () => {
 });
 
 describe("§5 · \"Testfit\" é nome interno", () => {
+  // LAB-155 (D383): estas duas olham dois arquivos e a grafia `testfit`; onde a página do Jonny o manda (o README da
+  // raiz incluído), a bancada do navegador, as cinco grafias soltas e a lista fechada dos endereços são da
+  // `tests/nome-interno.test.ts`.
   const PARA_O_USUARIO = ["docs/PENDENCIAS_JONNY.md", "docs/COMPARACAO_DOS_MOTORES.md"];
 
   test("texto voltado ao usuário nunca diz Testfit", () => {

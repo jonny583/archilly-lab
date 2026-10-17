@@ -47,7 +47,7 @@ UPSTREAM              ARCHILLY               ADAPTER              ARCHILLY
 
 ## Estado atual — dois motores atravessam o Lab de ponta a ponta
 
-| | LAB-01 · **Symbios Tensor** | LAB-07 · **motor do Testfit** |
+| | LAB-01 · **Symbios Tensor** | LAB-07 · **motor do Laboratório de Parcelamento** |
 |---|---|---|
 | entra por | contrato `archilly-terreno` | contrato de motor v1 (`archilly-motor-entrada`) |
 | devolve | eixos com hierarquia e rampa, e quadras | parcelamento completo: vias, quadras, lotes, áreas |
@@ -67,7 +67,7 @@ inteiramente dentro da gleba e fora das APP — 0 %, contra os 38 % de antes —
 contrato de motor a aceita com zero violações. Ficam a rampa nos cruzamentos
 (que ninguém confere — ver abaixo) e o traçado urbanisticamente cru.
 
-### LAB-07 — o motor do Testfit, na esteira inteira
+### LAB-07 — o motor do Laboratório de Parcelamento, na esteira inteira
 
 Contrato v1 → motor → contrato v1 → **o Validator (nove tipos de violação) e o
 Judge do próprio Generate**, importados, nunca reimplementados. Três glebas, os
@@ -84,7 +84,7 @@ seguinte, no T03 dele (D98).
 
 Dois achados atravessam repositórios: o defeito de interpolação de relevo que o
 LAB-01 achou **atinge o Generate** (49,8 % das amostras sobre um valor de curva)
-e **não atinge o Testfit**; e as duas glebas-padrão do Generate **não têm relevo
+e **não atinge o Laboratório de Parcelamento**; e as duas glebas-padrão do Generate **não têm relevo
 nenhum**, o que é a razão da terceira gleba.
 
 Decisões e o porquê de cada uma: [`docs/DECISOES.md`](docs/DECISOES.md).
@@ -150,7 +150,7 @@ archilly-lab/
 │   ├── prompts/FILA.md               ← a fila oficial (autônoma), com o histórico
 │   ├── relatorios/
 │   │   ├── LAB01_ADAPTADOR.md        ← as medições do adaptador do Symbios
-│   │   ├── LAB-07.md                 ← as medições do motor do Testfit na esteira
+│   │   ├── LAB-07.md                 ← as medições do motor do Laboratório de Parcelamento na esteira
 │   │   ├── LF-01.md                  ← a casa em ordem, e a fila autônoma
 │   │   └── RECADOS.md                ← todos os recados para o chat, em ordem
 │   ├── provas/                       ← os números crus, em JSON, por prompt
@@ -221,14 +221,14 @@ O caminho dos repositórios irmãos está num lugar só: os `paths` do
 
 ## O que este laboratório não faz
 
-Não toca no repositório do Generate, no do Geo nem no do motor do Testfit (os
+Não toca no repositório do Generate, no do Geo nem no do motor do Laboratório de Parcelamento (os
 três foram clonados **somente para leitura**, e terminaram as rodadas sem uma
 alteração sequer), não copia código de motor para fora de `upstream/`, não
 modifica `upstream/`, e não otimiza nada. Também não tem interface: prova aqui é
 teste, JSON e medição.
 
 O que precisa mudar nos vizinhos vira **lista numerada em relatório** — as oito
-correções do motor do Testfit estão no §9 do `LAB-07.md`, e o diagnóstico do
+correções do motor do Laboratório de Parcelamento estão no §9 do `LAB-07.md`, e o diagnóstico do
 relevo para o Generate, no §8.
 
 O Adapter **do Symbios** existe desde o LAB-01, mas não recorta pela gleba, não

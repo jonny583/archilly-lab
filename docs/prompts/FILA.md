@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-155 · item 900 — a dívida própria: "Testfit" é nome interno, e o primeiro endereço da página do Jonny dizia "motor do Testfit" seis vezes — ✅ **feito em 17/10/2026** (D383)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda** (guarda estreita), no `CLAUDE.md` §5: *"**"Testfit" é nome interno**; para o usuário é **Laboratório de Parcelamento**"*. A guarda do LAB-36 lia dois arquivos escritos numa lista — a página do Jonny e a comparação dos motores — e a grafia `testfit`: `Testfit` no título da bancada do navegador e `Test Fit` na página do Jonny passaram 25 de 25. Medido por LUGAR, *"voltado ao usuário"* é onde a página dele o manda: onze endereços, dois de fora da casa, nove desta casa em oito arquivos mais o repositório sem caminho, que o GitHub abre no `README.md`. O README dizia *"motor do Testfit"* seis vezes, em texto corrido. **Regra descumprida**, consertadas as seis linhas (texto, nenhum comportamento). Trava: `external-engines/esteira/src/nome-interno.ts` e `tests/nome-interno.test.ts` (sem clones), cada endereço `pagina` (cobrada) ou `registro` (declarado com motivo) em lista fechada, mais a bancada e o script que ela carrega, nos dois sentidos; seis mutações na árvore de verdade, seis acusadas; 1 486 → 1 507 travas. Detalhe em [`../relatorios/LAB-155.md`](../relatorios/LAB-155.md).
+
 ### LAB-154 · item 900 — a dívida própria: não reimplementa o Validator nem o Judge, e um Validator falso no `comum.ts` passava a suíte inteira — ✅ **feito em 17/10/2026** (D382)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda** (guarda estreita), no `CLAUDE.md` §4: *"Não reimplementa o Validator nem o Judge (D20)"*. A guarda do LAB-36 lia só `esteira/src/`, cinco nomes na forma `function`/`class`, e a MENÇÃO de `@generate/` no `comum.ts`. Medido por mutação: uma função de julgamento no adaptador do Symbios e uma seta em `esteira/src/` passaram 25 de 25; um Validator e um Judge falsos no `comum.ts`, tipados e sem gravar `limpo`, passaram a suíte inteira com os clones (só caíram as provas de contagem do LAB-52 e do LAB-57). Medido por LUGAR, pela árvore sintática, 335 arquivos TypeScript/JavaScript e 5 Rust: 18 importam o julgamento; 8 funções com nome de julgamento, 7 chegam ao Generate pela cadeia de chamadas, a oitava é o dublê do LAB-06 (`julgarPorLotes`). Regra verdadeira, guarda estreita. Trava: `external-engines/esteira/src/o-julgamento-vem-do-generate.ts` e `tests/o-julgamento-vem-do-generate.test.ts` (sem clones), nos dois sentidos; vinte mutações acusadas, uma equivalente declarada; 1 464 → 1 486 travas. Detalhe em [`../relatorios/LAB-154.md`](../relatorios/LAB-154.md).
@@ -2003,7 +2007,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1486 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1507 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

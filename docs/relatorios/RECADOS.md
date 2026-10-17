@@ -3579,3 +3579,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-155 — item 900 (a dívida própria): "Testfit" é nome interno
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-155 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda — aqui, guarda estreita), no CLAUDE.md §5. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1507 de 1507 (88 de 88 arquivos); esteira 1840 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "Testfit é nome interno; para o usuário é Laboratório de Parcelamento" tinha a guarda do LAB-36, que lia dois arquivos de uma lista escrita à mão e a grafia testfit. Medido por mutação: Testfit no título da bancada e Test Fit na página do Jonny passaram 25 de 25. Por LUGAR, onde a página do Jonny o manda: onze endereços, nove desta casa e o repositório, que o GitHub abre no README.md — e o README, o primeiro endereço da página dele, dizia "motor do Testfit" seis vezes, com a guarda verde. Regra descumprida, seis linhas consertadas (texto, nenhum comportamento). Trava: src/nome-interno.ts + tests (sem clones), cada endereço pagina ou registro em lista fechada, mais a bancada; seis mutações na árvore, seis acusadas; 1486 → 1507; D383; detalhe em docs/relatorios/LAB-155.md.
+Achados para outros apps ou Central: (0) "Voltado ao usuário" não é uma lista que se lembra: é onde a casa manda o usuário — leia os links da página do Jonny, e lembre que o endereço do repositório abre o README da raiz. Toda casa tem esse primeiro link. (1) Nada novo proposto ao chat; as propostas do LAB-123, 129, 135, 137, 140, 141, 147 e 152 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
