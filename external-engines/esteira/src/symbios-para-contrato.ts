@@ -17,8 +17,12 @@
  * # O que NÃO é inventado
  *
  * - **`rampaMedia_pct`** e **`rampaMaxima_pct`**: o Symbios mede as duas, então
- *   as duas vão preenchidas. É o contrário do outro motor, que não calcula
- *   greide e sai `null` (LAB-07, §7).
+ *   as duas vão preenchidas. O motor do Laboratório de Parcelamento também mede
+ *   as duas, desde o T03 dele (14/09), e a ponte dele as lê desde o LAB-22.
+ *   Até o LAB-151 esta linha dizia o contrário — escrita em 02/10, já falsa
+ *   desde 14/09, na véspera de o D98 achar a mesma frase no `volta.ts`. O
+ *   conserto de lá não chegou aqui: num comentário, nada a revalidava
+ *   (`src/frase-vencida.ts`).
  *
  *   A **máxima** só passou a sair no LAB-18, e não porque faltasse medir: o
  *   adaptador do Symbios a calcula desde o LAB-02, em `recorte.ts`. **Faltava

@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-151 · item 900 — a dívida própria: o motivo de uma perda não mora em comentário, e a frase que o D98 matou seguia viva em cinco arquivos — ✅ **feito em 17/10/2026** (D379)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §4: *"O motivo de uma perda não mora em comentário (D98, D104)."* — a primeira metade da linha tem trava desde o LAB-25 (contra o motor rodando), esta só se conferia escrita. Medido por LUGAR: quatro frases que a casa registrou como falsas, parágrafo a parágrafo, em 346 arquivos fora de `docs/` e `upstream/` — 26 ocorrências, 13 citadas, uma na história, três genéricas e **nove vivas em cinco arquivos**: a ponte do Symbios (*"o outro motor, que não calcula greide"*, escrita na véspera do D98), a ferramenta do LAB-07, os dois README e a ferramenta do LAB-08. Seis consertadas (texto, nenhum comportamento), as três do `lab08.ts` declaradas com motivo (D118). Trava: `external-engines/esteira/src/frase-vencida.ts` e `tests/frase-vencida.test.ts` (sem clones), cada frase com a fonte da medição conferida; treze mutações, treze acusadas; 1 402 → 1 427 travas. Detalhe em [`../relatorios/LAB-151.md`](../relatorios/LAB-151.md).
+
 ### LAB-150 · item 900 — a dívida própria: o balanço vai ao arquivo com data, origem, conteúdo e prova, e só três de onze entradas eram perguntadas — ✅ **feito em 17/10/2026** (D378)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda** (aqui, guarda estreita), no `CLAUDE.md` §1-B: *"Vai a `BALANCOS.md` com data, origem, conteúdo e prova."* A guarda do LAB-42 (`tests/balancos.test.ts`) lia só as entradas do §1 e só `origem` e `o que produziu`. Medido por LUGAR, o `BALANCOS.md`: onze entradas com data no título, duas completas (§7 e §8), nove com campo faltando — §1.1 a §1.3 sem conteúdo e prova, §3 a §5 sem tabela de campos, §6 sem prova, §9 e §10 sem *o que produziu* —, todas de antes de 08/10. Trava: `external-engines/esteira/src/balanco-com-os-campos.ts` e `tests/balanco-com-os-campos.test.ts` (sem clones), as nove congeladas com o que falta e o motivo (D118) e nenhuma exceção datada depois de 17/10; doze mutações, doze acusadas; 1 378 → 1 402 travas. Detalhe em [`../relatorios/LAB-150.md`](../relatorios/LAB-150.md).
@@ -1985,7 +1989,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1402 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1427 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

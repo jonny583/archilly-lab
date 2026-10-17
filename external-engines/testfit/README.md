@@ -109,5 +109,6 @@ passagens — fiel e aparada. Não tem tela: prova aqui é teste, JSON e mediç�
 3. Dois partidos quebrados: `cluster` (78 % de violação de testada) e `organico`
    (165 sobreposições).
 4. `superquadra` nasce vazia em **20 de 20**, e o plano vazio lidera o ranking.
-5. O motor não calcula greide: `rampaMedia_pct` sai `null`, e a rampa fica com o
-   Validator.
+5. ~~O motor não calcula greide~~ — era verdade no LAB-07 e deixou de ser no dia
+   seguinte, no T03 dele: a ponte lê `rampaMedia_pct` e `rampaMaxima_pct` desde o
+   LAB-22 (D98).

@@ -3527,3 +3527,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 17/10/2026 · LAB-151 — item 900 (a dívida própria): o motivo de uma perda não mora em comentário
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-151 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no CLAUDE.md §4. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1427 de 1427 (84 de 84 arquivos); esteira 1760 aprovadas e só as 9 falhas do .wasm (as mesmas da linha de base), testfit 17 de 17, typecheck e lint limpos. O envio passa pelo gancho do LAB-106.
+Feito: "o motivo de uma perda não mora em comentário (D98, D104)" só se conferia escrito; o inventário do LAB-25 tirou o motivo do comentário só na ponte. Medido por LUGAR: quatro frases que a casa registrou como falsas, parágrafo a parágrafo, em 346 arquivos fora de docs/ e upstream/ — 26 ocorrências, NOVE VIVAS em cinco arquivos: a ponte do Symbios ("o outro motor, que não calcula greide", escrita na véspera do D98), a ferramenta do LAB-07 (uma no console), os dois README e a do LAB-08. Seis consertadas (só texto), três declaradas (prova congelada do LAB-08, D118). Trava: src/frase-vencida.ts + tests (sem clones), cada frase com a fonte conferida; 13 mutações, 13 acusadas; 1402 → 1427; D379; detalhe em docs/relatorios/LAB-151.md.
+Achados para outros apps ou Central: (0) O conserto de uma frase falsa num lugar não a mata nos outros: o D98 consertou a ponte e escreveu a regra, e a mesma frase seguiu viva noutra ponte por quinze dias e em README por um mês. Quem já registrou afirmações como falsas pode guardar a lista e perguntar à árvore inteira, fora do registro do dia. (1) As propostas do LAB-123, 129, 135, 137, 140, 141 e 147 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
