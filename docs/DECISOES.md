@@ -12170,3 +12170,38 @@ saída).
 
 > **"NÃO SE MEDE" PODE SER "NÃO SE MEDE AQUI".** A regra que seis rodadas declararam imensurável deixava marca o tempo
 > todo — no item, não no disparo.
+
+---
+
+## D373 · UM DESPERTADOR POR APLICATIVO SE LÊ PELOS IDS ESCRITOS NA ÁRVORE — e o registro dos despertadores da casa vira lista fechada · 17/10/2026
+
+**Contexto:** item 900 (LAB-145). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-A: *"Regra de família: um despertador por aplicativo;
+nunca se toca no de outro repositório."* A única guarda vizinha era a do item 004 (um id só na seção do
+`ONDE_PARAMOS.md`). O toque é ato na conta, fora da árvore; **o id que ele deixa escrito**, não.
+
+**Medido (LAB-145):** `git grep` nos versionados, 5 ids distintos em 10 arquivos — quatro desta casa e um fictício
+declarado do item 004. Na história, **cinco** despertadores, um por vez: os quatro com id e um quinto, o que o LAB-20
+criou para o LAB-18 em 02/10, **sem id escrito em arquivo nenhum**. Nos três vizinhos clonados (Generate 2 ids,
+Laboratório de Parcelamento 9, Geo 1), nenhum desta casa. Cumprida por disciplina, sem guarda.
+
+**Decidido:**
+
+1. `src/um-despertador-por-aplicativo.ts`: o registro fechado `OS_DESPERTADORES_DA_CASA`, com o trecho de nascimento e
+   de fim de cada um; o sem id entra com `id: null` (D23 — nunca um id suposto). `conferirOsDespertadores` acusa sete
+   tipos e publica universo e o que não alcança. Exceção única e nomeada: o próprio módulo escreve os fictícios da
+   lista, uma vez, na declaração.
+2. **Despertador novo entra no registro no mesmo commit em que o id aparece na árvore**, e o vivo de antes ganha o fim
+   — senão a trava acusa `id-estranho`.
+3. `tests/um-despertador-por-aplicativo.test.ts`, 15 testes, sem clones: no trabalho sem clones, 1 283 → 1 298.
+   `tests/um-despertador-por-aplicativo-com-clone.test.ts`, 4 testes, no verde completo.
+
+**Os dois lados:** nove mutações, nove acusadas; a casa de hoje passa. A primeira rodada acusou dez problemas meus —
+quatro abreviações de id com o prefixo no cabeçalho do módulo e seis ids de brinquedo —, e saíram.
+
+**Descartado:** listar as tarefas da conta para conferir o id vivo (é tocar na conta, e o item 004 já guardou a
+resposta dela); perdoar ids por prefixo de arquivo (`tests/` inteiro) em vez de declará-los um a um (régua de prefixo
+mede onde o arquivo mora, LAB-93); inventar um id para o despertador do LAB-18.
+
+> **ABREVIAR UM ID COM O PREFIXO É ESCREVER OUTRO ID.** Quem procura não sabe que era abreviação.
+

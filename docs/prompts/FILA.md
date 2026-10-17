@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-145 · item 900 — a dívida própria: um despertador por aplicativo, e nada perguntava de quem eram os ids escritos aqui — ✅ **feito em 17/10/2026** (D373)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-A: *"um despertador por aplicativo; nunca se toca no de outro repositório."* O toque é ato na conta; o id que ele deixa escrito é o rastro. Medido: 5 ids na árvore, quatro da casa e um fictício declarado; cinco despertadores na história, um por vez — **um deles, o do LAB-18 (02/10), sem id escrito em lugar nenhum**; nos três vizinhos clonados, nenhum id desta casa. Trava: `external-engines/esteira/src/um-despertador-por-aplicativo.ts`, `tests/um-despertador-por-aplicativo.test.ts` (sem clones) e `-com-clone.test.ts` (verde completo); nove mutações, nove acusadas; 1 283 → 1 298 travas. Detalhe em [`../relatorios/LAB-145.md`](../relatorios/LAB-145.md).
+
 ### LAB-144 · item 900 — a dívida própria: um prompt por despertador, e o anterior aberto se termina primeiro — ✅ **feito em 17/10/2026** (D372)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no `CLAUDE.md` §1-A: *"Um prompt por despertador; o anterior aberto se termina primeiro."* Descartada seis vezes (LAB-138 a LAB-143) como imensurável pelo disparo; se lê pelo item, que vira `-FEITO` num commit da primeira linha da `main`. Medido: 30 entregas fecharam `001` a `030`, uma cada, em ordem, sem buraco, e o `900` nunca; a primeira leitura acusou o LAB-82, e era a colisão que ele renumerou (D273). Trava: `external-engines/esteira/src/um-item-por-entrega.ts` e `tests/um-item-por-entrega.test.ts`; oito mutações, oito acusadas; 1 270 → 1 283 travas. Detalhe em [`../relatorios/LAB-144.md`](../relatorios/LAB-144.md).
@@ -1959,7 +1963,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1283 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1298 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
