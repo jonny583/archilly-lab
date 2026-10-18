@@ -3855,3 +3855,16 @@ Próximo na fila: a caixa só tem o 900; a proposta acima e as antigas esperam o
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-176 — item 900 (a dívida própria): o `.wasm` não pede nada do ambiente — perguntado ao que o produz e ao que o carrega, e o binário só quando existe
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-176 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): a linha do .wasm na tabela Execução do docs/SEGURANCA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1851 de 1851 (107 de 107 arquivos); esteira com só as falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: a linha ("carregado com instantiate(bytes, {}); medido no LAB-01: 189 KB, zero imports") era medição de 10/09 sobre um binário que nenhuma sessão compila, e o LAB-174/175 a deixaram de lado por isso. Metade está no código: por LUGAR, dois instanciadores, os dois com {}; a ponte symbios/archilly/wasm/ sem cola (wasm-bindgen, js-sys, getrandom com wasm_js) no Cargo.toml nem no Cargo.lock, com o backend custom; e a sonda do LAB-00, que TEM a cola e ninguém carrega. A régua nova acusou quatro nomes calados na linha de antes; linha corrigida; trava o-wasm-nao-pede-nada (19 testes, sem clones), o binário perguntado só quando existe (ausente = não medido); 1832 → 1851; D404; detalhe em docs/relatorios/LAB-176.md.
+Achados para outros apps ou Central: a todas — "espera o binário" não é "espera tudo": uma linha que mede um artefato que a sessão não produz ainda tem metade no código que o produz; e quem carrega .wasm com {}, confira se alguma régua lê esse {} (aqui nenhuma lia). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup (o proxy recusa static.rust-lang.org).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
