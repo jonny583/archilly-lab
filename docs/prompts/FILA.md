@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-180 · item 900 — a dívida própria: nenhuma chave em `VITE_` — "não há build de navegador", e há um: o `.wasm`, que embute uma variável de compilação — ✅ **feito em 18/10/2026** (D408)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a segunda linha da tabela *Chaves e segredos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09) — a última dela sem trava: *"Nenhuma chave em `VITE_` · não se aplica, e está limpo · não há build de navegador neste repositório; e a busca acima cobre `VITE_`"*. Por LUGAR, as três portas por onde uma variável de compilação chegaria ao navegador: o empacotador (394 arquivos lidos, zero), a página da bancada (os dois arquivos que o servidor dela devolve como estão, zero) e o `.wasm` da ponte — que é um build que o navegador baixa e embute **um** nome, `SYMBIOS_VERSAO`, posto pelo `build.rs` a partir do `Cargo.toml` do upstream, nada lido da máquina. A régua nova acusou oito problemas na página de antes; linha corrigida (as duas travas, o número e o nome) e tabela das três perguntas; trava `src/o-que-o-navegador-baixa.ts` (21 testes, sem clones); 1 899 → 1 920. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-180.md`](../relatorios/LAB-180.md).
+
 ### LAB-179 · item 900 — a dívida própria: chave de IA só no servidor da Central — "o Lab não chama IA", e a linha não nomeava nenhuma das quatro travas que o perguntam — ✅ **feito em 18/10/2026** (D407)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a quarta linha da tabela *Chaves e segredos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"Chave de IA só no servidor da Central · não se aplica · o Lab não chama IA. Ver `ADOCAO_CENTRAL.md`"*. Por LUGAR, quatro jeitos de o Lab ter IA, cada um perguntado por régua própria, nascida depois da linha: a chave (`varredura-de-segredos.ts`, LAB-47), a chamada — inclusive pela porta de IA da Central — (`destino-do-que-sai.ts`, LAB-80), a porta paga (`nada-pago.ts`, LAB-148) e a rede no motor (`rede-em-execucao.ts`, LAB-158); zero achados nas quatro, e a linha não nomeava nenhuma (o LAB-178 contava duas). A régua nova acusou catorze problemas na página de antes; linha corrigida (as quatro travas, os dois números das listas de formas) e tabela das quatro; trava `src/a-ia-na-pagina.ts` (19 testes, sem clones); 1 880 → 1 899. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-179.md`](../relatorios/LAB-179.md).
@@ -2133,7 +2137,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1899 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1920 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
