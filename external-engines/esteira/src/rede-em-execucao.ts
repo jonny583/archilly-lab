@@ -206,6 +206,14 @@ export const DECLARADAS: readonly Declarada[] = [
     classe: "origem-de-teste",
     motivo: "o `fetch` do clone raso montado a partir de uma origem `file://` que o teste cria numa pasta (LAB-116)",
   },
+  {
+    caminho: "external-engines/esteira/ferramentas/lab171.ts",
+    forma: "processo",
+    quantas: 3,
+    classe: "origem-publica",
+    motivo:
+      "os dois `git fetch --depth 1` (o commit que a triagem fixa e o HEAD de hoje) e o `git ls-remote` do PackingSolver, numa pasta temporária, lidos e nunca executados; ferramenta à mão, fora do verde (LAB-171)",
+  },
 ];
 
 export type TipoDeProblema = "rede-no-caminho-do-motor" | "rede-nao-declarada" | "declarada-que-sumiu" | "universo-vazio";

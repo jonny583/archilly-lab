@@ -183,6 +183,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "mede PROVAS e REGRAS: as duas varreduras desta casa reexecutadas e comparadas com a prova commitada regra por regra e achado por achado, as duas espécies de prova (fotografia nunca se regera, função-da-árvore sempre bate) e o conjunto fechado do `interpolador` com o motivo de cada recusado; não terreno: não há gleba, motor nem semente no que ela mede",
     "LAB-90/caixa-vazia-era-verdade.json":
       "mede DECLARAÇÕES de caixa vazia contra a árvore do commit que as declarou — nove declarações em quatro casas, com o veredicto, os itens abertos, o maior já feito e o limite do que a régua NÃO alcança; não terreno: não há gleba, motor nem semente no que ela mede, e ela não roda motor nenhum",
+    "LAB-171/packingsolver-na-origem.json":
+      "mede um REPOSITÓRIO DE FORA no commit que a triagem do LAB-00 fixa — o commit, a data, a licença, as opções do `CMakeLists.txt`, as pastas de problema, as opções da linha de comando e o `HEAD` de hoje, lidos com `git show` e nada executado —, não terreno: o motor foi recusado e nunca rodou aqui, e não há gleba nem semente no que ela mede",
     "LAB-89/a-pergunta-virou-guarda.json":
       "mede um INSTRUMENTO de leitura: a pergunta `git rev-parse --is-shallow-repository` virada guarda, provada nos dois sentidos com clones de verdade — num clone raso montado por `file://` a régua RECUSA e devolve `null`, no repositório completo ela MEDE, e a prova traz o que o CORTE teria respondido se ninguém perguntasse; não terreno: não há gleba, motor nem semente no que ela mede",
     "LAB-88/onde-esta-o-padrao.json":

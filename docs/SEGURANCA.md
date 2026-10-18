@@ -36,7 +36,7 @@ conferência possa ser refeita por quem quiser.
 
 | item | estado | como foi conferido |
 |---|---|---|
-| Nada de rede em execução | ✅ | o adaptador do Symbios roda com **zero dependência npm**; os outros dois leem arquivo local e código dos clones irmãos. **No caminho do motor**, nenhum `fetch`, nenhum `http` — e, fora dele, sete redes declaradas uma a uma (ver *Reconferido no LAB-158*, abaixo) |
+| Nada de rede em execução | ✅ | o adaptador do Symbios roda com **zero dependência npm**; os outros dois leem arquivo local e código dos clones irmãos. **No caminho do motor**, nenhum `fetch`, nenhum `http` — e, fora dele, as redes de ferramenta e de teste declaradas uma a uma, na tabela (ver *Reconferido no LAB-158*, abaixo) |
 | O `.wasm` não pede nada do ambiente | ✅ | carregado com `WebAssembly.instantiate(bytes, {})` — **objeto de imports vazio**. Medido no LAB-01: 189 KB, zero imports |
 | Nada de exportar motor ou código ao usuário | ✅ **não se aplica** | o Lab não tem usuário nem exportação. O que ele publica são relatórios e JSON de medição |
 | Entrada validada antes de entrar no núcleo | ✅ | versão do contrato, unidade (metro) e anel com ao menos 3 pontos são recusados com mensagem legível — `ida.ts` e `gleba-v1.ts`, com teste; **e, desde o LAB-159, também na terceira porta, a do motor interno do Generate (`motores/generate.ts`), que não recusava nada** (ver *Reconferido no LAB-159*, abaixo) |
@@ -105,6 +105,7 @@ quando a linha foi escrita (LAB-01, 10/09) — e a linha era a única da tabela 
 | `esteira/tests/ramos-abertos-na-origem.test.ts` | o `git ls-remote` dos ramos abertos (LAB-121) | origem pública |
 | `esteira/tests/a-rotina-no-github-na-origem.test.ts` | o `curl` à API pública do GitHub (LAB-122) | origem pública |
 | `esteira/tests/clone-da-maquina.test.ts` | o `fetch` de um clone de teste, de origem `file://` | origem de teste |
+| `esteira/ferramentas/lab171.ts` | os dois `git fetch --depth 1` e o `git ls-remote` do PackingSolver, numa pasta temporária, lidos e nunca executados — acrescentada no LAB-171, 18/10 (3) | origem pública |
 
 A trava reprova rede no caminho do motor **mesmo declarada**, rede nova fora dele sem declaração (ou uma a mais num
 arquivo declarado) e declaração cuja rede sumiu. O que ela não alcança está dito no fim do módulo — entre outros, o

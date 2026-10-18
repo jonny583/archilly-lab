@@ -3790,3 +3790,16 @@ Próximo na fila: a caixa só tem o 900; das páginas de docs/ sem leitor sobram
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-171 — item 900 (a dívida própria): a triagem do PackingSolver, perguntada à origem — tudo confere, e o `nao-copiado` do registro passa a ser perguntado à árvore
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-171 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar), por LUGAR: a docs/PACKINGSOLVER_TRIAGEM.md, das duas páginas de docs/ sem leitor a que afirma estado. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1774 de 1774 (103 de 103 arquivos); esteira com só as falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: a página fixa a ficha de um repositório de fora (commit, data, licença, opções do CMakeLists, seis tipos, opções da CLI, certificate.csv), repetida em cinco lugares, e diz que nada foi copiado. Medida na origem (bun run lab171: só o commit fixado, lido com git show, nada executado): tudo confere; o HEAD de hoje mora na prova, ao lado da §6. Trava src/a-triagem-do-packingsolver.ts (12 testes, sem clones e sem rede): a ficha contra a prova, os cinco lugares (frase derivada da ficha; o registro lido pelo motor) e nenhum upstream/ versionado de motor nao-copiado; trinta e duas mutações acusadas; a rede declarada (rede-em-execucao, SEGURANCA.md); 1762 → 1774; D399; detalhe em docs/relatorios/LAB-171.md.
+Achados para outros apps ou Central: a todas — "não copiado", "nada clonado", "vazio de propósito" são afirmações sobre a árvore de hoje, e a resposta mora no git ls-files, não no registro que as repete; ficha de repositório de fora copiada em vários lugares se confere contra a origem, não entre as cópias. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; das páginas de docs/ sem leitor sobra a SYMBIOS_ANALYSIS.md, cujo estado espera o chat (LAB-152); as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup (túnel recusado).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

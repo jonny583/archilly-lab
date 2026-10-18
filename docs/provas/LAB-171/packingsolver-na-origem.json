@@ -1,0 +1,52 @@
+{
+  "prompt": "LAB-171",
+  "oQueIstoMede": "o repositório de fora que a docs/PACKINGSOLVER_TRIAGEM.md descreve, no commit que ela fixa — lido com git show/ls-tree, nada compilado nem executado; não mede gleba",
+  "quando": "2026-10-18T08:18:34.684Z",
+  "origem": "https://github.com/fontanf/packingsolver",
+  "commit": {
+    "pedido": "a7e533033d9c6ee3ff286513720afe6660b5989f",
+    "existe": true,
+    "data": "2026-09-08 02:45:18 +0200",
+    "autor": "Florian Fontan"
+  },
+  "licenca": {
+    "primeiraLinha": "MIT License",
+    "direitos": "Copyright (c) 2020 Florian Fontan"
+  },
+  "cmake": {
+    "PACKINGSOLVER_USE_CLP": "ON",
+    "PACKINGSOLVER_USE_HIGHS": "ON",
+    "PACKINGSOLVER_USE_KNITRO": "OFF"
+  },
+  "tiposDeProblema": {
+    "rectangleguillotine": true,
+    "rectangle": true,
+    "box": true,
+    "boxstacks": true,
+    "onedimensional": true,
+    "irregular": true
+  },
+  "pastasDoSrc": [
+    "CMakeLists.txt",
+    "algorithms",
+    "box",
+    "boxstacks",
+    "irregular",
+    "onedimensional",
+    "rectangle",
+    "rectangleguillotine"
+  ],
+  "opcoesDaCli": {
+    "number-of-stages": true,
+    "min1cut": true,
+    "max1cut": true,
+    "min2cut": true,
+    "max2cut": true,
+    "time-limit": true
+  },
+  "certificadoNaCli": true,
+  "headDeHoje": {
+    "sha": "2e2448f8d83767c288ab281e6af1ec8413940169",
+    "data": "2026-10-18 02:06:30 +0200"
+  }
+}
