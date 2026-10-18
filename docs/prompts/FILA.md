@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-177 · item 900 — a dívida própria: os vizinhos são só leitura — o clone tinha trava e a linha não a nomeava; "o número sai no relatório" de toda rodada, 38 relatórios não dizem — ✅ **feito em 18/10/2026** (D405)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a primeira linha da tabela *Os repositórios vizinhos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"`git status` nos três ao fim de **toda** rodada, e o número sai no relatório"*. A primeira metade tem trava desde o LAB-38 (`regras.test.ts` §4), e a linha não a nomeava; a segunda, nenhuma. Por LUGAR, todo `docs/relatorios/LAB-<n>.md`: 168 lidos, **130** dizem o `git status` dos vizinhos e o resultado, **38** não. Linha corrigida, com as duas travas nomeadas e o recorte dito; trava `src/os-vizinhos-no-relatorio.ts` (16 testes, sem clones): de LAB-177 em diante todo relatório diz, os 38 congelados nos dois sentidos, os dois números da linha perguntados; a régua acusou cinco problemas na linha de antes; 1 851 → 1 867. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-177.md`](../relatorios/LAB-177.md).
+
 ### LAB-176 · item 900 — a dívida própria: o `.wasm` não pede nada do ambiente — perguntado ao que o produz e ao que o carrega, e o binário só quando existe — ✅ **feito em 18/10/2026** (D404)
 
 A FILA continuava sem proposta que não esperasse ninguém. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a linha da tabela *Execução* do `docs/SEGURANCA.md` que o LAB-174 e o LAB-175 deixaram de lado por esperar o `rustup`: *"O `.wasm` não pede nada do ambiente … Medido no LAB-01: 189 KB, zero imports"*. Metade dela está no código: por LUGAR, dois instanciadores, os dois com `{}`; duas crates `cdylib` — a ponte `symbios/archilly/wasm/`, sem cola e com o backend `custom` do `getrandom`, e a sonda do LAB-00, que tem a cola e ninguém carrega. A régua nova acusou quatro nomes calados na linha de antes; linha corrigida; trava `src/o-wasm-nao-pede-nada.ts` (19 testes, sem clones), o binário perguntado só quando existe (ausente = *não medido*); 1 832 → 1 851. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-176.md`](../relatorios/LAB-176.md).
@@ -2121,7 +2125,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1851 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1867 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

@@ -13579,3 +13579,42 @@ do `upstream/` (é intocável e cobrado pela árvore desde o LAB-132).
 
 > **"ESPERA O BINÁRIO" NÃO É O MESMO QUE "ESPERA TUDO".** Uma linha que mede um artefato que não se produz aqui ainda tem
 > metade no código que o produz — e essa metade se pergunta hoje. O resto sai dito como *não medido*, não como verde.
+
+## D405 · OS VIZINHOS SÃO SÓ LEITURA — o clone tinha trava e a linha não a nomeava; "o número sai no relatório" de toda rodada, e 38 relatórios não dizem · 18/10/2026
+
+**Contexto:** item 900 (LAB-177). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup`. Na dívida própria, a espécie **mensagem fixa que afirma estado sem perguntar**, a
+primeira linha da tabela *Os repositórios vizinhos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"Geo, Generate e o
+motor de parcelamento são só leitura · ✅ · `git status` nos três ao fim de **toda** rodada, e o número sai no
+relatório. Em 14/09, ao fim do LAB-08: 0 alterações em cada"*.
+
+**Medido:** a primeira metade tem trava desde o LAB-38 — a `regras.test.ts` §4 roda `git status --porcelain` nos três
+clones a cada verde com clones (D136, D143) —, e a linha não a nomeava. A segunda não tinha nenhuma. Por LUGAR, todo
+`docs/relatorios/LAB-<n>.md` que o `git` carrega: **168**; **130** dizem o `git status` dos vizinhos e o resultado,
+**38** não (LAB-02, 03, 07, 48 a 52, 57 a 61, 69, 75, 77 a 79, 85, 88 a 95, 116 a 125, 153). A régua nova, contra a linha
+de antes: cinco problemas (as duas travas e o LAB-177 não nomeados, o número ausente, a promessa sem recorte).
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/os-vizinhos-no-relatorio.ts` e `tests/os-vizinhos-no-relatorio.test.ts` (16
+   testes, sem clones, no portão): *dizer* é ter `git status` e, a até 220 caracteres, os vizinhos e o resultado — as
+   formas tiradas dos 130 que dizem; de **LAB-177 em diante** todo relatório diz (`relatorio-calado`); os 38 de antes
+   congelados em `CALADOS`, nos dois sentidos (`calado-fora-da-lista`, `declaracao-que-sobra` — relatório antigo não se
+   reescreve para passar); a linha nomeia as duas travas e o LAB-177 e escreve *"**38** dos 168 relatórios"*, os dois
+   números perguntados à árvore; a promessa antiga sem recorte reprova. Universo publicado.
+2. A linha corrigida: o clone pela `regras.test.ts`, o recorte dito, a seção *Reconferido no LAB-177* com a medição.
+
+**Os dois lados:** as seis formas que os relatórios usam contam; `git status` sobre outra coisa, os vizinhos sem
+`git status` e a palavra longe demais não contam. Acusados, cada um pelo nome: relatório novo calado, relatório antigo
+calado fora da lista, declarado que passou a dizer ou que sumiu, a página sem a linha, a linha que cala uma trava, os
+dois números errados (e um relatório antigo a mais, que muda o número perguntado), a promessa de volta, o universo
+vazio. 1 851 → 1 867 travas no portão sem clones.
+
+**Descartado:** reescrever os 38 relatórios antigos (o relatório é o registro da rodada; a lista é a medição);
+apagar a metade do relatório da linha em vez de guardá-la (as rodadas a cumprem desde o LAB-126, com uma só exceção — o
+LAB-153 —, e o relatório é onde o chat lê); exigir na régua os três nomes dos vizinhos (três relatórios antigos dizem *"o clone"*, do Generate, com
+os três por perto — dito no que a trava não alcança); ler o clone nesta régua (é a `regras.test.ts` que o lê, e esta
+roda sem clones).
+
+> **UMA LINHA COM DUAS METADES PODE TER UMA TRAVA SÓ.** A metade guardada faz a linha inteira parecer conferida; a outra
+> envelhece calada — aqui, 38 vezes em 168.

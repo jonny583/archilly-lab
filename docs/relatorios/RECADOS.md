@@ -3868,3 +3868,16 @@ Próximo na fila: a caixa só tem o 900; as propostas antigas esperam o chat; o 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-177 — item 900 (a dívida própria): os vizinhos são só leitura — o clone tinha trava e a linha não a nomeava; "o número sai no relatório" de toda rodada, e 38 relatórios não dizem
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-177 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): a linha dos vizinhos só leitura no docs/SEGURANCA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1867 de 1867 (108 de 108 arquivos); esteira com só as falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: a linha dizia "git status nos três ao fim de toda rodada, e o número sai no relatório". A primeira metade tem trava desde o LAB-38 (regras.test.ts §4), e a linha não a nomeava; a segunda, nenhuma — por LUGAR, 38 dos 168 relatórios LAB-<n> não dizem o git status dos vizinhos. A régua nova acusou cinco problemas na linha de antes; linha corrigida (as duas travas nomeadas, o recorte dito); trava os-vizinhos-no-relatorio (16 testes, sem clones): de LAB-177 em diante todo relatório diz, os 38 congelados nos dois sentidos, os dois números da linha perguntados; 1851 → 1867; D405; detalhe em docs/relatorios/LAB-177.md.
+Achados para outros apps ou Central: a todas — uma linha com duas metades pode ter uma trava só: a guardada faz a linha inteira parecer conferida e a outra envelhece calada; quem tem "conferido em toda rodada" na tabela de segurança, pergunte quem confere cada metade. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

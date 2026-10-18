@@ -45,7 +45,7 @@ conferência possa ser refeita por quem quiser.
 
 | item | estado | como foi conferido |
 |---|---|---|
-| Geo, Generate e o motor de parcelamento são **só leitura** | ✅ | `git status` nos três ao fim de **toda** rodada, e o número sai no relatório. Em 14/09, ao fim do LAB-08: **0 alterações** em cada |
+| Geo, Generate e o motor de parcelamento são **só leitura** | ✅ | o clone é perguntado a cada verde com clones: `git status --porcelain` vazio nos três (`external-engines/esteira/tests/regras.test.ts`, §4, desde o LAB-38 — D136, D143). Em 14/09, ao fim do LAB-08: **0 alterações** em cada. O relatório dizer o número **não** foi de toda rodada, como esta linha afirmava desde o LF-FINAL: **38** dos 168 relatórios `LAB-<n>` de antes do LAB-177 não dizem o `git status` dos vizinhos (medido em 18/10); de LAB-177 em diante todo relatório diz, perguntado a cada verde (`external-engines/esteira/src/os-vizinhos-no-relatorio.ts`; ver *Reconferido no LAB-177*, abaixo) |
 | Nenhum commit, nenhum push nos vizinhos | ✅ | o histórico deles não tem commit desta sessão. O único toque foi `git merge --ff-only origin/main` no clone local do motor, para medir o T02 (D40); **desde o LAB-162, perguntado a cada verde pela SESSÃO** — o autor é o mesmo em toda a família —: nenhuma sessão que trabalhou nesta casa no rodapé de um commit da origem dos três vizinhos, e nenhum assunto `LAB-<n>` lá (`external-engines/esteira/src/nenhum-commit-nos-vizinhos.ts`; ver *Reconferido no LAB-162*, abaixo) |
 | O que precisa mudar neles vira **lista em relatório** | ✅ | LAB-07 §9 (8 correções), LAB-02 §5, LAB-03 e LAB-08 — todos com o número e sem commit lá |
 
@@ -374,3 +374,21 @@ onde o binário existe (nenhuma máquina, hoje), e os outros dois só na compila
 cada instanciação; a ponte sem cola e com o backend `custom`; a sonda sem quem a carregue; o binário, quando existe; e a
 linha nomeando a trava, os instanciadores e a ponte. O que ela não alcança está dito no fim do módulo — entre outros,
 **o binário em máquina sem ele**: ali a resposta é *não medido*.
+
+---
+
+## Reconferido no LAB-177 · 18/10/2026 — os vizinhos só leitura, perguntados ao relatório
+
+A linha *"Geo, Generate e o motor de parcelamento são só leitura"*, do LF-FINAL, tinha duas metades: *"`git status` nos
+três ao fim de toda rodada"* — que a `regras.test.ts` §4 pergunta desde o LAB-38, e a linha não a nomeava — e *"o número
+sai no relatório"*, que ninguém perguntava. Medida por LUGAR, todo `docs/relatorios/LAB-<n>.md` que o `git` carrega:
+
+| universo | lido em 18/10/2026, antes do relatório desta rodada | achado |
+|---|---|---|
+| relatórios `LAB-<n>` (os `LF-*`, o `LAB01_ADAPTADOR`, o `RECADOS` e o `BALANCOS` não são rodadas `LAB-<n>`) | 168 | **130** dizem o `git status` dos vizinhos e o resultado; **38** não |
+| os 38 | LAB-02, 03, 07, 48 a 52, 57 a 61, 69, 75, 77 a 79, 85, 88 a 95, 116 a 125, 153 | congelados em `CALADOS`: relatório antigo não se reescreve para passar numa régua |
+
+*"Dizer"* é ter `git status` e, a até 220 caracteres dele, os vizinhos (*"os três"*, *"vizinho"*, *"clone"*) **e** o
+resultado (*"limpo"*, *"vazio"*, *"0 alterações"*, *"nenhuma alteração"*). Calado não é sujo: o LAB-153, por exemplo,
+diz que os clones *"não foram precisos nesta rodada"*, e o LAB-48 que *"os três clones foram conferidos"* — sem a forma.
+A régua pergunta a forma, de propósito, e o que o relatório afirma continua sendo perguntado ao clone pela `regras.test.ts`.
