@@ -70,8 +70,11 @@ conferência possa ser refeita por quem quiser.
   página não publica o resultado — com o número certo e um erro no console, ela aprova. E ela não roda nesta máquina
   desde o LAB-31: o `.wasm` não é versionado e o alvo do `rustup` não instala. Perguntado a cada verde desde o LAB-175
   (`external-engines/esteira/src/a-prova-de-navegador.ts`; ver *Reconferido no LAB-175*, abaixo).
-- **Nada repintado fora do catálogo de design.** Não há design: a única página é a bancada, que é ferramenta e não
-  tela de usuário.
+- **Nada repintado fora do catálogo de design.** Não se aplica: não há tela de usuário, só a bancada, que é ferramenta.
+  Há, porém, **9** cores escritas à mão, nenhuma do catálogo da família, em três lugares — os dois arquivos da bancada
+  (o `<style>` do `index.html` e o canvas do `prova.js`) e o `.svg` que o exemplo do upstream pintou no LAB-00. A paleta de cada
+  lugar está congelada e é perguntada a cada verde desde o LAB-181, nos dois sentidos: cor nova, lugar novo pintado ou
+  cor que sumiu reprovam (`external-engines/esteira/src/as-cores-da-bancada.ts`; ver *Reconferido no LAB-181*, abaixo).
 - **Mobile sem rolagem lateral.** Idem: a bancada não é aberta no celular.
 
 ---
@@ -468,3 +471,32 @@ embutido no `.wasm` declarado e posto pelo `build.rs`, nos dois sentidos, e o `b
 LAB-166 ainda com o prefixo; a linha com as duas travas, as duas rodadas, o número e o nome; a tabela com as três
 perguntas e os achados da árvore. O que ela não alcança — empacotador que a lista não conhece, a variável que entra por
 macro de outra crate, o binário que nenhuma máquina compila hoje — está dito no fim do módulo.
+
+---
+
+## Reconferido no LAB-181 · 18/10/2026 — as cores, perguntadas pelo lugar
+
+O item *"Nada repintado fora do catálogo de design"*, do LF-FINAL, dizia *"Não há design: a única página é a bancada"*.
+A regra do Padrão (nenhum valor visual em tela; tudo do catálogo da Central, pelas variáveis `--ar-*`) existe para que a
+cor de uma tela tenha um dono só. Por LUGAR, os dois caminhos por onde cor entra na árvore — o arquivo de página (`.html`,
+`.css`, `.svg`, componente de tela; 2 lidos em 18/10) e a string de cor no código que pinta (fora do `upstream/`; 398
+lidos) —, rodados no que o `git` carrega:
+
+| lugar | onde | cores |
+|---|---|---|
+| `bancada-html` | o `<style>` da bancada (`external-engines/symbios/adapter/ferramentas/navegador/index.html`): o fundo do `<pre>` e a borda do `<canvas>` | 2 |
+| `bancada-js` | o canvas da bancada (`prova.js`, na mesma pasta): o fundo, as curvas e as duas cores das vias | 4 |
+| `svg-do-upstream` | `outputs/symbios_full_city_lots.svg`, saída do exemplo `full_city.rs` do upstream, gravada no LAB-00 | 3 |
+
+**A frase era falsa na letra e verdadeira no que importa.** Há design — nove cores escritas à mão, nenhuma do catálogo —,
+mas todas numa página de ferramenta (a exceção declarada do `CLAUDE.md` §4) ou num artefato de medição que o upstream
+pintou; tela de usuário, nenhuma. Ninguém perguntava: uma cor nova na bancada, ou uma página nova pintada, passariam a
+esteira inteira. A régua nova acusou **cinco** problemas no item de antes: o *"não há design"*, dois nomes calados (esta
+trava e o LAB-181), o número e a falta desta tabela.
+
+**Desde o LAB-181 o item e a tabela são perguntados a cada verde**, por `external-engines/esteira/src/as-cores-da-bancada.ts`
+e `tests/as-cores-da-bancada.test.ts` (sem clones): a paleta de cada lugar congelada, nos dois sentidos — cor nova, cor que
+sumiu, lugar novo com cor e lugar declarado sem cor reprovam —; o item com a trava, a rodada e o número, e sem a frase de
+antes; a tabela com os três lugares e as cores da árvore. Mudar uma cor de propósito é mudar a lista e esta página no
+mesmo commit. O que ela não alcança — cor por nome, fonte e tamanho, cor montada em pedaços no código, o pixel da
+captura — está dito no fim do módulo.
