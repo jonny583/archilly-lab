@@ -1,8 +1,8 @@
 {
   "prompt": "LAB-84",
-  "oQue": "os 115 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
+  "oQue": "os 116 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-18T21:32:23.979Z",
+  "quando": "2026-10-18T22:28:56.333Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -10,9 +10,9 @@
   "comoFoiMedido": "cópia do repositório num diretório onde os três clones irmãos NÃO existem — conferido antes de medir, e a ferramenta estoura se algum aparecer —, e `bun test <arquivo>` um a um, guardando o código de saída. Nada foi movido nem renomeado no vizinho (§4)",
   "porQueNaoPorLeitura": "o item 017 proibiu: rodar a lista sem os clones é a RESPOSTA, ler o `import` é a HIPÓTESE. E a diferença apareceu no número: o D279 disse DUAS travas, lidas do fonte; executadas são QUATRO, e três delas são anteriores à minha rodada",
   "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
-  "quantosArquivos": 115,
-  "quantosPassamSemClone": 115,
-  "quantasTravasNaLista": 1989,
+  "quantosArquivos": 116,
+  "quantosPassamSemClone": 113,
+  "quantasTravasNaLista": 2010,
   "asTrintaEUma": [
     {
       "arquivo": "tests/pagina.test.ts",
@@ -51,10 +51,12 @@
     },
     {
       "arquivo": "tests/regras.test.ts",
-      "saida": 0,
-      "passam": 25,
-      "reprovam": 0,
-      "asQueReprovam": []
+      "saida": 1,
+      "passam": 24,
+      "reprovam": 1,
+      "asQueReprovam": [
+        "§7 · o CI existe, e a lista dele não é mentira (LAB-38) > o número de travas do trabalho sem clones é o MESMO em todo lugar que o cita"
+      ]
     },
     {
       "arquivo": "tests/segredos.test.ts",
@@ -296,10 +298,12 @@
     },
     {
       "arquivo": "tests/nome-do-trabalho.test.ts",
-      "saida": 0,
-      "passam": 11,
-      "reprovam": 0,
-      "asQueReprovam": []
+      "saida": 1,
+      "passam": 10,
+      "reprovam": 1,
+      "asQueReprovam": [
+        "item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conferida > O LADO BOM: a afirmação de hoje é verdadeira — zero problemas"
+      ]
     },
     {
       "arquivo": "tests/o-que-o-gatilho-carrega.test.ts",
@@ -471,10 +475,17 @@
     },
     {
       "arquivo": "tests/as-cinco-linhas-do-recado.test.ts",
-      "saida": 0,
-      "passam": 20,
-      "reprovam": 0,
-      "asQueReprovam": []
+      "saida": 1,
+      "passam": 14,
+      "reprovam": 6,
+      "asQueReprovam": [
+        "LAB-129 · a página de verdade — as cinco linhas, uma vez cada, na ordem, nenhuma calada > nenhum problema — e a lista diz QUAL, se houver",
+        "LAB-129 · a página de verdade — as cinco linhas, uma vez cada, na ordem, nenhuma calada > sem a exceção, o LF-01 reprova — o perdão é de verdade, não enfeite",
+        "LAB-129 · as mutações medidas antes da régua, plantadas na página de verdade > `Depende do Jonny:` vazio no recado do LAB-128 — antes, zero travas acusavam",
+        "LAB-129 · as mutações medidas antes da régua, plantadas na página de verdade > a linha dos Achados tirada do recado do LAB-50 — antes, zero",
+        "LAB-129 · as mutações medidas antes da régua, plantadas na página de verdade > `Feito:` antes de `Estado:` no recado do LAB-110 — antes, zero",
+        "LAB-129 · as mutações medidas antes da régua, plantadas na página de verdade > `Depende do Jonny:` duas vezes no recado do LAB-90 — antes, zero"
+      ]
     },
     {
       "arquivo": "tests/onde-esta-o-detalhe.test.ts",
@@ -818,8 +829,15 @@
       "passam": 20,
       "reprovam": 0,
       "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/a-analise-do-symbios.test.ts",
+      "saida": 0,
+      "passam": 21,
+      "reprovam": 0,
+      "asQueReprovam": []
     }
   ],
-  "oQueIssoDecide": "a afirmação do nome do trabalho é VERDADEIRA: todos os arquivos da lista passam sem os clones",
+  "oQueIssoDecide": "a afirmação é FALSA por 3 arquivo(s): tests/regras.test.ts, tests/nome-do-trabalho.test.ts, tests/as-cinco-linhas-do-recado.test.ts",
   "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
 }
