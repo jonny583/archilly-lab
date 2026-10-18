@@ -201,7 +201,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // os dois instanciadores e as duas crates `cdylib`; nenhum clone.
     // E 108 no LAB-177, com a `os-vizinhos-no-relatorio.test.ts` — o `git` desta casa, os `docs/relatorios/LAB-<n>.md`, o
     // `docs/SEGURANCA.md` e a `regras.test.ts`; nenhum clone.
-    expect(lista).toHaveLength(108);
+    // E 109 no LAB-178, com a `o-pedido-na-pagina.test.ts` — o `git` desta casa, o `docs/SEGURANCA.md`, os quatro
+    // relatórios que a linha dava de exemplo e a régua do LAB-149; nenhum clone.
+    expect(lista).toHaveLength(109);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

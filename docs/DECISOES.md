@@ -13618,3 +13618,35 @@ roda sem clones).
 
 > **UMA LINHA COM DUAS METADES PODE TER UMA TRAVA SÓ.** A metade guardada faz a linha inteira parecer conferida; a outra
 > envelhece calada — aqui, 38 vezes em 168.
+
+## D406 · O QUE PRECISA MUDAR NOS VIZINHOS VIRA LISTA EM RELATÓRIO — a linha não nomeava a trava do LAB-149, e dois dos quatro exemplos dela saíram em prosa · 18/10/2026
+
+**Contexto:** item 900 (LAB-178). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup`. Na dívida própria, a espécie **mensagem fixa que afirma estado sem perguntar**, a
+terceira linha da tabela *Os repositórios vizinhos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"O que precisa mudar
+neles vira lista em relatório · ✅ · LAB-07 §9 (8 correções), LAB-02 §5, LAB-03 e LAB-08 — todos com o número e sem
+commit lá"*.
+
+**Medido:** a regra tem trava desde o LAB-149 (`pedido-ao-vizinho.ts`, D377), e a linha não a nomeava. Os quatro
+exemplos, pela régua do LAB-149: o LAB-07 tem dois lugares de pedido, o §9 com oito itens e o do §8 em prosa
+(congelado); o LAB-03 tem um, em prosa (congelado); o LAB-02 e o LAB-08, nenhum que a régua veja — o do LAB-02 tem
+lista, num parágrafo aberto em negrito; o do LAB-08 é uma pergunta em prosa. O *"com o número"* é o número medido, e
+está nos quatro; a lista, em dois. A régua nova, contra a página de antes: sete problemas.
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/o-pedido-na-pagina.ts` e `tests/o-pedido-na-pagina.test.ts` (13 testes, sem
+   clones, no portão): a linha nomeia as duas travas, o LAB-149 e o LAB-178; escreve *"**5** pedidos sem lista"*, o
+   comprimento de `SEM_LISTA_ANTES_DA_TRAVA`, perguntado; *"todos com o número"* reprova; a linha não cita relatório fora
+   da tabela; a tabela da seção *Reconferido no LAB-178* tem os quatro exemplos e as quatro colunas de número que
+   `lugaresDePedido` acha. Universo publicado.
+2. A linha corrigida, e a seção *Reconferido no LAB-178* com a tabela.
+
+**Descartado:** escrever na linha o total de lugares de pedido (cresce a cada relatório bom, e a linha quebraria em
+toda rodada; os congelados só descem por decisão escrita); corrigir os exemplos dentro da linha (número sem leitor numa
+tabela de segurança é o defeito); **propor ao chat que a régua do LAB-149 lesse o parágrafo de pedido aberto em
+negrito** — eu ia, e a medição desfez: dos sete parágrafos com a forma em `docs/relatorios/`, cinco estão sob título que
+a régua já lê, e os dois de fora (LAB-02, com lista; LAB-56, um lembrete já numerado) não escondem pedido sem lista.
+
+> **EXEMPLO NUMA LINHA DE CONFERÊNCIA É AFIRMAÇÃO SOBRE OUTRO ARQUIVO, E ENVELHECE COMO NÚMERO.** Aqui, quatro exemplos de
+> *"lista em relatório"*, e dois em prosa — um deles congelado como descumprimento pela própria casa, um mês depois.

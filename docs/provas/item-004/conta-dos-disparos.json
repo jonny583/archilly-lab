@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-18T14:16:27.332Z",
+  "quando": "2026-10-18T15:16:43.566Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1003,12 +1003,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 14:06:03 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-177), dívida própria (mensagem fixa que afirma estado sem perguntar: *\"`git status` nos três ao fim de toda rodada, e o número sai no relatório\"*, do `docs/SEGURANCA.md`)",
         "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 15:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 15:06:43 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-178), dívida própria (mensagem fixa que afirma estado sem perguntar: *\"vira lista em relatório\"*, com quatro exemplos *\"todos com o número\"*, do `docs/SEGURANCA.md`)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 124,
+      "noRegistro": 125,
       "observados": 39,
-      "derivados": 39,
+      "derivados": 40,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 5

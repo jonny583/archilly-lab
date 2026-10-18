@@ -47,7 +47,7 @@ conferência possa ser refeita por quem quiser.
 |---|---|---|
 | Geo, Generate e o motor de parcelamento são **só leitura** | ✅ | o clone é perguntado a cada verde com clones: `git status --porcelain` vazio nos três (`external-engines/esteira/tests/regras.test.ts`, §4, desde o LAB-38 — D136, D143). Em 14/09, ao fim do LAB-08: **0 alterações** em cada. O relatório dizer o número **não** foi de toda rodada, como esta linha afirmava desde o LF-FINAL: **38** dos 168 relatórios `LAB-<n>` de antes do LAB-177 não dizem o `git status` dos vizinhos (medido em 18/10); de LAB-177 em diante todo relatório diz, perguntado a cada verde (`external-engines/esteira/src/os-vizinhos-no-relatorio.ts`; ver *Reconferido no LAB-177*, abaixo) |
 | Nenhum commit, nenhum push nos vizinhos | ✅ | o histórico deles não tem commit desta sessão. O único toque foi `git merge --ff-only origin/main` no clone local do motor, para medir o T02 (D40); **desde o LAB-162, perguntado a cada verde pela SESSÃO** — o autor é o mesmo em toda a família —: nenhuma sessão que trabalhou nesta casa no rodapé de um commit da origem dos três vizinhos, e nenhum assunto `LAB-<n>` lá (`external-engines/esteira/src/nenhum-commit-nos-vizinhos.ts`; ver *Reconferido no LAB-162*, abaixo) |
-| O que precisa mudar neles vira **lista em relatório** | ✅ | LAB-07 §9 (8 correções), LAB-02 §5, LAB-03 e LAB-08 — todos com o número e sem commit lá |
+| O que precisa mudar neles vira **lista em relatório** | ✅ | lista **numerada**, perguntada a cada verde desde o LAB-149 a todo relatório de `docs/relatorios/`, pelo título de seção e pelo marcador de pedido ao vizinho (`external-engines/esteira/src/pedido-ao-vizinho.ts`, D377): todo lugar de pedido tem item numerado, menos **5** pedidos sem lista, todos de antes da trava, congelados com o motivo. A régua lê a FORMA: o pedido em prosa, ou aberto num parágrafo em negrito, ela não vê. Até o LAB-178 esta linha dava, desde o LF-FINAL, quatro exemplos *"com o número"* — o número medido estava nos quatro, a lista em dois; os quatro são perguntados a cada verde, na tabela do *Reconferido no LAB-178*, abaixo (`external-engines/esteira/src/o-pedido-na-pagina.ts`). Que nada foi escrito lá é a linha de cima |
 
 ## Integridade do que foi copiado
 
@@ -392,3 +392,28 @@ sai no relatório"*, que ninguém perguntava. Medida por LUGAR, todo `docs/relat
 resultado (*"limpo"*, *"vazio"*, *"0 alterações"*, *"nenhuma alteração"*). Calado não é sujo: o LAB-153, por exemplo,
 diz que os clones *"não foram precisos nesta rodada"*, e o LAB-48 que *"os três clones foram conferidos"* — sem a forma.
 A régua pergunta a forma, de propósito, e o que o relatório afirma continua sendo perguntado ao clone pela `regras.test.ts`.
+
+---
+
+## Reconferido no LAB-178 · 18/10/2026 — a lista aos vizinhos, e os quatro exemplos da página
+
+A linha *"O que precisa mudar neles vira lista em relatório"*, do LF-FINAL, dava quatro exemplos — *"LAB-07 §9 (8
+correções), LAB-02 §5, LAB-03 e LAB-08 — todos com o número e sem commit lá"* — e não nomeava a trava que pergunta a
+regra a todo relatório desde o LAB-149 (`pedido-ao-vizinho.ts`). Os quatro, perguntados à régua do LAB-149:
+
+| exemplo | lugares de pedido | com lista | itens numerados | sem lista, congelados no LAB-149 | a leitura à mão |
+|---|---|---|---|---|---|
+| LAB-07 | 2 | 1 | 8 | 1 | o §9, *A lista para o T02 do Testfit*, é a lista; o pedido ao Generate do §8 (*diagnóstico para repassar*) saiu em prosa |
+| LAB-02 | 0 | 0 | 0 | 0 | o pedido do §5 **tem** lista numerada, mas abre num parágrafo em negrito (*Para o chat repassar ao Generate*), forma que a régua não lê |
+| LAB-03 | 1 | 0 | 0 | 1 | *O que isso muda para o Generate*: a correção das duas cotas, em prosa |
+| LAB-08 | 0 | 0 | 0 | 0 | *uma pergunta, com número, para o Generate*, em prosa, no fim do §2.4 |
+
+O *"com o número"* da linha antiga era o número medido, e esse está nos quatro; a *lista*, em dois. A régua nova acusou
+**sete** problemas na linha de antes: quatro nomes calados (as duas travas, o LAB-149 e o LAB-178), o número dos pedidos
+sem lista ausente, o *"todos com o número"* e a falta desta tabela.
+
+**Desde o LAB-178 a linha e a tabela são perguntadas a cada verde**, por `external-engines/esteira/src/o-pedido-na-pagina.ts`
+e `tests/o-pedido-na-pagina.test.ts` (sem clones): a linha nomeia as duas travas e as duas rodadas, escreve o número de
+pedidos congelados que a lista do LAB-149 tem e não cita relatório fora desta tabela; a tabela tem os quatro exemplos, e
+as quatro colunas de número são as que a régua do LAB-149 acha neles. A última coluna é texto e não é perguntada — dito no
+fim do módulo, com o resto do que a trava não alcança.
