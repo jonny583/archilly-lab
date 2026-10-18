@@ -13232,3 +13232,49 @@ D-entrada do LAB-32 (são história; a correção mora aqui).
 > três pedidos velhos estavam velhos **no dia em que a página nasceu**: o Generate tinha atendido na véspera e o
 > Parcelamento atendeu no mesmo dia — e a página continuou pedindo por duas semanas. Pedido atendido que continua
 > escrito como pedido é ruído no repositório de quem já fez.
+
+## D397 · FERRAMENTA E TRAVA — a página tinha guarda para a tabela, e os números da prosa ninguém perguntava; "nove recados acima do teto" eram sete desde o dia em que ela nasceu · 18/10/2026
+
+**Contexto:** item 900 (LAB-169). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup` (403). O LAB-168 deixou nomeada a última das três páginas de `docs/` com poucos leitores:
+`docs/referencia/FERRAMENTA_E_TRAVA.md` (item 003, LAB-70, 09/10/2026). Diferente das duas anteriores, **ela já tinha
+guarda** (`tests/escopo-dos-instrumentos.test.ts`) — para a TABELA. Os números da PROSA, nenhuma trava lia.
+
+**Medido (LAB-169):**
+
+- *"os **nove** recados antigos acima do teto"* — **sete**, pela mesma régua da trava do teto, hoje (180 recados) e no
+  commit que criou a página (`6e6d8a9`, 75): LAB-07, LF-01, LAB-02, LAB-03, LAB-08, LF-FINAL e LAB-04. O cabeçalho do
+  `recado.test.ts` sempre disse sete. O *nove* estava na página, na declaração, na prova do item 003, no `LAB-70.md` e
+  na tabela da D232 — e a régua do LAB-79 conferia a prova **contra a declaração**, que dizia o mesmo: *consistência não
+  é correção* (D311);
+- *"(hoje 10)"* recados sem prompt nomeado, *"(hoje 18)"* testes na trava, *"(hoje 2)"* caminhos da ferramenta — certos;
+- *"é o item 004"* (o que pegaria o recado nunca escrito) — o item 004 foi feito e **não** o fecha: a conta mora no
+  `ONDE_PARAMOS.md`, é escrita pela mesma sessão que escreve o recado, e cruza por dia só os disparos em vazio;
+- *"comparar o disco com `origin/main`… ninguém faz isso hoje"* — verdadeiro, ainda; o gancho `pre-push` (D333) roda
+  antes do envio e só quando há envio.
+
+**Decidido:**
+
+1. `src/escopo-dos-instrumentos.ts`: o buraco passa a *sete*; os buracos do recado nunca escrito e do não enviado dizem o
+   que mudou e por que não fecha; e cinco funções novas — `recadosDoAcumulado`, `recadosAcimaDoTeto`,
+   `promptsDosCabecalhos`, `recadosSemPromptNomeado`, `numerosQueODocumentoAfirma`.
+2. **Uma régua, não três** (D116): `recado.test.ts` e `ferramentas/lab66.ts` passam a usar as do módulo.
+3. `tests/escopo-dos-instrumentos.test.ts`, oito testes novos (11 → 19): os quatro números da prosa contra a medição, a
+   frase ausente reprovando, os dois lados de cada régua, e todo arquivo de código citado num buraco existindo. Portão sem
+   clones 1 740 → 1 748 (o arquivo já estava na lista; 101 arquivos).
+4. A página riscada, não reescrita; a prova do item 003 regravada **só** na chave `oQueNinguemPega`, que o LAB-79 declarou
+   `medida` contra a declaração.
+
+**Os dois lados:** cinco mutações da página (o *nove* de volta, cada número trocado, a frase sumida), duas do mundo (um
+sem prompt a mais, um recado velho engordado além do teto) e quatro de código — todas acusadas; a quarta de código
+passou na primeira versão e fechou com um teste a mais. A primeira mutação do teto engordou um recado que **já** passava
+dele, e deu zero: suspeita da mutação, não da trava.
+
+**Descartado:** congelar em código a lista dos sete nomes (exceção disfarçada, D229 — a recontagem pega o mesmo e pega
+quem engordar um recado velho); trava que compare o `RECADOS.md` do disco com o da origem (rodaria antes do envio, quando
+a diferença é esperada); corrigir o *nove* no `LAB-70.md` e na D232 (história; a correção mora aqui).
+
+> **PÁGINA COM GUARDA PARA A TABELA NÃO TEM GUARDA PARA A PROSA.** A guarda conferia cada linha da tabela contra o código
+> rodando, e o número errado morava duas linhas abaixo, na célula de texto — e na declaração que a prova copiava. Cópias
+> que concordam entre si só provam que foram copiadas.
+

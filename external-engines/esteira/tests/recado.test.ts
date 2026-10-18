@@ -35,6 +35,7 @@
 import { describe, expect, test } from "bun:test";
 
 import { CLASSES_DE_RODADA } from "../src/classes-de-rodada.ts";
+import { recadosDoAcumulado } from "../src/escopo-dos-instrumentos.ts";
 import { PROMPT_DO_LAB } from "../src/nome-do-prompt.ts";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
@@ -54,12 +55,9 @@ const RECADOS = join(RAIZ, "docs", "relatorios", "RECADOS.md");
  * regra que o chat escreveu é a do meio — o recado primeiro, e o resto abaixo (D215).*
  */
 function recados(): string[][] {
-  const texto = readFileSync(RECADOS, "utf8");
-  const achados: string[][] = [];
-  const re = /```\n(=== RECADO PARA O CHAT[\s\S]*?=== FIM ===)/g;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(texto)) !== null) achados.push(m[1]!.trim().split("\n"));
-  return achados;
+  // A régua mora em `src/escopo-dos-instrumentos.ts` desde o LAB-169 (D397), onde a trava do
+  // documento a usa para contar os recados antigos acima do teto — uma régua, não duas (D116).
+  return recadosDoAcumulado(readFileSync(RECADOS, "utf8"));
 }
 
 /**

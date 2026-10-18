@@ -21,6 +21,7 @@
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { promptsDosCabecalhos, recadosSemPromptNomeado } from "../src/escopo-dos-instrumentos.ts";
 import { PROMPT_DO_LAB } from "../src/nome-do-prompt.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
@@ -47,9 +48,9 @@ if (abremComRecado.length !== blocos.length) {
  *
  * *Escopo que ninguém declara não fica parado: ele se afasta.*
  */
-const cabecalhos = [...texto.matchAll(/=== RECADO PARA O CHAT — [^·]+ · (.+?) ===/g)].map(
-  (m) => m[1]!,
-);
+// A régua mora em `src/escopo-dos-instrumentos.ts` desde o LAB-169 (D397): a trava do documento
+// remede o número que esta ferramenta imprime, e duas cópias da régua divergiriam caladas (D116).
+const cabecalhos = promptsDosCabecalhos(texto);
 const compostos = cabecalhos.filter((c) => new RegExp(`${PROMPT_DO_LAB}[\\s\\S]*${PROMPT_DO_LAB}`).test(c));
 
 const relatorios = readdirSync(join(RAIZ, "docs", "relatorios"))
@@ -67,7 +68,7 @@ if (semRecado.length > 0) {
  * medida desse buraco: para esses, o que resta é disciplina, e esconder isso seria pior que
  * não ter trava (D216).
  */
-const semPromptNomeado = cabecalhos.filter((c) => c.trim() === "—").length;
+const semPromptNomeado = recadosSemPromptNomeado(texto);
 
 mkdirSync(PROVA, { recursive: true });
 writeFileSync(

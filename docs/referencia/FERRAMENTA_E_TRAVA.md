@@ -136,10 +136,10 @@ Nenhuma das quatro é hipótese; as três primeiras já aconteceram.
 
 | o que escapa dos dois | por que | o que faria pegar |
 |---|---|---|
-| **recado que nunca foi escrito**, em rodada que não gera relatório nem commit | as duas réguas leem o que **está** no arquivo; rodada sem rastro não pode ser cobrada por falta — foi assim que o recado do PR #85 se perdeu (D216) | a conta dos disparos do despertador, confrontada com os recados do dia: é o **item 004** |
-| **recado gravado e NÃO enviado** ao GitHub | os dois rodam na minha máquina e leem o disco. `commit` sem `push` fica verde nos dois, e o chat — que lê o `RECADOS.md` **direto do GitHub** — não vê nada | comparar o arquivo do disco com o de `origin/main` antes de fechar a entrega. **Ninguém faz isso hoje, e é o buraco de maior consequência** |
+| **recado que nunca foi escrito**, em rodada que não gera relatório nem commit | as duas réguas leem o que **está** no arquivo; rodada sem rastro não pode ser cobrada por falta — foi assim que o recado do PR #85 se perdeu (D216) | ~~a conta dos disparos do despertador, confrontada com os recados do dia: é o **item 004**~~ — **o item 004 foi feito e não fecha isto** (LAB-169, D397): a conta (`src/disparos-do-despertador.ts`) mora no `ONDE_PARAMOS.md`, é escrita pela **mesma** sessão que escreve o recado e cruza por **dia**, só os disparos em vazio — rodada sem rastro também não deixa linha. O que pegaria é um contador **de fora**, escrito por outra mão: a direção, que lê as notificações |
+| **recado gravado e NÃO enviado** ao GitHub | os dois rodam na minha máquina e leem o disco. `commit` sem `push` fica verde nos dois, e o chat — que lê o `RECADOS.md` **direto do GitHub** — não vê nada | comparar o arquivo do disco com o de `origin/main` antes de fechar a entrega. **Ninguém faz isso hoje, e é o buraco de maior consequência** — o gancho `pre-push` do LAB-106 (D333) não o fecha: roda **antes** do envio e só **quando há** envio (conferido em 18/10/2026) |
 | **recado completo, bem formado, e FALSO** | nenhuma das treze verificações lê o conteúdo contra a realidade: um `Estado:` dizendo verde com a suíte vermelha passa pelos dois — o D110 é isso por duas semanas | **nada mecânico que eu saiba escrever hoje.** Está aqui por honestidade: o par confere **forma** e **presença**, nunca **verdade** |
-| os **nove recados antigos** acima do teto de doze linhas | a trava do teto olha **só o último**, de propósito: `RECADOS.md` é registro do que foi enviado, e reescrevê-lo falsificaria o registro | **nada, e não deve.** Este buraco é **escolhido**, não esquecido |
+| os **sete recados antigos** acima do teto de doze linhas (~~nove~~ — errado desde o dia em que esta página nasceu: a régua da trava do teto conta sete, hoje e no commit `6e6d8a9`; LAB-169, D397) | a trava do teto olha **só o último**, de propósito: `RECADOS.md` é registro do que foi enviado, e reescrevê-lo falsificaria o registro | **nada, e não deve.** Este buraco é **escolhido**, não esquecido |
 
 > **O par confere FORMA e PRESENÇA. Ele não confere VERDADE, e não confere ENVIO.**
 > Verde nos dois e nada no GitHub é o estado mais perigoso que este repositório sabe produzir.
@@ -158,5 +158,10 @@ Nenhuma das quatro é hipótese; as três primeiras já aconteceram.
 - este arquivo **deixa de citar** uma verificação, uma das sabotagens ou um dos buracos;
 - um dos dois instrumentos **para de apontar para este arquivo** na saída — é o que faz quem
   rodou um só encontrar escrito que não está coberto.
+
+- **um dos quatro números da prosa** deixa de ser o medido — os recados acima do teto e os sem
+  prompt nomeado, recontados no `RECADOS.md` com a mesma régua da trava e da ferramenta; a soma
+  dos testes da trava e os caminhos de reprovação, recontados nos arquivos. *(LAB-169, D397: até ali só a
+  tabela tinha guarda, e o "nove" da §4 passou nove dias errado.)*
 
 *Lista que não se revalida envelhece igual a comentário* (D104), e esta pode ser desmentida.

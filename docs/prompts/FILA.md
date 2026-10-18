@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-169 · item 900 — a dívida própria: ferramenta e trava — a página tinha guarda para a tabela, e os números da prosa ninguém perguntava — ✅ **feito em 18/10/2026** (D397)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup` (403). A última das três páginas que o LAB-167 nomeou, a `referencia/FERRAMENTA_E_TRAVA.md` (item 003), lida linha a linha: a tabela já tinha guarda; a prosa afirmava quatro números sem leitor, e um — *"os nove recados antigos acima do teto"* — eram **sete** desde o dia em que a página nasceu. O *"é o item 004"* apontava para um futuro que chegou diferente. Trava: os quatro números recontados a cada verde, a régua do acumulado num lugar só (`recado.test.ts` e `lab66.ts` passam a usá-la); 1740 → 1748 no portão sem clones. Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-169.md`](../relatorios/LAB-169.md), decisão **D397**.
+
 ### LAB-168 · item 900 — a dívida própria: o que falta medir, motor por motor — a página que o chat leva aos vizinhos afirmava o estado deles sem perguntar — ✅ **feito em 18/10/2026** (D396)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup` (403). Das três páginas de `docs/` com um a três leitores que o LAB-167 deixou nomeadas, a `O_QUE_FALTA_MEDIR_POR_MOTOR.md` (LAB-22, 03/10) é a que afirma **estado de outras casas** — e nenhum dos três leitores pergunta o que ela afirma (espécie **mensagem fixa que afirma estado sem perguntar**). Remedida no código de cada casa: o *"Generate não mede a rampa, falta o cálculo"* era falso desde 02/10 (`5b70e5f`) — o `paraSaida` deles mede quando recebe `relevo`, e a ponte do Lab não o passa (a quarta vez da história do §1-A); o *"passo fixo em 12 pedaços"* do Parcelamento ficou falso no T-11 deles, no mesmo 03/10; o *"±30°"* do sorteio do ângulo é ±15° (também na ficha da porta); e a ponte do Lab lê o `MOTOR_NOME` deles desde o LAB-29. Trava `src/o-que-falta-medir.ts`, sete afirmações em três casas, sem clones (15 testes) e com clone (4), nos dois sentidos; doze mutações de código e duas do mundo acusadas; 1 725 → 1 740. Detalhe em [`../relatorios/LAB-168.md`](../relatorios/LAB-168.md).
@@ -2075,7 +2081,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1740 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1748 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

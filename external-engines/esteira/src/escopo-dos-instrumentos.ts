@@ -288,15 +288,21 @@ export const O_QUE_NINGUEM_PEGA: Buraco[] = [
       "as duas réguas leem o que ESTÁ no arquivo. Rodada que não deixou rastro em lugar nenhum " +
       "não tem como ser cobrada por falta — foi assim que o recado do PR #85 se perdeu (D216)",
     oQueFariaPegar:
-      "um contador de disparos do despertador fora do repositório, confrontado com o número de " +
-      "recados do dia. É o item 004 da caixa de entrada, e ele abre essa conta",
+      "um contador de disparos do despertador FORA do repositório, escrito por outra mão, " +
+      "confrontado com os recados do dia. O item 004 abriu uma conta (`src/disparos-do-despertador.ts`), " +
+      "mas ela não é isso: mora no `ONDE_PARAMOS.md`, quem a escreve é a mesma sessão que escreve o " +
+      "recado, e o cruzamento é por DIA e só dos disparos em vazio — rodada que não deixou rastro " +
+      "também não deixa linha na conta. Quem tem o contador de fora é a direção, que lê as " +
+      "notificações; daqui ninguém o alcança (LAB-169, D397)",
   },
   {
     oQue: "recado gravado no arquivo e NÃO enviado ao GitHub",
     marcaNoDocumento: "recado gravado e não enviado",
     porQue:
       "os dois instrumentos rodam na minha máquina e leem o arquivo do disco. Commit sem `push` " +
-      "fica verde nos dois, e o chat — que lê o `RECADOS.md` direto do GitHub — não vê nada",
+      "fica verde nos dois, e o chat — que lê o `RECADOS.md` direto do GitHub — não vê nada. O " +
+      "gancho `pre-push` do LAB-106 (D333) não fecha isto: ele roda ANTES do envio e só quando há " +
+      "envio — commit que nunca é enviado não o chama",
     oQueFariaPegar:
       "comparar o `RECADOS.md` do disco com o do `origin/main` antes de fechar a entrega. " +
       "Nenhum dos dois faz isso hoje, e é o buraco de maior consequência da lista",
@@ -312,8 +318,8 @@ export const O_QUE_NINGUEM_PEGA: Buraco[] = [
       "e PRESENÇA, nunca VERDADE — e quem ler o verde dos dois precisa saber disso",
   },
   {
-    oQue: "os nove recados antigos que passaram do teto de doze linhas",
-    marcaNoDocumento: "os nove recados antigos",
+    oQue: "os sete recados antigos que passaram do teto de doze linhas",
+    marcaNoDocumento: "os sete recados antigos",
     porQue:
       "a trava do teto olha **só o último** recado, de propósito: `RECADOS.md` é registro do que " +
       "foi enviado, e reescrever o histórico para caber em régua nova falsificaria o registro",
@@ -322,3 +328,87 @@ export const O_QUE_NINGUEM_PEGA: Buraco[] = [
       "cabeçalho do `recado.test.ts`",
   },
 ];
+
+// ── Os números que o documento afirma, e a medição de cada um (LAB-169, D397) ──
+
+/**
+ * **O documento afirmava QUATRO números, e um estava errado desde o dia em que nasceu.**
+ *
+ * O `docs/referencia/FERRAMENTA_E_TRAVA.md` (item 003, 09/10/2026) tinha a guarda acima para a
+ * TABELA — a soma dos testes, os caminhos de reprovação, a citação de cada linha. Os números
+ * escritos na PROSA, nenhuma trava lia: *número digitado à mão*, a terceira espécie da dívida
+ * própria. Lidos um a um em 18/10/2026:
+ *
+ * | o que o documento diz | medido |
+ * |---|---|
+ * | *"os **nove** recados antigos acima do teto"* | **sete** — pela MESMA régua da trava do teto, hoje e no commit que criou a página (`6e6d8a9`). O cabeçalho do `recado.test.ts` sempre disse sete (*"Sete dos oito recados passaram do teto"*, LF-FINAL-2) |
+ * | *"recados sem prompt nomeado (hoje **10**)"* | 10 — certo, por acaso de ninguém ter escrito outro |
+ * | *"testes que os arquivos de trava têm (hoje **18**)"* | 18 |
+ * | *"caminho de reprovação (hoje **2**)"* | 2 |
+ *
+ * Os quatro passam a ser **perguntados** a cada verde, em `tests/escopo-dos-instrumentos.test.ts`:
+ * o documento lido por `numerosQueODocumentoAfirma`, a realidade pelas três funções abaixo e pela
+ * declaração. *Número publicado é medido, nunca digitado* — e aqui ele continua escrito na
+ * página, porque é para leitor; o que mudou é que alguém o confere.
+ */
+
+/** Todos os recados do acumulado, em ordem, cada um como lista de linhas — da marca ao `=== FIM ===`. */
+export function recadosDoAcumulado(texto: string): string[][] {
+  const achados: string[][] = [];
+  const re = /```\n(=== RECADO PARA O CHAT[\s\S]*?=== FIM ===)/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(texto)) !== null) achados.push(m[1]!.trim().split("\n"));
+  return achados;
+}
+
+/** O teto do recado (CLAUDE.md §1). */
+export const TETO_DO_RECADO = 12;
+
+/** Quantos recados do acumulado passam do teto — a mesma régua do teste «O TETO», aplicada a todos. */
+export function recadosAcimaDoTeto(texto: string): number {
+  return recadosDoAcumulado(texto).filter((r) => r.length > TETO_DO_RECADO).length;
+}
+
+/** O campo `<prompt>` de cada cabeçalho do acumulado — a régua da ferramenta (`lab66.ts`). */
+export function promptsDosCabecalhos(texto: string): string[] {
+  return [...texto.matchAll(/=== RECADO PARA O CHAT — [^·]+ · (.+?) ===/g)].map((m) => m[1]!);
+}
+
+/** Quantos recados têm `<prompt>` igual a `—`: o buraco que a ferramenta mede. */
+export function recadosSemPromptNomeado(texto: string): number {
+  return promptsDosCabecalhos(texto).filter((c) => c.trim() === "—").length;
+}
+
+const POR_EXTENSO: Record<string, number> = {
+  um: 1, dois: 2, tres: 3, quatro: 4, cinco: 5, seis: 6, sete: 7, oito: 8, nove: 9, dez: 10,
+  onze: 11, doze: 12,
+};
+
+export interface NumerosDoDocumento {
+  acimaDoTeto: number | null;
+  semPromptNomeado: number | null;
+  testesDaTrava: number | null;
+  caminhosDaFerramenta: number | null;
+}
+
+/**
+ * Os quatro números que o documento afirma na prosa, lidos dele. `null` é *"a frase não foi
+ * achada"* — e a trava o trata como reprovação, nunca como aprovação: régua que não acha o que
+ * mede não mediu nada (D343).
+ *
+ * Lê o documento **sem negrito e sem crase**, como a guarda da tabela.
+ */
+export function numerosQueODocumentoAfirma(documento: string): NumerosDoDocumento {
+  const t = documento.replace(/[*`]/g, "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const num = (re: RegExp): number | null => {
+    const m = re.exec(t);
+    return m ? Number(m[1]) : null;
+  };
+  const extenso = /os (\p{L}+) recados antigos/u.exec(t)?.[1];
+  return {
+    acimaDoTeto: extenso !== undefined ? (POR_EXTENSO[extenso] ?? null) : null,
+    semPromptNomeado: num(/prompt nomeado \(hoje (\d+)\)/),
+    testesDaTrava: num(/\(hoje (\d+), contados neles\)/),
+    caminhosDaFerramenta: num(/\(hoje (\d+), e eles\s+sao exatamente a intersecao\)/),
+  };
+}
