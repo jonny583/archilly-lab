@@ -3685,3 +3685,17 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+
+## 18/10/2026 · LAB-163 — item 900 (a dívida própria): o upstream/ nunca foi tocado depois de criado, perguntado à história
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-163 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), no docs/SEGURANCA.md, seção Reconferido no LF-FINAL-2. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1639 de 1639 (96 de 96 arquivos); esteira 1980 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17. O envio passa pelo gancho do LAB-106.
+Feito: a linha "o upstream/ nunca foi tocado depois de criado" era um git log de 15/09; a trava do LAB-132 só pergunta o HEAD — um patch commitado e desfeito, plantado numa cópia descartável da casa, passou por ela. Pela árvore da pasta em cada um dos 462 commits do HEAD e da origem: uma árvore só, a registrada — regra verdadeira, guarda ausente; e o git log de hoje mostraria dois commits (a mescla baa3e07 leva a mesma árvore). Trava: src/a-historia-do-upstream.ts + teste sem clones + teste no verde completo; nove mutações acusadas; 1622 → 1639; D391; detalhe em docs/relatorios/LAB-163.md.
+Achados para outros apps ou Central: (0) guarda de "nunca foi tocado" (vendor/, kit, pasta gerada) que compara o estado de HOJE responde "igual hoje", não "nunca": patch desfeito some. A pergunta certa é a árvore da pasta em cada commit (git cat-file --batch-check com <commit>:<pasta>), com a história inteira. (1) As propostas do LAB-123, 129, 135, 137, 140, 141, 147, 152 e 159 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

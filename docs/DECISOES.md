@@ -12946,3 +12946,42 @@ ler a API do GitHub pelos pushes (rede numa trava, e o que interessa é o que fi
 > **A PERGUNTA QUE CONFERIU A LINHA DEIXOU DE EXISTIR ANTES DA LINHA FICAR FALSA.** O autor distinguia as casas em
 > setembro; em outubro todas assinam igual. Comando de conferência também envelhece — e quem não o roda de novo não vê.
 
+
+## D391 · O `upstream/` NUNCA FOI TOCADO DEPOIS DE CRIADO, E A GUARDA PERGUNTA A ÁRVORE DE CADA COMMIT — o `HEAD` igual não diz "nunca" · 18/10/2026
+
+**Contexto:** item 900 (LAB-163). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, na mesma espécie e na mesma página do LAB-158 ao LAB-162 — **mensagem fixa que afirma estado sem
+perguntar**, no `docs/SEGURANCA.md` —, na seção *Reconferido no LF-FINAL-2* (15/09): *"`external-engines/symbios/upstream/`
+nunca foi tocado depois de criado · ✅ · `git log --oneline -- …` — um commit, o do LAB-00 que o criou"*. A trava do
+LAB-132 pergunta a árvore **no `HEAD`** e declara que a história fica de fora: um patch commitado e desfeito depois volta
+à mesma árvore e passa.
+
+**Medido (LAB-163):** numa cópia descartável desta casa, um commit que acrescenta uma linha ao `upstream/src/lib.rs` e um
+segundo que a desfaz — a árvore do `HEAD` volta a `7ea7b17…` e a trava do LAB-132 **passa**. Na história de verdade
+(`git rev-list HEAD --remotes=origin`, clone desrasado): 462 commits, 461 com a pasta, 1 sem (a raiz), **uma árvore só**,
+a registrada. E o `git log --full-history` de hoje mostra **dois** commits, o `f61be91` e a mescla `baa3e07` (PR #1), que
+leva a mesma árvore — o comando antigo já não diria *"um commit"*. Regra verdadeira, guarda ausente.
+
+**Decidido:**
+
+1. `external-engines/esteira/src/a-historia-do-upstream.ts`: de todo commit do `HEAD` e da origem, a árvore de cada pasta
+   de `COPIAS_DE_UPSTREAM` (`git cat-file --batch-check`, uma leitura só); reprova a árvore que não seja a registrada nem
+   uma das `ARVORES_QUE_JA_FORAM` (a troca deliberada, hoje nenhuma), o commit `trazidaEm` ausente ou com outra árvore, a
+   declaração que sobra, a história rasa e o universo vazio. A pasta ausente num commit é ausência, não patch.
+2. `tests/a-historia-do-upstream.test.ts`, 17 testes, sem clones e sem história, no portão sem clones do `verde.yml`
+   (1 622 → 1 639, 95 → 96 arquivos); `tests/a-historia-do-upstream-com-historia.test.ts` no verde completo, com o
+   universo publicado — o CI clona raso, e no raso a resposta seria o corte (D293).
+3. A linha da página aponta para a régua; a seção *Reconferido no LAB-163* traz a tabela; o cabeçalho do
+   `upstream-intocavel.ts` aponta para cá onde dizia que a história não era perguntada.
+
+**Os dois lados:** a história boa, a pasta apagada e trazida de volta e a troca declarada passam; o patch desfeito, o
+patch num ramo da origem nunca mesclado, a troca sem declaração, a declaração que sobra, o `trazidaEm` ausente ou com
+outra árvore, a história rasa e o universo vazio reprovam. **Nove mutações, nove acusadas**, uma delas o patch e o
+desfeito commitados de verdade numa cópia da casa.
+
+**Descartado:** contar commits no `git log -- <pasta>` (responde a forma da história — a mescla conta — e não a
+pergunta); pôr a pergunta à história no portão sem clones (o CI clona raso, e a régua passaria a responder o corte);
+acrescentar `fetch-depth: 0` ao `verde.yml` para isso (mexer na rotina por uma trava que o verde completo já roda).
+
+> **"IGUAL HOJE" E "NUNCA TOCADO" SÃO DUAS FRASES, E SÓ UMA TINHA GUARDA.** A do `HEAD` responde a primeira; a segunda
+> só a história responde — e a régua do `HEAD` dizia isso de si, por extenso, havia dois dias.

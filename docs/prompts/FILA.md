@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-163 · item 900 — a dívida própria: o `upstream/` nunca foi tocado depois de criado, e o `HEAD` igual não diz "nunca" — ✅ **feito em 18/10/2026** (D391)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/SEGURANCA.md`, seção *Reconferido no LF-FINAL-2*: *"`external-engines/symbios/upstream/` nunca foi tocado depois de criado · ✅ · um commit"*. A trava do LAB-132 pergunta só o `HEAD` — um patch commitado e desfeito, plantado numa cópia descartável da casa, passou por ela. Na história inteira (`rev-list HEAD --remotes=origin`): 462 commits, 461 com a pasta, **uma árvore só**, a registrada; e o `git log` de hoje mostraria dois commits (a mescla `baa3e07` leva a mesma árvore). Trava `src/a-historia-do-upstream.ts`, um teste sem clones e um no verde completo; nove mutações, nove acusadas; 1 622 → 1 639. Detalhe em [`../relatorios/LAB-163.md`](../relatorios/LAB-163.md).
+
 ### LAB-162 · item 900 — a dívida própria: nenhum commit, nenhum push nos vizinhos, e o autor já não distingue casa nenhuma — ✅ **feito em 17/10/2026** (D390)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/SEGURANCA.md`, tabela *Os repositórios vizinhos*: *"Nenhum commit, nenhum push nos vizinhos · ✅ · o histórico deles não tem commit desta sessão"*, do LF-FINAL (14/09), e a do LF-FINAL-2, conferida pelo **autor** — que hoje é `Claude` em toda a família. Pela **sessão** do rodapé, na história inteira da origem dos quatro: 14 sessões em comum, todas da direção (as caixas); nenhuma das 68 que trabalharam aqui num vizinho, nenhum assunto `LAB-<n>` lá. Trava `src/nenhum-commit-nos-vizinhos.ts`, um teste sem clones e um no verde completo; onze mutações, onze acusadas; 1 607 → 1 622. Detalhe em [`../relatorios/LAB-162.md`](../relatorios/LAB-162.md).
@@ -2037,7 +2041,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1622 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1639 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
