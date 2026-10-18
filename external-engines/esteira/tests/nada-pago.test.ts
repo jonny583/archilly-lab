@@ -53,11 +53,11 @@ describe("§4-A · a casa de hoje", () => {
     expect(CLAUDE.toLowerCase()).toContain(A_FRASE);
   });
 
-  test("cada porta leu arquivo, e o universo tem o tamanho medido no LAB-148 (33 portas), mais o endereço da bancada no celular (LAB-182)", () => {
+  test("cada porta leu arquivo, e o universo tem o tamanho medido no LAB-148 (33 portas), mais o endereço da bancada no celular (LAB-182) e o registro das crates (LAB-185)", () => {
     const { achadas, lidos } = lerAsPortas(arvore());
     for (const p of PORTAS) expect(lidos[p], p).toBeGreaterThan(0);
     expect(achadas).toHaveLength(Object.keys(PORTAS_DECLARADAS).length);
-    expect(achadas).toHaveLength(34);
+    expect(achadas).toHaveLength(35);
   });
 
   test("a trava diz o que NÃO alcança, e o primeiro buraco é o que a §4-A já confessa: contratar fora da árvore", () => {

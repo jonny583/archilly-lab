@@ -23,6 +23,29 @@ A cópia em `upstream/` foi verificada arquivo a arquivo contra o `HEAD` do clon
 (`cmp` em todos os arquivos versionados): **idêntica**. O manifesto está em
 `external-engines/symbios/upstream/VERSION`.
 
+> **Medido contra a origem em 18/10/2026 (LAB-185, D413): a ficha confere, a cópia é
+> byte a byte o commit, e o número de módulos da §3 é o de arquivos.** O commit existe,
+> com a data e o autor desta seção; o `Cargo.toml` dele diz 0.4.1 e MIT, e o `LICENSE`,
+> o copyright da §2. A árvore do commit tem 24 arquivos, e a cópia em `upstream/` tem os
+> 24 com o **mesmo objeto do `git`** (o resumo de cada byte) e o mesmo modo — e um a
+> mais, o `VERSION`, que é do Lab. As cinco dependências da §2, nas versões que os três
+> `Cargo.lock` do Lab resolvem, têm no registro público a licença da tabela, e a
+> `symbios-ground` foi publicada pelo mesmo autor, com repositório na mesma conta. A
+> coluna *Versão* da tabela mistura duas coisas: `0.4.1` e `0.32.1` são as versões
+> resolvidas; `0.9` e `1.0` são as exigidas pelo `Cargo.toml` (o lock resolve 0.9.5,
+> 0.9.0 e 1.0.229). O `HEAD` de hoje da origem já não é este commit — ela andou depois
+> da análise; a prova diz o de hoje. **O que não confere está na §3:** *"`src/` tem 14
+> módulos"*, e a lista logo abaixo nomeia 13 — os 13 `pub mod` do `lib.rs`. O 14 é a
+> conta de 14 arquivos `.rs` em `src/` (os 13 e o `lib.rs`). A prova é
+> `docs/provas/LAB-185/symbios-na-origem.json` (`bun run lab185`, lida com `git ls-tree`
+> e `git show`, nada compilado nem executado). A trava
+> `external-engines/esteira/src/a-analise-do-symbios.ts` pergunta, a cada verde e sem
+> rede, a ficha contra a prova e contra o `VERSION`, a cópia arquivo a arquivo contra a
+> árvore do commit, a tabela contra os três `Cargo.lock` e o registro, os módulos contra
+> o `lib.rs` e os lugares que repetem a ficha. A linha *"Adapter: não escrito"* da ficha
+> é falsa desde o LAB-01 e fica para a proposta do LAB-152 ao chat. *(Acrescentado por
+> mim no LAB-185; o texto do LAB-00 está intocado.)*
+
 ## 2. Licença
 
 `LICENSE` na raiz: **MIT**, `Copyright (c) 2026 TheJanusStream`. Permite uso

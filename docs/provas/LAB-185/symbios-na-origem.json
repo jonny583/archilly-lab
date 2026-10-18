@@ -1,0 +1,199 @@
+{
+  "prompt": "LAB-185",
+  "oQueIstoMede": "o repositório de fora que a docs/SYMBIOS_ANALYSIS.md descreve, no commit que ela fixa — a árvore inteira com o objeto de cada arquivo, o Cargo.toml, o LICENSE e os módulos do lib.rs, lidos com git ls-tree/show, nada compilado nem executado — e a licença, quem publicou e o repositório das cinco dependências diretas no registro público, na versão que o Cargo.lock da ponte resolve; não mede gleba",
+  "quando": "2026-10-18T22:20:49.677Z",
+  "origem": "https://github.com/TheJanusStream/symbios-tensor",
+  "commit": {
+    "pedido": "c3f287556b98cc616d4263d163e6643ae32111ff",
+    "existe": true,
+    "data": "2026-09-06 20:14:40 +0200",
+    "autor": "TheJanusStream"
+  },
+  "versao": "0.4.1",
+  "licencaNoCargo": "MIT",
+  "licenca": {
+    "primeiraLinha": "MIT License",
+    "direitos": "Copyright (c) 2026 TheJanusStream"
+  },
+  "workspace": false,
+  "binarios": false,
+  "modulos": [
+    "carve",
+    "geometry",
+    "graph",
+    "lots",
+    "polygons",
+    "prune",
+    "rationalize",
+    "roads_3d",
+    "spatial",
+    "streaming",
+    "tensor",
+    "topology",
+    "tracer"
+  ],
+  "arquivosEmSrc": 14,
+  "arvore": [
+    {
+      "modo": "100644",
+      "objeto": "794bea367f66652b9e7fa9a856137927bd3f2b29",
+      "caminho": ".github/workflows/rust.yml"
+    },
+    {
+      "modo": "100644",
+      "objeto": "25a0ae2f7eb91a40dc11d780c1a23018fc486200",
+      "caminho": ".gitignore"
+    },
+    {
+      "modo": "100644",
+      "objeto": "d52053a9d9e68a2d8c60a6a46d423f320a2ca8e9",
+      "caminho": "Cargo.toml"
+    },
+    {
+      "modo": "100644",
+      "objeto": "51f622cfec129378e6ff008bc2b7b366c4815c14",
+      "caminho": "LICENSE"
+    },
+    {
+      "modo": "100644",
+      "objeto": "aea355b4358b3b00f0ae58aae9c86ccec6e23051",
+      "caminho": "README.md"
+    },
+    {
+      "modo": "100644",
+      "objeto": "8f282060e06e30f3d6bfb4e4139007de383a8fb6",
+      "caminho": "benches/bench_main.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "db5aa8db98c054b83d0ab7f7dd96a723e1cd545b",
+      "caminho": "examples/debug_graph.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "e81e7596693a0b20aae4369d4a5872177ee5a8f5",
+      "caminho": "examples/full_city.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "068fcc714a859d70fadd6f7d257cbb4cab292440",
+      "caminho": "rust-toolchain.toml"
+    },
+    {
+      "modo": "100644",
+      "objeto": "dc978bdac56f9c3c4e2186b1c76ec3aa18f5c9f7",
+      "caminho": "src/carve.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "a77d9b26a719e50f0508991bb266d317a2ae2418",
+      "caminho": "src/geometry.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "73a00131b667f83d14df98a440202b0e17a6935a",
+      "caminho": "src/graph.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "34d114b12f52d8aca5967af8d03cd5b941ea13e5",
+      "caminho": "src/lib.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "60fa1eb79b9f2725c15597f293e3fc1b5cb87cea",
+      "caminho": "src/lots.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "90375bc599f61de52941c4929f96753699c971f4",
+      "caminho": "src/polygons.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "3fe6cd1fc8124d7e7e707d046f4b131c2d25081c",
+      "caminho": "src/prune.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "1f149b86e025a76fc6460ccf157252a7799b4f46",
+      "caminho": "src/rationalize.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "6a6f057ccbb46a5749eecaecbb34f034973d8046",
+      "caminho": "src/roads_3d.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "4e219931dcfb41fc45a6ef13d8aa5760d47b4057",
+      "caminho": "src/spatial.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "8ed0d4684adbcc67f2d735d84549cb91d79c3eec",
+      "caminho": "src/streaming.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "67df69f7c6c8a30a8d06f58e8f96ffb0db959fd5",
+      "caminho": "src/tensor.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "87496e99a531ceacbf465a02e70f87814d9d7473",
+      "caminho": "src/topology.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "2742fb9d94b275e9955f56c228f6471f24069487",
+      "caminho": "src/tracer.rs"
+    },
+    {
+      "modo": "100644",
+      "objeto": "761bd4d6220d714a49bce2a34315768c0200b377",
+      "caminho": "tests/integration.rs"
+    }
+  ],
+  "dependencias": [
+    {
+      "crate": "symbios-ground",
+      "versao": "0.4.1",
+      "licenca": "MIT",
+      "publicadaPor": "TheJanusStream",
+      "repositorio": "https://github.com/TheJanusStream/symbios-ground"
+    },
+    {
+      "crate": "glam",
+      "versao": "0.32.1",
+      "licenca": "MIT OR Apache-2.0",
+      "publicadaPor": "bitshifter",
+      "repositorio": "https://github.com/bitshifter/glam-rs"
+    },
+    {
+      "crate": "rand",
+      "versao": "0.9.5",
+      "licenca": "MIT OR Apache-2.0",
+      "publicadaPor": null,
+      "repositorio": "https://github.com/rust-random/rand"
+    },
+    {
+      "crate": "rand_pcg",
+      "versao": "0.9.0",
+      "licenca": "MIT OR Apache-2.0",
+      "publicadaPor": "dhardy",
+      "repositorio": "https://github.com/rust-random/rngs"
+    },
+    {
+      "crate": "serde",
+      "versao": "1.0.229",
+      "licenca": "MIT OR Apache-2.0",
+      "publicadaPor": "dtolnay",
+      "repositorio": "https://github.com/serde-rs/serde"
+    }
+  ],
+  "headDeHoje": {
+    "sha": "75fff49ae52a2e03d1a2969b67c85d16d009e62e",
+    "data": "2026-10-05 17:31:51 +0200"
+  }
+}

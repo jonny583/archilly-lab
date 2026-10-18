@@ -226,6 +226,14 @@ export const DECLARADAS: readonly Declarada[] = [
     motivo:
       "os três `git fetch --filter=blob:none --depth 1` (os dois commits que a análise do esqueleto reto fixa e a tag da CGAL que o script deles fixa) e, numa função só para as duas origens, o `git ls-remote` e o `fetch` do HEAD de hoje, em pastas temporárias, lidos e nunca executados; ferramenta à mão, fora do verde (LAB-172)",
   },
+  {
+    caminho: "external-engines/esteira/ferramentas/lab185.ts",
+    forma: "processo",
+    quantas: 4,
+    classe: "origem-publica",
+    motivo:
+      "os dois `git fetch --filter=blob:none --depth 1` (o commit que a análise do Symbios fixa e o HEAD de hoje) e o `git ls-remote` do `symbios-tensor`, numa pasta temporária, lidos e nunca executados, e o `curl` à API de leitura do registro público das crates (uma função só, chamada para a versão e para a crate de cada dependência direta); ferramenta à mão, fora do verde (LAB-185)",
+  },
 ];
 
 export type TipoDeProblema = "rede-no-caminho-do-motor" | "rede-nao-declarada" | "declarada-que-sumiu" | "universo-vazio";

@@ -59,7 +59,7 @@ conferência possa ser refeita por quem quiser.
 
 | item | estado | como foi conferido |
 |---|---|---|
-| `external-engines/symbios/upstream/` byte a byte igual ao commit declarado | ✅ | `cmp` arquivo a arquivo contra `c3f287556b98cc616d4263d163e6643ae32111ff`, no LAB-00; **desde o LAB-132, a árvore do `git` da pasta é perguntada a cada verde** contra a registrada (`external-engines/esteira/src/upstream-intocavel.ts`) |
+| `external-engines/symbios/upstream/` byte a byte igual ao commit declarado | ✅ | `cmp` arquivo a arquivo contra `c3f287556b98cc616d4263d163e6643ae32111ff`, no LAB-00; **desde o LAB-132, a árvore do `git` da pasta é perguntada a cada verde** contra a registrada (`external-engines/esteira/src/upstream-intocavel.ts`); **e desde o LAB-185 ela é perguntada contra o commit DE VERDADE** — a árvore do commit na origem, gravada com o objeto de cada arquivo, comparada arquivo a arquivo com a da cópia, a cada verde e sem rede (`external-engines/esteira/src/a-analise-do-symbios.ts`): 24 de 24 iguais, e só o `VERSION` a mais |
 | Licença do upstream preservada | ✅ | `upstream/LICENSE` (MIT, `Copyright (c) 2026 TheJanusStream`) intocado — e, desde o LAB-132, dentro da árvore perguntada na linha acima: um byte da licença mudado muda a árvore |
 | Nenhum motor copiado para fora de `upstream/` | ✅ | em 14/09, `external-engines/testfit/` e `external-engines/esteira/` não contêm código de motor — só a ponte (D16); **desde o LAB-161, perguntado a cada verde** a todo arquivo de código que o `git` carrega fora de toda pasta `upstream/`, linha a linha contra o motor, e a todo `Cargo.toml` que depende dele — tem de apontar para o `upstream/` por `path` (`external-engines/esteira/src/o-upstream-nao-sai-do-upstream.ts`; ver *Reconferido no LAB-161*, abaixo) |
 
@@ -134,6 +134,7 @@ quando a linha foi escrita (LAB-01, 10/09) — e a linha era a única da tabela 
 | `esteira/tests/clone-da-maquina.test.ts` | o `fetch` de um clone de teste, de origem `file://` | origem de teste |
 | `esteira/ferramentas/lab171.ts` | os dois `git fetch --depth 1` e o `git ls-remote` do PackingSolver, numa pasta temporária, lidos e nunca executados — acrescentada no LAB-171, 18/10 (3) | origem pública |
 | `esteira/ferramentas/lab172.ts` | os três `git fetch --filter=blob:none --depth 1` (os dois commits do esqueleto reto e a tag da CGAL) e o `git ls-remote` e o `fetch` do `HEAD` de hoje, em pastas temporárias, lidos e nunca executados — acrescentada no LAB-172, 18/10 (5) | origem pública |
+| `esteira/ferramentas/lab185.ts` | os dois `git fetch --filter=blob:none --depth 1` (o commit do Symbios que a análise fixa e o `HEAD` de hoje), o `git ls-remote` e o `curl` à API de leitura do registro público das crates (uma função só, chamada duas vezes por dependência), em pasta temporária, lidos e nunca executados — acrescentada no LAB-185, 18/10 (4) | origem pública |
 
 A trava reprova rede no caminho do motor **mesmo declarada**, rede nova fora dele sem declaração (ou uma a mais num
 arquivo declarado) e declaração cuja rede sumiu. O que ela não alcança está dito no fim do módulo — entre outros, o

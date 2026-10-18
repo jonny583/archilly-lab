@@ -13857,3 +13857,36 @@ pergunta, a de produto, e responde certo).
 
 > **NEGAÇÃO QUE DELEGA A UMA TRAVA DE OUTRA PORTA ESTÁ PERGUNTADA PELA METADE.** "Quem pergunta é a da Central" valia para
 > a conta da família; a conta feita aqui, sem a Central, não tinha quem perguntasse.
+
+## D413 · A ANÁLISE DO SYMBIOS, PERGUNTADA À ORIGEM — a cópia é byte a byte o commit, e "14 módulos" são 13 · 18/10/2026
+**Contexto:** item 900 (LAB-184 → LAB-185). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse
+ninguém. O LAB-172 deixou a `docs/SYMBIOS_ANALYSIS.md` como a única página de `docs/` sem leitor no código, dada como
+esperando a proposta do LAB-152 — que é sobre a anatomia das pastas (a linha *"Adapter: não escrito"*), não sobre a ficha
+de origem. Espécies: mensagem fixa que afirma estado sem perguntar (*"a cópia… idêntica"*, a ficha) e número digitado à
+mão (*"`src/` tem 14 módulos"*). A `upstream-intocavel.ts` (LAB-132) declarava não cobrar *"que a cópia seja igual ao
+upstream DE VERDADE"*.
+
+**Medido** (`bun run lab185`, a prova em `docs/provas/LAB-185/symbios-na-origem.json`): o commit `c3f2875…` existe na
+origem com a data e o autor da ficha; `Cargo.toml` 0.4.1 e MIT; o copyright da §2. A árvore do commit, lida sem os blobs,
+tem 24 arquivos, e os 24 estão na cópia com o mesmo objeto do `git` e o mesmo modo — só o `VERSION` a mais. As cinco
+dependências diretas, nas versões que os três `Cargo.lock` resolvem, têm no registro público a licença da tabela, e a
+`symbios-ground` é do mesmo autor. O `HEAD` de hoje da origem já é outro (`75fff49`, 05/10). **O 14 da §3 é a conta de
+arquivos**: o `lib.rs` declara 13 `pub mod`, os 13 que a lista da página nomeia. A régua nova acusou três problemas antes.
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/a-analise-do-symbios.ts` e `tests/a-analise-do-symbios.test.ts` (21 testes, sem
+   clones e sem rede, no portão): a ficha contra a prova e o `VERSION`; a cópia contra a árvore do commit, arquivo por
+   arquivo; a tabela contra os três locks, o `Cargo.toml` e o registro; os módulos contra o `lib.rs`; e quatro lugares.
+2. A página ganha a nota datada; o texto do LAB-00 fica. O número errado só passa com a nota dizendo os dois números
+   lidos — ou corrigido, e aí não pede nota.
+3. A ferramenta com rede é a `lab185.ts`, à mão, fora do verde, declarada no `rede-em-execucao.ts` (quatro processos) e o
+   `crates.io` no `nada-pago.ts` (gratuito). O portão passa de 115 a 116 arquivos e de 1 989 a 2 010 travas.
+
+**Descartado:** ler a linha *"Adapter:"* (é da proposta do LAB-152, que espera o chat); baixar os 24 arquivos para `cmp`
+(o objeto do `git` já é o resumo dos bytes); trocar a cópia pelo `HEAD` de hoje (muda o motor medido, ato deliberado);
+consertar a régua de rede do LAB-158, que não vê o argumento de rede quando a chamada quebra a linha antes dele (medido:
+só a primeira versão da minha ferramenta fazia isso, reescrita) — escopo novo, proposto ao chat.
+
+> **"IDÊNTICA AO COMMIT" SE PERGUNTA PELO OBJETO DO `git`, E O OBJETO VEM NA ÁRVORE.** A pergunta que a trava do LAB-132
+> dizia precisar da rede precisa dela uma vez, para gravar a árvore; depois, cada verde a refaz sem sair da máquina.
