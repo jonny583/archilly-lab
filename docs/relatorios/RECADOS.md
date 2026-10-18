@@ -3959,3 +3959,16 @@ Próximo na fila: a caixa só tem o 900; as tabelas do docs/SEGURANCA.md estão 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-184 — item 900 (a dívida própria): o Lab não tem conta de usuário — a negação do topo do `SEGURANCA.md` tinha uma porta só, a da Central
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-184 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): o parágrafo do topo do docs/SEGURANCA.md, "não tem conta de usuário". FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 1989 de 1989 (115 de 115 arquivos); esteira 2341 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos com git status limpo.
+Feito: das quatro negações do parágrafo, três tinham trava (tela, rede, banco) e o parágrafo não nomeava nenhuma; a da conta tinha só a porta do kit da Central (LAB-167). Plantados numa cópia da casa, uma biblioteca de senha, um campo de senha na bancada e um cookie de sessão não derrubaram trava que dissesse "conta". Por LUGAR, quatro portas — biblioteca de identidade, dependência, campo de senha, cookie —, zero em 833 caminhos. Trava o-lab-nao-tem-conta (20 testes, sem clones); o parágrafo nomeia as cinco travas; a régua acusou seis problemas antes; 1969 → 1989 (D412). Detalhe em docs/relatorios/LAB-184.md.
+Achados para outros apps ou Central: a todas — negação que delega a uma trava de outra porta está perguntada pela metade: "a conta é da Central" não pega conta feita dentro da casa (biblioteca de senha, campo de senha, cookie); nas casas que adotam a Central, perguntem que nenhuma biblioteca de identidade mora fora do kit. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o docs/SEGURANCA.md está todo com trava nomeada, tabelas e parágrafo do topo; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

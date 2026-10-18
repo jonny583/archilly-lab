@@ -211,7 +211,8 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // E 113 no LAB-182, com a `a-rolagem-no-celular.test.ts` — o JSON da medição, o `docs/SEGURANCA.md` e o
     // `conferir.sh` desta casa; nenhum clone (quem abre o Chromium é o `conferir.sh`, antes).
     // E 114 no LAB-183, com a `nada-se-exporta.test.ts` — o `git` desta casa e o `docs/SEGURANCA.md`; nenhum clone.
-    expect(lista).toHaveLength(114);
+    // E 115 no LAB-184, com a `o-lab-nao-tem-conta.test.ts` — o `git` desta casa e o `docs/SEGURANCA.md`; nenhum clone.
+    expect(lista).toHaveLength(115);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

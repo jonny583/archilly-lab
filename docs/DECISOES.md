@@ -13824,3 +13824,36 @@ e perguntar se o código pode ser LIDO (o repositório é público de propósito
 
 > **"NÃO SE APLICA" PORQUE NÃO HÁ USUÁRIO NÃO FECHA A REGRA DE EXPORTAR, QUANDO O REPOSITÓRIO É PÚBLICO.** A pergunta é
 > por onde o código viraria produto entregue — e, das quatro crates da casa, duas não diziam que não viram.
+
+## D412 · O LAB NÃO TEM CONTA DE USUÁRIO — a negação do topo do `SEGURANCA.md` tinha uma porta só, a da Central · 18/10/2026
+**Contexto:** item 900 (LAB-183 → LAB-184). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse
+ninguém, e o LAB-183 fechou as tabelas do `docs/SEGURANCA.md`. Sobrava o parágrafo do topo, do LF-FINAL (14/09): o Lab
+*"não tem tela de usuário […], não tem banco, não tem conta de usuário e não faz chamada de rede em execução"*. Três
+negações ganharam trava depois (LAB-153, LAB-158, LAB-174); a da conta, só a porta do kit da Central (LAB-167), e a trava
+do banco a passava adiante para ela. O parágrafo não nomeava trava nenhuma. Espécie: mensagem fixa que afirma estado sem
+perguntar.
+
+**Medido:** três plantas, cada uma numa cópia da casa (`git worktree`), adicionada ao `git`, com a suíte da esteira
+inteira rodando — uma biblioteca de senha (`bcryptjs`) num arquivo da esteira, um campo de senha na bancada, um
+`document.cookie` no `prova.js`. Nenhuma trava disse "conta": caíram as contagens de arquivo do LAB-52 e do LAB-57, o
+carimbo da bancada do LAB-182 (qualquer edição o derruba) e, para o campo, a régua do `<form` do `regras.test.ts` §4, que
+não pega o campo solto. Por LUGAR, nas quatro portas novas, em 833 caminhos (399 JS/TS, 23 Rust, 1 HTML, 2
+`package.json`, 5 `Cargo.toml`): zero. A régua nova, contra a página de antes: seis problemas.
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/o-lab-nao-tem-conta.ts` e `tests/o-lab-nao-tem-conta.test.ts` (20 testes, sem
+   clones, no portão): as portas `modulo`, `dependencia`, `senha` e `cookie`, sem lista de exceções e com o universo
+   publicado; a quinta, a da família, fica com a `a-adocao-da-central.ts`, e esta só cobra que o parágrafo a nomeie.
+2. O parágrafo do topo nomeia as cinco travas das quatro negações, e a régua cobra o nome e a existência de cada uma; a
+   seção *Reconferido no LAB-184* tem as quatro portas e os dois tamanhos das listas, contados.
+3. A trava do banco deixa de dizer que a conta é só da Central. O portão passa de 114 a 115 arquivos e de 1 969 a 1 989
+   travas.
+
+**Descartado:** perguntar o cabeçalho de autorização do HTTP (as ferramentas o usam com o token do GitHub para ler os
+vizinhos — credencial da sessão, não conta de usuário; o segredo é da varredura de segredos); perguntar `localStorage` e
+`sessionStorage` como conta (a trava do banco já os mediu, zero); estender a régua do `<form` do §4 (ela responde outra
+pergunta, a de produto, e responde certo).
+
+> **NEGAÇÃO QUE DELEGA A UMA TRAVA DE OUTRA PORTA ESTÁ PERGUNTADA PELA METADE.** "Quem pergunta é a da Central" valia para
+> a conta da família; a conta feita aqui, sem a Central, não tinha quem perguntasse.

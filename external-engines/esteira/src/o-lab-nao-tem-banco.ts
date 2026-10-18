@@ -285,5 +285,5 @@ export const O_QUE_ISTO_NAO_ALCANCA: readonly string[] = [
   "o módulo montado por variável (`import(nome)`) ou dentro de `${}` de template: a régua lê a string inteira em posição de importação, como a da rede",
   "o armazenamento simples do navegador (`localStorage`, `sessionStorage`) e o arquivo JSON gravado em disco: guardam dado, mas não são banco; medidos em 18/10 (zero), e não perguntados",
   "a história: um `.sql` que entrou e saiu não deixa banco nenhum — a negação é sobre o que existe; segredo na história é da `arquivo-de-credencial.ts`",
-  "a CONTA de usuário, a outra negação da mesma frase: ela depende da Central, e quem pergunta se o Lab a importa é a `a-adocao-da-central.ts` (LAB-167)",
+  "a CONTA de usuário, a outra negação da mesma frase: a porta da família (o kit da Central) é a `a-adocao-da-central.ts` (LAB-167), e as outras quatro — a biblioteca, a dependência, o campo de senha e o cookie — são a `o-lab-nao-tem-conta.ts` (LAB-184)",
 ];
