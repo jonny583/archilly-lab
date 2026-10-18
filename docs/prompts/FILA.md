@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-173 · item 900 — a dívida própria: a rodada sem linha — trinta e nove rodadas não escreveram a sua linha na conta dos disparos, e a conta seguiu verde — ✅ **feito em 18/10/2026** (D401)
+
+A FILA continuava sem proposta que não esperasse ninguém, e das páginas de `docs/` sem leitor só sobrava a que espera o chat. Na dívida própria, regra sem guarda: a conta dos disparos do `ONDE_PARAMOS.md` diz *"uma linha por disparo"*, e a última escrita na hora era a do LAB-133; do LAB-134 ao LAB-172 nenhuma rodada escreveu a sua, e a régua — que conferia a tabela contra ela mesma — seguiu verde. As 39 reconstruídas do `git` e do recado com a origem nova `reconstruido` (hora de teto, commit nomeado); `conferirAsRodadas` cruza as rodadas com os recados nos dois sentidos, com o LAB-68 como única exceção declarada; dez travas no portão sem clones; prova `bun run lab173`, com as 39 conferidas contra o primeiro commit de cada rodada e sete mutações acusadas. Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-173.md`](../relatorios/LAB-173.md), decisão **D401**.
+
 ### LAB-172 · item 900 — a dívida própria: a análise do esqueleto reto, perguntada à origem — as duas fichas conferem, e os tempos citados não são os dos arquivos que a página aponta — ✅ **feito em 18/10/2026** (D400)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o LAB-171 deixou escrito que a ficha da `STRAIGHT_SKELETON_ANALYSIS.md` (LAB-00) não tinha sido reconferida. Medida na origem (`bun run lab172`, só os dois commits fixados e a tag da CGAL, sem blobs, nada executado): as duas fichas conferem, e o `HEAD` de hoje das duas origens ainda é o da ficha. O achado estava aqui dentro: a página diz *"saída completa em `outputs/…`"* e cita quatro tempos que os dois arquivos, nascidos no mesmo commit, não têm — a página citou uma execução e guardou outra; a geometria confere, e é ela o oráculo do LAB-04. Nota datada na página; trava `src/a-analise-do-esqueleto-reto.ts`, sem clones e sem rede: as fichas contra a prova, as saídas contra o arquivo, o oráculo contra as saídas, os seis lugares e a pasta; sessenta e cinco mutações acusadas; 1774 → 1790 no portão sem clones (103 → 104 arquivos). Nada novo proposto ao chat.
@@ -2099,7 +2105,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1790 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1800 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

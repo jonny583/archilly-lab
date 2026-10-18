@@ -44,7 +44,16 @@
  * *Classe nova que se mistura com a velha apaga a medição das duas*, e é por isso que esta entra
  * no vocabulário em vez de virar prosa na célula.
  */
-export const ORIGENS = ["observado", "derivado", "entregue-em-lote"] as const;
+/**
+ * - `reconstruido` — **a linha foi escrita DEPOIS, por outra rodada**, a partir do `git` e do
+ *   `RECADOS.md` (LAB-173, D401). Do LAB-134 ao LAB-172 trinta e nove rodadas não escreveram a
+ *   linha delas, e nada reprovou. A hora é sempre o **teto** `≤ HH:MM` — o primeiro commit da
+ *   rodada, que o disparo precede —, e a célula do que achou nomeia o commit e o recado de onde
+ *   saiu. *Reconstrução sai etiquetada como reconstrução, com a fonte de cada linha* (`CLAUDE.md`
+ *   §1-B): se ela se misturasse a `derivado`, a hora tirada do `git` passaria pela hora tirada do
+ *   `cron`, e são medições diferentes.
+ */
+export const ORIGENS = ["observado", "derivado", "entregue-em-lote", "reconstruido"] as const;
 export type Origem = (typeof ORIGENS)[number];
 
 export interface DisparoDaConta {
@@ -78,6 +87,7 @@ export interface ContaDosDisparos {
     observados: number | null;
     derivados: number | null;
     emLote: number | null;
+    reconstruidos: number | null;
     emVazio: number | null;
   };
   /** A frase do que o número decide — sem ela a lista vira ruído e alguém a apaga. */
@@ -151,6 +161,7 @@ export function lerAConta(ondeParamos: string): ContaDosDisparos {
   const observados = /\bobservados:\s*(\d+)/.exec(secao)?.[1];
   const derivados = /\bderivados:\s*(\d+)/.exec(secao)?.[1];
   const emLote = /entregues em lote:\s*(\d+)/.exec(secao)?.[1];
+  const reconstruidos = /\breconstruídos:\s*(\d+)/.exec(secao)?.[1];
   const emVazio = /em vazio:\s*(\d+)/.exec(secao)?.[1];
   const n = (s: string | undefined) => (s === undefined ? null : Number(s));
   return {
@@ -160,6 +171,7 @@ export function lerAConta(ondeParamos: string): ContaDosDisparos {
       observados: n(observados),
       derivados: n(derivados),
       emLote: n(emLote),
+      reconstruidos: n(reconstruidos),
       emVazio: n(emVazio),
     },
     temAFraseDoQueDecide: /não é fracasso/.test(secao) && /intervalo/.test(secao),
@@ -178,7 +190,10 @@ export interface ProblemaDaConta {
     | "mais-de-um-id"
     | "vazio-sem-recado"
     | "recado-sem-linha"
-    | "linha-que-a-regua-nao-le";
+    | "linha-que-a-regua-nao-le"
+    | "rodada-sem-linha"
+    | "linha-de-rodada-sem-recado"
+    | "reconstruida-sem-fonte";
   oQue: string;
 }
 
@@ -228,12 +243,18 @@ export function conferirAConta(
   // prosa: os `7` entregues em lote do LAB-83 passaram horas no documento sem régua nenhuma, e as
   // linhas que eles contavam eram justamente as que a régua não sabia ler. *Número de classe sem
   // régua da classe é o lugar onde uma classe nova vai envelhecer.*
-  const porOrigem: Record<string, number> = { observado: 0, derivado: 0, "entregue-em-lote": 0 };
+  const porOrigem: Record<string, number> = {
+    observado: 0,
+    derivado: 0,
+    "entregue-em-lote": 0,
+    reconstruido: 0,
+  };
   for (const l of conta.linhas) porOrigem[l.origem] = (porOrigem[l.origem] ?? 0) + 1;
   const porClasse: [string, number | null, number][] = [
     ["observados", conta.declarados.observados, porOrigem["observado"]!],
     ["derivados", conta.declarados.derivados, porOrigem["derivado"]!],
     ["entregues em lote", conta.declarados.emLote, porOrigem["entregue-em-lote"]!],
+    ["reconstruídos", conta.declarados.reconstruidos, porOrigem["reconstruido"]!],
   ];
   for (const [nome, declarado, contado] of porClasse) {
     if (declarado !== contado) {
@@ -336,4 +357,117 @@ export function diasDosRecadosEmVazio(
     .filter((r) => r.ancora === "despertador-sem-item")
     .map((r) => /(\d{2}\/\d{2}\/\d{4})/.exec(r.titulo)?.[1] ?? "")
     .filter((d) => d !== "");
+}
+
+/**
+ * ════════════════════════════════════════════════════════════════════════════
+ *  A RODADA SEM LINHA. (LAB-173, D401)
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * A seção diz *"uma linha por disparo"*, e a régua acima conferia a tabela **contra ela mesma**:
+ * totais contra linhas, ordem, origem, os vazios contra os recados da classe. **Nada perguntava se
+ * cada RODADA tinha a sua linha.** Medido no LAB-173: a última linha era de 16/10, 15:06 (o
+ * LAB-133), e as **trinta e nove** rodadas seguintes — LAB-134 a LAB-172, todas com recado no
+ * `RECADOS.md` — não escreveram a delas; a conta seguiu VERDE, porque os totais (80) andavam
+ * junto com as linhas (80), e as duas paravam no mesmo lugar.
+ *
+ * > **Conta que só se confere contra si mesma aprova o abandono: quem para de escrever a linha
+ * > para também de escrever o total, e os dois continuam concordando.**
+ *
+ * A outra ponta é o `RECADOS.md`, que cada rodada escreve **por obrigação com trava** (D356).
+ * Então o cruzamento é este, nos dois sentidos:
+ *
+ * 1. todo recado de prompt (`LAB-N` no título) do regime da caixa em diante tem uma linha que
+ *    cita aquele `LAB-N` na coluna da rodada — salvo as exceções declaradas, com o motivo;
+ * 2. todo `LAB-N` citado na coluna da rodada tem recado.
+ *
+ * E a linha `reconstruido` tem de dizer de onde veio: um commit (sete algarismos hexadecimais)
+ * na célula do que achou. *Reconstrução se confere, não se obedece* (`CLAUDE.md` §1-B).
+ */
+
+/**
+ * As rodadas do regime da caixa que **não têm** linha, e por quê. Fechada nos dois sentidos: uma
+ * exceção cuja rodada passou a ter linha, ou que não tem recado, também reprova.
+ */
+export const RODADAS_SEM_LINHA: Readonly<Record<string, string>> = {
+  "LAB-68":
+    "o item 001 começou ANTES da conta existir: a conta abriu com o religamento das 14:56Z, e as " +
+    "duas primeiras linhas (15:05 e 16:05) dizem 'o 001 em curso' e 'acumulou' — o disparo que " +
+    "começou o LAB-68 é anterior à primeira linha, e não se reconstrói hora que não se mediu",
+};
+
+/** Os prompts (`LAB-N`) dos recados de `abertura` em diante, lidos do TÍTULO do registro. */
+export function promptsDosRecados(
+  recados: { titulo: string }[],
+  abertura: string,
+): string[] {
+  const fora: string[] = [];
+  for (const r of recados) {
+    const data = /(\d{2}\/\d{2}\/\d{4})/.exec(r.titulo)?.[1];
+    const prompt = /\bLAB-\d+\b/.exec(r.titulo)?.[0];
+    if (data === undefined || prompt === undefined) continue;
+    if (diaDe(data) < diaDe(abertura)) continue;
+    if (!fora.includes(prompt)) fora.push(prompt);
+  }
+  return fora;
+}
+
+/** Os dois sentidos do cruzamento entre as rodadas da conta e os recados. */
+export function conferirAsRodadas(
+  conta: ContaDosDisparos,
+  promptsNosRecados: string[],
+  excecoes: Readonly<Record<string, string>> = RODADAS_SEM_LINHA,
+): ProblemaDaConta[] {
+  const problemas: ProblemaDaConta[] = [];
+  const naConta = new Set(conta.linhas.flatMap((l) => l.rodada.match(/\bLAB-\d+\b/g) ?? []));
+  const nosRecados = new Set(promptsNosRecados);
+
+  const semLinha = promptsNosRecados.filter((p) => !naConta.has(p) && !(p in excecoes));
+  if (semLinha.length > 0) {
+    // **A mensagem NOMEIA as rodadas** — a lição do LAB-81: régua que acusa uma conta nomeia as
+    // parcelas, senão manda recontar à mão.
+    problemas.push({
+      tipo: "rodada-sem-linha",
+      oQue:
+        `${semLinha.length} rodada(s) com recado e sem linha na conta dos disparos: ` +
+        `${semLinha.join(", ")} — a seção diz "uma linha por disparo", e a rodada que não ` +
+        "escreve a dela some da medida que decide o intervalo",
+    });
+  }
+  for (const p of naConta) {
+    if (!nosRecados.has(p)) {
+      problemas.push({
+        tipo: "linha-de-rodada-sem-recado",
+        oQue: `a conta cita ${p} na coluna da rodada, e não há recado de ${p} no RECADOS.md`,
+      });
+    }
+  }
+  for (const [p, motivo] of Object.entries(excecoes)) {
+    if (naConta.has(p) || !nosRecados.has(p) || motivo.trim().length < 40) {
+      problemas.push({
+        tipo: "rodada-sem-linha",
+        oQue:
+          `a exceção ${p} não se sustenta: ` +
+          (naConta.has(p)
+            ? "a rodada TEM linha na conta, e a exceção ficou morta"
+            : !nosRecados.has(p)
+              ? "não há recado dela no regime da caixa"
+              : "o motivo não está escrito"),
+      });
+    }
+  }
+  for (const l of conta.linhas) {
+    if (l.origem !== "reconstruido") continue;
+    const comCommit = /`[0-9a-f]{7,40}`/.test(l.achou);
+    const comTeto = /^≤/.test(l.hora);
+    if (!comCommit || !comTeto) {
+      problemas.push({
+        tipo: "reconstruida-sem-fonte",
+        oQue:
+          `a linha reconstruída ${l.data} ${l.hora} não diz de onde veio — ` +
+          (comTeto ? "falta o commit na célula do que achou" : "a hora reconstruída é teto, e se escreve `≤ HH:MM`"),
+      });
+    }
+  }
+  return problemas;
 }

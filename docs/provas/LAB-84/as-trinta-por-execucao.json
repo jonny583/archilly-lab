@@ -2,7 +2,7 @@
   "prompt": "LAB-84",
   "oQue": "os 104 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-18T09:28:24.951Z",
+  "quando": "2026-10-18T10:22:17.408Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -12,7 +12,7 @@
   "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
   "quantosArquivos": 104,
   "quantosPassamSemClone": 104,
-  "quantasTravasNaLista": 1790,
+  "quantasTravasNaLista": 1800,
   "asTrintaEUma": [
     {
       "arquivo": "tests/pagina.test.ts",
@@ -171,7 +171,7 @@
     {
       "arquivo": "tests/disparos-em-vazio.test.ts",
       "saida": 0,
-      "passam": 26,
+      "passam": 36,
       "reprovam": 0,
       "asQueReprovam": []
     },

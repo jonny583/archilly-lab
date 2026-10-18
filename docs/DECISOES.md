@@ -13404,3 +13404,42 @@ pacotes baixados, não no repositório — dito no módulo).
 
 > **"SAÍDA COMPLETA EM <ARQUIVO>" É AFIRMAÇÃO SOBRE O ARQUIVO.** Página e arquivo nasceram no mesmo commit e mesmo
 > assim discordavam: quem cita uma execução e guarda outra cita um número que o arquivo apontado não tem.
+
+## D401 · A RODADA SEM LINHA — trinta e nove rodadas não escreveram a sua linha na conta dos disparos, e a conta seguiu verde · 18/10/2026
+
+**Contexto:** item 900 (LAB-173). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+LAB-172 deixou escrito que das páginas de `docs/` sem leitor só sobrava a `SYMBIOS_ANALYSIS.md`, que espera o chat. Na
+dívida própria, a espécie **regra sem guarda**: a conta dos disparos do `ONDE_PARAMOS.md` diz *"uma linha por
+disparo"*, e o `COMO_FUNCIONA.md` manda anotar o disparo — e a régua do item 004 conferia a tabela **contra ela
+mesma** (totais contra linhas, ordem, origem, os vazios contra os recados da classe).
+
+**Medido:** a última linha escrita na hora era a de 16/10, 15:06 (o LAB-133). Do LAB-134 ao LAB-172, **trinta e nove
+rodadas**, todas com recado no `RECADOS.md` e todas *"caixa só com o 900"*, não escreveram a delas; o total declarado
+ficou em 80 e as linhas em 80, e a conta seguiu VERDE. A régua velha, com os totais ajustados ao abandono, aprova a
+tabela sem as 39 — reproduzido na trava e na prova.
+
+**Decidido:**
+
+1. A origem nova **`reconstruido`** no vocabulário fechado: linha escrita depois, por outra rodada, a partir do `git` e
+   do recado; a hora é sempre teto (`≤`, o primeiro commit da rodada), e a célula nomeia o commit. As 39 linhas
+   reconstruídas, e a desta rodada como `derivado` (teto do `reflog`, 10:06:11). Totais: 120 no registro, 39
+   reconstruídos.
+2. `conferirAsRodadas` em `src/disparos-do-despertador.ts`, os dois sentidos: todo `LAB-N` de recado do regime da caixa
+   tem linha (exceção fechada: o LAB-68, que começou antes de a conta existir, com o motivo no código), todo `LAB-N` da
+   coluna da rodada tem recado, e toda reconstruída tem commit e hora de teto. Dez travas novas em
+   `tests/disparos-em-vazio.test.ts`, no portão sem clones.
+3. A prova `docs/provas/LAB-173/rodadas-sem-linha.json` (`bun run lab173`): cada reconstruída conferida contra o
+   primeiro commit da rodada no `git`, o defeito medido e as mutações.
+
+**Os dois lados:** a conta de hoje fecha sem problema; sete mutações acusadas (apagar uma linha, rodada sem recado,
+reconstruída sem commit ou com hora afirmada, exceção morta, sem recado ou sem motivo), e a régua velha aprovando o
+abandono.
+
+**Descartado:** escrever as 39 como `derivado` (a hora do `git` passaria pela do `cron`, e são medições diferentes —
+*classe nova que se mistura com a velha apaga a medição das duas*, D277); inventar linhas para as quatro horas sem
+commit de 17/10 (14:28 a 18:36) — disparo que não deixou rodada não se reconstrói, e fica dito na seção, fora da
+tabela; cruzar pela hora em vez do prompt (a hora do disparo não se mede depois; o prompt está no recado, que tem
+trava).
+
+> **CONTA QUE SÓ SE CONFERE CONTRA SI MESMA APROVA O ABANDONO.** Quem para de escrever a linha para também de
+> escrever o total, e os dois continuam concordando. A régua precisa de uma ponta que a rodada é obrigada a escrever.
