@@ -2,7 +2,7 @@
   "prompt": "LAB-84",
   "oQue": "os 116 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-18T22:30:01.164Z",
+  "quando": "2026-10-18T22:31:03.552Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -11,7 +11,7 @@
   "porQueNaoPorLeitura": "o item 017 proibiu: rodar a lista sem os clones é a RESPOSTA, ler o `import` é a HIPÓTESE. E a diferença apareceu no número: o D279 disse DUAS travas, lidas do fonte; executadas são QUATRO, e três delas são anteriores à minha rodada",
   "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
   "quantosArquivos": 116,
-  "quantosPassamSemClone": 114,
+  "quantosPassamSemClone": 115,
   "quantasTravasNaLista": 2010,
   "asTrintaEUma": [
     {
@@ -473,17 +473,10 @@
     },
     {
       "arquivo": "tests/as-cinco-linhas-do-recado.test.ts",
-      "saida": 1,
-      "passam": 14,
-      "reprovam": 6,
-      "asQueReprovam": [
-        "LAB-129 · a página de verdade — as cinco linhas, uma vez cada, na ordem, nenhuma calada > nenhum problema — e a lista diz QUAL, se houver",
-        "LAB-129 · a página de verdade — as cinco linhas, uma vez cada, na ordem, nenhuma calada > sem a exceção, o LF-01 reprova — o perdão é de verdade, não enfeite",
-        "LAB-129 · as mutações medidas antes da régua, plantadas na página de verdade > `Depende do Jonny:` vazio no recado do LAB-128 — antes, zero travas acusavam",
-        "LAB-129 · as mutações medidas antes da régua, plantadas na página de verdade > a linha dos Achados tirada do recado do LAB-50 — antes, zero",
-        "LAB-129 · as mutações medidas antes da régua, plantadas na página de verdade > `Feito:` antes de `Estado:` no recado do LAB-110 — antes, zero",
-        "LAB-129 · as mutações medidas antes da régua, plantadas na página de verdade > `Depende do Jonny:` duas vezes no recado do LAB-90 — antes, zero"
-      ]
+      "saida": 0,
+      "passam": 20,
+      "reprovam": 0,
+      "asQueReprovam": []
     },
     {
       "arquivo": "tests/onde-esta-o-detalhe.test.ts",
@@ -836,6 +829,6 @@
       "asQueReprovam": []
     }
   ],
-  "oQueIssoDecide": "a afirmação é FALSA por 2 arquivo(s): tests/nome-do-trabalho.test.ts, tests/as-cinco-linhas-do-recado.test.ts",
+  "oQueIssoDecide": "a afirmação é FALSA por 1 arquivo(s): tests/nome-do-trabalho.test.ts",
   "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
 }
