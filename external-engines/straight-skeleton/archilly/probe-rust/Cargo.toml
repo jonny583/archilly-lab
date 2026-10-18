@@ -5,6 +5,7 @@
 name = "ss-rs-probe"
 version = "0.1.0"
 edition = "2021"
+publish = false
 
 [dependencies]
 straight-skeleton = { path = "../../../../../tmp/straight-skeleton" }

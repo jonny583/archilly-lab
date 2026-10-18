@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-183 · item 900 — a dívida própria: nada de exportar motor ou código ao usuário — "o Lab não tem usuário nem exportação", e o repositório é público — ✅ **feito em 18/10/2026** (D411)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`; o LAB-182 fechou a seção *O que não foi conferido*. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a última linha das tabelas do `docs/SEGURANCA.md` sem trava nomeada, da tabela *Execução*, do LF-FINAL (14/09): *"Nada de exportar motor ou código ao usuário · não se aplica · o Lab não tem usuário nem exportação. O que ele publica são relatórios e JSON de medição"*. O Lab não tem usuário, mas o repositório é público e lê vizinhos privados: o que sai daqui sai para o mundo. Seis portas: a tela (LAB-153) e o código do produto copiado (LAB-146) já perguntadas; por LUGAR as outras quatro — 2 `package.json` com `"private": true`, 4 `Cargo.toml` fora do `upstream/` e **dois sem `publish = false`** (consertados), 1 rotina sem passo que publique, nenhum binário versionado, `docs/` em `.md`, `.json`, `.geojson` e `.txt`. Trava `src/nada-se-exporta.ts` (14 testes, sem clones); a régua acusou catorze problemas antes; 1 955 → 1 969. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-183.md`](../relatorios/LAB-183.md).
+
 ### LAB-182 · item 900 — a dívida própria: mobile sem rolagem lateral — "a bancada não é aberta no celular", e ninguém a tinha aberto — ✅ **feito em 18/10/2026** (D410)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, o último item ainda sem pergunta da seção *O que não foi conferido* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"Mobile sem rolagem lateral. Idem: a bancada não é aberta no celular"*. A bancada monta o mesmo esqueleto com ou sem o `.wasm`, e foi medida no Chromium a 390, 360 e 320 px, com e sem a emulação de celular, como monta aqui e com o registro de 10/09 dentro: **sobra 0 px nos doze casos** — o `<canvas>` encolhe e o registro rola dentro da caixa —, mas a página não tem `<meta name="viewport">` e o celular a desenha em 980 px. Produtor novo `rolagem-no-celular.ts` (sem servidor, sem o `.wasm`), escrevendo `docs/provas/LAB-182/navegador-celular.json`; o `conferir.sh` passa a oito passos; trava `src/a-rolagem-no-celular.ts` (18 testes, sem clones); as réguas vizinhas com a peça nova declarada (LAB-175, LAB-148, §7). A régua acusou nove problemas antes; 1 937 → 1 955. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-182.md`](../relatorios/LAB-182.md).
@@ -2145,7 +2149,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1955 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1969 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

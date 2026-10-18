@@ -3946,3 +3946,16 @@ Próximo na fila: a caixa só tem o 900; a seção "O que não foi conferido" do
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-183 — item 900 (a dívida própria): nada de exportar motor ou código ao usuário — "o Lab não tem usuário nem exportação", e o repositório é público
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-183 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): a última linha das tabelas do docs/SEGURANCA.md sem trava nomeada, "Nada de exportar motor ou código ao usuário". FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 1969 de 1969 (114 de 114 arquivos); esteira 2321 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos com git status limpo.
+Feito: a linha dizia "o Lab não tem usuário nem exportação". Não tem usuário, mas o repositório é público e lê vizinhos privados: o que sai daqui sai para o mundo. Seis portas: a tela (LAB-153) e o código do produto copiado (LAB-146) já perguntadas; por LUGAR as outras quatro — dois Cargo.toml sem publish = false (probe-rust e wasm-probe), consertados; os dois package.json private; a rotina sem passo que publique; nenhum binário versionado; docs/ em .md, .json, .geojson e .txt. Trava nada-se-exporta (14 testes, sem clones); a régua acusou catorze problemas antes; 1955 → 1969 (D411). Detalhe em docs/relatorios/LAB-183.md.
+Achados para outros apps ou Central: a todas — "não se aplica" por falta de usuário não fecha a regra de exportar código quando o repositório é público: confiram package.json com "private": true, Cargo.toml com publish = false e nenhuma rotina que publique (aqui, dois de quatro Cargo.toml não diziam). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as tabelas do docs/SEGURANCA.md estão todas com trava nomeada; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
