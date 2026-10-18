@@ -3738,3 +3738,16 @@ Próximo na fila: a caixa só tem o 900; no SEGURANCA.md, sem trava, só a linha
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-167 — item 900 (a dívida própria): o Lab não adota a Central — a página afirmava seis estados sem leitor, e dois eram falsos
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-167 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, e o .wasm de novo sem o alvo do rustup (403 do portão de rede desta máquina, política — não se insiste); fui à dívida própria por LUGAR: a página de docs/ sem nenhum leitor no código. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1725 de 1725 (100 de 100 arquivos); esteira com só as 9 falhas do .wasm (as de sempre), testfit 17 de 17. O envio passa pelo gancho do LAB-106.
+Feito: o docs/ADOCAO_CENTRAL.md (LF-FINAL, 14/09; zero arquivos de código o citavam — mensagem fixa que afirma estado sem perguntar) dizia "não há tela" — falso desde ANTES de nascer (a bancada é de 10/09, LAB-01) — e que o vendor/ do Generate não tinha código — falso desde 14/09 (hoje package.json 0.48.0 e dist/). "O Lab não importa a Central em execução" era verdade POR ACASO: a prova era a suíte passar, e ela passa porque a instalação no clone do Generate falha (403). Medido pelo fecho das importações de valor: esteira 424 arquivos, testfit 88, zero chegadas; com tipos, uma (cores.ts do Generate, por import type). Trava src/a-adocao-da-central.ts + teste sem clones (33) + teste com clone (7); dezesseis mutações de código acusadas; 1692 → 1725; D395; detalhe em docs/relatorios/LAB-167.md.
+Achados para outros apps ou Central: declaração ambiente que se justifica pelo estado do vizinho ("a pasta de lá não tem código") envelhece no dia em que o vizinho vendoriza o código, e "a suíte passa sem o pacote" só prova que a instalação falhou — toda casa que compila código alheio por caminho e declara um pacote que não instala tem a mesma frase a remedir. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na dívida própria, as páginas de docs/ com um a três leitores (TRIAGEM.md, O_QUE_FALTA_MEDIR_POR_MOTOR.md, referencia/FERRAMENTA_E_TRAVA.md); o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

@@ -13113,3 +13113,62 @@ trocar a chave; pôr o `.md` no universo (é onde a casa fala dos nomes).
 > **O NÚMERO DA TABELA ENVELHECE NO DIA EM QUE O PRIMEIRO TESTE DA TRAVA ESCREVE O CASO BOM.** A linha dizia "zero"
 > porque em 14/09 ninguém tinha escrito, de propósito, o nome que a busca procura; a primeira trava de segredo que provou
 > aprovar o caso bom o escreveu, e a linha ficou falsa sem que nenhuma palavra dela mudasse.
+
+## D395 · O LAB NÃO ADOTA A CENTRAL — a página afirmava seis estados sem que código nenhum a lesse, e dois eram falsos · 18/10/2026
+
+**Contexto:** item 900 (LAB-167). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e a
+única linha sem trava do `docs/SEGURANCA.md` — a do `.wasm` — foi descartada pela quarta vez: o `rustup target add
+wasm32-unknown-unknown` recebe **403 do portão de rede** desta máquina (política, não falha passageira; não se insiste).
+Procurei, por LUGAR, página de `docs/` que nenhum código lesse: contados os nomes nas suítes, o `docs/ADOCAO_CENTRAL.md`
+(LF-FINAL, 14/09/2026, nunca mais tocado) tinha **zero** leitores — e afirma, em tabela e prosa, seis estados (espécie
+**mensagem fixa que afirma estado sem perguntar**).
+
+**Medido (LAB-167):**
+
+- *"não há tela"*, *"não há interface"*, *"hoje ele não pode [ganhar tela], por regra"* — **falso desde antes de a
+  página nascer**: a bancada do navegador entrou em 10/09/2026 (LAB-01, `069fd29`), quatro dias antes; é a exceção
+  declarada da regra (D381), com duas cores escritas à mão;
+- *"o clone do Generate traz `vendor/archilly-central/` só com documentos, sem código"* (e o mesmo nas duas declarações
+  de tipo: *"sem `package.json` e sem código. Não há o que instalar"*) — **falso hoje**: 40 entradas, `package.json`
+  0.48.0 e `dist/`; o `package.json` já estava lá em 13/09 (`22502b3`), o `dist/` entrou em 14/09 (`33311c3`);
+- *"não há chamada paga… nenhuma IA"* e *"não há chave nenhuma"* — verdadeiros, e já perguntados por `nada-pago.ts`
+  (LAB-148), `rede-em-execucao.ts` (LAB-158) e `a-busca-das-chaves.ts` (LAB-166); a página não os apontava;
+- *"o Lab não importa nada da Central em tempo de execução"* — **verdadeiro, e nunca medido**: a prova era `bun test`
+  passar, e passar só dizia que a instalação no clone do Generate falhou (403 no registro de lá). Medido agora pelo fecho
+  das importações de valor a partir do `include` dos dois pacotes, com os `paths` dos clones: esteira **424** arquivos
+  (73 nos vizinhos), testfit **88**, **zero** chegadas ao pacote. Contando também o que é só de tipo, **454** e **119**
+  arquivos e **uma** chegada — `src/lib/design/cores.ts` do Generate, por `import type` em `src/lib/diretrizes/types.ts`:
+  exatamente o que a declaração diz (o `tsc` chega lá, a execução não);
+- *"as duas declarações declaram o pacote, e isso não é adoção"* — verdadeiro: dois arquivos, idênticos; em 365 códigos
+  e 2 `package.json` da casa, nenhuma importação e nenhuma dependência do pacote.
+
+**Decidido:**
+
+1. `external-engines/esteira/src/a-adocao-da-central.ts`, duas perguntas. **Sem clones:** nenhum código do que o `git`
+   carrega (fora de `upstream/`) importa o pacote, por nenhuma de nove formas (valor, só tipo, nomes todos `type`,
+   `export … from`, `export *`, `import()`, `require`, `typeof import()`, efeito colateral), nenhum `package.json`
+   depende dele (quatro espécies), só as duas declarações o declaram e são idênticas, e a página aponta cada uma de cinco
+   travas, que existem. **Com clones:** o fecho de valor dos dois pacotes não chega ao pacote, nenhum caminho da família
+   deixa de resolver, e o universo é publicado.
+2. `tests/a-adocao-da-central.test.ts` (33 testes, sem clones, no portão sem clones: 1 692 → 1 725, 99 → 100 arquivos) e
+   `tests/a-adocao-da-central-com-clone.test.ts` (7 testes, no verde completo; sem os clones, reprova).
+3. A página reescrita: coluna *quem pergunta* na tabela, a bancada como a exceção que é, a seção *Nada importa o pacote
+   — nem em execução* com os números, e a frase do `vendor/` riscada e não apagada. As duas declarações perdem a frase
+   sobre o estado do vizinho e apontam a trava.
+
+**Os dois lados:** a árvore de hoje, o pacote em comentário, em texto e em template, e o `upstream/` passam; cada uma das
+nove formas de importar, cada espécie de dependência, a terceira declaração, a declaração que sumiu, as que divergiram,
+a página que deixou de apontar, a trava apontada ausente, a página ausente e o universo vazio reprovam. O fecho, numa
+árvore montada no teste, acha o pacote no fim de uma cadeia de valor que atravessa o `paths`, não o acha numa cadeia só
+de tipo (e o acha com tipos), e publica o caminho que não resolve. **Dezesseis mutações de código, dezesseis acusadas.**
+
+**Descartado:** exigir que a bancada passe pelo catálogo de cores da Central (é ferramenta da sessão, sem usuário, e a
+regra dela é do chat — dito na página, não mudado); afirmar na página o estado do `vendor/` do Generate (é do vizinho e
+envelhece sem aviso, como envelheceu); provar a execução com um plugin do Bun interceptando a resolução (pegaria só o
+que a suíte carrega, e o fecho largo já implica zero na execução); fechar a pergunta 2 no portão sem clones (ela é,
+por definição, sobre os clones).
+
+> **"A SUÍTE PASSA SEM ELE" NÃO PROVA QUE ELE NÃO ESTÁ NO CAMINHO — PROVA QUE A INSTALAÇÃO FALHOU.** A prova que
+> dependia de um 403 noutro registro viraria silêncio no dia em que uma máquina instalasse as dependências do vizinho:
+> o kit de contas, créditos e design de outra casa entraria na execução do Lab sem nada acusar. A pergunta tem de
+> perguntar ao caminho, não ao acaso.
