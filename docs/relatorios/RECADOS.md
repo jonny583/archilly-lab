@@ -3907,3 +3907,16 @@ Próximo na fila: a caixa só tem o 900; as propostas antigas esperam o chat; o 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-180 — item 900 (a dívida própria): nenhuma chave em `VITE_` — "não há build de navegador", e há um: o `.wasm`, que embute uma variável de compilação
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-180 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): a linha do VITE_ no docs/SEGURANCA.md, a última da tabela Chaves e segredos sem trava. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1920 de 1920 (111 de 111 arquivos); esteira 2272 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos com git status limpo.
+Feito: a linha dizia "não há build de navegador; e a busca acima cobre VITE_". Por LUGAR, três portas: empacotador (394 arquivos, zero), a página da bancada (2 arquivos servidos como estão, zero) e o .wasm da ponte — que É um build que o navegador baixa e embute 1 variável de compilação, SYMBIOS_VERSAO, posta pelo build.rs a partir do Cargo.toml do upstream (nenhuma chave, nada lido da máquina). A busca do VITE_ é a do LAB-166, que a linha não nomeava. A régua nova acusou oito problemas na página de antes; linha corrigida e tabela das três; trava o-que-o-navegador-baixa (21 testes, sem clones); 1899 → 1920 (D408). Detalhe em docs/relatorios/LAB-180.md.
+Achados para outros apps ou Central: a todas — "não há build de navegador" esquece o build que não é de JavaScript: quem serve .wasm à página, procure env! e option_env! nos .rs da crate e o cargo:rustc-env= do build.rs dela; é o prefixo que nenhuma busca de VITE_ acha. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a tabela Chaves e segredos está toda perguntada; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

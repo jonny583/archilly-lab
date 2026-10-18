@@ -13680,3 +13680,37 @@ mexer no `ADOCAO_CENTRAL.md` (outra página, com a trava do LAB-167); e passar `
 
 > **"NÃO SE APLICA" NUMA LINHA DE SEGURANÇA É AFIRMAÇÃO DE ESTADO, E PRECISA DIZER QUEM A PERGUNTA.** Aqui, quatro travas
 > a perguntavam, a linha não nomeava nenhuma — e a rodada anterior desta casa achava que eram duas.
+
+## D408 · NENHUMA CHAVE EM `VITE_` — "não há build de navegador", e há um: o `.wasm`, que embute uma variável de compilação · 18/10/2026
+
+**Contexto:** item 900 (LAB-180). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup`. Na dívida própria, a espécie **mensagem fixa que afirma estado sem perguntar**, a segunda
+linha da tabela *Chaves e segredos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09) — a última da tabela sem trava, que o
+LAB-179 tinha deixado de lado: *"Nenhuma chave em `VITE_` · não se aplica, e está limpo · não há build de navegador
+neste repositório; e a busca acima cobre `VITE_`"*.
+
+**Medido:** por LUGAR, as três portas por onde uma variável de compilação chegaria ao navegador desta casa. O
+**empacotador** (dependência, `script`, configuração pelo nome, chamada no código; 394 arquivos lidos): zero. A **página**
+da bancada (os dois arquivos que o servidor dela devolve como estão): nenhuma leitura de ambiente, nenhum nome com prefixo
+público. O **`.wasm`** da ponte `symbios/archilly/wasm/` — que É um build que o navegador baixa: **um** nome embutido,
+`SYMBIOS_VERSAO` (`env!` no `lib.rs`), posto pelo `build.rs` a partir do `Cargo.toml` do upstream; o `build.rs` não lê a
+máquina. A frase era falsa na letra (há build) e verdadeira no que importa (nenhuma chave entra nele); a segunda metade
+era verdade desde o LAB-166, e a linha não nomeava a trava. A régua nova, contra a página de antes: oito problemas.
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/o-que-o-navegador-baixa.ts` e `tests/o-que-o-navegador-baixa.test.ts` (21
+   testes, sem clones, no portão): as três perguntas na árvore, os universos publicados; todo nome embutido no `.wasm`
+   declarado em `EMBUTIDAS` e posto pelo `build.rs` (`cargo:rustc-env=`), nos dois sentidos; o `build.rs` sem
+   `env::var`; a busca do LAB-166 ainda com o prefixo; a linha com as duas travas, as duas rodadas, o número e o nome, e
+   sem a frase de antes; a tabela da seção *Reconferido no LAB-180* com as três perguntas e os achados.
+2. A linha corrigida (de *"não se aplica"* para *"limpo"*: a regra se aplica, porque há build), e a seção com a tabela.
+
+**Descartado:** deixar como estava porque a busca do LAB-166 já cobre o prefixo (ela procura o NOME no texto; um
+`env!("CHAVE")` na ponte não tem prefixo nenhum e vai para dentro do `.wasm` igual); perguntar ao `Bun.serve` se ele
+transforma o arquivo (é código, e a `a-unica-interface.ts` já pergunta quem sobe servidor — dito no fim do módulo);
+incluir a sonda `wasm-probe/` (ninguém a carrega, LAB-176); e uma lista fechada de empacotadores como garantia (é trava
+de palavra — o empacotador novo continua sendo porta nova para a `nada-pago.ts`).
+
+> **"NÃO HÁ BUILD" É A FRASE QUE ESQUECE O BUILD QUE NÃO É DE JAVASCRIPT.** A regra do `VITE_` é sobre o que o compilador
+> copia para dentro do que o navegador baixa; aqui quem copia é o `cargo`, e o `env!` é o prefixo que ninguém procurava.

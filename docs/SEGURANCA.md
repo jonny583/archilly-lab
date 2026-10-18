@@ -17,7 +17,7 @@ conferência possa ser refeita por quem quiser.
 | item | estado | como foi conferido |
 |---|---|---|
 | Nenhuma chave sensível no repositório | ✅ **limpo** | `grep -rE "\b(apiKey\|api_key\|API_KEY\|SECRET\|Bearer \|Authorization\|sk-[A-Za-z0-9]{20}\|VITE_[A-Z_]+)\b"` sobre todo `.ts`, `.js`, `.json` e `.rs` fora de `node_modules` e de `upstream/` — em 14/09, **zero ocorrências**; o "zero" ficou falso em 05/10 (LAB-47) e ninguém viu: **desde o LAB-166, a mesma busca é perguntada a cada verde** a tudo o que o `git` carrega — nas quatro extensões da página e em todo texto fora do `.md`, `upstream/` incluído —, e hoje dá **duas** ocorrências, nenhuma chave, as duas texto de teste de trava declarado um a um com o motivo (`external-engines/esteira/src/a-busca-das-chaves.ts`; ver *Reconferido no LAB-166*, abaixo) |
-| Nenhuma chave em `VITE_` | ✅ **não se aplica, e está limpo** | não há build de navegador neste repositório; e a busca acima cobre `VITE_` |
+| Nenhuma chave em `VITE_` | ✅ **limpo** | não há empacotador de navegador — nenhuma dependência, `script`, configuração ou chamada dele, e a bancada lê o ambiente em lugar nenhum —, mas **há um build que o navegador baixa**: o `.wasm` da ponte `symbios/archilly/wasm/`, que embute **1** variável de compilação, `SYMBIOS_VERSAO`, posta pelo `build.rs` a partir do `Cargo.toml` do upstream (público) — nenhuma lida da máquina. Em 14/09 a linha negava que houvesse build, sem comando; **desde o LAB-180, perguntado a cada verde** (`external-engines/esteira/src/o-que-o-navegador-baixa.ts`; ver *Reconferido no LAB-180*, abaixo); e a busca da linha de cima cobre `VITE_` — perguntada a cada verde desde o LAB-166 (`external-engines/esteira/src/a-busca-das-chaves.ts`) |
 | Nenhum `.env`, `.pem` ou arquivo de credencial | ✅ **limpo** | em 14/09, `find . -name ".env*" -o -name "*.pem" -o -name "*credential*"` — **nada**; **desde o LAB-160, perguntado a cada verde pelo NOME**, em dezessete formas, a tudo o que o `git` carrega e a todo nome que já entrou na história (`external-engines/esteira/src/arquivo-de-credencial.ts`; ver *Reconferido no LAB-160*, abaixo) |
 | Chave de IA só no servidor da Central | ✅ **não se aplica** | o Lab não chama IA — nem direto, nem pela porta da Central — e não guarda chave de IA; **perguntado a cada verde por quatro travas**, cada uma um jeito de o Lab ter IA: a chave, nas **3** formas de chave de IA da varredura de segredos (`external-engines/esteira/src/varredura-de-segredos.ts`, LAB-47); a chamada, nas **6** formas do import e da chamada, do SDK do fornecedor à porta de IA da Central (`external-engines/esteira/src/destino-do-que-sai.ts`, LAB-80); a porta de serviço pago — dependência, variável de ambiente, endereço — (`external-engines/esteira/src/nada-pago.ts`, LAB-148); e a rede no caminho do motor (`external-engines/esteira/src/rede-em-execucao.ts`, LAB-158). Até o LAB-179 esta linha dizia só *"o Lab não chama IA"*, sem nomear nenhuma; a linha e a tabela dos achados são perguntadas por `external-engines/esteira/src/a-ia-na-pagina.ts` (ver *Reconferido no LAB-179*, abaixo). A adoção da Central: `ADOCAO_CENTRAL.md` |
 
@@ -441,3 +441,30 @@ e `tests/a-ia-na-pagina.test.ts` (sem clones): a linha nomeia as quatro travas e
 dela são o tamanho das duas listas de formas; a tabela tem as quatro travas, nem mais nem menos, a rodada de cada uma é a
 que o módulo nomeia, e a coluna dos achados é a que as quatro réguas acham na árvore. O que ela não alcança — IA de
 fornecedor que nenhuma régua conhece pelo nome, o cliente em Rust que só aparece pela porta — está dito no fim do módulo.
+
+## Reconferido no LAB-180 · 18/10/2026 — o que o navegador baixa, e a variável que o `.wasm` embute
+
+A linha *"Nenhuma chave em `VITE_`"*, do LF-FINAL, dizia *"não há build de navegador neste repositório; e a busca acima
+cobre `VITE_`"*. A regra do Padrão existe porque o empacotador copia para dentro do arquivo que o navegador baixa toda
+variável com o prefixo público. Por LUGAR, as três portas por onde uma variável de compilação chegaria ao navegador
+desta casa — rodadas na árvore em 18/10:
+
+| pergunta | onde | achados |
+|---|---|---|
+| `empacotador` | dependência de empacotador num `package.json`, o `script` que o chama, a configuração dele pelo nome, a chamada no código | 0 |
+| `pagina` | os `.html` e `.js` da bancada (o servidor dela os devolve como estão): leitura de ambiente e nome com prefixo público | 0 |
+| `wasm` | `env!` e `option_env!` nos `.rs` da ponte que o navegador carrega | **1** — `SYMBIOS_VERSAO`, posta pelo `build.rs` |
+
+**A frase era falsa na letra e verdadeira no que importa.** Há um build que chega ao navegador — o `cargo build --target
+wasm32-unknown-unknown` do `conferir.sh` — e ele embute uma variável; mas ela é o carimbo da versão do motor, que o
+`build.rs` lê de um arquivo público, e não uma chave da máquina. Ninguém perguntava nem uma coisa nem outra: um
+`env!` de uma chave no `lib.rs` da ponte só cairia na `nada-pago.ts` (LAB-148) como porta nova, e quem a declara escolhe
+a classe. A régua nova acusou **oito** problemas na linha de antes: o *"não há build de navegador"*, quatro nomes
+calados (esta trava, o LAB-180, a busca do LAB-166 e o LAB-166), o número, o nome embutido e a falta desta tabela.
+
+**Desde o LAB-180 a linha e a tabela são perguntadas a cada verde**, por `external-engines/esteira/src/o-que-o-navegador-baixa.ts`
+e `tests/o-que-o-navegador-baixa.test.ts` (sem clones): empacotador e leitura de ambiente na bancada em zero; todo nome
+embutido no `.wasm` declarado e posto pelo `build.rs`, nos dois sentidos, e o `build.rs` sem ler a máquina; a busca do
+LAB-166 ainda com o prefixo; a linha com as duas travas, as duas rodadas, o número e o nome; a tabela com as três
+perguntas e os achados da árvore. O que ela não alcança — empacotador que a lista não conhece, a variável que entra por
+macro de outra crate, o binário que nenhuma máquina compila hoje — está dito no fim do módulo.
