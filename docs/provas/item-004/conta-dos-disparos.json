@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-18T10:13:26.512Z",
+  "quando": "2026-10-18T11:20:26.116Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -971,12 +971,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 10:06:11 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-173), dívida própria (regra sem guarda: *\"uma linha por disparo\"*, e trinta e nove rodadas sem a linha delas)",
         "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 11:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 11:06:26 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-174), dívida própria (mensagem fixa que afirma estado sem perguntar: *\"não há banco\"*, do `docs/SEGURANCA.md`)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 120,
+      "noRegistro": 121,
       "observados": 39,
-      "derivados": 35,
+      "derivados": 36,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 5

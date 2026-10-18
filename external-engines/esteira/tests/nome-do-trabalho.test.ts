@@ -194,7 +194,8 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // `git ls-files` desta casa e a prova gravada; a rede é só da ferramenta `lab171`, fora do portão.
     // E 104 no LAB-172, com a `a-analise-do-esqueleto-reto.test.ts` — a página, os seis lugares, o registro, as duas
     // saídas de `outputs/`, o oráculo do LAB-04, o `git ls-files` desta casa e a prova gravada; a rede é só da `lab172`.
-    expect(lista).toHaveLength(104);
+    // E 105 no LAB-174, com a `o-lab-nao-tem-banco.test.ts` — o `git` desta casa e o `docs/SEGURANCA.md`; nenhum clone.
+    expect(lista).toHaveLength(105);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

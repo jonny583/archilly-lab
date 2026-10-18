@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-174 · item 900 — a dívida própria: o Lab não tem banco — a frase da página, perguntada à árvore, e o cabeçalho que dizia que ela já tinha trava — ✅ **feito em 18/10/2026** (D402)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/SEGURANCA.md`: o topo diz que o Lab *"não tem banco"*, e a tabela *Banco e RLS* põe três linhas do Padrão em "não se aplica" por uma frase de 14/09 sem comando. O cabeçalho da `rede-em-execucao.ts` (LAB-158) dizia que o `verde.test.ts` a conferia — ele lê só o `conferir.sh`. Três mutações (um `supabase/migrations/…sql`, um `bun:sqlite`, um `.sqlite`), cada uma numa cópia da casa: só a contagem de arquivos do LAB-57 caía, sem dizer por quê. Por LUGAR, 801 caminhos, 378 JS/TS, 23 Rust, 2 `package.json`, 5 `Cargo.toml`: zero banco. Trava `src/o-lab-nao-tem-banco.ts`, sem clones, cinco portas, sem lista de exceções; o cabeçalho da rede consertado; 1 800 → 1 815 no portão sem clones (104 → 105 arquivos). Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-174.md`](../relatorios/LAB-174.md).
+
 ### LAB-173 · item 900 — a dívida própria: a rodada sem linha — trinta e nove rodadas não escreveram a sua linha na conta dos disparos, e a conta seguiu verde — ✅ **feito em 18/10/2026** (D401)
 
 A FILA continuava sem proposta que não esperasse ninguém, e das páginas de `docs/` sem leitor só sobrava a que espera o chat. Na dívida própria, regra sem guarda: a conta dos disparos do `ONDE_PARAMOS.md` diz *"uma linha por disparo"*, e a última escrita na hora era a do LAB-133; do LAB-134 ao LAB-172 nenhuma rodada escreveu a sua, e a régua — que conferia a tabela contra ela mesma — seguiu verde. As 39 reconstruídas do `git` e do recado com a origem nova `reconstruido` (hora de teto, commit nomeado); `conferirAsRodadas` cruza as rodadas com os recados nos dois sentidos, com o LAB-68 como única exceção declarada; dez travas no portão sem clones; prova `bun run lab173`, com as 39 conferidas contra o primeiro commit de cada rodada e sete mutações acusadas. Nada novo proposto ao chat.
@@ -2105,7 +2109,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1800 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1815 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

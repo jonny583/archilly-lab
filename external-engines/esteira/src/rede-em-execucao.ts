@@ -10,8 +10,12 @@
  *
  * e a linha da tabela *Execução* diz: *"Nada de rede em execução · ✅ · … Nenhum `fetch`, nenhum `http`"*.
  *
- * As três primeiras negações ganharam trava depois (a tela no LAB-153, `a-unica-interface.ts`; o banco e a conta pela
- * ausência de `supabase/`, que o `verde.test.ts` confere contra o disco). **A quarta não tinha nenhuma**: nenhum arquivo
+ * A primeira negação ganhou trava antes (a tela no LAB-153, `a-unica-interface.ts`). Este cabeçalho dizia que o banco e a
+ * conta também tinham — *"pela ausência de `supabase/`, que o `verde.test.ts` confere contra o disco"* — e **não tinham**:
+ * aquela régua lê só o `conferir.sh`. Medido e consertado no LAB-174 (D402): o banco é perguntado pela
+ * `o-lab-nao-tem-banco.ts`; a conta da família é da Central, e quem pergunta se o Lab a importa é a
+ * `a-adocao-da-central.ts` (LAB-167).
+ * **A quarta não tinha nenhuma**: nenhum arquivo
  * de `esteira/` cita o `SEGURANCA.md`, e a conferência de 14/09 foi um `grep` feito uma vez. Espécie: *mensagem fixa que
  * afirma estado sem perguntar*.
  *

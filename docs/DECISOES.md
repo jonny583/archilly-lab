@@ -13443,3 +13443,51 @@ trava).
 
 > **CONTA QUE SÓ SE CONFERE CONTRA SI MESMA APROVA O ABANDONO.** Quem para de escrever a linha para também de
 > escrever o total, e os dois continuam concordando. A régua precisa de uma ponta que a rodada é obrigada a escrever.
+
+## D402 · O LAB NÃO TEM BANCO — a frase da página, perguntada à árvore, e o cabeçalho que dizia que ela já tinha trava · 18/10/2026
+
+**Contexto:** item 900 (LAB-174). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup` (o túnel da rede recusa a origem dele, de novo nesta máquina). Na dívida própria, a
+espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/SEGURANCA.md`: o topo diz que o Lab *"não tem
+banco"*, e a tabela *Banco e RLS* põe as três linhas do Padrão em "não se aplica" por uma frase de 14/09, sem comando —
+*"não há banco. Não existe `supabase/`, não existe migração, não existe tabela"*. O cabeçalho da
+`rede-em-execucao.ts` (LAB-158) dizia que essa negação já tinha trava, *"pela ausência de `supabase/`, que o
+`verde.test.ts` confere contra o disco"*.
+
+**Medido:** **não tinha.** A régua do `verde.test.ts` (LAB-51) lê só as linhas do `conferir.sh` que dizem "não existe".
+Três mutações, cada uma numa cópia desta casa, adicionada ao `git`, com a esteira inteira rodando: um
+`supabase/migrations/0001_estudos.sql` com `create table`, um arquivo da esteira abrindo banco pelo `bun:sqlite`, e um
+`dados/medicoes.sqlite` — nas três, além das 9 de sempre (o `.wasm`), caiu só a contagem de arquivos do LAB-57 (e, na
+do `bun:sqlite`, a das chamadas do LAB-52): contagens que caem com qualquer arquivo novo e mandam regerar a prova, sem
+dizer por quê. Por LUGAR, o que o `git` carrega: 801 caminhos, 378 JS/TS, 23 Rust, 2 `package.json`, 5 `Cargo.toml` —
+**zero** nas cinco portas; zero também numa busca larga (`localStorage`, `sessionStorage`, `indexedDB`, `bun:sqlite`,
+`node:sqlite`, `create table`) em todo texto, `.md` incluído. Regra verdadeira, guarda ausente — o desenho do LAB-161.
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/o-lab-nao-tem-banco.ts` e `tests/o-lab-nao-tem-banco.test.ts` (sem clones, no
+   portão), por cinco portas: a **pasta** de banco em qualquer altura do caminho (`supabase`, `migrations`, `migracoes`,
+   `drizzle`, `prisma`), o **arquivo** que é banco ou o descreve, a **importação** de um cliente de banco (JS e Rust, a
+   string inteira em posição de importação), a **dependência** num `package.json` ou `Cargo.toml` (as tabelas, a forma
+   longa e o renomeado), e o **banco do navegador** (`indexedDB`, `openDatabase`). O universo é publicado, e cada porta
+   que lê texto tem de ter lido alguma coisa (D164).
+2. **Sem lista de exceções.** Um banco aqui é o dia em que a seção tem de ser refeita antes da primeira migração, como
+   a página manda; a mensagem da trava diz isso.
+3. O cabeçalho da `rede-em-execucao.ts` passa a dizer o que se mediu: o banco é desta trava; a conta da família é da
+   Central, e quem pergunta se o Lab a importa é a `a-adocao-da-central.ts` (LAB-167). A linha da página aponta para a
+   trava, e a seção *Reconferido no LAB-174* traz a medição.
+
+**Os dois lados:** a árvore de hoje e uma árvore mínima passam; o que quase parece banco passa (o nome em comentário,
+em texto, em string fora de importação, a palavra solta, o `.md` que diz "não existe `supabase/`"); acusados: as quatro
+pastas, os sete arquivos, seis formas de importar em JS e três em Rust, as quatro listas do `package.json` e as cinco
+formas do `Cargo.toml`, o `indexedDB` no código e na página, o universo vazio, a porta que não leu nada, e as três
+mutações de 18/10, cada uma com o motivo. 1 800 → 1 815 travas no portão sem clones.
+
+**Descartado:** perguntar `localStorage` e `sessionStorage` (guardam dado, não são banco; medidos em zero e ditos no
+módulo); perguntar a história (um `.sql` que entrou e saiu não deixa banco; segredo na história é da
+`arquivo-de-credencial.ts`); e estender a régua do `verde.test.ts` às páginas de `docs/` — ela confere contra o disco o caminho entre crases
+de uma frase que diz "não existe": pegaria a pasta `supabase/` na raiz e nada mais (nem a pasta noutra altura, nem o
+`.sqlite`, nem a importação, nem a dependência).
+
+> **"ISSO JÁ TEM TRAVA" TAMBÉM É AFIRMAÇÃO, E SE MEDE.** O cabeçalho que apontava a trava do banco foi escrito no mesmo
+> dia em que a casa media as outras três negações da frase — e apontava uma régua que lê outro arquivo.
