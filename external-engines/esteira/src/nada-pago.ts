@@ -122,6 +122,10 @@ export const PORTAS_DECLARADAS: Readonly<Record<string, PortaDeclarada>> = {
     classe: "local",
     motivo: "o servidor local da prova da bancada, e um remoto de teste que nunca se contata",
   },
+  "endereco:bancada.invalid": {
+    classe: "nao-e-chamada",
+    motivo: "o endereço que a medição da bancada no celular (LAB-182) entrega ao Chromium só por `route`: o domínio `.invalid` não existe na rede, e nenhum pedido sai da máquina",
+  },
   "endereco:x": { classe: "nao-e-chamada", motivo: "texto plantado em `configuracao-do-motor.test.ts` para a limpeza de comentário" },
   "endereco:x.y": { classe: "nao-e-chamada", motivo: "texto plantado em `caminhos-da-pagina.test.ts`: um link externo de exemplo" },
   "endereco:www.w3.org": {

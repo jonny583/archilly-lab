@@ -1,0 +1,181 @@
+{
+  "prompt": "LAB-182",
+  "oQueEh": "a bancada aberta em largura de celular, no Chromium: a página rola de lado?",
+  "navegador": "Chromium (Playwright), página entregue por route, sem servidor",
+  "impressaoDaPagina": {
+    "index.html": "d8fa56a694e92990336b75041195e70e325cafdcba17e9e79cfb115d8afb4297",
+    "prova.js": "572981687c036d069205554201696a9891ebe471934d6fec65eb655ab5238c4a"
+  },
+  "metaViewport": false,
+  "casos": [
+    {
+      "tela": "390×844",
+      "emulaCelular": true,
+      "comoMonta": {
+        "largura": 980,
+        "conteudo": 980,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 916,
+          "caixa": 916
+        },
+        "canvas": 702
+      },
+      "comORegistroDe1009": {
+        "largura": 980,
+        "conteudo": 980,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 916,
+          "caixa": 916
+        },
+        "canvas": 702
+      },
+      "errosDaPagina": [
+        "WebAssembly.instantiate(): BufferSource argument is empty"
+      ]
+    },
+    {
+      "tela": "390×844",
+      "emulaCelular": false,
+      "comoMonta": {
+        "largura": 390,
+        "conteudo": 390,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 326,
+          "caixa": 326
+        },
+        "canvas": 328
+      },
+      "comORegistroDe1009": {
+        "largura": 390,
+        "conteudo": 390,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 698,
+          "caixa": 326
+        },
+        "canvas": 328
+      },
+      "errosDaPagina": [
+        "WebAssembly.instantiate(): BufferSource argument is empty"
+      ]
+    },
+    {
+      "tela": "360×740",
+      "emulaCelular": true,
+      "comoMonta": {
+        "largura": 980,
+        "conteudo": 980,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 916,
+          "caixa": 916
+        },
+        "canvas": 702
+      },
+      "comORegistroDe1009": {
+        "largura": 980,
+        "conteudo": 980,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 916,
+          "caixa": 916
+        },
+        "canvas": 702
+      },
+      "errosDaPagina": [
+        "WebAssembly.instantiate(): BufferSource argument is empty"
+      ]
+    },
+    {
+      "tela": "360×740",
+      "emulaCelular": false,
+      "comoMonta": {
+        "largura": 360,
+        "conteudo": 360,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 296,
+          "caixa": 296
+        },
+        "canvas": 298
+      },
+      "comORegistroDe1009": {
+        "largura": 360,
+        "conteudo": 360,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 698,
+          "caixa": 296
+        },
+        "canvas": 298
+      },
+      "errosDaPagina": [
+        "WebAssembly.instantiate(): BufferSource argument is empty"
+      ]
+    },
+    {
+      "tela": "320×568",
+      "emulaCelular": true,
+      "comoMonta": {
+        "largura": 980,
+        "conteudo": 980,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 916,
+          "caixa": 916
+        },
+        "canvas": 702
+      },
+      "comORegistroDe1009": {
+        "largura": 980,
+        "conteudo": 980,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 916,
+          "caixa": 916
+        },
+        "canvas": 702
+      },
+      "errosDaPagina": [
+        "WebAssembly.instantiate(): BufferSource argument is empty"
+      ]
+    },
+    {
+      "tela": "320×568",
+      "emulaCelular": false,
+      "comoMonta": {
+        "largura": 320,
+        "conteudo": 320,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 256,
+          "caixa": 256
+        },
+        "canvas": 258
+      },
+      "comORegistroDe1009": {
+        "largura": 320,
+        "conteudo": 320,
+        "sobra": 0,
+        "registro": {
+          "conteudo": 698,
+          "caixa": 256
+        },
+        "canvas": 258
+      },
+      "errosDaPagina": [
+        "WebAssembly.instantiate(): BufferSource argument is empty"
+      ]
+    }
+  ],
+  "maiorSobra": 0,
+  "oQueNaoEhConferido": [
+    "o desenho do canvas com o .wasm (ele só pinta dentro dos 700×700 que já se medem aqui)",
+    "o registro inteiro que o prova.js escreveria com o .wasm (as linhas de exports, sessão e estágios não estão no README de 10/09)",
+    "outros navegadores (Safari, Firefox): só o Chromium desta máquina",
+    "o tamanho da letra no celular: sem <meta name=\"viewport\">, a página é desenhada em 980 px e encolhida — não rola, mas fica pequena"
+  ]
+}

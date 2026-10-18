@@ -184,12 +184,13 @@ describe("LAB-101 · o número de passos do verde é contado, não lembrado", ()
     index: readFileSync(join(RAIZ, "docs", "INDEX.md"), "utf8"),
   });
 
-  test("o script de hoje conta 2 pacotes × 3 passos + 1 avulso = 7", () => {
+  // 8 desde o LAB-182: o segundo avulso é a bancada no celular (`rolagem-no-celular.ts`), antes dos pacotes.
+  test("o script de hoje conta 2 pacotes × 3 passos + 2 avulsos = 8", () => {
     expect(contarOsPassosDoScript(script())).toEqual({
       pacotes: 2,
       porPacote: 3,
-      avulsos: 1,
-      total: 7,
+      avulsos: 2,
+      total: 8,
     });
   });
 
@@ -197,13 +198,13 @@ describe("LAB-101 · o número de passos do verde é contado, não lembrado", ()
     expect(conferirOsPassos(contarOsPassosDoScript(script())!, paginas())).toEqual([]);
   });
 
-  test("lado RUIM: um terceiro pacote em COBERTOS leva a 10, e as duas páginas reprovam", () => {
+  test("lado RUIM: um terceiro pacote em COBERTOS leva a 11 (desde o LAB-182; eram 10), e as duas páginas reprovam", () => {
     const tres = script().replace(
       'COBERTOS=("external-engines/esteira" "external-engines/testfit")',
       'COBERTOS=("external-engines/esteira" "external-engines/testfit" "external-engines/novo")',
     );
     const c = contarOsPassosDoScript(tres)!;
-    expect(c.total).toBe(10);
+    expect(c.total).toBe(11);
     const onde = conferirOsPassos(c, paginas()).map((d) => `${d.onde}:${d.grandeza}`);
     expect(onde).toEqual([
       "CLAUDE.md §7:passos",
@@ -214,20 +215,20 @@ describe("LAB-101 · o número de passos do verde é contado, não lembrado", ()
 
   test("lado RUIM: a página que diz outro número reprova, e só ela", () => {
     const p = paginas();
-    const errado = { ...p, claude: p.claude.replace("sete passos, todos", "oito passos, todos") };
+    const errado = { ...p, claude: p.claude.replace("oito passos, todos", "nove passos, todos") };
     const d = conferirOsPassos(contarOsPassosDoScript(script())!, errado);
-    expect(d).toEqual([{ onde: "CLAUDE.md §7", grandeza: "passos", escrito: 8, contado: 7 }]);
+    expect(d).toEqual([{ onde: "CLAUDE.md §7", grandeza: "passos", escrito: 9, contado: 8 }]);
   });
 
   test("o sujeito decide: os 'DOIS passos' de religar o CI NÃO são lidos como os do verde", () => {
     // Três linhas abaixo, no mesmo §7. Régua de forma sem sujeito leria 2 ali (D218).
     expect(paginas().claude).toContain("Religar são **DOIS**\npassos");
-    expect(passosAfirmados(trechoDoClaude(paginas().claude)!)).toBe(7);
-    // Na página de hoje o "sete" vem ANTES do "DOIS", e a régua sem sujeito acertaria por sorte
+    expect(passosAfirmados(trechoDoClaude(paginas().claude)!)).toBe(8);
+    // Na página de hoje o "oito" (era "sete" até o LAB-182) vem ANTES do "DOIS", e a régua sem sujeito acertaria por sorte
     // — a 1ª mutação desta trava (o trecho virar a página inteira) passou. Com o "DOIS" antes:
-    const invertido = "Religar são **DOIS** passos.\n\nEle roda cobertura, sete passos, todos.\n";
+    const invertido = "Religar são **DOIS** passos.\n\nEle roda cobertura, oito passos, todos.\n";
     expect(passosAfirmados(invertido)).toBe(2);
-    expect(passosAfirmados(trechoDoClaude(invertido)!)).toBe(7);
+    expect(passosAfirmados(trechoDoClaude(invertido)!)).toBe(8);
   });
 
   test("trecho que sumiu REPROVA com escrito null, e não sai verde", () => {

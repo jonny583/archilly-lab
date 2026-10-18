@@ -266,7 +266,7 @@ export const CONTAGENS: readonly Contagem[] = [
   },
   {
     arquivo: "external-engines/conferir.sh",
-    trecho: "sete passos",
+    trecho: "oito passos",
     le: "external-engines/conferir.sh",
     conta:
       "os passos do script, pela régua do LAB-101 (`contarOsPassosDoScript`)",

@@ -34,13 +34,17 @@ const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const PRODUTOR = PRODUTORES[0]!.caminho;
 const PAGINA = readFileSync(join(RAIZ, A_PAGINA), "utf8");
 const TEXTO_DO_PRODUTOR = readFileSync(join(RAIZ, PRODUTOR), "utf8");
+// O segundo produtor, do LAB-182 (a bancada no celular) — entra na base como está na árvore.
+const PRODUTOR_DO_CELULAR = PRODUTORES[1]!.caminho;
 
-/** A árvore mínima que passa: a página e o produtor de verdade, os dois artefatos e um arquivo de código qualquer. */
+/** A árvore mínima que passa: a página e os produtores de verdade, os três artefatos e um arquivo de código qualquer. */
 const BASE: Record<string, string> = {
   [A_PAGINA]: PAGINA,
   [PRODUTOR]: TEXTO_DO_PRODUTOR,
+  [PRODUTOR_DO_CELULAR]: readFileSync(join(RAIZ, PRODUTOR_DO_CELULAR), "utf8"),
   "outputs/lab01/navegador.png": "",
   "docs/provas/LAB-31/navegador.json": "{}",
+  "docs/provas/LAB-182/navegador-celular.json": "{}",
   "external-engines/esteira/src/coisa.ts": 'import { readFileSync } from "node:fs";\nexport const x = 1;\n',
 };
 
@@ -127,7 +131,7 @@ describe("LAB-175 · as mutações — cada uma acusada pelo nome", () => {
   });
 
   test("a página que volta a dizer 'única prova'", () => {
-    const r = conferir(naPagina("As provas de navegador são **duas**", "A única prova de navegador são **duas**"));
+    const r = conferir(naPagina("As provas de navegador são **três**", "A única prova de navegador são **três**"));
     expect(tipos(r)).toEqual(["item-diz-unica"]);
   });
 
