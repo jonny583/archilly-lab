@@ -1,0 +1,71 @@
+{
+  "prompt": "LAB-172",
+  "oQueIstoMede": "os dois repositórios de fora que a docs/STRAIGHT_SKELETON_ANALYSIS.md descreve, nos commits que ela fixa, e o license.txt do pacote da CGAL na tag que o script deles fixa — lidos com git show/ls-tree, nada compilado nem executado; não mede gleba",
+  "quando": "2026-10-18T09:18:59.498Z",
+  "candidatoA": {
+    "origem": "https://github.com/StrandedKitty/straight-skeleton",
+    "commit": {
+      "pedido": "d68f08ad2da5eea7f58d451a94068d39cd2b3796",
+      "existe": true,
+      "data": "2026-03-24 17:05:09 +0100",
+      "autor": "StrandedKitty"
+    },
+    "versao": "3.0.0",
+    "licenca": {
+      "primeiraLinha": "MIT License",
+      "direitos": "Copyright (c) 2021-2023 StrandedKitty"
+    },
+    "includes": {
+      "CGAL/create_straight_skeleton_from_polygon_with_holes_2.h": true,
+      "CGAL/Straight_skeleton_2/IO/print.h": true
+    },
+    "bibliotecas": {
+      "CGAL": "5.6",
+      "BOOST": "1.81.0",
+      "GMP": "6.2.1",
+      "MPFR": "4.2.0"
+    },
+    "opcoesDeCompilacao": {
+      "SINGLE_FILE": true,
+      "ENVIRONMENT='web'": true
+    },
+    "bytesDoMainJs": 1053613,
+    "devolveNull": true,
+    "headDeHoje": {
+      "sha": "d68f08ad2da5eea7f58d451a94068d39cd2b3796",
+      "data": "2026-03-24 17:05:09 +0100"
+    }
+  },
+  "cgal": {
+    "origem": "https://github.com/CGAL/cgal",
+    "tag": "v5.6",
+    "arquivo": "Straight_skeleton_2/package_info/Straight_skeleton_2/license.txt",
+    "texto": "GPL (v3 or later)"
+  },
+  "candidatoB": {
+    "origem": "https://github.com/lizelive/straight-skeleton",
+    "commit": {
+      "pedido": "7ca4b0f563e9d8bb9cc306dd81192a51a4243286",
+      "existe": true,
+      "data": "2026-07-17 12:21:51 -0700",
+      "autor": "lizelive"
+    },
+    "versao": "0.2.1",
+    "licencaNoCargo": "GPL-2.0-or-later",
+    "primeiraLinhaDoLicense": "GNU GENERAL PUBLIC LICENSE Version 2, June 1991",
+    "unsafeForbid": true,
+    "noStd": true,
+    "designMd": true,
+    "nomes": {
+      "skeleton_constrained": true,
+      "residual()": true,
+      "arc.sources": true,
+      "RoofError::UnevenLimits": true,
+      "-16384..=16383": true
+    },
+    "headDeHoje": {
+      "sha": "7ca4b0f563e9d8bb9cc306dd81192a51a4243286",
+      "data": "2026-07-17 12:21:51 -0700"
+    }
+  }
+}

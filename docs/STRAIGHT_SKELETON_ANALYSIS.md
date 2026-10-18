@@ -13,6 +13,30 @@ linhagem real é o **grassfire** (Python, MIT, bmmeijers) e sua reescrita
 alcance para um aplicativo de navegador em TypeScript. Foram avaliadas as duas
 implementações indicadas no prompt.
 
+> **Medido contra a origem em 18/10/2026 (LAB-172, D400): as duas fichas conferem,
+> e os tempos citados não são os dos arquivos que a página aponta.** Os dois commits
+> existem com a data da §3 e da §4, e o `HEAD` de hoje das duas origens **ainda é**
+> esse commit; a versão, a licença do invólucro (MIT, com o copyright da §3), o
+> `license.txt` do pacote na CGAL 5.6 (`GPL (v3 or later)`), as quatro bibliotecas do
+> script, as duas opções de compilação, os 1 053 613 bytes do `main.js`, o
+> `GPL-2.0-or-later` do `Cargo.toml`, o `no_std`, o `forbid`, a faixa e as funções
+> que a página nomeia — tudo como está escrito. A prova é
+> `docs/provas/LAB-172/esqueleto-reto-na-origem.json` (`bun run lab172`, lida com
+> `git show`, nada compilado nem executado). **O que não confere está aqui dentro:**
+> a §3.2 e a §4.3 dizem *"Saída completa em `outputs/…`"* e citam 11.378 ms e
+> 3.490 ms (CGAL), 14.551µs e 8.82µs (Rust); os dois arquivos, nascidos no mesmo
+> commit desta página, trazem 12.487 ms e 3.366 ms, 13.709µs e 6.319µs — a página
+> citou uma execução e guardou outra. A **geometria** é a mesma nas duas (nós, faces,
+> frente de onda em 5), e é ela o oráculo do LAB-04, que continua de pé. O *"~400×"*
+> da §4.5 vale para o L daquela execução (3,5 ms ÷ 8,8 µs ≈ 396×); no retângulo ela dá
+> ≈ 782×, e nos arquivos guardados ≈ 911× e ≈ 533×. Tempo de uma execução é tempo de
+> uma máquina num dia: o que a análise usa dele — *"irrelevantemente rápidos"* — não
+> muda. A trava `external-engines/esteira/src/a-analise-do-esqueleto-reto.ts`
+> pergunta, a cada verde e sem rede, as fichas contra a prova, cada linha citada
+> contra o arquivo, o `esperado` do oráculo contra as duas saídas, os seis lugares que
+> repetem a ficha e a pasta. *(Acrescentado por mim no LAB-172; o texto do LAB-00 está
+> intocado.)*
+
 ## 2. Para que o Archilly quer isto
 
 O esqueleto reto resolve dois problemas que o Generate tem hoje:

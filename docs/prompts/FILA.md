@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-172 · item 900 — a dívida própria: a análise do esqueleto reto, perguntada à origem — as duas fichas conferem, e os tempos citados não são os dos arquivos que a página aponta — ✅ **feito em 18/10/2026** (D400)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o LAB-171 deixou escrito que a ficha da `STRAIGHT_SKELETON_ANALYSIS.md` (LAB-00) não tinha sido reconferida. Medida na origem (`bun run lab172`, só os dois commits fixados e a tag da CGAL, sem blobs, nada executado): as duas fichas conferem, e o `HEAD` de hoje das duas origens ainda é o da ficha. O achado estava aqui dentro: a página diz *"saída completa em `outputs/…`"* e cita quatro tempos que os dois arquivos, nascidos no mesmo commit, não têm — a página citou uma execução e guardou outra; a geometria confere, e é ela o oráculo do LAB-04. Nota datada na página; trava `src/a-analise-do-esqueleto-reto.ts`, sem clones e sem rede: as fichas contra a prova, as saídas contra o arquivo, o oráculo contra as saídas, os seis lugares e a pasta; sessenta e cinco mutações acusadas; 1774 → 1790 no portão sem clones (103 → 104 arquivos). Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-172.md`](../relatorios/LAB-172.md), decisão **D400**.
+
 ### LAB-171 · item 900 — a dívida própria: a triagem do PackingSolver, perguntada à origem — tudo confere, e o `nao-copiado` do registro passa a ser perguntado à árvore — ✅ **feito em 18/10/2026** (D399)
 
 A FILA continuava sem proposta que não esperasse ninguém. Das duas páginas de `docs/` sem leitor que o LAB-170 deixou, a `PACKINGSOLVER_TRIAGEM.md` (LAB-00) fixa a ficha de um repositório de fora que cinco lugares desta casa repetem, e afirma que nada foi copiado. Medida na origem (`bun run lab171`, só o commit fixado, nada executado): tudo confere; o `HEAD` de hoje mora na prova, ao lado da §6. Trava `src/a-triagem-do-packingsolver.ts`, sem clones e sem rede: a ficha contra a prova, os cinco lugares (frase derivada da ficha; o registro lido pelo motor), e nenhum `upstream/` versionado de motor `nao-copiado`; trinta e duas mutações acusadas; 1762 → 1774 no portão sem clones (102 → 103 arquivos). Nada novo proposto ao chat.
@@ -2093,7 +2099,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1774 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1790 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

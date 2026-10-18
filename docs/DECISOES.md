@@ -13363,3 +13363,44 @@ o `HEAD` de hoje (é relato do dia da triagem e envelheceria de novo amanhã).
 
 > **"NÃO COPIADO" É AFIRMAÇÃO SOBRE A ÁRVORE, NÃO SOBRE O PASSADO.** O registro dizia e o `README.md` desenhava, e
 > nenhuma das duas perguntava ao `git ls-files` — que é o único lugar onde a resposta mora.
+
+## D400 · A ANÁLISE DO ESQUELETO RETO, PERGUNTADA À ORIGEM — as duas fichas conferem, e os tempos citados não são os dos arquivos que a página aponta · 18/10/2026
+
+**Contexto:** item 900 (LAB-172). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém. O
+LAB-171 deixou escrito que a ficha da `docs/STRAIGHT_SKELETON_ANALYSIS.md` (LAB-00) *"não foi reconferida nesta
+rodada"*. A página tinha leitor no código (o `esqueleto.ts` e o oráculo do LAB-04 citam a §4.4), mas o que se lia era a
+geometria; a **ficha** de dois repositórios de fora (commit, data, versão, licença do invólucro, licença efetiva, as
+bibliotecas que o script fixa, as opções de compilação, o tamanho do `main.js`, o `Cargo.toml`) e o `license.txt` de um
+pacote da CGAL, repetidos em seis lugares desta casa, ninguém perguntava.
+
+**Medido (LAB-172, `bun run lab172`):** só os dois commits que a página fixa e só a tag `v5.6` da CGAL, sem os blobs,
+lidos com `git show`/`ls-tree`/`grep` e nada compilado nem executado — **as duas fichas conferem**, e o `HEAD` de hoje
+das duas origens ainda é o commit da ficha. **O que não confere estava aqui dentro:** a página diz *"Saída completa em
+`outputs/…`"* e cita quatro tempos (11.378 ms, 3.490 ms, 14.551µs, 8.82µs) que os dois arquivos não têm (12.487 ms,
+3.366 ms, 13.709µs, 6.319µs) — nascidos no mesmo commit, `f61be91`: a página citou uma execução e guardou outra. A
+geometria citada (30 linhas) está toda nos arquivos, e o *"~400×"* da §4.5 só vale para o L daquela execução (≈ 396×;
+retângulo ≈ 782×; nos arquivos ≈ 911× e ≈ 533×).
+
+**Decidido:**
+
+1. A página não muda de texto; ganha, depois da §1, um parágrafo marcado como meu com o que se mediu, a prova
+   (`docs/provas/LAB-172/esqueleto-reto-na-origem.json`), os tempos citados e os do arquivo, e as razões.
+2. `external-engines/esteira/src/a-analise-do-esqueleto-reto.ts` e `tests/a-analise-do-esqueleto-reto.test.ts` (16
+   testes, sem clones e **sem rede**): as fichas contra a prova; cada linha de geometria citada contra o arquivo; tempo
+   citado que o arquivo não tem só passa com a nota do LAB-172 trazendo os tempos **lidos do arquivo**; o `esperado` do
+   oráculo do LAB-04 nas duas saídas guardadas; os seis lugares com a frase derivada da ficha; e a pasta com os seis
+   arquivos próprios. Portão sem clones 1 774 → 1 790, 103 → 104 arquivos.
+3. A rede só na ferramenta, à mão, declarada no `rede-em-execucao.ts` (cinco processos, origem pública) e no
+   `SEGURANCA.md`.
+
+**Os dois lados:** sessenta e cinco mutações acusadas, e seis casos bons que não acusam (a página de verdade, `Boost
+1.81.0` por inteiro, o tempo que o arquivo tem sem nota, o oráculo de verdade, o PackingSolver mudado no registro, a
+pasta de verdade).
+
+**Descartado:** corrigir os tempos da página (é relato de uma execução de verdade, só não guardada); reexecutar as duas
+provas (um terceiro tempo não diz qual dos dois está certo, e a geometria, que é o que o Lab usa, já confere); a nota
+também na `TRIAGEM.md` (são os números da §4.5 arredondados, e duas notas divergem); conferir GMP e MPFR (moram nos
+pacotes baixados, não no repositório — dito no módulo).
+
+> **"SAÍDA COMPLETA EM <ARQUIVO>" É AFIRMAÇÃO SOBRE O ARQUIVO.** Página e arquivo nasceram no mesmo commit e mesmo
+> assim discordavam: quem cita uma execução e guarda outra cita um número que o arquivo apontado não tem.

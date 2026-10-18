@@ -106,6 +106,7 @@ quando a linha foi escrita (LAB-01, 10/09) — e a linha era a única da tabela 
 | `esteira/tests/a-rotina-no-github-na-origem.test.ts` | o `curl` à API pública do GitHub (LAB-122) | origem pública |
 | `esteira/tests/clone-da-maquina.test.ts` | o `fetch` de um clone de teste, de origem `file://` | origem de teste |
 | `esteira/ferramentas/lab171.ts` | os dois `git fetch --depth 1` e o `git ls-remote` do PackingSolver, numa pasta temporária, lidos e nunca executados — acrescentada no LAB-171, 18/10 (3) | origem pública |
+| `esteira/ferramentas/lab172.ts` | os três `git fetch --filter=blob:none --depth 1` (os dois commits do esqueleto reto e a tag da CGAL) e o `git ls-remote` e o `fetch` do `HEAD` de hoje, em pastas temporárias, lidos e nunca executados — acrescentada no LAB-172, 18/10 (5) | origem pública |
 
 A trava reprova rede no caminho do motor **mesmo declarada**, rede nova fora dele sem declaração (ou uma a mais num
 arquivo declarado) e declaração cuja rede sumiu. O que ela não alcança está dito no fim do módulo — entre outros, o

@@ -3803,3 +3803,16 @@ Próximo na fila: a caixa só tem o 900; das páginas de docs/ sem leitor sobra 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-172 — item 900 (a dívida própria): a análise do esqueleto reto, perguntada à origem — as duas fichas conferem, e os tempos citados não são os dos arquivos que a página aponta
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-172 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar, e número digitado à mão), ao que o relatório do LAB-171 (§6) deixou escrito: a ficha da docs/STRAIGHT_SKELETON_ANALYSIS.md não reconferida. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1790 de 1790 (104 de 104 arquivos); esteira com só as falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: a página fixa a ficha de dois repositórios de fora e o license.txt da CGAL 5.6, repetidos em seis lugares. Medida na origem (bun run lab172: só os dois commits e a tag, sem blobs, nada executado): as duas fichas conferem, e o HEAD de hoje das duas origens ainda é o da ficha. O achado estava aqui dentro: a página diz "saída completa em outputs/…" e cita quatro tempos (11.378 ms, 3.490 ms, 14.551µs, 8.82µs) que os dois arquivos, do mesmo commit, não têm (12.487 ms, 3.366 ms, 13.709µs, 6.319µs) — citou uma execução e guardou outra; a geometria confere, e é ela o oráculo do LAB-04, agora lido das saídas; o "~400×" só vale para o L. Nota datada na página; trava src/a-analise-do-esqueleto-reto.ts (16 testes, sem rede): fichas, saídas, oráculo, seis lugares e pasta; 65 mutações acusadas; rede declarada; 1774 → 1790; D400; detalhe em docs/relatorios/LAB-172.md.
+Achados para outros apps ou Central: a todas — "saída completa em <arquivo>" se confere contra o arquivo, linha por linha: página e arquivo do mesmo commit discordavam, porque a página citou uma execução e guardou outra; tempo citado num relatório tem de ser o do arquivo guardado, ou dizer que não é. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; das páginas de docs/ sem leitor sobra a SYMBIOS_ANALYSIS.md, cujo estado espera o chat (LAB-152); as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup (túnel recusado de novo).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
