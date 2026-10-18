@@ -13491,3 +13491,48 @@ de uma frase que diz "não existe": pegaria a pasta `supabase/` na raiz e nada m
 
 > **"ISSO JÁ TEM TRAVA" TAMBÉM É AFIRMAÇÃO, E SE MEDE.** O cabeçalho que apontava a trava do banco foi escrito no mesmo
 > dia em que a casa media as outras três negações da frase — e apontava uma régua que lê outro arquivo.
+
+## D403 · A PROVA DE NAVEGADOR, PERGUNTADA PELO LUGAR — "a única é a do LAB-01" eram duas, "não tem tela" calava a bancada, e o console não reprova · 18/10/2026
+
+**Contexto:** item 900 (LAB-175). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup` (o `rustup target add` desta máquina termina em pânico). Na dívida própria, a espécie
+**mensagem fixa que afirma estado sem perguntar**, no mesmo `docs/SEGURANCA.md` das rodadas LAB-158 a LAB-174, na seção
+que nenhuma delas tinha lido — *O que **não** foi conferido, e por quê*: *"O Lab não tem tela (é regra dele, em
+`CLAUDE.md` §4). A única prova de navegador que existe é a do LAB-01 … em `outputs/lab01/navegador.png`"*; e o topo,
+*"não tem tela"*.
+
+**Medido por LUGAR:** 805 caminhos, 381 JS/TS. Quem importa um condutor de navegador: **um**, a
+`prova-automatica.ts` (LAB-31). Artefatos de navegador em `outputs/` e `docs/provas/`: **dois** — a captura do LAB-01 e
+o `docs/provas/LAB-31/navegador.json`. O `CLAUDE.md` §4 diz *"com UMA exceção, declarada: a bancada do navegador"*
+(D381). E, lendo o produtor: o `pageerror` e o console são **escutados** e só entram na mensagem quando a página não
+publica `window.__prova` — com o número certo e um erro no console, a prova aprova. A régua nova, rodada contra a página
+de antes, acusou **nove** problemas.
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/a-prova-de-navegador.ts` e `tests/a-prova-de-navegador.test.ts` (sem clones, no
+   portão): `PRODUTORES` e `ARTEFATOS` conferidos nos dois sentidos contra a árvore; o item da página nomeia cada um, a
+   bancada (o caminho vem da `a-unica-interface.ts`) e a trava; não diz *"única"*; diz que o console não reprova
+   enquanto `consoleReprova` — a variável do `pageerror` testada num `if`, no código sem comentário — der falso, e a
+   declaração `consoleReprova` de cada produtor é conferida contra o código; e toda linha da página que diz *"não tem
+   tela"* / *"não há tela"* nomeia a bancada. Universo publicado.
+2. A página corrigida: o topo diz *"não tem tela de usuário — só uma página de ferramenta, a bancada"*; o item nomeia as
+   duas provas, o produtor, a bancada, que o console não reprova e que a prova não roda nesta máquina; os dois itens
+   de design e celular dizem por que a bancada não conta; a seção *Reconferido no LAB-175* traz a medição.
+3. **Não mexi na prova do LAB-31.** Fazê-la reprovar por `pageerror` é uma linha, mas ela não roda nesta máquina (sem o
+   `.wasm`) — consertaria uma prova que não posso ver passar. Vai à FILA como *"proposto ao chat"*; a trava já tem o
+   dente para o dia em que ela mudar (a declaração passa a contradizer o código).
+
+**Os dois lados:** a árvore de hoje e uma mínima passam; o condutor em string solta, em comentário ou com nome parecido
+(`playwrights`) não é achado, e o `if (erroNaPagina)` comentado não conta. Acusados: produtor novo fora da lista,
+produtor que perde a importação, produtor que passa a reprovar com a declaração parada, artefato novo e artefato que
+sumiu, *"única"* de volta, artefato/bancada/trava calados, console calado, *"não tem tela"* sem bancada noutra linha,
+item ausente e universo vazio. 1 815 → 1 832 travas no portão sem clones.
+
+**Descartado:** perguntar se a prova PASSA (ela falha na precondição a cada verde, e isso o `conferir.sh` já diz); ler
+`console.error` além do `pageerror` (o produtor não distingue tipo; a régua lê o `if` sobre a variável do erro — dito no
+módulo); procurar a palavra *"tela"* em todo `docs/` (as outras páginas que a usam falam da bancada ou do Generate, e
+régua larga demais nasce vermelha).
+
+> **A SEÇÃO "O QUE NÃO FOI CONFERIDO" TAMBÉM AFIRMA.** Ela diz por que não conferiu — e o porquê envelhece como qualquer
+> outra frase: o *"único"* virou dois em 04/10, e ninguém releu a seção que se apresenta como a lista do que falta.
