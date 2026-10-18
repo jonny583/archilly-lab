@@ -44,7 +44,8 @@
  *   `VERSION` (*"NOT MODIFIED"*) e o commit que a trouxe;
  * - **a história**: só o `HEAD`. Um patch commitado e desfeito depois volta à mesma árvore e passa — o CI
  *   clona raso, e a régua passaria a responder o corte do clone (D293, D344). A história foi medida no
- *   relatório do LAB-132, não aqui;
+ *   relatório do LAB-132, não aqui — e, desde o LAB-163, é perguntada a cada verde completo, árvore a árvore,
+ *   em `a-historia-do-upstream.ts`;
  * - **pasta de motor de fora com outro nome** (`vendor/`, `third_party/`): a regra da casa diz `upstream/`, e
  *   é esse o nome que a régua procura.
  */

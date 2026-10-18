@@ -78,7 +78,7 @@ vez nesta volta:
 | item | estado | como foi conferido |
 |---|---|---|
 | Os commits dos clones vizinhos são **deles**, não meus | ✅ | `git -C <clone> log --since=2026-09-13 --format="%an"` — os 14 commits de `motor-testfit` são da sessão dele, no branch `claude/upbeat-fermi-t1rp11`, mesclados pelo Jonny. **Nenhum desta sessão** — e o autor deixou de responder isto: hoje é `Claude` em toda casa da família; a pergunta passou à sessão no LAB-162 |
-| `external-engines/symbios/upstream/` nunca foi tocado depois de criado | ✅ | `git log --oneline -- external-engines/symbios/upstream/` — **um commit**, o do LAB-00 que o criou |
+| `external-engines/symbios/upstream/` nunca foi tocado depois de criado | ✅ | `git log --oneline -- external-engines/symbios/upstream/` — **um commit**, o do LAB-00 que o criou; **desde o LAB-163, perguntado a cada verde completo à história inteira**, commit a commit, pela ÁRVORE da pasta — o `git log` de hoje mostraria dois (o `f61be91` e a mescla `baa3e07`, que leva a mesma árvore), e a trava do LAB-132 só olha o `HEAD`, onde um patch desfeito some (`external-engines/esteira/src/a-historia-do-upstream.ts`; ver *Reconferido no LAB-163*, abaixo) |
 
 ---
 
@@ -218,3 +218,22 @@ A trava reprova a sessão da casa num vizinho, o assunto `LAB-<n>` num vizinho, 
 o universo vazio. O que ela não alcança está dito no fim do módulo — entre outros, o commit sem rodapé e sem o assunto
 desta casa, e o que nunca chegou à origem.
 
+---
+
+## Reconferido no LAB-163 · 18/10/2026 — o `upstream/`, perguntado à história
+
+A linha do LF-FINAL-2 (*"nunca foi tocado depois de criado"*) era um `git log` rodado em 15/09 e nunca mais. A trava do
+LAB-132 pergunta a árvore da pasta **no `HEAD`** e diz o que deixa de fora: um patch commitado e desfeito depois volta à
+mesma árvore e passa. Medido por mutação, numa cópia descartável desta casa, com o patch e o desfeito commitados: a do
+LAB-132 **passou**; a nova **acusou**.
+
+| o que se leu | quanto |
+|---|---|
+| commits do `HEAD` e da origem (`git rev-list HEAD --remotes=origin`, clone desrasado) | 462 |
+| com a pasta `external-engines/symbios/upstream` | 461 |
+| sem a pasta | 1 (a raiz, de antes do LAB-00) |
+| árvores diferentes que a pasta já teve | **1** — `7ea7b17…`, a registrada no `COPIAS_DE_UPSTREAM` |
+| commits que o `git log --full-history` mostra na pasta | 2: `f61be91` (LAB-00) e a mescla `baa3e07` (PR #1), com a mesma árvore |
+
+O número sai a cada verde completo, publicado por `tests/a-historia-do-upstream-com-historia.test.ts`; com o clone raso,
+reprova com a receita.
