@@ -183,7 +183,8 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // marca de FEITO dos itens da caixa; nenhum clone.
     // E 98 no LAB-165, com a `o-que-fazer-onde-como-saber.test.ts` — a página do Jonny e o `COMO_FUNCIONA.md`; nenhum
     // clone.
-    expect(lista).toHaveLength(98);
+    // E 99 no LAB-166, com a `a-busca-das-chaves.test.ts` — o `git` desta casa e o `docs/SEGURANCA.md`; nenhum clone.
+    expect(lista).toHaveLength(99);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

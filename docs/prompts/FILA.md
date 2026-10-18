@@ -366,6 +366,14 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-166 · item 900 — a dívida própria: nenhuma chave sensível no repositório, e a busca da página dizia "zero" e dava duas — ✅ **feito em 18/10/2026** (D394)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, de volta ao `docs/SEGURANCA.md`, na primeira linha da tabela *Chaves e segredos*: *"Nenhuma chave sensível no repositório · ✅ limpo · `grep -rE` (oito nomes) sobre `.ts`, `.js`, `.json` e `.rs` fora de `node_modules` e de `upstream/` — zero ocorrências"*, do LF-FINAL (14/09), sem trava. Refeito: **duas**, nenhuma chave — o espaço reservado do teste da varredura de segredos (LAB-47, 05/10) e o exemplo de chamada a IA do teste do vazamento de custo (LAB-68, 09/10); o "zero" estava falso havia treze dias. O universo largo (todo texto que o `git` carrega fora do `.md`, 535 arquivos, `upstream/` incluído) dá as mesmas duas. A varredura de segredos não responde a linha: oito linhas plantadas com valor alfanumérico, **as oito passam caladas** por ela; a busca da página acusa sete. Trava `src/a-busca-das-chaves.ts`, sem clones, a busca da página letra por letra, as duas ocorrências declaradas por trecho e só em teste, a declarada que sumiu também reprova; doze mutações de código acusadas; 1 679 → 1 692. Detalhe em [`../relatorios/LAB-166.md`](../relatorios/LAB-166.md).
+
+**Proposto ao chat, saído do LAB-166 — não executado:** a varredura de segredos (`varredura-de-segredos.ts`, LAB-47) tem dois buracos medidos em 18/10: (a) o perdão *"identificador de código, não valor"* aceita qualquer valor alfanumérico que comece por letra — a forma de muita chave de verdade (com um `-` no meio, o mesmo valor é acusado); (b) o cabeçalho de autorização com o portador não está na lista de nomes. E a busca da página (a trava nova) não acha o nome colado depois de `_` (`JWT_` + o segredo), a doença que o LAB-160 achou na varredura com o `DB_` da senha. Os três consertos mudam o que duas travas respondem sobre a árvore inteira, e a página com elas; a proposta é um prompt só, com as oito plantadas do LAB-166 como régua dos dois lados.
+
+**Origem:** [`../relatorios/LAB-166.md`](../relatorios/LAB-166.md), decisão **D394**.
+
 ### LAB-165 · item 900 — a dívida própria: a pergunta que é dele vai com "o que fazer / onde / como saber que deu certo" — ✅ **feito em 18/10/2026** (D393)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, na candidata que o LAB-164 deixou anotada: a terceira coisa do protocolo da caixa (`COMO_FUNCIONA.md`, *"A RESPOSTA INTEIRA VAI PARA O ARQUIVO"*) — *"A pergunta que é dele. Vai para `docs/PENDENCIAS_JONNY.md`, em português de leigo, com o que fazer / onde / como saber que deu certo."* Nenhuma das três travas da página perguntava; tirar os passos da senha (§11) e os caminhos da esquina (§10) não derrubou nada. Por LUGAR, cinco pendências abertas ou paradas: a §8 diz que não pede; das outras quatro (5-B, 7, 10, 11), **nenhuma** dizia como saber que deu certo. Um bloco de forma fixa nas quatro, com a nota de que estão paradas a pedido dele; a §8 como exceção conferida pelo trecho. Trava `o-que-fazer-onde-como-saber`, sem clones, nos dois sentidos (o bloco em resolvida ou aviso também reprova); treze mutações de código acusadas; 1 657 → 1 679.
@@ -2051,7 +2059,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1679 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1692 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

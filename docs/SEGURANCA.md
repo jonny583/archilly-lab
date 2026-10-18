@@ -16,7 +16,7 @@ conferência possa ser refeita por quem quiser.
 
 | item | estado | como foi conferido |
 |---|---|---|
-| Nenhuma chave sensível no repositório | ✅ **limpo** | `grep -rE "\b(apiKey\|api_key\|API_KEY\|SECRET\|Bearer \|Authorization\|sk-[A-Za-z0-9]{20}\|VITE_[A-Z_]+)\b"` sobre todo `.ts`, `.js`, `.json` e `.rs` fora de `node_modules` e de `upstream/` — **zero ocorrências** |
+| Nenhuma chave sensível no repositório | ✅ **limpo** | `grep -rE "\b(apiKey\|api_key\|API_KEY\|SECRET\|Bearer \|Authorization\|sk-[A-Za-z0-9]{20}\|VITE_[A-Z_]+)\b"` sobre todo `.ts`, `.js`, `.json` e `.rs` fora de `node_modules` e de `upstream/` — em 14/09, **zero ocorrências**; o "zero" ficou falso em 05/10 (LAB-47) e ninguém viu: **desde o LAB-166, a mesma busca é perguntada a cada verde** a tudo o que o `git` carrega — nas quatro extensões da página e em todo texto fora do `.md`, `upstream/` incluído —, e hoje dá **duas** ocorrências, nenhuma chave, as duas texto de teste de trava declarado um a um com o motivo (`external-engines/esteira/src/a-busca-das-chaves.ts`; ver *Reconferido no LAB-166*, abaixo) |
 | Nenhuma chave em `VITE_` | ✅ **não se aplica, e está limpo** | não há build de navegador neste repositório; e a busca acima cobre `VITE_` |
 | Nenhum `.env`, `.pem` ou arquivo de credencial | ✅ **limpo** | em 14/09, `find . -name ".env*" -o -name "*.pem" -o -name "*credential*"` — **nada**; **desde o LAB-160, perguntado a cada verde pelo NOME**, em dezessete formas, a tudo o que o `git` carrega e a todo nome que já entrou na história (`external-engines/esteira/src/arquivo-de-credencial.ts`; ver *Reconferido no LAB-160*, abaixo) |
 | Chave de IA só no servidor da Central | ✅ **não se aplica** | o Lab não chama IA. Ver `ADOCAO_CENTRAL.md` |
@@ -237,3 +237,41 @@ LAB-132 **passou**; a nova **acusou**.
 
 O número sai a cada verde completo, publicado por `tests/a-historia-do-upstream-com-historia.test.ts`; com o clone raso,
 reprova com a receita.
+
+---
+
+## Reconferido no LAB-166 · 18/10/2026 — a busca das chaves, refeita a cada verde
+
+A primeira linha da tabela *Chaves e segredos* era um `grep` de oito nomes rodado em 14/09, com *"zero ocorrências"*, e
+nenhuma trava o perguntava. **Refeito em 18/10, o comando da página dá duas:**
+
+| onde | o nome | desde | o que é |
+|---|---|---|---|
+| `external-engines/esteira/tests/segredos.test.ts` | o campo de chave, com o valor `<a sua chave aqui>` | 05/10, LAB-47 | o caso válido que a varredura de segredos tem de perdoar: espaço reservado de documentação |
+| `external-engines/esteira/tests/vazamento-de-custo.test.ts` | o campo de chave, com o valor `k` | 09/10, LAB-68 | o exemplo de chamada a provedor de IA que a trava do vazamento de custo tem de reprovar |
+
+**Nenhuma é chave** — a frase *"nenhuma chave sensível"* é verdadeira; o *"zero"* não era, havia treze dias.
+
+**A varredura de segredos (LAB-47) não responde esta linha.** Ela lê o formato e o nome que se declara com um valor; a
+busca da página lê o nome. Medido em 18/10, com oito linhas plantadas (a constante de chave, o campo de chave do cliente,
+o cabeçalho de autorização com o portador, a constante de segredo, a variável do Vite num JSON…, todas com um valor de 21
+alfanuméricos): **a varredura passou calada pelas oito**, e a busca da página acusou **sete** — a oitava, o segredo
+do JWT colado depois de `JWT_`, escapa das duas, porque o `\b` não separa `_` do nome (a mesma doença que o LAB-160 achou
+na varredura com o `DB_` da senha). Duas razões para a varredura calar, as duas dela: o cabeçalho de autorização não está
+na lista de nomes, e o valor alfanumérico que começa por letra cai no perdão *"identificador de código, não valor"* — que
+é a forma de muita chave de verdade. Esse buraco é da varredura e foi à `FILA.md` como proposta ao chat (LAB-166).
+
+**Desde o LAB-166 a linha é perguntada a cada verde**, por `external-engines/esteira/src/a-busca-das-chaves.ts` e
+`tests/a-busca-das-chaves.test.ts` (sem clones), com a busca da página letra por letra, em dois universos:
+
+| universo | lido em 18/10/2026, antes do commit | ocorrências |
+|---|---|---|
+| o da página: `.ts`, `.js`, `.json`, `.rs` que o `git` carrega, fora de `node_modules/` e de `upstream/` | 473 arquivos | 2, as declaradas |
+| o largo: todo texto que o `git` carrega fora do `.md` (o `.mjs`, o `.html`, o `.yml`, o `.sh`, o gancho do envio, o `.toml`, e o `upstream/`) | 535 arquivos | as mesmas 2 |
+
+O `.md` sai, contado (237), porque é onde a casa fala destes nomes — esta página escreve a busca —; o `.png`, contado,
+porque é binário. Toda ocorrência tem de estar declarada com arquivo, trecho e motivo, e **só se declara texto de teste
+de trava**; a declarada que sumiu também reprova. O registro diz o arquivo, a linha e o nome — nunca o resto da linha,
+onde estaria o valor. O que a trava não alcança está dito no fim do módulo: a chave num nome que não é da busca (é da
+varredura), o `.md` (também é da varredura, que cobre `docs/`), o nome colado depois de `_` (é a busca da página, perguntada letra por letra; mudá-la
+é mudar a página, e foi proposto junto) e a história.
