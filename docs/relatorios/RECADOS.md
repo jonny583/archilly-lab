@@ -3777,3 +3777,16 @@ Próximo na fila: a caixa só tem o 900; as três páginas do LAB-167 estão lid
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-170 — item 900 (a dívida própria): a especificação como chegou — o comentário do topo dizia "numeração tornada sequencial", e nove subseções tinham o número de outra seção
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-170 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém, e as três páginas do LAB-167 lidas; fui à dívida própria (mensagem fixa que afirma estado sem perguntar), por LUGAR: a maior página de docs/ sem leitor no código, docs/referencia/LABORATORIO.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1762 de 1762 (102 de 102 arquivos); esteira com só as 9 falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: o comentário do topo da especificação (LAB-00) dizia "a numeração das seções foi tornada sequencial" — valia para as 38 seções e não para as subseções: as cinco da 23 e as quatro da 28 eram 24.1–24.5 e 24.1–24.4, quatro números repetidos, o defeito que o prompt do LAB-00 mandou corrigir. Renumeradas sem mudar uma palavra (a impressão do texto é a mesma do f61be91), e o comentário diz o que se mediu. Trava src/a-especificacao.ts (14 testes, sem clones): numeração, os números do comentário, a impressão, as citações de seção por LUGAR e as Etapas A a G; oito mutações das páginas e seis de código, acusadas; 1748 → 1762; D398; detalhe em docs/relatorios/LAB-170.md.
+Achados para outros apps ou Central: a todas — "única alteração: X" no topo de documento recebido é afirmação de estado sobre o arquivo de hoje, não relato do passado; esta valia para um nível de título e não para o outro, e passou cinco semanas sem leitor. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; das páginas de docs/ sem leitor sobram duas, ambas relato datado do LAB-00; as propostas antigas (a mais nova, a do LAB-168) esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

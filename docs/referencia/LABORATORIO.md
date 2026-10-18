@@ -3,6 +3,17 @@
   Única alteração: a numeração das seções foi tornada sequencial (o original
   repetia 24-28 e trazia a seção 23 fora de ordem no fim). Nenhum texto,
   título ou trecho de conteúdo foi alterado, removido ou reordenado.
+
+  LAB-170 (18/10/2026, D398) — medido, a frase "tornada sequencial" valia
+  para as 38 seções de nível dois e NÃO para as subseções: as cinco da seção
+  23 e as quatro da 28 continuavam 24.1-24.5 e 24.1-24.4, quatro números
+  repetidos e todos colidindo com a seção 24 — o defeito que o prompt mandou
+  corrigir. Passaram a 23.1-23.5 e 28.1-28.4; só o número mudou, nenhuma
+  palavra. "Nenhum texto alterado" é verdade desde o LAB-00 (f61be91): o
+  texto sem este comentário e sem os números dos títulos tem a mesma
+  impressão lá e aqui; antes dele, o prompt colado não foi guardado.
+  Hoje: 38 seções e 14 subseções numeradas, cada subseção com o número da
+  sua seção. Quem pergunta: external-engines/esteira/src/a-especificacao.ts.
 -->
 
 " é a especificação completa do laboratório. Grave-o em docs/LABORATORIO.md tal como está (corrija apenas a numeração duplicada de seções, sem mudar conteúdo). Ele descreve Etapas A a G. ESTE PROMPT EXECUTA SOMENTE A ETAPA A (investigação) MAIS UMA PROVA MÍNIMA DE EXECUÇÃO. Adapter, integração e comparação ficam para prompts futuros, só se a investigação disser que vale.
@@ -834,7 +845,7 @@ test_validator_compatibility
 
 Quando um motor for aprovado para teste, o Archilly deve manter **duas cópias lógicas** no GitHub do próprio projeto.
 
-### 24.1 Cópia ORIGINAL — intocada
+### 23.1 Cópia ORIGINAL — intocada
 
 Esta é a cópia de referência exata do motor obtida do repositório oficial.
 
@@ -860,7 +871,7 @@ Regras:
 
 O objetivo é garantir que sempre saibamos exatamente qual versão original foi utilizada.
 
-### 24.2 Cópia de TRABALHO — modificável
+### 23.2 Cópia de TRABALHO — modificável
 
 A segunda cópia é a versão que poderá receber adaptações necessárias para o Archilly.
 
@@ -889,7 +900,7 @@ Regras:
 - registrar quais alterações foram feitas pelo Archilly;
 - manter as obrigações de licença aplicáveis.
 
-### 24.3 Regra de ouro
+### 23.3 Regra de ouro
 
 ```text
 UPSTREAM
@@ -911,7 +922,7 @@ ARCHILLY
 
 Se uma alteração for necessária, ela acontece na versão de trabalho.
 
-### 24.4 Por que manter as duas
+### 23.4 Por que manter as duas
 
 Isso nos dá quatro vantagens:
 
@@ -920,7 +931,7 @@ Isso nos dá quatro vantagens:
 3. **Reversibilidade** — podemos voltar ao código original.
 4. **Manutenção** — se uma nova versão do motor aparecer, podemos comparar com nossa versão modificada antes de atualizar.
 
-### 24.5 Licenciamento
+### 23.5 Licenciamento
 
 A existência de uma cópia no GitHub do Archilly não elimina as obrigações da licença.
 
@@ -1060,7 +1071,7 @@ ARCHILLY/
 └── docs/
 ```
 
-### 24.1 Princípio de isolamento
+### 28.1 Princípio de isolamento
 
 O Core do Archilly não deve depender diretamente da implementação específica de Symbios, PackingSolver ou qualquer outro motor experimental.
 
@@ -1088,7 +1099,7 @@ O Adapter conhece o **motor**.
 
 O motor externo não precisa conhecer o Core.
 
-### 24.2 Objetivo: poder apagar tudo
+### 28.2 Objetivo: poder apagar tudo
 
 A área `external-engines/` deve ser concebida como um **sandbox de experimentação**.
 
@@ -1115,7 +1126,7 @@ Archilly
 
 O Core deve continuar compilando e funcionando.
 
-### 24.3 Regra de dependências
+### 28.3 Regra de dependências
 
 Durante a experimentação:
 
@@ -1127,7 +1138,7 @@ Durante a experimentação:
 - testes específicos devem ficar junto do motor;
 - remover um motor não deve exigir refatoração do Core.
 
-### 24.4 Quando um motor se tornar definitivo
+### 28.4 Quando um motor se tornar definitivo
 
 Se um motor provar valor real e for escolhido para produção, **não incorporar automaticamente seu código ao Core**.
 

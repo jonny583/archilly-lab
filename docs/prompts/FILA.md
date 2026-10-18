@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-170 · item 900 — a dívida própria: a especificação como chegou — o comentário do topo dizia "numeração tornada sequencial", e nove subseções tinham o número de outra seção — ✅ **feito em 18/10/2026** (D398)
+
+A FILA continuava sem proposta que não esperasse ninguém, e as três páginas do LAB-167 estavam lidas. Por LUGAR, as páginas de `docs/` sem leitor no código: a maior é a `referencia/LABORATORIO.md` (1 491 linhas), a única das três que afirma estado. O comentário do topo dizia *"a numeração das seções foi tornada sequencial"*: valia para as 38 seções de nível dois e não para as subseções — as cinco da 23 e as quatro da 28 eram `24.1`–`24.5` e `24.1`–`24.4`, quatro números repetidos, o defeito que o prompt do LAB-00 mandou corrigir. Renumeradas (só o número; a impressão do texto é a mesma do `f61be91`), o comentário dizendo o que se mediu. Trava `src/a-especificacao.ts`, sem clones: numeração única e sequencial, os dois números do comentário, a impressão do texto, as citações de seção por LUGAR e as Etapas A a G; oito mutações das páginas e seis de código acusadas; 1748 → 1762 no portão sem clones (101 → 102 arquivos). Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-170.md`](../relatorios/LAB-170.md), decisão **D398**.
+
 ### LAB-169 · item 900 — a dívida própria: ferramenta e trava — a página tinha guarda para a tabela, e os números da prosa ninguém perguntava — ✅ **feito em 18/10/2026** (D397)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup` (403). A última das três páginas que o LAB-167 nomeou, a `referencia/FERRAMENTA_E_TRAVA.md` (item 003), lida linha a linha: a tabela já tinha guarda; a prosa afirmava quatro números sem leitor, e um — *"os nove recados antigos acima do teto"* — eram **sete** desde o dia em que a página nasceu. O *"é o item 004"* apontava para um futuro que chegou diferente. Trava: os quatro números recontados a cada verde, a régua do acumulado num lugar só (`recado.test.ts` e `lab66.ts` passam a usá-la); 1740 → 1748 no portão sem clones. Nada novo proposto ao chat.
@@ -2081,7 +2087,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1748 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1762 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

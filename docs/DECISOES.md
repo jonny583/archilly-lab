@@ -13278,3 +13278,44 @@ a diferença é esperada); corrigir o *nove* no `LAB-70.md` e na D232 (história
 > rodando, e o número errado morava duas linhas abaixo, na célula de texto — e na declaração que a prova copiava. Cópias
 > que concordam entre si só provam que foram copiadas.
 
+
+## D398 · A ESPECIFICAÇÃO COMO CHEGOU — o comentário do topo dizia "numeração tornada sequencial", e nove subseções tinham o número de outra seção · 18/10/2026
+
+**Contexto:** item 900 (LAB-170). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e as
+três páginas que o LAB-167 nomeou estavam lidas. Por LUGAR — toda página `.md` de `docs/` e `docs/referencia/` e quantos
+arquivos de código das três suítes citam o nome dela —, três páginas sem leitor: `referencia/LABORATORIO.md` (1 491
+linhas), `SYMBIOS_ANALYSIS.md` e `PACKINGSOLVER_TRIAGEM.md`. As duas últimas são relato datado do LAB-00; a primeira é a
+especificação, com um comentário no topo que **afirma** o que se fez com o texto recebido.
+
+**Medido (LAB-170):**
+
+- *"a numeração das seções foi tornada sequencial"* — **meio verdade**: as 38 seções de nível dois são 1 a 38; as nove
+  subseções das seções 23 e 28 eram `24.1`–`24.5` e `24.1`–`24.4` — quatro números repetidos e nove colidindo com a
+  seção 24. O prompt do LAB-00 mandava *"corrija apenas a numeração duplicada de seções"*;
+- *"Nenhum texto… foi alterado"* — verdadeiro desde o LAB-00: a impressão do texto (sem o comentário e sem os números dos
+  títulos) é a mesma no `f61be91` e hoje; antes dele, o prompt colado não foi guardado;
+- a `TRIAGEM.md` (*"seção 36"*) e o `INDEX.md`/`HISTORIA_DAS_REGRAS.md` (*"Etapas A a G"*) — certos;
+- ninguém citava os números velhos das subseções.
+
+**Decidido:**
+
+1. As nove subseções passam a `23.1`–`23.5` e `28.1`–`28.4` — só o número, a alteração que o prompt do LAB-00 autorizou;
+   o comentário do LAB-00 fica, com um parágrafo do LAB-170 embaixo dizendo o que se mediu e *"Hoje: 38 seções e 14
+   subseções numeradas"*.
+2. `external-engines/esteira/src/a-especificacao.ts` e `tests/a-especificacao.test.ts` (14 testes, sem clones): a
+   numeração única, sequencial e com a mãe certa; os dois números do comentário; a impressão do texto
+   (`IMPRESSAO_DO_TEXTO`, conferida contra o `f61be91` quando a história está à mão); as citações de seção por LUGAR; as
+   Etapas da seção 20. Portão sem clones 1 748 → 1 762, 101 → 102 arquivos.
+
+**Os dois lados:** oito mutações das páginas (um título de volta ao `24.1`, uma subseção que pula, o número do
+comentário, uma palavra da especificação, o título que a `TRIAGEM.md` cita, uma Etapa, a citação da `TRIAGEM.md`, as
+Etapas do `INDEX.md`) e seis de código — todas acusadas. A primeira tentativa do título deu zero: o `sed` mirava a linha
+de antes do comentário crescer e não mudou nada; refeita pelo texto, acusada.
+
+**Descartado:** só corrigir o comentário (deixaria aberto o defeito que o prompt mandou fechar); reescrever o comentário
+do LAB-00 (apagaria o que aquela sessão afirmou); guardar a impressão numa prova `.json` (seria mais uma cópia a concordar
+com outra, D311 — a medição é o próprio `f61be91`).
+
+> **"ÚNICA ALTERAÇÃO: X" NO TOPO DE UM DOCUMENTO RECEBIDO É AFIRMAÇÃO DE ESTADO COMO QUALQUER OUTRA.** Esta valia para um
+> nível de título e não para o outro, e passou cinco semanas sem leitor porque parecia relato do passado — e falava do
+> arquivo de hoje.
