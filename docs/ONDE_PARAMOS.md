@@ -220,7 +220,7 @@ enquanto eu trabalhava no 001"*).
 | 18/10/2026 | ≤ 22:06 | derivado | só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 22:06:19 (antes de qualquer comando desta sessão) | item 900 (LAB-185), dívida própria (mensagem fixa que afirma estado sem perguntar e número digitado à mão: a ficha e *"a cópia… idêntica"* da `docs/SYMBIOS_ANALYSIS.md`, e *"`src/` tem 14 módulos"*) |
 
 ```
-disparos no registro: 131 · observados: 39 · derivados: 46 · entregues em lote: 7 · reconstruídos: 39 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
+disparos no registro: 132 · observados: 39 · derivados: 47 · entregues em lote: 7 · reconstruídos: 39 · em vazio: 5 (e UMA delas era FALSA — medido no LAB-90, D296)
 ```
 
 **TRINTA E NOVE RODADAS NÃO ESCREVERAM A LINHA DELAS, e a conta seguiu VERDE** (LAB-173, D401). A
