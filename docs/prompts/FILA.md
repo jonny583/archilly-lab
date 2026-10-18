@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-179 · item 900 — a dívida própria: chave de IA só no servidor da Central — "o Lab não chama IA", e a linha não nomeava nenhuma das quatro travas que o perguntam — ✅ **feito em 18/10/2026** (D407)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a quarta linha da tabela *Chaves e segredos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"Chave de IA só no servidor da Central · não se aplica · o Lab não chama IA. Ver `ADOCAO_CENTRAL.md`"*. Por LUGAR, quatro jeitos de o Lab ter IA, cada um perguntado por régua própria, nascida depois da linha: a chave (`varredura-de-segredos.ts`, LAB-47), a chamada — inclusive pela porta de IA da Central — (`destino-do-que-sai.ts`, LAB-80), a porta paga (`nada-pago.ts`, LAB-148) e a rede no motor (`rede-em-execucao.ts`, LAB-158); zero achados nas quatro, e a linha não nomeava nenhuma (o LAB-178 contava duas). A régua nova acusou catorze problemas na página de antes; linha corrigida (as quatro travas, os dois números das listas de formas) e tabela das quatro; trava `src/a-ia-na-pagina.ts` (19 testes, sem clones); 1 880 → 1 899. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-179.md`](../relatorios/LAB-179.md).
+
 ### LAB-178 · item 900 — a dívida própria: o que precisa mudar nos vizinhos vira lista em relatório — a linha não nomeava a trava do LAB-149, e dois dos quatro exemplos dela saíram em prosa — ✅ **feito em 18/10/2026** (D406)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a terceira linha da tabela *Os repositórios vizinhos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"LAB-07 §9 (8 correções), LAB-02 §5, LAB-03 e LAB-08 — todos com o número e sem commit lá"*. A regra tem trava desde o LAB-149 (`pedido-ao-vizinho.ts`), e a linha não a nomeava; os quatro exemplos, ninguém perguntava. Pela régua do LAB-149: o LAB-07 tem a lista do §9 (oito itens) e um pedido em prosa, congelado; o LAB-03, um pedido em prosa, congelado; o LAB-02 e o LAB-08, nenhum lugar que a régua veja — o do LAB-02 tem lista, num parágrafo aberto em negrito; o do LAB-08 é uma pergunta em prosa. A régua nova acusou sete problemas na página de antes; linha corrigida (as duas travas nomeadas, **5** pedidos sem lista, o recorte da forma dito) e tabela dos quatro exemplos; trava `src/o-pedido-na-pagina.ts` (13 testes, sem clones); 1 867 → 1 880. Nada novo proposto ao chat: dos sete parágrafos de pedido abertos em negrito, cinco estão sob título que a régua já lê, e os dois de fora não escondem pedido sem lista. Detalhe em [`../relatorios/LAB-178.md`](../relatorios/LAB-178.md).
@@ -2129,7 +2133,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1880 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1899 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

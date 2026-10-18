@@ -203,7 +203,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // `docs/SEGURANCA.md` e a `regras.test.ts`; nenhum clone.
     // E 109 no LAB-178, com a `o-pedido-na-pagina.test.ts` — o `git` desta casa, o `docs/SEGURANCA.md`, os quatro
     // relatórios que a linha dava de exemplo e a régua do LAB-149; nenhum clone.
-    expect(lista).toHaveLength(109);
+    // E 110 no LAB-179, com a `a-ia-na-pagina.test.ts` — o `git` desta casa, o `docs/SEGURANCA.md` e as quatro réguas
+    // que perguntam a IA (a chave, a chamada, a porta paga, a rede); nenhum clone.
+    expect(lista).toHaveLength(110);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

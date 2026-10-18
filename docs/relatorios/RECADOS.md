@@ -3894,3 +3894,16 @@ Próximo na fila: a caixa só tem o 900; as propostas antigas esperam o chat; o 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-179 — item 900 (a dívida própria): chave de IA só no servidor da Central — "o Lab não chama IA", e a linha não nomeava nenhuma das quatro travas que o perguntam
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-179 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): a linha da chave de IA no docs/SEGURANCA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1899 de 1899 (110 de 110 arquivos); esteira 2251 aprovadas e só as 9 falhas do .wasm (as de sempre), testfit 17 de 17..
+Feito: a linha dizia só "o Lab não chama IA. Ver ADOCAO_CENTRAL.md". Por LUGAR, quatro réguas a perguntam e ela não nomeava nenhuma: a chave (varredura-de-segredos, LAB-47), a chamada — inclusive pela porta de IA da Central — (destino-do-que-sai, LAB-80), a porta paga (nada-pago, LAB-148) e a rede no motor (rede-em-execucao, LAB-158); zero achados nas quatro (o LAB-178 contava duas). A régua nova acusou catorze problemas na página de antes; linha corrigida e tabela das quatro; trava a-ia-na-pagina (19 testes, sem clones); 1880 → 1899; D407; detalhe em docs/relatorios/LAB-179.md.
+Achados para outros apps ou Central: a todas — "não se aplica" numa linha de segurança é afirmação de estado e precisa dizer quem a pergunta; quem tem "o app não chama IA": procurem quem pergunta pela chave, pela chamada (inclusive à porta de IA da Central, que não é dependência nem endereço novo) e pela porta, e nomeiem na linha. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

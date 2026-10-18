@@ -13650,3 +13650,33 @@ a régua já lê, e os dois de fora (LAB-02, com lista; LAB-56, um lembrete já 
 
 > **EXEMPLO NUMA LINHA DE CONFERÊNCIA É AFIRMAÇÃO SOBRE OUTRO ARQUIVO, E ENVELHECE COMO NÚMERO.** Aqui, quatro exemplos de
 > *"lista em relatório"*, e dois em prosa — um deles congelado como descumprimento pela própria casa, um mês depois.
+
+## D407 · CHAVE DE IA SÓ NO SERVIDOR DA CENTRAL — "o Lab não chama IA", e a linha não nomeava nenhuma das quatro travas que o perguntam · 18/10/2026
+
+**Contexto:** item 900 (LAB-179). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup`. Na dívida própria, a espécie **mensagem fixa que afirma estado sem perguntar**, a quarta
+linha da tabela *Chaves e segredos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"Chave de IA só no servidor da
+Central · não se aplica · o Lab não chama IA. Ver `ADOCAO_CENTRAL.md`"*.
+
+**Medido:** por LUGAR, quatro jeitos de o Lab ter IA, cada um perguntado hoje por régua própria, nascida depois da linha — a
+chave (`varredura-de-segredos.ts`, LAB-47, três formatos), a chamada (`destino-do-que-sai.ts`, `CHAMADA_PAGA_DE_IA`, seis
+formas, nascida no LAB-68 e lá desde o LAB-80, que pega também a chamada pela porta de IA da Central), a porta paga
+(`nada-pago.ts`, LAB-148) e a rede no caminho do motor (`rede-em-execucao.ts`, LAB-158). Zero achados nas quatro. A linha
+não nomeava nenhuma, e o LAB-178 contava duas. A régua nova, contra a página de antes: catorze problemas.
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/a-ia-na-pagina.ts` e `tests/a-ia-na-pagina.test.ts` (19 testes, sem clones, no
+   portão): roda as quatro réguas e publica os universos; a linha nomeia as quatro travas, as quatro rodadas, esta trava e
+   o LAB-179; os dois números da linha são o tamanho das duas listas de formas; a tabela da seção *Reconferido no
+   LAB-179* tem as quatro travas, a rodada que cada módulo nomeia e os achados que as réguas acham.
+2. A linha corrigida, e a seção *Reconferido no LAB-179* com a tabela.
+
+**Descartado:** dar na tabela a rodada de nascimento da régua da chamada (LAB-68) — perguntá-la pediria a história do
+`git`, e o portão sem clones roda em clone raso; escrever os universos na página (crescem a cada arquivo); uma lista de
+nomes de fornecedor de IA (trava de palavra; o que fecha é a porta, e a `nada-pago.ts` já reprova a porta não declarada);
+mexer no `ADOCAO_CENTRAL.md` (outra página, com a trava do LAB-167); e passar `ler("CLAUDE.md") ?? ""` à régua das portas
+— a varredura de chamadas do LAB-52 acusou, e sem o arquivo a trava agora diz `universo-vazio`.
+
+> **"NÃO SE APLICA" NUMA LINHA DE SEGURANÇA É AFIRMAÇÃO DE ESTADO, E PRECISA DIZER QUEM A PERGUNTA.** Aqui, quatro travas
+> a perguntavam, a linha não nomeava nenhuma — e a rodada anterior desta casa achava que eram duas.

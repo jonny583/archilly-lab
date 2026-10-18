@@ -19,7 +19,7 @@ conferência possa ser refeita por quem quiser.
 | Nenhuma chave sensível no repositório | ✅ **limpo** | `grep -rE "\b(apiKey\|api_key\|API_KEY\|SECRET\|Bearer \|Authorization\|sk-[A-Za-z0-9]{20}\|VITE_[A-Z_]+)\b"` sobre todo `.ts`, `.js`, `.json` e `.rs` fora de `node_modules` e de `upstream/` — em 14/09, **zero ocorrências**; o "zero" ficou falso em 05/10 (LAB-47) e ninguém viu: **desde o LAB-166, a mesma busca é perguntada a cada verde** a tudo o que o `git` carrega — nas quatro extensões da página e em todo texto fora do `.md`, `upstream/` incluído —, e hoje dá **duas** ocorrências, nenhuma chave, as duas texto de teste de trava declarado um a um com o motivo (`external-engines/esteira/src/a-busca-das-chaves.ts`; ver *Reconferido no LAB-166*, abaixo) |
 | Nenhuma chave em `VITE_` | ✅ **não se aplica, e está limpo** | não há build de navegador neste repositório; e a busca acima cobre `VITE_` |
 | Nenhum `.env`, `.pem` ou arquivo de credencial | ✅ **limpo** | em 14/09, `find . -name ".env*" -o -name "*.pem" -o -name "*credential*"` — **nada**; **desde o LAB-160, perguntado a cada verde pelo NOME**, em dezessete formas, a tudo o que o `git` carrega e a todo nome que já entrou na história (`external-engines/esteira/src/arquivo-de-credencial.ts`; ver *Reconferido no LAB-160*, abaixo) |
-| Chave de IA só no servidor da Central | ✅ **não se aplica** | o Lab não chama IA. Ver `ADOCAO_CENTRAL.md` |
+| Chave de IA só no servidor da Central | ✅ **não se aplica** | o Lab não chama IA — nem direto, nem pela porta da Central — e não guarda chave de IA; **perguntado a cada verde por quatro travas**, cada uma um jeito de o Lab ter IA: a chave, nas **3** formas de chave de IA da varredura de segredos (`external-engines/esteira/src/varredura-de-segredos.ts`, LAB-47); a chamada, nas **6** formas do import e da chamada, do SDK do fornecedor à porta de IA da Central (`external-engines/esteira/src/destino-do-que-sai.ts`, LAB-80); a porta de serviço pago — dependência, variável de ambiente, endereço — (`external-engines/esteira/src/nada-pago.ts`, LAB-148); e a rede no caminho do motor (`external-engines/esteira/src/rede-em-execucao.ts`, LAB-158). Até o LAB-179 esta linha dizia só *"o Lab não chama IA"*, sem nomear nenhuma; a linha e a tabela dos achados são perguntadas por `external-engines/esteira/src/a-ia-na-pagina.ts` (ver *Reconferido no LAB-179*, abaixo). A adoção da Central: `ADOCAO_CENTRAL.md` |
 
 ## Banco e RLS
 
@@ -417,3 +417,27 @@ e `tests/o-pedido-na-pagina.test.ts` (sem clones): a linha nomeia as duas travas
 pedidos congelados que a lista do LAB-149 tem e não cita relatório fora desta tabela; a tabela tem os quatro exemplos, e
 as quatro colunas de número são as que a régua do LAB-149 acha neles. A última coluna é texto e não é perguntada — dito no
 fim do módulo, com o resto do que a trava não alcança.
+
+## Reconferido no LAB-179 · 18/10/2026 — a chave de IA, e as quatro travas que a linha não nomeava
+
+A linha *"Chave de IA só no servidor da Central"*, do LF-FINAL, dizia *"o Lab não chama IA. Ver `ADOCAO_CENTRAL.md`"* —
+verdade, e perguntada, mas por quatro travas nascidas depois dela, que ela não nomeava. Por LUGAR, os quatro jeitos de o
+Lab ter IA, cada um com a régua que o pergunta hoje, rodadas na árvore em 18/10:
+
+| pergunta | trava | desde | achados |
+|---|---|---|---|
+| a chave de IA na árvore (as regras `chave-de-ia-*`) | `varredura-de-segredos.ts` | LAB-47 | 0 |
+| a chamada de IA no código (`CHAMADA_PAGA_DE_IA`) | `destino-do-que-sai.ts` | LAB-80 | 0 |
+| a porta de serviço pago (as portas pagas) | `nada-pago.ts` | LAB-148 | 0 |
+| a rede no caminho do motor | `rede-em-execucao.ts` | LAB-158 | 0 |
+
+A régua da chamada nasceu no LAB-68, no `vazamento-de-custo.test.ts`, e mora no `destino-do-que-sai.ts` desde o LAB-80;
+a coluna dá a casa de hoje, que é a que o módulo nomeia. A régua nova acusou **catorze** problemas na linha de antes:
+nenhuma trava nomeada, dez nomes calados (as quatro travas, as quatro rodadas, esta trava e o LAB-179), os dois números
+ausentes e a falta desta tabela.
+
+**Desde o LAB-179 a linha e a tabela são perguntadas a cada verde**, por `external-engines/esteira/src/a-ia-na-pagina.ts`
+e `tests/a-ia-na-pagina.test.ts` (sem clones): a linha nomeia as quatro travas e as quatro rodadas, e os dois números
+dela são o tamanho das duas listas de formas; a tabela tem as quatro travas, nem mais nem menos, a rodada de cada uma é a
+que o módulo nomeia, e a coluna dos achados é a que as quatro réguas acham na árvore. O que ela não alcança — IA de
+fornecedor que nenhuma régua conhece pelo nome, o cliente em Rust que só aparece pela porta — está dito no fim do módulo.
