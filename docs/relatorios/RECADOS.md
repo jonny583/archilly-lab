@@ -3699,3 +3699,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-164 — item 900 (a dívida própria): a ideia que não cabia no item vai à FILA, e o recado a cita numa linha
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-164 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), no docs/caixa-de-entrada/COMO_FUNCIONA.md, seção A RESPOSTA INTEIRA VAI PARA O ARQUIVO. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1657 de 1657 (97 de 97 arquivos); esteira 1998 aprovadas e só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17. O envio passa pelo gancho do LAB-106.
+Feito: "a ideia que não cabia no item vai à FILA.md como proposto ao chat, e o recado a cita numa linha" — a lista tinha a trava do LAB-61; o recado, nenhuma: tirar a citação dos recados do LAB-159, LAB-123 e LAB-80 não derrubou nada da suíte. Por LUGAR, três formas de proposta na FILA (saído do LAB/item, minha lista, item da lista), 30 prompts no alcance (LAB-70 em diante): todos citam — 9 na forma de hoje (proposto ao chat, com P maiúsculo abrindo a frase), 21 em formas antigas declaradas com o trecho. Regra verdadeira, guarda ausente. Trava: src/a-proposta-no-recado.ts + teste sem clones, nos dois sentidos (o recado que diz a forma sem proposta na FILA também reprova — e o meu primeiro rascunho deste recado, que a citava entre aspas, foi acusado por ela); onze mutações de código acusadas; 1639 → 1657; D392; detalhe em docs/relatorios/LAB-164.md.
+Achados para outros apps ou Central: (0) o protocolo da caixa é o mesmo nas onze casas: onde houver trava sobre a lista de propostas, vale perguntar se alguma pergunta o RECADO de quem propôs. E a negação contém a frase: "Nada novo proposto ao chat" tem "proposto ao chat" dentro — a primeira versão daqui acusou seis recados assim; a forma lida com caixa, abrindo a frase, resolveu. Não medi as vizinhas. (1) Nada novo proposto ao chat; as propostas do LAB-123, 129, 135, 137, 140, 141, 147, 152 e 159 seguem esperando.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida própria (candidata anotada no relatório: o formato da pendência, "o que fazer / onde / como saber", sem trava).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

@@ -195,6 +195,12 @@ na tela:
 3. **A pergunta que é dele.** Vai para `docs/PENDENCIAS_JONNY.md`, em português
    de leigo, com o que fazer / onde / como saber que deu certo.
 
+> **A coisa 2 é conferida desde o LAB-164 (18/10/2026, D392), nos dois sentidos.** A lista da `FILA.md` já tinha a trava
+> do LAB-61; o recado de quem propôs, nenhuma. A régua `external-engines/esteira/src/a-proposta-no-recado.ts` lê as
+> propostas da `FILA.md` pelo prompt de origem e cobra que o recado daquele prompt as cite — na forma *"Proposto ao
+> chat"*, que abre a frase (a negação *"Nada novo proposto ao chat"* não conta) —, e que o recado que diz *"Proposto ao
+> chat"* tenha a proposta escrita. *(Acrescentado por mim no LAB-164; o texto do chat acima está intocado.)*
+
 **O recado continua sendo o que se lê primeiro.** Ele é o resumo; o relatório é
 o detalhe. Quem lê o recado e fica com dúvida abre o relatório — e é por isso
 que o recado precisa dizer **onde** está o detalhe.

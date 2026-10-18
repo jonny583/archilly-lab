@@ -12985,3 +12985,40 @@ acrescentar `fetch-depth: 0` ao `verde.yml` para isso (mexer na rotina por uma t
 
 > **"IGUAL HOJE" E "NUNCA TOCADO" SÃO DUAS FRASES, E SÓ UMA TINHA GUARDA.** A do `HEAD` responde a primeira; a segunda
 > só a história responde — e a régua do `HEAD` dizia isso de si, por extenso, havia dois dias.
+
+## D392 · A IDEIA QUE NÃO CABIA NO ITEM VAI À `FILA.md`, E O RECADO A CITA NUMA LINHA — a lista tinha trava, o recado não · 18/10/2026
+
+**Contexto:** item 900 (LAB-164). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, no protocolo da caixa (`docs/caixa-de-entrada/COMO_FUNCIONA.md`, seção
+*"A RESPOSTA INTEIRA VAI PARA O ARQUIVO"*, commit `b0b537b`, 09/10/2026): *"A ideia que não cabia no item. Vai para a
+`FILA.md` como "proposto ao chat", e o recado a cita numa linha."* A trava do LAB-61 cobra a LISTA da `FILA.md`; nada
+perguntava o recado de quem propôs.
+
+**Medido (LAB-164):** a suíte inteira da esteira com três citações tiradas do `RECADOS.md` (LAB-159, LAB-123, LAB-80) →
+1 980 aprovadas e as 9 do `.wasm`, as mesmas da linha de base: zero falhas novas. Por LUGAR, as propostas da `FILA.md` em
+três formas (`saído do LAB-NNN` ou `do item NNN`; `minha lista` sob `### LAB-NNN`; o item da lista com `(LAB-NN`): 51
+com origem, 17 itens sem origem (todos de antes da regra), **30 prompts no alcance** (LAB-70 em diante, o corte do
+LAB-130) — **todos** os recados citam: 9 na forma *"Proposto ao chat"* (LAB-123 a LAB-159) e 21 em formas mais velhas.
+Regra verdadeira, guarda ausente.
+
+**Decidido:**
+
+1. `external-engines/esteira/src/a-proposta-no-recado.ts`: reprova a proposta do alcance sem recado, o recado que não
+   cita, o recado que diz *"Proposto ao chat"* sem proposta na `FILA.md` (o sentido de volta), o item da caixa sem marca
+   de FEITO que diga o prompt, a `minha lista` sem seção, a exceção que sobra ou sem o trecho, e o universo vazio.
+2. As 21 formas antigas em `FORMAS_ANTIGAS`, cada uma com o trecho copiado do recado — conferido lá, e conferido que a
+   forma de hoje não está.
+3. `tests/a-proposta-no-recado.test.ts`, 18 testes, sem clones, no portão sem clones do `verde.yml` (1 639 → 1 657,
+   96 → 97 arquivos). Nota com o ponteiro no `COMO_FUNCIONA.md`, texto do chat intocado.
+
+**Os dois lados:** a página de hoje, a forma antiga com o trecho e a negação *"Nada novo proposto ao chat"* passam; o
+recado sem citação, o prompt sem recado, a proposta só no recado, o item sem marca, a `minha lista` sem seção, a exceção
+que sobra e a sem trecho reprovam. **Onze mutações de código, onze acusadas; quatro na página, quatro acusadas.**
+
+**Descartado:** cobrar *"a escolha e as alternativas que você descartou"* (a coisa 1 da mesma lista) — juízo sobre o
+conteúdo, e régua de palavra mediria ortografia (D137); uma lista de frases aceitas para as formas antigas (aprovaria
+*"peguei da FILA a proposta do LAB-103"*, a de outro prompt); exigir a palavra *FILA* na forma de hoje (o LAB-147 cita
+sem ela, e a regra diz *"cita"*, não *"diz onde"*); ler a forma sem caixa (acusou seis recados que dizem a negação).
+
+> **A FRASE QUE NEGA CONTÉM A FRASE QUE AFIRMA.** *"Nada novo proposto ao chat"* tem *"proposto ao chat"* dentro; a régua
+> que lê a frase sem ler onde ela abre conta a negação como citação.
