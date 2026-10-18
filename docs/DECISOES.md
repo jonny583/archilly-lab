@@ -13070,3 +13070,46 @@ o que ele confere sozinho.
 > **A PARTE QUE NUNCA FOI ESCRITA NÃO SE MEDE POR MUTAÇÃO.** Tirar o *como saber* não derrubava nada porque não havia o
 > que tirar: zero de quatro. A lacuna de uma régua ausente se mede tirando o que existe; a de uma regra cumprida pela
 > metade, contando o que nunca existiu.
+
+## D394 · NENHUMA CHAVE SENSÍVEL NO REPOSITÓRIO — a busca da página, perguntada letra por letra a cada verde, dizia "zero" e dava duas · 18/10/2026
+
+**Contexto:** item 900 (LAB-166). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém; o
+LAB-165 fechou a lista do protocolo da caixa e mandou o próximo disparo a outra página. De volta ao `docs/SEGURANCA.md`,
+li as linhas da tabela uma a uma: a primeira de *Chaves e segredos* — *"Nenhuma chave sensível no repositório · ✅ limpo
+· `grep -rE` dos oito nomes sobre `.ts`, `.js`, `.json` e `.rs` fora de `node_modules` e de `upstream/` — zero
+ocorrências"*, do LF-FINAL (14/09) — não tinha trava (espécie **mensagem fixa que afirma estado sem perguntar**). A do
+`.wasm`, a única outra sem trava, foi descartada pela terceira vez: o `rustup` ainda não alcança o alvo nesta máquina.
+
+**Medido (LAB-166):** o comando da página, refeito no disco e no que o `git` carrega, dá **duas** ocorrências, nenhuma
+chave — o espaço reservado `<a sua chave aqui>` do teste da varredura de segredos (LAB-47, `980f953`, 05/10) e o exemplo
+de chamada a IA com o valor `k` do teste do vazamento de custo (LAB-68, `a3a3798`, 09/10). O "zero" ficou falso em 05/10.
+No universo largo (todo texto que o `git` carrega fora do `.md`, 535 arquivos, `upstream/` incluído), as mesmas duas. E
+a varredura de segredos não responde a linha: oito linhas plantadas com um valor de 21 alfanuméricos passaram **todas**
+caladas pelo `varrerTexto` — o cabeçalho de autorização não está na lista de nomes dela, e o valor alfanumérico que
+começa por letra cai no perdão *"identificador de código"*. A busca da página acusou sete; a oitava (o segredo colado
+depois de `JWT_`) escapa das duas, porque o `\b` não separa `_` de letra.
+
+**Decidido:**
+
+1. **A frase é verdadeira, o número não era.** A linha passa a dizer *"em 14/09, zero"*, que o zero ficou falso em 05/10,
+   e o que se pergunta desde hoje; seção *Reconferido no LAB-166* na página.
+2. `external-engines/esteira/src/a-busca-das-chaves.ts`: a busca da página **letra por letra** (montada em pedaços, senão
+   se acha a si mesma), em dois universos publicados — o da página e o largo —, com `ocorrencia-nao-declarada`,
+   `declarada-que-sumiu`, `declarada-fora-de-teste` (só se perdoa texto de teste de trava) e `universo-vazio`. A
+   declaração casa pelo **trecho da linha**, não pelo número, e perdoa a linha, não o arquivo. O registro leva o nome que
+   casou, nunca o resto da linha.
+3. `tests/a-busca-das-chaves.test.ts`, 13 testes, sem clones, no portão sem clones (1 679 → 1 692, 98 → 99 arquivos). Ele
+   confere também que a linha da página traz a mesma busca e o nome da trava.
+
+**Os dois lados:** a árvore de hoje, o `.md`, o binário e sete casos que quase parecem inválidos passam; a chave em
+`src/`, a mesma no `.mjs`, no `.yml`, no gancho e no `upstream/` (que a página não via), a segunda ocorrência no teste
+declarado, a declarada que sumiu, a de fora de teste e o universo vazio reprovam. **Doze mutações de código, doze
+acusadas** — a do trecho ignorado só depois de um teste a mais.
+
+**Descartado:** consertar agora o perdão da varredura de segredos e o `\b` da busca (outra trava e a página junto; vão à
+FILA como proposta ao chat, numa só); ler a história (`git log -G`) — a varredura declara o mesmo buraco, e o remédio é
+trocar a chave; pôr o `.md` no universo (é onde a casa fala dos nomes).
+
+> **O NÚMERO DA TABELA ENVELHECE NO DIA EM QUE O PRIMEIRO TESTE DA TRAVA ESCREVE O CASO BOM.** A linha dizia "zero"
+> porque em 14/09 ninguém tinha escrito, de propósito, o nome que a busca procura; a primeira trava de segredo que provou
+> aprovar o caso bom o escreveu, e a linha ficou falsa sem que nenhuma palavra dela mudasse.

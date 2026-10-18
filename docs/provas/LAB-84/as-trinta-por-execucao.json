@@ -1,8 +1,8 @@
 {
   "prompt": "LAB-84",
-  "oQue": "os 98 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
+  "oQue": "os 99 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-18T02:22:33.917Z",
+  "quando": "2026-10-18T03:28:19.955Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -10,9 +10,9 @@
   "comoFoiMedido": "cópia do repositório num diretório onde os três clones irmãos NÃO existem — conferido antes de medir, e a ferramenta estoura se algum aparecer —, e `bun test <arquivo>` um a um, guardando o código de saída. Nada foi movido nem renomeado no vizinho (§4)",
   "porQueNaoPorLeitura": "o item 017 proibiu: rodar a lista sem os clones é a RESPOSTA, ler o `import` é a HIPÓTESE. E a diferença apareceu no número: o D279 disse DUAS travas, lidas do fonte; executadas são QUATRO, e três delas são anteriores à minha rodada",
   "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
-  "quantosArquivos": 98,
-  "quantosPassamSemClone": 98,
-  "quantasTravasNaLista": 1679,
+  "quantosArquivos": 99,
+  "quantosPassamSemClone": 99,
+  "quantasTravasNaLista": 1692,
   "asTrintaEUma": [
     {
       "arquivo": "tests/pagina.test.ts",
@@ -697,6 +697,13 @@
       "arquivo": "tests/o-que-fazer-onde-como-saber.test.ts",
       "saida": 0,
       "passam": 22,
+      "reprovam": 0,
+      "asQueReprovam": []
+    },
+    {
+      "arquivo": "tests/a-busca-das-chaves.test.ts",
+      "saida": 0,
+      "passam": 13,
       "reprovam": 0,
       "asQueReprovam": []
     }

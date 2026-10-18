@@ -3725,3 +3725,16 @@ Próximo na fila: a caixa só tem o 900; as três coisas da lista do protocolo e
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-166 — item 900 (a dívida própria): nenhuma chave sensível no repositório — a busca da página dizia "zero" e dava duas
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-166 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (mensagem fixa que afirma estado sem perguntar), de volta ao docs/SEGURANCA.md, tabela Chaves e segredos, primeira linha. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1692 de 1692 (99 de 99 arquivos); esteira com só as 9 falhas do .wasm (as de sempre), testfit 17 de 17. O envio passa pelo gancho do LAB-106.
+Feito: "nenhuma chave sensível no repositório — grep de oito nomes, zero ocorrências" (LF-FINAL, 14/09), sem trava. Refeito: DUAS, nenhuma chave — o espaço reservado do teste da varredura de segredos (LAB-47, 05/10) e o exemplo de chamada a IA do teste do vazamento de custo (LAB-68, 09/10); o "zero" estava falso havia 13 dias. O universo largo (535 arquivos, todo texto fora do .md, upstream/ incluído) dá as mesmas duas. Trava: src/a-busca-das-chaves.ts + teste sem clones — a busca da página letra por letra, as duas declaradas por trecho e só em teste, a declarada que sumiu também reprova; doze mutações de código acusadas; 1679 → 1692; D394; detalhe em docs/relatorios/LAB-166.md.
+Achados para outros apps ou Central: (0) a varredura de segredos NÃO responde a linha: oito linhas plantadas com valor de 21 alfanuméricos passam TODAS caladas por ela — o cabeçalho de autorização não está na lista de nomes, e o perdão "identificador de código" aceita qualquer valor alfanumérico que comece por letra (com um "-" no meio, acusa). Se alguma casa copiou esse perdão, tem o mesmo buraco; não medi as vizinhas. (1) Proposto ao chat (FILA, acima do LAB-165): consertar os dois buracos da varredura e o "_" da busca da página (JWT_ + o segredo escapa das duas), num prompt só, com as oito plantadas como régua.
+Depende do Jonny: nada (nenhuma chave vazou: as duas ocorrências são texto de teste).
+Próximo na fila: a caixa só tem o 900; no SEGURANCA.md, sem trava, só a linha do .wasm, que espera o alvo do rustup (falhou de novo hoje); o próximo disparo vai à dívida própria.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
