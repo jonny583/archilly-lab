@@ -120,9 +120,15 @@ describe("LAB-133 · a casa de verdade — dezesseis arquivos, e o Node aceita t
     expect(manifestosNoSymbios(versionados)).toEqual([]);
   });
 
-  test("a exceção é UMA, e é o passo do verde que roda no Bun", () => {
-    expect(EXCECOES_DE_PACOTE.map((e) => [e.arquivo, e.pacotes])).toEqual([[PROVA, ["playwright"]]]);
+  // Duas desde o LAB-182 (D410): a medição da bancada no celular é o segundo passo de navegador do verde.
+  test("as exceções são DUAS, e as duas são passos do verde que rodam no Bun", () => {
+    const CELULAR = PROVA.replace("prova-automatica.ts", "rolagem-no-celular.ts");
+    expect(EXCECOES_DE_PACOTE.map((e) => [e.arquivo, e.pacotes])).toEqual([
+      [PROVA, ["playwright"]],
+      [CELULAR, ["playwright"]],
+    ]);
     expect(CODIGOS[PROVA]!.startsWith("#!/usr/bin/env bun")).toBe(true);
+    expect(CODIGOS[CELULAR]!.startsWith("#!/usr/bin/env bun")).toBe(true);
     expect(readFileSync(join(RAIZ, "external-engines", "esteira", "package.json"), "utf8")).toContain('"playwright"');
   });
 

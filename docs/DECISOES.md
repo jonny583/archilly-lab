@@ -13748,3 +13748,46 @@ pintou e está na árvore, o `.svg`, entra); e uma prova JSON (a medição é a 
 
 > **"NÃO HÁ DESIGN" É A FRASE QUE CONFUNDE "NÃO HÁ TELA DE USUÁRIO" COM "NÃO HÁ COR".** A regra se aplicava por
 > ausência, e a ausência era de outra coisa: a cor estava lá, e o que faltava era quem a contasse.
+
+## D410 · MOBILE SEM ROLAGEM LATERAL — "a bancada não é aberta no celular", e ninguém a tinha aberto · 18/10/2026
+
+**Contexto:** item 900 (LAB-182). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup`. Na dívida própria, a espécie **mensagem fixa que afirma estado sem perguntar**: o último
+item da seção *O que **não** foi conferido* do `docs/SEGURANCA.md` ainda sem pergunta, do LF-FINAL (14/09) — *"Mobile
+sem rolagem lateral. Idem: a bancada não é aberta no celular"*. O LAB-181 o deixou para depois porque a resposta honesta
+é uma medição de navegador e a bancada sem o `.wasm` não monta o que mostra.
+
+**Medido:** a bancada monta o mesmo esqueleto com ou sem o `.wasm` (ele só muda o que vai dentro do `<pre>` e do
+`<canvas>`), então ela se mede nesta máquina. No Chromium, a 390×844 (a tela do Laboratório de Parcelamento), 360×740 e
+320×568, com e sem a emulação de celular, em dois estados — como monta aqui, e com o registro de 10/09 (lido do
+`README.md` da bancada) dentro do `<pre>`: **sobra 0 px nos doze casos**. O `<canvas>` de 700 px encolhe
+(`max-width: 100%`, 328 px a 390), a linha mais larga do registro (698 px) rola dentro da caixa (`overflow-x: auto`) e o
+`body` não tem largura fixa. E a página não tem `<meta name="viewport">`: emulando celular, o Chromium a desenha em
+980 px e a encolhe — não rola, mas a letra fica com cerca de 40 % do tamanho. A frase era verdadeira no resultado e falsa
+no motivo. A régua nova, contra a página e o `conferir.sh` de antes: nove problemas (oito na página, um no verde).
+
+**Decidido:**
+
+1. Um produtor de prova de navegador novo, `external-engines/symbios/adapter/ferramentas/navegador/rolagem-no-celular.ts`,
+   que escreve `docs/provas/LAB-182/navegador-celular.json` com o SHA-256 do `index.html` e do `prova.js`, e reprova
+   sozinho com sobra acima de zero. **Sem servidor**: a página chega ao Chromium por `route`, num endereço `.invalid` que
+   não existe na rede — o servidor da bancada continua um só (LAB-153). É o primeiro produtor de navegador que roda nesta
+   máquina, porque não precisa do `.wasm`.
+2. O `conferir.sh` o roda **antes dos pacotes** — o verde passa de sete para **oito passos** —, para a trava ler o JSON
+   de agora. `CLAUDE.md` §7, a linha do `conferir.sh` no `INDEX.md`, a régua das contagens e o `verde.test.ts` com o
+   número novo.
+3. A trava `external-engines/esteira/src/a-rolagem-no-celular.ts` e `tests/a-rolagem-no-celular.test.ts` (18 testes, sem
+   clones, no portão): a prova é desta página (impressão e `<meta name="viewport">`), tem a tela da família e os dois
+   estados, a maior sobra é a dos casos e é zero, o verde roda o produtor, o item nomeia produtor, JSON, trava e rodada
+   (a rodada fora dos caminhos) com a sobra e o viewport ditos, e a tabela da seção *Reconferido no LAB-182* tem os casos.
+4. As réguas vizinhas, com a peça nova declarada: o produtor e o JSON nas listas da `a-prova-de-navegador.ts` (LAB-175;
+   o item da prova de navegador passa de *duas* a **três** provas), o endereço `bancada.invalid` como `nao-e-chamada` na
+   `nada-pago.ts` (LAB-148; 33 → 34 portas) e o JSON entre as provas que não medem gleba (`regras.test.ts`, §7).
+
+**Descartado:** acrescentar o `<meta name="viewport">` à bancada (é ferramenta, a letra pequena não é estouro, e mudar a
+página muda o que a medição responde — fica dito no item e no fim do módulo); medir com um servidor (seria o segundo, e a
+`a-unica-interface.ts` conta servidores); esperar o `.wasm` (a pergunta é a largura, e o esqueleto não depende dele); e
+pôr a medição dentro da `prova-automatica.ts` (ela morre na precondição do `.wasm` nesta máquina, e a medição junto).
+
+> **"NÃO É ABERTA NO CELULAR" É HÁBITO DE QUEM USA, NÃO PROPRIEDADE DA PÁGINA.** A regra se responde abrindo — e,
+> aberta, a página não rolava, mas por motivos que ninguém tinha escrito, e com uma letra que ninguém tinha visto.

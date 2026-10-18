@@ -3933,3 +3933,16 @@ Próximo na fila: a caixa só tem o 900; na mesma seção do docs/SEGURANCA.md, 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-182 — item 900 (a dívida própria): mobile sem rolagem lateral — "a bancada não é aberta no celular", e ninguém a tinha aberto
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-182 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): o item "Mobile sem rolagem lateral" do docs/SEGURANCA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 1955 de 1955 (113 de 113 arquivos); esteira 2307 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; a medição do celular passa; vizinhos com git status limpo.
+Feito: o item dizia "Idem: a bancada não é aberta no celular". A bancada monta o mesmo esqueleto sem o .wasm, então foi medida no Chromium a 390, 360 e 320 px, com e sem emulação de celular, como monta aqui e com o registro de 10/09 dentro: não rola de lado, sobra 0 px nos doze casos — o canvas encolhe e o registro rola dentro da caixa —, mas a página não tem <meta name="viewport"> e o celular a desenha em 980 px. Produtor novo rolagem-no-celular.ts (sem .wasm, sem servidor), o primeiro de navegador que roda nesta máquina; o conferir.sh passa a oito passos; trava a-rolagem-no-celular (18 testes, sem clones); a régua acusou nove problemas antes; 1937 → 1955 (D410). Detalhe em docs/relatorios/LAB-182.md.
+Achados para outros apps ou Central: a todas — "não é aberta no celular" é hábito, não propriedade da página: abram a página de ferramenta a 390 px com isMobile, comparem scrollWidth com clientWidth e procurem o <meta name="viewport"> (sem ele não rola, mas encolhe). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a seção "O que não foi conferido" do docs/SEGURANCA.md está toda perguntada; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

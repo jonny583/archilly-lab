@@ -255,11 +255,11 @@ conferida nos dois sentidos.
 ```
 
 Ele roda cobertura, precondição (sem o `.wasm`
-reprova com a receita), sete passos, todos mesmo depois de uma falha, e **nada fica fora dele**
+reprova com a receita), oito passos, todos mesmo depois de uma falha, e **nada fica fora dele**
 (D126).
 
 **O CI** (`verde.yml`) tem dois trabalhos: o das
-**1937 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
+**1955 travas que leem arquivo do próprio repositório**, sem segredo, e o verde completo, que
 exige `VIZINHOS_TOKEN` e sem ele **falha com a receita**.
 
 ### 🔴 O CI AUTOMÁTICO ESTÁ DESLIGADO desde 08/10/2026

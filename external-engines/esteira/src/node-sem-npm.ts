@@ -86,6 +86,13 @@ export const EXCECOES_DE_PACOTE: readonly ExcecaoDePacote[] = [
       "é o passo `prova no navegador` do `conferir.sh` (LAB-31): roda no Bun, de dentro da esteira " +
       "(`#!/usr/bin/env bun`), com o `playwright` do `package.json` dela — não é o adaptador, e o Node nunca o carrega",
   },
+  {
+    arquivo: `${ADAPTADOR}/ferramentas/navegador/rolagem-no-celular.ts`,
+    pacotes: ["playwright"],
+    motivo:
+      "é o passo `rolagem no celular` do `conferir.sh` (LAB-182, D410): roda no Bun, de dentro da esteira " +
+      "(`#!/usr/bin/env bun`), com o `playwright` do `package.json` dela — mede a bancada, não é o adaptador, e o Node nunca o carrega",
+  },
 ];
 
 /** Um arquivo lido: o caminho a partir da raiz, e as importações que o `Bun.Transpiler` acha nele. */

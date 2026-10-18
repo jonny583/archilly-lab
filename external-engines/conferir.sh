@@ -138,6 +138,13 @@ else
   passos_ruins+=("precondição: .wasm ausente")
 fi
 
+# ── 1b · A bancada no CELULAR: a página rola de lado? (LAB-182, D410) ───────
+# Roda ANTES dos pacotes, de propósito: a trava `a-rolagem-no-celular.ts`, no `bun test` da
+# esteira, lê o JSON que este passo escreve — e tem de ler o de agora, não o do último verde.
+# Não precisa do `.wasm`: a página monta o mesmo esqueleto sem ele.
+passo "rolagem no celular (Chromium)" "$RAIZ/external-engines/esteira" \
+  bun ../symbios/adapter/ferramentas/navegador/rolagem-no-celular.ts
+
 # ── 2 · Os dois pacotes, os três passos de cada ─────────────────────────────
 for pacote in "${COBERTOS[@]}"; do
   nome="${pacote##*/}"

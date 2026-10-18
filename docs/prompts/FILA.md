@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-182 · item 900 — a dívida própria: mobile sem rolagem lateral — "a bancada não é aberta no celular", e ninguém a tinha aberto — ✅ **feito em 18/10/2026** (D410)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, o último item ainda sem pergunta da seção *O que não foi conferido* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"Mobile sem rolagem lateral. Idem: a bancada não é aberta no celular"*. A bancada monta o mesmo esqueleto com ou sem o `.wasm`, e foi medida no Chromium a 390, 360 e 320 px, com e sem a emulação de celular, como monta aqui e com o registro de 10/09 dentro: **sobra 0 px nos doze casos** — o `<canvas>` encolhe e o registro rola dentro da caixa —, mas a página não tem `<meta name="viewport">` e o celular a desenha em 980 px. Produtor novo `rolagem-no-celular.ts` (sem servidor, sem o `.wasm`), escrevendo `docs/provas/LAB-182/navegador-celular.json`; o `conferir.sh` passa a oito passos; trava `src/a-rolagem-no-celular.ts` (18 testes, sem clones); as réguas vizinhas com a peça nova declarada (LAB-175, LAB-148, §7). A régua acusou nove problemas antes; 1 937 → 1 955. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-182.md`](../relatorios/LAB-182.md).
+
 ### LAB-181 · item 900 — a dívida própria: nada repintado fora do catálogo de design — "não há design", e há cor escrita à mão em três lugares — ✅ **feito em 18/10/2026** (D409)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, o item da seção *O que não foi conferido* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"Nada repintado fora do catálogo de design. Não há design: a única página é a bancada, que é ferramenta e não tela de usuário"*. Por LUGAR, os dois caminhos por onde cor entra na árvore — o arquivo de página (2 lidos) e a string de cor no código que pinta (398 lidos, fora do `upstream/`): **9** cores escritas à mão, nenhuma do catálogo, em três lugares — o `<style>` da bancada (2), o canvas do `prova.js` (4) e o `.svg` que o exemplo `full_city.rs` do upstream pintou no LAB-00 (3). Tela de usuário, nenhuma: a regra não se aplica, mas ninguém perguntava. A régua nova acusou cinco problemas na página de antes; item corrigido (a trava, a rodada e o número) e tabela dos três lugares; trava `src/as-cores-da-bancada.ts` (17 testes, sem clones), a paleta de cada lugar congelada nos dois sentidos; 1 920 → 1 937. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-181.md`](../relatorios/LAB-181.md).
@@ -2141,7 +2145,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1937 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1955 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

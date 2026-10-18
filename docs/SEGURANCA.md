@@ -63,9 +63,12 @@ conferência possa ser refeita por quem quiser.
 
 - **Prova no navegador com console limpo.** O Lab não tem tela de usuário; tem UMA página de ferramenta, a bancada
   (`external-engines/symbios/adapter/ferramentas/navegador/index.html`), a exceção declarada no `CLAUDE.md` §4 (D381).
-  As provas de navegador são **duas**, ambas do `.wasm` carregando no Chromium: a captura feita à mão no LAB-01
+  As provas de navegador são **três**: duas do `.wasm` carregando no Chromium — a captura feita à mão no LAB-01
   (`outputs/lab01/navegador.png`, 10/09) e a prova automática do LAB-31 (`docs/provas/LAB-31/navegador.json`,
-  escrita por `external-engines/symbios/adapter/ferramentas/navegador/prova-automatica.ts`, que o `conferir.sh` roda).
+  escrita por `external-engines/symbios/adapter/ferramentas/navegador/prova-automatica.ts`, que o `conferir.sh` roda)
+  — e a da bancada na largura de celular, do LAB-182 (`docs/provas/LAB-182/navegador-celular.json`, escrita por
+  `external-engines/symbios/adapter/ferramentas/navegador/rolagem-no-celular.ts`, que o `conferir.sh` também roda e
+  que não precisa do `.wasm`).
   **O console não reprova:** a prova do LAB-31 escuta o console e o `pageerror`, mas só os usa para explicar quando a
   página não publica o resultado — com o número certo e um erro no console, ela aprova. E ela não roda nesta máquina
   desde o LAB-31: o `.wasm` não é versionado e o alvo do `rustup` não instala. Perguntado a cada verde desde o LAB-175
@@ -75,7 +78,15 @@ conferência possa ser refeita por quem quiser.
   (o `<style>` do `index.html` e o canvas do `prova.js`) e o `.svg` que o exemplo do upstream pintou no LAB-00. A paleta de cada
   lugar está congelada e é perguntada a cada verde desde o LAB-181, nos dois sentidos: cor nova, lugar novo pintado ou
   cor que sumiu reprovam (`external-engines/esteira/src/as-cores-da-bancada.ts`; ver *Reconferido no LAB-181*, abaixo).
-- **Mobile sem rolagem lateral.** Idem: a bancada não é aberta no celular.
+- **Mobile sem rolagem lateral.** Não se aplica: não há tela de usuário, só a bancada, que é ferramenta. Mas a
+  bancada foi medida no celular no LAB-182, no Chromium, a 390, 360 e 320 px, com e sem a emulação de celular, como
+  monta nesta máquina (sem o `.wasm`) e com o registro de 10/09 dentro: não rola de lado: sobra **0** px nos
+  doze casos. O `<canvas>` encolhe (`max-width: 100%`) e a linha larga do registro rola dentro da própria caixa
+  (`overflow-x: auto`). A página não tem `<meta name="viewport">`: o celular de verdade a desenha em 980 px e a
+  encolhe — não rola, mas a letra fica pequena. A medição é refeita a cada verde
+  (`external-engines/symbios/adapter/ferramentas/navegador/rolagem-no-celular.ts`, que escreve
+  `docs/provas/LAB-182/navegador-celular.json`) e perguntada contra a página por
+  `external-engines/esteira/src/a-rolagem-no-celular.ts` (ver *Reconferido no LAB-182*, abaixo).
 
 ---
 
@@ -500,3 +511,39 @@ sumiu, lugar novo com cor e lugar declarado sem cor reprovam —; o item com a t
 antes; a tabela com os três lugares e as cores da árvore. Mudar uma cor de propósito é mudar a lista e esta página no
 mesmo commit. O que ela não alcança — cor por nome, fonte e tamanho, cor montada em pedaços no código, o pixel da
 captura — está dito no fim do módulo.
+
+---
+
+## Reconferido no LAB-182 · 18/10/2026 — o celular, perguntado ao navegador
+
+O item *"Mobile sem rolagem lateral"*, do LF-FINAL, dizia *"Idem: a bancada não é aberta no celular"* — hábito de quem
+usa, não propriedade da página. A regra da família (*nada estoura lateralmente no celular*) se responde com uma medição:
+a largura do conteúdo do documento contra a largura da janela, na tela que o Laboratório de Parcelamento usa (390×844,
+emulando celular). A bancada monta o mesmo esqueleto com ou sem o `.wasm` (ele só muda o que vai dentro do `<pre>` e do
+`<canvas>`), então ela é medida nesta máquina: como monta aqui, e com o registro de 10/09 (lido do `README.md` da
+bancada) dentro do `<pre>`. A coluna *desenhada em* é a largura em que o Chromium desenha a página; *sobra* é a maior
+dos dois estados.
+
+| tela | emulação | desenhada em (px) | sobra (px) |
+|---|---|---|---|
+| `390×844` | celular | 980 | 0 |
+| `390×844` | janela | 390 | 0 |
+| `360×740` | celular | 980 | 0 |
+| `360×740` | janela | 360 | 0 |
+| `320×568` | celular | 980 | 0 |
+| `320×568` | janela | 320 | 0 |
+
+**A frase era verdadeira no resultado e falsa no motivo.** A página não rola de lado, mas não porque ninguém a abre no
+celular: o `<canvas>` de 700 px encolhe com a janela (`max-width: 100%`, 328 px a 390), a linha mais larga do registro
+de 10/09 (698 px) rola dentro da própria caixa (`overflow-x: auto`, 326 px a 390) e o `body` não tem largura fixa. E a
+página não tem `<meta name="viewport">`: emulando celular, o Chromium a desenha em 980 px e a encolhe para caber — não
+rola, mas a letra fica com cerca de 40 % do tamanho. Como a bancada é ferramenta, isto se diz e não se conserta aqui.
+
+**Desde o LAB-182 a medição é refeita a cada verde** — o `conferir.sh` roda
+`external-engines/symbios/adapter/ferramentas/navegador/rolagem-no-celular.ts` antes dos pacotes, e ele reprova sozinho
+com sobra acima de zero — **e perguntada contra a página** por `external-engines/esteira/src/a-rolagem-no-celular.ts` e
+`tests/a-rolagem-no-celular.test.ts` (sem clones): o JSON leva o SHA-256 do `index.html` e do `prova.js` (página mudada
+sem medição refeita reprova), o `<meta name="viewport">` que a medição viu tem de ser o da página, a tela da família tem
+de estar lá, o item escreve a sobra e cala o viewport só se ele existir, e esta tabela tem os casos da medição, nem mais
+nem menos. O que ela não alcança — a página com o `.wasm`, o tamanho da letra, outros navegadores — está dito no fim do
+módulo.

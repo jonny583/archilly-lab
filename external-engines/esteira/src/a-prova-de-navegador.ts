@@ -71,6 +71,12 @@ export const PRODUTORES: readonly Produtor[] = [
     prompt: "LAB-31",
     consoleReprova: false,
   },
+  {
+    caminho: "external-engines/symbios/adapter/ferramentas/navegador/rolagem-no-celular.ts",
+    prompt: "LAB-182",
+    // Ela mede LARGURA, não console: o erro da página (o `.wasm` ausente) é registrado no JSON e não reprova.
+    consoleReprova: false,
+  },
 ];
 
 /** Onde a prova mora. O do LAB-01 foi feito à mão (10/09/2026), sem produtor no `git`. */
@@ -80,6 +86,11 @@ export const ARTEFATOS: readonly { caminho: string; prompt: string; produtor: st
     caminho: "docs/provas/LAB-31/navegador.json",
     prompt: "LAB-31",
     produtor: "external-engines/symbios/adapter/ferramentas/navegador/prova-automatica.ts",
+  },
+  {
+    caminho: "docs/provas/LAB-182/navegador-celular.json",
+    prompt: "LAB-182",
+    produtor: "external-engines/symbios/adapter/ferramentas/navegador/rolagem-no-celular.ts",
   },
 ];
 
