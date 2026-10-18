@@ -207,7 +207,8 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // que perguntam a IA (a chave, a chamada, a porta paga, a rede); nenhum clone.
     // E 111 no LAB-180, com a `o-que-o-navegador-baixa.test.ts` — o `git` desta casa, o `docs/SEGURANCA.md`, a busca
     // do LAB-166 e a lista das pontes do LAB-176; nenhum clone.
-    expect(lista).toHaveLength(111);
+    // E 112 no LAB-181, com a `as-cores-da-bancada.test.ts` — o `git` desta casa e o `docs/SEGURANCA.md`; nenhum clone.
+    expect(lista).toHaveLength(112);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });

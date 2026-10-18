@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-181 · item 900 — a dívida própria: nada repintado fora do catálogo de design — "não há design", e há cor escrita à mão em três lugares — ✅ **feito em 18/10/2026** (D409)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, o item da seção *O que não foi conferido* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"Nada repintado fora do catálogo de design. Não há design: a única página é a bancada, que é ferramenta e não tela de usuário"*. Por LUGAR, os dois caminhos por onde cor entra na árvore — o arquivo de página (2 lidos) e a string de cor no código que pinta (398 lidos, fora do `upstream/`): **9** cores escritas à mão, nenhuma do catálogo, em três lugares — o `<style>` da bancada (2), o canvas do `prova.js` (4) e o `.svg` que o exemplo `full_city.rs` do upstream pintou no LAB-00 (3). Tela de usuário, nenhuma: a regra não se aplica, mas ninguém perguntava. A régua nova acusou cinco problemas na página de antes; item corrigido (a trava, a rodada e o número) e tabela dos três lugares; trava `src/as-cores-da-bancada.ts` (17 testes, sem clones), a paleta de cada lugar congelada nos dois sentidos; 1 920 → 1 937. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-181.md`](../relatorios/LAB-181.md).
+
 ### LAB-180 · item 900 — a dívida própria: nenhuma chave em `VITE_` — "não há build de navegador", e há um: o `.wasm`, que embute uma variável de compilação — ✅ **feito em 18/10/2026** (D408)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a segunda linha da tabela *Chaves e segredos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09) — a última dela sem trava: *"Nenhuma chave em `VITE_` · não se aplica, e está limpo · não há build de navegador neste repositório; e a busca acima cobre `VITE_`"*. Por LUGAR, as três portas por onde uma variável de compilação chegaria ao navegador: o empacotador (394 arquivos lidos, zero), a página da bancada (os dois arquivos que o servidor dela devolve como estão, zero) e o `.wasm` da ponte — que é um build que o navegador baixa e embute **um** nome, `SYMBIOS_VERSAO`, posto pelo `build.rs` a partir do `Cargo.toml` do upstream, nada lido da máquina. A régua nova acusou oito problemas na página de antes; linha corrigida (as duas travas, o número e o nome) e tabela das três perguntas; trava `src/o-que-o-navegador-baixa.ts` (21 testes, sem clones); 1 899 → 1 920. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-180.md`](../relatorios/LAB-180.md).
@@ -2137,7 +2141,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1920 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1937 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

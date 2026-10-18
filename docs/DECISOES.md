@@ -13714,3 +13714,37 @@ de palavra — o empacotador novo continua sendo porta nova para a `nada-pago.ts
 
 > **"NÃO HÁ BUILD" É A FRASE QUE ESQUECE O BUILD QUE NÃO É DE JAVASCRIPT.** A regra do `VITE_` é sobre o que o compilador
 > copia para dentro do que o navegador baixa; aqui quem copia é o `cargo`, e o `env!` é o prefixo que ninguém procurava.
+
+## D409 · NADA REPINTADO FORA DO CATÁLOGO DE DESIGN — "não há design", e há cor escrita à mão em três lugares · 18/10/2026
+
+**Contexto:** item 900 (LAB-181). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup`. Com a tabela *Chaves e segredos* toda perguntada (LAB-180), na dívida própria, a espécie
+**mensagem fixa que afirma estado sem perguntar**: o item da seção *O que **não** foi conferido* do `docs/SEGURANCA.md`,
+do LF-FINAL (14/09) — *"Nada repintado fora do catálogo de design. Não há design: a única página é a bancada, que é
+ferramenta e não tela de usuário"*.
+
+**Medido:** por LUGAR, os dois caminhos por onde cor entra na árvore — o arquivo de página (`.html`, `.css`, `.svg`,
+componente; 2 lidos) e a string de cor no código que pinta (398 lidos, fora do `upstream/` e de `node_modules/`). **9**
+cores escritas à mão, nenhuma do catálogo da família: o `<style>` da bancada (2), o canvas do `prova.js` (4) e o
+`outputs/symbios_full_city_lots.svg` (3), saída do exemplo `full_city.rs` do upstream gravada no LAB-00. Tela de usuário,
+nenhuma. A frase era falsa na letra (há design) e verdadeira no que importa (a regra é de tela de usuário); e ninguém a
+perguntava — uma cor nova na bancada ou uma página nova pintada passariam a esteira inteira. A régua nova, contra a página
+de antes: cinco problemas.
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/as-cores-da-bancada.ts` e `tests/as-cores-da-bancada.test.ts` (17 testes, sem
+   clones, no portão): os lugares com cor e a paleta de cada um congelados em `LUGARES`, nos dois sentidos (`cor-fora-da-
+   lista`, `lugar-que-sumiu`, `cor-nova`, `cor-que-sumiu`); o item com a trava, a rodada e o número, e sem *"não há
+   design"*; a tabela da seção *Reconferido no LAB-181* com os três lugares e as cores; os dois universos publicados.
+2. O item corrigido (*"Não se aplica: não há tela de usuário, só a bancada"*, e as **9** cores ditas), e a seção com a
+   tabela. O item fica na seção *O que não foi conferido*, como o da prova de navegador do LAB-175: a regra não se
+   aplica, e o que se pergunta agora é a cor que existe.
+
+**Descartado:** perguntar também fonte, tamanho e margem (a regra do Padrão é de tela de usuário, que não há; a bancada é
+ferramenta — dito no fim do módulo); trocar as cores da bancada pelas do catálogo da Central (é decisão de design, e o
+Lab não adota o kit — `ADOCAO_CENTRAL.md`); perguntar o `upstream/` no código (é cópia byte a byte, LAB-132; o que ele
+pintou e está na árvore, o `.svg`, entra); e uma prova JSON (a medição é a trava, que imprime os universos a cada verde).
+
+> **"NÃO HÁ DESIGN" É A FRASE QUE CONFUNDE "NÃO HÁ TELA DE USUÁRIO" COM "NÃO HÁ COR".** A regra se aplicava por
+> ausência, e a ausência era de outra coisa: a cor estava lá, e o que faltava era quem a contasse.

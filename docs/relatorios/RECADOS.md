@@ -3920,3 +3920,16 @@ Próximo na fila: a caixa só tem o 900; a tabela Chaves e segredos está toda p
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-181 — item 900 (a dívida própria): nada repintado fora do catálogo de design — "não há design", e há cor escrita à mão em três lugares
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-181 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): o item "Nada repintado fora do catálogo de design" do docs/SEGURANCA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1937 de 1937 (112 de 112 arquivos); esteira 2289 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos com git status limpo.
+Feito: o item dizia "Não há design: a única página é a bancada". Por LUGAR, página (2 lidas) e string de cor no código (398 lidos, fora do upstream): 9 cores escritas à mão, nenhuma do catálogo — o <style> da bancada (2), o canvas do prova.js (4) e o .svg que o exemplo do upstream pintou no LAB-00 (3). Tela de usuário nenhuma, a regra não se aplica, mas ninguém perguntava: cor nova ou página nova pintada passavam caladas. A régua nova acusou cinco problemas na página de antes; item corrigido e tabela dos três lugares; trava as-cores-da-bancada (17 testes, sem clones), paleta congelada nos dois sentidos; 1920 → 1937 (D409). Detalhe em docs/relatorios/LAB-181.md.
+Achados para outros apps ou Central: a todas — "não há design" confunde "não há tela de usuário" com "não há cor": quem tem página de ferramenta ou SVG gravado como medição, conte a cor que está lá e congele a paleta de cada lugar. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na mesma seção do docs/SEGURANCA.md, o "Mobile sem rolagem lateral — Idem" segue sem pergunta; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
