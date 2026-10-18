@@ -2,7 +2,7 @@
   "prompt": "LAB-84",
   "oQue": "os 117 arquivos do trabalho de CI \"guardas que não precisam dos clones vizinhos (NÃO é o verde)\" rodados POR EXECUÇÃO numa cópia do repositório sem os três clones irmãos, arquivo por arquivo — a medição que o D279 declarou não ter feito e sem a qual não se escolhe entre os dois consertos",
   "oQueIstoNaoMede": "não mede gleba e não roda motor: o objeto é o conjunto de ARQUIVOS DE TRAVA e o que cada um precisa para rodar. Por isso está na lista declarada de exceções do §7",
-  "quando": "2026-10-18T23:16:44.068Z",
+  "quando": "2026-10-18T23:23:07.264Z",
   "oChao": {
     "bun": "1.4.2",
     "plataforma": "linux"
@@ -11,7 +11,7 @@
   "porQueNaoPorLeitura": "o item 017 proibiu: rodar a lista sem os clones é a RESPOSTA, ler o `import` é a HIPÓTESE. E a diferença apareceu no número: o D279 disse DUAS travas, lidas do fonte; executadas são QUATRO, e três delas são anteriores à minha rodada",
   "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
   "quantosArquivos": 117,
-  "quantosPassamSemClone": 114,
+  "quantosPassamSemClone": 116,
   "quantasTravasNaLista": 2022,
   "asTrintaEUma": [
     {
@@ -65,12 +65,10 @@
     },
     {
       "arquivo": "tests/chamadas.test.ts",
-      "saida": 1,
-      "passam": 16,
-      "reprovam": 1,
-      "asQueReprovam": [
-        "LAB-52 · a lista de ausência-não-é-erro, que estreitou a régua > a prova do LAB-52 BATE COM A ÁRVORE, número por número"
-      ]
+      "saida": 0,
+      "passam": 17,
+      "reprovam": 0,
+      "asQueReprovam": []
     },
     {
       "arquivo": "tests/esqueleto.test.ts",
@@ -95,12 +93,10 @@
     },
     {
       "arquivo": "tests/configuracao.test.ts",
-      "saida": 1,
-      "passam": 22,
-      "reprovam": 1,
-      "asQueReprovam": [
-        "LAB-57 · as regras e o escopo > a prova existe, traz o ESCOPO como número e nada fica fora sem motivo"
-      ]
+      "saida": 0,
+      "passam": 23,
+      "reprovam": 0,
+      "asQueReprovam": []
     },
     {
       "arquivo": "tests/configuracao-do-motor.test.ts",
@@ -301,11 +297,10 @@
     {
       "arquivo": "tests/nome-do-trabalho.test.ts",
       "saida": 1,
-      "passam": 9,
-      "reprovam": 2,
+      "passam": 10,
+      "reprovam": 1,
       "asQueReprovam": [
-        "item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conferida > O LADO BOM: a afirmação de hoje é verdadeira — zero problemas",
-        "item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conferida > a lista do trabalho é achada, e tem os 46 arquivos que a medição rodou"
+        "item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conferida > O LADO BOM: a afirmação de hoje é verdadeira — zero problemas"
       ]
     },
     {
@@ -841,6 +836,6 @@
       "asQueReprovam": []
     }
   ],
-  "oQueIssoDecide": "a afirmação é FALSA por 3 arquivo(s): tests/chamadas.test.ts, tests/configuracao.test.ts, tests/nome-do-trabalho.test.ts",
+  "oQueIssoDecide": "a afirmação é FALSA por 1 arquivo(s): tests/nome-do-trabalho.test.ts",
   "conferidoAqui": "sim, na máquina da sessão — não no GitHub (§7)"
 }
