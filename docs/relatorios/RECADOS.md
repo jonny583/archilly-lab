@@ -3881,3 +3881,16 @@ Próximo na fila: a caixa só tem o 900; as propostas antigas esperam o chat; o 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-178 — item 900 (a dívida própria): o que precisa mudar nos vizinhos vira lista em relatório — a linha não nomeava a trava do LAB-149, e dois dos quatro exemplos dela saíram em prosa
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-178 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): a linha da lista aos vizinhos no docs/SEGURANCA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1880 de 1880 (109 de 109 arquivos); esteira com só as falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: a linha dava "LAB-07 §9 (8 correções), LAB-02 §5, LAB-03 e LAB-08 — todos com o número" e não nomeava a trava que pergunta a regra desde o LAB-149. Pela régua dela: LAB-07 tem a lista (8 itens) e um pedido em prosa; LAB-03 e LAB-08 saíram em prosa; o LAB-02 tem lista, num parágrafo em negrito que a régua não lê. A régua nova acusou sete problemas na página de antes; linha corrigida (as duas travas, 5 pedidos sem lista, o recorte dito) e tabela dos quatro exemplos; trava o-pedido-na-pagina (13 testes, sem clones); 1867 → 1880; D406; detalhe em docs/relatorios/LAB-178.md.
+Achados para outros apps ou Central: a todas — exemplo numa linha de conferência é afirmação sobre outro arquivo e envelhece como número; quem tem "ver LAB-x" como prova numa tabela de segurança, abra o LAB-x. Nada novo proposto ao chat (eu ia propor ler o parágrafo de pedido em negrito; medido, não esconde nenhum pedido sem lista).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

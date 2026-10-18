@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-178 · item 900 — a dívida própria: o que precisa mudar nos vizinhos vira lista em relatório — a linha não nomeava a trava do LAB-149, e dois dos quatro exemplos dela saíram em prosa — ✅ **feito em 18/10/2026** (D406)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a terceira linha da tabela *Os repositórios vizinhos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"LAB-07 §9 (8 correções), LAB-02 §5, LAB-03 e LAB-08 — todos com o número e sem commit lá"*. A regra tem trava desde o LAB-149 (`pedido-ao-vizinho.ts`), e a linha não a nomeava; os quatro exemplos, ninguém perguntava. Pela régua do LAB-149: o LAB-07 tem a lista do §9 (oito itens) e um pedido em prosa, congelado; o LAB-03, um pedido em prosa, congelado; o LAB-02 e o LAB-08, nenhum lugar que a régua veja — o do LAB-02 tem lista, num parágrafo aberto em negrito; o do LAB-08 é uma pergunta em prosa. A régua nova acusou sete problemas na página de antes; linha corrigida (as duas travas nomeadas, **5** pedidos sem lista, o recorte da forma dito) e tabela dos quatro exemplos; trava `src/o-pedido-na-pagina.ts` (13 testes, sem clones); 1 867 → 1 880. Nada novo proposto ao chat: dos sete parágrafos de pedido abertos em negrito, cinco estão sob título que a régua já lê, e os dois de fora não escondem pedido sem lista. Detalhe em [`../relatorios/LAB-178.md`](../relatorios/LAB-178.md).
+
 ### LAB-177 · item 900 — a dívida própria: os vizinhos são só leitura — o clone tinha trava e a linha não a nomeava; "o número sai no relatório" de toda rodada, 38 relatórios não dizem — ✅ **feito em 18/10/2026** (D405)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a primeira linha da tabela *Os repositórios vizinhos* do `docs/SEGURANCA.md`, do LF-FINAL (14/09): *"`git status` nos três ao fim de **toda** rodada, e o número sai no relatório"*. A primeira metade tem trava desde o LAB-38 (`regras.test.ts` §4), e a linha não a nomeava; a segunda, nenhuma. Por LUGAR, todo `docs/relatorios/LAB-<n>.md`: 168 lidos, **130** dizem o `git status` dos vizinhos e o resultado, **38** não. Linha corrigida, com as duas travas nomeadas e o recorte dito; trava `src/os-vizinhos-no-relatorio.ts` (16 testes, sem clones): de LAB-177 em diante todo relatório diz, os 38 congelados nos dois sentidos, os dois números da linha perguntados; a régua acusou cinco problemas na linha de antes; 1 851 → 1 867. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-177.md`](../relatorios/LAB-177.md).
@@ -2125,7 +2129,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1867 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1880 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
