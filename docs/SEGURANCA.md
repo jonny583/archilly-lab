@@ -8,7 +8,13 @@ conferência possa ser refeita por quem quiser.
 > banco, não tem conta de usuário e não faz chamada de rede em execução.** A
 > maior parte da lista do Padrão trata de app com interface e Supabase; aqui ela
 > se aplica por ausência, e isso está dito linha a linha em vez de marcado como
-> "N/A" sem explicação.
+> "N/A" sem explicação. **Cada uma das quatro negações é perguntada a cada verde,
+> e a trava de cada uma está nomeada aqui** (desde o LAB-184; até ele o parágrafo não
+> nomeava nenhuma): a tela, por `a-unica-interface.ts` (LAB-153); o banco, por
+> `o-lab-nao-tem-banco.ts` (LAB-174); a conta de usuário, por `o-lab-nao-tem-conta.ts`
+> (LAB-184) e, a porta da família, por `a-adocao-da-central.ts` (LAB-167); a rede, por
+> `rede-em-execucao.ts` (LAB-158) — todas em `external-engines/esteira/src/` (ver
+> *Reconferido no LAB-184*, no fim).
 
 ---
 
@@ -582,3 +588,38 @@ publicado, sem lista de exceções; a linha nomeia esta trava, as duas vizinhas 
 quatro portas, com os achados que a régua dá. O que ela não alcança — a permissão do `GITHUB_TOKEN`, que o `verde.yml` não
 declara; ação de publicar que a lista não conhece pelo nome; publicar pelo painel do GitHub, fora da árvore — está dito no
 fim do módulo.
+
+---
+
+## Reconferido no LAB-184 · 18/10/2026 — a conta de usuário, perguntada pela porta
+
+O parágrafo do topo diz, desde o LF-FINAL (14/09), que o Lab *"não tem conta de usuário"*. Das quatro negações dele,
+três ganharam trava depois (a tela, a rede e o banco); a da conta tinha uma porta só — a do kit da Central, que é quem
+tem contas na família, perguntada pela `a-adocao-da-central.ts` (LAB-167). A trava do banco a passava adiante para ela.
+Mas conta de usuário pode nascer **sem** a Central, e sem banco: uma biblioteca de senha ou de sessão, um campo de senha
+na bancada, um cookie que lembra quem entrou. Plantados um a um numa cópia da casa, com a suíte da esteira inteira
+rodando, **nenhuma trava disse "conta"**: a biblioteca derrubou só as contagens de arquivo do LAB-52 e do LAB-57; o
+cookie no `prova.js`, a do LAB-57 e o carimbo da bancada do LAB-182 (que cai com qualquer edição da página); o campo de
+senha, o mesmo carimbo e a régua do `<form` do `regras.test.ts` §4 — que não pega o campo solto, sem formulário.
+
+Por LUGAR, quatro portas, em tudo o que o `git` carrega (`upstream/` incluído, `node_modules/` fora). A coluna
+*achados* é o que a régua acha hoje; os universos que ela leu o teste imprime.
+
+| porta | o que se pergunta | achados |
+|---|---|---|
+| `modulo` | importar uma biblioteca de identidade — sessão, senha, token, login de terceiro (34 nomes de JavaScript, 13 crates de Rust) —, em `from`, `require(`, `import(`, `use` e `extern crate` | 0 |
+| `dependencia` | a mesma biblioteca num `package.json` (as quatro listas) ou num `Cargo.toml` (as tabelas e a forma longa) | 0 |
+| `senha` | o campo de senha: `type="password"` e o `autocomplete` de senha, no `.html` e dentro das strings do código, e o `type` posto à mão | 0 |
+| `cookie` | o lembrete de sessão: `document.cookie` e `cookieStore` no código e no `.html`, e o cabeçalho que grava cookie | 0 |
+
+A quinta porta, a da família, segue com a `a-adocao-da-central.ts`: esta trava não a pergunta de novo, só cobra que o
+parágrafo a nomeie.
+
+**Desde o LAB-184, perguntado a cada verde** por `external-engines/esteira/src/o-lab-nao-tem-conta.ts` e
+`tests/o-lab-nao-tem-conta.test.ts` (sem clones, no portão): as quatro portas na árvore, cada uma com o universo que leu
+publicado, sem lista de exceções; o parágrafo do topo com as quatro negações e as cinco travas nomeadas, cada uma
+existindo no disco; esta tabela com as quatro portas. A régua nova, contra a página de antes, acusou **seis** problemas:
+os cinco nomes que o parágrafo calava e a seção que não existia. O que ela não alcança — a conta de fora, pela rede (é a
+trava da rede); a biblioteca que a lista não conhece; a conta feita à mão, sem biblioteca; o cabeçalho `Authorization`
+que as ferramentas usam com o token do GitHub para ler os vizinhos, que é credencial da sessão e não conta de usuário —
+está dito no fim do módulo.
