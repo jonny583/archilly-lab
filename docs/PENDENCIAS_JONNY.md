@@ -300,6 +300,12 @@ se fossem o limite da rua seria inventar uma regra e pôr o seu nome nela.
 
 ## 5-B · A régua de forma — **respondida pelo chat em 02/10** · ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026; ela volta reescrita, com um desenho)
 
+> **O que fazer, onde e como saber que deu certo**
+> *Está parada a seu pedido: isto é para quando ela voltar a você. Até lá, nada aqui precisa de você.*
+> - **o que fazer:** dizer *"é isso"* para a régua que está valendo (menos de 85 % do retângulo em volta é "a conferir", menos de 70 % é "ruim"), ou dar os seus dois números no lugar desses.
+> - **onde:** na conversa com o chat, numa frase — não precisa abrir nada aqui. Quando ela voltar, volta reescrita e com um desenho.
+> - **como saber que deu certo:** o título desta seção, aqui nesta página, passa a dizer *"você respondeu"*, com a data, e a sua resposta ganha um número na lista de decisões do laboratório.
+
 A pergunta do item 5-A abaixo **foi respondida pelo chat**, e já está valendo:
 
 > **Lote que aproveita menos de 85 % do retângulo em volta dele fica marcado "a
@@ -389,6 +395,12 @@ está gravada, com guarda, e nada neste laboratório gasta um centavo.
 ---
 
 ## 7 · O Laboratório de Parcelamento escolheu 33 lotes tendo 1 228 à mão — isso é de propósito? · ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026)
+
+> **O que fazer, onde e como saber que deu certo**
+> *Está parada a seu pedido: isto é para quando ela voltar a você. Até lá, nada aqui precisa de você.*
+> - **o que fazer:** escolher uma de duas saídas — dizer se a nota do programa deve preferir **poucos lotes grandes** ou **muitos lotes**; ou, em vez de escolher, dar a **curva de preço por tamanho de lote** (três ou quatro faixas), e a conta escolhe terreno a terreno (a tabela de *"Novidade de 08/10"*, abaixo).
+> - **onde:** na conversa com o chat. Para olhar antes de decidir, a página de comparação dos motores, no quadro **Antonina (PR)** — o endereço está em *"Onde olhar, se quiser conferir"*, no fim desta seção.
+> - **como saber que deu certo:** o título desta seção, aqui nesta página, passa a dizer *"você respondeu"*, com a data, e a sua resposta ganha um número na lista de decisões do laboratório.
 
 > ✅ **MEDIDO E FECHADO em 07/10/2026 — ver "Novidade de 07/10" mais abaixo.** O plano de
 > 1 228 lotes **é aceitável** depois dos consertos já medidos, e a **nota** do programa é que
@@ -778,6 +790,12 @@ que chega aos motores, e pedi a criação dele ao Generate.
 
 ## 10 · Dois lotes nascem na esquina sem rua na frente — e consertar isso PERDE lotes · ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026)
 
+> **O que fazer, onde e como saber que deu certo**
+> *Está parada a seu pedido: isto é para quando ela voltar a você. Até lá, nada aqui precisa de você.*
+> - **o que fazer:** escolher um dos três caminhos da tabela *"Os três caminhos, agora com o custo na mão"*, abaixo — **(a)**, **(b)** ou **(c)**. Uma letra basta; a minha sugestão é o (c), e é só sugestão.
+> - **onde:** na conversa com o chat, numa frase — não precisa abrir nada aqui.
+> - **como saber que deu certo:** o título desta seção, aqui nesta página, passa a dizer *"você respondeu"*, com a data, e a sua resposta ganha um número na lista de decisões do laboratório.
+
 **O que está acontecendo, em uma frase:** o laboratório mediu o motor que desenha
 os lotes e achou que, em Antonina, a **última fileira de lotes dobra a esquina** e
 continua por mais **10 a 13 metros** numa face do terreno **onde ninguém pediu
@@ -851,6 +869,12 @@ a conta é essa.
 ---
 
 ## 11 · Uma senha que só você pode criar — e sem ela metade da conferência automática nunca roda · ⏸ **PARADA até o Lab entrar no Generate** (pedido seu, 12/10/2026)
+
+> **O que fazer, onde e como saber que deu certo**
+> *Está parada a seu pedido: isto é para quando ela voltar a você. Até lá, nada aqui precisa de você.*
+> - **o que fazer:** uma de duas — criar a senha de leitura (os três passos de *"O que eu preciso de você"*, abaixo), **ou** tornar públicos os dois aplicativos que ela lê. Só uma das duas.
+> - **onde:** a senha se cria em <https://github.com/settings/personal-access-tokens/new> e se cola em <https://github.com/jonny583/archilly-lab/settings/secrets/actions>; tornar público é nas configurações de cada um dos dois aplicativos, no GitHub.
+> - **como saber que deu certo:** na segunda página acima aparece uma linha com o nome **`VIZINHOS_TOKEN`** — isso você vê na hora. A prova completa não é sua: na próxima vez que a conferência rodar no GitHub, o passo do segredo deixa de parar com a frase *"falta o segredo VIZINHOS_TOKEN"*.
 
 **O que está acontecendo, em uma frase:** este laboratório tem uma conferência
 automática que roda sozinha no GitHub a cada mudança, e **metade dela nunca

@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-165 · item 900 — a dívida própria: a pergunta que é dele vai com "o que fazer / onde / como saber que deu certo" — ✅ **feito em 18/10/2026** (D393)
+
+A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, na candidata que o LAB-164 deixou anotada: a terceira coisa do protocolo da caixa (`COMO_FUNCIONA.md`, *"A RESPOSTA INTEIRA VAI PARA O ARQUIVO"*) — *"A pergunta que é dele. Vai para `docs/PENDENCIAS_JONNY.md`, em português de leigo, com o que fazer / onde / como saber que deu certo."* Nenhuma das três travas da página perguntava; tirar os passos da senha (§11) e os caminhos da esquina (§10) não derrubou nada. Por LUGAR, cinco pendências abertas ou paradas: a §8 diz que não pede; das outras quatro (5-B, 7, 10, 11), **nenhuma** dizia como saber que deu certo. Um bloco de forma fixa nas quatro, com a nota de que estão paradas a pedido dele; a §8 como exceção conferida pelo trecho. Trava `o-que-fazer-onde-como-saber`, sem clones, nos dois sentidos (o bloco em resolvida ou aviso também reprova); treze mutações de código acusadas; 1 657 → 1 679.
+
+**Origem:** [`../relatorios/LAB-165.md`](../relatorios/LAB-165.md), decisão **D393**.
+
 ### LAB-164 · item 900 — a dívida própria: a ideia que não cabia no item vai à `FILA.md`, e o recado a cita numa linha — ✅ **feito em 18/10/2026** (D392)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **regra sem guarda**, no protocolo da caixa (`COMO_FUNCIONA.md`, *"A RESPOSTA INTEIRA VAI PARA O ARQUIVO"*): *"A ideia que não cabia no item. Vai para a `FILA.md` como "proposto ao chat", e o recado a cita numa linha."* A lista tinha a trava do LAB-61; o recado, nenhuma — três citações tiradas do `RECADOS.md` não derrubaram nada. Por LUGAR, três formas de proposta nesta página, 30 prompts no alcance (LAB-70 em diante), todos citam: 9 na forma *"Proposto ao chat"*, 21 em formas antigas declaradas com o trecho. Trava `src/a-proposta-no-recado.ts`, sem clones; onze mutações de código acusadas; 1 639 → 1 657. A candidata seguinte, anotada no relatório: o formato da pendência (*"o que fazer / onde / como saber"*), sem trava. Detalhe em [`../relatorios/LAB-164.md`](../relatorios/LAB-164.md).
@@ -2045,7 +2051,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1657 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1679 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

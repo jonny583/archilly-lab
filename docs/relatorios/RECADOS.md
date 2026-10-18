@@ -3712,3 +3712,16 @@ Próximo na fila: a caixa só tem o 900; o próximo disparo vai à dívida próp
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-165 — item 900 (a dívida própria): a pergunta que é dele vai com "o que fazer / onde / como saber que deu certo"
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-165 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main); a FILA sem proposta que não espere ninguém, então fui à dívida própria (regra sem guarda), na candidata que o LAB-164 anotou: docs/caixa-de-entrada/COMO_FUNCIONA.md, seção A RESPOSTA INTEIRA VAI PARA O ARQUIVO, coisa 3. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1679 de 1679 (98 de 98 arquivos); esteira com só as 9 falhas do .wasm (as mesmas de sempre), testfit 17 de 17. O envio passa pelo gancho do LAB-106.
+Feito: "a pergunta que é dele vai à PENDENCIAS_JONNY.md com o que fazer / onde / como saber que deu certo" — nenhuma trava perguntava: tirar os passos da senha (§11) e os caminhos da esquina (§10) não derrubou nada. Por LUGAR, 5 pendências abertas ou paradas; a §8 diz que não pede; das 4 que pedem (5-B, 7, 10, 11), NENHUMA dizia como saber que deu certo. Um bloco de forma fixa nas quatro, com a nota "está parada a seu pedido" (o pedido dele de 12/10 continua valendo); a §8 virou exceção conferida pelo trecho. Trava: src/o-que-fazer-onde-como-saber.ts + teste sem clones, nos dois sentidos (bloco em resolvida ou aviso também reprova); treze mutações de código acusadas; 1657 → 1679; D393; detalhe em docs/relatorios/LAB-165.md.
+Achados para outros apps ou Central: (0) o protocolo da caixa é o mesmo nas onze casas: aqui, zero de quatro pendências diziam "como saber que deu certo" — vale cada casa contar as suas. Não medi as vizinhas. (1) De passagem: a prova do LAB-84 que o LAB-164 enviou dizia 96 de 97 sem clones (o teste do nome do trabalho reprovava dentro da própria medição, antes de a prova ter a linha nova); rodada duas vezes, hoje 98 de 98. (2) Nada novo proposto ao chat; as propostas do LAB-123, 129, 135, 137, 140, 141, 147, 152 e 159 seguem esperando.
+Depende do Jonny: nada (os blocos das quatro paradas dizem que nada precisa dele até o Lab entrar no Generate).
+Próximo na fila: a caixa só tem o 900; as três coisas da lista do protocolo estão resolvidas (a 1 descartada como juízo); o próximo disparo vai à dívida própria, noutra página.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

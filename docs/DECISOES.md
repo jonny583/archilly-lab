@@ -13022,3 +13022,51 @@ sem ela, e a regra diz *"cita"*, não *"diz onde"*); ler a forma sem caixa (acus
 
 > **A FRASE QUE NEGA CONTÉM A FRASE QUE AFIRMA.** *"Nada novo proposto ao chat"* tem *"proposto ao chat"* dentro; a régua
 > que lê a frase sem ler onde ela abre conta a negação como citação.
+
+## D393 · A PERGUNTA QUE É DELE VAI COM "O QUE FAZER / ONDE / COMO SABER QUE DEU CERTO" — nenhuma das quatro dizia como saber · 18/10/2026
+
+**Contexto:** item 900 (LAB-165). A caixa só tinha o `900`, e a FILA seguia sem proposta que não esperasse ninguém. Fui
+à dívida própria, espécie **regra sem guarda**, na candidata que o LAB-164 deixou anotada: a terceira coisa da lista do
+protocolo da caixa (`docs/caixa-de-entrada/COMO_FUNCIONA.md`, *"A RESPOSTA INTEIRA VAI PARA O ARQUIVO"*) — *"A pergunta
+que é dele. Vai para `docs/PENDENCIAS_JONNY.md`, em português de leigo, com o que fazer / onde / como saber que deu
+certo."* A página tinha três travas (LAB-124, LAB-125, LAB-137); nenhuma perguntava pelas três partes.
+
+**Medido (LAB-165):** a suíte inteira da esteira com três trechos tirados da página — os passos 1 e 2 da §11 (a senha),
+a tabela dos três caminhos da §10 e o *"Onde olhar"* da §7 → **um** teste novo reprovado, o do LAB-155, e só porque o
+*"Onde olhar"* levava dois endereços desta casa que ele conta. Por LUGAR — as pendências abertas ou paradas de
+`PENDENCIAS`, que são as que pedem ou voltam a pedir —, **cinco**: 5-B, 7, 8, 10 e 11. A §8 diz no corpo que *"não é
+pergunta e não trava nada"*. Das outras quatro, **nenhuma** dizia *como saber que deu certo*; o *o que fazer* e o *onde*
+estavam espalhados em tabelas e passos (a §11 tinha os dois; a 5-B, só *"até você dizer 'é isso'"*).
+
+**Decidido:**
+
+1. Um bloco de **forma fixa** em cada pendência que pede — `> **O que fazer, onde e como saber que deu certo**` e três
+   linhas com rótulo —, escrito nas quatro, no alto da seção, com a nota *"está parada a seu pedido"* nas quatro paradas.
+   O *como saber* das três de decisão é o que ele vê nesta página (o título passa a dizer *"você respondeu"*); o da §11
+   é a linha `VIZINHOS_TOKEN` na página de segredos, e a prova completa (o passo do segredo do `verde.yml` deixa de
+   parar) fica dita como não sendo dele. O texto que já existia ficou intocado.
+2. `external-engines/esteira/src/o-que-fazer-onde-como-saber.ts`: reprova a pendência que pede sem o bloco, a parte que
+   falta ou vem vazia (menos de 15 caracteres que não sejam traço, ponto ou espaço), a parte repetida, o bloco onde não
+   se pede (resolvida ou aviso — o sentido de volta), a exceção sem o trecho, com bloco ou que sobra, o bloco solto fora
+   de pendência e o universo vazio. O estado vem de `PENDENCIAS` (um lugar só, como no LAB-125); a exceção (`NAO_PEDEM`,
+   a §8) se confere pelo trecho do corpo.
+3. `tests/o-que-fazer-onde-como-saber.test.ts`, 22 testes, sem clones, no portão sem clones do `verde.yml` (1 657 → 1 679,
+   97 → 98 arquivos). Nota com o ponteiro no `COMO_FUNCIONA.md`, texto do chat intocado.
+
+**Os dois lados:** a página de hoje, o bloco dentro de um `###` sem número, a nota a mais no bloco e o endereço dentro da
+parte passam; as três palavras na prosa sem o bloco, o enchimento sem letra e o bloco de uma `### 1-A` resolvida contado
+para a `## 1` reprovam. **Treze mutações de código, treze acusadas** — duas só depois de um teste a mais cada (o corpo que
+não parava no título numerado de baixo; o traço que contava como conteúdo): *mutação que não pega é suspeita da
+mutação*, e aqui a suspeita era do teste.
+
+**Descartado:** procurar as três partes por frase na prosa (D137: mediria ortografia, e a §11 já dizia *"onde"* sem a
+palavra); uma lista de trechos declarados por pendência, como a `CINCO_MINUTOS` do LAB-125 (passaria a §7, que tinha
+*"Onde olhar"* e nenhum *como saber*, se alguém declarasse o trecho errado — a forma fixa não tem o que declarar);
+exigir endereço clicável no *onde* (a resposta das três de decisão é *"na conversa com o chat"*, e é a verdade); exigir
+o bloco na §8 (inventaria um pedido que a própria seção diz não existir); prometer no *como saber* mudanças em outras
+páginas (*"o aviso de Antonina deixa de dizer…"*) — é a sessão afirmando o que vai fazer, e só o título desta página é
+o que ele confere sozinho.
+
+> **A PARTE QUE NUNCA FOI ESCRITA NÃO SE MEDE POR MUTAÇÃO.** Tirar o *como saber* não derrubava nada porque não havia o
+> que tirar: zero de quatro. A lacuna de uma régua ausente se mede tirando o que existe; a de uma regra cumprida pela
+> metade, contando o que nunca existiu.
