@@ -13319,3 +13319,47 @@ com outra, D311 — a medição é o próprio `f61be91`).
 > **"ÚNICA ALTERAÇÃO: X" NO TOPO DE UM DOCUMENTO RECEBIDO É AFIRMAÇÃO DE ESTADO COMO QUALQUER OUTRA.** Esta valia para um
 > nível de título e não para o outro, e passou cinco semanas sem leitor porque parecia relato do passado — e falava do
 > arquivo de hoje.
+
+## D399 · A TRIAGEM DO PACKINGSOLVER, PERGUNTADA À ORIGEM — tudo confere, e o `nao-copiado` do registro passa a ser perguntado à árvore · 18/10/2026
+
+**Contexto:** item 900 (LAB-171). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém. Das
+páginas de `docs/` sem leitor no código que o LAB-170 contou, sobravam duas, relato datado do LAB-00: a
+`SYMBIOS_ANALYSIS.md` (cujo *"Adapter: não escrito"* é a proposta do LAB-152, que espera o chat) e a
+`PACKINGSOLVER_TRIAGEM.md`. A segunda, lida linha a linha, não é só relato: fixa a **ficha de um repositório de fora**
+(commit, data, licença, opções do `CMakeLists.txt`, seis tipos de problema, opções da linha de comando,
+`certificate.csv`), que **cinco** lugares desta casa repetem — o `README.md` (tabela e árvore), o `docs/TRIAGEM.md` (§4 e
+quadro), o `external-engines/packingsolver/README.md`, o `adapter/README.md` e o registro de motores —, e **afirma estado
+desta casa** (*"não foi copiado para `upstream/`"*). O registro diz `nao-copiado` desde o LAB-76, e nada perguntava à
+árvore se era verdade.
+
+**Medido (LAB-171, `bun run lab171`):** buscado na origem só o commit que a página fixa, numa pasta temporária, lido com
+`git show`/`ls-tree`/`grep` e nada compilado nem executado — **tudo confere**: o commit existe, com a data e o autor da
+ficha; MIT com o copyright da ficha; `CLP` e `HiGHS` `ON`, `Knitro` `OFF`; as seis pastas de problema; as seis opções da
+linha de comando e o certificado. O `HEAD` de hoje é `2e2448f` (2026-10-18): a §6 (*"um dia antes desta triagem"*) é
+relato datado, e o número de hoje mora na prova, ao lado. Na árvore: zero arquivo em `upstream/` dos dois `nao-copiado`;
+a pasta do PackingSolver só com os dois `README.md`.
+
+**Decidido:**
+
+1. A página não muda de texto; ganha, depois da §1, um parágrafo marcado como meu dizendo o que se mediu e onde mora a
+   prova (`docs/provas/LAB-171/packingsolver-na-origem.json`).
+2. `external-engines/esteira/src/a-triagem-do-packingsolver.ts` e `tests/a-triagem-do-packingsolver.test.ts` (12 testes,
+   sem clones e **sem rede**): a ficha lida do texto contra a prova; os cinco lugares, com a frase que cada um tem de
+   dizer **derivada da ficha**, nunca digitada; o registro lido **pelo motor** (a primeira versão casava
+   `"estado": "so-referencia"` pelo texto e aprovava a mutação, porque a linha também é do straight skeleton); e nenhum
+   arquivo versionado em `upstream/` de motor que o registro chama `nao-copiado`. Portão sem clones 1 762 → 1 774, 102 →
+   103 arquivos.
+3. A rede fica **só na ferramenta**, à mão e fora do verde, declarada no `rede-em-execucao.ts` (três processos, origem
+   pública) e na tabela do `SEGURANCA.md`; a linha *"Nada de rede em execução"* deixou de digitar o número de redes
+   (*"sete"*) e aponta para a tabela.
+
+**Os dois lados:** trinta e duas mutações acusadas — seis campos da ficha, três da lista de tipos, cinco campos que
+somem (acusados como *sumidos*, nunca como acerto), cinco da prova, dez dos lugares e três da árvore — e três casos bons
+que não acusam (o straight skeleton mudado no registro, o `upstream/` do Symbios, a página de verdade).
+
+**Descartado:** rede dentro da trava (o verde dependeria de um servidor de fora, e a resposta mudaria sem commit); só
+comparar os lugares entre si (consistência não é correção, D311 — os seis podiam concordar no erro); reescrever a §6 com
+o `HEAD` de hoje (é relato do dia da triagem e envelheceria de novo amanhã).
+
+> **"NÃO COPIADO" É AFIRMAÇÃO SOBRE A ÁRVORE, NÃO SOBRE O PASSADO.** O registro dizia e o `README.md` desenhava, e
+> nenhuma das duas perguntava ao `git ls-files` — que é o único lugar onde a resposta mora.

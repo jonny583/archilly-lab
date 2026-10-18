@@ -20,6 +20,18 @@ Clonado apenas para inspeção; **não foi copiado para `upstream/`**, porque a
 triagem não recomenda seguir. Se um prompt futuro aprovar a Etapa B, a cópia
 deve ser feita então, com o commit fixado como acima.
 
+> **Medido contra a origem em 18/10/2026 (LAB-171, D399), e tudo confere:** o commit
+> existe com a data e o autor acima; a licença é MIT com o mesmo copyright; `CLP` e
+> `HiGHS` ligados e `Knitro` desligado; as seis pastas de problema da §3; as opções
+> da linha de comando da §4 e o `certificate.csv` da §7. A prova é
+> `docs/provas/LAB-171/packingsolver-na-origem.json` (`bun run lab171`, lida com
+> `git show`, nada compilado nem executado). A §6 é relato datado: o `HEAD` da
+> origem de hoje é outro, e mora na prova, ao lado. A trava
+> `external-engines/esteira/src/a-triagem-do-packingsolver.ts` pergunta, a cada
+> verde e sem rede, esta ficha contra a prova, os cinco lugares que a repetem e a
+> árvore (nada em `upstream/`). *(Acrescentado por mim no LAB-171; o texto do
+> LAB-00 está intocado.)*
+
 ## 2. Licença — sem obstáculo
 
 MIT, limpa. O atrito está nas **dependências de solver**, não na licença do

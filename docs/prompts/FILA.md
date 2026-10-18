@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-171 · item 900 — a dívida própria: a triagem do PackingSolver, perguntada à origem — tudo confere, e o `nao-copiado` do registro passa a ser perguntado à árvore — ✅ **feito em 18/10/2026** (D399)
+
+A FILA continuava sem proposta que não esperasse ninguém. Das duas páginas de `docs/` sem leitor que o LAB-170 deixou, a `PACKINGSOLVER_TRIAGEM.md` (LAB-00) fixa a ficha de um repositório de fora que cinco lugares desta casa repetem, e afirma que nada foi copiado. Medida na origem (`bun run lab171`, só o commit fixado, nada executado): tudo confere; o `HEAD` de hoje mora na prova, ao lado da §6. Trava `src/a-triagem-do-packingsolver.ts`, sem clones e sem rede: a ficha contra a prova, os cinco lugares (frase derivada da ficha; o registro lido pelo motor), e nenhum `upstream/` versionado de motor `nao-copiado`; trinta e duas mutações acusadas; 1762 → 1774 no portão sem clones (102 → 103 arquivos). Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-171.md`](../relatorios/LAB-171.md), decisão **D399**.
+
 ### LAB-170 · item 900 — a dívida própria: a especificação como chegou — o comentário do topo dizia "numeração tornada sequencial", e nove subseções tinham o número de outra seção — ✅ **feito em 18/10/2026** (D398)
 
 A FILA continuava sem proposta que não esperasse ninguém, e as três páginas do LAB-167 estavam lidas. Por LUGAR, as páginas de `docs/` sem leitor no código: a maior é a `referencia/LABORATORIO.md` (1 491 linhas), a única das três que afirma estado. O comentário do topo dizia *"a numeração das seções foi tornada sequencial"*: valia para as 38 seções de nível dois e não para as subseções — as cinco da 23 e as quatro da 28 eram `24.1`–`24.5` e `24.1`–`24.4`, quatro números repetidos, o defeito que o prompt do LAB-00 mandou corrigir. Renumeradas (só o número; a impressão do texto é a mesma do `f61be91`), o comentário dizendo o que se mediu. Trava `src/a-especificacao.ts`, sem clones: numeração única e sequencial, os dois números do comentário, a impressão do texto, as citações de seção por LUGAR e as Etapas A a G; oito mutações das páginas e seis de código acusadas; 1748 → 1762 no portão sem clones (101 → 102 arquivos). Nada novo proposto ao chat.
@@ -2087,7 +2093,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1762 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1774 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
