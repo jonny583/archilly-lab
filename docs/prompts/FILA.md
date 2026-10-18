@@ -366,6 +366,14 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-167 · item 900 — a dívida própria: o Lab não adota a Central, e a página afirmava seis estados sem leitor, dois falsos — ✅ **feito em 18/10/2026** (D395)
+
+A FILA continuava sem proposta que não esperasse ninguém, e a linha do `.wasm` de novo sem o alvo do `rustup` (403 do portão de rede desta máquina). Fui à dívida própria por LUGAR: das páginas de `docs/`, a que nenhum arquivo de código citava e afirmava estado da casa — o `docs/ADOCAO_CENTRAL.md` (LF-FINAL, 14/09), espécie **mensagem fixa que afirma estado sem perguntar**. Remedida linha a linha: *"não há tela"* era falso desde antes de a página nascer (a bancada é de 10/09, LAB-01); *"o vendor/ do Generate não tem código"* ficou falso em 14/09; *"o Lab não importa a Central em execução"* era verdade **por acaso** — a prova era a suíte passar, e ela passa porque a instalação no clone do Generate falha. Medido pelo fecho das importações de valor: esteira 424 arquivos, testfit 88, zero chegadas ao pacote; com tipos, uma (`cores.ts` do Generate, por `import type`). Trava `src/a-adocao-da-central.ts`, sem clones (33 testes) e com clone (7), nos dois sentidos; dezesseis mutações de código acusadas; 1 692 → 1 725. Detalhe em [`../relatorios/LAB-167.md`](../relatorios/LAB-167.md).
+
+**Nada novo proposto ao chat.**
+
+**Origem:** [`../relatorios/LAB-167.md`](../relatorios/LAB-167.md), decisão **D395**.
+
 ### LAB-166 · item 900 — a dívida própria: nenhuma chave sensível no repositório, e a busca da página dizia "zero" e dava duas — ✅ **feito em 18/10/2026** (D394)
 
 A FILA continuava sem proposta que não esperasse ninguém. Fui à dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, de volta ao `docs/SEGURANCA.md`, na primeira linha da tabela *Chaves e segredos*: *"Nenhuma chave sensível no repositório · ✅ limpo · `grep -rE` (oito nomes) sobre `.ts`, `.js`, `.json` e `.rs` fora de `node_modules` e de `upstream/` — zero ocorrências"*, do LF-FINAL (14/09), sem trava. Refeito: **duas**, nenhuma chave — o espaço reservado do teste da varredura de segredos (LAB-47, 05/10) e o exemplo de chamada a IA do teste do vazamento de custo (LAB-68, 09/10); o "zero" estava falso havia treze dias. O universo largo (todo texto que o `git` carrega fora do `.md`, 535 arquivos, `upstream/` incluído) dá as mesmas duas. A varredura de segredos não responde a linha: oito linhas plantadas com valor alfanumérico, **as oito passam caladas** por ela; a busca da página acusa sete. Trava `src/a-busca-das-chaves.ts`, sem clones, a busca da página letra por letra, as duas ocorrências declaradas por trecho e só em teste, a declarada que sumiu também reprova; doze mutações de código acusadas; 1 679 → 1 692. Detalhe em [`../relatorios/LAB-166.md`](../relatorios/LAB-166.md).
@@ -2059,7 +2067,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1692 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1725 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

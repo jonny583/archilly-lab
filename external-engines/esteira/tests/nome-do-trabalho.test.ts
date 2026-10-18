@@ -184,7 +184,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // E 98 no LAB-165, com a `o-que-fazer-onde-como-saber.test.ts` — a página do Jonny e o `COMO_FUNCIONA.md`; nenhum
     // clone.
     // E 99 no LAB-166, com a `a-busca-das-chaves.test.ts` — o `git` desta casa e o `docs/SEGURANCA.md`; nenhum clone.
-    expect(lista).toHaveLength(99);
+    // E 100 no LAB-167, com a `a-adocao-da-central.test.ts` — o `git` desta casa e o `docs/ADOCAO_CENTRAL.md`; a metade
+    // que precisa dos clones mora na `a-adocao-da-central-com-clone.test.ts`, fora do portão.
+    expect(lista).toHaveLength(100);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
