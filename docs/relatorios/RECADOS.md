@@ -3829,3 +3829,16 @@ Próximo na fila: a caixa só tem o 900; das páginas de docs/ sem leitor sobra 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-174 — item 900 (a dívida própria): o Lab não tem banco — a frase da página, perguntada à árvore, e o cabeçalho que dizia que ela já tinha trava
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-174 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): "não há banco", do docs/SEGURANCA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1815 de 1815 (105 de 105 arquivos); esteira com só as falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: a tabela "Banco e RLS" põe três linhas do Padrão em "não se aplica" por uma frase de 14/09 sem comando, e o cabeçalho da trava da rede (LAB-158) dizia que o verde.test.ts a conferia — ele lê só o conferir.sh. Três mutações (supabase/migrations/…sql, bun:sqlite, .sqlite), cada uma numa cópia: só a contagem de arquivos do LAB-57 caía, sem dizer por quê. Por LUGAR, 801 caminhos: zero banco. Trava o-lab-nao-tem-banco (sem clones, cinco portas: pasta, arquivo, importação, dependência, navegador; sem exceções); cabeçalho da rede consertado; 1800 → 1815; D402; detalhe em docs/relatorios/LAB-174.md.
+Achados para outros apps ou Central: a todas — "isso já tem trava" também é afirmação: o cabeçalho que apontava a guarda do banco apontava uma régua que lê outro arquivo; contagem de arquivos que cai com qualquer arquivo novo não é guarda de nada em particular (quem regera a prova aprova o que entrou). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; das linhas do SEGURANCA.md que afirmam sem perguntar sobra a do .wasm ("zero imports"), que espera o alvo do rustup (o túnel recusa a origem dele nesta máquina); a SYMBIOS_ANALYSIS.md e as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

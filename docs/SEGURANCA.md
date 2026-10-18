@@ -25,7 +25,7 @@ conferência possa ser refeita por quem quiser.
 
 | item | estado | por quê |
 |---|---|---|
-| RLS em tudo, por conta | ✅ **não se aplica** | **não há banco.** Não existe `supabase/`, não existe migração, não existe tabela |
+| RLS em tudo, por conta | ✅ **não se aplica** | **não há banco.** Não existe `supabase/`, não existe migração, não existe tabela — em 14/09, uma frase, sem comando; **desde o LAB-174, perguntado a cada verde** a tudo o que o `git` carrega, por cinco portas: a pasta (`supabase/`, `migrations/`…), o arquivo (`.sql`, `.sqlite`…), a importação de um cliente de banco, a dependência num `package.json` ou `Cargo.toml` e o banco do navegador (`external-engines/esteira/src/o-lab-nao-tem-banco.ts`; ver *Reconferido no LAB-174*, abaixo) |
 | Migrações versionadas | ✅ **não se aplica** | idem |
 | Cuidado do `TRUNCATE` em tabela nova | ✅ **não se aplica** | idem |
 
@@ -277,3 +277,37 @@ de trava**; a declarada que sumiu também reprova. O registro diz o arquivo, a l
 onde estaria o valor. O que a trava não alcança está dito no fim do módulo: a chave num nome que não é da busca (é da
 varredura), o `.md` (também é da varredura, que cobre `docs/`), o nome colado depois de `_` (é a busca da página, perguntada letra por letra; mudá-la
 é mudar a página, e foi proposto junto) e a história.
+
+---
+
+## Reconferido no LAB-174 · 18/10/2026 — o banco, perguntado à árvore
+
+A tabela *Banco e RLS* põe as três linhas do Padrão em *"não se aplica"* por uma frase — *"não há banco. Não existe
+`supabase/`, não existe migração, não existe tabela"* —, escrita em 14/09 sem comando ao lado. O cabeçalho da trava da
+rede (LAB-158) dizia que o banco já era perguntado *"pela ausência de `supabase/`, que o `verde.test.ts` confere contra o
+disco"*; **não era** — aquela régua lê só as linhas do `conferir.sh`. Medido por mutação em 18/10, cada uma numa cópia
+desta casa, adicionada ao `git`, com a esteira inteira rodando:
+
+| o que se plantou | o que caiu além das 9 de sempre (o `.wasm`) |
+|---|---|
+| `supabase/migrations/0001_estudos.sql`, com um `create table` | só a contagem de arquivos do LAB-57, que cai com qualquer arquivo novo e não diz por quê |
+| um arquivo da esteira abrindo um banco pelo `bun:sqlite` | a mesma contagem, e a das chamadas do LAB-52 |
+| `dados/medicoes.sqlite` | só a contagem do LAB-57 |
+
+**Desde o LAB-174 a linha é perguntada a cada verde**, por `external-engines/esteira/src/o-lab-nao-tem-banco.ts` e
+`tests/o-lab-nao-tem-banco.test.ts` (sem clones), por cinco portas: a **pasta** de banco em qualquer altura do caminho
+(`supabase`, `migrations`, `migracoes`, `drizzle`, `prisma`), o **arquivo** que é banco ou o descreve (`.sql`, `.db`,
+`.sqlite`, `.sqlite3`, `.duckdb`, `.mdb`, `.prisma`, `drizzle.config.*`), a **importação** de um cliente de banco
+(JavaScript e Rust, a string inteira em posição de importação, sem comentário), a **dependência** num `package.json` ou
+num `Cargo.toml`, e o **banco do navegador** (`indexedDB`, `openDatabase`).
+
+| universo | lido em 18/10/2026, antes do commit | banco |
+|---|---|---|
+| caminhos que o `git` carrega (`upstream/` incluído, `node_modules/` fora) | 801 | **zero** |
+| arquivos JS/TS · Rust · `package.json` · `Cargo.toml` lidos | 378 · 23 · 2 · 5 | **zero** |
+
+**A frase é verdadeira; faltava a pergunta.** Não há lista de exceções: um banco aqui é o dia em que esta seção tem de
+ser refeita antes da primeira migração, como ela mesma diz, e a trava reprova até isso acontecer. O que ela não alcança
+está dito no fim do módulo — entre outros, o banco de fora alcançado pela rede (é da trava da rede), o cliente que não
+está na lista, e a **conta de usuário**, a outra negação da frase do topo: a conta da família é da Central, e quem pergunta
+se o Lab importa a Central é a `a-adocao-da-central.ts` (LAB-167).
