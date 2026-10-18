@@ -13791,3 +13791,36 @@ pôr a medição dentro da `prova-automatica.ts` (ela morre na precondição do 
 
 > **"NÃO É ABERTA NO CELULAR" É HÁBITO DE QUEM USA, NÃO PROPRIEDADE DA PÁGINA.** A regra se responde abrindo — e,
 > aberta, a página não rolava, mas por motivos que ninguém tinha escrito, e com uma letra que ninguém tinha visto.
+
+## D411 · NADA DE EXPORTAR MOTOR OU CÓDIGO AO USUÁRIO — "o Lab não tem usuário nem exportação", e o repositório é público · 18/10/2026
+**Contexto:** item 900 (LAB-183). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+LAB-182 fechou a seção *O que não foi conferido* do `docs/SEGURANCA.md`. Lidas as tabelas da página linha a linha, sobrou
+uma sem trava nomeada, da tabela *Execução*, do LF-FINAL (14/09): *"Nada de exportar motor ou código ao usuário · não se
+aplica · o Lab não tem usuário nem exportação. O que ele publica são relatórios e JSON de medição"*. Espécie: mensagem
+fixa que afirma estado sem perguntar.
+
+**Medido:** o Lab não tem usuário, mas o repositório é **público** (D141) e lê por caminho três vizinhos **privados**
+(D16) — o que sai daqui sai para o mundo. Seis portas: a tela (LAB-153) e o código do produto copiado (LAB-146) já tinham
+régua; pacote, rotina, binário e `docs/`, nenhuma. Por LUGAR: 2 `package.json`, os dois `"private": true`; 4 `Cargo.toml`
+fora do `upstream/`, **dois sem `publish = false`** (`straight-skeleton/archilly/probe-rust/` e
+`symbios/archilly/wasm-probe/`); 1 rotina, nenhum passo que publique; nenhum artefato compilado versionado; `docs/` em
+`.md`, `.json`, `.geojson` (os terrenos) e `.txt`. A régua nova, contra a página e a árvore de antes: catorze problemas.
+
+**Decidido:**
+
+1. `publish = false` nos dois `Cargo.toml`. Que o `cargo` já os recusaria (dependência por `path` sem versão) é
+   comportamento de ferramenta externa não testado aqui; o campo não depende dele.
+2. A trava `external-engines/esteira/src/nada-se-exporta.ts` e `tests/nada-se-exporta.test.ts` (14 testes, sem clones,
+   no portão): as quatro portas, sem lista de exceções e com o universo publicado; a linha nomeia a trava, as duas
+   vizinhas, as três rodadas e os quatro formatos, e não diz a frase de 14/09 sozinha; a tabela do *Reconferido no
+   LAB-183* tem as quatro portas com os achados da régua.
+3. A linha reescrita e a seção nova no `docs/SEGURANCA.md`; o portão passa de 113 a 114 arquivos e de 1 955 a 1 969
+   travas.
+
+**Descartado:** declarar `permissions: contents: read` no `verde.yml` (mudar rotina não é desta dívida, e a página só
+afirma o passo; fica dito no fim do módulo); rodar `cargo publish --dry-run` para provar que o `cargo` recusaria (fala
+com o registro); uma lista de exceções para formatos novos em `docs/` (uma captura de tela é o dia de refazer a linha);
+e perguntar se o código pode ser LIDO (o repositório é público de propósito).
+
+> **"NÃO SE APLICA" PORQUE NÃO HÁ USUÁRIO NÃO FECHA A REGRA DE EXPORTAR, QUANDO O REPOSITÓRIO É PÚBLICO.** A pergunta é
+> por onde o código viraria produto entregue — e, das quatro crates da casa, duas não diziam que não viram.

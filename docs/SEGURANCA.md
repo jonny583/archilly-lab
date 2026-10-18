@@ -38,7 +38,7 @@ conferência possa ser refeita por quem quiser.
 |---|---|---|
 | Nada de rede em execução | ✅ | o adaptador do Symbios roda com **zero dependência npm**; os outros dois leem arquivo local e código dos clones irmãos. **No caminho do motor**, nenhum `fetch`, nenhum `http` — e, fora dele, as redes de ferramenta e de teste declaradas uma a uma, na tabela (ver *Reconferido no LAB-158*, abaixo) |
 | O `.wasm` não pede nada do ambiente | ✅ | carregado com **objeto de imports vazio**, `{}`, nos dois lugares que o instanciam: o adaptador (`symbios/adapter/src/motor.ts`, `instantiate(modulo, {})`) e a bancada (`symbios/adapter/ferramentas/navegador/prova.js`, `instantiate(bytes, {})`). Medido no LAB-01 (10/09): 189 KB, zero imports — número da época: o binário não é versionado e **não é medido em máquina de sessão** desde o LAB-31 (o alvo do `rustup` não instala); **desde o LAB-176, perguntado a cada verde pelo que o produz e pelo que o carrega**: toda instanciação no código com `{}`; a ponte `symbios/archilly/wasm/` sem cola (`wasm-bindgen`, `js-sys`, `web-sys`, o `getrandom` com `wasm_js`) no `Cargo.toml` nem no `Cargo.lock`, com o backend `custom` do `getrandom` e sem import declarado à mão; a sonda do LAB-00, que TEM a cola, sem ninguém que a carregue; e o binário, quando existe no disco (`external-engines/esteira/src/o-wasm-nao-pede-nada.ts`; ver *Reconferido no LAB-176*, abaixo) |
-| Nada de exportar motor ou código ao usuário | ✅ **não se aplica** | o Lab não tem usuário nem exportação. O que ele publica são relatórios e JSON de medição |
+| Nada de exportar motor ou código ao usuário | ✅ **não se aplica** | o Lab não tem usuário — mas o repositório é **público** e lê três vizinhos **privados**, então o que sai daqui sai para o mundo. **Desde o LAB-183, perguntado a cada verde por seis portas**: a tela, só a bancada (`external-engines/esteira/src/a-unica-interface.ts`, LAB-153); o código do produto da família copiado para cá (`external-engines/esteira/src/o-motor-da-familia-nao-se-copia.ts`, LAB-146, com os clones); e, em `external-engines/esteira/src/nada-se-exporta.ts`, o pacote publicável (todo `package.json` com `"private": true`, todo `Cargo.toml` fora do `upstream/` com `publish = false` — **dois não tinham**, consertados nesta rodada), a rotina que publica (nenhum passo de *release*, *pages*, *deploy* ou *upload* no `verde.yml`), o artefato compilado versionado (nenhum) e o que a pasta `docs/` carrega — só `.md`, `.json`, `.geojson` (os terrenos de entrada) e `.txt` (saídas de medição). Até o LAB-183 esta linha dizia só que *o Lab não tem usuário nem exportação*, sem comando (ver *Reconferido no LAB-183*, abaixo) |
 | Entrada validada antes de entrar no núcleo | ✅ | versão do contrato, unidade (metro) e anel com ao menos 3 pontos são recusados com mensagem legível — `ida.ts` e `gleba-v1.ts`, com teste; **e, desde o LAB-159, também na terceira porta, a do motor interno do Generate (`motores/generate.ts`), que não recusava nada** (ver *Reconferido no LAB-159*, abaixo) |
 
 ## Os repositórios vizinhos
@@ -547,3 +547,38 @@ sem medição refeita reprova), o `<meta name="viewport">` que a medição viu t
 de estar lá, o item escreve a sobra e cala o viewport só se ele existir, e esta tabela tem os casos da medição, nem mais
 nem menos. O que ela não alcança — a página com o `.wasm`, o tamanho da letra, outros navegadores — está dito no fim do
 módulo.
+
+## Reconferido no LAB-183 · 18/10/2026 — o que sai daqui, perguntado pela porta
+
+A linha *Nada de exportar motor ou código ao usuário*, da tabela *Execução*, dizia desde o LF-FINAL (14/09) só que *"o
+Lab não tem usuário nem exportação. O que ele publica são relatórios e JSON de medição"* — sem comando, e era a última
+das tabelas desta página sem trava nomeada. A regra da família fala de produto com usuário; o Lab não tem usuário, mas
+tem um repositório **público** que lê por caminho três vizinhos **privados** (D16, D141): o que sai daqui sai para o
+mundo. Por LUGAR, seis portas por onde motor ou código sairiam — duas já perguntadas por outra régua, quatro por esta.
+A coluna *achados* é o que a régua acha hoje, depois do conserto; os universos que ela leu o teste imprime.
+
+| porta | o que se pergunta | achados |
+|---|---|---|
+| `pacote` | todo `package.json` com `"private": true`; todo `Cargo.toml` fora do `upstream/` com `publish = false` no `[package]` | 0 |
+| `rotina` | nenhum passo de *release*, *pages*, *deploy* ou *upload*, nem `publish`, `gh release`, `wrangler`, `vercel`, `netlify`, `docker push` ou `git push`, nas rotinas de `.github/workflows/` | 0 |
+| `binario` | nenhum artefato compilado versionado fora do `upstream/`: pela extensão, pelo `\0asm` no começo do arquivo e pelo `.wasm` em base64 dentro de texto | 0 |
+| `docs` | a pasta `docs/` só em `.md`, `.json`, `.geojson` e `.txt` | 0 |
+
+As outras duas portas: a **tela** é a `a-unica-interface.ts` (LAB-153) — só a bancada, que é ferramenta — e o **código do
+produto** da família copiado para cá é a `o-motor-da-familia-nao-se-copia.ts` (LAB-146), que só roda com os clones.
+
+**Antes do conserto, a porta `pacote` achava dois:** o `external-engines/straight-skeleton/archilly/probe-rust/Cargo.toml`
+(a sonda que depende de um crate GPL clonado num `/tmp`) e o `external-engines/symbios/archilly/wasm-probe/Cargo.toml` (a
+sonda do LAB-00) não diziam `publish = false`. O `cargo` provavelmente já recusaria publicá-los — dependência por `path`
+sem versão —, mas isso é comportamento de ferramenta externa **não testado** aqui; o campo escrito não depende dele, e os
+dois o ganharam nesta rodada. A régua nova, contra a página e a árvore de antes, acusou **catorze** problemas: os dois pacotes, os seis
+nomes que a linha calava (esta trava, as duas vizinhas e as três rodadas), os quatro formatos de `docs/`, a frase de 14/09
+sozinha e a seção que não existia — e um décimo quinto, nela mesma, que o conserto tirou antes do commit: o prefixo do
+`.wasm` em base64 escrito por inteiro num comentário do próprio módulo.
+
+**Desde o LAB-183, perguntado a cada verde** por `external-engines/esteira/src/nada-se-exporta.ts` e
+`tests/nada-se-exporta.test.ts` (sem clones, no portão): as quatro portas na árvore, cada uma com o universo que leu
+publicado, sem lista de exceções; a linha nomeia esta trava, as duas vizinhas e os quatro formatos; esta tabela tem as
+quatro portas, com os achados que a régua dá. O que ela não alcança — a permissão do `GITHUB_TOKEN`, que o `verde.yml` não
+declara; ação de publicar que a lista não conhece pelo nome; publicar pelo painel do GitHub, fora da árvore — está dito no
+fim do módulo.

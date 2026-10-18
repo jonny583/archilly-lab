@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-18T19:37:41.991Z",
+  "quando": "2026-10-18T20:24:14.625Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1043,12 +1043,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 19:06:16 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-182), dívida própria (mensagem fixa que afirma estado sem perguntar: *\"a bancada não é aberta no celular\"*, na seção *O que não foi conferido* do `docs/SEGURANCA.md`)",
         "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 20:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 20:06:00 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-183), dívida própria (mensagem fixa que afirma estado sem perguntar: *\"o Lab não tem usuário nem exportação\"*, do `docs/SEGURANCA.md`)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 129,
+      "noRegistro": 130,
       "observados": 39,
-      "derivados": 44,
+      "derivados": 45,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 5
