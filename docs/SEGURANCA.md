@@ -37,7 +37,7 @@ conferência possa ser refeita por quem quiser.
 | item | estado | como foi conferido |
 |---|---|---|
 | Nada de rede em execução | ✅ | o adaptador do Symbios roda com **zero dependência npm**; os outros dois leem arquivo local e código dos clones irmãos. **No caminho do motor**, nenhum `fetch`, nenhum `http` — e, fora dele, as redes de ferramenta e de teste declaradas uma a uma, na tabela (ver *Reconferido no LAB-158*, abaixo) |
-| O `.wasm` não pede nada do ambiente | ✅ | carregado com `WebAssembly.instantiate(bytes, {})` — **objeto de imports vazio**. Medido no LAB-01: 189 KB, zero imports |
+| O `.wasm` não pede nada do ambiente | ✅ | carregado com **objeto de imports vazio**, `{}`, nos dois lugares que o instanciam: o adaptador (`symbios/adapter/src/motor.ts`, `instantiate(modulo, {})`) e a bancada (`symbios/adapter/ferramentas/navegador/prova.js`, `instantiate(bytes, {})`). Medido no LAB-01 (10/09): 189 KB, zero imports — número da época: o binário não é versionado e **não é medido em máquina de sessão** desde o LAB-31 (o alvo do `rustup` não instala); **desde o LAB-176, perguntado a cada verde pelo que o produz e pelo que o carrega**: toda instanciação no código com `{}`; a ponte `symbios/archilly/wasm/` sem cola (`wasm-bindgen`, `js-sys`, `web-sys`, o `getrandom` com `wasm_js`) no `Cargo.toml` nem no `Cargo.lock`, com o backend `custom` do `getrandom` e sem import declarado à mão; a sonda do LAB-00, que TEM a cola, sem ninguém que a carregue; e o binário, quando existe no disco (`external-engines/esteira/src/o-wasm-nao-pede-nada.ts`; ver *Reconferido no LAB-176*, abaixo) |
 | Nada de exportar motor ou código ao usuário | ✅ **não se aplica** | o Lab não tem usuário nem exportação. O que ele publica são relatórios e JSON de medição |
 | Entrada validada antes de entrar no núcleo | ✅ | versão do contrato, unidade (metro) e anel com ao menos 3 pontos são recusados com mensagem legível — `ida.ts` e `gleba-v1.ts`, com teste; **e, desde o LAB-159, também na terceira porta, a do motor interno do Generate (`motores/generate.ts`), que não recusava nada** (ver *Reconferido no LAB-159*, abaixo) |
 
@@ -344,3 +344,33 @@ mesmo da tela. Nenhuma trava lia nenhuma das duas frases. Medido por LUGAR em 18
 a bancada e a trava; não diz *"única"*; diz que o console não reprova enquanto o código do produtor não testar o
 `pageerror` num `if`; e toda linha da página que diz *"não tem tela"* nomeia a bancada. O que ela não alcança está dito no
 fim do módulo — entre outros, **se a prova RODA**: esta régua pergunta quem ela é e o que diz, não se ela passa.
+
+---
+
+## Reconferido no LAB-176 · 18/10/2026 — o `.wasm`, perguntado ao que o produz e ao que o carrega
+
+A linha *O `.wasm` não pede nada do ambiente*, da tabela *Execução*, era uma medição de 10/09 (LAB-01) sobre um binário
+que não é versionado e que nenhuma máquina de sessão compila desde o LAB-31 — o alvo `wasm32-unknown-unknown` do `rustup`
+não instala (nesta rodada: *"unsuccessful tunnel"* em `static.rust-lang.org`). As rodadas LAB-174 e LAB-175 a deixaram
+de lado por isso. **Metade da linha espera o binário; a outra metade está no código**, e nenhuma trava a lia. Medido em
+18/10:
+
+| pergunta | lido | achado |
+|---|---|---|
+| quem instancia WebAssembly, e com que imports | 807 caminhos, 382 JS/TS (809 e 384 com os dois arquivos desta rodada) | **dois**, os dois com `{}`: `symbios/adapter/src/motor.ts` (`instantiate(modulo, {})`, depois de um `compile`) e a bancada, `prova.js` (`instantiate(bytes, {})`) — a página citava só a forma da bancada |
+| quais crates viram `.wasm` (`crate-type = ["cdylib"]`) | 5 `Cargo.toml` | **duas**: a ponte `symbios/archilly/wasm/` (o artefato que o `conferir.sh` e as ferramentas `labNN.ts` carregam) e a sonda do LAB-00, `wasm-probe/` |
+| a cola na ponte | `Cargo.toml` e `Cargo.lock` | **nenhuma**: o `getrandom` sem feature, e o lock sem `wasm-bindgen`, `js-sys` ou `web-sys` |
+| a cola na sonda | idem | **tem**, de propósito: `getrandom` com `wasm_js`, e o lock traz `wasm-bindgen` e `js-sys` — foi ela que mostrou o problema, e ninguém carrega o artefato dela |
+| o backend do `getrandom` | o `src/` da ponte e o `conferir.sh` | `__getrandom_v03_custom` definido no `lib.rs`; `getrandom_backend="custom"` na receita; nenhum `extern "C" { … }` |
+| o binário | o caminho do `conferir.sh` | **ausente** — não medido (`null`), nunca zero |
+| a linha de antes, conferida pela régua nova | — | **quatro** nomes que ela não dava: a trava, os dois instanciadores e a ponte |
+
+**A linha era verdadeira; faltava a pergunta.** Sem a trava, trocar o `{}` do adaptador por `{ env: {} }`, ligar o
+`wasm_js` no `getrandom` da ponte ou apagar o `__getrandom_v03_custom` passava a esteira inteira — o primeiro só quebraria
+onde o binário existe (nenhuma máquina, hoje), e os outros dois só na compilação, que também não roda aqui.
+
+**Desde o LAB-176 a linha é perguntada a cada verde**, por `external-engines/esteira/src/o-wasm-nao-pede-nada.ts` e
+`tests/o-wasm-nao-pede-nada.test.ts` (sem clones): os instanciadores e as crates `cdylib` nos dois sentidos; o `{}` em
+cada instanciação; a ponte sem cola e com o backend `custom`; a sonda sem quem a carregue; o binário, quando existe; e a
+linha nomeando a trava, os instanciadores e a ponte. O que ela não alcança está dito no fim do módulo — entre outros,
+**o binário em máquina sem ele**: ali a resposta é *não medido*.

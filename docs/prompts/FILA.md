@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-176 · item 900 — a dívida própria: o `.wasm` não pede nada do ambiente — perguntado ao que o produz e ao que o carrega, e o binário só quando existe — ✅ **feito em 18/10/2026** (D404)
+
+A FILA continuava sem proposta que não esperasse ninguém. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, a linha da tabela *Execução* do `docs/SEGURANCA.md` que o LAB-174 e o LAB-175 deixaram de lado por esperar o `rustup`: *"O `.wasm` não pede nada do ambiente … Medido no LAB-01: 189 KB, zero imports"*. Metade dela está no código: por LUGAR, dois instanciadores, os dois com `{}`; duas crates `cdylib` — a ponte `symbios/archilly/wasm/`, sem cola e com o backend `custom` do `getrandom`, e a sonda do LAB-00, que tem a cola e ninguém carrega. A régua nova acusou quatro nomes calados na linha de antes; linha corrigida; trava `src/o-wasm-nao-pede-nada.ts` (19 testes, sem clones), o binário perguntado só quando existe (ausente = *não medido*); 1 832 → 1 851. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-176.md`](../relatorios/LAB-176.md).
+
 ### LAB-175 · item 900 — a dívida própria: a prova de navegador, perguntada pelo lugar — "a única é a do LAB-01" eram duas, "não tem tela" calava a bancada, e o console não reprova — ✅ **feito em 18/10/2026** (D403)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup` (o `rustup target add` desta máquina termina em pânico). Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, na seção do `docs/SEGURANCA.md` que as rodadas LAB-158 a LAB-174 não tinham lido — *O que **não** foi conferido*: *"a única prova de navegador que existe é a do LAB-01"* e *"o Lab não tem tela"*. Por LUGAR: 805 caminhos, 381 JS/TS; um produtor (a `prova-automatica.ts`, LAB-31), dois artefatos (a captura do LAB-01 e o `navegador.json` do LAB-31); o `CLAUDE.md` §4 declara a bancada; e a prova do LAB-31 escuta o `pageerror` sem reprovar por ele. A régua nova acusou nove problemas na página de antes; página corrigida; trava `src/a-prova-de-navegador.ts` (17 testes, sem clones), produtores e artefatos nos dois sentidos, a declaração do console conferida contra o código; 1 815 → 1 832. Detalhe em [`../relatorios/LAB-175.md`](../relatorios/LAB-175.md).
@@ -2117,7 +2121,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1832 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1851 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

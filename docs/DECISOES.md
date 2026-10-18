@@ -13536,3 +13536,46 @@ régua larga demais nasce vermelha).
 
 > **A SEÇÃO "O QUE NÃO FOI CONFERIDO" TAMBÉM AFIRMA.** Ela diz por que não conferiu — e o porquê envelhece como qualquer
 > outra frase: o *"único"* virou dois em 04/10, e ninguém releu a seção que se apresenta como a lista do que falta.
+
+## D404 · O `.WASM` NÃO PEDE NADA DO AMBIENTE — perguntado ao que o produz e ao que o carrega, e o binário só quando existe · 18/10/2026
+
+**Contexto:** item 900 (LAB-176). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém. Na
+dívida própria, a espécie **mensagem fixa que afirma estado sem perguntar**, a linha da tabela *Execução* do
+`docs/SEGURANCA.md` que as rodadas LAB-174 e LAB-175 deixaram de lado (*"a do `.wasm` espera o `rustup`"*): *"O `.wasm`
+não pede nada do ambiente · carregado com `WebAssembly.instantiate(bytes, {})` — objeto de imports vazio. Medido no
+LAB-01: 189 KB, zero imports"*. O binário não é versionado e nenhuma máquina de sessão o compila (o alvo
+`wasm32-unknown-unknown` do `rustup` não instala — nesta rodada, *"unsuccessful tunnel"* em `static.rust-lang.org`).
+
+**Medido por LUGAR:** quem instancia WebAssembly no código (sem comentário e sem string): **dois**, os dois com `{}` — o
+adaptador (`symbios/adapter/src/motor.ts`, `instantiate(modulo, {})`) e a bancada (`prova.js`, `instantiate(bytes, {})`).
+Crates `cdylib` (5 `Cargo.toml`): **duas** — a ponte `symbios/archilly/wasm/`, sem cola no `Cargo.toml` nem no
+`Cargo.lock`, com o `__getrandom_v03_custom` no `lib.rs` e o `getrandom_backend="custom"` na receita do `conferir.sh`; e a
+sonda do LAB-00, `wasm-probe/`, que **tem** a cola (`getrandom` com `wasm_js`; `wasm-bindgen` e `js-sys` no lock) e que
+ninguém carrega. Binário: ausente. A régua nova, contra a linha de antes: quatro nomes que ela não dava.
+
+**Decidido:**
+
+1. A trava `external-engines/esteira/src/o-wasm-nao-pede-nada.ts` e `tests/o-wasm-nao-pede-nada.test.ts` (19 testes, sem
+   clones, no portão): `INSTANCIADORES` e `PONTES` nos dois sentidos contra a árvore; o `{}` escrito em cada
+   instanciação; a ponte carregada sem cola (`wasm-bindgen*`, `js-sys`, `web-sys`, `gloo*`, `getrandom` com
+   `wasm_js`/`js`) no `Cargo.toml` e no `Cargo.lock`, com o backend `custom` definido fora de comentário, sem bloco
+   `extern "C" { … }` nem `wasm_import_module`, e com o artefato nomeado na receita; a sonda sem quem nomeie o artefato
+   dela; o binário, **quando existe no disco**, com `WebAssembly.Module.imports` vazio — ausente, `null`, *não medido*
+   (D23); e a linha nomeando a trava, os dois instanciadores e a ponte. Universo publicado.
+2. A linha corrigida: os dois instanciadores e as duas formas da chamada; o *"189 KB, zero imports"* dito como número
+   da época, com o porquê de não ser remedido; a seção *Reconferido no LAB-176* com a medição.
+
+**Os dois lados:** a árvore de hoje, uma mínima sem binário e uma com um módulo vazio montado byte a byte passam; a
+sonda — que tem a cola — passa, e o `extern "C"` num comentário passa. Acusados: o módulo com um import, o `{}` trocado
+ou ausente, instanciador novo e instanciador que sumiu, `wasm_js` ou `wasm-bindgen` na ponte, `js-sys` no lock, o
+backend apagado, comentado ou fora da receita, o import à mão no Rust, a sonda nomeada numa ferramenta, crate `cdylib`
+nova e crate que sumiu, a ponte cujo artefato a receita não carrega, a linha que cala um nome, a página sem a linha e o
+universo vazio. 1 832 → 1 851 travas no portão sem clones.
+
+**Descartado:** compilar o `.wasm` (o alvo não instala, e a régua não pode depender disso); exigir o binário (a trava
+nasceria vermelha em toda máquina de sessão); aceitar `instantiate(b)` sem segundo argumento como *"sem imports"* (é
+equivalente para o motor, mas a página afirma o `{}` escrito, e a régua pergunta o que a página afirma); ler o `extern`
+do `upstream/` (é intocável e cobrado pela árvore desde o LAB-132).
+
+> **"ESPERA O BINÁRIO" NÃO É O MESMO QUE "ESPERA TUDO".** Uma linha que mede um artefato que não se produz aqui ainda tem
+> metade no código que o produz — e essa metade se pergunta hoje. O resto sai dito como *não medido*, não como verde.
