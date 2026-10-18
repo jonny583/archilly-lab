@@ -8,9 +8,16 @@ Laboratório de motores externos para o **Archilly Generate**.
 > · o que depende do Jonny: [`docs/PENDENCIAS_JONNY.md`](docs/PENDENCIAS_JONNY.md)
 > · as regras permanentes deste repositório: [`CLAUDE.md`](CLAUDE.md)
 >
-> **A fila autônoma está esgotada desde 14/09/2026** — os cinco prompts dela
-> foram executados e mesclados, e o despertador foi apagado. O que espera o chat
-> está em [`docs/prompts/FILA.md`](docs/prompts/FILA.md), em *proposto ao chat*.
+> **O estado não mora nesta página.** O trabalho chega pela caixa de entrada
+> ([`docs/caixa-de-entrada/COMO_FUNCIONA.md`](docs/caixa-de-entrada/COMO_FUNCIONA.md)),
+> e o estado do despertador mora num lugar só: a conta dos disparos, no topo do
+> [`docs/ONDE_PARAMOS.md`](docs/ONDE_PARAMOS.md) (item 004, D234). O que espera o
+> chat está em [`docs/prompts/FILA.md`](docs/prompts/FILA.md), em *proposto ao chat*.
+>
+> *Até o LAB-186 (18/10/2026) este bloco dizia ~~"a fila autônoma está esgotada
+> desde 14/09/2026 … e o despertador foi apagado"~~ — escrito no LF-FINAL, falso
+> desde a fila de 15/09, e sem nada que o perguntasse. Quem pergunta agora é a
+> `external-engines/esteira/src/o-estado-num-lugar-so.ts` (D414).*
 
 ---
 
