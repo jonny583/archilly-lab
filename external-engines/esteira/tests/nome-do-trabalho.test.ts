@@ -179,7 +179,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // nenhum clone (a história de verdade dos quatro mora na `-com-clone`, no verde completo).
     // E 96 no LAB-163, com a `a-historia-do-upstream.test.ts` — o `docs/SEGURANCA.md` e histórias plantadas; nenhum
     // clone, nenhuma história (a de verdade mora na `-com-historia`, no verde completo: o CI clona raso).
-    expect(lista).toHaveLength(96);
+    // E 97 no LAB-164, com a `a-proposta-no-recado.test.ts` — o `COMO_FUNCIONA.md`, a `FILA.md`, o `RECADOS.md` e a
+    // marca de FEITO dos itens da caixa; nenhum clone.
+    expect(lista).toHaveLength(97);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
