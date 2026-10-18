@@ -3985,3 +3985,17 @@ Próximo na fila: a caixa só tem o 900; as três páginas de análise de docs/ 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-186 — item 900 (a dívida própria): o estado do despertador mora num lugar só — e a porta da frente dizia outro
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-186 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): o bloco do topo do README.md, a porta da frente. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2022 de 2022 (117 de 117 arquivos); esteira VERDE_ESTEIRA aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos com git status limpo.
+Feito: o README.md dizia "a fila autônoma está esgotada desde 14/09/2026 … e o despertador foi apagado" — falso desde a fila de 15/09, enquanto a conta dos disparos do ONDE_PARAMOS se declara o lugar único do estado (item 004, D234), e a trava daquele item só perguntava dentro da seção. Por LUGAR, todo .md fora dos diários declarados: 33 lidos, 223 nos diários, um achado. O bloco passa a dizer ONDE o estado mora (a caixa e a conta), a frase velha riscada e datada; trava o-estado-num-lugar-so (12 testes, sem clones); a régua acusou três problemas antes; 2010 → 2022 (D414). Detalhe em docs/relatorios/LAB-186.md.
+Achados para outros apps ou Central: a todas — o lugar único do estado precisa de quem pergunte os OUTROS lugares, não só ele mesmo; e a porta da frente (README.md) diz onde o estado mora, nunca qual é: estado escrito ali é a segunda terra.
+Proposto ao chat: o "Também não tem interface" do fim do README.md ganhar a exceção declarada da bancada (CLAUDE.md §4, D381) e ser perguntado pela a-unica-interface.ts (na FILA, saído do LAB-186).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as propostas do LAB-186, do LAB-185 e as antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

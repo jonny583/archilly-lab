@@ -13890,3 +13890,30 @@ só a primeira versão da minha ferramenta fazia isso, reescrita) — escopo nov
 
 > **"IDÊNTICA AO COMMIT" SE PERGUNTA PELO OBJETO DO `git`, E O OBJETO VEM NA ÁRVORE.** A pergunta que a trava do LAB-132
 > dizia precisar da rede precisa dela uma vez, para gravar a árvore; depois, cada verde a refaz sem sair da máquina.
+
+## D414 · O ESTADO DO DESPERTADOR MORA NUM LUGAR SÓ — e a porta da frente dizia outro · 18/10/2026
+**Contexto:** item 900 (LAB-185 → LAB-186). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse
+ninguém. Na dívida própria, espécie mensagem fixa que afirma estado sem perguntar: o bloco do topo do `README.md`, do
+LF-FINAL (14/09/2026) — *"A fila autônoma está esgotada desde 14/09/2026 — […] e o despertador foi apagado"*. Falso desde a
+fila de 15/09. O item 004 (D234) pôs o estado do despertador num lugar só, a conta dos disparos do `ONDE_PARAMOS.md`, e a
+trava dele perguntava só dentro da seção.
+
+**Medido** por LUGAR (todo `.md` que o `git` carrega, fora do `upstream/`, do `node_modules/` e dos diários declarados),
+parágrafo a parágrafo, sem riscado, crase nem citação: 33 lidos, 223 nos diários, **um achado — o `README.md`**, nas duas
+formas. A régua nova acusou três problemas antes (as duas formas e o bloco do topo sem a caixa de entrada).
+
+**Decidido:**
+
+1. O bloco do topo do `README.md` diz **onde** o estado mora — a caixa e a conta dos disparos —, e não qual é; a frase
+   velha fica riscada e datada.
+2. A trava `external-engines/esteira/src/o-estado-num-lugar-so.ts` e `tests/o-estado-num-lugar-so.test.ts` (12 testes,
+   sem clones, no portão): as duas formas no presente fora dos diários reprovam; os diários declarados com o motivo e
+   conferidos no disco; o bloco do topo cita os dois caminhos; o universo publicado, com piso. O portão passa de 116 a
+   117 arquivos e de 2 010 a 2 022 travas.
+
+**Descartado:** escrever o estado certo no `README.md` (seria a segunda terra do D234); uma lista de portas em vez do
+universo (o `README.md` de motor novo nasceria fora); ler código e comentários (o estado se diz em página); consertar o
+*"Também não tem interface"* do mesmo `README.md` — outra afirmação e outra trava, proposto ao chat.
+
+> **O LUGAR ÚNICO PRECISA DE QUEM PERGUNTE OS OUTROS LUGARES.** A trava que confere a seção do estado não via a porta da
+> frente dizendo outro — e a porta da frente diz onde o estado mora, nunca qual é.
