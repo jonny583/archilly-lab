@@ -188,7 +188,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // que precisa dos clones mora na `a-adocao-da-central-com-clone.test.ts`, fora do portão.
     // E 101 no LAB-168, com a `o-que-falta-medir.test.ts` — as afirmações da página sobre o Lab; as dos vizinhos moram
     // na `o-que-falta-medir-com-clone.test.ts`, fora do portão.
-    expect(lista).toHaveLength(101);
+    // E 102 no LAB-170, com a `a-especificacao.test.ts` — a `docs/referencia/LABORATORIO.md` e o `git ls-files` desta
+    // casa; o commit de nascimento, quando o clone é raso, é dito e não lido.
+    expect(lista).toHaveLength(102);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
