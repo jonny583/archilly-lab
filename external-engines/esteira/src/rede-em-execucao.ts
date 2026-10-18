@@ -214,6 +214,14 @@ export const DECLARADAS: readonly Declarada[] = [
     motivo:
       "os dois `git fetch --depth 1` (o commit que a triagem fixa e o HEAD de hoje) e o `git ls-remote` do PackingSolver, numa pasta temporária, lidos e nunca executados; ferramenta à mão, fora do verde (LAB-171)",
   },
+  {
+    caminho: "external-engines/esteira/ferramentas/lab172.ts",
+    forma: "processo",
+    quantas: 5,
+    classe: "origem-publica",
+    motivo:
+      "os três `git fetch --filter=blob:none --depth 1` (os dois commits que a análise do esqueleto reto fixa e a tag da CGAL que o script deles fixa) e, numa função só para as duas origens, o `git ls-remote` e o `fetch` do HEAD de hoje, em pastas temporárias, lidos e nunca executados; ferramenta à mão, fora do verde (LAB-172)",
+  },
 ];
 
 export type TipoDeProblema = "rede-no-caminho-do-motor" | "rede-nao-declarada" | "declarada-que-sumiu" | "universo-vazio";
