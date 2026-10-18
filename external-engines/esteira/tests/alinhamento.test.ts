@@ -184,8 +184,8 @@ describe("`alinhaOPartidoAViaDesenhada` medido nos motores (LAB-32)", () => {
   // vai dita: quem declara `false` tem de dar alinhamento IDÊNTICO com e sem a
   // via — asserção exata, e é ela que morde se um motor passar a alinhar em
   // silêncio. Quem declara `true` é medido POR PARTIDO, porque o ângulo base
-  // obedece à linha mas cada variante sorteia ±30° em cima dele
-  // (`variacaoAngular`, no motor): na variante que o ranking dele escolhe o
+  // obedece à linha mas cada variante sorteia ±15° em cima dele — uma janela de
+  // 30°, que até o LAB-168 se escrevia ±30° (`variacaoAngular`, no motor): na variante que o ranking dele escolhe o
   // ganho é de 5,6 pp, e no partido ortogonal é de 72,9.
   const v1 = ler("antonina-com-via");
   const semLinhas: EntradaMinima = { ...v1, atracoes: [] };

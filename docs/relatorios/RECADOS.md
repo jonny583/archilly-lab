@@ -3751,3 +3751,16 @@ Próximo na fila: a caixa só tem o 900; na dívida própria, as páginas de doc
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-168 — item 900 (a dívida própria): o que falta medir, motor por motor — a página que o chat leva aos vizinhos afirmava o estado deles sem perguntar
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-168 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone desrasado pela receita do LAB-116); a FILA sem proposta que não espere ninguém, e o .wasm sem o alvo do rustup (403, política); fui à dívida própria (mensagem fixa que afirma estado sem perguntar) e peguei a página que o LAB-167 deixou nomeada (§9 do relatório dele): docs/O_QUE_FALTA_MEDIR_POR_MOTOR.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1740 de 1740 (101 de 101 arquivos); esteira com só as 9 falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: a página (LAB-22, 03/10; três leitores no código, nenhum pergunta o que ela afirma) dizia ao Generate "não mede a rampa, falta o cálculo" — falso desde 02/10 (5b70e5f): o paraSaida deles mede quando recebe relevo, e a ponte do Lab NÃO o passa (quarta vez da história do §1-A); ao Parcelamento, "passo fixo em 12 pedaços" — falso desde o T-11 deles, no mesmo 03/10; "±30°" no sorteio do ângulo é ±15° (o erro também estava na ficha da porta); e a ponte do Lab lê o MOTOR_NOME deles desde o LAB-29. Medido passando o relevo: completo 22 de 22 e 69 de 72 vias medidas onde eram todas null. Página riscada, não reescrita; trava src/o-que-falta-medir.ts (sete afirmações em três casas) + teste sem clones (15) + com clone (4); doze mutações de código e duas do mundo acusadas; 1725 → 1740; D396; detalhe em docs/relatorios/LAB-168.md.
+Achados para outros apps ou Central: ao Generate, nada a fazer — o "falta o cálculo" era falso, o null era do Lab (segue só o §7, o aviso de faceDeRua, de vocês decidir); ao Laboratório de Parcelamento, nada a fazer no passo (o T-11 fez o pedido no mesmo dia), e o número do §1-D é ±15°, não ±30° — a pergunta do sorteio com viaManual continua de vocês, e o MOTOR_VERSAO segue 1.0 depois do T-11. A todas: documento vivo para o vizinho que não pergunta ao código dele envelhece no dia em que ele lê. Proposto ao chat (FILA, no LAB-168): a ponte do Lab passar relevo ao paraSaida do Generate, com a comparação das duas réguas de rampa, que discordam 6× na gleba plana (9,13 % contra 1,36 %, não investigado).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na dívida própria, a referencia/FERRAMENTA_E_TRAVA.md; a proposta acima espera o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
