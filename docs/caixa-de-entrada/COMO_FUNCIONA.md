@@ -201,6 +201,13 @@ na tela:
 > chat"*, que abre a frase (a negação *"Nada novo proposto ao chat"* não conta) —, e que o recado que diz *"Proposto ao
 > chat"* tenha a proposta escrita. *(Acrescentado por mim no LAB-164; o texto do chat acima está intocado.)*
 
+> **E a coisa 3 é conferida desde o LAB-165 (18/10/2026, D393), nos dois sentidos.** Das quatro pendências que pediam
+> alguma coisa ao Jonny, nenhuma dizia *como saber que deu certo*. Toda pendência aberta ou parada da página traz agora um
+> bloco de forma fixa — `> **O que fazer, onde e como saber que deu certo**`, com as três partes —, e a régua
+> `external-engines/esteira/src/o-que-fazer-onde-como-saber.ts` cobra o bloco inteiro onde se pede, a ausência dele onde
+> não se pede (resolvida ou aviso), e a exceção conferida pelo trecho. *(Acrescentado por mim no LAB-165; o texto do
+> chat acima está intocado.)*
+
 **O recado continua sendo o que se lê primeiro.** Ele é o resumo; o relatório é
 o detalhe. Quem lê o recado e fica com dúvida abre o relatório — e é por isso
 que o recado precisa dizer **onde** está o detalhe.
