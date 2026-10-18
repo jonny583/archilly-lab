@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-17T01:20:42.470Z",
+  "quando": "2026-10-18T10:13:26.512Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -651,13 +651,334 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 15:06:56 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-133), tarefa da **dívida própria** (a FILA sem proposta que não espere ninguém): o Symbios roda em Node 22+ sem npm — e quem rodava o adaptador era só o Bun",
         "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 16:29",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-134 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `42a3234`",
+        "rodada": "item 900 (LAB-134), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 17:30",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-135 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `1711bd1`",
+        "rodada": "item 900 (LAB-135), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 18:43",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-136 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `40a1363`",
+        "rodada": "item 900 (LAB-136), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 19:27",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-137 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `1af3103`",
+        "rodada": "item 900 (LAB-137), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 20:23",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-138 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `a8ec2c9`",
+        "rodada": "item 900 (LAB-138), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 21:27",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-139 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `daa49a6`",
+        "rodada": "item 900 (LAB-139), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 22:29",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-140 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `a3013eb`",
+        "rodada": "item 900 (LAB-140), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "16/10/2026",
+        "hora": "≤ 23:24",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-141 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `9ee03a5`",
+        "rodada": "item 900 (LAB-141), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 00:49",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-142 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `6892256`",
+        "rodada": "item 900 (LAB-142), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 01:26",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-143 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `f7d97a9`",
+        "rodada": "item 900 (LAB-143), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 02:26",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-144 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `a22ed7c`",
+        "rodada": "item 900 (LAB-144), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 03:24",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-145 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `6579670`",
+        "rodada": "item 900 (LAB-145), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 04:25",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-146 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `f50468b`",
+        "rodada": "item 900 (LAB-146), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 05:33",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-147 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `96991a5`",
+        "rodada": "item 900 (LAB-147), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 06:22",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-148 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `13ca47d`",
+        "rodada": "item 900 (LAB-148), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 07:23",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-149 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `d739891`",
+        "rodada": "item 900 (LAB-149), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 08:21",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-150 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `0c0f93c`",
+        "rodada": "item 900 (LAB-150), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 09:29",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-151 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `41e52f6`",
+        "rodada": "item 900 (LAB-151), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 10:20",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-152 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `605977c`",
+        "rodada": "item 900 (LAB-152), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 11:22",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-153 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `88f99e0`",
+        "rodada": "item 900 (LAB-153), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 12:39",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-154 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `8e4cc42`",
+        "rodada": "item 900 (LAB-154), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 13:32",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-155 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `f9f1165`",
+        "rodada": "item 900 (LAB-155), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 14:28",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-156 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `8cf63cc`",
+        "rodada": "item 900 (LAB-156), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 18:36",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-157 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `a1b041f`",
+        "rodada": "item 900 (LAB-157), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 19:31",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-158 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `60ace73`",
+        "rodada": "item 900 (LAB-158), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 20:30",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-159 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `1284121`",
+        "rodada": "item 900 (LAB-159), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 21:32",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-160 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `d343352`",
+        "rodada": "item 900 (LAB-160), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 22:26",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-161 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `1439ac5`",
+        "rodada": "item 900 (LAB-161), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "17/10/2026",
+        "hora": "≤ 23:27",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-162 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `89f7609`",
+        "rodada": "item 900 (LAB-162), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 00:20",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-163 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `1bee6c8`",
+        "rodada": "item 900 (LAB-163), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 01:29",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-164 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `228242c`",
+        "rodada": "item 900 (LAB-164), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 02:27",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-165 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `a5c34ab`",
+        "rodada": "item 900 (LAB-165), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 03:25",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-166 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `93cfaaa`",
+        "rodada": "item 900 (LAB-166), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 04:34",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-167 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `fdd591f`",
+        "rodada": "item 900 (LAB-167), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 05:29",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-168 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `95f174f`",
+        "rodada": "item 900 (LAB-168), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 06:28",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-169 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `dec1373`",
+        "rodada": "item 900 (LAB-169), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 07:23",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-170 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `32224eb`",
+        "rodada": "item 900 (LAB-170), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 08:29",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-171 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `a320236`",
+        "rodada": "item 900 (LAB-171), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 09:36",
+        "origem": "reconstruido",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**, pelo recado do LAB-172 (*\"caixa só com o 900\"*). **Linha reconstruída no LAB-173** (D401): a rodada não a escreveu; a hora é o teto, o primeiro commit da rodada, `b48b0e7`",
+        "rodada": "item 900 (LAB-172), dívida própria",
+        "emVazio": false
+      },
+      {
+        "data": "18/10/2026",
+        "hora": "≤ 10:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 10:06:11 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-173), dívida própria (regra sem guarda: *\"uma linha por disparo\"*, e trinta e nove rodadas sem a linha delas)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 80,
+      "noRegistro": 120,
       "observados": 39,
-      "derivados": 34,
+      "derivados": 35,
       "emLote": 7,
+      "reconstruidos": 39,
       "emVazio": 5
     },
     "emVazio": 5,
@@ -707,7 +1028,8 @@
         "quais": [
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
           "item 004 · a conta dos disparos do despertador > a seção diz o que o número vai DECIDIR — o item 004 cobra essa frase",
-          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum"
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
+          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove"
         ]
       },
       {
@@ -718,7 +1040,8 @@
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
           "item 004 · a conta dos disparos do despertador > toda linha tem a origem declarada, e o vocabulário é FECHADO",
           "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM, PRIMEIRO: as três origens são lidas, a de hífen inclusive",
-          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum"
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
+          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove"
         ]
       },
       {
@@ -727,7 +1050,8 @@
         "reprovou": true,
         "quais": [
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
-          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum"
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
+          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove"
         ]
       }
     ],

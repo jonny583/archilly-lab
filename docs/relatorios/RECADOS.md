@@ -3816,3 +3816,16 @@ Próximo na fila: a caixa só tem o 900; das páginas de docs/ sem leitor sobra 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-173 — item 900 (a dívida própria): a rodada sem linha — trinta e nove rodadas não escreveram a sua linha na conta dos disparos, e a conta seguiu verde
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-173 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém, e das páginas de docs/ sem leitor só a que espera o chat; fui à dívida própria (regra sem guarda): "uma linha por disparo", a conta dos disparos do ONDE_PARAMOS.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1800 de 1800 (104 de 104 arquivos); esteira com só as falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: a última linha escrita na hora era a de 16/10 15:06 (LAB-133); do LAB-134 ao LAB-172, 39 rodadas gravaram o recado e nenhuma a linha, e a régua do item 004 conferia a tabela contra ela mesma — os totais pararam junto, em 80, e seguiu verde. As 39 reconstruídas do git e do recado com a origem nova "reconstruido" (hora de teto, commit nomeado); conferirAsRodadas cruza rodadas e recados nos dois sentidos (exceção única: LAB-68, anterior à conta); 10 travas novas; prova bun run lab173 (39 de 39 conferem com o git, 7 mutações acusadas, a régua velha aprovava o abandono); 1790 → 1800; D401; detalhe em docs/relatorios/LAB-173.md.
+Achados para outros apps ou Central: à direção — a conta dos disparos do Lab estava 39 rodadas atrás desde 16/10 15:06; quem leu "80 disparos, 5 em vazio" para decidir o intervalo leu uma conta parada (hoje: 120, 5 em vazio, 0 desde 10/10). A todas — conta que só se confere contra si mesma aprova o abandono: precisa de uma ponta que a rodada é obrigada a escrever (aqui, o RECADOS.md). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; das páginas de docs/ sem leitor sobra a SYMBIOS_ANALYSIS.md, cujo estado espera o chat (LAB-152); as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

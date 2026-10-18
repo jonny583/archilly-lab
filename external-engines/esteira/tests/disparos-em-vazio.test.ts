@@ -22,10 +22,13 @@ import { join } from "node:path";
 import { ancorarRecado, lerRecados } from "../src/classes-de-rodada.ts";
 import {
   ORIGENS,
+  RODADAS_SEM_LINHA,
   conferirAConta,
+  conferirAsRodadas,
   diaDe,
   diasDosRecadosEmVazio,
   lerAConta,
+  promptsDosRecados,
 } from "../src/disparos-do-despertador.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
@@ -340,5 +343,97 @@ describe("D343 · a hora com teto é lida, e a linha ilegível REPROVA", () => {
       secao("| 05/10/2026 | Disparo sem item pronto — a fila travou no LAB-47 | `despertador-sem-item` |\n"),
     );
     expect(c.ilegiveis).toEqual([]);
+  });
+});
+
+/**
+ * **LAB-173 · D401 — a rodada sem linha.** A última linha escrita na hora era a do LAB-133; do
+ * LAB-134 ao LAB-172 nenhuma rodada escreveu a sua, e a conta seguiu VERDE — os totais conferiam
+ * contra as linhas, e os dois pararam juntos em 80. A outra ponta é o `RECADOS.md`, que tem trava.
+ */
+describe("D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio", () => {
+  const conta = () => lerAConta(ondeParamos());
+  const prompts = () => promptsDosRecados(recados(), ABERTURA);
+
+  test("O LADO BOM, PRIMEIRO: as rodadas da conta e as dos recados fecham, nos dois sentidos", () => {
+    expect(prompts().length, "nenhum recado de prompt lido — a régua não estaria medindo nada").toBeGreaterThan(100);
+    expect(conferirAsRodadas(conta(), prompts()).map((p) => `${p.tipo}: ${p.oQue}`)).toEqual([]);
+  });
+
+  test("as trinta e nove reconstruídas estão lá, e cada uma nomeia o commit e tem hora de teto", () => {
+    const rec = conta().linhas.filter((l) => l.origem === "reconstruido");
+    expect(rec.map((l) => /LAB-\d+/.exec(l.rodada)?.[0])).toEqual(
+      Array.from({ length: 39 }, (_, i) => `LAB-${134 + i}`),
+    );
+    for (const l of rec) {
+      expect(l.hora, l.rodada).toMatch(/^≤ \d{2}:\d{2}$/);
+      expect(l.achou, l.rodada).toMatch(/`[0-9a-f]{7}`/);
+      expect(l.emVazio, l.rodada).toBe(false);
+    }
+  });
+
+  test("a exceção é UMA, o LAB-68, e o motivo está escrito", () => {
+    expect(Object.keys(RODADAS_SEM_LINHA)).toEqual(["LAB-68"]);
+    expect(prompts()).toContain("LAB-68");
+  });
+
+  test("O LADO RUIM: apagar a linha de uma rodada REPROVA, e a mensagem nomeia a rodada", () => {
+    const c = conta();
+    c.linhas = c.linhas.filter((l) => !/\bLAB-150\b/.test(l.rodada));
+    const p = conferirAsRodadas(c, prompts());
+    expect(p.map((x) => x.tipo)).toContain("rodada-sem-linha");
+    expect(p.map((x) => x.oQue).join(" ")).toContain("LAB-150");
+  });
+
+  test("O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove", () => {
+    const c = conta();
+    c.linhas = c.linhas.filter((l) => l.origem !== "reconstruido");
+    const p = conferirAsRodadas(c, prompts().filter((x) => x !== "LAB-173"));
+    const msg = p.find((x) => x.tipo === "rodada-sem-linha")?.oQue ?? "";
+    expect(msg).toContain("39 rodada(s)");
+    // E a régua VELHA, com os totais ajustados ao abandono, aprovava: é o defeito, medido.
+    c.declarados.noRegistro = c.linhas.length;
+    c.declarados.reconstruidos = 0;
+    expect(conferirAConta(c, diasDosRecadosEmVazio(recados()), ABERTURA)).toEqual([]);
+  });
+
+  test("O LADO RUIM: linha que cita uma rodada sem recado REPROVA", () => {
+    const c = conta();
+    c.linhas = [...c.linhas, { ...c.linhas.at(-1)!, rodada: "item 900 (LAB-9999)" }];
+    expect(conferirAsRodadas(c, prompts()).map((x) => x.tipo)).toContain("linha-de-rodada-sem-recado");
+  });
+
+  test("O LADO RUIM: exceção morta (a rodada TEM linha) REPROVA, e exceção sem recado também", () => {
+    const comLinha = conferirAsRodadas(conta(), prompts(), { "LAB-150": "x".repeat(60) });
+    expect(comLinha.map((x) => x.oQue).join(" ")).toContain("exceção ficou morta");
+    const semRecado = conferirAsRodadas(conta(), prompts(), { ...RODADAS_SEM_LINHA, "LAB-9999": "x".repeat(60) });
+    expect(semRecado.map((x) => x.oQue).join(" ")).toContain("não há recado");
+  });
+
+  test("O LADO RUIM: reconstruída sem commit, ou com hora afirmada, REPROVA", () => {
+    const c = conta();
+    const i = c.linhas.findIndex((l) => l.origem === "reconstruido");
+    const semCommit = { ...c, linhas: c.linhas.map((l, k) => (k === i ? { ...l, achou: "só o 900 na caixa" } : l)) };
+    expect(conferirAsRodadas(semCommit, prompts()).map((x) => x.tipo)).toContain("reconstruida-sem-fonte");
+    const horaCheia = { ...c, linhas: c.linhas.map((l, k) => (k === i ? { ...l, hora: "16:29" } : l)) };
+    expect(conferirAsRodadas(horaCheia, prompts()).map((x) => x.tipo)).toContain("reconstruida-sem-fonte");
+  });
+
+  test("O LADO RUIM: o número declarado dos reconstruídos que não bate REPROVA, pela classe", () => {
+    const c = conta();
+    c.declarados.reconstruidos = 38;
+    const p = conferirAConta(c, diasDosRecadosEmVazio(recados()), ABERTURA);
+    expect(p.map((x) => x.oQue).join(" ")).toContain("reconstruídos");
+  });
+
+  test("a linha reconstruída é LIDA pela régua de linha (a classe nova não fica invisível, D281)", () => {
+    const c = lerAConta(
+      "\n# A CONTA DOS DISPAROS\n\n" +
+        "| 16/10/2026 | ≤ 16:29 | reconstruido | só o 900 na caixa, `42a3234` | item 900 (LAB-134) |\n" +
+        "\n# FIM\n",
+    );
+    expect(c.linhas).toHaveLength(1);
+    expect(c.ilegiveis).toEqual([]);
+    expect(c.linhas[0]!.origem).toBe("reconstruido");
   });
 });

@@ -1,0 +1,607 @@
+{
+  "prompt": "LAB-173",
+  "oQueIstoMede": "as RODADAS do regime da caixa (LAB-N nos títulos do RECADOS.md, de 09/10/2026 em diante) contra as linhas da conta dos disparos do ONDE_PARAMOS.md, nos dois sentidos, e cada linha reconstruída contra o primeiro commit da rodada no git desta casa; não mede gleba",
+  "geradoEm": "2026-10-18",
+  "osRecadosDePrompt": 106,
+  "asLinhasDaConta": 120,
+  "porOrigem": {
+    "noRegistro": 120,
+    "observados": 39,
+    "derivados": 35,
+    "emLote": 7,
+    "reconstruidos": 39,
+    "emVazio": 5
+  },
+  "asExcecoes": {
+    "LAB-68": "o item 001 começou ANTES da conta existir: a conta abriu com o religamento das 14:56Z, e as duas primeiras linhas (15:05 e 16:05) dizem 'o 001 em curso' e 'acumulou' — o disparo que começou o LAB-68 é anterior à primeira linha, e não se reconstrói hora que não se mediu"
+  },
+  "reconstruidas": {
+    "quantas": 39,
+    "batemComOGit": 39,
+    "linhas": [
+      {
+        "rodada": "LAB-134",
+        "naConta": {
+          "data": "16/10/2026",
+          "hora": "≤ 16:29",
+          "commit": "42a3234"
+        },
+        "noGit": {
+          "data": "16/10/2026",
+          "hora": "16:29",
+          "commit": "42a3234"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-135",
+        "naConta": {
+          "data": "16/10/2026",
+          "hora": "≤ 17:30",
+          "commit": "1711bd1"
+        },
+        "noGit": {
+          "data": "16/10/2026",
+          "hora": "17:30",
+          "commit": "1711bd1"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-136",
+        "naConta": {
+          "data": "16/10/2026",
+          "hora": "≤ 18:43",
+          "commit": "40a1363"
+        },
+        "noGit": {
+          "data": "16/10/2026",
+          "hora": "18:43",
+          "commit": "40a1363"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-137",
+        "naConta": {
+          "data": "16/10/2026",
+          "hora": "≤ 19:27",
+          "commit": "1af3103"
+        },
+        "noGit": {
+          "data": "16/10/2026",
+          "hora": "19:27",
+          "commit": "1af3103"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-138",
+        "naConta": {
+          "data": "16/10/2026",
+          "hora": "≤ 20:23",
+          "commit": "a8ec2c9"
+        },
+        "noGit": {
+          "data": "16/10/2026",
+          "hora": "20:23",
+          "commit": "a8ec2c9"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-139",
+        "naConta": {
+          "data": "16/10/2026",
+          "hora": "≤ 21:27",
+          "commit": "daa49a6"
+        },
+        "noGit": {
+          "data": "16/10/2026",
+          "hora": "21:27",
+          "commit": "daa49a6"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-140",
+        "naConta": {
+          "data": "16/10/2026",
+          "hora": "≤ 22:29",
+          "commit": "a3013eb"
+        },
+        "noGit": {
+          "data": "16/10/2026",
+          "hora": "22:29",
+          "commit": "a3013eb"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-141",
+        "naConta": {
+          "data": "16/10/2026",
+          "hora": "≤ 23:24",
+          "commit": "9ee03a5"
+        },
+        "noGit": {
+          "data": "16/10/2026",
+          "hora": "23:24",
+          "commit": "9ee03a5"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-142",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 00:49",
+          "commit": "6892256"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "00:49",
+          "commit": "6892256"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-143",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 01:26",
+          "commit": "f7d97a9"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "01:26",
+          "commit": "f7d97a9"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-144",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 02:26",
+          "commit": "a22ed7c"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "02:26",
+          "commit": "a22ed7c"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-145",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 03:24",
+          "commit": "6579670"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "03:24",
+          "commit": "6579670"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-146",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 04:25",
+          "commit": "f50468b"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "04:25",
+          "commit": "f50468b"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-147",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 05:33",
+          "commit": "96991a5"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "05:33",
+          "commit": "96991a5"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-148",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 06:22",
+          "commit": "13ca47d"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "06:22",
+          "commit": "13ca47d"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-149",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 07:23",
+          "commit": "d739891"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "07:23",
+          "commit": "d739891"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-150",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 08:21",
+          "commit": "0c0f93c"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "08:21",
+          "commit": "0c0f93c"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-151",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 09:29",
+          "commit": "41e52f6"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "09:29",
+          "commit": "41e52f6"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-152",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 10:20",
+          "commit": "605977c"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "10:20",
+          "commit": "605977c"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-153",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 11:22",
+          "commit": "88f99e0"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "11:22",
+          "commit": "88f99e0"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-154",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 12:39",
+          "commit": "8e4cc42"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "12:39",
+          "commit": "8e4cc42"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-155",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 13:32",
+          "commit": "f9f1165"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "13:32",
+          "commit": "f9f1165"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-156",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 14:28",
+          "commit": "8cf63cc"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "14:28",
+          "commit": "8cf63cc"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-157",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 18:36",
+          "commit": "a1b041f"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "18:36",
+          "commit": "a1b041f"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-158",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 19:31",
+          "commit": "60ace73"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "19:31",
+          "commit": "60ace73"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-159",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 20:30",
+          "commit": "1284121"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "20:30",
+          "commit": "1284121"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-160",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 21:32",
+          "commit": "d343352"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "21:32",
+          "commit": "d343352"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-161",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 22:26",
+          "commit": "1439ac5"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "22:26",
+          "commit": "1439ac5"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-162",
+        "naConta": {
+          "data": "17/10/2026",
+          "hora": "≤ 23:27",
+          "commit": "89f7609"
+        },
+        "noGit": {
+          "data": "17/10/2026",
+          "hora": "23:27",
+          "commit": "89f7609"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-163",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 00:20",
+          "commit": "1bee6c8"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "00:20",
+          "commit": "1bee6c8"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-164",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 01:29",
+          "commit": "228242c"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "01:29",
+          "commit": "228242c"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-165",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 02:27",
+          "commit": "a5c34ab"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "02:27",
+          "commit": "a5c34ab"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-166",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 03:25",
+          "commit": "93cfaaa"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "03:25",
+          "commit": "93cfaaa"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-167",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 04:34",
+          "commit": "fdd591f"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "04:34",
+          "commit": "fdd591f"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-168",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 05:29",
+          "commit": "95f174f"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "05:29",
+          "commit": "95f174f"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-169",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 06:28",
+          "commit": "dec1373"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "06:28",
+          "commit": "dec1373"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-170",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 07:23",
+          "commit": "32224eb"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "07:23",
+          "commit": "32224eb"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-171",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 08:29",
+          "commit": "a320236"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "08:29",
+          "commit": "a320236"
+        },
+        "bateComOGit": true
+      },
+      {
+        "rodada": "LAB-172",
+        "naConta": {
+          "data": "18/10/2026",
+          "hora": "≤ 09:36",
+          "commit": "b48b0e7"
+        },
+        "noGit": {
+          "data": "18/10/2026",
+          "hora": "09:36",
+          "commit": "b48b0e7"
+        },
+        "bateComOGit": true
+      }
+    ]
+  },
+  "oDefeito": {
+    "aReguaVelhaAprovava": true,
+    "aReguaNovaAcusa": [
+      "39 rodada(s) com recado e sem linha na conta dos disparos: LAB-134, LAB-135, LAB-136, LAB-137, LAB-138, LAB-139, LAB-140, LAB-141, LAB-142, LAB-143, LAB-144, LAB-145, LAB-146, LAB-147, LAB-148, LAB-149, LAB-150, LAB-151, LAB-152, LAB-153, LAB-154, LAB-155, LAB-156, LAB-157, LAB-158, LAB-159, LAB-160, LAB-161, LAB-162, LAB-163, LAB-164, LAB-165, LAB-166, LAB-167, LAB-168, LAB-169, LAB-170, LAB-171, LAB-172 — a seção diz \"uma linha por disparo\", e a rodada que não escreve a dela some da medida que decide o intervalo"
+    ]
+  },
+  "mutacoes": [
+    {
+      "oQue": "apagar a linha do LAB-150",
+      "acusada": true
+    },
+    {
+      "oQue": "uma linha cita uma rodada sem recado",
+      "acusada": true
+    },
+    {
+      "oQue": "reconstruída sem o commit",
+      "acusada": true
+    },
+    {
+      "oQue": "reconstruída com hora afirmada",
+      "acusada": true
+    },
+    {
+      "oQue": "exceção morta (a rodada tem linha)",
+      "acusada": true
+    },
+    {
+      "oQue": "exceção sem recado",
+      "acusada": true
+    },
+    {
+      "oQue": "exceção sem motivo",
+      "acusada": true
+    }
+  ],
+  "problemas": []
+}
