@@ -11,6 +11,22 @@ dia** — §1-B e §1-C, com dois achados do LAB-26 que são sobre vocês. O LAB
 manda manter este documento vivo e **avisar quando ele mudar**: mudou duas vezes
 naquele dia, e o recado de cada prompt diz isso.
 
+> **⚠ MUDOU em 18/10/2026 (LAB-168) — e três das afirmações sobre vocês estavam velhas, uma desde antes de a
+> página nascer.** Remedidas no código de cada casa (Generate `8d5c0b0`, Laboratório de Parcelamento `5e279ac`):
+>
+> 1. **Ao Laboratório de Parcelamento:** o passo de vocês é em metros desde o T-11 (`3702828`, 03/10/2026, o
+>    mesmo dia em que esta página pediu isso) — o §1 está riscado; **nada a fazer**. E o sorteio do ângulo do §1-D
+>    é **±15°**, não ±30°: a conta era minha, e a pergunta continua de pé com o número certo.
+> 2. **Ao Generate:** o `paraSaida` de vocês mede a rampa de cada via quando recebe `relevo` — desde 02/10/2026
+>    (`5b70e5f`), um dia **antes** desta página dizer que vocês não mediam. **Quem não passava o relevo era a ponte do
+>    Lab** — a quarta vez da história do §1-A, agora com vocês. Os §3 e §4 estão riscados; **nada a fazer**.
+> 3. **Do Lab para o Lab:** o §1-C dizia que a ponte ignorava o nome e a versão de vocês; desde o LAB-29 ela os lê.
+>
+> **Desde o LAB-168 esta página é perguntada a cada verde** pela trava `external-engines/esteira/src/o-que-falta-medir.ts`:
+> cada afirmação sobre o estado de uma casa é uma pergunta a um arquivo de código daquela casa, e a página reprova se
+> disser a resposta velha sem riscar. Os números medidos (picos, aderências, lotes) continuam sendo medição datada do
+> prompt que os escreveu.
+>
 > **⚠ MUDOU DUAS VEZES em 04/10/2026 — §1-D (LAB-32) e §1-E (LAB-37).** A do LAB-37 é a
 > **terceira** vez que um campo de vocês existia e a ida do Lab não o preenchia; entregue,
 > vocês respeitam. E trouxe uma pergunta que é decisão de vocês: a nota prefere 33 lotes a
@@ -28,16 +44,18 @@ naquele dia, e o recado de cada prompt diz isso.
 A pergunta do prompt era *"só o Symbios reporta o pico; escreva o que falta a
 cada um"*. **Medindo, a resposta mudou de forma:**
 
-| motor | reporta rampa? | o que a medição mostrou |
-|---|---|---|
-| **Laboratório de Parcelamento** | **sim, e desde 14/09** | **a lacuna era minha** — o adaptador do Lab descartava a medida dele |
-| **Symbios** (+ subdivisão do Lab) | sim | reporta, mas **superestima** — amostra fina demais |
-| **Generate · ortogonal** | **não** | campo presente, `null` em todas as vias |
-| **Generate · espinha** | **não** | idem |
+| motor | reporta rampa? | o que a medição mostrou | **remedido em 18/10/2026 (LAB-168)** |
+|---|---|---|---|
+| **Laboratório de Parcelamento** | **sim, e desde 14/09** | **a lacuna era minha** — o adaptador do Lab descartava a medida dele | e o passo de vocês é em metros desde o T-11 (03/10) |
+| **Symbios** (+ subdivisão do Lab) | sim | reporta, mas **superestima** — amostra fina demais | consertado no Lab (§2) |
+| **Generate · ortogonal** | ~~**não**~~ | ~~campo presente, `null` em todas as vias~~ | **sim, quando recebe o relevo** — desde 02/10; o `null` era da ponte do Lab, que não o passa |
+| **Generate · espinha** | ~~**não**~~ | ~~idem~~ | idem |
 
-**Dos quatro, dois reportam, e os dois reportam errado — em direções
-opostas.** A causa é a mesma nos dois: **o passo de amostragem não está amarrado
-à resolução do modelo de relevo.**
+~~**Dos quatro, dois reportam, e os dois reportam errado — em direções
+opostas.**~~ **Era o retrato de 03/10, e já estava velho naquele dia:** o
+Parcelamento consertou o passo no próprio 03/10 e o Generate já media desde 02/10.
+A regra que a medição deu continua valendo, e é a do §5: **o passo de amostragem
+tem de estar amarrado à resolução do modelo de relevo.**
 
 ---
 
@@ -56,9 +74,15 @@ semanas no código, e no LAB-18 eu a repassei ao chat como fato sobre vocês.
 **Desculpem — era defeito meu, e está consertado:** a ponte agora lê as duas e
 escreve saída **v2**.
 
-**O que falta, de verdade:** uma coisa só, e é fina.
+~~**O que falta, de verdade:** uma coisa só, e é fina.~~ **Não falta mais nada
+(remedido no LAB-168, 18/10/2026):** o passo de vocês é em metros desde o T-11
+(`3702828`, *"a rampa máxima passa a ser medida por METRO de eixo"*, D53 de vocês,
+03/10/2026) — `PASSO_DE_AMOSTRA_M = 5` e `Math.ceil(comprimento / passo)`, com piso
+na resolução do relevo. **É a sugestão abaixo, feita no mesmo dia em que esta
+página a escreveu**; o Lab não tinha relido. O bloco fica, riscado, porque foi o
+pedido que chegou a vocês:
 
-> **O passo de amostragem é fixo em 12 pedaços por via** (`AMOSTRAS_POR_VIA = 12`
+> ~~**O passo de amostragem é fixo em 12 pedaços por via**~~ (`AMOSTRAS_POR_VIA = 12`
 > em `relevo.ts`), independente do comprimento. Medido na gleba `completo`: as
 > vias têm **995 m de mediana** e até **1 880 m**, o que dá passo efetivo de
 > **83 m a 157 m** — **17 a 31 vezes a célula do modelo de relevo**, que é de
@@ -138,15 +162,19 @@ export const MOTOR_NOME = "laboratorio-de-parcelamento" as const;
 export const MOTOR_VERSAO = "1.0" as const;
 ```
 
-**A ponte do Lab ignora as duas** e escreve, na SAÍDA que julga vocês,
+~~**A ponte do Lab ignora as duas** e escreve, na SAÍDA que julga vocês,
 `motor.nome = "motor-testfit"` (o nome do repositório) e uma versão que é **rótulo
 de prompt do Lab** — estava `"T00-A"` na esteira e `"T02"` na porta, duas respostas
 para a mesma pergunta, nenhum teste conferindo. Hoje é uma só, e há experimento;
-mas continua sendo **a minha etiqueta, não a sua**.
+mas continua sendo **a minha etiqueta, não a sua**.~~
+
+**Resolvido, e a página não tinha dito (remedido no LAB-168):** a volta do Lab escreve o `MOTOR_NOME` e o `MOTOR_VERSAO` de vocês desde o LAB-29
+(D117 do Lab), importados de `contrato/tipos.ts`, com `tests/identidade.test.ts`
+travando. A proposta abaixo virou feito.
 
 **É a mesma forma do §1-A, um nível acima:** o Lab inventando onde vocês publicam.
-**A correção de raiz é ler de lá**, e ela está **proposta ao chat** em vez de feita,
-porque muda a identidade que viaja no contrato — alcança provas congeladas do
+**A correção de raiz é ler de lá**, ~~e ela está **proposta ao chat** em vez de feita,~~
+**e foi feita no LAB-29**, porque muda a identidade que viaja no contrato — alcança provas congeladas do
 LAB-02 e do LAB-07 e o rótulo que o Generate mostra na mesa (`externo · <motor>
 v<versão>`).
 
@@ -156,6 +184,10 @@ diz *"sobe quando o desenho muda de forma que o Generate veja"*. Ele está em
 Generate **mais de uma vez** — o greide do T03 e a via de frente do T02 são as
 duas que o Lab mediu. Se a versão não subiu nessas, ela não serve para o Lab
 saber que precisa remedir, e é justamente para isso que eu quero usá-la.
+
+**Remedido no LAB-168 (18/10/2026): a pergunta continua aberta, e ficou maior.** O `MOTOR_VERSAO` de vocês continua em **`1.0`**
+(`src/lib/lab/contrato/tipos.ts`, `5e279ac`) — e depois desta página o T-11 (03/10) mudou
+a rampa máxima que vai no contrato, que é outra mudança que o Generate vê.
 
 ---
 
@@ -196,12 +228,14 @@ outras linhas desenhadas — então obediência entra naquela régua como queda.
 `alinhaOPartidoAViaDesenhada: true` e os avisos no alto dos relatórios antigos.
 
 **Uma coisa, e é pequena, para vocês decidirem.** O ângulo base obedece à linha, mas
-cada variante sorteia **±30°** em cima dele (`variacaoAngular`). O efeito: na variante
+~~cada variante sorteia **±30°** em cima dele~~ cada variante sorteia **±15°** em cima dele — uma janela de 30°, que o Lab
+leu como ±30° (`variacaoAngular` devolve `Math.PI / 6` e o motor o multiplica por `r() - 0.5`, com `r` em [0, 1);
+remedido no LAB-168, igual desde 10/09/2026; e a ficha de capacidades do Lab diz ±15° desde então). O efeito: na variante
 que o ranking de vocês escolhe em `antonina-com-via`, o ganho de alinhamento é de
 **5,6 pp**, não de 72,9 — a obediência existe e fica invisível. **Se o produto quer "o
 motor respeita a linha que eu desenhei"**, talvez o sorteio deva ser suprimido, ou
 estreitado, quando `viaManual` vier preenchida: linha desenhada à mão é intenção
-explícita (a D69 da família diz isso), e sortear ±30° em cima de uma intenção explícita
+explícita (a D69 da família diz isso), e ~~sortear ±30° em cima de uma intenção explícita~~ sortear ±15° em cima de uma intenção explícita
 é outra decisão do que sortear em cima de um ângulo de caixa envolvente. **Medição do
 Lab, decisão de vocês** — e nenhuma linha escrita no repositório de vocês.
 
@@ -257,12 +291,29 @@ não propriedade da rua.
 
 ---
 
-## 3 · Generate · candidata ortogonal — **não mede, e o campo está lá**
+## 3 · Generate · candidata ortogonal — ~~**não mede, e o campo está lá**~~ **mede, e quem não passava o relevo era o Lab**
 
-**Medido:** a saída é **v2**, o campo `rampaMaxima_pct` está presente **em todas
-as vias**, e **em todas ele é `null`**. O `rampaMedia_pct` também.
+> **Remedido no LAB-168 (18/10/2026) — e a acusação era falsa no dia em que foi escrita.** O `paraSaida` de vocês mede a rampa de cada via quando recebe `relevo`
+> (`src/lib/contratos/motor-v1/traducao.ts`, `rampaDaVia(v.pontos, o.relevo)`), desde
+> 02/10/2026 — o commit `5b70e5f`, *"as três coisas que o Laboratório pediu"*, um dia
+> **antes** desta seção. O `null` em todas as vias era porque a ponte do Lab não passa o relevo ao `paraSaida` de vocês
+> (`external-engines/esteira/src/motores/generate.ts`) — a **quarta** vez que um campo de
+> vocês existia e a ida do Lab não o preenchia (§1-A, §1-D, §1-E). **Nada a fazer do lado
+> de vocês.**
+>
+> **Medido, para dizer que é verdade e não leitura:** a mesma chamada, com o relevo das
+> curvas da gleba (`criarModeloRelevo`, passo pedido 5 m), dá **zero `null`** onde dava
+> todos — `completo` ortogonal 22 de 22 vias medidas, pico **33,71 %**; espinha 69 de 72,
+> pico **42,86 %** (as três sem medida ficam fora do levantamento, e saem `null`, certo).
+> A régua do Lab, na tabela abaixo, deu 34,71 % e 46,70 % no mesmo desenho. Em
+> `sintetico-10ha-plano` as duas réguas **discordam muito** — vocês 9,13 % e 7,15 %, o
+> Lab 1,36 % — e **isso não foi investigado**; a ligação do relevo na ponte, que faria a
+> comparação a cada rodada, está proposta ao chat (LAB-168).
 
-**O que falta:** o cálculo. O dado de entrada existe — as glebas trazem curva de
+~~**Medido:** a saída é **v2**, o campo `rampaMaxima_pct` está presente **em todas
+as vias**, e **em todas ele é `null`**. O `rampaMedia_pct` também.~~
+
+~~**O que falta:** o cálculo.~~ O dado de entrada existe — as glebas trazem curva de
 nível, e o Lab mede o pico das vias de vocês sem pedir nada a mais:
 
 | gleba | pior trecho de via, medido pelo Lab |
@@ -274,19 +325,20 @@ nível, e o Lab mede o pico das vias de vocês sem pedir nada a mais:
 | `sintetico-10ha-plano` | 1,36 % |
 
 **E `null` está certo enquanto não medirem.** Zero seria pior: zero é uma
-medição, e diria "rua plana" (D23). O pedido não é mudar o `null` — é medir.
+medição, e diria "rua plana" (D23). ~~O pedido não é mudar o `null` — é medir.~~
 
-**Uma nota que pode poupar trabalho:** vocês têm `declividade(p)` em
+~~**Uma nota que pode poupar trabalho:** vocês têm `declividade(p)` em
 `engine/topografia.ts`. O que falta é percorrê-la ao longo do eixo com passo
-fixo, não o modelo.
+fixo, não o modelo.~~ Vocês já percorrem: `rampaDaVia`, em `engine/topografia.ts`.
 
 ---
 
-## 4 · Generate · candidata espinha — **idem, e é a que mais precisa**
+## 4 · Generate · candidata espinha — **idem** (remedido no LAB-168: mede, como a ortogonal)
 
-Mesma situação da ortogonal: campo presente, `null` em todas as vias.
+~~Mesma situação da ortogonal: campo presente, `null` em todas as vias.~~ Mesma
+situação da ortogonal, remedida: o `null` era da ponte do Lab.
 
-**Por que esta é a mais urgente das duas:** ela é a que tem **o pior terreno
+**Por que ~~esta é a mais urgente das duas~~ a tabela continua valendo:** ela é a que tem **o pior terreno
 sob as ruas** entre as candidatas de vocês.
 
 | gleba | ortogonal | **espinha** |
@@ -308,7 +360,7 @@ vértice a vértice (mede a grade).
 
 **E o eixo deve ser caminhado por comprimento de arco**, atravessando vértices.
 
-**Medido nos dois motores que reportam:** o passo errado erra por **2,5× a 7,9×**
+**Medido nos dois motores que reportavam em 03/10** (o Symbios, pelo Lab; o Parcelamento, antes do T-11 deles): o passo errado erra por **2,5× a 7,9×**
 para cima (vértice a vértice) ou por **3×** para baixo (contagem fixa). Nenhum
 dos dois erros é visível sem uma segunda régua — e os dois têm a cara de um
 número certo.

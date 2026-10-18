@@ -178,8 +178,10 @@ export interface Capacidades {
    * via — eles não têm onde recebê-la.
    *
    * **A ressalva que vai junto, porque sem ela o campo engana:** o ângulo base
-   * obedece à linha, mas cada variante sorteia **±30°** em cima dele
-   * (`variacaoAngular`, no motor). Então a obediência aparece em alguns partidos
+   * obedece à linha, mas cada variante sorteia **±15°** em cima dele — uma
+   * janela de 30°: `(r() - 0.5) * Math.PI / 6`, com `r` em [0, 1). Até o LAB-168
+   * esta linha dizia o dobro, e a página que o chat leva ao vizinho também; a
+   * conta é perguntada ao motor por `o-que-falta-medir.ts` (`variacaoAngular`). Então a obediência aparece em alguns partidos
    * e some em outros — na variante que o ranking dele escolhe em
    * `antonina-com-via` o ganho é de 5,6 pp, não de 72,9. É achado para o
    * Laboratório de Parcelamento, e está numerado no relatório do LAB-32.

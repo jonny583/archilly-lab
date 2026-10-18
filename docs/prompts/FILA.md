@@ -366,6 +366,14 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-168 · item 900 — a dívida própria: o que falta medir, motor por motor — a página que o chat leva aos vizinhos afirmava o estado deles sem perguntar — ✅ **feito em 18/10/2026** (D396)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup` (403). Das três páginas de `docs/` com um a três leitores que o LAB-167 deixou nomeadas, a `O_QUE_FALTA_MEDIR_POR_MOTOR.md` (LAB-22, 03/10) é a que afirma **estado de outras casas** — e nenhum dos três leitores pergunta o que ela afirma (espécie **mensagem fixa que afirma estado sem perguntar**). Remedida no código de cada casa: o *"Generate não mede a rampa, falta o cálculo"* era falso desde 02/10 (`5b70e5f`) — o `paraSaida` deles mede quando recebe `relevo`, e a ponte do Lab não o passa (a quarta vez da história do §1-A); o *"passo fixo em 12 pedaços"* do Parcelamento ficou falso no T-11 deles, no mesmo 03/10; o *"±30°"* do sorteio do ângulo é ±15° (também na ficha da porta); e a ponte do Lab lê o `MOTOR_NOME` deles desde o LAB-29. Trava `src/o-que-falta-medir.ts`, sete afirmações em três casas, sem clones (15 testes) e com clone (4), nos dois sentidos; doze mutações de código e duas do mundo acusadas; 1 725 → 1 740. Detalhe em [`../relatorios/LAB-168.md`](../relatorios/LAB-168.md).
+
+**Proposto ao chat, saído do LAB-168 — não executado:** a ponte do Lab para o Generate (`external-engines/esteira/src/motores/generate.ts`) passar `relevo` ao `paraSaida` deles, montado das curvas da gleba com o `criarModeloRelevo` deles, para o `rampaMaxima_pct` das duas candidatas sair medido pelo próprio motor e não `null` (medido no rascunho: `completo` 22 de 22 e 69 de 72 vias); e, junto, a comparação por gleba entre a régua deles e a do Lab (`rampa.ts`), que concordam nas glebas onduladas e discordam 6× em `sintetico-10ha-plano` (9,13 % contra 1,36 %). Muda a SAÍDA publicada, as provas e a `COMPARACAO_DOS_MOTORES.md`; por isso é proposta, e não conserto.
+
+**Origem:** [`../relatorios/LAB-168.md`](../relatorios/LAB-168.md), decisão **D396**.
+
 ### LAB-167 · item 900 — a dívida própria: o Lab não adota a Central, e a página afirmava seis estados sem leitor, dois falsos — ✅ **feito em 18/10/2026** (D395)
 
 A FILA continuava sem proposta que não esperasse ninguém, e a linha do `.wasm` de novo sem o alvo do `rustup` (403 do portão de rede desta máquina). Fui à dívida própria por LUGAR: das páginas de `docs/`, a que nenhum arquivo de código citava e afirmava estado da casa — o `docs/ADOCAO_CENTRAL.md` (LF-FINAL, 14/09), espécie **mensagem fixa que afirma estado sem perguntar**. Remedida linha a linha: *"não há tela"* era falso desde antes de a página nascer (a bancada é de 10/09, LAB-01); *"o vendor/ do Generate não tem código"* ficou falso em 14/09; *"o Lab não importa a Central em execução"* era verdade **por acaso** — a prova era a suíte passar, e ela passa porque a instalação no clone do Generate falha. Medido pelo fecho das importações de valor: esteira 424 arquivos, testfit 88, zero chegadas ao pacote; com tipos, uma (`cores.ts` do Generate, por `import type`). Trava `src/a-adocao-da-central.ts`, sem clones (33 testes) e com clone (7), nos dois sentidos; dezesseis mutações de código acusadas; 1 692 → 1 725. Detalhe em [`../relatorios/LAB-167.md`](../relatorios/LAB-167.md).
@@ -2067,7 +2075,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1725 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1740 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

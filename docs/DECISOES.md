@@ -13172,3 +13172,63 @@ por definição, sobre os clones).
 > dependia de um 403 noutro registro viraria silêncio no dia em que uma máquina instalasse as dependências do vizinho:
 > o kit de contas, créditos e design de outra casa entraria na execução do Lab sem nada acusar. A pergunta tem de
 > perguntar ao caminho, não ao acaso.
+
+## D396 · O QUE FALTA MEDIR, MOTOR POR MOTOR — a página que o chat leva aos vizinhos afirmava o estado deles sem perguntar, e três afirmações estavam velhas, duas no dia em que nasceram · 18/10/2026
+
+**Contexto:** item 900 (LAB-168). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse ninguém, e o
+`.wasm` sem o alvo do `rustup` (403 do portão de rede desta máquina). O LAB-167 deixou nomeadas, por LUGAR, as páginas de
+`docs/` com um a três leitores no código. Das três, o `docs/O_QUE_FALTA_MEDIR_POR_MOTOR.md` (LAB-22, 03/10/2026, tocado
+pela última vez no LAB-37, 04/10) é a que afirma **estado** — e estado de **outras casas**: é o documento que o chat leva
+ao Generate e ao Laboratório de Parcelamento. Os três leitores (`frase-vencida.ts`, `numero-de-testes.ts`,
+`inventario-das-pontes.ts`) só o citam; nenhum pergunta o que ele afirma. Espécie **mensagem fixa que afirma estado sem
+perguntar**. A `TRIAGEM.md` (LAB-00, relato datado) e a `referencia/FERRAMENTA_E_TRAVA.md` (LAB-70, método) ficaram
+para depois.
+
+**Medido (LAB-168, Generate `8d5c0b0`, Laboratório de Parcelamento `5e279ac`):**
+
+- Parcelamento, *"o passo é fixo em 12 pedaços por via (`AMOSTRAS_POR_VIA = 12`)"*, *"o que falta, de verdade"* —
+  **falso desde 03/10/2026, o mesmo dia da página**: o T-11 deles (`3702828`) trocou a contagem fixa por
+  `PASSO_DE_AMOSTRA_M = 5` e `Math.ceil(comprimento / passo)`, com piso na resolução — a sugestão da página, feita;
+- Generate, ortogonal e espinha, *"não mede, e o campo está lá"*, *"o que falta: o cálculo"* — **falso antes de a página
+  nascer**: o `paraSaida` deles mede a rampa (`rampaDaVia(v.pontos, o.relevo)`) desde 02/10/2026 (`5b70e5f`, *"as três
+  coisas que o Laboratório pediu"*) quando recebe `relevo`; **a ponte do Lab não o passa** (`motores/generate.ts`). Medido
+  passando: `completo` ortogonal 22 de 22 vias medidas, pico 33,71 % (a régua do Lab: 34,71 %); espinha 69 de 72, pico
+  42,86 % (Lab: 46,70 %); `sintetico-10ha-plano` 9,13 % e 7,15 % contra 1,36 % do Lab — **discordância grande, não
+  investigada**. A quarta vez da história do §1-A (campo do vizinho que existe e a ida do Lab não preenche);
+- Parcelamento, §1-D, *"cada variante sorteia ±30°"* — **o dobro do código**: `(r() - 0.5) * Math.PI / 6`, com `r` em
+  [0, 1), é ±15° (janela de 30°), igual desde 10/09/2026. O mesmo erro na ficha de capacidades (`porta/porta.ts`) e num
+  comentário de `tests/alinhamento.test.ts`. A medição empírica do LAB-32 (5,6 pp na variante escolhida) não muda;
+- §1-C, *"a ponte do Lab ignora as duas… continua sendo a minha etiqueta"* e *"proposta ao chat em vez de feita"* —
+  **falsos desde o LAB-29** (D117): a volta importa `MOTOR_NOME` e `MOTOR_VERSAO`;
+- §1-C, *"`MOTOR_VERSAO` em `1.0`"* — verdadeiro, ainda; e o T-11 é mais uma mudança visível ao Generate sem a versão subir.
+
+**Decidido:**
+
+1. `external-engines/esteira/src/o-que-falta-medir.ts`: sete afirmações, cada uma uma pergunta a UM arquivo de código de
+   UMA casa (três do Lab, uma do Generate, três do Parcelamento), lida sem comentários; a página tem de trazer, fora de
+   riscado, o trecho da resposta de hoje, não pode trazer o da resposta contrária, e os trechos velhos de cada uma só
+   riscados; e tem de citar a trava fora de riscado. Página ausente, arquivo ausente e universo vazio reprovam.
+2. `tests/o-que-falta-medir.test.ts` (15 testes, sem clones, no portão sem clones: 1 725 → 1 740, 100 → 101 arquivos) e
+   `tests/o-que-falta-medir-com-clone.test.ts` (4 testes, no verde completo; sem os clones, reprova — D124).
+3. A página: um aviso no alto, para cada casa, do que mudou e que **não há nada a fazer** do lado delas; o resumo, os §1,
+   §1-C, §1-D, §3 e §4 riscados onde envelheceram (e o §5 com a data dos dois motores que reportavam), **não apagados** — quem recebeu o pedido velho precisa ver o que
+   mudou. A ficha de capacidades e o comentário do teste com ±15°.
+4. **Proposto ao chat, não feito:** a ponte do Lab passar `relevo` ao `paraSaida` do Generate. Muda a SAÍDA que o Lab
+   julga e publica (o `rampaMaxima_pct` do Generate deixa de ser `null`), alcança as provas e a `COMPARACAO_DOS_MOTORES.md`,
+   e põe duas réguas de rampa lado a lado — que discordam 6× numa gleba plana. É escopo novo, não conserto de página.
+
+**Os dois lados:** a resposta de hoje com a velha riscada passa (o caso que quase parece inválido), nas duas respostas;
+a resposta ausente, a contrária presente, a velha sem riscar, a trava não citada (ou só citada no riscado), a página
+ausente, o arquivo ausente e o universo vazio reprovam. **Doze mutações de código, doze acusadas**, e **duas mutações do
+mundo**: a ponte do Lab passando `relevo` (o portão sem clones reprova, 2 testes) e o `variacaoAngular` do vizinho em
+`Math.PI / 3` (o verde completo reprova).
+
+**Descartado:** reescrever a página do zero (apagaria o pedido que os vizinhos já receberam); remedir a cada verde os
+números da página (picos, aderências, lotes) — são medição datada do prompt que os escreveu, e a trava diz isso no que
+não alcança; ligar o relevo na ponte neste prompt (ver 4); corrigir os ±30° nos relatórios do LAB-32 e do LAB-37 e na
+D-entrada do LAB-32 (são história; a correção mora aqui).
+
+> **DOCUMENTO VIVO PARA O VIZINHO QUE NÃO PERGUNTA AO CÓDIGO DO VIZINHO ENVELHECE NO DIA EM QUE O VIZINHO LÊ.** Dois dos
+> três pedidos velhos estavam velhos **no dia em que a página nasceu**: o Generate tinha atendido na véspera e o
+> Parcelamento atendeu no mesmo dia — e a página continuou pedindo por duas semanas. Pedido atendido que continua
+> escrito como pedido é ruído no repositório de quem já fez.
