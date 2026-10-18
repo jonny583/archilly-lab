@@ -366,6 +366,14 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-175 · item 900 — a dívida própria: a prova de navegador, perguntada pelo lugar — "a única é a do LAB-01" eram duas, "não tem tela" calava a bancada, e o console não reprova — ✅ **feito em 18/10/2026** (D403)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup` (o `rustup target add` desta máquina termina em pânico). Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, na seção do `docs/SEGURANCA.md` que as rodadas LAB-158 a LAB-174 não tinham lido — *O que **não** foi conferido*: *"a única prova de navegador que existe é a do LAB-01"* e *"o Lab não tem tela"*. Por LUGAR: 805 caminhos, 381 JS/TS; um produtor (a `prova-automatica.ts`, LAB-31), dois artefatos (a captura do LAB-01 e o `navegador.json` do LAB-31); o `CLAUDE.md` §4 declara a bancada; e a prova do LAB-31 escuta o `pageerror` sem reprovar por ele. A régua nova acusou nove problemas na página de antes; página corrigida; trava `src/a-prova-de-navegador.ts` (17 testes, sem clones), produtores e artefatos nos dois sentidos, a declaração do console conferida contra o código; 1 815 → 1 832. Detalhe em [`../relatorios/LAB-175.md`](../relatorios/LAB-175.md).
+
+**Proposto ao chat, saído do LAB-175 — não executado:** a prova automática do LAB-31 (`external-engines/symbios/adapter/ferramentas/navegador/prova-automatica.ts`) passar a reprovar quando a página lança erro (`pageerror`) ou escreve `console.error`, mesmo com os números certos — hoje ela escuta os dois e só os usa para explicar a falha. É uma linha, mas a prova não roda em máquina de sessão (o `.wasm` não é versionado e o alvo do `rustup` não instala): o conserto entraria sem que ninguém o visse passar. Quando entrar, a trava do LAB-175 manda trocar a declaração `consoleReprova` e o item do `SEGURANCA.md` no mesmo commit.
+
+**Origem:** [`../relatorios/LAB-175.md`](../relatorios/LAB-175.md), decisão **D403**.
+
 ### LAB-174 · item 900 — a dívida própria: o Lab não tem banco — a frase da página, perguntada à árvore, e o cabeçalho que dizia que ela já tinha trava — ✅ **feito em 18/10/2026** (D402)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, no `docs/SEGURANCA.md`: o topo diz que o Lab *"não tem banco"*, e a tabela *Banco e RLS* põe três linhas do Padrão em "não se aplica" por uma frase de 14/09 sem comando. O cabeçalho da `rede-em-execucao.ts` (LAB-158) dizia que o `verde.test.ts` a conferia — ele lê só o `conferir.sh`. Três mutações (um `supabase/migrations/…sql`, um `bun:sqlite`, um `.sqlite`), cada uma numa cópia da casa: só a contagem de arquivos do LAB-57 caía, sem dizer por quê. Por LUGAR, 801 caminhos, 378 JS/TS, 23 Rust, 2 `package.json`, 5 `Cargo.toml`: zero banco. Trava `src/o-lab-nao-tem-banco.ts`, sem clones, cinco portas, sem lista de exceções; o cabeçalho da rede consertado; 1 800 → 1 815 no portão sem clones (104 → 105 arquivos). Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-174.md`](../relatorios/LAB-174.md).
@@ -2109,7 +2117,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 1815 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 1832 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

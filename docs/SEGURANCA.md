@@ -4,7 +4,7 @@ A lista do Padrão de Segurança da família, preenchida item a item. Conferida 
 **LF-FINAL, 14/09/2026**, com o comando ao lado de cada linha, para que a
 conferência possa ser refeita por quem quiser.
 
-> **Leia primeiro o que este repositório é.** O Lab **não tem tela, não tem
+> **Leia primeiro o que este repositório é.** O Lab **não tem tela de usuário — só uma página de ferramenta, a bancada do navegador (`CLAUDE.md` §4) —, não tem
 > banco, não tem conta de usuário e não faz chamada de rede em execução.** A
 > maior parte da lista do Padrão trata de app com interface e Supabase; aqui ela
 > se aplica por ausência, e isso está dito linha a linha em vez de marcado como
@@ -61,11 +61,18 @@ conferência possa ser refeita por quem quiser.
 
 ## O que **não** foi conferido, e por quê
 
-- **Prova no navegador com console limpo.** O Lab não tem tela (é regra dele, em
-  `CLAUDE.md` §4). A única prova de navegador que existe é a do LAB-01 — o
-  `.wasm` carregando no Chromium —, e está em `outputs/lab01/navegador.png`.
-- **Nada repintado fora do catálogo de design.** Não há design: não há tela.
-- **Mobile sem rolagem lateral.** Idem.
+- **Prova no navegador com console limpo.** O Lab não tem tela de usuário; tem UMA página de ferramenta, a bancada
+  (`external-engines/symbios/adapter/ferramentas/navegador/index.html`), a exceção declarada no `CLAUDE.md` §4 (D381).
+  As provas de navegador são **duas**, ambas do `.wasm` carregando no Chromium: a captura feita à mão no LAB-01
+  (`outputs/lab01/navegador.png`, 10/09) e a prova automática do LAB-31 (`docs/provas/LAB-31/navegador.json`,
+  escrita por `external-engines/symbios/adapter/ferramentas/navegador/prova-automatica.ts`, que o `conferir.sh` roda).
+  **O console não reprova:** a prova do LAB-31 escuta o console e o `pageerror`, mas só os usa para explicar quando a
+  página não publica o resultado — com o número certo e um erro no console, ela aprova. E ela não roda nesta máquina
+  desde o LAB-31: o `.wasm` não é versionado e o alvo do `rustup` não instala. Perguntado a cada verde desde o LAB-175
+  (`external-engines/esteira/src/a-prova-de-navegador.ts`; ver *Reconferido no LAB-175*, abaixo).
+- **Nada repintado fora do catálogo de design.** Não há design: a única página é a bancada, que é ferramenta e não
+  tela de usuário.
+- **Mobile sem rolagem lateral.** Idem: a bancada não é aberta no celular.
 
 ---
 
@@ -311,3 +318,29 @@ ser refeita antes da primeira migração, como ela mesma diz, e a trava reprova 
 está dito no fim do módulo — entre outros, o banco de fora alcançado pela rede (é da trava da rede), o cliente que não
 está na lista, e a **conta de usuário**, a outra negação da frase do topo: a conta da família é da Central, e quem pergunta
 se o Lab importa a Central é a `a-adocao-da-central.ts` (LAB-167).
+
+---
+## Reconferido no LAB-175 · 18/10/2026 — a prova de navegador, perguntada pelo lugar
+
+O item *Prova no navegador com console limpo*, da seção *O que **não** foi conferido*, dizia desde o LF-FINAL que *"o Lab
+não tem tela"* (calando a bancada) e que *"a única prova de navegador que existe é a do LAB-01"*, e o topo dizia o
+mesmo da tela. Nenhuma trava lia nenhuma das duas frases. Medido por LUGAR em 18/10:
+
+| a frase | o que a árvore diz |
+|---|---|
+| *"a única prova de navegador é a do LAB-01"* | são **duas** — a do LAB-31 (`docs/provas/LAB-31/navegador.json`, automática) entrou em 04/10 e a página não mudou |
+| *"o Lab não tem tela (é regra dele, em `CLAUDE.md` §4)"* | o §4 diz *"com UMA exceção, declarada: a bancada do navegador"* (D381) |
+| *"console limpo"* (o que não foi conferido) | a prova do LAB-31 **escuta** o console e o `pageerror` e não reprova por eles: o erro só entra na mensagem quando a página não publica |
+
+| universo | lido em 18/10/2026, antes do commit | achado |
+|---|---|---|
+| caminhos que o `git` carrega (`node_modules/` fora) | 805 | — |
+| arquivos JS/TS lidos, procurando um condutor de navegador importado | 381 | **um** produtor: `prova-automatica.ts` |
+| arquivos de `outputs/` e `docs/provas/` com `navegador` no nome | — | **dois** artefatos |
+| a página de antes, conferida pela régua nova | — | **nove** problemas: quatro nomes que o item não dava, o *"única"*, o console calado e três linhas de *"não há tela"* sem a bancada |
+
+**Desde o LAB-175 o item é perguntado a cada verde**, por `external-engines/esteira/src/a-prova-de-navegador.ts` e
+`tests/a-prova-de-navegador.test.ts` (sem clones): os produtores e os artefatos nos dois sentidos; o item nomeia cada um,
+a bancada e a trava; não diz *"única"*; diz que o console não reprova enquanto o código do produtor não testar o
+`pageerror` num `if`; e toda linha da página que diz *"não tem tela"* nomeia a bancada. O que ela não alcança está dito no
+fim do módulo — entre outros, **se a prova RODA**: esta régua pergunta quem ela é e o que diz, não se ela passa.

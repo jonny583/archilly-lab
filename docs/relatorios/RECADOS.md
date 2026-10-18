@@ -3842,3 +3842,16 @@ Próximo na fila: a caixa só tem o 900; das linhas do SEGURANCA.md que afirmam 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-175 — item 900 (a dívida própria): a prova de navegador, perguntada pelo lugar — "a única é a do LAB-01" eram duas, "não tem tela" calava a bancada, e o console não reprova
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-175 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): a seção "O que não foi conferido" do docs/SEGURANCA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1832 de 1832 (106 de 106 arquivos); esteira com só as falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: o item dizia "a única prova de navegador que existe é a do LAB-01" e "o Lab não tem tela". Por LUGAR (805 caminhos, 381 JS/TS): são duas provas desde o LAB-31 (o navegador.json automático, da prova-automatica.ts); o CLAUDE.md §4 declara a bancada; e a prova do LAB-31 escuta o pageerror e o console sem reprovar por eles. A régua nova acusou nove problemas na página de antes; página corrigida; trava a-prova-de-navegador (17 testes, sem clones), produtores e artefatos nos dois sentidos, a declaração do console conferida contra o código; 1815 → 1832; D403; detalhe em docs/relatorios/LAB-175.md.
+Achados para outros apps ou Central: a todas — a seção "o que não foi conferido" também afirma, e envelhece; e prova de navegador que ESCUTA o console não é prova de console limpo: confiram se o pageerror da de vocês reprova ou só entra na mensagem. Proposto ao chat (FILA, no LAB-175): a prova do LAB-31 reprovar por pageerror/console.error — uma linha, mas ela não roda em máquina de sessão (sem o .wasm).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a proposta acima e as antigas esperam o chat; o .wasm segue sem o alvo do rustup (o rustup agora termina em pânico nesta máquina).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
