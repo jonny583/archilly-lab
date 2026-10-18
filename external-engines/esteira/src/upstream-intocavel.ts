@@ -41,7 +41,8 @@
  *
  * - **que a cópia seja igual ao upstream DE VERDADE**: isso pede a rede e o repositório de outra pessoa. A
  *   régua confere que a cópia é a mesma **desde que entrou**; que ela entrou exata, quem atesta é o
- *   `VERSION` (*"NOT MODIFIED"*) e o commit que a trouxe;
+ *   `VERSION` (*"NOT MODIFIED"*) e o commit que a trouxe — e, desde o LAB-185, a `a-analise-do-symbios.ts`,
+ *   que compara a árvore da cópia com a do commit medida na origem (a prova do LAB-185), arquivo a arquivo;
  * - **a história**: só o `HEAD`. Um patch commitado e desfeito depois volta à mesma árvore e passa — o CI
  *   clona raso, e a régua passaria a responder o corte do clone (D293, D344). A história foi medida no
  *   relatório do LAB-132, não aqui — e, desde o LAB-163, é perguntada a cada verde completo, árvore a árvore,

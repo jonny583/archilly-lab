@@ -187,6 +187,8 @@ describe("§7 · prova de MEDIÇÃO traz gleba, motor, semente e contrato", () =
       "mede a LARGURA da bancada no Chromium, em três telas de celular, com e sem a emulação — a largura em que a página é desenhada, a do conteúdo e a do registro —, sem o `.wasm` e sem terreno: o objeto é a página de ferramenta, e não há gleba, motor, semente nem contrato no que ela mede",
     "LAB-173/rodadas-sem-linha.json":
       "mede as RODADAS do regime da caixa contra a conta dos disparos do `ONDE_PARAMOS.md`, nos dois sentidos, e cada linha reconstruída contra o primeiro commit da rodada no `git` desta casa — rodadas, linhas, commits e mutações; não terreno: não há gleba, motor, semente nem contrato a declarar",
+    "LAB-185/symbios-na-origem.json":
+      "mede um REPOSITÓRIO DE FORA no commit que a análise do Symbios do LAB-00 fixa — o commit, a data, o autor, a versão, a licença, os módulos do `lib.rs`, a árvore inteira com o objeto de cada arquivo e o `HEAD` de hoje, lidos com `git ls-tree`/`git show` e nada executado — e a licença das cinco dependências diretas no registro público; não terreno: a cópia do motor é o objeto, e não há gleba nem semente no que ela mede",
     "LAB-172/esqueleto-reto-na-origem.json":
       "mede dois REPOSITÓRIOS DE FORA nos commits que a análise do esqueleto reto do LAB-00 fixa, e o `license.txt` de um pacote da CGAL na tag que o script deles fixa — commit, data, versão, licenças, bibliotecas, opções de compilação, tamanho do artefato, nomes do código e o `HEAD` de hoje, lidos com `git show` e nada executado —, não terreno: os dois foram recusados por licença e não rodaram nesta rodada, e não há gleba nem semente no que ela mede",
     "LAB-171/packingsolver-na-origem.json":

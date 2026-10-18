@@ -117,6 +117,10 @@ export const PORTAS_DECLARADAS: Readonly<Record<string, PortaDeclarada>> = {
     classe: "gratuito",
     motivo: "a leitura das rotinas desta casa na origem (`a-rotina-no-github-na-origem.test.ts`); leitura pública, sem cobrança",
   },
+  "endereco:crates.io": {
+    classe: "gratuito",
+    motivo: "a API de leitura do registro público das crates, que a ferramenta do LAB-185 pergunta à mão (a licença das dependências do Symbios); leitura pública, sem conta e sem cobrança",
+  },
   "endereco:localhost": { classe: "local", motivo: "a sonda do CGAL em `.wasm` finge um `location` local; nada sai da máquina" },
   "endereco:127.0.0.1": {
     classe: "local",

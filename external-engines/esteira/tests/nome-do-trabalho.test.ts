@@ -212,7 +212,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // `conferir.sh` desta casa; nenhum clone (quem abre o Chromium é o `conferir.sh`, antes).
     // E 114 no LAB-183, com a `nada-se-exporta.test.ts` — o `git` desta casa e o `docs/SEGURANCA.md`; nenhum clone.
     // E 115 no LAB-184, com a `o-lab-nao-tem-conta.test.ts` — o `git` desta casa e o `docs/SEGURANCA.md`; nenhum clone.
-    expect(lista).toHaveLength(115);
+    // E 116 no LAB-185, com a `a-analise-do-symbios.test.ts` — a página, o `VERSION`, o `Cargo.toml` e o `lib.rs` da
+    // cópia, os três `Cargo.lock`, os quatro lugares, o `git ls-tree` desta casa e a prova gravada; a rede é só da `lab185`.
+    expect(lista).toHaveLength(116);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
