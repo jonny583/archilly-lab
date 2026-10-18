@@ -3764,3 +3764,16 @@ Próximo na fila: a caixa só tem o 900; na dívida própria, a referencia/FERRA
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 18/10/2026 · LAB-169 — item 900 (a dívida própria): ferramenta e trava — a página tinha guarda para a tabela, e os números da prosa ninguém perguntava
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-169 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém, e o .wasm sem o alvo do rustup (403, política); fui à dívida própria (número digitado à mão) e peguei a página que o LAB-168 deixou nomeada no §9 dele: docs/referencia/FERRAMENTA_E_TRAVA.md. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o portão sem clones 1748 de 1748 (101 de 101 arquivos); esteira com só as 9 falhas do .wasm (as de sempre), testfit 17 de 17.
+Feito: a página (item 003, 09/10) já tinha guarda para a TABELA; os quatro números da PROSA ninguém lia, e um estava errado desde o dia em que ela nasceu — "os nove recados antigos acima do teto" são SETE pela régua da própria trava, hoje e no commit que a criou (o recado.test.ts sempre disse sete; a prova do item 003 copiava a declaração, e as duas diziam nove). "É o item 004" apontava para uma conta que foi feita e não fecha o buraco do recado nunca escrito (é escrita pela mesma sessão). Agora os quatro números são recontados a cada verde (escopo-dos-instrumentos.test.ts, 11 → 19), e a régua do acumulado mora num lugar só, usada pelo recado.test.ts e pelo lab66; cinco mutações da página, duas do mundo e quatro de código, acusadas; 1740 → 1748; D397; detalhe em docs/relatorios/LAB-169.md.
+Achados para outros apps ou Central: a todas — página com guarda para a tabela não tem guarda para a prosa; e prova conferida contra a declaração que ela copia aprova o mesmo número errado nas duas: cópias que concordam só provam que foram copiadas. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as três páginas do LAB-167 estão lidas; a proposta do LAB-168 (relevo na ponte do Generate) espera o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

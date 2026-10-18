@@ -14,7 +14,7 @@
  * *Lista que não se revalida envelhece igual a comentário* (D104).
  */
 import { describe, expect, test } from "bun:test";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
@@ -23,7 +23,11 @@ import {
   O_QUE_NINGUEM_PEGA,
   SABOTAGENS,
   VERIFICACOES,
+  TETO_DO_RECADO,
   aIntersecao,
+  numerosQueODocumentoAfirma,
+  recadosAcimaDoTeto,
+  recadosSemPromptNomeado,
   soDa,
   testesDeclarados,
 } from "../src/escopo-dos-instrumentos.ts";
@@ -149,5 +153,83 @@ describe("item 003 · a declaração contra os instrumentos", () => {
     const verde = ler(join(RAIZ, "external-engines", "conferir.sh"));
     expect(A_FERRAMENTA.noVerde).toBe(false);
     expect(verde).not.toContain(A_FERRAMENTA.arquivo);
+  });
+});
+
+/**
+ * **Os números da PROSA, perguntados.** (LAB-169, D397)
+ *
+ * Até aqui a guarda conferia a TABELA. A prosa afirmava quatro números, e um — *"os nove recados
+ * antigos"* — estava errado desde 09/10/2026: a mesma régua da trava do teto conta sete. *Número
+ * digitado à mão* é a terceira espécie da dívida própria.
+ */
+describe("LAB-169 · os quatro números que a página afirma, contra a medição", () => {
+  const RECADOS = join(RAIZ, "docs", "relatorios", "RECADOS.md");
+  const afirmados = () => numerosQueODocumentoAfirma(ler(DOC));
+
+  test("a régua acha os quatro números na página — não achar é reprovar, nunca aprovar", () => {
+    const n = afirmados();
+    for (const [k, v] of Object.entries(n)) expect(v, `a página não tem mais a frase de ${k}`).not.toBeNull();
+  });
+
+  test("os recados antigos acima do teto: o número da página é o que a régua da trava conta", () => {
+    const medido = recadosAcimaDoTeto(ler(RECADOS));
+    expect(medido).toBeGreaterThan(0);
+    expect(afirmados().acimaDoTeto, `a página diz ${afirmados().acimaDoTeto}, a régua conta ${medido}`).toBe(medido);
+  });
+
+  test("os recados sem prompt nomeado: o número da página é o que a ferramenta mede", () => {
+    const medido = recadosSemPromptNomeado(ler(RECADOS));
+    expect(afirmados().semPromptNomeado, `a página diz ${afirmados().semPromptNomeado}, medido ${medido}`).toBe(medido);
+  });
+
+  test("os testes da trava e os caminhos da ferramenta: os números da §5 são os contados", () => {
+    const reais = ARQUIVOS_DA_TRAVA.reduce((s, a) => s + quantosTestes(a), 0);
+    expect(afirmados().testesDaTrava).toBe(reais);
+    const fonte = ler(join(ESTEIRA, A_FERRAMENTA.arquivo));
+    // Desde o LAB-169 a ferramenta importa a régua; os caminhos de reprovação continuam nela.
+    expect(afirmados().caminhosDaFerramenta).toBe((fonte.match(/problemas\.push\(/g) ?? []).length);
+  });
+
+  test("os DOIS lados da régua do teto: doze linhas não conta, treze conta", () => {
+    const recado = (n: number) =>
+      "```\n=== RECADO PARA O CHAT — X · LAB-1 ===\n" +
+      Array.from({ length: n - 2 }, (_, i) => `Linha ${i}`).join("\n") +
+      "\n=== FIM ===\n```\n";
+    expect(recadosAcimaDoTeto(recado(TETO_DO_RECADO))).toBe(0);
+    expect(recadosAcimaDoTeto(recado(TETO_DO_RECADO + 1))).toBe(1);
+    expect(recadosAcimaDoTeto(recado(12) + recado(16) + recado(13))).toBe(2);
+  });
+
+  test("os DOIS lados da régua do prompt: `—` conta, prompt nomeado não", () => {
+    const cab = (p: string) => `=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · ${p} ===\n`;
+    expect(recadosSemPromptNomeado(cab("—") + cab("LAB-7") + cab(" — "))).toBe(2);
+    expect(recadosSemPromptNomeado(cab("LAB-13 e LAB-14"))).toBe(0);
+  });
+
+  test("a régua da página: número trocado é lido trocado, frase ausente é null", () => {
+    const pagina = ler(DOC);
+    const n = afirmados();
+    expect(numerosQueODocumentoAfirma(pagina.replace("os **sete recados antigos**", "os **nove recados antigos**")).acimaDoTeto).toBe(9);
+    expect(numerosQueODocumentoAfirma(pagina.replace("(hoje **10**)", "(hoje **11**)")).semPromptNomeado).toBe(11);
+    expect(numerosQueODocumentoAfirma(pagina.replace("(hoje **18**,", "(hoje **19**,")).testesDaTrava).toBe(19);
+    expect(numerosQueODocumentoAfirma(pagina.replace("(hoje **2**, e eles", "(hoje **3**, e eles")).caminhosDaFerramenta).toBe(3);
+    expect(n.acimaDoTeto).not.toBe(9);
+    // Número por extenso que a régua não conhece é "não li", não um número qualquer.
+    expect(numerosQueODocumentoAfirma("os vinte recados antigos").acimaDoTeto).toBeNull();
+    expect(numerosQueODocumentoAfirma("nada aqui")).toEqual({
+      acimaDoTeto: null,
+      semPromptNomeado: null,
+      testesDaTrava: null,
+      caminhosDaFerramenta: null,
+    });
+  });
+
+  test("todo arquivo de código que um buraco cita existe", () => {
+    const citados = O_QUE_NINGUEM_PEGA.flatMap((b) =>
+      [...`${b.porQue} ${b.oQueFariaPegar}`.matchAll(/`(src\/[\w./-]+\.ts)`/g)].map((m) => m[1]!),
+    );
+    expect(citados.length).toBeGreaterThan(0);
+    for (const c of citados) expect(existsSync(join(ESTEIRA, c)), `o buraco cita ${c}, que não existe`).toBe(true);
   });
 });

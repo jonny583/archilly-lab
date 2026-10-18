@@ -265,12 +265,12 @@
       "oQue": "recado que nunca foi escrito em rodada que não gera relatório nem commit",
       "marcaNoDocumento": "recado que nunca foi escrito",
       "porQue": "as duas réguas leem o que ESTÁ no arquivo. Rodada que não deixou rastro em lugar nenhum não tem como ser cobrada por falta — foi assim que o recado do PR #85 se perdeu (D216)",
-      "oQueFariaPegar": "um contador de disparos do despertador fora do repositório, confrontado com o número de recados do dia. É o item 004 da caixa de entrada, e ele abre essa conta"
+      "oQueFariaPegar": "um contador de disparos do despertador FORA do repositório, escrito por outra mão, confrontado com os recados do dia. O item 004 abriu uma conta (`src/disparos-do-despertador.ts`), mas ela não é isso: mora no `ONDE_PARAMOS.md`, quem a escreve é a mesma sessão que escreve o recado, e o cruzamento é por DIA e só dos disparos em vazio — rodada que não deixou rastro também não deixa linha na conta. Quem tem o contador de fora é a direção, que lê as notificações; daqui ninguém o alcança (LAB-169, D397)"
     },
     {
       "oQue": "recado gravado no arquivo e NÃO enviado ao GitHub",
       "marcaNoDocumento": "recado gravado e não enviado",
-      "porQue": "os dois instrumentos rodam na minha máquina e leem o arquivo do disco. Commit sem `push` fica verde nos dois, e o chat — que lê o `RECADOS.md` direto do GitHub — não vê nada",
+      "porQue": "os dois instrumentos rodam na minha máquina e leem o arquivo do disco. Commit sem `push` fica verde nos dois, e o chat — que lê o `RECADOS.md` direto do GitHub — não vê nada. O gancho `pre-push` do LAB-106 (D333) não fecha isto: ele roda ANTES do envio e só quando há envio — commit que nunca é enviado não o chama",
       "oQueFariaPegar": "comparar o `RECADOS.md` do disco com o do `origin/main` antes de fechar a entrega. Nenhum dos dois faz isso hoje, e é o buraco de maior consequência da lista"
     },
     {
@@ -280,8 +280,8 @@
       "oQueFariaPegar": "nada mecânico que eu saiba escrever hoje. Está aqui por honestidade: o par confere FORMA e PRESENÇA, nunca VERDADE — e quem ler o verde dos dois precisa saber disso"
     },
     {
-      "oQue": "os nove recados antigos que passaram do teto de doze linhas",
-      "marcaNoDocumento": "os nove recados antigos",
+      "oQue": "os sete recados antigos que passaram do teto de doze linhas",
+      "marcaNoDocumento": "os sete recados antigos",
       "porQue": "a trava do teto olha **só o último** recado, de propósito: `RECADOS.md` é registro do que foi enviado, e reescrever o histórico para caber em régua nova falsificaria o registro",
       "oQueFariaPegar": "nada — e não deve. Este é buraco **escolhido**, não esquecido, e a escolha está no cabeçalho do `recado.test.ts`"
     }
