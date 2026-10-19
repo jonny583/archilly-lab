@@ -14443,6 +14443,9 @@ A ponta do instante (`24ef624`, 12/10 07h21 UTC) está dentro — mas a data nã
    ferramenta de então no começo, no instante e no último medido (zero), na borda de antes (não refaz) e com o motor trocado
    (acusa). Seis testes; duas mutações acusadas (o começo trocado pela borda: 3 reprovam; o motor trocado: 2 reprovam).
 3. `OS_ACHADOS_AO_LADO` ganha a linha do LAB-78 (o Generate); a frase passa a *"achados ao lado: 4 de 71 silêncios"*.
+4. **Proposto ao chat**, achado escrevendo a trava: o trabalho do verde completo no `verde.yml` põe o Lab sem `fetch-depth` e
+   clona os vizinhos com `--depth 1`, e cinco travas do verde completo (LAB-196 a LAB-200) montam commits velhos — num clone raso
+   reprovam. Mexe na rotina desligada e não se prova aqui: vai à lista *"não executar"*; abertos 14 → 15 (`ABERTOS_ESPERADOS`).
 
 **Descartado:** escrever o commit na prova (D182); escrever um commit só, o do instante (a ferramenta não o distingue de 228
 outros); rodar a ponta do Generate do dia a cada verde (a trava ficaria vermelha porque o vizinho andou — trabalho de outra casa

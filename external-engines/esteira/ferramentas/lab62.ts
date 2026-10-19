@@ -119,10 +119,15 @@ const lista1 = abertos.map((p, i) => ({
  * moravam só numa seção de prosa saída de item, invisível à régua do LAB-61 até o LAB-194 (D422). Nenhuma das três é
  * trabalho novo: a recontagem riscou com o executor, e os dois achados já estavam escritos na `FILA.md` desde 12/10.
  *
+ * **14 → 15 no LAB-200, por ACHADO:** escrevendo a trava `retrato-do-lab78`, que monta commits velhos dos vizinhos,
+ * li o trabalho do verde completo no `verde.yml` — o Lab com `actions/checkout@v4` sem `fetch-depth` e os vizinhos com
+ * `--depth 1` — e cinco travas do verde completo (LAB-196 a LAB-200) reprovariam lá, num clone raso. O conserto mexe na
+ * rotina desligada e não se prova aqui: entrou como proposta (D428).
+ *
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */
-const ABERTOS_ESPERADOS = 14;
+const ABERTOS_ESPERADOS = 15;
 
 cobrar(
   lista1.length === ABERTOS_ESPERADOS,

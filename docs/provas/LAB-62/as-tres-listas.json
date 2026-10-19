@@ -2,7 +2,7 @@
   "prompt": "LAB-62",
   "oQueIstoMede": "as três listas que o chat pediu dentro do recado, geradas das provas que as medem e não digitadas: os onze itens abertos da FILA, os seis mecanismos do motor nas DUAS ordens, e o contexto + as três formas de desligar conferência dele",
   "aPergunta": "do chat: 'mande AQUI, dentro do próprio recado, as três coisas que esperam por mim, porque é só o recado que chega até o chat'",
-  "quando": "2026-10-19T07:31:40.335Z",
+  "quando": "2026-10-19T14:00:37.554Z",
   "asFontes": {
     "lista1": "docs/prompts/FILA.md, lido pela régua do LAB-61 (lerPropostas)",
     "lista2": "docs/provas/LAB-58/mecanismos-das-81.json",
@@ -43,91 +43,97 @@
     "comoFoiResolvido": "as três listas vão em blocos de código PRÓPRIOS, logo acima do recado, copiáveis um por um; o recado, dentro do teto, diz quantos blocos são e o que cada um carrega"
   },
   "lista1": {
-    "quantos": 14,
+    "quantos": 15,
     "itens": [
       {
         "numero": 1,
-        "linhaNaFila": 3223,
+        "linhaNaFila": 3265,
         "titulo": "PARAR A FILEIRA EXTERNA NO FIM DA FACE DECLARADA",
         "motivo": "aguardando-o-jonny"
       },
       {
         "numero": 2,
-        "linhaNaFila": 3237,
+        "linhaNaFila": 3279,
         "titulo": "O ITEM DE CUSTO DA TRAVESSIA GANHAR A CLASSE DO CUSTO",
         "motivo": "prompt-novo"
       },
       {
         "numero": 3,
-        "linhaNaFila": 3242,
+        "linhaNaFila": 3284,
         "titulo": "OS 25 M DA \"QUADRA\" VIRARAM UMA CONTA ESPERANDO DADO",
         "motivo": "aguardando-outro-repositorio"
       },
       {
         "numero": 4,
-        "linhaNaFila": 3282,
+        "linhaNaFila": 3324,
         "titulo": "O PICO DE RAMPA QUE O PARCELAMENTO REPORTA, 109,51 % → 175,51 %",
         "motivo": "aguardando-outro-repositorio"
       },
       {
         "numero": 5,
-        "linhaNaFila": 3289,
+        "linhaNaFila": 3331,
         "titulo": "O COMMIT DO CLONE VIZINHO EM TODA PROVA QUE O USE",
         "motivo": "prompt-novo"
       },
       {
         "numero": 6,
-        "linhaNaFila": 3360,
+        "linhaNaFila": 3402,
         "titulo": "A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO",
         "motivo": "prompt-novo"
       },
       {
         "numero": 7,
-        "linhaNaFila": 3388,
+        "linhaNaFila": 3430,
         "titulo": "Ligar o `recommendedTypeChecked` COMPLETO nos dois pacotes",
         "motivo": "depois-do-mvp"
       },
       {
         "numero": 8,
-        "linhaNaFila": 3393,
+        "linhaNaFila": 3435,
         "titulo": "O delta contra o Padrão 1.2",
         "motivo": "aguardando-outro-repositorio"
       },
       {
         "numero": 9,
-        "linhaNaFila": 3396,
+        "linhaNaFila": 3438,
         "titulo": "As 4 violações que sobraram em `geo-antonina`",
         "motivo": "nao-medido"
       },
       {
         "numero": 10,
-        "linhaNaFila": 3400,
+        "linhaNaFila": 3442,
         "titulo": "As 96 quadras de esqueleto não confiável",
         "motivo": "nao-medido"
       },
       {
         "numero": 11,
-        "linhaNaFila": 3403,
+        "linhaNaFila": 3445,
         "titulo": "A travessia sobre a APP de `geo-antonina`",
         "motivo": "aguardando-o-jonny"
       },
       {
         "numero": 12,
-        "linhaNaFila": 3406,
+        "linhaNaFila": 3448,
         "titulo": "A quadra dentro de APP.",
         "motivo": "escopo-novo"
       },
       {
         "numero": 13,
-        "linhaNaFila": 3409,
+        "linhaNaFila": 3451,
         "titulo": "O eixo do curso d'água, para o Geo.",
         "motivo": "aguardando-outro-repositorio"
       },
       {
         "numero": 14,
-        "linhaNaFila": 3446,
+        "linhaNaFila": 3488,
         "titulo": "O `faceDeRua` nulo nos 33 lotes de `geo-antonina`",
         "motivo": "nao-medido"
+      },
+      {
+        "numero": 15,
+        "linhaNaFila": 3506,
+        "titulo": "O VERDE COMPLETO DO GITHUB CLONAR O LAB E OS VIZINHOS COM A HISTÓRIA INTEIRA",
+        "motivo": "prompt-novo"
       }
     ]
   },
@@ -266,7 +272,7 @@
   },
   "osBlocos": {
     "arquivo": "docs/provas/LAB-62/os-tres-blocos.txt",
-    "linhas": 83
+    "linhas": 84
   },
   "problemas": []
 }
