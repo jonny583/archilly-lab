@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-193 · item 900 — a dívida própria: o parágrafo do `README.md` da raiz sobre o adaptador do Symbios — o que não faz, dito antes de os prompts adiante virem — ✅ **feito em 19/10/2026** (D421)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o LAB-192 deixou o candidato escrito: o parágrafo da seção *"O que este laboratório não faz"* do `README.md` da raiz. Espécie **mensagem fixa que afirma estado sem perguntar**: dizia, desde o LAB-01, que o adaptador do Symbios *"não recorta pela gleba, não aplica restrições, não parcela em lotes, não valida e não julga — cada uma dessas coisas é de um prompt adiante"*, e a tabela do *Estado atual* da mesma página já dizia *"julgado? sim desde o LAB-02"*. O parágrafo guarda a frase riscada e diz onde mora cada peça; a trava do LAB-191 ganha a pergunta 11, que confere no código cada lugar apontado; o parágrafo de antes reprova com oito; 2255 → 2269. Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-193.md`](../relatorios/LAB-193.md), decisão **D421**.
+
 ### LAB-192 · item 900 — a dívida própria: o cabeçalho de `src/index.ts` do adaptador — o que não faz dito do adaptador, e o juiz que dizia ser do Lab — ✅ **feito em 19/10/2026** (D420)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o LAB-191 deixou o candidato escrito: o comentário que abre `external-engines/symbios/adapter/src/index.ts`. Espécie **mensagem fixa que afirma estado sem perguntar**: o título *"O que este adaptador NÃO faz"* (*"não recorta pela gleba … o recorte é o LAB-02"*) — e o LAB-02 pôs o `export { recortarPelaGleba … }` neste arquivo num commit de uma linha (`d619067`), sem tocar no cabeçalho — e *"Validator é LAB-02, Judge é LAB-03"* (são os do Generate, D20). O título passa a nomear `gerarRedeViaria`, as duas frases ficam riscadas e datadas, e o cabeçalho diz onde o recorte mora e quem o chama; nenhum código muda. A trava do LAB-191 (`src/a-pagina-do-adaptador.ts`) ganha a pergunta 10, ao cabeçalho, lido em linha só; 13 testes novos, o cabeçalho de antes reprova com sete; 2 242 → 2 255. Nada novo proposto ao chat; candidato escrito no relatório: o parágrafo do `README.md` da raiz que diz o mesmo do adaptador. Detalhe em [`../relatorios/LAB-192.md`](../relatorios/LAB-192.md).
@@ -2191,7 +2197,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 2255 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 2269 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

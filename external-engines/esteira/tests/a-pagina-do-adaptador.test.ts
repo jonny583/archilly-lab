@@ -29,8 +29,11 @@ import {
   O_TRACER,
   aConta,
   aFracao,
+  A_RAIZ,
   conferir,
+  conferirARaiz,
   oCabecalho,
+  oParagrafoDaRaiz,
   conferirAArvore,
   corpoDa,
   oLocalDoUpstream,
@@ -217,6 +220,57 @@ describe("10 · o cabeçalho de src/index.ts (LAB-192, D420)", () => {
   test("o arquivo que não abre com comentário reprova", () => acusa(com({ [O_INDEX]: `import "x";\n${INDEX}` }), "não abre com o comentário"));
   test("oCabecalho: junta a frase partida e tira a margem", () =>
     expect((oCabecalho("/**\n * a b\n *   c\n */\nx") ?? "").replace(/\s+/g, " ")).toBe("a b c"));
+});
+
+/** O blob de `b4ba8b9` (a ponta antes do LAB-193): o `README.md` da raiz com o parágrafo do LAB-01. */
+const RAIZ_ANTES = execFileSync("git", ["-C", RAIZ, "show", `b4ba8b9:${A_RAIZ}`], { encoding: "utf8" });
+const README = lerDaRaiz(A_RAIZ) as string;
+const naRaiz = (de: string, para: string) => com({ [A_RAIZ]: troca(README, de, para) }).filter((x) => !x.startsWith(A_PAGINA) && !x.startsWith(O_INDEX));
+
+describe("11 · o parágrafo do README.md da raiz (LAB-193, D421)", () => {
+  test("medido: o parágrafo de hoje lê inteiro, em linha, e não reprova nada", () => {
+    const par = oParagrafoDaRaiz(README) as string;
+    expect(par.startsWith("O Adapter **do Symbios** nasceu no LAB-01")).toBe(true);
+    expect(par.endsWith("o contrato v1 já existia.)")).toBe(true);
+    expect(com({})).toEqual([]);
+  });
+  test("o parágrafo de antes, posto de volta, reprova com oito — e só na raiz", () => {
+    const p = com({ [A_RAIZ]: RAIZ_ANTES });
+    // Medido em 19/10/2026: as duas frases fora de risco, o recorte não nomeado, o juiz, e os quatro lugares não apontados.
+    expect(p).toHaveLength(8);
+    expect(p.every((x) => x.startsWith(`${A_RAIZ}:`))).toBe(true);
+    for (const t of ["«de um prompt adiante» fora de risco", "«não recorta pela gleba» fora de risco", "não nomeia a função do recorte"]) acusa(p, t);
+  });
+  test("a frase velha sem o risco reprova", () =>
+    acusa(naRaiz("lotes, não valida e não julga — cada uma dessas coisas é de um prompt adiante~~", "lotes, não valida e não julga~~ — cada uma dessas coisas é de um prompt adiante"), "«de um prompt adiante» fora de risco"));
+  test("a frase velha partida de linha, sem o risco, também reprova", () =>
+    acusa(naRaiz("dizia ~~que ele não recorta pela gleba,", "dizia que ele não recorta\npela gleba, ~~"), "«não recorta pela gleba» fora de risco"));
+  test("sem nomear o recorte reprova", () => acusa(naRaiz("`recortarPelaGleba`, em", "o recorte, em"), "não nomeia a função do recorte"));
+  test("sem dizer que o juiz é o do Generate reprova", () => acusa(naRaiz("são os do Generate", "ficam lá"), "não diz que o Validator e o Judge"));
+  test("quem chama o recorte, apontado para quem não o chama, reprova", () =>
+    acusa(naRaiz("(`external-engines/esteira/src/motores/symbios.ts`)", "(`external-engines/esteira/src/motores/testfit.ts`)"), "não chama recortarPelaGleba"));
+  test("quem faz o lote, apontado para quem não define a função, reprova", () =>
+    acusa(naRaiz("(`external-engines/esteira/src/lotear.ts`, LAB-04", "(`external-engines/esteira/src/gleba-v1.ts`, LAB-04"), "não define lotearQuadra"));
+  test("quem julga na esteira, apontado para quem não julga, reprova com os dois nomes", () => {
+    const p = naRaiz("(`external-engines/esteira/src/motores/comum.ts`, D20)", "(`external-engines/esteira/src/lotear.ts`, D20)");
+    acusa(p, "não chama montarParcelamentoExterno");
+    acusa(p, "não chama montarRelatorio");
+  });
+  test("quem julga no LAB-07, apontado para quem não julga, reprova", () =>
+    acusa(naRaiz("`external-engines/testfit/adapter/src/esteira.ts`, porque", "`external-engines/testfit/adapter/src/ida.ts`, porque"), "não chama montarParcelamentoExterno"));
+  test("caminho que não existe reprova", () =>
+    acusa(naRaiz("`external-engines/symbios/adapter/src/recorte.ts`", "`external-engines/symbios/adapter/src/corte.ts`"), "corte.ts, que não existe no git"));
+  test("sem o parágrafo reprova", () => acusa(naRaiz("O Adapter **do Symbios** nasceu", "O adaptador nasceu"), "sem o parágrafo do adaptador"));
+  test("a frase velha FORA do parágrafo não é desta pergunta", () =>
+    expect(naRaiz("## O que este laboratório não faz", "## O que este laboratório não faz\n\nNo LAB-01, cada coisa era de um prompt adiante.")).toEqual([]));
+  test("a função lê só o parágrafo: o código num comentário não conta como chamada", () =>
+    expect(
+      conferirARaiz(
+        "O Adapter **do Symbios** `recortarPelaGleba` — são os do Generate — chama depois (`external-engines/x.ts`).",
+        () => true,
+        (c) => (c === "external-engines/x.ts" ? "// recortarPelaGleba(r)\n" : null),
+      ).some((x) => x.includes("não chama recortarPelaGleba")),
+    ).toBe(true));
 });
 
 describe("a conta e a leitura do Generate, sem o Generate", () => {
