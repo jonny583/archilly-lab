@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T17:41:05.446Z",
+  "quando": "2026-10-19T19:06:38.382Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1219,11 +1219,19 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista, e nenhuma outra mão estava nela (o último envio da origem, `015dc79` às 16:42:32, era o fecho do disparo das 16:07). O minuto não se afirma: o disparo chegou como texto, sem notificação lida (nenhuma na fila desta sessão); o teto é o `reflog` do clone, que registra a ponta posta no disco às 17:07:27 — e o `pull` do disparo recusou no clone raso, e a receita do LAB-116 o desrasou (a `main` velha, de 17/10, era ancestral da origem: nenhum commit perdido)",
         "rodada": "item 900 (LAB-202), dívida própria (mensagem fixa que afirma estado sem perguntar: as cinco provas do `medir.ts` de 13/09, que rodam o motor e o Generate e não escrevem commit de nenhum dos dois)",
         "emVazio": false
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "18:06",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 18:09 — e a tarefa que a lista dava (as cinco do `medir.ts` do LAB-07) **ainda estava com a sessão do disparo de 17:07**, sem envio: o `last_run` da rotina na listagem das tarefas agendadas (lida, não alterada) dava esta sessão como a única em curso, e a origem não tinha commit desde 16:42. Esta sessão **esperou** em vez de repetir: buscou a origem de minuto em minuto, o LAB-202 chegou às 18:12 (`a4c1b8a`), e ela pegou a seguinte da lista. A hora veio da listagem (*\"fired_at 18:06:01 UTC\"*, agendado para 18:05); o `pull` do disparo recusou no clone raso; desrasado, a `main` era ancestral da origem e andou",
+        "rodada": "item 900 (LAB-203), dívida própria (mensagem fixa que afirma estado sem perguntar: a guarda da IDA de 03/10, regravada em 12/10, carrega o motor e o Generate e não escreve o commit deles — medido, ela não chama função nenhuma dos dois, e escrito ao lado)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 151,
-      "observados": 47,
+      "noRegistro": 152,
+      "observados": 48,
       "derivados": 58,
       "emLote": 7,
       "reconstruidos": 39,

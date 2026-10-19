@@ -173,6 +173,7 @@ describe("LAB-199 · os commits achados AO LADO da prova", () => {
       "LAB-07/medicoes.json",
       "LAB-07/medir.txt",
       "LAB-18/contrato-v2.json",
+      "LAB-30/guarda-da-ida.json",
       "LAB-48/violacoes-do-motor-padrao.json",
       "LAB-78/setimo-mecanismo.json",
     ]);
