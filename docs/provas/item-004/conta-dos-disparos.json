@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T07:42:14.954Z",
+  "quando": "2026-10-19T08:22:23.437Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1139,12 +1139,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A hora veio no aviso do próprio disparo, lido por esta sessão (*\"fired at 07:09:23 UTC\"*, agendado para 07:05); o `reflog` do clone registra a ponta posta no disco às 07:09:54",
         "rodada": "item 900 (LAB-194), dívida própria (regra sem guarda e mensagem fixa que afirma estado sem perguntar: a régua das propostas em prosa não via a seção saída de item — a do item 004 dizia *\"não executado\"* nove dias depois do desempate —, e o sétimo mecanismo seguia aberto na lista com a seção riscada)",
         "emVazio": false
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "≤ 08:07",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 08:07:22 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-195), dívida própria (mensagem fixa que afirma estado sem perguntar e regra sem guarda: o motivo da exceção de `gerar-terrenos.ts` na régua do §7 — *\"regerá-lo reescreve os quatro terrenos\"*, e rodada ela os reescreve iguais)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 141,
+      "noRegistro": 142,
       "observados": 41,
-      "derivados": 54,
+      "derivados": 55,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 5

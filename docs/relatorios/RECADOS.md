@@ -4102,3 +4102,16 @@ Próximo na fila: a caixa só tem o 900; nenhum candidato escrito por esta rodad
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-195 — item 900 (a dívida própria): os terrenos de prova se regeram byte a byte — e a exceção do metro tinha um motivo que ninguém perguntou
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-195 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); fui à dívida própria, nas listas de exceção das travas, perguntando um motivo à coisa de que ele fala (mensagem fixa que afirma estado sem perguntar e regra sem guarda). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2284 de 2284 (123 de 123 arquivos); esteira 2640 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: a régua do §7 deixava gerar-terrenos.ts gravar area_ha no docs/terrenos/indice.json porque regerá-lo "reescreve os quatro terrenos de prova"; rodada numa cópia da árvore, a ferramenta reescreve os cinco arquivos byte a byte iguais aos do LAB-01, e ninguém lê o índice. O índice grava area_m2 (sem arredondar), a exceção saiu, e a trava nova os-terrenos-se-regeram roda a ferramenta no Node a cada verde e compara byte a byte nos dois sentidos; 8 testes novos, duas mutações acusadas; 2276 → 2284 (D423). Detalhe em docs/relatorios/LAB-195.md.
+Achados para outros apps ou Central: a todas — o motivo de uma exceção é uma afirmação, e o que fala do que aconteceria se alguém rodasse algo se pergunta rodando: "regerá-lo reescreve os quatro terrenos" segurou uma exceção por cinco semanas, e rodada a ferramenta os reescreve iguais. Quem tem lista de exceção com motivo do tipo "refazer X mudaria Y" roda o X uma vez. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: os outros motivos de exceção da casa com a forma "regerar faria X", perguntados um a um; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

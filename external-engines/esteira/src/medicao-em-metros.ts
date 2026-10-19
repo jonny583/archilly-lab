@@ -31,6 +31,11 @@
  * `gerar-terrenos.ts`), que **não** gravam em `docs/provas/` (um em `outputs/lab01/`, outro em
  * `docs/terrenos/indice.json`).
  *
+ * **Desde o LAB-195 (D423), um só do Symbios:** `gerar-terrenos.ts` estava em exceção porque regerar o
+ * índice *"reescreve os quatro terrenos de prova"*. Perguntada, a ferramenta os reescreve byte a byte
+ * iguais (os terrenos saem de `gerar`, que não lê o índice); o índice grava `area_m2` desde então, e
+ * `tests/os-terrenos-se-regeram.test.ts` a roda a cada verde. Fica o `medir.ts`, que só roda com o `.wasm`.
+ *
  * # O que este módulo faz
  *
  * Duas funções puras, uma por universo:
@@ -51,8 +56,9 @@
  * - **chave sem sufixo**: `area: 47` não diz unidade nenhuma, e a régua não sabe o que é;
  * - **camelCase** (`areaHa`, `emKm`): medido, zero ocorrências em prova e em código hoje; a régua fala do
  *   sufixo com sublinhado, que é a convenção das 17 mil chaves medidas;
- * - **o que não é `docs/provas/`**: `outputs/lab01/medicoes.json` e `docs/terrenos/indice.json` são
- *   gravações do LAB-01, escritas pelas duas ferramentas do Symbios declaradas em exceção na trava.
+ * - **o que não é `docs/provas/`**: `outputs/lab01/medicoes.json` é gravação do LAB-01, escrita pela
+ *   ferramenta do Symbios declarada em exceção na trava; `docs/terrenos/indice.json` grava `area_m2`
+ *   desde o LAB-195, e a trava do §7 o lê num teste próprio, com a área de cada terreno ao lado.
  */
 
 /** Os sufixos de comprimento e área fora do metro. Minúsculos; a comparação ignora caixa. */

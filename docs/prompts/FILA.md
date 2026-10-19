@@ -368,6 +368,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-195 · item 900 — a dívida própria: os terrenos de prova se regeram byte a byte — e a exceção do metro tinha um motivo que ninguém perguntou — ✅ **feito em 19/10/2026** (D423)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o LAB-194 não deixou candidato. Fui às listas de exceção das travas e perguntei um motivo à coisa de que ele fala. Espécies **mensagem fixa que afirma estado sem perguntar** e **regra sem guarda**: a régua do §7 deixava `symbios/adapter/ferramentas/gerar-terrenos.ts` gravar `area_ha` no `docs/terrenos/indice.json` porque regerá-lo *"reescreve os quatro terrenos de prova"* — rodada, a ferramenta reescreve os cinco arquivos byte a byte iguais, e ninguém lê o índice. O índice grava `area_m2`, a exceção saiu, e a trava `os-terrenos-se-regeram` roda a ferramenta no Node a cada verde e compara nos dois sentidos; 2276 → 2284 (D423).
+
+**Origem:** [`../relatorios/LAB-195.md`](../relatorios/LAB-195.md), decisão **D423**.
+
 ### LAB-194 · item 900 — a dívida própria: a minha lista de propostas e as seções de prosa — a origem que é um item da caixa, e o sétimo que seguia aberto — ✅ **feito em 19/10/2026** (D422)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o LAB-193 não deixou candidato. Fui à minha própria lista (a seção *"não executar"* que o chat lê) e às seções de prosa que a trava do LAB-61 cobra que ela cite. Espécies **regra sem guarda** e **mensagem fixa que afirma estado sem perguntar**: a régua só lia seção saída de `LAB-NNN`, e duas abertas tinham saído de item — a do item 004 dizia *"não executado, e é um DESEMPATE"* nove dias depois do desempate (D244, LAB-75), e a do item 029 (LAB-96) tinha duas propostas vivas fora da lista; e o item do sétimo mecanismo (LAB-59) seguia aberto com a seção da mesma origem riscada desde o LAB-78. A régua lê a origem em item (pela marca de FEITO, a tradução do LAB-164) e acusa `aberto-de-secao-riscada` com dois sinais; a seção do 004 e o sétimo riscados, as duas propostas do 029 na lista; abertos 13 → 14; a FILA de antes reprova com três; 2269 → 2276. Nada novo proposto ao chat.
@@ -2205,7 +2211,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 2276 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 2284 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
