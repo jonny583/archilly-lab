@@ -4050,3 +4050,16 @@ Próximo na fila: a caixa só tem o 900; na minha lista não sobrou candidato es
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-191 — item 900 (a dívida própria): a página do adaptador do Symbios — o estado do LAB-01, o mapa sem o recorte, e um nome do Generate que nunca existiu
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-191 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém e o LAB-190 sem candidato escrito; recontei por LUGAR os README.md fora do upstream/ contra quem os lê no código — o LAB-187 contou três sem leitor, eram quatro. Fui à dívida própria: o quarto, external-engines/symbios/adapter/README.md (mensagem fixa que afirma estado sem perguntar e número digitado à mão). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2242 de 2242 (122 de 122 arquivos); esteira 2598 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos desrasados e com git status limpo.
+Feito: a página dizia "Estado: LAB-01 concluído", um mapa sem src/recorte.ts (LAB-02) e src/poligono.ts (LAB-05), que o adaptador "não recorta" e "não aplica restrições" (vale só para gerarRedeViaria: o adaptador exporta recortarPelaGleba, que a esteira chama), e "Validator é LAB-02, Judge é LAB-03" (são os do Generate, D20); e citava NORMA_BR.via.caixaMinima, um nome que o Generate nunca teve (lá é NORMA_BR.viario.valor.caixaMinima, desde 08/09) — o erro estava também no comentário do src/contrato.ts e na D13. Os números conferiam sem dono: ≈ 38 % = 0,3758 da Fazenda Recanto das Águas, os seis padrões, os 15 m do upstream. A página risca e data o que venceu, ganha o mapa entre marcas e a seção dos números; trava a-pagina-do-adaptador (47 testes, sem clones) e a pergunta ao Generate no verde completo (4); a página de antes reprova com 29; 2195 → 2242 (D419). Detalhe em docs/relatorios/LAB-191.md.
+Achados para outros apps ou Central: a todas — nome do vizinho copiado sem abrir o vizinho é nome inventado: o valor estava certo (8,4 m), e por isso ninguém desconfiou do nome por 39 dias, em três lugares. Quem cita o dono de um número cita um endereço, e o endereço se confere abrindo o vizinho. Ao Generate, nada a fazer: o erro era daqui. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito para a próxima rodada própria: o cabeçalho de src/index.ts do adaptador, que repete as duas frases; as propostas do LAB-187, do LAB-186, do LAB-185 e as antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
