@@ -13948,3 +13948,44 @@ juntar a ela).
 
 > **A PÁGINA DE PASTA VAZIA ENVELHECE PELO MUNDO EM VOLTA, NÃO PELA PASTA.** A pasta segue vazia e a frase segue verdade
 > sobre ela, enquanto o *"por enquanto"* deixa de ser. Ela diz onde a coisa mora — e alguém pergunta se mora lá.
+
+## D416 · A PÁGINA DA BANCADA — o que a pasta carrega, quem roda cada arquivo, e a medição de 10/09 em três lugares · 19/10/2026
+**Contexto:** item 900 (LAB-187 → LAB-188). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse
+ninguém. O LAB-187 deixou para outra rodada a página da bancada do navegador
+(`external-engines/symbios/adapter/ferramentas/navegador/README.md`), contada como *"sem leitor no código"*. Na dívida
+própria, espécies mensagem fixa que afirma estado sem perguntar e número digitado à mão: a página, do LAB-01
+(10/09/2026, `069fd29`), descreve a pasta como ela era naquele dia — `index.html`, `prova.js`, a receita manual — e não
+nomeia os dois arquivos que o `conferir.sh` roda nela a cada verde (`prova-automatica.ts`, LAB-31; `rolagem-no-celular.ts`,
+LAB-182); e os cinco números de 10/09 (`193174` bytes, motor `0.4.1`, `6242` nós, `6514` arestas, `275` quadras) moram
+em três lugares — o bloco da página, o `DE_10_09` do `prova-automatica.ts` (o portão da prova automática) e o
+`medidoEm_10_09_2026` de `docs/provas/LAB-31/navegador.json` —, sem trava entre eles.
+
+**Medido** por LUGAR: a pasta carrega 4 arquivos além da página; o `conferir.sh` roda 2; os três lugares da medição
+**batem**, campo a campo; o `prova.js` não tem `import` no código e o `index.html` só carrega o `./prova.js`; os dois
+nomes do marshalling estão no `prova.js` e no `adapter/src/motor.ts`; os três caminhos da página (o link da captura e os
+dois `cd`) resolvem. A régua nova acusou **seis** problemas na página de antes: as marcas, os quatro arquivos sem nome e a
+frase dos três lugares.
+
+**E a conta do LAB-187 errou:** a página **tem** leitor — o `rolagem-no-celular.ts` (LAB-182) a lê com
+`readFileSync(join(AQUI, "README.md"))`. A conta casava o caminho inteiro, e o leitor o monta em pedaços: *régua que casa
+por nome exato mede ortografia* (D137). Das três páginas sem leitor do LAB-187, são duas.
+
+**Decidido:**
+
+1. A página ganha a seção *O que o `git` carrega nesta pasta, e quem roda cada arquivo*, com a lista entre marcas e a
+   menção ao `conferir.sh` em quem ele roda; e, depois do bloco de 10/09 (que fica intocado, porque o
+   `rolagem-no-celular.ts` o lê), a frase dos três lugares. O texto do LAB-01 fica inteiro: nada nele é falso, só calado.
+2. A trava `external-engines/esteira/src/a-pagina-da-bancada.ts` e `tests/a-pagina-da-bancada.test.ts` (50 testes, sem
+   clones, no portão): a pasta nos dois sentidos e o `.wasm` fora do `git`; o item diz `conferir.sh` se, e só se, o
+   `conferir.sh` o roda; os cinco números nos três lugares, campo a campo; o import, enquanto a página disser que não há;
+   o marshalling; os links, os `cd` seguidos em ordem e os `docs/…`. A página de antes, byte a byte, reprova dentro do
+   próprio teste. O portão passa de 118 a 119 arquivos e de 2 052 a 2 102 travas.
+
+**Descartado:** fazer o `prova-automatica.ts` ler os números da página, como o `rolagem-no-celular.ts` já faz (seria a
+mudança certa a longo prazo, mas o portão da prova automática não roda nesta máquina sem o `.wasm`, e mudar código que
+não se pode rodar é afirmar sem medir — a trava confere os três lugares e diz que mudar um é mudar os três); reescrever a
+receita manual (ela é do LAB-01 e os `cd` dela resolvem; se o `cargo build` ainda compila é o que a régua declara não
+alcançar); corrigir o LAB-187 no relatório dele (relatório é história; a correção mora aqui e no LAB-188).
+
+> **O LEITOR QUE MONTA O CAMINHO EM PEDAÇOS NÃO APARECE NA BUSCA PELO CAMINHO INTEIRO.** Contar quem lê uma página pelo
+> nome dela inteiro é contar quem escreveu o nome inteiro — e o leitor de verdade, ao lado, escreveu só `"README.md"`.
