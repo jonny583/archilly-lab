@@ -4024,3 +4024,16 @@ Próximo na fila: a caixa só tem o 900; as propostas do LAB-187, do LAB-186, do
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-189 — item 900 (a dívida própria): a página da sonda — o que a pasta carrega, o que a sonda é hoje, e os números do LAB-00 em dois lugares
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-189 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar e número digitado à mão): o README.md do wasm-probe/, que o LAB-188 deixou para outra rodada. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2162 de 2162 (120 de 120 arquivos); esteira 2514 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos com git status limpo.
+Feito: a external-engines/symbios/archilly/wasm-probe/README.md, do LAB-00, se apresentava como a receita do wasm32 (getrandom com wasm_js) e calava que o .wasm carregado é o da ponte ../wasm/ (LAB-01), pelo backend custom, porque o wasm_js arrasta wasm-bindgen e js-sys; não nomeava os quatro arquivos da pasta; e os números do LAB-00 (162 696 bytes, 12,54 s) moravam também na seção 10 do docs/SYMBIOS_ANALYSIS.md, sem trava. Nenhuma afirmação era falsa (rand 0.9 → getrandom 0.3, upstream por caminho, nada nativo, os dois lugares batem). A página diz o que a sonda é hoje e lista a pasta entre marcas; trava a-pagina-da-sonda (60 testes, sem clones); a régua acusou dez problemas antes; 2102 → 2162 (D417). Detalhe em docs/relatorios/LAB-189.md.
+Achados para outros apps ou Central: a todas — página de sonda envelhece quando a sonda perde o posto, não quando muda: ela diz que é sonda e aponta o caminho que venceu. E guardar uma página antiga como texto dentro de um teste é escrever em código tudo o que ela diz — a trava do LAB-176 pegou o nome da sonda no meu próprio teste. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na minha lista, o comentário do rust-toolchain.toml copiado do upstream (fala do CI de lá); as propostas do LAB-187, do LAB-186, do LAB-185 e as antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

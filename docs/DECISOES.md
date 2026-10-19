@@ -13989,3 +13989,45 @@ alcançar); corrigir o LAB-187 no relatório dele (relatório é história; a co
 
 > **O LEITOR QUE MONTA O CAMINHO EM PEDAÇOS NÃO APARECE NA BUSCA PELO CAMINHO INTEIRO.** Contar quem lê uma página pelo
 > nome dela inteiro é contar quem escreveu o nome inteiro — e o leitor de verdade, ao lado, escreveu só `"README.md"`.
+
+## D417 · A PÁGINA DA SONDA — o que a pasta carrega, o que a sonda é hoje, e os números do LAB-00 em dois lugares · 19/10/2026
+**Contexto:** item 900 (LAB-188 → LAB-189). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse
+ninguém. O LAB-188 deixou para outra rodada o `external-engines/symbios/archilly/wasm-probe/README.md`, o último
+`README.md` fora do `upstream/` sem leitor no código. Na dívida própria, espécies mensagem fixa que afirma estado sem
+perguntar e número digitado à mão: a página, do LAB-00 (09/09/2026, `f61be91`), se apresenta como a receita do `wasm32`
+(*"existe por um motivo só"*, com o `getrandom` em `wasm_js`) e cala que, desde o LAB-01, o `.wasm` carregado é o da
+ponte `../wasm/`, que sai pelo backend `custom` porque o `wasm_js` arrasta `wasm-bindgen` e `js-sys`; não nomeia nenhum
+dos quatro arquivos da pasta; e os números do LAB-00 (162 696 bytes, 12,54 s) moram também na seção 10 de
+`docs/SYMBIOS_ANALYSIS.md`, sem trava entre os dois.
+
+**Medido** por LUGAR: 4 arquivos além da página; as `PONTES` do LAB-176 dão a pasta como `sonda`; o `conferir.sh` não a
+compila; o `Cargo.lock` tem 34 pacotes, `rand 0.9.5` → `rand_core 0.9.5` → `getrandom 0.3.4`, a cola (`wasm-bindgen`,
+`js-sys`) e nenhum pacote nativo; o `symbios-tensor` vem por caminho, sem `[patch]`; o `rust-toolchain.toml` é byte a
+byte o do `upstream/`; os dois lugares dos números batem, e os 159 KB da análise são 162 696 ÷ 1024. Nenhuma afirmação
+da página era falsa. A régua nova acusou **dez** problemas na página de antes.
+
+**Decidido:**
+
+1. A página ganha a seção *O que esta sonda é hoje, e o que a pasta carrega*: a ponte por link, que ninguém carrega o
+   artefato da sonda e o `conferir.sh` não o compila, a escolha do backend `custom` e por quê, a lista dos quatro arquivos
+   entre marcas, o `.wasm` e o `target/` fora do `git`, e os dois lugares dos números. O texto do LAB-00 fica inteiro.
+2. A trava `external-engines/esteira/src/a-pagina-da-sonda.ts` e `tests/a-pagina-da-sonda.test.ts` (60 testes, sem
+   clones, no portão): a pasta nos dois sentidos; o papel contra as `PONTES` e o `conferir.sh`; a receita contra a seção
+   10, o `Cargo.toml` e o `conferir.sh`; a cadeia do `rand` ao `getrandom`, a cola e o nativo no `Cargo.lock`; o upstream
+   por caminho; o `rust-toolchain.toml` dito cópia se, e só se, é; os números nos dois lugares; a seção 10 citada; os
+   caminhos. O portão passa de 119 a 120 arquivos e de 2 102 a 2 162 travas.
+
+**Descartado:** editar o comentário em inglês do `rust-toolchain.toml` (fala do CI do upstream; o arquivo é cópia byte a
+byte nas três crates de `archilly/`, e editar uma cópia por causa de um comentário as faz divergir — fica como candidato
+a rodada própria); apagar a sonda (é o caso válido que quase parece inválido do LAB-176, e apagar é das cinco classes que
+param); conferir os 162 696 bytes contra um binário de hoje (nada compila a sonda, e nesta máquina falta o alvo do
+`rustup` — a trava confere os dois lugares e a página diz que é só isso).
+
+**E a régua da casa acusou a trava nova duas vezes, com razão:** a do LAB-176 (`sonda-carregada`) pegou o nome do artefato
+escrito no teste — inclusive dentro da página de antes, guardada como texto —, e a do LAB-52
+(`degrada-chamada-para-numero`) pegou um `?? ""` que fazia do item que falta um texto vazio.
+
+> **PÁGINA DE SONDA ENVELHECE QUANDO A SONDA PERDE O POSTO, NÃO QUANDO MUDA.** A sonda segue compilando e a página segue
+> verdadeira sobre ela; o que mudou foi o caminho de verdade, noutra pasta, com outra receita. Quem lê a página da sonda
+> precisa saber que é sonda, e onde está o que venceu.
+
