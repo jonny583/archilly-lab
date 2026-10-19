@@ -4284,3 +4284,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a do L
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · despertador-sem-item — o disparo de ≤ 22:06 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-205, do disparo de 21:06)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo de ≤ 22:06 (derivado do reflog: a ponta posta no disco às 22:06:46); caixa só com o 900, contada na origin/main às 22:07; a tarefa da lista que o 900 mandava pegar (a LAB-40/fixtures.json, o candidato do LAB-204) já estava com a sessão do disparo de 21:06, que só enviou às 22:44 (166c081, o LAB-205). Os fetch das 22:07 e das 22:22 paravam no LAB-204 (db18147), então a outra mão não se via. O meu saiu repetido e NÃO foi enviado. Conferido aqui, não no GitHub: a passada completa da versão repetida deu esteira 2 706 aprovadas e 10 reprovadas — as 9 do .wasm e a dos ramos abertos (o ramo claude/stoic-ritchie-ijzqy3 sem o objeto no clone, "não sei"; depois do fetch, verde) —, testfit 17 de 17; desta linha, as 35 travas que leem o ONDE_PARAMOS e o RECADOS, a dos ramos e as do LAB-52 e do LAB-57 rodadas isoladas: 633 de 633.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida bateu com a do LAB-205: com o Lab em 90a93b2, o motor refaz só de 648ae78 a 244aae3 (14/09; borda de antes 66ece91, de depois 2160fce; o instante 0ab380b fora, 11 linhas), o Generate de 5b70e5f (contrato v2) à ponta; os quatro cantos iguais; duas mutações da trava acusadas.
+Achados para outros apps ou Central: para a direção — quinto choque de despertadores no dia (21:05/22:05): a sessão das 21:06 esperou a das 20:06 e só enviou às 22:44, e a das 22:06 não tinha como vê-la. Não toquei em despertador nenhum (ligar, desligar e o intervalo são da direção). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o candidato é o que o LAB-205 deixou no relatório dele (a LAB-41, a seguinte sem o .wasm).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
