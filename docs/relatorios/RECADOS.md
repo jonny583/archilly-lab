@@ -4180,3 +4180,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: as out
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · despertador-sem-item — o disparo das 14:07 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-200, do disparo de 13:14)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo das 14:07 (observado, "fired at 14:07:22 UTC"); caixa só com o 900, contada na origin/main às 14:09; a tarefa da lista que o 900 mandava pegar (a do LAB-78) já estava em execução pela sessão do disparo de 13:14, que só enviou às 14:18 (795c062). Duas mãos no repositório ao mesmo tempo, sem que uma visse a outra: o fetch das 14:09 ainda não tinha o trabalho dela. O meu saiu repetido e NÃO foi enviado (fica num ramo local, que não sobe). Conferido aqui, não no GitHub: VERDE-A-PREENCHER.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida bateu com a do LAB-200 — a janela do Generate vai de 5b70e5f (o contrato v2) à ponta de hoje, e 8223873 não grava porque a ponte recusa o motor: duas medições independentes, a mesma resposta. Uma coisa saiu a mais e não está no LAB-200: um CONTROLE — com o motor em 4181e95 (o do LAB-59) e o Generate em 72cfab0, a mesma comparação acusa 7 diferenças, então o zero do Generate não é cegueira dela.
+Achados para outros apps ou Central: para a direção — o disparo das 13:05 durou ~64 minutos e o das 14:05 começou no meio dele; "um prompt por despertador" não impede dois despertadores ao mesmo tempo, e o fetch do começo não vê o trabalho que a outra mão ainda não enviou. Não toquei em despertador nenhum (ligar, desligar e o intervalo são da direção).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidatos da lista própria: o controle do motor na trava retrato-do-lab78 (a prova que só registra aparência: zero sem controle), e a do LAB-41, que cala só o Generate.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
