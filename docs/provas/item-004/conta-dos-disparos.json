@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T21:03:47.991Z",
+  "quando": "2026-10-19T22:44:06.393Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1243,11 +1243,19 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 20:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista, e nenhuma outra mão estava nela (o último envio da origem, `912c09d` às 19:33:49, era o fecho do disparo das 19:06; o único ramo remoto além da `main` já está inteiro nela). O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 20:06:23 — e desta vez o `pull` do disparo passou (o clone já estava desrasado), e a receita do LAB-116 confirmou a `main` na origem",
         "rodada": "item 900 (LAB-204), dívida própria (mensagem fixa que afirma estado sem perguntar: a testada de frente de 04/10 roda o motor e o Generate e não escreve o commit deles — medido, o motor que a fez é o de 14/09, fora do instante, e escrito ao lado)",
         "emVazio": false
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "21:06",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 21:07 — **não é disparo em vazio**, mas a tarefa que a lista dava (a testada de frente de 04/10) **ainda estava com a sessão do disparo de 20:06**, sem envio: o `last_run` da rotina na listagem das tarefas agendadas (lida, não alterada) dava esta sessão (`fired_at 21:06:00`), e a origem não tinha commit desde 19:33. Esta sessão esperou de minuto em minuto, preparando os vizinhos, e começou a mesma tarefa às 21:28; a outra mão enviou às 21:29 (`db18147`, o LAB-204) e o trabalho repetido parou com duas rodadas. Peguei **a seguinte**, a que o LAB-204 deixou escrita",
+        "rodada": "item 900 (LAB-205), dívida própria (mensagem fixa que afirma estado sem perguntar: as fixtures de 04/10 rodam o motor e o Generate e não escrevem o commit deles — medido, o motor que as fez é o de 14/09, fora do instante, e escrito ao lado)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 154,
-      "observados": 49,
+      "noRegistro": 155,
+      "observados": 50,
       "derivados": 59,
       "emLote": 7,
       "reconstruidos": 39,

@@ -4271,3 +4271,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a LAB-
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-205 — item 900, a dívida própria: as fixtures do LAB-40 calavam o motor e o Generate — e o motor que as fez é o de 14/09
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-205 (item 900) ===
+Estado: disparo das 21:06 (observado na listagem das tarefas agendadas, lida e não alterada); caixa só com o 900, contada na origin/main; a tarefa da lista (a testada de frente do LAB-37) ainda estava com a sessão das 20:06, sem envio — esperei 20 min, comecei, e o LAB-204 chegou às 21:29; nada repetido foi enviado. Fui à dívida própria, pela seguinte que o LAB-204 deixou no relatório dele (docs/relatorios/LAB-204.md §8): a LAB-40/fixtures.json, espécie mensagem fixa que afirma estado sem perguntar. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm (ausente: o rustup desta máquina segue sem o alvo); esteira 2 707 aprovadas e as 9 de sempre (o .wasm) — a primeira passada deu 10, porque o meu recado não dizia "fui à dívida própria" e a trava do LAB-127 acusou; corrigido o recado, a esteira inteira de novo —; testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: com a ferramenta de então (Lab 90a93b2), a ponta da origem na hora da prova (motor 0ab380b, Generate a06befa) NÃO refaz: 11 linhas, e o delta da testada fora de Antonina vira de −40 para +43 lotes. Rodados todos os commits que tocam o fecho (37 do motor, 439 do Generate, ~4 s cada): a prova se refaz só com o motor de 648ae78 a 244aae3 (14/09 — janela fechada, o instante fora, um commit mais larga que a do LAB-37) e o Generate de 5b70e5f (contrato v2) até hoje; as três bordas acusam. Escrito ao lado em src/retrato-do-lab40.ts (a prova não se tocou, D182); trava retrato-do-lab40, 6 testes, três mutações acusadas; achados ao lado: 22 de 71 (D433). Detalhe em docs/relatorios/LAB-205.md.
+Achados para outros apps ou Central: a todas — duas provas do mesmo disco estreitam o que nenhuma diz sozinha (o motor de 04/10 entre fe0c7a1 e 244aae3), se "o mesmo disco" se disser como hipótese; e uma frase da prova pode virar de sinal sem ela mudar um byte ("a testada custa lotes" valia para o motor de 14/09, não para o de hoje). Para a direção — quinto choque de despertadores no dia (20:05/21:05); não toquei em despertador nenhum. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a do LAB-41 (a seguinte sem o .wasm), pelo mesmo caminho; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

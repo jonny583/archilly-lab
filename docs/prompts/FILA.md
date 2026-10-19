@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-205 · item 900 — a dívida própria: as fixtures do LAB-40 calavam o motor e o Generate — e o motor que as fez é o de 14/09, como o da testada do LAB-37 — ✅ **feito em 19/10/2026** (D433)
+
+O LAB-204 deixou o candidato escrito: a seguinte do retrato cuja ferramenta não carrega o `.wasm`, a `LAB-40/fixtures.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `90a93b2`, a ponta da origem na hora da prova (motor `0ab380b`, Generate `a06befa`) **não** refaz (11 linhas; o delta da testada fora de Antonina vira de −40 para +43); rodados todos os commits que tocam o lugar do fecho — 37 do motor, 439 do Generate —, a prova se refaz só com o motor de `648ae78` a `244aae3` (14/09, janela fechada, o instante fora) e o Generate de `5b70e5f` (o contrato v2) até hoje. Escrito ao lado em `src/retrato-do-lab40.ts`; trava `retrato-do-lab40` no verde completo; achados ao lado: 22 de 71.
+
+**Origem:** [`../relatorios/LAB-205.md`](../relatorios/LAB-205.md), decisão **D433**.
+
 ### LAB-204 · item 900 — a dívida própria: a testada de frente do LAB-37 calava o motor e o Generate — e o motor que a fez é o de 14/09, não o da origem daquele dia — ✅ **feito em 19/10/2026** (D432)
 
 O LAB-203 deixou o candidato escrito: a seguinte do retrato cuja ferramenta não carrega o `.wasm`, a `LAB-37/testada-de-frente.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `1ff6335`, a ponta da origem na hora da prova (motor `a95d03d`, Generate `cae6a2f`) **não** refaz (44 linhas); rodados os 28 commits do motor que tocam `src/lib/lab/` e os 18 estados do fecho do Generate: o motor refaz só de `fe0c7a1` a `244aae3` (14/09) — janela fechada, o instante fora —, o Generate de `5b70e5f` (o contrato v2) até hoje. Escrito ao lado em `src/retrato-do-lab37.ts`; trava `retrato-do-lab37` no verde completo; `OS_ACHADOS_AO_LADO` passa a *20 de 71*.
