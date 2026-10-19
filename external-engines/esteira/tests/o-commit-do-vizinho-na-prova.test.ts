@@ -21,10 +21,13 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 import {
+  OS_ACHADOS_AO_LADO,
+  type ProvaQueRodaVizinho,
   OS_CALADOS_DE_HOJE,
   QUEM_GRAVA,
   apelidosDoTsconfig,
   comoSeDiz,
+  conferirOsAchadosAoLado,
   conferirAListaDeQuemGrava,
   conferirOsCalados,
   contarAsProvas,
@@ -122,7 +125,7 @@ describe("as provas que rodam código de vizinho e o commit dele (LAB-198, D426)
 
   test("a conta de hoje bate com o retrato congelado, nos dois sentidos — e publica o universo", () => {
     expect(conferirOsCalados(conta, OS_CALADOS_DE_HOJE)).toEqual([]);
-    const frase = comoSeDiz(noDisco.length, QUEM_GRAVA.filter((l) => l.ferramenta === null).length, conta);
+    const frase = comoSeDiz(noDisco.length, QUEM_GRAVA.filter((l) => l.ferramenta === null).length, conta, OS_ACHADOS_AO_LADO);
     console.log(`  ${frase}`);
     expect(frase).toContain(`${noDisco.length} provas`);
     expect(conta.length).toBeGreaterThan(0);
@@ -152,5 +155,33 @@ describe("as provas que rodam código de vizinho e o commit dele (LAB-198, D426)
   test("sabotagem 3 · um commit do LAB escrito na prova não a tira do retrato (não é do vizinho)", () => {
     const comLab = (p: string) => (p === "LAB-48/violacoes-do-motor-padrao.json" ? `${textoDaProva(p)}\n"9d28fd7"` : textoDaProva(p));
     expect(conferirOsCalados(contarAsProvas(QUEM_GRAVA, rodaDe, comLab, ehCommitDe), OS_CALADOS_DE_HOJE)).toEqual([]);
+  });
+});
+
+describe("LAB-199 · os commits achados AO LADO da prova", () => {
+  const ESTEIRA_ = join(import.meta.dirname, "..");
+  const textoDoModulo = (m: string) => (existsSync(join(ESTEIRA_, m)) ? readFileSync(join(ESTEIRA_, m), "utf8") : null);
+
+  test("cada achado é de uma prova do retrato, calando aquele vizinho, num módulo que existe e nomeia a prova", () => {
+    expect(conferirOsAchadosAoLado(OS_ACHADOS_AO_LADO, OS_CALADOS_DE_HOJE, textoDoModulo)).toEqual([]);
+    expect(Object.keys(OS_ACHADOS_AO_LADO).sort()).toEqual(["LAB-18/contrato-v2.json", "LAB-48/violacoes-do-motor-padrao.json"]);
+  });
+
+  test("reprova pelo nome nos três defeitos plantados", () => {
+    const tipos = (a: Record<string, Record<string, string>>) =>
+      conferirOsAchadosAoLado(a, OS_CALADOS_DE_HOJE, textoDoModulo).map((p) => p.tipo);
+    // o LAB-18 escreve o Generate: achado ao lado do Generate é de quem não cala
+    expect(tipos({ "LAB-18/contrato-v2.json": { "urban-create-hub-41d93a4d": "src/retrato-do-lab18.ts" } })).toEqual(["achado-de-quem-nao-cala"]);
+    expect(tipos({ "LAB-18/contrato-v2.json": { "motor-testfit": "src/nao-existe.ts" } })).toEqual(["achado-sem-modulo"]);
+    expect(tipos({ "LAB-18/contrato-v2.json": { "motor-testfit": "src/fotografia-do-lab48.ts" } })).toEqual(["achado-que-nao-nomeia-a-prova"]);
+  });
+
+  test("a frase conta os achados contra os silêncios", () => {
+    const conta: ProvaQueRodaVizinho[] = [
+      { prova: "A/a.json", ferramenta: "f", roda: ["m", "g"], escreve: { m: [], g: [] }, cala: ["m", "g"] },
+      { prova: "B/b.json", ferramenta: "f", roda: ["m"], escreve: { m: ["1234abc"] }, cala: [] },
+    ];
+    expect(comoSeDiz(3, 1, conta, { "A/a.json": { m: "x" } })).toEndWith("· achados ao lado: 1 de 2 silêncios");
+    expect(comoSeDiz(3, 1, conta)).not.toContain("achados ao lado");
   });
 });

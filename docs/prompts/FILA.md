@@ -380,6 +380,12 @@ O LAB-197 deixou o candidato escrito: as outras provas que rodam código de vizi
 
 **Origem:** [`../relatorios/LAB-198.md`](../relatorios/LAB-198.md), decisão **D426**.
 
+### LAB-199 · item 900 — a dívida própria: a prova do LAB-18 calava o motor — achado rodando a ferramenta de então, e é uma janela de cinco commits — ✅ **feito em 19/10/2026** (D427)
+
+O LAB-198 deixou o candidato escrito: as 41 caladas, uma por rodada, começando pelas duas pela metade. Espécie **mensagem fixa que afirma estado sem perguntar**: a prova do LAB-18 dá as rampas do motor `parcelamento` e só escreve o Generate (`5b7e9b4`). Rodada em clones locais, com o Lab em `bf15af6` e a ferramenta sem o Symbios (o `.wasm` não se constrói aqui): a ponta do motor no instante da prova dá 14 diferenças; **cinco commits de 14/09 (`fe0c7a1` a `244aae3`) refazem a prova valor a valor**, e as bordas de fora (`648ae78`, `2160fce`) não. Escrito ao lado em `src/retrato-do-lab18.ts` (a prova não se tocou, D182); trava `retrato-do-lab18` roda as pontas e as bordas a cada verde completo; e `OS_ACHADOS_AO_LADO` conta os achados contra os silêncios (*3 de 71*). O próximo da lista: a do LAB-78, que cala o Generate.
+
+**Origem:** [`../relatorios/LAB-199.md`](../relatorios/LAB-199.md), decisão **D427**.
+
 ### LAB-196 · item 900 — a dívida própria: a fotografia do LAB-60 se retira igual no commit que declara — e o motivo de não regerá-la, perguntado à ferramenta — ✅ **feito em 19/10/2026** (D424)
 
 O LAB-195 deixou o candidato escrito: os outros motivos de exceção com a forma *"regerar faria X"*. Fui à lista das espécies de prova (`regerar-a-varredura.ts`, item 024), onde as quatro fotografias nunca se regeram, e perguntei à ferramenta a única que se pergunta nesta máquina. Espécies **mensagem fixa que afirma estado sem perguntar** e **regra sem guarda**: o motivo da do LAB-60 dizia *"recontar com o motor andado mede outra coisa"*, e o cabeçalho prometia reprovar a *"fotografia que deixou de precisar ser fotografia"* sem teste nenhum. Rodada em clones locais, no commit declarado (`4181e95`) a ferramenta grava a prova igual; na ponta do motor (`89b26ce`), 102 linhas diferentes. A trava `fotografia-no-commit-declarado` pergunta as duas coisas a cada verde completo, numa pasta temporária, sem sobregravar nada (D182); portão sem clones segue 2284. Nada novo proposto ao chat.

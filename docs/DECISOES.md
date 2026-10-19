@@ -14375,3 +14375,45 @@ leitura por caminho como execução (é outra pergunta, e quase todas já escrev
 
 > **REGRA COM FUNÇÃO TESTADA E UNIVERSO NÃO CONTADO É REGRA SEM GUARDA.** O teste provava que a regra sabe responder; ninguém
 > tinha perguntado a quem ela se aplica — e eram 44, com três em dia.
+
+## D427 · A PROVA DO LAB-18 CALAVA O MOTOR — achado rodando a ferramenta de então, e o que se escreve é uma JANELA de cinco commits · 19/10/2026
+**Contexto:** item 900 (LAB-198 → LAB-199). A caixa só tinha o `900`, e o LAB-198 deixou o candidato escrito: *as 41 caladas, uma
+por rodada, pelo caminho do LAB-197, começando pelas duas pela metade*. Espécie **mensagem fixa que afirma estado sem perguntar**:
+`docs/provas/LAB-18/contrato-v2.json` dá as rampas do motor `parcelamento` (o Laboratório de Parcelamento) e escreve só o commit
+do Generate (`generateEm`, `5b7e9b4`); nem ela, nem o relatório do LAB-18, nem o do LAB-22 (`bf15af6`, que a regravou) dizem em
+que commit estava o motor.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos): o Lab em `bf15af6`, o Generate em `5b7e9b4`, o motor
+em cada commit de primeiro pai da `main` dele de 13/09 a 03/10, e a ferramenta rodada **sem o Symbios** (o `.wasm` não se
+constrói nesta máquina — quatro trocas de texto exatas na cópia), comparando a prova inteira fora as linhas `symbios`:
+
+```
+c3644d1 (03/10, a ponta antes da prova) e 6dcb241…ee7c438: 14 diferenças · 2160fce (15/09, 20h41): 9
+244aae3 · 5da35ea · 4b25add · 4181e95 · fe0c7a1 (14/09): ZERO · 648ae78 (14/09, 13h05): 4 · 66ece91: 25
+```
+
+A data erra de novo (o clone era velho de três semanas). Cinco commits refazem a prova e a ferramenta não os distingue; o mais
+provável é `4181e95` (o clone que o LAB-53 conferiu três dias depois), e isso é coerência, não medição. O Generate da prova se
+confirma de passagem.
+
+**Decidido:**
+
+1. `src/retrato-do-lab18.ts`: o Lab e o Generate, um commit cada; `A_JANELA_DO_MOTOR` (os cinco, as duas bordas de fora e o
+   mais provável, dito como coerência); `semOSymbios` (as trocas, que reprovam se não casarem uma vez) e
+   `diferencasForaDoSymbios`. A prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab18.test.ts`, **no verde completo**: monta as três árvores numa pasta temporária e roda a
+   ferramenta de então nas duas pontas da janela (zero diferenças) e nas duas bordas de fora (diferença) — a janela se prova
+   pelos dois lados. Seis testes; duas mutações acusadas (uma ponta trocada por uma borda: 2 reprovam; o Generate trocado por
+   `22502b3`: 1 reprova).
+3. `OS_ACHADOS_AO_LADO` em `src/o-commit-do-vizinho-na-prova.ts`: a prova continua no retrato (ela segue calando, e é verdade),
+   e o achado se conta ao lado — LAB-18 (motor) e LAB-48 (motor e Generate); `conferirOsAchadosAoLado` cobra que cada linha seja
+   de uma prova do retrato calando aquele vizinho, num módulo que existe e nomeia a prova; a frase ganha *"achados ao lado: 3 de
+   71 silêncios"*.
+
+**Descartado:** escrever o commit na prova (D182); escrever um commit só, o `4181e95` (a ferramenta não o distingue dos outros
+quatro — escrever um seria afirmar mais do que se mediu); rodar o meio da janela a cada verde (três voltas de motor para repetir
+o que as pontas já cercam); tirar o LAB-18 do retrato (a prova continua calando).
+
+> **QUANDO A FERRAMENTA NÃO DISTINGUE OS CANDIDATOS, O QUE SE ESCREVE É A JANELA, COM AS DUAS BORDAS MEDIDAS POR FORA.** Escolher
+> um commit dentro dela é afirmar uma proveniência que nenhuma medição deu.
+

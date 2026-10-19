@@ -63,6 +63,16 @@
  * - **se a ferramenta de `QUEM_GRAVA` grava mesmo aquele arquivo**: a trava confere que ela existe e que nomeia
  *   a pasta da prova, não que a linha de escrita é aquela;
  * - **o Symbios**: `upstream/` é cópia DESTA casa, não clone vizinho — o que ele roda não entra na conta.
+ *
+ * # Os achados AO LADO (LAB-199, D427)
+ *
+ * O commit achado pela arqueologia não entra na prova (D182), e por isso a prova **continua** no retrato: ela
+ * segue calando, e é verdade. O que muda é que o commit passou a estar escrito noutro lugar, com uma trava
+ * que roda a ferramenta nele. {@link OS_ACHADOS_AO_LADO} diz qual prova, qual vizinho e em que módulo — e
+ * {@link conferirOsAchadosAoLado} cobra que cada linha seja de uma prova do retrato calando aquele vizinho, e
+ * que o módulo exista e nomeie a prova. A frase publica a conta: *"achados ao lado: N de M"*. Dois hoje: a do
+ * LAB-48 (motor e Generate, `src/fotografia-do-lab48.ts`) e a do LAB-18 (o motor, numa **janela** de cinco
+ * commits, `src/retrato-do-lab18.ts`).
  */
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, normalize, relative, sep } from "node:path";
@@ -410,7 +420,10 @@ export interface Problema {
     | "ferramenta-que-nao-nomeia-a-pasta"
     | "null-sem-motivo"
     | "cala-e-nao-esta-na-lista"
-    | "esta-na-lista-e-nao-cala-mais";
+    | "esta-na-lista-e-nao-cala-mais"
+    | "achado-de-quem-nao-cala"
+    | "achado-sem-modulo"
+    | "achado-que-nao-nomeia-a-prova";
   prova: string;
   oQue: string;
 }
@@ -489,8 +502,45 @@ export function conferirOsCalados(
   return out;
 }
 
+/**
+ * **Os commits achados AO LADO da prova** (LAB-197, LAB-199): por prova do retrato, por vizinho calado, o
+ * módulo (relativo à esteira) que escreve o commit — ou a janela — achado rodando a ferramenta de então.
+ */
+export const OS_ACHADOS_AO_LADO: Readonly<Record<string, Readonly<Record<string, string>>>> = {
+  "LAB-18/contrato-v2.json": { [MOTOR]: "src/retrato-do-lab18.ts" },
+  "LAB-48/violacoes-do-motor-padrao.json": { [MOTOR]: "src/fotografia-do-lab48.ts", [GENERATE]: "src/fotografia-do-lab48.ts" },
+};
+
+/** Cada achado ao lado é de uma prova do retrato, calando aquele vizinho, num módulo que existe e nomeia a prova. */
+export function conferirOsAchadosAoLado(
+  achados: Readonly<Record<string, Readonly<Record<string, string>>>>,
+  retrato: Readonly<Record<string, readonly string[]>>,
+  textoDoModulo: (modulo: string) => string | null,
+): Problema[] {
+  const out: Problema[] = [];
+  for (const [prova, porVizinho] of Object.entries(achados)) {
+    for (const [vizinho, modulo] of Object.entries(porVizinho)) {
+      if (!(retrato[prova] ?? []).includes(vizinho)) {
+        out.push({ tipo: "achado-de-quem-nao-cala", prova, oQue: `\`${prova}\` tem achado ao lado para ${vizinho}, e o retrato não a dá calando ${vizinho}` });
+        continue;
+      }
+      const texto = textoDoModulo(modulo);
+      if (texto === null) out.push({ tipo: "achado-sem-modulo", prova, oQue: `o módulo \`${modulo}\` do achado de \`${prova}\` não existe` });
+      else if (!texto.includes(prova.split("/")[0]!)) {
+        out.push({ tipo: "achado-que-nao-nomeia-a-prova", prova, oQue: `\`${modulo}\` não nomeia \`${prova}\`: não é ali que o commit dela está escrito` });
+      }
+    }
+  }
+  return out;
+}
+
 /** A frase que a trava publica: o universo e as partes, que fecham. */
-export function comoSeDiz(totalNoDisco: number, semFerramenta: number, conta: readonly ProvaQueRodaVizinho[]): string {
+export function comoSeDiz(
+  totalNoDisco: number,
+  semFerramenta: number,
+  conta: readonly ProvaQueRodaVizinho[],
+  achados: Readonly<Record<string, Readonly<Record<string, string>>>> = {},
+): string {
   const calam = conta.filter((c) => c.cala.length > 0).length;
   const porVizinho: Record<string, number> = {};
   for (const c of conta) for (const v of c.cala) porVizinho[v] = (porVizinho[v] ?? 0) + 1;
@@ -500,6 +550,9 @@ export function comoSeDiz(totalNoDisco: number, semFerramenta: number, conta: re
     .join(" · ");
   return (
     `${totalNoDisco} provas · ${semFerramenta} sem ferramenta · ${totalNoDisco - semFerramenta - conta.length} gravadas por ferramenta que não roda vizinho · ` +
-    `${conta.length} rodam vizinho: ${conta.length - calam} escrevem o commit de todos, ${calam} calam ao menos um (${vizinhos})`
+    `${conta.length} rodam vizinho: ${conta.length - calam} escrevem o commit de todos, ${calam} calam ao menos um (${vizinhos})` +
+    (Object.keys(achados).length === 0
+      ? ""
+      : ` · achados ao lado: ${Object.values(achados).reduce((n, v) => n + Object.keys(v).length, 0)} de ${conta.reduce((n, c) => n + c.cala.length, 0)} silêncios`)
   );
 }
