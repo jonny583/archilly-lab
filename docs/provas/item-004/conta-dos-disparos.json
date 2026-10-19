@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T10:22:58.870Z",
+  "quando": "2026-10-19T11:42:15.757Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1163,11 +1163,19 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 10:06:34 (antes de qualquer comando desta sessão) — e o `pull` do disparo recusou no clone raso, e a receita do LAB-116 o desrasou",
         "rodada": "item 900 (LAB-197), dívida própria (mensagem fixa que afirma estado sem perguntar e regra sem guarda: o motivo da fotografia das violações do motor, de 06/10 — *\"no commit em que o defeito foi medido\"*, e nenhum commit escrito —, perguntado à ferramenta nos três commits que a tiraram e com o Lab de hoje)",
         "emVazio": false
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "11:15",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A hora veio no aviso do próprio disparo, lido por esta sessão (*\"fired at 11:15:19 UTC\"*, agendado para 11:05); o `reflog` do clone registra a ponta posta no disco às 11:15:47 — e o `pull` do disparo recusou no clone raso, e a receita do LAB-116 o desrasou",
+        "rodada": "item 900 (LAB-198), dívida própria (regra sem guarda: a regra do LAB-79 — prova que afirma o presente de um vizinho regera-se declarando o commit — tinha função e teste, e o universo dela nunca foi contado; 44 sujeitos, três a cumpriam)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 144,
-      "observados": 41,
+      "noRegistro": 145,
+      "observados": 42,
       "derivados": 57,
       "emLote": 7,
       "reconstruidos": 39,

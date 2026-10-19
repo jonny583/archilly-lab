@@ -4141,3 +4141,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: as out
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-198 — item 900 (a dívida própria): as provas que rodam código de vizinho e não escrevem o commit dele — 44 sujeitos, três cumpriam
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-198 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main; o pull do disparo recusou no clone raso e a receita do LAB-116 o desrasou); fui à dívida própria, pelo candidato que o LAB-197 deixou no relatório dele (as provas que rodam código de vizinho e não escrevem o commit dele), espécie regra sem guarda. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: VERDE_FINAL.
+Feito: a regra do LAB-79 (prova que afirma o presente de um vizinho regera-se declarando o commit, e nunca sem ele) tinha função e teste, e ninguém tinha contado a quem ela se aplica. Contado por lugar — quem grava cada prova (lista à mão, 92 linhas, fechada contra o disco), que vizinho a ferramenta roda (o fecho dos import) e que commit da história do vizinho a prova escreve (git cat-file): 44 rodam vizinho, 3 escrevem o commit de todos (LAB-76, 93, 94), 41 calam ao menos um (31 o motor, 40 o Generate). O retrato congelado nos dois sentidos em src/o-commit-do-vizinho-na-prova.ts; trava nova o-commit-do-vizinho-na-prova, 8 testes, duas mutações acusadas (D426). Detalhe em docs/relatorios/LAB-198.md.
+Achados para outros apps ou Central: a todas — regra com função testada e universo não contado é regra sem guarda: o teste provava que a regra sabe responder, e ninguém tinha perguntado a quem ela se aplica (44, três em dia). Conte por lugar e congele o retrato nos dois sentidos: a próxima não entra calada, a consertada sai. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: as 41 caladas, uma por rodada, pelo caminho do LAB-197, começando por LAB-18 e LAB-78 (já têm um dos commits); as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

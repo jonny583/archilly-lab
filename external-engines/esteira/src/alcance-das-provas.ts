@@ -40,6 +40,12 @@
  *
  * Então ela se regera **declarando o commit**, e nunca sem ele. É a mesma lição do carimbo do
  * LAB-68 e do segundo eixo do LAB-74, agora aplicada a *quando* uma prova pode ser reescrita.
+
+ *
+ * **A regra tinha função e teste, e o universo dela nunca foi contado — até o LAB-198 (D426).** A trava
+ * `tests/o-commit-do-vizinho-na-prova.test.ts` conta, por lugar, as provas gravadas por ferramenta que RODA
+ * código de vizinho e o commit dele que cada uma escreve: 44 sujeitos em 19/10/2026, e três a cumpriam. O
+ * retrato das 41 que calam está em `src/o-commit-do-vizinho-na-prova.ts`, congelado nos dois sentidos.
  */
 
 /**

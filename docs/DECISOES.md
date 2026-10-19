@@ -14338,3 +14338,40 @@ do LAB-53 na lista das espécies (a lista cobre o que é código desta casa, D28
 
 > **"NO COMMIT EM QUE FOI MEDIDO" SEM O COMMIT ESCRITO É LEGENDA, NÃO PROVENIÊNCIA.** E o commit não se deduz da hora:
 > clone da máquina não é a ponta da origem — acha-se rodando, e escreve-se ao lado.
+
+## D426 · A REGRA DA PROVA DE OUTRO REPOSITÓRIO GANHA O UNIVERSO — 44 sujeitos, três a cumpriam, e as 41 ficam congeladas nos dois sentidos · 19/10/2026
+**Contexto:** item 900 (LAB-197 → LAB-198). A caixa só tinha o `900`, e o LAB-197 deixou o candidato escrito: *as outras provas
+que rodam código de vizinho e não escrevem o commit dele, contadas por lugar*. Espécie da dívida própria: **regra sem guarda** —
+o LAB-79 (`src/alcance-das-provas.ts`, `podeSerRegerada`) escreveu que prova que afirma o presente de um clone vizinho
+regera-se declarando o commit, e nunca sem ele; a função tem teste, e ninguém contou a quem ela se aplica.
+
+**Medido**, no `HEAD` `ae4a164`, com o motor em `0684d78` e o Generate em `7302864` (história inteira; só lidos), por três
+lugares: quem grava cada prova (lista à mão, fechada contra o disco), que vizinho a ferramenta roda (o fecho dos `import` de
+execução, apelidos do `tsconfig.json`; `import type` e leitura por caminho não contam) e que commit da história do vizinho a
+prova escreve (`git cat-file --batch-check`):
+
+```
+92 provas · 10 sem ferramenta · 38 gravadas por ferramenta que não roda vizinho ·
+44 rodam vizinho: 3 escrevem o commit de todos, 41 calam ao menos um
+(31 calam motor-testfit · 40 calam urban-create-hub-41d93a4d)
+```
+
+Cumprem: LAB-76, LAB-93, LAB-94. Pela metade: LAB-18 (cala o motor), LAB-78 (cala o Generate). As outras 39 calam todos.
+
+**Decidido:**
+
+1. `src/o-commit-do-vizinho-na-prova.ts`: `QUEM_GRAVA` (92 linhas, dez `null` com motivo), o fecho, o leitor de commit
+   injetado, as duas conferências e a frase; `OS_CALADOS_DE_HOJE`, o retrato das 41.
+2. Trava nova, `tests/o-commit-do-vizinho-na-prova.test.ts`, **no verde completo** (precisa dos clones com a história inteira;
+   clone raso reprova com a receita): a lista fecha nos dois sentidos; o retrato fecha nos dois sentidos — prova nova que roda
+   vizinho e cala o commit reprova, prova do retrato que deixa de calar reprova pedindo para sair. Oito testes, sete sabotagens
+   dentro deles e duas mutações no arquivo de verdade, acusadas.
+3. As 41 **não se consertam aqui**: escrever o commit dentro delas é sobregravar (D182), e o commit não se deduz da data
+   (D425). Cada uma se acha pelo caminho do LAB-197, uma por rodada, e se escreve ao lado.
+
+**Descartado:** mapa de ferramenta pela busca do nome (acha leitor como escritor — o `lab87.ts` nomeia onze provas); contar
+leitura por caminho como execução (é outra pergunta, e quase todas já escrevem o commit); consertar as ferramentas agora
+(regerar com a ferramenta consertada troca a pergunta, LAB-79); pôr a trava no portão sem clones.
+
+> **REGRA COM FUNÇÃO TESTADA E UNIVERSO NÃO CONTADO É REGRA SEM GUARDA.** O teste provava que a regra sabe responder; ninguém
+> tinha perguntado a quem ela se aplica — e eram 44, com três em dia.
