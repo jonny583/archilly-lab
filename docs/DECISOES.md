@@ -14297,3 +14297,44 @@ commits e fica como candidato escrito.
 
 > **FOTOGRAFIA QUE DECLARA O COMMIT NÃO É LEMBRANÇA: SE RETIRA NO COMMIT, E SE CONFERE.** *"Nunca se regera"* protege o
 > arquivo versionado; não impede de perguntar à ferramenta se ela ainda tira a mesma foto ali.
+
+## D425 · A FOTOGRAFIA QUE NÃO ESCREVE O COMMIT SE RETIRA PELOS COMMITS ACHADOS — e a do LAB-48 eram três, e a data não os achava · 19/10/2026
+**Contexto:** item 900 (LAB-196 → LAB-197). A caixa só tinha o `900`, e o LAB-196 deixou o candidato escrito: *a fotografia
+do LAB-48 (`LAB-48/violacoes-do-motor-padrao.json`), perguntada como a do LAB-60*. Espécies da dívida própria: **mensagem fixa
+que afirma estado sem perguntar** (o motivo dela, na lista das espécies de prova de `src/regerar-a-varredura.ts`, diz *"as
+violações do motor no commit em que o defeito foi medido"*) e **regra sem guarda** (nenhuma trava roda `ferramentas/lab48.ts`).
+
+**Medido**, no `HEAD` `1c41a40`, em clones locais numa pasta de rascunho (os vizinhos só lidos; `git status` limpo):
+
+1. **Nenhum commit está escrito** — nem na prova (nome do motor, semente e contrato; nenhum `head`), nem na lista, nem no
+   relatório do LAB-48. E ela depende de **três** árvores: a ponte do Lab, o motor, o Validator do Generate.
+2. Lab em `9d28fd7` (o único commit da prova e da ferramenta) com a ponta da `origin/main` de cada vizinho no instante da prova
+   (`quando` 2026-10-06T21:10:17Z: motor `c420613`, Generate `64489ff`): **221** violações, contra 128. **A data não acha o
+   commit**: os clones daquela máquina estavam velhos.
+3. Lab em `9d28fd7` com os clones que o relatório do LAB-53 conferiu ao fim da rodada seguinte (§5: motor `4181e95`, Generate
+   `5b7e9b4`): **a prova, byte a byte**, fora `quando`.
+4. Lab em `1c41a40` (hoje) com os mesmos vizinhos: **não grava o LAB-48** — grava `LAB-53/violacoes-depois-do-conserto-da-ponte.json`,
+   igual ao versionado, fora `quando` (92 violações). O *"antes"* é a ponte de `9d28fd7`; o destino sai da medição desde o LAB-53.
+
+O motivo **se sustenta, com o sujeito escrito**; e a frase *"regerá-la apagaria o lado 'antes'"* fica mais fraca do que diz:
+a ferramenta de hoje não o alcança.
+
+**Decidido:**
+
+1. `src/fotografia-do-lab48.ts` escreve os três commits (`O_RETRATO_DO_LAB48`), cada um com de onde se sabe que é ele. A prova
+   **não se toca** (D182): o commit vai ao lado dela, não dentro.
+2. Trava nova, `tests/fotografia-do-lab48.test.ts`, **no verde completo** (precisa dos clones `../motor-testfit` e
+   `../urban-create-hub-41d93a4d` com a história inteira): monta as três árvores numa pasta temporária, por caminho; a
+   ferramenta do Lab de então tem de dar a fotografia (`compararSemOMomento`, do LAB-196, zero diferenças), e a do Lab de hoje
+   tem de não tocá-la e de dar a aferição do LAB-53. Cinco testes; três mutações acusadas (um número da prova; o motor do
+   retrato trocado pelo da data, 221; o Lab de hoje trocado pelo de então, que regrava o LAB-48).
+3. O motivo da entrada do LAB-48 na lista nomeia os três commits, e a trava cobra que nomeie. Os cabeçalhos de
+   `regerar-a-varredura.ts` e `fotografia-no-commit-declarado.ts` dizem que são duas as fotografias perguntadas.
+4. A rede declarada (`src/rede-em-execucao.ts`) ganha a linha dos `git clone` locais da trava, classe `origem-de-teste`.
+
+**Descartado:** escrever o commit dentro da prova (é sobregravar a fotografia); deduzir o commit da data (medido: dá outra
+coisa); rodar a ponta-da-data a cada verde (repete um número que não guarda nada — fica aqui e no relatório); pôr a aferição
+do LAB-53 na lista das espécies (a lista cobre o que é código desta casa, D288 — e ela agora é perguntada pela mesma trava).
+
+> **"NO COMMIT EM QUE FOI MEDIDO" SEM O COMMIT ESCRITO É LEGENDA, NÃO PROVENIÊNCIA.** E o commit não se deduz da hora:
+> clone da máquina não é a ponta da origem — acha-se rodando, e escreve-se ao lado.

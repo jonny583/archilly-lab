@@ -219,6 +219,14 @@ export const DECLARADAS: readonly Declarada[] = [
       "o `git clone --no-checkout` do clone vizinho `../motor-testfit`, por CAMINHO no disco, numa pasta temporária, para pôr o motor no commit que a prova do LAB-60 declara — não sai da máquina, e o vizinho só é lido (LAB-196, D424)",
   },
   {
+    caminho: "external-engines/esteira/tests/fotografia-do-lab48.test.ts",
+    forma: "processo",
+    quantas: 1,
+    classe: "origem-de-teste",
+    motivo:
+      "o `git clone --no-checkout` do Lab, do motor e do Generate, por CAMINHO no disco, numa pasta temporária, para pôr as três árvores nos commits que tiraram a fotografia do LAB-48 — não sai da máquina, e os vizinhos só são lidos (LAB-197, D425)",
+  },
+  {
     caminho: "external-engines/esteira/ferramentas/lab171.ts",
     forma: "processo",
     quantas: 3,

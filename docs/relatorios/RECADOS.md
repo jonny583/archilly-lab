@@ -4128,3 +4128,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a foto
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-197 — item 900 (a dívida própria): a fotografia do LAB-48 se retira igual nos três commits que a tiraram — e eles não estavam escritos em lugar nenhum
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-197 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main; o pull do disparo recusou no clone raso e a receita do LAB-116 o desrasou); fui à dívida própria, pelo candidato que o LAB-196 deixou no relatório dele (a fotografia do LAB-48), na lista das espécies de prova (mensagem fixa que afirma estado sem perguntar e regra sem guarda). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: VERDE_FINAL
+Feito: a lista dizia que a prova do LAB-48 é "as violações do motor no commit em que o defeito foi medido", e nenhum commit estava escrito — nem na prova, nem na lista, nem no relatório. São três: com o Lab em 9d28fd7 e a ponta da origem no instante (motor c420613, Generate 64489ff) saem 221 violações contra 128; com os clones do relatório do LAB-53 (motor 4181e95, Generate 5b7e9b4) sai a prova byte a byte; e o Lab de hoje, nos mesmos vizinhos, não a alcança — grava a aferição do LAB-53, igual à versionada. Os três commits escritos em src/fotografia-do-lab48.ts (a prova não se tocou, D182), e a trava nova fotografia-do-lab48 pergunta os dois sentidos a cada verde completo; 5 testes, três mutações acusadas (D425). Detalhe em docs/relatorios/LAB-197.md.
+Achados para outros apps ou Central: a todas — prova que diz "no commit em que foi medido" e não escreve o commit é legenda, não proveniência; e o commit não se deduz da hora: o clone da máquina daquele dia não era a ponta da origem (221 contra 128). Acha-se rodando a ferramenta de então sobre os candidatos, e escreve-se ao lado da prova. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: as outras provas que rodam código de vizinho e não escrevem o commit dele, contadas por lugar; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
