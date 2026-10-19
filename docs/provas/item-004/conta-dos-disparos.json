@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T22:44:06.393Z",
+  "quando": "2026-10-19T22:59:51.920Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1251,17 +1251,25 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 21:07 — **não é disparo em vazio**, mas a tarefa que a lista dava (a testada de frente de 04/10) **ainda estava com a sessão do disparo de 20:06**, sem envio: o `last_run` da rotina na listagem das tarefas agendadas (lida, não alterada) dava esta sessão (`fired_at 21:06:00`), e a origem não tinha commit desde 19:33. Esta sessão esperou de minuto em minuto, preparando os vizinhos, e começou a mesma tarefa às 21:28; a outra mão enviou às 21:29 (`db18147`, o LAB-204) e o trabalho repetido parou com duas rodadas. Peguei **a seguinte**, a que o LAB-204 deixou escrita",
         "rodada": "item 900 (LAB-205), dívida própria (mensagem fixa que afirma estado sem perguntar: as fixtures de 04/10 rodam o motor e o Generate e não escrevem o commit deles — medido, o motor que as fez é o de 14/09, fora do instante, e escrito ao lado)",
         "emVazio": false
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "≤ 22:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 22:07 — e a tarefa da lista que ele mandava pegar (a seguinte das caladas que roda aqui sem o `.wasm`: a `LAB-40/fixtures.json`) **já estava em execução noutra sessão**, a do disparo de 21:06, que só enviou às 22:44 (o LAB-205, `166c081`) — então **sem item para esta sessão**: não havia o que ela pudesse pegar sem repetir a outra. A origem às 22:07 e às 22:22 parava no LAB-204 (`db18147`, 21:29), e a outra mão não se via. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 22:06:46 — o `pull` do disparo passou, e a receita do LAB-116 confirmou a `main` na origem. **Duas mãos no repositório ao mesmo tempo, pela quinta vez no dia**: o trabalho desta sessão saiu repetido, achou a mesma coisa, e não foi enviado",
+        "rodada": "despertador-sem-item (o LAB-205 refeito por outra mão e não enviado: a mesma janela do motor, `648ae78` a `244aae3`, o instante `0ab380b` fora e acusando 11 linhas, o Generate de `5b70e5f` à ponta — nada que mude o escrito)",
+        "emVazio": true
       }
     ],
     "declarados": {
-      "noRegistro": 155,
+      "noRegistro": 156,
       "observados": 50,
-      "derivados": 59,
+      "derivados": 60,
       "emLote": 7,
       "reconstruidos": 39,
-      "emVazio": 8
+      "emVazio": 9
     },
-    "emVazio": 8,
+    "emVazio": 9,
     "temAFraseDoQueDecide": true
   },
   "oQueOPrimeiroDiaJaMOSTROU": "ZERO em vazio, e DOIS disparos acumulados — a caixa não ficou sem abastecimento; a RODADA é mais longa que o intervalo. A conta não nasceu para confirmar a suspeita",
@@ -1277,13 +1285,14 @@
   },
   "osDaCAIXA": {
     "oQue": "recados da mesma classe da abertura em diante. NÃO são precedente: são o parceiro do cruzamento, e cada um tem de ter a sua linha em vazio na conta",
-    "quantos": 8,
+    "quantos": 9,
     "dias": [
       "09/10/2026",
       "09/10/2026",
       "10/10/2026",
       "10/10/2026",
       "10/10/2026",
+      "19/10/2026",
       "19/10/2026",
       "19/10/2026",
       "19/10/2026"
