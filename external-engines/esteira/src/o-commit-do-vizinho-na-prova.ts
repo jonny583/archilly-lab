@@ -70,10 +70,12 @@
  * segue calando, e é verdade. O que muda é que o commit passou a estar escrito noutro lugar, com uma trava
  * que roda a ferramenta nele. {@link OS_ACHADOS_AO_LADO} diz qual prova, qual vizinho e em que módulo — e
  * {@link conferirOsAchadosAoLado} cobra que cada linha seja de uma prova do retrato calando aquele vizinho, e
- * que o módulo exista e nomeie a prova. A frase publica a conta: *"achados ao lado: N de M"*. Três provas hoje:
+ * que o módulo exista e nomeie a prova. A frase publica a conta: *"achados ao lado: N de M"*. As provas de hoje:
  * a do LAB-48 (motor e Generate, `src/fotografia-do-lab48.ts`), a do LAB-18 (o motor, numa **janela** de cinco
  * commits, `src/retrato-do-lab18.ts`) e a do LAB-78 (o Generate, numa janela **aberta** — do contrato v2 até
- * onde se mediu —, `src/retrato-do-lab78.ts`; LAB-200, D428).
+ * onde se mediu —, `src/retrato-do-lab78.ts`; LAB-200, D428). E as duas do diagnóstico de relevo do LAB-07 (o
+ * Generate, numa janela **aberta** — do P43 na tela até onde se mediu —, `src/retrato-do-lab07-relevo.ts`;
+ * LAB-201, D429): cinco provas, seis silêncios.
  */
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, normalize, relative, sep } from "node:path";
@@ -508,6 +510,8 @@ export function conferirOsCalados(
  * módulo (relativo à esteira) que escreve o commit — ou a janela — achado rodando a ferramenta de então.
  */
 export const OS_ACHADOS_AO_LADO: Readonly<Record<string, Readonly<Record<string, string>>>> = {
+  "LAB-07/diagnostico-relevo.json": { [GENERATE]: "src/retrato-do-lab07-relevo.ts" },
+  "LAB-07/diagnostico-relevo.txt": { [GENERATE]: "src/retrato-do-lab07-relevo.ts" },
   "LAB-18/contrato-v2.json": { [MOTOR]: "src/retrato-do-lab18.ts" },
   "LAB-78/setimo-mecanismo.json": { [GENERATE]: "src/retrato-do-lab78.ts" },
   "LAB-48/violacoes-do-motor-padrao.json": { [MOTOR]: "src/fotografia-do-lab48.ts", [GENERATE]: "src/fotografia-do-lab48.ts" },
