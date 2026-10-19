@@ -3,8 +3,19 @@
  * CLI: grava os quatro terrenos de prova do LAB-01 em `docs/terrenos/`.
  *
  * ```shell
- * node --experimental-strip-types ferramentas/gerar-terrenos.ts
+ * node --experimental-strip-types ferramentas/gerar-terrenos.ts            # grava em docs/terrenos/
+ * node --experimental-strip-types ferramentas/gerar-terrenos.ts <pasta>    # grava noutra pasta (a trava)
  * ```
+ *
+ * **Regerar não muda nada** (LAB-195, D423): rodada em 19/10/2026, a ferramenta reescreveu os quatro
+ * terrenos e o índice **byte a byte iguais** aos versionados desde o LAB-01. A trava
+ * `esteira/tests/os-terrenos-se-regeram.test.ts` roda esta ferramenta numa pasta temporária a cada
+ * verde e compara arquivo por arquivo — o argumento `<pasta>` existe para ela.
+ *
+ * O índice grava a área em **metro quadrado** (`area_m2`, o `areaCalculada_m2` do terreno, sem
+ * arredondar), como toda medição da casa (§7). Até o LAB-195 gravava `area_ha` com três casas, e a
+ * exceção da régua do §7 dizia que regerá-lo *"reescreve os quatro terrenos de prova"* — não reescreve:
+ * os terrenos saem de `gerar`, que não lê o índice.
  *
  * A procedência de cada terreno vai dentro do próprio arquivo, no bloco
  * `archilly.procedencia` — inclusive a parte desconfortável: os estudos de prova
@@ -16,7 +27,7 @@ import { join } from "node:path";
 import { gerar, RECEITAS } from "./terrenos.ts";
 // ------------------------------------------------------------------ execução
 
-const destino = join(import.meta.dirname, "..", "..", "..", "..", "docs", "terrenos");
+const destino = process.argv[2] ?? join(import.meta.dirname, "..", "..", "..", "..", "docs", "terrenos");
 mkdirSync(destino, { recursive: true });
 
 const indice: Record<string, unknown>[] = [];
@@ -32,7 +43,7 @@ for (const r of RECEITAS) {
   const linha = {
     id: r.id,
     arquivo: `docs/terrenos/${r.id}.geojson`,
-    area_ha: Number((terreno.properties["areaCalculada_m2"]! / 10_000).toFixed(3)),
+    area_m2: terreno.properties["areaCalculada_m2"],
     vertices: terreno.properties["vertices"],
     perimetro_m: terreno.properties["perimetro_m"],
     curvas,
@@ -43,7 +54,7 @@ for (const r of RECEITAS) {
   };
   indice.push(linha);
   console.log(
-    `${r.id.padEnd(26)} ${String(linha.area_ha).padStart(9)} ha  ` +
+    `${r.id.padEnd(26)} ${String(linha.area_m2).padStart(11)} m²  ` +
       `${String(linha.vertices).padStart(3)} vért  ` +
       `${String(curvas).padStart(4)} curvas  desnível ${String(linha.desnivel_m).padStart(7)} m  ` +
       `${linha.restricoes} restrições`,

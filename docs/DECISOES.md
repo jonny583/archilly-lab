@@ -14221,3 +14221,38 @@ trava confere contra a árvore, se reconta); juntar o sétimo ao item do LAB-78 
 > **A RÉGUA QUE LÊ A ORIGEM POR UMA FORMA SÓ ENVELHECE NO DIA EM QUE A CASA GANHA A SEGUNDA.** As propostas passaram a
 > nascer de item da caixa em 09/10; a régua das propostas em prosa seguiu lendo `LAB-NNN`, e o título que dizia *"não
 > executado"* atravessou nove dias de verde.
+
+## D423 · O MOTIVO DE UMA EXCEÇÃO SE PERGUNTA À COISA DE QUE ELE FALA — e os terrenos de prova se regeram byte a byte · 19/10/2026
+**Contexto:** item 900 (LAB-194 → LAB-195). A caixa só tinha o `900`, e o LAB-194 não deixou candidato escrito. Fui às
+listas de exceção das travas — cada exceção com um motivo escrito — e perguntei um motivo à coisa de que ele fala. Espécie
+da dívida própria: **mensagem fixa que afirma estado sem perguntar** (o motivo) e **regra sem guarda** (a ferramenta que
+grava os terrenos de prova nunca tinha sido rodada por trava nenhuma).
+
+**Medido**, no `HEAD` `5f1f9c5`:
+
+1. A régua do §7 (`external-engines/esteira/tests/medicao-em-metros.test.ts`, LAB-143) declarava em exceção
+   `external-engines/symbios/adapter/ferramentas/gerar-terrenos.ts`, que gravava `area_ha` no `docs/terrenos/indice.json`,
+   com o motivo *"regerá-lo reescreve os quatro terrenos de prova"*.
+2. A ferramenta, **rodada** numa cópia da árvore, reescreveu os cinco arquivos de `docs/terrenos/` **byte a byte iguais**
+   aos versionados desde o LAB-01 (`069fd29`, o único commit do índice). Os terrenos saem de `gerar`, que não lê o índice.
+3. Ninguém lê o índice: procurado por lugar, só a régua do §7 o cita.
+
+**Decidido:**
+
+1. O índice grava `area_m2` (o `areaCalculada_m2` do terreno, sem arredondar); a ferramenta aceita uma pasta de destino
+   como argumento. Regerado: só o índice mudou; os quatro `.geojson`, nem um byte.
+2. A exceção sai da régua do §7, e um teste novo lá confere a ferramenta e o índice em metro quadrado, com a área de cada
+   linha igual à do terreno. Fica a exceção do `medir.ts`, cujo motivo (só roda com o `.wasm`) é verdadeiro nesta máquina.
+3. Trava nova, `tests/os-terrenos-se-regeram.test.ts` (`src/os-terrenos-se-regeram.ts`, `compararPastas`), no portão sem
+   clones: roda a ferramenta no Node numa pasta temporária e compara com o que o `git` carrega, byte a byte e nos dois
+   sentidos, publicando o universo (5 · 5 · 1 665 909 bytes). Portão de 2 276 a 2 284 travas. Duas mutações acusadas: um
+   espaço no `pequeno.geojson` (1 teste) e a ferramenta de volta ao `area_ha` (4).
+
+**Descartado:** comparar por `JSON` (calaria formatação e fim de linha, que são diferença de arquivo); importar a ferramenta
+em vez de rodá-la (ela escreve ao carregar, e o que se prova é o comando documentado); trocar o `"gerado": "LAB-01"` do
+índice (nomeia o conjunto; os terrenos não são de hoje); perguntar nesta rodada os outros motivos de exceção com a mesma
+forma (fica escrito como candidato no relatório).
+
+> **O MOTIVO DE UMA EXCEÇÃO É UMA AFIRMAÇÃO, E A QUE FALA DO QUE ACONTECERIA SE ALGUÉM RODASSE ALGO SE PERGUNTA RODANDO.**
+> *"Regerá-lo reescreve os quatro terrenos"* segurou uma exceção por cinco semanas; rodada, a ferramenta os reescreve
+> iguais.

@@ -13,7 +13,10 @@
  * 1. **as provas JSON de `docs/provas/`** — nenhuma chave de comprimento ou área fora do metro, salvo
  *    as duas provas gravadas antes desta trava, congeladas com a contagem (D118: prova é história);
  * 2. **o código dos três pacotes** (`git ls-files`, fora do `upstream/`) — nenhuma chave fora do metro,
- *    salvo as duas ferramentas do Symbios que gravam FORA de `docs/provas/`, com o motivo.
+ *    salvo a ferramenta do Symbios que grava FORA de `docs/provas/` e só roda com o `.wasm`, com o motivo.
+ *    Eram duas até o LAB-195 (D423): a outra, `gerar-terrenos.ts`, estava em exceção porque regerar o
+ *    índice *"reescreve os quatro terrenos de prova"* — perguntada, ela os reescreve byte a byte iguais;
+ *    grava `area_m2` desde então, e `tests/os-terrenos-se-regeram.test.ts` a roda a cada verde.
  *
  * Lê só arquivo deste repositório: entra no trabalho sem clones.
  */
@@ -61,11 +64,6 @@ const EXCECOES_NO_CODIGO: Record<string, { chaves: Record<string, number>; motiv
     chaves: { area_ha: 2 },
     motivo:
       "a medição do LAB-01, gravada em `outputs/lab01/medicoes.json` — fora de `docs/provas/`, o universo do §7 — e só roda com o `.wasm`, que não se constrói nesta máquina: trocar a chave sem regerar a saída deixaria a ferramenta e a gravação discordando sem que ninguém pudesse remedir",
-  },
-  "external-engines/symbios/adapter/ferramentas/gerar-terrenos.ts": {
-    chaves: { area_ha: 1 },
-    motivo:
-      "grava o ÍNDICE das entradas do LAB-01 (`docs/terrenos/indice.json`), não uma medição em `docs/provas/`; regerá-lo reescreve os quatro terrenos de prova",
   },
 };
 
@@ -202,6 +200,23 @@ describe("§7 · as ferramentas gravam em metros", () => {
     const medir = readFileSync(join(RAIZ, "external-engines/testfit/ferramentas/medir.ts"), "utf8");
     expect(lab50).toMatch(/areaDaGleba_m2:/);
     expect(medir).toMatch(/area_m2: n2\(entrada\.gleba\.area_m2\)/);
+  });
+
+  test("o índice dos terrenos de prova grava metro quadrado, e a ferramenta dele saiu da exceção (LAB-195)", () => {
+    const FERRAMENTA = "external-engines/symbios/adapter/ferramentas/gerar-terrenos.ts";
+    expect(FERRAMENTA in EXCECOES_NO_CODIGO, "a exceção saiu no LAB-195 (D423)").toBe(false);
+    expect(chavesForaDoMetroNoCodigo(readFileSync(join(RAIZ, FERRAMENTA), "utf8"))).toEqual([]);
+    const indice = JSON.parse(readFileSync(join(RAIZ, "docs/terrenos/indice.json"), "utf8")) as {
+      terrenos: { arquivo: string; area_m2: number }[];
+    };
+    expect(chavesForaDoMetroNoJson(indice)).toEqual([]);
+    expect(indice.terrenos.length).toBe(4);
+    for (const t of indice.terrenos) {
+      const terreno = JSON.parse(readFileSync(join(RAIZ, t.arquivo), "utf8")) as {
+        features: { properties: { areaCalculada_m2?: number } }[];
+      };
+      expect(t.area_m2, t.arquivo).toBe(terreno.features[0]!.properties.areaCalculada_m2!);
+    }
   });
 });
 

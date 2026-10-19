@@ -4,7 +4,7 @@
     {
       "id": "pequeno",
       "arquivo": "docs/terrenos/pequeno.geojson",
-      "area_ha": 0.045,
+      "area_m2": 450,
       "vertices": 4,
       "perimetro_m": 87.46,
       "curvas": 27,
@@ -16,7 +16,7 @@
     {
       "id": "completo",
       "arquivo": "docs/terrenos/completo.geojson",
-      "area_ha": 141.758,
+      "area_m2": 1417577.87,
       "vertices": 20,
       "perimetro_m": 5228.32,
       "curvas": 1060,
@@ -28,7 +28,7 @@
     {
       "id": "sintetico-10ha-plano",
       "arquivo": "docs/terrenos/sintetico-10ha-plano.geojson",
-      "area_ha": 10,
+      "area_m2": 100000,
       "vertices": 10,
       "perimetro_m": 1338.3,
       "curvas": 204,
@@ -40,7 +40,7 @@
     {
       "id": "sintetico-50ha-ondulado",
       "arquivo": "docs/terrenos/sintetico-50ha-ondulado.geojson",
-      "area_ha": 50,
+      "area_m2": 500000,
       "vertices": 14,
       "perimetro_m": 2919.79,
       "curvas": 575,
