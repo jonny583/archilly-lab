@@ -226,7 +226,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // E 122 no LAB-191, com a `a-pagina-do-adaptador.test.ts` — o `git` desta casa, a página do adaptador do Symbios, o
     // `index.ts`, o `recorte.ts` e o `contrato.ts` dele, a medição do LAB-01 e o `tracer.rs` do upstream; nenhum clone (a
     // pergunta ao Generate mora na `a-pagina-do-adaptador-com-clone.test.ts`, fora desta lista).
-    expect(lista).toHaveLength(122);
+    // E 123 no LAB-195, com a `os-terrenos-se-regeram.test.ts` — o `git` desta casa, `docs/terrenos/` e a ferramenta
+    // `gerar-terrenos.ts` do adaptador, rodada no Node numa pasta temporária; nenhum clone.
+    expect(lista).toHaveLength(123);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
