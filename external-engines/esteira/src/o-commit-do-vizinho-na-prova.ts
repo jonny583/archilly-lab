@@ -75,7 +75,9 @@
  * commits, `src/retrato-do-lab18.ts`) e a do LAB-78 (o Generate, numa janela **aberta** — do contrato v2 até
  * onde se mediu —, `src/retrato-do-lab78.ts`; LAB-200, D428). E as duas do diagnóstico de relevo do LAB-07 (o
  * Generate, numa janela **aberta** — do P43 na tela até onde se mediu —, `src/retrato-do-lab07-relevo.ts`;
- * LAB-201, D429): cinco provas, seis silêncios.
+ * LAB-201, D429). E as cinco do `medir.ts` do LAB-07 (o motor e o Generate, em duas janelas **fechadas** — o
+ * motor de 10/09 a 14/09, o Generate do contrato v1 ao último antes do v2 —, `src/retrato-do-lab07-medir.ts`;
+ * LAB-202, D430): dez provas, dezesseis silêncios.
  */
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, normalize, relative, sep } from "node:path";
@@ -512,6 +514,11 @@ export function conferirOsCalados(
 export const OS_ACHADOS_AO_LADO: Readonly<Record<string, Readonly<Record<string, string>>>> = {
   "LAB-07/diagnostico-relevo.json": { [GENERATE]: "src/retrato-do-lab07-relevo.ts" },
   "LAB-07/diagnostico-relevo.txt": { [GENERATE]: "src/retrato-do-lab07-relevo.ts" },
+  "LAB-07/ensaio-47ha.saida.json": { [MOTOR]: "src/retrato-do-lab07-medir.ts", [GENERATE]: "src/retrato-do-lab07-medir.ts" },
+  "LAB-07/geo-antonina.saida.json": { [MOTOR]: "src/retrato-do-lab07-medir.ts", [GENERATE]: "src/retrato-do-lab07-medir.ts" },
+  "LAB-07/lab01-50ha-ondulado.saida.json": { [MOTOR]: "src/retrato-do-lab07-medir.ts", [GENERATE]: "src/retrato-do-lab07-medir.ts" },
+  "LAB-07/medicoes.json": { [MOTOR]: "src/retrato-do-lab07-medir.ts", [GENERATE]: "src/retrato-do-lab07-medir.ts" },
+  "LAB-07/medir.txt": { [MOTOR]: "src/retrato-do-lab07-medir.ts", [GENERATE]: "src/retrato-do-lab07-medir.ts" },
   "LAB-18/contrato-v2.json": { [MOTOR]: "src/retrato-do-lab18.ts" },
   "LAB-78/setimo-mecanismo.json": { [GENERATE]: "src/retrato-do-lab78.ts" },
   "LAB-48/violacoes-do-motor-padrao.json": { [MOTOR]: "src/fotografia-do-lab48.ts", [GENERATE]: "src/fotografia-do-lab48.ts" },
