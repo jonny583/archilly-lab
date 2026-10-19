@@ -4245,3 +4245,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a LAB-
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · despertador-sem-item — o disparo das 19:06 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-203, do disparo de 18:06)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo das 19:06 (observado na listagem das tarefas agendadas, lida e não alterada: "fired_at 19:06:05 UTC"); caixa só com o 900, contada na origin/main às 19:07; a tarefa da lista que o 900 mandava pegar (a seguinte das caladas que roda aqui sem o .wasm: a LAB-30/guarda-da-ida.json) já estava com a sessão do disparo de 18:06, que só enviou às 19:07 (daeee01, o LAB-203). O fetch das 19:07 ainda não a tinha, e a listagem já dava esta sessão como o last_run da rotina, então a outra mão não se via. O meu saiu repetido e NÃO foi enviado. Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm (ausente: o rustup desta máquina não alcança static.rust-lang.org); esteira 2 695 aprovadas e as 9 de sempre (o .wasm), testfit 17 de 17 — a primeira passada deu 19 a mais porque o clone do Generate desta máquina não tinha o zod (ignorado pelo git dele; copiado da esteira, git status limpo). Vizinhos na ponta da origin/main e limpos.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida bateu com a do LAB-203 por outro caminho: com o Lab em c8a1013, a prova se refaz byte a byte com o motor nos 27 commits de d2f71e4 (13/09) a 3fdb8ca (o último que toca src/lib/lab) e com o Generate nos 68 de 22502b3 (10/09) a 0297934 (o último que toca src/lib), e nas duas pontas de hoje; antes, ela não monta (o motor sem contrato/tipos.ts, o Generate sem import/parcelamento-externo.ts). O corpo de rodarMotor, medirSobras e montarParcelamentoExterno lançando na cópia: igual; o topo de api.ts ou de sobras.ts lançando: não roda; a ida do Lab sem a via desenhada: 148 linhas. Carregar não é chamar — o mesmo achado.
+Achados para outros apps ou Central: para a direção — quarto choque de despertadores no dia (18:05/19:05). Desta vez a espera do LAB-203 não servia: a outra mão ainda não tinha enviado nada que dissesse qual tarefa era a dela, e a listagem só mostra o último disparo. Não toquei em despertador nenhum (ligar, desligar e o intervalo são da direção). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o candidato é o que o LAB-203 deixou no relatório dele (a LAB-37/testada-de-frente.json, com o veneno primeiro).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
