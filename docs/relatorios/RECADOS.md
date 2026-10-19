@@ -4167,3 +4167,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a do L
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-200 — item 900 (a dívida própria): a prova do LAB-78 calava o Generate — achado rodando a ferramenta de então, e é uma janela aberta
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-200 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main; o pull do disparo recusou no clone raso e a receita do LAB-116 o desrasou); fui à dívida própria, pelo candidato que o LAB-199 deixou no relatório dele: a do LAB-78, a outra pela metade, espécie mensagem fixa que afirma estado sem perguntar. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: VERDE-DO-RECADO
+Feito: a prova do LAB-78 escreve o motor (6cf6396) e cala o Generate, que roda ali na ponte, na divisa e na faixa. Rodada em clones locais, Lab em cdc71da e a ferramenta inteira: de 5b70e5f (02/10, o contrato v2) até a ponta de hoje (704a57a) a prova se refaz valor a valor — os 17 commits que mudam o fecho dos import da ferramenta, cobrindo os 229 —; em 8223873 e antes a ponte recusa e a ferramenta nem roda; com o motor trocado por 4181e95, 7 diferenças (os dentes). Não há borda de depois. Escrito ao lado em src/retrato-do-lab78.ts (a prova não se tocou, D182); trava nova retrato-do-lab78, 6 testes, duas mutações acusadas; achados ao lado: 4 de 71 (D428). Detalhe em docs/relatorios/LAB-200.md.
+Achados para outros apps ou Central: a todas — a janela pode não ter borda de depois, e isso também é medição: escreve-se "daqui até onde se mediu", nunca um commit. A data que acerta por indiferença não é a data que acerta (a ponta do instante refaz a prova, como as outras 228). E para cobrir uma janela inteira sem rodar todos os commits, conte os que mudam o fecho dos import da ferramenta: 17 de 229. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: as outras 39 caladas do retrato, uma por rodada, a mais velha primeiro; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
