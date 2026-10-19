@@ -13,17 +13,28 @@
  *   → GeoJSON em WGS84             (geojson.ts)
  * ```
  *
- * # O que este adaptador NÃO faz, de propósito
+ * # O que `gerarRedeViaria` NÃO faz, de propósito
  *
- * - **Não recorta pela gleba.** Mede quanto ficou fora e registra; o recorte é o
- *   LAB-02. Recortar aqui misturaria duas perguntas: "o motor devolve geometria
+ * Até o LAB-192 este título dizia ~~O que este adaptador NÃO faz~~: o LAB-02 pôs
+ * o recorte neste mesmo arquivo (a linha `export { recortarPelaGleba … }` abaixo,
+ * `d619067`) e o cabeçalho não mudou. Valem para a função que gera:
+ *
+ * - **Não recorta pela gleba.** Mede quanto ficou fora e registra. O recorte é
+ *   outra função deste adaptador, `recortarPelaGleba` (`./recorte.ts`, LAB-02),
+ *   que a esteira chama depois (`external-engines/esteira/src/motores/symbios.ts`).
+ *   Recortar aqui misturaria duas perguntas: "o motor devolve geometria
  *   utilizável?" e "o recorte funciona?".
  * - **Não aplica restrições.** APP, faixa não edificável e hidrografia viajam
- *   como carga e aparecem no diagnóstico. O motor não sabe o que são, e não deve.
+ *   como carga e aparecem no diagnóstico. O motor não sabe o que são, e não deve;
+ *   quem as usa é o `recortarPelaGleba`, pelo campo `desconta`.
  * - **Não parcela em lotes.** O LAB-00 estabeleceu que `BuildingLot` é pegada de
  *   edificação e que as parcelas são calculadas e descartadas pelo motor. Lote é
  *   do Archilly.
- * - **Não valida nem julga.** Validator é LAB-02, Judge é LAB-03.
+ * - **Não valida nem julga.** ~~Validator é LAB-02, Judge é LAB-03~~ (escrito no
+ *   LAB-01, riscado no LAB-192): o Validator e o Judge são os do Generate, e o
+ *   Lab não os reimplementa (`CLAUDE.md` §4, D20). Quem os chama é a esteira.
+ *
+ * Conferido por `external-engines/esteira/src/a-pagina-do-adaptador.ts` (LAB-192).
  */
 import {
   PARAMETROS_PADRAO,

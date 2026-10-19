@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T04:26:52.300Z",
+  "quando": "2026-10-19T05:21:57.561Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1115,12 +1115,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 04:06:29 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-191), dívida própria (mensagem fixa que afirma estado sem perguntar e número digitado à mão: a página do adaptador do Symbios — o estado do nascimento, o mapa sem o recorte, o juiz que dizia ser do Lab, e um nome do Generate que nunca existiu)",
         "emVazio": false
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "≤ 05:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 05:06:21 (antes de qualquer comando desta sessão)",
+        "rodada": "item 900 (LAB-192), dívida própria (mensagem fixa que afirma estado sem perguntar: o cabeçalho de `src/index.ts` do adaptador — o título do que não faz dito do adaptador, e o juiz que dizia ser do Lab)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 138,
+      "noRegistro": 139,
       "observados": 39,
-      "derivados": 53,
+      "derivados": 54,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 5
