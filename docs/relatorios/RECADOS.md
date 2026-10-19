@@ -4258,3 +4258,16 @@ Próximo na fila: a caixa só tem o 900; o candidato é o que o LAB-203 deixou n
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-204 — item 900, a dívida própria: a testada de frente do LAB-37 calava o motor e o Generate — e o motor que a fez é o de 14/09
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-204 (item 900) ===
+Estado: disparo de ≤ 20:06 (derivado do reflog); caixa só com o 900, contada na origin/main; nenhuma outra mão na lista; fui à dívida própria, pelo candidato que o LAB-203 deixou no relatório dele (docs/relatorios/LAB-203.md §9): a LAB-37/testada-de-frente.json, espécie mensagem fixa que afirma estado sem perguntar.
+Feito: com a ferramenta de então (Lab 1ff6335), a ponta da origem na hora da prova (motor a95d03d, Generate cae6a2f) NÃO refaz — 44 linhas. Rodados os 28 commits do motor que tocam src/lib/lab/ e os 18 estados do fecho do Generate: refaz byte a byte só com o motor de fe0c7a1 a 244aae3 (14/09, janela fechada, o instante fora) e o Generate de 5b70e5f (contrato v2) até hoje. Escrito ao lado em src/retrato-do-lab37.ts; trava retrato-do-lab37 (cantos, instante, três bordas; duas mutações acusadas); achados ao lado 20 de 71. D432; detalhe em docs/relatorios/LAB-204.md; mesclado por git direto (D29); conferido aqui, não no GitHub.
+Achados para outros apps ou Central: a todas — a ponta da origem na hora de uma prova é hipótese, não medição: o clone vizinho de quem gravou a do LAB-37 estava três semanas atrás da origem (coerente com o 4181e95 que o LAB-60 declara), e só rodar a ferramenta mostrou. Prova que declara o commit do vizinho poupa a arqueologia.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a LAB-40/fixtures.json (cala o motor e o Generate), instante primeiro; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

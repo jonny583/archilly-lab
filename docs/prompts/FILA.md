@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-204 · item 900 — a dívida própria: a testada de frente do LAB-37 calava o motor e o Generate — e o motor que a fez é o de 14/09, não o da origem daquele dia — ✅ **feito em 19/10/2026** (D432)
+
+O LAB-203 deixou o candidato escrito: a seguinte do retrato cuja ferramenta não carrega o `.wasm`, a `LAB-37/testada-de-frente.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `1ff6335`, a ponta da origem na hora da prova (motor `a95d03d`, Generate `cae6a2f`) **não** refaz (44 linhas); rodados os 28 commits do motor que tocam `src/lib/lab/` e os 18 estados do fecho do Generate: o motor refaz só de `fe0c7a1` a `244aae3` (14/09) — janela fechada, o instante fora —, o Generate de `5b70e5f` (o contrato v2) até hoje. Escrito ao lado em `src/retrato-do-lab37.ts`; trava `retrato-do-lab37` no verde completo; `OS_ACHADOS_AO_LADO` passa a *20 de 71*.
+
+**Origem:** [`../relatorios/LAB-204.md`](../relatorios/LAB-204.md), decisão **D432**.
+
 ### LAB-203 · item 900 — a dívida própria: a guarda da IDA do LAB-30 calava o motor e o Generate — e, medido, não chama nenhum dos dois: nenhum commit de vizinho decide a prova — ✅ **feito em 19/10/2026** (D431)
 
 O LAB-202 deixou o candidato escrito: a seguinte do retrato depois do LAB-07, a mais velha que esta máquina rode. Do LAB-08 ao LAB-28 as ferramentas carregam o `.wasm` do Symbios (ficaram, com o motivo); a seguinte é a `LAB-30/guarda-da-ida.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `c8a1013` e cada vizinho em todos os commits de primeiro pai (271 e 1 251), a prova se refaz byte a byte com qualquer motor desde `d2f71e4` e qualquer Generate desde `22502b3`, até a ponta de hoje; antes, a ferramenta não monta. Com as 1 099 funções de topo dos dois envenenadas na cópia, sai igual: a ferramenta carrega os vizinhos e não os chama. Escrito ao lado em `src/retrato-do-lab30.ts`; trava `retrato-do-lab30`; achados ao lado 18 de 71.

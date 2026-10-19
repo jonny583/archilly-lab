@@ -14582,3 +14582,50 @@ prova não mede as 40 outras — fica dito como hipótese, não como conserto).
 
 > **CARREGAR NÃO É CHAMAR.** O fecho dos `import` diz o que a ferramenta PODE rodar; só envenenando o vizinho se sabe o que ela RODA.
 > Silêncio sobre o que não decide nada é verdadeiro e de graça — e só se sabe que é de graça depois de medir.
+
+## D432 · A TESTADA DE FRENTE DO LAB-37 CALAVA O MOTOR E O GENERATE — e, medido, o motor que a fez NÃO é o da origem daquele dia: é o de 14/09, três semanas mais velho · 19/10/2026
+**Contexto:** item 900 (LAB-203 → LAB-204). A caixa só tinha o `900`, e o LAB-203 deixou o candidato escrito: *a seguinte do
+retrato cuja ferramenta não carrega o `.wasm`, a `LAB-37/testada-de-frente.json`, com o veneno primeiro*. A prova foi gravada uma
+vez (`1ff6335`, 04/10/2026, 11h48 UTC, carimbo fixo); a ferramenta `ferramentas/lab37.ts` roda a esteira do motor e passa o plano
+pelo contrato e pelas regras do Generate (16 arquivos do motor e 17 do Generate no fecho), e a prova não escreve commit de nenhum
+— dois silêncios. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**O veneno não foi preciso:** a ferramenta chama `rodarEsteira`, que roda o motor, e a primeira rodada no instante já mudou a
+prova — carregar aqui é chamar.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos), o Lab em `1ff6335`, a prova byte a byte (cada rodada,
+de um a dois minutos):
+
+```
+instante (as pontas da origem às 11h48 UTC de 04/10: motor a95d03d, Generate cae6a2f): 44 linhas mudam — a prova NÃO se refaz
+motor (28 commits de primeiro pai que tocam src/lib/lab/, com o Generate do instante):
+  0ece0b1 (10/09): a ferramenta não roda — falta src/lib/lab/contrato/tipos.ts
+  d2f71e4 (13/09) · 66ece91 (14/09) · 648ae78 (14/09, T03): acusam
+  fe0c7a1 (14/09, T02) · 4181e95 · 244aae3 (14/09, o fechamento): IGUAL, byte a byte
+  2160fce (15/09, T07) · ee7c438: acusam; 38f9943 (19/09) … fcbd995 (hoje), 19 commits: as MESMAS 44 linhas do instante
+Generate (o fecho tirado nos 40 commits que tocam src/lib/ de 8223873 à ponta: 18 estados distintos, rodados todos, motor 244aae3):
+  8223873 (02/10) e antes: acusa — a gleba antonina-com-via sai sem plano
+  5b70e5f (02/10, contrato v2) … 735535d (hoje): IGUAL — os 17 estados
+os quatro cantos (fe0c7a1/244aae3 × 5b70e5f/735535d): iguais
+```
+
+A prova de 04/10 descreve **o motor de 14/09**. É coerente com o que o LAB-60 (07/10) declara do disco do Lab: o motor em
+`4181e95`, dentro da janela — coerência, não medição.
+
+**Decidido:**
+
+1. `src/retrato-do-lab37.ts`: o Lab, um commit; `A_JANELA_DO_MOTOR` (fechada, com as duas bordas e o instante FORA, dito em
+   `oInstanteEstaDentro: false`), `A_JANELA_DO_GENERATE` (aberta, a borda de antes, o instante dentro), `OS_COMMITS_DO_MOTOR`. A
+   prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab37.test.ts`, **no verde completo**: confere que o instante escrito é a ponta da origem na hora
+   da prova; roda a ferramenta de então nos quatro cantos (iguais), no instante (acusa) e nas três bordas (acusam — os dentes são
+   commits de verdade). Seis testes, ~7 minutos; duas mutações acusadas (o começo do motor trocado pela borda: 1 reprova; o
+   instante trocado pelo fim da janela: 3).
+3. `OS_ACHADOS_AO_LADO` ganha a prova; a frase passa a *"achados ao lado: 20 de 71 silêncios"*.
+
+**Descartado:** regravar a prova com o motor de hoje (D182 — e mudaria o sujeito: o LAB-37 mediu o motor de 14/09); o veneno
+(a primeira rodada já respondeu que a ferramenta chama); rodar todos os 236 commits de primeiro pai do Generate (o fecho por
+conteúdo diz os mesmos 18 estados); dentes por troca na cópia (as três bordas são commits de verdade que acusam).
+
+> **O INSTANTE É HIPÓTESE, NÃO MEDIÇÃO.** Nas três anteriores a ponta da origem caiu dentro da janela e se escreveu como
+> coerência; aqui ela cai fora, e é a ferramenta rodada que diz. O disco de quem gravou pode estar semanas atrás da origem.
