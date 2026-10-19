@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-188 · item 900 — a dívida própria: a página da bancada — o que a pasta carrega, quem roda cada arquivo, e a medição de 10/09 em três lugares — ✅ **feito em 19/10/2026** (D416)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. O LAB-187 deixou a página da bancada (`external-engines/symbios/adapter/ferramentas/navegador/README.md`) para outra rodada, contada como *"sem leitor no código"* — e ela tem um: o `rolagem-no-celular.ts` lê o bloco de 10/09 dela, pelo caminho montado em pedaços. Na dívida própria, espécies **mensagem fixa que afirma estado sem perguntar** e **número digitado à mão**: a página, do LAB-01 (10/09), descreve a pasta como era naquele dia — `index.html`, `prova.js` e a receita manual — e não nomeia os dois arquivos que o `conferir.sh` roda nela (`prova-automatica.ts`, LAB-31; `rolagem-no-celular.ts`, LAB-182); e os cinco números de 10/09 moram em três lugares (o bloco da página, o `DE_10_09` do `prova-automatica.ts`, que é o portão da prova automática, e o `medidoEm_10_09_2026` de `docs/provas/LAB-31/navegador.json`), sem trava entre eles. Medido: os três batem; *"não importa o adaptador"* é verdade; o marshalling confere. A página passa a listar a pasta entre marcas e a dizer os três lugares; trava `src/a-pagina-da-bancada.ts` (50 testes, sem clones), seis perguntas — a pasta nos dois sentidos, quem o `conferir.sh` roda, os três lugares campo a campo, o import, o marshalling, os caminhos; a régua acusou seis problemas antes; 2 052 → 2 102. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-188.md`](../relatorios/LAB-188.md).
+
 ### LAB-187 · item 900 — a dívida própria: a pasta de testes do Symbios — "vazio nesta fase", e o adaptador nasceu no dia seguinte — ✅ **feito em 19/10/2026** (D415)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**: dos 14 `README.md` fora do `upstream/`, três sem leitor no código; o de `external-engines/symbios/tests/`, do LAB-00 (09/09), dizia *"Vazio nesta fase"*, que o adaptador *"só nasce na Etapa C"* e que os testes *"serão escritos aqui"* — falso desde o LAB-01 (o adaptador) e o LAB-02 (os testes dele, na esteira). Por LUGAR: a pasta só com a página; 11 arquivos em `adapter/src/`; dos 155 testes da esteira, 8 carregam o `.wasm`; os quatro nomes da especificação em nenhum dos 161 testes e `.rs` fora do `upstream/`. A página passa a dizer onde os testes moram, com a lista dos oito conferida nos dois sentidos, e que a correspondência com os quatro nomes não está feita; trava `src/a-pasta-de-testes-do-symbios.ts` (30 testes, sem clones); a régua acusou catorze problemas antes; 2 022 → 2 052. Detalhe em [`../relatorios/LAB-187.md`](../relatorios/LAB-187.md).
@@ -2171,7 +2175,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 2052 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 2102 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

@@ -4011,3 +4011,16 @@ Próximo na fila: a caixa só tem o 900; as propostas do LAB-187, do LAB-186, do
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-188 — item 900 (a dívida própria): a página da bancada — o que a pasta carrega, quem roda cada arquivo, e a medição de 10/09 em três lugares
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-188 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar e número digitado à mão): a página da bancada do navegador, que o LAB-187 deixou para outra rodada. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2102 de 2102 (119 de 119 arquivos); esteira 2454 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos com git status limpo.
+Feito: a external-engines/symbios/adapter/ferramentas/navegador/README.md descrevia a pasta do LAB-01 e não nomeava os dois arquivos que o conferir.sh roda nela (prova-automatica.ts, LAB-31; rolagem-no-celular.ts, LAB-182); e os cinco números de 10/09 moravam em três lugares — o bloco da página, o DE_10_09 do prova-automatica.ts (o portão da prova automática) e a prova gravada do LAB-31 —, sem trava. Os três batem. A página lista a pasta entre marcas (nos dois sentidos, e quem o conferir.sh roda) e diz os três lugares; trava a-pagina-da-bancada (50 testes, sem clones); a régua acusou seis problemas antes; 2052 → 2102 (D416). E a conta do LAB-187 errou: a página tem leitor (o rolagem-no-celular.ts, pelo caminho montado em pedaços). Detalhe em docs/relatorios/LAB-188.md.
+Achados para outros apps ou Central: a todas — quem lê uma página monta o caminho em pedaços (join(AQUI, "README.md")), e a busca pelo nome inteiro não o vê; e número que virou portão mora em mais de um lugar (a página, a constante que compara, a prova gravada): ou um lê do outro, ou alguém pergunta se dizem o mesmo. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as propostas do LAB-187, do LAB-186, do LAB-185 e as antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

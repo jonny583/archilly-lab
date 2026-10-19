@@ -217,7 +217,9 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // E 117 no LAB-186, com a `o-estado-num-lugar-so.test.ts` — os `.md` que o `git` desta casa carrega; nenhum clone.
     // E 118 no LAB-187, com a `a-pasta-de-testes-do-symbios.test.ts` — o `git` desta casa, a página da pasta, os testes
     // da esteira e a especificação; nenhum clone.
-    expect(lista).toHaveLength(118);
+    // E 119 no LAB-188, com a `a-pagina-da-bancada.test.ts` — o `git` desta casa, a página da bancada, o `conferir.sh`, o
+    // `prova-automatica.ts` e a prova gravada do LAB-31; nenhum clone.
+    expect(lista).toHaveLength(119);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
