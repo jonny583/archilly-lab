@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T13:43:43.854Z",
+  "quando": "2026-10-19T15:01:18.302Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1187,17 +1187,25 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A hora veio no aviso do próprio disparo, lido por esta sessão (*\"fired at 13:14:18 UTC\"*, agendado para 13:05); o `reflog` do clone registra a ponta posta no disco às 13:15:32 — e o `pull` do disparo recusou no clone raso; desrasado, a `main` era ancestral da origem e andou",
         "rodada": "item 900 (LAB-200), dívida própria (mensagem fixa que afirma estado sem perguntar: a prova do LAB-78 roda o Generate e não escreve o commit dele — achado rodando a ferramenta de então sobre a história do Generate, uma janela aberta, e escrito ao lado)",
         "emVazio": false
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "14:07",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 14:09 — e a tarefa da lista que ele mandava pegar (a do LAB-78) **já estava em execução noutra sessão**, a do disparo de 13:14, que só enviou às 14:18 — então **sem item para esta sessão**: não havia o que ela pudesse pegar sem repetir a outra. A hora veio no aviso do próprio disparo, lido por esta sessão (*\"fired at 14:07:22 UTC\"*, agendado para 14:05); o `reflog` do clone registra a ponta posta no disco às 14:09:19 — e o `pull` do disparo recusou no clone raso, e a receita do LAB-116 o desrasou. **Duas mãos no repositório ao mesmo tempo**: o trabalho desta sessão saiu repetido, achou a mesma janela, e não foi enviado",
+        "rodada": "despertador-sem-item (o LAB-200 refeito por outra mão e não enviado: a mesma janela, a mesma borda e o mesmo controle do motor — nada novo)",
+        "emVazio": true
       }
     ],
     "declarados": {
-      "noRegistro": 147,
-      "observados": 44,
+      "noRegistro": 148,
+      "observados": 45,
       "derivados": 57,
       "emLote": 7,
       "reconstruidos": 39,
-      "emVazio": 5
+      "emVazio": 6
     },
-    "emVazio": 5,
+    "emVazio": 6,
     "temAFraseDoQueDecide": true
   },
   "oQueOPrimeiroDiaJaMOSTROU": "ZERO em vazio, e DOIS disparos acumulados — a caixa não ficou sem abastecimento; a RODADA é mais longa que o intervalo. A conta não nasceu para confirmar a suspeita",
@@ -1213,13 +1221,14 @@
   },
   "osDaCAIXA": {
     "oQue": "recados da mesma classe da abertura em diante. NÃO são precedente: são o parceiro do cruzamento, e cada um tem de ter a sua linha em vazio na conta",
-    "quantos": 5,
+    "quantos": 6,
     "dias": [
       "09/10/2026",
       "09/10/2026",
       "10/10/2026",
       "10/10/2026",
-      "10/10/2026"
+      "10/10/2026",
+      "19/10/2026"
     ]
   },
   "oQuartoNumeroQueFicaDEFORA": {
