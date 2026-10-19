@@ -14031,3 +14031,36 @@ escrito no teste — inclusive dentro da página de antes, guardada como texto �
 > verdadeira sobre ela; o que mudou foi o caminho de verdade, noutra pasta, com outra receita. Quem lê a página da sonda
 > precisa saber que é sonda, e onde está o que venceu.
 
+
+## D418 · OS `rust-toolchain.toml` DE `archilly/` — cópias do upstream, com o comentário que fala do CI de lá · 19/10/2026
+**Contexto:** item 900 (LAB-189 → LAB-190). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse
+ninguém. O LAB-189 (D417) descartou editar o comentário em inglês do `rust-toolchain.toml` e o deixou como candidato a
+rodada própria. Espécie da dívida própria: mensagem fixa que afirma estado sem perguntar. As três cópias de
+`external-engines/symbios/archilly/` (`probe/`, `wasm-probe/`, `wasm/`) são byte a byte o do `upstream/`, e o comentário
+afirma o CI (*"CI reads THIS FILE via actions-rust-lang/setup-rust-toolchain"*), a máquina (*"the local gate ran
+1.96.1"*) e o portão (`clippy -D warnings`) do upstream; a página do motor nada dizia deles.
+
+**Medido** por LUGAR: quatro `rust-toolchain.toml` no `git` (o do `upstream/` e as três cópias, iguais por `cmp`); o
+`verde.yml` daqui não usa `actions-rust-lang/setup-rust-toolchain` — o passo que compila o `.wasm` roda `rustup` e
+`cargo build` com `working-directory` em `archilly/wasm`, e o `rustup` lê o arquivo pela pasta; na máquina das sessões o
+`rustc` é o 1.97.0 e, em `archilly/wasm`, o `rustup` tenta baixar a 1.96.1 e o proxy recusa o `static.rust-lang.org`;
+nenhuma rotina compila `probe/` nem `wasm-probe/`; nada aqui roda `clippy`.
+
+**Decidido:**
+
+1. A página `external-engines/symbios/README.md` ganha a seção dos toolchains: a lista entre marcas, a cópia byte a byte
+   e por quê, de quem é o comentário (com as frases citadas), quem lê o arquivo aqui e em que pasta, os dois projetos que
+   nada compila, e a medição datada da 1.96.1 recusada. Os três arquivos não se tocam.
+2. A trava `external-engines/esteira/src/os-toolchains-de-archilly.ts` e `tests/os-toolchains-de-archilly.test.ts` (33
+   testes, sem clones, no portão): a lista nos dois sentidos; os bytes; o `channel`; as frases citadas contra o comentário;
+   a ação ausente contra o `verde.yml`, nos dois sentidos; a pasta do `cargo build` e os projetos que nada compila; os
+   caminhos. A página de antes reprova (*sem a seção*). O portão passa de 120 a 121 arquivos e de 2 162 a 2 195 travas.
+
+**Descartado:** editar as cópias (a mesma razão da D417: a cópia inteira é a garantia de que a versão não deriva);
+escrever na página da sonda (ela fala de uma pasta, os toolchains são três e o upstream); cobrar cada frase do comentário
+(a régua cobra as que a página cita, e diz que o resto não alcança); afirmar o que o runner do GitHub faz (não testado:
+o CI está desligado desde 08/10/2026).
+
+> **ARQUIVO COPIADO DE FORA TRAZ O ESTADO DE FORA.** A cópia byte a byte é a garantia, e por isso o comentário dela
+> afirma o CI, a máquina e o portão de quem a escreveu. Não se edita a cópia; diz-se, ao lado, de quem é cada afirmação —
+> e uma régua confere que o citado está lá e que o negado não está aqui.

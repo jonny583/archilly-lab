@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-190 · item 900 — a dívida própria: os `rust-toolchain.toml` de `archilly/` — cópias do upstream, com o comentário que fala do CI de lá — ✅ **feito em 19/10/2026** (D418)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. O LAB-189 deixou como candidato a rodada própria o comentário em inglês dos `rust-toolchain.toml` de `external-engines/symbios/archilly/`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**: as três cópias são byte a byte o do `upstream/`, e o comentário afirma o CI (*"CI reads THIS FILE via actions-rust-lang/setup-rust-toolchain"*), a máquina (*"the local gate ran 1.96.1"*) e o `clippy` de lá; o `verde.yml` daqui não usa a ação (quem lê o arquivo é o `rustup`, pela pasta `archilly/wasm`), a máquina das sessões tem o 1.97.0 e o proxy recusa a 1.96.1, e nada roda `clippy`. A página do motor (`external-engines/symbios/README.md`) ganha a seção que lista as cópias entre marcas e diz de quem é o comentário; os arquivos não se tocam; trava `src/os-toolchains-de-archilly.ts` (33 testes, sem clones), sete perguntas; a página de antes reprova; 2 162 → 2 195. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-190.md`](../relatorios/LAB-190.md).
+
 ### LAB-189 · item 900 — a dívida própria: a página da sonda — o que a pasta carrega, o que a sonda é hoje, e os números do LAB-00 em dois lugares — ✅ **feito em 19/10/2026** (D417)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. O LAB-188 deixou o `README.md` do `wasm-probe/` (`external-engines/symbios/archilly/wasm-probe/README.md`), o último fora do `upstream/` sem leitor no código, para outra rodada. Na dívida própria, espécies **mensagem fixa que afirma estado sem perguntar** e **número digitado à mão**: a página, do LAB-00 (09/09), se apresenta como a receita do `wasm32` com o `getrandom` em `wasm_js` e cala que, desde o LAB-01, o `.wasm` carregado é o da ponte `../wasm/`, pelo backend `custom`, porque o `wasm_js` arrasta `wasm-bindgen` e `js-sys`; não nomeia os quatro arquivos da pasta; e os números do LAB-00 (162 696 bytes, 12,54 s) moram também na seção 10 de `docs/SYMBIOS_ANALYSIS.md`, sem trava. Medido: nenhuma afirmação era falsa — a cadeia `rand 0.9` → `getrandom 0.3`, o upstream por caminho, nenhum pacote nativo e os dois lugares conferem. A página passa a dizer o que a sonda é hoje e a listar a pasta entre marcas; trava `src/a-pagina-da-sonda.ts` (60 testes, sem clones), nove perguntas; a régua acusou dez problemas antes; 2 102 → 2 162. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-189.md`](../relatorios/LAB-189.md).
@@ -2179,7 +2183,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 2162 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 2195 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
