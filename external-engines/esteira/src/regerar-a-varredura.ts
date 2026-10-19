@@ -48,8 +48,10 @@
  * **O segundo sentido, até o LAB-196, era só este parágrafo:** nenhum teste perguntava a uma fotografia se
  * o motivo dela se sustentava. Desde o LAB-196 (D424) **uma** é perguntada — a do LAB-60, pela trava
  * `tests/fotografia-no-commit-declarado.test.ts`, que roda a ferramenta no commit declarado (tem de dar a
- * prova) e na ponta do motor (tem de dar outra coisa). As outras três seguem só com o motivo escrito, e o
- * cabeçalho de `src/fotografia-no-commit-declarado.ts` diz por quê, uma a uma.
+ * prova) e na ponta do motor (tem de dar outra coisa). Desde o LAB-197 (D425) **duas**: a do LAB-48, pela
+ * trava `tests/fotografia-do-lab48.test.ts`, nos três commits que a tiraram (tem de dar a prova) e com o Lab
+ * de hoje (tem de não alcançá-la). As outras duas seguem só com o motivo escrito, e o cabeçalho de
+ * `src/fotografia-no-commit-declarado.ts` diz por quê.
  */
 
 /** A espécie de uma prova, para fins de regeração. */
@@ -115,7 +117,10 @@ export const AS_ESPECIES: readonly ProvaClassificada[] = [
     porque:
       "é o ANTES de uma aferição: as violações do motor no commit em que o defeito foi medido. " +
       "Regerá-la apagaria o lado 'antes' da comparação, que é precisamente o que o D182 proíbe — " +
-      "e ela roda MOTOR, então o universo nem está nesta casa",
+      "e ela roda MOTOR, então o universo nem está nesta casa. Perguntado no LAB-197 (D425): o commit " +
+      "não estava escrito em lugar nenhum, e são TRÊS — Lab 9d28fd7, motor 4181e95, Generate 5b7e9b4 " +
+      "(src/fotografia-do-lab48.ts); neles a ferramenta de então refaz a prova, e a de hoje não a alcança: " +
+      "grava a aferição do LAB-53",
   },
   {
     prova: "LAB-02/completo.saida-cortada.json",
