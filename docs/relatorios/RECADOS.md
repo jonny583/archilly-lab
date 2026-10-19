@@ -4193,3 +4193,16 @@ Próximo na fila: a caixa só tem o 900; o candidato é o que o LAB-200 deixou n
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-201 — item 900 (a dívida própria): o diagnóstico de relevo do LAB-07 calava o Generate — achado rodando a ferramenta de então, e é uma janela aberta
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-201 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main; o pull do disparo recusou no clone raso e a receita do LAB-116 o desrasou; nenhuma outra mão na casa); fui à dívida própria, pelo candidato que o LAB-200 deixou no relatório dele (as 39 caladas, a mais velha primeiro), espécie mensagem fixa que afirma estado sem perguntar. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm; o portão sem clones 2284 de 2284 (123 de 123 arquivos); esteira 2682 aprovadas e as 9 de sempre (o .wasm), eram 2676 e a diferença são os 6 testes novos; testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: as mais velhas do retrato (LAB-02 ao LAB-06) precisam do .wasm do Symbios — o Generate julga ali o que o Symbios gerou — e ficaram, com o motivo; a mais velha que esta máquina roda é o diagnóstico de relevo do LAB-07 (.json e .txt, 25b62e0), que dá as estatísticas do criarModeloRelevo do Generate e não escreve commit nenhum dele. Rodada em clones locais, a ferramenta inteira: de 645a572 (06/09, o P43 na tela) até a ponta de hoje (1ee9459) as duas provas se refazem — os 5 commits que mudam o fecho dos import, cobrindo os 299 —; em 14b6227 e antes a ferramenta nem roda; com o número de vizinhos do modelo trocado de 6 para 7 na cópia, 6 diferenças (os dentes). Não há borda de depois. Escrito ao lado em src/retrato-do-lab07-relevo.ts (as provas não se tocaram, D182); trava nova retrato-do-lab07-relevo, 6 testes, três mutações acusadas; achados ao lado: 6 de 71 (D429). Detalhe em docs/relatorios/LAB-201.md.
+Achados para outros apps ou Central: a todas — a mais velha que se pode medir não é a mais velha: quando o instrumento não existe para o primeiro da lista, mede-se o seguinte e escreve-se o pulo com o motivo, sem tirá-lo da fila. E os dentes vêm de onde a ferramenta enxerga: aqui o motor não roda, então a troca que prova que a comparação vê algo é no Generate, numa cópia, nunca no vizinho. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: as cinco do medir.ts do LAB-07 (calam o motor e o Generate), pelo mesmo caminho; LAB-02 a 06 esperam o .wasm (o rustup segue sem o alvo); as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

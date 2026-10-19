@@ -14454,3 +14454,42 @@ calando).
 
 > **A JANELA PODE NÃO TER A BORDA DE DEPOIS, E ISSO TAMBÉM É MEDIÇÃO.** Quando a ferramenta não distingue o vizinho de um ponto em
 > diante, escreve-se *"daqui até onde se mediu"*, nunca um commit — e a data que acerta por indiferença não é a data que acerta.
+
+## D429 · O DIAGNÓSTICO DE RELEVO DO LAB-07 CALAVA O GENERATE — achado rodando a ferramenta de então, e a janela é ABERTA: do P43 na tela até onde se mediu · 19/10/2026
+**Contexto:** item 900 (LAB-200 → LAB-201). A caixa só tinha o `900`, e o LAB-200 deixou o candidato escrito: *as outras 39
+caladas do retrato, uma por rodada, a mais velha primeiro*. As mais velhas (LAB-02 ao LAB-06) precisam do `.wasm` do Symbios —
+e nelas o Generate julga o que o Symbios gerou, então sem o `.wasm` não há o que rodar; ficam para quando ele existir. A mais
+velha que esta máquina roda é o diagnóstico de relevo do LAB-07: `docs/provas/LAB-07/diagnostico-relevo.json` e `.txt`
+(gravadas uma vez, `25b62e0`, 13/09), que dão as estatísticas do `criarModeloRelevo` do Generate e não escrevem commit nenhum
+dele. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (o vizinho só lido): o Lab em `25b62e0`, o Generate na história de primeiro
+pai da `main` dele, a ferramenta inteira (não carrega o Symbios nem o motor), comparando a `.json` fora os `ms` e a `.txt` fora
+o *"— N ms"*:
+
+```
+14b6227 (06/09, 03h05 UTC) e antes: a ferramenta não roda — o modelo ainda não tem espacamentoDoDado
+645a572 (06/09, 03h16 UTC, P43 na tela) … 1ee9459 (19/10, a ponta de hoje): ZERO, nas duas provas — os 5 estados do fecho dos import, cobrindo os 299 commits
+Generate 22502b3 com o número de vizinhos do modelo trocado de 6 para 7 na cópia: 6 diferenças (os dentes)
+```
+
+A ponta do instante (`22502b3`, 10/09) está dentro — e, como no D428, a data não acerta: a ferramenta é que não distingue nada.
+
+**Decidido:**
+
+1. `src/retrato-do-lab07-relevo.ts`: o Lab, um commit; `A_JANELA_DO_GENERATE` (o começo, o último medido, a borda de antes com o
+   que ela dá, `depois: null`, o do instante dito como coerência); `OS_ESTADOS_DO_FECHO` (os 5); `A_TROCA_DOS_DENTES`;
+   `diferencasForaDoTempo` e `textoForaDoTempo`. As provas não se tocam (D182).
+2. Trava nova, `tests/retrato-do-lab07-relevo.test.ts`, **no verde completo**: monta as duas árvores numa pasta temporária e roda
+   a ferramenta de então no começo, no instante e no último medido (as duas provas iguais), na borda de antes (não refaz) e com a
+   troca dos dentes na cópia do Generate (acusa, e só no bloco dele). Seis testes; três mutações acusadas (o começo trocado pela
+   borda: 3 reprovam; a troca dos dentes anulada: 1 reprova; a comparação sem tirar o `ms`: 3 reprovam).
+3. `OS_ACHADOS_AO_LADO` ganha as duas linhas do LAB-07 (o Generate); a frase passa a *"achados ao lado: 6 de 71 silêncios"*.
+
+**Descartado:** escrever o commit na prova (D182); escrever um commit só, o do instante (a ferramenta não o distingue de 298
+outros); trocar o motor para dar os dentes, como no D428 (o motor não roda aqui — o `campoRelevo` dele está replicado na
+ferramenta); rodar o LAB-02 ao LAB-06 alimentando o Generate com as saídas gravadas do Symbios (seria outra ferramenta, não a de
+então); tirar as duas do retrato (continuam calando).
+
+> **A MAIS VELHA QUE SE PODE MEDIR NÃO É A MAIS VELHA.** A ordem da lista diz qual vem primeiro; a máquina diz qual se mede. O que
+> pula por falta de instrumento fica escrito com o motivo, não some da fila.
