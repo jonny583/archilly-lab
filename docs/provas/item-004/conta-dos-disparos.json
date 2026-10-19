@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T17:38:41.337Z",
+  "quando": "2026-10-19T17:41:05.446Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1268,8 +1268,7 @@
         "reprovou": true,
         "quais": [
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
-          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
-          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO BOM, PRIMEIRO: as rodadas da conta e as dos recados fecham, nos dois sentidos"
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum"
         ]
       },
       {
@@ -1280,7 +1279,6 @@
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
           "item 004 · a conta dos disparos do despertador > a seção diz o que o número vai DECIDIR — o item 004 cobra essa frase",
           "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
-          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO BOM, PRIMEIRO: as rodadas da conta e as dos recados fecham, nos dois sentidos",
           "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove"
         ]
       },
@@ -1293,7 +1291,6 @@
           "item 004 · a conta dos disparos do despertador > toda linha tem a origem declarada, e o vocabulário é FECHADO",
           "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM, PRIMEIRO: as três origens são lidas, a de hífen inclusive",
           "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
-          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO BOM, PRIMEIRO: as rodadas da conta e as dos recados fecham, nos dois sentidos",
           "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove"
         ]
       },
@@ -1304,17 +1301,11 @@
         "quais": [
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
           "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
-          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO BOM, PRIMEIRO: as rodadas da conta e as dos recados fecham, nos dois sentidos",
           "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove"
         ]
       }
     ],
     "oOndeParamosVoltou": true
   },
-  "problemas": [
-    {
-      "tipo": "secao-nao-encontrada",
-      "oQue": "a guarda já reprova o caso BOM — nada abaixo vale"
-    }
-  ]
+  "problemas": []
 }
