@@ -2,15 +2,15 @@
   "prompt": "LAB-57",
   "oQueIstoMede": "quais configurações deste repositório desligam conferência — nas três formas: a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR, e o desligador SEM MOTIVO ESCRITO",
   "aPergunta": "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
-  "quando": "2026-10-19T07:47:48.316Z",
+  "quando": "2026-10-19T08:22:30.646Z",
   "escopo": {
-    "arquivosQueOGitCarregaForaDaCaixa": 827,
+    "arquivosQueOGitCarregaForaDaCaixa": 830,
     "configuracoesEncontradas": 27,
     "configuracoesVarridas": 11,
     "configuracoesForaDoEscopoNomeadas": 16,
-    "linhasDeConfiguracaoLidas": 898,
-    "arquivosDeCodigoVarridos": 408,
-    "linhasDeCodigoLidas": 100067,
+    "linhasDeConfiguracaoLidas": 899,
+    "arquivosDeCodigoVarridos": 410,
+    "linhasDeCodigoLidas": 100299,
     "regras": 7,
     "porque": "o escopo começa no `git ls-files`, não numa lista minha — e o que ficou fora sai NOMEADO com o motivo (D164, a lição do LAB-47)",
     "foraDaContaDoUniverso": [
@@ -111,8 +111,8 @@
     {
       "arquivo": ".github/workflows/verde.yml",
       "varrido": true,
-      "bytes": 16768,
-      "linhas": 342,
+      "bytes": 16819,
+      "linhas": 343,
       "regrasQueOlharam": [
         "passo-que-engole-falha"
       ]
