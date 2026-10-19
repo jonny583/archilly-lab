@@ -44,6 +44,12 @@
  *    comentário ({@link oCabecalho}): o título nomeia `gerarRedeViaria`; as duas frases velhas só riscadas; diz que o
  *    juiz é o do Generate; nomeia `recortarPelaGleba` e `./recorte.ts`; e aponta quem chama o recorte, um arquivo que o
  *    `git` carrega e que o chama no código.
+ * 11. **o parágrafo do `README.md` da raiz** (LAB-193, item 900, D421): a porta da frente dizia, desde o LAB-01, que o
+ *    adaptador do Symbios *"não recorta pela gleba, não aplica restrições, não parcela em lotes, não valida e não julga —
+ *    cada uma dessas coisas é de um prompt adiante"*; os prompts vieram, e a tabela da mesma página já dizia *"julgado?
+ *    sim desde o LAB-02"*. A pergunta ({@link conferirARaiz}): as duas frases velhas só riscadas; o recorte nomeado e quem
+ *    o chama, chamando-o no código; quem faz o lote definindo `lotearQuadra`, e a esteira do Symbios chamando-a; e os dois
+ *    lugares que o parágrafo dá como os que julgam chamando, no código, `montarParcelamentoExterno` e `montarRelatorio`.
  */
 import { existsSync, readFileSync } from "node:fs";
 import { join, normalize } from "node:path";
@@ -349,7 +355,91 @@ export function conferir(caminhos: readonly string[], ler: (c: string) => string
     }
   }
 
+  // 11 · o parágrafo do README.md da raiz (LAB-193)
+  problemas.push(...conferirARaiz(ler(A_RAIZ), resolve, ler));
+
   return { naPasta, noMapa: (mapa ?? []).length, padroes, fracao, caminhosLidos, problemas };
+}
+
+/** A porta da frente: o `README.md` da raiz, que o GitHub mostra no endereço do repositório (LAB-193). */
+export const A_RAIZ = "README.md";
+/** Onde o parágrafo começa — a seção *"O que este laboratório não faz"* — e o que nele só vale riscado. */
+export const O_PARAGRAFO_ABRE = "O Adapter **do Symbios**";
+export const SO_RISCADO_NA_RAIZ: readonly string[] = ["de um prompt adiante", "não recorta pela gleba"];
+export const A_FUNCAO_DO_LOTE = "lotearQuadra";
+/** O Validator (o esquema e as violações) e o Judge do Generate, pelos nomes que a D20 dá (`o-julgamento-vem-do-generate.ts`). */
+export const OS_DOIS_DO_GENERATE = ["montarParcelamentoExterno", "montarRelatorio"] as const;
+
+/** O parágrafo da raiz que fala do adaptador do Symbios, em linha só; `null` se a página não o tem. */
+export function oParagrafoDaRaiz(readme: string): string | null {
+  const linhas = readme.split("\n");
+  const i = linhas.findIndex((l) => l.startsWith(O_PARAGRAFO_ABRE));
+  if (i < 0) return null;
+  const fim = linhas.findIndex((l, j) => j > i && l.trim() === "");
+  return linhas
+    .slice(i, fim < 0 ? undefined : fim)
+    .join(" ")
+    .replace(/\s+/g, " ");
+}
+
+/**
+ * A pergunta 11 (LAB-193, item 900, D421). O parágrafo dizia, desde o LAB-01, que o adaptador do Symbios *"não recorta
+ * pela gleba, não aplica restrições, não parcela em lotes, não valida e não julga — cada uma dessas coisas é de um prompt
+ * adiante"*: os prompts adiante vieram (o recorte no LAB-02, o lote no LAB-04, o julgamento pela esteira) e o parágrafo
+ * nunca foi tocado — e a tabela do *Estado atual*, na mesma página, já dizia *"julgado? sim desde o LAB-02"*. Aqui se
+ * pergunta: as duas frases velhas só riscadas; cada lugar que o parágrafo aponta existe e faz, no código, o que ele diz —
+ * quem chama o recorte o chama, quem faz o lote define a função que a esteira do Symbios chama, e quem julga chama os dois
+ * do Generate (o da esteira e o do adaptador do LAB-07).
+ */
+export function conferirARaiz(
+  readme: string | null,
+  resolve: (alvo: string) => boolean,
+  ler: (c: string) => string | null,
+): string[] {
+  const problemas: string[] = [];
+  if (readme === null) return [`${A_RAIZ}: a porta da frente não existe`];
+  const par = oParagrafoDaRaiz(readme);
+  if (par === null) return [`${A_RAIZ}: sem o parágrafo do adaptador do Symbios («${O_PARAGRAFO_ABRE}»)`];
+  const vivo = semRiscado(par);
+  for (const f of SO_RISCADO_NA_RAIZ) if (vivo.includes(f)) problemas.push(`${A_RAIZ}: o parágrafo do Symbios afirma «${f}» fora de risco`);
+  if (!vivo.includes(`\`${A_FUNCAO_DO_RECORTE}\``)) problemas.push(`${A_RAIZ}: o parágrafo do Symbios não nomeia a função do recorte, \`${A_FUNCAO_DO_RECORTE}\``);
+  if (!vivo.includes(A_PAGINA_DIZ_DO_JUIZ)) problemas.push(`${A_RAIZ}: o parágrafo do Symbios não diz que o Validator e o Judge ${A_PAGINA_DIZ_DO_JUIZ}`);
+  for (const c of [...vivo.matchAll(/`(external-engines\/[^`\s]+)`/g)].map((m) => m[1] as string))
+    if (!resolve(c.replace(/\/$/, ""))) problemas.push(`${A_RAIZ}: o parágrafo do Symbios aponta ${c}, que não existe no git`);
+
+  const apontado = (re: RegExp, oQue: string): string | null => {
+    const c = re.exec(vivo)?.[1] ?? null;
+    if (c === null) problemas.push(`${A_RAIZ}: o parágrafo do Symbios não aponta ${oQue}`);
+    return c;
+  };
+  const chamaNoCodigo = (c: string, nome: string) => {
+    const t = ler(c);
+    return t !== null && new RegExp(`\\b${nome}\\s*\\(`).test(soCodigo(t));
+  };
+
+  const doRecorte = apontado(/chama depois \(`(external-engines\/[^`]+)`\)/, "quem chama o recorte («chama depois (`external-engines/…`)»)");
+  if (doRecorte !== null && !chamaNoCodigo(doRecorte, A_FUNCAO_DO_RECORTE))
+    problemas.push(`${doRecorte}: não chama ${A_FUNCAO_DO_RECORTE}, e o parágrafo da raiz diz que chama`);
+
+  const doLote = apontado(/esqueleto reto do Lab, na esteira \(`(external-engines\/[^`]+)`/, "quem faz o lote («esqueleto reto do Lab, na esteira (`external-engines/…`»)");
+  if (doLote !== null) {
+    const t = ler(doLote);
+    if (t === null || !new RegExp(`^export function ${A_FUNCAO_DO_LOTE}\\b`, "m").test(t))
+      problemas.push(`${doLote}: não define ${A_FUNCAO_DO_LOTE}, e o parágrafo da raiz diz que é ele quem faz o lote`);
+    if (doRecorte !== null && !chamaNoCodigo(doRecorte, A_FUNCAO_DO_LOTE))
+      problemas.push(`${doRecorte}: não chama ${A_FUNCAO_DO_LOTE}, e o parágrafo da raiz diz que o lote do Symbios é o da esteira`);
+  }
+
+  for (const [re, oQue] of [
+    [/chamados pela esteira \(`(external-engines\/[^`]+)`/, "quem julga na esteira («chamados pela esteira (`external-engines/…`»)"],
+    [/de dentro do próprio adaptador, `(external-engines\/[^`]+)`/, "quem julga no adaptador do LAB-07 («de dentro do próprio adaptador, `external-engines/…`»)"],
+  ] as const) {
+    const c = apontado(re, oQue);
+    if (c === null) continue;
+    for (const nome of OS_DOIS_DO_GENERATE)
+      if (!chamaNoCodigo(c, nome)) problemas.push(`${c}: não chama ${nome}, e o parágrafo da raiz diz que ali se julga pelo Generate`);
+  }
+  return problemas;
 }
 
 export function conferirAArvore(raiz: string): Resultado {
@@ -430,6 +520,7 @@ export const O_QUE_ISTO_NAO_ALCANCA: readonly string[] = [
   "se o ≈ 38 % é verdade HOJE: é história do LAB-01 (D118), e a medição não se refaz sem o `.wasm`, que esta máquina não constrói",
   "a receita de instalar e executar: é do LAB-133 (`node-sem-npm.ts`) e do LAB-176 (`o-wasm-nao-pede-nada.ts`), não desta régua",
   "o resto do cabeçalho de `src/index.ts` (a cadeia do LAB-01, o lote, os nomes de arquivo da cadeia): a régua do LAB-192 pergunta só o título, as duas frases riscadas, o juiz e o recorte",
-  "a mesma frase velha noutros lugares: o `README.md` da raiz (*\"O Adapter do Symbios … não recorta pela gleba … cada uma dessas coisas é de um prompt adiante\"*), o comentário de `Restricao` em `src/contrato.ts` e a `observacao` de `src/geojson.ts` (*\"o recorte é o LAB-02\"*), que sai na prova congelada `outputs/lab01/` (D118) — candidatos, escritos no relatório do LAB-192",
+  "a mesma frase velha noutros lugares: o comentário de `Restricao` em `src/contrato.ts` e a `observacao` de `src/geojson.ts` (*\"o recorte é o LAB-02\"*), que sai na prova congelada `outputs/lab01/` (D118) — lidas como atribuição, verdadeiras (LAB-192); o `README.md` da raiz é a pergunta 11 desde o LAB-193",
+  "o resto do `README.md` da raiz: a pergunta 11 lê só o parágrafo do adaptador do Symbios, não a tabela do *Estado atual* nem as seções de cada LAB, e não pergunta se o LAB que o parágrafo dá ao recorte (LAB-02) e ao lote (LAB-04) é o do commit — medido à mão no LAB-193 (`d619067` e `1fa370c`)",
   "os nomes do Generate no `docs/DECISOES.md` (D13) e no `docs/relatorios/LAB01_ADAPTADOR.md`: são história, e a D419 diz o nome certo",
 ];

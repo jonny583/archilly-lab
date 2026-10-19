@@ -14139,3 +14139,37 @@ verdade, e a `observacao` está congelada em `outputs/lab01/`, D118).
 > **COMENTÁRIO DE CABEÇALHO ENVELHECE NO COMMIT QUE NÃO O TOCA.** O diff de uma linha do LAB-02 era a linha que tornava o
 > topo falso, e um diff de uma linha não mostra o topo. Quem acrescenta um `export` a um arquivo que diz o que não faz
 > relê o que ele diz.
+
+## D421 · O PARÁGRAFO DO `README.md` DA RAIZ SOBRE O ADAPTADOR DO SYMBIOS — o que não faz, dito antes de os prompts adiante virem · 19/10/2026
+**Contexto:** item 900 (LAB-192 → LAB-193). A caixa só tinha o `900`; o LAB-192 deixou escrito o candidato: o parágrafo da
+seção *"O que este laboratório não faz"* do `README.md` da raiz, a porta da frente que o GitHub mostra no endereço do
+repositório. Espécie da dívida própria: mensagem fixa que afirma estado sem perguntar.
+
+**Medido:** o parágrafo é do LAB-01 (`069fd29`, 10/09) e nunca foi tocado (`git log -S"de um prompt adiante"` dá um
+commit só). Dizia que o adaptador do Symbios *"não recorta pela gleba, não aplica restrições, não parcela em lotes, não
+valida e não julga — cada uma dessas coisas é de um prompt adiante"*. Por lugar: o recorte entrou no adaptador no LAB-02
+(`recortarPelaGleba`, `src/recorte.ts`, `d619067`), chamado por `external-engines/esteira/src/motores/symbios.ts`; o lote
+é do esqueleto reto do Lab, na esteira (`lotearQuadra`, `external-engines/esteira/src/lotear.ts`, LAB-04, `1fa370c`, D50)
+— o adaptador continua sem parcelar, e isso confere; o julgamento é o do Generate, chamado pela esteira
+(`montarParcelamentoExterno` e `montarRelatorio` em `external-engines/esteira/src/motores/comum.ts`, D20). A tabela do
+*Estado atual*, na mesma página, já dizia *"julgado? sim desde o LAB-02"*: a página se contradizia.
+
+**Decidido:**
+
+1. O parágrafo guarda a frase velha riscada e datada, e diz onde mora cada peça, com o caminho de cada uma; o parêntese do
+   LAB-07 passa a dizer de onde ele chama o Validator e o Judge (`external-engines/testfit/adapter/src/esteira.ts`).
+2. A trava é a do LAB-191 e do LAB-192 (`external-engines/esteira/src/a-pagina-do-adaptador.ts`), com a **pergunta 11**
+   (`conferirARaiz`): as duas frases velhas só riscadas, lidas com o parágrafo em linha só; o recorte nomeado; *"são os do
+   Generate"*; todo `external-engines/…` do parágrafo existe no `git`; quem o parágrafo diz que chama o recorte o chama no
+   código; quem faz o lote define `lotearQuadra`, e a esteira do Symbios a chama; e os dois lugares que o parágrafo dá
+   como os que julgam chamam, no código, os dois do Generate. 14 testes novos (60 → 74); o parágrafo de antes (blob de
+   `b4ba8b9`) reprova com oito; o portão sem clones passa de 2 255 a 2 269 travas.
+
+**Descartado:** régua nova (a afirmação é a mesma da página e do cabeçalho — D263); perguntar o resto do `README.md` da raiz
+(a tabela do *Estado atual* e as seções de cada LAB são outra afirmação, dita no que a trava não alcança); perguntar ao
+`git` o LAB de cada peça (medido à mão: `d619067` e `1fa370c`); tirar a frase velha em vez de riscá-la (a casa guarda a
+história datada, como na página e no cabeçalho).
+
+> **A PÁGINA QUE SE CONTRADIZ JÁ DISSE A VERDADE — NUMA LINHA QUE NINGUÉM COMPAROU COM A OUTRA.** A tabela do topo foi
+> atualizada no LAB-02; o parágrafo do fim, não. Quem atualiza o estado num lugar procura, na mesma página, quem dizia o
+> estado antigo.

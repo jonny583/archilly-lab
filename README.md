@@ -238,11 +238,22 @@ O que precisa mudar nos vizinhos vira **lista numerada em relatório** — as oi
 correções do motor do Laboratório de Parcelamento estão no §9 do `LAB-07.md`, e o diagnóstico do
 relevo para o Generate, no §8.
 
-O Adapter **do Symbios** existe desde o LAB-01, mas não recorta pela gleba, não
-aplica restrições, não parcela em lotes, não valida e não julga — cada uma
-dessas coisas é de um prompt adiante, e misturá-las agora tornaria impossível
-saber qual delas quebrou. (O do LAB-07 já valida e julga, porque o motor dele
-devolve parcelamento pronto e o contrato v1 já existia.)
+O Adapter **do Symbios** nasceu no LAB-01 só com a rede viária, e o parágrafo
+dizia ~~que ele não recorta pela gleba, não aplica restrições, não parcela em
+lotes, não valida e não julga — cada uma dessas coisas é de um prompt adiante~~
+(*verdade em 10/09/2026; os prompts adiante vieram e o parágrafo não foi tocado —
+riscado no LAB-193, 19/10/2026, D421*). Hoje cada peça mora num lugar, e é isso
+que deixa saber qual delas quebrou: o adaptador **recorta** pela gleba e pelas
+restrições desde o LAB-02 — `recortarPelaGleba`, em
+`external-engines/symbios/adapter/src/recorte.ts`, que a esteira chama depois
+(`external-engines/esteira/src/motores/symbios.ts`); **não parcela em lotes** —
+quem subdivide a quadra é o esqueleto reto do Lab, na esteira
+(`external-engines/esteira/src/lotear.ts`, LAB-04, D50); e **não valida nem
+julga** — o Validator e o Judge são os do Generate, chamados pela esteira
+(`external-engines/esteira/src/motores/comum.ts`, D20). (O do LAB-07 chama os
+mesmos dois de dentro do próprio adaptador,
+`external-engines/testfit/adapter/src/esteira.ts`, porque o motor dele devolve
+parcelamento pronto e o contrato v1 já existia.)
 
 Resultado desconfortável é resultado: "não consegui compilar" ficou registrado no
 LAB-00 (`docs/SYMBIOS_ANALYSIS.md`, §10), e os cinco defeitos que o LAB-01 achou

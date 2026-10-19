@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T05:21:57.561Z",
+  "quando": "2026-10-19T06:24:48.344Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1123,11 +1123,19 @@
         "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O minuto não se afirma: o disparo chegou como texto, sem notificação lida; o teto é o `reflog` do clone, que registra a ponta posta no disco às 05:06:21 (antes de qualquer comando desta sessão)",
         "rodada": "item 900 (LAB-192), dívida própria (mensagem fixa que afirma estado sem perguntar: o cabeçalho de `src/index.ts` do adaptador — o título do que não faz dito do adaptador, e o juiz que dizia ser do Lab)",
         "emVazio": false
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "06:13",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A hora veio no aviso do próprio disparo, lido por esta sessão (*\"fired at 06:13:47 UTC\"*, agendado para 06:05); o `reflog` do clone registra a ponta posta no disco às 06:14:12",
+        "rodada": "item 900 (LAB-193), dívida própria (mensagem fixa que afirma estado sem perguntar: o parágrafo do `README.md` da raiz sobre o adaptador do Symbios — o que ele não faz, dito antes de os prompts adiante virem)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 139,
-      "observados": 39,
+      "noRegistro": 140,
+      "observados": 40,
       "derivados": 54,
       "emLote": 7,
       "reconstruidos": 39,

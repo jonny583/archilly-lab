@@ -4076,3 +4076,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito para a próxima rodad
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-193 — item 900 (a dívida própria): o parágrafo do `README.md` da raiz sobre o adaptador do Symbios — o que não faz, dito antes de os prompts adiante virem
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-193 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); fui à dívida própria, no candidato que o LAB-192 deixou escrito no relatório e na saída da trava: o parágrafo do README.md da raiz sobre o adaptador do Symbios (mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2269 de 2269 (122 de 122 arquivos); esteira 2625 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos desrasados e com git status limpo.
+Feito: a porta da frente dizia, desde o LAB-01, que o adaptador do Symbios "não recorta pela gleba, não aplica restrições, não parcela em lotes, não valida e não julga — cada uma dessas coisas é de um prompt adiante"; os prompts vieram (recorte no LAB-02, lote no LAB-04, julgamento pela esteira) e o parágrafo nunca foi tocado — e a tabela da mesma página já dizia "julgado? sim desde o LAB-02". A frase fica riscada e datada, e o parágrafo diz onde mora cada peça, com o caminho. A trava do LAB-191 (a-pagina-do-adaptador) ganha a pergunta 11, que confere no código cada lugar apontado; 14 testes novos; o parágrafo de antes reprova com oito; 2255 → 2269 (D421). Detalhe em docs/relatorios/LAB-193.md.
+Achados para outros apps ou Central: a todas — a página que se contradiz já disse a verdade, numa linha que ninguém comparou com a outra: a tabela do topo foi atualizada, o parágrafo do fim não. Quem atualiza o estado num lugar procura, na mesma página, quem dizia o estado antigo. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; nenhum candidato escrito por esta rodada (as frases do recorte que sobram são atribuição verdadeira); as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
