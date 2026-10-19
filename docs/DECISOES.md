@@ -14064,3 +14064,47 @@ o CI está desligado desde 08/10/2026).
 > **ARQUIVO COPIADO DE FORA TRAZ O ESTADO DE FORA.** A cópia byte a byte é a garantia, e por isso o comentário dela
 > afirma o CI, a máquina e o portão de quem a escreveu. Não se edita a cópia; diz-se, ao lado, de quem é cada afirmação —
 > e uma régua confere que o citado está lá e que o negado não está aqui.
+
+
+## D419 · A PÁGINA DO ADAPTADOR DO SYMBIOS — o estado do LAB-01, o mapa sem o recorte, e um nome do Generate que nunca existiu · 19/10/2026
+**Contexto:** item 900 (LAB-190 → LAB-191). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse
+ninguém, e o LAB-190 não deixou candidato escrito. Recontei por LUGAR os `README.md` fora do `upstream/` contra quem os lê
+no código: o LAB-187 (D415) contou três sem leitor, e havia quatro — o `external-engines/symbios/adapter/README.md`, do
+LAB-01 (10/09/2026), tocado só no LAB-133, é citado apenas num comentário do `o-trabalho-em-archilly.ts`. Espécies da
+dívida própria: mensagem fixa que afirma estado sem perguntar, e número digitado à mão.
+
+**Medido:** *"Estado: LAB-01 concluído"* — o adaptador cresceu no LAB-02 (`src/recorte.ts`, `d619067`, 14/09) e no LAB-05
+(`src/poligono.ts`, `21b4f5a`, 15/09); o mapa nomeava nove dos onze arquivos de `src/`; *"não recorta pela gleba"* e
+*"não aplica restrições"* valem para `gerarRedeViaria` (o corpo dela não chama recorte), não para o adaptador, que exporta
+`recortarPelaGleba` (chamado por `external-engines/esteira/src/motores/symbios.ts`, pelo `desconta` do Geo); *"Validator é
+LAB-02, Judge é LAB-03"* contradiz o `CLAUDE.md` §4 e a D20 — o LAB-02 foi o recorte, o LAB-03 a interpolação, e o
+Validator e o Judge são os do Generate. **O nome `NORMA_BR.via.caixaMinima`, citado na página, no `src/contrato.ts` e na
+D13 desta casa, nunca existiu no Generate**: o `src/lib/normas/br.ts` de lá nasceu (`09976b8`, 08/09) com
+`NORMA_BR.viario.valor.caixaMinima` (`6 + 2 * 1.2`), e não mudou. Os números conferiam, sem dono escrito: ≈ 38 % é a
+`vias.fracaoForaDaGleba` 0,3758 da *Fazenda Recanto das Águas* em `outputs/lab01/medicoes.json`; os seis padrões são o
+`PARAMETROS_PADRAO`; os 15 m são o `minor_road_dist` do `Default` de `TensorConfig` do upstream; o `rampaMaxPct` do
+Generate vale 10.
+
+**Decidido:**
+
+1. A página risca e data o estado e o juiz (a frase velha fica, riscada), renomeia a seção para *"O que `gerarRedeViaria`
+   NÃO faz"* e diz onde o recorte mora e quem o chama; o mapa vai entre marcas, com os dois arquivos do recorte e a bancada
+   como pasta; uma seção nova diz o lugar de cada número; o nome do Generate é corrigido na página e no comentário do
+   `src/contrato.ts` (só comentário: nenhum comportamento muda). **Esta decisão corrige a D13 no nome**: onde ela diz
+   `NORMA_BR.via.caixaMinima`, leia `NORMA_BR.viario.valor.caixaMinima` — a D13 não se reescreve.
+2. A trava `external-engines/esteira/src/a-pagina-do-adaptador.ts` e `tests/a-pagina-do-adaptador.test.ts` (47 testes, sem
+   clones, no portão), nove perguntas: o mapa nos dois sentidos; o que só vale riscado; o juiz do Generate; a função que
+   não recorta, o recorte que existe e quem o chama; os ≈ e a fração com quatro casas contra a medição; os seis padrões
+   contra o `PARAMETROS_PADRAO`; os nomes do Generate iguais na página e no contrato, e o nome inventado só com a frase que
+   o diz; os 15 m contra o upstream; os caminhos. E `tests/a-pagina-do-adaptador-com-clone.test.ts` (4 testes, no verde
+   completo) pergunta ao clone do Generate cada nome e o valor. A página e o contrato de antes reprovam com 29 problemas.
+   O portão passa de 121 a 122 arquivos e de 2 195 a 2 242 travas.
+
+**Descartado:** editar o cabeçalho de `src/index.ts`, que repete as duas frases (é comentário da função, e "este
+adaptador" ali se lê como a função; fica como candidato a rodada própria, dito no relatório); editar a D13 e o
+`LAB01_ADAPTADOR.md` (história: corrige-se ao lado); conferir no `git` o LAB que criou cada arquivo (medido à mão aqui, e
+a régua diz que não alcança); refazer os ≈ 38 % (é história do LAB-01, D118, e sem o `.wasm` não se remede).
+
+> **NOME DO VIZINHO COPIADO SEM ABRIR O VIZINHO É NOME INVENTADO.** O valor estava certo — 8,4 m — e por isso ninguém
+> desconfiou do nome por trinta e nove dias, em três lugares. Quem cita o dono de um número cita um endereço: ele se
+> confere abrindo o endereço, não conferindo o número.

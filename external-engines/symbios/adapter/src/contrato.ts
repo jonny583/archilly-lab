@@ -121,8 +121,9 @@ export interface Parametros {
   rampaMaxima_pct?: number;
   /**
    * Largura da faixa de domínio, em metros — a caixa da via inteira, pista mais
-   * calçadas. Padrão 8,4 m, que é o `NORMA_BR.via.caixaMinima` do Generate
-   * (6 m de pista + 2 × 1,2 m).
+   * calçadas. Padrão 8,4 m, que é o `NORMA_BR.viario.valor.caixaMinima` do
+   * Generate (6 m de pista + 2 × 1,2 m; o nome era `NORMA_BR.via.caixaMinima` até
+   * o LAB-191, que o Generate nunca teve — D419).
    *
    * No LAB-01 ela **não** é usada para gerar geometria: serve para dimensionar
    * o raio de snap do traçador (duas vias mais perto que uma caixa são a mesma

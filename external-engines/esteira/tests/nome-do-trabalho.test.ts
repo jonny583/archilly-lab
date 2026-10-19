@@ -223,7 +223,10 @@ describe("item 017 · o nome do trabalho de CI é uma AFIRMAÇÃO, e ela é conf
     // `Cargo.lock` e o `rust-toolchain.toml` dela, o do `upstream/`, a análise do Symbios e o `conferir.sh`; nenhum clone.
     // E 121 no LAB-190, com a `os-toolchains-de-archilly.test.ts` — o `git` desta casa, a página do Symbios, os quatro
     // `rust-toolchain.toml`, o `verde.yml` e o `conferir.sh`; nenhum clone.
-    expect(lista).toHaveLength(121);
+    // E 122 no LAB-191, com a `a-pagina-do-adaptador.test.ts` — o `git` desta casa, a página do adaptador do Symbios, o
+    // `index.ts`, o `recorte.ts` e o `contrato.ts` dele, a medição do LAB-01 e o `tracer.rs` do upstream; nenhum clone (a
+    // pergunta ao Generate mora na `a-pagina-do-adaptador-com-clone.test.ts`, fora desta lista).
+    expect(lista).toHaveLength(122);
     // Sem duplicata: arquivo repetido roda duas vezes e paga a bateria duas vezes.
     expect(new Set(lista).size).toBe(lista.length);
   });
