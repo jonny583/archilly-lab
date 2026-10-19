@@ -4037,3 +4037,16 @@ Próximo na fila: a caixa só tem o 900; na minha lista, o comentário do rust-t
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-190 — item 900 (a dívida própria): os `rust-toolchain.toml` de `archilly/` — cópias do upstream, com o comentário que fala do CI de lá
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-190 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): o comentário do rust-toolchain.toml que o LAB-189 deixou como candidato, na docs/relatorios/LAB-189.md §4. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2195 de 2195 (121 de 121 arquivos); esteira 2547 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos com git status limpo.
+Feito: as três cópias de external-engines/symbios/archilly/ (probe, wasm-probe, wasm) são byte a byte o rust-toolchain.toml do upstream, e o comentário em inglês afirma o CI de lá ("CI reads THIS FILE via actions-rust-lang/setup-rust-toolchain"), a máquina ("the local gate ran 1.96.1") e o clippy. Aqui o verde.yml não usa a ação (quem lê o arquivo é o rustup, pela pasta archilly/wasm), a máquina das sessões tem o 1.97.0 e o proxy recusa a 1.96.1, e nada roda clippy; a página do Symbios nada dizia deles. A página ganha a seção que lista as cópias e diz de quem é o comentário; os arquivos não se tocam; trava os-toolchains-de-archilly (33 testes, sem clones); a página de antes reprova; 2162 → 2195 (D418). Detalhe em docs/relatorios/LAB-190.md.
+Achados para outros apps ou Central: a todas — arquivo copiado de fora traz o estado de fora: o comentário de uma cópia byte a byte afirma o CI, a máquina e o portão de quem a escreveu. Não se edita a cópia; diz-se ao lado de quem é cada afirmação, com régua conferindo que o citado está lá e o negado não está aqui. Vale para todo vendor/ da família. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; na minha lista não sobrou candidato escrito — a próxima rodada reconta as cinco espécies por LUGAR; as propostas do LAB-187, do LAB-186, do LAB-185 e as antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

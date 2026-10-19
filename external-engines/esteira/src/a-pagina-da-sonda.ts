@@ -329,6 +329,6 @@ export const O_QUE_ISTO_NAO_ALCANCA: readonly string[] = [
   "se os números do LAB-00 são VERDADE hoje: a régua confere que os dois lugares dizem o mesmo, não que o `cargo build` de hoje dá 162 696 bytes — nada compila a sonda, e nesta máquina falta o alvo do `rustup`",
   "se a receita de cima ainda compila: a régua confere o `--cfg` contra a análise e a feature contra o `Cargo.toml`, não o compilador",
   "o que o `src/lib.rs` FAZ: a régua confere o nome do arquivo na lista, não a descrição ao lado",
-  "o comentário em inglês do `rust-toolchain.toml`, que fala do CI do upstream: a régua confere que a página o diz cópia, e não toca o arquivo — ele é igual nas três crates de `archilly/` e no `upstream/`",
+  "o comentário em inglês do `rust-toolchain.toml`, que fala do CI do upstream: a régua confere que a página o diz cópia, e não toca o arquivo — ele é igual nas três crates de `archilly/` e no `upstream/` (de quem o comentário fala, e o que esta casa tem em lugar dele, diz a página do motor, conferida pela `os-toolchains-de-archilly.ts`, LAB-190)",
   "a cola pedida por outro nome que não `wasm-bindgen`, `js-sys` ou `web-sys` (o LAB-176 pergunta a família inteira, com `gloo`, na ponte carregada)",
 ];
