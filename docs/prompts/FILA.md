@@ -366,6 +366,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-187 · item 900 — a dívida própria: a pasta de testes do Symbios — "vazio nesta fase", e o adaptador nasceu no dia seguinte — ✅ **feito em 19/10/2026** (D415)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**: dos 14 `README.md` fora do `upstream/`, três sem leitor no código; o de `external-engines/symbios/tests/`, do LAB-00 (09/09), dizia *"Vazio nesta fase"*, que o adaptador *"só nasce na Etapa C"* e que os testes *"serão escritos aqui"* — falso desde o LAB-01 (o adaptador) e o LAB-02 (os testes dele, na esteira). Por LUGAR: a pasta só com a página; 11 arquivos em `adapter/src/`; dos 155 testes da esteira, 8 carregam o `.wasm`; os quatro nomes da especificação em nenhum dos 161 testes e `.rs` fora do `upstream/`. A página passa a dizer onde os testes moram, com a lista dos oito conferida nos dois sentidos, e que a correspondência com os quatro nomes não está feita; trava `src/a-pasta-de-testes-do-symbios.ts` (30 testes, sem clones); a régua acusou catorze problemas antes; 2 022 → 2 052. Detalhe em [`../relatorios/LAB-187.md`](../relatorios/LAB-187.md).
+
+**Proposto ao chat, saído do LAB-187 — não executado:** a linha `tests/` da tabela de `external-engines/symbios/README.md` (*"Testes do motor e da integração"*, numa pasta que só carrega a página) entrar na proposta do LAB-152 — a página de cada motor dizer o que o `git` carrega em cada pasta da anatomia, e uma trava perguntar. É a mesma tabela de *"`adapter/` · Vazia"*, e por isso fica com ela.
+
 ### LAB-186 · item 900 — a dívida própria: o estado do despertador mora num lugar só — e a porta da frente dizia outro — ✅ **feito em 18/10/2026** (D414)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o `.wasm` sem o alvo do `rustup`. Na dívida própria, espécie **mensagem fixa que afirma estado sem perguntar**, o bloco do topo do `README.md`, do LF-FINAL (14/09): *"A fila autônoma está esgotada desde 14/09/2026 — […] e o despertador foi apagado"* — falso desde a fila de 15/09, enquanto a conta dos disparos do `ONDE_PARAMOS.md` se declara o lugar único do estado (item 004, D234), e a trava daquele item só perguntava dentro da seção. Por LUGAR, todo `.md` que o `git` carrega fora dos diários declarados: 33 lidos, 223 nos diários, um achado, o `README.md`. O bloco passa a dizer onde o estado mora (a caixa e a conta), com a frase velha riscada e datada; trava `src/o-estado-num-lugar-so.ts` (12 testes, sem clones); a régua acusou três problemas antes; 2 010 → 2 022. Detalhe em [`../relatorios/LAB-186.md`](../relatorios/LAB-186.md).
@@ -2165,7 +2171,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 2022 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 2052 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

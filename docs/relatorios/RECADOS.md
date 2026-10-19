@@ -3998,3 +3998,16 @@ Próximo na fila: a caixa só tem o 900; as propostas do LAB-186, do LAB-185 e a
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-187 — item 900 (a dívida própria): a pasta de testes do Symbios — "vazio nesta fase", e o adaptador nasceu no dia seguinte
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-187 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); a FILA sem proposta que não espere ninguém; fui à dívida própria (mensagem fixa que afirma estado sem perguntar): a external-engines/symbios/tests/README.md, sem leitor no código. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2052 de 2052 (118 de 118 arquivos); esteira 2404 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos com git status limpo.
+Feito: a página dizia, desde o LAB-00, "Vazio nesta fase", que o adaptador "só nasce na Etapa C" e que os testes "serão escritos aqui" — falso desde o LAB-01 (o adaptador) e o LAB-02 (os testes dele, na esteira). Por LUGAR: a pasta só com a página; 8 dos 155 testes da esteira carregam o .wasm; os quatro nomes da especificação em nenhum dos 161 testes e .rs fora do upstream. A página passa a dizer onde os testes moram (a lista dos oito, nos dois sentidos) e que a correspondência com os quatro nomes não está medida; trava a-pasta-de-testes-do-symbios (30 testes, sem clones); a régua acusou catorze problemas antes; 2022 → 2052 (D415). Detalhe em docs/relatorios/LAB-187.md.
+Achados para outros apps ou Central: a todas — página de pasta vazia ("vazio nesta fase") envelhece pelo mundo em volta, não pela pasta: a pasta segue vazia e a frase segue verdade sobre ela; ela diz ONDE a coisa mora, e alguém pergunta se mora lá. Proposto ao chat: a linha tests/ da tabela de external-engines/symbios/README.md entrar na proposta do LAB-152 (a anatomia das pastas; na FILA, saído do LAB-187).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as propostas do LAB-187, do LAB-186, do LAB-185 e as antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
