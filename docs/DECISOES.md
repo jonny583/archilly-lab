@@ -14629,3 +14629,52 @@ conteúdo diz os mesmos 18 estados); dentes por troca na cópia (as três bordas
 
 > **O INSTANTE É HIPÓTESE, NÃO MEDIÇÃO.** Nas três anteriores a ponta da origem caiu dentro da janela e se escreveu como
 > coerência; aqui ela cai fora, e é a ferramenta rodada que diz. O disco de quem gravou pode estar semanas atrás da origem.
+
+## D433 · AS FIXTURES DO LAB-40 CALAVAM O MOTOR E O GENERATE — e, medido, o motor que as fez é o de 14/09, como o da testada do LAB-37, numa janela UM commit mais larga · 19/10/2026
+**Contexto:** item 900 (LAB-204 → LAB-205). A caixa só tinha o `900`, e o LAB-204 deixou o candidato escrito: *a seguinte do
+retrato cuja ferramenta não carrega o `.wasm`, a `LAB-40`, pelo mesmo caminho — instante primeiro*. A prova
+`docs/provas/LAB-40/fixtures.json` foi gravada uma vez (`90a93b2`, 04/10/2026, 17h26 UTC, carimbo fixo); a ferramenta
+`ferramentas/lab40.ts` (mudada depois no LAB-103 e no LAB-105, sem regravar) roda a esteira do motor com o contrato e as regras do
+Generate, e a prova não escreve commit de nenhum — dois silêncios. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos), o Lab em `90a93b2`, a prova byte a byte. A ferramenta
+leva de quatro a dez segundos, então rodaram-se **todos** os commits de primeiro pai que tocam o lugar do fecho, não os estados:
+
+```
+instante (as pontas da origem às 17h26 UTC de 04/10: motor 0ab380b, Generate a06befa): 11 linhas — a prova NÃO se refaz,
+  e o sinal vira: na prova a testada fora de Antonina CUSTA lotes (espinha 680 → 640, delta −40); no instante RENDE (449 → 492, +43)
+motor (os 37 commits que tocam src/lib/lab/, com o Generate do instante):
+  d98b0fe … 0ece0b1 (10/09), 10: a ferramenta não roda
+  d2f71e4 (13/09) · 66ece91 (14/09): acusam — 9 linhas, a testada sai sem plano (null)
+  648ae78 (14/09, T03) · fe0c7a1 (T02) · 4181e95 · 244aae3 (14/09, o fechamento): IGUAL, byte a byte
+  2160fce (15/09, T07) … 3fdb8ca (11/10), 21, e a ponta de hoje cbbe224: as MESMAS 11 linhas do instante
+Generate (os 439 commits que tocam src/lib/, com o motor em 244aae3):
+  a02644c (30/06) … 4cd7dc2, 371: a ferramenta não roda (antes do contrato de motor v1)
+  22502b3 (10/09, contrato v1) … 8223873 (02/10), 29: acusam — as mesmas 9 linhas do motor de antes
+  5b70e5f (02/10, contrato v2) … 0297934 (16/10), 39, e a ponta de hoje ad6a0c5: IGUAL
+os quatro cantos (648ae78/244aae3 × 5b70e5f/ad6a0c5): iguais
+```
+
+**Leitura.** O mesmo achado do D432, seis horas depois, no mesmo disco: a prova de 04/10 descreve **o motor de 14/09**, e o LAB-60
+(07/10) declara o disco em `4181e95`, dentro da janela — coerência, não medição. Uma coisa nova: aqui o T03 (`648ae78`) **já
+refaz**, e no LAB-37 acusava. **As duas provas juntas estreitam o disco de 04/10 a `fe0c7a1` … `244aae3`** — nenhuma sozinha diz
+isso, e é a mesma hipótese (o disco não andou entre 11h48 e 17h26), não uma medição.
+
+**Decidido:**
+
+1. `src/retrato-do-lab40.ts`: o Lab, um commit; `A_JANELA_DO_MOTOR` (fechada, as duas bordas, o instante FORA),
+   `A_JANELA_DO_GENERATE` (aberta, a borda de antes, o instante dentro), `OS_COMMITS_RODADOS` (o que cada um dos 476 deu, somando).
+   A prova não se toca (D182) — e a frase dela que o motor de hoje desmente (*"a testada custa lotes"*) fica dita aqui, não
+   corrigida nela.
+2. Trava nova, `tests/retrato-do-lab40.test.ts`, **no verde completo**, no molde da do LAB-204: o instante escrito é a ponta da
+   origem na hora da prova; os quatro cantos (iguais), o instante (acusa) e as três bordas (acusam). Seis testes, ~35 segundos;
+   três mutações acusadas (o começo do motor trocado pela borda: 2 reprovam; o instante trocado pelo fim da janela: 3; a borda do
+   Generate trocada pelo começo da janela: 1).
+3. `OS_ACHADOS_AO_LADO` ganha a prova; a frase passa a *"achados ao lado: 22 de 71 silêncios"*.
+
+**Descartado:** regravar (D182 — e mudaria o sujeito); o veneno (a ferramenta chama `rodarEsteira`, e o instante já mudou a
+prova); os estados do fecho em vez dos commits (com quatro segundos por rodada, rodar os 476 sai mais barato do que provar que os
+estados os cobrem); dentes por troca na cópia (as três bordas são commits de verdade); escrever a janela estreitada pelas duas
+provas como o disco de 04/10 (é hipótese; cada retrato escreve o que a sua ferramenta mediu).
+
+> **DUAS PROVAS DO MESMO DISCO ESTREITAM O QUE NENHUMA DIZ SOZINHA** — desde que se diga que "o mesmo disco" é hipótese.

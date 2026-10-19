@@ -80,7 +80,9 @@
  * LAB-202, D430). E a guarda da IDA do LAB-30 (o motor e o Generate — que ela CARREGA e não CHAMA: com toda função
  * de topo dos dois envenenada, a prova sai igual —, `src/retrato-do-lab30.ts`; LAB-203, D431). E a testada de frente
  * do LAB-37 (o motor numa janela **fechada** de 14/09 — FORA do instante, que acusa — e o Generate numa **aberta**, do
- * contrato v2 até onde se mediu —, `src/retrato-do-lab37.ts`; LAB-204, D432): doze provas, vinte silêncios.
+ * contrato v2 até onde se mediu —, `src/retrato-do-lab37.ts`; LAB-204, D432). E as fixtures do LAB-40 (o mesmo
+ * desenho: o motor numa janela **fechada** de 14/09, FORA do instante, e o Generate numa **aberta** —,
+ * `src/retrato-do-lab40.ts`; LAB-205, D433): treze provas, vinte e dois silêncios.
  */
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, normalize, relative, sep } from "node:path";
@@ -525,6 +527,7 @@ export const OS_ACHADOS_AO_LADO: Readonly<Record<string, Readonly<Record<string,
   "LAB-18/contrato-v2.json": { [MOTOR]: "src/retrato-do-lab18.ts" },
   "LAB-30/guarda-da-ida.json": { [MOTOR]: "src/retrato-do-lab30.ts", [GENERATE]: "src/retrato-do-lab30.ts" },
   "LAB-37/testada-de-frente.json": { [MOTOR]: "src/retrato-do-lab37.ts", [GENERATE]: "src/retrato-do-lab37.ts" },
+  "LAB-40/fixtures.json": { [MOTOR]: "src/retrato-do-lab40.ts", [GENERATE]: "src/retrato-do-lab40.ts" },
   "LAB-78/setimo-mecanismo.json": { [GENERATE]: "src/retrato-do-lab78.ts" },
   "LAB-48/violacoes-do-motor-padrao.json": { [MOTOR]: "src/fotografia-do-lab48.ts", [GENERATE]: "src/fotografia-do-lab48.ts" },
 };
