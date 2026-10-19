@@ -2,9 +2,9 @@
   "prompt": "LAB-57",
   "oQueIstoMede": "quais configurações deste repositório desligam conferência — nas três formas: a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR, e o desligador SEM MOTIVO ESCRITO",
   "aPergunta": "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
-  "quando": "2026-10-19T06:24:30.913Z",
+  "quando": "2026-10-19T06:36:31.899Z",
   "escopo": {
-    "arquivosQueOGitCarregaForaDaCaixa": 825,
+    "arquivosQueOGitCarregaForaDaCaixa": 826,
     "configuracoesEncontradas": 27,
     "configuracoesVarridas": 11,
     "configuracoesForaDoEscopoNomeadas": 16,
