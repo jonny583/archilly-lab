@@ -4154,3 +4154,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: as 41 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-199 — item 900 (a dívida própria): a prova do LAB-18 calava o motor — achado rodando a ferramenta de então, e é uma janela de cinco commits
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-199 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main; o pull do disparo recusou no clone raso e a receita do LAB-116 o desrasou); fui à dívida própria, pelo candidato que o LAB-198 deixou no relatório dele (as 41 caladas, começando pelas duas pela metade): a do LAB-18, espécie mensagem fixa que afirma estado sem perguntar. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm; o portão sem clones 2284 de 2284 (123 de 123 arquivos); esteira 2670 aprovadas e as 9 de sempre (o .wasm), eram 2661 e a diferença são os 9 testes novos; testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: a prova do LAB-18 dá as rampas do motor do vizinho e só escreve o Generate (5b7e9b4). Rodada em clones locais, Lab em bf15af6 e a ferramenta sem o Symbios (sem .wasm): a ponta do motor no instante da prova dá 14 diferenças; cinco commits de 14/09 (fe0c7a1 a 244aae3) refazem a prova valor a valor, e as bordas de fora (648ae78, 2160fce) não. Escrito ao lado em src/retrato-do-lab18.ts (a prova não se tocou, D182); trava nova retrato-do-lab18 roda pontas e bordas a cada verde completo, 6 testes, duas mutações acusadas; e OS_ACHADOS_AO_LADO conta os achados contra os silêncios na frase do LAB-198 ("3 de 71") (D427). Detalhe em docs/relatorios/LAB-199.md.
+Achados para outros apps ou Central: a todas — quando a ferramenta de então não distingue os candidatos, o que se escreve é a JANELA, com as duas bordas medidas por fora; escolher um commit dentro dela é afirmar proveniência que nenhuma medição deu. E a data, de novo, não acha o commit: o clone que tirou a prova estava três semanas atrás da origem. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a do LAB-78, que cala o Generate, pelo mesmo caminho; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
