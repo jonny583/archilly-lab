@@ -4089,3 +4089,16 @@ Próximo na fila: a caixa só tem o 900; nenhum candidato escrito por esta rodad
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-194 — item 900 (a dívida própria): a minha lista de propostas e as seções de prosa — a origem que é um item da caixa, e o sétimo que seguia aberto
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-194 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); fui à dívida própria, na minha lista de propostas da FILA.md e nas seções de prosa que a trava do LAB-61 cobra que ela cite (regra sem guarda e mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2276 de 2276 (122 de 122 arquivos); esteira 2632 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: a régua das propostas em prosa só lia "saído do LAB-NNN"; as duas seções abertas saídas de item eram invisíveis — a do item 004 dizia "não executado, e é um DESEMPATE" nove dias depois do desempate (D244, LAB-75), e a do item 029 (LAB-96) tinha duas propostas vivas fora da lista —, e o item "o sétimo mecanismo, se houver" (LAB-59) seguia aberto com a seção da mesma origem riscada desde o LAB-78. A régua lê a origem em item (pela marca de FEITO, a tradução do LAB-164) e acusa o aberto de seção riscada com dois sinais; a seção do 004 e o sétimo riscados, as duas do 029 na lista; abertos 13 → 14; a FILA de antes reprova com três; 7 testes novos; 2269 → 2276 (D422). Detalhe em docs/relatorios/LAB-194.md.
+Achados para outros apps ou Central: a todas — a régua que lê a origem por uma forma só envelhece no dia em que a casa ganha a segunda: as propostas passaram a nascer de item da caixa em 09/10 e a régua seguiu lendo LAB-NNN. Quem tem régua sobre a própria lista de propostas confere se ela lê as saídas de item. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; nenhum candidato escrito por esta rodada; as propostas antigas esperam o chat (as duas do item 029 agora estão na lista); o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
