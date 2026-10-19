@@ -262,9 +262,9 @@ a proposta não previa: **duas entradas da lista estavam mortas**, uma delas sem
 tropeçado (D260), e o `soOCodigo()` que o modelo precisava **já existia na casa**, com o buraco
 dele declarado em comentário (D258).
 
-### Proposto ao chat, saído do item 004 — **não executado, e é um DESEMPATE**
+### ~~Proposto ao chat, saído do item 004 — é um DESEMPATE~~ — ✅ **desempatado pelo chat no item 008, no LAB-75** (D244)
 
-**DUAS REGRAS DA CASA MANDAM COISAS DIFERENTES NO DISPARO EM VAZIO, e a caixa acabou de esgotar,
+~~**DUAS REGRAS DA CASA MANDAM COISAS DIFERENTES NO DISPARO EM VAZIO, e a caixa acabou de esgotar,
 então o próximo disparo cai exatamente nisso** (D236). A `CLAUDE.md` §1-A manda **DESLIGAR** o
 despertador (D62 + D112); a `caixa-de-entrada/COMO_FUNCIONA.md`, que você escreveu em 09/10, manda
 **anotar a data e dormir**, e não fala em desligar; e o item 004 diz *"ligar e desligar é do chat;
@@ -272,7 +272,9 @@ o seu trabalho é a conta"*. **Eu não desempatei** — mexer no `enabled` é o 
 **Sigo a da caixa enquanto você não responder**, com o motivo medido: desligar servia quando você
 tinha de ser avisado para mandar fila nova, e agora você escreve na caixa sem passar por mim —
 despertador desligado **nunca pega o item 005**. Uma linha sua resolve, e as duas páginas já
-apontam uma para a outra com guarda.
+apontam uma para a outra com guarda.~~
+
+✅ **Desempatado em 09/10/2026, no item 008** (LAB-75, D244): *anote a data, responda em uma linha e durma — NÃO desligue*. A `CLAUDE.md` §1-A foi corrigida com a ordem velha riscada, e o D236 aponta para a D244. **O título desta seção seguiu dizendo *"não executado"* por nove dias** — a régua do LAB-61 só lia seção de prosa saída de `LAB-NNN`, e esta saiu de um item; achado e riscado no **LAB-194** (D422).
 
 ### ~~Proposto ao chat, saído do LAB-60 — a TRAVA QUE REGERA A VARREDURA~~ — ✅ **EXECUTADA no LAB-91** (item 024)
 
@@ -365,6 +367,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
    que falta para as faces com via, já pedido ao Generate no LAB-77.
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
+
+### LAB-194 · item 900 — a dívida própria: a minha lista de propostas e as seções de prosa — a origem que é um item da caixa, e o sétimo que seguia aberto — ✅ **feito em 19/10/2026** (D422)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o LAB-193 não deixou candidato. Fui à minha própria lista (a seção *"não executar"* que o chat lê) e às seções de prosa que a trava do LAB-61 cobra que ela cite. Espécies **regra sem guarda** e **mensagem fixa que afirma estado sem perguntar**: a régua só lia seção saída de `LAB-NNN`, e duas abertas tinham saído de item — a do item 004 dizia *"não executado, e é um DESEMPATE"* nove dias depois do desempate (D244, LAB-75), e a do item 029 (LAB-96) tinha duas propostas vivas fora da lista; e o item do sétimo mecanismo (LAB-59) seguia aberto com a seção da mesma origem riscada desde o LAB-78. A régua lê a origem em item (pela marca de FEITO, a tradução do LAB-164) e acusa `aberto-de-secao-riscada` com dois sinais; a seção do 004 e o sétimo riscados, as duas propostas do 029 na lista; abertos 13 → 14; a FILA de antes reprova com três; 2269 → 2276. Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-194.md`](../relatorios/LAB-194.md), decisão **D422**.
 
 ### LAB-193 · item 900 — a dívida própria: o parágrafo do `README.md` da raiz sobre o adaptador do Symbios — o que não faz, dito antes de os prompts adiante virem — ✅ **feito em 19/10/2026** (D421)
 
@@ -2197,7 +2205,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 2269 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 2276 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 
@@ -3232,6 +3240,16 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   A escolha de desenho que ele embute está na **§10 da página do Jonny**, com três caminhos e o
   custo de cada um. **Segue aberto:** `aguardando-o-jonny`
 
+- **O ITEM DE CUSTO DA TRAVESSIA GANHAR A CLASSE DO CUSTO** (LAB-96, 12/10, D323). A resposta à pendência 3 foi
+  *"Orçamento, custo de obra"*, e o `ItemDeCusto` (`travessia.ts`) não diz a classe; acrescentá-la muda o contrato de
+  saída desta casa, e por isso é proposta e não conserto. Morava só na seção de prosa do item 029 até o **LAB-194**.
+  **Segue aberto:** `prompt-novo`
+
+- **OS 25 M DA "QUADRA" VIRARAM UMA CONTA ESPERANDO DADO** (LAB-96, 12/10, D323). Com a resposta do 9-A, reconhecer
+  o caso dos 25 m é perguntar se a frente ocupa o trecho de rua inteiro, de um cruzamento ao outro — e o arquivo de
+  terreno ainda não traz as ruas do entorno nem os cruzamentos (o mesmo campo das faces com via, pedido ao Generate
+  no LAB-77). Morava só na seção de prosa do item 029 até o **LAB-194**. **Segue aberto:** `aguardando-outro-repositorio`
+
 - ~~**O CARIMBO DO CLONE SAI DO MÓDULO RESOLVIDO, E NÃO DO `HEAD` DO CLONE**~~ (LAB-82, 10/10,
   D274) — ✅ **executada no LAB-83** (item 016). O carimbo passa a sair do **módulo resolvido**
   (`import.meta.resolve` do ponto de entrada do vizinho), o `HEAD` do caminho por convenção virou
@@ -3338,12 +3356,12 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   obriga a concordar com o código.* **As outras oito não ficam para depois — não são desta forma**,
   e há guarda da classificação (D290 para o limiar vivo que FICOU, com o motivo)
 
-- **O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER** (LAB-59). Resolvidos os seis mecanismos do
+- ~~**O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER** (LAB-59). Resolvidos os seis mecanismos do
   LAB-58 e o campo do contrato, **4 das 20** candidatas ficam de fora, **uma violação cada**,
   e três delas têm a forma exata das 11 do contrato — lote externo sobre a rua entregue —
   **sem** sumir com a faixa que o `faixaViaPublica` do Generate constrói. Caracterizado em
   [`../provas/LAB-59/contrafactual-de-antonina.json`](../provas/LAB-59/contrafactual-de-antonina.json)
-  (`oQueAsNaoNomeadasTemEmComum`). Nomear mecanismo é o LAB-58. **Segue aberto:** `prompt-novo`
+  (`oQueAsNaoNomeadasTemEmComum`). Nomear mecanismo é o LAB-58.~~ — ✅ **executado no LAB-78** (item 011, D253): medido, e a resposta é o MOTOR — a fileira externa transborda o canto da face declarada. A seção de prosa da mesma origem foi riscada lá; este item seguiu aberto por oito dias, porque a cópia do LAB-61 não comparava item com seção riscada — achado no **LAB-194** (D422). O conserto que ficou é o item **PARAR A FILEIRA EXTERNA** (LAB-78), acima.
 
 - **A RECONCILIAÇÃO DOS QUATRO NÚMEROS DO MESMO DIAGNÓSTICO** (07/10, pedido do chat fora da
   fila). O Generate disse **69** em duas saídas e **103** nas cinco glebas (17 do motor); o

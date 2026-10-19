@@ -170,22 +170,26 @@
     ]
   },
   "agora": {
-    "itens": 38,
-    "riscados": 25,
-    "abertos": 13,
+    "itens": 40,
+    "riscados": 26,
+    "abertos": 14,
     "problemas": 0,
     "abertosPorMotivo": {
       "aguardando-o-jonny": 2,
-      "aguardando-outro-repositorio": 3,
       "prompt-novo": 3,
+      "aguardando-outro-repositorio": 4,
       "depois-do-mvp": 1,
       "nao-medido": 3,
       "escopo-novo": 1
     },
     "secoesDePropostaEmProsa": [
       {
-        "linha": 290,
+        "linha": 312,
         "prompt": "LAB-78"
+      },
+      {
+        "linha": 346,
+        "prompt": "LAB-96"
       }
     ]
   },

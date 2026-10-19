@@ -12,7 +12,7 @@
   "oTrabalho": "guardas que não precisam dos clones vizinhos (NÃO é o verde)",
   "quantosArquivos": 122,
   "quantosPassamSemClone": 122,
-  "quantasTravasNaLista": 2269,
+  "quantasTravasNaLista": 2276,
   "asTrintaEUma": [
     {
       "arquivo": "tests/pagina.test.ts",

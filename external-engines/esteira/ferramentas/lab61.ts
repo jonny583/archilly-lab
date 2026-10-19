@@ -33,7 +33,7 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import {
@@ -42,9 +42,11 @@ import {
   conferirPropostas,
   lerPropostas,
   secoesDePropostaEmProsa,
+  secoesRiscadasDeProposta,
   sobreposicaoDeTitulo,
   tituloDe,
 } from "../src/varredura-das-propostas.ts";
+import { oPromptDoItem } from "../src/a-proposta-no-recado.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
 const FILA = join(RAIZ, "docs", "prompts", "FILA.md");
@@ -52,8 +54,17 @@ const SAIDA = join(RAIZ, "docs", "provas", "LAB-61");
 
 const texto = readFileSync(FILA, "utf8");
 const itens = lerPropostas(texto);
-const prosa = secoesDePropostaEmProsa(texto);
-const problemas = conferirPropostas(itens, prosa);
+// O item da caixa → o prompt que o fechou, para a seção saída de item (LAB-194, D422).
+const CAIXA = join(RAIZ, "docs", "caixa-de-entrada");
+const ITENS = new Map<string, string>();
+for (const f of readdirSync(CAIXA)) {
+  const m = /^(\d{3,})-FEITO\.md$/.exec(f);
+  if (m === null) continue;
+  const p = oPromptDoItem(readFileSync(join(CAIXA, f), "utf8").split("\n")[0]!);
+  if (p !== null) ITENS.set(m[1]!, p);
+}
+const prosa = secoesDePropostaEmProsa(texto, ITENS);
+const problemas = conferirPropostas(itens, prosa, secoesRiscadasDeProposta(texto, ITENS));
 
 const abertos = itens.filter((i) => !i.riscado);
 const riscados = itens.filter((i) => i.riscado);

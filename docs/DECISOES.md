@@ -14173,3 +14173,51 @@ história datada, como na página e no cabeçalho).
 > **A PÁGINA QUE SE CONTRADIZ JÁ DISSE A VERDADE — NUMA LINHA QUE NINGUÉM COMPAROU COM A OUTRA.** A tabela do topo foi
 > atualizada no LAB-02; o parágrafo do fim, não. Quem atualiza o estado num lugar procura, na mesma página, quem dizia o
 > estado antigo.
+
+## D422 · A ORIGEM PODE SER UM ITEM DA CAIXA — e a seção de prosa riscada também fecha o assunto da lista · 19/10/2026
+**Contexto:** item 900 (LAB-193 → LAB-194). A caixa só tinha o `900`, e o LAB-193 não deixou candidato escrito. Fui à
+minha própria lista, a seção *"Proposto ao chat — não executar"* da `FILA.md` — a que o chat lê para escrever fila —, e às
+seções de prosa *"Proposto ao chat, saído do …"* que a trava do LAB-61 (`external-engines/esteira/src/varredura-das-propostas.ts`)
+cobra que a lista cite. Espécie da dívida própria: **regra sem guarda** (a régua não alcançava uma forma que a casa usa
+desde 09/10) e **mensagem fixa que afirma estado sem perguntar** (um título que dizia *"não executado"*).
+
+**Medido**, na `FILA.md` de `fbde269`:
+
+1. `secoesDePropostaEmProsa` casava só `saído do LAB-NNN`. **Duas** seções de prosa abertas saíram de item — *"saído do
+   item 004"* e *"saído do item 029 (LAB-96)"* — e eram **invisíveis**; nenhuma das duas era citada pela lista.
+2. A do item 004 dizia no título *"não executado, e é um DESEMPATE"* e, no corpo, *"sigo a da caixa enquanto você não
+   responder"*: o chat respondeu no item 008 (LAB-75, D244), **nove dias antes**.
+3. A do item 029 tinha **duas propostas vivas** (a classe do custo da travessia; os 25 m da "quadra" esperando as ruas do
+   entorno) que a lista não tinha.
+4. E o lado de volta: o item da lista *"O SÉTIMO MECANISMO DE ANTONINA, SE HOUVER"* (LAB-59) seguia **aberto** como
+   `prompt-novo`, e a seção de prosa da mesma origem e do mesmo assunto estava riscada desde o LAB-78 (*"medido no
+   LAB-78"*, D253). A cópia do LAB-61 comparava item aberto só com item RISCADO da lista.
+
+**Decidido:**
+
+1. A régua lê a origem nas três formas (`saído do LAB-NNN`, `saído do item NNN (LAB-NNN)`, `saído do item NNN`); o
+   prompt entre parênteses vence, senão o item se traduz pela marca de FEITO do arquivo dele — a mesma tradução do LAB-164
+   (`oPromptDoItem`, em `a-proposta-no-recado.ts`), lida por quem chama; sem tradução, a seção volta como `item NNN` e é
+   acusada (`secao-de-item-sem-prompt`) — a régua não adivinha.
+2. `secoesRiscadasDeProposta` lê as seções riscadas com o título, e a conferência acusa **`aberto-de-secao-riscada`**:
+   item aberto que cita **na origem** o prompt da seção riscada **E** cujo título se sobrepõe acima do limiar do LAB-61
+   (0,6). Os dois sinais, como na cópia: mesma origem e assunto outro é o caso do *"PARAR A FILEIRA EXTERNA"* (LAB-78), e
+   passa.
+3. Na `FILA.md`: a seção do item 004 riscada, com o desempate escrito; o item do sétimo riscado com o executor (LAB-78);
+   as propostas 2 e 3 do item 029 entram na lista, `prompt-novo` e `aguardando-outro-repositorio`. Os abertos vão de 13 a
+   14 (um sai por recontagem, dois entram por achado) — `ABERTOS_ESPERADOS` do LAB-62 e as condições do item 006 com o
+   motivo escrito; a prova do LAB-62 regerada, o `agora` da do LAB-61 recontado.
+4. 7 testes novos em `tests/propostas.test.ts` (no portão sem clones: 2 269 → 2 276): a `FILA.md` de antes (blob de
+   `fbde269`) reprova com **três** — e a régua de antes a aprovava —; cada forma da origem; item sem tradução; seção
+   riscada não cobrada; e o aberto da seção riscada nos dois lados (mesma origem e assunto outro passa; origem só
+   mencionada passa; riscado passa). Duas mutações acusadas: desligar a comparação com a seção riscada (2 testes) e tirar a
+   tradução do item (4).
+
+**Descartado:** cobrar executor da seção de prosa riscada (as quatro de hoje o dizem, e é outra regra); mover a tradução do
+item para esta régua (ela mora no LAB-164, que já a confere, e duas cópias divergiriam); regerar a prova do LAB-61 inteira
+(o `antes` é fotografia do commit `961890b`, e o `oQueCobra` é o que a régua cobrava naquele dia — só o `agora`, que a
+trava confere contra a árvore, se reconta); juntar o sétimo ao item do LAB-78 (é outra proposta, que já existe aberta).
+
+> **A RÉGUA QUE LÊ A ORIGEM POR UMA FORMA SÓ ENVELHECE NO DIA EM QUE A CASA GANHA A SEGUNDA.** As propostas passaram a
+> nascer de item da caixa em 09/10; a régua das propostas em prosa seguiu lendo `LAB-NNN`, e o título que dizia *"não
+> executado"* atravessou nove dias de verde.

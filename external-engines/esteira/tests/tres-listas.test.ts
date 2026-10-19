@@ -75,8 +75,8 @@ describe("LAB-62 · a conta das três listas fecha", () => {
    * lista que cresce sem ninguém notar é a dívida que o LAB-61 achou.
    */
   test("os itens abertos batem com o número declarado hoje", () => {
-    expect(prova.lista1.quantos).toBe(13);
-    expect(prova.lista1.itens).toHaveLength(13);
+    expect(prova.lista1.quantos).toBe(14);
+    expect(prova.lista1.itens).toHaveLength(14);
   });
 
   test("todo item aberto da lista 1 leva motivo declarado", () => {
