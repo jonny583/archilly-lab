@@ -195,7 +195,9 @@ export interface ProblemaDeProposta {
     | "aberto-sem-motivo"
     | "copia-de-item-riscado"
     | "motivo-fora-do-vocabulario"
-    | "proposta-que-vive-so-em-prosa";
+    | "proposta-que-vive-so-em-prosa"
+    | "secao-de-item-sem-prompt"
+    | "aberto-de-secao-riscada";
   linha: number;
   oQue: string;
 }
@@ -219,12 +221,51 @@ export interface ProblemaDeProposta {
 export function citaAOrigem(texto: string, prompt: string): boolean {
   return new RegExp(`\\(${prompt}\\b`).test(texto);
 }
-export function secoesDePropostaEmProsa(texto: string): { linha: number; prompt: string }[] {
+/**
+ * **E a origem pode ser um ITEM da caixa, e não um prompt** (LAB-194, item 900, a dívida própria, D422). Desde 09/10 as
+ * propostas nascem também de item (*"saído do item 004"*, *"saído do item 029 (LAB-96)"*), e a primeira versão desta
+ * leitura só casava `saído do LAB-NNN`: medido em 19/10/2026, as **duas** seções de prosa abertas com origem em item
+ * eram **invisíveis** a ela — e nenhuma das duas era citada pela lista. A do item 004 dizia *"não executado, e é um
+ * DESEMPATE"* nove dias depois do desempate (D244, LAB-75); a do item 029 tinha duas propostas vivas que a lista não
+ * tinha. A trava do LAB-164 (`a-proposta-no-recado.ts`) já traduzia o item no prompt pela marca de FEITO; aqui a
+ * tradução é a mesma, e quem chama diz de onde a lê (`itemParaPrompt`). O prompt entre parênteses vence a tradução;
+ * item sem tradução volta como `item NNN`, e a conferência o acusa — a régua não adivinha.
+ */
+const SAIDO_DO = String.raw`saído do (?:item (\d{3,})(?!\d)(?: \((${PROMPT_DO_LAB})\))?|(${PROMPT_DO_LAB})\b)`;
+
+function origemDe(m: RegExpExecArray, itemParaPrompt: ReadonlyMap<string, string>): string {
+  return m[3] ?? m[2] ?? itemParaPrompt.get(m[1]!) ?? `item ${m[1]!}`;
+}
+
+export function secoesDePropostaEmProsa(
+  texto: string,
+  itemParaPrompt: ReadonlyMap<string, string> = new Map(),
+): { linha: number; prompt: string }[] {
   const linhas = texto.split("\n");
   const achados: { linha: number; prompt: string }[] = [];
   for (const [i, l] of linhas.entries()) {
-    const m = new RegExp(String.raw`^#{2,4} Proposto ao chat, saído do (${PROMPT_DO_LAB})\b`).exec(l);
-    if (m) achados.push({ linha: i + 1, prompt: m[1]! });
+    const m = new RegExp(String.raw`^#{2,4} Proposto ao chat, ${SAIDO_DO}`).exec(l);
+    if (m) achados.push({ linha: i + 1, prompt: origemDe(m, itemParaPrompt) });
+  }
+  return achados;
+}
+
+/**
+ * As seções de prosa **RISCADAS** — a proposta que foi feita, medida ou desempatada —, com o título (o que vem depois do
+ * travessão, até o fim do risco). É o outro lado do LAB-194: medido em 19/10/2026, o item da lista *"O SÉTIMO
+ * MECANISMO DE ANTONINA, SE HOUVER (LAB-59)"* seguia **aberto** como `prompt-novo`, e a seção de prosa da mesma origem
+ * e do mesmo assunto estava riscada desde o LAB-78 (*"medido no LAB-78"*, D253). A cópia do LAB-61 comparava item
+ * aberto só com item RISCADO da lista; a seção riscada não entrava na conta.
+ */
+export function secoesRiscadasDeProposta(
+  texto: string,
+  itemParaPrompt: ReadonlyMap<string, string> = new Map(),
+): { linha: number; prompt: string; titulo: string }[] {
+  const linhas = texto.split("\n");
+  const achados: { linha: number; prompt: string; titulo: string }[] = [];
+  for (const [i, l] of linhas.entries()) {
+    const m = new RegExp(String.raw`^#{2,4} ~~Proposto ao chat, ${SAIDO_DO}(.*?)~~`).exec(l);
+    if (m) achados.push({ linha: i + 1, prompt: origemDe(m, itemParaPrompt), titulo: m[4]!.replace(/^\s*—\s*/, "").trim() });
   }
   return achados;
 }
@@ -233,6 +274,7 @@ export function secoesDePropostaEmProsa(texto: string): { linha: number; prompt:
 export function conferirPropostas(
   itens: readonly Proposta[],
   prosa: readonly { linha: number; prompt: string }[] = [],
+  prosaRiscada: readonly { linha: number; prompt: string; titulo: string }[] = [],
 ): ProblemaDeProposta[] {
   const p: ProblemaDeProposta[] = [];
   const vocabulario = new Set<string>(MOTIVOS_DE_SEGUIR_ABERTO.map((m) => m.id));
@@ -276,8 +318,30 @@ export function conferirPropostas(
           `${r.linha} (limiar ${SOBREPOSICAO_MINIMA_DO_TITULO}) — é cópia: "${curto}…"`,
       });
     }
+    // E a SEÇÃO de prosa riscada também fecha o assunto (LAB-194): os mesmos DOIS sinais, com a origem no lugar da
+    // decisão — o item cita na origem o prompt da seção, E o título se sobrepõe.
+    for (const r of prosaRiscada) {
+      if (!citaAOrigem(i.texto, r.prompt)) continue;
+      const sobre = sobreposicaoDeTitulo(tituloDe(i.texto), r.titulo);
+      if (sobre < SOBREPOSICAO_MINIMA_DO_TITULO) continue;
+      p.push({
+        classe: "aberto-de-secao-riscada",
+        linha: i.linha,
+        oQue:
+          `cita na origem o ${r.prompt} e o título se sobrepõe ${sobre} ao da seção de prosa RISCADA da linha ` +
+          `${r.linha} (limiar ${SOBREPOSICAO_MINIMA_DO_TITULO}) — o assunto já fechou lá: "${curto}…"`,
+      });
+    }
   }
   for (const s of prosa) {
+    if (!new RegExp(`^${PROMPT_DO_LAB}$`).test(s.prompt)) {
+      p.push({
+        classe: "secao-de-item-sem-prompt",
+        linha: s.linha,
+        oQue: `a seção de proposta saída do ${s.prompt} não diz o prompt, e nenhuma marca de FEITO o traduz — a régua não adivinha`,
+      });
+      continue;
+    }
     if (!itens.some((i) => citaAOrigem(i.texto, s.prompt))) {
       p.push({
         classe: "proposta-que-vive-so-em-prosa",

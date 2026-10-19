@@ -113,10 +113,16 @@ const lista1 = abertos.map((p, i) => ({
  * e o riscado saiu precoce* (D301): aqui o item saiu com relatório, prova, as três perdas relidas
  * e a pergunta do item respondida — nada foi riscado por escopo.
  *
+ * **13 → 14 no LAB-194, e a conta se moveu TRÊS vezes:** saiu um por RECONTAGEM — *"O SÉTIMO MECANISMO DE
+ * ANTONINA, SE HOUVER"* (LAB-59) seguia aberto e já tinha sido medido no LAB-78 (D253); a seção de prosa da mesma
+ * origem estava riscada desde lá — e entraram dois por ACHADO, as propostas 2 e 3 do item 029 (LAB-96, D323), que
+ * moravam só numa seção de prosa saída de item, invisível à régua do LAB-61 até o LAB-194 (D422). Nenhuma das três é
+ * trabalho novo: a recontagem riscou com o executor, e os dois achados já estavam escritos na `FILA.md` desde 12/10.
+ *
  * O número fica **declarado aqui e cobrado**: lista que cresce sem ninguém notar é a dívida que
  * o LAB-61 achou (D205). Mudá-lo é deliberado, e vem com o motivo escrito ao lado.
  */
-const ABERTOS_ESPERADOS = 13;
+const ABERTOS_ESPERADOS = 14;
 
 cobrar(
   lista1.length === ABERTOS_ESPERADOS,

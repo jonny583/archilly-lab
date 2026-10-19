@@ -75,8 +75,8 @@ describe("LAB-62 · a conta das três listas fecha", () => {
    * lista que cresce sem ninguém notar é a dívida que o LAB-61 achou.
    */
   test("os itens abertos batem com o número declarado hoje", () => {
-    expect(prova.lista1.quantos).toBe(13);
-    expect(prova.lista1.itens).toHaveLength(13);
+    expect(prova.lista1.quantos).toBe(14);
+    expect(prova.lista1.itens).toHaveLength(14);
   });
 
   test("todo item aberto da lista 1 leva motivo declarado", () => {
@@ -211,7 +211,8 @@ describe("LAB-62 · os blocos que vão ao chat são a SAÍDA da ferramenta", () 
     // dessa última (D282). O número está
     // declarado em `ABERTOS_ESPERADOS` com o motivo, e os três lugares que o contam andam JUNTOS.
     // 14 → 13 no LAB-93, por ENTREGA da D226 (item 026, D306).
-    expect(linhas).toHaveLength(13);
+    // 13 → 14 no LAB-194: um sai por recontagem (o sétimo, medido no LAB-78), dois entram por achado (o item 029, D422).
+    expect(linhas).toHaveLength(14);
   });
 
   test("cada item das listas 2 e 3 carrega a afirmação, a frequência e o que não serve", () => {

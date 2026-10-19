@@ -179,7 +179,7 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
       !FALAM_SOBRE_A_CONDICAO.includes(f),
   );
 
-  test("as condições declaradas são TREZE, e nenhuma é uma CONTA", () => {
+  test("as condições declaradas são CATORZE, e nenhuma é uma CONTA", () => {
     // 15 → 16 no LAB-78 (o sétimo mecanismo, `aguardando-o-jonny`), 16 → 17 no LAB-80 (a
     // unificação das cinco leituras, `prompt-novo`) e 17 → 16 no LAB-81, por ENTREGA dela.
     // 16 → 17 no LAB-82 (o carimbo do módulo resolvido, `prompt-novo`) e no LAB-83 duas vezes,
@@ -193,8 +193,12 @@ describe("item 006 · pergunta 3: condição de retorno escrita sob a regra anti
     // junto com o dos itens abertos: no LAB-91 eu desci os dois de 14 para 13 por reflexo e
     // **nenhum dos dois havia mudado** (D301). *Dois números com o mesmo valor não são o mesmo
     // número* — hoje os dois mudaram, e cada um foi conferido no seu instrumento.
+    //
+    // **13 → 14 no LAB-194** (D422): saiu um `prompt-novo` por RECONTAGEM (o sétimo mecanismo, medido no LAB-78) e
+    // entraram um `prompt-novo` e um `aguardando-outro-repositorio` por ACHADO (as propostas 2 e 3 do item 029, que só
+    // moravam em prosa). O vocabulário de novo não mudou.
     const declaradas = condicoesDeclaradas(ler("docs/prompts/FILA.md"));
-    expect(declaradas.length, declaradas.join(", ")).toBe(13);
+    expect(declaradas.length, declaradas.join(", ")).toBe(14);
     // Nenhuma delas é volume: todas esperam pessoa, repositório, prompt ou medição.
     expect(new Set(declaradas)).toEqual(
       new Set([
