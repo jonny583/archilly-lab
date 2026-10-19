@@ -4115,3 +4115,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: os out
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-196 — item 900 (a dívida própria): a fotografia do LAB-60 se retira igual no commit que declara — e o motivo de não regerá-la, perguntado à ferramenta
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-196 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main; o pull do disparo recusou no clone raso e a receita do LAB-116 o desrasou); fui à dívida própria, pelo candidato que o LAB-195 deixou no relatório dele (os motivos de exceção com a forma "regerar faria X"), na lista das espécies de prova (mensagem fixa que afirma estado sem perguntar e regra sem guarda). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2284 de 2284; esteira 2648 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: a lista dizia que regerar a fotografia do LAB-60 "com o motor andado mede outra coisa", e o cabeçalho prometia reprovar fotografia que deixou de precisar ser fotografia — nenhuma trava rodava a ferramenta. Rodada em clones locais: no commit que a prova declara (4181e95) ela grava a prova igual, mesmo com a régua de hoje; na ponta do motor (89b26ce), 102 linhas diferentes (369 → 616 arquivos, temCI false → true). A trava nova fotografia-no-commit-declarado pergunta as duas coisas a cada verde completo, em pasta temporária, sem sobregravar nada (D182); 8 testes, três mutações acusadas (D424). Detalhe em docs/relatorios/LAB-196.md.
+Achados para outros apps ou Central: a todas — prova "que nunca se regera" e que declara o commit do que mediu se confere retirando-a ali, numa pasta temporária: a ferramenta de hoje no commit de então tem de tirar a mesma foto, e na ponta de hoje tem de tirar outra, senão o motivo de ser fotografia ficou falso. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a fotografia do LAB-48, perguntada do mesmo jeito; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

@@ -44,6 +44,12 @@
  * **E a trava reprova nos dois sentidos:** função-da-árvore que não bate, e **fotografia que
  * deixou de precisar ser fotografia** — isto é, entrada da lista cujo motivo não se sustenta
  * mais. *Lista que não se revalida envelhece igual a comentário* (D104).
+ *
+ * **O segundo sentido, até o LAB-196, era só este parágrafo:** nenhum teste perguntava a uma fotografia se
+ * o motivo dela se sustentava. Desde o LAB-196 (D424) **uma** é perguntada — a do LAB-60, pela trava
+ * `tests/fotografia-no-commit-declarado.test.ts`, que roda a ferramenta no commit declarado (tem de dar a
+ * prova) e na ponta do motor (tem de dar outra coisa). As outras três seguem só com o motivo escrito, e o
+ * cabeçalho de `src/fotografia-no-commit-declarado.ts` diz por quê, uma a uma.
  */
 
 /** A espécie de uma prova, para fins de regeração. */
@@ -130,7 +136,9 @@ export const AS_ESPECIES: readonly ProvaClassificada[] = [
     especie: "fotografia",
     porque:
       "mede a árvore de configuração do CLONE VIZINHO: o universo está fora desta casa, e " +
-      "recontar com o motor andado mede outra coisa com o nome da antiga (D288)",
+      "recontar com o motor andado mede outra coisa com o nome da antiga (D288). Perguntado no LAB-196 " +
+      "(D424): no commit que ela declara a ferramenta de hoje a refaz igual, e na ponta do motor grava " +
+      "outra — a trava `fotografia-no-commit-declarado.test.ts` pergunta as duas coisas a cada verde",
   },
 ] as const;
 

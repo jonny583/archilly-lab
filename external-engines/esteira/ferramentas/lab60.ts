@@ -39,6 +39,12 @@
  * procurei"* (D164).
  *
  * Uso: `bun run lab60`
+ *
+ * **Desde o LAB-196 (D424), dois argumentos opcionais:** `--motor <pasta>` (um clone do motor em outro
+ * lugar, no commit que se quer) e `--saida <pasta>` (onde gravar a prova). Sem eles, o de sempre:
+ * `../motor-testfit` e `docs/provas/LAB-60/`. Existem para a trava
+ * `tests/fotografia-no-commit-declarado.test.ts` retirar a fotografia **no commit que ela declara**, numa
+ * pasta temporária, sem tocar o clone vizinho nem a prova versionada.
  */
 
 import { execFileSync } from "node:child_process";
@@ -48,9 +54,14 @@ import { join } from "node:path";
 import { REGRAS_DE_CONFIGURACAO, varrerConfiguracao } from "../src/varredura-de-configuracao.ts";
 
 const RAIZ = join(import.meta.dirname, "..", "..", "..");
-const SAIDA = join(RAIZ, "docs", "provas", "LAB-60");
+/** O valor de `--nome <valor>` na linha de comando, ou `undefined`. */
+const argumento = (nome: string): string | undefined => {
+  const i = process.argv.indexOf(nome);
+  return i >= 0 ? process.argv[i + 1] : undefined;
+};
+const SAIDA = argumento("--saida") ?? join(RAIZ, "docs", "provas", "LAB-60");
 /** O clone do motor, lido por caminho — a mesma vizinhança do D16. */
-const MOTOR = join(RAIZ, "..", "motor-testfit");
+const MOTOR = argumento("--motor") ?? join(RAIZ, "..", "motor-testfit");
 /** Os três clones vizinhos, para a conferência do §4. */
 const VIZINHOS = ["motor-testfit", "urban-create-hub-41d93a4d", "urban-scout-tool"] as const;
 

@@ -211,6 +211,14 @@ export const DECLARADAS: readonly Declarada[] = [
     motivo: "o `fetch` do clone raso montado a partir de uma origem `file://` que o teste cria numa pasta (LAB-116)",
   },
   {
+    caminho: "external-engines/esteira/tests/fotografia-no-commit-declarado.test.ts",
+    forma: "processo",
+    quantas: 1,
+    classe: "origem-de-teste",
+    motivo:
+      "o `git clone --no-checkout` do clone vizinho `../motor-testfit`, por CAMINHO no disco, numa pasta temporária, para pôr o motor no commit que a prova do LAB-60 declara — não sai da máquina, e o vizinho só é lido (LAB-196, D424)",
+  },
+  {
     caminho: "external-engines/esteira/ferramentas/lab171.ts",
     forma: "processo",
     quantas: 3,
