@@ -4232,3 +4232,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a LAB-
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-203 — item 900, a dívida própria: a guarda da IDA do LAB-30 calava o motor e o Generate — e, medido, não chama nenhum dos dois
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-203 (item 900) ===
+Estado: disparo das 18:06 (observado na listagem das tarefas agendadas, lida e não alterada); caixa só com o 900, contada na origin/main; a tarefa da lista ainda estava com a sessão das 17:07, sem envio — esperei por ela em vez de repetir, e o LAB-202 chegou às 18:12; fui à dívida própria, pelo candidato que o LAB-202 deixou no relatório dele (docs/relatorios/LAB-202.md §8), a seguinte do retrato que roda aqui: a LAB-30/guarda-da-ida.json, espécie mensagem fixa que afirma estado sem perguntar. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm; esteira 2 695 aprovadas e as 9 de sempre (o .wasm), eram 2 688 e a diferença são os 7 testes novos; testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: a LAB-08 e as seguintes até a LAB-28 (e a LAB-32) carregam o .wasm do Symbios e ficaram, com o motivo. Com a ferramenta de então (Lab c8a1013) rodada em TODOS os commits de primeiro pai — 271 do motor, 1 251 do Generate —, a prova se refaz byte a byte com qualquer motor desde d2f71e4 (13/09) e qualquer Generate desde 22502b3 (10/09) até hoje, inclusive depois do contrato v2; antes, a ferramenta não monta. Com as 1 099 funções de topo dos dois vizinhos envenenadas na cópia, a prova sai igual, e o veneno está vivo: a ferramenta carrega os vizinhos e não os chama. Dentes do lado do Lab (destino de gleba.furos trocado na cópia: 15 linhas). Escrito ao lado em src/retrato-do-lab30.ts, trava de 7 testes no verde completo, 3 mutações acusadas; achados ao lado: 18 de 71 (D431). Detalhe em docs/relatorios/LAB-203.md.
+Achados para outros apps ou Central: para a direção — terceiro choque de despertadores no dia (17:05/18:05), e desta vez sem trabalho repetido: com a origem parada e a lista apontando a tarefa da outra mão, esperei o envio dela (~5 min) em vez de repetir (~70 min nas duas vezes anteriores). A todas — carregar não é chamar: o fecho dos import diz o que a ferramenta PODE rodar; envenenar o vizinho numa cópia diz o que ela RODA. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a LAB-37/testada-de-frente.json (cala o motor e o Generate), pelo mesmo caminho, com o veneno primeiro; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

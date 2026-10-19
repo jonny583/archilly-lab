@@ -14538,3 +14538,47 @@ retrato (continuam calando).
 
 > **JANELA ABERTA É O QUE A FERRAMENTA NÃO ENXERGA; JANELA FECHADA, O QUE ELA ENXERGA.** E há dois jeitos de fechar: a ferramenta
 > acusa (o vizinho andou) ou recusa (o vizinho mudou de contrato). Os dois são borda, e se escrevem diferentes.
+
+## D431 · A GUARDA DA IDA DO LAB-30 CALAVA O MOTOR E O GENERATE — e, medido, não CHAMA nenhum dos dois: nenhum commit de vizinho decide a prova · 19/10/2026
+**Contexto:** item 900 (LAB-202 → LAB-203). A caixa só tinha o `900`, e o LAB-202 deixou o candidato escrito: *a seguinte do
+retrato, a mais velha que esta máquina rode*. Do LAB-08 ao LAB-28 as ferramentas carregam o `.wasm` do Symbios, que não se
+constrói aqui (ficaram, com o motivo). A seguinte é a `docs/provas/LAB-30/guarda-da-ida.json` (última gravação no LAB-93,
+`c8a1013`, 12/10, 00h37 UTC): a ferramenta puxa, pelo fecho dos `import`, quatro arquivos do motor e dois do Generate, e a prova
+não escreve commit de nenhum — dois silêncios. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos): o Lab em `c8a1013`, cada vizinho em **todos** os commits
+de primeiro pai da `main` dele, o outro no instante (motor `11fcbad`, Generate `12cf23c`), a prova comparada byte a byte (carimbo
+fixo):
+
+```
+motor, 271 commits:     42 não rodam (até d1998f1, 13/09 — falta src/lib/lab/contrato/tipos.ts)
+                        229 refazem byte a byte (d2f71e4, 13/09 … d8a172f, a ponta de hoje)
+Generate, 1 251 commits: 971 não rodam (até 805b6a0, 09/09 — falta src/lib/import/parcelamento-externo.ts)
+                        280 refazem byte a byte (22502b3, 10/09 … 5f330d9, a ponta de hoje) — inclusive depois do contrato v2
+os quatro cantos (d2f71e4/d8a172f × 22502b3/5f330d9): iguais
+as 1 099 funções de topo dos src/lib/ dos dois envenenadas na cópia: a prova sai igual
+  e o veneno está vivo: rodarMotor (motor) e medirSobras (Generate), chamadas pela mesma árvore, explodem com "VENENO"
+o destino de gleba.furos trocado na cópia do LAB: 15 linhas da prova mudam (os dentes)
+```
+
+A guarda da IDA audita o que a ida **do Lab** entrega ao motor contra o inventário **do Lab**; os arquivos dos vizinhos entram
+porque os módulos do Lab que ela usa os importam para outras funções, que ela nunca percorre.
+
+**Decidido:**
+
+1. `src/retrato-do-lab30.ts`: o Lab, um commit; `A_JANELA_DO_MOTOR` e `A_JANELA_DO_GENERATE` (começo, ponta medida, a borda de antes
+   com o que ela dá, nenhuma de depois, quantos se rodaram e quantos refazem); `O_VENENO_VIVO`; `A_TROCA_DOS_DENTES` (na cópia do
+   Lab); e `envenenarAsFuncoes`, com o que ele não alcança dito (arrow, método, função aninhada). A prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab30.test.ts`, **no verde completo**: monta as três árvores numa pasta temporária e roda a
+   ferramenta de então no instante e nos quatro cantos (iguais), nas duas bordas (não roda), com os dois vizinhos envenenados (igual,
+   e o veneno vivo) e com a troca dos dentes na cópia do Lab (acusa). Sete testes; três mutações acusadas (o começo do motor trocado
+   pela borda: 1 reprova; a troca dos dentes anulada: 1; o veneno sem `throw`: 2).
+3. `OS_ACHADOS_AO_LADO` ganha a prova, com o motor e o Generate; a frase passa a *"achados ao lado: 18 de 71 silêncios"*.
+
+**Descartado:** escrever os commits na prova (D182); escrever *uma* janela de commits como nas outras (seriam todos — o que se
+escreve é o fato, *"não chama"*); dentes do vizinho por troca na cópia (não há onde morder: o veneno é a prova); tirar a prova do
+retrato (ela continua calando, e é verdade); trocar a régua do LAB-198 para contar só quem CHAMA (é outra régua, e o veneno de uma
+prova não mede as 40 outras — fica dito como hipótese, não como conserto).
+
+> **CARREGAR NÃO É CHAMAR.** O fecho dos `import` diz o que a ferramenta PODE rodar; só envenenando o vizinho se sabe o que ela RODA.
+> Silêncio sobre o que não decide nada é verdadeiro e de graça — e só se sabe que é de graça depois de medir.

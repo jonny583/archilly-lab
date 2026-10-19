@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-203 · item 900 — a dívida própria: a guarda da IDA do LAB-30 calava o motor e o Generate — e, medido, não chama nenhum dos dois: nenhum commit de vizinho decide a prova — ✅ **feito em 19/10/2026** (D431)
+
+O LAB-202 deixou o candidato escrito: a seguinte do retrato depois do LAB-07, a mais velha que esta máquina rode. Do LAB-08 ao LAB-28 as ferramentas carregam o `.wasm` do Symbios (ficaram, com o motivo); a seguinte é a `LAB-30/guarda-da-ida.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `c8a1013` e cada vizinho em todos os commits de primeiro pai (271 e 1 251), a prova se refaz byte a byte com qualquer motor desde `d2f71e4` e qualquer Generate desde `22502b3`, até a ponta de hoje; antes, a ferramenta não monta. Com as 1 099 funções de topo dos dois envenenadas na cópia, sai igual: a ferramenta carrega os vizinhos e não os chama. Escrito ao lado em `src/retrato-do-lab30.ts`; trava `retrato-do-lab30`; achados ao lado 18 de 71.
+
+**Origem:** [`../relatorios/LAB-203.md`](../relatorios/LAB-203.md), decisão **D431**.
+
 ### LAB-202 · item 900 — a dívida própria: as cinco provas do `medir.ts` do LAB-07 calavam o motor e o Generate — achado rodando a ferramenta de então, e são duas janelas fechadas — ✅ **feito em 19/10/2026** (D430)
 
 O LAB-201 deixou o candidato escrito: as cinco do `medir.ts` do LAB-07, que calam o motor e o Generate. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `25b62e0` e cada vizinho na história de primeiro pai: o motor refaz as cinco de `0ece0b1` (10/09) a `66ece91` (14/09) — antes a ferramenta não roda, em `648ae78` acusa 66 valores —, e o Generate de `22502b3` (10/09, o contrato v1) a `8223873` (02/10) — antes e depois (o contrato v2) ela não roda. Rodados todos os commits que tocam os fechos (37 do motor, 27 do Generate) e os quatro cantos; dentes do Generate na cópia (`TOL_APOIO_VIA_M` 0,75 → 0,5 m: 7 diferenças). Escrito ao lado em `src/retrato-do-lab07-medir.ts`; trava `retrato-do-lab07-medir` no verde completo; `OS_ACHADOS_AO_LADO` passa a *16 de 71*. Nada novo proposto ao chat. Próximo candidato: a `LAB-08/medicoes.json`.
