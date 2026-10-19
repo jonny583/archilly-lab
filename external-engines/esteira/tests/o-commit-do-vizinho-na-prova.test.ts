@@ -164,7 +164,7 @@ describe("LAB-199 · os commits achados AO LADO da prova", () => {
 
   test("cada achado é de uma prova do retrato, calando aquele vizinho, num módulo que existe e nomeia a prova", () => {
     expect(conferirOsAchadosAoLado(OS_ACHADOS_AO_LADO, OS_CALADOS_DE_HOJE, textoDoModulo)).toEqual([]);
-    expect(Object.keys(OS_ACHADOS_AO_LADO).sort()).toEqual(["LAB-18/contrato-v2.json", "LAB-48/violacoes-do-motor-padrao.json"]);
+    expect(Object.keys(OS_ACHADOS_AO_LADO).sort()).toEqual(["LAB-18/contrato-v2.json", "LAB-48/violacoes-do-motor-padrao.json", "LAB-78/setimo-mecanismo.json"]);
   });
 
   test("reprova pelo nome nos três defeitos plantados", () => {

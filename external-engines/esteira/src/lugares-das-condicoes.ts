@@ -96,8 +96,8 @@ export const LUGARES: LugarDeCondicao[] = [
   {
     lugar: "docs/prompts/FILA.md",
     oQueEstaParado:
-      "as CATORZE propostas e itens abertos, com as etiquetas declaradas — `prompt-novo` (4), " +
-      "`nao-medido` (3), `aguardando-outro-repositorio` (3), `aguardando-o-jonny` (2), " +
+      "as QUINZE propostas e itens abertos (LAB-200, contadas pela régua), com as etiquetas declaradas — `prompt-novo` (4), " +
+      "`aguardando-outro-repositorio` (4), `nao-medido` (3), `aguardando-o-jonny` (2), " +
       "`escopo-novo`, `depois-do-mvp`",
     aCondicao: "cada uma espera pessoa, repositório, prompt novo, medição ou o marco do MVP",
     tipo: "pessoa",

@@ -386,6 +386,12 @@ O LAB-198 deixou o candidato escrito: as 41 caladas, uma por rodada, começando 
 
 **Origem:** [`../relatorios/LAB-199.md`](../relatorios/LAB-199.md), decisão **D427**.
 
+### LAB-200 · item 900 — a dívida própria: a prova do LAB-78 calava o Generate — achado rodando a ferramenta de então, e é uma janela aberta — ✅ **feito em 19/10/2026** (D428)
+
+O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie **mensagem fixa que afirma estado sem perguntar**: a prova escreve o motor (`6cf6396`) e cala o Generate, que roda ali na ponte, na divisa e na faixa. Rodada em clones locais, com o Lab em `cdc71da` e a ferramenta inteira: **de `5b70e5f` (02/10, o contrato v2) até a ponta de hoje (`704a57a`) a prova se refaz valor a valor** — os 17 commits que mudam o fecho dos `import` da ferramenta, cobrindo os 229; em `8223873` e antes a ponte recusa e a ferramenta nem roda; com o motor trocado por `4181e95`, 7 diferenças (os dentes). Não há borda de depois. Escrito ao lado em `src/retrato-do-lab78.ts` (a prova não se tocou, D182); trava `retrato-do-lab78` no verde completo; *achados ao lado: 4 de 71*. O próximo da lista: as outras 39 caladas, uma por rodada, a mais velha primeiro. Proposto ao chat (lista *"não executar"*, abaixo): o verde completo do GitHub clonar o Lab e os vizinhos com a história inteira — cinco travas montam commits velhos e reprovariam num clone raso.
+
+**Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
+
 ### LAB-196 · item 900 — a dívida própria: a fotografia do LAB-60 se retira igual no commit que declara — e o motivo de não regerá-la, perguntado à ferramenta — ✅ **feito em 19/10/2026** (D424)
 
 O LAB-195 deixou o candidato escrito: os outros motivos de exceção com a forma *"regerar faria X"*. Fui à lista das espécies de prova (`regerar-a-varredura.ts`, item 024), onde as quatro fotografias nunca se regeram, e perguntei à ferramenta a única que se pergunta nesta máquina. Espécies **mensagem fixa que afirma estado sem perguntar** e **regra sem guarda**: o motivo da do LAB-60 dizia *"recontar com o motor andado mede outra coisa"*, e o cabeçalho prometia reprovar a *"fotografia que deixou de precisar ser fotografia"* sem teste nenhum. Rodada em clones locais, no commit declarado (`4181e95`) a ferramenta grava a prova igual; na ponta do motor (`89b26ce`), 102 linhas diferentes. A trava `fotografia-no-commit-declarado` pergunta as duas coisas a cada verde completo, numa pasta temporária, sem sobregravar nada (D182); portão sem clones segue 2284. Nada novo proposto ao chat.
@@ -3497,6 +3503,15 @@ O candidato mais óbvio, que só o chat pode promover a prompt:
   do `rustup target add wasm32-unknown-unknown` e do Chromium do Playwright no
   executor. ✅ **executado no LAB-38** — e o que falta hoje é só o segredo
   `VIZINHOS_TOKEN`, que é do Jonny (item 6 da página dele).
+- **O VERDE COMPLETO DO GITHUB CLONAR O LAB E OS VIZINHOS COM A HISTÓRIA INTEIRA** (LAB-200, 19/10, D428). O trabalho do
+  verde completo no `verde.yml` põe o Lab com `actions/checkout@v4` sem `fetch-depth` (o padrão é 1) e clona o `motor-testfit` e
+  o Generate com `--depth 1`; e cinco travas do verde completo montam commits **velhos** do Lab e dos vizinhos —
+  `fotografia-no-commit-declarado` (LAB-196), `fotografia-do-lab48` (LAB-197), `o-commit-do-vizinho-na-prova` (LAB-198, pelo
+  `git cat-file`), `retrato-do-lab18` (LAB-199) e `retrato-do-lab78` (LAB-200). Num clone raso o commit não está na história, e
+  elas reprovam com a receita de desrasar: **no dia em que o CI voltar e o `VIZINHOS_TOKEN` existir, o verde completo nasce
+  vermelho por isso**. O conserto é `fetch-depth: 0` no checkout e tirar o `--depth 1` dos dois `git clone` — mexe na rotina, que
+  está desligada, e não se prova nesta máquina; por isso é proposta. Lido no `verde.yml` de 19/10 e nas cinco travas (as cinco
+  têm a receita de desrasar), e não rodado no GitHub. **Segue aberto:** `prompt-novo`
 
 ---
 

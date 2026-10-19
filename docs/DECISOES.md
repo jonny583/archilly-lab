@@ -14417,3 +14417,40 @@ o que as pontas já cercam); tirar o LAB-18 do retrato (a prova continua calando
 > **QUANDO A FERRAMENTA NÃO DISTINGUE OS CANDIDATOS, O QUE SE ESCREVE É A JANELA, COM AS DUAS BORDAS MEDIDAS POR FORA.** Escolher
 > um commit dentro dela é afirmar uma proveniência que nenhuma medição deu.
 
+## D428 · A PROVA DO LAB-78 CALAVA O GENERATE — achado rodando a ferramenta de então, e a janela é ABERTA: do contrato v2 até onde se mediu · 19/10/2026
+**Contexto:** item 900 (LAB-199 → LAB-200). A caixa só tinha o `900`, e o LAB-199 deixou o candidato escrito: *a do LAB-78, a
+outra pela metade — escreve o motor e cala o Generate*. Espécie **mensagem fixa que afirma estado sem perguntar**:
+`docs/provas/LAB-78/setimo-mecanismo.json` (regravada por último no LAB-94, `cdc71da`) escreve o motor no texto de `naoAchados`
+(`6cf6396`) e nenhum commit do Generate, que roda ali na ponte, na divisa e na faixa.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos): o Lab em `cdc71da`, o motor em `6cf6396`, o Generate
+na história de primeiro pai da `main` dele, a ferramenta inteira (não carrega o Symbios), comparando a prova fora `quando` e `oChao`:
+
+```
+8223873 (02/10, 13h52 UTC) e antes: a ferramenta não roda — a ponte recusa todas as candidatas
+5b70e5f (02/10, 14h11 UTC, o contrato v2) … 704a57a (19/10, a ponta de hoje): ZERO — os 17 estados do fecho dos import, cobrindo os 229 commits
+motor trocado por 4181e95, Generate 24ef624: 7 diferenças (os dentes)
+```
+
+A ponta do instante (`24ef624`, 12/10 07h21 UTC) está dentro — mas a data não acerta: a ferramenta é que não distingue nada.
+
+**Decidido:**
+
+1. `src/retrato-do-lab78.ts`: o Lab e o motor, um commit cada; `A_JANELA_DO_GENERATE` (o começo, o último medido, a borda de antes
+   com o que ela dá, `depois: null`, o do instante dito como coerência); `OS_ESTADOS_DO_FECHO` (os 17); `diferencasForaDaRodada`. A
+   prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab78.test.ts`, **no verde completo**: monta as três árvores numa pasta temporária e roda a
+   ferramenta de então no começo, no instante e no último medido (zero), na borda de antes (não refaz) e com o motor trocado
+   (acusa). Seis testes; duas mutações acusadas (o começo trocado pela borda: 3 reprovam; o motor trocado: 2 reprovam).
+3. `OS_ACHADOS_AO_LADO` ganha a linha do LAB-78 (o Generate); a frase passa a *"achados ao lado: 4 de 71 silêncios"*.
+4. **Proposto ao chat**, achado escrevendo a trava: o trabalho do verde completo no `verde.yml` põe o Lab sem `fetch-depth` e
+   clona os vizinhos com `--depth 1`, e cinco travas do verde completo (LAB-196 a LAB-200) montam commits velhos — num clone raso
+   reprovam. Mexe na rotina desligada e não se prova aqui: vai à lista *"não executar"*; abertos 14 → 15 (`ABERTOS_ESPERADOS`).
+
+**Descartado:** escrever o commit na prova (D182); escrever um commit só, o do instante (a ferramenta não o distingue de 228
+outros); rodar a ponta do Generate do dia a cada verde (a trava ficaria vermelha porque o vizinho andou — trabalho de outra casa
+cobrado do Lab); rodar os 17 estados a cada verde (seis minutos para repetir um número); tirar o LAB-78 do retrato (ela continua
+calando).
+
+> **A JANELA PODE NÃO TER A BORDA DE DEPOIS, E ISSO TAMBÉM É MEDIÇÃO.** Quando a ferramenta não distingue o vizinho de um ponto em
+> diante, escreve-se *"daqui até onde se mediu"*, nunca um commit — e a data que acerta por indiferença não é a data que acerta.
