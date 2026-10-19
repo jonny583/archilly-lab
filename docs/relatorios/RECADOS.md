@@ -4206,3 +4206,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: as cin
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · despertador-sem-item — o disparo das 16:07 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-201, do disparo de 15:10)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo das 16:07 (observado, "fired at 16:07:27 UTC"); caixa só com o 900, contada na origin/main às 16:09; a tarefa da lista que o 900 mandava pegar (a mais velha das caladas que roda aqui: o diagnóstico do relevo do LAB-07) já estava em execução pela sessão do disparo de 15:10, que só enviou às 16:21 (8a82ecc). Duas mãos no repositório ao mesmo tempo, pela segunda vez no dia: o fetch das 16:09 ainda não tinha o trabalho dela. O meu saiu repetido e NÃO foi enviado (fica num ramo local, que não sobe). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm; esteira 2682 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida bateu com a do LAB-201: a janela do Generate começa em 645a572 e não tem borda de depois, e 14b6227 e antes a ferramenta nem roda. Uma coisa a mais, que não muda o escrito: rodei a ferramenta em cada um dos 300 commits de primeiro pai de 645a572 a b6cd826, um a um — zero nos 300, o que confirma por medição o argumento do fecho dos import que o LAB-201 usou para cobrir os 294 do meio. Os dentes também bateram por outro número (vizinhos 6 → 4: 8 diferenças, só no bloco do Generate).
+Achados para outros apps ou Central: para a direção — o disparo das 15:05 começou às 15:10 e durou ~71 minutos, e o das 16:05 começou no meio dele; é o segundo choque do dia (13:14/14:07 foi o primeiro). "Um prompt por despertador" não impede dois despertadores ao mesmo tempo, e o fetch do começo não vê o trabalho que a outra mão ainda não enviou. Não toquei em despertador nenhum (ligar, desligar e o intervalo são da direção).
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o candidato é o que o LAB-201 deixou no relatório dele.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
