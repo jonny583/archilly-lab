@@ -368,6 +368,12 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-196 · item 900 — a dívida própria: a fotografia do LAB-60 se retira igual no commit que declara — e o motivo de não regerá-la, perguntado à ferramenta — ✅ **feito em 19/10/2026** (D424)
+
+O LAB-195 deixou o candidato escrito: os outros motivos de exceção com a forma *"regerar faria X"*. Fui à lista das espécies de prova (`regerar-a-varredura.ts`, item 024), onde as quatro fotografias nunca se regeram, e perguntei à ferramenta a única que se pergunta nesta máquina. Espécies **mensagem fixa que afirma estado sem perguntar** e **regra sem guarda**: o motivo da do LAB-60 dizia *"recontar com o motor andado mede outra coisa"*, e o cabeçalho prometia reprovar a *"fotografia que deixou de precisar ser fotografia"* sem teste nenhum. Rodada em clones locais, no commit declarado (`4181e95`) a ferramenta grava a prova igual; na ponta do motor (`89b26ce`), 102 linhas diferentes. A trava `fotografia-no-commit-declarado` pergunta as duas coisas a cada verde completo, numa pasta temporária, sem sobregravar nada (D182); portão sem clones segue 2284. Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-196.md`](../relatorios/LAB-196.md), decisão **D424**.
+
 ### LAB-195 · item 900 — a dívida própria: os terrenos de prova se regeram byte a byte — e a exceção do metro tinha um motivo que ninguém perguntou — ✅ **feito em 19/10/2026** (D423)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o LAB-194 não deixou candidato. Fui às listas de exceção das travas e perguntei um motivo à coisa de que ele fala. Espécies **mensagem fixa que afirma estado sem perguntar** e **regra sem guarda**: a régua do §7 deixava `symbios/adapter/ferramentas/gerar-terrenos.ts` gravar `area_ha` no `docs/terrenos/indice.json` porque regerá-lo *"reescreve os quatro terrenos de prova"* — rodada, a ferramenta reescreve os cinco arquivos byte a byte iguais, e ninguém lê o índice. O índice grava `area_m2`, a exceção saiu, e a trava `os-terrenos-se-regeram` roda a ferramenta no Node a cada verde e compara nos dois sentidos; 2276 → 2284 (D423).

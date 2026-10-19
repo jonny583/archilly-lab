@@ -14256,3 +14256,44 @@ forma (fica escrito como candidato no relatório).
 > **O MOTIVO DE UMA EXCEÇÃO É UMA AFIRMAÇÃO, E A QUE FALA DO QUE ACONTECERIA SE ALGUÉM RODASSE ALGO SE PERGUNTA RODANDO.**
 > *"Regerá-lo reescreve os quatro terrenos"* segurou uma exceção por cinco semanas; rodada, a ferramenta os reescreve
 > iguais.
+
+## D424 · O MOTIVO DE UMA FOTOGRAFIA SE PERGUNTA À FERRAMENTA QUE A TIROU — e a do LAB-60 se retira igual no commit que declara · 19/10/2026
+**Contexto:** item 900 (LAB-195 → LAB-196). A caixa só tinha o `900`, e o LAB-195 deixou o candidato escrito: *os outros
+motivos de exceção da casa com a forma "regerar faria X", perguntados um a um*. A lista mais densa dessa forma é a das
+espécies de prova (`external-engines/esteira/src/regerar-a-varredura.ts`, item 024, LAB-91), cujas quatro **fotografias**
+nunca se regeram, cada uma com o motivo do que a regeração estragaria. Espécies da dívida própria: **mensagem fixa que
+afirma estado sem perguntar** (o motivo da fotografia, e o cabeçalho que promete que a trava *"reprova nos dois sentidos"*
+— inclusive a *"fotografia que deixou de precisar ser fotografia"* — sem teste nenhum que o fizesse) e **regra sem guarda**.
+
+**Medido**, no `HEAD` `a644dee`, em clones locais numa pasta de rascunho (o vizinho só lido; `git status` limpo):
+
+1. A fotografia `LAB-60/configuracao-do-motor.json` tem o motivo *"recontar com o motor andado mede outra coisa com o nome
+   da antiga (D288)"*, um commit só (`ce19bfc`, 07/10/2026), e nenhuma trava roda a ferramenta `ferramentas/lab60.ts`.
+2. Rodada com o Lab em `ce19bfc` e o motor em `4181e95` (o commit que a prova declara): **igual** à versionada, fora as
+   duas chaves do momento (`quando`, `osClonesVizinhos`). Com o Lab em `a644dee` e o motor em `4181e95`: **igual**.
+3. Com o Lab em `a644dee` e o motor na ponta de hoje (`89b26ce`): **102 linhas** diferentes em 10 chaves — 369 → 616
+   arquivos, `temCI` de `false` a `true`, um desligador a mais.
+
+O motivo **se sustenta**; e a prova é mais que fotografia: é função do commit que declara.
+
+**Decidido:**
+
+1. `ferramentas/lab60.ts` aceita `--motor <pasta>` e `--saida <pasta>`; sem eles, o de sempre.
+2. Trava nova, `tests/fotografia-no-commit-declarado.test.ts` (`src/fotografia-no-commit-declarado.ts`,
+   `compararSemOMomento` e `oCommitDeclarado`), **no verde completo** (precisa do clone `../motor-testfit` com a história
+   inteira; fica fora do portão sem clones): retira a fotografia no commit declarado, numa pasta temporária, e exige zero
+   diferenças; e retira na ponta do motor e exige alguma — o segundo sentido que o cabeçalho prometia. Oito testes; três
+   mutações acusadas (um número da prova, a comparação que cala, a ferramenta que ignora `--motor`).
+3. O motivo da entrada do LAB-60 na lista diz que foi perguntado, e o cabeçalho de `regerar-a-varredura.ts` diz que o segundo
+   sentido existe para uma fotografia só. A espécie não muda: **nada se sobregrava em `docs/provas/`** (D182).
+4. A rede declarada da casa (`src/rede-em-execucao.ts`) ganha a linha do `git clone` local da trava, classe
+   `origem-de-teste`.
+
+**Descartado:** regerar a prova do LAB-60 (é o que o D182 proíbe, e a trava prova que não precisa); trocar a espécie para
+`funcao-da-arvore` (ela depende de clone vizinho, e a lista guarda essa espécie para o que é código desta casa — D288);
+`git worktree` no vizinho (escreveria no `.git` dele); perguntar nesta rodada as outras três fotografias — a do LAB-02 precisa
+do `.wasm`, ausente; a do LAB-31 é um ato, e retirá-la é refazer a sabotagem; a do LAB-48 roda motor e Validator em dois
+commits e fica como candidato escrito.
+
+> **FOTOGRAFIA QUE DECLARA O COMMIT NÃO É LEMBRANÇA: SE RETIRA NO COMMIT, E SE CONFERE.** *"Nunca se regera"* protege o
+> arquivo versionado; não impede de perguntar à ferramenta se ela ainda tira a mesma foto ali.
