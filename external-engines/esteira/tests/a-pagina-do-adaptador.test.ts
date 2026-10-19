@@ -30,6 +30,7 @@ import {
   aConta,
   aFracao,
   conferir,
+  oCabecalho,
   conferirAArvore,
   corpoDa,
   oLocalDoUpstream,
@@ -179,6 +180,43 @@ describe("9 · os caminhos", () => {
   test("link que não resolve reprova", () => acusa(naPagina("](../archilly/wasm/)", "](../archilly/wasm-velha/)"), "o link ../archilly/wasm-velha/"));
   test("outputs/ que não existe reprova", () => acusa(naPagina("`outputs/lab01/medicoes.json`", "`outputs/lab01/medidas.json`"), "outputs/lab01/medidas.json não existe"));
   test("a página que some reprova", () => acusa(com({ [A_PAGINA]: null }), "a página não existe"));
+});
+
+/** O blob de `cfb25f8` (a ponta antes do LAB-192): o `src/index.ts` com o cabeçalho do LAB-01. */
+const INDEX_ANTES = execFileSync("git", ["-C", RAIZ, "show", `cfb25f8:${O_INDEX}`], { encoding: "utf8" });
+const noIndex = (de: string, para: string) => com({ [O_INDEX]: troca(INDEX, de, para) });
+
+describe("10 · o cabeçalho de src/index.ts (LAB-192, D420)", () => {
+  test("medido: o cabeçalho de hoje lê inteiro, em linha, e não reprova nada", () => {
+    const cab = oCabecalho(INDEX) as string;
+    expect(cab.startsWith("O adaptador: `gerarRedeViaria(terreno, parametros, seed)`.")).toBe(true);
+    expect(com({}).filter((x) => x.startsWith(O_INDEX))).toEqual([]);
+  });
+  test("o cabeçalho de antes, posto de volta, reprova com sete — e só no cabeçalho", () => {
+    const p = com({ [O_INDEX]: INDEX_ANTES });
+    // Medido em 19/10/2026: o título, as duas frases fora de risco, o juiz, a função do recorte, onde ela mora, quem a chama.
+    expect(p).toHaveLength(7);
+    expect(p.every((x) => x.includes("o cabeçalho"))).toBe(true);
+    for (const t of ["não nomeia `gerarRedeViaria` no título", "«Validator é LAB-02» fora de risco", "«O que este adaptador NÃO faz» fora de risco"]) acusa(p, t);
+  });
+  test("o juiz sem o risco reprova", () => acusa(noIndex("~~Validator é LAB-02, Judge é LAB-03~~", "Validator é LAB-02, Judge é LAB-03"), "«Validator é LAB-02» fora de risco"));
+  test("a frase velha que quebra de linha, sem o risco, também reprova", () =>
+    acusa(noIndex("~~O que este adaptador NÃO faz~~", "O que este\n * adaptador NÃO faz"), "«O que este adaptador NÃO faz» fora de risco"));
+  test("o título que não nomeia a função reprova", () =>
+    acusa(noIndex("# O que `gerarRedeViaria` NÃO faz", "# O que a função NÃO faz"), "não nomeia `gerarRedeViaria` no título"));
+  test("sem dizer que o juiz é o do Generate reprova", () => acusa(noIndex("são os do Generate", "ficam lá"), "o cabeçalho não diz que o Validator"));
+  test("sem nomear o recorte reprova", () =>
+    acusa(com({ [O_INDEX]: INDEX.replace(/^\/\*\*[\s\S]*?\*\//, (c) => c.replaceAll("`recortarPelaGleba`", "o recorte")) }), "não nomeia a função do recorte"));
+  test("sem dizer onde ele mora reprova", () => acusa(noIndex("(`./recorte.ts`, LAB-02)", "(LAB-02)"), "não diz onde o recorte mora"));
+  test("quem chama, apontado para um arquivo que não o chama, reprova", () =>
+    acusa(noIndex("`external-engines/esteira/src/motores/symbios.ts`", "`external-engines/esteira/src/motores/testfit.ts`"), "e o cabeçalho de"));
+  test("quem chama, apontado para um arquivo que não existe, reprova", () =>
+    acusa(noIndex("`external-engines/esteira/src/motores/symbios.ts`", "`external-engines/esteira/src/motores/nao.ts`"), "ele não existe"));
+  test("a frase velha FORA do cabeçalho (num comentário do corpo) não é desta pergunta", () =>
+    expect(noIndex("const TOLERANCIA_RAMPA_PP = 0.5;", "// Validator é LAB-02\nconst TOLERANCIA_RAMPA_PP = 0.5;")).toEqual([]));
+  test("o arquivo que não abre com comentário reprova", () => acusa(com({ [O_INDEX]: `import "x";\n${INDEX}` }), "não abre com o comentário"));
+  test("oCabecalho: junta a frase partida e tira a margem", () =>
+    expect((oCabecalho("/**\n * a b\n *   c\n */\nx") ?? "").replace(/\s+/g, " ")).toBe("a b c"));
 });
 
 describe("a conta e a leitura do Generate, sem o Generate", () => {

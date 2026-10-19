@@ -366,6 +366,10 @@ ele pediu, no mesmo item, que nada desta casa volte a ele antes da integração 
 
 **Origem:** [`../relatorios/LAB-96.md`](../relatorios/LAB-96.md), decisão **D323**.
 
+### LAB-192 · item 900 — a dívida própria: o cabeçalho de `src/index.ts` do adaptador — o que não faz dito do adaptador, e o juiz que dizia ser do Lab — ✅ **feito em 19/10/2026** (D420)
+
+A FILA continuava sem proposta que não esperasse ninguém, e o LAB-191 deixou o candidato escrito: o comentário que abre `external-engines/symbios/adapter/src/index.ts`. Espécie **mensagem fixa que afirma estado sem perguntar**: o título *"O que este adaptador NÃO faz"* (*"não recorta pela gleba … o recorte é o LAB-02"*) — e o LAB-02 pôs o `export { recortarPelaGleba … }` neste arquivo num commit de uma linha (`d619067`), sem tocar no cabeçalho — e *"Validator é LAB-02, Judge é LAB-03"* (são os do Generate, D20). O título passa a nomear `gerarRedeViaria`, as duas frases ficam riscadas e datadas, e o cabeçalho diz onde o recorte mora e quem o chama; nenhum código muda. A trava do LAB-191 (`src/a-pagina-do-adaptador.ts`) ganha a pergunta 10, ao cabeçalho, lido em linha só; 13 testes novos, o cabeçalho de antes reprova com sete; 2 242 → 2 255. Nada novo proposto ao chat; candidato escrito no relatório: o parágrafo do `README.md` da raiz que diz o mesmo do adaptador. Detalhe em [`../relatorios/LAB-192.md`](../relatorios/LAB-192.md).
+
 ### LAB-191 · item 900 — a dívida própria: a página do adaptador do Symbios — o estado do LAB-01, o mapa sem o recorte, e um nome do Generate que nunca existiu — ✅ **feito em 19/10/2026** (D419)
 
 A FILA continuava sem proposta que não esperasse ninguém, e o LAB-190 não deixou candidato escrito: recontei as espécies da dívida própria por LUGAR, os `README.md` fora do `upstream/` contra quem os lê no código. O LAB-187 contou três sem leitor; havia **quatro** — o `external-engines/symbios/adapter/README.md` só é citado num comentário do `o-trabalho-em-archilly.ts`. Espécies **mensagem fixa que afirma estado sem perguntar** e **número digitado à mão**: *"Estado: LAB-01 concluído"*, o mapa com nove de onze arquivos de `src/` (faltavam `recorte.ts`, LAB-02, e `poligono.ts`, LAB-05), *"não recorta"* e *"não aplica restrições"* ditos do adaptador (valem para `gerarRedeViaria`; o adaptador exporta `recortarPelaGleba`, que a esteira chama), *"Validator é LAB-02, Judge é LAB-03"* (são os do Generate, D20), e `NORMA_BR.via.caixaMinima`, nome que o Generate nunca teve (lá, desde 08/09, `NORMA_BR.viario.valor.caixaMinima` — o erro estava também no `src/contrato.ts`). Os números conferiam sem dono: ≈ 38 % (0,3758 da *Fazenda Recanto das Águas*, `outputs/lab01/medicoes.json`), os seis padrões (`PARAMETROS_PADRAO`), os 15 m do upstream. A página risca e data o que venceu, ganha o mapa entre marcas e a seção dos números; trava `src/a-pagina-do-adaptador.ts` (47 testes, sem clones, nove perguntas) e `tests/a-pagina-do-adaptador-com-clone.test.ts` (4, no verde completo); a página de antes reprova com 29 problemas; 2 195 → 2 242. Nada novo proposto ao chat. Detalhe em [`../relatorios/LAB-191.md`](../relatorios/LAB-191.md).
@@ -2187,7 +2191,7 @@ vermelhas**. A trava antiga não pegaria isso se as duas provas o tivessem junto
 privados** por caminho (D16), e este repositório é **público** — o `GITHUB_TOKEN` do
 Actions não os alcança. Então o workflow tem **dois trabalhos, com nomes que não
 enganam**: `guardas que não precisam dos clones vizinhos (NÃO é o verde)`, que roda sem segredo (gatilho automático desligado desde 08/10/2026)
-e protege 2242 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
+e protege 2255 travas que leem arquivo do próprio repositório, e `o verde completo`, que **falha com a receita** até alguém criar o
 segredo (D141). *Um CI vermelho por falta de configuração é honesto; um CI verde que não
 roda o verde é a mentira que o D110 custou duas semanas.*
 

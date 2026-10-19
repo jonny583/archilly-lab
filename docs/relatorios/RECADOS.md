@@ -4063,3 +4063,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito para a próxima rodad
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-192 — item 900 (a dívida própria): o cabeçalho de `src/index.ts` do adaptador — o que não faz dito do adaptador, e o juiz que dizia ser do Lab
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-192 (item 900) ===
+Estado: caixa só com o 900 (contada na origin/main, clone pela receita do LAB-116); fui à dívida própria, no candidato que o LAB-191 deixou escrito no relatório e na saída da trava: o cabeçalho de external-engines/symbios/adapter/src/index.ts (mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos; o portão sem clones 2255 de 2255 (122 de 122 arquivos); esteira 2611 aprovadas e as 9 de sempre (o .wasm); testfit 17 de 17; vizinhos desrasados e com git status limpo.
+Feito: o comentário do topo dizia "O que este adaptador NÃO faz: não recorta pela gleba … o recorte é o LAB-02" — e o LAB-02 pôs o export de recortarPelaGleba neste mesmo arquivo, num commit de uma linha (d619067), sem tocar no cabeçalho — e "Validator é LAB-02, Judge é LAB-03" (são os do Generate, D20). O título passa a nomear gerarRedeViaria, as duas frases ficam riscadas e datadas, e o cabeçalho diz onde o recorte mora e quem o chama; nenhum código muda. A trava do LAB-191 (a-pagina-do-adaptador) ganha a pergunta 10, ao cabeçalho lido em linha só; 13 testes novos; o cabeçalho de antes reprova com sete; 2242 → 2255 (D420). Detalhe em docs/relatorios/LAB-192.md.
+Achados para outros apps ou Central: a todas — comentário de cabeçalho envelhece no commit que não o toca: o diff de uma linha do LAB-02 era a linha que tornava o topo falso, e um diff de uma linha não mostra o topo. Quem acrescenta um export a um arquivo que diz o que não faz relê o que ele diz. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito para a próxima rodada própria: o parágrafo do README.md da raiz que diz que o adaptador do Symbios não recorta e que cada coisa é "de um prompt adiante"; as propostas antigas esperam o chat; o .wasm segue sem o alvo do rustup.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

@@ -14108,3 +14108,34 @@ a régua diz que não alcança); refazer os ≈ 38 % (é história do LAB-01, D1
 > **NOME DO VIZINHO COPIADO SEM ABRIR O VIZINHO É NOME INVENTADO.** O valor estava certo — 8,4 m — e por isso ninguém
 > desconfiou do nome por trinta e nove dias, em três lugares. Quem cita o dono de um número cita um endereço: ele se
 > confere abrindo o endereço, não conferindo o número.
+
+## D420 · O CABEÇALHO DE `src/index.ts` DO ADAPTADOR — o que não faz dito do adaptador, e o juiz que dizia ser do Lab · 19/10/2026
+**Contexto:** item 900 (LAB-191 → LAB-192). A caixa só tinha o `900`; o LAB-191 deixou escrito o candidato: o comentário
+que abre `external-engines/symbios/adapter/src/index.ts`, que repetia as duas frases que a D419 riscou na página. Espécie
+da dívida própria: mensagem fixa que afirma estado sem perguntar.
+
+**Medido:** o título *"O que este adaptador NÃO faz"* é do LAB-01; o LAB-02 (`d619067`, 14/09) acrescentou a este arquivo
+uma linha só — `export { recortarPelaGleba … } from "./recorte.ts"` —, e o cabeçalho, seis linhas acima, ficou como
+estava: o adaptador passou a recortar, e o comentário seguiu dizendo que não. *"Validator é LAB-02, Judge é LAB-03"*
+contradiz o `CLAUDE.md` §4 e a D20. O item do lote confere; a cadeia de arquivos do LAB-01 foi lida à mão.
+
+**Decidido:**
+
+1. O cabeçalho (só comentário; nenhum código muda) passa a dizer *"O que `gerarRedeViaria` NÃO faz"*, com o título velho
+   e a frase do juiz riscados e datados, onde o recorte mora (`./recorte.ts`), quem o chama
+   (`external-engines/esteira/src/motores/symbios.ts`), quem usa as restrições, e que o Validator e o Judge são os do
+   Generate.
+2. A trava é a do LAB-191 (`external-engines/esteira/src/a-pagina-do-adaptador.ts`), com a **pergunta 10**: `oCabecalho`
+   lê o primeiro `/** … */` em linha só, e a régua cobra o título, as duas frases só riscadas, o juiz, o recorte nomeado
+   com o arquivo, e quem o chama — um arquivo que o `git` carrega e que o chama no código. 13 testes novos (47 → 60), o
+   cabeçalho de antes (blob de `cfb25f8`) reprova com sete; o portão sem clones passa de 2 242 a 2 255 travas.
+
+**Descartado:** régua nova (a afirmação é a mesma, e régua nova nasce com a doença que a velha já curou, D263); pôr a frase
+na lista da `frase-vencida.ts` (os três lugares dela já são perguntados); consertar no mesmo commit o `README.md` da raiz,
+que diz o mesmo do adaptador (outra página — candidato a rodada própria, escrito no relatório e na saída da trava); tocar
+a `observacao` do `src/geojson.ts` e o comentário de `Restricao` (*"o recorte é o LAB-02"*: lidos como atribuição são
+verdade, e a `observacao` está congelada em `outputs/lab01/`, D118).
+
+> **COMENTÁRIO DE CABEÇALHO ENVELHECE NO COMMIT QUE NÃO O TOCA.** O diff de uma linha do LAB-02 era a linha que tornava o
+> topo falso, e um diff de uma linha não mostra o topo. Quem acrescenta um `export` a um arquivo que diz o que não faz
+> relê o que ele diz.

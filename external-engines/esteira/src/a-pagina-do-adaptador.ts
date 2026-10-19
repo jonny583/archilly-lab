@@ -37,7 +37,13 @@
  *    nenhum dos dois cita o nome que nunca existiu fora de risco — o clone do Generate, no verde completo, responde o
  *    resto ({@link conferirNoGenerate});
  * 8. **os 15 m do upstream:** o `minor_road_dist` do `Default` de `TensorConfig`;
- * 9. **os caminhos:** todo link e todo `docs/…`, `external-engines/…` ou `outputs/…` entre crases resolvem no `git`.
+ * 9. **os caminhos:** todo link e todo `docs/…`, `external-engines/…` ou `outputs/…` entre crases resolvem no `git`;
+ * 10. **o cabeçalho de `src/index.ts`** (LAB-192, item 900, D420): o comentário que abre o arquivo repetia, desde o LAB-01,
+ *    *"O que este adaptador NÃO faz"* — e o LAB-02 pôs o `export { recortarPelaGleba … }` no mesmo arquivo, num commit de
+ *    uma linha (`d619067`), sem tocar nele — e *"Validator é LAB-02, Judge é LAB-03"*. A pergunta é a da página, feita ao
+ *    comentário ({@link oCabecalho}): o título nomeia `gerarRedeViaria`; as duas frases velhas só riscadas; diz que o
+ *    juiz é o do Generate; nomeia `recortarPelaGleba` e `./recorte.ts`; e aponta quem chama o recorte, um arquivo que o
+ *    `git` carrega e que o chama no código.
  */
 import { existsSync, readFileSync } from "node:fs";
 import { join, normalize } from "node:path";
@@ -76,6 +82,25 @@ export const OS_PADROES = [
   "passoGrade_m",
   "extrairQuadras",
 ] as const;
+
+/** O que só vale riscado no cabeçalho de `src/index.ts` (LAB-192). */
+export const SO_RISCADO_NO_CABECALHO: readonly string[] = ["Validator é LAB-02", "O que este adaptador NÃO faz"];
+
+/**
+ * O comentário que abre um arquivo TypeScript (o primeiro `/** … *\/`, antes de qualquer código), numa linha só: sem o
+ * `*` da margem e com os espaços colapsados — a frase que quebra de linha no comentário se lê inteira. `null` se o arquivo
+ * não abre com um.
+ */
+export function oCabecalho(ts: string): string | null {
+  const m = /^\s*\/\*\*([\s\S]*?)\*\//.exec(ts);
+  if (!m) return null;
+  return (m[1] as string)
+    .split("\n")
+    .map((l) => l.replace(/^\s*\*\s?/, ""))
+    .join("\n")
+    .replace(/[ \t]*\n[ \t]*/g, "\n")
+    .trim();
+}
 
 /** O texto sem o que está riscado. */
 export const semRiscado = (texto: string): string => texto.replace(/~~[\s\S]*?~~/g, "");
@@ -301,6 +326,29 @@ export function conferir(caminhos: readonly string[], ler: (c: string) => string
     if (!resolve(c.replace(/\/$/, ""))) problemas.push(`${A_PAGINA}: ${c} não existe no git`);
   }
 
+  // 10 · o cabeçalho de src/index.ts (LAB-192)
+  if (index !== null) {
+    const cab = oCabecalho(index);
+    if (cab === null) problemas.push(`${O_INDEX}: não abre com o comentário de cabeçalho`);
+    else {
+      const linha = cab.replace(/\s+/g, " ");
+      const vivo = semRiscado(linha);
+      if (!/^# O que `gerarRedeViaria` NÃO faz/m.test(cab)) problemas.push(`${O_INDEX}: o cabeçalho não nomeia \`${A_FUNCAO}\` no título do que não faz`);
+      for (const f of SO_RISCADO_NO_CABECALHO) if (vivo.includes(f)) problemas.push(`${O_INDEX}: o cabeçalho afirma «${f}» fora de risco`);
+      if (!vivo.includes(A_PAGINA_DIZ_DO_JUIZ)) problemas.push(`${O_INDEX}: o cabeçalho não diz que o Validator e o Judge ${A_PAGINA_DIZ_DO_JUIZ}`);
+      if (!vivo.includes(`\`${A_FUNCAO_DO_RECORTE}\``)) problemas.push(`${O_INDEX}: o cabeçalho não nomeia a função do recorte, \`${A_FUNCAO_DO_RECORTE}\``);
+      if (!vivo.includes("`./recorte.ts`")) problemas.push(`${O_INDEX}: o cabeçalho não diz onde o recorte mora (\`./recorte.ts\`)`);
+      const chama = /chama depois \(`(external-engines\/[^`]+)`\)/.exec(vivo)?.[1] ?? null;
+      if (chama === null) problemas.push(`${O_INDEX}: o cabeçalho não aponta quem chama o recorte («chama depois (\`external-engines/…\`)»)`);
+      else {
+        const t = ler(chama);
+        if (t === null) problemas.push(`${O_INDEX}: o cabeçalho aponta ${chama} como quem chama o recorte, e ele não existe`);
+        else if (!new RegExp(`\\b${A_FUNCAO_DO_RECORTE}\\s*\\(`).test(soCodigo(t)))
+          problemas.push(`${chama}: não chama ${A_FUNCAO_DO_RECORTE}, e o cabeçalho de ${O_INDEX} diz que chama`);
+      }
+    }
+  }
+
   return { naPasta, noMapa: (mapa ?? []).length, padroes, fracao, caminhosLidos, problemas };
 }
 
@@ -381,6 +429,7 @@ export const O_QUE_ISTO_NAO_ALCANCA: readonly string[] = [
   "se o LAB que a página dá a cada arquivo (LAB-02, LAB-05) é o do commit que o criou: medido à mão no LAB-191, não perguntado ao git",
   "se o ≈ 38 % é verdade HOJE: é história do LAB-01 (D118), e a medição não se refaz sem o `.wasm`, que esta máquina não constrói",
   "a receita de instalar e executar: é do LAB-133 (`node-sem-npm.ts`) e do LAB-176 (`o-wasm-nao-pede-nada.ts`), não desta régua",
-  "o cabeçalho de `src/index.ts`, que também diz «O que este adaptador NÃO faz» e «Validator é LAB-02, Judge é LAB-03»: é comentário de código, candidato a rodada própria",
+  "o resto do cabeçalho de `src/index.ts` (a cadeia do LAB-01, o lote, os nomes de arquivo da cadeia): a régua do LAB-192 pergunta só o título, as duas frases riscadas, o juiz e o recorte",
+  "a mesma frase velha noutros lugares: o `README.md` da raiz (*\"O Adapter do Symbios … não recorta pela gleba … cada uma dessas coisas é de um prompt adiante\"*), o comentário de `Restricao` em `src/contrato.ts` e a `observacao` de `src/geojson.ts` (*\"o recorte é o LAB-02\"*), que sai na prova congelada `outputs/lab01/` (D118) — candidatos, escritos no relatório do LAB-192",
   "os nomes do Generate no `docs/DECISOES.md` (D13) e no `docs/relatorios/LAB01_ADAPTADOR.md`: são história, e a D419 diz o nome certo",
 ];
