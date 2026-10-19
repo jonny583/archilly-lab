@@ -167,6 +167,11 @@ describe("LAB-199 · os commits achados AO LADO da prova", () => {
     expect(Object.keys(OS_ACHADOS_AO_LADO).sort()).toEqual([
       "LAB-07/diagnostico-relevo.json",
       "LAB-07/diagnostico-relevo.txt",
+      "LAB-07/ensaio-47ha.saida.json",
+      "LAB-07/geo-antonina.saida.json",
+      "LAB-07/lab01-50ha-ondulado.saida.json",
+      "LAB-07/medicoes.json",
+      "LAB-07/medir.txt",
       "LAB-18/contrato-v2.json",
       "LAB-48/violacoes-do-motor-padrao.json",
       "LAB-78/setimo-mecanismo.json",

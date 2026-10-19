@@ -14493,3 +14493,48 @@ então); tirar as duas do retrato (continuam calando).
 
 > **A MAIS VELHA QUE SE PODE MEDIR NÃO É A MAIS VELHA.** A ordem da lista diz qual vem primeiro; a máquina diz qual se mede. O que
 > pula por falta de instrumento fica escrito com o motivo, não some da fila.
+
+## D430 · AS CINCO PROVAS DO `medir.ts` DO LAB-07 CALAVAM O MOTOR E O GENERATE — achado rodando a ferramenta de então, e são DUAS janelas FECHADAS: o motor de 10/09 a 14/09, o Generate do contrato v1 ao último antes do v2 · 19/10/2026
+**Contexto:** item 900 (LAB-201 → LAB-202). A caixa só tinha o `900`, e o LAB-201 deixou o candidato escrito: *as cinco do
+`medir.ts` do LAB-07, pelo mesmo caminho*. As cinco (`ensaio-47ha.saida.json`, `geo-antonina.saida.json`,
+`lab01-50ha-ondulado.saida.json`, `medicoes.json`, `medir.txt`; gravadas uma vez, `25b62e0`, 13/09, `geradoEm` 14h31 UTC) rodam o
+motor e o julgam com o Validator e o Judge do Generate, e não escrevem commit de nenhum dos dois: dez silêncios. Espécie
+**mensagem fixa que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos): o Lab em `25b62e0`, cada vizinho na história de
+primeiro pai da `main` dele, a ferramenta inteira, comparando as `.json` fora `geradoEm`, `ambiente` e os tempos, e a `.txt` fora
+o *"· tempos: …"*. Cada eixo com o outro vizinho no instante, rodados **todos** os commits que tocam o fecho:
+
+```
+motor (37 commits que tocam src/lib/lab/, o fecho inteiro):
+  9404d78 (10/09) e antes: a ferramenta não roda — sem src/lib/lab/api.ts
+  0ece0b1 (10/09) · d2f71e4 (13/09) · 66ece91 (14/09): ZERO
+  648ae78 (14/09): 66 valores na medicoes.json, 6 linhas da .txt — e depois, de 6 422 a 30 766
+Generate (27 commits que tocam o fecho unido de doze pontos, ou docs/glebas-padrao/):
+  805b6a0 (09/09) e antes: a ferramenta não roda — sem src/lib/import/parcelamento-externo.ts
+  22502b3 (10/09, contrato v1) … 8223873 (02/10): ZERO — dez estados, cobrindo os 46 commits
+  5b70e5f (02/10, contrato v2) em diante: a ferramenta não roda — "este adaptador entende a versão 1"
+os quatro cantos (0ece0b1/66ece91 × 22502b3/8223873): ZERO
+Generate 22502b3 com TOL_APOIO_VIA_M 0,75 → 0,5 m na cópia: 7 diferenças, todas na medicoes.json (os dentes)
+```
+
+A ponta do instante (motor `d1998f1`, Generate `22502b3`) está dentro das duas — coerência, não medição.
+
+**Decidido:**
+
+1. `src/retrato-do-lab07-medir.ts`: o Lab, um commit; `A_JANELA_DO_MOTOR` e `A_JANELA_DO_GENERATE` (começo, fim, as duas bordas
+   com o que cada uma dá, o do instante dito como coerência); `OS_ESTADOS_DO_GENERATE` (os 10); `A_TROCA_DOS_DENTES`; `eTempo`,
+   `diferencasForaDoTempo` e `textoForaDoTempo`. As provas não se tocam (D182).
+2. Trava nova, `tests/retrato-do-lab07-medir.test.ts`, **no verde completo**: monta as três árvores numa pasta temporária e roda a
+   ferramenta de então no instante e nos quatro cantos (as cinco iguais), nas quatro bordas (não refaz: três não rodam, a do motor
+   acusa) e com a troca dos dentes na cópia do Generate (acusa, e só na `medicoes.json`). Seis testes; três mutações acusadas (o
+   começo do motor trocado pela borda: 2 reprovam; a troca dos dentes anulada: 1; a comparação sem tirar os tempos: 2).
+3. `OS_ACHADOS_AO_LADO` ganha as cinco, com o motor e o Generate; a frase passa a *"achados ao lado: 16 de 71 silêncios"*.
+
+**Descartado:** escrever os commits na prova (D182); escrever um commit só por vizinho, o do instante (a ferramenta não o distingue
+dos outros da janela); rodar o produto inteiro dos dois eixos (37 × 27 rodadas; os fechos não se cruzam — eixos e cantos dizem o
+mesmo); dentes do motor por troca na cópia (a borda de depois já é um commit de verdade que a ferramenta acusa); tirar as cinco do
+retrato (continuam calando).
+
+> **JANELA ABERTA É O QUE A FERRAMENTA NÃO ENXERGA; JANELA FECHADA, O QUE ELA ENXERGA.** E há dois jeitos de fechar: a ferramenta
+> acusa (o vizinho andou) ou recusa (o vizinho mudou de contrato). Os dois são borda, e se escrevem diferentes.

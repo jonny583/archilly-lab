@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T16:31:41.133Z",
+  "quando": "2026-10-19T17:38:41.337Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1211,12 +1211,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 16:09 — e a tarefa da lista que ele mandava pegar (a mais velha das caladas que roda aqui, o diagnóstico do relevo) **já estava em execução noutra sessão**, a do disparo de 15:10, que só enviou às 16:21 — então **sem item para esta sessão**: não havia o que ela pudesse pegar sem repetir a outra. A hora veio no aviso do próprio disparo, lido por esta sessão (*\"fired at 16:07:27 UTC\"*, agendado para 16:05); o `reflog` do clone registra a ponta posta no disco às 16:09:01 — e o `pull` do disparo recusou no clone raso, e a receita do LAB-116 o desrasou. **Duas mãos no repositório ao mesmo tempo, pela segunda vez no dia**: o trabalho desta sessão saiu repetido, achou a mesma janela, e não foi enviado",
         "rodada": "despertador-sem-item (o LAB-201 refeito por outra mão e não enviado: a mesma janela e a mesma borda, agora rodada nos 300 commits um a um — nada que mude o escrito)",
         "emVazio": true
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "≤ 17:07",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista, e nenhuma outra mão estava nela (o último envio da origem, `015dc79` às 16:42:32, era o fecho do disparo das 16:07). O minuto não se afirma: o disparo chegou como texto, sem notificação lida (nenhuma na fila desta sessão); o teto é o `reflog` do clone, que registra a ponta posta no disco às 17:07:27 — e o `pull` do disparo recusou no clone raso, e a receita do LAB-116 o desrasou (a `main` velha, de 17/10, era ancestral da origem: nenhum commit perdido)",
+        "rodada": "item 900 (LAB-202), dívida própria (mensagem fixa que afirma estado sem perguntar: as cinco provas do `medir.ts` de 13/09, que rodam o motor e o Generate e não escrevem commit de nenhum dos dois)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 150,
+      "noRegistro": 151,
       "observados": 47,
-      "derivados": 57,
+      "derivados": 58,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 7
@@ -1260,7 +1268,8 @@
         "reprovou": true,
         "quais": [
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
-          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum"
+          "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
+          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO BOM, PRIMEIRO: as rodadas da conta e as dos recados fecham, nos dois sentidos"
         ]
       },
       {
@@ -1271,6 +1280,7 @@
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
           "item 004 · a conta dos disparos do despertador > a seção diz o que o número vai DECIDIR — o item 004 cobra essa frase",
           "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
+          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO BOM, PRIMEIRO: as rodadas da conta e as dos recados fecham, nos dois sentidos",
           "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove"
         ]
       },
@@ -1283,6 +1293,7 @@
           "item 004 · a conta dos disparos do despertador > toda linha tem a origem declarada, e o vocabulário é FECHADO",
           "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM, PRIMEIRO: as três origens são lidas, a de hífen inclusive",
           "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
+          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO BOM, PRIMEIRO: as rodadas da conta e as dos recados fecham, nos dois sentidos",
           "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove"
         ]
       },
@@ -1293,11 +1304,17 @@
         "quais": [
           "item 004 · a conta dos disparos do despertador > O LADO BOM: a conta do ONDE_PARAMOS fecha, e sem nenhum problema",
           "D281 · a régua de linha lê as TRÊS classes, e o vazio tem fronteira de palavra > O LADO BOM: a conta de hoje continua sem problema nenhum",
+          "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO BOM, PRIMEIRO: as rodadas da conta e as dos recados fecham, nos dois sentidos",
           "D401 · toda rodada com recado tem a sua linha na conta, e a reconstruída diz de onde veio > O LADO RUIM: o abandono do LAB-134 em diante, reproduzido, REPROVA com as trinta e nove"
         ]
       }
     ],
     "oOndeParamosVoltou": true
   },
-  "problemas": []
+  "problemas": [
+    {
+      "tipo": "secao-nao-encontrada",
+      "oQue": "a guarda já reprova o caso BOM — nada abaixo vale"
+    }
+  ]
 }
