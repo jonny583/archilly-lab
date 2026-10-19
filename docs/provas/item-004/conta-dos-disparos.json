@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-19T15:01:18.302Z",
+  "quando": "2026-10-19T15:23:32.415Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1195,11 +1195,19 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 14:09 — e a tarefa da lista que ele mandava pegar (a do LAB-78) **já estava em execução noutra sessão**, a do disparo de 13:14, que só enviou às 14:18 — então **sem item para esta sessão**: não havia o que ela pudesse pegar sem repetir a outra. A hora veio no aviso do próprio disparo, lido por esta sessão (*\"fired at 14:07:22 UTC\"*, agendado para 14:05); o `reflog` do clone registra a ponta posta no disco às 14:09:19 — e o `pull` do disparo recusou no clone raso, e a receita do LAB-116 o desrasou. **Duas mãos no repositório ao mesmo tempo**: o trabalho desta sessão saiu repetido, achou a mesma janela, e não foi enviado",
         "rodada": "despertador-sem-item (o LAB-200 refeito por outra mão e não enviado: a mesma janela, a mesma borda e o mesmo controle do motor — nada novo)",
         "emVazio": true
+      },
+      {
+        "data": "19/10/2026",
+        "hora": "15:10",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` — **não é disparo em vazio**: o 900 manda trabalhar a própria lista, e desta vez nenhuma outra mão estava nela (o último envio da origem, `2b5442a` às 15:09:27, era o fecho do disparo das 14:07). A hora veio no aviso do próprio disparo, lido por esta sessão (*\"fired at 15:10:57 UTC\"*, agendado para 15:05; a rotina agora se chama *\"caixa (4 h)\"*); o `reflog` do clone registra a ponta posta no disco às 15:12:34 — e o `pull` do disparo recusou no clone raso; desrasado, a `main` era ancestral da origem e andou",
+        "rodada": "item 900 (LAB-201), dívida própria (mensagem fixa que afirma estado sem perguntar: o diagnóstico de relevo de 13/09 roda o Generate e não escreve o commit dele — achado rodando a ferramenta de então sobre a história do Generate, uma janela aberta, e escrito ao lado)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 148,
-      "observados": 45,
+      "noRegistro": 149,
+      "observados": 46,
       "derivados": 57,
       "emLote": 7,
       "reconstruidos": 39,
