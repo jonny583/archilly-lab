@@ -13917,3 +13917,34 @@ universo (o `README.md` de motor novo nasceria fora); ler código e comentários
 
 > **O LUGAR ÚNICO PRECISA DE QUEM PERGUNTE OS OUTROS LUGARES.** A trava que confere a seção do estado não via a porta da
 > frente dizendo outro — e a porta da frente diz onde o estado mora, nunca qual é.
+
+## D415 · A PASTA DE TESTES DO SYMBIOS — "vazio nesta fase", e o adaptador nasceu no dia seguinte · 19/10/2026
+**Contexto:** item 900 (LAB-186 → LAB-187). A caixa só tinha o `900`; a FILA seguia sem proposta que não esperasse
+ninguém. Na dívida própria, espécie mensagem fixa que afirma estado sem perguntar: dos 14 `README.md` que o `git` carrega
+fora do `upstream/`, três não tinham leitor no código; um deles, `external-engines/symbios/tests/README.md`, do LAB-00
+(09/09/2026), dizia *"Vazio nesta fase"*, que o adaptador *"só nasce na Etapa C"* e que os testes *"serão escritos
+aqui"*. O adaptador nasceu no LAB-01 (10/09) e os testes dele do LAB-02 em diante (14/09), na suíte da esteira.
+
+**Medido** por LUGAR: a pasta carrega só a página; `adapter/src/` carrega 11 arquivos; dos 155 testes da esteira, 8
+carregam o `.wasm` pela porta (`Motor.carregar(`); nenhum dos 161 `*.test.ts` e `.rs` fora do `upstream/` escreve um dos
+quatro nomes da especificação (§22). A régua nova acusou catorze problemas na página de antes.
+
+**Decidido:**
+
+1. A página diz o que a pasta carrega (só ela), onde moram os testes do motor (o upstream) e os do adaptador (a esteira,
+   os oito entre marcas), e que os quatro nomes não existem como teste — sem afirmar qual arquivo responde a qual. O texto
+   velho fica riscado e datado.
+2. A trava `external-engines/esteira/src/a-pasta-de-testes-do-symbios.ts` e `tests/a-pasta-de-testes-do-symbios.test.ts`
+   (30 testes, sem clones, no portão): a pasta contra a página; a forma velha reprova enquanto houver adaptador no `git`;
+   a lista nos dois sentidos contra os testes que carregam o `.wasm`; os caminhos `../` no `git`; os quatro nomes na
+   especificação, na página, e em nenhum teste enquanto a página disser que não. A página de antes, byte a byte, reprova
+   dentro do próprio teste. O portão passa de 117 a 118 arquivos e de 2 022 a 2 052 travas.
+
+**Descartado:** mapear os quatro nomes para os oito arquivos (correspondência não medida é dado inventado); mover os
+testes para a pasta (mudança de arquitetura sem pedido); contar teste do adaptador pelo `import` (13 pelo apelido, muitos
+só por tipo ou função pura — a porta que roda o motor é a `Motor.carregar(`); consertar a linha `tests/` da tabela de
+`external-engines/symbios/README.md` (é a anatomia das pastas, proposta do LAB-152 que espera o chat — proposto ao chat
+juntar a ela).
+
+> **A PÁGINA DE PASTA VAZIA ENVELHECE PELO MUNDO EM VOLTA, NÃO PELA PASTA.** A pasta segue vazia e a frase segue verdade
+> sobre ela, enquanto o *"por enquanto"* deixa de ser. Ela diz onde a coisa mora — e alguém pergunta se mora lá.
