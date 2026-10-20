@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T02:56:58.069Z",
+  "quando": "2026-10-20T03:27:46.855Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1291,12 +1291,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 02:07 — e a tarefa da lista que ele mandava pegar (a seguinte das caladas que roda aqui sem o `.wasm`: a `LAB-46/antonina-tres-amostragens.json`, o candidato do LAB-206) **já estava em execução noutra sessão**, a do disparo de ≤ 01:06, que só enviou às 02:17 (o LAB-207, `f6d17e4`) — então **sem item para esta sessão**: não havia o que ela pudesse pegar sem repetir a outra. A origem às 02:07 e nas buscas seguintes parava no fecho do disparo das 00:06 (`e9401c9`, 00:31), e a outra mão não se via. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 02:06:20 — o `pull` do disparo passou, e a receita do LAB-116 confirmou a `main` na origem. Não li nem toquei a listagem das tarefas agendadas. **Duas mãos no repositório ao mesmo tempo, pela sétima vez em dois dias**: o trabalho desta sessão saiu repetido, achou a mesma coisa, e não foi enviado",
         "rodada": "despertador-sem-item (o LAB-207 refeito por outra mão e não enviado: o instante `f581b5a`/`a06befa` acusa 94 linhas; dos 37 commits do motor, refaz só de `fe0c7a1` a `244aae3`, as bordas `648ae78` (8 linhas) e `2160fce` (32) acusam; do Generate, refaz de `5b70e5f` à ponta `efb70e9`, a borda `8223873` acusa (194) — nada que mude o escrito)",
         "emVazio": true
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "≤ 03:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 03:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista, e nenhuma outra mão estava nela (o último envio da origem, `be29385` às 02:57, era o fecho do disparo de ≤ 02:06, e o LAB-207 já tinha entregado a tarefa do disparo de ≤ 01:06; o único ramo remoto além da `main` já está inteiro nela). O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 03:06:52, e a receita do LAB-116 confirmou a `main` na origem. Não li nem toquei a listagem das tarefas agendadas. Esta sessão foi à dívida própria, pelo candidato que o recado do disparo de ≤ 02:06 deixou",
+        "rodada": "item 900 (LAB-208), dívida própria (mensagem fixa que afirma estado sem perguntar: a passagem externa de 06/10 roda o motor e o Generate e não escreve o commit de nenhum dos dois — medido, o motor numa janela fechada de `fe0c7a1` a `244aae3`, o instante fora, o Generate de `5b70e5f` em diante, e escrito ao lado)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 160,
+      "noRegistro": 161,
       "observados": 51,
-      "derivados": 63,
+      "derivados": 64,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 11

@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-208 · item 900 — a dívida própria: a passagem externa do LAB-50 calava o motor e o Generate — e o motor que a fez é o de 14/09, a mesma janela do LAB-37 e do LAB-46 — ✅ **feito em 20/10/2026** (D436)
+
+O recado do disparo de ≤ 02:06 deixou o candidato escrito: a `LAB-50/passagem-externa.json`, que cala os dois e cuja ferramenta não carrega o `.wasm`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `846b955`, as pontas da origem na hora da prova (motor `9336985`, Generate `ad17a7e`) **não** refazem (226 linhas: `ensaio-com-testada` e os nomes das vias culpadas; os 33 lotes de `geo-antonina` iguais); rodados os 37 commits do motor e 71 do Generate (os outros 368 de antes do contrato pela árvore), a prova se refaz byte a byte, fora o `quando` da raiz, só com o motor de `fe0c7a1` a `244aae3` (14/09, o instante FORA) e o Generate de `5b70e5f` (contrato v2) à ponta de hoje; antes do contrato v2 a ferramenta cai (o motor não entrega plano). Escrito ao lado em `external-engines/esteira/src/retrato-do-lab50.ts`, com a trava `retrato-do-lab50` no verde completo; `OS_ACHADOS_AO_LADO` passa a 27 de 71.
+
+**Origem:** [`../relatorios/LAB-208.md`](../relatorios/LAB-208.md), decisão **D436**.
+
 ### LAB-207 · item 900 — a dívida própria: as três amostragens do LAB-46 calavam o motor e o Generate — e o motor que as fez é o de 14/09, a mesma janela da testada do LAB-37 — ✅ **feito em 20/10/2026** (D435)
 
 O LAB-206 deixou o candidato escrito: a última das cinco sem o `.wasm`, a `LAB-46/antonina-tres-amostragens.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `c0b7c54`, as pontas da origem na hora da prova (motor `f581b5a`, Generate `a06befa`) **não** refazem (63 linhas, as amostragens de 2 variantes); rodados os 37 commits do motor e 71 do Generate (os outros 368 contados pela árvore), a prova se refaz só com o motor de `fe0c7a1` a `244aae3` (14/09, janela fechada, o instante fora — a mesma do LAB-37) e o Generate de `5b70e5f` (o contrato v2) até hoje. A frase (o 33 só na completa) sobrevive às pontas de hoje. Escrito ao lado em `src/retrato-do-lab46.ts`; trava `retrato-do-lab46` no verde completo; `OS_ACHADOS_AO_LADO` passa a *25 de 71*.
