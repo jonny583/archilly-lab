@@ -4440,3 +4440,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · despertador-sem-item — o disparo de ≤ 10:05 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-213, do disparo de 09:06)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo de ≤ 10:05 (derivado do reflog: a ponta posta no disco às 10:07:21); caixa só com o 900, contada na origin/main às 10:07; a tarefa da lista que o 900 mandava pegar (a LAB-58/mecanismos-das-81.json, o candidato do LAB-212) já estava com a sessão do disparo de 09:06, que tinha pulado para ela e só enviou às 10:40 (c0d6805, 65859a5, o LAB-213, D441). A origem às 10:07 parava em 7ef876c (09:12), então a outra mão não se via. O meu saiu repetido e NÃO foi enviado. Conferido aqui, não no GitHub: a trava da versão repetida passou sozinha (8 de 8, 184 s; mutação acusada, 2 de 8); desta linha, a conta dos disparos (lab71) e as provas que contam a árvore (lab52, lab57) regeradas, e as travas que leem o ONDE_PARAMOS e o RECADOS rodadas; o verde completo da versão repetida foi interrompido ao ver a outra mão.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida, feita sem ver a outra, bateu com a do LAB-213 em tudo: a ferramenta para no instante (motor 6cf6396, Generate 09cd4c0) e em cada vizinho dele sozinho (0/52 e 1/0); refaz só com o motor de fe0c7a1 a 244aae3 e o Generate de 5b70e5f a 49d8e3e; somas 10+3+3+21 = 37 e 371+29+5+34 = 439; o fecho com 49 entradas e nenhum .wasm. Na comparação, nenhum defeito no entregue — a trava dele tem dentes que a minha não tinha (o T01 pela recusa e a falta de módulo).
+Achados para outros apps ou Central: para a direção — terceiro choque de despertadores do dia, agora com a outra mão tendo pulado à frente (a sessão de 09:06 foi à 58 prevendo a 55 ocupada, e esta foi à 58 pelo candidato escrito): o candidato escrito no recado é o que a sessão seguinte pega, e a que pula não o reescreve até enviar. Não toquei em despertador nenhum. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato do LAB-213: a LAB-59, instante e fecho primeiro; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
