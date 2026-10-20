@@ -90,7 +90,9 @@
  * LAB-208, D436). E a aferição do LAB-53 (o motor na MESMA janela **fechada** de 14/09 e o Generate numa **fechada**, do
  * contrato v2 a 03/10, com os DOIS instantes FORA —, `src/retrato-do-lab53.ts`; LAB-209, D437; a *ilha* do T01 e o
  * começo no contrato v1 que o LAB-209 escreveu eram a ferramenta gravando `LAB-48/`, corrigidos no LAB-210, D438):
- * dezessete provas, vinte e nove silêncios.
+ * E a atribuição das `frente` do LAB-54 (o motor na MESMA janela fechada de 14/09, FORA do instante, e o Generate numa
+ * **aberta**, do contrato v2 até onde se mediu —, `src/retrato-do-lab54.ts`; LAB-211, D439): dezoito provas, trinta e
+ * um silêncios.
  */
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, normalize, relative, sep } from "node:path";
@@ -540,6 +542,7 @@ export const OS_ACHADOS_AO_LADO: Readonly<Record<string, Readonly<Record<string,
   "LAB-46/antonina-tres-amostragens.json": { [MOTOR]: "src/retrato-do-lab46.ts", [GENERATE]: "src/retrato-do-lab46.ts" },
   "LAB-50/passagem-externa.json": { [MOTOR]: "src/retrato-do-lab50.ts", [GENERATE]: "src/retrato-do-lab50.ts" },
   "LAB-53/violacoes-depois-do-conserto-da-ponte.json": { [MOTOR]: "src/retrato-do-lab53.ts", [GENERATE]: "src/retrato-do-lab53.ts" },
+  "LAB-54/frente-nao-atribuida.json": { [MOTOR]: "src/retrato-do-lab54.ts", [GENERATE]: "src/retrato-do-lab54.ts" },
   "LAB-78/setimo-mecanismo.json": { [GENERATE]: "src/retrato-do-lab78.ts" },
   "LAB-48/violacoes-do-motor-padrao.json": { [MOTOR]: "src/fotografia-do-lab48.ts", [GENERATE]: "src/fotografia-do-lab48.ts" },
 };

@@ -4388,3 +4388,16 @@ Próximo na fila: a caixa só tem o 900; candidato: a LAB-54, instante e fecho p
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-211 — item 900, a dívida própria: a atribuição das `frente` do LAB-54 calava o motor e o Generate — e o motor que a fez é o de 14/09; as 27 `frente` de fora de Antonina não existem no instante
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-211 (item 900) ===
+Estado: disparo de ≤ 06:06 (derivado do reflog); caixa só com o 900, contada na origin/main; outra mão (o disparo de ≤ 05:06) estava na correção do LAB-209 e enviou às 06:46 sem eu ver: tarefas diferentes, sem repetição, mas os números colidiram — os meus viraram LAB-211 e D439; fui à dívida própria, pelo candidato que o LAB-209 e o LAB-210 deixaram: a LAB-54/frente-nao-atribuida.json (docs/relatorios/LAB-209.md §8, espécie mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm (ausente nesta máquina); esteira 2 741 aprovadas e 9 reprovadas (as 9 do .wasm); testfit 17 de 17
+Feito: o fecho da ferramenta de então (lab54.ts, nascida no b42634f e a mesma de hoje) não tem .wasm. Com o Lab em b42634f, as pontas da origem na hora da prova (motor 332bf91, Generate 7330cc7) NÃO refazem — 717 linhas; o motor do instante sozinho acusa, o Generate do instante sozinho refaz. Rodados os 37 commits do motor e os 71 do Generate que a ferramenta alcança (368 pela árvore): refaz byte a byte, fora o quando, só com o motor de fe0c7a1 a 244aae3 (14/09, a mesma janela do LAB-37, 46, 50 e 53; sem ilha) e o Generate do contrato v2 (5b70e5f) até a ponta de hoje. Escrito ao lado em src/retrato-do-lab54.ts; trava retrato-do-lab54 no verde completo (8 testes, confere também que a ferramenta escreveu a prova e nada mais; mutação: 2 reprovam); achados ao lado 31 de 71 (D439). Detalhe: docs/relatorios/LAB-211.md
+Achados para outros apps ou Central: a todas — a tese de uma prova pode estar numa parte que o motor da hora já não produzia: as 27 frente de fora de Antonina (23 do motor, 4 da régua) saem ZERO com o motor do instante e com o de hoje; só geo-antonina sobrevive (22 + 7, saldo zero). Para o Laboratório de Parcelamento, sem pedido: com o motor de hoje, completo, os dois sintéticos e ensaio-47ha dão zero frente no _testadaDoLote do Generate. Para o Generate: nada novo.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): a LAB-55 (depois 58 e 59, que calam os dois), instante e fecho primeiro; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
