@@ -15143,3 +15143,45 @@ até o Lab entrar no Generate — vai como achado, não como trabalho); veneno (
 
 > **A ALTURA DO PORTÃO DECIDE O QUE A FERRAMENTA FAZ FORA DA JANELA: aferição de um número só deixa passar, com `exit 0`, tudo o
 > que não mexe nele. E a prova de 07/10 traz um plano de 1 228 lotes que o motor da origem, naquela hora, já não desenhava.**
+
+## D443 · A SABOTAGEM DO LAB-31 SE REFAZ IGUAL — o motivo de não regerá-la ("refazer é outro ato"), perguntado à ferramenta: no commit da prova e na ponta de hoje, as duas sabotagens de pacote derrubam os mesmos testes e os mesmos passos · 20/10/2026
+
+**Contexto.** LAB-215, item 900, a dívida própria. O LAB-214 encerrou a série das caladas que rodam sem o `.wasm` e não deixou
+candidato; voltei ao que o LAB-195 deixou escrito (§8): *os outros motivos de exceção com a forma "regerar faria X", perguntados um a
+um*. Das quatro fotografias de `src/regerar-a-varredura.ts`, o LAB-196 perguntou a do LAB-60 e o LAB-197 a do LAB-48; a do LAB-02 roda
+o Symbios. Sobrava a `LAB-31/sabotagem.json`, com o motivo *"registra um ATO: regerar seria REFAZER a sabotagem, que é outro ato"* — e o
+LAB-196 a nomeou e deixou de fora. Espécie **prova que só registra aparência**: a única trava sobre ela (`tests/verde.test.ts`) confere
+a forma do JSON (três sabotagens, `exit` 0 e 1), nunca o ato.
+
+**Medido**, em clones locais numa pasta temporária (os vizinhos só lidos), as duas sabotagens de pacote com o texto que a prova escreve
+(`toBe(MOTOR_NOME)` → `toBe("SABOTAGEM-LAB-31")` em `esteira/tests/identidade.test.ts`, `toBe("2")` → `toBe("SABOTAGEM-LAB-31")` em
+`testfit/tests/esteira.test.ts`), cada uma medida antes e depois — os testes reprovados pelo nome e o `eslint` no arquivo:
+
+- **o par da prova** — o Lab em `c8f5c22` (o commit que a criou, 04/10/2026, 01h57 UTC), o motor e o Generate na ponta da origem antes
+  dessa hora (`6f69ebc`, `1f13bff`): a primeira derruba **um** teste (*"`motor.nome` é o nome que o MOTOR publica"*) e o lint (o
+  `MOTOR_NOME` fica sem uso — o dano colateral que a prova já registrava); a segunda derruba **um** (*"o CRS da saída é o mesmo da
+  entrada"*, onde a linha mora) e não o lint. Nenhuma cura teste;
+- **o par de hoje** — o Lab na ponta, os clones do verde (motor `5199e74`, Generate `7a5cd55`): **o mesmo**, pelo nome.
+
+Os três passos que a prova dá como caídos, fora o do navegador (`esteira · lint`, `esteira · test`, `testfit · test`), são exatamente
+os que as duas derrubam, nos dois pares. O motivo **se sustenta pela metade**: refazer é outro ato, mas o ato refeito dá a mesma
+resposta — então ele se confere sem tocar na prova (o D182 de pé). E uma frase de outra lista caiu: `o-commit-do-vizinho-na-prova.ts`
+dizia do registro de ATO que *"ele não roda código de ninguém"*; este rodou a suíte, e a do testfit roda o motor. A linha do LAB-31 ganha
+o motivo medido.
+
+**Feito.** `src/sabotagem-do-lab31.ts` (a parte pura: as duas trocas conferidas contra o texto da prova, `sabotar` que troca uma
+ocorrência e só uma, `falhasDoBun`, `oQueMordeu`) e `tests/sabotagem-do-lab31.test.ts` (7 testes; 6 puros, nos dois sentidos, e 1 que
+refaz o ato nos dois pares a cada verde completo, ~25 s). **Mutação:** a segunda troca virada em não-sabotagem (`toBe("2" )`) — 2 de 7
+reprovam, inclusive o que refaz (*"derruba NADA"*). Os motivos da lista das espécies e da lista do commit do vizinho citam a medição; a
+trava entra na `DECLARADAS` de `rede-em-execucao.ts` (um `git clone` por caminho, sem rede).
+
+**O que se perde.** A terceira sabotagem (`prova.js`, o navegador) e o `exit 0 → 1` do comando único: os dois esperam o `.wasm` — sem
+ele o `conferir.sh` já sai 1 antes da sabotagem, e o `rustup target add wasm32-unknown-unknown` cai de novo (*"unsuccessful tunnel"*).
+O lint do pacote inteiro (mede-se o arquivo sabotado; os outros não mudam). Os pares do meio.
+
+**Alternativas descartadas.** Sabotar na árvore de trabalho e desfazer depois (um tropeço deixa a sabotagem no repositório);
+regravar a prova (é o D182); refazer pelo `conferir.sh` inteiro (sem o `.wasm` o `exit` não diz nada da sabotagem); rodar em todo commit
+entre os dois pares (o ato não muda de natureza no meio, e 25 s por par a cada verde é o preço de dois).
+
+> **"REFAZER SERIA OUTRO ATO" É UMA HIPÓTESE SOBRE O ATO, E SE PERGUNTA REFAZENDO: o ato que dá a mesma resposta nos dois pontas
+> se confere — e a frase de que ele não rodava código de ninguém só se desmente rodando.**
