@@ -4453,3 +4453,16 @@ Próximo na fila: a caixa só tem o 900; candidato do LAB-213: a LAB-59, instant
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · despertador-sem-item — o disparo de 12:07 sem item próprio: a única tarefa da lista fora do .wasm (o contrafactual de Antonina) é a que o disparo de 11:05 pegou
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo de 12:07 (observado na listagem das tarefas agendadas, lida e não alterada); caixa só com o 900, contada na origin/main às 12:08; fui à dívida própria e a lista não tinha para onde ir: das 41 provas que calam vizinho, sem achado ao lado sobram a LAB-59 (o candidato do LAB-213) e as do LAB-02 a 06, 08, 13, 16, 17, 19, 21, 23 a 28 e 32, que esperam o .wasm. A LAB-59 é a que o disparo de 11:05 pegou — derivado, não observado: a origem para em 8fe8b21 (10:50) e as rodadas do dia levam ~1h30. Não a refiz (os dois choques que refizeram hoje saíram repetidos e não foram enviados). Conferido aqui, não no GitHub: a conta dos disparos (lab71) e as provas que contam a árvore (lab52, lab57) regeradas, e as travas que leem o ONDE_PARAMOS e o RECADOS rodadas.
+Feito: só esta linha na conta do docs/ONDE_PARAMOS.md (169 disparos, 14 sem item) e este recado.
+Achados para outros apps ou Central: para a direção — a lista própria desta casa fora do .wasm acaba na LAB-59: depois dela, todo disparo sem item novo na caixa é disparo em vazio até o .wasm chegar ou a caixa ganhar item. Não toquei em despertador nenhum. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; a LAB-59 com a sessão de 11:05 (se ela não enviar, continua o candidato); LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

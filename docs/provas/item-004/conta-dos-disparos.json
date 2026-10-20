@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T10:46:12.474Z",
+  "quando": "2026-10-20T12:12:05.418Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1355,17 +1355,25 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 10:07 — e a tarefa da lista que ele mandava pegar (a `LAB-58/mecanismos-das-81.json`, o candidato do LAB-212) **já estava em execução noutra sessão**, a do disparo de 09:06, que tinha pulado para ela e só enviou às 10:40 (`c0d6805`, `65859a5`, o LAB-213, D441) — então **sem item para esta sessão**: não havia o que ela pudesse pegar sem repetir a outra. A origem às 10:07 parava em `7ef876c` (09:12, o fecho do LAB-212), e a outra mão não se via; vi no `fetch` das 10:45, com a minha medição (os mesmos 37 + 71 commits, as mesmas janelas, os mesmos números de parada), a minha trava (8 de 8, 184 s; mutação acusada, 2 de 8) e os documentos prontos, o verde completo em curso — interrompido. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 10:07:21, e a receita do LAB-116 (o comando do disparo passou; o clone era raso, desrasado) confirmou a `main` na origem. Não li nem toquei a listagem das tarefas agendadas",
         "rodada": "despertador-sem-item (o LAB-213 refeito por outra mão e não enviado: com o Lab em `d8d8a72`, a ferramenta para no instante `6cf6396`/`09cd4c0` e em cada vizinho dele sozinho; dos 37 commits do motor refaz só de `fe0c7a1` a `244aae3`, dos 71 do Generate só de `5b70e5f` a `49d8e3e`; as bordas param com 12/25, 0/52, a recusa do esquema e 1/0 — tudo igual ao entregue)",
         "emVazio": true
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "12:07",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 12:08 — e a única tarefa da lista que ele mandava pegar sem esperar o `.wasm`, a `LAB-59/contrafactual-de-antonina.json` (o candidato escrito pelo LAB-213 às 10:40), é **a que o disparo de 11:05 desta mesma tarefa agendada pegou**: a origem às 12:08 parava em `8fe8b21` (10:50, a linha do ≤ 10:05), nada enviado desde então, no padrão do dia (rodadas de ~1h30, disparo de hora em hora; quatro choques medidos hoje). Das 41 provas de `OS_CALADOS_DE_HOJE`, as que não têm achado ao lado são a LAB-59 e as do LAB-02 ao 06, 08, 13, 16, 17, 19, 21, 23 a 28 e 32, que esperam o `.wasm` — **não havia tarefa seguinte para onde pular**, como o disparo de 09:06 fez, então **sem item para esta sessão**, e não refiz a LAB-59 (os dois choques de hoje que refizeram saíram repetidos e não foram enviados). A hora é observada: li (não alterei) a listagem das tarefas agendadas, que dá o disparo desta casa às 12:07:38 com esta sessão; o `reflog` do clone registra a ponta posta no disco às 12:08:49, e a receita do LAB-116 confirmou a `main` na origem. **Que a sessão de 11:05 está na LAB-59 é DERIVADO, não observado**: a listagem só mostra a última rodada de cada tarefa, e essa é esta; se ela não estiver, a LAB-59 continua o candidato da próxima",
+        "rodada": "despertador-sem-item (a única tarefa da lista fora do `.wasm` com a sessão do disparo de 11:05, derivado; nada refeito)",
+        "emVazio": true
       }
     ],
     "declarados": {
-      "noRegistro": 168,
-      "observados": 52,
+      "noRegistro": 169,
+      "observados": 53,
       "derivados": 70,
       "emLote": 7,
       "reconstruidos": 39,
-      "emVazio": 13
+      "emVazio": 14
     },
-    "emVazio": 13,
+    "emVazio": 14,
     "temAFraseDoQueDecide": true
   },
   "oQueOPrimeiroDiaJaMOSTROU": "ZERO em vazio, e DOIS disparos acumulados — a caixa não ficou sem abastecimento; a RODADA é mais longa que o intervalo. A conta não nasceu para confirmar a suspeita",
@@ -1381,7 +1389,7 @@
   },
   "osDaCAIXA": {
     "oQue": "recados da mesma classe da abertura em diante. NÃO são precedente: são o parceiro do cruzamento, e cada um tem de ter a sua linha em vazio na conta",
-    "quantos": 13,
+    "quantos": 14,
     "dias": [
       "09/10/2026",
       "09/10/2026",
@@ -1392,6 +1400,7 @@
       "19/10/2026",
       "19/10/2026",
       "19/10/2026",
+      "20/10/2026",
       "20/10/2026",
       "20/10/2026",
       "20/10/2026",
