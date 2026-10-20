@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T16:53:38.042Z",
+  "quando": "2026-10-20T18:21:18.693Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1395,12 +1395,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 15:08 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 15:08 parava em `dadbe4b` (o LAB-215) — e a sessão do disparo de 14:09 estava trabalhando sem ter enviado: enviou às 16:31 como LAB-216 e D444 (outra tarefa, a frase \"esperam o `.wasm`\"), e os meus números viraram LAB-217 e D445 antes do envio. O clone já estava na ponta; os três vizinhos chegaram rasos e foram desrasados. Fui ao candidato escrito pelo LAB-215 (§8): as outras sabotagens registradas como ATO, se rodaram vizinho.",
         "rodada": "item 900 (LAB-217), dívida própria (mensagem fixa que afirma estado sem perguntar: o molde \"não roda código de ninguém\" dos registros de ATO — perguntado ao fecho, no commit da prova e hoje: vale para seis de oito, e duas sabotagens rodaram o motor e o Generate; trava nova, D445)",
         "emVazio": false
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "≤ 16:07",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 16:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 16:07 parava em `dadbe4b` (15:04, o LAB-215), sem ramo novo — mas havia duas outras mãos, invisíveis na origem: a do disparo de 14:09 (o LAB-216, outra tarefa, enviado às 16:31) e a do disparo de 15:05 (o LAB-217, o MESMO candidato, enviado às 17:32). O clone já tinha a história inteira; a receita do LAB-116 rodou e só o confirmou. Fui ao candidato do LAB-215 (§8), o registro de ATO mais velho: a `LAB-38/ci.json` — perguntado à API e ao fecho do trabalho inteiro, o que o D445 tinha deixado declarado (D446). As duas enviaram depois da minha contagem: os meus números viraram LAB-218 e D446. Hora derivada: a do primeiro comando da sessão, sem o aviso da tarefa agendada.",
+        "rodada": "item 900 (LAB-218), dívida própria (mensagem fixa que afirma estado sem perguntar: os três disparos do CI de 04/10 — perguntados à API do GitHub e ao fecho do trabalho inteiro no commit de cada um, nenhum vizinho, sem as ressalvas do D445; trava nova, D446)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 173,
+      "noRegistro": 174,
       "observados": 56,
-      "derivados": 71,
+      "derivados": 72,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 14
