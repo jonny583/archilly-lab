@@ -184,6 +184,7 @@ describe("LAB-199 · os commits achados AO LADO da prova", () => {
       "LAB-54/frente-nao-atribuida.json",
       "LAB-55/via-sobre-a-faixa.json",
       "LAB-58/mecanismos-das-81.json",
+      "LAB-59/contrafactual-de-antonina.json",
       "LAB-78/setimo-mecanismo.json",
     ]);
   });
