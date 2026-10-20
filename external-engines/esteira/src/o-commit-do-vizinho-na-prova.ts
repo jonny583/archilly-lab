@@ -87,7 +87,9 @@
  * de 14/09 — a mesma do LAB-37, FORA do instante — e o Generate numa **aberta**, do contrato v2 até onde se mediu —,
  * `src/retrato-do-lab46.ts`; LAB-207, D435). E a passagem externa do LAB-50 (o motor na MESMA janela fechada de 14/09,
  * FORA do instante, e o Generate numa **aberta**, do contrato v2 até onde se mediu —, `src/retrato-do-lab50.ts`;
- * LAB-208, D436): dezesseis provas, vinte e sete silêncios.
+ * LAB-208, D436). E a aferição do LAB-53 (o motor numa janela **fechada** de 14/09 — com uma ilha antes do T03 — e o
+ * Generate numa **fechada**, do contrato v1 a 03/10, com os DOIS instantes FORA —, `src/retrato-do-lab53.ts`; LAB-209,
+ * D437): dezessete provas, vinte e nove silêncios.
  */
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, normalize, relative, sep } from "node:path";
@@ -536,6 +538,7 @@ export const OS_ACHADOS_AO_LADO: Readonly<Record<string, Readonly<Record<string,
   "LAB-41/ortogonal-fora-da-gleba.json": { [GENERATE]: "src/retrato-do-lab41.ts" },
   "LAB-46/antonina-tres-amostragens.json": { [MOTOR]: "src/retrato-do-lab46.ts", [GENERATE]: "src/retrato-do-lab46.ts" },
   "LAB-50/passagem-externa.json": { [MOTOR]: "src/retrato-do-lab50.ts", [GENERATE]: "src/retrato-do-lab50.ts" },
+  "LAB-53/violacoes-depois-do-conserto-da-ponte.json": { [MOTOR]: "src/retrato-do-lab53.ts", [GENERATE]: "src/retrato-do-lab53.ts" },
   "LAB-78/setimo-mecanismo.json": { [GENERATE]: "src/retrato-do-lab78.ts" },
   "LAB-48/violacoes-do-motor-padrao.json": { [MOTOR]: "src/fotografia-do-lab48.ts", [GENERATE]: "src/fotografia-do-lab48.ts" },
 };

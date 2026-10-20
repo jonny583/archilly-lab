@@ -4362,3 +4362,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-209 — item 900, a dívida própria: a aferição do LAB-53 calava o motor e o Generate — e as duas pontas da origem daquela hora ficam fora
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-209 (item 900) ===
+Estado: disparo de ≤ 04:06 (derivado do reflog); caixa só com o 900, contada na origin/main; nenhuma outra mão na lista; fui à dívida própria, pelo candidato que o LAB-208 deixou: a LAB-53/violacoes-depois-do-conserto-da-ponte.json (docs/relatorios/LAB-208.md §8, espécie mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm (ausente nesta máquina); esteira 2 733 aprovadas e 9 reprovadas (as 9 do .wasm); a trava nova 8 de 8 (mutação: 2 reprovam); testfit 17 de 17 — na segunda passada: na primeira faltava o zod na node_modules do Generate (ignorada pelo git de lá), tropeço meu; vizinhos na ponta da origin/main e com git status limpo.
+Feito: o fecho da ferramenta de então (lab48.ts, a mesma de hoje) não tem .wasm. Com o Lab em e1fbe61, as pontas da origem na hora da prova (motor 3e306d1, Generate ad17a7e) NÃO refazem — 1 127 linhas: das 92 violações sobram as 40 de geo-antonina — e cada uma sozinha também acusa. Rodados os 37 commits do motor e os 71 do Generate que a ferramenta alcança (368 pela árvore): refaz byte a byte, fora o quando, só com o motor de fe0c7a1 a 244aae3 (14/09) mais uma ilha antes do T03 (d2f71e4, 66ece91), e o Generate de 22502b3 (contrato v1) a 49d8e3e (03/10, 14h24). Escrito ao lado em src/retrato-do-lab53.ts; trava retrato-do-lab53 (8 testes, mutação acusada); achados ao lado 29 de 71 (D437). Detalhe em docs/relatorios/LAB-209.md.
+Achados para outros apps ou Central: a todas — pela primeira vez na série o instante fica fora nos DOIS vizinhos (o Generate do disco estava ao menos 4 dias atrás da origem), e uma janela lida pelas bordas pode ter buraco no meio (o T03 do motor acusa entre dois pedaços que refazem). A frase do LAB-53 (as 92 não aprovam gleba nenhuma) não vale hoje. Para o Laboratório de Parcelamento, sem pedido: com o motor de hoje as cinco glebas dão 40 violações, todas em geo-antonina (29 frente, 11 via-sobre-lote); as outras quatro, zero. Para o Generate, sem pedido: a testada-ilegal (641addb) acusa 1 lote em sintetico-50ha com o motor de 14/09, nenhum com o de hoje. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): a LAB-54 (depois 55, 58 e 59, que calam os dois), instante e fecho primeiro; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
