@@ -15047,3 +15047,46 @@ a diferença é uma linha, conferida); escrever o T01 como ilha; rodar os 368 de
 bordas são commits de verdade).
 
 > **QUANDO A TESE SOBREVIVE AO INSTANTE, O QUE MORRE SÃO OS NÚMEROS DO CONTROLE — e o controle é o que convence quem lê.**
+
+## D441 · OS MECANISMOS DAS 81 DO LAB-58 CALAVAM O MOTOR E O GENERATE — e, medido, a janela deles é a do LAB-53, HERDADA: o motor de 14/09 e o Generate do contrato v2 a 03/10, os dois instantes FORA; e fora dela a ferramenta de então não escreve outra prova, ela PARA · 20/10/2026
+
+**Contexto.** LAB-213, item 900, a dívida própria. O LAB-211 e o LAB-212 deixaram escrita a lista das caladas do retrato do LAB-198
+que rodam aqui sem o `.wasm` (*"a LAB-55, depois 58 e 59"*). A LAB-55 estava com a sessão do disparo de ≤ 08:05 (o LAB-212, enviado às
+09:12); esta sessão foi à seguinte, para não repetir a outra mão. A prova `docs/provas/LAB-58/mecanismos-das-81.json` foi gravada uma
+vez, no LAB-58 (`d8d8a72`, 07/10/2026, 11h01 UTC; o `quando` da raiz diz 10h54). A ferramenta (`lab58.ts`) nasceu nesse commit e mudou
+uma linha no LAB-135 (`1711bd1`, D363: o `import` de `distanciaSegmento` pela porta do adaptador); roda-se a de então. Ela roda o motor
+padrão e o esquema, o Validator e `_testadaDoLote` do Generate nas cinco glebas, **lê** quatro provas do Lab (LAB-53, 54, 50, 55) e
+**para sem escrever** se a lista de violações medida não for, chave a chave, a do LAB-53. Fecho: 13 arquivos do motor, 14 do Generate
+(mais 8 do `zod`), dois TypeScript do adaptador do Symbios, **nenhum `.wasm`**. A prova não escreve commit de nenhum dos dois vizinhos —
+dois silêncios. O relatório do LAB-58 (§7) nomeia os clones do fim (motor `4181e95`, Generate `5b7e9b4`): um ponto.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos), o Lab em `d8d8a72`, `INVARIANTES_EXEMPLOS=100000`, a prova
+byte a byte fora o `quando` da raiz, a árvore do Lab conferida depois de cada rodada:
+
+- **o instante** (motor `6cf6396`, Generate `09cd4c0`, as pontas da origem às 11h01): **para** — *"0 só aqui, 52 só lá"*; o motor do
+  instante sozinho, igual; o Generate do instante sozinho também para — *"1 só aqui, 0 só lá"* (a `testada-ilegal` do `641addb`);
+- **o eixo do motor** (Generate em `5b7e9b4`, os 37 commits que tocam `src/lib/lab/` e a ponta `cf77eee`): 10 não rodam (módulo), o T01
+  e o merge seguinte param pelo esquema, o T03 para pela lista (*"12 só aqui, 25 só lá"*), **`fe0c7a1` · `4181e95` · `244aae3` refazem**,
+  de `2160fce` à ponta de hoje param pela lista (*"0 só aqui, 52 só lá"*);
+- **o eixo do Generate** (motor em `4181e95`, os 71 que rodam e a ponta `765afae`): 3 não rodam (módulo; 368 pela árvore, LAB-211), os
+  29 do contrato v1 param pelo esquema, **`5b70e5f` … `49d8e3e` (5) refazem**, de `641addb` à ponta de hoje param pela lista (*"1 só
+  aqui, 0 só lá"*);
+- os quatro cantos e o par do LAB-58: igual. Em nenhum dos 110 estados a ferramenta escreveu outra coisa.
+
+**Decisão.** Escreve-se ao lado (`src/retrato-do-lab58.ts`), com a prova intocada (D182): o Lab (`d8d8a72`), as duas janelas
+**fechadas** com as quatro bordas e as três formas de parada, os dois instantes FORA, e a conta dos commits. Trava
+`tests/retrato-do-lab58.test.ts` no verde completo: a ordem na história, a comparação sem o `quando`, a prova de um commit só e a
+ferramenta nascida nele, os instantes pela origem; e, rodando a ferramenta de então, os cantos e o par refazendo, o instante e cada
+vizinho dele parando com a lista, as quatro bordas parando cada uma com a SUA mensagem e a SUA contagem, o T01 e uma falta de módulo de
+cada vizinho também. *"Igual"* exige ter escrito a prova; *"parou"* exige não ter escrito; e a árvore do Lab não pode ter outro arquivo
+mudado (D438). `OS_ACHADOS_AO_LADO` ganha a prova: *35 de 71 silêncios*.
+
+**O que se perde.** Os estados do meio e os de depois de hoje (medidos aqui, não a cada verde); o produto inteiro dos eixos; os ramos;
+os commits que não tocam o fecho; por que o disco estava em 14/09 e em 03/10.
+
+**Alternativas descartadas.** Rodar a ferramenta de hoje (a diferença é uma linha de `import`, mas a de então é a que escreveu);
+contar a parada como *"não roda"* (ela roda e decide parar — a mensagem diz por quê, e a trava confere a mensagem); escrever a janela
+como *"a do LAB-53"* sem medir (a herança é por construção, e a medição é a contraprova: nenhum estado escreveu outra coisa); veneno
+(as quatro bordas são commits de verdade).
+
+> **PROVA QUE CONFERE OUTRA ANTES DE ESCREVER HERDA A JANELA DELA — e, fora dela, não mente: cala.**
