@@ -15389,3 +15389,25 @@ aprovam a prova que a ferramenta de hoje escreve"*: escopo novo, e o retrato do 
 
 > **O "ANTES" QUE A PROVA ESCREVE E QUE NÃO TEM COMMIT PODE TER RECONSTRUÇÃO HONESTA: QUANDO UMA CONDIÇÃO SÓ SEPARA O ANTES DO DEPOIS,
 > DESLIGÁ-LA É UMA TROCA A MAIS — E A PROVA DIZ O QUE ELA TEM DE DAR.**
+
+## D450 · A SABOTAGEM 3 DO LAB-59 TEM DUAS LEITURAS — "a leitura mais estreita" do D449 derruba as 2 travas da prova; a troca menor (a 2ª de melhor nota no lugar) derruba 1 · 20/10/2026
+
+**Contexto.** LAB-222, item 900. Esta sessão pegou o candidato do LAB-220 §8 (refazer as sabotagens do LAB-59) e o mediu e travou inteiro;
+a sessão de ≤ 22:06 fez o mesmo e enviou antes (LAB-221, D449). O meu módulo e a minha trava saíram. O cabeçalho do D449 diz que as trocas
+são *"a leitura mais estreita da prosa"*, e da 3 que põe a `ortogonal` de 1 228 como a primeira. Espécie **mensagem fixa que afirma estado
+sem perguntar**.
+
+**Medido (20/10/2026, nos dois pares do D449).** Com a 2ª de melhor nota no lugar da primeira (a `superquadra` de 42, nota 0,6109), cai
+**1** trava (a do §4); com a `ortogonal` de 1 228 (0,5881), caem as **2** da prova. A segunda só cai quando a que entra tem nota menor que
+a de mais lotes. O *"2 travas"* é o da leitura em que o Lab escolhe por lotes.
+
+**Decisão.** Dentro do módulo e da trava do LAB-221: a frase riscada para a 3, com a medição; `A_OUTRA_LEITURA_DA_3` no laço do ato, nos
+dois pares, e um teste puro. A troca da 3 não muda. A prova não se toca (D182). **Mutação: a outra leitura esperando as duas — 2 de 8
+reprovam.**
+
+**O que se perde.** As outras candidatas que se poderiam pôr no lugar (só as duas pontas da escolha: a troca menor e a do VGV).
+
+**Alternativas descartadas.** Mandar o meu LAB-221 renumerado ao lado do dele (duas réguas, D447); trocar a 3 pela leitura menor (deixaria
+de reproduzir a prova); só escrever a outra leitura, sem trava (foi por isso que a frase caiu).
+
+> **SABOTAGEM ESCRITA EM PROSA TEM MAIS DE UMA LEITURA — E CADA LEITURA DERRUBA UMA CONTA.**

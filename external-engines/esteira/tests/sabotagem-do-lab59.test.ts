@@ -26,6 +26,7 @@ import { vizinhosQueRoda } from "../src/o-commit-do-vizinho-na-prova.ts";
 import { falhasDoBun, sabotar } from "../src/sabotagem-do-lab31.ts";
 import {
   A_PROVA,
+  A_OUTRA_LEITURA_DA_3,
   A_RECONSTRUCAO_DO_ANTES,
   A_SUITE,
   AS_TROCAS,
@@ -97,6 +98,15 @@ describe("LAB-221 · a parte pura, nos dois sentidos", () => {
       expect(p.oQuePegou, `sabotagem ${t.n}`).toMatch(new RegExp(`\\b${t.derruba.length}( travas?)? de ${TESTES_DA_SUITE}\\b`));
       if (t.aprovamDepois !== undefined) expect(p.oResultadoFalso, `sabotagem ${t.n}`).toContain(`os-dois: ${t.aprovamDepois} de 20`);
     }
+  });
+
+  test("LAB-222 · a outra leitura da 3 é a mesma sabotagem com outra candidata no lugar, e derruba UMA das duas da prova", () => {
+    const a3 = AS_TROCAS.find((t) => t.n === 3)!;
+    expect({ ...A_OUTRA_LEITURA_DA_3, trocas: [], derruba: [] }).toEqual({ ...a3, trocas: [], derruba: [] });
+    expect(A_OUTRA_LEITURA_DA_3.trocas[0]!.de).toBe(a3.trocas[0]!.de);
+    expect(A_OUTRA_LEITURA_DA_3.trocas[0]!.para).not.toBe(a3.trocas[0]!.para);
+    expect(A_OUTRA_LEITURA_DA_3.derruba).toHaveLength(1);
+    expect(a3.derruba).toContain(A_OUTRA_LEITURA_DA_3.derruba![0]!);
   });
 
   test("a linha do `os-dois` se lê nos dois sentidos", () => {
@@ -207,8 +217,13 @@ describe("LAB-221 · as sabotagens do LAB-59 REFEITAS, em pasta temporária", ()
   test(
     "cada sabotagem, nos dois pares, morde como a prova diz — e a reconstrução do antes da precondição também",
     () => {
-      for (const t of [A_RECONSTRUCAO_DO_ANTES, ...AS_TROCAS]) {
-        const rotulo = t === A_RECONSTRUCAO_DO_ANTES ? `${t.n} sem a precondição (reconstrução)` : `${t.n}`;
+      for (const t of [A_RECONSTRUCAO_DO_ANTES, ...AS_TROCAS, A_OUTRA_LEITURA_DA_3]) {
+        const rotulo =
+          t === A_RECONSTRUCAO_DO_ANTES
+            ? `${t.n} sem a precondição (reconstrução)`
+            : t === A_OUTRA_LEITURA_DA_3
+              ? `${t.n}, a outra leitura (a 2ª de melhor nota no lugar)`
+              : `${t.n}`;
         for (const par of PARES) {
           const { f, s, sujos } = sabotarEMedir(par, t);
           const os2 = f ? aprovamNoOsDois(f.saida) : null;

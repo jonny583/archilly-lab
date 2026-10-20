@@ -4609,3 +4609,16 @@ Próximo na fila: a caixa só tem o 900; candidato do LAB-221 (§8): os registro
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-222 — item 900, a dívida própria: a sabotagem 3 do LAB-59 tem duas leituras — "a leitura mais estreita" do LAB-221 derruba 2 travas, e a troca menor derruba 1
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-222 (item 900) ===
+Estado: disparo de ≤ 23:06 (derivado do reflog: a ponta posta no disco às 23:06:39); caixa só com o 900, contada na origin/main às 23:07; fui à dívida própria pelo candidato do LAB-220 §8 (refazer as sabotagens do LAB-59). A sessão de ≤ 22:06 estava no MESMO candidato sem ter enviado, e enviou às 23:27 como LAB-221 e D449 — achei no fetch às 23:38, com a minha trava pronta (8 de 8): trabalho repetido. O meu módulo saiu; ficou o que o LAB-221 não tinha. Espécie: mensagem fixa que afirma estado sem perguntar.
+Feito: o cabeçalho do LAB-221 dizia que a troca da sabotagem 3 era "a leitura mais estreita da prosa" (a ortogonal de 1 228 no lugar da primeira). Há uma menor: com a 2ª de melhor nota no lugar (a superquadra de 42, nota 0,6109), cai 1 trava (a do §4); com a de 1 228 (0,5881), caem as 2 da prova — a segunda só cai quando a que entra tem nota menor que a de mais lotes. Medido nos dois pares do LAB-221. A_OUTRA_LEITURA_DA_3 em src/sabotagem-do-lab59.ts, no laço da trava sabotagem-do-lab59 (8 de 8, ~4,5 min); mutação: 2 de 8 reprovam (D450). Conferido aqui, não no GitHub.
+Achados para outros apps ou Central: a todas, como método — sabotagem escrita em prosa tem mais de uma leitura, e cada leitura derruba uma conta; prova de sabotagem que guarda só a prosa guarda a conta de uma leitura que não nomeia. Para a direção: quinta vez no dia que duas sessões desta casa pegam a mesma lista sem se ver, de novo pelo candidato escrito igual em dois relatórios. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato do LAB-221 §8: os registros de ATO do LAB-60 a 63 e 66, começando pela LAB-60/sabotagem.json; as caladas sem achado esperam o .wasm; as propostas antigas esperam o chat. Detalhe em docs/relatorios/LAB-222.md.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
