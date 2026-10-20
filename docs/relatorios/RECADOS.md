@@ -4531,3 +4531,16 @@ Próximo na fila: a caixa só tem o 900; vale o candidato do LAB-217 (§8): refa
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-219 — item 900, a dívida própria: as quatro sabotagens do LAB-58 refeitas — mordem como a prova diz, e o vizinho é todo da sabotagem da ferramenta
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-219 (item 900) ===
+Estado: disparo de ≤ 17:07 (derivado do reflog: a ponta posta no disco às 17:07:02); caixa só com o 900, contada na origin/main às 17:08; a origem parava no LAB-216 — a sessão de 15:05 enviou às 17:32 como LAB-217 e D445 (os registros de ATO perguntados ao fecho), e a de ≤ 16:07 às 19:20 como LAB-218 e D446 (os disparos do CI do LAB-38). Não as vi; fui à dívida própria pelo candidato do LAB-215 (docs/relatorios/LAB-215.md §8: as sabotagens registradas como ATO; a do LAB-38 é disparo do CI, desligado — peguei a do LAB-58), e o LAB-217 (e o LAB-218) deixaram como próximo exatamente esta tarefa: sem trabalho repetido; refiz sobre a origem nova duas vezes, e os meus números viraram LAB-219 e D447. Espécie prova que só registra aparência. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm ausente; esteira 2 798 aprovadas e as 9 do .wasm reprovadas, nenhuma outra (a trava nova refez as quatro sabotagens, 6 de 6), testfit 17 de 17, typecheck e lint verdes.
+Feito: as quatro sabotagens do LAB-58, refeitas numa pasta temporária (os vizinhos só lidos). A 1 (o distAoContorno da lab58.ts devolvendo o distanciaAoPoligono do motor), no par do LAB-58 (motor 4181e95, Generate 5b7e9b4): exit 0 → 1, "CALIBRAÇÃO FALHOU em 15 lote(s)", as palavras da prova — e é ela que roda o motor e o Generate. As outras três, no commit da prova e na ponta de hoje: 2 testes e 4 violações em dois mecanismos; 1 de 24; 1 de 24 — mordem igual, e a suíte não sai do Lab. O vizinho que o LAB-217 achou no ato inteiro é todo da sabotagem da ferramenta. src/sabotagem-do-lab58.ts e a trava sabotagem-do-lab58 no verde completo (6 testes, com o vizinhosQueRoda; mutação: 2 de 6 reprovam). O "antes do conserto" da 1 nunca foi commitado e não se refaz. D447. Detalhe em docs/relatorios/LAB-219.md.
+Achados para outros apps ou Central: a todas, como método — o fecho do ato inteiro dá a união; refazer cada sabotagem diz qual delas carregou o vizinho (aqui, uma de quatro). Para a direção: de novo três sessões desta casa na mesma lista sem se ver (15:05, ≤ 16:07 e esta), e as rodadas passam de duas horas — o encaixe saiu do candidato escrito, não de coordenação. Não toquei em despertador. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito (LAB-219 §8): a sabotagem do LAB-59, da mesma forma (a outra metade do que o LAB-217 escreveu); as caladas sem achado esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

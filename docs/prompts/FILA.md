@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-219 · item 900 — a dívida própria: as quatro sabotagens do LAB-58 refeitas — mordem como a prova diz, e o vizinho é todo da sabotagem da ferramenta — ✅ **feito em 20/10/2026** (D447)
+
+O candidato do LAB-217 (§8, repetido pelo LAB-218; o mesmo do LAB-215, de onde esta sessão partiu sem ver as de 15:05 e ≤ 16:07): refazer as sabotagens de ferramenta, começando pela do LAB-58. Espécie **prova que só registra aparência**. Refeitas as quatro numa pasta temporária: a 1 (o `distAoContorno` da `lab58.ts` devolvendo o `distanciaAoPoligono` do motor) no par do LAB-58 (motor `4181e95`, Generate `5b7e9b4`) — exit 0 → 1, *"CALIBRAÇÃO FALHOU em 15 lote(s)"*, as palavras da prova —, e é ela que roda o motor e o Generate; as outras três no commit da prova e na ponta de hoje, mordendo igual (2 testes e 4 duplas; 1 de 24; 1 de 24), com a suíte dentro do Lab. `src/sabotagem-do-lab58.ts` e a trava `sabotagem-do-lab58` (6 testes, no verde completo, com o `vizinhosQueRoda`; mutação: 2 de 6 reprovam). O "antes do conserto" da 1 nunca foi commitado e não se refaz. Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-219.md`](../relatorios/LAB-219.md), decisão **D447**.
+
 ### LAB-218 · item 900 — a dívida própria: os três disparos do CI do LAB-38, perguntados à API e ao fecho do trabalho inteiro — o que o D445 deixou declarado — ✅ **feito em 20/10/2026** (D446)
 
 Pelo candidato do LAB-215 (os registros de ATO), a mais velha: `LAB-38/ci.json`. Ao trazer a origem, o LAB-217 (outra sessão, D445) tinha respondido os oito atos pelo fecho, e para o LAB-38 mediu só o arquivo sabotado, declarando fora o processo filho, as 64 travas e o clone no executor. Medido: a API do GitHub diz que nos três disparos o verde completo caiu na precondição, clones e comando único `skipped`; o fecho dos cinco arquivos do trabalho sem clones, com o `lab20.ts` que um deles roda por processo, não alcança vizinho nos três commits. `src/ci-do-lab38.ts` e a trava `ci-do-lab38` (10 testes, no verde completo; mutação: duas, 1 de 10 em cada). Nada novo proposto ao chat.
