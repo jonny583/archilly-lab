@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T12:33:44.188Z",
+  "quando": "2026-10-20T14:18:07.650Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1371,11 +1371,19 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 12:08 — e a única tarefa da lista que ele mandava pegar sem esperar o `.wasm`, a `LAB-59/contrafactual-de-antonina.json` (o candidato escrito pelo LAB-213 às 10:40), é **a que o disparo de 11:05 desta mesma tarefa agendada pegou**: a origem às 12:08 parava em `8fe8b21` (10:50, a linha do ≤ 10:05), nada enviado desde então, no padrão do dia (rodadas de ~1h30, disparo de hora em hora; quatro choques medidos hoje). Das 41 provas de `OS_CALADOS_DE_HOJE`, as que não têm achado ao lado são a LAB-59 e as do LAB-02 ao 06, 08, 13, 16, 17, 19, 21, 23 a 28 e 32, que esperam o `.wasm` — **não havia tarefa seguinte para onde pular**, como o disparo de 09:06 fez, então **sem item para esta sessão**, e não refiz a LAB-59 (os dois choques de hoje que refizeram saíram repetidos e não foram enviados). A hora é observada: li (não alterei) a listagem das tarefas agendadas, que dá o disparo desta casa às 12:07:38 com esta sessão; o `reflog` do clone registra a ponta posta no disco às 12:08:49, e a receita do LAB-116 confirmou a `main` na origem. **Que a sessão de 11:05 está na LAB-59 é DERIVADO, não observado**: a listagem só mostra a última rodada de cada tarefa, e essa é esta; se ela não estiver, a LAB-59 continua o candidato da próxima",
         "rodada": "despertador-sem-item (a única tarefa da lista fora do `.wasm` com a sessão do disparo de 11:05, derivado; nada refeito)",
         "emVazio": true
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "14:09",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 14:12 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 14:12 parava em `2e8826e` (o LAB-214, enviado), e nenhuma outra mão na lista. A série das caladas que rodam aqui sem o `.wasm` acabou no LAB-214, que mandou a próxima sessão escolher outra espécie da dívida própria; tentei o `.wasm` de novo (`rustup target add wasm32-unknown-unknown`: `static.rust-lang.org` recusado pelo túnel, não insisti) e fui à frase que os recados repetem desde o LAB-203 — *\"LAB-02 a 06, 08 a 28 e 32 esperam o `.wasm`\"*, escrita à mão e, nas palavras do LAB-214, *\"não remedido aqui\"*. Espécie **mensagem fixa que afirma estado sem perguntar**. A hora é observada: o aviso do disparo desta tarefa agendada dá 14:09:34 (marcada para 14:05); a receita do LAB-116 confirmou a `main` na origem",
+        "rodada": "item 900 (LAB-216), dívida própria (mensagem fixa que afirma estado sem perguntar: o *\"esperam o `.wasm`\"* perguntado à ferramenta — os 34 silêncios sem achado ao lado estão em 20 provas de 16 pastas, e as 16 ferramentas carregam o `.wasm`, hoje e no último commit de cada prova; a faixa *\"08 a 28\"* contava dez pastas sem silêncio por achar; a frase passa a ser contada, D444)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 170,
-      "observados": 53,
+      "noRegistro": 171,
+      "observados": 54,
       "derivados": 71,
       "emLote": 7,
       "reconstruidos": 39,

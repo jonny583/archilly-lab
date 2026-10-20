@@ -4479,3 +4479,16 @@ Próximo na fila: a caixa só tem o 900; com esta, a série das caladas que roda
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-216 — item 900, a dívida própria: "esperam o .wasm" era frase à mão — perguntada à ferramenta, verdadeira no porquê e errada na faixa; a lista e a frase passam a ser contadas
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-216 (item 900) ===
+Estado: disparo de 14:09 (observado no aviso do disparo); caixa só com o 900, contada na origin/main às 14:12; nenhuma outra mão (o LAB-214 já enviado). A série das caladas acabou no LAB-214, que mandou escolher outra espécie; o .wasm segue recusado pelo túnel (static.rust-lang.org, não insisti). Fui à dívida própria, à frase que dezesseis recados repetiram à mão desde o LAB-203 — "LAB-02 a 06, 08 a 28 e 32 esperam o .wasm" (espécie mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde no docs/relatorios/LAB-216.md §9; a trava nova 4 testes, mutação acusada nas duas formas.
+Feito: perguntada à ferramenta, a frase é verdadeira no porquê e errada na faixa — sem achado ao lado: 34 silêncios em 20 provas (LAB-02, 04, 05, 06, 08, 13, 16, 17, 19, 21, 23, 24, 25, 26, 28, 32), e todas esperam o .wasm; as 16 ferramentas chamam Motor.carregar( no topo, a de hoje e a do último commit de cada prova; "08 a 28" punha dez pastas sem silêncio por achar. A lista e a frase saem agora do retrato menos os achados (osSilenciosSemAchado, comoSeDizOQueEspera em src/o-commit-do-vizinho-na-prova.ts), e a trava reprova silêncio sem achado que rodaria aqui (D444). Detalhe: docs/relatorios/LAB-216.md
+Achados para outros apps ou Central: para a direção — o que sobra da dívida própria desta casa espera o .wasm, perguntado à ferramenta, e o .wasm não se constrói em máquina de disparo (o alvo wasm32 vem de static.rust-lang.org, recusado pelo túnel): sem item novo na caixa, os próximos disparos tendem a ser em vazio. Não toquei em despertador. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito: nenhum (a frase contada acima); as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
