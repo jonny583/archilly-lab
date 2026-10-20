@@ -4557,3 +4557,16 @@ Próximo na fila: a caixa só tem o 900; candidato do LAB-219 (§8): a sabotagem
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · despertador-sem-item — o disparo de ≤ 19:06 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-219, do disparo de ≤ 17:07)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo de ≤ 19:06 (derivado do reflog: o primeiro comando às 19:06:25); caixa só com o 900, contada na origin/main às 19:07; a tarefa da lista que o 900 mandava pegar (as sabotagens de ferramenta da LAB-58/sabotagem.json, o candidato escrito no LAB-217 §8) já estava com a sessão do disparo de ≤ 17:07, que só enviou às 20:27 (o LAB-219, D447) — e com a de ≤ 18:06, que a refez e não enviou. A origem às 19:07 parava em 29da257 (o LAB-217), então as outras mãos não se viam; achei-as no fetch antes do envio (o LAB-218 às 19:20, o LAB-219 às 20:27, a linha do ≤ 18:06 às 20:42). O meu saiu repetido e NÃO foi enviado. Conferido aqui, não no GitHub: o verde completo rodou sobre o meu ramo antes do achado (vermelhos só os três do .wasm ausente, e a trava dos ramos, pelo ramo de fora abaixo); desta entrega, só a conta e os recados — as travas da conta, dos recados e das provas que contam a árvore, verdes.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida, feita sem ver a outra, bateu com a do LAB-219 no que as duas mediram: Lab em d8d8a72 e na ponta de hoje, motor 4181e95 e Generate 5b7e9b4 (o par do relatório do LAB-58) — sem sabotagem exit 0; a 1, exit 1, "CALIBRAÇÃO FALHOU em 15 lote(s)", "0 m … 13.16 m", as mesmas 15 linhas nos dois commits; a 2, exit 1 na ferramenta, "4 violação(ões) … dupla contagem", as mesmas 4 linhas; com as pontas de hoje dos vizinhos a ferramenta para antes ("a lista de hoje não é a lista do LAB-53"). O entregue cobre as quatro sabotagens e diz que a 2 também morde na suíte, sem vizinho; o meu só acrescentava a linha do LAB-58 em o-commit-do-vizinho-na-prova.ts trocando o "coerência, não medição" — e o LAB-219 escolheu, por escrito (§5), deixá-la como está. Não a toquei.
+Achados para outros apps ou Central: para a direção — quarto disparo seguido com a rodada aberta ao mesmo tempo nesta casa (≤ 16:07, ≤ 17:07, ≤ 18:06 e este; rodadas de mais de duas horas, disparo de hora em hora): três sessões refizeram o mesmo candidato, e só uma enviou. E um ramo na origem que nenhuma rodada daqui criou (claude/stoic-ritchie-ijzqy3, no commit do LAB-95, já inteiro na main): a trava do LAB-121 reprova com "não sei se mesclou" até o fetch trazê-lo; não o apaguei. Não toquei em despertador nenhum. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato do LAB-219 (§8): a sabotagem do LAB-59, da mesma forma; as caladas sem achado esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
