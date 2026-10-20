@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-216 · item 900 — a dívida própria: os três disparos do CI do LAB-38 não rodaram código de vizinho — mas não pelo motivo escrito — ✅ **feito em 20/10/2026** (D444)
+
+O LAB-215 deixou o candidato escrito: as outras sabotagens registradas como ATO, uma a uma, se rodaram código de vizinho. A mais velha, `LAB-38/ci.json`, tinha o motivo pronto *"não há ferramenta que o grave, e por isso ele não roda código de ninguém"*. Espécie **mensagem fixa que afirma estado sem perguntar**. Perguntado à API do GitHub (os passos dos três runs: o verde completo caiu na precondição, clones e comando único `skipped`) e ao `git` no commit de cada disparo (o fecho do trabalho sem clones: oito arquivos, nenhum vizinho). A frase se sustenta, pelo motivo medido. `src/ci-do-lab38.ts` e a trava `ci-do-lab38` (10 testes, no verde completo; mutação: duas, 1 de 10 em cada). Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-216.md`](../relatorios/LAB-216.md), decisão **D444**.
+
 ### LAB-215 · item 900 — a dívida própria: a sabotagem do LAB-31 se refaz igual — o motivo de não regerá-la ("refazer é outro ato"), perguntado à ferramenta — ✅ **feito em 20/10/2026** (D443)
 
 O LAB-214 não deixou candidato; o do LAB-195 seguia escrito: *os outros motivos de exceção com a forma "regerar faria X"*. Das quatro fotografias de `src/regerar-a-varredura.ts`, sobrava a `LAB-31/sabotagem.json`. Espécie **prova que só registra aparência**: a trava do `verde.test.ts` conferia a forma do JSON, nunca o ato. Refeitas as duas sabotagens de pacote numa pasta temporária, no commit da prova (`c8f5c22`, vizinhos `6f69ebc`/`1f13bff`) e na ponta de hoje: derrubam os mesmos dois testes, pelo nome, e o lint — os três passos que a prova dá como caídos, fora o do navegador. A frase *"não roda código de ninguém"* da linha do LAB-31 em `o-commit-do-vizinho-na-prova.ts` caiu (a suíte do testfit roda o motor). `src/sabotagem-do-lab31.ts` e a trava `sabotagem-do-lab31` (7 testes, no verde completo; mutação: 2 de 7 reprovam). A do navegador e o `exit` do comando único esperam o `.wasm`. Nada novo proposto ao chat.

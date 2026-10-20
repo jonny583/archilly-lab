@@ -15185,3 +15185,37 @@ entre os dois pares (o ato não muda de natureza no meio, e 25 s por par a cada 
 
 > **"REFAZER SERIA OUTRO ATO" É UMA HIPÓTESE SOBRE O ATO, E SE PERGUNTA REFAZENDO: o ato que dá a mesma resposta nos dois pontas
 > se confere — e a frase de que ele não rodava código de ninguém só se desmente rodando.**
+
+## D444 · OS TRÊS DISPAROS DO CI DO LAB-38 NÃO RODARAM CÓDIGO DE VIZINHO — mas não pelo motivo escrito ("não há ferramenta que o grave, e por isso"): o verde completo parou na precondição nos três, e o trabalho sem clones roda um fecho sem vizinho · 20/10/2026
+
+**Contexto.** LAB-216, item 900, a dívida própria, pelo candidato do LAB-215 (§8): as outras sabotagens registradas como ATO em
+`src/o-commit-do-vizinho-na-prova.ts`, uma a uma, se rodaram código de vizinho. A mais velha é a `LAB-38/ci.json`, cuja linha usava o
+motivo pronto da função `ATO(...)`: *"Não há ferramenta que o grave, e por isso ele não roda código de ninguém"*. Espécie **mensagem fixa
+que afirma estado sem perguntar** — e o *"por isso"* é um *non sequitur*: o LAB-215 o desmentiu na do LAB-31.
+
+**Medido**, a duas ferramentas. À **API do GitHub** (só leitura), os passos dos seis trabalhos dos três runs (`37209442979`,
+`37209625506`, `37209732926`; commits `527628f`, `21ee5d7`, `d0604e9`): nos três, o `verde-completo` caiu na precondição (o segredo
+`VIZINHOS_TOKEN` não existia) e os dois clones e o `./external-engines/conferir.sh` saíram `skipped`; as conclusões batem com a prova. Ao
+**`git`**, no commit de cada disparo: o fecho dos `import` de execução dos cinco arquivos do trabalho sem clones (`vizinhosQueRoda`),
+somado às ferramentas que eles chamam por processo (`lab20.ts`) — oito arquivos, seis raízes, **nenhum vizinho**; os outros processos
+filhos são `git` e `find`.
+
+**A frase se sustenta, pelo motivo medido:** o ato não rodou código de ninguém porque o trabalho que rodaria os vizinhos parou antes do
+clone, e o que rodou não os importa. A sabotagem do disparo 3 cai no trabalho sem clones.
+
+**Feito.** `src/ci-do-lab38.ts` (a resposta da API congelada com a data, e as réguas puras) e `tests/ci-do-lab38.test.ts` (10 testes: 5
+puros nos dois sentidos, 5 que leem o `git` nos três commits — a resposta casa com o `verde.yml` de cada um, passo a passo; o fecho sem
+vizinho; e um teste plantado com `@testfit/` achado como vizinho). A linha do LAB-38 ganha o motivo medido; `vizinhosQueRoda` ganha o
+parâmetro opcional `vistos`. **Mutação:** duas, 1 de 10 reprova em cada. Roda no verde completo (monta commits de 04/10; o `checkout` do
+portão sem clones é raso); usa `git archive`, sem rede.
+
+**O que se perde.** A API não se pergunta de novo a cada verde (a trava não tem rede nem credencial): a resposta é de 20/10/2026. O que o
+runner tinha instalado (o `bun install` da `esteira` são pacotes do npm). As sabotagens do LAB-58 a 66 continuam com o *"e por isso"* —
+o próximo candidato.
+
+**Alternativas descartadas.** Redisparar o CI (desligado até 1º/11, e disparar gasta minuto de máquina); regravar a prova (D182); trocar o
+texto de `ATO(...)` para todas (as outras não foram perguntadas); `git clone` do Lab por caminho (o `git archive` dá a árvore de um commit
+sem entrar na lista de rede do LAB-158).
+
+> **"NÃO HÁ FERRAMENTA, E POR ISSO NÃO RODA NADA" NÃO SE SEGUE: O QUE UM ATO RODOU SE PERGUNTA A QUEM O EXECUTOU E AO CÓDIGO DAQUELE
+> COMMIT — e quando a frase se sustenta, ela se sustenta pelo motivo medido, que é o que se escreve.**
