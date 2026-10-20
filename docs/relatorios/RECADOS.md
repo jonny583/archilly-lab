@@ -4427,3 +4427,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-213 — item 900, a dívida própria: os mecanismos das 81 do LAB-58 calavam o motor e o Generate — a janela é a do LAB-53, herdada, e fora dela a ferramenta PARA
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-213 (item 900) ===
+Estado: disparo de 09:06 (observado na listagem das tarefas agendadas, lida e não alterada); caixa só com o 900, contada na origin/main às 09:07; a LAB-55 estava com a sessão de ≤ 08:05 (sem envio, no padrão do dia), então fui à dívida própria, à seguinte da mesma lista — a LAB-58/mecanismos-das-81.json (docs/relatorios/LAB-211.md §8: "depois 58 e 59"; espécie mensagem fixa que afirma estado sem perguntar). A outra mão enviou a LAB-55 às 09:12 (LAB-212): tarefas diferentes, nada repetido; os meus números ficaram LAB-213 e D441. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde completo no docs/relatorios/LAB-213.md §9; a trava nova 8 de 8 (200 s), mutação 4 de 8.
+Feito: com o Lab em d8d8a72 (a lab58.ts de então, sem .wasm no fecho), o instante (motor 6cf6396, Generate 09cd4c0) não refaz — a ferramenta PARA sem escrever ("0 só aqui, 52 só lá"); o motor do instante sozinho, igual; o Generate do instante sozinho também ("1 só aqui": a testada-ilegal do 641addb). Rodados 37 commits do motor, 71 do Generate e as duas pontas de hoje (110 estados), refaz byte a byte, fora o quando, só com o motor de fe0c7a1 a 244aae3 (14/09) e o Generate de 5b70e5f a 49d8e3e (02-03/10) — a janela do LAB-53, herdada; fora dela, nenhum estado escreveu outra coisa. Escrito ao lado em src/retrato-do-lab58.ts; trava retrato-do-lab58 no verde completo; achados ao lado 35 de 71 (D441). Detalhe: docs/relatorios/LAB-213.md
+Achados para outros apps ou Central: a todas, como método — prova que confere outra antes de escrever herda a janela dela, e fora dela não mente: cala (a lab58.ts para se a lista não for a do LAB-53). Para a direção: terceiro par de disparos sobrepostos no dia (≤ 08:05 e 09:06), desta vez sem trabalho repetido — a segunda sessão foi à tarefa seguinte da mesma lista; os números ainda colidem e se acertam na mescla. Não toquei em despertador. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): a LAB-59, instante e fecho primeiro; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
