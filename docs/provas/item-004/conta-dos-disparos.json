@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T19:25:15.493Z",
+  "quando": "2026-10-20T20:38:21.409Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1411,12 +1411,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 17:08 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 17:08 parava em `92bebee` (16:31, o LAB-216), sem linha para o disparo de 15:05 — **a sessão dele trabalhava sem ter enviado**, e enviou às 17:32 (o LAB-217, D445: os registros de ATO perguntados ao fecho). Não a vi; fui ao candidato do LAB-215 (as sabotagens registradas como ATO; a do LAB-38 é disparo do CI, desligado, e peguei a do LAB-58), e o LAB-217 deixou como próximo exatamente essa tarefa — **sem trabalho repetido**: achei no `fetch` das ~18:05 e refiz sobre a origem nova; na hora de mesclar, a sessão de ≤ 16:07 tinha enviado às 19:20 o LAB-218 e o D446 (os disparos do CI do LAB-38) — de novo outra tarefa —, e os meus números viraram LAB-219 e D447. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 17:07:02. Não li nem toquei a listagem das tarefas agendadas",
         "rodada": "item 900 (LAB-219), dívida própria (prova que só registra aparência: as quatro sabotagens de 07/10 refeitas — a da ferramenta roda o motor e o Generate e se refaz no par da prova, as três da suíte não saem do Lab; trava nova, D447)",
         "emVazio": false
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "≤ 20:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às ~20:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem parava em `f49cf47` (19:20, o LAB-218), sem linha para o disparo de ≤ 17:07 — **a sessão dele trabalhava sem ter enviado, no MESMO candidato** (o do LAB-217 §8: refazer as sabotagens do LAB-58), e enviou às 20:27 como LAB-219 e D447. Não a vi; achei no `fetch` antes de escrever os documentos, com a minha trava pronta — **desta vez houve trabalho repetido**. Joguei fora o meu módulo e pus dentro do dele o que ele não tinha: a sabotagem 1 refeita na ponta de hoje, que desmente a frase *\"para antes de calibrar\"*; os meus números viraram LAB-220 e D448. Os três vizinhos chegaram rasos e foram desrasados. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 20:06:11. Não li nem toquei a listagem das tarefas agendadas",
+        "rodada": "item 900 (LAB-220), dívida própria (afirmação sem teste: a primeira sabotagem de 07/10 refeita na ponta de hoje morde com os 15 lotes da prova — a calibração vem antes da lista; módulo e trava da rodada anterior corrigidos, D448)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 175,
+      "noRegistro": 176,
       "observados": 56,
-      "derivados": 73,
+      "derivados": 74,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 14
