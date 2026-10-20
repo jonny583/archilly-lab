@@ -4375,3 +4375,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-210 — item 900, a segunda mão no LAB-209: a ilha do motor e o Generate desde o contrato v1 eram a ferramenta gravando noutro arquivo
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-210 (item 900) ===
+Estado: disparo de ≤ 05:06 (derivado do reflog); caixa só com o 900, contada na origin/main às 05:07; fui à dívida própria, pelo candidato do LAB-208 (a LAB-53, docs/relatorios/LAB-208.md §8; espécie prova que só registra aparência), sem ver a outra mão — a sessão de ≤ 04:06 já estava nela e enviou às 05:27 (LAB-209). Trabalho repetido NÃO enviado; a comparação achou um defeito no entregue, e é ele que vai: FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: os oito passos, vermelhos só os três do .wasm ausente; esteira 2 733 aprovadas e 9 reprovadas (as do .wasm); testfit 17 de 17.
+Feito: a lab48.ts escolhe o destino pela medição da ponte; com o motor do T01 (d2f71e4, 66ece91) ou o Generate do contrato v1 (22502b3 … 8223873, 29) ela grava LAB-48/ sem tocar a prova, e a trava do LAB-209 só olhava a prova: dava "igual". Com o outro destino vigiado, a prova se refaz só com o motor de fe0c7a1 a 244aae3 (sem ilha) e o Generate de 5b70e5f (contrato v2) a 49d8e3e — 5 commits, não 34. src/retrato-do-lab53.ts e a trava corrigidos ("igual" exige ter escrito a prova; 16 rodadas, 8 de 8); a janela do LAB-209 agora reprova. D438 substitui parte do D437. Detalhe em docs/relatorios/LAB-210.md.
+Achados para outros apps ou Central: a todas, como método — arquivo que a ferramenta não escreveu não foi refeito: trava que compara só o destino esperado dá "igual" para a ferramenta que gravou noutro lugar (ou em lugar nenhum). E duas mãos na mesma tarefa, sem combinar, acharam o que uma só não acharia. O resto do LAB-209 se confirma por outra mão (os dois instantes fora; 40 violações com as pontas de hoje). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato: a LAB-54, instante e fecho primeiro, vigiando todo arquivo que a ferramenta escreve (depois 55, 58 e 59); LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

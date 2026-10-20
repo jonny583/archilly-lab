@@ -87,9 +87,10 @@
  * de 14/09 — a mesma do LAB-37, FORA do instante — e o Generate numa **aberta**, do contrato v2 até onde se mediu —,
  * `src/retrato-do-lab46.ts`; LAB-207, D435). E a passagem externa do LAB-50 (o motor na MESMA janela fechada de 14/09,
  * FORA do instante, e o Generate numa **aberta**, do contrato v2 até onde se mediu —, `src/retrato-do-lab50.ts`;
- * LAB-208, D436). E a aferição do LAB-53 (o motor numa janela **fechada** de 14/09 — com uma ilha antes do T03 — e o
- * Generate numa **fechada**, do contrato v1 a 03/10, com os DOIS instantes FORA —, `src/retrato-do-lab53.ts`; LAB-209,
- * D437): dezessete provas, vinte e nove silêncios.
+ * LAB-208, D436). E a aferição do LAB-53 (o motor na MESMA janela **fechada** de 14/09 e o Generate numa **fechada**, do
+ * contrato v2 a 03/10, com os DOIS instantes FORA —, `src/retrato-do-lab53.ts`; LAB-209, D437; a *ilha* do T01 e o
+ * começo no contrato v1 que o LAB-209 escreveu eram a ferramenta gravando `LAB-48/`, corrigidos no LAB-210, D438):
+ * dezessete provas, vinte e nove silêncios.
  */
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, normalize, relative, sep } from "node:path";
