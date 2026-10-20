@@ -4336,3 +4336,16 @@ Próximo na fila: a caixa só tem o 900; as cinco caladas sem o .wasm (LAB-30, 3
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · despertador-sem-item — o disparo de ≤ 02:06 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-207, do disparo de ≤ 01:06)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo de ≤ 02:06 (derivado do reflog: a ponta posta no disco às 02:06:20); caixa só com o 900, contada na origin/main às 02:07; a tarefa da lista que o 900 mandava pegar (a LAB-46/antonina-tres-amostragens.json, o candidato do LAB-206) já estava com a sessão do disparo de ≤ 01:06, que só enviou às 02:17 (f6d17e4, o LAB-207). As buscas da origem até ali paravam em e9401c9 (00:31), então a outra mão não se via. O meu saiu repetido e NÃO foi enviado. Conferido aqui, não no GitHub: a trava da versão repetida passou sozinha (6 de 6, três mutações acusadas); desta linha, a conta dos disparos (lab71) e as provas que contam a árvore (lab52, lab57) regeradas, e as travas que leem o ONDE_PARAMOS e o RECADOS rodadas.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida bateu com a do LAB-207: com o Lab em c0b7c54, o instante (motor f581b5a, Generate a06befa) acusa 94 linhas; o motor refaz só de fe0c7a1 a 244aae3 (bordas 648ae78, 8 linhas, e 2160fce, 32); o Generate refaz de 5b70e5f à ponta efb70e9 (borda 8223873, 194).
+Achados para outros apps ou Central: para a direção — sétimo choque de despertadores em dois dias (01:05/02:05): a sessão de ≤ 01:06 só enviou às 02:17, e a das 02:06 não tinha como vê-la. Não toquei em despertador nenhum (ligar, desligar e o intervalo são da direção). Para a próxima rodada desta casa: o LAB-207 §8 diz que a série das caladas sem o .wasm acabou, mas as ferramentas do LAB-50, 54, 55, 58 e 59 (caladas no retrato do LAB-198, os dois vizinhos) não citam o .wasm nem importam o Symbios — contado por grep e pelos import, o fecho não conferido. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato: a LAB-50/passagem-externa.json (cala os dois; ferramenta sem .wasm por grep), instante e fecho primeiro — o fecho confirma se ela roda aqui; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
