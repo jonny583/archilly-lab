@@ -117,8 +117,18 @@ const E = "external-engines/esteira/ferramentas";
 const T = "external-engines/testfit/ferramentas";
 const N = "external-engines/symbios/adapter/ferramentas/navegador";
 
+// O molde dizia "Não há ferramenta que o grave, e POR ISSO ele não roda código de ninguém" — e o "por isso" não
+// segue: não gravar a prova não diz o que o ato RODOU. Perguntado ao fecho dos `import`, ato a ato, no commit da
+// prova e hoje (LAB-217, D445, `src/os-atos-e-o-vizinho.ts`): vale para seis; as sabotagens do LAB-58 e do LAB-59
+// rodaram a ferramenta da rodada, que roda o motor e o Generate, e têm motivo próprio.
 const ATO = (o: string) =>
-  `o registro de um ATO, escrito à mão na rodada: ${o}. Não há ferramenta que o grave, e por isso ele não roda código de ninguém`;
+  `o registro de um ATO, escrito à mão na rodada: ${o}. Não há ferramenta que o grave; e o que ele rodou não alcança ` +
+  "código de vizinho — medido pelo fecho dos `import` no commit da prova e hoje (LAB-217, D445)";
+const ATO_COM_VIZINHO = (o: string, ferramenta: string, retrato: string) =>
+  `o registro de um ATO, escrito à mão na rodada: ${o}. Não há ferramenta que o grave — mas o ato rodou \`${ferramenta}\`, ` +
+  `e ela roda o motor e o Generate (medido pelo fecho dos \`import\` no commit da prova e hoje, LAB-217, D445). A ` +
+  `sabotagem não escreve commit de vizinho; a janela que vale para ela é a da prova irmã, em \`${retrato}\` — mesma ` +
+  "ferramenta, mesma rodada, mesmo commit do Lab: coerência, não medição";
 
 /**
  * **A lista, fechada nos dois sentidos contra `docs/provas/`** (o `LEIA-ME.md` fica fora: é página, não
@@ -167,7 +177,8 @@ export const QUEM_GRAVA: readonly QuemGrava[] = [
     ferramenta: null,
     porque:
       "o registro de um ATO, escrito à mão na rodada: a sabotagem do comando único. Não há ferramenta que o grave — mas o " +
-      "ato rodou a suíte, e a do testfit roda o motor: medido no LAB-215 (D443), refeito no commit da prova com os vizinhos " +
+      "ato rodou a suíte, e os dois arquivos que ele sabotou rodam o motor E o Generate (o fecho dos `import`, LAB-217, " +
+      "D445; o LAB-215 tinha escrito só o motor): medido no LAB-215 (D443), refeito no commit da prova com os vizinhos " +
       "da hora dele e na ponta de hoje, ele derruba os mesmos testes, e a trava `sabotagem-do-lab31.test.ts` escreve os " +
       "commits dos dois pares a cada verde",
   },
@@ -189,9 +200,17 @@ export const QUEM_GRAVA: readonly QuemGrava[] = [
   { prova: "LAB-55/via-sobre-a-faixa.json", ferramenta: `${E}/lab55.ts` },
   { prova: "LAB-57/varredura-de-configuracao.json", ferramenta: `${E}/lab57.ts` },
   { prova: "LAB-58/mecanismos-das-81.json", ferramenta: `${E}/lab58.ts` },
-  { prova: "LAB-58/sabotagem.json", ferramenta: null, porque: ATO("as quatro sabotagens das travas do agrupamento") },
+  {
+    prova: "LAB-58/sabotagem.json",
+    ferramenta: null,
+    porque: ATO_COM_VIZINHO("as quatro sabotagens das travas do agrupamento", "lab58.ts", "src/retrato-do-lab58.ts"),
+  },
   { prova: "LAB-59/contrafactual-de-antonina.json", ferramenta: `${E}/lab59.ts` },
-  { prova: "LAB-59/sabotagem.json", ferramenta: null, porque: ATO("as quatro sabotagens das travas do contrafactual") },
+  {
+    prova: "LAB-59/sabotagem.json",
+    ferramenta: null,
+    porque: ATO_COM_VIZINHO("as quatro sabotagens das travas do contrafactual", "lab59.ts", "src/retrato-do-lab59.ts"),
+  },
   { prova: "LAB-60/configuracao-do-motor.json", ferramenta: `${E}/lab60.ts` },
   { prova: "LAB-60/sabotagem.json", ferramenta: null, porque: ATO("as duas sabotagens das travas da limpeza") },
   { prova: "LAB-61/a-minha-lista-de-propostas.json", ferramenta: `${E}/lab61.ts` },

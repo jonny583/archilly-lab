@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-217 · item 900 — a dívida própria: os registros de ATO e o código de vizinho — o molde "não roda código de ninguém", perguntado ao fecho, ato a ato — ✅ **feito em 20/10/2026** (D445)
+
+O LAB-215 deixou o candidato escrito (§8): as outras sabotagens registradas como ATO (LAB-38 e LAB-58 a 66), se rodaram código de vizinho. Espécie **mensagem fixa que afirma estado sem perguntar**: as oito linhas de ATO de `o-commit-do-vizinho-na-prova.ts` saíam de um molde que dizia *"não há ferramenta que o grave, e por isso ele não roda código de ninguém"*. Medido pelo fecho dos `import` do que cada ato rodou (`vizinhosQueRoda`, o instrumento do LAB-198), na árvore do commit da prova (`git archive`) e hoje: vale para seis; **as sabotagens do LAB-58 e do LAB-59 rodaram `lab58.ts` e `lab59.ts`, que rodam o motor e o Generate**; e a do LAB-31 alcança também o Generate, que o motivo do LAB-215 não dizia. `src/os-atos-e-o-vizinho.ts` e a trava `os-atos-e-o-vizinho` (5 testes, no verde completo; mutação: a linha do LAB-58 no molde velho reprova). Nenhuma prova tocada (D182). Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-217.md`](../relatorios/LAB-217.md), decisão **D445**.
+
 ### LAB-216 · item 900 — a dívida própria: "esperam o .wasm" era frase à mão — perguntada à ferramenta, verdadeira no porquê e errada na faixa; a lista e a frase passam a ser contadas — ✅ **feito em 20/10/2026** (D444)
 
 O LAB-214 mandou a próxima sessão escolher outra espécie da dívida própria. Espécie **mensagem fixa que afirma estado sem perguntar**: dezesseis recados, do LAB-203 ao LAB-214, fecharam com *"LAB-02 a 06, 08 a 28 e 32 esperam o `.wasm`"*, à mão e *"não remedido"*. Perguntado: os silêncios sem achado ao lado são **34, em 20 provas de 16 pastas** (a faixa "08 a 28" punha dez pastas sem silêncio por achar), e as 16 ferramentas chamam `Motor.carregar(` — hoje e no último commit de cada prova. `osSilenciosSemAchado` e `comoSeDizOQueEspera` contam a lista e a frase; `conferirOsQueEsperamOWasm` reprova o silêncio sem achado que rodaria aqui. Quatro testes novos; mutação acusada nas duas formas. Nada novo proposto ao chat.
