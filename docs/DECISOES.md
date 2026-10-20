@@ -15186,9 +15186,9 @@ entre os dois pares (o ato não muda de natureza no meio, e 25 s por par a cada 
 > **"REFAZER SERIA OUTRO ATO" É UMA HIPÓTESE SOBRE O ATO, E SE PERGUNTA REFAZENDO: o ato que dá a mesma resposta nos dois pontas
 > se confere — e a frase de que ele não rodava código de ninguém só se desmente rodando.**
 
-## D444 · OS TRÊS DISPAROS DO CI DO LAB-38 NÃO RODARAM CÓDIGO DE VIZINHO — mas não pelo motivo escrito ("não há ferramenta que o grave, e por isso"): o verde completo parou na precondição nos três, e o trabalho sem clones roda um fecho sem vizinho · 20/10/2026
+## D445 · OS TRÊS DISPAROS DO CI DO LAB-38 NÃO RODARAM CÓDIGO DE VIZINHO — mas não pelo motivo escrito ("não há ferramenta que o grave, e por isso"): o verde completo parou na precondição nos três, e o trabalho sem clones roda um fecho sem vizinho · 20/10/2026
 
-**Contexto.** LAB-216, item 900, a dívida própria, pelo candidato do LAB-215 (§8): as outras sabotagens registradas como ATO em
+**Contexto.** LAB-217, item 900, a dívida própria, pelo candidato do LAB-215 (§8): as outras sabotagens registradas como ATO em
 `src/o-commit-do-vizinho-na-prova.ts`, uma a uma, se rodaram código de vizinho. A mais velha é a `LAB-38/ci.json`, cuja linha usava o
 motivo pronto da função `ATO(...)`: *"Não há ferramenta que o grave, e por isso ele não roda código de ninguém"*. Espécie **mensagem fixa
 que afirma estado sem perguntar** — e o *"por isso"* é um *non sequitur*: o LAB-215 o desmentiu na do LAB-31.

@@ -392,11 +392,11 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
-### LAB-216 · item 900 — a dívida própria: os três disparos do CI do LAB-38 não rodaram código de vizinho — mas não pelo motivo escrito — ✅ **feito em 20/10/2026** (D444)
+### LAB-217 · item 900 — a dívida própria: os três disparos do CI do LAB-38 não rodaram código de vizinho — mas não pelo motivo escrito — ✅ **feito em 20/10/2026** (D445)
 
 O LAB-215 deixou o candidato escrito: as outras sabotagens registradas como ATO, uma a uma, se rodaram código de vizinho. A mais velha, `LAB-38/ci.json`, tinha o motivo pronto *"não há ferramenta que o grave, e por isso ele não roda código de ninguém"*. Espécie **mensagem fixa que afirma estado sem perguntar**. Perguntado à API do GitHub (os passos dos três runs: o verde completo caiu na precondição, clones e comando único `skipped`) e ao `git` no commit de cada disparo (o fecho do trabalho sem clones: oito arquivos, nenhum vizinho). A frase se sustenta, pelo motivo medido. `src/ci-do-lab38.ts` e a trava `ci-do-lab38` (10 testes, no verde completo; mutação: duas, 1 de 10 em cada). Nada novo proposto ao chat.
 
-**Origem:** [`../relatorios/LAB-216.md`](../relatorios/LAB-216.md), decisão **D444**.
+**Origem:** [`../relatorios/LAB-217.md`](../relatorios/LAB-217.md), decisão **D445**.
 
 ### LAB-215 · item 900 — a dívida própria: a sabotagem do LAB-31 se refaz igual — o motivo de não regerá-la ("refazer é outro ato"), perguntado à ferramenta — ✅ **feito em 20/10/2026** (D443)
 

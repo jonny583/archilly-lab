@@ -4493,15 +4493,15 @@ Próximo na fila: a caixa só tem o 900; das fotografias da lista das espécies,
 === FIM DA SESSÃO ===
 ```
 
-## 20/10/2026 · LAB-216 — item 900, a dívida própria: os três disparos do CI do LAB-38 não rodaram código de vizinho — mas não pelo motivo escrito
+## 20/10/2026 · LAB-217 — item 900, a dívida própria: os três disparos do CI do LAB-38 não rodaram código de vizinho — mas não pelo motivo escrito
 
 ```
-=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-216 (item 900) ===
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-217 (item 900) ===
 Estado: disparo de ≤ 16:07 (derivado: a hora do primeiro comando); clone já com a história inteira, receita do LAB-116 sem nada a desrasar; caixa só com o 900, contada na origin/main às 16:07; nenhuma outra mão na lista (a origem parava no LAB-215, 15:04, sem ramo novo). Fui à dívida própria, pelo candidato do LAB-215 (docs/relatorios/LAB-215.md §8: as sabotagens registradas como ATO, uma a uma), na mais velha: a LAB-38/ci.json. Espécie mensagem fixa que afirma estado sem perguntar. FEITA, mesclado por git direto (D29). VERDE_DO_RECADO
-Feito: a linha do LAB-38 na lista do commit do vizinho dizia "não há ferramenta que o grave, e por isso ele não roda código de ninguém". Perguntado à API do GitHub (só leitura): nos três disparos de 04/10 o verde completo caiu na precondição (sem o VIZINHOS_TOKEN) e os dois clones e o conferir.sh saíram skipped; as conclusões batem com a prova. Perguntado ao git, no commit de cada disparo (527628f, 21ee5d7, d0604e9): o trabalho sem clones roda um fecho de oito arquivos, seis raízes (os cinco testes e o lab20.ts), nenhum vizinho; os outros processos são git e find. A frase se sustenta, mas pelo motivo medido, que agora está escrito. src/ci-do-lab38.ts e a trava ci-do-lab38 no verde completo (10 testes; mutação: duas, 1 de 10 em cada). D444. Detalhe em docs/relatorios/LAB-216.md.
+Feito: a linha do LAB-38 na lista do commit do vizinho dizia "não há ferramenta que o grave, e por isso ele não roda código de ninguém". Perguntado à API do GitHub (só leitura): nos três disparos de 04/10 o verde completo caiu na precondição (sem o VIZINHOS_TOKEN) e os dois clones e o conferir.sh saíram skipped; as conclusões batem com a prova. Perguntado ao git, no commit de cada disparo (527628f, 21ee5d7, d0604e9): o trabalho sem clones roda um fecho de oito arquivos, seis raízes (os cinco testes e o lab20.ts), nenhum vizinho; os outros processos são git e find. A frase se sustenta, mas pelo motivo medido, que agora está escrito. src/ci-do-lab38.ts e a trava ci-do-lab38 no verde completo (10 testes; mutação: duas, 1 de 10 em cada). D445. Detalhe em docs/relatorios/LAB-217.md.
 Achados para outros apps ou Central: a todas, como método — "não há ferramenta, e por isso não roda nada" não se segue: o que um ato rodou se pergunta a quem o executou (os passos que a API devolve) e ao código daquele commit. Os disparos de 14h e 15h desta casa não escreveram linha na conta; não inventei a deles. Não toquei em despertador. Nada novo proposto ao chat.
 Depende do Jonny: nada.
-Próximo na fila: a caixa só tem o 900; candidato escrito (LAB-216 §8): as sabotagens do LAB-58 a 66, a mais velha primeiro, se rodaram código de vizinho; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+Próximo na fila: a caixa só tem o 900; candidato escrito (LAB-217 §8): as sabotagens do LAB-58 a 66, a mais velha primeiro, se rodaram código de vizinho; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
 === FIM ===
 === FIM DA SESSÃO ===
 ```

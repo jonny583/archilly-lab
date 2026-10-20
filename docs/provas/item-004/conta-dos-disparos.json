@@ -1384,8 +1384,8 @@
         "data": "20/10/2026",
         "hora": "≤ 16:07",
         "origem": "derivado",
-        "achou": "só o 900 na caixa, contado na `origin/main` às 16:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 16:07 parava em `dadbe4b` (15:04, o LAB-215), sem ramo novo: **nenhuma outra mão na lista**. O clone já tinha a história inteira; a receita do LAB-116 rodou e só o confirmou. Fui ao candidato do LAB-215 (§8), a sabotagem mais velha registrada como ATO: a `LAB-38/ci.json` — os três disparos do CI não rodaram vizinho, pelo motivo medido (D444). Os disparos de 14h e 15h, se houve, não escreveram linha; não a inventei. Hora derivada: a do primeiro comando da sessão, sem o aviso da tarefa agendada.",
-        "rodada": "item 900 (LAB-216), dívida própria (mensagem fixa que afirma estado sem perguntar: os três disparos do CI de 04/10 — perguntados à API do GitHub e ao `git` no commit de cada um, não rodaram vizinho; trava nova, D444)",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 16:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 16:07 parava em `dadbe4b` (15:04, o LAB-215), sem ramo novo: **nenhuma outra mão na lista**. O clone já tinha a história inteira; a receita do LAB-116 rodou e só o confirmou. Fui ao candidato do LAB-215 (§8), a sabotagem mais velha registrada como ATO: a `LAB-38/ci.json` — os três disparos do CI não rodaram vizinho, pelo motivo medido (D445). Os disparos de 14h e 15h, se houve, não escreveram linha; não a inventei. Hora derivada: a do primeiro comando da sessão, sem o aviso da tarefa agendada.",
+        "rodada": "item 900 (LAB-217), dívida própria (mensagem fixa que afirma estado sem perguntar: os três disparos do CI de 04/10 — perguntados à API do GitHub e ao `git` no commit de cada um, não rodaram vizinho; trava nova, D445)",
         "emVazio": false
       }
     ],
