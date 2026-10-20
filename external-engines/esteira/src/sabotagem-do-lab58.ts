@@ -21,9 +21,15 @@
  *
  * **Refeito, o ato morde como a prova diz, e a resposta do LAB-217 se divide por sabotagem.** O vizinho que o fecho
  * achou é todo da sabotagem 1: ela roda a ferramenta, que roda o motor e o Generate, e só se refaz na janela do LAB-213
- * (D441) — na ponta de hoje a ferramenta PARA antes da calibração (*"a lista de hoje não é a lista do LAB-53"*), e a
- * sabotagem não teria onde morder. As outras três rodam só a suíte do agrupamento, cujo fecho não sai do Lab, e mordem
- * igual no commit da prova e na ponta de hoje.
+ * (D441) — ~~na ponta de hoje a ferramenta PARA antes da calibração, e a sabotagem não teria onde morder~~. As outras
+ * três rodam só a suíte do agrupamento, cujo fecho não sai do Lab, e mordem igual no commit da prova e na ponta de hoje.
+ *
+ * **Corrigido no LAB-220 (D448), refazendo:** a calibração roda ANTES da conferência da lista (na `lab58.ts`, o bloco
+ * `CALIBRAÇÃO FALHOU` vem antes do `a lista de hoje não é a lista do LAB-53`), e mede todo lote acusado — inclusive os de
+ * `geo-antonina`, a gleba cujas violações sobram com o motor de hoje (LAB-213). Na ponta de hoje, sem sabotagem, a
+ * ferramenta para pela lista (*"0 só aqui, 52 só lá"*); com a sabotagem 1, para pela calibração, com os MESMOS 15 lotes e
+ * o MESMO 0 → 13,16 m da prova. A sabotagem morde fora da janela também — o `exit` não muda (1 → 1), a parada muda. O
+ * que impedia refazê-la hoje era o texto da troca (o `import` mudou de porta no LAB-135), não a ferramenta.
  *
  * # O que este módulo faz
  *
@@ -40,7 +46,10 @@
  *   o que se confere é que elas mordem como a prova diz (os 15 lotes e os 13,16 m, as 4 violações, *"1 trava de 24"*);
  * - **o "antes do conserto" da sabotagem 1** (`exit` 0): a calibração de antes nunca foi commitada — o conserto
  *   aconteceu dentro da rodada, antes do `d8d8a72`. Não há árvore onde refazê-lo;
- * - **a sabotagem 1 fora da janela**: só no par do LAB-58. Fora dele a ferramenta para antes de calibrar (LAB-213);
+ * - **a sabotagem 1 nos outros estados**: no par do LAB-58 e na ponta de hoje (LAB-220). Os do meio, não;
+ * - **a mensagem de dupla contagem da FERRAMENTA, na ponta de hoje**: a sabotagem 2 se mede pela suíte; pela ferramenta,
+ *   hoje, ela não se vê — a ferramenta para pela lista antes de chegar à dupla contagem (medido à mão no LAB-220, não
+ *   travado);
  * - **o fecho dos `import`**: segue `import`, não `spawn` nem leitura de arquivo (o que o `vizinhosQueRoda` diz de si).
  */
 
@@ -71,6 +80,11 @@ export interface Troca {
   mede: "suite" | "ferramenta";
   /** Os pares em que se refaz. */
   pares: readonly Par[];
+  /**
+   * O par em que a ferramenta JÁ para sem a sabotagem, e com que frase (LAB-220): ali o `exit` é 1 → 1, e o que a
+   * sabotagem muda é a PARADA — a frase de antes some, a de `diz` aparece.
+   */
+  jaParaEm?: Partial<Record<Par, string>>;
   /** Para `suite`: os testes que têm de cair, pelo nome. */
   derruba?: readonly string[];
   /** O que a saída tem de dizer depois da sabotagem (a frase da prova, medida). */
@@ -88,8 +102,9 @@ export const AS_TROCAS: readonly Troca[] = [
     arquivo: "external-engines/esteira/ferramentas/lab58.ts",
     trocas: [
       {
-        de: 'import { distanciaSegmento } from "@testfit/geo.ts";',
-        para: 'import { distanciaAoPoligono, distanciaSegmento } from "@testfit/geo.ts";',
+        // o começo da linha: a porta mudou no LAB-135 (`@testfit/geo.ts` → a do adaptador), e o começo não (LAB-220)
+        de: 'import { distanciaSegmento } from "',
+        para: 'import { distanciaAoPoligono, distanciaSegmento } from "',
       },
       {
         de: "function distAoContorno(p: P, pol: readonly P[]): number {\n",
@@ -97,7 +112,9 @@ export const AS_TROCAS: readonly Troca[] = [
       },
     ],
     mede: "ferramenta",
-    pares: ["o-da-prova"],
+    pares: ["o-da-prova", "o-de-hoje"],
+    // fora da janela do LAB-213 a ferramenta para pela lista, sem sabotagem (`A_JANELA_DO_MOTOR.aParadaDeDepois`)
+    jaParaEm: { "o-de-hoje": "a lista de hoje não é a lista do LAB-53: 0 só aqui, 52 só lá" },
     diz: ["CALIBRAÇÃO FALHOU em 15 lote(s)", "a função DELE devolve 0 m e a MINHA distância reconstrói 13.16 m"],
     rodaVizinho: true,
   },

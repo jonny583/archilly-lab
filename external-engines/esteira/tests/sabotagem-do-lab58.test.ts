@@ -141,7 +141,14 @@ describe("LAB-219 · as sabotagens do LAB-58 REFEITAS, em pasta temporária", ()
           const lab = arv(par, "archilly-lab");
           const antes = medir(lab, t);
           execFileSync("git", ["-C", lab, "checkout", "-q", "--", "."]); // a ferramenta reescreve a prova dela ao sair bem
-          expect(antes.exit, `${par} · sabotagem ${t.n}: tinha de estar de pé antes`).toBe(0);
+          const jaPara = t.jaParaEm?.[par];
+          if (jaPara === undefined) expect(antes.exit, `${par} · sabotagem ${t.n}: tinha de estar de pé antes`).toBe(0);
+          else {
+            // LAB-220: fora da janela a ferramenta já para — pela lista, e não por nenhuma frase da sabotagem
+            expect(antes.exit, `${par} · sabotagem ${t.n}: fora da janela a ferramenta já para`).toBe(1);
+            expect(antes.saida, `${par} · sabotagem ${t.n}`).toContain(jaPara);
+            for (const frase of t.diz) expect(antes.saida, `${par} · sabotagem ${t.n}: a frase da sabotagem antes dela`).not.toContain(frase);
+          }
           const caminho = join(lab, t.arquivo);
           let texto = readFileSync(caminho, "utf8");
           for (const troca of t.trocas) {
@@ -158,6 +165,8 @@ describe("LAB-219 · as sabotagens do LAB-58 REFEITAS, em pasta temporária", ()
           );
           expect(depois.exit, `${par} · sabotagem ${t.n}: a sabotagem não mordeu`).toBe(1);
           for (const frase of t.diz) expect(depois.saida, `${par} · sabotagem ${t.n}`).toContain(frase);
+          // e a parada MUDOU: a de antes (a lista) não aparece — a calibração vem antes dela na ferramenta
+          if (jaPara !== undefined) expect(depois.saida, `${par} · sabotagem ${t.n}: a parada de antes ficou`).not.toContain(jaPara);
           // A ferramenta sabotada para sem escrever: o único arquivo mudado é o sabotado.
           expect(sujos, `${par} · sabotagem ${t.n}: escreveu fora do arquivo sabotado`).toEqual([t.arquivo]);
           if (t.mede === "suite") {
