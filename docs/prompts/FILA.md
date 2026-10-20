@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-211 · item 900 — a dívida própria: a atribuição das `frente` do LAB-54 calava o motor e o Generate — e o motor que a fez é o de 14/09, e as 27 `frente` de fora de Antonina não existem no instante — ✅ **feito em 20/10/2026** (D439)
+
+O LAB-209 e o LAB-210 deixaram o candidato escrito: a `LAB-54/frente-nao-atribuida.json`, que cala os dois, instante e fecho primeiro, vigiando todo arquivo que a ferramenta escreve. Espécie **mensagem fixa que afirma estado sem perguntar**. O fecho da ferramenta de então (`lab54.ts`, nascida no `b42634f` e a mesma de hoje, com um destino só) não tem `.wasm`. Com o Lab em `b42634f`, as pontas da origem na hora da prova (motor `332bf91`, Generate `7330cc7`) **não** refazem (717 linhas: as quatro glebas de fora de Antonina saem com zero `frente`; `geo-antonina` igual); o motor do instante sozinho acusa, o Generate do instante sozinho refaz. Rodados os 37 commits do motor e 71 do Generate (os outros 368 pela árvore), a prova se refaz byte a byte, fora o `quando` da raiz, só com o motor de `fe0c7a1` a `244aae3` (14/09) e o Generate do contrato v2 (`5b70e5f`) até a ponta de hoje (`c4edb50`). Escrito ao lado em `src/retrato-do-lab54.ts`; trava `retrato-do-lab54` no verde completo, que confere também que a ferramenta escreveu a prova e nada mais; achados ao lado 31 de 71. A prova não se tocou (D182).
+
+**Origem:** [`../relatorios/LAB-211.md`](../relatorios/LAB-211.md), decisão **D439**.
+
 ### LAB-210 · item 900 — a segunda mão no LAB-209: a ilha do motor e o Generate desde o contrato v1 eram a ferramenta gravando noutro arquivo — ✅ **feito em 20/10/2026** (D438)
 
 O disparo de ≤ 05:06 pegou o candidato do LAB-208 (a LAB-53) sem ver a outra mão, que só enviou às 05:27; o trabalho repetido não foi enviado. Comparadas as duas medições, a `lab48.ts` escolhe o destino pela medição da ponte, e com o motor do T01 (`d2f71e4`, `66ece91`) ou o Generate do contrato v1 (`22502b3` … `8223873`) ela grava `LAB-48/` sem tocar a prova — a trava do LAB-209 só olhava a prova e dava *"igual"*. Medido com o outro destino vigiado: o motor de `fe0c7a1` a `244aae3`, sem ilha, e o Generate de `5b70e5f` a `49d8e3e` (5 commits, não 34). `src/retrato-do-lab53.ts` e a trava corrigidos (*"igual"* exige ter escrito a prova; quatro rodadas conferem o que grava noutro arquivo); a janela do LAB-209 agora reprova. Espécie **prova que só registra aparência**.

@@ -14922,3 +14922,63 @@ no lugar do entregue (a correção é menor e diz o que mudou); conferir o CONTE
 
 > **ARQUIVO QUE A FERRAMENTA NÃO ESCREVEU NÃO FOI REFEITO — trava que compara só o destino esperado dá "igual" para a ferramenta que
 > gravou noutro lugar.**
+
+## D439 · A ATRIBUIÇÃO DAS `frente` DO LAB-54 CALAVA O MOTOR E O GENERATE — e, medido, o motor que a fez é o de 14/09, a mesma janela do LAB-37, 46, 50 e 53; e as 27 `frente` de fora de Antonina, a tese da prova, NÃO existem com o motor do instante nem com o de hoje · 20/10/2026
+
+**Contexto.** LAB-211, item 900, a dívida própria — a tarefa que o LAB-209 deixou escrita (§8): a seguinte das caladas do retrato do
+LAB-198 que roda aqui sem o `.wasm`. A prova `docs/provas/LAB-54/frente-nao-atribuida.json` foi gravada uma vez, no LAB-54 (`b42634f`,
+07/10/2026, 04h31 UTC; o `quando` da raiz diz 04h25). A ferramenta (`external-engines/esteira/ferramentas/lab54.ts`, que nasceu nesse
+commit e não mudou depois: a de então é a de hoje) roda o motor padrão (13 arquivos de `src/lib/lab/` e `contrato/` no fecho dos
+`import`) e o `_testadaDoLote` do Generate (14 arquivos, mais o `zod`), nas cinco glebas originais; o fecho tem só o `geo.ts` e o
+`terreno-geo.ts` do adaptador do Symbios (TypeScript), **nenhum `.wasm`**. A prova não escreve commit de nenhum dos dois — dois
+silêncios. O relatório do LAB-54 (§6) nomeia os clones do fim da rodada (motor `4181e95`, Generate `5b7e9b4`): um ponto, não a janela,
+e não o instante. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos), o Lab em `b42634f`, `INVARIANTES_EXEMPLOS=100000` (o que
+o `bun run lab54` põe), a prova byte a byte fora o `quando` da raiz, perto de 12 segundos por rodada, em dois processos (linhas = as
+de `diff` sem a linha do `quando`):
+
+```
+instante (as pontas da origem às 04h31 UTC de 07/10: motor 332bf91, Generate 7330cc7): 717 linhas — ACUSA
+  as quatro glebas de fora de Antonina com ZERO frente (a prova: 23, 3, 1, 0); total 56 → 29; geo-antonina igual (22 + 7)
+  o motor do instante sozinho (Generate 5b7e9b4): as mesmas 717; o Generate do instante sozinho (motor 4181e95): IGUAL
+motor, com o Generate em 5b7e9b4 — os 37 que tocam src/lib/lab/:
+  d98b0fe … 0ece0b1 (10/09), 10: a ferramenta não roda (falta módulo)
+  d2f71e4 (13/09, T01) · 66ece91 (14/09): 1 457 linhas — o Generate recusa o plano pelo esquema (sem o bloco `archilly`)
+  648ae78 (14/09, T03): 497 linhas (completo pela variante loop, 1 025 lotes, 11 frente)
+  fe0c7a1 (T02) · 4181e95 · 244aae3 (14/09): IGUAL, byte a byte (fora o quando)
+  2160fce (15/09, T07): 715 linhas; ee7c438 … 3fdb8ca (11/10), 20, e a ponta 3eab85f: as 717 do instante
+Generate, com o motor em 4181e95 — os 439 que tocam src/lib/:
+  a02644c … 4cd7dc2, 371: não roda (3 rodados; 368 sem src/lib/import/parcelamento-externo.ts na árvore)
+  22502b3 (10/09, contrato v1) … 8223873 (02/10), 29: 1 457 linhas — recusa pelo esquema nas cinco glebas
+  5b70e5f (02/10, contrato v2) … 0297934 (16/10), 39, e a ponta c4edb50: IGUAL, byte a byte (fora o quando)
+os quatro cantos (fe0c7a1/244aae3 × 5b70e5f/c4edb50) e o par do LAB-54 (4181e95 × 5b7e9b4): IGUAL
+as pontas de hoje (3eab85f × c4edb50): a mesma prova do instante, byte a byte fora o quando
+```
+
+**Leitura.** O instante do Generate está dentro da janela dele; o do motor, **não** — o mesmo achado do D432, D433, D435, D436,
+D437 e D438, agora às 04h31 de 07/10, uma hora depois do LAB-53: **o motor de 14/09, a mesma janela** (`fe0c7a1` … `244aae3`). Seis provas
+do mesmo disco: coerência, não medição de que o disco ficou parado. **Sem ilha**: o T01 acusa, com o plano recusado pelo esquema do
+Generate do contrato v2 (e a ilha do LAB-53 também não era: era a `lab48.ts` gravando noutro arquivo, D438). A `lab54.ts` tem um
+destino só, escrito sempre; a trava confere que ela o escreveu (o `quando` novo) e que não escreveu mais nada na árvore do Lab. E **a tese da prova não sobrevive ao instante**: *"as 27 `frente` atribuídas — 23 do motor, 4 da
+régua"* fala das quatro glebas de fora de Antonina, e com o motor da origem daquela hora (e com o de hoje) elas saem com zero `frente`.
+O que sobrevive, inteiro, é `geo-antonina` (22 `motor-sem-via-perto`, 7 `regua-amostragem-no-meio-da-aresta`, saldo zero). A régua da
+amostragem e o saldo (D183, D184) continuam de pé: o que muda é o objeto medido, não o método.
+
+**Decidido:**
+
+1. `src/retrato-do-lab54.ts`: o Lab, um commit; `A_JANELA_DO_MOTOR` (fechada, as duas bordas, o clone do LAB-54, o instante FORA);
+   `A_JANELA_DO_GENERATE` (aberta, a borda de antes com a marca da recusa, o clone do LAB-54, o instante dentro); `OS_COMMITS_RODADOS`,
+   somando; `O_AMBIENTE`; `semOQuandoDaRaiz`. A prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab54.test.ts`, **no verde completo**, no molde da do LAB-208 e da do LAB-209: a ordem na história
+   por `merge-base --is-ancestor`, os quatro cantos e o par do LAB-54 refazendo, o instante e o motor dele sozinho acusando, o Generate
+   dele sozinho refazendo, e as três bordas acusando (a do Generate com `recusadoPeloEsquema` na prova); e, a cada rodada, que a ferramenta escreveu a prova e
+   nada mais (a lição do LAB-210, D438). Oito testes, onze rodadas, ~3
+   minutos. Mutação acusada: o começo do motor trocado pelo T03 e o do Generate pela borda de antes — 2 de 8 reprovam.
+3. `OS_ACHADOS_AO_LADO` ganha a prova, com os dois vizinhos; a frase passa a *"achados ao lado: 31 de 71 silêncios"*.
+
+**Descartado:** regravar (D182); uma trava que cobre a frase da prova contra as pontas de hoje (seria pergunta nova — fica medida aqui);
+escrever o T01 como ilha (ele acusa, e a causa é o esquema); rodar os 368 de antes do contrato (a árvore responde); veneno (as
+três bordas são commits de verdade).
+
+> **A TESE DE UMA PROVA PODE ESTAR NUMA PARTE QUE O MOTOR DA HORA JÁ NÃO PRODUZIA — e só a rodada no instante mostra isso.**
