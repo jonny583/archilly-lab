@@ -14982,3 +14982,68 @@ escrever o T01 como ilha (ele acusa, e a causa é o esquema); rodar os 368 de an
 três bordas são commits de verdade).
 
 > **A TESE DE UMA PROVA PODE ESTAR NUMA PARTE QUE O MOTOR DA HORA JÁ NÃO PRODUZIA — e só a rodada no instante mostra isso.**
+
+## D440 · A ASSIMETRIA DA FAIXA DO LAB-55 CALAVA O MOTOR E O GENERATE — e, medido, o motor que a fez é o de 14/09, a mesma janela do LAB-37, 46, 50, 53 e 54; a tese (o lote respeita a faixa, a via não) SOBREVIVE ao instante e às pontas de hoje, os números do controle convexo não · 20/10/2026
+
+**Contexto.** LAB-212, item 900, a dívida própria — a tarefa que o LAB-211 deixou escrita (§8): a seguinte das caladas do retrato do
+LAB-198 que roda aqui sem o `.wasm`. A prova `docs/provas/LAB-55/via-sobre-a-faixa.json` foi gravada uma vez, no LAB-55 (`2d4052b`,
+07/10/2026, 05h23 UTC; o `quando` da raiz diz 05h13). A ferramenta (`external-engines/esteira/ferramentas/lab55.ts`) nasceu nesse
+commit e mudou **uma linha** depois, no LAB-135 (`1711bd1`, D363): o `import` de `distanciaAoPoligono` e `pontoEmPoligono` passou de
+`@testfit/geo.ts` à porta do adaptador. Ela roda o motor padrão (13 arquivos de `src/lib/lab/` e `contrato/` no fecho dos `import`) e o
+esquema e o Validator do Generate (14 arquivos, mais 8 do `zod`), nas duas glebas do LAB-55; o fecho tem só o `geo.ts` do adaptador do
+Symbios (TypeScript), **nenhum `.wasm`**. A prova não escreve commit de nenhum dos dois — dois silêncios. O relatório do LAB-55 (§4)
+nomeia os clones do fim da rodada (motor `4181e95`, Generate `5b7e9b4`): um ponto. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos), o Lab em `2d4052b` (a ferramenta de então),
+`INVARIANTES_EXEMPLOS=100000` (o que o `bun run lab55` põe), a prova byte a byte fora o `quando` da raiz, perto de 6 segundos por
+rodada, em dois processos (linhas = as de `diff` sem a linha do `quando`); em toda rodada que rodou a ferramenta escreveu a prova (o
+`quando` novo) e nenhum outro arquivo:
+
+```
+instante (as pontas da origem às 05h23 UTC de 07/10: motor 6cf6396, Generate 7330cc7): 130 linhas — ACUSA
+  a rede em trechos: geo-antonina 10 → 41 vias, ensaio-com-testada 11 → 37
+  geo-antonina com a MESMA conta (33 externos, 2 vias na faixa, 11 via-sobre-lote, 11 pares, 0 bulbo; os mesmos 8 + 3 lotes invadidos, as mesmas áreas)
+  ensaio-com-testada: externos 51 → 54, vias na faixa 2 → 4, via-sobre-lote 15 → 29, pares 17 → 31, 0 bulbo; culpadas 4 → 6, todas secundárias
+  o motor do instante sozinho (Generate 5b7e9b4): as mesmas 130; o Generate do instante sozinho (motor 4181e95): IGUAL
+motor, com o Generate em 5b7e9b4 — os 37 que tocam src/lib/lab/:
+  d98b0fe … 0ece0b1 (10/09), 10: a ferramenta não roda (falta módulo)
+  d2f71e4 (13/09, T01) · 66ece91 (14/09): 143 linhas — "20 de 20 variantes foram recusadas pelo esquema"
+  648ae78 (14/09, T03): 36 linhas (as mesmas contas e vias; outro nome, frações de metro, ranking de 16 e 17)
+  fe0c7a1 (T02) · 4181e95 · 244aae3 (14/09): IGUAL, byte a byte (fora o quando)
+  2160fce (15/09, T07): 120 linhas; ee7c438 … 3fdb8ca (11/10), 20, e a ponta ac5d74d: as 130 do instante
+Generate, com o motor em 4181e95 — os 439 que tocam src/lib/:
+  a02644c … 4cd7dc2, 371: não roda (3 rodados; 368 sem src/lib/import/parcelamento-externo.ts na árvore)
+  22502b3 (10/09, contrato v1) … 8223873 (02/10), 29: 143 linhas — recusa pelo esquema nas duas glebas
+  5b70e5f (02/10, contrato v2) … 0297934 (16/10), 39, e a ponta a2be4f6: IGUAL, byte a byte (fora o quando)
+os quatro cantos (fe0c7a1/244aae3 × 5b70e5f/a2be4f6) e o par do LAB-55 (4181e95 × 5b7e9b4): IGUAL
+as pontas de hoje (ac5d74d × a2be4f6): a mesma prova do instante, byte a byte fora o quando
+```
+
+**Leitura.** O instante do Generate está dentro da janela dele; o do motor, **não** — o mesmo achado do D432 ao D439, agora às 05h23
+de 07/10: **o motor de 14/09, a mesma janela** (`fe0c7a1` … `244aae3`). Sete provas do mesmo disco: coerência, não medição de que o disco
+ficou parado. **Sem ilha** (o T01 acusa pela recusa do esquema). Diferente do LAB-54 (D439), **a tese sobrevive**: em `geo-antonina`
+a assimetria (`sobreposicao` 0, lida do LAB-53; `via-sobre-lote` 11) sai igual no instante e hoje, lote a lote; no controle convexo a via
+entra MAIS na faixa, sem bulbo. O que não sobrevive são os números de `ensaio-com-testada`, os nomes e comprimentos das vias culpadas
+(a rede saiu em trechos depois do T07) e a presença de uma **principal** entre as culpadas do controle — no instante, as quatro que entram
+ali são secundárias. A leitura do código do motor (`apararRedeViaria` pela divisa, `formatos.ts:826`) não foi reconferida no instante:
+a prova não a mede.
+
+**Decidido:**
+
+1. `src/retrato-do-lab55.ts`: o Lab, um commit; `A_MUDANCA_DA_FERRAMENTA` (o `1711bd1`, a linha de antes e a de depois);
+   `A_JANELA_DO_MOTOR` (fechada, as duas bordas, o clone do LAB-55, o instante FORA); `A_JANELA_DO_GENERATE` (aberta, a borda de antes
+   com a marca da recusa — *"nenhuma variante passou no esquema"*, a frase que esta ferramenta escreve —, o clone do LAB-55, o instante
+   dentro); `OS_COMMITS_RODADOS`, somando; `O_AMBIENTE`; `semOQuandoDaRaiz`. A prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab55.test.ts`, **no verde completo**, no molde da do LAB-211: a ordem na história, a comparação sem
+   o `quando`, a prova de um commit só e a ferramenta de dois — com a diferença conferida como **uma linha tirada e uma posta**, a do
+   `import` —, os dois instantes pela origem; e, rodando a ferramenta de então, os quatro cantos e o par do LAB-55 refazendo, o instante
+   e o motor dele sozinho acusando, o Generate dele sozinho refazendo, as três bordas acusando (a do Generate com a recusa no texto), e
+   a cada rodada que a ferramenta escreveu a prova e nada mais (D438). Oito testes, onze rodadas, ~90 segundos. Mutação acusada: o
+   começo do motor trocado pelo T03 e o do Generate pela borda de antes — 2 de 8 reprovam.
+3. `OS_ACHADOS_AO_LADO` ganha a prova, com os dois vizinhos; a frase passa a *"achados ao lado: 33 de 71 silêncios"*.
+
+**Descartado:** regravar (D182); rodar a ferramenta de hoje (o Lab de hoje não roda com o motor de 14/09 sem refazer a esteira inteira;
+a diferença é uma linha, conferida); escrever o T01 como ilha; rodar os 368 de antes do contrato (a árvore responde); veneno (as três
+bordas são commits de verdade).
+
+> **QUANDO A TESE SOBREVIVE AO INSTANTE, O QUE MORRE SÃO OS NÚMEROS DO CONTROLE — e o controle é o que convence quem lê.**
