@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-209 · item 900 — a dívida própria: a aferição do LAB-53 calava o motor e o Generate — e as duas pontas da origem daquela hora ficam fora — ✅ **feito em 20/10/2026** (D437)
+
+O LAB-208 deixou o candidato escrito: a `LAB-53/violacoes-depois-do-conserto-da-ponte.json`, que cala os dois, instante e fecho primeiro. Espécie **mensagem fixa que afirma estado sem perguntar**. O fecho da ferramenta de então (`lab48.ts`, a mesma de hoje) não tem `.wasm`. Com o Lab em `e1fbe61`, as pontas da origem na hora da prova (motor `3e306d1`, Generate `ad17a7e`) **não** refazem (1 127 linhas: das 92 violações sobram as 40 de `geo-antonina`), e cada uma sozinha também acusa; rodados os 37 commits do motor e 71 do Generate (os outros 368 pela árvore), a prova se refaz byte a byte, fora o `quando`, só com o motor de `fe0c7a1` a `244aae3` (14/09) — mais uma ilha antes do T03 (`d2f71e4`, `66ece91`) — e o Generate de `22502b3` (contrato v1) a `49d8e3e` (03/10, 14h24). Escrito ao lado em `external-engines/esteira/src/retrato-do-lab53.ts`, com a trava `retrato-do-lab53` no verde completo; `OS_ACHADOS_AO_LADO` passa a 29 de 71.
+
+**Origem:** [`../relatorios/LAB-209.md`](../relatorios/LAB-209.md), decisão **D437**.
+
 ### LAB-208 · item 900 — a dívida própria: a passagem externa do LAB-50 calava o motor e o Generate — e o motor que a fez é o de 14/09, a mesma janela do LAB-37 e do LAB-46 — ✅ **feito em 20/10/2026** (D436)
 
 O recado do disparo de ≤ 02:06 deixou o candidato escrito: a `LAB-50/passagem-externa.json`, que cala os dois e cuja ferramenta não carrega o `.wasm`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `846b955`, as pontas da origem na hora da prova (motor `9336985`, Generate `ad17a7e`) **não** refazem (226 linhas: `ensaio-com-testada` e os nomes das vias culpadas; os 33 lotes de `geo-antonina` iguais); rodados os 37 commits do motor e 71 do Generate (os outros 368 de antes do contrato pela árvore), a prova se refaz byte a byte, fora o `quando` da raiz, só com o motor de `fe0c7a1` a `244aae3` (14/09, o instante FORA) e o Generate de `5b70e5f` (contrato v2) à ponta de hoje; antes do contrato v2 a ferramenta cai (o motor não entrega plano). Escrito ao lado em `external-engines/esteira/src/retrato-do-lab50.ts`, com a trava `retrato-do-lab50` no verde completo; `OS_ACHADOS_AO_LADO` passa a 27 de 71.

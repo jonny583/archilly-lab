@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T03:59:37.886Z",
+  "quando": "2026-10-20T05:27:31.763Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1299,12 +1299,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 03:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista, e nenhuma outra mão estava nela (o último envio da origem, `be29385` às 02:57, era o fecho do disparo de ≤ 02:06, e o LAB-207 já tinha entregado a tarefa do disparo de ≤ 01:06; o único ramo remoto além da `main` já está inteiro nela). O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 03:06:52, e a receita do LAB-116 confirmou a `main` na origem. Não li nem toquei a listagem das tarefas agendadas. Esta sessão foi à dívida própria, pelo candidato que o recado do disparo de ≤ 02:06 deixou",
         "rodada": "item 900 (LAB-208), dívida própria (mensagem fixa que afirma estado sem perguntar: a passagem externa de 06/10 roda o motor e o Generate e não escreve o commit de nenhum dos dois — medido, o motor numa janela fechada de `fe0c7a1` a `244aae3`, o instante fora, o Generate de `5b70e5f` em diante, e escrito ao lado)",
         "emVazio": false
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "≤ 04:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 04:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista, e nenhuma outra mão estava nela (o último envio da origem, `bcc9419` às 04:01, era o fecho do LAB-208, do disparo de ≤ 03:06; o único ramo remoto além da `main` já está inteiro nela). O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 04:06:31, e a receita do LAB-116 (o clone era raso; desrasado) confirmou a `main` na origem. Não li nem toquei a listagem das tarefas agendadas. Esta sessão foi à dívida própria, pelo candidato que o LAB-208 deixou",
+        "rodada": "item 900 (LAB-209), dívida própria (mensagem fixa que afirma estado sem perguntar: a aferição de 07/10 roda o motor e o Generate e não escreve o commit de nenhum dos dois — medido, o motor numa janela fechada de `fe0c7a1` a `244aae3`, com uma ilha antes do T03, o Generate de `22502b3` a `49d8e3e`, os dois instantes fora, e escrito ao lado)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 161,
+      "noRegistro": 162,
       "observados": 51,
-      "derivados": 64,
+      "derivados": 65,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 11

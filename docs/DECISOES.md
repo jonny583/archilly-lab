@@ -14815,3 +14815,61 @@ antes do contrato (a árvore responde); veneno (as três bordas são commits de 
 
 > **UMA PROVA DE DOIS DIAS DEPOIS DÁ A MESMA JANELA — e isso continua sendo o teto do que elas dizem juntas, não medição de que o
 > disco ficou parado.**
+
+## D437 · A AFERIÇÃO DO LAB-53 CALAVA O MOTOR E O GENERATE — e, medido, as DUAS pontas da origem daquela hora ficam FORA: o motor de 14/09 (com uma ilha antes do T03) e o Generate do contrato v1 a 03/10, 14h24 · 20/10/2026
+
+**Contexto.** LAB-209, item 900, a dívida própria — a tarefa que o LAB-208 deixou escrita (§8): a seguinte das caladas do retrato do
+LAB-198 que roda aqui sem o `.wasm`. A prova `docs/provas/LAB-53/violacoes-depois-do-conserto-da-ponte.json` foi gravada uma vez, no
+LAB-53 (`e1fbe61`, 07/10/2026, 03h21 UTC; o `quando` da raiz diz 03h10). A ferramenta (`external-engines/esteira/ferramentas/lab48.ts`,
+que não mudou depois: a de então é a de hoje) roda o motor padrão (16 arquivos de `src/lib/lab/` no fecho dos `import`) e o Validator do
+Generate (18 arquivos), nas cinco glebas originais; o fecho tem só o `geo.ts` e o `terreno-geo.ts` do adaptador do Symbios
+(TypeScript), **nenhum `.wasm`**. A prova não escreve commit de nenhum dos dois — dois silêncios. O relatório do LAB-53 (§5) nomeia os
+clones do fim da rodada (motor `4181e95`, Generate `5b7e9b4`), e o LAB-197 já roda a ferramenta de hoje neles e acha esta prova igual:
+um ponto, não a janela, e não o instante. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos), o Lab em `e1fbe61`, `INVARIANTES_EXEMPLOS=100000` (sem
+ela a ferramenta recusa), a prova byte a byte fora o `quando` da raiz, de 10 a 40 segundos por rodada, em dois processos (linhas =
+as de `diff` sem a linha do `quando`):
+
+```
+instante (as pontas da origem às 03h21 UTC de 07/10: motor 3e306d1, Generate ad17a7e): 1 127 linhas — ACUSA
+  das 92 violações sobram 40, todas em geo-antonina (29 frente, 11 via-sobre-lote, as da prova); as outras quatro glebas com zero
+motor, com o Generate em 5b7e9b4 — os 37 que tocam src/lib/lab/:
+  d98b0fe … 0ece0b1 (10/09), 10: a ferramenta não roda (falta módulo)
+  d2f71e4 (13/09, T01) · 66ece91 (14/09): IGUAL — a ilha de antes
+  648ae78 (14/09, T03): 482 linhas (completo pela variante loop, 79 violações)
+  fe0c7a1 (T02) · 4181e95 · 244aae3 (14/09): IGUAL, byte a byte (fora o quando)
+  2160fce (15/09, T07): 1 057 linhas; ee7c438 … 3fdb8ca (11/10), 20, e a ponta d483aed: as 1 127 do instante
+Generate, com o motor em 4181e95 — os 439 que tocam src/lib/:
+  a02644c … 4cd7dc2, 371: não roda (3 rodados; 368 sem src/lib/contratos/motor-v1/traducao.ts na árvore)
+  22502b3 (10/09, contrato v1) … 49d8e3e (03/10, 14h24), 34: IGUAL, byte a byte (fora o quando)
+  641addb (03/10, 14h27, o piso legal de testada vira invariante) … 0297934 (16/10), 34, e a ponta 92ba2a1: 20 linhas
+    (uma testada-ilegal em sintetico-50ha-ondulado, 92 → 93)
+os quatro cantos (fe0c7a1/244aae3 × 22502b3/49d8e3e) e as pontas da ilha (× 5b7e9b4): IGUAL
+cada vizinho do instante sozinho: o motor 3e306d1 acusa (1 127), o Generate ad17a7e acusa (20)
+```
+
+**Leitura.** Pela primeira vez na série, **o instante fica fora nos DOIS eixos**: no LAB-37, 40, 46 e 50 o Generate do instante estava
+dentro da janela dele. Aqui o Generate que fez a prova é anterior a 03/10, 14h27 — quatro dias antes da prova —, e o motor é o de 13 ou
+14/09. Os clones que o LAB-53 conferiu (`4181e95`, `5b7e9b4`) estão dentro das duas janelas: o que lá era declaração, aqui é medição.
+**A janela do motor tem um buraco**: o T03 (`648ae78`) acusa entre dois pedaços que refazem. E **a frase da prova não sobrevive às
+pontas de hoje**: *"as 92 continuam não aprovando gleba nenhuma"* — com o motor `d483aed` e o Generate `92ba2a1` são 40, todas de
+`geo-antonina`, e quatro glebas saem com zero.
+
+**Decidido:**
+
+1. `src/retrato-do-lab53.ts`: o Lab, um commit; `A_JANELA_DO_MOTOR` (fechada, as duas bordas, o clone do LAB-53, o instante FORA);
+   `A_ILHA_DO_MOTOR` (as duas pontas, e a borda de antes, que não roda, com a marca da queda); `A_JANELA_DO_GENERATE` (fechada, as duas
+   bordas — a de antes não roda, com a marca —, o clone do LAB-53, o instante FORA); `OS_COMMITS_RODADOS`, somando, com `refazemNaIlha`;
+   `O_AMBIENTE`; `semOQuandoDaRaiz`. A prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab53.test.ts`, **no verde completo**, no molde da do LAB-208, com dois testes a mais: a ordem na
+   história (ilha → borda → janela → borda → instante, por `merge-base --is-ancestor`) e cada vizinho do instante acusando sozinho. Oito
+   testes, ~3 minutos, doze rodadas da ferramenta. Mutação acusada: o começo do motor trocado pelo T03 e o fim do Generate pela borda de
+   depois.
+3. `OS_ACHADOS_AO_LADO` ganha a prova, com os dois vizinhos; a frase passa a *"achados ao lado: 29 de 71 silêncios"*.
+
+**Descartado:** regravar (D182); escrever a janela do motor como `d2f71e4` … `244aae3` (esconderia o T03, que acusa no meio — escreve-se
+o pedaço de 14/09, onde está o clone do LAB-53, e a ilha ao lado); comparar o JSON por valor (tira-se só a linha do carimbo); rodar os
+368 de antes do contrato (a árvore responde); veneno (as cinco bordas são commits de verdade).
+
+> **JANELA QUE SE LÊ PELAS BORDAS ESCONDE O BURACO DO MEIO — e o instante pode estar fora dos dois lados ao mesmo tempo.**
