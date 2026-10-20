@@ -14873,3 +14873,52 @@ o pedaço de 14/09, onde está o clone do LAB-53, e a ilha ao lado); comparar o 
 368 de antes do contrato (a árvore responde); veneno (as cinco bordas são commits de verdade).
 
 > **JANELA QUE SE LÊ PELAS BORDAS ESCONDE O BURACO DO MEIO — e o instante pode estar fora dos dois lados ao mesmo tempo.**
+
+## D438 · A ILHA DO MOTOR E O GENERATE DESDE O CONTRATO V1, NO RETRATO DO LAB-53, ERAM A FERRAMENTA GRAVANDO NOUTRO ARQUIVO — substitui o item 1 (na ilha e no começo do Generate) e a leitura 2 do D437 · 20/10/2026
+**Contexto:** item 900 (LAB-210). O disparo de ≤ 05:06 achou na origem (05:07) só o fecho do LAB-208 e pegou o candidato dele, a LAB-53 —
+que a sessão do disparo de ≤ 04:06 já estava medindo e só enviou às 05:27 (o LAB-209, D437). Duas mãos na mesma tarefa: o trabalho
+repetido não foi enviado. Mas a minha rodada vigiava os DOIS destinos da ferramenta, e a comparação deu diferente.
+
+**O defeito.** A `ferramentas/lab48.ts` escolhe o destino pela MEDIÇÃO da ponte (`ponteConsertada`, LAB-53, D182): com a ponte
+consertada grava `LAB-53/violacoes-depois-do-conserto-da-ponte.json`; sem ela, `LAB-48/violacoes-do-motor-padrao.json`. A trava do
+LAB-209 restaurava e comparava **só a prova**: quando a ferramenta gravava `LAB-48/`, a prova ficava intocada e saía *"igual, byte a byte"*.
+
+**Medido** (clones locais, os vizinhos só lidos, `INVARIANTES_EXEMPLOS=100000`, os dois destinos vigiados):
+
+```
+motor, com o Generate em 5b7e9b4:
+  d2f71e4 (T01) · 66ece91        : roda e GRAVA LAB-48/, a prova intocada   ← a "ilha" do D437
+  fe0c7a1 · 4181e95 · 244aae3    : escreve a prova, IGUAL (fora o quando)
+Generate, com o motor em 4181e95:
+  22502b3 (contrato v1) … 8223873, 29 : roda e GRAVA LAB-48/, a prova intocada   ← "igual" no D437
+  5b70e5f (contrato v2) … 49d8e3e, 5  : escreve a prova, IGUAL
+  641addb … 0297934, 34, e a ponta    : acusa (a testada-ilegal) — como no D437
+os quatro cantos (fe0c7a1/244aae3 × 5b70e5f/49d8e3e): IGUAL; os cantos do D437 com 22502b3: GRAVA LAB-48/
+```
+
+O resto do D437 se confirma, medido de novo por outra mão: o instante fora nos dois eixos, a borda de depois do Generate (`641addb`, uma
+`testada-ilegal`), os clones do relatório do LAB-53 dentro, a frase que não sobrevive às pontas de hoje (40 violações, só `geo-antonina`).
+O tamanho da diferença depende de como se contam as linhas: 1 127 pelo `diff` do LAB-209, 1 421 pelos `+`/`−` do `git diff` desta
+rodada — a mesma resposta (acusa), contada com réguas diferentes.
+
+**Decidido:**
+
+1. `src/retrato-do-lab53.ts`: a janela do Generate começa em `5b70e5f`, e a borda de antes é `8223873` (grava noutro arquivo);
+   `A_ILHA_DO_MOTOR` sai e entra `O_QUE_GRAVA_NOUTRO` (os dois pedaços, motor e Generate, com a falta de módulo antes de cada um);
+   `OS_COMMITS_RODADOS` troca `refazemNaIlha` por `gravamNoutro` (motor 2; Generate 29, e `refazem` 34 → 5). O cabeçalho diz o que
+   foi corrigido e por quê; o texto do LAB-209 fica, corrigido onde a ilha e o contrato v1 apareciam.
+2. A trava `tests/retrato-do-lab53.test.ts`: *"igual"* **exige que a ferramenta tenha escrito a prova**, e o outro destino é restaurado
+   e vigiado; os cantos exigem que ela não tenha escrito `LAB-48/`; quatro rodadas novas conferem que o T01, o merge seguinte, o contrato
+   v1 e a borda de antes gravam `LAB-48/` sem tocar a prova; as duas faltas de módulo ficam. Dezesseis rodadas, 8 testes. **Mutação:**
+   com a janela do D437 (`22502b3`) de volta, os cantos reprovam — a trava velha a aprovava.
+3. O cabeçalho de `src/o-commit-do-vizinho-na-prova.ts` corrigido; a conta dos achados ao lado não muda (29 de 71).
+
+**Conferido pela forma:** das ferramentas desta casa, só a `lab48.ts` escolhe o destino por condição (busca por `DESTINO`/`ARQUIVO`
+condicionais e por `ponteConsertada` nas pastas de ferramentas) — então só este retrato tinha o buraco. Pela forma, não por leitura de
+cada uma.
+
+**Descartado:** apagar o D437 ou reescrever o relatório do LAB-209 (quem discorda escreve a próxima); enviar o meu trabalho repetido
+no lugar do entregue (a correção é menor e diz o que mudou); conferir o CONTEÚDO do `LAB-48/` gravado (é a pergunta do LAB-197).
+
+> **ARQUIVO QUE A FERRAMENTA NÃO ESCREVEU NÃO FOI REFEITO — trava que compara só o destino esperado dá "igual" para a ferramenta que
+> gravou noutro lugar.**

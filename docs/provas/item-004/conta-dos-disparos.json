@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T05:27:31.763Z",
+  "quando": "2026-10-20T06:45:53.929Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1307,12 +1307,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 04:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista, e nenhuma outra mão estava nela (o último envio da origem, `bcc9419` às 04:01, era o fecho do LAB-208, do disparo de ≤ 03:06; o único ramo remoto além da `main` já está inteiro nela). O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 04:06:31, e a receita do LAB-116 (o clone era raso; desrasado) confirmou a `main` na origem. Não li nem toquei a listagem das tarefas agendadas. Esta sessão foi à dívida própria, pelo candidato que o LAB-208 deixou",
         "rodada": "item 900 (LAB-209), dívida própria (mensagem fixa que afirma estado sem perguntar: a aferição de 07/10 roda o motor e o Generate e não escreve o commit de nenhum dos dois — medido, o motor numa janela fechada de `fe0c7a1` a `244aae3`, com uma ilha antes do T03, o Generate de `22502b3` a `49d8e3e`, os dois instantes fora, e escrito ao lado)",
         "emVazio": false
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "≤ 05:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 05:07 — **não é disparo em vazio**, e **foram duas mãos na mesma tarefa**: a origem às 05:07 parava em `bcc9419` (o fecho do LAB-208), e a sessão do disparo de ≤ 04:06 já estava no candidato do LAB-208 (a LAB-53), ainda sem envio — ela só enviou às 05:27 (`aa847ae`). Esta sessão fez a mesma medição em paralelo, viu a outra mão no `fetch` das 05:40, **não enviou o trabalho repetido**, e na comparação achou um defeito no entregue: a *ilha* e o Generate desde o contrato v1 eram a ferramenta gravando `LAB-48/`. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 05:07:02, e a receita do LAB-116 (o clone era raso; desrasado) confirmou a `main` na origem. Não li nem toquei a listagem das tarefas agendadas",
+        "rodada": "item 900 (LAB-210), a correção do LAB-209 (a trava dava *\"igual\"* onde a ferramenta não tinha escrito a prova — medido de novo com o outro destino vigiado: o motor de `fe0c7a1` a `244aae3`, sem ilha, e o Generate de `5b70e5f` a `49d8e3e`; trava e módulo corrigidos, D438)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 162,
+      "noRegistro": 163,
       "observados": 51,
-      "derivados": 65,
+      "derivados": 66,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 11
