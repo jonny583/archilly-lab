@@ -233,7 +233,8 @@ export function oQueOTesteRodaPorProcesso(codigo: string): Processo[] {
   const out: Processo[] = [];
   const re = /\b(?:execFileSync|spawnSync|spawn)\(\s*["']([^"']+)["']\s*(?:,\s*\[\s*(?:["']([^"']*)["'])?)?/g;
   for (const m of codigo.matchAll(re)) out.push({ comando: m[1]!, primeiro: m[2] ?? null });
-  for (const _ of codigo.matchAll(/\bexecSync\(|\bBun\.\$`|(?<![\w.])\$`/g)) out.push({ comando: "<shell>", primeiro: null });
+  const linhasDeShell = codigo.match(/\bexecSync\(|\bBun\.\$`|(?<![\w.])\$`/g) ?? [];
+  for (let i = 0; i < linhasDeShell.length; i++) out.push({ comando: "<shell>", primeiro: null });
   return out;
 }
 
