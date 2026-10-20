@@ -14720,3 +14720,49 @@ ponta de hoje, a prova deixa de dizer que a ortogonal é recusada pela via fora 
 depois já dá os dentes).
 
 > **A FRASE DE UMA PROVA E OS NÚMEROS DELA TÊM JANELAS DIFERENTES** — e o retrato tem de dizer de qual está falando.
+
+## D435 · AS TRÊS AMOSTRAGENS DO LAB-46 CALAVAM O MOTOR E O GENERATE — e, medido, o motor que as fez é o de 14/09, a MESMA janela da testada do LAB-37 · 20/10/2026
+**Contexto:** item 900 (LAB-206 → LAB-207). A caixa só tinha o `900`, e o LAB-206 deixou o candidato escrito: *a do LAB-46, a última
+das cinco sem o `.wasm`, instante e fecho primeiro*. A prova `docs/provas/LAB-46/antonina-tres-amostragens.json` foi gravada uma vez
+(`c0b7c54`, 05/10/2026, 00h16 UTC, carimbo fixo); a ferramenta `ferramentas/lab46.ts` (mudada depois no LAB-103 e no LAB-105, só na
+prova de determinismo — a de então é a do `c0b7c54`) roda a esteira do motor (17 arquivos de `src/lib/lab/` no fecho dos `import`)
+com o contrato e as regras do Generate (43 arquivos) em `geo-antonina`, e a prova não escreve commit de nenhum dos dois — dois
+silêncios. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos), o Lab em `c0b7c54`, a prova byte a byte, de 20 a 45
+segundos por rodada, em dois processos:
+
+```
+instante (as pontas da origem às 00h16 UTC de 05/10: motor f581b5a, Generate a06befa): 63 linhas — ACUSA
+motor, com o Generate em a06befa — os 37 que tocam src/lib/lab/:
+  d98b0fe … 0ece0b1 (10/09), 10: a ferramenta não roda
+  d2f71e4 (13/09) · 66ece91 (14/09): 16 linhas · 648ae78 (14/09, T03): 4 linhas, só as aceitas
+  fe0c7a1 (T02) · 4181e95 · 244aae3 (14/09): IGUAL, byte a byte
+  2160fce (15/09, T07) · ee7c438: 16 linhas; 38f9943 … 3fdb8ca (11/10), 19, e a ponta e9afae6: as 63 do instante
+Generate, com o motor em 244aae3 — os 439 que tocam src/lib/:
+  a02644c … 4cd7dc2, 371: não roda (3 rodados; 368 sem src/lib/contratos/motor-v1/traducao.ts na árvore)
+  22502b3 (10/09, contrato v1) … 8223873 (02/10), 29: 16 linhas
+  5b70e5f (02/10, contrato v2) … 0297934 (16/10), 39, e a ponta 2ba6e5e: IGUAL, byte a byte
+os quatro cantos (fe0c7a1/244aae3 × 5b70e5f/2ba6e5e): IGUAL
+```
+
+**Leitura.** O mesmo achado do D432 e do D433, agora às 00h16 de 05/10: a prova descreve **o motor de 14/09**, e a janela é a mesma
+do LAB-37 (`fe0c7a1` … `244aae3`; o T03 acusa) — as três provas do mesmo disco não estreitam além dela. Coerência, não medição. E a
+**frase** da prova sobrevive às pontas de hoje: o plano só de lote externo aparece **só na completa** (superquadra, 33 lotes, 33
+externos, 14 na testada — iguais); o que muda são as amostragens de 2 variantes (a espinha *sem as faces*, `null` na prova, entrega
+1 417 lotes).
+
+**Decidido:**
+
+1. `src/retrato-do-lab46.ts`: o Lab, um commit; `A_JANELA_DO_MOTOR` (fechada, as duas bordas, o instante FORA);
+   `A_JANELA_DO_GENERATE` (aberta, a borda de antes, o instante dentro); `OS_COMMITS_RODADOS`, somando. A prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab46.test.ts`, **no verde completo**, no molde da do LAB-205: o escrito; o commit do Lab é o único
+   da prova; os instantes são as pontas da origem na hora da prova; os quatro cantos (iguais); o instante (acusa); as três bordas
+   (acusam). Seis testes, ~3 minutos. Mutação acusada: o começo do motor trocado pelo T03 e a borda do Generate trocada pelo contrato
+   v2 — 3 reprovam (o escrito, os cantos, as bordas).
+3. `OS_ACHADOS_AO_LADO` ganha a prova, com os dois vizinhos; a frase passa a *"achados ao lado: 25 de 71 silêncios"*.
+
+**Descartado:** regravar (D182); rodar os 368 de antes do contrato (a árvore responde); veneno (as três bordas são commits de
+verdade); pôr as pontas de hoje na trava além do canto do Generate (o motor de hoje já acusa pela borda de depois).
+
+> **TRÊS PROVAS DO MESMO DISCO DÃO A MESMA JANELA — e isso não é medição de que o disco era aquele, é o teto do que elas dizem juntas.**

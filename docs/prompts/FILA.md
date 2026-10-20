@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-207 · item 900 — a dívida própria: as três amostragens do LAB-46 calavam o motor e o Generate — e o motor que as fez é o de 14/09, a mesma janela da testada do LAB-37 — ✅ **feito em 20/10/2026** (D435)
+
+O LAB-206 deixou o candidato escrito: a última das cinco sem o `.wasm`, a `LAB-46/antonina-tres-amostragens.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `c0b7c54`, as pontas da origem na hora da prova (motor `f581b5a`, Generate `a06befa`) **não** refazem (63 linhas, as amostragens de 2 variantes); rodados os 37 commits do motor e 71 do Generate (os outros 368 contados pela árvore), a prova se refaz só com o motor de `fe0c7a1` a `244aae3` (14/09, janela fechada, o instante fora — a mesma do LAB-37) e o Generate de `5b70e5f` (o contrato v2) até hoje. A frase (o 33 só na completa) sobrevive às pontas de hoje. Escrito ao lado em `src/retrato-do-lab46.ts`; trava `retrato-do-lab46` no verde completo; `OS_ACHADOS_AO_LADO` passa a *25 de 71*.
+
+**Origem:** [`../relatorios/LAB-207.md`](../relatorios/LAB-207.md), decisão **D435**.
+
 ### LAB-206 · item 900 — a dívida própria: a prova do LAB-41 calava o Generate — e, medido, ela se refaz numa janela fechada, de 20/09 a 14/10, com o instante dentro — ✅ **feito em 19/10/2026** (D434)
 
 O LAB-205 deixou o candidato escrito: a seguinte do retrato cuja ferramenta não carrega o `.wasm`, a `LAB-41/ortogonal-fora-da-gleba.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `d817176`, a ponta da origem na hora da prova (Generate `a06befa`) refaz byte a byte; rodados os 68 commits que tocam `src/lib/` do contrato v1 em diante, os três de antes e a ponta de hoje (os outros 368 de antes contados pela árvore), a prova se refaz só de `7eb39ce` (20/09) a `db31559` (14/10) — as duas bordas mudam lotes, não a resposta. Escrito ao lado em `src/retrato-do-lab41.ts`; trava `retrato-do-lab41` no verde completo; achados ao lado: 23 de 71.

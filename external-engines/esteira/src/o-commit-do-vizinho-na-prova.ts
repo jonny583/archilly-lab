@@ -83,7 +83,9 @@
  * contrato v2 até onde se mediu —, `src/retrato-do-lab37.ts`; LAB-204, D432). E as fixtures do LAB-40 (o mesmo
  * desenho: o motor numa janela **fechada** de 14/09, FORA do instante, e o Generate numa **aberta** —,
  * `src/retrato-do-lab40.ts`; LAB-205, D433). E a do LAB-41 (o Generate numa janela **fechada**, de 20/09 a 14/10,
- * com o instante DENTRO —, `src/retrato-do-lab41.ts`; LAB-206, D434): catorze provas, vinte e três silêncios.
+ * com o instante DENTRO —, `src/retrato-do-lab41.ts`; LAB-206, D434). E a do LAB-46 (o motor numa janela **fechada**
+ * de 14/09 — a mesma do LAB-37, FORA do instante — e o Generate numa **aberta**, do contrato v2 até onde se mediu —,
+ * `src/retrato-do-lab46.ts`; LAB-207, D435): quinze provas, vinte e cinco silêncios.
  */
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { dirname, join, normalize, relative, sep } from "node:path";
@@ -530,6 +532,7 @@ export const OS_ACHADOS_AO_LADO: Readonly<Record<string, Readonly<Record<string,
   "LAB-37/testada-de-frente.json": { [MOTOR]: "src/retrato-do-lab37.ts", [GENERATE]: "src/retrato-do-lab37.ts" },
   "LAB-40/fixtures.json": { [MOTOR]: "src/retrato-do-lab40.ts", [GENERATE]: "src/retrato-do-lab40.ts" },
   "LAB-41/ortogonal-fora-da-gleba.json": { [GENERATE]: "src/retrato-do-lab41.ts" },
+  "LAB-46/antonina-tres-amostragens.json": { [MOTOR]: "src/retrato-do-lab46.ts", [GENERATE]: "src/retrato-do-lab46.ts" },
   "LAB-78/setimo-mecanismo.json": { [GENERATE]: "src/retrato-do-lab78.ts" },
   "LAB-48/violacoes-do-motor-padrao.json": { [MOTOR]: "src/fotografia-do-lab48.ts", [GENERATE]: "src/fotografia-do-lab48.ts" },
 };
