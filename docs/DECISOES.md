@@ -15090,3 +15090,56 @@ como *"a do LAB-53"* sem medir (a herança é por construção, e a medição é
 (as quatro bordas são commits de verdade).
 
 > **PROVA QUE CONFERE OUTRA ANTES DE ESCREVER HERDA A JANELA DELA — e, fora dela, não mente: cala.**
+
+## D442 · O CONTRAFACTUAL DE ANTONINA DO LAB-59 CALAVA O MOTOR E O GENERATE — e, medido, a janela é a do LAB-53 e do LAB-58: o motor de 14/09 e o Generate do contrato v2 a 03/10, os dois instantes FORA; mas fora dela a ferramenta de então NÃO PARA — escreve outra prova, e na do instante não há o plano de 1 228 lotes · 20/10/2026
+
+**Contexto.** LAB-214, item 900, a dívida própria. O LAB-213 deixou o candidato escrito: a `LAB-59/contrafactual-de-antonina.json`, a
+última das caladas do retrato do LAB-198 que rodam aqui sem o `.wasm`. A prova foi gravada uma vez, no LAB-59 (`387fc20`, 07/10/2026,
+11h35 UTC). A ferramenta (`lab59.ts`) nasceu nesse commit e mudou uma linha no LAB-135 (`1711bd1`, D363: o `import` de
+`distanciaSegmento` pela porta do adaptador); roda-se a de então. Ela roda as vinte candidatas julgadas do motor padrão em
+`geo-antonina` e o esquema, o Validator, `_testadaDoLote`, `divisaDoAcesso` e `faixaViaPublica` do Generate, **lê** três provas do Lab
+(LAB-53, 50 e 54) como aferição e calibração, e **para** só em três situações: falta de módulo, calibração discordante **num lote que
+as provas contêm**, e aferição — **um número só**, as violações da 1ª do ranking em Antonina contra as 40 do LAB-53. Fecho: 13 arquivos
+do motor, 15 do Generate (mais 8 do `zod`), um TypeScript do adaptador do Symbios, **nenhum `.wasm`**. A prova não escreve commit de
+nenhum dos dois vizinhos — dois silêncios. O relatório do LAB-59 (§6) nomeia os clones do fim (motor `4181e95`, Generate `5b7e9b4`): um
+ponto.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos), o Lab em `387fc20`, `INVARIANTES_EXEMPLOS=100000`, a prova
+byte a byte fora o `quando` da raiz, a árvore do Lab conferida depois de cada rodada:
+
+- **o instante** (motor `6cf6396`, Generate `09cd4c0` — as mesmas do LAB-58: nenhum dos dois andou entre 11h01 e 11h35): a ferramenta
+  sai bem e **escreve outra** — 20 candidatas, **17** aprovam com os dois consertos (a prova diz 16), a `superquadra` de 33 em primeiro,
+  **nenhuma candidata de 1 228 lotes** (a maior é uma `espinha` de 1 154); o motor do instante sozinho escreve as mesmas marcas; o
+  Generate do instante sozinho escreve outra — as vinte da prova, a `ortogonal` de 1 228 aprovando, mas só **10 de 20** (40 violações sem
+  mecanismo, 36 delas `testada-ilegal`, a do `641addb`);
+- **o eixo do motor** (Generate em `5b7e9b4`, os 37 commits que tocam `src/lib/lab/` e a ponta `30b3434`): 10 não rodam (módulo), o T01
+  e o merge seguinte param pela aferição (o esquema recusa as vinte, não há 1ª), o T03 **escreve outra** (16 candidatas, 12 aprovam),
+  **`fe0c7a1` · `4181e95` · `244aae3` refazem**, de `2160fce` à ponta de hoje **escrevem outra** (no `2160fce`, 17 de 20, sem 1 228);
+- **o eixo do Generate** (motor em `4181e95`, os 71 que rodam e a ponta `27b9330`): 3 não rodam (módulo; 368 pela árvore, LAB-211), os 29
+  do contrato v1 param pela aferição, **`5b70e5f` … `49d8e3e` (5) refazem**, de `641addb` à ponta de hoje **escrevem outra** (no `641addb`,
+  10 de 20);
+- os quatro cantos e o par do LAB-59: igual; as duas pontas de hoje juntas: 17 de 20, a `superquadra` de 33 primeiro, a maior aprovável uma
+  `espinha` de 1 154, nenhuma de 1 228. **110 estados**; em nenhum a ferramenta escreveu outro arquivo.
+
+**Decisão.** Escreve-se ao lado (`src/retrato-do-lab59.ts`), com a prova intocada (D182): o Lab (`387fc20`), as duas janelas
+**fechadas** com as quatro bordas, as duas formas de parada, as **marcas** do que a ferramenta escreve fora delas (quantas candidatas,
+quantas aprovam com os dois consertos, se há uma de 1 228 lotes), os dois instantes FORA, e a conta dos commits. Trava
+`tests/retrato-do-lab59.test.ts` no verde completo, no molde da do LAB-213: a ordem na história (até as pontas de hoje), a comparação
+sem o `quando`, as marcas da prova gravada (com dentes), a prova de um commit só e a ferramenta nascida nele, os instantes pela origem;
+e, rodando a ferramenta de então, os cantos e o par refazendo, o instante e cada vizinho dele **escrevendo outra** com as marcas
+escritas, as três bordas que escrevem com as SUAS marcas, a borda do Generate e o T01 parando pela aferição, e uma falta de módulo de
+cada vizinho. *"Escreveu"* exige o `quando` novo; *"parou"* exige não ter escrito; e a árvore do Lab não pode ter outro arquivo mudado
+(D438). **9 testes, 15 rodadas, 348 s; mutação (o começo da janela do motor trocado pelo T03, e as marcas do Generate de depois de 10
+para 11): 4 de 9 reprovam.** `OS_ACHADOS_AO_LADO` ganha a prova: *37 de 71 silêncios*.
+
+**O que se perde.** Os estados do meio e os de depois de hoje (medidos aqui, não a cada verde); o produto inteiro dos eixos; os ramos;
+os commits que não tocam o fecho; o texto inteiro das provas escritas fora da janela (a trava lê três marcas); por que o disco estava em
+14/09 e em 03/10.
+
+**Alternativas descartadas.** Escrever a janela como *"a do LAB-58, herdada"* (não é herança: a `lab59.ts` não confere a lista; a
+coincidência é medida, não construída); consertar a ferramenta para conferir a lista inteira (é mudar uma ferramenta de prova antiga, que
+o D182 não pede; a trava já diz o que ela escreve fora); remedir a pendência 7 do Jonny com o motor de hoje (ela está parada a pedido dele
+até o Lab entrar no Generate — vai como achado, não como trabalho); veneno (as bordas são commits de verdade).
+
+> **A ALTURA DO PORTÃO DECIDE O QUE A FERRAMENTA FAZ FORA DA JANELA: aferição de um número só deixa passar, com `exit 0`, tudo o
+> que não mexe nele. E a prova de 07/10 traz um plano de 1 228 lotes que o motor da origem, naquela hora, já não desenhava.**

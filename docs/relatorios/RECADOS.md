@@ -4466,3 +4466,16 @@ Próximo na fila: a caixa só tem o 900; a LAB-59 com a sessão de 11:05 (se ela
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-214 — item 900, a dívida própria: o contrafactual de Antonina do LAB-59 calava o motor e o Generate — a janela é a do LAB-53 e do LAB-58, mas fora dela a ferramenta ESCREVE OUTRA prova; e no instante não há o plano de 1 228 lotes
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-214 (item 900) ===
+Estado: disparo de ≤ 11:06 (derivado do reflog: a ponta posta no disco às 11:07:14); caixa só com o 900, contada na origin/main às 11:08; nenhuma outra mão na lista (o LAB-213 e a linha do ≤ 10:05 já enviados); fui à dívida própria, pelo candidato do LAB-213: a LAB-59/contrafactual-de-antonina.json (docs/relatorios/LAB-213.md §8, espécie mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm ausente; esteira 2 613 aprovadas e as 9 do .wasm reprovadas, testfit 17 de 17, typecheck e lint verdes (na primeira passada faltou o zod no Generate — posto, refeitos os passos e os 20 arquivos que ele derrubava). A sessão de 12:07 viu esta tarefa comigo e anotou a linha dela sem repetir; mesclada antes do envio.
+Feito: com o Lab em 387fc20 (a lab59.ts de então, sem .wasm no fecho), o instante (motor 6cf6396, Generate 09cd4c0) não refaz — e a ferramenta NÃO para: escreve outra prova com exit 0 (17 de 20 aprovam com os dois consertos, a prova diz 16; nenhuma candidata de 1 228 lotes, a maior é uma espinha de 1 154). Rodados 37 commits do motor, 71 do Generate e as duas pontas de hoje (110 estados): refaz byte a byte, fora o quando, só com o motor de fe0c7a1 a 244aae3 (14/09) e o Generate de 5b70e5f a 49d8e3e — a mesma janela do LAB-58, mas por coincidência, não por herança. Escrito ao lado em src/retrato-do-lab59.ts (a prova não se tocou, D182); trava retrato-do-lab59 no verde completo (9 testes, 15 rodadas, 9 de 9; mutação: 4 de 9 reprovam); achados ao lado 37 de 71 (D442). Detalhe em docs/relatorios/LAB-214.md.
+Achados para outros apps ou Central: a todas, como método — a altura do portão decide o que a ferramenta faz fora da janela: a lab58.ts confere a lista e cala, a lab59.ts confere um número (as 40 de Antonina) e escreve outra prova sem aviso. Para a direção, sobre a pendência 7 do Jonny (parada a pedido dele): o "1 228 lotes" é de um motor de 14/09 — com o motor da origem às 11h35 de 07/10 e com o de hoje não há candidata de 1 228; a maior aprovável com os dois consertos é uma espinha de 1 154, e a nota do motor continua pondo a superquadra de 33 em primeiro. A pergunta continua de pé; o número dela, não. Não toquei em despertador. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; com esta, a série das caladas que rodam aqui sem o .wasm acabou (LAB-02 a 06, 08 a 28 e 32 esperam o .wasm) — a próxima sessão escolhe outra espécie da dívida própria; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
