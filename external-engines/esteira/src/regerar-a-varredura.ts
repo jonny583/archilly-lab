@@ -134,7 +134,10 @@ export const AS_ESPECIES: readonly ProvaClassificada[] = [
     especie: "fotografia",
     porque:
       "registra um ATO ('quebrei esta trava e o exit foi 0 → 1'): regerar seria REFAZER a " +
-      "sabotagem, que é outro ato (D289)",
+      "sabotagem, que é outro ato (D289). Perguntado no LAB-215 (D443): refeitas as duas de pacote numa pasta " +
+      "temporária, no commit da prova (c8f5c22, com os vizinhos da hora dele) e na ponta de hoje, o ato dá a MESMA " +
+      "resposta — os mesmos dois testes derrubados, pelo nome, e o lint — e a trava `sabotagem-do-lab31.test.ts` o " +
+      "refaz a cada verde completo; a do navegador e o exit do comando único esperam o .wasm",
   },
   {
     prova: "LAB-60/configuracao-do-motor.json",
