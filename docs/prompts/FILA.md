@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-206 · item 900 — a dívida própria: a prova do LAB-41 calava o Generate — e, medido, ela se refaz numa janela fechada, de 20/09 a 14/10, com o instante dentro — ✅ **feito em 19/10/2026** (D434)
+
+O LAB-205 deixou o candidato escrito: a seguinte do retrato cuja ferramenta não carrega o `.wasm`, a `LAB-41/ortogonal-fora-da-gleba.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `d817176`, a ponta da origem na hora da prova (Generate `a06befa`) refaz byte a byte; rodados os 68 commits que tocam `src/lib/` do contrato v1 em diante, os três de antes e a ponta de hoje (os outros 368 de antes contados pela árvore), a prova se refaz só de `7eb39ce` (20/09) a `db31559` (14/10) — as duas bordas mudam lotes, não a resposta. Escrito ao lado em `src/retrato-do-lab41.ts`; trava `retrato-do-lab41` no verde completo; achados ao lado: 23 de 71.
+
+**Origem:** [`../relatorios/LAB-206.md`](../relatorios/LAB-206.md), decisão **D434**.
+
 ### LAB-205 · item 900 — a dívida própria: as fixtures do LAB-40 calavam o motor e o Generate — e o motor que as fez é o de 14/09, como o da testada do LAB-37 — ✅ **feito em 19/10/2026** (D433)
 
 O LAB-204 deixou o candidato escrito: a seguinte do retrato cuja ferramenta não carrega o `.wasm`, a `LAB-40/fixtures.json`. Espécie **mensagem fixa que afirma estado sem perguntar**. Com o Lab em `90a93b2`, a ponta da origem na hora da prova (motor `0ab380b`, Generate `a06befa`) **não** refaz (11 linhas; o delta da testada fora de Antonina vira de −40 para +43); rodados todos os commits que tocam o lugar do fecho — 37 do motor, 439 do Generate —, a prova se refaz só com o motor de `648ae78` a `244aae3` (14/09, janela fechada, o instante fora) e o Generate de `5b70e5f` (o contrato v2) até hoje. Escrito ao lado em `src/retrato-do-lab40.ts`; trava `retrato-do-lab40` no verde completo; achados ao lado: 22 de 71.

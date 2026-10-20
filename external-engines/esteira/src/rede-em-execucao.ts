@@ -283,6 +283,14 @@ export const DECLARADAS: readonly Declarada[] = [
       "o `git clone --no-checkout` do Lab, do motor e do Generate, por CAMINHO no disco, numa pasta temporária, para rodar as fixtures do LAB-40 de então nos quatro cantos, no instante e nas três bordas das janelas do motor e do Generate — não sai da máquina, e os vizinhos só são lidos (LAB-205, D433)",
   },
   {
+    caminho: "external-engines/esteira/tests/retrato-do-lab41.test.ts",
+    forma: "processo",
+    quantas: 1,
+    classe: "origem-de-teste",
+    motivo:
+      "o `git clone --no-checkout` do Lab e do Generate, por CAMINHO no disco, numa pasta temporária, para rodar a ferramenta do LAB-41 de então no começo, no instante, no fim e nas duas bordas da janela do Generate — não sai da máquina, e o vizinho só é lido (LAB-206, D434)",
+  },
+  {
     caminho: "external-engines/esteira/ferramentas/lab171.ts",
     forma: "processo",
     quantas: 3,

@@ -4297,3 +4297,16 @@ Próximo na fila: a caixa só tem o 900; o candidato é o que o LAB-205 deixou n
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 19/10/2026 · LAB-206 — item 900, a dívida própria: a prova do LAB-41 calava o Generate — e ela se refaz numa janela fechada, de 20/09 a 14/10, com o instante dentro
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-206 (item 900) ===
+Estado: disparo de ≤ 23:06 (derivado do reflog); caixa só com o 900, contada na origin/main; nenhuma outra mão na lista; fui à dívida própria, pelo candidato que o LAB-205 deixou no relatório dele (docs/relatorios/LAB-205.md §8): a LAB-41/ortogonal-fora-da-gleba.json, espécie mensagem fixa que afirma estado sem perguntar. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm (ausente: o rustup desta máquina segue sem o alvo); esteira 2 712 aprovadas e as 9 de sempre (o .wasm) — a primeira passada deu 19, porque o zod do Generate não estava na node_modules ignorada de lá; posto como manda a receita, a esteira inteira de novo —; testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: com a ferramenta de então (Lab d817176), a ponta da origem na hora da prova (Generate a06befa) REFAZ byte a byte. Rodados os 68 commits que tocam src/lib/ do contrato v1 em diante, os 3 de antes e a ponta de hoje (os outros 368 de antes contados pela árvore): refaz só de 7eb39ce (20/09) a db31559 (14/10) — janela fechada, o instante dentro; bordas 93b6f72 (11 valores) e 18df3a8 (5, só lotes da espinha). Escrito ao lado em src/retrato-do-lab41.ts; trava retrato-do-lab41 (5 testes, três mutações acusadas); achados ao lado 23 de 71. D434; detalhe em docs/relatorios/LAB-206.md.
+Achados para outros apps ou Central: a todas — a frase de uma prova e os números dela têm janelas diferentes: a resposta do LAB-41 (a ortogonal recusada pela via fora da gleba) vale com o Generate de hoje; os lotes, só de 20/09 a 14/10. Para o Generate, sem pedido: 7eb39ce (A13) e 18df3a8 (a tesoura na divisa) mexem na contagem da espinha nas glebas sintéticas do Lab. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a do LAB-46 (a última das cinco sem o .wasm), instante e fecho primeiro; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
