@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T15:51:33.253Z",
+  "quando": "2026-10-20T17:18:06.438Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1387,12 +1387,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 14:12 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 14:12 parava em `2e8826e` (o LAB-214, enviado); a sessão do disparo de 13:05 estava trabalhando sem ter enviado — não a vi, e ela foi a outra tarefa (a sabotagem do LAB-31): enviou às ~15h45 como LAB-215 e D443, e os meus números viraram LAB-216 e D444 na mescla. A série das caladas que rodam aqui sem o `.wasm` acabou no LAB-214, que mandou a próxima sessão escolher outra espécie da dívida própria; tentei o `.wasm` de novo (`rustup target add wasm32-unknown-unknown`: `static.rust-lang.org` recusado pelo túnel, não insisti) e fui à frase que os recados repetem desde o LAB-203 — *\"LAB-02 a 06, 08 a 28 e 32 esperam o `.wasm`\"*, escrita à mão e, nas palavras do LAB-214, *\"não remedido aqui\"*. Espécie **mensagem fixa que afirma estado sem perguntar**. A hora é observada: o aviso do disparo desta tarefa agendada dá 14:09:34 (marcada para 14:05); a receita do LAB-116 confirmou a `main` na origem",
         "rodada": "item 900 (LAB-216), dívida própria (mensagem fixa que afirma estado sem perguntar: o *\"esperam o `.wasm`\"* perguntado à ferramenta — os 34 silêncios sem achado ao lado estão em 20 provas de 16 pastas, e as 16 ferramentas carregam o `.wasm`, hoje e no último commit de cada prova; a faixa *\"08 a 28\"* contava dez pastas sem silêncio por achar; a frase passa a ser contada, D444)",
         "emVazio": false
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "≤ 16:07",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 16:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 16:07 parava em `dadbe4b` (15:04, o LAB-215), sem ramo novo — mas havia outra mão, invisível na origem: a sessão do disparo de 14:09, que enviou o LAB-216 às 16:31 (outra tarefa da lista, \"esperam o .wasm\"). O clone já tinha a história inteira; a receita do LAB-116 rodou e só o confirmou. Fui ao candidato do LAB-215 (§8), a sabotagem mais velha registrada como ATO: a `LAB-38/ci.json` — os três disparos do CI não rodaram vizinho, pelo motivo medido (D445). O de 14:09 (o LAB-216, outra sessão) enviou às 16:31, depois da minha contagem: os meus números viraram LAB-217 e D445. O de 15h, se houve, não escreveu linha; não a inventei. Hora derivada: a do primeiro comando da sessão, sem o aviso da tarefa agendada.",
+        "rodada": "item 900 (LAB-217), dívida própria (mensagem fixa que afirma estado sem perguntar: os três disparos do CI de 04/10 — perguntados à API do GitHub e ao `git` no commit de cada um, não rodaram vizinho; trava nova, D445)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 172,
+      "noRegistro": 173,
       "observados": 55,
-      "derivados": 71,
+      "derivados": 72,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 14
