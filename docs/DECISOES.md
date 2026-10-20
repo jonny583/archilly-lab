@@ -15324,3 +15324,36 @@ clones (a suíte falharia por outra razão); reconstruir a calibração de antes
 nunca esteve num commit); manter o meu fecho ao lado do `vizinhosQueRoda` (duas réguas para a mesma pergunta divergem).
 
 > **O FECHO DO ATO INTEIRO DÁ A UNIÃO; REFAZER CADA SABOTAGEM DIZ QUAL DELAS CARREGOU O VIZINHO.**
+
+## D448 · A SABOTAGEM 1 DO LAB-58 FORA DA JANELA — "a ferramenta para antes de calibrar, e a sabotagem não teria onde morder" era afirmação sem teste: refeita na ponta de hoje, ela morde com os mesmos 15 lotes, porque a calibração vem ANTES da lista · 20/10/2026
+
+**Contexto.** LAB-220, item 900 (a caixa só tem o 900). Esta sessão pegou o candidato do LAB-217 (§8, repetido pelo LAB-218): refazer
+as sabotagens do LAB-58. A sessão de ≤ 17:07 trabalhava no mesmo candidato sem ter enviado, e enviou às 20:27 o LAB-219 e o D447; o meu
+módulo e a minha trava saíram (a mesma pergunta não ganha duas réguas). O D447 escreveu: *"Fora da janela não se refaz — a ferramenta
+para antes de calibrar."* A trava dele refaz a sabotagem 1 só no par do LAB-58. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**Medido (20/10/2026, clones locais numa pasta temporária; os vizinhos só lidos).** A `lab58.ts` sem sabotagem, com a 1 e com a 2, em três
+pares:
+- o da prova (`d8d8a72` · `4181e95` · `5b7e9b4`) e o Lab de hoje com os mesmos vizinhos: escreve; a 1 para pela calibração (15 lotes,
+  *"0 m … 13.16 m"*); a 2 para pela dupla contagem (4) — as contas da prova;
+- **a ponta de hoje** (Lab · motor `43cecad` · Generate `3cc0357`): sem sabotagem, **para pela lista** (*"0 só aqui, 52 só lá"*); **com a 1,
+  para pela calibração, com os mesmos 15 lotes e o mesmo 0 → 13,16 m**; com a 2, para pela lista — a sabotagem não se vê pela ferramenta.
+
+A calibração vem antes da conferência da lista na ferramenta e mede todo lote acusado; os 15 são de `geo-antonina`, que sobra com o motor
+de hoje (LAB-213). O que impedia refazer a 1 hoje era o texto da troca (a linha inteira do `import` de 07/10; a porta mudou no LAB-135),
+não a ferramenta.
+
+**Decisão.** Dentro do módulo e da trava do LAB-219: a primeira troca da sabotagem 1 vira o começo da linha do `import`; a sabotagem 1
+ganha o par `o-de-hoje`, com o campo `jaParaEm` (a ferramenta já para pela lista sem sabotagem); a trava exige, ali, o *"antes"* parando
+pela lista sem frase da sabotagem e o *"depois"* parando pela calibração sem a frase da lista. A frase do LAB-219 fica riscada no cabeçalho,
+com a correção ao lado. A sabotagem 2 pela ferramenta fica medida à mão e escrita (a suíte já a trava). A prova não se toca (D182).
+**Mutação: a parada da ponta com outra contagem — 1 de 6 reprova.**
+
+**O que se perde.** A sabotagem 1 nos estados do meio; a sabotagem 2 pela ferramenta, sem trava; o par do Lab de hoje com os vizinhos da
+janela, medido e não travado (custo de três minutos por verde para repetir o que o retrato do LAB-213 já diz).
+
+**Alternativas descartadas.** Mandar o meu LAB-219 renumerado ao lado do dele (duas réguas para a mesma pergunta); travar a sabotagem 2
+também pela ferramenta (segundo instrumento para a mesma sabotagem); tirar a frase do LAB-219 sem deixar o risco (apagaria o que se
+afirmou e por que caiu).
+
+> **"PARA ANTES, E NÃO TERIA ONDE MORDER" É UMA HIPÓTESE SOBRE A ORDEM DAS PARADAS — E A ORDEM SE CONFIRMA RODANDO.**

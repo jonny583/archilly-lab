@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-220 · item 900 — a dívida própria: a sabotagem 1 do LAB-58 fora da janela — "a ferramenta para antes de calibrar" era afirmação sem teste; refeita na ponta de hoje, ela morde igual — ✅ **feito em 20/10/2026** (D448)
+
+O mesmo candidato do LAB-219 (o do LAB-217 §8), pego por esta sessão sem ver a de ≤ 17:07, que enviou antes; o meu módulo e a minha trava saíram, e ficou a medição que o LAB-219 não tinha. Espécie **mensagem fixa que afirma estado sem perguntar**: o D447 dizia que fora da janela a ferramenta para antes de calibrar. Refeita na ponta de hoje, a sabotagem 1 para pela calibração com os mesmos 15 lotes e o mesmo 0 → 13,16 m — a calibração vem antes da conferência da lista; sem sabotagem, a ferramenta para pela lista (*"0 só aqui, 52 só lá"*). O que impedia era o texto da troca (o `import` mudou de porta no LAB-135). A sabotagem 2 pela ferramenta não se vê na ponta (medido à mão). `src/sabotagem-do-lab58.ts` e a trava `sabotagem-do-lab58` corrigidas, com o par `o-de-hoje` na sabotagem 1 e o campo `jaParaEm`.
+
+**Origem:** [`../relatorios/LAB-220.md`](../relatorios/LAB-220.md), decisão **D448**.
+
 ### LAB-219 · item 900 — a dívida própria: as quatro sabotagens do LAB-58 refeitas — mordem como a prova diz, e o vizinho é todo da sabotagem da ferramenta — ✅ **feito em 20/10/2026** (D447)
 
 O candidato do LAB-217 (§8, repetido pelo LAB-218; o mesmo do LAB-215, de onde esta sessão partiu sem ver as de 15:05 e ≤ 16:07): refazer as sabotagens de ferramenta, começando pela do LAB-58. Espécie **prova que só registra aparência**. Refeitas as quatro numa pasta temporária: a 1 (o `distAoContorno` da `lab58.ts` devolvendo o `distanciaAoPoligono` do motor) no par do LAB-58 (motor `4181e95`, Generate `5b7e9b4`) — exit 0 → 1, *"CALIBRAÇÃO FALHOU em 15 lote(s)"*, as palavras da prova —, e é ela que roda o motor e o Generate; as outras três no commit da prova e na ponta de hoje, mordendo igual (2 testes e 4 duplas; 1 de 24; 1 de 24), com a suíte dentro do Lab. `src/sabotagem-do-lab58.ts` e a trava `sabotagem-do-lab58` (6 testes, no verde completo, com o `vizinhosQueRoda`; mutação: 2 de 6 reprovam). O "antes do conserto" da 1 nunca foi commitado e não se refaz. Nada novo proposto ao chat.

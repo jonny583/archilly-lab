@@ -4570,3 +4570,16 @@ Próximo na fila: a caixa só tem o 900; candidato do LAB-219 (§8): a sabotagem
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-220 — item 900, a dívida própria: a sabotagem 1 do LAB-58 fora da janela — "a ferramenta para antes de calibrar" era afirmação sem teste; refeita na ponta de hoje, ela morde igual
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-220 (item 900) ===
+Estado: disparo de ≤ 20:06 (derivado do reflog: a ponta posta no disco às 20:06:11); caixa só com o 900, contada na origin/main às ~20:07; fui à dívida própria pelo candidato do LAB-217 (docs/relatorios/LAB-217.md §8, repetido pelo LAB-218: refazer as sabotagens do LAB-58). A sessão de ≤ 17:07 estava no MESMO candidato sem ter enviado, e enviou às 20:27 como LAB-219 e D447 — achei no fetch, com a minha trava pronta: houve trabalho repetido. Joguei fora o meu módulo e pus no dele o que ele não tinha medido; os meus números viraram LAB-220 e D448. Espécie mensagem fixa que afirma estado sem perguntar (a frase do D447). Os disparos de ≤ 18:06 e ≤ 19:06 anotaram em vazio, vendo a tarefa com outra mão — que era a de ≤ 17:07, e esta. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos sobre a base de antes da última mescla, vermelhos só os três do .wasm ausente; esteira 2 796 aprovadas e 11 reprovadas — as 9 do .wasm e duas minhas, consertadas (a espécie fora das cinco no recado; um ramo da origem ainda não buscado) —, a trava nova 6 de 6, testfit 17 de 17, typecheck e lint verdes; sobre a base final, o trabalho sem clones do verde.yml e as travas da rodada, 2 305 de 2 305.
+Feito: o D447 dizia "fora da janela não se refaz — a ferramenta para antes de calibrar". Refeita na ponta de hoje (Lab, motor 43cecad, Generate 3cc0357), a sabotagem 1 (o distAoContorno da lab58.ts devolvendo o distanciaAoPoligono) para pela calibração com os mesmos 15 lotes e o mesmo 0 → 13,16 m da prova: a calibração vem ANTES da conferência da lista. Sem sabotagem a ferramenta para pela lista ("0 só aqui, 52 só lá"); exit 1 → 1, a parada muda. O que impedia era o texto da troca (o import mudou de porta no LAB-135). A sabotagem 2 pela ferramenta, na ponta, não se vê (para pela lista antes) — medido à mão; a suíte já a trava. src/sabotagem-do-lab58.ts e a trava sabotagem-do-lab58 corrigidas (par o-de-hoje na 1, campo jaParaEm; mutação: 1 de 6 reprova). D448. Detalhe em docs/relatorios/LAB-220.md.
+Achados para outros apps ou Central: a todas, como método — "a ferramenta para antes, e a sabotagem não teria onde morder" é hipótese sobre a ORDEM das paradas, e se confirma rodando; quando uma troca de texto não cabe num commit, o defeito pode ser da troca. Para a direção: duas sessões desta casa no MESMO candidato, porque dois relatórios o deixaram escrito igual — a primeira vez no dia com trabalho repetido. Não toquei em despertador. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito (LAB-220 §8): a sabotagem do LAB-59, refazendo a de ferramenta também na ponta de hoje; as caladas sem achado esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
