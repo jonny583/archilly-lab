@@ -4401,3 +4401,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): 
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · despertador-sem-item — o disparo de ≤ 07:06 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-211, do disparo de ≤ 06:06)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo de ≤ 07:06 (derivado do reflog: a ponta posta no disco às 07:07:02); caixa só com o 900, contada na origin/main às 07:07; a tarefa da lista que o 900 mandava pegar (a LAB-54/frente-nao-atribuida.json, o candidato do LAB-210) já estava com a sessão do disparo de ≤ 06:06, que só enviou às 07:43 (d787f2c, 3204fb0, o LAB-211). A origem às 07:07 parava em bf9cb3f (06:46), então a outra mão não se via. O meu saiu repetido e NÃO foi enviado. Conferido aqui, não no GitHub: a trava da versão repetida passou sozinha (8 de 8, 179 s; mutação acusada, 2 de 8); desta linha, a conta dos disparos (lab71) e as provas que contam a árvore (lab52, lab57) regeradas, e as travas que leem o ONDE_PARAMOS e o RECADOS rodadas.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida bateu com a do LAB-211 em tudo: com o Lab em b42634f, o instante (motor 332bf91, Generate 7330cc7) acusa 717 linhas, só o motor fora (o Generate do instante sozinho refaz); o motor refaz só de fe0c7a1 a 244aae3 (bordas 648ae78, 497, e 2160fce, 715); o Generate de 5b70e5f à ponta 8e60ddc (borda 8223873, recusa pelo esquema); em nenhuma rodada a ferramenta escreveu outro arquivo; as 27 frente de fora de Antonina somem com o motor de hoje, as 29 de geo-antonina iguais registro a registro.
+Achados para outros apps ou Central: para a direção — segundo choque de despertadores no dia (≤ 06:06 e ≤ 07:06; antes, ≤ 04:06 e ≤ 05:06): rodadas desta série levam ~1h30 e o disparo é de hora em hora. Não toquei em despertador nenhum. Para a próxima rodada desta casa, sem defeito no entregue: a trava do LAB-211 confere a recusa pelo esquema só na borda do Generate; o T01 do motor (d2f71e4, 66ece91) também é recusa, não acusação, e as duas faltas de módulo (0ece0b1, 4cd7dc2) não são rodadas — dentes a mais, se a LAB-55 os quiser. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato do LAB-211: a LAB-55, instante e fecho primeiro, vigiando a árvore inteira e a marca de recusa (depois 58 e 59); LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
