@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T14:12:15.203Z",
+  "quando": "2026-10-20T16:17:10.157Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1379,12 +1379,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 13:09 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 13:09 parava em `2e8826e` (12:35, o LAB-214), e o disparo de 12:07 só tinha anotado a linha dele: **nenhuma outra mão na lista**. O clone chegou raso; desrasado pela receita do LAB-116. O LAB-214 não deixou candidato; fui ao do LAB-195 (os motivos de exceção *\"regerar faria X\"*, um a um), na última fotografia que roda sem o `.wasm` — o LAB-215 (D443). Hora pelo aviso da tarefa agendada: agendado 13:05, disparado 13:08:19.",
         "rodada": "item 900 (LAB-215), dívida própria (prova que só registra aparência: a sabotagem do comando único de 04/10 — refeita no commit da prova e na ponta de hoje, derruba os mesmos testes e passos; trava nova, D443)",
         "emVazio": false
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "≤ 16:07",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 16:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem às 16:07 parava em `dadbe4b` (15:04, o LAB-215), sem ramo novo: **nenhuma outra mão na lista**. O clone já tinha a história inteira; a receita do LAB-116 rodou e só o confirmou. Fui ao candidato do LAB-215 (§8), a sabotagem mais velha registrada como ATO: a `LAB-38/ci.json` — os três disparos do CI não rodaram vizinho, pelo motivo medido (D444). Os disparos de 14h e 15h, se houve, não escreveram linha; não a inventei. Hora derivada: a do primeiro comando da sessão, sem o aviso da tarefa agendada.",
+        "rodada": "item 900 (LAB-216), dívida própria (mensagem fixa que afirma estado sem perguntar: os três disparos do CI de 04/10 — perguntados à API do GitHub e ao `git` no commit de cada um, não rodaram vizinho; trava nova, D444)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 171,
+      "noRegistro": 172,
       "observados": 54,
-      "derivados": 71,
+      "derivados": 72,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 14
