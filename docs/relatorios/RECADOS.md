@@ -4414,3 +4414,16 @@ Próximo na fila: a caixa só tem o 900; candidato do LAB-211: a LAB-55, instant
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-212 — item 900, a dívida própria: a assimetria da faixa do LAB-55 calava o motor e o Generate — o motor que a fez é o de 14/09, e a tese sobrevive ao instante; os números do controle convexo não
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-212 (item 900) ===
+Estado: disparo de ≤ 08:05 (derivado do reflog: a ponta posta no disco às 08:08:15); caixa só com o 900, contada na origin/main; nenhuma outra mão na lista (o LAB-211 e a linha do ≤ 07:06 já enviados); fui à dívida própria, pelo candidato do LAB-211: a LAB-55/via-sobre-a-faixa.json (docs/relatorios/LAB-211.md §8, espécie mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm (ausente nesta máquina); números no docs/relatorios/LAB-212.md §9; a trava nova 8 de 8 (mutação: 2 reprovam); vizinhos na ponta da origin/main e com git status limpo.
+Feito: o fecho da ferramenta de então (lab55.ts no 2d4052b; no LAB-135 mudou uma linha de import, conferida pela trava) não tem .wasm. Com o Lab em 2d4052b, as pontas da origem na hora da prova (motor 6cf6396, Generate 7330cc7) NÃO refazem — 130 linhas; o motor do instante sozinho acusa, o Generate do instante sozinho refaz. Rodados os 37 commits do motor e os 71 do Generate que a ferramenta alcança (368 pela árvore): refaz byte a byte, fora o quando, só com o motor de fe0c7a1 a 244aae3 (14/09, a mesma janela do LAB-37, 46, 50, 53 e 54; sem ilha) e o Generate do contrato v2 (5b70e5f) até a ponta de hoje. Escrito ao lado em src/retrato-do-lab55.ts; trava retrato-do-lab55 no verde completo (8 testes); achados ao lado 33 de 71 (D440). Detalhe: docs/relatorios/LAB-212.md
+Achados para outros apps ou Central: a todas — quando a tese sobrevive ao instante, o que morre são os números do controle: a assimetria de geo-antonina (a via sobre a faixa, 11 lotes, os mesmos lote a lote) é a mesma com o motor do instante e com o de hoje; o controle convexo não. Para o Laboratório de Parcelamento, sem pedido: com o motor de hoje, em ensaio-com-testada 4 vias entram na faixa reservada e 29 lotes externos levam via-sobre-lote (eram 2 e 15 com o de 14/09), todas secundárias, zero bulbo; a principal V1 do LAB-55 não está mais entre elas. Para o Generate: nada novo. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): a LAB-58 (depois a 59, que calam os dois), instante e fecho primeiro; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
