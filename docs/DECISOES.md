@@ -14678,3 +14678,45 @@ estados os cobrem); dentes por troca na cópia (as três bordas são commits de 
 provas como o disco de 04/10 (é hipótese; cada retrato escreve o que a sua ferramenta mediu).
 
 > **DUAS PROVAS DO MESMO DISCO ESTREITAM O QUE NENHUMA DIZ SOZINHA** — desde que se diga que "o mesmo disco" é hipótese.
+
+## D434 · A PROVA DO LAB-41 CALAVA O GENERATE — e, medido, ela se refaz numa janela FECHADA, de 20/09 a 14/10, com o instante DENTRO · 19/10/2026
+**Contexto:** item 900 (LAB-205 → LAB-206). A caixa só tinha o `900`, e o LAB-205 deixou o candidato escrito: *a seguinte do
+retrato cuja ferramenta não carrega o `.wasm`, a do LAB-41, pelo mesmo caminho — instante primeiro*. A prova
+`docs/provas/LAB-41/ortogonal-fora-da-gleba.json` foi gravada uma vez (`d817176`, 04/10/2026, 17h45 UTC, carimbo fixo); a ferramenta
+`ferramentas/lab41.ts` (nunca mudou) roda as duas candidatas do Generate pelo contrato de motor v1, e a prova não escreve commit
+nenhum dele — um silêncio (o motor não está no fecho dos `import`: 59 arquivos do Generate, zero do motor). Espécie **mensagem fixa
+que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (o vizinho só lido), o Lab em `d817176`, a prova byte a byte. A ferramenta leva
+de 25 a 60 segundos; rodaram-se os 68 commits de primeiro pai que tocam `src/lib/` do contrato v1 em diante, os três de antes e a
+ponta de hoje — 72 rodadas, em dois processos:
+
+```
+instante (a ponta da origem às 17h45 UTC de 04/10: Generate a06befa): IGUAL, byte a byte
+a02644c (30/06) … 4cd7dc2 (09/09), 371: a ferramenta não roda — os três últimos rodados; os 368 outros sem
+  src/lib/contratos/motor-v1/traducao.ts na árvore (conferido commit a commit)
+22502b3 (10/09, contrato v1) … 93b6f72 (20/09, GX-04 e GX-05), 24: acusam — 11 valores
+7eb39ce (20/09, A13) … db31559 (14/10, cotar-sem-repetir), 36: IGUAL, byte a byte
+18df3a8 (14/10, aparo-ja-dentro) … 0297934 (16/10), 8, e a ponta de hoje cf3bc53: acusam — 5 valores, só lotes da espinha
+```
+
+**Leitura.** Ao contrário do D432 e do D433, o instante **refaz**: o Generate da origem naquela hora é um dos 36 da janela —
+coerência, não medição de que era o do disco. E o que as duas bordas mudam é **contagem de lote**, não a resposta: em nenhuma, nem na
+ponta de hoje, a prova deixa de dizer que a ortogonal é recusada pela via fora da gleba e que a espinha entrega nos mesmos acessos.
+*A frase da prova vale com o Generate de hoje; os números dela, só com o de 20/09 a 14/10.*
+
+**Decidido:**
+
+1. `src/retrato-do-lab41.ts`: o Lab, um commit; `A_JANELA_DO_GENERATE` (fechada, as duas bordas, o instante DENTRO);
+   `OS_COMMITS_RODADOS` (439 commits, 71 rodados pela ferramenta e 368 contados pela árvore, somando). A prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab41.test.ts`, **no verde completo**, no molde da do LAB-205 com um eixo só: o instante escrito é a
+   ponta da origem na hora da prova, e as cinco pontas estão na ordem da história; o começo, o instante e o fim (iguais), as duas
+   bordas (acusam). Cinco testes, ~2 minutos; três mutações acusadas (o começo trocado pelo contrato v1: 2 reprovam; o fim trocado
+   por `0297934`: 2; a borda de antes trocada pelo começo: 2).
+3. `OS_ACHADOS_AO_LADO` ganha a prova; a frase passa a *"achados ao lado: 23 de 71 silêncios"*.
+
+**Descartado:** regravar (D182); rodar os 371 de antes do contrato pela ferramenta (a árvore já diz que ela não monta neles, e são
+~3 horas); veneno ou troca na cópia (as duas bordas são commits de verdade); pôr a ponta de hoje na trava (ela anda, e a borda de
+depois já dá os dentes).
+
+> **A FRASE DE UMA PROVA E OS NÚMEROS DELA TÊM JANELAS DIFERENTES** — e o retrato tem de dizer de qual está falando.
