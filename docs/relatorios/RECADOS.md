@@ -4502,6 +4502,10 @@ Feito: perguntada à ferramenta, a frase é verdadeira no porquê e errada na fa
 Achados para outros apps ou Central: para a direção — o que sobra da dívida própria desta casa espera o .wasm, perguntado à ferramenta, e o .wasm não se constrói em máquina de disparo (o alvo wasm32 vem de static.rust-lang.org, recusado pelo túnel): a dívida própria que roda aqui segue por outras espécies (o candidato do LAB-215). Não toquei em despertador. Nada novo proposto ao chat.
 Depende do Jonny: nada.
 Próximo na fila: a caixa só tem o 900; candidato escrito no LAB-215 (§8): as outras sabotagens registradas como ATO, se rodaram vizinho; as caladas sem achado esperam o .wasm (a frase contada acima); as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
+
 ## 20/10/2026 · LAB-217 — item 900, a dívida própria: os três disparos do CI do LAB-38 não rodaram código de vizinho — mas não pelo motivo escrito
 
 ```

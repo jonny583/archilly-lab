@@ -15223,6 +15223,7 @@ pergunta escrita que o peça — vai ao relatório como o que esta rodada não f
 frase que dizia que a lista estava vazia).
 
 > **A FRASE QUE DIZ QUE NÃO HÁ TRABALHO É A QUE MAIS PRECISA SER PERGUNTADA: é ela que faz a direção não mandar nada.**
+
 ## D445 · OS TRÊS DISPAROS DO CI DO LAB-38 NÃO RODARAM CÓDIGO DE VIZINHO — mas não pelo motivo escrito ("não há ferramenta que o grave, e por isso"): o verde completo parou na precondição nos três, e o trabalho sem clones roda um fecho sem vizinho · 20/10/2026
 
 **Contexto.** LAB-217, item 900, a dívida própria, pelo candidato do LAB-215 (§8): as outras sabotagens registradas como ATO em
