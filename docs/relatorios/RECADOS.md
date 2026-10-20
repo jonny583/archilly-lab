@@ -4323,3 +4323,16 @@ Próximo na fila: a caixa só tem o 900; o candidato é o que o LAB-206 deixou n
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-207 — item 900, a dívida própria: as três amostragens do LAB-46 calavam o motor e o Generate — e o motor que as fez é o de 14/09, a mesma janela da testada do LAB-37
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-207 (item 900) ===
+Estado: disparo de ≤ 01:06 (derivado do reflog); caixa só com o 900, contada na origin/main; nenhuma outra mão na lista; fui à dívida própria, pelo candidato que o LAB-206 deixou no relatório dele (docs/relatorios/LAB-206.md §8): a LAB-46/antonina-tres-amostragens.json, espécie mensagem fixa que afirma estado sem perguntar. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub.
+Feito: com a ferramenta de então (Lab c0b7c54), as pontas da origem na hora da prova (motor f581b5a, Generate a06befa) NÃO refazem — 63 linhas. Rodados os 37 commits do motor que tocam src/lib/lab/ e os 71 do Generate que a ferramenta alcança (368 pela árvore): refaz byte a byte só com o motor de fe0c7a1 a 244aae3 (14/09, janela fechada, o instante fora) e o Generate de 5b70e5f (contrato v2) até hoje. Escrito ao lado em src/retrato-do-lab46.ts; trava retrato-do-lab46 (6 testes, mutação acusada); achados ao lado 25 de 71 (D435). Detalhe em docs/relatorios/LAB-207.md.
+Achados para outros apps ou Central: a todas — três provas do mesmo disco (LAB-37, 40, 46) dão a mesma janela do motor, e isso é o teto do que dizem juntas, não medição do disco; a frase da prova (o plano só de lote externo, só na completa) vale com as pontas de hoje, os lotes das amostragens de 2 variantes não. Para o Laboratório de Parcelamento, sem pedido: o T07 (2160fce) e o 38f9943 levam a espinha de 2 variantes em geo-antonina de nenhum plano a 1 417 lotes. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; as cinco caladas sem o .wasm (LAB-30, 37, 40, 41, 46) estão todas escritas ao lado — a próxima rodada escolhe outra espécie na dívida própria; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
