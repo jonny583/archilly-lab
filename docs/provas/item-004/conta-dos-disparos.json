@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-20T00:17:47.170Z",
+  "quando": "2026-10-20T00:30:04.602Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1267,17 +1267,25 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 23:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista, e nenhuma outra mão estava nela (o último envio da origem, `90030c8` às 23:01, era o fecho do disparo de ≤ 22:06, e o LAB-205 já tinha entregado a tarefa que o disparo das 21:06 levava; o único ramo remoto além da `main` já está inteiro nela). O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 23:06:23, e a receita do LAB-116 confirmou a `main` na origem. Não li nem toquei a listagem das tarefas agendadas. Esta sessão foi à dívida própria, pelo candidato do LAB-205",
         "rodada": "item 900 (LAB-206), dívida própria (mensagem fixa que afirma estado sem perguntar: a prova de 04/10 da ortogonal fora da gleba roda o Generate e não escreve o commit dele — medido, o Generate numa janela fechada de `7eb39ce` a `db31559`, o instante dentro, e escrito ao lado)",
         "emVazio": false
+      },
+      {
+        "data": "20/10/2026",
+        "hora": "00:06",
+        "origem": "observado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às 00:07 — e a tarefa da lista que ele mandava pegar (a seguinte das caladas que roda aqui sem o `.wasm`: a `LAB-41/ortogonal-fora-da-gleba.json`, o candidato do LAB-205) **já estava em execução noutra sessão**, a do disparo de ≤ 23:06, que só enviou às 00:18 (o LAB-206, `ee08ecf`) — então **sem item para esta sessão**: não havia o que ela pudesse pegar sem repetir a outra. A origem às 00:07 parava no fecho do disparo de ≤ 22:06 (`90030c8`, 23:01), e a outra mão não se via. A hora veio da listagem das tarefas agendadas, lida e não alterada (o `last_run` da rotina era esta sessão, *\"fired_at 00:06:27 UTC\"*, agendado para 00:05); o `pull` do disparo passou, e a receita do LAB-116 confirmou a `main` na origem (os três vizinhos chegaram rasos e foram desrasados). **Duas mãos no repositório ao mesmo tempo, pela sexta vez em dois dias**: o trabalho desta sessão saiu repetido, achou a mesma coisa, e não foi enviado",
+        "rodada": "despertador-sem-item (o LAB-206 refeito por outra mão e não enviado: o instante `a06befa` refaz byte a byte; dos 80 commits do Generate rodados, refaz só de `7eb39ce` a `db31559` (36), as bordas `93b6f72` (11 linhas) e `18df3a8` (5) acusam, a ponta `c04fe9e` acusa 5, e o motor não muda nada — nada que mude o escrito)",
+        "emVazio": true
       }
     ],
     "declarados": {
-      "noRegistro": 157,
-      "observados": 50,
+      "noRegistro": 158,
+      "observados": 51,
       "derivados": 61,
       "emLote": 7,
       "reconstruidos": 39,
-      "emVazio": 9
+      "emVazio": 10
     },
-    "emVazio": 9,
+    "emVazio": 10,
     "temAFraseDoQueDecide": true
   },
   "oQueOPrimeiroDiaJaMOSTROU": "ZERO em vazio, e DOIS disparos acumulados — a caixa não ficou sem abastecimento; a RODADA é mais longa que o intervalo. A conta não nasceu para confirmar a suspeita",
@@ -1293,7 +1301,7 @@
   },
   "osDaCAIXA": {
     "oQue": "recados da mesma classe da abertura em diante. NÃO são precedente: são o parceiro do cruzamento, e cada um tem de ter a sua linha em vazio na conta",
-    "quantos": 9,
+    "quantos": 10,
     "dias": [
       "09/10/2026",
       "09/10/2026",
@@ -1303,7 +1311,8 @@
       "19/10/2026",
       "19/10/2026",
       "19/10/2026",
-      "19/10/2026"
+      "19/10/2026",
+      "20/10/2026"
     ]
   },
   "oQuartoNumeroQueFicaDEFORA": {

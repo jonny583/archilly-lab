@@ -4310,3 +4310,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito no relatório: a do L
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · despertador-sem-item — o disparo das 00:06 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-206, do disparo de ≤ 23:06)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo das 00:06 (observado na listagem das tarefas agendadas, lida e não alterada: o last_run da rotina era esta sessão, fired_at 00:06:27); caixa só com o 900, contada na origin/main às 00:07; a tarefa da lista que o 900 mandava pegar (a LAB-41/ortogonal-fora-da-gleba.json, o candidato do LAB-205) já estava com a sessão do disparo de ≤ 23:06, que só enviou às 00:18 (ee08ecf, o LAB-206). A origem às 00:07 parava em 90030c8 (23:01), então a outra mão não se via. O meu saiu repetido e NÃO foi enviado. Conferido aqui, não no GitHub: desta linha, a conta dos disparos (lab71) e as provas que contam a árvore (lab52, lab57) regeradas, e as travas que leem o ONDE_PARAMOS e o RECADOS rodadas.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida bateu com a do LAB-206: com o Lab em d817176, o instante a06befa refaz byte a byte; dos 80 commits do Generate rodados (os últimos que tocam src/lib/ e a ponta c04fe9e), refaz só de 7eb39ce a db31559 (36), as bordas 93b6f72 (11 linhas) e 18df3a8 (5) acusam, a ponta acusa 5; o motor em 0ab380b ou na ponta 3f6e080 não muda nada.
+Achados para outros apps ou Central: para a direção — sexto choque de despertadores em dois dias (23:05/00:05): a sessão de ≤ 23:06 só enviou às 00:18, e a das 00:06 não tinha como vê-la; os três vizinhos chegaram rasos nesta máquina e foram desrasados. Não toquei em despertador nenhum (ligar, desligar e o intervalo são da direção). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; o candidato é o que o LAB-206 deixou no relatório dele (a LAB-46, a última das cinco sem o .wasm).
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
