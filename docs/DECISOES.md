@@ -15330,7 +15330,7 @@ nunca esteve num commit); manter o meu fecho ao lado do `vizinhosQueRoda` (duas 
 **Contexto.** LAB-220, item 900 (a caixa só tem o 900). Esta sessão pegou o candidato do LAB-217 (§8, repetido pelo LAB-218): refazer
 as sabotagens do LAB-58. A sessão de ≤ 17:07 trabalhava no mesmo candidato sem ter enviado, e enviou às 20:27 o LAB-219 e o D447; o meu
 módulo e a minha trava saíram (a mesma pergunta não ganha duas réguas). O D447 escreveu: *"Fora da janela não se refaz — a ferramenta
-para antes de calibrar."* A trava dele refaz a sabotagem 1 só no par do LAB-58. Espécie **afirmação sem teste**.
+para antes de calibrar."* A trava dele refaz a sabotagem 1 só no par do LAB-58. Espécie **mensagem fixa que afirma estado sem perguntar**.
 
 **Medido (20/10/2026, clones locais numa pasta temporária; os vizinhos só lidos).** A `lab58.ts` sem sabotagem, com a 1 e com a 2, em três
 pares:
