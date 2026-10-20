@@ -465,7 +465,8 @@ export interface Problema {
     | "esta-na-lista-e-nao-cala-mais"
     | "achado-de-quem-nao-cala"
     | "achado-sem-modulo"
-    | "achado-que-nao-nomeia-a-prova";
+    | "achado-que-nao-nomeia-a-prova"
+    | "silencio-sem-achado-que-nao-espera-o-wasm";
   prova: string;
   oQue: string;
 }
@@ -593,6 +594,77 @@ export function conferirOsAchadosAoLado(
     }
   }
   return out;
+}
+
+/**
+ * # Os silêncios SEM achado ao lado, e por que esperam (LAB-216, item 900, D444)
+ *
+ * Do LAB-203 (19/10/2026) ao LAB-214, dezesseis recados fecharam com a mesma frase à mão — *"LAB-02 a 06, 08
+ * a 28 e 32 esperam o `.wasm`"* —, e o LAB-214 escreveu ao lado dela *"pelos relatórios desta série; não remedido aqui"*. Espécie
+ * **mensagem fixa que afirma estado sem perguntar**: a faixa *"08 a 28"* põe na conta provas que não calam
+ * (LAB-09 a 12, 14, 15, 18, 20, 22, 27 — ou não estão no retrato, ou já têm achado), e o *"esperam o `.wasm`"*
+ * nunca foi perguntado à ferramenta. Perguntado em 20/10/2026, a resposta é sim, e nos dois instantes: as
+ * dezesseis ferramentas chamam `Motor.carregar(` no corpo de topo — a de hoje e a do último commit de cada
+ * prova (`git show <commit>:<ferramenta>`, de `d619067`, 14/09, a `a3a3798`, 09/10). Sem o `.wasm` elas não
+ * começam, e a sonda de hoje não o baixa (`static.rust-lang.org` recusado pelo túnel).
+ *
+ * {@link osSilenciosSemAchado} tira a lista do retrato menos os achados (sem mão), e
+ * {@link conferirOsQueEsperamOWasm} reprova o silêncio sem achado cuja ferramenta **não** carrega o `.wasm`:
+ * esse roda nesta máquina, e dizer que espera é deixar trabalho na mesa. O que ela NÃO alcança: se a
+ * ferramenta de ENTÃO (a do commit da prova) carrega — isso foi medido uma vez, nesta rodada, e está no
+ * relatório; e se, tirado o Symbios da ferramenta (o caminho do LAB-199), sobraria prova a refazer — nas do
+ * LAB-02 ao 06 o Generate julga o que o Symbios gerou, nas outras não foi medido.
+ */
+export interface SilencioSemAchado {
+  prova: string;
+  vizinhos: readonly string[];
+}
+
+/** O retrato menos os achados: o que ainda cala sem commit escrito em lugar nenhum. */
+export function osSilenciosSemAchado(
+  retrato: Readonly<Record<string, readonly string[]>>,
+  achados: Readonly<Record<string, Readonly<Record<string, string>>>>,
+): SilencioSemAchado[] {
+  const out: SilencioSemAchado[] = [];
+  for (const [prova, vizinhos] of Object.entries(retrato)) {
+    const falta = vizinhos.filter((v) => !(v in (achados[prova] ?? {})));
+    if (falta.length > 0) out.push({ prova, vizinhos: falta });
+  }
+  return out.sort((a, b) => a.prova.localeCompare(b.prova, "pt-BR", { numeric: true }));
+}
+
+/** A porta do `.wasm` do Symbios é `Motor.carregar(` — em código, não em comentário. */
+export function carregaOWasm(codigo: string): boolean {
+  return /\bMotor\.carregar\s*\(/.test(semComentarios(codigo));
+}
+
+/** Todo silêncio sem achado tem de esperar o `.wasm`; o que não espera roda aqui e está na mesa. */
+export function conferirOsQueEsperamOWasm(
+  semAchado: readonly SilencioSemAchado[],
+  lista: readonly QuemGrava[],
+  textoDaFerramenta: (f: string) => string,
+): Problema[] {
+  const out: Problema[] = [];
+  for (const s of semAchado) {
+    const f = lista.find((l) => l.prova === s.prova)?.ferramenta ?? null;
+    if (f === null || !carregaOWasm(textoDaFerramenta(f))) {
+      out.push({
+        tipo: "silencio-sem-achado-que-nao-espera-o-wasm",
+        prova: s.prova,
+        oQue:
+          `\`${s.prova}\` cala ${s.vizinhos.join(" e ")} sem achado ao lado, e a ferramenta (${f ?? "nenhuma"}) não carrega o .wasm: ` +
+          "ela roda nesta máquina — o próximo achado ao lado é este, não 'espera o .wasm'",
+      });
+    }
+  }
+  return out;
+}
+
+/** A frase do que espera: pastas, provas e silêncios, contados — a que o recado copia em vez de escrever. */
+export function comoSeDizOQueEspera(semAchado: readonly SilencioSemAchado[]): string {
+  const pastas = [...new Set(semAchado.map((s) => s.prova.split("/")[0]!.replace("LAB-", "")))];
+  const silencios = semAchado.reduce((n, s) => n + s.vizinhos.length, 0);
+  return `sem achado ao lado: ${silencios} silêncios em ${semAchado.length} provas (LAB-${pastas.join(", ")}), e todas esperam o .wasm`;
 }
 
 /** A frase que a trava publica: o universo e as partes, que fecham. */

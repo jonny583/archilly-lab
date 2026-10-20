@@ -26,7 +26,11 @@ import {
   OS_CALADOS_DE_HOJE,
   QUEM_GRAVA,
   apelidosDoTsconfig,
+  carregaOWasm,
   comoSeDiz,
+  comoSeDizOQueEspera,
+  conferirOsQueEsperamOWasm,
+  osSilenciosSemAchado,
   conferirOsAchadosAoLado,
   conferirAListaDeQuemGrava,
   conferirOsCalados,
@@ -205,5 +209,47 @@ describe("LAB-199 · os commits achados AO LADO da prova", () => {
     ];
     expect(comoSeDiz(3, 1, conta, { "A/a.json": { m: "x" } })).toEndWith("· achados ao lado: 1 de 2 silêncios");
     expect(comoSeDiz(3, 1, conta)).not.toContain("achados ao lado");
+  });
+});
+
+describe("LAB-216 · os silêncios sem achado ao lado, e por que esperam (D444)", () => {
+  const semAchado = osSilenciosSemAchado(OS_CALADOS_DE_HOJE, OS_ACHADOS_AO_LADO);
+
+  test("a lista sai do retrato menos os achados — e cada uma espera o .wasm, perguntado à ferramenta", () => {
+    expect(conferirOsQueEsperamOWasm(semAchado, QUEM_GRAVA, lerDoLab)).toEqual([]);
+    const frase = comoSeDizOQueEspera(semAchado);
+    console.log(`  ${frase}`);
+    // o universo publicado, e não a faixa à mão "08 a 28": as que calam sem achado, uma a uma
+    expect(frase).toBe(
+      "sem achado ao lado: 34 silêncios em 20 provas (LAB-02, 04, 05, 06, 08, 13, 16, 17, 19, 21, 23, 24, 25, 26, 28, 32), e todas esperam o .wasm",
+    );
+    // fecha com a conta da trava: silêncios do retrato = achados + sem achado
+    const silencios = Object.values(OS_CALADOS_DE_HOJE).reduce((n, v) => n + v.length, 0);
+    const achados = Object.values(OS_ACHADOS_AO_LADO).reduce((n, v) => n + Object.keys(v).length, 0);
+    expect(semAchado.reduce((n, s) => n + s.vizinhos.length, 0)).toBe(silencios - achados);
+  });
+
+  // a porta escrita em pedaços: este arquivo não carrega o .wasm, e a régua do LAB-187 conta quem a escreve inteira
+  const PORTA = ["Motor", "carregar("].join(".");
+  test("a porta do .wasm em código: comentário e outro nome não contam", () => {
+    expect(carregaOWasm(`const wasm = await ${PORTA}readFileSync(WASM));`)).toBe(true);
+    expect(carregaOWasm(`// const wasm = await ${PORTA}x);\nconst y = 1;`)).toBe(false);
+    expect(carregaOWasm(`/* ${PORTA}x) */ carregarMotor(x);`)).toBe(false);
+  });
+
+  test("sabotagem · silêncio sem achado numa ferramenta que não carrega o .wasm: reprova pelo nome", () => {
+    // a do LAB-08 com a carga tirada: ela rodaria aqui, e "espera o .wasm" seria trabalho deixado na mesa
+    const semCarga = (f: string) => (f.endsWith("/lab08.ts") ? lerDoLab(f).replace(/Motor\.carregar\(/g, "carregar(") : lerDoLab(f));
+    expect(conferirOsQueEsperamOWasm(semAchado, QUEM_GRAVA, semCarga).map((p) => [p.tipo, p.prova])).toEqual([
+      ["silencio-sem-achado-que-nao-espera-o-wasm", "LAB-08/medicoes.json"],
+    ]);
+    // e prova sem ferramenta no silêncio também reprova (não há o que esperar)
+    const lista = QUEM_GRAVA.map((l) => (l.prova === "LAB-32/aderencia.json" ? { prova: l.prova, ferramenta: null, porque: "plantado na sabotagem, de propósito" } : l));
+    expect(conferirOsQueEsperamOWasm(semAchado, lista, lerDoLab).map((p) => p.prova)).toEqual(["LAB-32/aderencia.json"]);
+  });
+
+  test("um achado novo encolhe a lista: a frase não é escrita, é contada", () => {
+    const mais = { ...OS_ACHADOS_AO_LADO, "LAB-08/medicoes.json": { [MOTOR]: "x", [GENERATE]: "x" } };
+    expect(comoSeDizOQueEspera(osSilenciosSemAchado(OS_CALADOS_DE_HOJE, mais))).toStartWith("sem achado ao lado: 32 silêncios em 19 provas (LAB-02, 04, 05, 06, 13,");
   });
 });

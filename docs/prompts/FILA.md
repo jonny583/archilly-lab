@@ -397,6 +397,11 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 O LAB-215 deixou o candidato escrito: as outras sabotagens registradas como ATO, uma a uma, se rodaram código de vizinho. A mais velha, `LAB-38/ci.json`, tinha o motivo pronto *"não há ferramenta que o grave, e por isso ele não roda código de ninguém"*. Espécie **mensagem fixa que afirma estado sem perguntar**. Perguntado à API do GitHub (os passos dos três runs: o verde completo caiu na precondição, clones e comando único `skipped`) e ao `git` no commit de cada disparo (o fecho do trabalho sem clones: oito arquivos, nenhum vizinho). A frase se sustenta, pelo motivo medido. `src/ci-do-lab38.ts` e a trava `ci-do-lab38` (10 testes, no verde completo; mutação: duas, 1 de 10 em cada). Nada novo proposto ao chat.
 
 **Origem:** [`../relatorios/LAB-217.md`](../relatorios/LAB-217.md), decisão **D445**.
+### LAB-216 · item 900 — a dívida própria: "esperam o .wasm" era frase à mão — perguntada à ferramenta, verdadeira no porquê e errada na faixa; a lista e a frase passam a ser contadas — ✅ **feito em 20/10/2026** (D444)
+
+O LAB-214 mandou a próxima sessão escolher outra espécie da dívida própria. Espécie **mensagem fixa que afirma estado sem perguntar**: dezesseis recados, do LAB-203 ao LAB-214, fecharam com *"LAB-02 a 06, 08 a 28 e 32 esperam o `.wasm`"*, à mão e *"não remedido"*. Perguntado: os silêncios sem achado ao lado são **34, em 20 provas de 16 pastas** (a faixa "08 a 28" punha dez pastas sem silêncio por achar), e as 16 ferramentas chamam `Motor.carregar(` — hoje e no último commit de cada prova. `osSilenciosSemAchado` e `comoSeDizOQueEspera` contam a lista e a frase; `conferirOsQueEsperamOWasm` reprova o silêncio sem achado que rodaria aqui. Quatro testes novos; mutação acusada nas duas formas. Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-216.md`](../relatorios/LAB-216.md), decisão **D444**.
 
 ### LAB-215 · item 900 — a dívida própria: a sabotagem do LAB-31 se refaz igual — o motivo de não regerá-la ("refazer é outro ato"), perguntado à ferramenta — ✅ **feito em 20/10/2026** (D443)
 

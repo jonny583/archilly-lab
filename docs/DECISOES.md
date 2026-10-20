@@ -15186,6 +15186,43 @@ entre os dois pares (o ato não muda de natureza no meio, e 25 s por par a cada 
 > **"REFAZER SERIA OUTRO ATO" É UMA HIPÓTESE SOBRE O ATO, E SE PERGUNTA REFAZENDO: o ato que dá a mesma resposta nos dois pontas
 > se confere — e a frase de que ele não rodava código de ninguém só se desmente rodando.**
 
+## D444 · "ESPERAM O .WASM" ERA FRASE À MÃO — perguntada à ferramenta, é verdadeira na parte que importa e errada na faixa: 34 silêncios sem achado, em 20 provas de 16 pastas, e as 16 ferramentas carregam o `.wasm`; a lista e a frase passam a ser CONTADAS · 20/10/2026
+
+**Contexto.** LAB-216, item 900 (a caixa só tem o 900). A série das caladas que rodam aqui sem o `.wasm` acabou no LAB-214, que
+mandou a próxima sessão escolher outra espécie da dívida própria. O `.wasm` segue impossível nesta máquina: `rustup target add
+wasm32-unknown-unknown` baixa de `static.rust-lang.org`, e o túnel recusa (*"unsuccessful tunnel"*, recusa de política — não se
+insiste). Do LAB-203 ao LAB-214, dezesseis recados fecharam com a mesma frase escrita à mão — *"LAB-02 a 06, 08 a 28 e 32 esperam o
+`.wasm`"* — e o próprio LAB-214 anotou ao lado *"pelos relatórios desta série; não remedido aqui"*. Espécie **mensagem fixa que afirma
+estado sem perguntar**, e é a frase que a direção lê para saber se esta casa tem trabalho.
+
+**Medido (20/10/2026, Lab em `2e8826e`).**
+- **A lista**, tirada de `OS_CALADOS_DE_HOJE` menos `OS_ACHADOS_AO_LADO`: **34 silêncios em 20 provas**, nas pastas LAB-02 (quatro
+  provas), 04, 05, 06, 08, 13, 16, 17, 19, 21, 23, 24 (duas), 25, 26, 28 e 32 — **16 pastas**. A faixa *"08 a 28"* punha na conta
+  dez pastas sem silêncio por achar (09, 10, 11, 12, 14, 15, 18, 20, 22, 27: fora do retrato, ou — a 18 — já com achado). A conta fecha:
+  71 silêncios no retrato = 37 achados + 34 sem achado.
+- **O porquê**, perguntado à ferramenta: as 16 ferramentas (`lab02.ts` … `lab32.ts`) chamam `Motor.carregar(` no corpo de topo — a de
+  hoje e a do último commit de cada prova (`git show <commit>:<ferramenta>`; de `d619067`, 14/09, a `a3a3798`, 09/10). Sem o `.wasm`
+  elas não começam. A frase é verdadeira nisso.
+
+**Decisão.** A lista e a frase saem do código: `osSilenciosSemAchado` (o retrato menos os achados, sem mão) e `comoSeDizOQueEspera`
+(*"sem achado ao lado: 34 silêncios em 20 provas (LAB-02, …, 32), e todas esperam o .wasm"*), em `src/o-commit-do-vizinho-na-prova.ts`;
+`conferirOsQueEsperamOWasm` reprova o silêncio sem achado cuja ferramenta **não** carrega o `.wasm` (`carregaOWasm`: `Motor.carregar(`
+em código, sem comentário) — esse rodaria aqui, e dizer que espera seria deixar trabalho na mesa. Quatro testes novos em
+`tests/o-commit-do-vizinho-na-prova.test.ts` (verde completo, porque o arquivo precisa dos clones para a conta): a frase exata e a
+conta que fecha, a porta em código e não em comentário, a sabotagem (a `lab08.ts` sem a carga, e uma prova da lista sem ferramenta —
+reprovam pelo nome), e um achado plantado encolhendo a frase. **Mutação: a porta lida em comentário (1 de 15 reprova); a LAB-08
+escondida da lista (2 de 15 reprovam).** Os recados daqui em diante copiam a frase que a trava imprime, em vez de escrevê-la.
+
+**O que se perde.** A ferramenta de ENTÃO é perguntada só nesta rodada (o último commit de cada prova, no relatório), não a cada
+verde; se, tirado o Symbios da ferramenta (o caminho do LAB-199), sobraria prova a refazer — nas do LAB-02 ao 06 o Generate julga o que
+o Symbios gerou (LAB-201), nas outras não foi medido; a trava confere a porta pelo nome `Motor.carregar(`, não que a linha roda.
+
+**Alternativas descartadas.** Reescrever os recados velhos (história não se apaga; a frase errada fica onde foi dita, e o certo passa a
+ser contado); tirar o Symbios das dezesseis ferramentas para medir o resto (é mudar ferramenta de prova antiga em dezesseis lugares, sem
+pergunta escrita que o peça — vai ao relatório como o que esta rodada não fez); declarar disparo em vazio sem perguntar a frase (era a
+frase que dizia que a lista estava vazia).
+
+> **A FRASE QUE DIZ QUE NÃO HÁ TRABALHO É A QUE MAIS PRECISA SER PERGUNTADA: é ela que faz a direção não mandar nada.**
 ## D445 · OS TRÊS DISPAROS DO CI DO LAB-38 NÃO RODARAM CÓDIGO DE VIZINHO — mas não pelo motivo escrito ("não há ferramenta que o grave, e por isso"): o verde completo parou na precondição nos três, e o trabalho sem clones roda um fecho sem vizinho · 20/10/2026
 
 **Contexto.** LAB-217, item 900, a dívida própria, pelo candidato do LAB-215 (§8): as outras sabotagens registradas como ATO em
