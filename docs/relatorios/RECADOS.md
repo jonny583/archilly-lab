@@ -4544,3 +4544,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito (LAB-219 §8): a sabo
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · despertador-sem-item — o disparo de ≤ 18:06 sem item próprio: a tarefa da lista já estava com outra mão (o LAB-219, do disparo de ≤ 17:07)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo de ≤ 18:06 (derivado do reflog: a primeira operação às 18:06:17); caixa só com o 900, contada na origin/main às 18:07; a tarefa da lista que o 900 mandava pegar (as sabotagens de ferramenta da LAB-58/sabotagem.json, o candidato escrito no LAB-217 §8) já estava com a sessão do disparo de ≤ 17:07, que só enviou às 20:27 (o LAB-219, D447). A origem às 18:07 parava em 29da257 (17:32), então a outra mão não se via; no meio, a de ≤ 16:07 enviou às 19:20 (o LAB-218, D446) — achei as duas no fetch antes do envio. O meu saiu repetido e NÃO foi enviado. Conferido aqui, não no GitHub: o verde completo rodou sobre o meu ramo antes do achado (vermelhos só os três passos do .wasm ausente e a trava dos ramos da origem, que a origem andando derrubou); sobre este envio, a conta dos disparos (lab71) e as provas que contam a árvore (lab52, lab57) regeradas, e as travas da conta, do recado e das provas passadas.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida, feita sem ver a outra, bateu com a do LAB-219 no que as duas mediram: com o Lab em d8d8a72, a ferramenta sem sabotagem sai 0 e refaz a prova irmã; a sabotagem 1 (distAoContorno → distanciaAoPoligono) sai 1, não escreve, "CALIBRAÇÃO FALHOU em 15 lote(s)", "a função DELE devolve 0 m e a MINHA distância reconstrói 13.16 m"; a 2 (o mecanismo 3 sem o termo da distância) sai 1, "4 violação(ões)", "isso é dupla contagem" — e a minha rodou também os dois cantos opostos da janela do retrato irmão (fe0c7a1 × 5b70e5f, 244aae3 × 49d8e3e), com o mesmo resultado. O entregue cobre as quatro; o meu, duas.
+Achados para outros apps ou Central: para a direção — mais um choque de despertadores nesta casa, três disparos seguidos com a rodada aberta ao mesmo tempo (≤ 16:07, ≤ 17:07 e este, rodadas de mais de duas horas): o candidato escrito no recado é o que a sessão seguinte pega, e quem o pegou não aparece na origem até enviar. Para a próxima sessão desta casa: a linha do LAB-58 em o-commit-do-vizinho-na-prova.ts ainda diz "coerência, não medição" sobre a janela do ato, e o LAB-219 a mediu num par (eu, em três). Não toquei em despertador nenhum. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato do LAB-219 (§8): a sabotagem do LAB-59, da mesma forma; as caladas sem achado esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
