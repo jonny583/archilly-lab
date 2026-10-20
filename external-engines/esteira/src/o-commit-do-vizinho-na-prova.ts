@@ -184,7 +184,15 @@ export const QUEM_GRAVA: readonly QuemGrava[] = [
   },
   { prova: "LAB-32/aderencia.json", ferramenta: `${E}/lab32.ts` },
   { prova: "LAB-37/testada-de-frente.json", ferramenta: `${E}/lab37.ts` },
-  { prova: "LAB-38/ci.json", ferramenta: null, porque: ATO("os três disparos do CI, um deles sabotado") },
+  {
+    prova: "LAB-38/ci.json",
+    ferramenta: null,
+    porque:
+      "o registro de um ATO, escrito à mão na rodada: os três disparos do CI, um deles sabotado. Não há ferramenta que o " +
+      "grave; e o que ele rodou não alcança código de vizinho — pelo fecho do arquivo sabotado (LAB-217, D445) e pelo do " +
+      "trabalho sem clones inteiro, com o processo filho, no commit de cada disparo; e, pela API do GitHub, o verde completo " +
+      "parou na precondição nos três, com os clones e o comando único `skipped` (LAB-218, D446, `ci-do-lab38.test.ts`)",
+  },
   { prova: "LAB-39/confronto-refeito.json", ferramenta: `${E}/lab39.ts` },
   { prova: "LAB-40/fixtures.json", ferramenta: `${E}/lab40.ts` },
   { prova: "LAB-41/ortogonal-fora-da-gleba.json", ferramenta: `${E}/lab41.ts` },
@@ -321,12 +329,12 @@ function resolverArquivo(base: string): string | null {
 /**
  * **O fecho dos `import` de execução** de uma ferramenta: segue o caminho relativo e o apelido que resolve
  * DENTRO desta casa; apelido que resolve para FORA é um vizinho, e ali o fecho para (o que o vizinho importa
- * é dele). Devolve os nomes das pastas dos vizinhos — o nome do clone ao lado do Lab.
+ * é dele). Devolve os nomes das pastas dos vizinhos — o nome do clone ao lado do Lab. Quem passa `vistos` recebe nele
+ * os arquivos do fecho, com o caminho absoluto (LAB-218: a trava do CI do LAB-38 lê os processos de cada um).
  */
-export function vizinhosQueRoda(ferramenta: string, raiz: string): string[] {
+export function vizinhosQueRoda(ferramenta: string, raiz: string, vistos: Set<string> = new Set<string>()): string[] {
   const raizN = normalize(raiz);
   const vizinhos = new Set<string>();
-  const vistos = new Set<string>();
   const pilha = [normalize(join(raizN, ferramenta))];
   const cacheApelidos = new Map<string, { prefixo: string; alvo: string; dir: string }[]>();
   while (pilha.length > 0) {

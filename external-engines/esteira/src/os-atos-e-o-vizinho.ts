@@ -52,7 +52,9 @@
  *   a mensagem que só a ferramenta imprime e a trava que a prova diz que caiu. Uma trava que o ato rodou e a prova
  *   não nomeia fica fora — e por isso o veredicto "nenhum" é o do que está escrito, não o do ato inteiro;
  * - **o CI do LAB-38**: o que ele rodou é a lista do `verde.yml` daquele commit, e ali não havia clone de vizinho
- *   no disco do executor; a trava mede o arquivo sabotado, não as 64 travas.
+ *   no disco do executor; a trava mede o arquivo sabotado, não as 64 travas. *(As três medidas no LAB-218, D446, só
+ *   para o LAB-38: a API diz o clone `skipped` nos três disparos, e o fecho do trabalho inteiro, com o processo filho, sem
+ *   vizinho — `src/ci-do-lab38.ts`.)*
  */
 import { vizinhosQueRoda } from "./o-commit-do-vizinho-na-prova.ts";
 

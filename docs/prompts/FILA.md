@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-218 · item 900 — a dívida própria: os três disparos do CI do LAB-38, perguntados à API e ao fecho do trabalho inteiro — o que o D445 deixou declarado — ✅ **feito em 20/10/2026** (D446)
+
+Pelo candidato do LAB-215 (os registros de ATO), a mais velha: `LAB-38/ci.json`. Ao trazer a origem, o LAB-217 (outra sessão, D445) tinha respondido os oito atos pelo fecho, e para o LAB-38 mediu só o arquivo sabotado, declarando fora o processo filho, as 64 travas e o clone no executor. Medido: a API do GitHub diz que nos três disparos o verde completo caiu na precondição, clones e comando único `skipped`; o fecho dos cinco arquivos do trabalho sem clones, com o `lab20.ts` que um deles roda por processo, não alcança vizinho nos três commits. `src/ci-do-lab38.ts` e a trava `ci-do-lab38` (10 testes, no verde completo; mutação: duas, 1 de 10 em cada). Nada novo proposto ao chat.
+
+**Origem:** [`../relatorios/LAB-218.md`](../relatorios/LAB-218.md), decisão **D446**.
+
 ### LAB-217 · item 900 — a dívida própria: os registros de ATO e o código de vizinho — o molde "não roda código de ninguém", perguntado ao fecho, ato a ato — ✅ **feito em 20/10/2026** (D445)
 
 O LAB-215 deixou o candidato escrito (§8): as outras sabotagens registradas como ATO (LAB-38 e LAB-58 a 66), se rodaram código de vizinho. Espécie **mensagem fixa que afirma estado sem perguntar**: as oito linhas de ATO de `o-commit-do-vizinho-na-prova.ts` saíam de um molde que dizia *"não há ferramenta que o grave, e por isso ele não roda código de ninguém"*. Medido pelo fecho dos `import` do que cada ato rodou (`vizinhosQueRoda`, o instrumento do LAB-198), na árvore do commit da prova (`git archive`) e hoje: vale para seis; **as sabotagens do LAB-58 e do LAB-59 rodaram `lab58.ts` e `lab59.ts`, que rodam o motor e o Generate**; e a do LAB-31 alcança também o Generate, que o motivo do LAB-215 não dizia. `src/os-atos-e-o-vizinho.ts` e a trava `os-atos-e-o-vizinho` (5 testes, no verde completo; mutação: a linha do LAB-58 no molde velho reprova). Nenhuma prova tocada (D182). Nada novo proposto ao chat.

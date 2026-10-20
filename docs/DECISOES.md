@@ -15259,3 +15259,34 @@ responde em milissegundos); `git worktree` (escreve na `.git` da casa); declarar
 
 > **"NÃO HÁ FERRAMENTA QUE O GRAVE, E POR ISSO NÃO RODA NADA" É UMA INFERÊNCIA QUE NÃO SEGUE: O QUE GRAVA E O QUE RODA SE PERGUNTAM
 > SEPARADOS. E A RÉGUA QUE ESPERA O QUE A RODADA ANTERIOR ESCREVEU É A QUE ACHA A METADE QUE ELA DEIXOU.**
+
+## D446 · OS TRÊS DISPAROS DO CI DO LAB-38, PERGUNTADOS À API E AO FECHO DO TRABALHO INTEIRO: o que o D445 deixou declarado e não medido — o clone que não aconteceu, as 64 travas e o processo filho — medido, e o veredicto não muda: nenhum vizinho · 20/10/2026
+
+**Contexto.** LAB-218, item 900, a dívida própria, pelo candidato do LAB-215 (§8): os registros de ATO em
+`src/o-commit-do-vizinho-na-prova.ts`, se rodaram código de vizinho. Peguei o mais velho, a `LAB-38/ci.json`. Ao trazer a origem antes do
+envio, outra sessão (LAB-217, D445) tinha respondido os oito de uma vez, pelo fecho dos `import` do que cada ato rodou — e para o LAB-38
+mediu **o arquivo sabotado** (`verde.test.ts`), deixando declarado o que não alcança: *o fecho segue `import`, não `spawn`*; *no CI não
+havia clone de vizinho no disco do executor* (afirmado); *a trava mede o arquivo sabotado, não as 64 travas*. Esta rodada mede as três,
+só para o LAB-38.
+
+**Medido.** À **API do GitHub** (só leitura), os passos dos seis trabalhos dos três runs (`37209442979`, `37209625506`, `37209732926`;
+commits `527628f`, `21ee5d7`, `d0604e9`): nos três, o `verde-completo` caiu na precondição (o segredo `VIZINHOS_TOKEN` não existia) e os
+dois clones e o `./external-engines/conferir.sh` saíram `skipped`; as conclusões batem com a prova. Ao **`git`**, no commit de cada
+disparo: o fecho dos `import` de execução dos **cinco** arquivos do trabalho sem clones, somado às ferramentas que eles chamam por
+processo (`pagina.test.ts` → `lab20.ts`) — oito arquivos, seis raízes, **nenhum vizinho**; os outros processos filhos são `git` e `find`.
+
+**Feito.** `src/ci-do-lab38.ts` (a resposta da API congelada com a data, e as réguas puras) e `tests/ci-do-lab38.test.ts` (10 testes: 5
+puros nos dois sentidos, 5 que leem o `git` nos três commits — a resposta casa com o `verde.yml` de cada um, passo a passo; o fecho do
+trabalho inteiro sem vizinho; e um teste plantado com `@testfit/` achado como vizinho). A linha do LAB-38 cita as duas medições;
+`vizinhosQueRoda` ganha o parâmetro opcional `vistos`. **Mutação:** duas, 1 de 10 reprova em cada. Roda no verde completo; usa
+`git archive`, sem rede.
+
+**O que se perde.** A API não se pergunta de novo a cada verde (a trava não tem rede nem credencial): a resposta é de 20/10/2026. O que o
+runner tinha instalado (o `bun install` da `esteira` são pacotes do npm).
+
+**Alternativas descartadas.** Jogar fora o trabalho por ter chegado depois do D445 (ele fecha três ressalvas que o D445 escreveu);
+fundir as duas travas (a do D445 é por ato e pelo arquivo; esta é do CI e precisa da API — misturar faria a dele depender de resposta
+congelada); redisparar o CI (desligado até 1º/11, e disparar gasta minuto de máquina); regravar a prova (D182).
+
+> **O FECHO DE UM TRABALHO É O DOS ARQUIVOS QUE ELE RODA, NÃO SÓ O DO QUE FOI SABOTADO — E "NÃO HAVIA CLONE NO EXECUTOR" SE PERGUNTA A QUEM
+> EXECUTOU: a API diz o passo que pulou.**
