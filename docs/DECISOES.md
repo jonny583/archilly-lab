@@ -15223,3 +15223,39 @@ pergunta escrita que o peça — vai ao relatório como o que esta rodada não f
 frase que dizia que a lista estava vazia).
 
 > **A FRASE QUE DIZ QUE NÃO HÁ TRABALHO É A QUE MAIS PRECISA SER PERGUNTADA: é ela que faz a direção não mandar nada.**
+
+## D445 · OS REGISTROS DE ATO E O CÓDIGO DE VIZINHO — o molde "não há ferramenta que o grave, e por isso ele não roda código de ninguém", perguntado ao fecho dos `import`, ato a ato: vale para seis das oito; as sabotagens do LAB-58 e do LAB-59 rodaram a ferramenta da rodada, que roda o motor e o Generate · 20/10/2026
+
+**Contexto.** LAB-217, item 900, a dívida própria. O LAB-215 deixou o candidato escrito (§8): as outras sabotagens registradas como ATO
+na lista de `src/o-commit-do-vizinho-na-prova.ts` (LAB-38 e LAB-58 a 66), perguntadas uma a uma — rodaram código de vizinho? Espécie
+**mensagem fixa que afirma estado sem perguntar**: as oito linhas saíam de um molde, `ATO(...)`, que dizia *"Não há ferramenta que o
+grave, e por isso ele não roda código de ninguém"*. O *por isso* não segue: o que grava a prova e o que o ato rodou são perguntas
+diferentes.
+
+**Medido** com o instrumento que o LAB-198 já usa (`vizinhosQueRoda`, o fecho dos `import` de execução), aplicado aos arquivos que cada
+ato rodou — tirados da própria prova (o `oComando`, ou a mensagem que a prova cita e que só aquela ferramenta imprime) —, na árvore do
+commit que criou a prova (`git archive`) e na ponta de hoje. Os dois pontos deram o mesmo nos nove:
+
+- **LAB-58** (`d8d8a72`) e **LAB-59** (`387fc20`): o ato rodou `lab58.ts` e `lab59.ts`, e as duas alcançam **o motor e o Generate**;
+- **LAB-31** (`c8f5c22`): os dois arquivos sabotados alcançam **o motor e o Generate** — o motivo que o LAB-215 escreveu dizia só o
+  motor, e a primeira passada da trava nova reprovou a minha expectativa, que o copiava;
+- **LAB-38, 60, 61, 62, 63, 66**: nenhum vizinho no fecho. O processo filho, que o fecho não segue, medido à mão: só o `verde.test.ts`
+  abre um, o `find` do sistema.
+
+**Feito.** `src/os-atos-e-o-vizinho.ts` (`OS_ATOS`, os nove com commit, o que rodou, a fonte e os vizinhos; `vizinhosDoAto`;
+`oMotivoBate`, nos dois sentidos) e `tests/os-atos-e-o-vizinho.test.ts` (5 testes: 4 puros, inclusive a lista fechada contra as linhas
+de ATO de `QUEM_GRAVA`, e 1 que confere o commit de cada prova, monta a árvore dele e mede então e hoje; no verde completo). O molde
+perde o *por isso* e diz o que se mediu; as linhas do LAB-58 e do LAB-59 ganham `ATO_COM_VIZINHO`, que nomeia a ferramenta e aponta o
+retrato da prova irmã — **coerência, não medição**: a sabotagem não escreve commit de vizinho; a do LAB-31 nomeia o Generate.
+**Mutação:** a linha do LAB-58 devolvida ao molde velho — a trava reprova nomeando a prova.
+
+**O que se perde.** Processo filho (dito, medido à mão hoje); a completude da lista do que o ato rodou (as provas 58 a 61 não escrevem o
+comando — o veredicto "nenhum" é o do que está escrito); se a sabotagem do LAB-58 ou do LAB-59, refeita, derruba o que a prova diz (é a
+pergunta do LAB-215, e fica como candidato). Nenhuma prova foi tocada (D182).
+
+**Alternativas descartadas.** Refazer as sete sabotagens a cada verde (minutos de motor e Generate para uma pergunta que o fecho
+responde em milissegundos); `git worktree` (escreve na `.git` da casa); declarar a trava em `rede-em-execucao.ts` (feito e desfeito:
+`archive` e `log` não são rede, e a trava de lá reprovou a declaração que sobrava).
+
+> **"NÃO HÁ FERRAMENTA QUE O GRAVE, E POR ISSO NÃO RODA NADA" É UMA INFERÊNCIA QUE NÃO SEGUE: O QUE GRAVA E O QUE RODA SE PERGUNTAM
+> SEPARADOS. E A RÉGUA QUE ESPERA O QUE A RODADA ANTERIOR ESCREVEU É A QUE ACHA A METADE QUE ELA DEIXOU.**
