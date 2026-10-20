@@ -392,11 +392,11 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
-### LAB-217 · item 900 — a dívida própria: os três disparos do CI do LAB-38 não rodaram código de vizinho — mas não pelo motivo escrito — ✅ **feito em 20/10/2026** (D445)
+### LAB-218 · item 900 — a dívida própria: os três disparos do CI do LAB-38, perguntados à API e ao fecho do trabalho inteiro — o que o D445 deixou declarado — ✅ **feito em 20/10/2026** (D446)
 
-O LAB-215 deixou o candidato escrito: as outras sabotagens registradas como ATO, uma a uma, se rodaram código de vizinho. A mais velha, `LAB-38/ci.json`, tinha o motivo pronto *"não há ferramenta que o grave, e por isso ele não roda código de ninguém"*. Espécie **mensagem fixa que afirma estado sem perguntar**. Perguntado à API do GitHub (os passos dos três runs: o verde completo caiu na precondição, clones e comando único `skipped`) e ao `git` no commit de cada disparo (o fecho do trabalho sem clones: oito arquivos, nenhum vizinho). A frase se sustenta, pelo motivo medido. `src/ci-do-lab38.ts` e a trava `ci-do-lab38` (10 testes, no verde completo; mutação: duas, 1 de 10 em cada). Nada novo proposto ao chat.
+Pelo candidato do LAB-215 (os registros de ATO), a mais velha: `LAB-38/ci.json`. Ao trazer a origem, o LAB-217 (outra sessão, D445) tinha respondido os oito atos pelo fecho, e para o LAB-38 mediu só o arquivo sabotado, declarando fora o processo filho, as 64 travas e o clone no executor. Medido: a API do GitHub diz que nos três disparos o verde completo caiu na precondição, clones e comando único `skipped`; o fecho dos cinco arquivos do trabalho sem clones, com o `lab20.ts` que um deles roda por processo, não alcança vizinho nos três commits. `src/ci-do-lab38.ts` e a trava `ci-do-lab38` (10 testes, no verde completo; mutação: duas, 1 de 10 em cada). Nada novo proposto ao chat.
 
-**Origem:** [`../relatorios/LAB-217.md`](../relatorios/LAB-217.md), decisão **D445**.
+**Origem:** [`../relatorios/LAB-218.md`](../relatorios/LAB-218.md), decisão **D446**.
 
 ### LAB-216 · item 900 — a dívida própria: "esperam o .wasm" era frase à mão — perguntada à ferramenta, verdadeira no porquê e errada na faixa; a lista e a frase passam a ser contadas — ✅ **feito em 20/10/2026** (D444)
 

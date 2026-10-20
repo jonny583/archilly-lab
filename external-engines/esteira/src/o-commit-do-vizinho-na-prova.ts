@@ -178,7 +178,7 @@ export const QUEM_GRAVA: readonly QuemGrava[] = [
     ferramenta: null,
     porque:
       "o registro de um ATO, escrito à mão na rodada: os três disparos do CI, um deles sabotado. Não há ferramenta que o " +
-      "grave — e o ato não rodou código de ninguém, mas não POR ISSO: medido no LAB-217 (D445), nos três disparos o verde " +
+      "grave — e o ato não rodou código de ninguém, mas não POR ISSO: medido no LAB-218 (D446), nos três disparos o verde " +
       "completo parou na precondição e os clones e o comando único saíram `skipped` (a API do GitHub), e o trabalho sem " +
       "clones roda um fecho sem vizinho no commit de cada disparo (o `git`); a trava `ci-do-lab38.test.ts` refaz o fecho",
   },
@@ -311,7 +311,7 @@ function resolverArquivo(base: string): string | null {
  * **O fecho dos `import` de execução** de uma ferramenta: segue o caminho relativo e o apelido que resolve
  * DENTRO desta casa; apelido que resolve para FORA é um vizinho, e ali o fecho para (o que o vizinho importa
  * é dele). Devolve os nomes das pastas dos vizinhos — o nome do clone ao lado do Lab. Quem passa `vistos` recebe nele
- * os arquivos do fecho, com o caminho absoluto (LAB-217: a trava do CI do LAB-38 lê os processos de cada um).
+ * os arquivos do fecho, com o caminho absoluto (LAB-218: a trava do CI do LAB-38 lê os processos de cada um).
  */
 export function vizinhosQueRoda(ferramenta: string, raiz: string, vistos: Set<string> = new Set<string>()): string[] {
   const raizN = normalize(raiz);

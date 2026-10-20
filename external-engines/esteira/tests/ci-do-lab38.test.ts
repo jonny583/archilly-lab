@@ -1,5 +1,5 @@
 /**
- * **LAB-217 (item 900) · os três disparos do CI do LAB-38 — o ato rodou código de vizinho?** (D445)
+ * **LAB-218 (item 900) · os três disparos do CI do LAB-38 — o ato rodou código de vizinho?** (D446)
  *
  * ```sh
  * bun test tests/ci-do-lab38.test.ts
@@ -44,7 +44,7 @@ const temCommit = (c: string) => spawnSync("git", ["-C", RAIZ, "cat-file", "-e",
 const doCommit = (c: string, caminho: string) =>
   execFileSync("git", ["-C", RAIZ, "show", `${c}:${caminho}`], { encoding: "utf8", maxBuffer: 1 << 26 });
 
-describe("LAB-217 · a parte pura, nos dois sentidos", () => {
+describe("LAB-218 · a parte pura, nos dois sentidos", () => {
   test("a resposta da API bate com a prova: os mesmos três runs e a conclusão de cada trabalho", () => {
     expect(osDisparosDaProva(PROVA, OS_DISPAROS)).toEqual([]);
   });
@@ -105,8 +105,8 @@ describe("LAB-217 · a parte pura, nos dois sentidos", () => {
   });
 });
 
-describe("LAB-217 · o que o ato rodou, perguntado ao `git` no commit de cada disparo", () => {
-  const pasta = mkdtempSync(join(tmpdir(), "lab217-"));
+describe("LAB-218 · o que o ato rodou, perguntado ao `git` no commit de cada disparo", () => {
+  const pasta = mkdtempSync(join(tmpdir(), "lab218-"));
   const faltam = OS_DISPAROS.filter((d) => !temCommit(d.commit)).map((d) => d.commit.slice(0, 7));
 
   beforeAll(() => {
@@ -180,7 +180,7 @@ describe("LAB-217 · o que o ato rodou, perguntado ao `git` no commit de cada di
     expect(faltam).toEqual([]);
     const d = OS_DISPAROS[2]!;
     const lab = join(pasta, d.commit.slice(0, 7), "archilly-lab");
-    const plantado = `${ESTEIRA}/tests/plantado-lab217.test.ts`;
+    const plantado = `${ESTEIRA}/tests/plantado-lab218.test.ts`;
     const texto = `import { gerar } from "@testfit/motor.ts";\nimport { x } from "../src/nada.ts";\n`;
     writeFileSync(join(lab, plantado), texto);
     expect(vizinhosQueRoda(plantado, lab)).toEqual(["motor-testfit"]);

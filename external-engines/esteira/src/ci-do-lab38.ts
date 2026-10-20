@@ -1,6 +1,6 @@
 /**
- * **LAB-217 (item 900) · os três disparos do CI do LAB-38 — se o ato rodou código de vizinho, perguntado à ferramenta**
- * (D445).
+ * **LAB-218 (item 900) · os três disparos do CI do LAB-38 — se o ato rodou código de vizinho, perguntado à ferramenta**
+ * (D446).
  *
  * # O que estava escrito
  *
@@ -13,6 +13,11 @@
  * O *"e por isso"* é a falha: não ter ferramenta que grave a prova não diz nada sobre o que o ato rodou. O LAB-215 mediu
  * isso na sabotagem do LAB-31 e a frase caiu lá (a suíte do testfit roda o motor). O relatório dele deixou o candidato:
  * perguntar, uma a uma, as outras sabotagens registradas como ato. Esta é a mais velha.
+ *
+ * **O D445 chegou antes, por outra sessão** (LAB-217, `src/os-atos-e-o-vizinho.ts`): os oito atos pelo fecho dos `import`
+ * do que cada um rodou. Para o LAB-38 ele mediu **o arquivo sabotado** e declarou fora três coisas: *"o fecho segue
+ * `import`, não `spawn`"*, *"no CI não havia clone de vizinho no disco do executor"* (afirmado) e *"a trava mede o arquivo
+ * sabotado, não as 64 travas"*. Este módulo mede as três, só para o LAB-38 (LAB-218, D446).
  *
  * # O que a ferramenta respondeu (20/10/2026)
  *
