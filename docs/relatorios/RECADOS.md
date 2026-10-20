@@ -4480,15 +4480,28 @@ Próximo na fila: a caixa só tem o 900; com esta, a série das caladas que roda
 === FIM DA SESSÃO ===
 ```
 
+## 20/10/2026 · LAB-215 — item 900, a dívida própria: a sabotagem do LAB-31 se refaz igual — o motivo de não regerá-la, perguntado à ferramenta
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-215 (item 900) ===
+Estado: disparo de 13:05 (observado no aviso da tarefa agendada: disparado às 13:08:19); clone raso, desrasado pela receita do LAB-116; caixa só com o 900, contada na origin/main às 13:09; nenhuma outra mão na lista (a origem parava no LAB-214, 12:35). O LAB-214 não deixou candidato; fui à dívida própria, pelo candidato do LAB-195 (docs/relatorios/LAB-195.md §8: os motivos de exceção "regerar faria X", um a um), na última fotografia que roda sem o .wasm: a LAB-31/sabotagem.json. Espécie prova que só registra aparência. FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm ausente; esteira 2 773 aprovadas e as 9 do .wasm reprovadas (a trava nova refez o ato nos dois pares), testfit 17 de 17, typecheck e lint verdes.
+Feito: as duas sabotagens de pacote do LAB-31, refeitas com o texto exato da prova numa pasta temporária (os vizinhos só lidos), no commit da prova (c8f5c22, motor 6f69ebc, Generate 1f13bff — as pontas da origem antes da hora dele) e na ponta de hoje: derrubam os MESMOS dois testes, pelo nome, e o lint — os três passos que a prova dá como caídos, fora o do navegador; nenhuma cura teste. O motivo "refazer é outro ato" se sustenta pela metade: é outro ato, mas dá a mesma resposta. E a frase "não roda código de ninguém" da linha do LAB-31 em o-commit-do-vizinho-na-prova.ts caiu: o ato rodou a suíte, e a do testfit roda o motor. src/sabotagem-do-lab31.ts e a trava sabotagem-do-lab31 no verde completo (7 testes; mutação: 2 de 7 reprovam). A do navegador e o exit do comando único esperam o .wasm (o rustup segue em "unsuccessful tunnel"). D443. Detalhe em docs/relatorios/LAB-215.md.
+Achados para outros apps ou Central: a todas, como método — "refazer seria outro ato" é hipótese sobre o ato, e se pergunta refazendo, numa pasta temporária e nunca na árvore. Não toquei em despertador. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; das fotografias da lista das espécies, as que rodam sem o .wasm estão todas perguntadas — candidato escrito (LAB-215 §8): as outras sabotagens registradas como ATO (LAB-38 e LAB-58 a 66), se rodaram código de vizinho; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
+
 ## 20/10/2026 · LAB-216 — item 900, a dívida própria: "esperam o .wasm" era frase à mão — perguntada à ferramenta, verdadeira no porquê e errada na faixa; a lista e a frase passam a ser contadas
 
 ```
 === RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-216 (item 900) ===
-Estado: disparo de 14:09 (observado no aviso do disparo); caixa só com o 900, contada na origin/main às 14:12; nenhuma outra mão (o LAB-214 já enviado). A série das caladas acabou no LAB-214, que mandou escolher outra espécie; o .wasm segue recusado pelo túnel (static.rust-lang.org, não insisti). Fui à dívida própria, à frase que dezesseis recados repetiram à mão desde o LAB-203 — "LAB-02 a 06, 08 a 28 e 32 esperam o .wasm" (espécie mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde no docs/relatorios/LAB-216.md §9; a trava nova 4 testes, mutação acusada nas duas formas.
+Estado: disparo de 14:09 (observado no aviso do disparo); caixa só com o 900, contada na origin/main às 14:12; a sessão de 13:05 trabalhava sem ter enviado, em outra tarefa (a sabotagem do LAB-31, enviada às ~15h45 como LAB-215 e D443): nada repetido, os meus números viraram LAB-216 e D444 na mescla. A série das caladas acabou no LAB-214, que mandou escolher outra espécie; o .wasm segue recusado pelo túnel (static.rust-lang.org, não insisti). Fui à dívida própria, à frase que dezesseis recados repetiram à mão desde o LAB-203 — "LAB-02 a 06, 08 a 28 e 32 esperam o .wasm" (espécie mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde no docs/relatorios/LAB-216.md §9; a trava nova 4 testes, mutação acusada nas duas formas.
 Feito: perguntada à ferramenta, a frase é verdadeira no porquê e errada na faixa — sem achado ao lado: 34 silêncios em 20 provas (LAB-02, 04, 05, 06, 08, 13, 16, 17, 19, 21, 23, 24, 25, 26, 28, 32), e todas esperam o .wasm; as 16 ferramentas chamam Motor.carregar( no topo, a de hoje e a do último commit de cada prova; "08 a 28" punha dez pastas sem silêncio por achar. A lista e a frase saem agora do retrato menos os achados (osSilenciosSemAchado, comoSeDizOQueEspera em src/o-commit-do-vizinho-na-prova.ts), e a trava reprova silêncio sem achado que rodaria aqui (D444). Detalhe: docs/relatorios/LAB-216.md
-Achados para outros apps ou Central: para a direção — o que sobra da dívida própria desta casa espera o .wasm, perguntado à ferramenta, e o .wasm não se constrói em máquina de disparo (o alvo wasm32 vem de static.rust-lang.org, recusado pelo túnel): sem item novo na caixa, os próximos disparos tendem a ser em vazio. Não toquei em despertador. Nada novo proposto ao chat.
+Achados para outros apps ou Central: para a direção — o que sobra da dívida própria desta casa espera o .wasm, perguntado à ferramenta, e o .wasm não se constrói em máquina de disparo (o alvo wasm32 vem de static.rust-lang.org, recusado pelo túnel): a dívida própria que roda aqui segue por outras espécies (o candidato do LAB-215). Não toquei em despertador. Nada novo proposto ao chat.
 Depende do Jonny: nada.
-Próximo na fila: a caixa só tem o 900; candidato escrito: nenhum (a frase contada acima); as propostas antigas esperam o chat.
+Próximo na fila: a caixa só tem o 900; candidato escrito no LAB-215 (§8): as outras sabotagens registradas como ATO, se rodaram vizinho; as caladas sem achado esperam o .wasm (a frase contada acima); as propostas antigas esperam o chat.
 === FIM ===
 === FIM DA SESSÃO ===
 ```

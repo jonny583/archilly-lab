@@ -42,7 +42,8 @@
  *
  * - **as outras três fotografias da lista**: `LAB-02/completo.saida-cortada.json` roda o Symbios e precisa
  *   do `.wasm`, ausente nesta máquina; `LAB-31/sabotagem.json` registra um ATO, e retirá-lo é refazer a
- *   sabotagem; `LAB-48/violacoes-do-motor-padrao.json` roda o motor do vizinho e o Validator do Generate,
+ *   sabotagem — refeita no LAB-215 (D443), nos dois pares, pela trava `tests/sabotagem-do-lab31.test.ts`;
+ *   `LAB-48/violacoes-do-motor-padrao.json` roda o motor do vizinho e o Validator do Generate,
  *   em dois commits que a prova teria de declarar — não perguntado nesta rodada, e perguntado no LAB-197
  *   (D425) por outra trava, `tests/fotografia-do-lab48.test.ts`, porque a prova não declara commit nenhum;
  * - **as chaves do momento**: `quando` é a hora da rodada, e `osClonesVizinhos` é o estado dos três clones

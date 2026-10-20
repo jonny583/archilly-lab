@@ -162,7 +162,15 @@ export const QUEM_GRAVA: readonly QuemGrava[] = [
   { prova: "LAB-28/acesso.json", ferramenta: `${E}/lab28.ts` },
   { prova: "LAB-30/guarda-da-ida.json", ferramenta: `${E}/lab30.ts` },
   { prova: "LAB-31/navegador.json", ferramenta: `${N}/prova-automatica.ts` },
-  { prova: "LAB-31/sabotagem.json", ferramenta: null, porque: ATO("a sabotagem do comando único") },
+  {
+    prova: "LAB-31/sabotagem.json",
+    ferramenta: null,
+    porque:
+      "o registro de um ATO, escrito à mão na rodada: a sabotagem do comando único. Não há ferramenta que o grave — mas o " +
+      "ato rodou a suíte, e a do testfit roda o motor: medido no LAB-215 (D443), refeito no commit da prova com os vizinhos " +
+      "da hora dele e na ponta de hoje, ele derruba os mesmos testes, e a trava `sabotagem-do-lab31.test.ts` escreve os " +
+      "commits dos dois pares a cada verde",
+  },
   { prova: "LAB-32/aderencia.json", ferramenta: `${E}/lab32.ts` },
   { prova: "LAB-37/testada-de-frente.json", ferramenta: `${E}/lab37.ts` },
   { prova: "LAB-38/ci.json", ferramenta: null, porque: ATO("os três disparos do CI, um deles sabotado") },
