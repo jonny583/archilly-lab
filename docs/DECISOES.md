@@ -15357,3 +15357,35 @@ também pela ferramenta (segundo instrumento para a mesma sabotagem); tirar a fr
 afirmou e por que caiu).
 
 > **"PARA ANTES, E NÃO TERIA ONDE MORDER" É UMA HIPÓTESE SOBRE A ORDEM DAS PARADAS — E A ORDEM SE CONFIRMA RODANDO.**
+
+## D449 · AS QUATRO SABOTAGENS DO LAB-59 REFEITAS — mordem como a prova diz no commit da prova E na ponta de hoje; o "antes da precondição", que não tem commit, reconstruído com uma troca a mais · 20/10/2026
+
+**Contexto.** LAB-221, item 900 (a caixa só tem o 900). O candidato escrito no LAB-217 §8, repetido pelo LAB-219 e pelo LAB-220: a
+`LAB-59/sabotagem.json` registra quatro sabotagens de 07/10/2026 (`387fc20`), em prosa, nunca refeitas; o LAB-217 achou pelo fecho que o
+ato rodou a `lab59.ts`, que roda o motor e o Generate. Espécie **prova que só registra aparência**.
+
+**Medido (20/10/2026, clones locais numa pasta temporária; os vizinhos só lidos).** Dois pares — o da prova (Lab `387fc20`, motor
+`4181e95`, Generate `5b7e9b4`) e a ponta de hoje (Lab `4a5741d`, motor `601f1bc`, Generate `28150cf`):
+- sem sabotagem, a ferramenta sai 0 nos dois: *"16 de 20"* no da prova, *"17 de 20"* (outra prova, sem 1 228 lotes — D442) na ponta; **as
+  20 travas do contrafactual aprovam as duas**;
+- a 1 (`aoSegmento` lido do LAB-50): para nos dois, *"lote EXTERNO sem distância à face entregue"*, sem escrever;
+- a 1 com a precondição desligada (**reconstrução** do *"antes"*, que não tem commit): sai 0, *"1 de 20"*, e as duas travas do Jonny caem;
+- a 2 (`someComAFaixa` lido do LAB-53): sai 0, *"1 de 20"*, as mesmas duas;
+- a 3 (a primeira do `os-dois` vira a `ortogonal` de 1 228): 2 de 20; a 4 (`candidatas[1]` aprova só com o motor): 1 de 20.
+Tudo nos dois pares, com as contas e os nomes que a prova escreve. O fecho: a 1 e a 2 rodam o motor e o Generate; a 3 e a 4, só o Lab.
+
+**Decisão.** `src/sabotagem-do-lab59.ts` (a parte pura) e a trava `tests/sabotagem-do-lab59.test.ts`, no verde completo (precisa dos
+clones; declarada em `src/rede-em-execucao.ts`). A reconstrução fica etiquetada como tal (`A_RECONSTRUCAO_DO_ANTES`). A prova não se toca
+(D182); a linha do LAB-59 em `o-commit-do-vizinho-na-prova.ts` fica como está (diz que o ato roda vizinho, e é verdade). **Mutação: a
+sabotagem 3 trocada por ela mesma — a trava reprova, nomeando o par e a sabotagem.**
+
+**O que se perde.** Os estados do meio; o texto exato das sabotagens de 07/10 (a prova escreve prosa — as trocas são a leitura mais
+estreita, conferida pelo que mordem); a contagem da ponta de hoje sem sabotagem, medida e não travada (muda com os vizinhos; o retrato do
+LAB-214 trava a de uma ponta fixa).
+
+**Alternativas descartadas.** Declarar o *"antes da precondição"* como o LAB-219 declarou o dele (*"não há árvore"*): aqui a precondição é
+um `if`, e a prova diz o que o antes tem de dar — reconstruir é mais forte que declarar. Uma trava própria para *"as travas do LAB-59
+aprovam a prova que a ferramenta de hoje escreve"*: escopo novo, e o retrato do LAB-214 já diz a janela.
+
+> **O "ANTES" QUE A PROVA ESCREVE E QUE NÃO TEM COMMIT PODE TER RECONSTRUÇÃO HONESTA: QUANDO UMA CONDIÇÃO SÓ SEPARA O ANTES DO DEPOIS,
+> DESLIGÁ-LA É UMA TROCA A MAIS — E A PROVA DIZ O QUE ELA TEM DE DAR.**
