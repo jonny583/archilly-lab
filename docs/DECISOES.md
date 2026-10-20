@@ -14766,3 +14766,52 @@ externos, 14 na testada — iguais); o que muda são as amostragens de 2 variant
 verdade); pôr as pontas de hoje na trava além do canto do Generate (o motor de hoje já acusa pela borda de depois).
 
 > **TRÊS PROVAS DO MESMO DISCO DÃO A MESMA JANELA — e isso não é medição de que o disco era aquele, é o teto do que elas dizem juntas.**
+
+## D436 · A PASSAGEM EXTERNA DO LAB-50 CALAVA O MOTOR E O GENERATE — e, medido, o motor que a fez é o de 14/09, a MESMA janela do LAB-37 e do LAB-46 · 20/10/2026
+**Contexto:** item 900 (LAB-208). A caixa só tinha o `900`, e o recado do disparo de ≤ 02:06 deixou o candidato escrito: *a
+`LAB-50/passagem-externa.json` (cala os dois; ferramenta sem `.wasm` por grep), instante e fecho primeiro*. A prova foi gravada uma
+vez (`846b955`, 06/10/2026, 22h17 UTC), com um `quando` da hora na raiz; a ferramenta `ferramentas/lab50.ts` (mudada depois só no
+LAB-143, hectare → metro quadrado — a de então é a do `846b955`) roda a esteira do motor (14 arquivos de `src/lib/lab/` no fecho dos
+`import`) com o contrato e as regras do Generate (18 arquivos), sem Symbios nem `.wasm`, em `geo-antonina` e `ensaio-com-testada`, e
+a prova não escreve commit de nenhum dos dois — dois silêncios. Espécie **mensagem fixa que afirma estado sem perguntar**.
+
+**Medido**, em clones locais numa pasta de rascunho (os vizinhos só lidos), o Lab em `846b955`, a prova byte a byte fora o `quando`
+da raiz, perto de 20 segundos por rodada, em dois processos:
+
+```
+instante (as pontas da origem às 22h17 UTC de 06/10: motor 9336985, Generate ad17a7e): 226 linhas — ACUSA
+motor, com o Generate em ad17a7e — os 37 que tocam src/lib/lab/:
+  d98b0fe … 0ece0b1 (10/09), 10: a ferramenta não roda (falta módulo)
+  d2f71e4 (13/09, T01) · 66ece91 (14/09): roda e CAI (o motor não entrega plano)
+  648ae78 (14/09, T03): 14 linhas
+  fe0c7a1 (T02) · 4181e95 · 244aae3 (14/09): IGUAL, byte a byte (fora o quando)
+  2160fce (15/09, T07): 220 linhas; ee7c438 … 3fdb8ca (11/10), 20, e a ponta 4c60ec7: as 226 do instante
+Generate, com o motor em 244aae3 — os 439 que tocam src/lib/:
+  a02644c … 4cd7dc2, 371: não roda (3 rodados; 368 sem src/lib/contratos/motor-v1/traducao.ts na árvore)
+  22502b3 (10/09, contrato v1) … 8223873 (02/10), 29: roda e CAI (o motor não entrega plano)
+  5b70e5f (02/10, contrato v2) … 0297934 (16/10), 39, e a ponta 8ca421a: IGUAL, byte a byte (fora o quando)
+os quatro cantos (fe0c7a1/244aae3 × 5b70e5f/8ca421a): IGUAL
+```
+
+**Leitura.** O mesmo achado do D432, do D433 e do D435, agora às 22h17 de 06/10 — dois dias depois das outras: a prova descreve **o
+motor de 14/09**, e a janela é a do LAB-37 e do LAB-46 (`fe0c7a1` … `244aae3`; o T03 acusa). Coerência, não medição. A **frase**
+sobrevive às pontas de hoje: as quatro previsões dão o mesmo veredicto nas duas glebas, e os 33 lotes de `geo-antonina` saem iguais (as
+vias culpadas só mudam de nome, V2 → V3 e V10 → V12, com o eixo nas mesmas distâncias); o que muda é `ensaio-com-testada` (51 → 54
+externos, 9 → 21 sobre leito de via).
+
+**Decidido:**
+
+1. `src/retrato-do-lab50.ts`: o Lab, um commit; `A_JANELA_DO_MOTOR` (fechada, as duas bordas, o instante FORA);
+   `A_JANELA_DO_GENERATE` (aberta, a borda de antes — que CAI, com a marca da queda escrita —, o instante dentro);
+   `OS_COMMITS_RODADOS`, somando, com `caem` separado de `naoRodam`; `semOQuandoDaRaiz`, a comparação. A prova não se toca (D182).
+2. Trava nova, `tests/retrato-do-lab50.test.ts`, **no verde completo**, no molde da do LAB-207, com um teste a mais: a comparação fora
+   do `quando` conferida dos dois lados (o carimbo trocado dá igual; um número trocado, diferente; um `quando` mais fundo conta). Sete
+   testes, ~1 minuto. Mutação acusada: o começo do motor trocado pelo T03 e a borda do Generate trocada pelo contrato v2 — 3 reprovam.
+3. `OS_ACHADOS_AO_LADO` ganha a prova, com os dois vizinhos; a frase passa a *"achados ao lado: 27 de 71 silêncios"*.
+
+**Descartado:** regravar (D182); comparar o JSON por valor (a forma do texto também é o que a prova afirma — tira-se só a linha do
+carimbo); contar *cai* como *não roda* (a queda é o motor sem plano, não a falta de módulo, e a trava confere a marca); rodar os 368 de
+antes do contrato (a árvore responde); veneno (as três bordas são commits de verdade).
+
+> **UMA PROVA DE DOIS DIAS DEPOIS DÁ A MESMA JANELA — e isso continua sendo o teto do que elas dizem juntas, não medição de que o
+> disco ficou parado.**

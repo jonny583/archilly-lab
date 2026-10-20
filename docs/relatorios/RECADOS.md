@@ -4349,3 +4349,16 @@ Próximo na fila: a caixa só tem o 900; candidato: a LAB-50/passagem-externa.js
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · LAB-208 — item 900, a dívida própria: a passagem externa do LAB-50 calava o motor e o Generate — e o motor que a fez é o de 14/09, a mesma janela do LAB-37 e do LAB-46
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-208 (item 900) ===
+Estado: disparo de ≤ 03:06 (derivado do reflog); caixa só com o 900, contada na origin/main; nenhuma outra mão na lista; fui à dívida própria, pelo candidato que o recado do disparo de ≤ 02:06 deixou: a LAB-50/passagem-externa.json (docs/prompts/FILA.md, espécie mensagem fixa que afirma estado sem perguntar). FEITA, mesclado por git direto (D29). Conferido aqui, não no GitHub: o verde em oito passos, vermelhos só os três do .wasm (ausente nesta máquina); esteira 2 724 aprovadas e 10 reprovadas — as 9 do .wasm e a do LAB-57, porque regerei as provas que contam a árvore antes de pôr os arquivos novos no git (3 a menos); regeradas depois, as 57 travas que leem a árvore, o ONDE_PARAMOS e o RECADOS rodadas de novo: 892 de 892; a trava nova 7 de 7; testfit 17 de 17; vizinhos na ponta da origin/main e com git status limpo.
+Feito: com a ferramenta de então (Lab 846b955), as pontas da origem na hora da prova (motor 9336985, Generate ad17a7e) NÃO refazem — 226 linhas. Rodados os 37 commits do motor que tocam src/lib/lab/ e os 71 do Generate que a ferramenta alcança (368 pela árvore): refaz byte a byte, fora o quando da raiz, só com o motor de fe0c7a1 a 244aae3 (14/09, janela fechada, o instante fora) e o Generate de 5b70e5f (contrato v2) até hoje; antes do v2 a ferramenta cai (o motor sem plano). Escrito ao lado em src/retrato-do-lab50.ts; trava retrato-do-lab50 (7 testes, mutação acusada); achados ao lado 27 de 71 (D436). Detalhe em docs/relatorios/LAB-208.md.
+Achados para outros apps ou Central: a todas — quatro provas do mesmo disco (LAB-37, 40, 46 e a de 06/10 do LAB-50, dois dias depois) dão a mesma janela do motor: teto do que dizem juntas, não medição. A frase do LAB-50 (as quatro previsões da passagem externa) vale com as pontas de hoje; os números de ensaio-com-testada não. Para o Laboratório de Parcelamento, sem pedido: com o motor de hoje, o lote externo sobre leito de via em ensaio-com-testada foi de 9 para 21 (geo-antonina igual, 10). Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito no relatório (§8): a LAB-53 (as seguintes, 54, 55, 58 e 59, calam os dois; as ferramentas de hoje sem .wasm no fecho, as de então não conferidas), instante e fecho primeiro; LAB-02 a 06, 08 a 28 e 32 esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

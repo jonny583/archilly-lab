@@ -179,6 +179,7 @@ describe("LAB-199 · os commits achados AO LADO da prova", () => {
       "LAB-41/ortogonal-fora-da-gleba.json",
       "LAB-46/antonina-tres-amostragens.json",
       "LAB-48/violacoes-do-motor-padrao.json",
+      "LAB-50/passagem-externa.json",
       "LAB-78/setimo-mecanismo.json",
     ]);
   });
