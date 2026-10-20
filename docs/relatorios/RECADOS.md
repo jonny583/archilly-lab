@@ -4596,3 +4596,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito (LAB-221 §8): os reg
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 20/10/2026 · despertador-sem-item — o disparo de ≤ 21:07 sem item próprio: a tarefa da lista foi pega também por outra mão, que enviou antes (o LAB-221, do disparo de ≤ 22:06)
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · despertador-sem-item ===
+Estado: disparo de ≤ 21:07 (derivado do reflog: a primeira operação às 21:07:13); caixa só com o 900, contada na origin/main às 21:08; a tarefa da lista que o 900 mandava pegar (as sabotagens da LAB-59/sabotagem.json, o candidato do LAB-219 §8) foi pega também pela sessão do disparo de ≤ 22:06, que enviou às 23:27 (o LAB-221, D449). No meio refiz o ramo sobre a linha do ≤ 19:06 (21:22) e sobre o LAB-220 do ≤ 20:06 (22:03, outra tarefa); a mão no mesmo candidato só apareceu no fetch com o meu verde completo em curso. O meu saiu repetido e NÃO foi enviado. Conferido aqui, não no GitHub: o verde completo interrompido ao achar (a trava nova 8 de 8 rodada à parte antes); desta entrega, só a conta e o recado — as travas da conta, dos recados e das provas que contam a árvore, rodadas e verdes.
+Feito: só esta linha na conta do ONDE_PARAMOS.md e este recado. A medição repetida, feita sem ver a outra, bateu com a do LAB-221 em tudo o que as duas mediram: no par da prova (Lab 387fc20, motor 4181e95, Generate 5b7e9b4) e na ponta de hoje (motor 601f1bc, Generate 28150cf), a 1 para com "lote EXTERNO sem distância à face entregue"; a 1 sem o bloco da precondição e a 2 saem 0, "os-dois: 1 de 20", as duas travas do Jonny; a 3 e a 4, 2 e 1 de 20; sem sabotagem, hoje a ferramenta escreve outra prova (17 de 20) e as 20 travas a aprovam. O meu tinha a mais só a forma: o "antes" como medição própria da trava e uma nota no cabeçalho de os-atos-e-o-vizinho.ts ao lado do "coerência, não medição" — fica para quem quiser, não vale um envio.
+Achados para outros apps ou Central: para a direção — sete disparos seguidos desta casa com a rodada aberta ao mesmo tempo (≤ 16:07 a ≤ 22:06), rodadas de mais de duas horas e disparo de hora em hora: três sessões refizeram trabalho que outra enviou. O candidato escrito no §8 é o que cada sessão pega, e quem o pegou não aparece na origem até enviar. Não toquei em despertador nenhum. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato do LAB-221 (§8): os registros de ATO que sobram (LAB-60 a 63 e 66), começando pela LAB-60/sabotagem.json; as caladas sem achado esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
