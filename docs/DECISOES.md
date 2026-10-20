@@ -15290,3 +15290,37 @@ congelada); redisparar o CI (desligado até 1º/11, e disparar gasta minuto de m
 
 > **O FECHO DE UM TRABALHO É O DOS ARQUIVOS QUE ELE RODA, NÃO SÓ O DO QUE FOI SABOTADO — E "NÃO HAVIA CLONE NO EXECUTOR" SE PERGUNTA A QUEM
 > EXECUTOU: a API diz o passo que pulou.**
+
+## D447 · AS QUATRO SABOTAGENS DO LAB-58 REFEITAS — mordem como a prova diz, e o vizinho que o fecho achou no ato é todo da sabotagem da ferramenta; as três da suíte não saem do Lab · 20/10/2026
+
+**Contexto.** LAB-219, item 900 (a caixa só tem o 900). O LAB-215 (D443) refez a sabotagem do LAB-31; o LAB-217 (D445) perguntou ao
+fecho dos `import` o que cada ato rodou e achou que o do LAB-58 rodou o motor e o Generate, e deixou escrito o candidato: refazer as
+sabotagens de ferramenta, começando por esta. A `LAB-58/sabotagem.json` (07/10/2026) descreve quatro sabotagens das travas do agrupamento
+em prosa, sem diff; ninguém as tinha refeito. Espécie **prova que só registra aparência**. Esta sessão começou do candidato do LAB-215,
+sem ver a de 15:05 (o LAB-217, enviado às 17:32) nem a de ≤ 16:07 (o LAB-218 e o D446, os disparos do CI do LAB-38, enviados às 19:20);
+as três tarefas se encaixam, e esta foi refeita sobre a origem nova duas vezes.
+
+**Medido (20/10/2026, em clones locais numa pasta temporária; os vizinhos só lidos).**
+- **Sabotagem 1** (o `distAoContorno` da `lab58.ts` devolvendo o `distanciaAoPoligono` do motor), no par do LAB-58 (Lab `d8d8a72`, motor
+  `4181e95`, Generate `5b7e9b4` — dentro da janela do LAB-213, D441): a ferramenta sai 1 com *"CALIBRAÇÃO FALHOU em 15 lote(s)"* e
+  *"a função DELE devolve 0 m e a MINHA distância reconstrói 13.16 m"*, as palavras da prova, sem escrever a prova. O `vizinhosQueRoda`
+  da `lab58.ts` dá o motor e o Generate. Fora da janela não se refaz — a ferramenta para antes de calibrar.
+- **Sabotagens 2, 3 e 4** (o predicado sem a distância; o `ondeNoMotor` sem *"lido"*; o 6 virado 4 na prova), no commit da prova e na
+  ponta de hoje: derrubam, pelo nome, 2, 1 e 1 testes de `tests/mecanismos.test.ts` (24), e a 2 faz exatamente **4 violações** casarem
+  dois mecanismos — as contas da prova. O `vizinhosQueRoda` da suíte dá nenhum vizinho.
+- **Não se refaz:** o *"antes do conserto"* da 1 (`exit` 0) — a calibração de antes nunca foi commitada.
+
+**Decisão.** `src/sabotagem-do-lab58.ts` (as quatro trocas, os pares, o que cada uma tem de morder e se roda vizinho) e a trava
+`tests/sabotagem-do-lab58.test.ts`, que refaz o ato a cada verde completo e mede, sabotagem a sabotagem, o vizinho com o
+`vizinhosQueRoda` do LAB-198 — o fecho que esta sessão tinha escrito à parte saiu na mescla, porque a mesma pergunta não ganha duas
+réguas. A linha do LAB-58 em `o-commit-do-vizinho-na-prova.ts` fica como o LAB-217 a deixou (o ato inteiro roda vizinho, e é verdade).
+A prova não se toca (D182). **Mutação: a 1 declarada sem vizinho, e a 4 virada em não-sabotagem — 2 de 6 reprovam.**
+
+**O que se perde.** O texto exato das sabotagens de então (as trocas são a leitura mais estreita da prosa, e o que se cobra é o efeito
+escrito); a sabotagem 1 fora do par do LAB-58; o que o fecho não segue (`spawn`, leitura de arquivo).
+
+**Alternativas descartadas.** Refazer a do LAB-38 (é disparar rotina do GitHub, com o CI desligado); medir "roda vizinho" tirando os
+clones (a suíte falharia por outra razão); reconstruir a calibração de antes do conserto a partir da prosa (seria inventar um código que
+nunca esteve num commit); manter o meu fecho ao lado do `vizinhosQueRoda` (duas réguas para a mesma pergunta divergem).
+
+> **O FECHO DO ATO INTEIRO DÁ A UNIÃO; REFAZER CADA SABOTAGEM DIZ QUAL DELAS CARREGOU O VIZINHO.**
