@@ -363,6 +363,14 @@ export const DECLARADAS: readonly Declarada[] = [
       "o `git clone --no-checkout` do Lab, do motor e do Generate, por CAMINHO no disco, numa pasta temporária, para refazer as quatro sabotagens do LAB-59 e a reconstrução do antes da precondição, no commit da prova e na ponta de hoje (LAB-221, D449) — sem rede, e sem tocar nos vizinhos",
   },
   {
+    caminho: "external-engines/esteira/tests/sabotagem-do-lab62.test.ts",
+    forma: "processo",
+    quantas: 1,
+    classe: "origem-de-teste",
+    motivo:
+      "o `git clone --no-checkout` do Lab, por CAMINHO no disco, numa pasta temporária, para refazer as quatro sabotagens do LAB-62 e a reconstrução da ordem (a 2 depois da 1), no commit da prova e na ponta de hoje (LAB-223, D451) — sem rede, e o ato não roda vizinho",
+  },
+  {
     caminho: "external-engines/esteira/tests/sabotagem-do-lab31.test.ts",
     forma: "processo",
     quantas: 1,

@@ -15411,3 +15411,34 @@ reprovam.**
 de reproduzir a prova); só escrever a outra leitura, sem trava (foi por isso que a frase caiu).
 
 > **SABOTAGEM ESCRITA EM PROSA TEM MAIS DE UMA LEITURA — E CADA LEITURA DERRUBA UMA CONTA.**
+
+## D451 · AS QUATRO SABOTAGENS DO LAB-62 REFEITAS — três mordem como a prova diz, no commit da prova E na ponta de hoje; a 2 derruba UMA trava, e o "3 de 20" da prova é a mordida dela somada ao resto da 1 · 21/10/2026
+
+**Contexto.** LAB-223, item 900 (a caixa só tem o 900). O candidato do LAB-221 §8: os registros de ATO que sobram na lista do LAB-217
+(LAB-60 a 63 e 66), refeitos. (Nasceu como LAB-222 e D450; a sessão de ≤ 23:06 mesclou antes com esses números, em outra tarefa, e esta foi renumerada.) Peguei a `LAB-62/sabotagem.json` e não a do LAB-60, de propósito: sete disparos seguidos com rodada aberta
+ao mesmo tempo e três trabalhos repetidos (o recado do ≤ 21:07) — o candidato escrito é o que a próxima sessão pega. Espécie **prova que
+só registra aparência**: quatro sabotagens de 08/10/2026 (`d40b2c0`), em prosa, nunca refeitas, com a conta *2, 3, 4 e 3 de 20*.
+
+**Medido (21/10/2026, clone local do Lab numa pasta temporária).** Dois commits — o da prova (`d40b2c0`) e a ponta de hoje (`1b4ed08`):
+- sem sabotagem, a ferramenta sai 0 e reescreve só a `as-tres-listas.json`; as 20 travas aprovam a gravada e a reescrita;
+- a 1, a 3 e a 4, cada uma sozinha: `exit` 1 com a frase da prova, palavra por palavra, e **2, 4 e 3 de 20** — as contas da prova;
+- **a 2 sozinha: `exit` 1 com a frase da prova, e 1 de 20** (*"cada mecanismo tem afirmação escrita, e nenhuma afirmação é órfã"*). A
+  ferramenta para por `throw`, antes de escrever, e a suíte lê a prova do disco;
+- **a 2 logo depois da 1, sem restaurar a prova que a 1 escreveu (reconstrução da ordem): 3 de 20** — a dela e as duas da 1, *"a prova não
+  tem problema nenhum"* e *"nenhuma das dez afirmações nomeia artefato"*. Só a 1 deixa prova com esses dois nomes.
+Tudo igual nos dois commits. O fecho dos `import` da `lab62.ts` e da `tres-listas.test.ts`: só o Lab, nos dois.
+
+**Decisão.** `src/sabotagem-do-lab62.ts` (a parte pura, com `A_DOIS_DEPOIS_DA_UM` etiquetada como reconstrução) e a trava
+`tests/sabotagem-do-lab62.test.ts`, no verde completo (precisa do commit da prova; declarada em `src/rede-em-execucao.ts`). A trava exige a
+2 com UMA trava sozinha e com as três da prova só na ordem — se um dia a 2 sozinha derrubar três, ou a ordem deixar de dar três, ela cai. A
+prova não se toca (D182). **Mutação: a sabotagem 3 trocada por ela mesma — a trava reprova (1 de 8), nomeando o commit e a sabotagem.**
+
+**O que se perde.** O texto exato das sabotagens (prosa; as trocas são a leitura mais estreita, conferida pelo que mordem); a ordem do ato,
+que ele não escreveu (a reconstrução é a da numeração, e a única que dá os dois nomes que sobram); os estados do meio.
+
+**Alternativas descartadas.** Trocar o `throw` da ferramenta por `cobrar`, para a 2 escrever a prova: muda a ferramenta de 08/10, e o
+`throw` é defensável (não escreve prova sem a afirmação). Anotar a prova: D182. Pegar a LAB-60, o primeiro do §8: o risco de ser a quarta
+repetição no dia.
+
+> **QUANDO UMA SABOTAGEM PARA A FERRAMENTA ANTES DE ELA ESCREVER, A SUÍTE MEDE A PROVA QUE FICOU NO DISCO — E, SEM RESTAURAR A DA
+> SABOTAGEM ANTERIOR, A CONTA ESCRITA SOMA AS DUAS. RESTAURAR A FONTE NÃO BASTA: A FERRAMENTA ESCREVE.**
