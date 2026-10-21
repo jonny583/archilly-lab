@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-222 · item 900 — a dívida própria: a sabotagem 3 do LAB-59 tem duas leituras — "a leitura mais estreita" derruba 2 travas, a troca menor derruba 1 — ✅ **feito em 20/10/2026** (D450)
+
+O mesmo candidato do LAB-221 (o do LAB-220 §8), pego por esta sessão, que o mediu e travou inteiro antes de ver a de ≤ 22:06, que enviou antes; o meu módulo e a minha trava saíram, e ficou o que o LAB-221 não tinha. Espécie **mensagem fixa que afirma estado sem perguntar**: o cabeçalho dizia que a troca da 3 era *"a leitura mais estreita da prosa"*. Com a 2ª de melhor nota no lugar (a `superquadra` de 42), cai 1 trava; com a `ortogonal` de 1 228, as 2 da prova. `A_OUTRA_LEITURA_DA_3` na trava, nos dois pares.
+
+**Origem:** [`../relatorios/LAB-222.md`](../relatorios/LAB-222.md), decisão **D450**.
+
 ### LAB-221 · item 900 — a dívida própria: as quatro sabotagens do LAB-59 refeitas — mordem como a prova diz, no commit da prova e na ponta de hoje — ✅ **feito em 20/10/2026** (D449)
 
 O candidato do LAB-220 (§8, o mesmo do LAB-219 e do LAB-217): a sabotagem do LAB-59, refazendo a de ferramenta também na ponta de hoje. Espécie **prova que só registra aparência**. Refeitas as quatro numa pasta temporária, no par da prova (Lab `387fc20`, motor `4181e95`, Generate `5b7e9b4`) e na ponta de hoje: a 1 (o `aoSegmento` lido do LAB-50) para pela precondição, *"lote EXTERNO sem distância à face entregue"*; a 2 (o `someComAFaixa` lido do LAB-53) sai 0, escreve *"1 de 20"*, e as duas travas do Jonny caem; a 3 e a 4 (na prova) derrubam 2 e 1 de 20 — tudo igual nos dois pares, com as contas da prova. O *"antes da precondição"*, que não tem commit, reconstruído desligando o `if`: faz o que a prova diz. Sem sabotagem, as 20 travas aprovam também a outra prova que a ferramenta escreve na ponta de hoje (17 de 20). A 1 e a 2 rodam o motor e o Generate; a 3 e a 4, só o Lab. `src/sabotagem-do-lab59.ts` e a trava `sabotagem-do-lab59`, no verde completo.

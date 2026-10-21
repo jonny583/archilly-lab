@@ -43,6 +43,11 @@
  *   estreita da prosa — a 1 lê o `AO_SEGMENTO_50` que a ferramenta já carrega, a 2 o `SOME_COM_A_FAIXA_53`, a 3 põe a
  *   `ortogonal` de 1 228 como a primeira, a 4 vira um `false` em `true` — e o que se confere é que mordem como a prova
  *   diz (a frase da precondição, o *"1 de 20"*, os testes pelo nome);
+ * - **QUAL candidata entra no lugar, na sabotagem 3** — corrigido no LAB-222 (D450): ~~a leitura mais estreita~~ não
+ *   é uma só. Pondo no lugar da primeira a **2ª de melhor nota** (a `superquadra` de 42 lotes, a troca menor que *"deixa
+ *   de ser a de melhor nota DELE"*), cai **1** trava, a do §4; pondo a `ortogonal` de 1 228 (o Lab escolhendo por lotes, o
+ *   que o §4 proíbe), caem as **2** da prova. A prosa não diz qual; a que reproduz o *"2 travas"* é a segunda, e é a que
+ *   fica em {@link AS_TROCAS}. A outra está em {@link A_OUTRA_LEITURA_DA_3}, e a trava a refaz nos dois pares;
  * - **a sabotagem 4 por posição**: a prova diz `candidatas[1]`, e o bloco `so-o-motor` dela é igual ao de outras duas
  *   candidatas; a troca leva junto o `so-o-contrato` de antes, que só ela tem — conferido UMA vez no arquivo;
  * - **os estados do meio**: o par da prova e a ponta de hoje. A janela da ferramenta sem sabotagem é a do LAB-214;
@@ -178,6 +183,22 @@ export const A_RECONSTRUCAO_DO_ANTES: Troca = {
   derruba: AS_DUAS_DO_JONNY,
   diz: [],
   aprovamDepois: 1,
+};
+
+/**
+ * **A OUTRA LEITURA da sabotagem 3** (LAB-222, D450): no lugar da primeira entra a 2ª de melhor nota, não a de mais
+ * lotes. É a troca menor que a prosa da prova permite — e derruba UMA trava, não as duas que a prova conta: a nota da
+ * que entra (0,6109) continua maior que a da de 1 228, então a resposta ao Jonny não muda de sinal.
+ */
+export const A_OUTRA_LEITURA_DA_3: Troca = {
+  ...AS_TROCAS[2]!,
+  trocas: [
+    {
+      de: AS_TROCAS[2]!.trocas[0]!.de,
+      para: '"aPrimeiraNoRankingDELE": {\n        "formato": "superquadra",\n        "lotes": 42,\n        "notaDoMotor": 0.6108924093718713,',
+    },
+  ],
+  derruba: ["LAB-59 · a escolha é DO MOTOR, e a trava mede isso > `os-dois`: a primeira entre as que aprovam é a de melhor nota DELE"],
 };
 
 /** A suíte que as sabotagens mordem, relativa à raiz do Lab — e quantos testes ela tem (a prova diz 20). */
