@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-21T01:18:00.755Z",
+  "quando": "2026-10-21T01:28:24.899Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1459,12 +1459,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às 23:07 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem parava em `4a5741d` (22:03), sem linha dos disparos de ≤ 21:07 e ≤ 22:06 — **a sessão de ≤ 22:06 trabalhava sem ter enviado, no MESMO candidato** (o do LAB-220 §8), e enviou às 23:27. Não a vi; achei no `fetch` às 23:38, com a minha trava pronta (8 de 8) e o verde rodando — **trabalho repetido**. Joguei fora o meu módulo e pus dentro do dela o que ela não tinha: a outra leitura da sabotagem 3. O clone chegou raso e foi desrasado. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 23:06:39. Não li nem toquei a listagem das tarefas agendadas",
         "rodada": "item 900 (LAB-222), dívida própria (mensagem fixa que afirma estado sem perguntar: a sabotagem 3 de 07/10 do contrafactual de Antonina tem duas leituras, que derrubam 1 ou 2 travas, D450)",
         "emVazio": false
+      },
+      {
+        "data": "21/10/2026",
+        "hora": "≤ 00:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às ~00:08 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O clone chegou raso e a receita do passo 0 o desrasou; a origem parava em `1b4ed08` (23:30, a linha em vazio do ≤ 21:07), sem ramo novo além do `claude/stoic-ritchie-ijzqy3` (já mesclado). Fui ao candidato escrito pelo LAB-221 (§8): os registros de ATO que sobram — e peguei o LAB-62, não o LAB-60 que o §8 põe primeiro, para não repetir trabalho de outra sessão. **Havia outra mão, em OUTRA tarefa:** a sessão de ≤ 23:06 enviou às 01:18 o LAB-222 (D450, a segunda leitura da sabotagem 3 do LAB-59); achei-a no `fetch` da mescla, às ~01:25, com o meu verde completo já rodado — sem trabalho repetido, renumerei o meu para LAB-223 e D451 e o remontei sobre o dela. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 00:06:26. Não li nem toquei a listagem das tarefas agendadas",
+        "rodada": "item 900 (LAB-223), dívida própria (prova que só registra aparência: as quatro sabotagens de 08/10 refeitas no commit da prova e na ponta de hoje; três mordem como a prova diz, a 2 derruba uma, e o \"3 de 20\" é ela somada ao resto da 1, D451)",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 181,
+      "noRegistro": 182,
       "observados": 56,
-      "derivados": 79,
+      "derivados": 80,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 17

@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-223 · item 900 — a dívida própria: as quatro sabotagens do LAB-62 refeitas — três mordem como a prova diz; a 2 derruba UMA trava, e o "3 de 20" da prova é a mordida dela somada ao resto da 1 — ✅ **feito em 21/10/2026** (D451)
+
+O candidato do LAB-221 (§8): os registros de ATO que sobram (LAB-60 a 63 e 66), refeitos — peguei o LAB-62, e não o LAB-60, para não ser a quarta repetição do dia (sete disparos seguidos com rodada aberta ao mesmo tempo). Espécie **prova que só registra aparência**. Refeitas as quatro numa pasta temporária, no commit da prova (`d40b2c0`) e na ponta de hoje: a 1, a 3 e a 4 param a ferramenta com a frase da prova e derrubam 2, 4 e 3 de 20 — as contas dela; **a 2 para por `throw`, antes de escrever, e derruba UMA** (a da afirmação órfã), não três. Refeita logo depois da 1, sem restaurar a prova que a 1 escreveu (reconstrução da ordem), dá os três da prova, pelo nome: a dela e as duas da 1. O ato não roda vizinho (o fecho, nos dois commits). `src/sabotagem-do-lab62.ts` e a trava `sabotagem-do-lab62`, no verde completo.
+
+**Origem:** [`../relatorios/LAB-223.md`](../relatorios/LAB-223.md), decisão **D451**.
+
 ### LAB-222 · item 900 — a dívida própria: a sabotagem 3 do LAB-59 tem duas leituras — "a leitura mais estreita" derruba 2 travas, a troca menor derruba 1 — ✅ **feito em 20/10/2026** (D450)
 
 O mesmo candidato do LAB-221 (o do LAB-220 §8), pego por esta sessão, que o mediu e travou inteiro antes de ver a de ≤ 22:06, que enviou antes; o meu módulo e a minha trava saíram, e ficou o que o LAB-221 não tinha. Espécie **mensagem fixa que afirma estado sem perguntar**: o cabeçalho dizia que a troca da 3 era *"a leitura mais estreita da prosa"*. Com a 2ª de melhor nota no lugar (a `superquadra` de 42), cai 1 trava; com a `ortogonal` de 1 228, as 2 da prova. `A_OUTRA_LEITURA_DA_3` na trava, nos dois pares.
