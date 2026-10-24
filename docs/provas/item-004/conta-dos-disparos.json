@@ -2,7 +2,7 @@
   "prompt": "item 004 da caixa de entrada",
   "oQueIstoMede": "a conta dos disparos do despertador: um por linha, com a origem de cada hora, o precedente lido do registro e os dois sentidos do cruzamento com o RECADOS.md",
   "aPergunta": "da família: apagar despertador perde o id E O HISTÓRICO DE DISPARO. A conta é a parte que faltava, e disparo em vazio é medição, não fracasso",
-  "quando": "2026-10-21T01:28:24.899Z",
+  "quando": "2026-10-24T19:12:02.942Z",
   "oIdNaoSeSupoe": {
     "oQue": "o id NÃO é literal nesta ferramenta: ele vem da CONTA e é copiado para a seção",
     "quantosIdsNaSecao": 1,
@@ -1467,12 +1467,20 @@
         "achou": "só o 900 na caixa, contado na `origin/main` às ~00:08 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. O clone chegou raso e a receita do passo 0 o desrasou; a origem parava em `1b4ed08` (23:30, a linha em vazio do ≤ 21:07), sem ramo novo além do `claude/stoic-ritchie-ijzqy3` (já mesclado). Fui ao candidato escrito pelo LAB-221 (§8): os registros de ATO que sobram — e peguei o LAB-62, não o LAB-60 que o §8 põe primeiro, para não repetir trabalho de outra sessão. **Havia outra mão, em OUTRA tarefa:** a sessão de ≤ 23:06 enviou às 01:18 o LAB-222 (D450, a segunda leitura da sabotagem 3 do LAB-59); achei-a no `fetch` da mescla, às ~01:25, com o meu verde completo já rodado — sem trabalho repetido, renumerei o meu para LAB-223 e D451 e o remontei sobre o dela. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog` do clone, que registra a ponta posta no disco às 00:06:26. Não li nem toquei a listagem das tarefas agendadas",
         "rodada": "item 900 (LAB-223), dívida própria (prova que só registra aparência: as quatro sabotagens de 08/10 refeitas no commit da prova e na ponta de hoje; três mordem como a prova diz, a 2 derruba uma, e o \"3 de 20\" é ela somada ao resto da 1, D451)",
         "emVazio": false
+      },
+      {
+        "data": "24/10/2026",
+        "hora": "≤ 18:06",
+        "origem": "derivado",
+        "achou": "só o 900 na caixa, contado na `origin/main` às ~18:08 — **não é disparo em vazio**: o 900 manda trabalhar a própria lista. A origem parava em `ca29874` (21/10, 01:32), **sem commit desde então** e sem linha nesta conta entre o ≤ 00:06 de 21/10 e este. O `reflog` mostra também uma ponta posta no disco às 00:37 de 24/10, sem linha, recado nem envio na origem — vista, não contada. O minuto não se afirma: o disparo chegou como texto; o teto é o `reflog`, 18:06:25. **A rodada foi interrompida** pela pergunta de planejamento da direção, colada pelo Jonny; o trabalho da lista (as duas sabotagens da prova de 07/10 da configuração do motor, refeitas) ficou pronto e foi a um ramo, sem verde completo. Não li nem toquei a listagem das tarefas agendadas",
+        "rodada": "item 900, dívida própria, **no ramo `espera-o-novo-plano-para-mesclar-o-lab-224`** (sem recado na `main` até ele entrar); e a pergunta de planejamento, respondida em `docs/relatorios/PLANEJAMENTO_2026-10-24.md`",
+        "emVazio": false
       }
     ],
     "declarados": {
-      "noRegistro": 182,
+      "noRegistro": 183,
       "observados": 56,
-      "derivados": 80,
+      "derivados": 81,
       "emLote": 7,
       "reconstruidos": 39,
       "emVazio": 17
