@@ -13,6 +13,7 @@ nada, e não tem linha.
 
 | ramo | a pergunta que ele espera |
 |---|---|
+| `espera-o-novo-plano-para-mesclar-o-lab-224` | o LAB-224 (as duas sabotagens do LAB-60 refeitas, 24/10) ficou pronto, mas o verde completo foi interrompido pela pergunta de planejamento: entra na `main` quando o novo plano disser que esta casa volta a rodar, depois de um verde completo |
 
 Quando um ramo nascer: uma linha, com o nome entre crases e a pergunta em português de leigo. Quando
 ele entrar na `main` ou for abandonado, a linha sai — a história fica no `git log` desta página.

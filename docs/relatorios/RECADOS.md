@@ -4635,3 +4635,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito (LAB-223 §8): os reg
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 24/10/2026 · planejamento-24-10 — levantamento fora de fila, a pedido da direção: a pergunta de planejamento respondida — o Lab não está no caminho do beta, e a recomendação é dormir até a integração
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · planejamento-24-10 (fora-de-fila) ===
+Estado: respondida a pergunta da direção (archilly-direcao, docs/PERGUNTA_PLANEJAMENTO_2026-10-24.md, lida em 2f61527) em docs/relatorios/PLANEJAMENTO_2026-10-24.md. Só levantamento: nenhum código mudou na main, nada agendado tocado, nada contratado, nada publicado. A rodada do disparo de ≤ 18:06 (item 900, as duas sabotagens do LAB-60 refeitas, LAB-224) foi interrompida por esta pergunta no meio do verde completo: está pronta e espera no ramo espera-o-novo-plano-para-mesclar-o-lab-224 (docs/RAMOS_ABERTOS.md), sem entrar na main. Conferido aqui, não no GitHub: o trabalho sem clones 2 284 de 2 284 e o testfit 17 de 17 na main de hoje; o verde completo não fica verde nesta máquina (3 dos 8 passos esperam o .wasm).
+Feito: o Lab não tem cliente e não entra no beta — zero rodadas para o beta. Para ele entrar no Generate como motor opcional: 4 a 5 rodadas daqui, mais a porta do lado do Generate (a peça registro-de-motores existe desde o LAB-06 e não está instalada lá, medido hoje) e o .wasm do Symbios compilado (o rustup recebe 403 na nuvem). Caixa: só o 900. Disparos em vazio desde 17/10: 12 de 94, todos por duas sessões no mesmo trabalho, não por fila vazia. Lista própria: 4 rodadas escritas, nenhuma do beta. Pendências do Jonny: 4, todas paradas a pedido dele até a integração.
+Achados para outros apps ou Central: para a direção — (1) recomendo DORMIR o Lab até o Generate abrir a integração dos motores externos; (2) despertador de hora em hora com rodada de ~63 min (o verde completo) gerou as 12 colisões: se esta casa voltar, no máximo uma rodada por dia; (3) a trava gatilho-do-verde do Lab reprova a partir de 1º/11/2026, de propósito — é a única data marcada desta casa e pede decisão (religar o CI são dois passos; o repositório é público e não paga). Nada novo proposto ao chat. Não toquei em despertador.
+Depende do Jonny: decidir se o Lab dorme até o beta (1 min) e o que fazer em 1º/11 com o CI (2 min); o resto continua parado a pedido dele.
+Próximo na fila: dormir; quando voltar, um verde completo e a mescla do ramo do LAB-224, depois a decisão do 1º/11, depois a porta do Generate.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```
