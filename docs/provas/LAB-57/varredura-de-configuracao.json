@@ -2,7 +2,7 @@
   "prompt": "LAB-57",
   "oQueIstoMede": "quais configurações deste repositório desligam conferência — nas três formas: a regra DESLIGADA, a regra LIGADA QUE NÃO PODE REPROVAR, e o desligador SEM MOTIVO ESCRITO",
   "aPergunta": "do chat: existe OUTRA configuração neste repositório que desliga conferência sem avisar?",
-  "quando": "2026-10-24T18:19:34.670Z",
+  "quando": "2026-10-24T18:43:29.811Z",
   "escopo": {
     "arquivosQueOGitCarregaForaDaCaixa": 909,
     "configuracoesEncontradas": 27,
@@ -10,7 +10,7 @@
     "configuracoesForaDoEscopoNomeadas": 16,
     "linhasDeConfiguracaoLidas": 899,
     "arquivosDeCodigoVarridos": 460,
-    "linhasDeCodigoLidas": 110602,
+    "linhasDeCodigoLidas": 110605,
     "regras": 7,
     "porque": "o escopo começa no `git ls-files`, não numa lista minha — e o que ficou fora sai NOMEADO com o motivo (D164, a lição do LAB-47)",
     "foraDaContaDoUniverso": [
@@ -104,7 +104,7 @@
       ],
       "limpeza": "cru",
       "porqueEssaLimpeza": "ele VIVE num comentário: tirar os comentários antes cegaria a régua por completo",
-      "achados": 2
+      "achados": 1
     }
   ],
   "porArquivo": [
@@ -328,12 +328,6 @@
       "arquivo": "external-engines/esteira/src/inventario-das-idas.ts",
       "linha": 45,
       "trecho": "eslint-disable"
-    },
-    {
-      "regra": "conferencia-desligada-por-arquivo",
-      "arquivo": "external-engines/esteira/src/sabotagem-do-lab60.ts",
-      "linha": 125,
-      "trecho": "eslint-disable"
     }
   ],
   "arquivosIgnoradosPresentesEmDisco": [],
@@ -341,7 +335,7 @@
   "totalPorRegra": {
     "regra-em-off": 2,
     "desligador-de-conferencia": 2,
-    "conferencia-desligada-por-arquivo": 2
+    "conferencia-desligada-por-arquivo": 1
   },
   "declarados": {
     "desligador-de-conferencia|external-engines/esteira/tsconfig.json": "`skipLibCheck: true`, agora DECLARADO no próprio arquivo: medido com `false` dá ZERO erros, e fica ligado porque sem ele uma atualização de `@types/*` derruba o verde por erro dentro de dependência, que ninguém aqui conserta",
@@ -350,9 +344,7 @@
     "regra-em-off|external-engines/testfit/eslint.config.js": "o mesmo `\"no-undef\": \"off\"`, com o mesmo motivo escrito no arquivo — os dois pacotes andam juntos de propósito (D86)",
     "conferencia-desligada-por-arquivo|external-engines/esteira/src/inventario-das-idas.ts": "`eslint-disable-next-line @typescript-eslint/no-unused-vars` sobre o ajudante `divida()`, que fica SEM USO de propósito: a categoria vazia é a prova de que ele era confissão com prazo. O motivo está escrito nas seis linhas acima dele, e é o único desligador por arquivo do repositório"
   },
-  "naoDeclarados": [
-    "conferencia-desligada-por-arquivo|external-engines/esteira/src/sabotagem-do-lab60.ts"
-  ],
+  "naoDeclarados": [],
   "oQueFoiCONSERTADONesteProMPT": [
     "`\"lint\": \"eslint .\"` → `eslint . --max-warnings 0` nos DOIS pacotes: sem a bandeira, toda regra em `\"warn\"` era incapaz de reprovar o passo. Medido antes: ZERO avisos, então nada estava escondido — mas o mecanismo estava vivo, e é a segunda forma do D178",
     "o `skipLibCheck: true` dos dois `tsconfig.json` ganhou MOTIVO ESCRITO, com a medição (zero erros com `false`) e a condição de revisitar",

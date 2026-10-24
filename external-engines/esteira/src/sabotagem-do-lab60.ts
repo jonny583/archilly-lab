@@ -122,7 +122,10 @@ const A_REGRA_EM_OFF =
   '    forma: "desligada",\n' +
   "    oQue: 'regra de lint declarada com `\"off\"` — ela não roda, não avisa e não reprova; é a forma 1 do cabeçalho, e até o LAB-60 NENHUMA regra desta lista a procurava',\n" +
   "    oQueNaoPega:\n" +
-  "      'regra que nasce desligada dentro de um conjunto `recommended`, e regra desligada por comentário `eslint-disable` — essa é da `conferencia-desligada-por-arquivo`',\n" +
+  "      'regra que nasce desligada dentro de um conjunto `recommended`, e regra desligada por comentário `eslint-" +
+  // o literal partido de propósito: a `conferencia-desligada-por-arquivo` lê o texto CRU, e aqui ele é CÓPIA da
+  // string de uma regra (fala sobre, não faz) — medido: inteiro, o LAB-57 o acusava como desligador (LAB-224)
+  "disable` — essa é da `conferencia-desligada-por-arquivo`',\n" +
   '    arquivos: ["eslint.config.js"],\n' +
   '    limpeza: "semComentarios",\n' +
   '    porqueEssaLimpeza: "a pergunta é o que a configuração DECLARA, e a declaração mora na string (D179)",\n' +

@@ -1,7 +1,7 @@
 {
   "prompt": "LAB-52",
   "oQueIstoMede": "o código TypeScript deste repositório atrás das duas classes que a Central nomeou — não mede terreno",
-  "quando": "2026-10-24T18:19:34.589Z",
+  "quando": "2026-10-24T18:43:29.726Z",
   "aOrigem": "achado da Central: (a) erro de chamada não conferido que degrada para número que PARECE certo; (b) função que recebe identificador de conta como argumento",
   "doisMotores": {
     "porque": "a metade mais perigosa de (a) — promessa sem `await` — NÃO se mede com regex: precisa de tipo",
@@ -22,8 +22,8 @@
   },
   "escopo": {
     "arquivos": 463,
-    "linhas": 112053,
-    "bytes": 5318008,
+    "linhas": 112056,
+    "bytes": 5318246,
     "regras": 6,
     "parametrosExaminados": 19142,
     "camposExaminados": 11406

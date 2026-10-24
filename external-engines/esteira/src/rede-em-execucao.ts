@@ -365,7 +365,7 @@ export const DECLARADAS: readonly Declarada[] = [
   {
     caminho: "external-engines/esteira/tests/sabotagem-do-lab60.test.ts",
     forma: "processo",
-    quantas: 1,
+    quantas: 2,
     classe: "origem-de-teste",
     motivo:
       "o `git clone --no-checkout` do Lab e do motor, por CAMINHO no disco, numa pasta temporária, para refazer as duas sabotagens do LAB-60 e a ordem pela conta (a 2 sem a ferramenta), no commit da prova e na ponta de hoje, com o motor no commit que a prova leu (LAB-224, D452) — sem rede, e o clone vizinho só lido",
