@@ -15442,3 +15442,37 @@ repetição no dia.
 
 > **QUANDO UMA SABOTAGEM PARA A FERRAMENTA ANTES DE ELA ESCREVER, A SUÍTE MEDE A PROVA QUE FICOU NO DISCO — E, SEM RESTAURAR A DA
 > SABOTAGEM ANTERIOR, A CONTA ESCRITA SOMA AS DUAS. RESTAURAR A FONTE NÃO BASTA: A FERRAMENTA ESCREVE.**
+
+## D452 · AS DUAS SABOTAGENS DO LAB-60 REFEITAS — mordem como a prova diz no commit dela; a conta da 2 só fecha com a ferramenta rodada ANTES da suíte, e hoje a 1 derruba também a trava do LAB-57, pelo tamanho do arquivo · 24/10/2026
+
+**Contexto.** LAB-224, item 900 (a caixa só tem o 900). O candidato do LAB-223 §8: os registros de ATO que sobram na lista do LAB-217
+(LAB-60, 61, 63 e 66), refeitos, começando pela `LAB-60/sabotagem.json`. Espécie **prova que só registra aparência**: duas sabotagens de
+07/10/2026 (`ce19bfc`), em prosa, nunca refeitas, com a ferramenta saindo 0 e a conta *3 de 16* e *2*.
+
+**Medido (24/10/2026, clones locais numa pasta temporária).** Dois commits do Lab — o da prova (`ce19bfc`) e a ponta de hoje (`ca29874`) —,
+cada um com o motor ao lado no commit que a prova leu (`4181e95`):
+- sem sabotagem, a ferramenta sai 0 e reescreve só a `configuracao-do-motor.json`; as duas suítes aprovam a gravada e a reescrita;
+- **a 1** (a `semComentarios` volta às duas regex de `ce19bfc^`): `exit` 0; no commit da prova, **os três da prova e só eles**; hoje,
+  **quatro** — também a do LAB-57 (*"a prova existe, traz o ESCOPO como número"*), cuja recontagem do escopo (LAB-86, D287) vê
+  `linhasDeCodigoLidas` 110 137 na prova e 110 143 na árvore (+6 linhas da troca; com a função inteira substituída, −26 e 110 111 —
+  medidas as duas, a mesma queda);
+- **a 2** (a `regra-em-off` sai da lista), ferramenta e depois suíte: `exit` 0 e **os dois da prova**, nos dois commits; **com a suíte
+  lendo a prova gravada, sem a ferramenta, três** — os dois e *"as contagens por regra são as da lista de achados"*;
+- sem o motor ao lado, a ferramenta para com `exit` 1 e não escreve nada; o fecho dos `import` da ferramenta e das suítes: só o Lab.
+
+**Decisão.** `src/sabotagem-do-lab60.ts` (a parte pura, com `A_DOIS_SEM_A_FERRAMENTA` etiquetada como reconstrução da ordem pela conta, e
+`A_MAIS_HOJE`) e a trava `tests/sabotagem-do-lab60.test.ts`, no verde completo (precisa do commit da prova e do motor ao lado; declarada
+em `src/rede-em-execucao.ts`). A trava exige a conta da prova no commit dela, a do LAB-57 a mais hoje só na 1, e a 2 com três sem a
+ferramenta — se um dia uma delas mudar, ela cai. A prova não se toca (D182). **Mutação: a sabotagem 2 trocada por ela mesma — a trava
+reprova (2 de 8), nomeando o par e a sabotagem.**
+
+**O que se perde.** O texto exato da 1 (a prova diz *"as duas regex"*; usei as de `ce19bfc^`, e o varredor fica no arquivo, renomeado e sem
+uso); a ordem do ato, reconstruída pela conta e não lida; *"a primeira versão da trava"* da 1, que nunca foi commitada; o motor de hoje
+(uma variável só — a fotografia é do LAB-196, D424).
+
+**Alternativas descartadas.** Rodar a 2 sem a ferramenta como a leitura certa: dá três, e a prova diz dois. Mudar a linha do LAB-60 em
+`src/os-atos-e-o-vizinho.ts` para "lê o motor": aquele módulo pergunta o que o ato RODA, e o cabeçalho dele já declara a leitura.
+Anotar a prova: D182.
+
+> **QUANDO A FERRAMENTA SEMPRE ESCREVE, A CONTA DE UMA SABOTAGEM DEPENDE DE ELA TER RODADO ANTES DA SUÍTE. E TRAVA QUE RECONTA A ÁRVORE
+> MORDE QUALQUER SABOTAGEM QUE MUDE O TAMANHO DE UM ARQUIVO CONTADO — A QUEDA DELA NÃO DIZ QUE A RÉGUA VIU O DEFEITO.**

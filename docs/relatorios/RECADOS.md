@@ -4635,3 +4635,16 @@ Próximo na fila: a caixa só tem o 900; candidato escrito (LAB-223 §8): os reg
 === FIM ===
 === FIM DA SESSÃO ===
 ```
+
+## 24/10/2026 · LAB-224 — item 900, a dívida própria: as duas sabotagens do LAB-60 refeitas — mordem como a prova diz no commit dela; a conta da 2 só fecha com a ferramenta antes da suíte, e hoje a 1 derruba também a do LAB-57
+
+```
+=== RECADO PARA O CHAT — MOTOR LAB (archilly-lab) · LAB-224 (item 900) ===
+Estado: disparo de ≤ 18:06 (derivado do reflog: a ponta posta no disco às 18:06:25); caixa só com o 900, contada na origin/main às ~18:08; a origem parada em ca29874 (o LAB-223, 21/10) — nenhum commit e nenhuma linha na conta entre o ≤ 00:06 de 21/10 e este (o reflog mostra uma ponta posta às 00:37 de hoje, sem linha nem envio: vista, não contada). Fui à dívida própria pelo candidato do LAB-223 (docs/relatorios/LAB-223.md §8: os registros de ATO que sobram, começando pela LAB-60). Espécie prova que só registra aparência. FEITA, mesclado por git direto (D29). VERDE_AQUI
+Feito: refeitas numa pasta temporária, no commit da prova (Lab ce19bfc) e na ponta de hoje, com o motor no commit que a prova leu (4181e95), a ferramenta lab60 e as duas suítes que o ato rodou. A ferramenta sai 0 nas duas, como a prova diz. A 1 (a semComentarios de volta às duas regex) derruba os três da prova no commit dela e QUATRO hoje: a trava do LAB-57 cai pela recontagem do escopo (LAB-86, D287), que vê o arquivo sabotado mudar de tamanho — não o defeito. A 2 (a regra-em-off fora da lista) derruba os dois da prova SÓ com a ferramenta rodada antes da suíte; com a suíte lendo a prova gravada, três — a ordem do ato, que a prova não escreve, se reconstrói pela conta. Sem o motor ao lado a ferramenta para (o ato LÊ o vizinho); o fecho dos import: só o Lab. src/sabotagem-do-lab60.ts e a trava sabotagem-do-lab60 (8 testes, ~5 s, no verde completo; mutação: a 2 sem efeito reprova 2 de 8). D452. Detalhe em docs/relatorios/LAB-224.md.
+Achados para outros apps ou Central: a todas, como método — quando a ferramenta sempre escreve, a conta de uma sabotagem depende de ela ter rodado antes da suíte (sem ela, a suíte mede a prova velha); e trava que reconta a árvore morde qualquer sabotagem que mude o tamanho de um arquivo contado — a queda dela não diz que a régua viu o defeito. Para a direção: três dias sem disparo registrado nesta casa (21/10 01:32 → 24/10 18:06). Não toquei em despertador. Nada novo proposto ao chat.
+Depende do Jonny: nada.
+Próximo na fila: a caixa só tem o 900; candidato escrito (LAB-224 §8): os registros de ATO que sobram (LAB-61, 63 e 66), começando pela LAB-61; depois, as linhaNaFila velhas da as-tres-listas.json; as caladas sem achado esperam o .wasm; as propostas antigas esperam o chat.
+=== FIM ===
+=== FIM DA SESSÃO ===
+```

@@ -392,6 +392,12 @@ O LAB-199 deixou o candidato escrito: a do LAB-78, a outra pela metade. Espécie
 
 **Origem:** [`../relatorios/LAB-200.md`](../relatorios/LAB-200.md), decisão **D428**.
 
+### LAB-224 · item 900 — a dívida própria: as duas sabotagens do LAB-60 refeitas — mordem como a prova diz no commit dela; a conta da 2 só fecha com a ferramenta antes da suíte, e hoje a 1 derruba também a do LAB-57 — ✅ **feito em 24/10/2026** (D452)
+
+O candidato do LAB-223 (§8): os registros de ATO que sobram (LAB-60, 61, 63 e 66), refeitos, começando pela `LAB-60/sabotagem.json`. Espécie **prova que só registra aparência**. Refeitas as duas numa pasta temporária, no commit da prova (`ce19bfc`) e na ponta de hoje, com o motor no commit que a prova leu (`4181e95`): a ferramenta sai 0 nas duas, como a prova diz; a 1 derruba os três da prova no commit dela e **quatro hoje** — a trava do LAB-57 cai pela recontagem do escopo (LAB-86, D287), que vê o arquivo sabotado mudar de tamanho, não o defeito; a 2 derruba os dois da prova **só com a ferramenta rodada antes da suíte** — sem ela, a suíte lê a prova gravada e cai uma terceira. O ato lê o motor (sem ele a ferramenta para) e não roda código dele (o fecho). `src/sabotagem-do-lab60.ts` e a trava `sabotagem-do-lab60`, no verde completo.
+
+**Origem:** [`../relatorios/LAB-224.md`](../relatorios/LAB-224.md), decisão **D452**.
+
 ### LAB-223 · item 900 — a dívida própria: as quatro sabotagens do LAB-62 refeitas — três mordem como a prova diz; a 2 derruba UMA trava, e o "3 de 20" da prova é a mordida dela somada ao resto da 1 — ✅ **feito em 21/10/2026** (D451)
 
 O candidato do LAB-221 (§8): os registros de ATO que sobram (LAB-60 a 63 e 66), refeitos — peguei o LAB-62, e não o LAB-60, para não ser a quarta repetição do dia (sete disparos seguidos com rodada aberta ao mesmo tempo). Espécie **prova que só registra aparência**. Refeitas as quatro numa pasta temporária, no commit da prova (`d40b2c0`) e na ponta de hoje: a 1, a 3 e a 4 param a ferramenta com a frase da prova e derrubam 2, 4 e 3 de 20 — as contas dela; **a 2 para por `throw`, antes de escrever, e derruba UMA** (a da afirmação órfã), não três. Refeita logo depois da 1, sem restaurar a prova que a 1 escreveu (reconstrução da ordem), dá os três da prova, pelo nome: a dela e as duas da 1. O ato não roda vizinho (o fecho, nos dois commits). `src/sabotagem-do-lab62.ts` e a trava `sabotagem-do-lab62`, no verde completo.
